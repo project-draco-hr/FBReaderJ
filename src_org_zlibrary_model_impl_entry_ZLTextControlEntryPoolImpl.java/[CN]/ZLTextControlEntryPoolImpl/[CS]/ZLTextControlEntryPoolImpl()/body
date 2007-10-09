@@ -1,0 +1,4 @@
+{
+  myStartEntries=new HashMap<Byte,ZLTextParagraphEntry>();
+  myEndEntries=new HashMap<Byte,ZLTextParagraphEntry>();
+}
