@@ -1,0 +1,7 @@
+{
+  boolean start=true;
+  byte kind=(byte)0;
+  ZLTextControlEntry entry=new ZLTextControlEntryImpl(kind,start);
+  assertEquals(entry.getKind(),kind);
+  assertEquals(entry.isStart(),start);
+}

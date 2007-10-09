@@ -1,0 +1,7 @@
+{
+  ZLTextParagraph paragraph=new ZLTextParagraphImpl();
+  paragraph.addEntry(new ZLTextEntryImpl("marina1"));
+  paragraph.addEntry(new ZLTextEntryImpl("marina2"));
+  assertEquals(paragraph.getEntryNumber(),2);
+  assertEquals(paragraph.getTextLength(),14);
+}
