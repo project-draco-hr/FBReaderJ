@@ -1,7 +1,0 @@
-{
-  ZLTextControlEntryPool zpool=new ZLTextControlEntryPoolImpl();
-  byte kind=0;
-  boolean start=true;
-  ZLTextParagraphEntry entry=zpool.getControlEntry(kind,start);
-  assertEquals(entry,zpool.getControlEntry(kind,start));
-}
