@@ -1,0 +1,15 @@
+{
+  ZLTextModel model=new ZLTextModelImpl();
+  ZLTextParagraph paragraph=new ZLTextParagraphImpl();
+  paragraph.addEntry(new ZLTextEntryImpl("marina"));
+  model.addParagraphInternal(paragraph);
+  model.addParagraphInternal(new ZLTextParagraphImpl());
+  assertEquals(model.getParagraphsNumber(),2);
+  assertEquals(model.getParagraph(0),paragraph);
+  model.addControl((byte)0,true);
+  model.addControl((byte)0,false);
+  model.addControl((byte)1,true);
+  model.addControl((byte)1,false);
+  model.addControl((byte)0,true);
+  model.addControl((byte)0,false);
+}

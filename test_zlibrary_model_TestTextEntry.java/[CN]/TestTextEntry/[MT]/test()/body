@@ -1,0 +1,6 @@
+{
+  String str="marina";
+  ZLTextEntry entry=new ZLTextEntryImpl(str);
+  assertEquals(entry.getData(),str);
+  assertEquals(entry.getDataLength(),str.length());
+}
