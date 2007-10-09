@@ -1,0 +1,20 @@
+{
+  StringBuilder sb=new StringBuilder();
+  for (  ZLTextParagraph paragraph : myParagraphs) {
+    sb.append("[PARAGRAPH]\n");
+    for (    ZLTextParagraphEntry entry : paragraph.getEntries()) {
+      if (entry instanceof ZLTextEntry) {
+        sb.append("[TEXT]");
+        sb.append(((ZLTextEntry)entry).getData());
+        sb.append("[/TEXT]");
+      }
+ else       if (entry instanceof ZLTextControlEntry) {
+        ZLTextControlEntry entryControl=(ZLTextControlEntry)entry;
+        if (entryControl.isStart())         sb.append("[CONTROL " + entryControl.getKind() + "]");
+ else         sb.append("[/CONTROL " + entryControl.getKind() + "]");
+      }
+    }
+    sb.append("[/PARAGRAPH]\n");
+  }
+  return sb.toString();
+}
