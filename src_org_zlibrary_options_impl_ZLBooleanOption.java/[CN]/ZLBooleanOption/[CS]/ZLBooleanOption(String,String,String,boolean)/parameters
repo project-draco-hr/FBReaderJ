@@ -1,0 +1,4 @@
+String category
+String group
+String optionName
+boolean defaultValue
