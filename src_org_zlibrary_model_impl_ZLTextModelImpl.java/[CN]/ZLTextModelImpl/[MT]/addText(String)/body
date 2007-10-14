@@ -1,3 +1,3 @@
 {
-  myParagraphs.get(myParagraphs.size() - 1).addEntry(new ZLTextEntryImpl(text));
+  myParagraphs.getLast().addEntry(new ZLTextEntryImpl(text));
 }
