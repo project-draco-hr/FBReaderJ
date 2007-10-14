@@ -1,0 +1,9 @@
+{
+  ZLTextModel model=factory.createModel();
+  ZLTextParagraph paragraph=factory.createParagraph();
+  paragraph.addEntry(factory.createTextEntry("marina"));
+  model.addParagraphInternal(paragraph);
+  model.addParagraphInternal(factory.createParagraph());
+  assertEquals(model.getParagraphsNumber(),2);
+  assertEquals(model.getParagraph(0),paragraph);
+}
