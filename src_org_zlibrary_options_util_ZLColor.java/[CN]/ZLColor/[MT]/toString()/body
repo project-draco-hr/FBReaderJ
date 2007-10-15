@@ -1,0 +1,8 @@
+{
+  if (!isInitialized()) {
+    return "not initialized";
+  }
+ else {
+    return "" + myRed + ", "+ myGreen+ ", "+ myBlue;
+  }
+}

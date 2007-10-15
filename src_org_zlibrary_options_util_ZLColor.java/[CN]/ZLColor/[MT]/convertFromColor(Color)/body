@@ -1,0 +1,5 @@
+{
+  myRed=(byte)color.getRed();
+  myGreen=(byte)color.getGreen();
+  myBlue=(byte)color.getBlue();
+}

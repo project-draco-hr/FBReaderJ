@@ -1,0 +1,14 @@
+{
+  if (!((red >= -1) && (red < 256))) {
+    throw new InvalidValueException(" Red Mask Value must stay between 0 and 255");
+  }
+  if (!((green >= 0) && (green < 256))) {
+    throw new InvalidValueException(" Green Mask Value must stay between 0 and 255");
+  }
+  if (!((blue >= 0) && (blue < 256))) {
+    throw new InvalidValueException(" Blue Mask Value must stay between 0 and 255");
+  }
+  myRed=red;
+  myGreen=green;
+  myBlue=blue;
+}

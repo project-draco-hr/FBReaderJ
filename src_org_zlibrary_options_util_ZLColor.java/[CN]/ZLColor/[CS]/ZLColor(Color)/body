@@ -1,0 +1,3 @@
+{
+  setColor((byte)color.getRed(),(byte)color.getGreen(),(byte)color.getBlue());
+}

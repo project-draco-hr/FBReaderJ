@@ -1,0 +1,6 @@
+String category
+String group
+String optionName
+long minValue
+long maxValue
+long defaultValue

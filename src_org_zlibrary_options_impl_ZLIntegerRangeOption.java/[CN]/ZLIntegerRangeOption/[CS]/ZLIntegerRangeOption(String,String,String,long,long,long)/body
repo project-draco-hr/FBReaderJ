@@ -1,0 +1,6 @@
+{
+  super(category,group,optionName);
+  myDefaultValue=defaultValue;
+  myMinValue=minValue;
+  myMaxValue=maxValue;
+}

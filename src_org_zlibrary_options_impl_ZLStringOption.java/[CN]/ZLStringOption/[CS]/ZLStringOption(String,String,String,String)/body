@@ -1,0 +1,4 @@
+{
+  super(category,group,optionName);
+  myDefaultValue=defaultValue;
+}
