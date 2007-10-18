@@ -1,0 +1,5 @@
+{
+  FB2Reader reader=new FB2Reader("FB2ReaderTests/test1.fb2");
+  ZLTextModel model=reader.read();
+  assertEquals(model.dump(),"[PARAGRAPH]\n[TEXT]???? 1[/TEXT][/PARAGRAPH]\n");
+}
