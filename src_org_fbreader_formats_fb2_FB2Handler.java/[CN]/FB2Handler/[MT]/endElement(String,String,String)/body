@@ -1,0 +1,19 @@
+{
+  FB2Tag tag;
+  try {
+    tag=FB2Tag.valueOf(qName.toUpperCase());
+  }
+ catch (  IllegalArgumentException e) {
+    return;
+  }
+switch (tag) {
+case P:
+    if (myParagraphExists) {
+      myModel.addText(myBuffer);
+      myParagraphExists=false;
+    }
+  break;
+default :
+break;
+}
+}

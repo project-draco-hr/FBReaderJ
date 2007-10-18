@@ -1,0 +1,17 @@
+{
+  FB2Tag tag;
+  try {
+    tag=FB2Tag.valueOf(qName.toUpperCase());
+  }
+ catch (  IllegalArgumentException e) {
+    return;
+  }
+switch (tag) {
+case P:
+    myModel.addParagraphInternal((new ZLModelFactory()).createParagraph());
+  myParagraphExists=true;
+break;
+default :
+break;
+}
+}

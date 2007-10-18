@@ -1,0 +1,3 @@
+{
+  myBuffer=String.valueOf(ch,start,length);
+}
