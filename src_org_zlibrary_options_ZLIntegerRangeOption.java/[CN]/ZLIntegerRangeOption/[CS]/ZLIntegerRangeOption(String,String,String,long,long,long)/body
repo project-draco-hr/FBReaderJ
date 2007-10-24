@@ -3,4 +3,5 @@
   myDefaultValue=defaultValue;
   myMinValue=minValue;
   myMaxValue=maxValue;
+  myValue=myDefaultValue;
 }
