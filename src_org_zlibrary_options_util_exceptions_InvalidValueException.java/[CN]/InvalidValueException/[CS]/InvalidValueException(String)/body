@@ -1,3 +1,0 @@
-{
-  super("Invelid Value Exception - " + s);
-}
