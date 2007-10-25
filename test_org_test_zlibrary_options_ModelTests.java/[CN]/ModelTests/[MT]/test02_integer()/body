@@ -1,0 +1,4 @@
+{
+  myIntegerOption.setValue(10000000);
+  assertEquals(myIntegerOption.getValue(),10000000);
+}

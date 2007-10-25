@@ -1,2 +1,3 @@
 {
+  if ((myMinValue <= value) && (myMaxValue >= value))   myValue=value;
 }

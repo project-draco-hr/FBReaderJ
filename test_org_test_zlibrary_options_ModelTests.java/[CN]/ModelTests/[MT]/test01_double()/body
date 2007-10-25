@@ -1,0 +1,3 @@
+{
+  assertEquals(myDoubleOption.getValue(),myDefaultDouble);
+}

@@ -1,2 +1,3 @@
 {
+  myIntValue=value.getIntValue();
 }

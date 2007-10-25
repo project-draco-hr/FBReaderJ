@@ -1,0 +1,4 @@
+{
+  myIntegerRangeOption.setValue(10000000L);
+  assertEquals(myIntegerRangeOption.getValue(),75L);
+}

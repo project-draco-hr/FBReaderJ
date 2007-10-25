@@ -1,0 +1,4 @@
+{
+  myColorOption.setValueToDefault();
+  assertEquals(myStringOption.getValue(),myDefaultString);
+}
