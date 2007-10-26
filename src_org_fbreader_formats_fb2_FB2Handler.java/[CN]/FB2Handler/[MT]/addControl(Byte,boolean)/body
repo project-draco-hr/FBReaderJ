@@ -1,0 +1,6 @@
+{
+  if (myParagraphExists) {
+    flushTextBufferToParagraph();
+    myModel.addControl((byte)tag,start);
+  }
+}

@@ -11,6 +11,14 @@ case P:
     myModel.addParagraphInternal((new ZLModelFactory()).createParagraph());
   myParagraphExists=true;
 break;
+case SUB:
+case SUP:
+case CODE:
+case EMPHASIS:
+case STRONG:
+case STRIKETHROUGH:
+addControl((byte)tag.ordinal(),true);
+break;
 default :
 break;
 }

@@ -9,10 +9,18 @@
 switch (tag) {
 case P:
     if (myParagraphExists) {
-      myModel.addText(myBuffer);
+      flushTextBufferToParagraph();
       myParagraphExists=false;
     }
   break;
+case SUB:
+case SUP:
+case CODE:
+case EMPHASIS:
+case STRONG:
+case STRIKETHROUGH:
+addControl((byte)tag.ordinal(),false);
+break;
 default :
 break;
 }
