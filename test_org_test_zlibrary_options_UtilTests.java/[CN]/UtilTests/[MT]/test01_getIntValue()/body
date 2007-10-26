@@ -1,0 +1,3 @@
+{
+  assertEquals(myColor.getIntValue(),176255000L);
+}

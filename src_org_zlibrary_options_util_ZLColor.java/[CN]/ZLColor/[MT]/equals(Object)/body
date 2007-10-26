@@ -1,0 +1,6 @@
+{
+  if (o == this)   return true;
+  if (!(o.getClass() == this.getClass()))   return false;
+  ZLColor zlc=(ZLColor)o;
+  return ((zlc.myRed == this.myRed) && (zlc.myGreen == this.myGreen) && (zlc.myBlue == this.myBlue));
+}

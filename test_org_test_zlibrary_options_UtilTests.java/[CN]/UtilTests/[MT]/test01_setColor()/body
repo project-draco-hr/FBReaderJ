@@ -1,0 +1,4 @@
+{
+  myColor.setColor(0,1,0);
+  assertEquals(myColor.toString(),"0, 1, 0");
+}

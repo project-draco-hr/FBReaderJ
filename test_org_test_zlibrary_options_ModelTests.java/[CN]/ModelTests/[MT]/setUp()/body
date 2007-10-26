@@ -5,5 +5,5 @@
   myIntegerRangeOption=new ZLIntegerRangeOption("","","IR",-90L,90L,myDefaultIntRange);
   myBoolean3Option=new ZLBoolean3Option("","","my Boolean 3",myDefaultBoolean3);
   myBooleanOption=new ZLBooleanOption("","","my Boolean",myDefaultBoolean);
-  myStringOption=new ZLStringOption("","","my String",myDefaultString);
+  myStringOption=new ZLStringOption("qw","qwe","my String",myDefaultString);
 }

@@ -1,0 +1,3 @@
+{
+  assertEquals(myColor.toString(),"176, 255, 0");
+}

@@ -1,0 +1,4 @@
+{
+  ZLOption zlc=new ZLStringOption("qw","qwe","my String","fire");
+  assertTrue(zlc.equals(myStringOption));
+}

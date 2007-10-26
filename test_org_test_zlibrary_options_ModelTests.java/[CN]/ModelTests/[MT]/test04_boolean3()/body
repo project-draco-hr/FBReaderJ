@@ -1,0 +1,3 @@
+{
+  assertEquals(myBoolean3Option.getType(),OptionType.TYPE_BOOLEAN3);
+}
