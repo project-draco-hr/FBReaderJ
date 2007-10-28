@@ -1,0 +1,4 @@
+{
+  ZLTextTreeModel model=factory.createZLTextTreeModel();
+  model.createParagraph(factory.createTreeParagraph());
+}

@@ -1,0 +1,8 @@
+{
+  ZLTextModel model=factory.createModel();
+  ZLTextParagraph paragraph=factory.createParagraph();
+  model.addParagraphInternal(factory.createParagraph());
+  ZLTextForcedControlEntry control=factory.createForcedControlEntry();
+  model.addControl(control);
+  assertEquals(model.getParagraph(0).getEntryNumber(),1);
+}
