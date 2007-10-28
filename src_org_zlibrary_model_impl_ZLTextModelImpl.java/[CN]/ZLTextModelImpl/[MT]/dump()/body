@@ -3,13 +3,13 @@
   for (  ZLTextParagraph paragraph : myParagraphs) {
     sb.append("[PARAGRAPH]\n");
     for (    ZLTextParagraphEntry entry : paragraph.getEntries()) {
-      if (entry instanceof ZLTextEntry) {
+      if (entry instanceof ZLTextEntryImpl) {
         sb.append("[TEXT]");
-        sb.append(((ZLTextEntry)entry).getData());
+        sb.append(((ZLTextEntryImpl)entry).getData());
         sb.append("[/TEXT]");
       }
- else       if (entry instanceof ZLTextControlEntry) {
-        ZLTextControlEntry entryControl=(ZLTextControlEntry)entry;
+ else       if (entry instanceof ZLTextControlEntryImpl) {
+        ZLTextControlEntryImpl entryControl=(ZLTextControlEntryImpl)entry;
         if (entryControl.isStart())         sb.append("[CONTROL " + entryControl.getKind() + "]");
  else         sb.append("[/CONTROL " + entryControl.getKind() + "]");
       }

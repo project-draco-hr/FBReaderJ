@@ -1,0 +1,4 @@
+{
+  myRightIndent=rightIndent;
+  myMask|=SUPPORT_RIGHT_INDENT;
+}

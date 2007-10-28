@@ -1,0 +1,4 @@
+{
+  ZLTextParagraph paragraph=(kind == ZLTextParagraph.Kind.TEXT_PARAGRAPH) ? new ZLTextParagraphImpl() : new ZLTextSpecialParagraphImpl(kind);
+  addParagraphInternal(paragraph);
+}

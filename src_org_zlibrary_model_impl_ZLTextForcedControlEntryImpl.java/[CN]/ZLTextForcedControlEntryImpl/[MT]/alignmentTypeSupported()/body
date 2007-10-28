@@ -1,0 +1,4 @@
+{
+  int a=myMask & SUPPORT_ALIGNMENT_TYPE;
+  return (a != 0);
+}

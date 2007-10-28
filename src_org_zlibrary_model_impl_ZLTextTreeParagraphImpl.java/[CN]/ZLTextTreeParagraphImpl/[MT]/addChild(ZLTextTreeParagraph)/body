@@ -1,0 +1,3 @@
+{
+  this.myChildren.add(child);
+}

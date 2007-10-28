@@ -1,0 +1,7 @@
+{
+  ZLTextTreeParagraph parent=myParent;
+  while (parent != null) {
+    parent.open(true);
+    parent=parent.getParent();
+  }
+}

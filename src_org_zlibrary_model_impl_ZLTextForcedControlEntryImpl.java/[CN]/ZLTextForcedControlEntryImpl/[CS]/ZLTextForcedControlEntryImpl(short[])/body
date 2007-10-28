@@ -1,0 +1,5 @@
+{
+  myMask=address[0];
+  myLeftIndent=(short)address[1];
+  myRightIndent=(short)address[2];
+}

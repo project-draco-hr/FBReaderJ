@@ -1,8 +1,8 @@
 {
   int size=0;
   for (  ZLTextParagraphEntry entry : myEntries) {
-    if (entry instanceof ZLTextEntry) {
-      size+=((ZLTextEntry)entry).getDataLength();
+    if (entry instanceof ZLTextEntryImpl) {
+      size+=((ZLTextEntryImpl)entry).getDataLength();
     }
   }
   return size;

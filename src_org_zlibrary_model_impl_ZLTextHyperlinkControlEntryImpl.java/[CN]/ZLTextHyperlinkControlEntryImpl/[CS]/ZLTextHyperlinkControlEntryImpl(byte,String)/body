@@ -1,0 +1,4 @@
+{
+  super(kind,true);
+  myLabel=label;
+}
