@@ -1,0 +1,3 @@
+{
+  return isFirst() ? null : getCursor(myModel,myIndex - 1);
+}

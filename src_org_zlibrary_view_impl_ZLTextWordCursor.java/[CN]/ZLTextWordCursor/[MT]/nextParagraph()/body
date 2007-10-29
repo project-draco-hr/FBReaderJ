@@ -1,0 +1,10 @@
+{
+  if (!isNull()) {
+    if (!myParagraphCursor.isLast()) {
+      myParagraphCursor=myParagraphCursor.next();
+      moveToParagraphStart();
+      return true;
+    }
+  }
+  return false;
+}
