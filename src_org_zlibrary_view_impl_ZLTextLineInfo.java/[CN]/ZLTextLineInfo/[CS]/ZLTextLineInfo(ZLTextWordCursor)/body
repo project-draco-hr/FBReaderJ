@@ -1,0 +1,9 @@
+{
+  myStart=word;
+  myRealStart=word;
+  myEnd=word;
+  myIsVisible=false;
+  myLeftIndent=0;
+  myWidth=0;
+  myHeight=0;
+}

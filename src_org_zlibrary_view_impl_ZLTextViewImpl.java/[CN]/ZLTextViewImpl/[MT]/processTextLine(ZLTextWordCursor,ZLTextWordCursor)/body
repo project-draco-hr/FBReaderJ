@@ -1,0 +1,4 @@
+{
+  ZLTextLineInfo info=new ZLTextLineInfo(start);
+  return info;
+}
