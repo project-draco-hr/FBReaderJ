@@ -1,9 +1,0 @@
-{
-  if (!isNull()) {
-    if (!myParagraphCursor.isFirst()) {
-      myParagraphCursor=myParagraphCursor.previous();
-      moveToParagraphStart();
-    }
-  }
-  return false;
-}

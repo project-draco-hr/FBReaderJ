@@ -1,3 +1,0 @@
-{
-  return (myWordNumber == cursor.myWordNumber && myParagraphCursor.getIndex() == cursor.myParagraphCursor.getIndex());
-}

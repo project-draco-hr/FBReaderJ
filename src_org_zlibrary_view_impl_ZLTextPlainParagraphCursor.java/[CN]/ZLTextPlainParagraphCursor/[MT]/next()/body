@@ -1,3 +1,0 @@
-{
-  return isLast() ? null : getCursor(myModel,myIndex + 1);
-}

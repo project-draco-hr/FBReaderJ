@@ -1,6 +1,0 @@
-{
-  if (!isNull()) {
-    myWordNumber=myParagraphCursor.getParagraphLength();
-    myCharNumber=0;
-  }
-}
