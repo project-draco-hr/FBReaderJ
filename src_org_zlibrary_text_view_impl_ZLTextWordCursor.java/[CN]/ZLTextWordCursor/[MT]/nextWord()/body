@@ -1,0 +1,4 @@
+{
+  myWordNumber++;
+  myCharNumber=0;
+}

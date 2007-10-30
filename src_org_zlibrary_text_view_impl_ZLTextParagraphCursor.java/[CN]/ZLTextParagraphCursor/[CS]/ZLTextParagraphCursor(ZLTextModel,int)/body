@@ -1,0 +1,5 @@
+{
+  myModel=model;
+  myIndex=Math.min(index,myModel.getParagraphsNumber() - 1);
+  fill();
+}

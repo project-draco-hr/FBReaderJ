@@ -1,0 +1,6 @@
+{
+  myData=data;
+  mySize=size;
+  myLength=(short)data.length();
+  myParagraphOffset=paragraphOffset;
+}

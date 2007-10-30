@@ -1,0 +1,3 @@
+{
+  return (myWordNumber == 0 && myCharNumber == 0);
+}

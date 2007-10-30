@@ -1,0 +1,20 @@
+{
+  if (!isNull()) {
+    if (wordNumber == 0 && charNumber == 0) {
+      myWordNumber=0;
+      myCharNumber=0;
+    }
+ else {
+      wordNumber=Math.max(0,wordNumber);
+      int size=myParagraphCursor.getParagraphLength();
+      if (wordNumber > size) {
+        myWordNumber=size;
+        myCharNumber=0;
+      }
+ else {
+        myWordNumber=wordNumber;
+        setCharNumber(charNumber);
+      }
+    }
+  }
+}

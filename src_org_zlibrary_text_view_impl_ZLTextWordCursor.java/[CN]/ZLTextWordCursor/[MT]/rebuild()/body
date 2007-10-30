@@ -1,0 +1,6 @@
+{
+  if (!isNull()) {
+    myParagraphCursor.clear();
+    myParagraphCursor.fill();
+  }
+}

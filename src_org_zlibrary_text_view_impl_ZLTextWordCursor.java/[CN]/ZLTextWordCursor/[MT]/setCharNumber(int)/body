@@ -1,0 +1,12 @@
+{
+  charNumber=Math.max(0,charNumber);
+  myCharNumber=0;
+  if (charNumber > 0) {
+    ZLTextElement element=myParagraphCursor.getElement(myWordNumber);
+    if (element.getKind() == ZLTextElement.Kind.WORD_ELEMENT) {
+      if (charNumber <= ((ZLTextWord)element).myLength) {
+        myCharNumber=charNumber;
+      }
+    }
+  }
+}

@@ -1,0 +1,3 @@
+{
+  ZLTextParagraph paragraph=myModel.getParagraph(myIndex);
+}
