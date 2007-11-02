@@ -1,5 +1,5 @@
 {
   FB2Reader reader=new FB2Reader("FB2ReaderTests/cite.fb2");
-  ZLTextModel model=reader.read();
+  ZLTextModel model=reader.read().getBookModel();
   assertEquals(model.dump(),"[PARAGRAPH]\n[CONTROL " + FB2Tag.CITE.ordinal() + "][TEXT]Cite[/TEXT][/PARAGRAPH]\n");
 }

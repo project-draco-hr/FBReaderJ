@@ -1,0 +1,5 @@
+{
+  FB2Reader reader=new FB2Reader("FB2ReaderTests/simple_notes.fb2");
+  assertTrue(reader.read().getFootnotes().containsKey("1"));
+  assertNotNull(reader.read().getFootnotes().get("1"));
+}

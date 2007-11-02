@@ -1,5 +1,5 @@
 {
   FB2Reader reader=new FB2Reader("FB2ReaderTests/text_author.fb2");
-  ZLTextModel model=reader.read();
+  ZLTextModel model=reader.read().getBookModel();
   assertEquals(model.dump(),"[PARAGRAPH]\n[CONTROL " + FB2Tag.TEXT_AUTHOR.ordinal() + "][TEXT]Text author[/TEXT][/PARAGRAPH]\n");
 }

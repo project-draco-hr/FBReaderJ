@@ -1,0 +1,5 @@
+{
+  FB2Reader reader=new FB2Reader("FB2ReaderTests/one_note.fb2");
+  ZLTextModel model=reader.read().getFootnoteModel("1");
+  assertEquals(model.dump(),"[PARAGRAPH]\n[TEXT]Note[/TEXT][/PARAGRAPH]\n");
+}

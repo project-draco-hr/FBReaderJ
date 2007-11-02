@@ -1,6 +1,6 @@
 {
   FB2Reader reader=new FB2Reader("FB2ReaderTests/empty_line.fb2");
-  ZLTextModel model=reader.read();
+  ZLTextModel model=reader.read().getBookModel();
   assertEquals(model.dump(),"[PARAGRAPH]\n[/PARAGRAPH]\n");
   assertEquals(model.getParagraph(0).getKind(),ZLTextParagraph.Kind.EMPTY_LINE_PARAGRAPH);
 }
