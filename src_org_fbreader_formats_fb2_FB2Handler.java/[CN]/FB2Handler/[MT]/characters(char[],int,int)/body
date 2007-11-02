@@ -1,5 +1,5 @@
 {
-  if (myParagraphExists) {
+  if (myTextParagraphExists) {
     myBuffer=String.valueOf(ch,start,length);
   }
 }

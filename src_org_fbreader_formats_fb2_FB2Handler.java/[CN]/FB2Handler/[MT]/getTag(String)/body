@@ -1,0 +1,6 @@
+{
+  if (s.contains("-")) {
+    s=s.replace('-','_');
+  }
+  return FB2Tag.valueOf(s.toUpperCase());
+}

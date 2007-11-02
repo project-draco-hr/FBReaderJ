@@ -1,17 +1,14 @@
 {
   FB2Tag tag;
   try {
-    tag=FB2Tag.valueOf(qName.toUpperCase());
+    tag=getTag(qName);
   }
  catch (  IllegalArgumentException e) {
     return;
   }
 switch (tag) {
 case P:
-    if (myParagraphExists) {
-      flushTextBufferToParagraph();
-      myParagraphExists=false;
-    }
+    endParagraph();
   break;
 case SUB:
 case SUP:
@@ -20,6 +17,20 @@ case EMPHASIS:
 case STRONG:
 case STRIKETHROUGH:
 addControl((byte)tag.ordinal(),false);
+break;
+case V:
+case SUBTITLE:
+case TEXT_AUTHOR:
+case DATE:
+popKind();
+endParagraph();
+break;
+case CITE:
+case EPIGRAPH:
+popKind();
+break;
+case POEM:
+myInsidePoem=false;
 break;
 default :
 break;

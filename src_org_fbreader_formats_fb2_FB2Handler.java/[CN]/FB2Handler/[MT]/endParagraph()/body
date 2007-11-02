@@ -1,0 +1,6 @@
+{
+  if (myTextParagraphExists) {
+    flushTextBufferToParagraph();
+    myTextParagraphExists=false;
+  }
+}

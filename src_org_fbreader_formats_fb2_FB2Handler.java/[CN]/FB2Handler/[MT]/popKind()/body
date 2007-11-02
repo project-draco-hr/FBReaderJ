@@ -1,0 +1,7 @@
+{
+  if (!myKindStack.empty()) {
+    myKindStack.pop();
+    return true;
+  }
+  return false;
+}

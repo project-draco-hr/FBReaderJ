@@ -1,6 +1,9 @@
 {
-  if (myParagraphExists) {
+  if (myTextParagraphExists) {
     flushTextBufferToParagraph();
-    myModel.addControl((byte)tag,start);
+    myModel.addControl((byte)kind,start);
+  }
+  if (!start && myHyperlinkReference != "" && (kind == myHyperlinkKind)) {
+    myHyperlinkReference="";
   }
 }

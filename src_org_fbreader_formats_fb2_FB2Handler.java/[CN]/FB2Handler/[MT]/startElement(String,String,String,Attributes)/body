@@ -1,16 +1,15 @@
 {
   FB2Tag tag;
   try {
-    tag=FB2Tag.valueOf(qName.toUpperCase());
+    tag=getTag(qName);
   }
  catch (  IllegalArgumentException e) {
     return;
   }
 switch (tag) {
 case P:
-    myModel.addParagraphInternal((new ZLModelFactory()).createParagraph());
-  myParagraphExists=true;
-break;
+    beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
+  break;
 case SUB:
 case SUP:
 case CODE:
@@ -18,6 +17,24 @@ case EMPHASIS:
 case STRONG:
 case STRIKETHROUGH:
 addControl((byte)tag.ordinal(),true);
+break;
+case V:
+case SUBTITLE:
+case TEXT_AUTHOR:
+case DATE:
+pushKind((byte)tag.ordinal());
+beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
+break;
+case EMPTY_LINE:
+beginParagraph(ZLTextParagraph.Kind.EMPTY_LINE_PARAGRAPH);
+endParagraph();
+break;
+case CITE:
+case EPIGRAPH:
+pushKind((byte)tag.ordinal());
+break;
+case POEM:
+myInsidePoem=true;
 break;
 default :
 break;
