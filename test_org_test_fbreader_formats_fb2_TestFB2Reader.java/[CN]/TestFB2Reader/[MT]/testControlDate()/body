@@ -1,0 +1,5 @@
+{
+  FB2Reader reader=new FB2Reader("FB2ReaderTests/date.fb2");
+  ZLTextModel model=reader.read();
+  assertEquals(model.dump(),"[PARAGRAPH]\n[CONTROL " + FB2Tag.DATE.ordinal() + "][TEXT]Date[/TEXT][/PARAGRAPH]\n");
+}

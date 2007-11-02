@@ -1,0 +1,5 @@
+{
+  FB2Reader reader=new FB2Reader("FB2ReaderTests/epigraph.fb2");
+  ZLTextModel model=reader.read();
+  assertEquals(model.dump(),"[PARAGRAPH]\n[CONTROL " + FB2Tag.EPIGRAPH.ordinal() + "][TEXT]Epigraph[/TEXT][/PARAGRAPH]\n");
+}
