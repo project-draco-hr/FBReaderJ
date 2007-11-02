@@ -1,7 +1,7 @@
 {
   try {
     SAXParser parser=SAXParserFactory.newInstance().newSAXParser();
-    parser.parse(myFileName,new FB2Handler(myModel));
+    parser.parse(myFileName,new FB2Handler(myBookModel));
   }
  catch (  ParserConfigurationException e) {
     e.printStackTrace();
@@ -11,5 +11,5 @@ catch (  SAXException e) {
 catch (  IOException e) {
     e.printStackTrace();
   }
-  return myModel;
+  return myBookModel;
 }

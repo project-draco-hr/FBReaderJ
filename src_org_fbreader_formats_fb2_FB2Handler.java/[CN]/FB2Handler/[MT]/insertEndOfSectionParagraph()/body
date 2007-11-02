@@ -1,0 +1,3 @@
+{
+  insertEndParagraph(ZLTextParagraph.Kind.END_OF_SECTION_PARAGRAPH);
+}

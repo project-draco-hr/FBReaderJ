@@ -1,0 +1,9 @@
+{
+  if ((myCurrentTextModel != null) && mySectionContainsRegularContents) {
+    int size=myCurrentTextModel.getParagraphsNumber();
+    if ((size > 0) && (myCurrentTextModel.getParagraph(size - 1).getKind() != kind)) {
+      myCurrentTextModel.createParagraph(kind);
+      mySectionContainsRegularContents=false;
+    }
+  }
+}

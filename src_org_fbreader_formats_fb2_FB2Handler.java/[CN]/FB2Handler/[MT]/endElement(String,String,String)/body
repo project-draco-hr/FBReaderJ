@@ -32,6 +32,35 @@ break;
 case POEM:
 myInsidePoem=false;
 break;
+case STANZA:
+beginParagraph(ZLTextParagraph.Kind.AFTER_SKIP_PARAGRAPH);
+endParagraph();
+popKind();
+break;
+case SECTION:
+if (myReadMainText) {
+--mySectionDepth;
+mySectionStarted=false;
+}
+ else {
+myCurrentTextModel=null;
+}
+break;
+case ANNOTATION:
+popKind();
+if (myBodyCounter == 0) {
+insertEndOfSectionParagraph();
+myCurrentTextModel=null;
+}
+break;
+case TITLE:
+popKind();
+myInsideTitle=false;
+break;
+case BODY:
+myReadMainText=false;
+myCurrentTextModel=null;
+break;
 default :
 break;
 }

@@ -1,6 +1,6 @@
 {
-  if (myBuffer != "") {
-    myModel.addText(myBuffer);
-    myBuffer="";
+  if (myBuffer.length() != 0) {
+    myCurrentTextModel.addText(myBuffer);
+    myBuffer.delete(0,myBuffer.length());
   }
 }

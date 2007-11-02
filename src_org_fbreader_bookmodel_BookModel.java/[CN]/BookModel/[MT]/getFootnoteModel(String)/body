@@ -1,0 +1,6 @@
+{
+  if (!myFootnotes.containsKey(id)) {
+    myFootnotes.put(id,(new ZLModelFactory()).createPlainModel());
+  }
+  return myFootnotes.get(id);
+}

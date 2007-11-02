@@ -1,5 +1,8 @@
 {
   if (myTextParagraphExists) {
-    myBuffer=String.valueOf(ch,start,length);
+    myBuffer.append(String.valueOf(ch,start,length));
+    if (!myInsideTitle) {
+      mySectionContainsRegularContents=true;
+    }
   }
 }
