@@ -4,6 +4,7 @@
     if (!myReadMainText) {
       myBookReader.setFootnoteTextModel(id);
     }
+    myBookReader.addHyperlinkLabel(id);
   }
   FB2Tag tag;
   try {
@@ -84,6 +85,23 @@ case BODY:
 if ((myBodyCounter == 1) || (attributes.getValue("name") == null)) {
 myBookReader.setMainTextModel();
 myReadMainText=true;
+}
+break;
+case A:
+String ref=reference(attributes);
+if (ref != "") {
+if (ref.charAt(0) == '#') {
+myHyperlinkType=(byte)FB2Tag.FOOTNOTE.ordinal();
+ref=ref.substring(1);
+}
+ else {
+myHyperlinkType=(byte)FB2Tag.A.ordinal();
+}
+myBookReader.addHyperlinkControl(myHyperlinkType,ref);
+}
+ else {
+myHyperlinkType=(byte)FB2Tag.FOOTNOTE.ordinal();
+myBookReader.addControl(myHyperlinkType,true);
 }
 break;
 default :

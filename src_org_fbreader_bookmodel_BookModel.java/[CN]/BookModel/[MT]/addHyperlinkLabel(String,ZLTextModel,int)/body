@@ -1,0 +1,3 @@
+{
+  myInternalHyperlinks.put(label,new Label(model,paragraphNumber));
+}

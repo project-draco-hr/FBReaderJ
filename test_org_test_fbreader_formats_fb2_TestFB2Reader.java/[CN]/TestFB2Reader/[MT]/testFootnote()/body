@@ -1,0 +1,6 @@
+{
+  FB2Reader reader=new FB2Reader("FB2ReaderTests/footnote.fb2");
+  ZLTextModel model=reader.read().getBookModel();
+  int footnote=FB2Tag.FOOTNOTE.ordinal();
+  assertEquals(model.dump(),"[PARAGRAPH]\n[CONTROL " + footnote + "][TEXT][1][/TEXT][/CONTROL "+ footnote+ "][/PARAGRAPH]\n");
+}

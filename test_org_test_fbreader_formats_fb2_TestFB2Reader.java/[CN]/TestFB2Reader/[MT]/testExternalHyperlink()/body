@@ -1,0 +1,6 @@
+{
+  FB2Reader reader=new FB2Reader("FB2ReaderTests/ext_hyperlink.fb2");
+  ZLTextModel model=reader.read().getBookModel();
+  int hyperlink=FB2Tag.A.ordinal();
+  assertEquals(model.dump(),"[PARAGRAPH]\n[CONTROL " + hyperlink + "][TEXT][1][/TEXT][/CONTROL "+ hyperlink+ "][/PARAGRAPH]\n");
+}

@@ -1,0 +1,9 @@
+{
+  if (myCurrentTextModel != null) {
+    int paragraphNumber=myCurrentTextModel.getParagraphsNumber();
+    if (myTextParagraphExists) {
+      --paragraphNumber;
+    }
+    myBookModel.addHyperlinkLabel(label,myCurrentTextModel,paragraphNumber);
+  }
+}

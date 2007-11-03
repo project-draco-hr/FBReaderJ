@@ -62,6 +62,9 @@ case BODY:
 myReadMainText=false;
 myBookReader.unsetCurrentTextModel();
 break;
+case A:
+myBookReader.addControl(myHyperlinkType,false);
+break;
 default :
 break;
 }
