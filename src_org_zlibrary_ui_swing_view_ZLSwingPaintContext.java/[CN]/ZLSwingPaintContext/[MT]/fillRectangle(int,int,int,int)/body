@@ -1,2 +1,13 @@
 {
+  if (x0 > x1) {
+    int swap=x0;
+    x0=x1;
+    x1=swap;
+  }
+  if (y0 > y1) {
+    int swap=y0;
+    y0=y1;
+    y1=swap;
+  }
+  myGraphics.fillRect(x0,y0,x1 - x0 + 1,y1 - y0 + 1);
 }
