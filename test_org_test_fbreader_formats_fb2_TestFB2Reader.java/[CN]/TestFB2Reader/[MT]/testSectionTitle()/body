@@ -1,0 +1,5 @@
+{
+  FB2Reader reader=new FB2Reader("FB2ReaderTests/section_title.fb2");
+  ZLTextModel model=reader.read().getBookModel();
+  assertEquals(model.dump(),"[PARAGRAPH]\n[CONTROL " + FB2Tag.SECTION.ordinal() + "][TEXT]Title[/TEXT][/PARAGRAPH]\n");
+}
