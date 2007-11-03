@@ -1,0 +1,7 @@
+{
+  super.paint(g);
+  ZLView view=myViewWidget.getView();
+  ZLSwingPaintContext context=(ZLSwingPaintContext)view.getContext();
+  context.setGraphics(g);
+  view.paint();
+}

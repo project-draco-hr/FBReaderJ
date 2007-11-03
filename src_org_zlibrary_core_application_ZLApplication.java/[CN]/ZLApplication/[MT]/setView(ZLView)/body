@@ -1,0 +1,13 @@
+{
+  if (view == null) {
+    return;
+  }
+  if (myViewWidget != null) {
+    myViewWidget.setView(view);
+    resetWindowCaption();
+    refreshWindow();
+  }
+ else {
+    myInitialView=view;
+  }
+}

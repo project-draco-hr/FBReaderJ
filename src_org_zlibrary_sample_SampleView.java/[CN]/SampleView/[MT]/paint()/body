@@ -1,0 +1,4 @@
+{
+  ZLPaintContext context=getContext();
+  context.drawLine(0,0,context.getWidth() - 1,context.getHeight() - 1);
+}

@@ -1,0 +1,5 @@
+{
+  ZLSwingApplicationWindow mainWindow=new ZLSwingApplicationWindow(application);
+  application.initWindow();
+  mainWindow.run();
+}

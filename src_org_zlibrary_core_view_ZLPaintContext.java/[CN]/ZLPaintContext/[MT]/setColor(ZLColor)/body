@@ -1,0 +1,3 @@
+{
+  setColor(color,LineStyle.SOLID_LINE);
+}

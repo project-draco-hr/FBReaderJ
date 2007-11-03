@@ -1,0 +1,4 @@
+{
+  super(initialAngle);
+  myPanel=new ZLSwingPanel(this);
+}

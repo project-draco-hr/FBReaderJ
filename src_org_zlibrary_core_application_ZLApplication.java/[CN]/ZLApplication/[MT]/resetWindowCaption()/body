@@ -1,0 +1,8 @@
+{
+  if (myWindow != null) {
+    ZLView view=getCurrentView();
+    if (view != null) {
+      myWindow.setCaption(view.caption());
+    }
+  }
+}

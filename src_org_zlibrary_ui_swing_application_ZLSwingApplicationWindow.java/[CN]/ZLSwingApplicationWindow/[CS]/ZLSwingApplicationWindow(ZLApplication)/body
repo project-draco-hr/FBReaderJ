@@ -1,0 +1,5 @@
+{
+  super(application);
+  myFrame=new JFrame();
+  myFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+}

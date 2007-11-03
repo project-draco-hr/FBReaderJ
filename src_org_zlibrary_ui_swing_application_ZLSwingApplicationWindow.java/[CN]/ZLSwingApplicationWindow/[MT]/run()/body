@@ -1,0 +1,4 @@
+{
+  myFrame.setSize(300,300);
+  myFrame.setVisible(true);
+}

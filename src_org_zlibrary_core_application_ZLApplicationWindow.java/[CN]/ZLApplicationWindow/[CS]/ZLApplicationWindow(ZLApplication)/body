@@ -1,0 +1,4 @@
+{
+  myApplication=application;
+  myApplication.setWindow(this);
+}
