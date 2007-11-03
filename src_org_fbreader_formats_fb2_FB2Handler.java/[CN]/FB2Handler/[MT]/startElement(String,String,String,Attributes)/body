@@ -2,7 +2,7 @@
   String id=attributes.getValue("id");
   if (id != null) {
     if (!myReadMainText) {
-      myCurrentTextModel=myBookModel.getFootnoteModel(id);
+      myBookReader.setFootnoteTextModel(id);
     }
   }
   FB2Tag tag;
@@ -19,7 +19,7 @@ case P:
     }
  else     if (myInsideTitle) {
     }
-  beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
+  myBookReader.beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
 break;
 case SUB:
 case SUP:
@@ -27,61 +27,62 @@ case CODE:
 case EMPHASIS:
 case STRONG:
 case STRIKETHROUGH:
-addControl((byte)tag.ordinal(),true);
+myBookReader.addControl((byte)tag.ordinal(),true);
 break;
 case V:
 case SUBTITLE:
 case TEXT_AUTHOR:
 case DATE:
-pushKind((byte)tag.ordinal());
-beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
+myBookReader.pushKind((byte)tag.ordinal());
+myBookReader.beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
 break;
 case EMPTY_LINE:
-beginParagraph(ZLTextParagraph.Kind.EMPTY_LINE_PARAGRAPH);
-endParagraph();
+myBookReader.beginParagraph(ZLTextParagraph.Kind.EMPTY_LINE_PARAGRAPH);
+myBookReader.endParagraph();
 break;
 case CITE:
 case EPIGRAPH:
-pushKind((byte)tag.ordinal());
+myBookReader.pushKind((byte)tag.ordinal());
 break;
 case POEM:
 myInsidePoem=true;
 break;
 case STANZA:
-pushKind((byte)tag.ordinal());
-beginParagraph(ZLTextParagraph.Kind.BEFORE_SKIP_PARAGRAPH);
-endParagraph();
+myBookReader.pushKind((byte)tag.ordinal());
+myBookReader.beginParagraph(ZLTextParagraph.Kind.BEFORE_SKIP_PARAGRAPH);
+myBookReader.endParagraph();
 break;
 case SECTION:
 if (myReadMainText) {
-insertEndOfSectionParagraph();
+myBookReader.insertEndOfSectionParagraph();
 ++mySectionDepth;
 mySectionStarted=true;
 }
 break;
 case ANNOTATION:
 if (myBodyCounter == 0) {
-myCurrentTextModel=myBookModel.getBookModel();
+myBookReader.setMainTextModel();
 }
-pushKind((byte)tag.ordinal());
+myBookReader.pushKind((byte)tag.ordinal());
 break;
 case TITLE:
 if (myInsidePoem) {
-pushKind((byte)FB2Tag.POEM.ordinal());
+myBookReader.pushKind((byte)FB2Tag.POEM.ordinal());
 }
  else if (mySectionDepth == 0) {
-insertEndOfSectionParagraph();
-pushKind((byte)tag.ordinal());
+myBookReader.insertEndOfSectionParagraph();
+myBookReader.pushKind((byte)tag.ordinal());
 }
  else {
-pushKind((byte)FB2Tag.SECTION.ordinal());
+myBookReader.pushKind((byte)FB2Tag.SECTION.ordinal());
 myInsideTitle=true;
+myBookReader.enterTitle();
 }
 break;
 case BODY:
 ++myBodyCounter;
 if ((myBodyCounter == 1) || (attributes.getValue("name") == null)) {
-myCurrentTextModel=myBookModel.getBookModel();
+myBookReader.setMainTextModel();
 myReadMainText=true;
 }
 break;
