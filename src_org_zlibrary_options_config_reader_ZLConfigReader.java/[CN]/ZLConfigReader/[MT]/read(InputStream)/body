@@ -1,0 +1,14 @@
+{
+  try {
+    myXMLReader.parse(new InputSource(input));
+    return myConfig;
+  }
+ catch (  IOException ioe) {
+    System.err.println(ioe.getMessage());
+    return null;
+  }
+catch (  SAXException sae) {
+    System.err.println(sae.getMessage());
+    return null;
+  }
+}

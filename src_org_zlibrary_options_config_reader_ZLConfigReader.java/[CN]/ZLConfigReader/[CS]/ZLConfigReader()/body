@@ -1,0 +1,9 @@
+{
+  try {
+    myXMLReader=XMLReaderFactory.createXMLReader();
+    myXMLReader.setContentHandler(new ConfigContentHandler());
+  }
+ catch (  SAXException e) {
+    System.err.println(e.getMessage());
+  }
+}

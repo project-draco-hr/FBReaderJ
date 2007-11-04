@@ -1,0 +1,10 @@
+{
+  if (myData.get(group) != null) {
+    myData.get(group).setValue(name,value);
+  }
+ else {
+    ZLGroup newgroup=new ZLGroup();
+    newgroup.setValue(name,value);
+    myData.put(group,newgroup);
+  }
+}

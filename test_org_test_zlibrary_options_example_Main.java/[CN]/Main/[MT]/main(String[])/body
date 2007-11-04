@@ -1,0 +1,4 @@
+{
+  testFileReading("test/org/test/zlibrary/options/example/state.xml");
+  testFileReading("test/org/test/zlibrary/options/example/ui.xml");
+}

@@ -1,3 +1,3 @@
 {
-  assertEquals(myBooleanOption.getType(),OptionType.TYPE_BOOLEAN);
+  assertEquals(myBooleanOption.getType(),ZLOptionType.TYPE_BOOLEAN);
 }
