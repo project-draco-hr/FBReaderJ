@@ -2,6 +2,6 @@
   ZLTextTreeModel model=factory.createZLTextTreeModel();
   ZLTextTreeParagraph parant=factory.createTreeParagraph();
   ZLTextTreeParagraph paragraph=model.createParagraph(parant);
-  assertTrue(paragraph.getParent() == parant);
-  assertTrue(model.getParagraphsNumber() == 1);
+  model.removeParagraphInternal(0);
+  assertTrue(model.getParagraphsNumber() == 0);
 }

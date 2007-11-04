@@ -1,0 +1,10 @@
+{
+  ZLTextTreeParagraph paragraph=factory.createTreeParagraph();
+  ZLTextTreeParagraph paragraph2=factory.createTreeParagraph(paragraph);
+  ZLTextTreeParagraph paragraph3=factory.createTreeParagraph(paragraph);
+  ZLTextTreeParagraph paragraph4=factory.createTreeParagraph(paragraph2);
+  assertTrue(paragraph.getFullSize() == 4);
+  assertTrue(paragraph2.getFullSize() == 2);
+  assertTrue(paragraph3.getFullSize() == 1);
+  assertTrue(paragraph4.getFullSize() == 1);
+}

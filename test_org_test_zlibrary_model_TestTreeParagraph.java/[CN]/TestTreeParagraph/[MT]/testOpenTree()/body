@@ -1,0 +1,8 @@
+{
+  ZLTextTreeParagraph paragraph=factory.createTreeParagraph();
+  ZLTextTreeParagraph paragraph2=factory.createTreeParagraph(paragraph);
+  ZLTextTreeParagraph paragraph4=factory.createTreeParagraph(paragraph2);
+  paragraph4.openTree();
+  assertTrue(paragraph2.isOpen());
+  assertTrue(paragraph.isOpen());
+}
