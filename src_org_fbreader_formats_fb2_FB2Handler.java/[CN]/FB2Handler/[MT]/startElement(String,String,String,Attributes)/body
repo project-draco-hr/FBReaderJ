@@ -86,6 +86,7 @@ if ((myBodyCounter == 1) || (attributes.getValue("name") == null)) {
 myBookReader.setMainTextModel();
 myReadMainText=true;
 }
+myBookReader.pushKind((byte)FB2Tag.BODY.ordinal());
 break;
 case A:
 String ref=reference(attributes);

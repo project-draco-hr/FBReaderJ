@@ -59,6 +59,7 @@ myBookReader.exitTitle();
 myInsideTitle=false;
 break;
 case BODY:
+myBookReader.popKind();
 myReadMainText=false;
 myBookReader.unsetCurrentTextModel();
 break;
