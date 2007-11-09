@@ -1,6 +1,3 @@
 {
-  FB2Reader reader=new FB2Reader("FB2ReaderTests/test4.fb2");
-  ZLTextModel model=reader.read().getBookModel();
-  int sub=FB2Tag.SUB.ordinal();
-  assertEquals(model.dump(),"[PARAGRAPH]\n[TEXT]???? [/TEXT][CONTROL " + sub + "][TEXT]4[/TEXT][/CONTROL "+ sub+ "][/PARAGRAPH]\n");
+  doTest("test4");
 }

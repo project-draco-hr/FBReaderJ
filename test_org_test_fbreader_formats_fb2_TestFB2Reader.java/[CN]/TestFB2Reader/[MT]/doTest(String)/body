@@ -1,0 +1,6 @@
+{
+  String test_result="test/Data/" + test + "_act.txt";
+  writeDumpToFile("test/Data/" + test + ".fb2",test_result);
+  assertTrue(compareFiles("test/Data/" + test + "_exp.txt",test_result));
+  (new File(test_result)).delete();
+}

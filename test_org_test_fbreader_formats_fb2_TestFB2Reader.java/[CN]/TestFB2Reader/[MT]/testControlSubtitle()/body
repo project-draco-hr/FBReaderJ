@@ -1,5 +1,3 @@
 {
-  FB2Reader reader=new FB2Reader("FB2ReaderTests/subtitle.fb2");
-  ZLTextModel model=reader.read().getBookModel();
-  assertEquals(model.dump(),"[PARAGRAPH]\n[CONTROL " + FB2Tag.SUBTITLE.ordinal() + "][TEXT]Subtitle[/TEXT][/PARAGRAPH]\n");
+  doTest("subtitle");
 }

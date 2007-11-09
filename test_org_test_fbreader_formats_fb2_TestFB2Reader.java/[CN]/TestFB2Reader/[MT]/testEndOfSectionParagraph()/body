@@ -1,0 +1,5 @@
+{
+  FB2Reader reader=new FB2Reader("test/Data/section.fb2");
+  ZLTextModel model=reader.read().getBookModel();
+  assertEquals(model.getParagraph(1).getKind(),ZLTextParagraph.Kind.END_OF_SECTION_PARAGRAPH);
+}

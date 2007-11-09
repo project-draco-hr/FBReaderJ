@@ -1,6 +1,3 @@
 {
-  FB2Reader reader=new FB2Reader("FB2ReaderTests/test5.fb2");
-  ZLTextModel model=reader.read().getBookModel();
-  int emphasis=FB2Tag.EMPHASIS.ordinal();
-  assertEquals(model.dump(),"[PARAGRAPH]\n[CONTROL " + emphasis + "][TEXT]???? 5[/TEXT][/CONTROL "+ emphasis+ "][/PARAGRAPH]\n");
+  doTest("test5");
 }

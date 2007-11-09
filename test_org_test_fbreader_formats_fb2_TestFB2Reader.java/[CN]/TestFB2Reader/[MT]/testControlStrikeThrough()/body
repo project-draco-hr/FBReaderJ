@@ -1,6 +1,3 @@
 {
-  FB2Reader reader=new FB2Reader("FB2ReaderTests/test7.fb2");
-  ZLTextModel model=reader.read().getBookModel();
-  int strikethrough=FB2Tag.STRIKETHROUGH.ordinal();
-  assertEquals(model.dump(),"[PARAGRAPH]\n[CONTROL " + strikethrough + "][TEXT]???? 7[/TEXT][/CONTROL "+ strikethrough+ "][/PARAGRAPH]\n");
+  doTest("test7");
 }

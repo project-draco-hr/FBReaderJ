@@ -1,0 +1,13 @@
+{
+  FB2Reader reader=new FB2Reader(inputFile);
+  ZLTextModel model=reader.read().getBookModel();
+  FileOutputStream fos;
+  try {
+    fos=new FileOutputStream(outputFile);
+    fos.write(model.dump().getBytes());
+    fos.close();
+  }
+ catch (  Exception e) {
+    fail();
+  }
+}

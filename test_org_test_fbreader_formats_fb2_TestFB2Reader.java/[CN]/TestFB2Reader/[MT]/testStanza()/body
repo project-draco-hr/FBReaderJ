@@ -1,9 +1,3 @@
 {
-  FB2Reader reader=new FB2Reader("FB2ReaderTests/stanza.fb2");
-  ZLTextModel model=reader.read().getBookModel();
-  assertEquals(model.getParagraph(0).getKind(),ZLTextParagraph.Kind.BEFORE_SKIP_PARAGRAPH);
-  assertEquals(model.getParagraph(2).getKind(),ZLTextParagraph.Kind.AFTER_SKIP_PARAGRAPH);
-  assertEquals(model.getParagraph(1).getKind(),ZLTextParagraph.Kind.TEXT_PARAGRAPH);
-  int stanza=FB2Tag.STANZA.ordinal();
-  assertEquals(model.dump(),"[PARAGRAPH]\n[CONTROL " + stanza + "][/PARAGRAPH]\n[PARAGRAPH]\n[CONTROL "+ stanza+ "][CONTROL "+ FB2Tag.V.ordinal()+ "][TEXT]Stanza[/TEXT][/PARAGRAPH]\n[PARAGRAPH]\n[CONTROL "+ stanza+ "][/PARAGRAPH]\n");
+  doTest("stanza");
 }
