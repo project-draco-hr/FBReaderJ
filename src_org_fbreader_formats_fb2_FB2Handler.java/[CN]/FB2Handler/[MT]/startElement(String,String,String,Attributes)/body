@@ -2,9 +2,9 @@
   String id=attributes.getValue("id");
   if (id != null) {
     if (!myReadMainText) {
-      myBookReader.setFootnoteTextModel(id);
+      myModelReader.setFootnoteTextModel(id);
     }
-    myBookReader.addHyperlinkLabel(id);
+    myModelReader.addHyperlinkLabel(id);
   }
   FB2Tag tag;
   try {
@@ -19,8 +19,9 @@ case P:
       mySectionStarted=false;
     }
  else     if (myInsideTitle) {
+      myModelReader.addContentsData(" ");
     }
-  myBookReader.beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
+  myModelReader.beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
 break;
 case SUB:
 case SUP:
@@ -28,65 +29,66 @@ case CODE:
 case EMPHASIS:
 case STRONG:
 case STRIKETHROUGH:
-myBookReader.addControl((byte)tag.ordinal(),true);
+myModelReader.addControl((byte)tag.ordinal(),true);
 break;
 case V:
 case SUBTITLE:
 case TEXT_AUTHOR:
 case DATE:
-myBookReader.pushKind((byte)tag.ordinal());
-myBookReader.beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
+myModelReader.pushKind((byte)tag.ordinal());
+myModelReader.beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
 break;
 case EMPTY_LINE:
-myBookReader.beginParagraph(ZLTextParagraph.Kind.EMPTY_LINE_PARAGRAPH);
-myBookReader.endParagraph();
+myModelReader.beginParagraph(ZLTextParagraph.Kind.EMPTY_LINE_PARAGRAPH);
+myModelReader.endParagraph();
 break;
 case CITE:
 case EPIGRAPH:
-myBookReader.pushKind((byte)tag.ordinal());
+myModelReader.pushKind((byte)tag.ordinal());
 break;
 case POEM:
 myInsidePoem=true;
 break;
 case STANZA:
-myBookReader.pushKind((byte)tag.ordinal());
-myBookReader.beginParagraph(ZLTextParagraph.Kind.BEFORE_SKIP_PARAGRAPH);
-myBookReader.endParagraph();
+myModelReader.pushKind((byte)tag.ordinal());
+myModelReader.beginParagraph(ZLTextParagraph.Kind.BEFORE_SKIP_PARAGRAPH);
+myModelReader.endParagraph();
 break;
 case SECTION:
 if (myReadMainText) {
-myBookReader.insertEndOfSectionParagraph();
+myModelReader.insertEndOfSectionParagraph();
 ++mySectionDepth;
+myModelReader.beginContentsParagraph();
 mySectionStarted=true;
 }
 break;
 case ANNOTATION:
 if (myBodyCounter == 0) {
-myBookReader.setMainTextModel();
+myModelReader.setMainTextModel();
 }
-myBookReader.pushKind((byte)tag.ordinal());
+myModelReader.pushKind((byte)tag.ordinal());
 break;
 case TITLE:
 if (myInsidePoem) {
-myBookReader.pushKind((byte)FB2Tag.POEM.ordinal());
+myModelReader.pushKind((byte)FB2Tag.POEM.ordinal());
 }
  else if (mySectionDepth == 0) {
-myBookReader.insertEndOfSectionParagraph();
-myBookReader.pushKind((byte)tag.ordinal());
+myModelReader.insertEndOfSectionParagraph();
+myModelReader.pushKind((byte)tag.ordinal());
 }
  else {
-myBookReader.pushKind((byte)FB2Tag.SECTION.ordinal());
+myModelReader.pushKind((byte)FB2Tag.SECTION.ordinal());
 myInsideTitle=true;
-myBookReader.enterTitle();
+myModelReader.enterTitle();
 }
 break;
 case BODY:
 ++myBodyCounter;
 if ((myBodyCounter == 1) || (attributes.getValue("name") == null)) {
-myBookReader.setMainTextModel();
+myModelReader.setMainTextModel();
 myReadMainText=true;
 }
-myBookReader.pushKind((byte)FB2Tag.BODY.ordinal());
+myModelReader.pushKind((byte)FB2Tag.BODY.ordinal());
 break;
 case A:
 String ref=reference(attributes);
@@ -98,11 +100,11 @@ ref=ref.substring(1);
  else {
 myHyperlinkType=(byte)FB2Tag.A.ordinal();
 }
-myBookReader.addHyperlinkControl(myHyperlinkType,ref);
+myModelReader.addHyperlinkControl(myHyperlinkType,ref);
 }
  else {
 myHyperlinkType=(byte)FB2Tag.FOOTNOTE.ordinal();
-myBookReader.addControl(myHyperlinkType,true);
+myModelReader.addControl(myHyperlinkType,true);
 }
 break;
 default :

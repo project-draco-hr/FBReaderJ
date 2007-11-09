@@ -1,0 +1,3 @@
+{
+  return myReferenceByParagraph.containsKey(paragraph) ? myReferenceByParagraph.get(paragraph) : -1;
+}

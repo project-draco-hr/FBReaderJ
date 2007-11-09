@@ -4,5 +4,8 @@
     if (!myInsideTitle) {
       mySectionContainsRegularContents=true;
     }
+ else {
+      addContentsData(data);
+    }
   }
 }

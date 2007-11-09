@@ -8,7 +8,7 @@
   }
 switch (tag) {
 case P:
-    myBookReader.endParagraph();
+    myModelReader.endParagraph();
   break;
 case SUB:
 case SUP:
@@ -16,55 +16,56 @@ case CODE:
 case EMPHASIS:
 case STRONG:
 case STRIKETHROUGH:
-myBookReader.addControl((byte)tag.ordinal(),false);
+myModelReader.addControl((byte)tag.ordinal(),false);
 break;
 case V:
 case SUBTITLE:
 case TEXT_AUTHOR:
 case DATE:
-myBookReader.popKind();
-myBookReader.endParagraph();
+myModelReader.popKind();
+myModelReader.endParagraph();
 break;
 case CITE:
 case EPIGRAPH:
-myBookReader.popKind();
+myModelReader.popKind();
 break;
 case POEM:
 myInsidePoem=false;
 break;
 case STANZA:
-myBookReader.beginParagraph(ZLTextParagraph.Kind.AFTER_SKIP_PARAGRAPH);
-myBookReader.endParagraph();
-myBookReader.popKind();
+myModelReader.beginParagraph(ZLTextParagraph.Kind.AFTER_SKIP_PARAGRAPH);
+myModelReader.endParagraph();
+myModelReader.popKind();
 break;
 case SECTION:
 if (myReadMainText) {
+myModelReader.endContentsParagraph();
 --mySectionDepth;
 mySectionStarted=false;
 }
  else {
-myBookReader.unsetCurrentTextModel();
+myModelReader.unsetCurrentTextModel();
 }
 break;
 case ANNOTATION:
-myBookReader.popKind();
+myModelReader.popKind();
 if (myBodyCounter == 0) {
-myBookReader.insertEndOfSectionParagraph();
-myBookReader.unsetCurrentTextModel();
+myModelReader.insertEndOfSectionParagraph();
+myModelReader.unsetCurrentTextModel();
 }
 break;
 case TITLE:
-myBookReader.popKind();
-myBookReader.exitTitle();
+myModelReader.popKind();
+myModelReader.exitTitle();
 myInsideTitle=false;
 break;
 case BODY:
-myBookReader.popKind();
+myModelReader.popKind();
 myReadMainText=false;
-myBookReader.unsetCurrentTextModel();
+myModelReader.unsetCurrentTextModel();
 break;
 case A:
-myBookReader.addControl(myHyperlinkType,false);
+myModelReader.addControl(myHyperlinkType,false);
 break;
 default :
 break;

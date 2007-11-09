@@ -1,0 +1,23 @@
+{
+  if (myCurrentTextModel == myBookModel.getBookModel()) {
+    ContentsModel contentsModel=myBookModel.getContentsModel();
+    if (referenceNumber == -1) {
+      referenceNumber=myCurrentTextModel.getParagraphsNumber();
+    }
+    ZLTextTreeParagraph peek=myTOCStack.empty() ? null : myTOCStack.peek();
+    if (myContentsBuffer.length() != 0) {
+      contentsModel.addText(myContentsBuffer);
+      myContentsBuffer.delete(0,myContentsBuffer.length());
+      myLastTOCParagraphIsEmpty=false;
+    }
+    if (myLastTOCParagraphIsEmpty) {
+      contentsModel.addText("...");
+    }
+    ZLTextTreeParagraph para=contentsModel.createParagraph(peek);
+    contentsModel.addControl((byte)FB2Tag.CONTENTS_TABLE_ENTRY.ordinal(),true);
+    contentsModel.setReference(para,referenceNumber);
+    myTOCStack.push(para);
+    myLastTOCParagraphIsEmpty=true;
+    myContentsParagraphExists=true;
+  }
+}

@@ -1,6 +1,6 @@
 {
   String test_result="test/Data/" + test + "_act.txt";
-  writeTextModelDumpToFile("test/Data/" + test + ".fb2",test_result);
+  writeTreeModelDumpToFile("test/Data/" + test + ".fb2",test_result);
   assertTrue(compareFiles("test/Data/" + test + "_exp.txt",test_result));
   (new File(test_result)).delete();
 }

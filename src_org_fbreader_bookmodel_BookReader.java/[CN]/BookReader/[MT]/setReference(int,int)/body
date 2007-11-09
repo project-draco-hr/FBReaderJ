@@ -1,0 +1,7 @@
+{
+  ContentsModel contentsModel=myBookModel.getContentsModel();
+  if (contentsParagraphNumber >= contentsModel.getParagraphsNumber()) {
+    return;
+  }
+  contentsModel.setReference((ZLTextTreeParagraph)contentsModel.getParagraph(contentsParagraphNumber),referenceNumber);
+}

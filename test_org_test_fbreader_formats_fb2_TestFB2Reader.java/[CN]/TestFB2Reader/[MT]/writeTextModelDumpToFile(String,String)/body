@@ -1,0 +1,5 @@
+{
+  FB2Reader reader=new FB2Reader(inputFile);
+  ZLTextModel model=reader.read().getBookModel();
+  writeDumpToFile(model,outputFile);
+}
