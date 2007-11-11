@@ -1,0 +1,5 @@
+{
+  if (isToggleButton()) {
+    myButtonGroup.press(this);
+  }
+}

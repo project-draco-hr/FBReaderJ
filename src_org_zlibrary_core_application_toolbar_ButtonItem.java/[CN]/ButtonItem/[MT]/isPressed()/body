@@ -1,0 +1,3 @@
+{
+  return isToggleButton() && (this == myButtonGroup.PressedItem);
+}
