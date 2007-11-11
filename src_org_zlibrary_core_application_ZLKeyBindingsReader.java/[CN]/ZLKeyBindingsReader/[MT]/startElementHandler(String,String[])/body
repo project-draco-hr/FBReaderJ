@@ -1,0 +1,5 @@
+{
+  final String BINDING="binding";
+  if (BINDING == tag) {
+  }
+}

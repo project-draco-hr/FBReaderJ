@@ -1,0 +1,6 @@
+{
+  this.myName=name;
+  loadDefaultBindings();
+  loadCustomBindings();
+  myIsChanged=false;
+}

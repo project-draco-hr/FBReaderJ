@@ -1,0 +1,6 @@
+{
+  Map<String,Integer> keymap=new HashMap<String,Integer>();
+  for (  Map.Entry<String,Integer> entry : myBindingsMap.entrySet()) {
+    bindKey(entry.getKey(),entry.getValue());
+  }
+}
