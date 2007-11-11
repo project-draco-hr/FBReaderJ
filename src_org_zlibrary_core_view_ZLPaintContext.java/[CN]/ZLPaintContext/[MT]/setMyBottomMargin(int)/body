@@ -1,0 +1,5 @@
+{
+  if (getHeight() + myBottomMargin - margin > 0) {
+    myBottomMargin=margin;
+  }
+}
