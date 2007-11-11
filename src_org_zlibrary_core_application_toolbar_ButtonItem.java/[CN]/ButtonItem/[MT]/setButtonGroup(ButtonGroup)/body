@@ -1,7 +1,9 @@
 {
   if (myButtonGroup != null) {
+    myButtonGroup.Items.remove(this);
   }
   myButtonGroup=bg;
   if (myButtonGroup != null) {
+    myButtonGroup.Items.add(this);
   }
 }

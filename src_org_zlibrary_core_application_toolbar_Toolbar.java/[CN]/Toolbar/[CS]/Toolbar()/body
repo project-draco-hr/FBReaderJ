@@ -1,2 +1,3 @@
 {
+  myResource=ZLResource.resource("toolbar");
 }
