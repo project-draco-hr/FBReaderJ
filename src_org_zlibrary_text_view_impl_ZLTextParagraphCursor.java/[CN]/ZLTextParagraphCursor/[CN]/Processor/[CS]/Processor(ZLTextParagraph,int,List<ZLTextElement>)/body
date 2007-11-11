@@ -1,0 +1,5 @@
+{
+  myParagraph=paragraph;
+  myElements=elements;
+  myOffset=0;
+}

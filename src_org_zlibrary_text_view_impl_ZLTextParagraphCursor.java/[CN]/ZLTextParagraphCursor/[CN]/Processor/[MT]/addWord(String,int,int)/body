@@ -1,0 +1,3 @@
+{
+  myElements.add(new ZLTextWord(s,(short)len,offset));
+}

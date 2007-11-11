@@ -1,0 +1,3 @@
+ZLTextParagraph paragraph
+int index
+List<ZLTextElement> elements
