@@ -1,5 +1,6 @@
 {
   myModel=model;
   myIndex=Math.min(index,myModel.getParagraphsNumber() - 1);
+  myElements=new ArrayList<ZLTextElement>();
   fill();
 }

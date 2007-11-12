@@ -1,3 +1,6 @@
 {
   ZLTextParagraph paragraph=myModel.getParagraph(myIndex);
+  if (paragraph.getKind() == ZLTextParagraph.Kind.TEXT_PARAGRAPH) {
+    (new StandardProcessor(paragraph,myIndex,myElements)).fill();
+  }
 }
