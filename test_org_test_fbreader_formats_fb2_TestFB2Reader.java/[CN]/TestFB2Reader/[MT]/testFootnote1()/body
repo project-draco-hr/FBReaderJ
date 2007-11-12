@@ -1,5 +1,5 @@
 {
-  FB2Reader reader=new FB2Reader("test/Data/footnote1.fb2");
+  FB2Reader reader=new FB2Reader(myDirectory + "footnote1.fb2");
   BookModel model=reader.read();
   assertEquals("footnote",((ZLTextEntry)model.getParagraphByLink("note1").getEntries().get(1)).getData());
 }

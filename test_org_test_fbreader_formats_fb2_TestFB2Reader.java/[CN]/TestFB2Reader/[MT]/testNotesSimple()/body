@@ -1,5 +1,5 @@
 {
-  FB2Reader reader=new FB2Reader("test/Data/simple_notes.fb2");
+  FB2Reader reader=new FB2Reader(myDirectory + "simple_notes.fb2");
   assertTrue(reader.read().getFootnotes().containsKey("1"));
   assertNotNull(reader.read().getFootnotes().get("1"));
 }
