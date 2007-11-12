@@ -1,0 +1,4 @@
+{
+  Action a=action(actionId);
+  return ((a != null) && a.isVisible());
+}

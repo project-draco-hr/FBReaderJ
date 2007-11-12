@@ -1,0 +1,4 @@
+{
+  Action action=action(actionId);
+  return (action != null) && action.isEnabled();
+}

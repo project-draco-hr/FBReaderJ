@@ -1,6 +1,5 @@
 {
   if (myViewWidget != null) {
-  }
-  if (myWindow != null) {
+    myViewWidget.trackStylus(track);
   }
 }

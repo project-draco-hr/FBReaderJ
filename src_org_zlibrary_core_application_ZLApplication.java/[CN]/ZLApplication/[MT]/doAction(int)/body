@@ -1,0 +1,6 @@
+{
+  Action action=action(actionId);
+  if (action != null) {
+    action.checkAndRun();
+  }
+}

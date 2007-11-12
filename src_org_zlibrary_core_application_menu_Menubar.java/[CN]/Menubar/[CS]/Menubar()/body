@@ -1,0 +1,3 @@
+{
+  super(ZLResource.resource("menu"));
+}
