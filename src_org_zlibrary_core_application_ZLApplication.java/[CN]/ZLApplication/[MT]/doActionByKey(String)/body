@@ -1,5 +1,5 @@
 {
-  Action a=action(keyBindings().getBinding(key));
+  Action a=getAction(keyBindings().getBinding(key));
   if ((a != null) && (!a.useKeyDelay())) {
     a.checkAndRun();
   }

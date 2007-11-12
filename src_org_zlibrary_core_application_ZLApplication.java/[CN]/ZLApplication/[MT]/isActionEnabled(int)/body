@@ -1,4 +1,4 @@
 {
-  Action action=action(actionId);
+  Action action=getAction(actionId);
   return (action != null) && action.isEnabled();
 }

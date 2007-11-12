@@ -1,5 +1,5 @@
 {
-  if (myViewWidget != null) {
+  if (getMyViewWidget() != null) {
   }
   if (myWindow != null) {
   }

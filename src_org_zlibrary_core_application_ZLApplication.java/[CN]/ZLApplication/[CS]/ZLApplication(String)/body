@@ -8,7 +8,7 @@
   ConfigAutoSavingOption=new ZLBooleanOption(ZLOption.CONFIG_CATEGORY,CONFIG,AUTO_SAVE,true);
   ConfigAutoSaveTimeoutOption=new ZLIntegerRangeOption(ZLOption.CONFIG_CATEGORY,CONFIG,TIMEOUT,1,6000,30);
   KeyDelayOption=new ZLIntegerRangeOption(ZLOption.CONFIG_CATEGORY,"Options","KeyDelay",0,5000,250);
-  myViewWidget=null;
+  setMyViewWidget(null);
   myWindow=null;
   if (ConfigAutoSavingOption.getValue()) {
   }

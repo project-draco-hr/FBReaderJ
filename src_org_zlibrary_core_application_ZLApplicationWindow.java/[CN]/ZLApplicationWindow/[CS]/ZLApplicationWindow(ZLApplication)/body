@@ -1,4 +1,5 @@
 {
   myApplication=application;
   myApplication.setWindow(this);
+  myToggleButtonLock=false;
 }

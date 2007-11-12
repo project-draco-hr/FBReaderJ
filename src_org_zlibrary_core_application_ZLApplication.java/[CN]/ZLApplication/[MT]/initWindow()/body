@@ -1,5 +1,5 @@
 {
-  myViewWidget=myWindow.createViewWidget();
+  setMyViewWidget(myWindow.createViewWidget());
   myWindow.init();
   setView(myInitialView);
 }
