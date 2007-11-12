@@ -1,0 +1,4 @@
+{
+  super("Sample");
+  setView(new SampleView(this,getContext()));
+}

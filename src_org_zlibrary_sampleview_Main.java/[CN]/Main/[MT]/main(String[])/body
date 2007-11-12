@@ -1,0 +1,5 @@
+{
+  ZLibrary.init();
+  ZLibrary.run(new SampleApplication());
+  ZLibrary.shutdown();
+}
