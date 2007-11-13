@@ -1,6 +1,6 @@
 {
   super("Sample");
-  SampleView view=new SampleView(this,getContext());
+  ZLTextView view=new ZLTextView(this,getContext());
   view.setModel(fileName);
   setView(view);
 }
