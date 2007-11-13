@@ -1,5 +1,5 @@
 {
   ZLibrary.init();
-  ZLibrary.run(new FBReader(args[0]));
+  ZLibrary.run(new FBReader((args.length > 0) ? args[0] : "data/help/MiniHelp.ru.fb2"));
   ZLibrary.shutdown();
 }
