@@ -1,0 +1,4 @@
+{
+  String[] components=color.split(",");
+  setColor(Integer.parseInt(components[0]),Integer.parseInt(components[1]),Integer.parseInt(components[2]));
+}

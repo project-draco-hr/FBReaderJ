@@ -1,4 +1,0 @@
-{
-  myIntegerOption.setValueToDefault();
-  assertEquals(myIntegerOption.getValue(),myDefaultInt);
-}

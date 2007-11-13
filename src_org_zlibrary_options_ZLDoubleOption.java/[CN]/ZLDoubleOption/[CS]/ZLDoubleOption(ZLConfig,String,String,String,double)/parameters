@@ -1,0 +1,5 @@
+ZLConfig config
+String category
+String group
+String optionName
+double defaultValue

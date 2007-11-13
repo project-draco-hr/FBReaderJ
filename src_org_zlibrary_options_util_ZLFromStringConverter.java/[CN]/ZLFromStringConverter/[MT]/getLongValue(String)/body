@@ -1,0 +1,4 @@
+{
+  Long value=Long.parseLong(input);
+  return value;
+}

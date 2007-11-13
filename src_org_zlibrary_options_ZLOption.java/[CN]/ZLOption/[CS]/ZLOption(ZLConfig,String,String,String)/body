@@ -1,0 +1,6 @@
+{
+  myCategory=category;
+  myGroup=group;
+  myOptionName=optionName;
+  myConfig=config;
+}

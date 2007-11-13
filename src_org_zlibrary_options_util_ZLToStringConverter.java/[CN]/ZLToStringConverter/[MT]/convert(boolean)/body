@@ -1,0 +1,8 @@
+{
+  if (input) {
+    return "TRUE";
+  }
+ else {
+    return "FALSE";
+  }
+}

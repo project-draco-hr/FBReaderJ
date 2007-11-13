@@ -1,5 +1,0 @@
-{
-  super(category,group,optionName);
-  myDefaultIntValue=defaultValue.getIntValue();
-  myIntValue=myDefaultIntValue;
-}

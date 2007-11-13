@@ -1,0 +1,10 @@
+{
+  if (myData.get(Category) != null) {
+    myData.get(Category).setValue(group,name,value);
+  }
+ else {
+    ZLCategory newCategory=new ZLCategory();
+    newCategory.setValue(group,name,value);
+    myData.put(Category,newCategory);
+  }
+}

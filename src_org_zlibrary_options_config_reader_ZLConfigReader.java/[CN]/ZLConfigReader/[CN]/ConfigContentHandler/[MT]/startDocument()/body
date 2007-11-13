@@ -1,5 +1,2 @@
 {
-  myDepth=0;
-  myCurrentGroup=new ZLGroup();
-  myCurrentConfig=new HashMap<String,ZLGroup>();
 }

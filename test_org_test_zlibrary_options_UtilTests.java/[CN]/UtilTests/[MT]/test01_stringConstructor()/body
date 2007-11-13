@@ -1,0 +1,4 @@
+{
+  myColor=new ZLColor("122,123,0");
+  assertEquals(myColor.toString(),"122,123,0");
+}

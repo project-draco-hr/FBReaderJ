@@ -1,4 +1,0 @@
-{
-  myDoubleOption.setValueToDefault();
-  assertEquals(myDoubleOption.getValue(),myDefaultDouble);
-}

@@ -1,0 +1,4 @@
+{
+  int value=Integer.parseInt(input);
+  return value;
+}

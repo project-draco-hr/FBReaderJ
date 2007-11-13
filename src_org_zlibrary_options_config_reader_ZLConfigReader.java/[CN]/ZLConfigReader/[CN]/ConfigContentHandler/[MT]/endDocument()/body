@@ -1,3 +1,2 @@
 {
-  myConfig=new ZLConfig(myCurrentConfig);
 }

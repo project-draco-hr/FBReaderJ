@@ -1,3 +1,15 @@
 {
-  myIntValue=value.getIntValue();
+  long value=colorValue.getIntValue();
+  if (myIsSynchronized && (myIntValue == value)) {
+    return;
+  }
+  myIntValue=value;
+  myIsSynchronized=true;
+  if (myIntValue == myDefaultValue) {
+    myConfig.unsetValue(myCategory,myGroup,myOptionName);
+  }
+ else {
+    String stringValue=ZLToStringConverter.convert(myIntValue);
+    myConfig.setValue(myCategory,myGroup,myOptionName,stringValue);
+  }
 }

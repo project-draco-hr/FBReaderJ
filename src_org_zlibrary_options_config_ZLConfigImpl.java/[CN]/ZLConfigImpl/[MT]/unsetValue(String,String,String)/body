@@ -1,0 +1,3 @@
+{
+  myData.get(Category).unsetValue(group,name);
+}

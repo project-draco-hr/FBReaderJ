@@ -1,0 +1,20 @@
+{
+  try {
+    InputStream input=new FileInputStream(file);
+    myCategory=file.getName().split(".xml")[0];
+    myXMLReader.parse(new InputSource(input));
+    return myConfig;
+  }
+ catch (  FileNotFoundException fnfException) {
+    System.err.println(fnfException.getMessage());
+    return null;
+  }
+catch (  IOException ioException) {
+    System.err.println(ioException.getMessage());
+    return null;
+  }
+catch (  SAXException saxException) {
+    System.err.println(saxException.getMessage());
+    return null;
+  }
+}

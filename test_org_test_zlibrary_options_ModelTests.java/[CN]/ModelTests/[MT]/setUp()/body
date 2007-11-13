@@ -1,9 +1,9 @@
 {
-  myColorOption=new ZLColorOption("","","my Color",new ZLColor(176,255,0));
-  myDoubleOption=new ZLDoubleOption("","","My Double",myDefaultDouble);
-  myIntegerOption=new ZLIntegerOption("","","I",myDefaultInt);
-  myIntegerRangeOption=new ZLIntegerRangeOption("","","IR",-90L,90L,myDefaultIntRange);
-  myBoolean3Option=new ZLBoolean3Option("","","my Boolean 3",myDefaultBoolean3);
-  myBooleanOption=new ZLBooleanOption("","","my Boolean",myDefaultBoolean);
-  myStringOption=new ZLStringOption("qw","qwe","my String",myDefaultString);
+  myColorOption=new ZLColorOption(myConfig,"","","my Color",new ZLColor(176,255,0));
+  myDoubleOption=new ZLDoubleOption(myConfig,"","","My Double",myDefaultDouble);
+  myIntegerOption=new ZLIntegerOption(myConfig,"","","I",myDefaultInt);
+  myIntegerRangeOption=new ZLIntegerRangeOption(myConfig,"","","IR",-90L,90L,myDefaultIntRange);
+  myBoolean3Option=new ZLBoolean3Option(myConfig,"","","my Boolean 3",myDefaultBoolean3);
+  myBooleanOption=new ZLBooleanOption(myConfig,"","","my Boolean",myDefaultBoolean);
+  myStringOption=new ZLStringOption(myConfig,"qw","qwe","my String",myDefaultString);
 }

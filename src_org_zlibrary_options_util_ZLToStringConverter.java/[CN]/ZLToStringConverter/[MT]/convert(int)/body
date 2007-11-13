@@ -1,0 +1,4 @@
+{
+  Integer value=input;
+  return value.toString();
+}

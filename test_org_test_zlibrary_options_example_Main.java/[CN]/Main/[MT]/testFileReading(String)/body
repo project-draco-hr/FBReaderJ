@@ -1,9 +1,0 @@
-{
-  try {
-    ZLConfigReaderFactory myFactory=new ZLConfigReaderFactory();
-    System.out.println(myFactory.createConfigReader().read(new FileInputStream(file)));
-  }
- catch (  FileNotFoundException nf) {
-    System.out.println(nf.getMessage());
-  }
-}

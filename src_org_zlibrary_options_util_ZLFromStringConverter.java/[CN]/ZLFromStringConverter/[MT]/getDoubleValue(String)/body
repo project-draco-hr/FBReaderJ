@@ -1,0 +1,4 @@
+{
+  double value=Double.parseDouble(input);
+  return value;
+}

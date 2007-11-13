@@ -1,5 +1,11 @@
 {
-  if (isCorrectComponent(red))   myRed=red;
-  if (isCorrectComponent(green))   myGreen=green;
-  if (isCorrectComponent(blue))   myBlue=blue;
+  if (isCorrectComponent(red)) {
+    myRed=red;
+  }
+  if (isCorrectComponent(green)) {
+    myGreen=green;
+  }
+  if (isCorrectComponent(blue)) {
+    myBlue=blue;
+  }
 }

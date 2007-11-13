@@ -1,0 +1,8 @@
+{
+  if (input.equals("TRUE")) {
+    return true;
+  }
+ else {
+    return false;
+  }
+}
