@@ -1,0 +1,6 @@
+{
+  super("Sample");
+  SampleView view=new SampleView(this,getContext());
+  view.setModel(fileName);
+  setView(view);
+}

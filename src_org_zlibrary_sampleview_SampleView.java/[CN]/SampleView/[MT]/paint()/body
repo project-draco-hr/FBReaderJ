@@ -1,16 +1,6 @@
 {
   ZLPaintContext context=getContext();
-  ZLModelFactory modelFactory=new ZLModelFactory();
-  ZLTextModel model=modelFactory.createPlainModel();
-  ZLTextParagraph paragraph=modelFactory.createParagraph();
-  ZLTextEntry entry;
-  entry=modelFactory.createTextEntry("First paragraph:  Some text here ");
-  paragraph.addEntry(entry);
-  model.addParagraphInternal(paragraph);
-  paragraph=modelFactory.createParagraph();
-  entry=modelFactory.createTextEntry("  Second paragraph: ");
-  paragraph.addEntry(entry);
-  model.addParagraphInternal(paragraph);
+  ZLTextModel model=myModel.getBookModel();
   int paragraphs=model.getParagraphsNumber();
   int h=0;
   int dh=context.stringHeight();

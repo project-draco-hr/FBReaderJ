@@ -1,5 +1,5 @@
 {
   ZLibrary.init();
-  ZLibrary.run(new SampleApplication());
+  ZLibrary.run(new SampleApplication(args[0]));
   ZLibrary.shutdown();
 }
