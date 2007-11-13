@@ -1,5 +1,0 @@
-ZLConfig config
-String category
-String group
-String optionName
-ZLBoolean3 defaultValue

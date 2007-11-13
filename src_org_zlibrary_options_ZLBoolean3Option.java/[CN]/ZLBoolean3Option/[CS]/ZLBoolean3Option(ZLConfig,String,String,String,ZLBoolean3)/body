@@ -1,5 +1,0 @@
-{
-  super(config,category,group,optionName);
-  myDefaultValue=defaultValue;
-  myValue=myDefaultValue;
-}

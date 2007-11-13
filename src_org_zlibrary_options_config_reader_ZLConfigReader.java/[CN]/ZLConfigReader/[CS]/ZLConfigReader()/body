@@ -1,9 +1,10 @@
 {
+  myConfig=ZLConfigInstance.getInstance();
   try {
     myXMLReader=XMLReaderFactory.createXMLReader();
     myXMLReader.setContentHandler(new ConfigContentHandler());
   }
  catch (  SAXException e) {
-    System.err.println(e.getMessage());
+    System.out.println(e.getMessage());
   }
 }

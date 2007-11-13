@@ -1,0 +1,8 @@
+{
+  super(category,group,optionName);
+  myMinValue=minValue;
+  myMaxValue=maxValue;
+  if ((myMinValue <= defaultValue) && (myMaxValue >= defaultValue))   myDefaultValue=defaultValue;
+ else   myDefaultValue=myMinValue;
+  myValue=myDefaultValue;
+}
