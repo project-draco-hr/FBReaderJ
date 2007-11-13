@@ -1,4 +1,4 @@
 {
-  testFileReading(new File("test/org/test/zlibrary/options/example/state.xml"));
-  testFileReading(new File("test/org/test/zlibrary/options/example/ui.xml"));
+  readConfigFile(new File("test/org/test/zlibrary/options/example/ui.xml"));
+  System.out.println(ZLConfigInstance.getInstance());
 }

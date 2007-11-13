@@ -1,7 +1,7 @@
 {
   StringBuffer sb=new StringBuffer();
-  for (  String CategoryName : myData.keySet()) {
-    sb.append("" + CategoryName + "\n\n"+ myData.get(CategoryName)+ "\n");
+  for (  String categoryName : myData.keySet()) {
+    sb.append("" + categoryName + "\n\n"+ myData.get(categoryName)+ "\n");
   }
   return sb.toString();
 }

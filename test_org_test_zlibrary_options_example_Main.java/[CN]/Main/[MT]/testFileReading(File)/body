@@ -1,4 +1,0 @@
-{
-  ZLConfigReaderFactory myFactory=new ZLConfigReaderFactory();
-  System.out.println(myFactory.createConfigReader().readFile(file));
-}
