@@ -1,7 +1,7 @@
 {
   StringBuffer sb=new StringBuffer();
   for (  String name : myData.keySet()) {
-    sb.append("        " + name + " : "+ myData.get(name)+ "\n");
+    sb.append("    <option name=\"" + name + "\" value=\""+ myData.get(name)+ "\"/>\n");
   }
   return sb.toString();
 }
