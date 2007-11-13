@@ -11,7 +11,7 @@
     }
  else {
       button.press();
-      ButtonGroup group=button.buttonGroup();
+      ButtonGroup group=button.getButtonGroup();
       Set<ButtonItem> items=group.Items;
       for (      ButtonItem bitem : items) {
         setToggleButtonState(bitem);
@@ -19,5 +19,5 @@
     }
     myToggleButtonLock=false;
   }
-  application().doAction(button.actionId());
+  application().doAction(button.getActionId());
 }
