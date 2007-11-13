@@ -1,2 +1,15 @@
 {
+  if (item.getType() == Item.Type.BUTTON) {
+    ButtonItem buttonItem=(ButtonItem)item;
+    String iconFileName="icons/toolbar/" + buttonItem.getIconName() + ".png";
+    Action action=new AbstractAction("tooltip text",new ImageIcon(iconFileName)){
+      public void actionPerformed(      ActionEvent event){
+      }
+    }
+;
+    myToolbar.add(action);
+  }
+ else {
+    myToolbar.addSeparator();
+  }
 }

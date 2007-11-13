@@ -1,3 +1,6 @@
 {
-  return this.myToolbar;
+  if (myToolbar == null) {
+    myToolbar=new Toolbar();
+  }
+  return myToolbar;
 }

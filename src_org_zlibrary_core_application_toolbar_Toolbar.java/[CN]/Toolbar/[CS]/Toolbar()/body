@@ -1,3 +1,4 @@
 {
+  myItems=new LinkedList<Item>();
   myResource=ZLResource.resource("toolbar");
 }
