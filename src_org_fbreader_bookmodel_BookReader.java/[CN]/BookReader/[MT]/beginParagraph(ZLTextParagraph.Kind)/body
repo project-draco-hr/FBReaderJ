@@ -1,10 +1,12 @@
 {
-  myCurrentTextModel.createParagraph(kind);
-  for (  Byte b : myKindStack) {
-    myCurrentTextModel.addControl(b,true);
+  if (myCurrentTextModel != null) {
+    myCurrentTextModel.createParagraph(kind);
+    for (    Byte b : myKindStack) {
+      myCurrentTextModel.addControl(b,true);
+    }
+    if (myHyperlinkReference != "") {
+      myCurrentTextModel.addHyperlinkControl(myHyperlinkKind,myHyperlinkReference);
+    }
+    myTextParagraphExists=true;
   }
-  if (myHyperlinkReference != "") {
-    myCurrentTextModel.addHyperlinkControl(myHyperlinkKind,myHyperlinkReference);
-  }
-  myTextParagraphExists=true;
 }
