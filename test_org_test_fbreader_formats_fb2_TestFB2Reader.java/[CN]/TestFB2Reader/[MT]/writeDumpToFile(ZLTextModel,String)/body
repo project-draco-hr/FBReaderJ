@@ -1,9 +1,8 @@
 {
-  FileOutputStream fos;
   try {
-    fos=new FileOutputStream(outputFile);
-    fos.write(model.dump().getBytes());
-    fos.close();
+    OutputStreamWriter osw=new OutputStreamWriter(new FileOutputStream(outputFile),"utf8");
+    osw.write(model.dump());
+    osw.close();
   }
  catch (  Exception e) {
     fail();
