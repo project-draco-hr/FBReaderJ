@@ -19,6 +19,7 @@ myConfig.setValue(myCategory,myCurrentGroup,atts.getValue("name"),atts.getValue(
 }
  else {
 System.out.println("wrong tag : <option> expected!");
+System.out.println(myCategory);
 }
 break;
 default :

@@ -1,6 +1,7 @@
 {
+  File file=new File(filePath);
   try {
-    PrintWriter pw=new PrintWriter(new File(filePath));
+    PrintWriter pw=new PrintWriter(file,"UTF-8");
     try {
       pw.write(category.toString());
     }
@@ -10,5 +11,8 @@
   }
  catch (  FileNotFoundException fnfException) {
     System.out.println(fnfException.getMessage());
+  }
+catch (  UnsupportedEncodingException e) {
+    System.out.println(e.getMessage());
   }
 }

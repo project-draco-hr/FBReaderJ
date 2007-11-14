@@ -1,0 +1,8 @@
+{
+  String[] fileList=myDestinationDirectory.list();
+  for (  String fileName : fileList) {
+    if (isXMLFileName(fileName)) {
+      readFile(new File(myDestinationDirectory + "/" + fileName));
+    }
+  }
+}

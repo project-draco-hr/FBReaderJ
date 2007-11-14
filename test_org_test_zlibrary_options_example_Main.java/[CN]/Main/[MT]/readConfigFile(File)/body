@@ -1,3 +1,0 @@
-{
-  ZLConfigReaderFactory.createConfigReader().read(file);
-}
