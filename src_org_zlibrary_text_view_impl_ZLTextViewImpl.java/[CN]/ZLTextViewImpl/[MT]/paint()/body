@@ -9,7 +9,7 @@
     for (int j=0; j < cursor.getParagraphLength(); j++) {
       ZLTextElement element=cursor.getElement(j);
       if (element instanceof ZLTextWord) {
-        String text=((ZLTextWord)element).myData;
+        String text=((ZLTextWord)element).Data;
         final int w=context.stringWidth(text);
         h+=dh;
         context.drawString((context.getWidth() - w) / 2,h,text);

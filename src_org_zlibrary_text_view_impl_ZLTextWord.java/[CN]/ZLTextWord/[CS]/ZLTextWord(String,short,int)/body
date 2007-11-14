@@ -1,4 +1,4 @@
 {
-  myData=data;
-  myLength=(short)data.length();
+  Data=data;
+  Length=(short)data.length();
 }

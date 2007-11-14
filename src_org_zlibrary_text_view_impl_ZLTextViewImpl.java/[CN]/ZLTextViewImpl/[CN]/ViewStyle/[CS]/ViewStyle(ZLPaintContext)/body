@@ -1,0 +1,5 @@
+{
+  myContext=context;
+  setStyle(new ZLTextBaseStyle());
+  myWordHeight=-1;
+}
