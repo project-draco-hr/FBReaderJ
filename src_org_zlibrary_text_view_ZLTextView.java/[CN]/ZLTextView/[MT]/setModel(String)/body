@@ -1,3 +1,0 @@
-{
-  myModel=new FB2Reader(fileName).read();
-}

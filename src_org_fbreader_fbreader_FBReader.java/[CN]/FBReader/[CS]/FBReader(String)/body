@@ -20,7 +20,7 @@
   addToolbarButton(ActionCode.ROTATE_SCREEN,"rotatescreen");
   getToolbar().addSeparator();
   addToolbarButton(ActionCode.SHOW_HELP,"help");
-  ZLTextView view=new ZLTextView(this,getContext());
+  ZLTextView view=new ZLTextViewImpl(this,getContext());
   view.setModel(fileName);
   setView(view);
 }
