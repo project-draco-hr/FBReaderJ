@@ -1,5 +1,4 @@
 {
-  myFrame.setSize(800,600);
   myToolbar.setVisible(true);
   myFrame.setVisible(true);
 }

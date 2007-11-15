@@ -1,6 +1,6 @@
 {
   super(application);
-  myFrame=new JFrame();
+  myFrame=new ZLFrame();
   myFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
   myToolbar=new JToolBar();
   myToolbar.setFloatable(false);
