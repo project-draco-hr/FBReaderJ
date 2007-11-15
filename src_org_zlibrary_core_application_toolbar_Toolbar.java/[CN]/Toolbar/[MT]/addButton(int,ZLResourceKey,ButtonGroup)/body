@@ -1,5 +1,5 @@
 {
-  ButtonItem button=new ButtonItem(actionId,key.Name,myResource.getResource(key));
+  ButtonItem button=new ButtonItem(actionId,key.Name,null);
   myItems.add(button);
   button.setButtonGroup(group);
 }
