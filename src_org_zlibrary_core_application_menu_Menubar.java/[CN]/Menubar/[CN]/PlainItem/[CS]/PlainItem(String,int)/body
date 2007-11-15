@@ -1,5 +1,4 @@
 {
-  super(ItemType.ITEM);
   myName=name;
   myActionId=actionId;
 }

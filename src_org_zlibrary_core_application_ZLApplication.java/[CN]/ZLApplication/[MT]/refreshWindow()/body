@@ -1,6 +1,8 @@
 {
   if (getMyViewWidget() != null) {
+    myViewWidget.repaint();
   }
   if (myWindow != null) {
+    myWindow.refresh();
   }
 }

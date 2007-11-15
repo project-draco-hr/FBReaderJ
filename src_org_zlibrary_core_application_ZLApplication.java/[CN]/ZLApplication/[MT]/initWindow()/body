@@ -2,4 +2,9 @@
   setMyViewWidget(myWindow.createViewWidget());
   myWindow.init();
   setView(myInitialView);
+  if (KeyboardControlOption.getValue()) {
+    grabAllKeys(true);
+  }
+  myWindow.init();
+  setView(myInitialView);
 }
