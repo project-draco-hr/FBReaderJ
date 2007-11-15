@@ -1,6 +1,6 @@
 {
   setSize((int)myWidthOption.getValue(),(int)myHeightOption.getValue());
-  move((int)myXOption.getValue(),(int)myYOption.getValue());
+  setLocation((int)myXOption.getValue(),(int)myYOption.getValue());
   addComponentListener(new ComponentAdapter(){
     public void componentResized(    ComponentEvent event){
       Dimension size=getSize();
