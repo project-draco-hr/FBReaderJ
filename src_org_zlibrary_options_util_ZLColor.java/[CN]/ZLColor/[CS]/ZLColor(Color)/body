@@ -1,3 +1,0 @@
-{
-  setColor((int)color.getRed(),(int)color.getGreen(),(int)color.getBlue());
-}

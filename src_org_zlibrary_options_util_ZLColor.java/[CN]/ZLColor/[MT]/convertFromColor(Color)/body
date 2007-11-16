@@ -1,5 +1,0 @@
-{
-  myRed=(int)color.getRed();
-  myGreen=(int)color.getGreen();
-  myBlue=(int)color.getBlue();
-}
