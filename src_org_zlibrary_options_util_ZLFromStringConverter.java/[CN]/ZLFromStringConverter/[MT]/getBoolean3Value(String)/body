@@ -1,13 +1,11 @@
 {
-  if (input.equals("TRUE")) {
+  if (input.equals("true")) {
     return ZLBoolean3.B3_TRUE;
   }
+ else   if (input.equals("false")) {
+    return ZLBoolean3.B3_FALSE;
+  }
  else {
-    if (input.equals("FALSE")) {
-      return ZLBoolean3.B3_FALSE;
-    }
- else {
-      return ZLBoolean3.B3_UNDEFINED;
-    }
+    return ZLBoolean3.B3_UNDEFINED;
   }
 }
