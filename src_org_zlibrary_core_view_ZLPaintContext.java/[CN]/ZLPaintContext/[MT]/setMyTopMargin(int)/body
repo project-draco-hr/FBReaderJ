@@ -1,5 +1,0 @@
-{
-  if (getHeight() + myTopMargin - margin > 0) {
-    myTopMargin=margin;
-  }
-}

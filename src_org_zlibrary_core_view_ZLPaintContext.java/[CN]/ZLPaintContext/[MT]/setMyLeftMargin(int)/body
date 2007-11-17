@@ -1,5 +1,0 @@
-{
-  if (getWidth() + myLeftMargin - margin > 0) {
-    myLeftMargin=margin;
-  }
-}
