@@ -1,0 +1,3 @@
+{
+  myPaintContext.setSize(w,h);
+}

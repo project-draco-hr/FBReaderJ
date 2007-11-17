@@ -1,0 +1,3 @@
+{
+  return myPaint.getTextWidths(" ",0,1,new float[1]);
+}

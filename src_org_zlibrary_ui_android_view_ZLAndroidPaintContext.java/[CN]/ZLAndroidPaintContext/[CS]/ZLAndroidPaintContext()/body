@@ -1,0 +1,4 @@
+{
+  myPaint=new Paint();
+  myPaint.setAntiAlias(true);
+}

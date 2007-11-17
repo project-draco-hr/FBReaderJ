@@ -1,0 +1,4 @@
+{
+  shutdown();
+  System.exit(0);
+}
