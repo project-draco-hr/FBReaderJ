@@ -1,0 +1,5 @@
+{
+  e.printStackTrace();
+  shutdown();
+  System.exit(0);
+}
