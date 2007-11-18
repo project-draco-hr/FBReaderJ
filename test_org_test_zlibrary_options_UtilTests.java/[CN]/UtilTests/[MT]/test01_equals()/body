@@ -1,4 +1,4 @@
 {
-  ZLColor zlc=new ZLColor(176,255,0);
+  ZLColor zlc=new ZLColor((short)176,(short)255,(short)0);
   assertTrue(zlc.equals(myColor));
 }
