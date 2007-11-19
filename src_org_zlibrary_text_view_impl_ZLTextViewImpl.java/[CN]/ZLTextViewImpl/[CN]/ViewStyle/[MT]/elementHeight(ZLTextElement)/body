@@ -1,0 +1,9 @@
+{
+  if (element instanceof ZLTextWord) {
+    if (myWordHeight == -1) {
+      myWordHeight=(int)(myContext.getStringHeight() * myStyle.lineSpace()) + myStyle.verticalShift();
+    }
+    return myWordHeight;
+  }
+  return 0;
+}

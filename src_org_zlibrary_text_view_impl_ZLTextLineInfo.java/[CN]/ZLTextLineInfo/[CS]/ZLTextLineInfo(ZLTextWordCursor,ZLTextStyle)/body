@@ -9,4 +9,5 @@
   Descent=0;
   VSpaceAfter=0;
   StartStyle=style;
+  SpaceCounter=0;
 }

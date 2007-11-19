@@ -1,0 +1,7 @@
+{
+  if (start == 0 && length == -1) {
+    return word.getWidth(myContext);
+  }
+  assert(false);
+  return 0;
+}
