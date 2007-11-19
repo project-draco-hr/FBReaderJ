@@ -5,7 +5,7 @@
       stream=new BufferedInputStream(new FileInputStream(myFileName));
     }
     SAXParser parser=SAXParserFactory.newInstance().newSAXParser();
-    parser.parse(stream,new FB2Handler(myBookModel));
+    parser.parse(stream,new FB2Handler(this));
   }
  catch (  ParserConfigurationException e) {
     e.printStackTrace();
@@ -15,5 +15,5 @@ catch (  SAXException e) {
 catch (  IOException e) {
     e.printStackTrace();
   }
-  return myBookModel;
+  return myModelReader.getModel();
 }

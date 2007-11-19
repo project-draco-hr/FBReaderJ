@@ -1,0 +1,9 @@
+{
+  int length=attributes.length - 1;
+  for (int i=0; i < length; i+=2) {
+    if (attributes[i].equals(name)) {
+      return attributes[i + 1];
+    }
+  }
+  return null;
+}
