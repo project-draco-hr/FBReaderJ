@@ -1,6 +1,6 @@
 {
-  FB2Reader reader=new FB2Reader(myDirectory + "one_note.fb2");
-  ZLTextModel model=reader.read().getFootnoteModel("1");
+  FB2Reader reader=new FB2Reader();
+  ZLTextModel model=reader.read(myDirectory + "one_note.fb2").getFootnoteModel("1");
   String output=myDirectory + "one_note_act.txt";
   writeDumpToFile(model,output);
   assertTrue(compareFiles(myDirectory + "one_note_exp.txt",output));
