@@ -1,0 +1,3 @@
+{
+  ZLXMLProcessor.createXMLProcessor().read(this,fileName);
+}

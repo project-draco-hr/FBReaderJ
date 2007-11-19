@@ -16,7 +16,7 @@ case CODE:
 case EMPHASIS:
 case STRONG:
 case STRIKETHROUGH:
-myModelReader.addControl((byte)tag.ordinal(),false);
+myModelReader.addControl(getKind(tagName),false);
 break;
 case V:
 case SUBTITLE:

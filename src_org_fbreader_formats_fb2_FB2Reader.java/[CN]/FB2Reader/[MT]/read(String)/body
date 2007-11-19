@@ -1,0 +1,4 @@
+{
+  readFile(fileName);
+  return myModelReader.getModel();
+}

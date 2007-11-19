@@ -5,14 +5,12 @@
       stream=new BufferedInputStream(new FileInputStream(fileName));
     }
     SAXParser parser=SAXParserFactory.newInstance().newSAXParser();
-    parser.parse(stream,new FB2Handler(this));
+    parser.parse(stream,new SAXHandler(reader));
   }
  catch (  ParserConfigurationException e) {
-    e.printStackTrace();
   }
 catch (  SAXException e) {
   }
 catch (  IOException e) {
-    e.printStackTrace();
   }
 }
