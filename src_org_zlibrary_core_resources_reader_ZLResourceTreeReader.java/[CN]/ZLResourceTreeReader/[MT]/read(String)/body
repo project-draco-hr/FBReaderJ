@@ -1,0 +1,18 @@
+{
+  try {
+    InputStream stream=getClass().getClassLoader().getResourceAsStream(fileName);
+    if (stream == null) {
+      stream=new BufferedInputStream(new FileInputStream(fileName));
+    }
+    SAXParser parser=SAXParserFactory.newInstance().newSAXParser();
+    parser.parse(stream,new FB2Handler(this));
+  }
+ catch (  ParserConfigurationException e) {
+    e.printStackTrace();
+  }
+catch (  SAXException e) {
+  }
+catch (  IOException e) {
+    e.printStackTrace();
+  }
+}
