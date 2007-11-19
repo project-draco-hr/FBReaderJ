@@ -1,0 +1,12 @@
+{
+  Start=word;
+  RealStart=word;
+  End=word;
+  IsVisible=false;
+  LeftIndent=0;
+  Width=0;
+  Height=0;
+  Descent=0;
+  VSpaceAfter=0;
+  StartStyle=style;
+}

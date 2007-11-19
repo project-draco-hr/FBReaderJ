@@ -1,4 +1,5 @@
 {
   super(application,context);
   myStyle=new ViewStyle(context);
+  myLineInfos=new ArrayList<ZLTextLineInfo>();
 }
