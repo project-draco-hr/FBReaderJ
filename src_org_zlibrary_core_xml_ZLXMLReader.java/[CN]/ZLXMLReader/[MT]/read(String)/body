@@ -1,0 +1,11 @@
+{
+  InputStream stream=getClass().getClassLoader().getResourceAsStream(fileName);
+  if (stream == null) {
+    try {
+      stream=new BufferedInputStream(new FileInputStream(fileName));
+    }
+ catch (    FileNotFoundException e) {
+    }
+  }
+  return (stream != null) ? ZLXMLProcessorFactory.getInstance().createXMLProcessor().read(this,stream) : false;
+}

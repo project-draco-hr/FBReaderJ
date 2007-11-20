@@ -1,4 +1,5 @@
 {
+  new ZLSaxXMLProcessorFactory();
   myActivity=activity;
   myActivity.setContentView(R.layout.main);
   String applicationClassName="org.fbreader.fbreader.FBReader";

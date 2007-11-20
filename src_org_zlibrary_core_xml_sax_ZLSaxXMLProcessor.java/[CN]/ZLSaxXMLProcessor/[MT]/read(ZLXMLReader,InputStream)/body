@@ -1,0 +1,16 @@
+{
+  try {
+    SAXParser parser=SAXParserFactory.newInstance().newSAXParser();
+    parser.parse(stream,new SAXHandler(reader));
+  }
+ catch (  IOException e) {
+    return false;
+  }
+catch (  ParserConfigurationException e) {
+    return false;
+  }
+catch (  SAXException e) {
+    return false;
+  }
+  return true;
+}

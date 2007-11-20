@@ -1,2 +1,2 @@
 ZLXMLReader reader
-String fileName
+InputStream stream

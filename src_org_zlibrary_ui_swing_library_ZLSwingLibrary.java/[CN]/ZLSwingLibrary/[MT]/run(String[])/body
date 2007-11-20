@@ -1,4 +1,5 @@
 {
+  new ZLSaxXMLProcessorFactory();
   ZLConfigReaderFactory.createConfigReader(configDirectory()).read();
   String applicationClassName="org.fbreader.fbreader.FBReader";
   Class applicationClass=null;

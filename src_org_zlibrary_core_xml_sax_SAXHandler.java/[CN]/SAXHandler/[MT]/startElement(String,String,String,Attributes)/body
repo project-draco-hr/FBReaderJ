@@ -5,5 +5,5 @@
     attrs[i]=attributes.getQName(i / 2);
     attrs[i + 1]=attributes.getValue(i / 2);
   }
-  myFB2Reader.startElementHandler(qName,attrs);
+  myXMLReader.startElementHandler(qName,attrs);
 }
