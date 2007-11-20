@@ -4,9 +4,9 @@
   int textAreaHeight=myStyle.textAreaHeight();
   int counter=0;
   do {
-    ZLTextWordCursor paragraphEnd=cursor;
+    ZLTextWordCursor paragraphEnd=new ZLTextWordCursor(cursor);
     paragraphEnd.moveToParagraphEnd();
-    ZLTextWordCursor paragraphStart=cursor;
+    ZLTextWordCursor paragraphStart=new ZLTextWordCursor(cursor);
     paragraphStart.moveToParagraphStart();
     ZLTextLineInfo info=new ZLTextLineInfo(cursor,myStyle.getTextStyle());
     while (!info.End.isEndOfParagraph()) {

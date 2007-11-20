@@ -40,6 +40,14 @@
       wordOccurred=true;
       isVisible=true;
     }
+ else     if (element instanceof ZLTextHSpaceElement) {
+      if (wordOccurred) {
+        wordOccurred=false;
+        internalSpaceCounter++;
+        lastSpaceWidth=myStyle.getPaintContext().getSpaceWidth();
+        newWidth+=lastSpaceWidth;
+      }
+    }
     if ((newWidth > maxWidth) && !info.End.equalWordNumber(start)) {
       break;
     }
@@ -62,6 +70,12 @@
     }
   }
  while (!current.equalWordNumber(end));
+  if (!current.equalWordNumber(end)) {
+    ZLTextElement element=paragraphCursor.getElement(current.getWordNumber());
+    if (element instanceof ZLTextWord) {
+      newWidth-=myStyle.elementWidth(element,current.getCharNumber());
+    }
+  }
   if (removeLastSpace) {
     info.Width-=lastSpaceWidth;
     info.SpaceCounter--;

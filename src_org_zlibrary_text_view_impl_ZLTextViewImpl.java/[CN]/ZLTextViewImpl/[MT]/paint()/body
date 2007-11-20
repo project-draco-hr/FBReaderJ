@@ -2,19 +2,30 @@
   ZLPaintContext context=getContext();
   ZLTextModel model=myModel.getBookModel();
   int paragraphs=model.getParagraphsNumber();
+  if (paragraphs > 0) {
+    ZLTextParagraphCursor firstParagraph=ZLTextParagraphCursor.getCursor(model,0);
+    ZLTextWordCursor start=new ZLTextWordCursor();
+    start.setCursor(firstParagraph);
+    buildInfos(start);
+  }
   int h=0;
-  int dh=context.getStringHeight();
-  for (int i=0; i < paragraphs; i++) {
-    ZLTextParagraphCursor cursor=ZLTextParagraphCursor.getCursor(model,i);
-    for (int j=0; j < cursor.getParagraphLength(); j++) {
-      ZLTextElement element=cursor.getElement(j);
+  for (  ZLTextLineInfo info : myLineInfos) {
+    int w=0;
+    for (ZLTextWordCursor cursor=info.RealStart; !cursor.equalWordNumber(info.End) && !cursor.isEndOfParagraph(); cursor.nextWord()) {
+      ZLTextElement element=cursor.getElement();
       if (element instanceof ZLTextWord) {
         String text=((ZLTextWord)element).Data;
-        final int w=context.getStringWidth(text);
-        h+=dh;
-        context.drawString((context.getWidth() - w) / 2,h,text);
+        int dw=context.getStringWidth(text);
+        context.drawString(w,h,text);
+        w+=dw;
+      }
+ else       if (element instanceof ZLTextHSpaceElement) {
+        String text=" ";
+        int dw=context.getStringWidth(text);
+        context.drawString(w,h,text);
+        w+=dw;
       }
     }
-    h+=dh;
+    h+=info.Height;
   }
 }
