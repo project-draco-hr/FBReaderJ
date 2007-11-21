@@ -26,6 +26,6 @@
         w+=dw;
       }
     }
-    h+=info.Height;
+    h+=info.Height + info.Descent;
   }
 }

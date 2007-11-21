@@ -1,0 +1,3 @@
+{
+  super(name,fontSizeDelta,bold,italic,verticalShift,allowHyphenations);
+}

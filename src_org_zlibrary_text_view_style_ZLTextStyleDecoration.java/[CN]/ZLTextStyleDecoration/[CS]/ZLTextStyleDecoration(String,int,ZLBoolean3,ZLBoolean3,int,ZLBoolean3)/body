@@ -1,0 +1,8 @@
+{
+  FontFamilyOption=null;
+  FontSizeDeltaOption=null;
+  BoldOption=new ZLBoolean3Option(ZLOption.LOOK_AND_FEEL_CATEGORY,STYLE,name + ":bold",bold);
+  ItalicOption=null;
+  VerticalShiftOption=null;
+  AllowHyphenationsOption=null;
+}
