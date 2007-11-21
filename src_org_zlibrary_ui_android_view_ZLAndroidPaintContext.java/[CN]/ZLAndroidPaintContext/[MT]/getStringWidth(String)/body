@@ -1,7 +1,7 @@
 {
   float[] widths=new float[string.length()];
   myPaint.getTextWidths(string,0,string.length(),widths);
-  float sum=0;
+  float sum=0.5f;
   for (int i=0; i < widths.length; ++i) {
     sum+=widths[i];
   }
