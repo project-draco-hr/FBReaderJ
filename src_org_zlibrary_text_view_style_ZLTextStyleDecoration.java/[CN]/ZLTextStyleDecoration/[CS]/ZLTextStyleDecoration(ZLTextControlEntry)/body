@@ -1,0 +1,5 @@
+{
+  if (entry.getKind() == BOLD) {
+    BoldOption=new ZLBoolean3Option(ZLOption.LOOK_AND_FEEL_CATEGORY,STYLE,":bold",ZLBoolean3.B3_TRUE);
+  }
+}

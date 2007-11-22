@@ -1,2 +1,11 @@
 {
+  if (control.isStart()) {
+    ZLTextFullStyleDecoration decoration=new ZLTextFullStyleDecoration(control.getEntry());
+    setStyle(decoration.createDecoratedStyle(myStyle));
+  }
+ else {
+    if (myStyle.isDecorated()) {
+      setStyle(((ZLTextDecoratedStyle)myStyle).getBase());
+    }
+  }
 }

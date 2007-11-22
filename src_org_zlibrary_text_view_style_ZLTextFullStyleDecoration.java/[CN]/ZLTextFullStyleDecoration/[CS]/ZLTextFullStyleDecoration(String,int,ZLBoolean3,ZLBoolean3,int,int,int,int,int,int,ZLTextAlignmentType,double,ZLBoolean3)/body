@@ -1,3 +1,10 @@
 {
   super(name,fontSizeDelta,bold,italic,verticalShift,allowHyphenations);
+  SpaceBeforeOption=null;
+  SpaceAfterOption=null;
+  LeftIndentOption=null;
+  RightIndentOption=null;
+  FirstLineIndentDeltaOption=null;
+  AlignmentOption=null;
+  LineSpaceOption=null;
 }
