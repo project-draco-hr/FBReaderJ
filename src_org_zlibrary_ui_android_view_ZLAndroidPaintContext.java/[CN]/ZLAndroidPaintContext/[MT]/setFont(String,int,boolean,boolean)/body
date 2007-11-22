@@ -4,5 +4,5 @@
     family="Georgia";
   }
   myPaint.setTypeface(Typeface.create(family,style));
-  myPaint.setTextSize(size * 0.7f);
+  myPaint.setTextSize(size);
 }
