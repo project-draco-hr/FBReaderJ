@@ -2,9 +2,11 @@
   long size=new ZLIntegerRangeOption(ZLOption.CONFIG_CATEGORY,myName,BINDINGS_NUMBER,0,256,0).getValue();
   for (int i=0; i < size; ++i) {
     String key=BINDED_KEY;
+    key=key + i;
     String keyValue=new ZLStringOption(ZLOption.CONFIG_CATEGORY,myName,key,"").getValue();
     if (keyValue.length() != 0) {
       String action=BINDED_ACTION;
+      action=action + i;
       int actionValue=(int)(new ZLIntegerOption(ZLOption.CONFIG_CATEGORY,myName,action,-1).getValue());
       if (actionValue != -1) {
         bindKey(keyValue,actionValue);

@@ -9,8 +9,8 @@
     Integer original=keymap.get(entry.getKey());
     int defaultAction=original;
     if (defaultAction != entry.getValue()) {
-      String key=BINDED_KEY;
-      String action=BINDED_ACTION;
+      String key=BINDED_KEY + counter;
+      String action=BINDED_ACTION + counter;
       new ZLStringOption(ZLOption.CONFIG_CATEGORY,myName,key,"").setValue(entry.getKey());
       new ZLIntegerOption(ZLOption.CONFIG_CATEGORY,myName,action,-1).setValue(entry.getValue());
       ++counter;
