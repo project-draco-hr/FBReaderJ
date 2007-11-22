@@ -1,4 +1,5 @@
 {
   myPaint=new Paint();
+  myPaint.setLinearText(true);
   myPaint.setAntiAlias(true);
 }

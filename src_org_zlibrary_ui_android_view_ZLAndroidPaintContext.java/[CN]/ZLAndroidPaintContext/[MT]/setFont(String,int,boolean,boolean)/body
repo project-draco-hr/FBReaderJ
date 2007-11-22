@@ -1,2 +1,8 @@
 {
+  final int style=(bold ? Typeface.BOLD : 0) | (italic ? Typeface.ITALIC : 0);
+  if (family == null) {
+    family="Georgia";
+  }
+  myPaint.setTypeface(Typeface.create(family,style));
+  myPaint.setTextSize(size * 0.7f);
 }
