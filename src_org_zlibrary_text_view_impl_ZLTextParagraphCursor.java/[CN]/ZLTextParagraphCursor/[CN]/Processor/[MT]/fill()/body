@@ -4,5 +4,8 @@
     if (entry instanceof ZLTextEntry) {
       processTextEntry((ZLTextEntry)entry);
     }
+ else     if (entry instanceof ZLTextControlEntry) {
+      myElements.add(new ZLTextControlElement(entry));
+    }
   }
 }

@@ -8,7 +8,7 @@
     start.setCursor(firstParagraph);
     buildInfos(start);
   }
-  int h=0;
+  int h=100;
   for (  ZLTextLineInfo info : myLineInfos) {
     int w=0;
     for (ZLTextWordCursor cursor=info.RealStart; !cursor.equalWordNumber(info.End) && !cursor.isEndOfParagraph(); cursor.nextWord()) {
@@ -24,6 +24,9 @@
         int dw=context.getStringWidth(text);
         context.drawString(w,h,text);
         w+=dw;
+      }
+ else       if (element instanceof ZLTextControlElement) {
+        myStyle.applyControl((ZLTextControlElement)element);
       }
     }
     h+=info.Height + info.Descent;
