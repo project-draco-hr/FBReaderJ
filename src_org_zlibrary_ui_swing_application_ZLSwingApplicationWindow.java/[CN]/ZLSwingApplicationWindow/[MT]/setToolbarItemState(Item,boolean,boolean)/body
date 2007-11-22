@@ -1,2 +1,4 @@
 {
+  AbstractAction action=(AbstractAction)myItemActionMap.get(item);
+  action.setEnabled(enabled);
 }
