@@ -1,2 +1,4 @@
 {
+  Dimension screenSize=Toolkit.getDefaultToolkit().getScreenSize();
+  this.myFrame.setSize(screenSize);
 }
