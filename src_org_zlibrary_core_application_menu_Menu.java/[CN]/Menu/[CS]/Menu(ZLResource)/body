@@ -1,3 +1,4 @@
 {
-  this.myResource=resource;
+  myItems=new LinkedList<Item>();
+  myResource=resource;
 }

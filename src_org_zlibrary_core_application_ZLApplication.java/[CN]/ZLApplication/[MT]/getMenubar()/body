@@ -1,3 +1,6 @@
 {
-  return this.myMenubar;
+  if (myMenubar == null) {
+    myMenubar=new Menubar();
+  }
+  return myMenubar;
 }
