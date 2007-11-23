@@ -1,3 +1,7 @@
 {
-  return null;
+  ZLTreeResource.buildTree();
+  if (ZLTreeResource.ourRoot == null) {
+    return ZLMissingResource.instance();
+  }
+  return ZLTreeResource.ourRoot.getResource(key);
 }

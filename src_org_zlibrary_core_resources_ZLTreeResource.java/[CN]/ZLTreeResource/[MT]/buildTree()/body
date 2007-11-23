@@ -1,0 +1,10 @@
+{
+  if (ourRoot == null) {
+    ourRoot=new ZLTreeResource("");
+    loadData("en");
+    String language=ZLibrary.Language();
+    if (language != "en") {
+      loadData(language);
+    }
+  }
+}

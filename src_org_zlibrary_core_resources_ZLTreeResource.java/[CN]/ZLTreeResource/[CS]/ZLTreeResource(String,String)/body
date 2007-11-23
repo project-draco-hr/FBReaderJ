@@ -1,0 +1,5 @@
+{
+  super(name);
+  myHasValue=true;
+  myValue=value;
+}

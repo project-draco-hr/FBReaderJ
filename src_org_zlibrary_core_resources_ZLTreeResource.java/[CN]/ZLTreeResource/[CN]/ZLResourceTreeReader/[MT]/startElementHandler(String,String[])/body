@@ -1,0 +1,24 @@
+{
+  if (!myStack.empty() && (NODE.equals(tag))) {
+    String name=attributeValue(attributes,"name");
+    if (name != null) {
+      String value=attributeValue(attributes,"value");
+      ZLTreeResource node=myStack.peek().myChildren.get(name);
+      if (node == null) {
+        if (value != null) {
+          node=new ZLTreeResource(name,value);
+        }
+ else {
+          node=new ZLTreeResource(name);
+        }
+        myStack.peek().myChildren.put(name,node);
+      }
+ else {
+        if (value != null) {
+          node.setValue(value);
+        }
+      }
+      myStack.push(node);
+    }
+  }
+}
