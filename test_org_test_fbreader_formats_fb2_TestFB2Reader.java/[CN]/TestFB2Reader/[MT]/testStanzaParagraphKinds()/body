@@ -1,6 +1,6 @@
 {
   FB2Reader reader=new FB2Reader();
-  ZLTextModel model=reader.read(myDirectory + "stanza.fb2").getBookModel();
+  ZLTextModel model=reader.readBook(myDirectory + "stanza.fb2").getBookModel();
   assertEquals(model.getParagraph(0).getKind(),ZLTextParagraph.Kind.BEFORE_SKIP_PARAGRAPH);
   assertEquals(model.getParagraph(2).getKind(),ZLTextParagraph.Kind.AFTER_SKIP_PARAGRAPH);
   assertEquals(model.getParagraph(1).getKind(),ZLTextParagraph.Kind.TEXT_PARAGRAPH);

@@ -1,5 +1,5 @@
 {
   FB2Reader reader=new FB2Reader();
-  ZLTextModel model=reader.read(myDirectory + "empty_line.fb2").getBookModel();
+  ZLTextModel model=reader.readBook(myDirectory + "empty_line.fb2").getBookModel();
   assertEquals(model.getParagraph(0).getKind(),ZLTextParagraph.Kind.EMPTY_LINE_PARAGRAPH);
 }
