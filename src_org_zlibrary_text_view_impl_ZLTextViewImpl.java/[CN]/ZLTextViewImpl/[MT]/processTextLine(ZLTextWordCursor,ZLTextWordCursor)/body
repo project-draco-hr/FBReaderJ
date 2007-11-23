@@ -80,6 +80,12 @@
     if (element instanceof ZLTextWord) {
       newWidth-=myStyle.elementWidth(element,current.getCharNumber());
     }
+    info.IsVisible=true;
+    info.Width=newWidth;
+    info.Height=Math.max(info.Height,newHeight);
+    info.Descent=Math.max(info.Descent,newDescent);
+    info.End=current;
+    info.SpaceCounter=internalSpaceCounter;
   }
   if (removeLastSpace) {
     info.Width-=lastSpaceWidth;
