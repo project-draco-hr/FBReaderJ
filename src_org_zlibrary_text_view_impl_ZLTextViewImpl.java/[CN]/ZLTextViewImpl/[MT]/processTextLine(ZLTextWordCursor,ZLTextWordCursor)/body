@@ -6,6 +6,9 @@
   if (isFirstLine) {
     ZLTextElement element=paragraphCursor.getElement(current.getWordNumber());
     while (element instanceof ZLTextControlElement) {
+      if (element instanceof ZLTextControlElement) {
+        myStyle.applyControl((ZLTextControlElement)element);
+      }
       current.nextWord();
       if (current.equalWordNumber(end)) {
         break;
@@ -48,6 +51,9 @@
         newWidth+=lastSpaceWidth;
       }
     }
+ else     if (element instanceof ZLTextControlElement) {
+      myStyle.applyControl((ZLTextControlElement)element);
+    }
     if ((newWidth > maxWidth) && !info.End.equalWordNumber(start)) {
       break;
     }
@@ -64,7 +70,6 @@
       info.Height=Math.max(info.Height,newHeight);
       info.Descent=Math.max(info.Descent,newDescent);
       info.End=current;
-      storedStyle=myStyle.getTextStyle();
       info.SpaceCounter=internalSpaceCounter;
       removeLastSpace=!wordOccurred && (info.SpaceCounter > 0);
     }

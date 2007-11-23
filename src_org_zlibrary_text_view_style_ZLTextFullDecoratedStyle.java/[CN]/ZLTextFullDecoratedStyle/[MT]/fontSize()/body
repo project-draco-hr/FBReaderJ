@@ -1,3 +1,3 @@
 {
-  return 12;
+  return getBase().fontSize() + (int)myDecoration.FontSizeDeltaOption.getValue();
 }
