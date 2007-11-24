@@ -4,4 +4,5 @@
   java.net.URL iconURL=getClass().getClassLoader().getResource(iconFileName);
   ImageIcon icon=(iconURL != null) ? new ImageIcon(iconURL) : new ImageIcon(iconFileName);
   putValue(Action.SMALL_ICON,icon);
+  putValue(Action.SHORT_DESCRIPTION,item.getTooltip());
 }
