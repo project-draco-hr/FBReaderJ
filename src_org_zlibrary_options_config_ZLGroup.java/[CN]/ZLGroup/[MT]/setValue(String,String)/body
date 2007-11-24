@@ -1,8 +1,0 @@
-{
-  if (myData.get(name) == null) {
-    myData.put(name,new String(data));
-  }
- else {
-    myData.put(name,data);
-  }
-}

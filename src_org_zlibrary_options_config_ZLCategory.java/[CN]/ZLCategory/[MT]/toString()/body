@@ -1,9 +1,0 @@
-{
-  StringBuffer sb=new StringBuffer("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
-  sb.append("<config>\n");
-  for (  String groupName : myData.keySet()) {
-    sb.append("  <group name=\"" + groupName + "\">\n"+ myData.get(groupName)+ "  </group>\n");
-  }
-  sb.append("</config>");
-  return sb.toString();
-}

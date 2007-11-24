@@ -1,5 +1,0 @@
-{
-  if (myData.get(name) != null) {
-    myData.remove(name);
-  }
-}

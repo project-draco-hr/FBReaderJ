@@ -1,0 +1,29 @@
+{
+switch (myDepth) {
+case 0:
+    if (!localName.equals("config")) {
+      System.out.println("wrong tag : <config> expected!");
+    }
+  break;
+case 1:
+if (localName.equals("group")) {
+  myCurrentGroup=atts.getValue("name");
+}
+ else {
+  System.out.println("wrong tag : <group> expected!");
+}
+break;
+case 2:
+if (localName.equals("option")) {
+myConfig.setValue(myCurrentGroup,atts.getValue("name"),atts.getValue("value"),myCategory);
+}
+ else {
+System.out.println("wrong tag : <option> expected!");
+System.out.println(myCategory);
+}
+break;
+default :
+System.out.println("too many nesting elements!");
+}
+myDepth++;
+}

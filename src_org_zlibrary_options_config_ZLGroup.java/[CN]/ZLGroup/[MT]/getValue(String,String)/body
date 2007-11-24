@@ -1,9 +1,0 @@
-{
-  String temp=myData.get(name);
-  if (temp != null) {
-    return temp;
-  }
- else {
-    return defaultValue;
-  }
-}

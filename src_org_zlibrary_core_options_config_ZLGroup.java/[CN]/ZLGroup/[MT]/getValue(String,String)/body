@@ -1,0 +1,9 @@
+{
+  ZLOptionValue temp=myData.get(name);
+  if (temp != null) {
+    return temp.getValue();
+  }
+ else {
+    return defaultValue;
+  }
+}

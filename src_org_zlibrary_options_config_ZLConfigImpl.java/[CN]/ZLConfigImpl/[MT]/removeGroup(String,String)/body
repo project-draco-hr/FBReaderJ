@@ -1,3 +1,0 @@
-{
-  myData.get(category).removeGroup(group);
-}

@@ -1,8 +1,0 @@
-{
-  if (myData.get(Category) != null) {
-    return myData.get(Category).getValue(group,name,defaultValue);
-  }
- else {
-    return defaultValue;
-  }
-}

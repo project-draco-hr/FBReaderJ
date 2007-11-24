@@ -1,0 +1,9 @@
+{
+  ZLOptionValue temp=myData.get(name);
+  if (temp == null) {
+    myData.put(name,new ZLOptionValue(name,value,category));
+  }
+ else {
+    temp.setValue(value);
+  }
+}

@@ -5,7 +5,7 @@
   myOption.setValue("I'M_CHANGED!");
   ZLStringOption myChangeableOption=new ZLStringOption("ui","MYGROUP","lengthChangeable","12312");
   myChangeableOption.setValue("I_COULD_CHANGE!");
-  ZLConfigInstance.getInstance().unsetValue("ui","MYGROUP","lengthChangeable");
-  String output="test/org/test/zlibrary/options/example/output/";
+  ZLConfigInstance.getInstance().unsetValue("MYGROUP","lengthChangeable");
+  String output="test/org/test/zlibrary/options/example/output/output/";
   ZLConfigWriterFactory.createConfigWriter(output).write();
 }

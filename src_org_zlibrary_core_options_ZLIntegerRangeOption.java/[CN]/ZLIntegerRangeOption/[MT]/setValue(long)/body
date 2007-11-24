@@ -1,0 +1,16 @@
+{
+  if ((value <= myMaxValue) && (value >= myMinValue)) {
+    if (myIsSynchronized && (myValue == value)) {
+      return;
+    }
+    myValue=value;
+    myIsSynchronized=true;
+    if (myValue == myDefaultValue) {
+      myConfig.unsetValue(myGroup,myOptionName);
+    }
+ else {
+      String stringValue=ZLToStringConverter.convert(myValue);
+      myConfig.setValue(myGroup,myOptionName,stringValue,myCategory);
+    }
+  }
+}

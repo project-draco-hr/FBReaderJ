@@ -1,6 +1,0 @@
-{
-  Map<String,ZLCategory> data=myConfig.getCategories();
-  for (  String name : data.keySet()) {
-    this.writeCategoryInFile(data.get(name),myDestinationDirectory + "/" + name+ ".xml");
-  }
-}

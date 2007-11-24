@@ -1,8 +1,0 @@
-{
-  if (!myIsSynchronized) {
-    String value=myConfig.getValue(myCategory,myGroup,myOptionName,myDefaultValue);
-    myValue=value;
-    myIsSynchronized=true;
-  }
-  return myValue;
-}
