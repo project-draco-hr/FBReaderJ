@@ -1,5 +1,5 @@
 {
-  String filePath=File.separatorChar + "resources" + File.separatorChar+ language+ ".xml";
-  new ZLResourceTreeReader(ourRoot).readDocument(ZLApplication.getZLibraryDirectory() + filePath);
-  new ZLResourceTreeReader(ourRoot).readDocument(ZLApplication.ApplicationDirectory() + filePath);
+  final String fileName=language + ".xml";
+  new ZLResourceTreeReader(ourRoot).readDocument("data/resources/zlibrary/" + fileName);
+  new ZLResourceTreeReader(ourRoot).readDocument("data/resources/application/" + fileName);
 }

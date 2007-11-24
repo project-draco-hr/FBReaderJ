@@ -7,10 +7,10 @@
       ZLTreeResource node;
       if (peek.myChildren == null) {
         node=null;
+        peek.myChildren=new HashMap<String,ZLTreeResource>();
       }
  else {
         node=peek.myChildren.get(name);
-        peek.myChildren=new HashMap<String,ZLTreeResource>();
       }
       if (node == null) {
         if (value != null) {
