@@ -1,0 +1,5 @@
+{
+  myValue=value;
+  myCategory=category;
+  myName=name;
+}
