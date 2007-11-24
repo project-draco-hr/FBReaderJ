@@ -1,3 +1,3 @@
 {
-  myItems.add(new Menubar.PlainItem(key.Name,actionId));
+  myItems.add(new Menubar.PlainItem(myResource.getResource(key).value(),actionId));
 }

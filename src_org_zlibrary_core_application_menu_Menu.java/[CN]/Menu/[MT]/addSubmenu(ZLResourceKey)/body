@@ -1,5 +1,5 @@
 {
-  Menubar.Submenu submenu=new Menubar.Submenu(null);
+  Menubar.Submenu submenu=new Menubar.Submenu(myResource.getResource(key));
   myItems.add(submenu);
   return submenu;
 }
