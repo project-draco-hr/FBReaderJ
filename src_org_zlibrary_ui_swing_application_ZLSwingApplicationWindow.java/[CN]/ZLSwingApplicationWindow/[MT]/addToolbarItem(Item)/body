@@ -1,11 +1,7 @@
 {
   if (item.getType() == Item.Type.BUTTON) {
     ButtonItem buttonItem=(ButtonItem)item;
-    String iconFileName="icons/toolbar/" + buttonItem.getIconName() + ".png";
-    java.net.URL iconURL=getClass().getClassLoader().getResource(iconFileName);
-    ImageIcon icon=(iconURL != null) ? new ImageIcon(iconURL) : new ImageIcon(iconFileName);
     Action action=new MyButtonAction(buttonItem);
-    action.putValue(Action.SMALL_ICON,icon);
     myToolbar.add(action);
     myItemActionMap.put(item,action);
   }
