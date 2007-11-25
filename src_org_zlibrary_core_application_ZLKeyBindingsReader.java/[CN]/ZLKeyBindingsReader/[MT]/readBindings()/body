@@ -1,2 +1,3 @@
 {
+  read(ZLApplication.getDefaultFilesPathPrefix() + KeymapFile);
 }
