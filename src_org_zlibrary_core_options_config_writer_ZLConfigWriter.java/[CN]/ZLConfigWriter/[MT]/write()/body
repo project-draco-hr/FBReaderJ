@@ -1,4 +1,5 @@
 {
+  myConfig.applyDelta();
   Map<String,ZLGroup> data=myConfig.getGroups();
   Map<String,StringBuffer> configFilesContent=new HashMap<String,StringBuffer>();
   StringBuffer sb;
