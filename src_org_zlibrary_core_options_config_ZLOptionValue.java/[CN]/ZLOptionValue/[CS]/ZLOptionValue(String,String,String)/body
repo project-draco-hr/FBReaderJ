@@ -1,5 +1,5 @@
 {
-  myValue=value;
-  myCategory=category;
-  myName=name;
+  myValue=value.intern();
+  myCategory=category.intern();
+  myName=name.intern();
 }
