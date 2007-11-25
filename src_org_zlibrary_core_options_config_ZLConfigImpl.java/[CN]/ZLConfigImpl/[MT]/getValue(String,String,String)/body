@@ -1,8 +1,9 @@
 {
-  if (myData.get(group) != null) {
-    return myData.get(group).getValue(name,defaultValue);
+  String value=myDeltaConfig.getValue(group,name,defaultValue);
+  if (value == null) {
+    return myMainConfig.getValue(group,name,defaultValue);
   }
  else {
-    return defaultValue;
+    return value;
   }
 }

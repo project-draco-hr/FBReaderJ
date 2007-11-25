@@ -1,3 +1,4 @@
 {
-  myData=new LinkedHashMap<String,ZLGroup>();
+  myMainConfig=new ZLSimpleConfigImpl();
+  myDeltaConfig=new ZLDeltaConfig();
 }

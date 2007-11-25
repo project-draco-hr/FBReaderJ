@@ -1,0 +1,5 @@
+{
+  myDeletedValues.clear();
+  myDeletedGroups.clear();
+  mySetValues.clear();
+}

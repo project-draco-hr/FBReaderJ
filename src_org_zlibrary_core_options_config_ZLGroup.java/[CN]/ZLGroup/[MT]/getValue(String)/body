@@ -4,6 +4,6 @@
     return temp.getValue();
   }
  else {
-    return defaultValue;
+    return null;
   }
 }

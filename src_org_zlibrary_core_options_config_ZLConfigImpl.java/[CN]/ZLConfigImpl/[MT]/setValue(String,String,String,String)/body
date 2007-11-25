@@ -1,10 +1,3 @@
 {
-  if (myData.get(group) != null) {
-    myData.get(group).setValue(name,value,category);
-  }
- else {
-    ZLGroup newGroup=new ZLGroup();
-    newGroup.setValue(name,value,category);
-    myData.put(group,newGroup);
-  }
+  myDeltaConfig.setValue(group,name,value,category);
 }

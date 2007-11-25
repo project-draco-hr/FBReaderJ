@@ -1,0 +1,17 @@
+{
+  for (  String deletedGroup : myDeltaConfig.getDeletedGroups()) {
+    myMainConfig.removeGroup(deletedGroup);
+  }
+  Map<String,String> deletedValues=myDeltaConfig.getDeletedValues();
+  for (  String group : deletedValues.keySet()) {
+    myMainConfig.unsetValue(group,deletedValues.get(group));
+  }
+  ZLSimpleConfigImpl setValues=myDeltaConfig.getSetValues();
+  Map<String,ZLGroup> groups=setValues.getGroups();
+  for (  String group : groups.keySet()) {
+    for (    ZLOptionValue value : groups.get(group).getValues()) {
+      myMainConfig.setValue(group,value.getName(),value.getValue(),value.getCategory());
+    }
+  }
+  myDeltaConfig.clear();
+}
