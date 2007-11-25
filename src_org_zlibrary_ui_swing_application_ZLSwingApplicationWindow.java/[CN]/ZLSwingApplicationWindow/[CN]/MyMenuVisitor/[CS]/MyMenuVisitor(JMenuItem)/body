@@ -1,0 +1,3 @@
+{
+  myMenuStack.push(menu);
+}

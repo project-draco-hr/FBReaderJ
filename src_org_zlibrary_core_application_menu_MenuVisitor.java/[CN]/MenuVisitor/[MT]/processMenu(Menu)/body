@@ -1,5 +1,5 @@
 {
-  for (  Menu.Item item : menu.items()) {
+  for (  Menu.Item item : menu.getItems()) {
     if (item instanceof Menubar.PlainItem) {
       processItem((Menubar.PlainItem)item);
     }

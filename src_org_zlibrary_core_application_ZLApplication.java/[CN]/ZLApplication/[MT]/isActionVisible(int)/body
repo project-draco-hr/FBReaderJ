@@ -1,4 +1,4 @@
 {
-  Action a=getAction(actionId);
+  ZLAction a=getAction(actionId);
   return ((a != null) && a.isVisible());
 }

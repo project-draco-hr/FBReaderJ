@@ -1,4 +1,4 @@
 {
-  Action action=getAction(actionId);
+  ZLAction action=getAction(actionId);
   return (action != null) && action.isEnabled();
 }

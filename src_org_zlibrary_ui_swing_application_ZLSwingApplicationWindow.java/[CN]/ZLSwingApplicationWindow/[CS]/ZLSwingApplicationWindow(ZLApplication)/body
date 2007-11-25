@@ -4,6 +4,12 @@
   myFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
   myToolbar=new JToolBar();
   myToolbar.setFloatable(false);
-  myFrame.getRootPane().setLayout(new BorderLayout());
-  myFrame.getRootPane().add(myToolbar,BorderLayout.NORTH);
+  myMenuBar=new JMenuBar();
+  myMenu=new JMenu("File");
+  myMenuBar.add(myMenu);
+  myMainPanel=new JPanel();
+  myMainPanel.setLayout(new BorderLayout());
+  myMainPanel.add(myToolbar,BorderLayout.NORTH);
+  myFrame.add(myMainPanel);
+  myFrame.setJMenuBar(myMenuBar);
 }

@@ -1,0 +1,4 @@
+{
+  myItem=item;
+  putValue(Action.SHORT_DESCRIPTION,item.getName());
+}

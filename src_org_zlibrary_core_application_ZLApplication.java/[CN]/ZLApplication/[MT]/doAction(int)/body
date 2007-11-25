@@ -1,5 +1,5 @@
 {
-  Action action=getAction(actionId);
+  ZLAction action=getAction(actionId);
   if (action != null) {
     action.checkAndRun();
   }

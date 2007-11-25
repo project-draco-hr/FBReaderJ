@@ -1,5 +1,5 @@
 {
   ZLSwingViewWidget viewWidget=new ZLSwingViewWidget(ZLSwingViewWidget.Angle.DEGREES0);
-  myFrame.getRootPane().add(viewWidget.getPanel(),BorderLayout.CENTER);
+  myMainPanel.add(viewWidget.getPanel(),BorderLayout.CENTER);
   return viewWidget;
 }

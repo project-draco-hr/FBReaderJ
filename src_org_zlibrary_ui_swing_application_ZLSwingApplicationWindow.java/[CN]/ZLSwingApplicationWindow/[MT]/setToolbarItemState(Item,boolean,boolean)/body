@@ -1,6 +1,5 @@
 {
   Action action=myItemActionMap.get(item);
   if (action != null) {
-    action.setEnabled(enabled);
   }
 }

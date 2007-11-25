@@ -1,2 +1,20 @@
 {
+  List<Menu.Item> menuitems=application().getMenubar().getItems();
+  for (  Menu.Item menuitem : menuitems) {
+    if (menuitem instanceof PlainItem) {
+      PlainItem item=(PlainItem)menuitem;
+      final JMenuItem exit=new JMenuItem(item.getName());
+      this.myMenu.add(exit);
+    }
+ else {
+      if (menuitem instanceof Submenu) {
+        Submenu item=(Submenu)menuitem;
+        final JMenuItem exit=new JMenuItem(item.getMenuName());
+        this.myMenu.add(exit);
+        for (        Menu.Item i : item.getItems()) {
+          exit.add(new JMenuItem());
+        }
+      }
+    }
+  }
 }
