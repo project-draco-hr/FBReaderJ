@@ -1,0 +1,3 @@
+{
+  myMenuStack.peek().addSeparator(0,myItemCount++);
+}

@@ -1,0 +1,10 @@
+{
+  new ZLXMLReader(){
+    public void startElementHandler(    String tag,    String[] attributes){
+      if (tag.equals("property")) {
+        myProperties.put(attributeValue(attributes,"name"),attributeValue(attributes,"value"));
+      }
+    }
+  }
+.read("data/application.xml");
+}

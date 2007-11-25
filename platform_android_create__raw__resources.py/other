@@ -1,0 +1,8 @@
+import os
+import shutil
+raw_res_dir = 'res/raw'
+xml_res_dir = 'res/xml'
+data_dir = '../../data'
+print os.getcwd()
+clean_res_dir(raw_res_dir)
+process_data_dir('data__', data_dir)

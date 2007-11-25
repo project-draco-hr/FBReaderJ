@@ -1,12 +1,2 @@
 {
-  for (  Menu.Item item : application().getMenubar().items()) {
-switch (item.getType()) {
-case ITEM:
-      break;
-case SUBMENU:
-    break;
-case SEPARATOR:
-  break;
-}
-}
 }

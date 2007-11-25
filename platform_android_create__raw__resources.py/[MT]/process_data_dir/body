@@ -1,0 +1,7 @@
+def process_data_dir(prefix, dir):
+    for file in os.listdir(dir):
+        full_file_name = ((dir + os.sep) + file)
+        if os.path.isfile(full_file_name):
+            shutil.copyfile(full_file_name, (((raw_res_dir + os.sep) + prefix) + file.lower().replace('.', '_')))
+        elif (file != '.svn'):
+            process_data_dir(((prefix + file) + '__'), full_file_name)

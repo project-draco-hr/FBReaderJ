@@ -1,0 +1,15 @@
+{
+  myActivity=activity;
+  new ZLSaxXMLProcessorFactory();
+  loadProperties();
+  myActivity.setContentView(R.layout.main);
+  try {
+    myApplication=(ZLApplication)getApplicationClass().newInstance();
+  }
+ catch (  Exception e) {
+    shutdown();
+    System.exit(0);
+  }
+  ZLAndroidApplicationWindow mainWindow=new ZLAndroidApplicationWindow(myApplication);
+  myApplication.initWindow();
+}

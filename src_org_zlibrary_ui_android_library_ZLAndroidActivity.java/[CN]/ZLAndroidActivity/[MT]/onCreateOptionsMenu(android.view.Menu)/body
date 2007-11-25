@@ -1,0 +1,5 @@
+{
+  super.onCreateOptionsMenu(menu);
+  new MyMenuVisitor(menu).processMenu(((ZLAndroidLibrary)ZLAndroidLibrary.getInstance()).application().getMenubar());
+  return true;
+}

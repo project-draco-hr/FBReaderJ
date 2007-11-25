@@ -1,5 +1,5 @@
 {
-  InputStream stream=getClass().getClassLoader().getResourceAsStream(fileName);
+  InputStream stream=ZLibrary.getInstance().getResourceInputStream(fileName);
   if (stream == null) {
     try {
       stream=new BufferedInputStream(new FileInputStream(fileName));

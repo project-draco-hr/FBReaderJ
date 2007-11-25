@@ -1,4 +1,4 @@
 {
-  ZLAndroidWidget widget=(ZLAndroidWidget)myActivity.findViewById(R.id.zlactivity);
+  ZLAndroidWidget widget=(ZLAndroidWidget)myActivity.findViewById(R.id.zlandroidactivity);
   return widget.getPaintContext();
 }
