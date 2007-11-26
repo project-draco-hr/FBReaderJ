@@ -1,3 +1,6 @@
 {
-  myData.get(group).unsetValue(name);
+  ZLGroup gr=myData.get(group);
+  if (gr != null) {
+    gr.unsetValue(name);
+  }
 }
