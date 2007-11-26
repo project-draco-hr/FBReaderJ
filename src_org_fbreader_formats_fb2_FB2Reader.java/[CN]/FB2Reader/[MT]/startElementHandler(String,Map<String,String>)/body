@@ -1,5 +1,5 @@
 {
-  String id=ZLXMLReader.attributeValue(attributes,"id");
+  String id=attributes.get("id");
   if (id != null) {
     if (!myReadMainText) {
       myModelReader.setFootnoteTextModel(id);
@@ -90,7 +90,7 @@ myModelReader.enterTitle();
 break;
 case BODY:
 ++myBodyCounter;
-if ((myBodyCounter == 1) || (ZLXMLReader.attributeValue(attributes,"name") == null)) {
+if ((myBodyCounter == 1) || (attributes.get("name") == null)) {
 myModelReader.setMainTextModel();
 myReadMainText=true;
 }
@@ -98,7 +98,7 @@ myModelReader.pushKind((byte)FBTextKind.REGULAR.Index);
 break;
 case A:
 String ref=reference(attributes);
-if (ref != "") {
+if (!ref.equals("")) {
 if (ref.charAt(0) == '#') {
 myHyperlinkType=(byte)FBTextKind.FOOTNOTE.Index;
 ref=ref.substring(1);
