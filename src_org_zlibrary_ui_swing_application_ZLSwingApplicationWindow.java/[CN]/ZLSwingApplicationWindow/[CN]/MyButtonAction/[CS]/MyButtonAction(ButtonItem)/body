@@ -5,5 +5,4 @@
   ImageIcon icon=(iconURL != null) ? new ImageIcon(iconURL) : new ImageIcon(iconFileName);
   putValue(Action.SMALL_ICON,icon);
   putValue(Action.SHORT_DESCRIPTION,item.getTooltip());
-  ZLAction zlaction=application().getAction(myItem.getActionId());
 }
