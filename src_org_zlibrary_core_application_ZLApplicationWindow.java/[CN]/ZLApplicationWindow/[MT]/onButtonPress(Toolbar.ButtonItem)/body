@@ -1,0 +1,23 @@
+{
+  if (myToggleButtonLock) {
+    return;
+  }
+  if (button.isToggleButton()) {
+    myToggleButtonLock=true;
+    if (button.isPressed()) {
+      setToggleButtonState(button);
+      myToggleButtonLock=false;
+      return;
+    }
+ else {
+      button.press();
+      Toolbar.ButtonGroup group=button.getButtonGroup();
+      Set<Toolbar.ButtonItem> items=group.Items;
+      for (      Toolbar.ButtonItem bitem : items) {
+        setToggleButtonState(bitem);
+      }
+    }
+    myToggleButtonLock=false;
+  }
+  application().doAction(button.getActionId());
+}

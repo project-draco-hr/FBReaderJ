@@ -1,7 +1,7 @@
 {
   myApplication.setMyViewWidget(createViewWidget());
-  List<Item> toolbarItems=myApplication.getToolbar().items();
-  for (  Item item : toolbarItems) {
+  List<Toolbar.Item> toolbarItems=myApplication.getToolbar().items();
+  for (  Toolbar.Item item : toolbarItems) {
     addToolbarItem(item);
   }
   initMenu();
