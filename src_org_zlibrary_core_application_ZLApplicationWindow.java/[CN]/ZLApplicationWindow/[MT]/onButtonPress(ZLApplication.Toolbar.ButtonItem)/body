@@ -11,9 +11,9 @@
     }
  else {
       button.press();
-      Toolbar.ButtonGroup group=button.getButtonGroup();
-      Set<Toolbar.ButtonItem> items=group.Items;
-      for (      Toolbar.ButtonItem bitem : items) {
+      ZLApplication.Toolbar.ButtonGroup group=button.getButtonGroup();
+      Set<ZLApplication.Toolbar.ButtonItem> items=group.Items;
+      for (      ZLApplication.Toolbar.ButtonItem bitem : items) {
         setToggleButtonState(bitem);
       }
     }

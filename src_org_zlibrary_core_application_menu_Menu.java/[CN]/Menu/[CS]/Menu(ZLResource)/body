@@ -1,4 +1,3 @@
 {
-  myItems=new LinkedList<Item>();
   myResource=resource;
 }
