@@ -8,7 +8,7 @@
     start.setCursor(firstParagraph);
     buildInfos(start);
   }
-  int h=100;
+  int h=0;
   for (  ZLTextLineInfo info : myLineInfos) {
     int w=0;
     for (ZLTextWordCursor cursor=info.RealStart; !cursor.equalWordNumber(info.End) && !cursor.isEndOfParagraph(); cursor.nextWord()) {
@@ -16,13 +16,13 @@
       if (element instanceof ZLTextWord) {
         String text=((ZLTextWord)element).Data;
         int dw=context.getStringWidth(text);
-        context.drawString(w,h,text);
+        context.drawString(w,h + info.Height,text);
         w+=dw;
       }
  else       if (element instanceof ZLTextHSpaceElement) {
         String text=" ";
         int dw=context.getStringWidth(text);
-        context.drawString(w,h,text);
+        context.drawString(w,h + info.Height,text);
         w+=dw;
       }
  else       if (element instanceof ZLTextControlElement) {

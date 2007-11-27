@@ -91,7 +91,6 @@
     info.Width-=lastSpaceWidth;
     info.SpaceCounter--;
   }
-  myStyle.setStyle(storedStyle);
   if (isFirstLine) {
     info.Height+=info.StartStyle.spaceBefore();
   }

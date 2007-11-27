@@ -7,10 +7,10 @@
   paragraph.addEntry(factory.createControlEntry((byte)28,true));
   paragraph.addEntry(factory.createTextEntry(" bold "));
   paragraph.addEntry(factory.createControlEntry((byte)28,false));
-  paragraph.addEntry(factory.createTextEntry("default style again"));
+  paragraph.addEntry(factory.createTextEntry("default style again "));
   paragraph.addEntry(factory.createControlEntry((byte)31,true));
-  paragraph.addEntry(factory.createTextEntry(" large font now "));
+  paragraph.addEntry(factory.createTextEntry("large font now"));
   paragraph.addEntry(factory.createControlEntry((byte)31,false));
-  paragraph.addEntry(factory.createTextEntry("default style once more"));
+  paragraph.addEntry(factory.createTextEntry(" default style once more"));
   model.addParagraphInternal(paragraph);
 }
