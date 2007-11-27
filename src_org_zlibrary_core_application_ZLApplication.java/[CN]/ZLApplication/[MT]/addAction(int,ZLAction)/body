@@ -1,4 +1,3 @@
 {
   myActionMap.put(actionId,action);
-  System.out.println("put" + actionId);
 }
