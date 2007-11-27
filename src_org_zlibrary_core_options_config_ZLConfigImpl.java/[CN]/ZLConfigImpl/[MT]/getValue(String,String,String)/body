@@ -1,3 +1,4 @@
 {
-  return myMainConfig.getValue(group,name,defaultValue);
+  String value=myMainConfig.getValue(group,name,defaultValue);
+  return (value != null) ? value : defaultValue;
 }
