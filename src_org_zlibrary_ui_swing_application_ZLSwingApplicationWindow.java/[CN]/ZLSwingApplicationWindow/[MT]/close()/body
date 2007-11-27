@@ -1,3 +1,4 @@
 {
+  ZLSwingLibrary.shutdown();
   System.exit(0);
 }
