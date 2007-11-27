@@ -1,6 +1,6 @@
 {
-  if (item instanceof Toolbar.ButtonItem) {
-    Toolbar.ButtonItem buttonItem=(Toolbar.ButtonItem)item;
+  if (item instanceof ZLApplication.Toolbar.ButtonItem) {
+    ZLApplication.Toolbar.ButtonItem buttonItem=(ZLApplication.Toolbar.ButtonItem)item;
     Action action=new MyButtonAction(buttonItem);
     myToolbar.add(action);
     myItemActionMap.put(item,action);
