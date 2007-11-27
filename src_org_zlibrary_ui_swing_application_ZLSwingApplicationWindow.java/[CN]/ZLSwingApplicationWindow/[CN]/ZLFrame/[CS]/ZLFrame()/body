@@ -3,14 +3,18 @@
   setLocation((int)myXOption.getValue(),(int)myYOption.getValue());
   addComponentListener(new ComponentAdapter(){
     public void componentResized(    ComponentEvent event){
-      Dimension size=getSize();
-      myWidthOption.setValue(size.width);
-      myHeightOption.setValue(size.height);
+      if (!isFullscreen()) {
+        Dimension size=getSize();
+        myWidthOption.setValue(size.width);
+        myHeightOption.setValue(size.height);
+      }
     }
     public void componentMoved(    ComponentEvent event){
-      Point point=getLocation();
-      myXOption.setValue(point.x);
-      myYOption.setValue(point.y);
+      if (!isFullscreen()) {
+        Point point=getLocation();
+        myXOption.setValue(point.x);
+        myYOption.setValue(point.y);
+      }
     }
   }
 );

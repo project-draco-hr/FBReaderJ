@@ -1,3 +1,8 @@
 {
-  this.myFrame.setExtendedState(Frame.MAXIMIZED_BOTH);
+  if (fullscreen) {
+    myFrame.setExtendedState(Frame.MAXIMIZED_BOTH);
+  }
+ else {
+    myFrame.setExtendedState(Frame.NORMAL);
+  }
 }
