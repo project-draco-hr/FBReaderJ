@@ -1,4 +1,3 @@
 {
-  Dimension screenSize=Toolkit.getDefaultToolkit().getScreenSize();
-  this.myFrame.setSize(screenSize);
+  this.myFrame.setExtendedState(Frame.MAXIMIZED_BOTH);
 }

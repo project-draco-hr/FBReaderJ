@@ -1,4 +1,7 @@
 {
+  addAction(ActionCode.TOGGLE_FULLSCREEN.getCode(),new FullscreenAction(this,false));
+  addAction(ActionCode.QUIT.getCode(),new FBReaderActions.QuitAction(this));
+  addAction(ActionCode.SHOW_HELP.getCode(),new FBReaderActions.ShowHelpAction(this));
   addToolbarButton(ActionCode.SHOW_COLLECTION,"books");
   addToolbarButton(ActionCode.SHOW_LAST_BOOKS,"history");
   addToolbarButton(ActionCode.ADD_BOOK,"addbook");
