@@ -1,3 +1,3 @@
-Toolbar.Item item
+ZLApplication.Toolbar.Item item
 boolean visible
 boolean enabled
