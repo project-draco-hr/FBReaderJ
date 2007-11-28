@@ -1,6 +1,6 @@
 {
-  myApplication.setMyViewWidget(createViewWidget());
-  List<ZLApplication.Toolbar.Item> toolbarItems=myApplication.getToolbar().items();
+  myApplication.setViewWidget(createViewWidget());
+  List<ZLApplication.Toolbar.Item> toolbarItems=myApplication.getToolbar().getItems();
   for (  ZLApplication.Toolbar.Item item : toolbarItems) {
     addToolbarItem(item);
   }

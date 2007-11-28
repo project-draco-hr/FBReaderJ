@@ -19,5 +19,5 @@
     }
     myToggleButtonLock=false;
   }
-  application().doAction(button.getActionId());
+  getApplication().doAction(button.getActionId());
 }
