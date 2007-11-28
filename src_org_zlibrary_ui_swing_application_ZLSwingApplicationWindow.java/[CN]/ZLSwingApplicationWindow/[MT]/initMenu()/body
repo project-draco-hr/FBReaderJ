@@ -1,4 +1,4 @@
 {
   MyMenuVisitor visitor=new MyMenuVisitor(myMenu);
-  visitor.processMenu(application().getMenubar());
+  visitor.processMenu(getApplication().getMenubar());
 }
