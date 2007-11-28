@@ -1,5 +1,5 @@
 {
-switch (myAngle) {
+switch (degrees) {
 case 0:
     return Angle.DEGREES0;
 case 90:
