@@ -1,3 +1,6 @@
 {
-  return getBase().fontSize() + (int)myDecoration.FontSizeDeltaOption.getValue();
+  if (myDecoration.FontSizeDeltaOption != null && getBase() != null) {
+    return getBase().fontSize() + (int)myDecoration.FontSizeDeltaOption.getValue();
+  }
+  return 12;
 }

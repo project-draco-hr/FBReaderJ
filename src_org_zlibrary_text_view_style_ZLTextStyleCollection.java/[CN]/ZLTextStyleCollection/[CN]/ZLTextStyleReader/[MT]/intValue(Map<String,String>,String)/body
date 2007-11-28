@@ -1,0 +1,12 @@
+{
+  int i=0;
+  String value=attributes.get(name);
+  if (value != null) {
+    try {
+      Integer.parseInt(attributes.get(name));
+    }
+ catch (    NumberFormatException e) {
+    }
+  }
+  return i;
+}

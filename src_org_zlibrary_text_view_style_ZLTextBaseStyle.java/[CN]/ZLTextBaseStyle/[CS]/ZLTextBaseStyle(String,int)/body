@@ -1,0 +1,9 @@
+{
+  final String COLORS="Colors";
+  final String OPTIONS="Options";
+  final String GROUP="Style";
+  LeftMarginOption=new ZLIntegerRangeOption(ZLOption.LOOK_AND_FEEL_CATEGORY,OPTIONS,"LeftMargin",0,1000,4);
+  RightMarginOption=new ZLIntegerRangeOption(ZLOption.LOOK_AND_FEEL_CATEGORY,OPTIONS,"RightMargin",0,1000,4);
+  TopMarginOption=new ZLIntegerRangeOption(ZLOption.LOOK_AND_FEEL_CATEGORY,OPTIONS,"TopMargin",0,1000,0);
+  BottomMarginOption=new ZLIntegerRangeOption(ZLOption.LOOK_AND_FEEL_CATEGORY,OPTIONS,"BottomMargin",0,1000,4);
+}

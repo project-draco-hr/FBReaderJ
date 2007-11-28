@@ -1,9 +1,8 @@
 {
   ZLPaintContext context=getContext();
-  ZLTextModel model=myModel.getBookModel();
-  int paragraphs=model.getParagraphsNumber();
+  int paragraphs=myModel.getParagraphsNumber();
   if (paragraphs > 0) {
-    ZLTextParagraphCursor firstParagraph=ZLTextParagraphCursor.getCursor(model,0);
+    ZLTextParagraphCursor firstParagraph=ZLTextParagraphCursor.getCursor(myModel,0);
     ZLTextWordCursor start=new ZLTextWordCursor();
     start.setCursor(firstParagraph);
     buildInfos(start);
