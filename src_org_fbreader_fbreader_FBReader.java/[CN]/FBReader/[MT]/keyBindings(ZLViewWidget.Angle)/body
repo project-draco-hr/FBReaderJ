@@ -1,0 +1,13 @@
+{
+switch (angle) {
+case DEGREES0:
+default :
+    return myBindings0;
+case DEGREES90:
+  return myBindings90;
+case DEGREES180:
+return myBindings180;
+case DEGREES270:
+return myBindings270;
+}
+}

@@ -1,4 +1,8 @@
 {
+  myBindings0=new ZLKeyBindings("Keys");
+  myBindings90=new ZLKeyBindings("Keys90");
+  myBindings180=new ZLKeyBindings("Keys180");
+  myBindings270=new ZLKeyBindings("Keys270");
   addAction(ActionCode.TOGGLE_FULLSCREEN.getCode(),new ZLApplication.FullscreenAction(this,true));
   addAction(ActionCode.QUIT.getCode(),new FBReaderActions.QuitAction(this));
   addAction(ActionCode.SHOW_HELP.getCode(),new FBReaderActions.ShowHelpAction(this));
