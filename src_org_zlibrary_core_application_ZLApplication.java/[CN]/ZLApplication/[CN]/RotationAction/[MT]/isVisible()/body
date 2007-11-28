@@ -1,3 +1,3 @@
 {
-  return (myApplication.getMyViewWidget() != null) && ((myApplication.RotationAngleOption.getValue() != ZLViewWidget.Angle.DEGREES0.getDegrees()) || (myApplication.getMyViewWidget().getRotation() != ZLViewWidget.Angle.DEGREES0));
+  return (myApplication.getViewWidget() != null) && ((myApplication.RotationAngleOption.getValue() != ZLViewWidget.Angle.DEGREES0.getDegrees()) || (myApplication.getViewWidget().getRotation() != ZLViewWidget.Angle.DEGREES0));
 }

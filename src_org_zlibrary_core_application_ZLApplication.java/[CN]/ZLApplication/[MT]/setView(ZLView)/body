@@ -2,8 +2,8 @@
   if (view == null) {
     return;
   }
-  if (getMyViewWidget() != null) {
-    getMyViewWidget().setView(view);
+  if (getViewWidget() != null) {
+    getViewWidget().setView(view);
     resetWindowCaption();
     refreshWindow();
   }
