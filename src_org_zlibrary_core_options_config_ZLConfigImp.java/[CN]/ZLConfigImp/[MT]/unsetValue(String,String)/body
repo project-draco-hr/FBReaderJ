@@ -1,0 +1,3 @@
+{
+  myDeltaConfig.unsetValue(group,name);
+}
