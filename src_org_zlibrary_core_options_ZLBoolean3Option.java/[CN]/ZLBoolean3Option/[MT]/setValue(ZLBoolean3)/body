@@ -8,7 +8,6 @@
     myConfig.unsetValue(myGroup,myOptionName);
   }
  else {
-    String stringValue=ZLToStringConverter.convert(myValue);
-    myConfig.setValue(myOptionName,myGroup,stringValue,myCategory);
+    myConfig.setValue(myOptionName,myGroup,myValue.toString(),myCategory);
   }
 }

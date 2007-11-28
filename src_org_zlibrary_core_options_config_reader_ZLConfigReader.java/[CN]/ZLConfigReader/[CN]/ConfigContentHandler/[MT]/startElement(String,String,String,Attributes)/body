@@ -1,8 +1,9 @@
 {
+  localName=localName.toLowerCase();
 switch (myDepth) {
 case 0:
     if (!localName.equals("config")) {
-      System.out.println("wrong tag : <config> expected!");
+      printError(localName);
     }
   break;
 case 1:
@@ -10,7 +11,7 @@ if (localName.equals("group")) {
   myCurrentGroup=atts.getValue("name");
 }
  else {
-  System.out.println("wrong tag : <group> expected!");
+  printError(localName);
 }
 break;
 case 2:
@@ -18,8 +19,7 @@ if (localName.equals("option")) {
 myConfig.setValue(myCurrentGroup,atts.getValue("name"),atts.getValue("value"),myCategory);
 }
  else {
-System.out.println("wrong tag : <option> expected!");
-System.out.println(myCategory);
+printError(localName);
 }
 break;
 default :

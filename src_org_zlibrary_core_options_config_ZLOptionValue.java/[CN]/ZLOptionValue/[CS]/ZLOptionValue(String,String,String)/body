@@ -1,5 +1,11 @@
 {
-  myValue=value.intern();
-  myCategory=category.intern();
-  myName=name.intern();
+  if (value != null) {
+    myValue=value.intern();
+  }
+  if (category != null) {
+    myCategory=category.intern();
+  }
+  if (name != null) {
+    myName=name.intern();
+  }
 }

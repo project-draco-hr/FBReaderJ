@@ -1,4 +1,0 @@
-{
-  Long value=input;
-  return value.toString();
-}

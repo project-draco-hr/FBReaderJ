@@ -1,6 +1,7 @@
 {
   myCategory=category;
   myGroup=group;
-  myOptionName=optionName;
+  myOptionName=name;
   myIsSynchronized=false;
+  myConfig.setCategory(group,name,category);
 }

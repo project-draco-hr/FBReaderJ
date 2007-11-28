@@ -1,4 +1,4 @@
 {
-  myDeletedValues.put(group,name);
+  myDeletedValues.setValue(group,name,null,null);
   mySetValues.unsetValue(group,name);
 }

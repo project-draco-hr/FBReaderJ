@@ -2,9 +2,12 @@
   String[] fileList=myDestinationDirectory.list();
   if (fileList != null) {
     for (    String fileName : fileList) {
-      if (isXMLFileName(fileName)) {
+      if (isXMLFileName(fileName) && !(fileName.toLowerCase().equals("delta.xml"))) {
         readFile(new File(myDestinationDirectory + "/" + fileName));
       }
     }
   }
+  myXMLReader.setContentHandler(new DeltaConfigContentHandler());
+  readFile(new File(myDestinationDirectory + "/delta.xml"));
+  myConfig.clearDelta();
 }

@@ -1,0 +1,5 @@
+{
+  if ((myDepth == 1) && (localName.equals("delete"))) {
+  }
+  myDepth--;
+}

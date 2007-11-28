@@ -1,5 +1,5 @@
 {
-  long expected=myIntegerRangeOption.getValue();
-  myIntegerRangeOption.setValue(10000000L);
+  int expected=myIntegerRangeOption.getValue();
+  myIntegerRangeOption.setValue(10000000);
   assertEquals(myIntegerRangeOption.getValue(),expected);
 }

@@ -1,0 +1,9 @@
+{
+  if (input.toLowerCase().equals("true")) {
+    return ZLBoolean3.B3_TRUE;
+  }
+  if (input.toLowerCase().equals("false")) {
+    return ZLBoolean3.B3_FALSE;
+  }
+  return ZLBoolean3.B3_UNDEFINED;
+}

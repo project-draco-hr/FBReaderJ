@@ -10,7 +10,9 @@
     }
   }
  catch (  FileNotFoundException fnfException) {
-    System.out.println(fnfException.getMessage());
+    if (!file.getName().toLowerCase().equals("delta.xml")) {
+      System.err.println(fnfException.getMessage());
+    }
   }
 catch (  UnsupportedEncodingException e) {
     System.out.println(e.getMessage());
