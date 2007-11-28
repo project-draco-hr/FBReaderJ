@@ -1,7 +1,7 @@
 {
   myConfig.applyDelta();
   Map<String,ZLGroup> data=myConfig.getGroups();
-  Map<String,StringBuffer> configFilesContent=new HashMap<String,StringBuffer>();
+  Map<String,StringBuffer> configFilesContent=new LinkedHashMap<String,StringBuffer>();
   StringBuffer sb;
   Map<String,Boolean> currentGroupOpenedIn;
   for (  String group : data.keySet()) {

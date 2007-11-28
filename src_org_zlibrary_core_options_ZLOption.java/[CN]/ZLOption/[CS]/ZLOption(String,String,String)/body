@@ -2,4 +2,5 @@
   myCategory=category;
   myGroup=group;
   myOptionName=optionName;
+  myIsSynchronized=false;
 }

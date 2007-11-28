@@ -1,4 +1,10 @@
 {
-  int value=Integer.parseInt(input);
-  return value;
+  try {
+    int value=Integer.parseInt(input);
+    return value;
+  }
+ catch (  NumberFormatException e) {
+    System.err.println("wrong format : " + input);
+    return 0;
+  }
 }

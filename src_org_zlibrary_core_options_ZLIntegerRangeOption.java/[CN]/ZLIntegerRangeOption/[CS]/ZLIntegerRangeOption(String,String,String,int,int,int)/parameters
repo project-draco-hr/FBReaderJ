@@ -1,4 +1,6 @@
 String category
 String group
 String optionName
-long defaultValue
+int minValue
+int maxValue
+int defaultValue

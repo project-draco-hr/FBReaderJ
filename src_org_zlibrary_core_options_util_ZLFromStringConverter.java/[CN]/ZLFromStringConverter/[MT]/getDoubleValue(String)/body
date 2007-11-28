@@ -1,4 +1,10 @@
 {
-  double value=Double.parseDouble(input);
-  return value;
+  try {
+    double value=Double.parseDouble(input);
+    return value;
+  }
+ catch (  NumberFormatException e) {
+    System.err.println("wrong format : " + input);
+    return 0;
+  }
 }
