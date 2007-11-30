@@ -1,5 +1,5 @@
 {
   final String fileName=language + ".xml";
-  new ZLResourceTreeReader(ourRoot).readDocument("data/resources/zlibrary/" + fileName);
-  new ZLResourceTreeReader(ourRoot).readDocument("data/resources/application/" + fileName);
+  new ResourceTreeReader(ourRoot).readDocument("data/resources/zlibrary/" + fileName);
+  new ResourceTreeReader(ourRoot).readDocument("data/resources/application/" + fileName);
 }
