@@ -8,6 +8,8 @@
     paragraphEnd.moveToParagraphEnd();
     ZLTextWordCursor paragraphStart=new ZLTextWordCursor(cursor);
     paragraphStart.moveToParagraphStart();
+    myStyle.reset();
+    myStyle.applyControls(paragraphStart,cursor);
     ZLTextLineInfo info=new ZLTextLineInfo(cursor,myStyle.getTextStyle());
     while (!info.End.isEndOfParagraph()) {
       info=processTextLine(info.End,paragraphEnd);
@@ -25,5 +27,6 @@
     }
   }
  while (cursor.isEndOfParagraph() && cursor.nextParagraph() && !cursor.getParagraphCursor().isEndOfSection()&& (textAreaHeight >= 0));
+  myStyle.reset();
   return cursor;
 }

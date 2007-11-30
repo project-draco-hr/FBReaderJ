@@ -1,8 +1,8 @@
 {
   FontFamilyOption=null;
-  FontSizeDeltaOption=null;
+  FontSizeDeltaOption=new ZLIntegerRangeOption(ZLOption.LOOK_AND_FEEL_CATEGORY,STYLE,name + ":fontSize",-16,16,fontSizeDelta);
   BoldOption=new ZLBoolean3Option(ZLOption.LOOK_AND_FEEL_CATEGORY,STYLE,name + ":bold",bold);
-  ItalicOption=null;
+  ItalicOption=new ZLBoolean3Option(ZLOption.LOOK_AND_FEEL_CATEGORY,STYLE,name + ":italic",italic);
   VerticalShiftOption=null;
   AllowHyphenationsOption=null;
 }
