@@ -1,0 +1,14 @@
+{
+  if (myCurrentTextModel != null) {
+    mySectionContainsRegularContents=true;
+    if (myTextParagraphExists) {
+      flushTextBufferToParagraph();
+    }
+ else {
+      beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
+      myCurrentTextModel.addControl((byte)FBTextKind.IMAGE.Index,true);
+      myCurrentTextModel.addControl((byte)FBTextKind.IMAGE.Index,false);
+      endParagraph();
+    }
+  }
+}

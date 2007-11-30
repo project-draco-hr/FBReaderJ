@@ -67,6 +67,21 @@ break;
 case A:
 myModelReader.addControl(myHyperlinkType,false);
 break;
+case COVERPAGE:
+if (myBodyCounter == 0) {
+myInsideCoverpage=false;
+myModelReader.insertEndOfSectionParagraph();
+myModelReader.unsetCurrentTextModel();
+}
+break;
+case BINARY:
+if ((myImageBuffer.length() != 0) && (myCurrentImage != null)) {
+myCurrentImage.addData(myImageBuffer);
+myImageBuffer.delete(0,myImageBuffer.length());
+myCurrentImage=null;
+}
+myProcessingImage=false;
+break;
 default :
 break;
 }

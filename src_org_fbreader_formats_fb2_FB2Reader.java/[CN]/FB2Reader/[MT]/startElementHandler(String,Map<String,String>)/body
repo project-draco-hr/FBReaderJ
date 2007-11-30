@@ -90,6 +90,7 @@ myModelReader.enterTitle();
 break;
 case BODY:
 ++myBodyCounter;
+myParagraphsBeforeBodyNumber=myModelReader.getModel().getBookModel().getParagraphsNumber();
 if ((myBodyCounter == 1) || (attributes.get("name") == null)) {
 myModelReader.setMainTextModel();
 myReadMainText=true;
@@ -111,6 +112,40 @@ myModelReader.addHyperlinkControl(myHyperlinkType,ref);
  else {
 myHyperlinkType=(byte)FBTextKind.FOOTNOTE.Index;
 myModelReader.addControl(myHyperlinkType,true);
+}
+break;
+case COVERPAGE:
+if (myBodyCounter == 0) {
+myInsideCoverpage=true;
+myModelReader.setMainTextModel();
+}
+break;
+case IMAGE:
+String imgRef=reference(attributes);
+String vOffset=attributes.get("voffset");
+int offset=0;
+try {
+offset=Integer.valueOf(vOffset);
+}
+ catch (NumberFormatException e) {
+}
+if ((imgRef != null) && (imgRef.charAt(0) == '#')) {
+imgRef=imgRef.substring(1);
+if (!imgRef.equals(myCoverImageReference) || myParagraphsBeforeBodyNumber != myModelReader.getModel().getBookModel().getParagraphsNumber()) {
+myModelReader.addImageReference(imgRef,offset);
+}
+if (myInsideCoverpage) {
+myCoverImageReference=imgRef;
+}
+}
+break;
+case BINARY:
+String contentType=attributes.get("content-type");
+String imgId=attributes.get("id");
+if ((contentType != null) && (id != null)) {
+myCurrentImage=new Base64EncodedImage(contentType);
+myModelReader.addImage(imgId,myCurrentImage);
+myProcessingImage=true;
 }
 break;
 default :

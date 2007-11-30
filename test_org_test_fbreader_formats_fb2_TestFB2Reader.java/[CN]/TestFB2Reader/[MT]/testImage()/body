@@ -1,0 +1,12 @@
+{
+  FB2Reader reader=new FB2Reader();
+  BookModel model=reader.readBook(myDirectory + "image.fb2");
+  byte[] image=((Base64EncodedImage)(model.getImageMap().get("cover.jpg"))).byteData();
+  try {
+    BufferedImage img=ImageIO.read(new ByteArrayInputStream(image));
+    ImageIO.write(img,"jpg",new File(myDirectory + "img.jpg"));
+  }
+ catch (  IOException e) {
+    fail();
+  }
+}
