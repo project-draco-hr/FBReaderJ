@@ -1,7 +1,7 @@
 {
   int dataLength=textEntry.getDataLength();
   if (dataLength != 0) {
-    String data=textEntry.getData();
+    final String data=textEntry.getData();
     char ch;
     int firstNonSpace=-1;
     boolean spaceInserted=false;
@@ -9,7 +9,7 @@
       char current=data.charAt(charPos);
       if (current == ' ') {
         if (firstNonSpace != -1) {
-          addWord(data.substring(firstNonSpace,charPos),myOffset + (firstNonSpace - data.length()),charPos - firstNonSpace);
+          addWord(data,firstNonSpace,charPos);
           myElements.add(new ZLTextHSpaceElement());
           spaceInserted=true;
           firstNonSpace=-1;
@@ -24,7 +24,7 @@
       }
     }
     if (firstNonSpace != -1) {
-      addWord(data.substring(firstNonSpace,data.length()),myOffset + (firstNonSpace - data.length()),data.length() - firstNonSpace);
+      addWord(data,firstNonSpace,data.length());
     }
     myOffset+=data.length();
   }

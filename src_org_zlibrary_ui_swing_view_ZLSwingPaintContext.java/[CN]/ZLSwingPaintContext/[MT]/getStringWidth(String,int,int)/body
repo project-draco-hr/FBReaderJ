@@ -1,0 +1,5 @@
+{
+  char data[]=new char[length];
+  string.getChars(offset,offset + length,data,0);
+  return myGraphics.getFontMetrics().charsWidth(data,0,length);
+}

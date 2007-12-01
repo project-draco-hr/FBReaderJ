@@ -1,0 +1,13 @@
+{
+  float[] widths=myWidthsArray;
+  if (widths.length < length) {
+    widths=new float[length];
+    myWidthsArray=widths;
+  }
+  myPaint.getTextWidths(string,offset,offset + length,widths);
+  float sum=0.5f;
+  for (int i=0; i < length; ++i) {
+    sum+=widths[i];
+  }
+  return (int)sum;
+}

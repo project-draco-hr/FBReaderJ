@@ -1,4 +1,0 @@
-{
-  Data=data;
-  Length=(short)data.length();
-}

@@ -1,0 +1,3 @@
+{
+  myGraphics.drawString(string.substring(offset,offset + length),x,y);
+}
