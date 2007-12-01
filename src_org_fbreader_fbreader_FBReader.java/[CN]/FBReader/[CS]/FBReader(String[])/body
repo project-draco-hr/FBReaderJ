@@ -1,7 +1,7 @@
 {
   addAction(ActionCode.TOGGLE_FULLSCREEN,new ZLApplication.FullscreenAction(this,true));
-  addAction(ActionCode.QUIT,new FBReaderActions.QuitAction(this));
-  addAction(ActionCode.SHOW_HELP,new FBReaderActions.ShowHelpAction(this));
+  addAction(ActionCode.QUIT,new QuitAction(this));
+  addAction(ActionCode.SHOW_HELP,new ShowHelpAction(this));
   addAction(ActionCode.ROTATE_SCREEN,new ZLApplication.RotationAction(this));
   addToolbarButton(ActionCode.SHOW_COLLECTION,"books");
   addToolbarButton(ActionCode.SHOW_LAST_BOOKS,"history");
