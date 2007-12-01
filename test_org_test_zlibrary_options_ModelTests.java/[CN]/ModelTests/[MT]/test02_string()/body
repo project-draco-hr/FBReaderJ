@@ -1,4 +1,0 @@
-{
-  myColorOption.setValue(new ZLColor());
-  assertEquals(myStringOption.getValue(),"Hello World");
-}

@@ -1,5 +1,6 @@
 {
   String[] fileList=myDestinationDirectory.list();
+  myDestinationDirectory.mkdir();
   if (fileList != null) {
     for (    String fileName : fileList) {
       if (isXMLFileName(fileName) && !(fileName.toLowerCase().equals("delta.xml"))) {
