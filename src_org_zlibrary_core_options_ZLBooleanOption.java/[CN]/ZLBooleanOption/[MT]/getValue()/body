@@ -1,13 +1,9 @@
 {
   if (!myIsSynchronized) {
-    String value;
-    if (myDefaultValue) {
-      value=myConfig.getValue(myGroup,myOptionName,"true");
+    String value=myConfig.getValue(myGroup,myOptionName,null);
+    if (value != null) {
+      myValue=ZLFromStringConverter.getBooleanValue(value);
     }
- else {
-      value=myConfig.getValue(myGroup,myOptionName,"false");
-    }
-    myValue=ZLFromStringConverter.getBooleanValue(value);
     myIsSynchronized=true;
   }
   return myValue;
