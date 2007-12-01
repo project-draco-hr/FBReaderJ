@@ -1,3 +1,0 @@
-{
-  getToolbar().addButton(code.ordinal(),new ZLResourceKey(name));
-}
