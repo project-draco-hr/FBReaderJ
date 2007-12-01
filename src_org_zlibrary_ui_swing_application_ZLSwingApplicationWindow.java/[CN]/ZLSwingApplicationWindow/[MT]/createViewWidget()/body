@@ -1,5 +1,5 @@
 {
-  ZLSwingViewWidget viewWidget=new ZLSwingViewWidget(ZLSwingViewWidget.Angle.DEGREES0);
+  ZLSwingViewWidget viewWidget=new ZLSwingViewWidget(ZLSwingViewWidget.Angle.getByDegrees(getApplication().AngleStateOption.getValue()));
   myMainPanel.add(viewWidget.getPanel(),BorderLayout.CENTER);
   return viewWidget;
 }

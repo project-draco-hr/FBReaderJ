@@ -1,4 +1,0 @@
-{
-  super.setView(view);
-  ((ZLSwingPaintContext)view.getContext()).setComponent(myPanel);
-}
