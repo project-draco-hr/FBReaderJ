@@ -1,8 +1,12 @@
 {
-  float[] widths=new float[string.length()];
-  myPaint.getTextWidths(string,0,string.length(),widths);
+  final int length=string.length();
+  if (myWidthsArray.length < length) {
+    myWidthsArray=new float[length];
+  }
+  float[] widths=myWidthsArray;
+  myPaint.getTextWidths(string,0,length,widths);
   float sum=0.5f;
-  for (int i=0; i < widths.length; ++i) {
+  for (int i=0; i < length; ++i) {
     sum+=widths[i];
   }
   return (int)sum;

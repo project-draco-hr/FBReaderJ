@@ -1,0 +1,25 @@
+{
+  if ((family != null) && !myFontFamily.equals(family)) {
+    myFontFamily=family;
+    myResetFont=true;
+  }
+  if (myFontSize != size) {
+    myFontSize=size;
+    myResetFont=true;
+  }
+  if (myFontIsBold != bold) {
+    myFontIsBold=bold;
+    myResetFont=true;
+  }
+  if (myFontIsItalic != italic) {
+    myFontIsItalic=italic;
+    myResetFont=true;
+  }
+  if (myResetFont) {
+    myResetFont=false;
+    setFontInternal(myFontFamily,myFontSize,myFontIsBold,myFontIsItalic);
+    mySpaceWidth=-1;
+    myStringHeight=-1;
+    myDescent=-1;
+  }
+}

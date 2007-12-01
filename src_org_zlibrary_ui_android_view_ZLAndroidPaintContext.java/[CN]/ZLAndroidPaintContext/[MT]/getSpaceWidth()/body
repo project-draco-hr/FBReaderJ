@@ -1,5 +1,0 @@
-{
-  float[] widths=new float[1];
-  myPaint.getTextWidths(" ",0,1,widths);
-  return (int)(widths[0] + 0.5f);
-}

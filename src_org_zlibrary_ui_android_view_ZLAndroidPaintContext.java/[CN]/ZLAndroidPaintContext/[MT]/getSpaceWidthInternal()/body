@@ -1,0 +1,4 @@
+{
+  myPaint.getTextWidths(" ",0,1,myWidthsArray);
+  return (int)(myWidthsArray[0] + 0.5f);
+}

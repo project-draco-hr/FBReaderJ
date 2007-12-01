@@ -1,0 +1,8 @@
+{
+  int stringHeight=myStringHeight;
+  if (stringHeight == -1) {
+    stringHeight=getStringHeightInternal();
+    myStringHeight=stringHeight;
+  }
+  return stringHeight;
+}

@@ -1,0 +1,8 @@
+{
+  int spaceWidth=mySpaceWidth;
+  if (spaceWidth == -1) {
+    spaceWidth=getSpaceWidthInternal();
+    mySpaceWidth=spaceWidth;
+  }
+  return spaceWidth;
+}

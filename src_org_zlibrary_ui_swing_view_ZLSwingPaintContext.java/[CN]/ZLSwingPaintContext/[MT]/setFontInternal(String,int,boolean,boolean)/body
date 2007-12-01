@@ -1,6 +1,6 @@
 {
   if (myGraphics != null) {
     final int style=(bold ? Font.BOLD : 0) | (italic ? Font.ITALIC : 0);
-    myGraphics.setFont(new Font("Default",style,size));
+    myGraphics.setFont(new Font(family,style,size));
   }
 }

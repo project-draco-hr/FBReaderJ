@@ -1,0 +1,8 @@
+{
+  int descent=myDescent;
+  if (descent == -1) {
+    descent=getDescentInternal();
+    myDescent=descent;
+  }
+  return descent;
+}
