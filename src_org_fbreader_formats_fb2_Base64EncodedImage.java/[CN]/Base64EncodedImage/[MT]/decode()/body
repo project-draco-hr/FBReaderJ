@@ -2,6 +2,5 @@
   if ((myEncodedData == null) || (myData != null)) {
     return;
   }
-  myData=Base64.decode(myEncodedData);
   myEncodedData=null;
 }
