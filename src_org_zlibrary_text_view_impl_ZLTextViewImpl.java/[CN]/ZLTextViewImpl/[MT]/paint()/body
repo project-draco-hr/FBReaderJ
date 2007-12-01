@@ -24,10 +24,7 @@
       }
  else       if (element instanceof ZLTextHSpaceElement) {
         if (wordOccurred) {
-          String text=" ";
-          int dw=context.getStringWidth(text);
-          context.drawString(w,h + info.Height,text);
-          w+=dw;
+          w+=context.getSpaceWidth();
           spaces++;
           wordOccurred=false;
         }
