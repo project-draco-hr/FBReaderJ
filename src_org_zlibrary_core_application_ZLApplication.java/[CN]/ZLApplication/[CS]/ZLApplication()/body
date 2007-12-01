@@ -1,8 +1,5 @@
 {
-  myName=ZLibrary.getInstance().getApplicationName();
   myContext=ZLibrary.getInstance().createPaintContext();
-  setViewWidget(null);
-  myWindow=null;
   if (ConfigAutoSavingOption.getValue()) {
   }
 }
