@@ -1,3 +1,5 @@
 {
-  myValue=value.intern();
+  if (value != null) {
+    myValue=value.intern();
+  }
 }
