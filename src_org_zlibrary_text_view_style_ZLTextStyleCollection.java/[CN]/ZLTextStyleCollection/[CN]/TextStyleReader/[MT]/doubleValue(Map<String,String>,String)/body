@@ -3,9 +3,10 @@
   String value=attributes.get(name);
   if (value != null) {
     try {
-      Double.parseDouble(value);
+      d=Double.parseDouble(value);
     }
  catch (    NumberFormatException e) {
+      e.printStackTrace();
     }
   }
   return d;

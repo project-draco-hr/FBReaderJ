@@ -69,7 +69,7 @@
       info.Width=newWidth;
       info.Height=Math.max(info.Height,newHeight);
       info.Descent=Math.max(info.Descent,newDescent);
-      info.End=current;
+      info.End=new ZLTextWordCursor(current);
       info.SpaceCounter=internalSpaceCounter;
       removeLastSpace=!wordOccurred && (info.SpaceCounter > 0);
     }
@@ -84,7 +84,7 @@
     info.Width=newWidth;
     info.Height=Math.max(info.Height,newHeight);
     info.Descent=Math.max(info.Descent,newDescent);
-    info.End=current;
+    info.End=new ZLTextWordCursor(current);
     info.SpaceCounter=internalSpaceCounter;
   }
   if (removeLastSpace) {

@@ -18,7 +18,7 @@
         break;
       }
       textAreaHeight-=info.VSpaceAfter;
-      cursor=info.End;
+      cursor=new ZLTextWordCursor(info.End);
       myLineInfos.add(info);
       if (textAreaHeight < 0) {
         break;
