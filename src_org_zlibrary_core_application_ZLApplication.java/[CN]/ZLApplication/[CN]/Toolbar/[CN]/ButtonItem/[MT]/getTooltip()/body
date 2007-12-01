@@ -1,6 +1,2 @@
 {
-  if (!myTooltip.hasValue()) {
-    return "";
-  }
-  return myTooltip.value();
 }

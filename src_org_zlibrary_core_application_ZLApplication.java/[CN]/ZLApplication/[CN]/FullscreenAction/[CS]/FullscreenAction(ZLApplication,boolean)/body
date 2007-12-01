@@ -1,4 +1,4 @@
 {
-  this.myApplication=application;
-  this.myIsToggle=toggle;
+  myApplication=application;
+  myIsToggle=toggle;
 }
