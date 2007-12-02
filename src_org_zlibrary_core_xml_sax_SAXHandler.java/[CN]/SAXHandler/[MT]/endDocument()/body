@@ -1,0 +1,3 @@
+{
+  myXMLReader.endDocumentHandler();
+}
