@@ -3,25 +3,29 @@
   for (  String group : myDeletedGroups) {
     sb.append("    <group name=\"" + group + "\"/>\n");
   }
-  Map<String,ZLGroup> values=myDeletedValues.getGroups();
-  for (  String group : values.keySet()) {
-    sb.append("    <group name=\"" + group + "\">\n");
-    for (    ZLOptionValue option : values.get(group).getValues()) {
-      sb.append("      <option name=\"" + option.getName() + "\"/>\n");
+{
+    Set<String> values=myDeletedValues.getGroups();
+    for (    String group : values) {
+      sb.append("    <group name=\"" + group + "\">\n");
+      for (      String option : myDeletedValues.getOptions(group)) {
+        sb.append("      <option name=\"" + option + "\"/>\n");
+      }
+      sb.append("    </group>\n");
     }
-    sb.append("    </group>\n");
+    sb.append("  </delete>\n");
   }
-  sb.append("  </delete>\n");
-  values=mySetValues.getGroups();
-  for (  String group : values.keySet()) {
-    sb.append("  <group name=\"" + group + "\">\n");
-    for (    ZLOptionValue option : values.get(group).getValues()) {
-      sb.append("    <option name=\"" + option.getName() + "\" ");
-      sb.append("value=\"" + option.getValue() + "\" ");
-      sb.append("category=\"" + option.getCategory() + "\">\n");
+{
+    Map<String,ZLGroup> values=mySetValues.getGroups();
+    for (    String group : values.keySet()) {
+      sb.append("  <group name=\"" + group + "\">\n");
+      for (      ZLOptionValue option : values.get(group).getValues()) {
+        sb.append("    <option name=\"" + option.getName() + "\" ");
+        sb.append("value=\"" + option.getValue() + "\" ");
+        sb.append("category=\"" + option.getCategory() + "\">\n");
+      }
+      sb.append("  </group>\n");
     }
-    sb.append("  </group>\n");
+    sb.append("</delta>");
   }
-  sb.append("</delta>");
   return sb.toString();
 }

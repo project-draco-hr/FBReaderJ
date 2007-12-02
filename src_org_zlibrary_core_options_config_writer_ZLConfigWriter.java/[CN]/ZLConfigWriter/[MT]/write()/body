@@ -4,6 +4,7 @@
   Map<String,StringBuffer> configFilesContent=new LinkedHashMap<String,StringBuffer>();
   StringBuffer sb;
   Map<String,Boolean> currentGroupOpenedIn;
+  Set<String> notEmptyCategories=new HashSet<String>();
   for (  String group : data.keySet()) {
     currentGroupOpenedIn=new HashMap<String,Boolean>();
     for (    ZLOptionValue value : data.get(group).getValues()) {
@@ -26,6 +27,12 @@
     }
   }
   for (  String category : configFilesContent.keySet()) {
-    this.writeConfigFile("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" + "<config>\n" + configFilesContent.get(category) + "</config>",myDestinationDirectory + "/" + category+ ".xml");
+    notEmptyCategories.add(category.intern());
+    this.writeConfigFile("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" + "<config>\n" + configFilesContent.get(category) + "</config>",configFilePath(category));
+  }
+  for (  String category : myConfig.getCategories()) {
+    if (!notEmptyCategories.contains(category.intern())) {
+      deleteConfigFile(configFilePath(category));
+    }
   }
 }

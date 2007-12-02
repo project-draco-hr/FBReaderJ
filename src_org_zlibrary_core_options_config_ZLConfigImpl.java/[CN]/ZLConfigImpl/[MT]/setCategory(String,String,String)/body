@@ -1,4 +1,4 @@
 {
-  myDeltaConfig.setCategory(group,name,cat);
-  myMainConfig.setCategory(group,name,cat);
+  myDeltaConfig.setCategory(group.intern(),name.intern(),cat.intern());
+  myMainConfig.setCategory(group.intern(),name.intern(),cat.intern());
 }

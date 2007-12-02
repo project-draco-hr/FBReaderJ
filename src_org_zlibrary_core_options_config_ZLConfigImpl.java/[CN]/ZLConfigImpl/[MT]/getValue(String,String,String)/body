@@ -1,7 +1,7 @@
 {
-  String value=myDeltaConfig.getValue(group,name,defaultValue);
-  if (value == defaultValue) {
-    value=myMainConfig.getValue(group,name,defaultValue);
+  String value=myDeltaConfig.getValue(group.intern(),name.intern(),defaultValue.intern());
+  if (value.intern() == defaultValue.intern()) {
+    value=myMainConfig.getValue(group.intern(),name.intern(),defaultValue.intern());
   }
-  return value;
+  return value.intern();
 }

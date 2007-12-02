@@ -1,8 +1,8 @@
 {
   if (myData.get(group) != null) {
-    return myData.get(group).getValue(name);
+    if (myData.get(group).getValue(name) != null) {
+      return myData.get(group).getValue(name);
+    }
   }
- else {
-    return defaultValue;
-  }
+  return defaultValue;
 }
