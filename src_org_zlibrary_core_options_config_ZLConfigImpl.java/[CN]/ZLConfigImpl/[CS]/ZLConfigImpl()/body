@@ -1,4 +1,4 @@
 {
-  myMainConfig=new ZLSimpleConfigImpl();
+  myMainConfig=new ZLSimpleConfig();
   myDeltaConfig=new ZLDeltaConfig();
 }

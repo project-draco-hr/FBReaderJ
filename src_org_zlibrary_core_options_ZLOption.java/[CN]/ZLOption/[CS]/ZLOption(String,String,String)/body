@@ -3,5 +3,5 @@
   myGroup=group;
   myOptionName=name;
   myIsSynchronized=false;
-  myConfig.setCategory(group,name,category);
+  myConfig.setValue(group,name,myConfig.getValue(group,name,null),category);
 }

@@ -1,0 +1,10 @@
+{
+  ZLGroup gr=myData.get(group);
+  if (gr != null) {
+    ZLOptionValue option=gr.getOption(name);
+    if (option != null) {
+      return option.getCategory();
+    }
+  }
+  return null;
+}

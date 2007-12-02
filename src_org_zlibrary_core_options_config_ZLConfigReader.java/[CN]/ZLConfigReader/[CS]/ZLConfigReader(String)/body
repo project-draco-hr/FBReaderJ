@@ -1,5 +1,5 @@
 {
-  myConfig=ZLConfigInstance.getInstance();
+  myConfig=ZLConfigInstance.getExtendedInstance();
   myDestinationDirectory=new File(path);
   if (myDestinationDirectory.exists()) {
     if (!myDestinationDirectory.isDirectory()) {

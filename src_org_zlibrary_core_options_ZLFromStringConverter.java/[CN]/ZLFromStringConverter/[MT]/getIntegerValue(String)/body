@@ -4,7 +4,7 @@
     return value;
   }
  catch (  NumberFormatException e) {
-    System.err.println("wrong format : " + input);
+    System.err.println(e);
     return 0;
   }
 }
