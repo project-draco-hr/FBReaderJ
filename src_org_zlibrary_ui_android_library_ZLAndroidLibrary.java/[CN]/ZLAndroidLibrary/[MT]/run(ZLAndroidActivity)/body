@@ -4,12 +4,12 @@
   loadProperties();
   myActivity.setContentView(R.layout.main);
   try {
-    myApplication=(ZLApplication)getApplicationClass().newInstance();
+    ZLApplication application=(ZLApplication)getApplicationClass().newInstance();
+    myMainWindow=new ZLAndroidApplicationWindow(application);
+    application.initWindow();
   }
  catch (  Exception e) {
     shutdown();
     System.exit(0);
   }
-  ZLAndroidApplicationWindow mainWindow=new ZLAndroidApplicationWindow(myApplication);
-  myApplication.initWindow();
 }
