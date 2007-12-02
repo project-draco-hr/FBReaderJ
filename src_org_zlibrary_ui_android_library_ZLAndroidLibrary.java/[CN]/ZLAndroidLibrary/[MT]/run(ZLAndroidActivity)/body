@@ -9,7 +9,6 @@
     application.initWindow();
   }
  catch (  Exception e) {
-    shutdown();
-    System.exit(0);
+    finish();
   }
 }

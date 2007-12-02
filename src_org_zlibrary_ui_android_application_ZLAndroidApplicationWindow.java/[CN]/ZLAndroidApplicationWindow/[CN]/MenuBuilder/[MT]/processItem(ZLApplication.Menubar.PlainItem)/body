@@ -1,3 +1,5 @@
 {
-  myMenuStack.peek().add(0,myItemCount++,item.getName());
+  Menu.Item menuItem=myMenuStack.peek().add(0,myItemCount++,item.getName());
+  menuItem.setClickListener(myMenuListener);
+  myMenuItemMap.put(menuItem,item);
 }

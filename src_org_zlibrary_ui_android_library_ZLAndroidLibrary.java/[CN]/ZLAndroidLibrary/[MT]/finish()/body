@@ -1,0 +1,6 @@
+{
+  shutdown();
+  if (myActivity != null) {
+    myActivity.finish();
+  }
+}
