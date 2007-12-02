@@ -2,16 +2,7 @@
   myConfig=ZLConfigInstance.getInstance();
   myDestinationDirectory=new File(path);
   if (myDestinationDirectory.exists()) {
-    if (myDestinationDirectory.isDirectory()) {
-      try {
-        myXMLReader=XMLReaderFactory.createXMLReader();
-        myXMLReader.setContentHandler(new ConfigContentHandler());
-      }
- catch (      SAXException e) {
-        System.out.println(e.getMessage());
-      }
-    }
- else {
+    if (!myDestinationDirectory.isDirectory()) {
       System.out.println("Wrong path - directory path expected");
     }
   }

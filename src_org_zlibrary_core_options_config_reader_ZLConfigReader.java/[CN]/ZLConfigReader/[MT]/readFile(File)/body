@@ -1,19 +1,5 @@
 {
-  try {
-    myFile=file.getName().toLowerCase();
-    InputStream input=new FileInputStream(file);
-    myCategory=file.getName().split(".xml")[0];
-    myXMLReader.parse(new InputSource(input));
-  }
- catch (  FileNotFoundException fnfException) {
-    if (!myFile.equals("delta.xml")) {
-      System.err.println(fnfException.getMessage());
-    }
-  }
-catch (  IOException ioException) {
-    System.err.println(ioException.getMessage());
-  }
-catch (  SAXException saxException) {
-    System.err.println(saxException.getMessage());
-  }
+  myFile=file.getName().toLowerCase();
+  myCategory=file.getName().split(".xml")[0];
+  myXMLReader.read(file.toString());
 }

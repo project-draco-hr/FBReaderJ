@@ -30,9 +30,4 @@
     notEmptyCategories.add(category.intern());
     this.writeConfigFile("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" + "<config>\n" + configFilesContent.get(category) + "</config>",configFilePath(category));
   }
-  for (  String category : myConfig.getCategories()) {
-    if (!notEmptyCategories.contains(category.intern())) {
-      deleteConfigFile(configFilePath(category));
-    }
-  }
 }
