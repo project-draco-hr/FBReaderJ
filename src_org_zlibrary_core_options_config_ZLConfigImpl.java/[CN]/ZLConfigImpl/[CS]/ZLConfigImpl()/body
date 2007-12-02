@@ -1,5 +1,4 @@
 {
   myMainConfig=new ZLSimpleConfigImpl();
   myDeltaConfig=new ZLDeltaConfig();
-  myCategories=new HashSet<String>();
 }

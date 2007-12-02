@@ -1,4 +1,3 @@
 {
   myDeltaConfig.setValue(group,name,value,category);
-  myCategories.add(category.intern());
 }
