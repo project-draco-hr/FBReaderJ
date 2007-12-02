@@ -15,18 +15,18 @@
     ZLTextWordCursor cursor;
     for (cursor=info.Start; !cursor.equalWordNumber(info.End) && !cursor.isEndOfParagraph(); cursor.nextWord()) {
       ZLTextElement element=cursor.getElement();
-      if (element instanceof ZLTextWord) {
-        wordOccurred=true;
-        ZLTextWord word=(ZLTextWord)element;
-        context.drawString(w,h + info.Height,word.Data,word.Offset,word.Length);
-        w+=word.getWidth(context);
-      }
- else       if (element instanceof ZLTextHSpaceElement) {
+      if (element == ZLTextElement.HSpace) {
         if (wordOccurred) {
           w+=context.getSpaceWidth();
           spaces++;
           wordOccurred=false;
         }
+      }
+ else       if (element instanceof ZLTextWord) {
+        wordOccurred=true;
+        ZLTextWord word=(ZLTextWord)element;
+        context.drawString(w,h + info.Height,word.Data,word.Offset,word.Length);
+        w+=word.getWidth(context);
       }
  else       if (element instanceof ZLTextControlElement) {
         myStyle.applyControl((ZLTextControlElement)element);

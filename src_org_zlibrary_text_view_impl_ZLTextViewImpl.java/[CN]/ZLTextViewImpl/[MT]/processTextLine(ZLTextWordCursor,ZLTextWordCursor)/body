@@ -39,17 +39,17 @@
     newWidth+=myStyle.elementWidth(element,current.getCharNumber());
     newHeight=Math.max(newHeight,myStyle.elementHeight(element));
     newDescent=Math.max(newDescent,myStyle.elementDescent(element));
-    if (element instanceof ZLTextWord) {
-      wordOccurred=true;
-      isVisible=true;
-    }
- else     if (element instanceof ZLTextHSpaceElement) {
+    if (element == ZLTextElement.HSpace) {
       if (wordOccurred) {
         wordOccurred=false;
         internalSpaceCounter++;
         lastSpaceWidth=myStyle.getPaintContext().getSpaceWidth();
         newWidth+=lastSpaceWidth;
       }
+    }
+ else     if (element instanceof ZLTextWord) {
+      wordOccurred=true;
+      isVisible=true;
     }
  else     if (element instanceof ZLTextControlElement) {
       myStyle.applyControl((ZLTextControlElement)element);
