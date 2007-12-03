@@ -1,0 +1,11 @@
+{
+  super(xStart,xEnd,yStart,yEnd);
+  ParagraphNumber=paragraphNumber;
+  TextElementNumber=textElementNumber;
+  StartCharNumber=startCharNumber;
+  Length=length;
+  AddHyphenationSign=addHyphenationSign;
+  ChangeStyle=changeStyle;
+  Style=style;
+  Element=element;
+}

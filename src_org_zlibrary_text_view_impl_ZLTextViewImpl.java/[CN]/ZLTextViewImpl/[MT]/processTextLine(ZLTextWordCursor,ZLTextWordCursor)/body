@@ -36,9 +36,9 @@
   boolean removeLastSpace=false;
   do {
     ZLTextElement element=paragraphCursor.getElement(current.getWordNumber());
-    newWidth+=myStyle.elementWidth(element,current.getCharNumber());
-    newHeight=Math.max(newHeight,myStyle.elementHeight(element));
-    newDescent=Math.max(newDescent,myStyle.elementDescent(element));
+    newWidth+=myStyle.getElementWidth(element,current.getCharNumber());
+    newHeight=Math.max(newHeight,myStyle.getElementHeight(element));
+    newDescent=Math.max(newDescent,myStyle.getElementDescent(element));
     if (element == ZLTextElement.HSpace) {
       if (wordOccurred) {
         wordOccurred=false;
@@ -78,7 +78,7 @@
   if (!current.equalWordNumber(end)) {
     ZLTextElement element=paragraphCursor.getElement(current.getWordNumber());
     if (element instanceof ZLTextWord) {
-      newWidth-=myStyle.elementWidth(element,current.getCharNumber());
+      newWidth-=myStyle.getElementWidth(element,current.getCharNumber());
     }
     info.IsVisible=true;
     info.Width=newWidth;

@@ -1,6 +1,0 @@
-{
-  if (element instanceof ZLTextWord) {
-    return wordWidth((ZLTextWord)element,charNumber,-1,false);
-  }
-  return 0;
-}

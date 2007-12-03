@@ -1,0 +1,64 @@
+{
+  myStyle.setStyle(info.StartStyle);
+  final int y=Math.min(getContext().getY() + info.Height,myStyle.getTextAreaHeight());
+  int spaceCounter=info.SpaceCounter;
+  int fullCorrection=0;
+  final boolean endOfParagraph=info.End.isEndOfParagraph();
+  boolean wordOccurred=false;
+  boolean changeStyle=true;
+  getContext().moveXTo(info.LeftIndent);
+switch (myStyle.getTextStyle().alignment()) {
+case ZLTextAlignmentType.ALIGN_RIGHT:
+{
+      getContext().moveX(getContext().getWidth() - myStyle.getTextStyle().rightIndent() - info.Width);
+      break;
+    }
+case ZLTextAlignmentType.ALIGN_CENTER:
+{
+    getContext().moveX((getContext().getWidth() - myStyle.getTextStyle().rightIndent() - info.Width) / 2);
+    break;
+  }
+case ZLTextAlignmentType.ALIGN_JUSTIFY:
+{
+  if (!endOfParagraph && !(info.End.getElement() == ZLTextElement.AfterParagraph)) {
+    fullCorrection=getContext().getWidth() - myStyle.getTextStyle().rightIndent() - info.Width;
+  }
+  break;
+}
+case ZLTextAlignmentType.ALIGN_LEFT:
+case ZLTextAlignmentType.ALIGN_UNDEFINED:
+{
+break;
+}
+}
+final ZLTextParagraphCursor paragraph=info.RealStart.getParagraphCursor();
+int paragraphNumber=paragraph.getIndex();
+for (ZLTextWordCursor pos=info.RealStart; !pos.equalWordNumber(info.End); pos.nextWord()) {
+final ZLTextElement element=paragraph.getElement(pos.getWordNumber());
+final int x=getContext().getX();
+final int width=myStyle.getElementWidth(element,pos.getCharNumber());
+if (element instanceof ZLTextWord) {
+final int height=myStyle.getElementHeight(element);
+final int descent=myStyle.getElementDescent(element);
+final int length=((ZLTextWord)element).Length;
+myTextElementMap.add(new ZLTextElementArea(paragraphNumber,pos.getWordNumber(),pos.getCharNumber(),length,false,changeStyle,myStyle.getTextStyle(),element,x,x + width - 1,y - height + 1,y + descent));
+changeStyle=false;
+wordOccurred=true;
+}
+ else if (element instanceof ZLTextControlElement) {
+myStyle.applyControl((ZLTextControlElement)element);
+changeStyle=true;
+}
+ else if (element == ZLTextElement.HSpace) {
+if (wordOccurred && (spaceCounter > 0)) {
+int correction=fullCorrection / spaceCounter;
+getContext().moveX(getContext().getWidth() + correction);
+fullCorrection-=correction;
+wordOccurred=false;
+--spaceCounter;
+}
+}
+getContext().moveX(width);
+}
+getContext().moveY(info.Height + info.Descent + info.VSpaceAfter);
+}

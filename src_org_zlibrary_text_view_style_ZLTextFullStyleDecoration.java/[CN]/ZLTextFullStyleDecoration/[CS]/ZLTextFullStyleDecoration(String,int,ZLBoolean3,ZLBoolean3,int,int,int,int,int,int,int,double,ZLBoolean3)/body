@@ -5,6 +5,6 @@
   LeftIndentOption=null;
   RightIndentOption=null;
   FirstLineIndentDeltaOption=null;
-  AlignmentOption=null;
+  AlignmentOption=new ZLIntegerOption(ZLOption.LOOK_AND_FEEL_CATEGORY,STYLE,name + ":alignment",alignment);
   LineSpaceOption=null;
 }

@@ -1,0 +1,3 @@
+{
+  return (position.XStart <= myX && myX <= position.XEnd && position.YStart <= myY && myY <= position.YEnd);
+}
