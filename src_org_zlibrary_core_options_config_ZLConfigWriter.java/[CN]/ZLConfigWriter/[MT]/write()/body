@@ -1,5 +1,4 @@
 {
-  writeDelta();
   Set<String> usedCategories=myConfig.applyDelta();
   Set<ZLGroup> groups=myConfig.getGroups();
   Map<String,StringBuffer> configFilesContent=new LinkedHashMap<String,StringBuffer>();

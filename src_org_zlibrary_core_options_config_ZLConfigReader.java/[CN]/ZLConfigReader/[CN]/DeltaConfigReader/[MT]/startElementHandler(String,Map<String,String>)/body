@@ -9,22 +9,20 @@ case 0:
 case 1:
 if (tag.equals("group")) {
   myCurrentGroup=attributes.get("name");
+  myCurrentGroupIsEmpty=true;
 }
  else {
-  if (tag.equals("delete")) {
-  }
- else {
-    printError(tag);
-  }
+  printError(tag);
 }
 break;
 case 2:
 if (tag.equals("option")) {
+myCurrentGroupIsEmpty=false;
 if ((attributes.get("value") != null) && (attributes.get("category") != null)) {
-myConfig.setValue(myCurrentGroup,attributes.get("name"),attributes.get("value"),attributes.get("category"));
+myConfig.setValueDirectly(myCurrentGroup,attributes.get("name"),attributes.get("value"),attributes.get("category"));
 }
  else {
-myConfig.unsetValue(myCurrentGroup,attributes.get("name"));
+myConfig.unsetValueDirectly(myCurrentGroup,attributes.get("name"));
 }
 }
  else {

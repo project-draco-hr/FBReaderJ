@@ -9,6 +9,6 @@
     }
   }
   myXMLReader=new DeltaConfigReader();
-  myXMLReader.read(myDestinationDirectory + "/delta.xml");
-  myConfig.clearDelta();
+  myXMLReader.read(myDeltaFilePath);
+  new File(myDeltaFilePath).delete();
 }

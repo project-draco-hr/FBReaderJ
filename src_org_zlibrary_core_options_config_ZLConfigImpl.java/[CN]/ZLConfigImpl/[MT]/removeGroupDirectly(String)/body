@@ -1,0 +1,3 @@
+{
+  myMainConfig.removeGroup(name);
+}

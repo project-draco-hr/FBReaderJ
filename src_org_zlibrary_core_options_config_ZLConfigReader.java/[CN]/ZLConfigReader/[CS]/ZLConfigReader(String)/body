@@ -1,6 +1,7 @@
 {
   myConfig=ZLConfigInstance.getExtendedInstance();
   myDestinationDirectory=new File(path);
+  myDeltaFilePath=myDestinationDirectory + "/delta.xml";
   if (myDestinationDirectory.exists()) {
     if (!myDestinationDirectory.isDirectory()) {
       System.out.println("Wrong path - directory path expected");

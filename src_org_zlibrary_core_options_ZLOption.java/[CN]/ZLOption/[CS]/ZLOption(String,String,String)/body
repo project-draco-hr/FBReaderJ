@@ -4,7 +4,7 @@
   myOptionName=name;
   myIsSynchronized=false;
   String value=myConfig.getValue(group,name,null);
-  if (value != null) {
+  if ((value != null)) {
     myConfig.setValue(group,name,value,category);
   }
 }

@@ -1,0 +1,3 @@
+{
+  myMainConfig.setValue(group,name,value,category);
+}

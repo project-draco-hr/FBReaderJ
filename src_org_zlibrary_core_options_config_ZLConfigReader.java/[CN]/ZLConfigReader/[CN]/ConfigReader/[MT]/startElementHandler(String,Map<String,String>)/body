@@ -16,7 +16,7 @@ if (tag.equals("group")) {
 break;
 case 2:
 if (tag.equals("option")) {
-myConfig.setValue(myCurrentGroup,attributes.get("name"),attributes.get("value"),myCategory);
+myConfig.setValueDirectly(myCurrentGroup,attributes.get("name"),attributes.get("value"),myCategory);
 }
  else {
 printError(tag);
