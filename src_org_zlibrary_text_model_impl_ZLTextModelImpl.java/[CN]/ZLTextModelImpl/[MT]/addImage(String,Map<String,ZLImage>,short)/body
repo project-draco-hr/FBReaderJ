@@ -1,0 +1,3 @@
+{
+  myParagraphs.getLast().addEntry(new ZLImageEntryImpl(id,imageMap,vOffset));
+}

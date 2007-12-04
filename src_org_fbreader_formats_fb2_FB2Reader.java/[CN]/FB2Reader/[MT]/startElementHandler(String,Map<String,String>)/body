@@ -123,9 +123,9 @@ break;
 case IMAGE:
 String imgRef=reference(attributes);
 String vOffset=attributes.get("voffset");
-int offset=0;
+short offset=0;
 try {
-offset=Integer.valueOf(vOffset);
+offset=Short.valueOf(vOffset);
 }
  catch (NumberFormatException e) {
 }
