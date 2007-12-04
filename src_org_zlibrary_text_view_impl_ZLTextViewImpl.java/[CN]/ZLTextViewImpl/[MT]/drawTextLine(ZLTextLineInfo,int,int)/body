@@ -18,7 +18,9 @@
       }
       final int x=area.XStart;
       final int y=area.YEnd - myStyle.getElementDescent(element) - myStyle.getTextStyle().verticalShift();
+      getContext().moveXTo(x);
       if (element instanceof ZLTextWord) {
+        System.out.println("Draw " + x + " "+ y);
         drawWord(x,y,(ZLTextWord)element,pos.getCharNumber(),-1,false);
       }
     }

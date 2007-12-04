@@ -8,17 +8,34 @@
     start.setCursor(firstParagraph);
     buildInfos(start);
   }
-  List<Integer> labels=new ArrayList<Integer>(myLineInfos.size() + 1);
-  labels.add(0);
-  getContext().moveYTo(0);
+  int h=0;
   for (  ZLTextLineInfo info : myLineInfos) {
-    prepareTextLine(info);
-    labels.add(myTextElementMap.size());
-  }
-  getContext().moveYTo(0);
-  int index=0;
-  for (  ZLTextLineInfo info : myLineInfos) {
-    drawTextLine(info,labels.get(index),labels.get(index + 1));
-    index++;
+    int w=0;
+    int spaces=0;
+    boolean wordOccurred=false;
+    ZLTextWordCursor cursor;
+    for (cursor=info.Start; !cursor.equalWordNumber(info.End) && !cursor.isEndOfParagraph(); cursor.nextWord()) {
+      ZLTextElement element=cursor.getElement();
+      if (element == ZLTextElement.HSpace) {
+        if (wordOccurred) {
+          w+=context.getSpaceWidth();
+          spaces++;
+          wordOccurred=false;
+        }
+      }
+ else       if (element instanceof ZLTextWord) {
+        wordOccurred=true;
+        ZLTextWord word=(ZLTextWord)element;
+        context.drawString(w,h + info.Height,word.Data,word.Offset,word.Length);
+        w+=word.getWidth(context);
+      }
+ else       if (element instanceof ZLTextControlElement) {
+        myStyle.applyControl((ZLTextControlElement)element);
+      }
+    }
+    if (cursor.isEndOfParagraph()) {
+      myStyle.reset();
+    }
+    h+=info.Height + info.Descent;
   }
 }

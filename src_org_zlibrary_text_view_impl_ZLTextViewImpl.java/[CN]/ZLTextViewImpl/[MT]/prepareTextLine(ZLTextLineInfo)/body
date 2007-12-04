@@ -33,11 +33,22 @@ break;
 }
 final ZLTextParagraphCursor paragraph=info.RealStart.getParagraphCursor();
 int paragraphNumber=paragraph.getIndex();
+System.out.println();
 for (ZLTextWordCursor pos=info.RealStart; !pos.equalWordNumber(info.End); pos.nextWord()) {
 final ZLTextElement element=paragraph.getElement(pos.getWordNumber());
 final int x=getContext().getX();
 final int width=myStyle.getElementWidth(element,pos.getCharNumber());
-if (element instanceof ZLTextWord) {
+if (element == ZLTextElement.HSpace) {
+if (wordOccurred && (spaceCounter > 0)) {
+int correction=fullCorrection / spaceCounter;
+getContext().moveX(getContext().getSpaceWidth() + correction);
+fullCorrection-=correction;
+wordOccurred=false;
+--spaceCounter;
+}
+}
+ else if (element instanceof ZLTextWord) {
+System.out.print(((ZLTextWord)element).Data + " " + x+ " ");
 final int height=myStyle.getElementHeight(element);
 final int descent=myStyle.getElementDescent(element);
 final int length=((ZLTextWord)element).Length;
@@ -48,15 +59,6 @@ wordOccurred=true;
  else if (element instanceof ZLTextControlElement) {
 myStyle.applyControl((ZLTextControlElement)element);
 changeStyle=true;
-}
- else if (element == ZLTextElement.HSpace) {
-if (wordOccurred && (spaceCounter > 0)) {
-int correction=fullCorrection / spaceCounter;
-getContext().moveX(getContext().getSpaceWidth() + correction);
-fullCorrection-=correction;
-wordOccurred=false;
---spaceCounter;
-}
 }
 getContext().moveX(width);
 }
