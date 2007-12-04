@@ -1,0 +1,30 @@
+{
+  final ZLTextParagraphCursor paragraph=info.RealStart.getParagraphCursor();
+  ListIterator<ZLTextElementArea> fromIt=myTextElementMap.listIterator(from);
+  ListIterator<ZLTextElementArea> toIt=myTextElementMap.listIterator(to);
+  getContext().moveY(info.Height);
+  int maxY=myStyle.getTextAreaHeight();
+  if (getContext().getY() > maxY) {
+    getContext().moveYTo(maxY);
+  }
+  getContext().moveXTo(0);
+  ListIterator<ZLTextElementArea> it=myTextElementMap.listIterator(from);
+  for (ZLTextWordCursor pos=info.RealStart; !pos.equalWordNumber(info.End); pos.nextWord()) {
+    final ZLTextElement element=paragraph.getElement(pos.getWordNumber());
+    if (element instanceof ZLTextWord) {
+      ZLTextElementArea area=it.next();
+      if (area.ChangeStyle) {
+        myStyle.setStyle(area.Style);
+      }
+      final int x=area.XStart;
+      final int y=area.YEnd - myStyle.getElementDescent(element) - myStyle.getTextStyle().verticalShift();
+      if (element instanceof ZLTextWord) {
+        drawWord(x,y,(ZLTextWord)element,pos.getCharNumber(),-1,false);
+      }
+    }
+  }
+  if (it != toIt) {
+    System.out.println("Didn't come to the end of the infos.");
+  }
+  getContext().moveY(info.Descent + info.VSpaceAfter);
+}
