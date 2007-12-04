@@ -7,5 +7,9 @@
  else     if (entry instanceof ZLTextControlEntry) {
       myElements.add(new ZLTextControlElement((ZLTextControlEntry)entry));
     }
+ else     if (entry instanceof ZLImageEntry) {
+      ZLImageEntry imageEntry=(ZLImageEntry)entry;
+      System.out.println("Hello, I'm ZLImageEntry " + imageEntry.getId());
+    }
   }
 }
