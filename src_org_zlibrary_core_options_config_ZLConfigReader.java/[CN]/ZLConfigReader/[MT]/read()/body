@@ -10,5 +10,6 @@
   }
   myXMLReader=new DeltaConfigReader();
   myXMLReader.read(myDeltaFilePath);
+  myConfig.applyDelta();
   new File(myDeltaFilePath).delete();
 }

@@ -19,10 +19,10 @@ case 2:
 if (tag.equals("option")) {
 myCurrentGroupIsEmpty=false;
 if ((attributes.get("value") != null) && (attributes.get("category") != null)) {
-myConfig.setValueDirectly(myCurrentGroup,attributes.get("name"),attributes.get("value"),attributes.get("category"));
+myConfig.setValue(myCurrentGroup,attributes.get("name"),attributes.get("value"),attributes.get("category"));
 }
  else {
-myConfig.unsetValueDirectly(myCurrentGroup,attributes.get("name"));
+myConfig.unsetValue(myCurrentGroup,attributes.get("name"));
 }
 }
  else {

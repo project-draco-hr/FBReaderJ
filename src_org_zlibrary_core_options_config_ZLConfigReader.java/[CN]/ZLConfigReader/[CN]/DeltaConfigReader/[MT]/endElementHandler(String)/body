@@ -1,6 +1,6 @@
 {
   if ((myDepth == 1) && (myCurrentGroupIsEmpty) && (tag.equals("group"))) {
-    myConfig.removeGroupDirectly(myCurrentGroup);
+    myConfig.removeGroup(myCurrentGroup);
   }
   myDepth--;
 }
