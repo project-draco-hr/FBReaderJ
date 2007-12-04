@@ -1,0 +1,13 @@
+{
+  InputMap inputmap=myFrame.getRootPane().getInputMap();
+  ActionMap actionmap=myFrame.getRootPane().getActionMap();
+  Set<Map.Entry<String,Integer>> setEntries=getApplication().keyBindings().getKeys();
+  for (  Map.Entry<String,Integer> entry : setEntries) {
+    String key=entry.getKey();
+    String changeKey=key.substring(1,key.length() - 1);
+    inputmap.put(KeyStroke.getKeyStroke(changeKey),entry.getValue());
+    actionmap.put(entry.getValue(),new MyKeyAction(entry.getKey()));
+    System.out.println("key addKeyAction-->" + key + "   AFTER "+ changeKey);
+    System.out.println(KeyEvent.getKeyText(38));
+  }
+}

@@ -3,7 +3,6 @@
     ZLApplication.Toolbar.ButtonItem buttonItem=(ZLApplication.Toolbar.ButtonItem)item;
     Action action=new MyButtonAction(buttonItem);
     myToolbar.add(action);
-    myItemActionMap.put(item,action);
   }
  else {
     myToolbar.addSeparator();
