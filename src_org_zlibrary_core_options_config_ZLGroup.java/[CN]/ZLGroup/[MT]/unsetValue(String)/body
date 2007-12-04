@@ -1,7 +1,7 @@
 {
   for (  ZLOptionInfo option : myData) {
     if (option.getName().equals(name)) {
-      myData.remove(name);
+      myData.remove(option);
     }
   }
 }

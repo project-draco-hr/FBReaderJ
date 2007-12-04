@@ -1,4 +1,4 @@
 {
-  myData=new LinkedHashSet<ZLOptionInfo>();
+  myData=new HashSet<ZLOptionInfo>();
   myName=name;
 }
