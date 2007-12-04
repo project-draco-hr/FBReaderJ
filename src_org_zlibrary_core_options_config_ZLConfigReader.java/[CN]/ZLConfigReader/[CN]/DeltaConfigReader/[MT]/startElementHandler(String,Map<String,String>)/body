@@ -2,7 +2,7 @@
   tag=tag.toLowerCase();
 switch (myDepth) {
 case 0:
-    if (!tag.equals("delta")) {
+    if (!tag.equals("config")) {
       printError(tag);
     }
   break;
@@ -20,20 +20,12 @@ if (tag.equals("group")) {
 break;
 case 2:
 if (tag.equals("option")) {
+if ((attributes.get("value") != null) && (attributes.get("category") != null)) {
 myConfig.setValue(myCurrentGroup,attributes.get("name"),attributes.get("value"),attributes.get("category"));
 }
  else {
-if (tag.equals("group")) {
-myCurrentGroup=attributes.get("name");
-}
- else {
-printError(tag);
-}
-}
-break;
-case 3:
-if (tag.equals("option")) {
 myConfig.unsetValue(myCurrentGroup,attributes.get("name"));
+}
 }
  else {
 printError(tag);

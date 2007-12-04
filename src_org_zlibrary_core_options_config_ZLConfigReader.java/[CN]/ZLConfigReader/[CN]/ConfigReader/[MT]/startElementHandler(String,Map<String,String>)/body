@@ -23,7 +23,7 @@ printError(tag);
 }
 break;
 default :
-System.out.println("too many nesting elements!");
+System.out.println("too many nesting elements! in main");
 }
 myDepth++;
 }
