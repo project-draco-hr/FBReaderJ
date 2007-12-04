@@ -1,12 +1,12 @@
 {
   Set<String> usedCategories=myConfig.applyDelta();
-  Map<String,ZLGroup> data=myConfig.getGroups();
+  Set<ZLGroup> groups=myConfig.getGroups();
   Map<String,StringBuffer> configFilesContent=new LinkedHashMap<String,StringBuffer>();
   StringBuffer sb;
   Map<String,Boolean> currentGroupOpenedIn;
-  for (  String group : data.keySet()) {
+  for (  ZLGroup group : groups) {
     currentGroupOpenedIn=new HashMap<String,Boolean>();
-    for (    ZLOptionValue value : data.get(group).getValues()) {
+    for (    ZLOptionInfo value : group.getOptions()) {
       sb=configFilesContent.get(value.getCategory());
       if (currentGroupOpenedIn.get(value.getCategory()) == null) {
         currentGroupOpenedIn.put(value.getCategory(),false);
@@ -16,7 +16,7 @@
         configFilesContent.put(value.getCategory(),sb);
       }
       if (!currentGroupOpenedIn.get(value.getCategory())) {
-        sb.append("  <group name=\"" + group + "\">\n");
+        sb.append("  <group name=\"" + group.getName() + "\">\n");
         currentGroupOpenedIn.put(value.getCategory(),true);
       }
       sb.append(value);

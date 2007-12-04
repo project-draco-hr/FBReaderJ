@@ -13,6 +13,5 @@
   myOption.setValue(156);
   ZLStringOption myChangeableOption=new ZLStringOption("gruiu","MYGROUP","lengthChangeable","12312");
   myChangeableOption.setValue("I_COULD_CHANGE!");
-  ZLConfigWriterFactory.createConfigWriter(output).writeDelta();
   ZLConfigWriterFactory.createConfigWriter(output).write();
 }

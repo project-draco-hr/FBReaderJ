@@ -15,10 +15,10 @@
     sb.append("  </delete>\n");
   }
 {
-    Map<String,ZLGroup> values=mySetValues.getGroups();
-    for (    String group : values.keySet()) {
-      sb.append("  <group name=\"" + group + "\">\n");
-      for (      ZLOptionValue option : values.get(group).getValues()) {
+    Set<ZLGroup> groups=mySetValues.getGroups();
+    for (    ZLGroup group : groups) {
+      sb.append("  <group name=\"" + group.getName() + "\">\n");
+      for (      ZLOptionInfo option : group.getOptions()) {
         sb.append("    <option name=\"" + option.getName() + "\" ");
         sb.append("value=\"" + option.getValue() + "\" ");
         sb.append("category=\"" + option.getCategory() + "\">\n");

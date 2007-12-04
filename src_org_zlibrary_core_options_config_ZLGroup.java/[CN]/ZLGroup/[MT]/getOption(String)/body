@@ -1,3 +1,8 @@
 {
-  return myData.get(name);
+  for (  ZLOptionInfo option : myData) {
+    if (option.getName().equals(name)) {
+      return option;
+    }
+  }
+  return null;
 }

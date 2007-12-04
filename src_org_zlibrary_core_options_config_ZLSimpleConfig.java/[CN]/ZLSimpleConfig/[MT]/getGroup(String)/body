@@ -1,7 +1,8 @@
 {
   for (  ZLGroup group : myData) {
     if (group.getName().equals(name)) {
-      myData.remove(group);
+      return group;
     }
   }
+  return null;
 }

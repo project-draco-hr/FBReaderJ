@@ -2,7 +2,12 @@
   if (!myIsSynchronized) {
     String value=myConfig.getValue(myGroup,myOptionName,null);
     if (value != null) {
-      myValue=ZLFromStringConverter.getDoubleValue(value);
+      try {
+        Double doubleValue=Double.parseDouble(value);
+        myValue=doubleValue;
+      }
+ catch (      NumberFormatException e) {
+      }
     }
     myIsSynchronized=true;
   }

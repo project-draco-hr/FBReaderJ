@@ -1,5 +1,5 @@
 {
-  ZLOptionValue temp=myData.get(name);
+  ZLOptionInfo temp=getOption(name);
   if (temp != null) {
     return temp.getValue();
   }

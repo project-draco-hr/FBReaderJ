@@ -1,7 +1,7 @@
 {
   StringBuffer sb=new StringBuffer();
-  for (  String name : myData.keySet()) {
-    sb.append("    <option name=\"" + name + "\" value=\""+ myData.get(name)+ "\"/>\n");
+  for (  ZLOptionInfo option : myData) {
+    sb.append("    <option name=\"" + option.getName() + "\" value=\""+ option+ "\"/>\n");
   }
   return sb.toString();
 }

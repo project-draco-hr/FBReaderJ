@@ -1,7 +1,8 @@
 {
-  if (myData.get(group) != null) {
-    if (myData.get(group).getValue(name) != null) {
-      return myData.get(group).getValue(name);
+  ZLGroup gr=getGroup(group);
+  if (gr != null) {
+    if (gr.getValue(name) != null) {
+      return gr.getValue(name);
     }
   }
   return defaultValue;

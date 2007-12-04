@@ -1,7 +1,7 @@
 {
-  ZLOptionValue temp=myData.get(name);
+  ZLOptionInfo temp=getOption(name);
   if (temp == null) {
-    myData.put(name,new ZLOptionValue(name,value,category));
+    myData.add(new ZLOptionInfo(name,value,category));
   }
  else {
     temp.setValue(value);
