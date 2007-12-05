@@ -1,0 +1,6 @@
+{
+  if (myWidget == null) {
+    myWidget=(ZLAndroidWidget)myActivity.findViewById(R.id.zlandroidactivity);
+  }
+  return myWidget;
+}

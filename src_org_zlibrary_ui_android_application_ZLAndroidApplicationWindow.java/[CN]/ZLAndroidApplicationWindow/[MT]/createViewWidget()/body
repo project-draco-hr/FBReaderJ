@@ -1,3 +1,4 @@
 {
-  return ZLAndroidViewWidget.Instance;
+  ZLAndroidViewWidget viewWidget=new ZLAndroidViewWidget(ZLAndroidViewWidget.Angle.getByDegrees(getApplication().AngleStateOption.getValue()));
+  return viewWidget;
 }

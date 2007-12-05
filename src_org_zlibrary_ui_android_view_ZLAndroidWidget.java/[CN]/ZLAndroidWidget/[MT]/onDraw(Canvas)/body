@@ -1,12 +1,30 @@
 {
   super.onDraw(canvas);
-  myPaintContext.beginPaint(canvas);
-  long start=System.currentTimeMillis();
-  ZLView view=ZLAndroidViewWidget.Instance.getView();
-  if (view != null) {
-    view.paint();
+  if (myViewWidget == null) {
+    return;
   }
-  long time=System.currentTimeMillis() - start;
-  myPaintContext.drawString(240,115,"" + time,0,3);
-  myPaintContext.endPaint();
+  ZLView view=myViewWidget.getView();
+  if (view == null) {
+    return;
+  }
+  myPaintContext.beginPaint(canvas);
+switch (myViewWidget.getRotation()) {
+case DEGREES0:
+    myPaintContext.setSize(myWidth,myHeight);
+  break;
+case DEGREES90:
+myPaintContext.setSize(myHeight,myWidth);
+canvas.rotate(270,myHeight / 2,myHeight / 2);
+break;
+case DEGREES180:
+myPaintContext.setSize(myWidth,myHeight);
+canvas.rotate(180,myWidth / 2,myHeight / 2);
+break;
+case DEGREES270:
+myPaintContext.setSize(myHeight,myWidth);
+canvas.rotate(90,myWidth / 2,myWidth / 2);
+break;
+}
+view.paint();
+myPaintContext.endPaint();
 }
