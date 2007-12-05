@@ -1,6 +1,9 @@
 {
   String value=myDeltaConfig.getValue(group,name,defaultValue);
-  if (value == defaultValue) {
+  if (value == null) {
+    return defaultValue;
+  }
+ else   if (value.equals(defaultValue)) {
     value=myMainConfig.getValue(group,name,defaultValue);
   }
   return value;

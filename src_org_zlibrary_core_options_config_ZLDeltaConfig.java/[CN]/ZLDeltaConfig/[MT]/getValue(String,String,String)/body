@@ -1,3 +1,15 @@
 {
-  return mySetValues.getValue(group,name,defaultValue);
+  String value=mySetValues.getValue(group,name,defaultValue);
+  System.out.println("config data - " + value);
+  if ((value == null) || (value.equals(defaultValue))) {
+    if (myDeletedValues.contains(group,name)) {
+      return null;
+    }
+ else {
+      return defaultValue;
+    }
+  }
+ else {
+    return value;
+  }
 }
