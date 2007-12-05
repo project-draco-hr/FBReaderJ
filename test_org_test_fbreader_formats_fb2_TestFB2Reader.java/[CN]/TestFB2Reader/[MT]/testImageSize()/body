@@ -1,0 +1,8 @@
+{
+  FB2Reader reader=new FB2Reader();
+  BookModel model=reader.readBook(myDirectory + "image.fb2");
+  ZLImage image=model.getImageMap().get("cover.jpg");
+  ZLSwingPaintContext paint=new ZLSwingPaintContext();
+  assertTrue(paint.imageHeight(image) == 277);
+  assertTrue(paint.imageWidth(image) == 200);
+}
