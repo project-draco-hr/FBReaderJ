@@ -9,8 +9,8 @@
   }
   getContext().moveXTo(0);
   ListIterator<ZLTextElementArea> it=myTextElementMap.listIterator(from);
-  for (ZLTextWordCursor pos=info.RealStart; !pos.equalWordNumber(info.End); pos.nextWord()) {
-    final ZLTextElement element=paragraph.getElement(pos.getWordNumber());
+  for (ZLTextWordCursor pos=new ZLTextWordCursor(info.Start); !pos.equalWordNumber(info.End); pos.nextWord()) {
+    final ZLTextElement element=pos.getElement();
     if (element instanceof ZLTextWord) {
       ZLTextElementArea area=it.next();
       if (area.ChangeStyle) {
@@ -20,13 +20,11 @@
       final int y=area.YEnd - myStyle.getElementDescent(element) - myStyle.getTextStyle().verticalShift();
       getContext().moveXTo(x);
       if (element instanceof ZLTextWord) {
-        System.out.println("Draw " + x + " "+ y);
         drawWord(x,y,(ZLTextWord)element,pos.getCharNumber(),-1,false);
       }
     }
   }
   if (it != toIt) {
-    System.out.println("Didn't come to the end of the infos.");
   }
   getContext().moveY(info.Descent + info.VSpaceAfter);
 }
