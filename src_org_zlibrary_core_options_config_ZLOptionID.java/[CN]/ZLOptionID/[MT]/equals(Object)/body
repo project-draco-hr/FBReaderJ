@@ -1,0 +1,13 @@
+{
+  if (o == this) {
+    return true;
+  }
+  if (!(o instanceof ZLOptionID)) {
+    return false;
+  }
+  ZLOptionID arg=(ZLOptionID)o;
+  if (arg.hashCode() != this.hashCode()) {
+    return false;
+  }
+  return arg.myName.equals(myName) && arg.myGroup.equals(myGroup);
+}

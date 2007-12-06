@@ -1,0 +1,5 @@
+{
+  myConfig.setValue("Options","KeyDelay","VALUE1","new_category");
+  myConfig.setValue("Options","KeyDelay","VALUE2","options");
+  assertEquals(myConfig.getValue("Options","KeyDelay","meaningless"),"VALUE2");
+}

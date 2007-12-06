@@ -1,0 +1,8 @@
+{
+  for (  ZLOptionID option : myData) {
+    if (option.getName().equals(name) && option.getGroup().equals(group)) {
+      return true;
+    }
+  }
+  return false;
+}

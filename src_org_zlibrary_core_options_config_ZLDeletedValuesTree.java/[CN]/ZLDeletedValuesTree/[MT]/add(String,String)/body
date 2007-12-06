@@ -1,6 +1,0 @@
-{
-  if (myData.get(group) == null) {
-    myData.put(group,new ArrayList<String>());
-  }
-  myData.get(group).add(name);
-}

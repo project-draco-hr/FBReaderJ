@@ -1,0 +1,5 @@
+{
+  myIntegerOption.setValue(123);
+  ZLIntegerOption newOption=new ZLIntegerOption("","","I",myDefaultInt2);
+  assertEquals(newOption.getValue(),123);
+}

@@ -1,0 +1,5 @@
+{
+  myBoolean3Option.setValue(ZLBoolean3.B3_TRUE);
+  ZLBoolean3Option newOption=new ZLBoolean3Option("","","My Boolean 3",myDefaultBoolean32);
+  assertEquals(newOption.getValue(),ZLBoolean3.B3_TRUE);
+}

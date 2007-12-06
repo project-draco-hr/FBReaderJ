@@ -1,0 +1,12 @@
+{
+  myConfig.setValue("Options","KeyDelay","VALUE","new_category");
+  String outputPath="test/org/test/" + "zlibrary/options/examples/output/";
+  ZLConfigWriterFactory.createConfigWriter(outputPath).write();
+  String[] outDirFiles=new File(outputPath).list();
+  for (int i=0; i < outDirFiles.length; i++) {
+    if (outDirFiles[i].equals("new_category.xml")) {
+      return;
+    }
+  }
+  fail("new_category.xml expected to exist");
+}

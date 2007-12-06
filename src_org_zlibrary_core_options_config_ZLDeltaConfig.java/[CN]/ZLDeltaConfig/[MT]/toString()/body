@@ -13,20 +13,19 @@
       sb.append("value=\"" + option.getValue() + "\" ");
       sb.append("category=\"" + option.getCategory() + "\"/>\n");
     }
-    if (myDeletedValues.getOptions(group.getName()) != null) {
-      for (      String option : myDeletedValues.getOptions(group.getName())) {
-        sb.append("    <option name=\"" + option + "\"/>\n");
+    for (    ZLOptionID option : myDeletedValues.getAll()) {
+      if (option.getGroup().equals(group)) {
+        sb.append("    <option name=\"" + option.getName() + "\"/>\n");
       }
     }
     sb.append("  </group>\n");
   }
-  Set<String> values=myDeletedValues.getGroups();
-  Set<String> otherGroups=new HashSet<String>(values);
-  otherGroups.removeAll(writtenGroups);
-  for (  String group : otherGroups) {
+  for (  String group : myDeletedValues.getGroups()) {
     sb.append("  <group name=\"" + group + "\">\n");
-    for (    String option : myDeletedValues.getOptions(group)) {
-      sb.append("      <option name=\"" + option + "\"/>\n");
+    for (    ZLOptionID option : myDeletedValues.getAll()) {
+      if (option.getGroup().equals(group)) {
+        sb.append("      <option name=\"" + option.getName() + "\"/>\n");
+      }
     }
     sb.append("  </group>\n");
   }

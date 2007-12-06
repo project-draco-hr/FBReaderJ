@@ -1,0 +1,5 @@
+{
+  myBooleanOption.setValue(false);
+  ZLBooleanOption newOption=new ZLBooleanOption("","","My Boolean",myDefaultBoolean2);
+  assertEquals(newOption.getValue(),false);
+}

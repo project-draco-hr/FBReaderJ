@@ -1,0 +1,8 @@
+{
+  if (group != null) {
+    myGroup=group.intern();
+  }
+  if (name != null) {
+    myName=name.intern();
+  }
+}

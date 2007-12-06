@@ -1,0 +1,3 @@
+{
+  assertEquals(myConfig.getValue("Options","KeyDelay","100"),0 + "");
+}
