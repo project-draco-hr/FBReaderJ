@@ -6,7 +6,7 @@ int spaceBefore
 int spaceAfter
 int leftIndent
 int rightIndent
-int firstLineDelta
+int firstLineIndentDelta
 int verticalShift
 int alignment
 double lineSpace

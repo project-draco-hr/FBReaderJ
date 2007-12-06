@@ -2,9 +2,9 @@
   super(name,fontSizeDelta,bold,italic,verticalShift,allowHyphenations);
   SpaceBeforeOption=null;
   SpaceAfterOption=null;
-  LeftIndentOption=null;
-  RightIndentOption=null;
-  FirstLineIndentDeltaOption=null;
+  LeftIndentOption=new ZLIntegerRangeOption(ZLOption.LOOK_AND_FEEL_CATEGORY,STYLE,name + ":leftIndent",-300,300,leftIndent);
+  RightIndentOption=new ZLIntegerRangeOption(ZLOption.LOOK_AND_FEEL_CATEGORY,STYLE,name + ":rightIndent",-300,300,rightIndent);
+  FirstLineIndentDeltaOption=new ZLIntegerRangeOption(ZLOption.LOOK_AND_FEEL_CATEGORY,STYLE,name + ":firstLineIndentDelta",-300,300,firstLineIndentDelta);
   AlignmentOption=new ZLIntegerOption(ZLOption.LOOK_AND_FEEL_CATEGORY,STYLE,name + ":alignment",alignment);
   LineSpaceOption=null;
 }

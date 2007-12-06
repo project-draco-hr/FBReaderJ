@@ -5,5 +5,8 @@
  else   if (element instanceof ZLTextImageElement) {
     return myContext.imageWidth(((ZLTextImageElement)element).getImage());
   }
+ else   if (element == ZLTextElement.IndentElement) {
+    return myStyle.firstLineIndentDelta();
+  }
   return 0;
 }

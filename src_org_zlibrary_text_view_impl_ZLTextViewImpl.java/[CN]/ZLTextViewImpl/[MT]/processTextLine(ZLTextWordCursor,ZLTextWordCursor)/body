@@ -20,6 +20,9 @@
   }
   ZLTextStyle storedStyle=myStyle.getTextStyle();
   info.LeftIndent=myStyle.getTextStyle().leftIndent();
+  if (isFirstLine) {
+    info.LeftIndent+=myStyle.getTextStyle().firstLineIndentDelta();
+  }
   info.Width=info.LeftIndent;
   if (info.RealStart.equalWordNumber(end)) {
     info.End=info.RealStart;
