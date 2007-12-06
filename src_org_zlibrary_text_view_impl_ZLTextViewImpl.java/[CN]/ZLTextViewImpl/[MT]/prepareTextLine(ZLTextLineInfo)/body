@@ -46,10 +46,10 @@ wordOccurred=false;
 --spaceCounter;
 }
 }
- else if (element instanceof ZLTextWord) {
+ else if ((element instanceof ZLTextWord) || (element instanceof ZLTextImageElement)) {
 final int height=myStyle.getElementHeight(element);
 final int descent=myStyle.getElementDescent(element);
-final int length=((ZLTextWord)element).Length;
+final int length=(element instanceof ZLTextWord) ? ((ZLTextWord)element).Length : 0;
 myTextElementMap.add(new ZLTextElementArea(paragraphNumber,pos.getWordNumber(),pos.getCharNumber(),length,false,changeStyle,myStyle.getTextStyle(),element,x,x + width - 1,y - height + 1,y + descent));
 changeStyle=false;
 wordOccurred=true;

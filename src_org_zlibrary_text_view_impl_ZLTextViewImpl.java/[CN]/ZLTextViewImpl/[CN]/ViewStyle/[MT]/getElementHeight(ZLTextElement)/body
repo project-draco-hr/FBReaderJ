@@ -5,5 +5,8 @@
     }
     return myWordHeight;
   }
+ else   if (element instanceof ZLTextImageElement) {
+    return myContext.imageHeight(((ZLTextImageElement)element).getImage()) + Math.max(myContext.getStringHeight() * (myStyle.lineSpace() - 1),3);
+  }
   return 0;
 }

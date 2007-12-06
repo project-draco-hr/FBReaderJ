@@ -9,7 +9,10 @@
     }
  else     if (entry instanceof ZLImageEntry) {
       ZLImageEntry imageEntry=(ZLImageEntry)entry;
-      System.out.println("Hello, I'm ZLImageEntry " + imageEntry.getId());
+      ZLImage image=imageEntry.getImage();
+      if (image != null) {
+        myElements.add(new ZLTextImageElement(imageEntry.getId(),image));
+      }
     }
   }
 }

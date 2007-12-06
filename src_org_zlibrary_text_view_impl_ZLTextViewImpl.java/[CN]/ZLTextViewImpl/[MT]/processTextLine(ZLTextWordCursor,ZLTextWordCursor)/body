@@ -54,6 +54,10 @@
  else     if (element instanceof ZLTextControlElement) {
       myStyle.applyControl((ZLTextControlElement)element);
     }
+ else     if (element instanceof ZLTextImageElement) {
+      wordOccurred=true;
+      isVisible=true;
+    }
     if ((newWidth > maxWidth) && !info.End.equalWordNumber(start)) {
       break;
     }
@@ -62,7 +66,7 @@
     boolean allowBreak=current.equalWordNumber(end);
     if (!allowBreak) {
       element=paragraphCursor.getElement(current.getWordNumber());
-      allowBreak=(((!(element instanceof ZLTextWord)) || (previousElement instanceof ZLTextWord)) && !(element instanceof ZLTextControlElement));
+      allowBreak=(((!(element instanceof ZLTextWord)) || (previousElement instanceof ZLTextWord)) && !(element instanceof ZLTextImageElement) && !(element instanceof ZLTextControlElement));
     }
     if (allowBreak) {
       info.IsVisible=isVisible;
@@ -75,18 +79,6 @@
     }
   }
  while (!current.equalWordNumber(end));
-  if (!current.equalWordNumber(end)) {
-    ZLTextElement element=paragraphCursor.getElement(current.getWordNumber());
-    if (element instanceof ZLTextWord) {
-      newWidth-=myStyle.getElementWidth(element,current.getCharNumber());
-    }
-    info.IsVisible=true;
-    info.Width=newWidth;
-    info.Height=Math.max(info.Height,newHeight);
-    info.Descent=Math.max(info.Descent,newDescent);
-    info.End=new ZLTextWordCursor(current);
-    info.SpaceCounter=internalSpaceCounter;
-  }
   if (removeLastSpace) {
     info.Width-=lastSpaceWidth;
     info.SpaceCounter--;
