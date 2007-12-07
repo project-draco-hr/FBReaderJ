@@ -1,3 +1,3 @@
 {
-  return ZLTextAlignmentType.ALIGN_UNDEFINED;
+  return AlignmentOption.getValue();
 }
