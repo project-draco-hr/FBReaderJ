@@ -3,6 +3,8 @@
   addAction(ActionCode.QUIT,new QuitAction(this));
   addAction(ActionCode.SHOW_HELP,new ShowHelpAction(this));
   addAction(ActionCode.ROTATE_SCREEN,new ZLApplication.RotationAction(this));
+  addAction(ActionCode.UNDO,new ScrollAction(this,-1));
+  addAction(ActionCode.REDO,new ScrollAction(this,1));
   addToolbarButton(ActionCode.SHOW_COLLECTION,"books");
   addToolbarButton(ActionCode.SHOW_LAST_BOOKS,"history");
   addToolbarButton(ActionCode.ADD_BOOK,"addbook");
@@ -54,6 +56,10 @@
   getMenubar().addItem(ActionCode.SHOW_OPTIONS,new ZLResourceKey("settings"));
   getMenubar().addItem(ActionCode.QUIT,new ZLResourceKey("close"));
   ZLTextView view=new ZLTextViewImpl(this,getContext());
-  view.setModel((args.length > 0) ? args[0] : "data/help/MiniHelp.ru.fb2");
+  ZLStringOption bookNameOption=new ZLStringOption(ZLOption.STATE_CATEGORY,"Book","Current","data/help/MiniHelp.ru.fb2");
+  if (args.length > 0) {
+    bookNameOption.setValue(args[0]);
+  }
+  view.setModel(bookNameOption.getValue());
   setView(view);
 }

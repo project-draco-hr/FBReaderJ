@@ -3,7 +3,10 @@
   myTextElementMap.clear();
   int paragraphs=myModel.getParagraphsNumber();
   if (paragraphs > 0) {
-    ZLTextParagraphCursor firstParagraph=ZLTextParagraphCursor.getCursor(myModel,0);
+    int pn=StartParagraphNumberOption.getValue();
+    pn=Math.max(0,Math.min(pn,paragraphs - 2));
+    StartParagraphNumberOption.setValue(pn);
+    ZLTextParagraphCursor firstParagraph=ZLTextParagraphCursor.getCursor(myModel,pn);
     ZLTextWordCursor start=new ZLTextWordCursor();
     start.setCursor(firstParagraph);
     buildInfos(start);
