@@ -1,0 +1,5 @@
+{
+  ZLIntegerRangeOption option=ZLTextStyleCollection.getInstance().getBaseStyle().FontSizeOption;
+  option.setValue(option.getValue() + myDelta);
+  fbreader().refreshWindow();
+}

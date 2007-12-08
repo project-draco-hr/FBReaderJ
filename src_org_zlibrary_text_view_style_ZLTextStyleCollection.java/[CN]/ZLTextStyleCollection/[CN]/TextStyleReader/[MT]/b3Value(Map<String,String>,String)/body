@@ -1,4 +1,3 @@
 {
-  String stringValue=attributes.get(name);
-  return (stringValue == null) ? ZLBoolean3.B3_UNDEFINED : ((stringValue.equals("true")) ? ZLBoolean3.B3_TRUE : ZLBoolean3.B3_FALSE);
+  return ZLBoolean3.getByString(attributes.get(name));
 }

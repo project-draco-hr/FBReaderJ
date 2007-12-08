@@ -1,8 +1,10 @@
 {
-  FontFamilyOption=null;
-  FontSizeDeltaOption=new ZLIntegerRangeOption(ZLOption.LOOK_AND_FEEL_CATEGORY,STYLE,name + ":fontSize",-16,16,fontSizeDelta);
-  BoldOption=new ZLBoolean3Option(ZLOption.LOOK_AND_FEEL_CATEGORY,STYLE,name + ":bold",bold);
-  ItalicOption=new ZLBoolean3Option(ZLOption.LOOK_AND_FEEL_CATEGORY,STYLE,name + ":italic",italic);
-  VerticalShiftOption=null;
-  AllowHyphenationsOption=null;
+  myName=name;
+  final String category=ZLOption.LOOK_AND_FEEL_CATEGORY;
+  FontFamilyOption=new ZLStringOption(category,STYLE,name + ":fontFamily","");
+  FontSizeDeltaOption=new ZLIntegerRangeOption(category,STYLE,name + ":fontSize",-16,16,fontSizeDelta);
+  BoldOption=new ZLBoolean3Option(category,STYLE,name + ":bold",bold);
+  ItalicOption=new ZLBoolean3Option(category,STYLE,name + ":italic",italic);
+  VerticalShiftOption=new ZLIntegerOption(category,STYLE,name + ":vShift",verticalShift);
+  AllowHyphenationsOption=new ZLBoolean3Option(category,STYLE,name + ":allowHyphenations",allowHyphenations);
 }

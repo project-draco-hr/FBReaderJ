@@ -1,3 +1,8 @@
 {
   final String COLORS="Colors";
+  final String category=ZLOption.LOOK_AND_FEEL_CATEGORY;
+  AlignmentOption=new ZLIntegerOption(category,GROUP,"Base:alignment",ZLTextAlignmentType.ALIGN_JUSTIFY);
+  LineSpaceOption=new ZLDoubleOption(category,GROUP,"Base:lineSpacing",1.2);
+  FontFamilyOption=new ZLStringOption(category,GROUP,"Base:fontFamily",fontFamily);
+  FontSizeOption=new ZLIntegerRangeOption(category,GROUP,"Base:fontSize",0,72,fontSize);
 }
