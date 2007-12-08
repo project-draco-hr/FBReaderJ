@@ -1,0 +1,10 @@
+{
+  myConfig.setValue("group1","name1","VALUE1","category");
+  try {
+    writeConfigAndCheck("delta","" + "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" + "<config>\n"+ "  <group name=\"group1\">\n"+ "    <option name=\"name1\"/>\n"+ "    <option name=\"name2\"/>\n"+ "  </group>\n"+ "  <group name=\"group2\">\n"+ "    <option name=\"name3\"/>\n"+ "  </group>\n"+ "  <group name=\"group1\">\n"+ "    <option name=\"name1\" value=\"VALUE1\" category=\"category\"/>\n"+ "  </group>\n"+ "</config>");
+  }
+ catch (  FileNotFoundException e) {
+    fail(e.getMessage());
+  }
+  myConfig.unsetValue("group1","name1");
+}

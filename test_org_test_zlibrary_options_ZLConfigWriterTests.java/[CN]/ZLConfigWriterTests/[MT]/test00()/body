@@ -1,0 +1,11 @@
+{
+  myConfig.setValue("group","name","VALUE","category");
+  myConfig.unsetValue("group","name");
+  try {
+    writeConfigAndCheck("category","");
+  }
+ catch (  FileNotFoundException e) {
+    return;
+  }
+  fail("file category.xml wasn't deleted!");
+}

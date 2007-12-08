@@ -1,6 +1,6 @@
 {
   TestSuite suite=new TestSuite();
-  suite.addTestSuite(ConfigTests.class);
+  suite.addTestSuite(ConfigIOTests.class);
   suite.addTestSuite(UtilTests.class);
   suite.addTestSuite(ZLConfigWriterTests.class);
   suite.addTestSuite(ZLBoolean3OptionTests1.class);

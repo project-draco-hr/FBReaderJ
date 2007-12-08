@@ -1,0 +1,35 @@
+{
+  String outputPath="test/org/test/" + "zlibrary/options/examples/output/";
+  if (fileName.equals("delta")) {
+    ZLConfigWriterFactory.createConfigWriter(outputPath).writeDelta();
+  }
+ else {
+    ZLConfigWriterFactory.createConfigWriter(outputPath).write();
+  }
+  try {
+    FileReader fr=new FileReader(new File("test/org/test/" + "zlibrary/options/examples/output/" + fileName + ".xml"));
+    try {
+      int expectedContentSize=expectedContent.length();
+      char[] buf=new char[expectedContentSize];
+      fr.read(buf,0,expectedContentSize);
+      assertEquals(expectedContent,new String(buf));
+    }
+  finally {
+      try {
+        fr.close();
+      }
+ catch (      IOException e) {
+        fail("can't close reader");
+      }
+    }
+  }
+ catch (  FileNotFoundException e) {
+    throw e;
+  }
+catch (  IOException e) {
+    fail("IOException : " + e.getMessage());
+  }
+catch (  IndexOutOfBoundsException e) {
+    fail("content has length that's not equal expected content length ");
+  }
+}
