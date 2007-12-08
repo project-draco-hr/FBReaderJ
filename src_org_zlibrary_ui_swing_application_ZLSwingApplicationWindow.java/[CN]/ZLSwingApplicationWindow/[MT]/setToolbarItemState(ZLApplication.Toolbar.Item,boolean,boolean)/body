@@ -1,6 +1,7 @@
 {
   if (item instanceof ZLApplication.Toolbar.ButtonItem) {
-    Action action=myButtonItemToActionMap.get((ZLApplication.Toolbar.ButtonItem)item);
-    action.setEnabled(enabled);
+    AbstractButton button=myButtonItemToActionMap.get((ZLApplication.Toolbar.ButtonItem)item);
+    button.setEnabled(enabled);
+    button.setVisible(visible);
   }
 }

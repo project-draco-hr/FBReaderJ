@@ -1,10 +1,10 @@
 {
   if (item instanceof ZLApplication.Toolbar.ButtonItem) {
     ZLApplication.Toolbar.ButtonItem buttonItem=(ZLApplication.Toolbar.ButtonItem)item;
-    Action action=new MyButtonAction(buttonItem);
+    MyButtonAction action=new MyButtonAction(buttonItem);
     AbstractButton button=myToolbar.add(action);
     button.setFocusable(false);
-    myButtonItemToActionMap.put(buttonItem,action);
+    myButtonItemToActionMap.put(buttonItem,button);
   }
  else {
     myToolbar.addSeparator();
