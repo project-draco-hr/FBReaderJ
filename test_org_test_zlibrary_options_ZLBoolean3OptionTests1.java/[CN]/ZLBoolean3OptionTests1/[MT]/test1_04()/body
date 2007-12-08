@@ -1,3 +1,3 @@
 {
-  runTask1(null,ZLBoolean3.B3_FALSE,ZLBoolean3.B3_FALSE);
+  runTask1(null,null,ZLBoolean3.B3_UNDEFINED);
 }
