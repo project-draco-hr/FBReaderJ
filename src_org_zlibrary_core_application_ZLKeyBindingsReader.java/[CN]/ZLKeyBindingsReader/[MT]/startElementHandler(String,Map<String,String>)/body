@@ -1,6 +1,5 @@
 {
-  final String BINDING="binding";
-  if (BINDING == tag) {
+  if ("binding".equals(tag)) {
     String key=attributes.get("key");
     String action=attributes.get("action");
     if ((key != null) && (action != null)) {

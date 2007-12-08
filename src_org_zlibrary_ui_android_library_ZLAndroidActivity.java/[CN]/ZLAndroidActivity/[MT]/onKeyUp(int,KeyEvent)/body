@@ -1,0 +1,5 @@
+{
+  final String keyName=ZLAndroidKeyUtil.getKeyNameByCode(keyCode);
+  getLibrary().getMainWindow().getApplication().doActionByKey(keyName);
+  return false;
+}
