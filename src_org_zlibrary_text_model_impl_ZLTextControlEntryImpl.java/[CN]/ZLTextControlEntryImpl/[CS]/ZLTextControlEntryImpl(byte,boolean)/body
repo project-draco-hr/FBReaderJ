@@ -1,4 +1,4 @@
 {
   myKind=kind;
-  myStart=isStart;
+  myIsStart=isStart;
 }
