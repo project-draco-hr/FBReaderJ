@@ -1,27 +1,28 @@
 {
   myStyle.setStyle(info.StartStyle);
-  final int y=Math.min(getContext().getY() + info.Height,myStyle.getTextAreaHeight());
+  final int y=Math.min(getContext().getY() + info.Height,topMargin() + myStyle.getTextAreaHeight());
   int spaceCounter=info.SpaceCounter;
   int fullCorrection=0;
   final boolean endOfParagraph=info.End.isEndOfParagraph();
   boolean wordOccurred=false;
   boolean changeStyle=true;
-  getContext().moveXTo(info.LeftIndent);
+  getContext().moveXTo(leftMargin() + info.LeftIndent);
+  final int maxWidth=getContext().getWidth() - leftMargin() - rightMargin();
 switch (myStyle.getTextStyle().alignment()) {
 case ZLTextAlignmentType.ALIGN_RIGHT:
 {
-      getContext().moveX(getContext().getWidth() - myStyle.getTextStyle().rightIndent() - info.Width);
+      getContext().moveX(maxWidth - myStyle.getTextStyle().rightIndent() - info.Width);
       break;
     }
 case ZLTextAlignmentType.ALIGN_CENTER:
 {
-    getContext().moveX((getContext().getWidth() - myStyle.getTextStyle().rightIndent() - info.Width) / 2);
+    getContext().moveX((maxWidth - myStyle.getTextStyle().rightIndent() - info.Width) / 2);
     break;
   }
 case ZLTextAlignmentType.ALIGN_JUSTIFY:
 {
   if (!endOfParagraph && !(info.End.getElement() == ZLTextElement.AfterParagraph)) {
-    fullCorrection=getContext().getWidth() - myStyle.getTextStyle().rightIndent() - info.Width;
+    fullCorrection=maxWidth - myStyle.getTextStyle().rightIndent() - info.Width;
   }
   break;
 }

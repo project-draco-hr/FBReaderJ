@@ -31,7 +31,7 @@
   int newWidth=info.Width;
   int newHeight=info.Height;
   int newDescent=info.Descent;
-  int maxWidth=myStyle.getPaintContext().getWidth() - myStyle.getTextStyle().rightIndent();
+  int maxWidth=myStyle.getPaintContext().getWidth() - leftMargin() - rightMargin()- myStyle.getTextStyle().rightIndent();
   boolean wordOccurred=false;
   boolean isVisible=false;
   int lastSpaceWidth=0;

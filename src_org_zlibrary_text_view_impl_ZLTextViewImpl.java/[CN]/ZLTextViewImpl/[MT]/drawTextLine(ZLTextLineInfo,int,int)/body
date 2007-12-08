@@ -3,11 +3,11 @@
   ListIterator<ZLTextElementArea> fromIt=myTextElementMap.listIterator(from);
   ListIterator<ZLTextElementArea> toIt=myTextElementMap.listIterator(to);
   getContext().moveY(info.Height);
-  int maxY=myStyle.getTextAreaHeight();
+  int maxY=topMargin() + myStyle.getTextAreaHeight();
   if (getContext().getY() > maxY) {
     getContext().moveYTo(maxY);
   }
-  getContext().moveXTo(0);
+  getContext().moveXTo(leftMargin());
   ListIterator<ZLTextElementArea> it=myTextElementMap.listIterator(from);
   for (ZLTextWordCursor pos=new ZLTextWordCursor(info.RealStart); !pos.equalWordNumber(info.End); pos.nextWord()) {
     final ZLTextElement element=pos.getElement();
