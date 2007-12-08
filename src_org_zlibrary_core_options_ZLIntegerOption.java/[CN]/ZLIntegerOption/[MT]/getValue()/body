@@ -1,7 +1,6 @@
 {
   if (!myIsSynchronized) {
     String value=myConfig.getValue(myGroup,myOptionName,null);
-    System.out.println("int value " + value);
     if (value != null) {
       try {
         Integer intValue=Integer.parseInt(value);

@@ -1,5 +1,10 @@
 {
   super(category,group,optionName);
-  myDefaultValue=defaultValue.getIntValue();
+  if (defaultValue != null) {
+    myDefaultValue=defaultValue.getIntValue();
+  }
+ else {
+    myDefaultValue=0;
+  }
   myIntValue=myDefaultValue;
 }

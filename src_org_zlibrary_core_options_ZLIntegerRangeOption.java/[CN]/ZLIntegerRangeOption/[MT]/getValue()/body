@@ -9,6 +9,7 @@
  catch (      NumberFormatException e) {
       }
     }
+    myValue=Math.max(myMinValue,Math.min(myMaxValue,myValue));
     myIsSynchronized=true;
   }
   return myValue;

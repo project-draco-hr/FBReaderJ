@@ -1,3 +1,5 @@
 {
-  myDeltaConfig.setValue(group,name,value,category);
+  if (value != null) {
+    myDeltaConfig.setValue(group,name,value,category);
+  }
 }

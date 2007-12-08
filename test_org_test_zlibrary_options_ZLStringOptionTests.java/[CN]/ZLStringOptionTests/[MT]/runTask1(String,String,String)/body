@@ -1,0 +1,5 @@
+{
+  myConfig.setValue("string_group","name",configValue,"category");
+  ZLStringOption option=new ZLStringOption("category","string_group","name",defaultValue);
+  assertEquals(option.getValue(),expectedValue);
+}

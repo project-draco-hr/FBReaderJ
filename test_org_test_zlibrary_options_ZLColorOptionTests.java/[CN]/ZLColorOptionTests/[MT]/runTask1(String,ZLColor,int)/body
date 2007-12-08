@@ -1,0 +1,5 @@
+{
+  myConfig.setValue("color_group","name",configValue,"category");
+  ZLColorOption option=new ZLColorOption("category","color_group","name",defaultValue);
+  assertEquals(option.getValue(),expectedValue);
+}

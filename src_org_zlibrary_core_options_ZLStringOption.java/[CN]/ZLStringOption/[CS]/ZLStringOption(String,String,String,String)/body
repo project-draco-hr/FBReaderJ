@@ -1,5 +1,10 @@
 {
   super(category,group,optionName);
-  myDefaultValue=defaultValue;
+  if (defaultValue != null) {
+    myDefaultValue=defaultValue;
+  }
+ else {
+    myDefaultValue="";
+  }
   myValue=myDefaultValue;
 }

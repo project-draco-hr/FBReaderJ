@@ -1,0 +1,3 @@
+{
+  runTask1(null,Double.POSITIVE_INFINITY,Double.POSITIVE_INFINITY);
+}
