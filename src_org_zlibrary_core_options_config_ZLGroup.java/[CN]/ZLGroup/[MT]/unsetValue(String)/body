@@ -1,4 +1,3 @@
 {
   myData.remove(new ZLOptionInfo(name,"",""));
-  System.out.println(myData);
 }
