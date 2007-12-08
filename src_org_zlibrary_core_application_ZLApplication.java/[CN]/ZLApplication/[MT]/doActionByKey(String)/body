@@ -1,7 +1,6 @@
 {
-  System.out.println("key in application->" + key);
   ZLAction a=getAction(keyBindings().getBinding(key));
-  if ((a != null) && (!a.useKeyDelay())) {
+  if ((a != null)) {
     a.checkAndRun();
   }
 }

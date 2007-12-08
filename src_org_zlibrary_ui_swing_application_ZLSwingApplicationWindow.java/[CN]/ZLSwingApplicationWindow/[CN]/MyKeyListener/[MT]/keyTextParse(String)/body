@@ -1,0 +1,21 @@
+{
+  if (str.equals("Left") || str.equals("Down") || str.equals("Right")|| str.equals("Up")) {
+    str=str + "Arrow";
+  }
+ else   if (str.equals("Escape")) {
+    str="Esc";
+  }
+ else   if (str.equals("Equals")) {
+    str="=";
+  }
+ else   if (str.equals("Minus")) {
+    str="-";
+  }
+ else   if (str.startsWith("Page")) {
+    str="Page" + str.substring("Page".length() + 1,str.length());
+  }
+ else   if (str.equals("Enter")) {
+    str="Return";
+  }
+  return "<" + str + ">";
+}
