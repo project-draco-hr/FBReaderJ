@@ -1,3 +1,0 @@
-{
-  assertEquals(myColorOption.getValue(),myDefaultColor);
-}

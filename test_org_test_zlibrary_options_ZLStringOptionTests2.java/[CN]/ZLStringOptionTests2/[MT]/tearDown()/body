@@ -1,0 +1,3 @@
+{
+  myConfig.unsetValue("string_group_2","name");
+}

@@ -11,5 +11,5 @@
     }
     myIsSynchronized=true;
   }
-  return myIntValue;
+  return new ZLColor(myIntValue);
 }

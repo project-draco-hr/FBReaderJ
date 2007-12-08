@@ -1,5 +1,0 @@
-{
-  myDoubleOption.setValue(123.12314);
-  ZLDoubleOption newOption=new ZLDoubleOption("","","My Double",myDefaultDouble2);
-  assertEquals(newOption.getValue(),123.12314);
-}

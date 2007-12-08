@@ -1,3 +1,0 @@
-{
-  assertEquals(myStringOption.getName(),"my String");
-}

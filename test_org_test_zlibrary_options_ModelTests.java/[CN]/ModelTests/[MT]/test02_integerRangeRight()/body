@@ -1,4 +1,0 @@
-{
-  myIntegerRangeOption.setValue(-1);
-  assertEquals(myIntegerRangeOption.getValue(),-1);
-}

@@ -1,0 +1,3 @@
+{
+  myConfig.unsetValue("double_group_2a","name");
+}

@@ -1,0 +1,3 @@
+{
+  runTask2b("undefined",null,ZLBoolean3.B3_UNDEFINED,"def");
+}

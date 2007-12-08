@@ -1,0 +1,3 @@
+{
+  runTask2b("-Infinity",Double.POSITIVE_INFINITY,Double.NaN,"NaN");
+}

@@ -1,14 +1,16 @@
 {
-  int value=colorValue.getIntValue();
-  if (myIsSynchronized && (myIntValue == value)) {
-    return;
-  }
-  myIntValue=value;
-  myIsSynchronized=true;
-  if (myIntValue == myDefaultValue) {
-    myConfig.unsetValue(myGroup,myOptionName);
-  }
+  if (colorValue != null) {
+    int value=colorValue.getIntValue();
+    if (myIsSynchronized && (myIntValue == value)) {
+      return;
+    }
+    myIntValue=value;
+    myIsSynchronized=true;
+    if (myIntValue == myDefaultValue) {
+      myConfig.unsetValue(myGroup,myOptionName);
+    }
  else {
-    myConfig.setValue(myGroup,myOptionName,"" + myIntValue,myCategory);
+      myConfig.setValue(myGroup,myOptionName,"" + myIntValue,myCategory);
+    }
   }
 }

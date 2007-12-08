@@ -1,0 +1,4 @@
+String configValue
+boolean value2
+boolean value3
+boolean expectedValue

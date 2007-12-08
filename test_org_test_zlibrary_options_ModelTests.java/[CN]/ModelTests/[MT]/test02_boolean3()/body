@@ -1,4 +1,0 @@
-{
-  myBoolean3Option.setValue(ZLBoolean3.B3_TRUE);
-  assertEquals(myBoolean3Option.getValue(),ZLBoolean3.B3_TRUE);
-}

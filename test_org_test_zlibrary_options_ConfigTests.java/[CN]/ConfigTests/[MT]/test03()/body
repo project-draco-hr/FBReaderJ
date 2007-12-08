@@ -2,6 +2,10 @@
   ZLIntegerOption option=new ZLIntegerOption("options","Options","KeyDelay",100);
   option.setValue(123);
   ZLConfigWriterFactory.createConfigWriter("test/org/test/" + "zlibrary/options/examples/output/").write();
-  ZLConfigReaderFactory.createConfigReader("test/org/test/" + "zlibrary/options/examples/output/").read();
+  try {
+    ZLConfigReaderFactory.createConfigReader("test/org/test/" + "zlibrary/options/examples/output/").read();
+  }
+ catch (  IndexOutOfBoundsException e) {
+  }
   assertEquals(myConfig.getValue("Options","KeyDelay","100"),123 + "");
 }

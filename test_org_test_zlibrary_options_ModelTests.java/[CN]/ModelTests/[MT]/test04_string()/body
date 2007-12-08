@@ -1,3 +1,0 @@
-{
-  assertEquals(myStringOption.getType(),ZLOptionType.TYPE_STRING);
-}

@@ -1,0 +1,6 @@
+{
+  myConfig.setValue("integer_range_group_2","name",configValue,"integer_range_category");
+  ZLIntegerRangeOption option=new ZLIntegerRangeOption("integer_range_category","integer_range_group_2","name",-100,100,value2);
+  option.setValue(value3);
+  assertEquals(myConfig.getValue("integer_range_group_2","name","def"),expectedValue);
+}

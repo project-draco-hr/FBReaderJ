@@ -1,0 +1,3 @@
+{
+  myConfig.unsetValue("color_group","name");
+}

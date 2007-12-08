@@ -1,3 +1,0 @@
-{
-  assertEquals(myIntegerRangeOption.getValue(),myDefaultIntRange);
-}

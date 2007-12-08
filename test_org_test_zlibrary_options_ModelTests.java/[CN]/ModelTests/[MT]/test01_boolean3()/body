@@ -1,3 +1,0 @@
-{
-  assertEquals(myBoolean3Option.getValue(),myDefaultBoolean3);
-}

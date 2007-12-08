@@ -1,4 +1,0 @@
-{
-  myDoubleOption.setValue(0.1);
-  assertEquals(myDoubleOption.getValue(),0.1);
-}

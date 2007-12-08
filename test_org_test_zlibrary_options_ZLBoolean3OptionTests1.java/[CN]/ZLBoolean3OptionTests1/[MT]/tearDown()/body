@@ -1,0 +1,3 @@
+{
+  myConfig.unsetValue("boolean3_group","name");
+}

@@ -1,0 +1,3 @@
+{
+  myConfig.unsetValue("integer_range_group","name");
+}
