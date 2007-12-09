@@ -1,10 +1,12 @@
 {
+  final ArrayList<ZLTextTreeParagraph> tocStack=myTOCStack;
   if (myCurrentTextModel == myBookModel.getBookModel()) {
     ContentsModel contentsModel=myBookModel.getContentsModel();
     if (referenceNumber == -1) {
       referenceNumber=myCurrentTextModel.getParagraphsNumber();
     }
-    ZLTextTreeParagraph peek=myTOCStack.empty() ? null : myTOCStack.peek();
+    int size=tocStack.size();
+    ZLTextTreeParagraph peek=(size == 0) ? null : tocStack.get(size - 1);
     if (myContentsBuffer.length() != 0) {
       contentsModel.addText(myContentsBuffer);
       myContentsBuffer.delete(0,myContentsBuffer.length());
@@ -16,7 +18,7 @@
     ZLTextTreeParagraph para=contentsModel.createParagraph(peek);
     contentsModel.addControl((byte)FBTextKind.CONTENTS_TABLE_ENTRY.Index,true);
     contentsModel.setReference(para,referenceNumber);
-    myTOCStack.push(para);
+    tocStack.add(para);
     myLastTOCParagraphIsEmpty=true;
     myContentsParagraphExists=true;
   }

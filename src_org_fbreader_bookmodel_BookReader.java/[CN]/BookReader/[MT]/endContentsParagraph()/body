@@ -1,5 +1,5 @@
 {
-  if (!myTOCStack.empty()) {
+  if (!myTOCStack.isEmpty()) {
     ContentsModel contentsModel=myBookModel.getContentsModel();
     if (myContentsBuffer.length() != 0) {
       contentsModel.addText(myContentsBuffer);
@@ -10,7 +10,7 @@
       contentsModel.addText("...");
       myLastTOCParagraphIsEmpty=false;
     }
-    myTOCStack.pop();
+    myTOCStack.remove(myTOCStack.size() - 1);
   }
   myContentsParagraphExists=false;
 }
