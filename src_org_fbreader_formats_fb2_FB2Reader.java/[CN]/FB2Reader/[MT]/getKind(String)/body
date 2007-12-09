@@ -1,3 +1,0 @@
-{
-  return (byte)FBTextKind.valueOf(s.toUpperCase()).Index;
-}

@@ -11,12 +11,22 @@ case P:
     myModelReader.endParagraph();
   break;
 case SUB:
+myModelReader.addControl(FBTextKind.SUB,false);
+break;
 case SUP:
+myModelReader.addControl(FBTextKind.SUP,false);
+break;
 case CODE:
+myModelReader.addControl(FBTextKind.CODE,false);
+break;
 case EMPHASIS:
+myModelReader.addControl(FBTextKind.EMPHASIS,false);
+break;
 case STRONG:
+myModelReader.addControl(FBTextKind.STRONG,false);
+break;
 case STRIKETHROUGH:
-myModelReader.addControl(getKind(tagName),false);
+myModelReader.addControl(FBTextKind.STRIKETHROUGH,false);
 break;
 case V:
 case SUBTITLE:

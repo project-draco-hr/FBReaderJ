@@ -16,7 +16,7 @@
       contentsModel.addText("...");
     }
     ZLTextTreeParagraph para=contentsModel.createParagraph(peek);
-    contentsModel.addControl((byte)FBTextKind.CONTENTS_TABLE_ENTRY.Index,true);
+    contentsModel.addControl(FBTextKind.CONTENTS_TABLE_ENTRY,true);
     contentsModel.setReference(para,referenceNumber);
     tocStack.add(para);
     myLastTOCParagraphIsEmpty=true;
