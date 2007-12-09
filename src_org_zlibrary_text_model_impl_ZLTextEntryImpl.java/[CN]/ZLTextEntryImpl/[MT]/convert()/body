@@ -1,0 +1,9 @@
+{
+  myData=new char[myLength];
+  int pos=0;
+  for (  char[] part : myDataArray) {
+    System.arraycopy(part,0,myData,pos,part.length);
+    pos+=part.length;
+  }
+  myDataArray=null;
+}

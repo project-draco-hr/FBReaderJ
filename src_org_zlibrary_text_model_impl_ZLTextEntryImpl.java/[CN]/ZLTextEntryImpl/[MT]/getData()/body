@@ -1,3 +1,6 @@
 {
+  if (myDataArray != null) {
+    convert();
+  }
   return myData;
 }

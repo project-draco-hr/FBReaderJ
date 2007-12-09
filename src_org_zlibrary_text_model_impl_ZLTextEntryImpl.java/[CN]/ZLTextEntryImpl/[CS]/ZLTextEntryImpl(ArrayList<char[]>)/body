@@ -1,12 +1,7 @@
 {
-  int length=0;
+  myLength=0;
   for (  char[] part : data) {
-    length+=part.length;
+    myLength+=part.length;
   }
-  myData=new char[length];
-  int pos=0;
-  for (  char[] part : data) {
-    System.arraycopy(part,0,myData,pos,part.length);
-    pos+=part.length;
-  }
+  myDataArray=new ArrayList(data);
 }
