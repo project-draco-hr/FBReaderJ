@@ -1,0 +1,3 @@
+{
+  return myGraphics.getFontMetrics().charsWidth(string,offset,length);
+}

@@ -1,0 +1,11 @@
+{
+  if (myTextParagraphExists) {
+    myBuffer.add(data);
+    if (!myInsideTitle) {
+      mySectionContainsRegularContents=true;
+    }
+ else {
+      addContentsData(data);
+    }
+  }
+}

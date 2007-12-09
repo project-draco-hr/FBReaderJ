@@ -1,6 +1,5 @@
 {
-  Set<String> keys=attributes.keySet();
-  for (  String s : keys) {
+  for (  String s : attributes.keySet()) {
     if (s.endsWith(":href")) {
       return attributes.get(s);
     }

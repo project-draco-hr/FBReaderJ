@@ -4,7 +4,7 @@
     for (    Byte b : myKindStack) {
       myCurrentTextModel.addControl(b,true);
     }
-    if (myHyperlinkReference != "") {
+    if (myHyperlinkReference.length() != 0) {
       myCurrentTextModel.addHyperlinkControl(myHyperlinkKind,myHyperlinkReference);
     }
     myTextParagraphExists=true;

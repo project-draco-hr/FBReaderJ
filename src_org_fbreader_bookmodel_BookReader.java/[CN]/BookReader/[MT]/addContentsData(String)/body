@@ -1,5 +1,0 @@
-{
-  if (data != "" && !myTOCStack.isEmpty()) {
-    myContentsBuffer.append(data);
-  }
-}

@@ -19,7 +19,7 @@ case P:
       mySectionStarted=false;
     }
  else     if (myInsideTitle) {
-      myModelReader.addContentsData(" ");
+      myModelReader.addContentsData(SPACE);
     }
   myModelReader.beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
 break;
@@ -114,7 +114,7 @@ myModelReader.pushKind(FBTextKind.REGULAR);
 break;
 case A:
 String ref=reference(attributes);
-if ((ref != null) && !ref.isEmpty()) {
+if ((ref != null) && (ref.length() != 0)) {
 if (ref.charAt(0) == '#') {
 myHyperlinkType=FBTextKind.FOOTNOTE;
 ref=ref.substring(1);
@@ -144,7 +144,7 @@ offset=Short.valueOf(vOffset);
 }
  catch (NumberFormatException e) {
 }
-if ((imgRef != null) && !imgRef.isEmpty() && (imgRef.charAt(0) == '#')) {
+if ((imgRef != null) && (imgRef.length() != 0) && (imgRef.charAt(0) == '#')) {
 imgRef=imgRef.substring(1);
 if (!imgRef.equals(myCoverImageReference) || myParagraphsBeforeBodyNumber != myModelReader.getModel().getBookModel().getParagraphsNumber()) {
 myModelReader.addImageReference(imgRef,offset);

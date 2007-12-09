@@ -7,13 +7,13 @@
     }
     int size=tocStack.size();
     ZLTextTreeParagraph peek=(size == 0) ? null : tocStack.get(size - 1);
-    if (myContentsBuffer.length() != 0) {
+    if (!myContentsBuffer.isEmpty()) {
       contentsModel.addText(myContentsBuffer);
-      myContentsBuffer.delete(0,myContentsBuffer.length());
+      myContentsBuffer.clear();
       myLastTOCParagraphIsEmpty=false;
     }
     if (myLastTOCParagraphIsEmpty) {
-      contentsModel.addText("...");
+      contentsModel.addText(PERIOD);
     }
     ZLTextTreeParagraph para=contentsModel.createParagraph(peek);
     contentsModel.addControl(FBTextKind.CONTENTS_TABLE_ENTRY,true);

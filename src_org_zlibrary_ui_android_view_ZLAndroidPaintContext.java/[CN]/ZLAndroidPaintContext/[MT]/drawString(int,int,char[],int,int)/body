@@ -1,0 +1,3 @@
+{
+  myCanvas.drawText(string,offset,length,x,y,myPaint);
+}

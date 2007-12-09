@@ -1,0 +1,12 @@
+{
+  int length=0;
+  for (  char[] part : data) {
+    length+=part.length;
+  }
+  myEncodedData=new char[length];
+  int pos=0;
+  for (  char[] part : data) {
+    System.arraycopy(part,0,myEncodedData,pos,part.length);
+    pos+=part.length;
+  }
+}

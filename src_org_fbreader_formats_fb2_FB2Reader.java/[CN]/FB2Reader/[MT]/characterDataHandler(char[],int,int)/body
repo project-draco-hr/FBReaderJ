@@ -1,8 +1,10 @@
 {
-  if (length > 0 && myProcessingImage) {
-    myImageBuffer.append(String.valueOf(ch,start,length));
+  char[] data=new char[length];
+  System.arraycopy(ch,start,data,0,length);
+  if ((length > 0) && myProcessingImage) {
+    myImageBuffer.add(data);
   }
  else {
-    myModelReader.addData(String.valueOf(ch,start,length));
+    myModelReader.addData(data);
   }
 }

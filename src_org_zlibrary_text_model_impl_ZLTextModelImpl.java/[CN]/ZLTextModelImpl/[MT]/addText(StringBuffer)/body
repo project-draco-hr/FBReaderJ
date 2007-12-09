@@ -1,4 +1,0 @@
-{
-  ZLTextParagraph paragraph=myParagraphs.getLast();
-  paragraph.addEntry(new ZLTextEntryImpl(text.toString()));
-}

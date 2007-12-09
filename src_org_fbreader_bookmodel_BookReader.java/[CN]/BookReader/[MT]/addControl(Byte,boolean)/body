@@ -3,7 +3,7 @@
     flushTextBufferToParagraph();
     myCurrentTextModel.addControl((byte)kind,start);
   }
-  if (!start && myHyperlinkReference != "" && (kind == myHyperlinkKind)) {
+  if (!start && (myHyperlinkReference.length() != 0) && (kind == myHyperlinkKind)) {
     myHyperlinkReference="";
   }
 }
