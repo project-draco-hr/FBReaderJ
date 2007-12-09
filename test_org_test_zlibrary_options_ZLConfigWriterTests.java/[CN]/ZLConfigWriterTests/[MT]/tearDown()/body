@@ -1,2 +1,4 @@
 {
+  new File("test/org/test/zlibrary/options/examples/output/delta.xml").delete();
+  new File("test/org/test/zlibrary/options/examples/output/category.xml").delete();
 }

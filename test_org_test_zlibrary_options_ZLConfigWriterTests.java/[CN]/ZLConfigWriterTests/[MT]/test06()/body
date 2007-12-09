@@ -1,0 +1,17 @@
+{
+  String outputPath="test/org/test/zlibrary/options/examples/output/";
+  myConfig.setValue("group1","name1","VALUE1","category");
+  myConfig.setValue("group1","name2","VALUE2","category");
+  myConfig.setValue("group2","name3","VALUE3","category");
+  ZLConfigWriterFactory.createConfigWriter(outputPath).write();
+  long modified=new File(outputPath + "category.xml").lastModified();
+  myConfig.setValue("group","name","VALUE","other_category");
+  ZLConfigWriterFactory.createConfigWriter(outputPath).write();
+  long thenModified=new File(outputPath + "category.xml").lastModified();
+  assertTrue(modified == thenModified);
+  myConfig.unsetValue("group","name");
+  myConfig.unsetValue("group1","name1");
+  myConfig.unsetValue("group1","name2");
+  myConfig.unsetValue("group2","name3");
+  new File(outputPath + "other_category.xml").delete();
+}

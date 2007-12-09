@@ -1,0 +1,14 @@
+{
+  String outputPath="test/org/test/zlibrary/options/examples/output/";
+  myConfig.setValue("group1","name1","VALUE1","category");
+  ZLConfigWriterFactory.createConfigWriter(outputPath).write();
+  myConfig.unsetValue("group1","name1");
+  ZLConfigWriterFactory.createConfigWriter(outputPath).write();
+  try {
+    writeConfigAndCheck("category","");
+  }
+ catch (  FileNotFoundException e) {
+    return;
+  }
+  fail("file category.xml wasn't deleted!");
+}
