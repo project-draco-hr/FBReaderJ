@@ -1,0 +1,4 @@
+{
+  new File("test/org/test/zlibrary/options/examples/output/new_category.xml").delete();
+  new File("test/org/test/zlibrary/options/examples/output/options.xml").delete();
+}

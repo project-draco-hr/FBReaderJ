@@ -1,7 +1,7 @@
 {
   ZLIntegerOption option=new ZLIntegerOption("options","Options","KeyDelay",100);
   option.setValue(123);
-  ZLConfigWriterFactory.createConfigWriter("test/org/test/" + "zlibrary/options/examples/output/").write();
+  ZLConfigWriterFactory.createConfigWriter("test/org/test/zlibrary/options/examples/output/").write();
   try {
     ZLConfigReaderFactory.createConfigReader("test/org/test/" + "zlibrary/options/examples/output/").read();
   }
