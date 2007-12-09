@@ -3,7 +3,6 @@
     String value=myConfig.getValue(myGroup,myOptionName,myDefaultValue);
     if (value != null) {
       myValue=value;
-      myConfig.setValue(myGroup,myOptionName,value,myCategory);
     }
     myIsSynchronized=true;
   }

@@ -5,7 +5,6 @@
       try {
         Double doubleValue=Double.parseDouble(value);
         myValue=doubleValue;
-        myConfig.setValue(myGroup,myOptionName,value,myCategory);
       }
  catch (      NumberFormatException e) {
       }

@@ -1,3 +1,5 @@
 {
-  myCategory=cat;
+  if ((cat != null) && (!myCategory.equals(cat))) {
+    myCategory=cat.intern();
+  }
 }

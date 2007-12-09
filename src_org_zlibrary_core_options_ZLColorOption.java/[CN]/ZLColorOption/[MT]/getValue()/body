@@ -5,7 +5,6 @@
       try {
         Integer intValue=Integer.parseInt(value);
         myIntValue=intValue;
-        myConfig.setValue(myGroup,myOptionName,value,myCategory);
       }
  catch (      NumberFormatException e) {
       }

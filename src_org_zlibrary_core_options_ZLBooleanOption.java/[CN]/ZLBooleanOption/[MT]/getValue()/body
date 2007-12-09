@@ -8,7 +8,6 @@
       }
  else       if (value.toLowerCase().equals("false")) {
         myValue=false;
-        myConfig.setValue(myGroup,myOptionName,value,myCategory);
       }
     }
     myIsSynchronized=true;
