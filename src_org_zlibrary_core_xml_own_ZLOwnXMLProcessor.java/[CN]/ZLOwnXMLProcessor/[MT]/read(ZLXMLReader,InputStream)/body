@@ -1,0 +1,12 @@
+{
+  try {
+    ZLOwnXMLParser parser=new ZLOwnXMLParser(reader,stream);
+    reader.startDocumentHandler();
+    parser.doIt();
+    reader.endDocumentHandler();
+  }
+ catch (  IOException e) {
+    return false;
+  }
+  return true;
+}

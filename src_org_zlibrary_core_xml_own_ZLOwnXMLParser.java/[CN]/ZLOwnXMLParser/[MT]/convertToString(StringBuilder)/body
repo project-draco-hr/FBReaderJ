@@ -1,0 +1,12 @@
+{
+  final TreeMap<ComparableString,String> strings=ourStrings;
+  final ComparableString pattern=ourPattern;
+  pattern.setSequence(builder);
+  String s=strings.get(pattern);
+  if (s == null) {
+    s=builder.toString();
+    strings.put(new ComparableString(s),s);
+  }
+  builder.delete(0,builder.length());
+  return s;
+}

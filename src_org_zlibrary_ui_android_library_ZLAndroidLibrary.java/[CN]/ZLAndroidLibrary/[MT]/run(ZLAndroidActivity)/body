@@ -1,6 +1,6 @@
 {
   myActivity=activity;
-  new ZLSaxXMLProcessorFactory();
+  new ZLOwnXMLProcessorFactory();
   loadProperties();
   myActivity.setContentView(R.layout.main);
   try {

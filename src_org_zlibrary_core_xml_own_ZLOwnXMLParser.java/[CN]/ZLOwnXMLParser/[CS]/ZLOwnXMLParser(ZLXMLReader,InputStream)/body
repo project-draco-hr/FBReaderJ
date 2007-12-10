@@ -1,0 +1,26 @@
+{
+  myXMLReader=xmlReader;
+  String encoding="utf-8";
+  final char[] buffer=myBuffer;
+  int len;
+  for (len=0; len < 256; ++len) {
+    buffer[len]=(char)stream.read();
+    if (buffer[len] == '>') {
+      break;
+    }
+  }
+  if (len < 256) {
+    String xmlDescription=new String(buffer,0,len + 1);
+    int index=xmlDescription.indexOf("encoding");
+    if (index > 0) {
+      int startIndex=xmlDescription.indexOf('"',index);
+      if (startIndex > 0) {
+        int endIndex=xmlDescription.indexOf('"',startIndex + 1);
+        if (endIndex > 0) {
+          encoding=xmlDescription.substring(startIndex + 1,endIndex);
+        }
+      }
+    }
+  }
+  myStreamReader=new InputStreamReader(stream,encoding);
+}
