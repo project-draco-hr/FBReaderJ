@@ -1,3 +1,3 @@
 {
-  myParagraphs.getLast().addEntry(entry);
+  getLastParagraph().addEntry(entry);
 }
