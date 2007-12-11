@@ -1,4 +1,4 @@
 {
-  paragraphNumber=paragraph;
-  this.model=model;
+  ParagraphNumber=paragraphNumber;
+  Model=model;
 }

@@ -6,7 +6,7 @@
     return false;
   }
   ZLOptionInfo arg=(ZLOptionInfo)o;
-  if (arg.hashCode() != this.hashCode()) {
+  if (arg.hashCode() != hashCode()) {
     return false;
   }
   return arg.myName.equals(myName);

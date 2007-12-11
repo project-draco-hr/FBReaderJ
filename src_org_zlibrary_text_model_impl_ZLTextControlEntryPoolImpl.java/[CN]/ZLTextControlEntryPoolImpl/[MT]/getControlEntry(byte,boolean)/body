@@ -1,6 +1,6 @@
 {
   Map<Byte,ZLTextParagraphEntry> entries=isStart ? myStartEntries : myEndEntries;
-  ZLTextParagraphEntry entry=entries.get(new Byte(kind));
+  ZLTextParagraphEntry entry=entries.get(kind);
   if (entry != null) {
     return entry;
   }

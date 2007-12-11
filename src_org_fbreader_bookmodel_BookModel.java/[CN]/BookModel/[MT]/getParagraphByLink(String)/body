@@ -1,6 +1,7 @@
 {
-  if (myInternalHyperlinks.containsKey(link)) {
-    return myInternalHyperlinks.get(link).model.getParagraph(myInternalHyperlinks.get(link).paragraphNumber);
+  Label label=myInternalHyperlinks.get(link);
+  if (label != null) {
+    return label.Model.getParagraph(label.ParagraphNumber);
   }
   return null;
 }

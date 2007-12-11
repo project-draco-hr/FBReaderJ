@@ -9,8 +9,9 @@
   }
   getContext().moveXTo(leftMargin());
   ListIterator<ZLTextElementArea> it=myTextElementMap.listIterator(from);
-  for (ZLTextWordCursor pos=new ZLTextWordCursor(info.RealStart); !pos.equalWordNumber(info.End); pos.nextWord()) {
-    final ZLTextElement element=pos.getElement();
+  final ZLTextWordCursor end=info.End;
+  for (myIteratorCursor.setCursor(info.RealStart); !myIteratorCursor.equalWordNumber(end); myIteratorCursor.nextWord()) {
+    final ZLTextElement element=myIteratorCursor.getElement();
     if ((element instanceof ZLTextWord) || (element instanceof ZLTextImageElement)) {
       ZLTextElementArea area=it.next();
       if (area.ChangeStyle) {
@@ -20,7 +21,7 @@
       final int y=area.YEnd - myStyle.getElementDescent(element) - myStyle.getTextStyle().verticalShift();
       getContext().moveXTo(x);
       if (element instanceof ZLTextWord) {
-        drawWord(x,y,(ZLTextWord)element,pos.getCharNumber(),-1,false);
+        drawWord(x,y,(ZLTextWord)element,myIteratorCursor.getCharNumber(),-1,false);
       }
  else {
         getContext().drawImage(x,y,((ZLTextImageElement)element).getImage());

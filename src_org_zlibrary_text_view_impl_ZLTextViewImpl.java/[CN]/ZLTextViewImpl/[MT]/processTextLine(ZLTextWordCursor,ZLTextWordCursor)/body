@@ -16,7 +16,7 @@
       element=paragraphCursor.getElement(current.getWordNumber());
     }
     info.StartStyle=myStyle.getTextStyle();
-    info.RealStart=new ZLTextWordCursor(current);
+    info.RealStart.setCursor(current);
   }
   ZLTextStyle storedStyle=myStyle.getTextStyle();
   info.LeftIndent=myStyle.getTextStyle().leftIndent();
@@ -24,8 +24,9 @@
     info.LeftIndent+=myStyle.getTextStyle().firstLineIndentDelta();
   }
   info.Width=info.LeftIndent;
-  if (info.RealStart.equalWordNumber(end)) {
-    info.End=new ZLTextWordCursor(info.RealStart);
+  final ZLTextWordCursor realStart=info.RealStart;
+  if (realStart.equalWordNumber(end)) {
+    info.End.setCursor(realStart);
     return info;
   }
   int newWidth=info.Width;
@@ -76,7 +77,7 @@
       info.Width=newWidth;
       info.Height=Math.max(info.Height,newHeight);
       info.Descent=Math.max(info.Descent,newDescent);
-      info.End=new ZLTextWordCursor(current);
+      info.End.setCursor(current);
       storedStyle=myStyle.getTextStyle();
       info.SpaceCounter=internalSpaceCounter;
       removeLastSpace=!wordOccurred && (info.SpaceCounter > 0);

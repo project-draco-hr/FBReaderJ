@@ -34,10 +34,11 @@ break;
 }
 final ZLTextParagraphCursor paragraph=info.RealStart.getParagraphCursor();
 int paragraphNumber=paragraph.getIndex();
-for (ZLTextWordCursor pos=new ZLTextWordCursor(info.RealStart); !pos.equalWordNumber(info.End); pos.nextWord()) {
-final ZLTextElement element=paragraph.getElement(pos.getWordNumber());
+final ZLTextWordCursor end=info.End;
+for (myIteratorCursor.setCursor(info.RealStart); !myIteratorCursor.equalWordNumber(end); myIteratorCursor.nextWord()) {
+final ZLTextElement element=paragraph.getElement(myIteratorCursor.getWordNumber());
 final int x=getContext().getX();
-final int width=myStyle.getElementWidth(element,pos.getCharNumber());
+final int width=myStyle.getElementWidth(element,myIteratorCursor.getCharNumber());
 if (element == ZLTextElement.HSpace) {
 if (wordOccurred && (spaceCounter > 0)) {
 int correction=fullCorrection / spaceCounter;
@@ -51,7 +52,7 @@ wordOccurred=false;
 final int height=myStyle.getElementHeight(element);
 final int descent=myStyle.getElementDescent(element);
 final int length=(element instanceof ZLTextWord) ? ((ZLTextWord)element).Length : 0;
-myTextElementMap.add(new ZLTextElementArea(paragraphNumber,pos.getWordNumber(),pos.getCharNumber(),length,false,changeStyle,myStyle.getTextStyle(),element,x,x + width - 1,y - height + 1,y + descent));
+myTextElementMap.add(new ZLTextElementArea(paragraphNumber,myIteratorCursor.getWordNumber(),myIteratorCursor.getCharNumber(),length,false,changeStyle,myStyle.getTextStyle(),element,x,x + width - 1,y - height + 1,y + descent));
 changeStyle=false;
 wordOccurred=true;
 }

@@ -1,2 +1,2 @@
 ZLTextModel model
-int paragraph
+int paragraphNumber

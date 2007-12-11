@@ -1,4 +1,3 @@
 {
-  myData=new HashSet<ZLOptionInfo>();
   myName=name;
 }
