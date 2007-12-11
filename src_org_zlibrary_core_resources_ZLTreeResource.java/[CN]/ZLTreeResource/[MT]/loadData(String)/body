@@ -1,5 +1,6 @@
 {
   final String fileName=language + ".xml";
-  new ResourceTreeReader(ourRoot).readDocument("data/resources/zlibrary/" + fileName);
-  new ResourceTreeReader(ourRoot).readDocument("data/resources/application/" + fileName);
+  ResourceTreeReader reader=new ResourceTreeReader();
+  reader.readDocument(ourRoot,"data/resources/zlibrary/" + fileName);
+  reader.readDocument(ourRoot,"data/resources/application/" + fileName);
 }

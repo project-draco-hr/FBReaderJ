@@ -1,5 +1,5 @@
 {
-  if (!myStack.empty() && (NODE.equals(tag))) {
-    myStack.pop();
+  if (!myStack.isEmpty() && (NODE.equals(tag))) {
+    myStack.remove(myStack.size() - 1);
   }
 }

@@ -1,9 +1,9 @@
 {
-  if (!myStack.empty() && (NODE.equals(tag))) {
+  if (!myStack.isEmpty() && (NODE.equals(tag))) {
     String name=attributes.get("name");
     if (name != null) {
       String value=attributes.get("value");
-      ZLTreeResource peek=myStack.peek();
+      ZLTreeResource peek=myStack.get(myStack.size() - 1);
       ZLTreeResource node;
       if (peek.myChildren == null) {
         node=null;
@@ -26,7 +26,7 @@
           node.setValue(value);
         }
       }
-      myStack.push(node);
+      myStack.add(node);
     }
   }
 }
