@@ -1,0 +1,3 @@
+{
+  informationBox(key,dialogMessage(key));
+}

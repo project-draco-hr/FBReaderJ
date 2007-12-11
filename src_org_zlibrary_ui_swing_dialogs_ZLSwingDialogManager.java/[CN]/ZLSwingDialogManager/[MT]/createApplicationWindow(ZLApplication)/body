@@ -1,0 +1,3 @@
+{
+  myApplicationWindow=new ZLSwingApplicationWindow(application);
+}
