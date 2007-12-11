@@ -1,0 +1,9 @@
+{
+  ZLTextParagraphEntry[] entries=isStart ? ourStartEntries : ourEndEntries;
+  ZLTextParagraphEntry entry=entries[kind & 0xFF];
+  if (entry == null) {
+    entry=new ZLTextControlEntryImpl(kind,isStart);
+    entries[kind & 0xFF]=entry;
+  }
+  return entry;
+}

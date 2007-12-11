@@ -1,7 +1,7 @@
 {
   if (myCurrentTextModel != null) {
     myCurrentTextModel.createParagraph(kind);
-    for (    Byte b : myKindStack) {
+    for (    byte b : myKindStack) {
       myCurrentTextModel.addControl(b,true);
     }
     if (myHyperlinkReference.length() != 0) {
