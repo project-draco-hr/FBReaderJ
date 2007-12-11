@@ -10,7 +10,6 @@
  catch (  Exception e) {
     e.printStackTrace();
     shutdown();
-    System.exit(0);
   }
   ZLSwingApplicationWindow mainWindow=new ZLSwingApplicationWindow(application);
   application.initWindow();

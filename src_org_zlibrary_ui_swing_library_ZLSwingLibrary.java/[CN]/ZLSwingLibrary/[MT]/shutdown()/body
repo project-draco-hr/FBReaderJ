@@ -1,3 +1,4 @@
 {
   ZLConfigWriterFactory.createConfigWriter(configDirectory()).write();
+  System.exit(0);
 }
