@@ -1,3 +1,6 @@
 {
-  return myActionMap.get(actionId);
+  if ((actionId >= 0) && (actionId < 256)) {
+    return myActionMap[actionId];
+  }
+  return null;
 }

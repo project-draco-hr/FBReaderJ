@@ -1,3 +1,5 @@
 {
-  myActionMap.put(actionId,action);
+  if ((actionId >= 0) && (actionId < 256)) {
+    myActionMap[actionId]=action;
+  }
 }
