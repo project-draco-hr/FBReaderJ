@@ -25,7 +25,7 @@
   }
   info.Width=info.LeftIndent;
   if (info.RealStart.equalWordNumber(end)) {
-    info.End=info.RealStart;
+    info.End=new ZLTextWordCursor(info.RealStart);
     return info;
   }
   int newWidth=info.Width;
@@ -68,7 +68,7 @@
     current.nextWord();
     boolean allowBreak=current.equalWordNumber(end);
     if (!allowBreak) {
-      element=paragraphCursor.getElement(current.getWordNumber());
+      element=current.getElement();
       allowBreak=(((!(element instanceof ZLTextWord)) || (previousElement instanceof ZLTextWord)) && !(element instanceof ZLTextImageElement) && !(element instanceof ZLTextControlElement));
     }
     if (allowBreak) {
@@ -77,6 +77,7 @@
       info.Height=Math.max(info.Height,newHeight);
       info.Descent=Math.max(info.Descent,newDescent);
       info.End=new ZLTextWordCursor(current);
+      storedStyle=myStyle.getTextStyle();
       info.SpaceCounter=internalSpaceCounter;
       removeLastSpace=!wordOccurred && (info.SpaceCounter > 0);
     }
@@ -86,6 +87,7 @@
     info.Width-=lastSpaceWidth;
     info.SpaceCounter--;
   }
+  myStyle.setStyle(storedStyle);
   if (isFirstLine) {
     info.Height+=info.StartStyle.spaceBefore();
   }

@@ -27,7 +27,16 @@
       }
     }
   }
-  if (it != toIt) {
+  if (!(it.nextIndex() == toIt.nextIndex())) {
+    ZLTextElementArea area=it.next();
+    if (area.ChangeStyle) {
+      myStyle.setStyle(area.Style);
+    }
+    int len=info.End.getCharNumber();
+    final ZLTextWord word=(ZLTextWord)info.End.getElement();
+    final int x=area.XStart;
+    final int y=area.YEnd - myStyle.getElementDescent(word) - myStyle.getTextStyle().verticalShift();
+    drawWord(x,y,word,0,len,area.AddHyphenationSign);
   }
   getContext().moveY(info.Descent + info.VSpaceAfter);
 }
