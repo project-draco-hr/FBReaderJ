@@ -2,7 +2,7 @@
   char[] data=new char[length];
   System.arraycopy(ch,start,data,0,length);
   if ((length > 0) && myProcessingImage) {
-    myImageBuffer.add(data);
+    myImageBuffer.append(data);
   }
  else {
     myModelReader.addData(data);

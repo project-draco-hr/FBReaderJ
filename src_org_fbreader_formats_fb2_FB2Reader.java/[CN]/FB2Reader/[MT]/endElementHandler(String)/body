@@ -85,9 +85,9 @@ myModelReader.unsetCurrentTextModel();
 }
 break;
 case BINARY:
-if (!myImageBuffer.isEmpty() && (myCurrentImage != null)) {
+if ((myImageBuffer.length() > 0) && (myCurrentImage != null)) {
 myCurrentImage.addData(myImageBuffer);
-myImageBuffer.clear();
+myImageBuffer.delete(0,myImageBuffer.length());
 myCurrentImage=null;
 }
 myProcessingImage=false;

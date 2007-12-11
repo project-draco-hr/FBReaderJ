@@ -1,3 +1,0 @@
-{
-  myEncodedData=new ArrayList<char[]>(data);
-}
