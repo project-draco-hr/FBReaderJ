@@ -8,6 +8,6 @@ int leftIndent
 int rightIndent
 int firstLineIndentDelta
 int verticalShift
-int alignment
+byte alignment
 double lineSpace
 ZLBoolean3 allowHyphenations

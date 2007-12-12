@@ -1,0 +1,3 @@
+{
+  return (myMask & SUPPORTS_RIGHT_INDENT) == SUPPORTS_RIGHT_INDENT;
+}

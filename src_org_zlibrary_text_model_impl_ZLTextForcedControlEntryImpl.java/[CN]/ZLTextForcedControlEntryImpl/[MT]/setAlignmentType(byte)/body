@@ -1,4 +1,4 @@
 {
+  myMask|=SUPPORTS_ALIGNMENT_TYPE;
   myAlignmentType=alignmentType;
-  myMask|=SUPPORT_ALIGNMENT_TYPE;
 }

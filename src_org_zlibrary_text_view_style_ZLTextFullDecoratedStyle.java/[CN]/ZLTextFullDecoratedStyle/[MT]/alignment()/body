@@ -1,4 +1,4 @@
 {
-  int value=(int)myDecoration.AlignmentOption.getValue();
+  byte value=(byte)myDecoration.AlignmentOption.getValue();
   return (value == ZLTextAlignmentType.ALIGN_UNDEFINED) ? getBase().alignment() : value;
 }

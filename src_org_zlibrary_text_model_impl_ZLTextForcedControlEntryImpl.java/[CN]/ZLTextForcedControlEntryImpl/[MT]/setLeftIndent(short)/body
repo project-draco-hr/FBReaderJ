@@ -1,4 +1,4 @@
 {
+  myMask|=SUPPORTS_LEFT_INDENT;
   myLeftIndent=leftIndent;
-  myMask|=SUPPORT_LEFT_INDENT;
 }

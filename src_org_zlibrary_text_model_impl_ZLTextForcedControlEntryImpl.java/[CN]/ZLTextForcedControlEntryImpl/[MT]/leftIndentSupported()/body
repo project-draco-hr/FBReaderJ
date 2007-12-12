@@ -1,4 +1,0 @@
-{
-  int a=myMask & SUPPORT_LEFT_INDENT;
-  return (a != 0);
-}
