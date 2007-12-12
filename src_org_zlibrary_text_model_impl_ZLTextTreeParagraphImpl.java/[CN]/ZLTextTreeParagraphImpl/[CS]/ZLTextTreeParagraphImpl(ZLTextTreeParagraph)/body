@@ -1,11 +1,7 @@
 {
-  myIsOpen=false;
   myParent=parent;
   if (parent != null) {
     ((ZLTextTreeParagraphImpl)parent).addChild(this);
     myDepth=parent.getDepth() + 1;
-  }
- else {
-    myDepth=0;
   }
 }
