@@ -85,6 +85,9 @@ myModelReader.unsetCurrentTextModel();
 }
 break;
 case BINARY:
+if (myCurrentImage != null) {
+myCurrentImage.trimToSize();
+}
 myCurrentImage=null;
 break;
 default :
