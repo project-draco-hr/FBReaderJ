@@ -12,10 +12,12 @@
     }
     sb.append("  </group>\n");
   }
-  for (  ZLGroup group : mySetValues.groups()) {
-    sb.append("  <group name=\"" + group.getName() + "\">\n");
-    for (    ZLOptionInfo option : group.options()) {
-      sb.append("    <option name=\"" + option.getName() + "\" ");
+  for (  String groupName : myChangedValues.groupNames()) {
+    sb.append("  <group name=\"" + groupName + "\">\n");
+    ZLGroup group=myChangedValues.getGroup(groupName);
+    for (    String optionName : group.optionNames()) {
+      ZLOptionInfo option=group.getOption(optionName);
+      sb.append("    <option name=\"" + optionName + "\" ");
       sb.append("value=\"" + option.getValue() + "\" ");
       sb.append("category=\"" + option.getCategory() + "\"/>\n");
     }

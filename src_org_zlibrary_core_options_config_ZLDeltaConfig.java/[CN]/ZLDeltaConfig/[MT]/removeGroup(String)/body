@@ -1,4 +1,4 @@
 {
   myDeletedGroups.add(group);
-  mySetValues.removeGroup(group);
+  myChangedValues.removeGroup(group);
 }

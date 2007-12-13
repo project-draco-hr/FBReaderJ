@@ -1,5 +1,5 @@
 {
   myDeletedValues.clear();
   myDeletedGroups.clear();
-  mySetValues.clear();
+  myChangedValues.clear();
 }

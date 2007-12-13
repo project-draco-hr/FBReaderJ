@@ -1,5 +1,5 @@
 {
-  String value=mySetValues.getValue(group,name,defaultValue);
+  String value=myChangedValues.getValue(group,name,defaultValue);
   if ((value == null) || (value.equals(defaultValue))) {
     if (myDeletedValues.contains(group,name)) {
       return null;

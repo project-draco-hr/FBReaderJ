@@ -1,7 +1,7 @@
 {
   ZLGroup group=getGroup(groupName);
   if (group == null) {
-    group=new ZLGroup(groupName);
+    group=new ZLGroup();
     myData.put(groupName,group);
   }
   group.setValue(name,value,category);
