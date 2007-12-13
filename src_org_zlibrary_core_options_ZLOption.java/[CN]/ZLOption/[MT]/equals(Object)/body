@@ -1,6 +1,0 @@
-{
-  if (o == this)   return true;
-  if (!(o.getClass() == this.getClass()))   return false;
-  ZLOption op=(ZLOption)o;
-  return ((op.myOptionName == this.myOptionName) && (op.myCategory == this.myCategory) && (op.myGroup == this.myGroup));
-}

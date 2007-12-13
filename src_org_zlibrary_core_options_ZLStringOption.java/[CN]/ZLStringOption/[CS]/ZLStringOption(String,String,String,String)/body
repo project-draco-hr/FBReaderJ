@@ -1,10 +1,5 @@
 {
   super(category,group,optionName);
-  if (defaultValue != null) {
-    myDefaultValue=defaultValue;
-  }
- else {
-    myDefaultValue="";
-  }
+  myDefaultValue=(defaultValue != null) ? defaultValue.intern() : "";
   myValue=myDefaultValue;
 }

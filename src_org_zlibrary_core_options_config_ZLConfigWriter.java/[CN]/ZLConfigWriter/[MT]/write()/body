@@ -28,7 +28,7 @@
     this.writeConfigFile("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" + "<config>\n" + configFilesContent.get(category) + "</config>",configFilePath(category));
   }
   for (  String category : usedCategories) {
-    if (!configFilesContent.keySet().contains(category.intern())) {
+    if (!configFilesContent.keySet().contains(category)) {
       deleteConfigFile(configFilePath(category));
     }
   }

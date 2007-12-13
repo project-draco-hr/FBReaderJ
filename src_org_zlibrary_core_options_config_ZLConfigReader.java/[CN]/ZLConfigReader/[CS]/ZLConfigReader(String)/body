@@ -1,5 +1,5 @@
 {
-  myConfig=ZLConfigInstance.getExtendedInstance();
+  myConfig=(ZLConfigImpl)ZLConfigInstance.getInstance();
   myDestinationDirectory=new File(path);
   myDeltaFilePath=myDestinationDirectory + "/delta.xml";
   if (myDestinationDirectory.exists()) {
