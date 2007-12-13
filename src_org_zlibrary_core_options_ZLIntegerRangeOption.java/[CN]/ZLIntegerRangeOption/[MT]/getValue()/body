@@ -1,15 +1,14 @@
 {
   if (!myIsSynchronized) {
     String value=getConfigValue(null);
-    if (value != null) {
+    if ((value != null) && (value.length() > 0)) {
       try {
         Integer intValue=Integer.parseInt(value);
-        myValue=intValue;
+        myValue=Math.max(myMinValue,Math.min(myMaxValue,intValue));
       }
  catch (      NumberFormatException e) {
       }
     }
-    myValue=Math.max(myMinValue,Math.min(myMaxValue,myValue));
     myIsSynchronized=true;
   }
   return myValue;

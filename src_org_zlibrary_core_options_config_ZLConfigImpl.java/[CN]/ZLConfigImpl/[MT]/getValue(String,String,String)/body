@@ -1,6 +1,6 @@
 {
   String value=myDeltaConfig.getValue(group,name,defaultValue);
-  if ((value == null)) {
+  if (value == null) {
     if (defaultValue != null) {
       return defaultValue;
     }
