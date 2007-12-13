@@ -5,7 +5,7 @@
   Map<String,Boolean> currentGroupOpenedIn;
   for (  ZLGroup group : myConfig.groups()) {
     currentGroupOpenedIn=new HashMap<String,Boolean>();
-    for (    ZLOptionInfo value : group.getOptions()) {
+    for (    ZLOptionInfo value : group.options()) {
       sb=configFilesContent.get(value.getCategory());
       if (currentGroupOpenedIn.get(value.getCategory()) == null) {
         currentGroupOpenedIn.put(value.getCategory(),false);

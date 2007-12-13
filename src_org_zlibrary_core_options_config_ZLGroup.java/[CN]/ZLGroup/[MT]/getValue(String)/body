@@ -1,9 +1,4 @@
 {
-  ZLOptionInfo temp=getOption(name);
-  if (temp != null) {
-    return temp.getValue();
-  }
- else {
-    return null;
-  }
+  ZLOptionInfo info=myData.get(name);
+  return (info != null) ? info.getValue() : null;
 }
