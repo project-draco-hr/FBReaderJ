@@ -1,5 +1,5 @@
 {
-  myFile=file.getName().toLowerCase();
-  myCategory=file.getName().split(".xml")[0];
+  myFile=file.getName();
+  myCategory=myFile.substring(0,myFile.length() - 4);
   myXMLReader.read(file.toString());
 }

@@ -1,3 +1,7 @@
 {
-  myKindStack.add(kind);
+  if (myKindStackSize == myKindStack.length) {
+    byte[] newStack=new byte[myKindStackSize + 10];
+    System.arraycopy(myKindStack,0,newStack,0,myKindStackSize);
+  }
+  myKindStack[myKindStackSize++]=kind;
 }

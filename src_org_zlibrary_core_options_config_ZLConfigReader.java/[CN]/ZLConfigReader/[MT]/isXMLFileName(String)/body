@@ -1,4 +1,3 @@
 {
-  String name=fileName.toLowerCase();
-  return name.endsWith(".xml");
+  return fileName.endsWith(".xml");
 }

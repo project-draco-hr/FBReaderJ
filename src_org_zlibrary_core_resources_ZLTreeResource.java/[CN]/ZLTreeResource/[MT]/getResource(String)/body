@@ -1,3 +1,9 @@
 {
-  return (myChildren != null && myChildren.containsKey(key)) ? myChildren.get(key) : ZLMissingResource.instance();
+  if (myChildren == null) {
+    ZLResource child=myChildren.get(key);
+    if (child != null) {
+      return child;
+    }
+  }
+  return ZLMissingResource.instance();
 }

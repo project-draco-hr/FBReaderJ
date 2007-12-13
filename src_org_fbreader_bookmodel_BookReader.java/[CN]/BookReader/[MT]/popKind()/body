@@ -1,6 +1,6 @@
 {
-  if (!myKindStack.isEmpty()) {
-    myKindStack.remove(myKindStack.size() - 1);
+  if (myKindStackSize > 0) {
+    --myKindStackSize;
     return true;
   }
   return false;

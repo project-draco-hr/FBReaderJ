@@ -7,7 +7,7 @@
       ZLTreeResource node;
       if (peek.myChildren == null) {
         node=null;
-        peek.myChildren=new HashMap<String,ZLTreeResource>();
+        peek.myChildren=new TreeMap<String,ZLTreeResource>();
       }
  else {
         node=peek.myChildren.get(name);

@@ -4,7 +4,7 @@
   myConfig.clearDelta();
   if (fileList != null) {
     for (    String fileName : fileList) {
-      if (isXMLFileName(fileName) && !(fileName.toLowerCase().equals("delta.xml"))) {
+      if (isXMLFileName(fileName) && !(fileName.equals("delta.xml"))) {
         readFile(new File(myDestinationDirectory + "/" + fileName));
       }
     }

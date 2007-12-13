@@ -4,13 +4,13 @@
   }
   myValue=value;
   myIsSynchronized=true;
-  if ((myValue == myDefaultValue)) {
-    myConfig.unsetValue(myGroup,myOptionName);
+  if (myValue == myDefaultValue) {
+    unsetConfigValue();
   }
  else   if (Double.isNaN(myValue) && Double.isNaN(myDefaultValue)) {
-    myConfig.unsetValue(myGroup,myOptionName);
+    unsetConfigValue();
   }
  else {
-    myConfig.setValue(myGroup,myOptionName,"" + myValue,myCategory);
+    setConfigValue("" + myValue);
   }
 }

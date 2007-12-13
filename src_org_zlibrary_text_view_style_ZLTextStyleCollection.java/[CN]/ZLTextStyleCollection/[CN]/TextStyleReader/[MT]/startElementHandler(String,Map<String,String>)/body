@@ -18,12 +18,10 @@
       HyperlinkStyle hyperlinkStyle=HyperlinkStyle.NONE;
       String hyperlink=attributes.get("hyperlink");
       if (hyperlink != null) {
-        final String INTERNAL_STRING="internal";
-        if (INTERNAL_STRING.equals(hyperlink)) {
+        if ("internal".equals(hyperlink)) {
           hyperlinkStyle=HyperlinkStyle.INTERNAL;
         }
-        final String EXTERNAL_STRING="external";
-        if (EXTERNAL_STRING.equals(hyperlink)) {
+        if ("external".equals(hyperlink)) {
           hyperlinkStyle=HyperlinkStyle.EXTERNAL;
         }
       }
@@ -60,7 +58,7 @@
       if (fontFamily != null) {
         decoration.FontFamilyOption.setValue(fontFamily);
       }
-      myCollection.myDecorationMap.put(id,decoration);
+      myCollection.myDecorationMap[id & 0xFF]=decoration;
     }
   }
 }

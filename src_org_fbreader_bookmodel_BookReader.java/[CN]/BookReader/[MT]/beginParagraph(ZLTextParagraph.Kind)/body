@@ -1,8 +1,9 @@
 {
   if (myCurrentTextModel != null) {
     myCurrentTextModel.createParagraph(kind);
-    for (    byte b : myKindStack) {
-      myCurrentTextModel.addControl(b,true);
+    final int size=myKindStackSize;
+    for (int i=0; i < size; ++i) {
+      myCurrentTextModel.addControl(myKindStack[i],true);
     }
     if (myHyperlinkReference.length() != 0) {
       myCurrentTextModel.addHyperlinkControl(myHyperlinkKind,myHyperlinkReference);

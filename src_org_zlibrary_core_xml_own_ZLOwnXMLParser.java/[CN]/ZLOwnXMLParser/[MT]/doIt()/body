@@ -1,5 +1,5 @@
 {
-  final HashMap<String,char[]> entityMap=new HashMap<String,char[]>();
+  final TreeMap<String,char[]> entityMap=new TreeMap<String,char[]>();
   entityMap.put("amp",new char[]{'&'});
   entityMap.put("apos",new char[]{'\''});
   entityMap.put("gt",new char[]{'>'});
@@ -12,7 +12,7 @@
   final StringBuilder attributeName=new StringBuilder();
   final StringBuilder attributeValue=new StringBuilder();
   final StringBuilder entityName=new StringBuilder();
-  final HashMap<String,String> attributes=new HashMap<String,String>();
+  final TreeMap<String,String> attributes=new TreeMap<String,String>();
   int state=START_DOCUMENT;
   int savedState=START_DOCUMENT;
   while (true) {

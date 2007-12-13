@@ -1,12 +1,11 @@
 {
   if (!myIsSynchronized) {
-    String value=myConfig.getValue(myGroup,myOptionName,null);
+    String value=getConfigValue(null);
     if (value != null) {
-      if (value.toLowerCase().equals("true")) {
+      if ("true".equals(value)) {
         myValue=true;
-        myConfig.setValue(myGroup,myOptionName,value,myCategory);
       }
- else       if (value.toLowerCase().equals("false")) {
+ else       if ("false".equals(value)) {
         myValue=false;
       }
     }

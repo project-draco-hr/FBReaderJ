@@ -7,10 +7,10 @@
     myIntValue=value;
     myIsSynchronized=true;
     if (myIntValue == myDefaultValue) {
-      myConfig.unsetValue(myGroup,myOptionName);
+      unsetConfigValue();
     }
  else {
-      myConfig.setValue(myGroup,myOptionName,"" + myIntValue,myCategory);
+      setConfigValue("" + myIntValue);
     }
   }
 }

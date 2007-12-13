@@ -8,10 +8,10 @@
   }
   myValue=value;
   if (value == myDefaultValue) {
-    myConfig.unsetValue(myGroup,myOptionName);
+    unsetConfigValue();
   }
  else {
-    myConfig.setValue(myGroup,myOptionName,value,myCategory);
+    setConfigValue(value);
   }
   myIsSynchronized=true;
 }

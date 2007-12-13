@@ -5,14 +5,9 @@
   myValue=value;
   myIsSynchronized=true;
   if (myValue == myDefaultValue) {
-    myConfig.unsetValue(myGroup,myOptionName);
+    unsetConfigValue();
   }
  else {
-    if (myValue) {
-      myConfig.setValue(myGroup,myOptionName,"true",myCategory);
-    }
- else {
-      myConfig.setValue(myGroup,myOptionName,"false",myCategory);
-    }
+    setConfigValue(myValue ? "true" : "false");
   }
 }

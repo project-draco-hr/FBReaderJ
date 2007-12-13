@@ -1,6 +1,6 @@
 {
   if (!myIsSynchronized) {
-    String value=myConfig.getValue(myGroup,myOptionName,myDefaultValue);
+    String value=getConfigValue(myDefaultValue);
     if (value != null) {
       myValue=value;
     }

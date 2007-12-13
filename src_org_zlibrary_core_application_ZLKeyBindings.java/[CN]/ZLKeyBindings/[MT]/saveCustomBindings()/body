@@ -2,17 +2,19 @@
   if (!myIsChanged) {
     return;
   }
-  Map<String,Integer> keymap=new HashMap<String,Integer>();
+  TreeMap<String,Integer> keymap=new TreeMap<String,Integer>();
   new ZLKeyBindingsReader(keymap).readBindings();
   int counter=0;
+  final ZLStringOption keyOption=new ZLStringOption(ZLOption.CONFIG_CATEGORY,myName,"","");
+  final ZLIntegerOption actionOption=new ZLIntegerOption(ZLOption.CONFIG_CATEGORY,myName,"",-1);
   for (  Map.Entry<String,Integer> entry : myBindingsMap.entrySet()) {
     Integer original=keymap.get(entry.getKey());
     int defaultAction=original;
     if (defaultAction != entry.getValue()) {
-      String key=BINDED_KEY + counter;
-      String action=BINDED_ACTION + counter;
-      new ZLStringOption(ZLOption.CONFIG_CATEGORY,myName,key,"").setValue(entry.getKey());
-      new ZLIntegerOption(ZLOption.CONFIG_CATEGORY,myName,action,-1).setValue(entry.getValue());
+      keyOption.changeName(BINDED_KEY + counter);
+      actionOption.changeName(BINDED_ACTION + counter);
+      keyOption.setValue(entry.getKey());
+      actionOption.setValue(entry.getValue());
       ++counter;
     }
   }

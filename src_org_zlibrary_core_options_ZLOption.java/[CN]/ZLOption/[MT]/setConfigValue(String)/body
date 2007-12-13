@@ -1,0 +1,3 @@
+{
+  myConfig.setValue(myGroup,myOptionName,value,myCategory);
+}

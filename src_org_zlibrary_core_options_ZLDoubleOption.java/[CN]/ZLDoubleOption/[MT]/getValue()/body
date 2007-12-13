@@ -1,6 +1,6 @@
 {
   if (!myIsSynchronized) {
-    String value=myConfig.getValue(myGroup,myOptionName,null);
+    String value=getConfigValue(null);
     if (value != null) {
       try {
         Double doubleValue=Double.parseDouble(value);

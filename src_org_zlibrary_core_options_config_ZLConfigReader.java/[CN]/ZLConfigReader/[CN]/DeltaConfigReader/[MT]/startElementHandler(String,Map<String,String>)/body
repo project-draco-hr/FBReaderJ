@@ -1,5 +1,4 @@
 {
-  tag=tag.toLowerCase();
 switch (myDepth) {
 case 0:
     if (!tag.equals("config")) {
