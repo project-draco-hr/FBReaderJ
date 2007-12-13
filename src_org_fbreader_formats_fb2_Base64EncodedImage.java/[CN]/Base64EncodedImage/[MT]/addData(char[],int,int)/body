@@ -1,0 +1,3 @@
+{
+  myEncodedData.append(data,offset,length);
+}

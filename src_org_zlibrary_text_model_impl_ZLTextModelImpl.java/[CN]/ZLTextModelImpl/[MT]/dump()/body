@@ -4,8 +4,9 @@
     sb.append("[PARAGRAPH]\n");
     for (    ZLTextParagraphEntry entry : paragraph.getEntries()) {
       if (entry instanceof ZLTextEntryImpl) {
+        ZLTextEntryImpl textEntry=(ZLTextEntryImpl)entry;
         sb.append("[TEXT]");
-        sb.append(((ZLTextEntryImpl)entry).getData());
+        sb.append(textEntry.getData(),textEntry.getDataOffset(),textEntry.getDataLength());
         sb.append("[/TEXT]");
       }
  else       if (entry instanceof ZLTextControlEntryImpl) {

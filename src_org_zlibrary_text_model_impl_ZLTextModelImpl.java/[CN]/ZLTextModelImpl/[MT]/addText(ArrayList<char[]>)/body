@@ -1,3 +1,0 @@
-{
-  getLastParagraph().addEntry(new ZLTextEntryImpl(text));
-}

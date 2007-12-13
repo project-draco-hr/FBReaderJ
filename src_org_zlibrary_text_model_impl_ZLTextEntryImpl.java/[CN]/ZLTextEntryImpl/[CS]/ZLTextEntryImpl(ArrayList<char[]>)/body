@@ -1,7 +1,0 @@
-{
-  myLength=0;
-  for (  char[] part : data) {
-    myLength+=part.length;
-  }
-  myDataArray=new ArrayList<char[]>(data);
-}

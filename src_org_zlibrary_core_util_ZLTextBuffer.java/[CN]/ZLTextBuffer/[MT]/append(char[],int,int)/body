@@ -1,0 +1,19 @@
+{
+  final int newDataLength=myDataLength + length;
+  if (newDataLength > myData.length) {
+    int newArrayLength=myData.length * 2;
+    if (newArrayLength < 64) {
+      newArrayLength=64;
+    }
+    while (newDataLength > newArrayLength) {
+      newArrayLength=newArrayLength * 2;
+    }
+    char[] newData=new char[newArrayLength];
+    if (myDataLength > 0) {
+      System.arraycopy(myData,0,newData,0,myDataLength);
+    }
+    myData=newData;
+  }
+  System.arraycopy(data,offset,myData,myDataLength,length);
+  myDataLength=newDataLength;
+}

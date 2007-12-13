@@ -1,3 +1,4 @@
 {
-  return new ZLTextEntryImpl(text.toCharArray());
+  char[] array=text.toCharArray();
+  return new ZLTextEntryImpl(array,0,array.length);
 }

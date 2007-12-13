@@ -1,0 +1,9 @@
+{
+  if (myDataLength < myData.length) {
+    char[] newData=new char[myDataLength];
+    if (myDataLength > 0) {
+      System.arraycopy(myData,0,newData,0,myDataLength);
+    }
+    myData=newData;
+  }
+}

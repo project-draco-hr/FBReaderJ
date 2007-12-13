@@ -1,7 +1,0 @@
-{
-  ZLTextTreeModel model=factory.createZLTextTreeModel();
-  ZLTextTreeParagraph parant=factory.createTreeParagraph();
-  ZLTextTreeParagraph paragraph=model.createParagraph(parant);
-  model.removeParagraphInternal(0);
-  assertTrue(model.getParagraphsNumber() == 0);
-}

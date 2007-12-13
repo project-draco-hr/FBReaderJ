@@ -1,10 +1,11 @@
 {
-  char[] data=new char[length];
-  System.arraycopy(ch,start,data,0,length);
-  if ((length > 0) && myProcessingImage) {
-    myImageBuffer.append(data);
+  if (length == 0) {
+    return;
+  }
+  if (myCurrentImage != null) {
+    myCurrentImage.addData(ch,start,length);
   }
  else {
-    myModelReader.addData(data);
+    myModelReader.addData(ch,start,length);
   }
 }

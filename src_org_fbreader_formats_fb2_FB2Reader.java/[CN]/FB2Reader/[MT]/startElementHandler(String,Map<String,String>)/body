@@ -160,7 +160,6 @@ String imgId=attributes.get("id");
 if ((contentType != null) && (id != null)) {
 myCurrentImage=new Base64EncodedImage(contentType);
 myModelReader.addImage(imgId,myCurrentImage);
-myProcessingImage=true;
 }
 break;
 default :

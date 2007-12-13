@@ -1,0 +1,13 @@
+{
+  if (length > DATA_BLOCK_SIZE) {
+    length=DATA_BLOCK_SIZE;
+  }
+  if (length > DATA_BLOCK_SIZE - myBlockOffset) {
+    myBlockOverflow=true;
+  }
+  final char[] block=getDataBlock();
+  final int blockOffset=myBlockOffset;
+  System.arraycopy(text,0,block,blockOffset,length);
+  getLastParagraph().addEntry(new ZLTextEntryImpl(block,blockOffset,length));
+  myBlockOffset+=length;
+}
