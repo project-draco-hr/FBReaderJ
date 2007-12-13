@@ -1,0 +1,3 @@
+{
+  return myImageMap.get(myId);
+}

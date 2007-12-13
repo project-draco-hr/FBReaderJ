@@ -1,5 +1,0 @@
-{
-  this.myId=id;
-  this.myMap=imageMap;
-  this.myVOffset=vOffset;
-}
