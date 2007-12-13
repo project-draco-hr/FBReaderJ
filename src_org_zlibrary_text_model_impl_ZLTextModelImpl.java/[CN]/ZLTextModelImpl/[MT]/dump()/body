@@ -2,17 +2,17 @@
   StringBuilder sb=new StringBuilder();
   for (  ZLTextParagraph paragraph : myParagraphs) {
     sb.append("[PARAGRAPH]\n");
-    for (    ZLTextParagraphEntry entry : paragraph.getEntries()) {
+    for (    ZLTextParagraph.Entry entry : paragraph.getEntries()) {
       if (entry instanceof ZLTextEntryImpl) {
         ZLTextEntryImpl textEntry=(ZLTextEntryImpl)entry;
         sb.append("[TEXT]");
         sb.append(textEntry.getData(),textEntry.getDataOffset(),textEntry.getDataLength());
         sb.append("[/TEXT]");
       }
- else       if (entry instanceof ZLTextControlEntryImpl) {
-        ZLTextControlEntryImpl entryControl=(ZLTextControlEntryImpl)entry;
-        if (entryControl.isStart())         sb.append("[CONTROL " + entryControl.getKind() + "]");
- else         sb.append("[/CONTROL " + entryControl.getKind() + "]");
+ else       if (entry instanceof ZLTextControlEntry) {
+        ZLTextControlEntry controlEntry=(ZLTextControlEntry)entry;
+        if (controlEntry.IsStart)         sb.append("[CONTROL " + controlEntry.Kind + "]");
+ else         sb.append("[/CONTROL " + controlEntry.Kind + "]");
       }
     }
     sb.append("[/PARAGRAPH]\n");

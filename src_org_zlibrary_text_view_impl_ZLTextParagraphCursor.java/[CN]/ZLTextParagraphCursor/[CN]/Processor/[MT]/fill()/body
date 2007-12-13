@@ -1,6 +1,6 @@
 {
-  List<ZLTextParagraphEntry> entries=myParagraph.getEntries();
-  for (  ZLTextParagraphEntry entry : entries) {
+  List<ZLTextParagraph.Entry> entries=myParagraph.getEntries();
+  for (  ZLTextParagraph.Entry entry : entries) {
     if (entry instanceof ZLTextEntry) {
       processTextEntry((ZLTextEntry)entry);
     }

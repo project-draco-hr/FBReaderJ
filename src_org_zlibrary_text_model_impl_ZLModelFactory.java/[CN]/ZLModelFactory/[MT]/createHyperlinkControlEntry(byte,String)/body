@@ -1,3 +1,3 @@
 {
-  return new ZLTextHyperlinkControlEntryImpl(kind,label);
+  return new ZLTextHyperlinkControlEntry(kind,label);
 }
