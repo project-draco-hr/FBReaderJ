@@ -1,11 +1,8 @@
 {
-  ZLGroup gr=getGroup(group);
-  if (gr != null) {
-    gr.setValue(name,value,category);
+  ZLGroup group=getGroup(groupName);
+  if (group == null) {
+    group=new ZLGroup(groupName);
+    myData.put(groupName,group);
   }
- else {
-    ZLGroup newGroup=new ZLGroup(group);
-    newGroup.setValue(name,value,category);
-    myData.add(newGroup);
-  }
+  group.setValue(name,value,category);
 }

@@ -22,8 +22,7 @@
     }
   }
   ZLSimpleConfig setValues=myDeltaConfig.getSetValues();
-  Set<ZLGroup> groups=setValues.getGroups();
-  for (  ZLGroup group : groups) {
+  for (  ZLGroup group : setValues.groups()) {
     for (    ZLOptionInfo value : group.getOptions()) {
       usedCategories.add(value.getCategory());
       String cat=myMainConfig.getCategory(group.getName(),value.getName());

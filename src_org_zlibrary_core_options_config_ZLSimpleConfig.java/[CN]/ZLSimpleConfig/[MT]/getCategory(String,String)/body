@@ -1,7 +1,7 @@
 {
-  ZLGroup gr=getGroup(group);
-  if (gr != null) {
-    ZLOptionInfo option=gr.getOption(name);
+  ZLGroup group=getGroup(groupName);
+  if (group != null) {
+    ZLOptionInfo option=group.getOption(name);
     if (option != null) {
       return option.getCategory();
     }

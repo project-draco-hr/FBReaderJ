@@ -12,8 +12,7 @@
     }
     sb.append("  </group>\n");
   }
-  Set<ZLGroup> setGroups=mySetValues.getGroups();
-  for (  ZLGroup group : setGroups) {
+  for (  ZLGroup group : mySetValues.groups()) {
     sb.append("  <group name=\"" + group.getName() + "\">\n");
     for (    ZLOptionInfo option : group.getOptions()) {
       sb.append("    <option name=\"" + option.getName() + "\" ");

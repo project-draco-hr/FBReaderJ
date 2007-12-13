@@ -1,10 +1,9 @@
 {
   Set<String> usedCategories=myConfig.applyDelta();
-  Set<ZLGroup> groups=myConfig.getGroups();
   Map<String,StringBuffer> configFilesContent=new LinkedHashMap<String,StringBuffer>();
   StringBuffer sb;
   Map<String,Boolean> currentGroupOpenedIn;
-  for (  ZLGroup group : groups) {
+  for (  ZLGroup group : myConfig.groups()) {
     currentGroupOpenedIn=new HashMap<String,Boolean>();
     for (    ZLOptionInfo value : group.getOptions()) {
       sb=configFilesContent.get(value.getCategory());

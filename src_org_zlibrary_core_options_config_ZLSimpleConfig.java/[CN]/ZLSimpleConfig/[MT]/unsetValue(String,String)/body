@@ -1,6 +1,6 @@
 {
-  ZLGroup gr=getGroup(group);
-  if (gr != null) {
-    gr.unsetValue(name);
+  ZLGroup group=getGroup(groupName);
+  if (group != null) {
+    group.unsetValue(name);
   }
 }

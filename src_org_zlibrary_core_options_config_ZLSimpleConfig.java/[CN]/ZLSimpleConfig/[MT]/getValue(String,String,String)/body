@@ -1,8 +1,9 @@
 {
-  ZLGroup gr=getGroup(group);
-  if (gr != null) {
-    if (gr.getValue(name) != null) {
-      return gr.getValue(name);
+  ZLGroup group=getGroup(groupName);
+  if (group != null) {
+    String value=group.getValue(name);
+    if (value != null) {
+      return value;
     }
   }
   return defaultValue;
