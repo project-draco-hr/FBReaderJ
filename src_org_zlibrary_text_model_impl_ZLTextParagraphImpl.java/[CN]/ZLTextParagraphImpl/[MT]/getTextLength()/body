@@ -1,6 +1,10 @@
 {
   int size=0;
-  for (  ZLTextParagraph.Entry entry : myEntries) {
+  final ArrayList<Entry> entries=myEntries;
+  final int from=myOffset;
+  final int to=from + myLength;
+  for (int i=from; i < to; ++i) {
+    Entry entry=entries.get(i);
     if (entry instanceof ZLTextEntryImpl) {
       size+=((ZLTextEntryImpl)entry).getDataLength();
     }

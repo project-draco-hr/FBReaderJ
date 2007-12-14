@@ -2,7 +2,7 @@
   if (parent == null) {
     parent=myRoot;
   }
-  ZLTextTreeParagraph tp=new ZLTextTreeParagraphImpl(parent);
+  ZLTextTreeParagraph tp=new ZLTextTreeParagraphImpl(parent,myEntries);
   addParagraphInternal(tp);
   return tp;
 }

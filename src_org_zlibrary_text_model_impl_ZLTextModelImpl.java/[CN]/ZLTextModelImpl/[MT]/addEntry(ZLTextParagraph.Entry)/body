@@ -1,4 +1,4 @@
 {
   final ArrayList<ZLTextParagraph> paragraphs=myParagraphs;
-  paragraphs.get(paragraphs.size() - 1).addEntry(entry);
+  ((ZLTextParagraphImpl)paragraphs.get(paragraphs.size() - 1)).addEntry(entry);
 }

@@ -1,3 +1,4 @@
 {
   myEntries.add(entry);
+  ++myLength;
 }

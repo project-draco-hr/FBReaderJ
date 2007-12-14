@@ -1,4 +1,5 @@
 {
+  super(entries);
   myParent=parent;
   if (parent != null) {
     ((ZLTextTreeParagraphImpl)parent).addChild(this);

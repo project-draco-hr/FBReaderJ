@@ -1,0 +1,6 @@
+{
+  if (myPosition == myOffset + myLength) {
+    throw new NoSuchElementException();
+  }
+  return myEntries.get(myPosition++);
+}
