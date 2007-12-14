@@ -2,7 +2,10 @@
   FB2Reader reader=new FB2Reader();
   BookModel bModel=reader.readBook(myDirectory + "image.fb2");
   ZLTextModel model=bModel.getBookModel();
-  ZLImageEntry entry=(ZLImageEntry)model.getParagraph(0).getEntries().get(1);
+  ZLTextParagraph paragraph=model.getParagraph(0);
+  Iterator<ZLTextParagraph.Entry> it=paragraph.iterator();
+  it.next();
+  ZLImageEntry entry=(ZLImageEntry)it.next();
   assertEquals(entry.VOffset,0);
   assertEquals(entry.getImage(),bModel.getImageMap().get("cover.jpg"));
 }
