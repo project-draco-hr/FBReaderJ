@@ -1,3 +1,0 @@
-{
-  return myParagraphs.get(myParagraphs.size() - 1);
-}

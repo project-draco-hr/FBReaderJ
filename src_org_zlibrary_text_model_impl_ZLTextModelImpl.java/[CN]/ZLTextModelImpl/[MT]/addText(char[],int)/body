@@ -8,6 +8,6 @@
   final char[] block=getDataBlock();
   final int blockOffset=myBlockOffset;
   System.arraycopy(text,0,block,blockOffset,length);
-  getLastParagraph().addEntry(new ZLTextEntryImpl(block,blockOffset,length));
+  addEntry(new ZLTextEntryImpl(block,blockOffset,length));
   myBlockOffset+=length;
 }
