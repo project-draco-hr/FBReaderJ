@@ -3,7 +3,7 @@
   BookModel bModel=reader.readBook(myDirectory + "image.fb2");
   ZLTextModel model=bModel.getBookModel();
   ZLTextParagraph paragraph=model.getParagraph(0);
-  Iterator<ZLTextParagraph.Entry> it=paragraph.iterator();
+  ZLTextParagraph.EntryIterator it=paragraph.iterator();
   it.next();
   ZLImageEntry entry=(ZLImageEntry)it.next();
   assertEquals(entry.VOffset,0);

@@ -1,4 +1,0 @@
-ZLXMLReader xmlReader
-char[] buffer
-int startOffset
-int endOffset

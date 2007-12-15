@@ -1,3 +1,10 @@
 {
-  addEntry(new ZLTextHyperlinkControlEntry(textKind,label));
+  final short labelLength=(short)label.length();
+  final char[] block=getDataBlock(3 + labelLength);
+  increaseLastParagraphSize();
+  block[myBlockOffset++]=(char)ZLTextParagraph.Entry.CONTROL;
+  block[myBlockOffset++]=(char)(0x0300 + textKind);
+  block[myBlockOffset++]=(char)labelLength;
+  label.getChars(0,labelLength,block,myBlockOffset);
+  myBlockOffset+=labelLength;
 }

@@ -1,8 +1,9 @@
 {
   BookModel model=(new FB2Reader()).readBook(myDirectory + "footnote1.fb2");
   ZLTextParagraph paragraph=model.getParagraphByLink("note1");
-  Iterator<ZLTextParagraph.Entry> it=paragraph.iterator();
+  ZLTextParagraph.EntryIterator it=paragraph.iterator();
   it.next();
-  ZLTextEntry entry=(ZLTextEntry)it.next();
-  assertEquals("footnote",new String(entry.getData(),entry.getDataOffset(),entry.getDataLength()));
+  it.next();
+  assertEquals(it.getType(),ZLTextParagraph.Entry.TEXT);
+  assertEquals("footnote",new String(it.getTextData(),it.getTextOffset(),it.getTextLength()));
 }

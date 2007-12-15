@@ -1,0 +1,6 @@
+{
+  myLength=length;
+  final int address=myStartEntryInfos[index];
+  myDataIndex=address >> 16;
+  myDataOffset=address & 0xFFFF;
+}

@@ -1,0 +1,11 @@
+{
+  if (length == 0) {
+    return;
+  }
+  if (myCurrentImage != null) {
+    myCurrentImage.addData(ch,start,length);
+  }
+ else {
+    myModelReader.addDataFinal(ch,start,length);
+  }
+}

@@ -1,9 +1,7 @@
 {
   FB2Tag tag;
-  try {
-    tag=getTag(tagName);
-  }
- catch (  IllegalArgumentException e) {
+  tag=getTag(tagName);
+  if (tag == null) {
     return;
   }
 switch (tag) {

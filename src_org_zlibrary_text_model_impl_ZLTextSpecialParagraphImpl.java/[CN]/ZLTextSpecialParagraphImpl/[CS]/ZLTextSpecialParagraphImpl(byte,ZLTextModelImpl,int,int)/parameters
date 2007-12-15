@@ -1,0 +1,4 @@
+byte kind
+ZLTextModelImpl model
+int offset
+int length

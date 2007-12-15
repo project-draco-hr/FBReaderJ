@@ -1,4 +1,4 @@
 {
-  myRoot=new ZLTextTreeParagraphImpl(null,myEntries);
+  myRoot=new ZLTextTreeParagraphImpl(null,this);
   myRoot.open(true);
 }

@@ -1,6 +1,16 @@
 {
-  if (s.contains("-")) {
-    s=s.replace('-','_');
+  FB2Tag tag=myTagsByName.get(s);
+  if ((tag == null) && !myTagsByName.containsKey(s)) {
+    if (s.contains("-")) {
+      s=s.replace('-','_');
+    }
+    s=s.toUpperCase();
+    try {
+      tag=FB2Tag.valueOf(s);
+    }
+ catch (    IllegalArgumentException e) {
+    }
+    myTagsByName.put(s,tag);
   }
-  return FB2Tag.valueOf(s.toUpperCase());
+  return tag;
 }

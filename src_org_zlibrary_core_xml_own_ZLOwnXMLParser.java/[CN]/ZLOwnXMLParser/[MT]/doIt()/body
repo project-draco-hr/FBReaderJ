@@ -196,7 +196,7 @@ case END_TAG:
 appendToName(tagName,value,0,value.length);
 break;
 case TEXT:
-processText(xmlReader,value,0,value.length);
+xmlReader.characterDataHandler(buffer,0,value.length);
 break;
 }
 }
@@ -246,7 +246,14 @@ case TEXT:
 while ((c != '<') && (c != '&') && (++i < count)) {
 c=buffer[i];
 }
-processText(xmlReader,buffer,startPosition,i);
+if (i > startPosition) {
+if (c == '<') {
+xmlReader.characterDataHandlerFinal(buffer,startPosition,i - startPosition);
+}
+ else {
+xmlReader.characterDataHandler(buffer,startPosition,i - startPosition);
+}
+}
 if (c == '<') {
 state=LANGLE;
 }

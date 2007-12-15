@@ -26,5 +26,7 @@ canvas.rotate(90,myWidth / 2,myWidth / 2);
 break;
 }
 view.paint();
+String sTime="" + Time;
+myPaintContext.drawString(240,165,sTime.toCharArray(),0,sTime.length());
 myPaintContext.endPaint();
 }

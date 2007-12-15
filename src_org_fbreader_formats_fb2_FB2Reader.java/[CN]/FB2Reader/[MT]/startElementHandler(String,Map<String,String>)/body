@@ -7,10 +7,8 @@
     myModelReader.addHyperlinkLabel(id);
   }
   FB2Tag tag;
-  try {
-    tag=getTag(tagName);
-  }
- catch (  IllegalArgumentException e) {
+  tag=getTag(tagName);
+  if (tag == null) {
     return;
   }
 switch (tag) {
@@ -137,6 +135,7 @@ myModelReader.setMainTextModel();
 break;
 case IMAGE:
 String imgRef=reference(attributes);
+if ((imgRef != null) && (imgRef.length() != 0) && (imgRef.charAt(0) == '#')) {
 String vOffset=attributes.get("voffset");
 short offset=0;
 try {
@@ -144,7 +143,6 @@ offset=Short.valueOf(vOffset);
 }
  catch (NumberFormatException e) {
 }
-if ((imgRef != null) && (imgRef.length() != 0) && (imgRef.charAt(0) == '#')) {
 imgRef=imgRef.substring(1);
 if (!imgRef.equals(myCoverImageReference) || myParagraphsBeforeBodyNumber != myModelReader.getModel().getBookModel().getParagraphsNumber()) {
 myModelReader.addImageReference(imgRef,offset);

@@ -1,5 +1,0 @@
-{
-  myEntries=entries;
-  myOffset=entries.size();
-  myLength=0;
-}

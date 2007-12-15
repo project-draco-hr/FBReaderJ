@@ -1,12 +1,8 @@
 {
   int size=0;
-  final ArrayList<Entry> entries=myEntries;
-  final int from=myOffset;
-  final int to=from + myLength;
-  for (int i=from; i < to; ++i) {
-    Entry entry=entries.get(i);
-    if (entry instanceof ZLTextEntryImpl) {
-      size+=((ZLTextEntryImpl)entry).getDataLength();
+  for (EntryIterator it=iterator(); it.hasNext(); ) {
+    if (it.getType() == Entry.TEXT) {
+      size+=it.getTextLength();
     }
   }
   return size;

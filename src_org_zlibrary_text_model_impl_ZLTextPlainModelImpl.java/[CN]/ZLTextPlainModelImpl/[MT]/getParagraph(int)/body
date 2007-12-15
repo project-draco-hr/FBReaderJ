@@ -1,0 +1,5 @@
+{
+  final int info=myParagraphInfos[index];
+  final byte kind=(byte)(info >> 24);
+  return (kind == ZLTextParagraph.Kind.TEXT_PARAGRAPH) ? new ZLTextParagraphImpl(this,index,info & 0x00FFFFFF) : new ZLTextSpecialParagraphImpl(kind,this,index,info & 0x00FFFFFF);
+}

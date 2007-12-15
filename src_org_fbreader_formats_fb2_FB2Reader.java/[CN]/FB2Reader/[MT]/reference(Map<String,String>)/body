@@ -4,5 +4,5 @@
       return attributes.get(s);
     }
   }
-  return "";
+  return null;
 }

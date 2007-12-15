@@ -1,0 +1,29 @@
+{
+  if (length != 0) {
+    final ZLTextElement hSpace=ZLTextElement.HSpace;
+    final int end=offset + length;
+    char ch;
+    int firstNonSpace=-1;
+    boolean spaceInserted=false;
+    for (int charPos=offset; charPos < end; ++charPos) {
+      if (Character.isWhitespace(data[charPos])) {
+        if (firstNonSpace != -1) {
+          addWord(data,firstNonSpace,charPos);
+          myElements.add(hSpace);
+          spaceInserted=true;
+          firstNonSpace=-1;
+        }
+ else         if (!spaceInserted) {
+          myElements.add(hSpace);
+          spaceInserted=true;
+        }
+      }
+ else       if (firstNonSpace == -1) {
+        firstNonSpace=charPos;
+      }
+    }
+    if (firstNonSpace != -1) {
+      addWord(data,firstNonSpace,end);
+    }
+  }
+}

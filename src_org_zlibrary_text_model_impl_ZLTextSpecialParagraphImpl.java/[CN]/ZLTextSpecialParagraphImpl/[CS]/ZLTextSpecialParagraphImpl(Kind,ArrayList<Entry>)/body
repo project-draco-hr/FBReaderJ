@@ -1,4 +1,0 @@
-{
-  super(entries);
-  myKind=kind;
-}

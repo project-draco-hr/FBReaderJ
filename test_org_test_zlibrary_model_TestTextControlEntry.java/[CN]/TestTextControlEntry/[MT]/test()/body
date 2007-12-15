@@ -1,7 +1,2 @@
 {
-  boolean start=true;
-  byte kind=(byte)0;
-  ZLTextControlEntry entry=factory.createControlEntry(kind,start);
-  assertEquals(entry.Kind,kind);
-  assertEquals(entry.IsStart,start);
 }

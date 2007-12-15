@@ -1,5 +1,0 @@
-{
-  myData=data;
-  myDataOffset=offset;
-  myDataLength=length;
-}

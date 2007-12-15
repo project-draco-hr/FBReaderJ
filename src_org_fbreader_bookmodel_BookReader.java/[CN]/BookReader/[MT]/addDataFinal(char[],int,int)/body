@@ -1,0 +1,16 @@
+{
+  if (!myBuffer.isEmpty()) {
+    addData(data,offset,length);
+  }
+ else {
+    if (myTextParagraphExists) {
+      myCurrentTextModel.addText(data,offset,length);
+      if (!myInsideTitle) {
+        mySectionContainsRegularContents=true;
+      }
+ else {
+        addContentsData(data,offset,length);
+      }
+    }
+  }
+}

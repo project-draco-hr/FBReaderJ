@@ -1,5 +1,0 @@
-{
-  if (endOffset > startOffset) {
-    xmlReader.characterDataHandler(buffer,startOffset,endOffset - startOffset);
-  }
-}

@@ -1,3 +1,0 @@
-{
-  return new ZLTextSpecialParagraphImpl(kind,new ArrayList<ZLTextParagraph.Entry>());
-}

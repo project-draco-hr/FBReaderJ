@@ -1,21 +1,24 @@
 {
   StringBuilder sb=new StringBuilder();
-  for (  ZLTextParagraph paragraph : myParagraphs) {
+  final int len=getParagraphsNumber();
+  for (int i=0; i < len; ++i) {
+    ZLTextParagraph paragraph=getParagraph(i);
     sb.append("[PARAGRAPH]\n");
-    for (    ZLTextParagraph.Entry entry : paragraph) {
-      if (entry instanceof ZLTextEntryImpl) {
-        ZLTextEntryImpl textEntry=(ZLTextEntryImpl)entry;
+    for (ZLTextParagraph.EntryIterator it=paragraph.iterator(); it.hasNext(); ) {
+      it.next();
+switch (it.getType()) {
+case ZLTextParagraph.Entry.TEXT:
         sb.append("[TEXT]");
-        sb.append(textEntry.getData(),textEntry.getDataOffset(),textEntry.getDataLength());
-        sb.append("[/TEXT]");
-      }
- else       if (entry instanceof ZLTextControlEntry) {
-        ZLTextControlEntry controlEntry=(ZLTextControlEntry)entry;
-        if (controlEntry.IsStart)         sb.append("[CONTROL " + controlEntry.Kind + "]");
- else         sb.append("[/CONTROL " + controlEntry.Kind + "]");
-      }
-    }
-    sb.append("[/PARAGRAPH]\n");
-  }
-  return sb.toString();
+      sb.append(it.getTextData(),it.getTextOffset(),it.getTextLength());
+    sb.append("[/TEXT]");
+  break;
+case ZLTextParagraph.Entry.CONTROL:
+if (it.getControlIsStart()) sb.append("[CONTROL " + it.getControlKind() + "]");
+ else sb.append("[/CONTROL " + it.getControlKind() + "]");
+break;
+}
+}
+sb.append("[/PARAGRAPH]\n");
+}
+return sb.toString();
 }

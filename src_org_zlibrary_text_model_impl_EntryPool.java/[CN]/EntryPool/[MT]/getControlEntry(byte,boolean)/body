@@ -1,9 +1,0 @@
-{
-  ZLTextControlEntry[] entries=isStart ? ourStartEntries : ourEndEntries;
-  ZLTextControlEntry entry=entries[kind & 0xFF];
-  if (entry == null) {
-    entry=new ZLTextControlEntry(kind,isStart);
-    entries[kind & 0xFF]=entry;
-  }
-  return entry;
-}

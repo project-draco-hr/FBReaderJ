@@ -1,3 +1,9 @@
 {
-  addEntry(entry);
+  final char[] block=getDataBlock(3);
+  increaseLastParagraphSize();
+  block[myBlockOffset++]=(char)ZLTextParagraph.Entry.FORCED_CONTROL;
+  final int entryAddress=myEntries.size();
+  block[myBlockOffset++]=(char)(entryAddress >> 16);
+  block[myBlockOffset++]=(char)entryAddress;
+  myEntries.add(entry);
 }

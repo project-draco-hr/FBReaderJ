@@ -1,6 +1,2 @@
 {
-  String str="marina";
-  ZLTextEntry entry=factory.createTextEntry(str);
-  assertEquals(new String(entry.getData(),entry.getDataOffset(),entry.getDataLength()),str);
-  assertEquals(entry.getDataLength(),str.length());
 }

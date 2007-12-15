@@ -1,0 +1,13 @@
+{
+  if (length > DATA_BLOCK_SIZE) {
+    length=DATA_BLOCK_SIZE;
+  }
+  char[] block=getDataBlock(3);
+  increaseLastParagraphSize();
+  block[myBlockOffset++]=(char)ZLTextParagraph.Entry.TEXT;
+  block[myBlockOffset++]=(char)(length >> 16);
+  block[myBlockOffset++]=(char)length;
+  block=getDataBlock(length);
+  System.arraycopy(text,offset,block,myBlockOffset,length);
+  myBlockOffset+=length;
+}

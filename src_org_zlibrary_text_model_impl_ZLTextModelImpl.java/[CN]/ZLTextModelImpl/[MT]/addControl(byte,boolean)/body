@@ -1,3 +1,10 @@
 {
-  addEntry(EntryPool.getControlEntry(textKind,isStart));
+  final char[] block=getDataBlock(2);
+  increaseLastParagraphSize();
+  block[myBlockOffset++]=(char)ZLTextParagraph.Entry.CONTROL;
+  short kind=textKind;
+  if (isStart) {
+    kind+=0x0100;
+  }
+  block[myBlockOffset++]=(char)kind;
 }

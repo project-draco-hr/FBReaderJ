@@ -1,0 +1,59 @@
+{
+  if (myCounter == myLength) {
+    throw new NoSuchElementException();
+  }
+  ZLTextParagraph.Entry entry=null;
+  if (myDataOffset == DATA_BLOCK_SIZE) {
+    ++myDataIndex;
+    myDataOffset=0;
+  }
+  char[] data=myData.get(myDataIndex);
+  myType=(byte)data[myDataOffset];
+  if (myType == 0) {
+    data=myData.get(++myDataIndex);
+    myDataOffset=0;
+    myType=(byte)data[0];
+  }
+  ++myDataOffset;
+switch (myType) {
+case ZLTextParagraph.Entry.TEXT:
+    myTextLength=((int)data[myDataOffset++] << 16) + (int)data[myDataOffset++];
+  if (myDataOffset + myTextLength <= DATA_BLOCK_SIZE) {
+    myTextData=data;
+    myTextOffset=myDataOffset;
+    myDataOffset+=myTextLength;
+  }
+ else {
+    myTextData=myData.get(++myDataIndex);
+    myTextOffset=0;
+    myDataOffset=myTextLength;
+  }
+break;
+case ZLTextParagraph.Entry.CONTROL:
+{
+short kind=(short)data[myDataOffset++];
+myControlKind=(byte)kind;
+myControlIsStart=(kind & 0x0100) == 0x0100;
+if ((kind & 0x0200) == 0x0200) {
+  myControlIsHyperlink=true;
+  short labelLength=(short)data[myDataOffset++];
+  myDataOffset+=labelLength;
+}
+ else {
+  myControlIsHyperlink=false;
+}
+break;
+}
+case ZLTextParagraph.Entry.IMAGE:
+{
+int address=((int)data[myDataOffset++] << 16) + (int)data[myDataOffset++];
+entry=myEntries.get(address);
+break;
+}
+case ZLTextParagraph.Entry.FIXED_HSPACE:
+case ZLTextParagraph.Entry.FORCED_CONTROL:
+break;
+}
+++myCounter;
+return entry;
+}
