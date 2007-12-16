@@ -6,7 +6,7 @@ case ZLTextParagraph.Entry.TEXT:
       processTextEntry(it.getTextData(),it.getTextOffset(),it.getTextLength());
     break;
 case ZLTextParagraph.Entry.CONTROL:
-  myElements.add(new ZLTextControlElement(it.getControlKind(),it.getControlIsStart()));
+  myElements.add(ZLTextControlElement.get(it.getControlKind(),it.getControlIsStart()));
 break;
 case ZLTextParagraph.Entry.IMAGE:
 ZLImageEntry imageEntry=(ZLImageEntry)entry;

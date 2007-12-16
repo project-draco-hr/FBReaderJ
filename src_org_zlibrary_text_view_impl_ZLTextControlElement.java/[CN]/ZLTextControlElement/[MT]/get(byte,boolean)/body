@@ -1,0 +1,9 @@
+{
+  ZLTextControlElement[] elements=isStart ? myStartElements : myEndElements;
+  ZLTextControlElement element=elements[kind & 0xFF];
+  if (element == null) {
+    element=new ZLTextControlElement(kind,isStart);
+    elements[kind & 0xFF]=element;
+  }
+  return element;
+}
