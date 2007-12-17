@@ -1,2 +1,5 @@
 {
+  if (!areSameColors(myFillColor,color)) {
+    myFillColor=new Color(color.Red,color.Green,color.Blue);
+  }
 }

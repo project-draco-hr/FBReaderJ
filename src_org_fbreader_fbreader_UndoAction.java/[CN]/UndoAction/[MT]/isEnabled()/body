@@ -1,0 +1,3 @@
+{
+  return fbreader().getMode() != FBReader.ViewMode.BOOK_TEXT;
+}

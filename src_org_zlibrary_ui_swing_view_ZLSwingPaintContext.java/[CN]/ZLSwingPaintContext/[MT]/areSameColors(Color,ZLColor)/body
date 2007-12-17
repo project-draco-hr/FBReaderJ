@@ -1,0 +1,3 @@
+{
+  return (awtColor.getRed() == zlColor.Red) && (awtColor.getGreen() == zlColor.Green) && (awtColor.getBlue() == zlColor.Blue);
+}

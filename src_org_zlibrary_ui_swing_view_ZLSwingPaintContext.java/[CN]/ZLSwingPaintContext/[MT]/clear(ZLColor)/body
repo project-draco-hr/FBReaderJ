@@ -1,2 +1,8 @@
 {
+  if (!areSameColors(myBackgroundColor,color)) {
+    myBackgroundColor=new Color(color.Red,color.Green,color.Blue);
+  }
+  myGraphics.setColor(myBackgroundColor);
+  myGraphics.fillRect(0,0,getWidth(),getHeight());
+  myGraphics.setColor(myColor);
 }

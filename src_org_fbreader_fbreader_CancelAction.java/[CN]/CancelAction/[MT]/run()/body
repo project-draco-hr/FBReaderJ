@@ -1,0 +1,8 @@
+{
+  if (fbreader().getMode() != FBReader.ViewMode.BOOK_TEXT) {
+    fbreader().restorePreviousMode();
+  }
+ else   if (fbreader().isFullscreen()) {
+    fbreader().setFullscreen(false);
+  }
+}

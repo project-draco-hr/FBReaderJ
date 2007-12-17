@@ -1,12 +1,15 @@
 {
   if (item instanceof ZLApplication.Toolbar.ButtonItem) {
-    ZLApplication.Toolbar.ButtonItem buttonItem=(ZLApplication.Toolbar.ButtonItem)item;
-    MyButtonAction action=new MyButtonAction(buttonItem);
+    MyButtonAction action=new MyButtonAction((ZLApplication.Toolbar.ButtonItem)item);
     AbstractButton button=myToolbar.add(action);
     button.setFocusable(false);
-    myButtonItemToActionMap.put(buttonItem,button);
+    myToolbarMap.put(item,button);
+  }
+ else   if (item instanceof ZLApplication.Toolbar.SeparatorItem) {
+    JToolBar.Separator separator=new JToolBar.Separator(null);
+    myToolbar.add(separator);
+    myToolbarMap.put(item,separator);
   }
  else {
-    myToolbar.addSeparator();
   }
 }

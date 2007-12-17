@@ -1,16 +1,18 @@
 {
   if (colorValue != null) {
-    int value=colorValue.getIntValue();
-    if (myIsSynchronized && (myIntValue == value)) {
+    final boolean sameValue=myValue.equals(colorValue);
+    if (myIsSynchronized && sameValue) {
       return;
     }
-    myIntValue=value;
+    if (!sameValue) {
+      myValue=colorValue;
+    }
     myIsSynchronized=true;
-    if (myIntValue == myDefaultValue) {
+    if (myValue.equals(myDefaultValue)) {
       unsetConfigValue();
     }
  else {
-      setConfigValue("" + myIntValue);
+      setConfigValue("" + myValue.getIntValue());
     }
   }
 }

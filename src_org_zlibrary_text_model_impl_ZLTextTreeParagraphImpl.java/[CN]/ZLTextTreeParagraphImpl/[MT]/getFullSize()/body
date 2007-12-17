@@ -1,7 +1,9 @@
 {
   int size=1;
-  for (  ZLTextTreeParagraph child : getChildren()) {
-    size+=child.getFullSize();
+  if (myChildren != null) {
+    for (    ZLTextTreeParagraph child : myChildren) {
+      size+=child.getFullSize();
+    }
   }
   return size;
 }

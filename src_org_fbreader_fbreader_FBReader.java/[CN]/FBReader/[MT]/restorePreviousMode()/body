@@ -1,0 +1,4 @@
+{
+  setMode(myPreviousMode);
+  myPreviousMode=ViewMode.BOOK_TEXT;
+}

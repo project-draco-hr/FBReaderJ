@@ -1,10 +1,5 @@
 {
   super(category,group,optionName);
-  if (defaultValue != null) {
-    myDefaultValue=defaultValue.getIntValue();
-  }
- else {
-    myDefaultValue=0;
-  }
-  myIntValue=myDefaultValue;
+  myDefaultValue=(defaultValue != null) ? defaultValue : new ZLColor(0);
+  myValue=myDefaultValue;
 }

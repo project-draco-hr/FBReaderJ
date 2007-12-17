@@ -1,7 +1,7 @@
 {
   myLineInfos.clear();
   final ZLTextWordCursor cursor=new ZLTextWordCursor(start);
-  int textAreaHeight=myStyle.getTextAreaHeight();
+  int textAreaHeight=getTextAreaHeight();
   int counter=0;
   final ZLTextWordCursor paragraphEnd=new ZLTextWordCursor();
   final ZLTextWordCursor paragraphStart=new ZLTextWordCursor();
@@ -10,9 +10,9 @@
     paragraphEnd.moveToParagraphEnd();
     paragraphStart.setCursor(cursor);
     paragraphStart.moveToParagraphStart();
-    myStyle.reset();
-    myStyle.applyControls(paragraphStart,cursor);
-    ZLTextLineInfo info=new ZLTextLineInfo(cursor,myStyle.getTextStyle());
+    resetTextStyle();
+    applyControls(paragraphStart,cursor);
+    ZLTextLineInfo info=new ZLTextLineInfo(cursor,myTextStyle);
     while (!info.End.isEndOfParagraph()) {
       info=processTextLine(info.End,paragraphEnd);
       textAreaHeight-=info.Height + info.Descent;
@@ -29,6 +29,6 @@
     }
   }
  while (cursor.isEndOfParagraph() && cursor.nextParagraph() && !cursor.getParagraphCursor().isEndOfSection()&& (textAreaHeight >= 0));
-  myStyle.reset();
+  resetTextStyle();
   return cursor;
 }

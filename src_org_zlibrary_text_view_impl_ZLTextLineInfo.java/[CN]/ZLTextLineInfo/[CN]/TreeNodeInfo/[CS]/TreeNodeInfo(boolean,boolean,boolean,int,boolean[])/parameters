@@ -1,0 +1,5 @@
+boolean isLeaf
+boolean isOpen
+boolean isFirstLine
+int paragraphNumber
+boolean[] stack

@@ -1,24 +1,28 @@
 {
-  ZLPaintContext context=getContext();
+  final ZLPaintContext context=getContext();
+  context.clear(ZLTextStyleCollection.getInstance().getBaseStyle().BackgroundColorOption.getValue());
+  if (myModel == null) {
+    return;
+  }
   myTextElementMap.clear();
   int paragraphs=myModel.getParagraphsNumber();
   if (paragraphs > 0) {
     int pn=StartParagraphNumberOption.getValue();
     pn=Math.max(0,Math.min(pn,paragraphs - 2));
     StartParagraphNumberOption.setValue(pn);
-    ZLTextParagraphCursor firstParagraph=ZLTextParagraphCursor.getCursor(myModel,pn);
+    ZLTextParagraphCursor firstParagraph=ZLTextParagraphCursor.cursor(myModel,pn);
     ZLTextWordCursor start=new ZLTextWordCursor();
     start.setCursor(firstParagraph);
     buildInfos(start);
   }
   List<Integer> labels=new ArrayList<Integer>(myLineInfos.size() + 1);
   labels.add(0);
-  getContext().moveYTo(topMargin());
+  context.moveYTo(topMargin());
   for (  ZLTextLineInfo info : myLineInfos) {
     prepareTextLine(info);
     labels.add(myTextElementMap.size());
   }
-  getContext().moveYTo(topMargin());
+  context.moveYTo(topMargin());
   int index=0;
   for (  ZLTextLineInfo info : myLineInfos) {
     drawTextLine(info,labels.get(index),labels.get(index + 1));

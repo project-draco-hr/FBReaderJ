@@ -1,0 +1,10 @@
+{
+  ZLTextParagraphCursor result;
+  if (model instanceof ZLTextTreeModel) {
+    result=new ZLTextTreeParagraphCursor(model,index);
+  }
+ else {
+    result=new ZLTextPlainParagraphCursor(model,index);
+  }
+  return result;
+}

@@ -1,5 +1,0 @@
-{
-  ZLTextParagraphCursor result;
-  result=new ZLTextPlainParagraphCursor(model,index);
-  return result;
-}

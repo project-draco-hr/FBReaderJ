@@ -1,0 +1,9 @@
+{
+switch (fbreader().getMode()) {
+case BOOK_TEXT:
+case FOOTNOTE:
+    return true;
+default :
+  return false;
+}
+}

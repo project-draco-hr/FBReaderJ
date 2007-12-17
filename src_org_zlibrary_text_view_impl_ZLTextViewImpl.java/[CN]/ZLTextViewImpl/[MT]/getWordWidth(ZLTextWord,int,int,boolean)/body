@@ -1,0 +1,6 @@
+{
+  if (start == 0 && length == -1) {
+    return word.getWidth(getContext());
+  }
+  return 0;
+}

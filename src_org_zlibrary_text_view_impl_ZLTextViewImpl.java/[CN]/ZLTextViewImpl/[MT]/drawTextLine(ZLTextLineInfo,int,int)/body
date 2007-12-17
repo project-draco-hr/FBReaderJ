@@ -1,13 +1,17 @@
 {
+  final ZLPaintContext context=getContext();
   final ZLTextParagraphCursor paragraph=info.RealStart.getParagraphCursor();
   ListIterator<ZLTextElementArea> fromIt=myTextElementMap.listIterator(from);
   ListIterator<ZLTextElementArea> toIt=myTextElementMap.listIterator(to);
-  getContext().moveY(info.Height);
-  int maxY=topMargin() + myStyle.getTextAreaHeight();
-  if (getContext().getY() > maxY) {
-    getContext().moveYTo(maxY);
+  context.moveY(info.Height);
+  int maxY=topMargin() + getTextAreaHeight();
+  if (context.getY() > maxY) {
+    context.moveYTo(maxY);
   }
-  getContext().moveXTo(leftMargin());
+  context.moveXTo(leftMargin());
+  if (info.NodeInfo != null) {
+    drawTreeLines(info.NodeInfo,info.Height,info.Descent + info.VSpaceAfter);
+  }
   ListIterator<ZLTextElementArea> it=myTextElementMap.listIterator(from);
   final ZLTextWordCursor end=info.End;
   for (myIteratorCursor.setCursor(info.RealStart); !myIteratorCursor.equalWordNumber(end); myIteratorCursor.nextWord()) {
@@ -15,29 +19,29 @@
     if ((element instanceof ZLTextWord) || (element instanceof ZLTextImageElement)) {
       ZLTextElementArea area=it.next();
       if (area.ChangeStyle) {
-        myStyle.setStyle(area.Style);
+        setTextStyle(area.Style);
       }
       final int x=area.XStart;
-      final int y=area.YEnd - myStyle.getElementDescent(element) - myStyle.getTextStyle().verticalShift();
-      getContext().moveXTo(x);
+      final int y=area.YEnd - getElementDescent(element) - myTextStyle.verticalShift();
+      context.moveXTo(x);
       if (element instanceof ZLTextWord) {
         drawWord(x,y,(ZLTextWord)element,myIteratorCursor.getCharNumber(),-1,false);
       }
  else {
-        getContext().drawImage(x,y,((ZLTextImageElement)element).getImage());
+        context.drawImage(x,y,((ZLTextImageElement)element).getImage());
       }
     }
   }
   if (!(it.nextIndex() == toIt.nextIndex())) {
     ZLTextElementArea area=it.next();
     if (area.ChangeStyle) {
-      myStyle.setStyle(area.Style);
+      setTextStyle(area.Style);
     }
     int len=info.End.getCharNumber();
     final ZLTextWord word=(ZLTextWord)info.End.getElement();
     final int x=area.XStart;
-    final int y=area.YEnd - myStyle.getElementDescent(word) - myStyle.getTextStyle().verticalShift();
+    final int y=area.YEnd - getElementDescent(word) - myTextStyle.verticalShift();
     drawWord(x,y,word,0,len,area.AddHyphenationSign);
   }
-  getContext().moveY(info.Descent + info.VSpaceAfter);
+  context.moveY(info.Descent + info.VSpaceAfter);
 }

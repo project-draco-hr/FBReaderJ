@@ -1,13 +1,28 @@
 {
-  ZLTextLineInfo info=new ZLTextLineInfo(start,myStyle.getTextStyle());
+  final ZLPaintContext context=getContext();
+  final ZLTextLineInfo info=new ZLTextLineInfo(start,myTextStyle);
   ZLTextWordCursor current=new ZLTextWordCursor(start);
   ZLTextParagraphCursor paragraphCursor=current.getParagraphCursor();
-  boolean isFirstLine=current.isStartOfParagraph();
+  final boolean isFirstLine=current.isStartOfParagraph();
+  if (paragraphCursor.getParagraph().getKind() == ZLTextParagraph.Kind.TREE_PARAGRAPH) {
+    final ZLTextTreeParagraph treeParagraph=(ZLTextTreeParagraph)paragraphCursor.getParagraph();
+    boolean[] stack=new boolean[treeParagraph.getDepth() - 1];
+    if (stack.length > 0) {
+      ZLTextTreeParagraph ctp=treeParagraph;
+      for (int index=0; index < stack.length; ++index) {
+        ZLTextTreeParagraph parent=ctp.getParent();
+        List<ZLTextTreeParagraph> children=parent.children();
+        stack[index]=children.get(children.size() - 1) != ctp;
+        ctp=parent;
+      }
+    }
+    info.NodeInfo=new ZLTextLineInfo.TreeNodeInfo(!treeParagraph.hasChildren(),treeParagraph.hasChildren(),isFirstLine,paragraphCursor.getIndex(),stack);
+  }
   if (isFirstLine) {
     ZLTextElement element=paragraphCursor.getElement(current.getWordNumber());
     while (element instanceof ZLTextControlElement) {
       if (element instanceof ZLTextControlElement) {
-        myStyle.applyControl((ZLTextControlElement)element);
+        applyControl((ZLTextControlElement)element);
       }
       current.nextWord();
       if (current.equalWordNumber(end)) {
@@ -15,13 +30,16 @@
       }
       element=paragraphCursor.getElement(current.getWordNumber());
     }
-    info.StartStyle=myStyle.getTextStyle();
+    info.StartStyle=myTextStyle;
     info.RealStart.setCursor(current);
   }
-  ZLTextStyle storedStyle=myStyle.getTextStyle();
-  info.LeftIndent=myStyle.getTextStyle().leftIndent();
+  ZLTextStyle storedStyle=myTextStyle;
+  info.LeftIndent=myTextStyle.leftIndent();
   if (isFirstLine) {
-    info.LeftIndent+=myStyle.getTextStyle().firstLineIndentDelta();
+    info.LeftIndent+=myTextStyle.firstLineIndentDelta();
+  }
+  if (info.NodeInfo != null) {
+    info.LeftIndent+=(context.getStringHeight() + 2) / 3 * 4 * (info.NodeInfo.VerticalLinesStack.length + 1);
   }
   info.Width=info.LeftIndent;
   final ZLTextWordCursor realStart=info.RealStart;
@@ -32,7 +50,7 @@
   int newWidth=info.Width;
   int newHeight=info.Height;
   int newDescent=info.Descent;
-  int maxWidth=myStyle.getPaintContext().getWidth() - leftMargin() - rightMargin()- myStyle.getTextStyle().rightIndent();
+  int maxWidth=context.getWidth() - leftMargin() - rightMargin()- myTextStyle.rightIndent();
   boolean wordOccurred=false;
   boolean isVisible=false;
   int lastSpaceWidth=0;
@@ -40,14 +58,14 @@
   boolean removeLastSpace=false;
   do {
     ZLTextElement element=paragraphCursor.getElement(current.getWordNumber());
-    newWidth+=myStyle.getElementWidth(element,current.getCharNumber());
-    newHeight=Math.max(newHeight,myStyle.getElementHeight(element));
-    newDescent=Math.max(newDescent,myStyle.getElementDescent(element));
+    newWidth+=getElementWidth(element,current.getCharNumber());
+    newHeight=Math.max(newHeight,getElementHeight(element));
+    newDescent=Math.max(newDescent,getElementDescent(element));
     if (element == ZLTextElement.HSpace) {
       if (wordOccurred) {
         wordOccurred=false;
         internalSpaceCounter++;
-        lastSpaceWidth=myStyle.getPaintContext().getSpaceWidth();
+        lastSpaceWidth=context.getSpaceWidth();
         newWidth+=lastSpaceWidth;
       }
     }
@@ -56,7 +74,7 @@
       isVisible=true;
     }
  else     if (element instanceof ZLTextControlElement) {
-      myStyle.applyControl((ZLTextControlElement)element);
+      applyControl((ZLTextControlElement)element);
     }
  else     if (element instanceof ZLTextImageElement) {
       wordOccurred=true;
@@ -78,7 +96,7 @@
       info.Height=Math.max(info.Height,newHeight);
       info.Descent=Math.max(info.Descent,newDescent);
       info.End.setCursor(current);
-      storedStyle=myStyle.getTextStyle();
+      storedStyle=myTextStyle;
       info.SpaceCounter=internalSpaceCounter;
       removeLastSpace=!wordOccurred && (info.SpaceCounter > 0);
     }
@@ -88,12 +106,12 @@
     info.Width-=lastSpaceWidth;
     info.SpaceCounter--;
   }
-  myStyle.setStyle(storedStyle);
+  setTextStyle(storedStyle);
   if (isFirstLine) {
     info.Height+=info.StartStyle.spaceBefore();
   }
   if (info.End.isEndOfParagraph()) {
-    info.VSpaceAfter=myStyle.getTextStyle().spaceAfter();
+    info.VSpaceAfter=myTextStyle.spaceAfter();
   }
   return info;
 }

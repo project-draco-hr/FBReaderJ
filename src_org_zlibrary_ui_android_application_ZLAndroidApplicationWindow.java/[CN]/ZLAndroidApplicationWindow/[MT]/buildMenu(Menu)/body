@@ -1,3 +1,4 @@
 {
   new MenuBuilder(menu).processMenu(getApplication().getMenubar());
+  refresh();
 }

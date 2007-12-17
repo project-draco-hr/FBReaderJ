@@ -1,5 +1,0 @@
-{
-  myContext=context;
-  setStyle(ZLTextStyleCollection.getInstance().getBaseStyle());
-  myWordHeight=-1;
-}

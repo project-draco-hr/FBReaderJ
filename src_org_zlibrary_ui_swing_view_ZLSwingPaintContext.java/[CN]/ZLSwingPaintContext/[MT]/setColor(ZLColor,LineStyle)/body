@@ -1,2 +1,6 @@
 {
+  if (!areSameColors(myColor,color)) {
+    myColor=new Color(color.Red,color.Green,color.Blue);
+    myGraphics.setColor(myColor);
+  }
 }

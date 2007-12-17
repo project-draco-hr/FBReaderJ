@@ -1,0 +1,7 @@
+{
+  if (fbreader().getMode() == FBReader.ViewMode.BOOK_TEXT) {
+  }
+ else {
+    fbreader().restorePreviousMode();
+  }
+}

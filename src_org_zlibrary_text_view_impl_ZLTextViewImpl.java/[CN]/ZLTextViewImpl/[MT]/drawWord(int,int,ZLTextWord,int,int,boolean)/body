@@ -1,6 +1,8 @@
 {
+  final ZLPaintContext context=getContext();
   if ((start == 0) && (length == -1)) {
-    getContext().drawString(x,y,word.Data,word.Offset,word.Length);
+    context.setColor(myTextStyle.getColor());
+    context.drawString(x,y,word.Data,word.Offset,word.Length);
   }
  else {
     System.out.println("Shouldn't be here - no hyphenations supported yet.");

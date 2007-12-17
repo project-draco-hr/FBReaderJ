@@ -1,0 +1,12 @@
+{
+  if (element instanceof ZLTextWord) {
+    return getWordWidth((ZLTextWord)element,charNumber,-1,false);
+  }
+ else   if (element instanceof ZLTextImageElement) {
+    return getContext().imageWidth(((ZLTextImageElement)element).getImage());
+  }
+ else   if (element == ZLTextElement.IndentElement) {
+    return myTextStyle.firstLineIndentDelta();
+  }
+  return 0;
+}

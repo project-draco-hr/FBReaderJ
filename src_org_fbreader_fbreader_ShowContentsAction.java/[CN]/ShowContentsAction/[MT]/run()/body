@@ -1,0 +1,3 @@
+{
+  fbreader().setMode(FBReader.ViewMode.CONTENTS);
+}

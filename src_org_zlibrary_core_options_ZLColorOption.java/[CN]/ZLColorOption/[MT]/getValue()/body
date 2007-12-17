@@ -3,13 +3,15 @@
     String value=getConfigValue(null);
     if (value != null) {
       try {
-        Integer intValue=Integer.parseInt(value);
-        myIntValue=intValue;
+        int intValue=Integer.parseInt(value);
+        if (myValue.getIntValue() != intValue) {
+          myValue=new ZLColor(intValue);
+        }
       }
  catch (      NumberFormatException e) {
       }
     }
     myIsSynchronized=true;
   }
-  return new ZLColor(myIntValue);
+  return myValue;
 }

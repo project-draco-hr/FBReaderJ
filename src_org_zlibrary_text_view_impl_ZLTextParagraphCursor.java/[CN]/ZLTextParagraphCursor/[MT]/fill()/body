@@ -1,6 +1,11 @@
 {
   ZLTextParagraph paragraph=myModel.getParagraph(myIndex);
-  if (paragraph.getKind() == ZLTextParagraph.Kind.TEXT_PARAGRAPH) {
-    (new StandardProcessor(paragraph,myIndex,myElements)).fill();
-  }
+switch (paragraph.getKind()) {
+case ZLTextParagraph.Kind.TEXT_PARAGRAPH:
+case ZLTextParagraph.Kind.TREE_PARAGRAPH:
+    new StandardProcessor(paragraph,myIndex,myElements).fill();
+  break;
+default :
+break;
+}
 }

@@ -1,3 +1,7 @@
 {
+  myPaint.setAntiAlias(false);
   myCanvas.drawLine(x0,y0,x1,y1,myPaint);
+  myCanvas.drawPoint(x0,y0,myPaint);
+  myCanvas.drawPoint(x1,y1,myPaint);
+  myPaint.setAntiAlias(true);
 }

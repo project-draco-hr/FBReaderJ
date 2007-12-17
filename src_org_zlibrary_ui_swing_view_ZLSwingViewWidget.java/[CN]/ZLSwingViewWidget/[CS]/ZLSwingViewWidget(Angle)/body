@@ -1,3 +1,5 @@
 {
   super(initialAngle);
+  myPanel.addMouseListener(this);
+  myPanel.addMouseMotionListener(this);
 }

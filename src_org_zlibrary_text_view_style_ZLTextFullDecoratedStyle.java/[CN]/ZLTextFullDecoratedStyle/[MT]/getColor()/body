@@ -1,0 +1,13 @@
+{
+  HyperlinkStyle hyperlinkStyle=myDecoration.getHyperlinkStyle();
+  if (hyperlinkStyle == HyperlinkStyle.NONE) {
+    return getBase().getColor();
+  }
+  ZLTextBaseStyle baseStyle=ZLTextStyleCollection.getInstance().getBaseStyle();
+  if (hyperlinkStyle == HyperlinkStyle.INTERNAL) {
+    return baseStyle.InternalHyperlinkTextColorOption.getValue();
+  }
+ else {
+    return baseStyle.ExternalHyperlinkTextColorOption.getValue();
+  }
+}

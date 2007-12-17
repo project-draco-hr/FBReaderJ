@@ -1,0 +1,32 @@
+{
+  int x=e.getX();
+  int y=e.getY();
+switch (getRotation()) {
+case DEGREES0:
+    break;
+case DEGREES90:
+{
+    final Dimension size=myPanel.getSize();
+    int swap=x;
+    x=size.height - y - 1;
+    y=swap;
+    break;
+  }
+case DEGREES180:
+{
+  final Dimension size=myPanel.getSize();
+  x=size.width - x - 1;
+  y=size.height - y - 1;
+  break;
+}
+case DEGREES270:
+{
+final Dimension size=myPanel.getSize();
+int swap=size.width - x - 1;
+x=y;
+y=swap;
+break;
+}
+}
+getView().onStylusPress(x,y);
+}

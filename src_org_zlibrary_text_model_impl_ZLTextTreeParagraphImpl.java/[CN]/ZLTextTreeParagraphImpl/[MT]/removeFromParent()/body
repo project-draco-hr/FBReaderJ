@@ -1,5 +1,5 @@
 {
   if (myParent != null) {
-    myChildren.clear();
+    ((ZLTextTreeParagraphImpl)myParent).myChildren.remove(this);
   }
 }

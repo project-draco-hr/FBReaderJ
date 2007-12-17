@@ -1,28 +1,29 @@
 {
-  myStyle.setStyle(info.StartStyle);
-  final int y=Math.min(getContext().getY() + info.Height,topMargin() + myStyle.getTextAreaHeight());
+  final ZLPaintContext context=getContext();
+  setTextStyle(info.StartStyle);
+  final int y=Math.min(context.getY() + info.Height,topMargin() + getTextAreaHeight());
   int spaceCounter=info.SpaceCounter;
   int fullCorrection=0;
   final boolean endOfParagraph=info.End.isEndOfParagraph();
   boolean wordOccurred=false;
   boolean changeStyle=true;
-  getContext().moveXTo(leftMargin() + info.LeftIndent);
-  final int maxWidth=getContext().getWidth() - leftMargin() - rightMargin();
-switch (myStyle.getTextStyle().alignment()) {
+  context.moveXTo(leftMargin() + info.LeftIndent);
+  final int maxWidth=context.getWidth() - leftMargin() - rightMargin();
+switch (myTextStyle.alignment()) {
 case ZLTextAlignmentType.ALIGN_RIGHT:
 {
-      getContext().moveX(maxWidth - myStyle.getTextStyle().rightIndent() - info.Width);
+      context.moveX(maxWidth - myTextStyle.rightIndent() - info.Width);
       break;
     }
 case ZLTextAlignmentType.ALIGN_CENTER:
 {
-    getContext().moveX((maxWidth - myStyle.getTextStyle().rightIndent() - info.Width) / 2);
+    context.moveX((maxWidth - myTextStyle.rightIndent() - info.Width) / 2);
     break;
   }
 case ZLTextAlignmentType.ALIGN_JUSTIFY:
 {
   if (!endOfParagraph && !(info.End.getElement() == ZLTextElement.AfterParagraph)) {
-    fullCorrection=maxWidth - myStyle.getTextStyle().rightIndent() - info.Width;
+    fullCorrection=maxWidth - myTextStyle.rightIndent() - info.Width;
   }
   break;
 }
@@ -37,30 +38,30 @@ int paragraphNumber=paragraph.getIndex();
 final ZLTextWordCursor end=info.End;
 for (myIteratorCursor.setCursor(info.RealStart); !myIteratorCursor.equalWordNumber(end); myIteratorCursor.nextWord()) {
 final ZLTextElement element=paragraph.getElement(myIteratorCursor.getWordNumber());
-final int x=getContext().getX();
-final int width=myStyle.getElementWidth(element,myIteratorCursor.getCharNumber());
+final int x=context.getX();
+final int width=getElementWidth(element,myIteratorCursor.getCharNumber());
 if (element == ZLTextElement.HSpace) {
 if (wordOccurred && (spaceCounter > 0)) {
 int correction=fullCorrection / spaceCounter;
-getContext().moveX(getContext().getSpaceWidth() + correction);
+context.moveX(context.getSpaceWidth() + correction);
 fullCorrection-=correction;
 wordOccurred=false;
 --spaceCounter;
 }
 }
  else if ((element instanceof ZLTextWord) || (element instanceof ZLTextImageElement)) {
-final int height=myStyle.getElementHeight(element);
-final int descent=myStyle.getElementDescent(element);
+final int height=getElementHeight(element);
+final int descent=getElementDescent(element);
 final int length=(element instanceof ZLTextWord) ? ((ZLTextWord)element).Length : 0;
-myTextElementMap.add(new ZLTextElementArea(paragraphNumber,myIteratorCursor.getWordNumber(),myIteratorCursor.getCharNumber(),length,false,changeStyle,myStyle.getTextStyle(),element,x,x + width - 1,y - height + 1,y + descent));
+myTextElementMap.add(new ZLTextElementArea(paragraphNumber,myIteratorCursor.getWordNumber(),myIteratorCursor.getCharNumber(),length,false,changeStyle,myTextStyle,element,x,x + width - 1,y - height + 1,y + descent));
 changeStyle=false;
 wordOccurred=true;
 }
  else if (element instanceof ZLTextControlElement) {
-myStyle.applyControl((ZLTextControlElement)element);
+applyControl((ZLTextControlElement)element);
 changeStyle=true;
 }
-getContext().moveX(width);
+context.moveX(width);
 }
-getContext().moveY(info.Height + info.Descent + info.VSpaceAfter);
+context.moveY(info.Height + info.Descent + info.VSpaceAfter);
 }

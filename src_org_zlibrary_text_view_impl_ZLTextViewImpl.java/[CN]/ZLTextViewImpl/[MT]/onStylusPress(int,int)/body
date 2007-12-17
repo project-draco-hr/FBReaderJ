@@ -1,0 +1,5 @@
+{
+  if (myModel instanceof ZLTextTreeModel) {
+  }
+  return false;
+}

@@ -1,7 +1,7 @@
 {
   ZLTextTreeParagraph paragraph=factory.createTreeParagraph();
   ZLTextTreeParagraph paragraph2=factory.createTreeParagraph(paragraph);
-  assertTrue(paragraph.getChildren().contains(paragraph2));
+  assertTrue(paragraph.children().contains(paragraph2));
   assertTrue(paragraph.getDepth() == 0);
   assertTrue(paragraph2.getDepth() == 1);
   assertTrue(paragraph2.getParent() == paragraph);

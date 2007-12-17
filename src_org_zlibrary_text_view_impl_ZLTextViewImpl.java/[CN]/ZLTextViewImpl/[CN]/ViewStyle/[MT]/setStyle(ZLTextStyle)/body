@@ -1,7 +1,0 @@
-{
-  if (myStyle != style) {
-    myStyle=style;
-    myWordHeight=-1;
-  }
-  myContext.setFont(myStyle.getFontFamily(),myStyle.getFontSize(),myStyle.bold(),myStyle.italic());
-}

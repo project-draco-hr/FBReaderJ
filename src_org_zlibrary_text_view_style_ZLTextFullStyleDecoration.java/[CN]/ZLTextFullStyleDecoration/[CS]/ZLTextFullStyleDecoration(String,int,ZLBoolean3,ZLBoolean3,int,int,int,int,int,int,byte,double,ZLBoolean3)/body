@@ -1,10 +1,11 @@
 {
   super(name,fontSizeDelta,bold,italic,verticalShift,allowHyphenations);
-  SpaceBeforeOption=null;
-  SpaceAfterOption=null;
-  LeftIndentOption=new ZLIntegerRangeOption(ZLOption.LOOK_AND_FEEL_CATEGORY,STYLE,name + ":leftIndent",-300,300,leftIndent);
-  RightIndentOption=new ZLIntegerRangeOption(ZLOption.LOOK_AND_FEEL_CATEGORY,STYLE,name + ":rightIndent",-300,300,rightIndent);
-  FirstLineIndentDeltaOption=new ZLIntegerRangeOption(ZLOption.LOOK_AND_FEEL_CATEGORY,STYLE,name + ":firstLineIndentDelta",-300,300,firstLineIndentDelta);
-  AlignmentOption=new ZLIntegerOption(ZLOption.LOOK_AND_FEEL_CATEGORY,STYLE,name + ":alignment",alignment);
-  LineSpaceOption=null;
+  final String category=ZLOption.LOOK_AND_FEEL_CATEGORY;
+  SpaceBeforeOption=new ZLIntegerRangeOption(category,STYLE,name + ":spaceBefore",-10,100,spaceBefore);
+  SpaceAfterOption=new ZLIntegerRangeOption(category,STYLE,name + ":spaceAfter",-10,100,spaceAfter);
+  LeftIndentOption=new ZLIntegerRangeOption(category,STYLE,name + ":leftIndent",-300,300,leftIndent);
+  RightIndentOption=new ZLIntegerRangeOption(category,STYLE,name + ":rightIndent",-300,300,rightIndent);
+  FirstLineIndentDeltaOption=new ZLIntegerRangeOption(category,STYLE,name + ":firstLineIndentDelta",-300,300,firstLineIndentDelta);
+  AlignmentOption=new ZLIntegerOption(category,STYLE,name + ":alignment",alignment);
+  LineSpaceOption=new ZLDoubleOption(category,STYLE,name + ":lineSpace",lineSpace);
 }
