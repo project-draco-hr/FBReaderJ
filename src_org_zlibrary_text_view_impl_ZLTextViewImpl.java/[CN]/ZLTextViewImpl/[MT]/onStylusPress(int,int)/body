@@ -1,5 +1,13 @@
 {
   if (myModel instanceof ZLTextTreeModel) {
+    ZLTextTreeNodeArea nodeArea=ZLTextRectangularArea.binarySearch(myTreeNodeMap,x,y);
+    if (nodeArea != null) {
+      final int index=nodeArea.ParagraphNumber;
+      final ZLTextTreeParagraph paragraph=((ZLTextTreeModel)myModel).getParagraph(index);
+      paragraph.open(!paragraph.isOpen());
+      application().refreshWindow();
+      return true;
+    }
   }
   return false;
 }

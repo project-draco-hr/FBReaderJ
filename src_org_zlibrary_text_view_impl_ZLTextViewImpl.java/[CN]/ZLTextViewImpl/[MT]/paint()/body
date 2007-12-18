@@ -5,6 +5,7 @@
     return;
   }
   myTextElementMap.clear();
+  myTreeNodeMap.clear();
   int paragraphs=myModel.getParagraphsNumber();
   if (paragraphs > 0) {
     int pn=StartParagraphNumberOption.getValue();

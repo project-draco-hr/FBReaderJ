@@ -1,3 +1,0 @@
-{
-  return (myChildren != null) ? Collections.unmodifiableList(myChildren) : Collections.<ZLTextTreeParagraph>emptyList();
-}

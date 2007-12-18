@@ -11,12 +11,11 @@
       ZLTextTreeParagraph ctp=treeParagraph;
       for (int index=0; index < stack.length; ++index) {
         ZLTextTreeParagraph parent=ctp.getParent();
-        List<ZLTextTreeParagraph> children=parent.children();
-        stack[index]=children.get(children.size() - 1) != ctp;
+        stack[index]=parent.getLastChild() != ctp;
         ctp=parent;
       }
     }
-    info.NodeInfo=new ZLTextLineInfo.TreeNodeInfo(!treeParagraph.hasChildren(),treeParagraph.hasChildren(),isFirstLine,paragraphCursor.getIndex(),stack);
+    info.NodeInfo=new ZLTextLineInfo.TreeNodeInfo(!treeParagraph.hasChildren(),treeParagraph.isOpen(),isFirstLine,paragraphCursor.getIndex(),stack);
   }
   if (isFirstLine) {
     ZLTextElement element=paragraphCursor.getElement(current.getWordNumber());

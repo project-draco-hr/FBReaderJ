@@ -1,3 +1,21 @@
 {
-  return isFirst() ? null : cursor(myModel,myIndex - 1);
+  if (isFirst()) {
+    return null;
+  }
+  final ZLTextTreeModel model=(ZLTextTreeModel)myModel;
+  final ZLTextTreeParagraph parent=model.getParagraph(myIndex).getParent();
+  int index=myIndex - 1;
+  ZLTextTreeParagraph newTreeParagraph=model.getParagraph(index);
+  if (newTreeParagraph != parent) {
+    ZLTextTreeParagraph lastNotOpen=newTreeParagraph;
+    for (ZLTextTreeParagraph p=newTreeParagraph.getParent(); p != parent; p=p.getParent()) {
+      if (!p.isOpen()) {
+        lastNotOpen=p;
+      }
+    }
+    while (model.getParagraph(index) != lastNotOpen) {
+      --index;
+    }
+  }
+  return cursor(model,index);
 }
