@@ -1,6 +1,0 @@
-{
-  if (!hasChildren()) {
-    return null;
-  }
-  return myChildren.get(myChildren.size() - 1);
-}

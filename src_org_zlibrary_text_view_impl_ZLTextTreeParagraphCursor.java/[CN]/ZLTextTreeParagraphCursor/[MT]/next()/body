@@ -8,7 +8,7 @@
     return cursor(model,myIndex + 1);
   }
   ZLTextTreeParagraph parent=current.getParent();
-  while ((parent != null) && (current == parent.getLastChild())) {
+  while ((parent != null) && (current.isLastChild())) {
     current=parent;
     parent=current.getParent();
   }

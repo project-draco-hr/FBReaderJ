@@ -9,7 +9,7 @@
   }
   ZLTextTreeParagraph parent=current.getParent();
   while (parent != null) {
-    if (current != parent.getLastChild()) {
+    if (!current.isLastChild()) {
       return false;
     }
     current=parent;
