@@ -1,0 +1,4 @@
+{
+  ZLTextElementArea area=ZLTextRectangularArea.binarySearch(myTextElementMap,y);
+  return (area != null) ? area.ParagraphNumber : -1;
+}

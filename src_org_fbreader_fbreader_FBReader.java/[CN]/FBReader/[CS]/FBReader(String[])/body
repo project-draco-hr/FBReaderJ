@@ -88,7 +88,7 @@
   getMenubar().addItem(ActionCode.SHOW_OPTIONS,"settings");
   getMenubar().addItem(ActionCode.QUIT,"close");
   myBookTextView=new ZLTextViewImpl(this,getContext());
-  myContentsView=new ZLTextViewImpl(this,getContext());
+  myContentsView=new ContentsView(this,getContext());
   ZLStringOption bookNameOption=new ZLStringOption(ZLOption.STATE_CATEGORY,"State","Book","data/help/MiniHelp.ru.fb2");
   if (args.length > 0) {
     try {
