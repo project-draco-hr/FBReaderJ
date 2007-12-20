@@ -8,9 +8,9 @@
   myTreeNodeMap.clear();
   int paragraphs=myModel.getParagraphsNumber();
   if (paragraphs > 0) {
-    int pn=StartParagraphNumberOption.getValue();
+    int pn=myStartParagraphNumberOption;
     pn=Math.max(0,Math.min(pn,paragraphs - 2));
-    StartParagraphNumberOption.setValue(pn);
+    myStartParagraphNumberOption=pn;
     ZLTextParagraphCursor firstParagraph=ZLTextParagraphCursor.cursor(myModel,pn);
     ZLTextWordCursor start=new ZLTextWordCursor();
     start.setCursor(firstParagraph);
