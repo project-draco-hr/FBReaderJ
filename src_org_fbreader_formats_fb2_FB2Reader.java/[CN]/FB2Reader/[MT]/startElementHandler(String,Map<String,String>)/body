@@ -103,7 +103,7 @@ myModelReader.enterTitle();
 break;
 case BODY:
 ++myBodyCounter;
-myParagraphsBeforeBodyNumber=myModelReader.getModel().getBookModel().getParagraphsNumber();
+myParagraphsBeforeBodyNumber=myModelReader.getModel().getBookTextModel().getParagraphsNumber();
 if ((myBodyCounter == 1) || (attributes.get("name") == null)) {
 myModelReader.setMainTextModel();
 myReadMainText=true;
@@ -144,7 +144,7 @@ offset=Short.valueOf(vOffset);
  catch (NumberFormatException e) {
 }
 imgRef=imgRef.substring(1);
-if (!imgRef.equals(myCoverImageReference) || myParagraphsBeforeBodyNumber != myModelReader.getModel().getBookModel().getParagraphsNumber()) {
+if (!imgRef.equals(myCoverImageReference) || myParagraphsBeforeBodyNumber != myModelReader.getModel().getBookTextModel().getParagraphsNumber()) {
 myModelReader.addImageReference(imgRef,offset);
 }
 if (myInsideCoverpage) {

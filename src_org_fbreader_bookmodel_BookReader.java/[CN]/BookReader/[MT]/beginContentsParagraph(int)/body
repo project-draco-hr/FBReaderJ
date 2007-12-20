@@ -1,6 +1,6 @@
 {
   final ArrayList<ZLTextTreeParagraph> tocStack=myTOCStack;
-  if (myCurrentTextModel == myBookModel.getBookModel()) {
+  if (myCurrentTextModel == myBookModel.getBookTextModel()) {
     ContentsModel contentsModel=myBookModel.getContentsModel();
     if (referenceNumber == -1) {
       referenceNumber=myCurrentTextModel.getParagraphsNumber();

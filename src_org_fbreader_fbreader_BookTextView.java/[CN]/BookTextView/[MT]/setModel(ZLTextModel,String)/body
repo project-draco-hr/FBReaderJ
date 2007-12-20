@@ -1,0 +1,5 @@
+{
+  super.setModel(model);
+  myParagraphPositionOption=new ZLIntegerOption(ZLOption.STATE_CATEGORY,fileName,"Paragraph",0);
+  gotoParagraph(myParagraphPositionOption.getValue());
+}
