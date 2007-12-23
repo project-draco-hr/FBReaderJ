@@ -1,8 +1,6 @@
 {
   myItem=item;
-  String iconFileName="icons/toolbar/" + myItem.getIconName() + ".png";
-  java.net.URL iconURL=getClass().getClassLoader().getResource(iconFileName);
-  ImageIcon icon=(iconURL != null) ? new ImageIcon(iconURL) : new ImageIcon(iconFileName);
-  putValue(Action.SMALL_ICON,icon);
+  final String iconFileName="icons/toolbar/" + myItem.getIconName() + ".png";
+  putValue(Action.SMALL_ICON,ZLSwingIconUtil.getIcon(iconFileName));
   putValue(Action.SHORT_DESCRIPTION,item.getTooltip());
 }

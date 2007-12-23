@@ -1,7 +1,4 @@
 {
-  if (myCounter == myLength) {
-    throw new NoSuchElementException();
-  }
   ZLTextParagraph.Entry entry=null;
   if (myDataOffset == DATA_BLOCK_SIZE) {
     ++myDataIndex;

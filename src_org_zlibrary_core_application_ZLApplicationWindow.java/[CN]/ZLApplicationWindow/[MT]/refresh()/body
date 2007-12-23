@@ -1,5 +1,5 @@
 {
-  List<ZLApplication.Toolbar.Item> items=getApplication().getToolbar().getItems();
+  List<ZLApplication.Toolbar.Item> items=getApplication().getToolbar().items();
   boolean enableToolbarSpace=false;
   ZLApplication.Toolbar.Item lastSeparator=null;
   for (  ZLApplication.Toolbar.Item item : items) {

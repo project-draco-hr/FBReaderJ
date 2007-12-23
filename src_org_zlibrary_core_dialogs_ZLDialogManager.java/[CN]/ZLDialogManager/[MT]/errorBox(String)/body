@@ -1,3 +1,0 @@
-{
-  errorBox(key,dialogMessage(key));
-}

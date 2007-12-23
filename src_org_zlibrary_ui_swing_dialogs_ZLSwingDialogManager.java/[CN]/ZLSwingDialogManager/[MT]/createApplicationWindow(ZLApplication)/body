@@ -1,3 +1,4 @@
 {
   myApplicationWindow=new ZLSwingApplicationWindow(application);
+  return myApplicationWindow;
 }

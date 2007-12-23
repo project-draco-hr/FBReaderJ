@@ -1,0 +1,4 @@
+{
+  URL iconURL=ZLSwingIconUtil.class.getClassLoader().getResource(fileName);
+  return (iconURL != null) ? new ImageIcon(iconURL) : new ImageIcon(fileName);
+}
