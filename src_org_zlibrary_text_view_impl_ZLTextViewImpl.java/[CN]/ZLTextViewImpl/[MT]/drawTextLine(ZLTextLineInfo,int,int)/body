@@ -1,8 +1,6 @@
 {
   final ZLPaintContext context=getContext();
   final ZLTextParagraphCursor paragraph=info.RealStart.getParagraphCursor();
-  ListIterator<ZLTextElementArea> fromIt=myTextElementMap.listIterator(from);
-  ListIterator<ZLTextElementArea> toIt=myTextElementMap.listIterator(to);
   context.moveY(info.Height);
   int maxY=getTopMargin() + getTextAreaHeight();
   if (context.getY() > maxY) {
@@ -12,12 +10,12 @@
   if (info.NodeInfo != null) {
     drawTreeLines(info.NodeInfo,info.Height,info.Descent + info.VSpaceAfter);
   }
-  ListIterator<ZLTextElementArea> it=myTextElementMap.listIterator(from);
+  int index=from;
   final ZLTextWordCursor end=info.End;
   for (myIteratorCursor.setCursor(info.RealStart); !myIteratorCursor.equalWordNumber(end); myIteratorCursor.nextWord()) {
     final ZLTextElement element=myIteratorCursor.getElement();
     if ((element instanceof ZLTextWord) || (element instanceof ZLTextImageElement)) {
-      ZLTextElementArea area=it.next();
+      ZLTextElementArea area=myTextElementMap.get(index++);
       if (area.ChangeStyle) {
         setTextStyle(area.Style);
       }
@@ -32,8 +30,8 @@
       }
     }
   }
-  if (!(it.nextIndex() == toIt.nextIndex())) {
-    ZLTextElementArea area=it.next();
+  if (index != to) {
+    ZLTextElementArea area=myTextElementMap.get(index++);
     if (area.ChangeStyle) {
       setTextStyle(area.Style);
     }

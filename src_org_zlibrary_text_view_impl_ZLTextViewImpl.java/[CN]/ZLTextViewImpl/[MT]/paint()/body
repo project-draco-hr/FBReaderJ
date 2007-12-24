@@ -1,11 +1,11 @@
 {
   final ZLPaintContext context=getContext();
   context.clear(ZLTextStyleCollection.getInstance().getBaseStyle().BackgroundColorOption.getValue());
-  if (myModel == null) {
-    return;
-  }
   myTextElementMap.clear();
   myTreeNodeMap.clear();
+  if ((myModel == null) || (myModel.getParagraphsNumber() == 0)) {
+    return;
+  }
   int paragraphs=myModel.getParagraphsNumber();
   if (paragraphs > 0) {
     int pn=myStartParagraphNumberOption;

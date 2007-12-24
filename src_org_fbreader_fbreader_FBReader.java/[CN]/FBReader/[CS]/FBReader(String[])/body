@@ -89,15 +89,15 @@
   getMenubar().addItem(ActionCode.QUIT,"close");
   myBookTextView=new BookTextView(this,getContext());
   myContentsView=new ContentsView(this,getContext());
-  ZLStringOption bookNameOption=new ZLStringOption(ZLOption.STATE_CATEGORY,"State","Book",HELP_FILE_NAME);
+  String fileName=null;
   if (args.length > 0) {
     try {
-      bookNameOption.setValue(new File(args[0]).getCanonicalPath());
+      fileName=new File(args[0]).getCanonicalPath();
     }
  catch (    IOException e) {
     }
   }
-  if (!openBook(bookNameOption.getValue())) {
-    openBook(HELP_FILE_NAME);
+  if (!openBook(fileName)) {
+    openBook(null);
   }
 }
