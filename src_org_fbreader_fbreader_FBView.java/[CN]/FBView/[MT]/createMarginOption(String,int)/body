@@ -1,0 +1,3 @@
+{
+  return new ZLIntegerRangeOption(ZLOption.LOOK_AND_FEEL_CATEGORY,"Options",name,0,1000,defaultValue);
+}

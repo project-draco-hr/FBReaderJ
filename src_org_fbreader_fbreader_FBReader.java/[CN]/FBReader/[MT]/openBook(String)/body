@@ -1,0 +1,10 @@
+{
+  BookModel model=new BookModel(fileName);
+  if (!new FB2Reader().readBook(model)) {
+    return false;
+  }
+  myBookTextView.setModel(model.getBookTextModel(),model.getFileName());
+  myContentsView.setModel(model.getContentsModel());
+  setMode(ViewMode.BOOK_TEXT);
+  return true;
+}

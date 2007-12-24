@@ -4,11 +4,11 @@
   ListIterator<ZLTextElementArea> fromIt=myTextElementMap.listIterator(from);
   ListIterator<ZLTextElementArea> toIt=myTextElementMap.listIterator(to);
   context.moveY(info.Height);
-  int maxY=topMargin() + getTextAreaHeight();
+  int maxY=getTopMargin() + getTextAreaHeight();
   if (context.getY() > maxY) {
     context.moveYTo(maxY);
   }
-  context.moveXTo(leftMargin());
+  context.moveXTo(getLeftMargin());
   if (info.NodeInfo != null) {
     drawTreeLines(info.NodeInfo,info.Height,info.Descent + info.VSpaceAfter);
   }

@@ -1,14 +1,14 @@
 {
   final ZLPaintContext context=getContext();
   setTextStyle(info.StartStyle);
-  final int y=Math.min(context.getY() + info.Height,topMargin() + getTextAreaHeight());
+  final int y=Math.min(context.getY() + info.Height,getTopMargin() + getTextAreaHeight());
   int spaceCounter=info.SpaceCounter;
   int fullCorrection=0;
   final boolean endOfParagraph=info.End.isEndOfParagraph();
   boolean wordOccurred=false;
   boolean changeStyle=true;
-  context.moveXTo(leftMargin() + info.LeftIndent);
-  final int maxWidth=context.getWidth() - leftMargin() - rightMargin();
+  context.moveXTo(getLeftMargin() + info.LeftIndent);
+  final int maxWidth=context.getWidth() - getLeftMargin() - getRightMargin();
 switch (myTextStyle.alignment()) {
 case ZLTextAlignmentType.ALIGN_RIGHT:
 {

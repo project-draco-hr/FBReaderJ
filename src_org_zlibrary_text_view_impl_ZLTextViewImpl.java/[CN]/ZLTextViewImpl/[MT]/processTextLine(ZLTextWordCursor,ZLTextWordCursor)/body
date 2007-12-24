@@ -48,7 +48,7 @@
   int newWidth=info.Width;
   int newHeight=info.Height;
   int newDescent=info.Descent;
-  int maxWidth=context.getWidth() - leftMargin() - rightMargin()- myTextStyle.rightIndent();
+  int maxWidth=context.getWidth() - getLeftMargin() - getRightMargin()- myTextStyle.rightIndent();
   boolean wordOccurred=false;
   boolean isVisible=false;
   int lastSpaceWidth=0;

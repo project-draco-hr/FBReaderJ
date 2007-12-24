@@ -1,0 +1,6 @@
+{
+  if (ourLeftMarginOption == null) {
+    ourLeftMarginOption=createMarginOption("LeftMargin",4);
+  }
+  return ourLeftMarginOption;
+}

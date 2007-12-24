@@ -18,12 +18,12 @@
   }
   List<Integer> labels=new ArrayList<Integer>(myLineInfos.size() + 1);
   labels.add(0);
-  context.moveYTo(topMargin());
+  context.moveYTo(getTopMargin());
   for (  ZLTextLineInfo info : myLineInfos) {
     prepareTextLine(info);
     labels.add(myTextElementMap.size());
   }
-  context.moveYTo(topMargin());
+  context.moveYTo(getTopMargin());
   int index=0;
   for (  ZLTextLineInfo info : myLineInfos) {
     drawTextLine(info,labels.get(index),labels.get(index + 1));

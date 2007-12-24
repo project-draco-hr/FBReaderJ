@@ -1,0 +1,6 @@
+{
+  if (ourTopMarginOption == null) {
+    ourTopMarginOption=createMarginOption("TopMargin",0);
+  }
+  return ourTopMarginOption;
+}

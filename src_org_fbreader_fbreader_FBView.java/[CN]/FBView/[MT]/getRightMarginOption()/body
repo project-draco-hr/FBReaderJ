@@ -1,0 +1,6 @@
+{
+  if (ourRightMarginOption == null) {
+    ourRightMarginOption=createMarginOption("RightMargin",4);
+  }
+  return ourRightMarginOption;
+}
