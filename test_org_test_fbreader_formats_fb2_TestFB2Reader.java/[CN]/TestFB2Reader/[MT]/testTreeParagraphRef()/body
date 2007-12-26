@@ -1,5 +1,6 @@
 {
-  FB2Reader reader=new FB2Reader();
-  ContentsModel model=reader.readBook(myDirectory + "tree1.fb2").getContentsModel();
+  BookModel bookModel=new BookModel(myDirectory + "tree1.fb2");
+  new FB2Reader().readBook(bookModel);
+  ContentsModel model=bookModel.getContentsModel();
   assertTrue(model.getReference((ZLTextTreeParagraph)model.getParagraph(0)) == 0);
 }

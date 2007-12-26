@@ -16,7 +16,7 @@
     start.setCursor(firstParagraph);
     buildInfos(start);
   }
-  List<Integer> labels=new ArrayList<Integer>(myLineInfos.size() + 1);
+  ArrayList<Integer> labels=new ArrayList<Integer>(myLineInfos.size() + 1);
   labels.add(0);
   context.moveYTo(getTopMargin());
   for (  ZLTextLineInfo info : myLineInfos) {

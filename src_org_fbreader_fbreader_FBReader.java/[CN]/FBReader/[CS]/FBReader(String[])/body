@@ -98,6 +98,7 @@
     }
   }
   if (!openBook(fileName)) {
-    openBook(null);
+    openBook(HELP_FILE_NAME);
   }
+  refreshWindow();
 }

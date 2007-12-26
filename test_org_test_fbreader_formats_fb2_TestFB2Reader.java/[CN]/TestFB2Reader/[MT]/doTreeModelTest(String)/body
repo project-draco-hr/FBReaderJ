@@ -2,5 +2,5 @@
   String test_result=myDirectory + test + "_act.txt";
   writeTreeModelDumpToFile(myDirectory + test + ".fb2",test_result);
   assertTrue("File " + test,compareFiles(myDirectory + test + "_exp.txt",test_result));
-  (new File(test_result)).delete();
+  new File(test_result).delete();
 }

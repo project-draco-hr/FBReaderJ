@@ -139,7 +139,7 @@ if ((imgRef != null) && (imgRef.length() != 0) && (imgRef.charAt(0) == '#')) {
 String vOffset=attributes.get("voffset");
 short offset=0;
 try {
-offset=Short.valueOf(vOffset);
+offset=Short.parseShort(vOffset);
 }
  catch (NumberFormatException e) {
 }

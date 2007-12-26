@@ -1,6 +1,6 @@
 {
-  FB2Reader reader=new FB2Reader();
-  BookModel model=reader.readBook(myDirectory + "image.fb2");
+  BookModel model=new BookModel(myDirectory + "image.fb2");
+  new FB2Reader().readBook(model);
   ZLImage image=model.getImageMap().get("cover.jpg");
   ZLSwingPaintContext paint=new ZLSwingPaintContext();
   assertTrue(paint.imageHeight(image) == 277);

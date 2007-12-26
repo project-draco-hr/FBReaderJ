@@ -1,7 +1,7 @@
 {
-  FB2Reader reader=new FB2Reader();
-  BookModel bModel=reader.readBook(myDirectory + "image.fb2");
-  ZLTextModel model=bModel.getBookModel();
+  BookModel bModel=new BookModel(myDirectory + "image.fb2");
+  new FB2Reader().readBook(bModel);
+  ZLTextModel model=bModel.getBookTextModel();
   ZLTextParagraph paragraph=model.getParagraph(0);
   ZLTextParagraph.EntryIterator it=paragraph.iterator();
   it.next();

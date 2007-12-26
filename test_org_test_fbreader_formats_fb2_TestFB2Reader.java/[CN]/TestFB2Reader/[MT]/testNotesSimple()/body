@@ -1,5 +1,6 @@
 {
-  BookModel model=(new FB2Reader()).readBook(myDirectory + "simple_notes.fb2");
+  BookModel model=new BookModel(myDirectory + "simple_notes.fb2");
+  new FB2Reader().readBook(model);
   assertTrue(model.getFootnotes().containsKey("1"));
   assertNotNull(model.getFootnotes().get("1"));
 }

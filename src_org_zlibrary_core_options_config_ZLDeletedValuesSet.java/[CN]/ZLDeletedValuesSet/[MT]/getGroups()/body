@@ -1,7 +1,7 @@
 {
-  Set<String> temp=new HashSet<String>();
+  HashSet<String> temp=new HashSet<String>();
   for (  ZLOptionID option : myData) {
     temp.add(option.getGroup());
   }
-  return Collections.unmodifiableSet(temp);
+  return temp;
 }
