@@ -11,9 +11,10 @@
     drawTreeLines(info.NodeInfo,info.Height,info.Descent + info.VSpaceAfter);
   }
   int index=from;
-  final ZLTextWordCursor end=info.End;
-  for (myIteratorCursor.setCursor(info.RealStart); !myIteratorCursor.equalWordNumber(end); myIteratorCursor.nextWord()) {
-    final ZLTextElement element=myIteratorCursor.getElement();
+  final int endWordNumber=info.End.getWordNumber();
+  int charNumber=info.RealStart.getCharNumber();
+  for (int wordNumber=info.RealStart.getWordNumber(); wordNumber != endWordNumber; ++wordNumber, charNumber=0) {
+    final ZLTextElement element=paragraph.getElement(wordNumber);
     if ((element instanceof ZLTextWord) || (element instanceof ZLTextImageElement)) {
       ZLTextElementArea area=myTextElementMap.get(index++);
       if (area.ChangeStyle) {
@@ -23,7 +24,7 @@
       final int y=area.YEnd - getElementDescent(element) - myTextStyle.verticalShift();
       context.moveXTo(x);
       if (element instanceof ZLTextWord) {
-        drawWord(x,y,(ZLTextWord)element,myIteratorCursor.getCharNumber(),-1,false);
+        drawWord(x,y,(ZLTextWord)element,charNumber,-1,false);
       }
  else {
         context.drawImage(x,y,((ZLTextImageElement)element).getImage());
