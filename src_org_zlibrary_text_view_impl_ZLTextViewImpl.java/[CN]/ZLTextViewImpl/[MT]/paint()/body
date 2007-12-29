@@ -8,9 +8,9 @@
   }
   int paragraphs=myModel.getParagraphsNumber();
   if (paragraphs > 0) {
-    int pn=myStartParagraphNumberOption;
+    int pn=myStartParagraphNumber;
     pn=Math.max(0,Math.min(pn,paragraphs - 2));
-    myStartParagraphNumberOption=pn;
+    myStartParagraphNumber=pn;
     ZLTextParagraphCursor firstParagraph=ZLTextParagraphCursor.cursor(myModel,pn);
     ZLTextWordCursor start=new ZLTextWordCursor();
     start.setCursor(firstParagraph);
