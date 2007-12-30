@@ -1,9 +1,4 @@
 {
-  final int index=getParagraphsNumber();
-  if (myStartEntryInfos.length == index) {
-    int entryInfos[]=new int[index * 2];
-    System.arraycopy(myStartEntryInfos,0,entryInfos,0,index);
-    myStartEntryInfos=entryInfos;
-  }
-  myStartEntryInfos[index]=(myData.size() - 1 << 16) + (myBlockOffset & 0xFFFF);
+  myStartEntryIndices.add(myData.isEmpty() ? 0 : (myData.size() - 1));
+  myStartEntryOffsets.add(myBlockOffset);
 }

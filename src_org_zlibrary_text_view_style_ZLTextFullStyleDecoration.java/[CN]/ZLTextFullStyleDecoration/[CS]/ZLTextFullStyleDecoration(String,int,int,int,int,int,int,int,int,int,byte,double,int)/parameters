@@ -1,0 +1,13 @@
+String name
+int fontSizeDelta
+int bold
+int italic
+int spaceBefore
+int spaceAfter
+int leftIndent
+int rightIndent
+int firstLineIndentDelta
+int verticalShift
+byte alignment
+double lineSpace
+int allowHyphenations

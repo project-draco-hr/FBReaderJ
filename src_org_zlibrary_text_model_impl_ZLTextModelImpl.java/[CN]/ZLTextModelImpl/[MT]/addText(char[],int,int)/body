@@ -1,7 +1,4 @@
 {
-  if (length > DATA_BLOCK_SIZE - 3) {
-    length=DATA_BLOCK_SIZE - 3;
-  }
   char[] block=getDataBlock(3 + length);
   increaseLastParagraphSize();
   int blockOffset=myBlockOffset;

@@ -1,51 +1,46 @@
 {
-  FB2Tag tag;
-  tag=getTag(tagName);
-  if (tag == null) {
-    return;
-  }
-switch (tag) {
-case P:
+switch (FB2Tag.getTagByName(tagName)) {
+case FB2Tag.P:
     myModelReader.endParagraph();
   break;
-case SUB:
+case FB2Tag.SUB:
 myModelReader.addControl(FBTextKind.SUB,false);
 break;
-case SUP:
+case FB2Tag.SUP:
 myModelReader.addControl(FBTextKind.SUP,false);
 break;
-case CODE:
+case FB2Tag.CODE:
 myModelReader.addControl(FBTextKind.CODE,false);
 break;
-case EMPHASIS:
+case FB2Tag.EMPHASIS:
 myModelReader.addControl(FBTextKind.EMPHASIS,false);
 break;
-case STRONG:
+case FB2Tag.STRONG:
 myModelReader.addControl(FBTextKind.STRONG,false);
 break;
-case STRIKETHROUGH:
+case FB2Tag.STRIKETHROUGH:
 myModelReader.addControl(FBTextKind.STRIKETHROUGH,false);
 break;
-case V:
-case SUBTITLE:
-case TEXT_AUTHOR:
-case DATE:
+case FB2Tag.V:
+case FB2Tag.SUBTITLE:
+case FB2Tag.TEXT_AUTHOR:
+case FB2Tag.DATE:
 myModelReader.popKind();
 myModelReader.endParagraph();
 break;
-case CITE:
-case EPIGRAPH:
+case FB2Tag.CITE:
+case FB2Tag.EPIGRAPH:
 myModelReader.popKind();
 break;
-case POEM:
+case FB2Tag.POEM:
 myInsidePoem=false;
 break;
-case STANZA:
+case FB2Tag.STANZA:
 myModelReader.beginParagraph(ZLTextParagraph.Kind.AFTER_SKIP_PARAGRAPH);
 myModelReader.endParagraph();
 myModelReader.popKind();
 break;
-case SECTION:
+case FB2Tag.SECTION:
 if (myReadMainText) {
 myModelReader.endContentsParagraph();
 --mySectionDepth;
@@ -55,34 +50,34 @@ mySectionStarted=false;
 myModelReader.unsetCurrentTextModel();
 }
 break;
-case ANNOTATION:
+case FB2Tag.ANNOTATION:
 myModelReader.popKind();
 if (myBodyCounter == 0) {
 myModelReader.insertEndOfSectionParagraph();
 myModelReader.unsetCurrentTextModel();
 }
 break;
-case TITLE:
+case FB2Tag.TITLE:
 myModelReader.popKind();
 myModelReader.exitTitle();
 myInsideTitle=false;
 break;
-case BODY:
+case FB2Tag.BODY:
 myModelReader.popKind();
 myReadMainText=false;
 myModelReader.unsetCurrentTextModel();
 break;
-case A:
+case FB2Tag.A:
 myModelReader.addControl(myHyperlinkType,false);
 break;
-case COVERPAGE:
+case FB2Tag.COVERPAGE:
 if (myBodyCounter == 0) {
 myInsideCoverpage=false;
 myModelReader.insertEndOfSectionParagraph();
 myModelReader.unsetCurrentTextModel();
 }
 break;
-case BINARY:
+case FB2Tag.BINARY:
 if (myCurrentImage != null) {
 myCurrentImage.trimToSize();
 }

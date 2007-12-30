@@ -1,4 +1,10 @@
 {
-  ZLBoolean3 b=myDecoration.BoldOption.getValue();
-  return (b == ZLBoolean3.B3_UNDEFINED) ? getBase().bold() : (b == ZLBoolean3.B3_TRUE);
+switch (myDecoration.BoldOption.getValue()) {
+case ZLBoolean3.B3_TRUE:
+    return true;
+case ZLBoolean3.B3_FALSE:
+  return false;
+default :
+return getBase().bold();
+}
 }

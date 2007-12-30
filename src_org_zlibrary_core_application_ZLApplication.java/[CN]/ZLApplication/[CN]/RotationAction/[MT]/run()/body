@@ -1,14 +1,14 @@
 {
   int optionValue=myApplication.RotationAngleOption.getValue();
-  ZLViewWidget.Angle oldAngle=myApplication.myViewWidget.getRotation();
-  ZLViewWidget.Angle newAngle=ZLViewWidget.Angle.DEGREES0;
+  int oldAngle=myApplication.myViewWidget.getRotation();
+  int newAngle=ZLViewWidget.Angle.DEGREES0;
   if (optionValue == -1) {
-    newAngle=ZLViewWidget.Angle.getByDegrees((oldAngle.getDegrees() + 90) % 360);
+    newAngle=(oldAngle + 90) % 360;
   }
  else {
-    newAngle=(oldAngle == ZLViewWidget.Angle.DEGREES0) ? ZLViewWidget.Angle.getByDegrees(optionValue) : ZLViewWidget.Angle.DEGREES0;
+    newAngle=(oldAngle == ZLViewWidget.Angle.DEGREES0) ? optionValue : ZLViewWidget.Angle.DEGREES0;
   }
   myApplication.myViewWidget.rotate(newAngle);
-  myApplication.AngleStateOption.setValue(newAngle.getDegrees());
+  myApplication.AngleStateOption.setValue(newAngle);
   myApplication.refreshWindow();
 }

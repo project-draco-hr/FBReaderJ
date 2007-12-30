@@ -1,10 +1,4 @@
 {
   onParagraphCreation();
-  if (myParagraphInfos.length == myParagraphsNumber) {
-    int newLength=myParagraphInfos.length * 2;
-    int[] infos=new int[newLength];
-    System.arraycopy(myParagraphInfos,0,infos,0,myParagraphInfos.length);
-    myParagraphInfos=infos;
-  }
-  myParagraphInfos[myParagraphsNumber++]=kind << 24;
+  myParagraphInfos.add(kind << 24);
 }

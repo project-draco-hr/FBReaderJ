@@ -1,0 +1,13 @@
+{
+  Byte num=ourTagByName.get(name);
+  if (num == null) {
+    final String upperCaseName=name.toUpperCase();
+    num=ourTagByName.get(upperCaseName);
+    if (num == null) {
+      num=UNKNOWN;
+      ourTagByName.put(upperCaseName,num);
+    }
+    ourTagByName.put(name,num);
+  }
+  return num;
+}

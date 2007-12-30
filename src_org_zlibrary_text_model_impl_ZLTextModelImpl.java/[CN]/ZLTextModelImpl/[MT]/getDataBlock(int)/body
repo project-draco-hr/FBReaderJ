@@ -1,9 +1,13 @@
 {
   final ArrayList<char[]> data=myData;
-  if (minimumLength <= DATA_BLOCK_SIZE - myBlockOffset) {
-    return data.get(data.size() - 1);
+  int blockSize=(minimumLength <= DATA_BLOCK_SIZE) ? DATA_BLOCK_SIZE : minimumLength;
+  if (!data.isEmpty()) {
+    char[] block=data.get(data.size() - 1);
+    if (minimumLength <= block.length - myBlockOffset) {
+      return block;
+    }
   }
-  char[] block=new char[DATA_BLOCK_SIZE];
+  char[] block=new char[blockSize];
   data.add(block);
   myBlockOffset=0;
   return block;

@@ -6,20 +6,20 @@
   final ZLSwingPaintContext context=(ZLSwingPaintContext)view.getContext();
   final Dimension size=getSize();
 switch (getRotation()) {
-case DEGREES0:
+case Angle.DEGREES0:
     context.setSize(size.width,size.height);
   break;
-case DEGREES90:
+case Angle.DEGREES90:
 g2d.rotate(-Math.PI / 2);
 g2d.translate(-size.height,0);
 context.setSize(size.height,size.width);
 break;
-case DEGREES180:
+case Angle.DEGREES180:
 g2d.rotate(Math.PI);
 g2d.translate(-size.width,-size.height);
 context.setSize(size.width,size.height);
 break;
-case DEGREES270:
+case Angle.DEGREES270:
 g2d.rotate(Math.PI / 2);
 g2d.translate(0,-size.width);
 context.setSize(size.height,size.width);

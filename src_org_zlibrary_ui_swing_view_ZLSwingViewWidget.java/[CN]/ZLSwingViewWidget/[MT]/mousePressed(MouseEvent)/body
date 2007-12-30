@@ -2,9 +2,9 @@
   int x=e.getX();
   int y=e.getY();
 switch (getRotation()) {
-case DEGREES0:
+case Angle.DEGREES0:
     break;
-case DEGREES90:
+case Angle.DEGREES90:
 {
     final Dimension size=myPanel.getSize();
     int swap=x;
@@ -12,14 +12,14 @@ case DEGREES90:
     y=swap;
     break;
   }
-case DEGREES180:
+case Angle.DEGREES180:
 {
   final Dimension size=myPanel.getSize();
   x=size.width - x - 1;
   y=size.height - y - 1;
   break;
 }
-case DEGREES270:
+case Angle.DEGREES270:
 {
 final Dimension size=myPanel.getSize();
 int swap=size.width - x - 1;

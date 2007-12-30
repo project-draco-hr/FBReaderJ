@@ -1,0 +1,6 @@
+String name
+int fontSizeDelta
+int bold
+int italic
+int verticalShift
+int allowHyphenations

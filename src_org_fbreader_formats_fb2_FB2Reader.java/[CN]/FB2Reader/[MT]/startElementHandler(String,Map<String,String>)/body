@@ -6,13 +6,8 @@
     }
     myModelReader.addHyperlinkLabel(id);
   }
-  FB2Tag tag;
-  tag=getTag(tagName);
-  if (tag == null) {
-    return;
-  }
-switch (tag) {
-case P:
+switch (FB2Tag.getTagByName(tagName)) {
+case FB2Tag.P:
     if (mySectionStarted) {
       mySectionStarted=false;
     }
@@ -21,59 +16,59 @@ case P:
     }
   myModelReader.beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
 break;
-case SUB:
+case FB2Tag.SUB:
 myModelReader.addControl(FBTextKind.SUB,true);
 break;
-case SUP:
+case FB2Tag.SUP:
 myModelReader.addControl(FBTextKind.SUP,true);
 break;
-case CODE:
+case FB2Tag.CODE:
 myModelReader.addControl(FBTextKind.CODE,true);
 break;
-case EMPHASIS:
+case FB2Tag.EMPHASIS:
 myModelReader.addControl(FBTextKind.EMPHASIS,true);
 break;
-case STRONG:
+case FB2Tag.STRONG:
 myModelReader.addControl(FBTextKind.STRONG,true);
 break;
-case STRIKETHROUGH:
+case FB2Tag.STRIKETHROUGH:
 myModelReader.addControl(FBTextKind.STRIKETHROUGH,true);
 break;
-case V:
+case FB2Tag.V:
 myModelReader.pushKind(FBTextKind.VERSE);
 myModelReader.beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
 break;
-case TEXT_AUTHOR:
+case FB2Tag.TEXT_AUTHOR:
 myModelReader.pushKind(FBTextKind.AUTHOR);
 myModelReader.beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
 break;
-case SUBTITLE:
+case FB2Tag.SUBTITLE:
 myModelReader.pushKind(FBTextKind.SUBTITLE);
 myModelReader.beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
 break;
-case DATE:
+case FB2Tag.DATE:
 myModelReader.pushKind(FBTextKind.DATE);
 myModelReader.beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
 break;
-case EMPTY_LINE:
+case FB2Tag.EMPTY_LINE:
 myModelReader.beginParagraph(ZLTextParagraph.Kind.EMPTY_LINE_PARAGRAPH);
 myModelReader.endParagraph();
 break;
-case CITE:
+case FB2Tag.CITE:
 myModelReader.pushKind(FBTextKind.CITE);
 break;
-case EPIGRAPH:
+case FB2Tag.EPIGRAPH:
 myModelReader.pushKind(FBTextKind.EPIGRAPH);
 break;
-case POEM:
+case FB2Tag.POEM:
 myInsidePoem=true;
 break;
-case STANZA:
+case FB2Tag.STANZA:
 myModelReader.pushKind(FBTextKind.STANZA);
 myModelReader.beginParagraph(ZLTextParagraph.Kind.BEFORE_SKIP_PARAGRAPH);
 myModelReader.endParagraph();
 break;
-case SECTION:
+case FB2Tag.SECTION:
 if (myReadMainText) {
 myModelReader.insertEndOfSectionParagraph();
 ++mySectionDepth;
@@ -81,13 +76,13 @@ myModelReader.beginContentsParagraph();
 mySectionStarted=true;
 }
 break;
-case ANNOTATION:
+case FB2Tag.ANNOTATION:
 if (myBodyCounter == 0) {
 myModelReader.setMainTextModel();
 }
 myModelReader.pushKind(FBTextKind.ANNOTATION);
 break;
-case TITLE:
+case FB2Tag.TITLE:
 if (myInsidePoem) {
 myModelReader.pushKind(FBTextKind.POEM_TITLE);
 }
@@ -101,7 +96,7 @@ myInsideTitle=true;
 myModelReader.enterTitle();
 }
 break;
-case BODY:
+case FB2Tag.BODY:
 ++myBodyCounter;
 myParagraphsBeforeBodyNumber=myModelReader.getModel().getBookTextModel().getParagraphsNumber();
 if ((myBodyCounter == 1) || (attributes.get("name") == null)) {
@@ -110,7 +105,7 @@ myReadMainText=true;
 }
 myModelReader.pushKind(FBTextKind.REGULAR);
 break;
-case A:
+case FB2Tag.A:
 String ref=reference(attributes);
 if ((ref != null) && (ref.length() != 0)) {
 if (ref.charAt(0) == '#') {
@@ -127,13 +122,13 @@ myHyperlinkType=FBTextKind.FOOTNOTE;
 myModelReader.addControl(myHyperlinkType,true);
 }
 break;
-case COVERPAGE:
+case FB2Tag.COVERPAGE:
 if (myBodyCounter == 0) {
 myInsideCoverpage=true;
 myModelReader.setMainTextModel();
 }
 break;
-case IMAGE:
+case FB2Tag.IMAGE:
 String imgRef=reference(attributes);
 if ((imgRef != null) && (imgRef.length() != 0) && (imgRef.charAt(0) == '#')) {
 String vOffset=attributes.get("voffset");
@@ -152,7 +147,7 @@ myCoverImageReference=imgRef;
 }
 }
 break;
-case BINARY:
+case FB2Tag.BINARY:
 String contentType=attributes.get("content-type");
 String imgId=attributes.get("id");
 if ((contentType != null) && (id != null)) {

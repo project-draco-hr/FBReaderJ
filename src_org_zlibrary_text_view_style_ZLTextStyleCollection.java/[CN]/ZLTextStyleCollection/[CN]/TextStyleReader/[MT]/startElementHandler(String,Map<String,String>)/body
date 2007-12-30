@@ -11,11 +11,11 @@
       byte id=Byte.parseByte(idString);
       ZLTextStyleDecoration decoration;
       int fontSizeDelta=intValue(attributes,"fontSizeDelta");
-      ZLBoolean3 bold=b3Value(attributes,"bold");
-      ZLBoolean3 italic=b3Value(attributes,"italic");
+      int bold=b3Value(attributes,"bold");
+      int italic=b3Value(attributes,"italic");
       int verticalShift=intValue(attributes,"vShift");
-      ZLBoolean3 allowHyphenations=b3Value(attributes,"allowHyphenations");
-      HyperlinkStyle hyperlinkStyle=HyperlinkStyle.NONE;
+      int allowHyphenations=b3Value(attributes,"allowHyphenations");
+      byte hyperlinkStyle=HyperlinkStyle.NONE;
       String hyperlink=attributes.get("hyperlink");
       if (hyperlink != null) {
         if ("internal".equals(hyperlink)) {

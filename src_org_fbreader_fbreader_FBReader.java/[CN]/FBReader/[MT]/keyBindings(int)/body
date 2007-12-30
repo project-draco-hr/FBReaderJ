@@ -1,0 +1,13 @@
+{
+switch (angle) {
+case ZLViewWidget.Angle.DEGREES0:
+default :
+    return myBindings0;
+case ZLViewWidget.Angle.DEGREES90:
+  return myBindings90;
+case ZLViewWidget.Angle.DEGREES180:
+return myBindings180;
+case ZLViewWidget.Angle.DEGREES270:
+return myBindings270;
+}
+}

@@ -1,0 +1,17 @@
+{
+  if (mode == myMode) {
+    return;
+  }
+  myPreviousMode=myMode;
+  myMode=mode;
+switch (mode) {
+case ViewMode.BOOK_TEXT:
+    setView(myBookTextView);
+  break;
+case ViewMode.CONTENTS:
+setView(myContentsView);
+break;
+default :
+break;
+}
+}

@@ -1,5 +1,5 @@
 {
-  HyperlinkStyle hyperlinkStyle=myDecoration.getHyperlinkStyle();
+  byte hyperlinkStyle=myDecoration.getHyperlinkStyle();
   if (hyperlinkStyle == HyperlinkStyle.NONE) {
     return getBase().getColor();
   }

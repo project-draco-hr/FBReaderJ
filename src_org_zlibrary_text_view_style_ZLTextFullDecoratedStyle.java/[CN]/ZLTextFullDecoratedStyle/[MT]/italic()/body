@@ -1,4 +1,10 @@
 {
-  ZLBoolean3 value=myDecoration.ItalicOption.getValue();
-  return (value == ZLBoolean3.B3_UNDEFINED) ? getBase().italic() : (value == ZLBoolean3.B3_TRUE);
+switch (myDecoration.ItalicOption.getValue()) {
+case ZLBoolean3.B3_TRUE:
+    return true;
+case ZLBoolean3.B3_FALSE:
+  return false;
+default :
+return getBase().italic();
+}
 }

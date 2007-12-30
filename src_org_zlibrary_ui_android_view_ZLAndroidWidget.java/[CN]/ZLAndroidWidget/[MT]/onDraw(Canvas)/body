@@ -9,24 +9,24 @@
   }
   myPaintContext.beginPaint(canvas);
 switch (myViewWidget.getRotation()) {
-case DEGREES0:
+case ZLViewWidget.Angle.DEGREES0:
     myPaintContext.setSize(myWidth,myHeight);
   break;
-case DEGREES90:
+case ZLViewWidget.Angle.DEGREES90:
 myPaintContext.setSize(myHeight,myWidth);
 canvas.rotate(270,myHeight / 2,myHeight / 2);
 break;
-case DEGREES180:
+case ZLViewWidget.Angle.DEGREES180:
 myPaintContext.setSize(myWidth,myHeight);
 canvas.rotate(180,myWidth / 2,myHeight / 2);
 break;
-case DEGREES270:
+case ZLViewWidget.Angle.DEGREES270:
 myPaintContext.setSize(myHeight,myWidth);
 canvas.rotate(90,myWidth / 2,myWidth / 2);
 break;
 }
 view.paint();
-String sTime="" + Time;
+String sTime="" + org.fbreader.formats.fb2.FB2Reader.LoadingTime;
 myPaintContext.drawString(240,165,sTime.toCharArray(),0,sTime.length());
 myPaintContext.endPaint();
 }
