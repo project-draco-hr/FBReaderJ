@@ -1,5 +1,7 @@
 {
-  for (  Menu.Item item : menu.items()) {
+  final int size=menu.size();
+  for (int i=0; i < size; ++i) {
+    final Menu.Item item=menu.getItem(i);
     if (item instanceof Menubar.PlainItem) {
       processItem((Menubar.PlainItem)item);
     }

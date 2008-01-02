@@ -1,32 +1,23 @@
 {
-  final ZLPaintContext context=getContext();
-  context.clear(ZLTextStyleCollection.getInstance().getBaseStyle().BackgroundColorOption.getValue());
+  preparePaintInfo();
   myTextElementMap.clear();
   myTreeNodeMap.clear();
+  final ZLPaintContext context=getContext();
+  context.clear(ZLTextStyleCollection.getInstance().getBaseStyle().BackgroundColorOption.getValue());
   if ((myModel == null) || (myModel.getParagraphsNumber() == 0)) {
     return;
   }
-  int paragraphs=myModel.getParagraphsNumber();
-  if (paragraphs > 0) {
-    int pn=myStartParagraphNumber;
-    pn=Math.max(0,Math.min(pn,paragraphs - 2));
-    myStartParagraphNumber=pn;
-    ZLTextParagraphCursor firstParagraph=ZLTextParagraphCursor.cursor(myModel,pn);
-    ZLTextWordCursor start=new ZLTextWordCursor();
-    start.setCursor(firstParagraph);
-    buildInfos(start);
-  }
-  ArrayList<Integer> labels=new ArrayList<Integer>(myLineInfos.size() + 1);
+  final ZLTextLineInfoVector lineInfos=myLineInfos;
+  final int lineInfosSize=lineInfos.size();
+  final ZLIntArray labels=new ZLIntArray(lineInfosSize + 1);
   labels.add(0);
   context.moveYTo(getTopMargin());
-  for (  ZLTextLineInfo info : myLineInfos) {
-    prepareTextLine(info);
+  for (int i=0; i < lineInfosSize; ++i) {
+    prepareTextLine(lineInfos.get(i));
     labels.add(myTextElementMap.size());
   }
   context.moveYTo(getTopMargin());
-  int index=0;
-  for (  ZLTextLineInfo info : myLineInfos) {
-    drawTextLine(info,labels.get(index),labels.get(index + 1));
-    index++;
+  for (int i=0; i < lineInfosSize; ++i) {
+    drawTextLine(context,lineInfos.get(i),labels.get(i),labels.get(i + 1));
   }
 }

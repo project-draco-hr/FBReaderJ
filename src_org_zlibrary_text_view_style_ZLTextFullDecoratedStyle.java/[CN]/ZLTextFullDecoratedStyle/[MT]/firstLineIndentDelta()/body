@@ -1,3 +1,0 @@
-{
-  return (alignment() == ZLTextAlignmentType.ALIGN_CENTER) ? 0 : getBase().firstLineIndentDelta() + myDecoration.FirstLineIndentDeltaOption.getValue();
-}

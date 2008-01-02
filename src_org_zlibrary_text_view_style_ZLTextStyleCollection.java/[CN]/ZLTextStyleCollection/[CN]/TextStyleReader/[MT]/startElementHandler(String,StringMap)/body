@@ -1,0 +1,64 @@
+{
+  final String BASE="base";
+  final String STYLE="style";
+  if (BASE.equals(tag)) {
+    myCollection.myBaseStyle=new ZLTextBaseStyle(attributes.getValue("family"),intValue(attributes,"fontSize"));
+  }
+ else   if (STYLE.equals(tag)) {
+    String idString=attributes.getValue("id");
+    String name=attributes.getValue("name");
+    if ((idString != null) && (name != null)) {
+      byte id=Byte.parseByte(idString);
+      ZLTextStyleDecoration decoration;
+      int fontSizeDelta=intValue(attributes,"fontSizeDelta");
+      int bold=b3Value(attributes,"bold");
+      int italic=b3Value(attributes,"italic");
+      int verticalShift=intValue(attributes,"vShift");
+      int allowHyphenations=b3Value(attributes,"allowHyphenations");
+      byte hyperlinkStyle=HyperlinkStyle.NONE;
+      String hyperlink=attributes.getValue("hyperlink");
+      if (hyperlink != null) {
+        if ("internal".equals(hyperlink)) {
+          hyperlinkStyle=HyperlinkStyle.INTERNAL;
+        }
+        if ("external".equals(hyperlink)) {
+          hyperlinkStyle=HyperlinkStyle.EXTERNAL;
+        }
+      }
+      if (booleanValue(attributes,"partial")) {
+        decoration=new ZLTextStyleDecoration(name,fontSizeDelta,bold,italic,verticalShift,allowHyphenations);
+      }
+ else {
+        int spaceBefore=intValue(attributes,"spaceBefore");
+        int spaceAfter=intValue(attributes,"spaceAfter");
+        int leftIndent=intValue(attributes,"leftIndent");
+        int rightIndent=intValue(attributes,"rightIndent");
+        int firstLineIndentDelta=intValue(attributes,"firstLineIndentDelta");
+        byte alignment=ZLTextAlignmentType.ALIGN_UNDEFINED;
+        String alignmentString=attributes.getValue("alignment");
+        if (alignmentString != null) {
+          if (alignmentString.equals("left")) {
+            alignment=ZLTextAlignmentType.ALIGN_LEFT;
+          }
+ else           if (alignmentString.equals("right")) {
+            alignment=ZLTextAlignmentType.ALIGN_RIGHT;
+          }
+ else           if (alignmentString.equals("center")) {
+            alignment=ZLTextAlignmentType.ALIGN_CENTER;
+          }
+ else           if (alignmentString.equals("justify")) {
+            alignment=ZLTextAlignmentType.ALIGN_JUSTIFY;
+          }
+        }
+        double lineSpace=doubleValue(attributes,"lineSpace");
+        decoration=new ZLTextFullStyleDecoration(name,fontSizeDelta,bold,italic,spaceBefore,spaceAfter,leftIndent,rightIndent,firstLineIndentDelta,verticalShift,alignment,lineSpace,allowHyphenations);
+      }
+      decoration.setHyperlinkStyle(hyperlinkStyle);
+      String fontFamily=attributes.getValue("family");
+      if (fontFamily != null) {
+        decoration.FontFamilyOption.setValue(fontFamily);
+      }
+      myCollection.myDecorationMap[id & 0xFF]=decoration;
+    }
+  }
+}

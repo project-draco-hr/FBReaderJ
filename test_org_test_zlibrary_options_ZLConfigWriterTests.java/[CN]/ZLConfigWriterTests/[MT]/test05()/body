@@ -1,6 +1,6 @@
 {
-  myConfig.setValue("group","name","VALUE","category");
-  myConfig.unsetValue("group","name");
+  getConfig().setValue("group","name","VALUE","category");
+  getConfig().unsetValue("group","name");
   try {
     writeConfigAndCheck("category","");
   }

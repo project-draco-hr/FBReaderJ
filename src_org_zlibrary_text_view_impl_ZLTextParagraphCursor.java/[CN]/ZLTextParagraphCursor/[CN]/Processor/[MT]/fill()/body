@@ -1,6 +1,6 @@
 {
   for (ZLTextParagraph.EntryIterator it=myParagraph.iterator(); it.hasNext(); ) {
-    ZLTextParagraph.Entry entry=it.next();
+    it.next();
 switch (it.getType()) {
 case ZLTextParagraph.Entry.TEXT:
       processTextEntry(it.getTextData(),it.getTextOffset(),it.getTextLength());
@@ -9,8 +9,7 @@ case ZLTextParagraph.Entry.CONTROL:
   myElements.add(ZLTextControlElement.get(it.getControlKind(),it.getControlIsStart()));
 break;
 case ZLTextParagraph.Entry.IMAGE:
-ZLImageEntry imageEntry=(ZLImageEntry)entry;
-ZLImage image=imageEntry.getImage();
+ZLImage image=it.getImageEntry().getImage();
 if (image != null) {
 myElements.add(new ZLTextImageElement(image));
 }

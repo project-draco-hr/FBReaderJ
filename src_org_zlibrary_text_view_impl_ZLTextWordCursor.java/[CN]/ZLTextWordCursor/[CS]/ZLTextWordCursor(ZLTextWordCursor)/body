@@ -1,5 +1,3 @@
 {
-  myParagraphCursor=cursor.myParagraphCursor;
-  myWordNumber=cursor.myWordNumber;
-  myCharNumber=cursor.myCharNumber;
+  setCursor(cursor);
 }

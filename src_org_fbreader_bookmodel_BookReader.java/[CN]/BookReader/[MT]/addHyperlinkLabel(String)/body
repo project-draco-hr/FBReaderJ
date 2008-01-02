@@ -1,9 +1,10 @@
 {
-  if (myCurrentTextModel != null) {
-    int paragraphNumber=myCurrentTextModel.getParagraphsNumber();
+  final ZLTextPlainModel textModel=myCurrentTextModel;
+  if (textModel != null) {
+    int paragraphNumber=textModel.getParagraphsNumber();
     if (myTextParagraphExists) {
       --paragraphNumber;
     }
-    myBookModel.addHyperlinkLabel(label,myCurrentTextModel,paragraphNumber);
+    myBookModel.addHyperlinkLabel(label,textModel,paragraphNumber);
   }
 }

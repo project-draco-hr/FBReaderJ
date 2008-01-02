@@ -12,9 +12,10 @@
  else {
       button.press();
       ZLApplication.Toolbar.ButtonGroup group=button.getButtonGroup();
-      Set<ZLApplication.Toolbar.ButtonItem> items=group.Items;
-      for (      ZLApplication.Toolbar.ButtonItem bitem : items) {
-        setToggleButtonState(bitem);
+      final ArrayList<ZLApplication.Toolbar.ButtonItem> items=group.Items;
+      final int size=items.size();
+      for (int i=0; i < size; ++i) {
+        setToggleButtonState(items.get(i));
       }
     }
     myToggleButtonLock=false;

@@ -1,0 +1,8 @@
+{
+  final char[] block=getDataBlock(2);
+  increaseLastParagraphSize();
+  block[myBlockOffset++]=(char)ZLTextParagraph.Entry.IMAGE;
+  final int entryAddress=myEntries.size();
+  block[myBlockOffset++]=(char)entryAddress;
+  myEntries.add(new ZLImageEntry(imageMap,id,vOffset));
+}

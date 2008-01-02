@@ -5,7 +5,8 @@
   ZLTextParagraph paragraph=model.getParagraph(0);
   ZLTextParagraph.EntryIterator it=paragraph.iterator();
   it.next();
-  ZLImageEntry entry=(ZLImageEntry)it.next();
+  it.next();
+  ZLImageEntry entry=it.getImageEntry();
   assertEquals(entry.VOffset,0);
-  assertEquals(entry.getImage(),bModel.getImageMap().get("cover.jpg"));
+  assertEquals(entry.getImage(),bModel.getImageMap().getImage("cover.jpg"));
 }

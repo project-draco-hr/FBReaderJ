@@ -1,0 +1,5 @@
+{
+  myParagraphCursor=null;
+  myWordNumber=0;
+  myCharNumber=0;
+}

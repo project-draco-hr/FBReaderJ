@@ -2,7 +2,7 @@
   ZLSwingDialogManager.createInstance();
   new ZLOwnXMLProcessorFactory();
   loadProperties();
-  ZLConfigReaderFactory.createConfigReader(configDirectory()).read();
+  new ZLXMLConfigManager(System.getProperty("user.home") + "/." + getInstance().getApplicationName());
   ZLApplication application=null;
   try {
     application=(ZLApplication)getApplicationClass().getConstructor(String[].class).newInstance(new Object[]{args});

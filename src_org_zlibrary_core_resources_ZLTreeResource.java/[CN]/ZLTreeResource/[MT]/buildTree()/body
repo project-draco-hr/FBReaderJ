@@ -1,6 +1,6 @@
 {
   if (ourRoot == null) {
-    ourRoot=new ZLTreeResource("");
+    ourRoot=new ZLTreeResource("",null);
     loadData("en");
     Locale locale=Locale.getDefault();
     String language=locale.getLanguage();

@@ -1,15 +1,16 @@
 {
-  if (myCurrentTextModel != null) {
+  final ZLTextPlainModel textModel=myCurrentTextModel;
+  if (textModel != null) {
     mySectionContainsRegularContents=true;
     if (myTextParagraphExists) {
       flushTextBufferToParagraph();
-      myCurrentTextModel.addImage(ref,myBookModel.getImageMap(),offset);
+      textModel.addImage(ref,myBookModel.getImageMap(),offset);
     }
  else {
       beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
-      myCurrentTextModel.addControl(FBTextKind.IMAGE,true);
-      myCurrentTextModel.addImage(ref,myBookModel.getImageMap(),offset);
-      myCurrentTextModel.addControl(FBTextKind.IMAGE,false);
+      textModel.addControl(FBTextKind.IMAGE,true);
+      textModel.addImage(ref,myBookModel.getImageMap(),offset);
+      textModel.addControl(FBTextKind.IMAGE,false);
       endParagraph();
     }
   }

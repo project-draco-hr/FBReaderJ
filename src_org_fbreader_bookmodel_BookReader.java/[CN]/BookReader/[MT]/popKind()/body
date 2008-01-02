@@ -1,7 +1,5 @@
 {
-  if (myKindStackSize > 0) {
+  if (myKindStackSize != 0) {
     --myKindStackSize;
-    return true;
   }
-  return false;
 }

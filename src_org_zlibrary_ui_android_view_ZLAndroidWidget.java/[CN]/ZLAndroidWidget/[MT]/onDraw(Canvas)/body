@@ -8,6 +8,7 @@
     return;
   }
   myPaintContext.beginPaint(canvas);
+  long start=System.currentTimeMillis();
 switch (myViewWidget.getRotation()) {
 case ZLViewWidget.Angle.DEGREES0:
     myPaintContext.setSize(myWidth,myHeight);
@@ -26,7 +27,13 @@ canvas.rotate(90,myWidth / 2,myWidth / 2);
 break;
 }
 view.paint();
-String sTime="" + org.fbreader.formats.fb2.FB2Reader.LoadingTime;
-myPaintContext.drawString(240,165,sTime.toCharArray(),0,sTime.length());
+if (myTime == 0) {
+myTime=System.currentTimeMillis() - org.zlibrary.ui.android.library.ZLAndroidActivity.StartTime;
+}
+ else {
+myTime=System.currentTimeMillis() - start;
+}
+String sTime="" + myTime;
+myPaintContext.drawString(240,140,sTime.toCharArray(),0,sTime.length());
 myPaintContext.endPaint();
 }

@@ -1,0 +1,4 @@
+{
+  new ZLOwnXMLProcessorFactory();
+  new ZLXMLConfigManager(inputPath,outputPath);
+}

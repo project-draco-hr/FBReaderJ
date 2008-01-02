@@ -1,9 +1,8 @@
 {
-  String outputPath="test/org/test/zlibrary/options/examples/output/";
-  myConfig.setValue("group1","name1","VALUE1","category");
-  ZLConfigWriterFactory.createConfigWriter(outputPath).write();
-  myConfig.unsetValue("group1","name1");
-  ZLConfigWriterFactory.createConfigWriter(outputPath).write();
+  getConfig().setValue("group1","name1","VALUE1","category");
+  ZLConfigManager.getInstance().saveAll();
+  getConfig().unsetValue("group1","name1");
+  ZLConfigManager.getInstance().saveAll();
   try {
     writeConfigAndCheck("category","");
   }

@@ -1,4 +1,0 @@
-{
-  fbreader().getTextView().scroll(myNumberOfParagraphs);
-  fbreader().refreshWindow();
-}

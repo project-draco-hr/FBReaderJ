@@ -1,8 +1,9 @@
 {
-  myAttributes.clear();
+  StringMap attributesMap=myAttributes;
+  attributesMap.clear();
   int length=attributes.getLength();
   for (int i=0; i < length; i++) {
-    myAttributes.put(attributes.getQName(i),attributes.getValue(i));
+    attributesMap.put(attributes.getQName(i),attributes.getValue(i));
   }
-  myXMLReader.startElementHandler(qName,myAttributes);
+  myXMLReader.startElementHandler(qName,attributesMap);
 }

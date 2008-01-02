@@ -1,5 +1,5 @@
 {
-  myConfig.setValue("boolean_group","name",configValue,"category");
+  getConfig().setValue("boolean_group","name",configValue,"category");
   ZLBooleanOption option=new ZLBooleanOption("category","boolean_group","name",defaultValue);
   assertEquals(option.getValue(),expectedValue);
 }

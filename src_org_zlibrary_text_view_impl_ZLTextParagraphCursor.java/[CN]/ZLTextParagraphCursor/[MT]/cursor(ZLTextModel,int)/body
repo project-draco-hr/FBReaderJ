@@ -1,10 +1,13 @@
 {
-  ZLTextParagraphCursor result;
-  if (model instanceof ZLTextTreeModel) {
-    result=new ZLTextTreeParagraphCursor((ZLTextTreeModel)model,index);
-  }
+  ZLTextParagraphCursor result=ZLTextParagraphCursorCache.get(model,index);
+  if (result == null) {
+    if (model instanceof ZLTextTreeModel) {
+      result=new ZLTextTreeParagraphCursor((ZLTextTreeModel)model,index);
+    }
  else {
-    result=new ZLTextPlainParagraphCursor(model,index);
+      result=new ZLTextPlainParagraphCursor(model,index);
+    }
+    ZLTextParagraphCursorCache.put(model,index,result);
   }
   return result;
 }

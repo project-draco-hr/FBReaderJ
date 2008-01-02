@@ -1,5 +1,5 @@
 {
   ZLIntegerOption option=new ZLIntegerOption("options","Options","KeyDelay",100);
   option.setValue(1223);
-  assertEquals(myConfig.getValue("Options","KeyDelay","100"),1223 + "");
+  assertEquals(getConfig().getValue("Options","KeyDelay","100"),1223 + "");
 }

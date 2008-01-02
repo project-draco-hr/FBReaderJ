@@ -1,6 +1,6 @@
 {
   myName=name;
-  loadDefaultBindings();
+  new ZLKeyBindingsReader(myBindingsMap).readBindings();
   loadCustomBindings();
   myIsChanged=false;
 }

@@ -1,5 +1,0 @@
-{
-  new ZLSwingLibrary();
-  new ZLSaxXMLProcessorFactory();
-  ZLConfigReaderFactory.createConfigReader("test/org/test/" + "zlibrary/options/examples/").read();
-}

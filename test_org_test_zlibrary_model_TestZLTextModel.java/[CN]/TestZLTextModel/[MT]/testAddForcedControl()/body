@@ -1,8 +1,6 @@
 {
-  ZLTextPlainModel model=factory.createPlainModel();
+  ZLTextPlainModel model=factory.createPlainModel(4096);
   ZLTextParagraph paragraph=factory.createParagraph();
   model.createParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
-  ZLTextForcedControlEntry control=factory.createForcedControlEntry();
-  model.addControl(control);
   assertEquals(model.getParagraph(0).getEntryNumber(),1);
 }

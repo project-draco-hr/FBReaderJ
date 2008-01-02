@@ -1,3 +1,0 @@
-ZLXMLReader xmlReader
-StringBuilder tagName
-TreeMap<String,String> attributes

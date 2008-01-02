@@ -1,6 +1,0 @@
-{
-  final String s=convertToString(tagName);
-  xmlReader.startElementHandler(s,attributes);
-  xmlReader.endElementHandler(s);
-  attributes.clear();
-}

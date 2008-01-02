@@ -1,9 +1,10 @@
 {
-  if (myChildren != null) {
-    ZLResource child=myChildren.get(key);
+  final HashMap<String,ZLTreeResource> children=myChildren;
+  if (children != null) {
+    ZLResource child=children.get(key);
     if (child != null) {
       return child;
     }
   }
-  return ZLMissingResource.instance();
+  return ZLMissingResource.Instance;
 }

@@ -1,0 +1,4 @@
+{
+  double value=myDecoration.LineSpaceOption.getValue();
+  return (value != 0.0) ? value : getBase().getLineSpace();
+}

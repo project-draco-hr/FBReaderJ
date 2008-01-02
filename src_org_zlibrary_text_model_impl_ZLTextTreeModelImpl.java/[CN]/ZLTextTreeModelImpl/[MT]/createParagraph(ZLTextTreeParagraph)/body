@@ -1,9 +1,9 @@
 {
-  onParagraphCreation();
+  createParagraph();
   if (parent == null) {
     parent=myRoot;
   }
-  ZLTextTreeParagraph tp=new ZLTextTreeParagraphImpl(parent,this);
+  ZLTextTreeParagraphImpl tp=new ZLTextTreeParagraphImpl(parent,this);
   myParagraphs.add(tp);
   return tp;
 }

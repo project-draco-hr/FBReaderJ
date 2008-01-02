@@ -1,0 +1,4 @@
+{
+  xmlReader.startElementHandler(tagName,attributes);
+  attributes.clear();
+}

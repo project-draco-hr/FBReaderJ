@@ -1,0 +1,3 @@
+ZLTextParagraphCursor cursor
+int index
+int end

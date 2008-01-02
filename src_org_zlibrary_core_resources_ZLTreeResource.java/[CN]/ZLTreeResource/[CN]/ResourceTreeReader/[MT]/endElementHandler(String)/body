@@ -1,5 +1,6 @@
 {
-  if (!myStack.isEmpty() && (NODE.equals(tag))) {
-    myStack.remove(myStack.size() - 1);
+  final ArrayList<ZLTreeResource> stack=myStack;
+  if (!stack.isEmpty() && (NODE.equals(tag))) {
+    stack.remove(stack.size() - 1);
   }
 }

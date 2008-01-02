@@ -1,0 +1,5 @@
+ZLPaintContext context
+ZLTextParagraphCursor paragraphCursor
+int startIndex
+int startCharNumber
+int endIndex

@@ -1,3 +1,0 @@
-{
-  name.append(buffer,startOffset,endOffset - startOffset);
-}

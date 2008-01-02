@@ -1,4 +1,5 @@
 {
-  myPaint.getTextWidths(" ",0,1,myWidthsArray);
-  return (int)(myWidthsArray[0] + 0.5f);
+  final float[] widths=myWidthsArray;
+  myPaint.getTextWidths(" ",0,1,widths);
+  return (int)(widths[0] + 0.5f);
 }

@@ -1,18 +1,20 @@
 {
+  final ZLTextPlainModel textModel=myCurrentTextModel;
   final ArrayList<ZLTextTreeParagraph> tocStack=myTOCStack;
-  if (myCurrentTextModel == myBookModel.getBookTextModel()) {
+  if (textModel == myBookModel.getBookTextModel()) {
     ContentsModel contentsModel=myBookModel.getContentsModel();
     if (referenceNumber == -1) {
-      referenceNumber=myCurrentTextModel.getParagraphsNumber();
+      referenceNumber=textModel.getParagraphsNumber();
     }
     int size=tocStack.size();
     ZLTextTreeParagraph peek=(size == 0) ? null : tocStack.get(size - 1);
-    if (!myContentsBuffer.isEmpty()) {
-      contentsModel.addText(myContentsBuffer);
-      myContentsBuffer.clear();
+    final ZLTextBuffer contentsBuffer=myContentsBuffer;
+    if (!contentsBuffer.isEmpty()) {
+      contentsModel.addText(contentsBuffer);
+      contentsBuffer.clear();
       myLastTOCParagraphIsEmpty=false;
     }
-    if (myLastTOCParagraphIsEmpty) {
+ else     if (myLastTOCParagraphIsEmpty) {
       contentsModel.addText(PERIOD);
     }
     ZLTextTreeParagraph para=contentsModel.createParagraph(peek);

@@ -3,10 +3,13 @@
   ZLTextTreeParagraph paragraph2=factory.createTreeParagraph(paragraph);
   ZLTextTreeParagraph paragraph3=factory.createTreeParagraph(paragraph);
   ZLTextTreeParagraph paragraph4=factory.createTreeParagraph(paragraph2);
-  assertTrue(paragraph.children().size() == 2);
-  assertTrue(paragraph.children().contains(paragraph2));
-  assertTrue(paragraph.children().contains(paragraph3));
-  assertTrue(paragraph2.children().contains(paragraph4));
-  assertTrue(paragraph2.children().size() == 1);
-  assertTrue(paragraph3.children().size() == 0);
+  assertTrue(paragraph.hasChildren());
+  assertTrue(paragraph2.getParent() == paragraph);
+  assertTrue(paragraph3.getParent() == paragraph);
+  assertTrue(paragraph4.getParent() == paragraph2);
+  assertTrue(paragraph2.hasChildren());
+  assertFalse(paragraph3.hasChildren());
+  assertFalse(paragraph2.isLastChild());
+  assertTrue(paragraph3.isLastChild());
+  assertTrue(paragraph4.isLastChild());
 }

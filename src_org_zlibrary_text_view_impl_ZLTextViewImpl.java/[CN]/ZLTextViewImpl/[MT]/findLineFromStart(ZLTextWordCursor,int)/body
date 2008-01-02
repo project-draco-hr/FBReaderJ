@@ -1,0 +1,21 @@
+{
+  if (myLineInfos.isEmpty() || (overlappingValue == 0)) {
+    cursor.reset();
+  }
+ else {
+    final ZLTextLineInfoVector infos=myLineInfos;
+    final int size=infos.size();
+    ZLTextLineInfo info=null;
+    for (int i=0; i < size; ++i) {
+      info=infos.get(i);
+      if (info.IsVisible) {
+        --overlappingValue;
+        if (overlappingValue == 0) {
+          break;
+        }
+      }
+    }
+    cursor.setCursor(info.ParagraphCursor);
+    cursor.moveTo(info.EndWordNumber,info.EndCharNumber);
+  }
+}

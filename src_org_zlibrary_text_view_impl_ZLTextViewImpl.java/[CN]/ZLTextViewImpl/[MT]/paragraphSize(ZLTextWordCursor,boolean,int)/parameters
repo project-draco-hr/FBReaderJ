@@ -1,0 +1,3 @@
+ZLTextWordCursor cursor
+boolean beforeCurrentPosition
+int unit

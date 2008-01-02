@@ -1,14 +1,14 @@
 {
-  myConfig.setValue("group1","name1","VALUE1","category");
-  myConfig.setValue("group1","name2","VALUE2","category");
-  myConfig.setValue("group2","name3","VALUE3","category");
+  getConfig().setValue("group1","name1","VALUE1","category");
+  getConfig().setValue("group1","name2","VALUE2","category");
+  getConfig().setValue("group2","name3","VALUE3","category");
   try {
     writeConfigAndCheck("category","" + "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" + "<config>\n"+ "  <group name=\"group1\">\n"+ "    <option name=\"name1\" value=\"VALUE1\"/>\n"+ "    <option name=\"name2\" value=\"VALUE2\"/>\n"+ "  </group>\n"+ "  <group name=\"group2\">\n"+ "    <option name=\"name3\" value=\"VALUE3\"/>\n"+ "  </group>\n"+ "</config>");
   }
  catch (  FileNotFoundException e) {
     fail(e.getMessage());
   }
-  myConfig.unsetValue("group1","name1");
-  myConfig.unsetValue("group1","name2");
-  myConfig.unsetValue("group2","name3");
+  getConfig().unsetValue("group1","name1");
+  getConfig().unsetValue("group1","name2");
+  getConfig().unsetValue("group2","name3");
 }

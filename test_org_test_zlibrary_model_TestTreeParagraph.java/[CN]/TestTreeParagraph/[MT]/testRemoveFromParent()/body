@@ -4,7 +4,7 @@
   ZLTextTreeParagraph paragraph3=factory.createTreeParagraph(paragraph);
   ZLTextTreeParagraph paragraph4=factory.createTreeParagraph(paragraph2);
   paragraph4.removeFromParent();
-  assertTrue(paragraph3.children().size() == 0);
+  assertFalse(paragraph3.hasChildren());
   paragraph2.removeFromParent();
-  assertTrue(paragraph.children().size() == 1);
+  assertTrue(paragraph.hasChildren());
 }

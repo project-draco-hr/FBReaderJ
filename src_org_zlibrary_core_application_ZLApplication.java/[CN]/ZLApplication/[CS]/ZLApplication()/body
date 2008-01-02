@@ -2,4 +2,6 @@
   myContext=ZLibrary.getInstance().createPaintContext();
   if (ConfigAutoSavingOption.getValue()) {
   }
+  new ToolbarCreator().read("data/default/toolbar.xml");
+  new MenubarCreator().read("data/default/menubar.xml");
 }

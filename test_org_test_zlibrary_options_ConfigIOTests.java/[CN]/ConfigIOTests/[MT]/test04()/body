@@ -1,5 +1,3 @@
 {
-  ZLConfigReaderFactory.createConfigReader("test/org/test/" + "zlibrary/options/examples/output/").read();
-  myConfig.unsetValue("Options","KeyDelay");
-  assertEquals(myConfig.getValue("Options","KeyDelay","meaningless"),"meaningless");
+  assertEquals(getConfig().getValue("Options","KeyDelay","meaningless"),"meaningless");
 }

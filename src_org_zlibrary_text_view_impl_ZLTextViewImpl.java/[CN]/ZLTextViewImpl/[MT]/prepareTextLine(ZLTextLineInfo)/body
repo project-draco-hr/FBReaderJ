@@ -1,29 +1,30 @@
 {
   final ZLPaintContext context=getContext();
+  final ZLTextParagraphCursor paragraphCursor=info.ParagraphCursor;
   setTextStyle(info.StartStyle);
-  final int y=Math.min(context.getY() + info.Height,getTopMargin() + getTextAreaHeight());
+  final int y=Math.min(context.getY() + info.Height,getTextAreaHeight() + getTopMargin());
   int spaceCounter=info.SpaceCounter;
   int fullCorrection=0;
-  final boolean endOfParagraph=info.End.isEndOfParagraph();
+  final boolean endOfParagraph=info.isEndOfParagraph();
   boolean wordOccurred=false;
   boolean changeStyle=true;
   context.moveXTo(getLeftMargin() + info.LeftIndent);
   final int maxWidth=context.getWidth() - getLeftMargin() - getRightMargin();
-switch (myTextStyle.alignment()) {
+switch (myTextStyle.getAlignment()) {
 case ZLTextAlignmentType.ALIGN_RIGHT:
 {
-      context.moveX(maxWidth - myTextStyle.rightIndent() - info.Width);
+      context.moveX(maxWidth - myTextStyle.getRightIndent() - info.Width);
       break;
     }
 case ZLTextAlignmentType.ALIGN_CENTER:
 {
-    context.moveX((maxWidth - myTextStyle.rightIndent() - info.Width) / 2);
+    context.moveX((maxWidth - myTextStyle.getRightIndent() - info.Width) / 2);
     break;
   }
 case ZLTextAlignmentType.ALIGN_JUSTIFY:
 {
-  if (!endOfParagraph && !(info.End.getElement() == ZLTextElement.AfterParagraph)) {
-    fullCorrection=maxWidth - myTextStyle.rightIndent() - info.Width;
+  if (!endOfParagraph && (paragraphCursor.getElement(info.EndWordNumber) != ZLTextElement.AfterParagraph)) {
+    fullCorrection=maxWidth - myTextStyle.getRightIndent() - info.Width;
   }
   break;
 }
@@ -33,11 +34,11 @@ case ZLTextAlignmentType.ALIGN_UNDEFINED:
 break;
 }
 }
-final ZLTextParagraphCursor paragraph=info.RealStart.getParagraphCursor();
+final ZLTextParagraphCursor paragraph=info.ParagraphCursor;
 int paragraphNumber=paragraph.getIndex();
-final int endWordNumber=info.End.getWordNumber();
-int charNumber=info.RealStart.getCharNumber();
-for (int wordNumber=info.RealStart.getWordNumber(); wordNumber != endWordNumber; ++wordNumber, charNumber=0) {
+final int endWordNumber=info.EndWordNumber;
+int charNumber=info.RealStartCharNumber;
+for (int wordNumber=info.RealStartWordNumber; wordNumber != endWordNumber; ++wordNumber, charNumber=0) {
 final ZLTextElement element=paragraph.getElement(wordNumber);
 final int x=context.getX();
 final int width=getElementWidth(element,charNumber);

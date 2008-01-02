@@ -1,3 +1,0 @@
-{
-  return getBase().leftIndent() + myDecoration.LeftIndentOption.getValue();
-}

@@ -1,0 +1,30 @@
+{
+  final ArrayList<ZLTreeResource> stack=myStack;
+  if (!stack.isEmpty() && (NODE.equals(tag))) {
+    String name=attributes.getValue("name");
+    if (name != null) {
+      String value=attributes.getValue("value");
+      ZLTreeResource peek=stack.get(stack.size() - 1);
+      ZLTreeResource node;
+      HashMap<String,ZLTreeResource> children=peek.myChildren;
+      if (children == null) {
+        node=null;
+        children=new HashMap<String,ZLTreeResource>();
+        peek.myChildren=children;
+      }
+ else {
+        node=children.get(name);
+      }
+      if (node == null) {
+        node=new ZLTreeResource(name,value);
+        children.put(name,node);
+      }
+ else {
+        if (value != null) {
+          node.setValue(value);
+        }
+      }
+      stack.add(node);
+    }
+  }
+}

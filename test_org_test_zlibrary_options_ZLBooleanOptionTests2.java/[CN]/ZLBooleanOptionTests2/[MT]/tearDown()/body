@@ -1,3 +1,3 @@
 {
-  myConfig.unsetValue("boolean_group_2","name");
+  getConfig().unsetValue("boolean_group_2","name");
 }

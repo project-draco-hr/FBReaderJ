@@ -1,0 +1,8 @@
+{
+  int paragraphs=myModel.getParagraphsNumber();
+  int pn=Math.max(0,Math.min(paragraphNumber,paragraphs - 2));
+  myStartCursor.setCursor(ZLTextParagraphCursor.cursor(myModel,pn));
+  myStartCursor.moveTo(wordNumber,charNumber);
+  myEndCursor.reset();
+  myPaintState=PaintState.START_IS_KNOWN;
+}

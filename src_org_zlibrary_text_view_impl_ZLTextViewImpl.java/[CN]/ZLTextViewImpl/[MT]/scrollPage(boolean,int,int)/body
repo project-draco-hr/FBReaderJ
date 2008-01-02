@@ -1,0 +1,8 @@
+{
+  preparePaintInfo();
+  if (myPaintState == PaintState.READY) {
+    myPaintState=forward ? PaintState.TO_SCROLL_FORWARD : PaintState.TO_SCROLL_BACKWARD;
+    myScrollingMode=scrollingMode;
+    myOverlappingValue=value;
+  }
+}

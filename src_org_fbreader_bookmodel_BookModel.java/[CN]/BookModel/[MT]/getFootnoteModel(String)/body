@@ -1,6 +1,8 @@
 {
-  if (!myFootnotes.containsKey(id)) {
-    myFootnotes.put(id,myModelFactory.createPlainModel());
+  ZLTextPlainModel model=myFootnotes.get(id);
+  if (model == null) {
+    model=myModelFactory.createPlainModel(4096);
+    myFootnotes.put(id,model);
   }
-  return myFootnotes.get(id);
+  return model;
 }

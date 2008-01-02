@@ -1,7 +1,7 @@
 {
   BookModel model=new BookModel(myDirectory + "image.fb2");
   new FB2Reader().readBook(model);
-  byte[] image=(model.getImageMap().get("cover.jpg")).byteData();
+  byte[] image=(model.getImageMap().getImage("cover.jpg")).byteData();
   try {
     BufferedImage img=ImageIO.read(new ByteArrayInputStream(image));
     ImageIO.write(img,"jpg",new File(myDirectory + "img.jpg"));

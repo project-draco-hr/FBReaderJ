@@ -1,4 +1,4 @@
 {
-  ZLConfigWriterFactory.createConfigWriter(configDirectory()).write();
+  ZLXMLConfigManager.release();
   System.exit(0);
 }

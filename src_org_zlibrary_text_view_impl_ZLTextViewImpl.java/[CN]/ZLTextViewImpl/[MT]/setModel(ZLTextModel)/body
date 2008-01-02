@@ -1,3 +1,8 @@
 {
   myModel=model;
+  if (myModel.getParagraphsNumber() > 0) {
+    myStartCursor.setCursor(ZLTextParagraphCursor.cursor(myModel,0));
+    myEndCursor.reset();
+    myPaintState=PaintState.START_IS_KNOWN;
+  }
 }

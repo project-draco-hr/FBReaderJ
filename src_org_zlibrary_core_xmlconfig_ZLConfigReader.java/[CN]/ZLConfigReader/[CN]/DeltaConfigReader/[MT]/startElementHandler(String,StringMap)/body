@@ -1,0 +1,38 @@
+{
+switch (myDepth) {
+case 0:
+    if (!tag.equals("config")) {
+      printError(tag);
+    }
+  break;
+case 1:
+if (tag.equals("group")) {
+  myCurrentGroup=attributes.getValue("name");
+  myCurrentGroupIsEmpty=true;
+}
+ else {
+  printError(tag);
+}
+break;
+case 2:
+if (tag.equals("option")) {
+myCurrentGroupIsEmpty=false;
+String value=attributes.getValue("value");
+String category=attributes.getValue("category");
+String name=attributes.getValue("name");
+if ((value != null) && (category != null)) {
+myConfig.setValue(myCurrentGroup,name,value,category);
+}
+ else {
+myConfig.unsetValue(myCurrentGroup,name);
+}
+}
+ else {
+printError(tag);
+}
+break;
+default :
+System.out.println("too many nesting elements!");
+}
+myDepth++;
+}

@@ -1,6 +1,0 @@
-{
-  if (ourInstance == null) {
-    ourInstance=new ZLMissingResource();
-  }
-  return ourInstance;
-}

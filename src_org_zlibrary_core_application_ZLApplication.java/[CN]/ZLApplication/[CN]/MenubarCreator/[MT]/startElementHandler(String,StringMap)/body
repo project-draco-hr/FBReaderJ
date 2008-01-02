@@ -1,0 +1,25 @@
+{
+  if (myMenubar == null) {
+    myMenubar=new Menubar();
+  }
+  final ArrayList<Menubar.Submenu> stack=mySubmenuStack;
+  Menu menu=stack.isEmpty() ? myMenubar : stack.get(stack.size() - 1);
+  if (ITEM == tag) {
+    String action=attributes.getValue("action");
+    String key=attributes.getValue("key");
+    if ((action != null) && (key != null)) {
+      try {
+        int actionId=Integer.parseInt(action);
+        menu.addItem(actionId,key);
+      }
+ catch (      NumberFormatException exception) {
+      }
+    }
+  }
+ else   if (SUBMENU == tag) {
+    String key=attributes.getValue("key");
+    if (key != null) {
+      stack.add(menu.addSubmenu(key));
+    }
+  }
+}

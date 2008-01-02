@@ -1,5 +1,5 @@
 {
-  final TreeMap<String,char[]> entityMap=new TreeMap<String,char[]>();
+  final HashMap<String,char[]> entityMap=new HashMap<String,char[]>();
   entityMap.put("amp",new char[]{'&'});
   entityMap.put("apos",new char[]{'\''});
   entityMap.put("gt",new char[]{'>'});
@@ -8,17 +8,17 @@
   final InputStreamReader streamReader=myStreamReader;
   final ZLXMLReader xmlReader=myXMLReader;
   final char[] buffer=myBuffer;
-  final StringBuilder tagName=new StringBuilder();
-  final StringBuilder attributeName=new StringBuilder();
-  final StringBuilder attributeValue=new StringBuilder();
-  final StringBuilder entityName=new StringBuilder();
-  final TreeMap<String,String> attributes=new TreeMap<String,String>();
+  final StringContainer tagName=new StringContainer();
+  final StringContainer attributeName=new StringContainer();
+  final StringContainer attributeValue=new StringContainer();
+  final StringContainer entityName=new StringContainer();
+  final HashMap<StringContainer,String> strings=new HashMap<StringContainer,String>();
+  final StringMap attributes=new StringMap();
   int state=START_DOCUMENT;
   int savedState=START_DOCUMENT;
   while (true) {
     int count=streamReader.read(buffer);
     if (count <= 0) {
-      ourStrings.clear();
       return;
     }
     int startPosition=0;
@@ -60,75 +60,98 @@ startPosition=i + 1;
 }
 break;
 case START_TAG:
-while (true) {
-if (isWhitespace(c)) {
+startTagLabel: while (true) {
+switch (c) {
+case 0x0008:
+case 0x0009:
+case 0x000A:
+case 0x000B:
+case 0x000C:
+case 0x000D:
+case ' ':
 state=WS_AFTER_START_TAG_NAME;
-appendToName(tagName,buffer,startPosition,i);
-break;
-}
- else if (c == '>') {
-appendToName(tagName,buffer,startPosition,i);
-processStartTag(xmlReader,tagName,attributes);
+tagName.append(buffer,startPosition,i - startPosition);
+break startTagLabel;
+case '>':
 state=TEXT;
+tagName.append(buffer,startPosition,i - startPosition);
+processStartTag(xmlReader,convertToString(strings,tagName),attributes);
 startPosition=i + 1;
-break;
-}
- else if (c == '/') {
+break startTagLabel;
+case '/':
 state=SLASH;
-appendToName(tagName,buffer,startPosition,i);
-processFullTag(xmlReader,tagName,attributes);
-break;
-}
- else if (c == '&') {
+tagName.append(buffer,startPosition,i - startPosition);
+processFullTag(xmlReader,convertToString(strings,tagName),attributes);
+break startTagLabel;
+case '&':
 savedState=START_TAG;
 state=ENTITY_REF;
 startPosition=i + 1;
-break;
+break startTagLabel;
+default :
+if (++i == count) {
+tagName.append(buffer,startPosition,i - startPosition);
+break startTagLabel;
 }
- else if (++i == count) {
-appendToName(tagName,buffer,startPosition,i);
 break;
 }
 c=buffer[i];
 }
 break;
 case WS_AFTER_START_TAG_NAME:
-if (c == '>') {
-processStartTag(xmlReader,tagName,attributes);
+switch (c) {
+case '>':
+processStartTag(xmlReader,convertToString(strings,tagName),attributes);
 state=TEXT;
 startPosition=i + 1;
-}
- else if (c == '/') {
+break;
+case '/':
 state=SLASH;
-processFullTag(xmlReader,tagName,attributes);
-}
- else if (!isWhitespace(c)) {
+processFullTag(xmlReader,convertToString(strings,tagName),attributes);
+break;
+case 0x0008:
+case 0x0009:
+case 0x000A:
+case 0x000B:
+case 0x000C:
+case 0x000D:
+case ' ':
+break;
+default :
 state=ATTRIBUTE_NAME;
 startPosition=i;
+break;
 }
 break;
 case ATTRIBUTE_NAME:
-while (true) {
-if (c == '=') {
+attributeNameLabel: while (true) {
+switch (c) {
+case '=':
 state=WAIT_ATTRIBUTE_VALUE;
-break;
-}
- else if (c == '&') {
+break attributeNameLabel;
+case '&':
 savedState=ATTRIBUTE_NAME;
 state=ENTITY_REF;
 startPosition=i + 1;
-break;
-}
- else if (isWhitespace(c)) {
+break attributeNameLabel;
+case 0x0008:
+case 0x0009:
+case 0x000A:
+case 0x000B:
+case 0x000C:
+case 0x000D:
+case ' ':
 state=WAIT_EQUALS;
-break;
+break attributeNameLabel;
+default :
+if (++i == count) {
+break attributeNameLabel;
 }
- else if (++i == count) {
 break;
 }
 c=buffer[i];
 }
-appendToName(attributeName,buffer,startPosition,i);
+attributeName.append(buffer,startPosition,i - startPosition);
 break;
 case WAIT_EQUALS:
 if (c == '=') {
@@ -145,10 +168,10 @@ case ATTRIBUTE_VALUE:
 while ((c != '"') && (c != '&') && (++i < count)) {
 c=buffer[i];
 }
-appendToName(attributeValue,buffer,startPosition,i);
+attributeValue.append(buffer,startPosition,i - startPosition);
 if (c == '"') {
 state=WS_AFTER_START_TAG_NAME;
-attributes.put(convertToString(attributeName),convertToString(attributeValue));
+attributes.put(convertToString(strings,attributeName),convertToString(strings,attributeValue));
 }
  else if (c == '&') {
 savedState=ATTRIBUTE_VALUE;
@@ -160,11 +183,11 @@ case ENTITY_REF:
 while ((c != ';') && (++i < count)) {
 c=buffer[i];
 }
-appendToName(entityName,buffer,startPosition,i);
+entityName.append(buffer,startPosition,i - startPosition);
 if (c == ';') {
 state=savedState;
 startPosition=i + 1;
-final String name=convertToString(entityName);
+final String name=convertToString(strings,entityName);
 char[] value=entityMap.get(name);
 if (value == null) {
 if ((name.length() > 0) && (name.charAt(0) == '#')) {
@@ -186,14 +209,14 @@ entityMap.put(name,value);
 if (value != null) {
 switch (state) {
 case ATTRIBUTE_VALUE:
-appendToName(attributeValue,value,0,value.length);
+attributeValue.append(value,0,value.length);
 break;
 case ATTRIBUTE_NAME:
-appendToName(attributeName,value,0,value.length);
+attributeName.append(value,0,value.length);
 break;
 case START_TAG:
 case END_TAG:
-appendToName(tagName,value,0,value.length);
+tagName.append(value,0,value.length);
 break;
 case TEXT:
 xmlReader.characterDataHandler(value,0,value.length);
@@ -209,27 +232,34 @@ startPosition=i + 1;
 }
 break;
 case END_TAG:
-while (true) {
-if (c == '>') {
-appendToName(tagName,buffer,startPosition,i);
-processEndTag(xmlReader,tagName);
+endTagLabel: while (true) {
+switch (c) {
+case '>':
+tagName.append(buffer,startPosition,i - startPosition);
+processEndTag(xmlReader,convertToString(strings,tagName));
 state=TEXT;
 startPosition=i + 1;
-break;
-}
- else if (c == '&') {
+break endTagLabel;
+case '&':
 savedState=END_TAG;
 state=ENTITY_REF;
 startPosition=i + 1;
-break;
-}
- else if (isWhitespace(c)) {
-appendToName(tagName,buffer,startPosition,i);
+break endTagLabel;
+case 0x0008:
+case 0x0009:
+case 0x000A:
+case 0x000B:
+case 0x000C:
+case 0x000D:
+case ' ':
+tagName.append(buffer,startPosition,i - startPosition);
 state=WS_AFTER_END_TAG_NAME;
-break;
+break endTagLabel;
+default :
+if (++i == count) {
+tagName.append(buffer,startPosition,i - startPosition);
+break endTagLabel;
 }
- else if (++i == count) {
-appendToName(tagName,buffer,startPosition,i);
 break;
 }
 c=buffer[i];
@@ -238,7 +268,7 @@ break;
 case WS_AFTER_END_TAG_NAME:
 if (c == '>') {
 state=TEXT;
-processEndTag(xmlReader,tagName);
+processEndTag(xmlReader,convertToString(strings,tagName));
 startPosition=i + 1;
 }
 break;

@@ -1,0 +1,31 @@
+{
+  final ZLTextWordCursor start=new ZLTextWordCursor(end);
+  size-=paragraphSize(start,true,unit);
+  boolean positionChanged=!start.isStartOfParagraph();
+  start.moveToParagraphStart();
+  while (size > 0) {
+    if (positionChanged && start.getParagraphCursor().isEndOfSection()) {
+      break;
+    }
+    if (!start.previousParagraph()) {
+      break;
+    }
+    if (!start.getParagraphCursor().isEndOfSection()) {
+      positionChanged=true;
+    }
+    size-=paragraphSize(start,false,unit);
+  }
+  skip(start,unit,-size);
+  if (unit == SizeUnit.PIXEL_UNIT) {
+    boolean sameStart=start.equalsToCursor(end);
+    if (!sameStart && start.isEndOfParagraph() && end.isStartOfParagraph()) {
+      ZLTextWordCursor startCopy=start;
+      startCopy.nextParagraph();
+      sameStart=startCopy.equalsToCursor(end);
+    }
+    if (sameStart) {
+      start.setCursor(findStart(end,SizeUnit.LINE_UNIT,1));
+    }
+  }
+  return start;
+}

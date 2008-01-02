@@ -1,5 +1,5 @@
 {
-  ZLTextPlainModel model=factory.createPlainModel();
+  ZLTextPlainModel model=factory.createPlainModel(4096);
   model.createParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
   model.addText("marina".toCharArray());
   model.createParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);

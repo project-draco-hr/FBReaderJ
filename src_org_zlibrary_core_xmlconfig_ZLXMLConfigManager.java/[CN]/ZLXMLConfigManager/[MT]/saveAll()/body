@@ -1,0 +1,5 @@
+{
+  if (myDirectoryPath != null) {
+    new ZLConfigWriter((ZLConfigImpl)getConfig(),myDirectoryPath).write();
+  }
+}

@@ -1,0 +1,9 @@
+{
+  super.preparePaintInfo();
+  final ZLTextWordCursor cursor=getStartCursor();
+  if (!cursor.isNull()) {
+    myParagraphNumberOption.setValue(cursor.getParagraphCursor().getIndex());
+    myWordNumberOption.setValue(cursor.getWordNumber());
+    myCharNumberOption.setValue(cursor.getCharNumber());
+  }
+}

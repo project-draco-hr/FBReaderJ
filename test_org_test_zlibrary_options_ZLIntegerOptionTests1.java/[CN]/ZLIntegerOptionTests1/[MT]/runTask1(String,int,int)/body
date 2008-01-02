@@ -1,5 +1,5 @@
 {
-  myConfig.setValue("integer_group","name",configValue,"category");
+  getConfig().setValue("integer_group","name",configValue,"category");
   ZLIntegerOption option=new ZLIntegerOption("category","integer_group","name",defaultValue);
   assertEquals(option.getValue(),expectedValue);
 }

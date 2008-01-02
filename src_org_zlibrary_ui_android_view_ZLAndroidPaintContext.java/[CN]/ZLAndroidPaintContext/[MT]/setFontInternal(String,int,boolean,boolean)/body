@@ -1,5 +1,16 @@
 {
   final int style=(bold ? Typeface.BOLD : 0) | (italic ? Typeface.ITALIC : 0);
-  myPaint.setTypeface(Typeface.create(family,style));
-  myPaint.setTextSize(size);
+  final Paint paint=myPaint;
+  Typeface[] typefaces=myTypefaces.get(family);
+  if (typefaces == null) {
+    typefaces=new Typeface[4];
+    myTypefaces.put(family,typefaces);
+  }
+  Typeface typeface=typefaces[style];
+  if (typeface == null) {
+    typeface=Typeface.create(family,style);
+    typefaces[style]=typeface;
+  }
+  paint.setTypeface(typeface);
+  paint.setTextSize(size);
 }

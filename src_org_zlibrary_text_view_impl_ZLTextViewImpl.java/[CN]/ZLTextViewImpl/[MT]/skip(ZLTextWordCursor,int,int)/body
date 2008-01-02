@@ -1,0 +1,12 @@
+{
+  final ZLPaintContext context=getContext();
+  final ZLTextParagraphCursor paragraphCursor=cursor.getParagraphCursor();
+  final int endWordNumber=paragraphCursor.getParagraphLength();
+  resetTextStyle();
+  applyControls(paragraphCursor,0,cursor.getWordNumber());
+  while (!cursor.isEndOfParagraph() && (size > 0)) {
+    ZLTextLineInfo info=processTextLine(context,paragraphCursor,cursor.getWordNumber(),cursor.getCharNumber(),endWordNumber);
+    cursor.moveTo(info.EndWordNumber,info.EndCharNumber);
+    size-=infoSize(info,unit);
+  }
+}

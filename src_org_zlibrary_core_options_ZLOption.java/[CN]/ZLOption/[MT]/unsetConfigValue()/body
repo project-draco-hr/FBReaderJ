@@ -1,3 +1,6 @@
 {
-  myConfig.unsetValue(myGroup,myOptionName);
+  ZLConfig config=ZLConfigManager.getConfig();
+  if (config != null) {
+    config.unsetValue(myGroup,myOptionName);
+  }
 }

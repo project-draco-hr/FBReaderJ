@@ -1,4 +1,4 @@
 {
-  onParagraphCreation();
+  createParagraph();
   myParagraphInfos.add(kind << 24);
 }

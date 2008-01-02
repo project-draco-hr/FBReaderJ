@@ -1,9 +1,0 @@
-{
-  final char[] block=getDataBlock(3);
-  increaseLastParagraphSize();
-  block[myBlockOffset++]=(char)ZLTextParagraph.Entry.FIXED_HSPACE;
-  final int entryAddress=myEntries.size();
-  block[myBlockOffset++]=(char)(entryAddress >> 16);
-  block[myBlockOffset++]=(char)entryAddress;
-  myEntries.add(new ZLTextFixedHSpaceEntry(length));
-}

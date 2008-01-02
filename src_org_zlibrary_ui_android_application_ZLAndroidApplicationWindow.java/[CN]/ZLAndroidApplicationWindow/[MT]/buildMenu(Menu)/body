@@ -1,4 +1,4 @@
 {
-  new MenuBuilder(menu).processMenu(getApplication().getMenubar());
+  new MenuBuilder(menu).processMenu(getApplication());
   refresh();
 }

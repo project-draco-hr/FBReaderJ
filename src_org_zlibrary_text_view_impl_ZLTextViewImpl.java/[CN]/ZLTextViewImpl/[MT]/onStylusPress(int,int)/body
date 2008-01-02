@@ -5,6 +5,19 @@
       final int index=nodeArea.ParagraphNumber;
       final ZLTextTreeParagraph paragraph=((ZLTextTreeModel)myModel).getParagraph(index);
       paragraph.open(!paragraph.isOpen());
+      rebuildPaintInfo(true);
+      preparePaintInfo();
+      if (paragraph.isOpen()) {
+        int nextParagraphNumber=index + paragraph.getFullSize();
+        int lastParagraphNumber=myEndCursor.getParagraphCursor().getIndex();
+        if (myEndCursor.isEndOfParagraph()) {
+          ++lastParagraphNumber;
+        }
+      }
+      int firstParagraphNumber=myStartCursor.getParagraphCursor().getIndex();
+      if (myStartCursor.isStartOfParagraph()) {
+        --firstParagraphNumber;
+      }
       getApplication().refreshWindow();
       return true;
     }

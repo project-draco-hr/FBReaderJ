@@ -1,0 +1,127 @@
+{
+  final ZLTextLineInfo info=new ZLTextLineInfo(paragraphCursor,startIndex,startCharNumber,myTextStyle);
+  final ZLTextLineInfo cachedInfo=myLineInfoCache.get(info);
+  if (cachedInfo != null) {
+    return cachedInfo;
+  }
+  int currentWordIndex=startIndex;
+  int currentCharNumber=startCharNumber;
+  final boolean isFirstLine=(startIndex == 0) && (startCharNumber == 0);
+  final ZLTextParagraph para=paragraphCursor.getParagraph();
+  if (para.getKind() == ZLTextParagraph.Kind.TREE_PARAGRAPH) {
+    final ZLTextTreeParagraph treeParagraph=(ZLTextTreeParagraph)para;
+    final int stackLength=treeParagraph.getDepth() - 1;
+    final boolean[] stack=new boolean[stackLength];
+    if (stackLength > 0) {
+      ZLTextTreeParagraph ctp=treeParagraph;
+      for (int index=0; index < stackLength; ++index) {
+        stack[index]=!ctp.isLastChild();
+        ctp=ctp.getParent();
+      }
+    }
+    info.NodeInfo=new ZLTextLineInfo.TreeNodeInfo(!treeParagraph.hasChildren(),treeParagraph.isOpen(),isFirstLine,paragraphCursor.getIndex(),stack);
+  }
+  if (isFirstLine) {
+    ZLTextElement element=paragraphCursor.getElement(currentWordIndex);
+    while (element instanceof ZLTextControlElement) {
+      if (element instanceof ZLTextControlElement) {
+        applyControl((ZLTextControlElement)element);
+      }
+      ++currentWordIndex;
+      currentCharNumber=0;
+      if (currentWordIndex == endIndex) {
+        break;
+      }
+      element=paragraphCursor.getElement(currentWordIndex);
+    }
+    info.StartStyle=myTextStyle;
+    info.RealStartWordNumber=currentWordIndex;
+    info.RealStartCharNumber=currentCharNumber;
+  }
+  ZLTextStyle storedStyle=myTextStyle;
+  info.LeftIndent=myTextStyle.getLeftIndent();
+  if (isFirstLine) {
+    info.LeftIndent+=myTextStyle.getFirstLineIndentDelta();
+  }
+  if (info.NodeInfo != null) {
+    info.LeftIndent+=(context.getStringHeight() + 2) / 3 * 4 * (info.NodeInfo.VerticalLinesStack.length + 1);
+  }
+  info.Width=info.LeftIndent;
+  if (info.RealStartWordNumber == endIndex) {
+    info.EndWordNumber=info.RealStartWordNumber;
+    info.EndCharNumber=info.RealStartCharNumber;
+    return info;
+  }
+  int newWidth=info.Width;
+  int newHeight=info.Height;
+  int newDescent=info.Descent;
+  int maxWidth=context.getWidth() - getLeftMargin() - getRightMargin()- myTextStyle.getRightIndent();
+  boolean wordOccurred=false;
+  boolean isVisible=false;
+  int lastSpaceWidth=0;
+  int internalSpaceCounter=0;
+  boolean removeLastSpace=false;
+  do {
+    ZLTextElement element=paragraphCursor.getElement(currentWordIndex);
+    newWidth+=getElementWidth(element,currentCharNumber);
+    newHeight=Math.max(newHeight,getElementHeight(element));
+    newDescent=Math.max(newDescent,getElementDescent(element));
+    if (element == ZLTextElement.HSpace) {
+      if (wordOccurred) {
+        wordOccurred=false;
+        internalSpaceCounter++;
+        lastSpaceWidth=context.getSpaceWidth();
+        newWidth+=lastSpaceWidth;
+      }
+    }
+ else     if (element instanceof ZLTextWord) {
+      wordOccurred=true;
+      isVisible=true;
+    }
+ else     if (element instanceof ZLTextControlElement) {
+      applyControl((ZLTextControlElement)element);
+    }
+ else     if (element instanceof ZLTextImageElement) {
+      wordOccurred=true;
+      isVisible=true;
+    }
+    if ((newWidth > maxWidth) && (info.EndWordNumber != startIndex)) {
+      break;
+    }
+    ZLTextElement previousElement=element;
+    ++currentWordIndex;
+    currentCharNumber=0;
+    boolean allowBreak=currentWordIndex == endIndex;
+    if (!allowBreak) {
+      element=paragraphCursor.getElement(currentWordIndex);
+      allowBreak=(((!(element instanceof ZLTextWord)) || (previousElement instanceof ZLTextWord)) && !(element instanceof ZLTextImageElement) && !(element instanceof ZLTextControlElement));
+    }
+    if (allowBreak) {
+      info.IsVisible=isVisible;
+      info.Width=newWidth;
+      info.Height=Math.max(info.Height,newHeight);
+      info.Descent=Math.max(info.Descent,newDescent);
+      info.EndWordNumber=currentWordIndex;
+      info.EndCharNumber=currentCharNumber;
+      info.SpaceCounter=internalSpaceCounter;
+      storedStyle=myTextStyle;
+      removeLastSpace=!wordOccurred && (internalSpaceCounter > 0);
+    }
+  }
+ while (currentWordIndex != endIndex);
+  if (removeLastSpace) {
+    info.Width-=lastSpaceWidth;
+    info.SpaceCounter--;
+  }
+  setTextStyle(storedStyle);
+  if (isFirstLine) {
+    info.Height+=info.StartStyle.getSpaceBefore();
+  }
+  if (info.isEndOfParagraph()) {
+    info.VSpaceAfter=myTextStyle.getSpaceAfter();
+  }
+  if ((info.EndWordNumber != endIndex) || (endIndex == info.ParagraphCursorLength)) {
+    myLineInfoCache.put(info);
+  }
+  return info;
+}

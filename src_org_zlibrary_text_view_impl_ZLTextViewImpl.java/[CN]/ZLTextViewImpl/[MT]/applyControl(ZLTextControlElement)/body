@@ -1,11 +1,10 @@
 {
+  final ZLTextStyle textStyle=myTextStyle;
   if (control.IsStart) {
     ZLTextStyleDecoration decoration=ZLTextStyleCollection.getInstance().getDecoration(control.Kind);
-    setTextStyle(decoration.createDecoratedStyle(myTextStyle));
+    setTextStyle(decoration.createDecoratedStyle(textStyle));
   }
  else {
-    if (myTextStyle.isDecorated()) {
-      setTextStyle(((ZLTextDecoratedStyle)myTextStyle).getBase());
-    }
+    setTextStyle(textStyle.getBase());
   }
 }

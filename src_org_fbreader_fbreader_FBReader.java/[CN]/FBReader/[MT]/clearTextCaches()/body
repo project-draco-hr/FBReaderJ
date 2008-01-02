@@ -1,0 +1,4 @@
+{
+  myBookTextView.clearCaches();
+  myContentsView.clearCaches();
+}

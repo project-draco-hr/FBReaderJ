@@ -1,5 +1,4 @@
 {
   super(name);
-  myHasValue=true;
-  myValue=value;
+  setValue(value);
 }

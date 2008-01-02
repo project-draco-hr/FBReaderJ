@@ -1,0 +1,31 @@
+{
+  result.setCursor(start);
+  final ZLPaintContext context=getContext();
+  int textAreaHeight=getTextAreaHeight();
+  myLineInfos.clear();
+  int counter=0;
+  do {
+    resetTextStyle();
+    final ZLTextParagraphCursor paragraphCursor=result.getParagraphCursor();
+    final int wordNumber=result.getWordNumber();
+    applyControls(paragraphCursor,0,wordNumber);
+    ZLTextLineInfo info=new ZLTextLineInfo(paragraphCursor,wordNumber,result.getCharNumber(),myTextStyle);
+    final int endIndex=info.ParagraphCursorLength;
+    while (info.EndWordNumber != endIndex) {
+      info=processTextLine(context,paragraphCursor,info.EndWordNumber,info.EndCharNumber,endIndex);
+      textAreaHeight-=info.Height + info.Descent;
+      if ((textAreaHeight < 0) && (counter > 0)) {
+        break;
+      }
+      textAreaHeight-=info.VSpaceAfter;
+      result.moveTo(info.EndWordNumber,info.EndCharNumber);
+      myLineInfos.add(info);
+      if (textAreaHeight < 0) {
+        break;
+      }
+      counter++;
+    }
+  }
+ while (result.isEndOfParagraph() && result.nextParagraph() && !result.getParagraphCursor().isEndOfSection()&& (textAreaHeight >= 0));
+  resetTextStyle();
+}

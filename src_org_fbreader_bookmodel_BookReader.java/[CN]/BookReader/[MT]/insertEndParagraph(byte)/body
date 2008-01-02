@@ -1,8 +1,9 @@
 {
-  if ((myCurrentTextModel != null) && mySectionContainsRegularContents) {
-    int size=myCurrentTextModel.getParagraphsNumber();
-    if ((size > 0) && (myCurrentTextModel.getParagraph(size - 1).getKind() != kind)) {
-      myCurrentTextModel.createParagraph(kind);
+  final ZLTextPlainModel textModel=myCurrentTextModel;
+  if ((textModel != null) && mySectionContainsRegularContents) {
+    int size=textModel.getParagraphsNumber();
+    if ((size > 0) && (textModel.getParagraph(size - 1).getKind() != kind)) {
+      textModel.createParagraph(kind);
       mySectionContainsRegularContents=false;
     }
   }

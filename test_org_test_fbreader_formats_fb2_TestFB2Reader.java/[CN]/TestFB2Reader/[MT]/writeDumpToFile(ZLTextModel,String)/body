@@ -1,7 +1,7 @@
 {
   try {
     OutputStreamWriter osw=new OutputStreamWriter(new FileOutputStream(outputFile),"utf8");
-    osw.write(model.dump());
+    osw.write(ModelDumper.dump(model));
     osw.close();
   }
  catch (  Exception e) {

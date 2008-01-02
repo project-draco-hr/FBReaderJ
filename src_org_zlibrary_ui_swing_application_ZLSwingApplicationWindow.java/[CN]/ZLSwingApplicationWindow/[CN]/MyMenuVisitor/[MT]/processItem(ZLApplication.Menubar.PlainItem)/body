@@ -1,5 +1,0 @@
-{
-  JMenuItem menu=new JMenuItem(item.getName());
-  menu.addActionListener(new MyMenuItemAction(item));
-  myMenuStack.peek().add(menu);
-}

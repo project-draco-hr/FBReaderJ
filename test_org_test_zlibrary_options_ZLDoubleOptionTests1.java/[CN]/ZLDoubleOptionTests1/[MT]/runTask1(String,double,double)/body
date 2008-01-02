@@ -1,5 +1,5 @@
 {
-  myConfig.setValue("double_group","name",configValue,"category");
+  getConfig().setValue("double_group","name",configValue,"category");
   ZLDoubleOption option=new ZLDoubleOption("category","double_group","name",defaultValue);
   assertEquals(option.getValue(),expectedValue);
 }

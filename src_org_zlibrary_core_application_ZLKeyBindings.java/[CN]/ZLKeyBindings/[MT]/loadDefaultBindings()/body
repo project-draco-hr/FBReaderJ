@@ -1,7 +1,0 @@
-{
-  TreeMap<String,Integer> keymap=new TreeMap<String,Integer>();
-  new ZLKeyBindingsReader(keymap).readBindings();
-  for (  Map.Entry<String,Integer> entry : keymap.entrySet()) {
-    bindKey(entry.getKey(),entry.getValue());
-  }
-}

@@ -1,3 +1,0 @@
-{
-  xmlReader.endElementHandler(convertToString(tagName));
-}

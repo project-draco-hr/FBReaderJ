@@ -1,5 +1,0 @@
-{
-  JMenu menu=new JMenu(submenu.getMenuName());
-  myMenuStack.peek().add(menu);
-  myMenuStack.push(menu);
-}

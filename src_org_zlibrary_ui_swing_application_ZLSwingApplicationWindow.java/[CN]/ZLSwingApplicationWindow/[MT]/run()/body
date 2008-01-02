@@ -1,5 +1,4 @@
 {
   myToolbar.setVisible(true);
-  myMenuBar.setVisible(true);
   myFrame.setVisible(true);
 }

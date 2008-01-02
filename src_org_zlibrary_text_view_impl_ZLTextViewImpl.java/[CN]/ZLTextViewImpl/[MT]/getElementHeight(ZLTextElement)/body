@@ -1,12 +1,16 @@
 {
   if (element instanceof ZLTextWord) {
-    if (myWordHeight == -1) {
-      myWordHeight=(int)(getContext().getStringHeight() * myTextStyle.lineSpace()) + myTextStyle.verticalShift();
+    int wordHeight=myWordHeight;
+    if (wordHeight == -1) {
+      final ZLTextStyle textStyle=myTextStyle;
+      wordHeight=(int)(getContext().getStringHeight() * textStyle.getLineSpace()) + textStyle.getVerticalShift();
+      myWordHeight=wordHeight;
     }
-    return myWordHeight;
+    return wordHeight;
   }
  else   if (element instanceof ZLTextImageElement) {
-    return getContext().imageHeight(((ZLTextImageElement)element).getImage()) + Math.max((int)(getContext().getStringHeight() * (myTextStyle.lineSpace() - 1)),3);
+    final ZLPaintContext context=getContext();
+    return context.imageHeight(((ZLTextImageElement)element).getImage()) + Math.max((int)(context.getStringHeight() * (myTextStyle.getLineSpace() - 1)),3);
   }
   return 0;
 }

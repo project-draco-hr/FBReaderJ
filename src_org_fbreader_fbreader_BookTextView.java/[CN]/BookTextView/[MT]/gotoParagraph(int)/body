@@ -1,4 +1,0 @@
-{
-  super.gotoParagraph(index);
-  myParagraphPositionOption.setValue(index);
-}

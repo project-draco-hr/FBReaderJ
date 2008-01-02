@@ -1,4 +1,0 @@
-StringBuilder name
-char[] buffer
-int startOffset
-int endOffset

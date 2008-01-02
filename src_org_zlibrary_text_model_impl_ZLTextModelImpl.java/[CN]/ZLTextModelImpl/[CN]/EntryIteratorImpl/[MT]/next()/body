@@ -1,33 +1,34 @@
 {
-  ZLTextParagraph.Entry entry=null;
-  if (myDataOffset == DATA_BLOCK_SIZE) {
+  int dataOffset=myDataOffset;
+  if (dataOffset == myDataBlockSize) {
     ++myDataIndex;
-    myDataOffset=0;
+    dataOffset=0;
   }
   char[] data=myData.get(myDataIndex);
-  myType=(byte)data[myDataOffset];
-  if (myType == 0) {
+  byte type=(byte)data[dataOffset];
+  if (type == 0) {
     data=myData.get(++myDataIndex);
-    myDataOffset=0;
-    myType=(byte)data[0];
+    dataOffset=0;
+    type=(byte)data[0];
   }
-  ++myDataOffset;
-switch (myType) {
+  myType=type;
+  ++dataOffset;
+switch (type) {
 case ZLTextParagraph.Entry.TEXT:
-    myTextLength=((int)data[myDataOffset++] << 16) + (int)data[myDataOffset++];
+    myTextLength=((int)data[dataOffset++] << 16) + (int)data[dataOffset++];
   myTextData=data;
-myTextOffset=myDataOffset;
-myDataOffset+=myTextLength;
+myTextOffset=dataOffset;
+dataOffset+=myTextLength;
 break;
 case ZLTextParagraph.Entry.CONTROL:
 {
-short kind=(short)data[myDataOffset++];
+short kind=(short)data[dataOffset++];
 myControlKind=(byte)kind;
 myControlIsStart=(kind & 0x0100) == 0x0100;
 if ((kind & 0x0200) == 0x0200) {
 myControlIsHyperlink=true;
-short labelLength=(short)data[myDataOffset++];
-myDataOffset+=labelLength;
+short labelLength=(short)data[dataOffset++];
+dataOffset+=labelLength;
 }
  else {
 myControlIsHyperlink=false;
@@ -35,15 +36,12 @@ myControlIsHyperlink=false;
 break;
 }
 case ZLTextParagraph.Entry.IMAGE:
-{
-int address=((int)data[myDataOffset++] << 16) + (int)data[myDataOffset++];
-entry=myEntries.get(address);
+myImageEntry=myEntries.get((int)data[dataOffset++]);
 break;
-}
 case ZLTextParagraph.Entry.FIXED_HSPACE:
 case ZLTextParagraph.Entry.FORCED_CONTROL:
 break;
 }
 ++myCounter;
-return entry;
+myDataOffset=dataOffset;
 }

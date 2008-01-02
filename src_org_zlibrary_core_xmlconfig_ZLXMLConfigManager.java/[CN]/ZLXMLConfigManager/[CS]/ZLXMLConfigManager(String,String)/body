@@ -1,0 +1,8 @@
+{
+  myDirectoryPath=outputPath;
+  ZLConfigImpl config=new ZLConfigImpl();
+  if (inputPath != null) {
+    new ZLConfigReader(config,inputPath).read();
+  }
+  setConfig(config);
+}

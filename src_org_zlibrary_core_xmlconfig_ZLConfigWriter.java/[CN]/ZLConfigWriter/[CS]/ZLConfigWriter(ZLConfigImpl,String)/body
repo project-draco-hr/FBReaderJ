@@ -1,0 +1,8 @@
+{
+  myConfig=config;
+  File file=new File(path);
+  if (!file.exists()) {
+    file.mkdir();
+  }
+  myDestinationDirectory=file;
+}

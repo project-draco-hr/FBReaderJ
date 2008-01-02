@@ -1,0 +1,13 @@
+{
+  int i=0;
+  String value=attributes.getValue(name);
+  if (value != null) {
+    try {
+      i=Integer.parseInt(value);
+    }
+ catch (    NumberFormatException e) {
+      e.printStackTrace();
+    }
+  }
+  return i;
+}

@@ -1,8 +1,0 @@
-{
-  for (ZLTextWordCursor cursor=begin; !cursor.equalWordNumber(end); cursor.nextWord()) {
-    final ZLTextElement element=cursor.getElement();
-    if (element instanceof ZLTextControlElement) {
-      applyControl((ZLTextControlElement)element);
-    }
-  }
-}

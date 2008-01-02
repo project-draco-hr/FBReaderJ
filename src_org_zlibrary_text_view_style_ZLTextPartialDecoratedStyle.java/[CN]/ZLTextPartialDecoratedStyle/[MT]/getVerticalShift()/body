@@ -1,0 +1,3 @@
+{
+  return getBase().getVerticalShift() + myDecoration.VerticalShiftOption.getValue();
+}

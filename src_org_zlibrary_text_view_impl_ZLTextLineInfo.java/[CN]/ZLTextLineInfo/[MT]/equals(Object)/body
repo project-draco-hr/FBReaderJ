@@ -1,0 +1,4 @@
+{
+  ZLTextLineInfo info=(ZLTextLineInfo)o;
+  return (ParagraphCursor == info.ParagraphCursor) && (StartWordNumber == info.StartWordNumber) && (StartCharNumber == info.StartCharNumber);
+}

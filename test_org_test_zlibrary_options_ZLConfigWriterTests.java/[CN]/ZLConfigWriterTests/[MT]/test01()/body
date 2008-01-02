@@ -1,10 +1,10 @@
 {
-  myConfig.setValue("group","name","VALUE","category");
+  getConfig().setValue("group","name","VALUE","category");
   try {
     writeConfigAndCheck("category","" + "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" + "<config>\n"+ "  <group name=\"group\">\n"+ "    <option name=\"name\" value=\"VALUE\"/>\n"+ "  </group>\n"+ "</config>");
   }
  catch (  FileNotFoundException e) {
     fail(e.getMessage());
   }
-  myConfig.unsetValue("group","name");
+  getConfig().unsetValue("group","name");
 }

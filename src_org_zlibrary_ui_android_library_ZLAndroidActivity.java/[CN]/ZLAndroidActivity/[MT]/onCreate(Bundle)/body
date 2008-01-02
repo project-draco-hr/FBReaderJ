@@ -1,4 +1,5 @@
 {
+  StartTime=System.currentTimeMillis();
   super.onCreate(icicle);
   new ZLAndroidLibrary().run(this);
 }

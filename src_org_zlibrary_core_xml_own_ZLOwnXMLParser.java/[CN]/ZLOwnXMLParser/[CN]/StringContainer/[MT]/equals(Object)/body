@@ -1,0 +1,15 @@
+{
+  final StringContainer container=(StringContainer)o;
+  final int len=myLength;
+  if (len != container.myLength) {
+    return false;
+  }
+  final char[] data0=myData;
+  final char[] data1=container.myData;
+  for (int i=0; i < len; ++i) {
+    if (data0[i] != data1[i]) {
+      return false;
+    }
+  }
+  return true;
+}

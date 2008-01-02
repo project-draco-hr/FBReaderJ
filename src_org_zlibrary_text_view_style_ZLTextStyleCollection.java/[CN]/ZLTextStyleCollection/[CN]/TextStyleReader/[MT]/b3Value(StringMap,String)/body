@@ -1,0 +1,3 @@
+{
+  return ZLBoolean3.getByString(attributes.getValue(name));
+}

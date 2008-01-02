@@ -1,0 +1,4 @@
+{
+  Key k=(Key)o;
+  return (myModel == k.myModel) && (myIndex == k.myIndex);
+}

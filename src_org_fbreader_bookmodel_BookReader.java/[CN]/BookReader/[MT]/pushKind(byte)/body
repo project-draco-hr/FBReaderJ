@@ -1,7 +1,9 @@
 {
-  if (myKindStackSize == myKindStack.length) {
-    byte[] newStack=new byte[myKindStackSize + 10];
-    System.arraycopy(myKindStack,0,newStack,0,myKindStackSize);
+  byte[] stack=myKindStack;
+  if (stack.length == myKindStackSize) {
+    stack=new byte[myKindStackSize * 2];
+    System.arraycopy(myKindStack,0,stack,0,myKindStackSize);
+    myKindStack=stack;
   }
-  myKindStack[myKindStackSize++]=kind;
+  stack[myKindStackSize++]=kind;
 }

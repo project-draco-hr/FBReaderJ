@@ -1,13 +1,12 @@
 {
-  String outputPath="test/org/test/" + "zlibrary/options/examples/output/";
   if (fileName.equals("delta")) {
-    ZLConfigWriterFactory.createConfigWriter(outputPath).writeDelta();
+    ZLConfigManager.getInstance().saveDelta();
   }
  else {
-    ZLConfigWriterFactory.createConfigWriter(outputPath).write();
+    ZLConfigManager.getInstance().saveAll();
   }
   try {
-    FileReader fr=new FileReader(new File("test/org/test/" + "zlibrary/options/examples/output/" + fileName + ".xml"));
+    FileReader fr=new FileReader(new File("test/org/test/zlibrary/options/examples/output/" + fileName + ".xml"));
     try {
       int expectedContentSize=expectedContent.length();
       char[] buf=new char[expectedContentSize];

@@ -1,4 +1,4 @@
 {
   new ZLSwingLibrary();
-  new ZLSaxXMLProcessorFactory();
+  new ZLOwnXMLProcessorFactory();
 }

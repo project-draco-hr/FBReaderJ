@@ -1,8 +1,9 @@
 {
   myActivity=activity;
   new ZLOwnXMLProcessorFactory();
+  new ZLSQLiteConfigManager();
   loadProperties();
-  myActivity.setContentView(R.layout.main);
+  activity.setContentView(R.layout.main);
   try {
     ZLApplication application=(ZLApplication)getApplicationClass().newInstance();
     myMainWindow=new ZLAndroidApplicationWindow(application);
