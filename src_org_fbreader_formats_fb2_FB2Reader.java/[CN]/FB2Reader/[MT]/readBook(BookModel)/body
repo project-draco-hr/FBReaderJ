@@ -1,8 +1,4 @@
 {
   myModelReader=new BookReader(model);
-  long start=System.currentTimeMillis();
-  boolean success=read(model.getFileName());
-  LoadingTime=System.currentTimeMillis() - start;
-  System.err.println("loading book time = " + LoadingTime);
-  return success;
+  return read(model.getFileName());
 }
