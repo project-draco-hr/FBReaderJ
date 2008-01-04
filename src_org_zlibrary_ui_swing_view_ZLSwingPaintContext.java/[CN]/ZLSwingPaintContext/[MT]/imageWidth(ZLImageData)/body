@@ -1,0 +1,4 @@
+{
+  BufferedImage awtImage=((ZLSwingImageData)imageData).getAwtImage();
+  return (awtImage != null) ? awtImage.getWidth() : 0;
+}

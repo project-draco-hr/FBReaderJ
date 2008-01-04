@@ -3,6 +3,7 @@
   new ZLOwnXMLProcessorFactory();
   new ZLSQLiteConfigManager();
   loadProperties();
+  new ZLAndroidImageManager();
   activity.setContentView(R.layout.main);
   try {
     ZLApplication application=(ZLApplication)getApplicationClass().newInstance();

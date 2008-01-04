@@ -1,0 +1,6 @@
+{
+  BufferedImage awtImage=((ZLSwingImageData)imageData).getAwtImage();
+  if (awtImage != null) {
+    myGraphics.drawImage(awtImage,x,y - awtImage.getHeight(),null);
+  }
+}

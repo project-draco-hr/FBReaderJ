@@ -1,8 +1,9 @@
 {
-  ZLSwingDialogManager.createInstance();
   new ZLOwnXMLProcessorFactory();
   loadProperties();
   new ZLXMLConfigManager(System.getProperty("user.home") + "/." + getInstance().getApplicationName());
+  new ZLSwingImageManager();
+  new ZLSwingDialogManager();
   ZLApplication application=null;
   try {
     application=(ZLApplication)getApplicationClass().getConstructor(String[].class).newInstance(new Object[]{args});

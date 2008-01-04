@@ -1,8 +1,0 @@
-{
-  try {
-    return ImageIO.read(new ByteArrayInputStream(image.byteData())).getHeight();
-  }
- catch (  IOException e) {
-  }
-  return 0;
-}

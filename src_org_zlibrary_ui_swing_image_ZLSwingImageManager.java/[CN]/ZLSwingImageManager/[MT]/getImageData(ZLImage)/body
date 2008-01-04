@@ -1,0 +1,9 @@
+{
+  try {
+    final BufferedImage awtImage=ImageIO.read(new ByteArrayInputStream(image.byteData()));
+    return new ZLSwingImageData(awtImage);
+  }
+ catch (  IOException e) {
+    return null;
+  }
+}
