@@ -6,6 +6,6 @@
     myCurrentImage.addData(ch,start,length);
   }
  else {
-    myModelReader.addDataFinal(ch,start,length);
+    addDataFinal(ch,start,length);
   }
 }

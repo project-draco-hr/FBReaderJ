@@ -7,5 +7,5 @@
  catch (    FileNotFoundException e) {
     }
   }
-  return (stream != null) ? ZLXMLProcessorFactory.getInstance().createXMLProcessor().read(this,stream) : false;
+  return (stream != null) ? read(xmlReader,stream) : false;
 }

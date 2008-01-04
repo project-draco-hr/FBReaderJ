@@ -1,4 +1,0 @@
-{
-  myModelReader=new BookReader(model);
-  return read(model.getFileName());
-}
