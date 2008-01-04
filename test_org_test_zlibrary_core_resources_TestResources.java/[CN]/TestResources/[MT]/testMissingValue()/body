@@ -1,0 +1,4 @@
+{
+  ZLResource res=ZLResource.resource("menu");
+  assertEquals(res.getValue(),"????????");
+}

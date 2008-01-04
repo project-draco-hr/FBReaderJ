@@ -1,0 +1,4 @@
+{
+  ZLResource res=ZLResource.resource("color");
+  assertFalse(res.hasValue());
+}

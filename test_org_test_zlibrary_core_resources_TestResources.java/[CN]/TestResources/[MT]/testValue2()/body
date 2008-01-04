@@ -1,0 +1,4 @@
+{
+  ZLResource res=ZLResource.resource("menu").getResource("search").getResource("find");
+  assertEquals(res.getValue(),"Find Text...");
+}

@@ -1,0 +1,4 @@
+{
+  ZLResource res=ZLResource.resource("");
+  assertFalse(res.hasValue());
+}
