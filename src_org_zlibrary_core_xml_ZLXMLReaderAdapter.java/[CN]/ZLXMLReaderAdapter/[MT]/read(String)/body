@@ -1,0 +1,3 @@
+{
+  return ZLXMLProcessorFactory.getInstance().createXMLProcessor().read(this,fileName);
+}
