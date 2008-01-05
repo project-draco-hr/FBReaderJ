@@ -15,8 +15,8 @@
   final ZLMutableString entityName=new ZLMutableString();
   final HashMap<ZLMutableString,String> strings=new HashMap<ZLMutableString,String>();
   final StringMap attributes=new StringMap();
-  int state=START_DOCUMENT;
-  int savedState=START_DOCUMENT;
+  byte state=START_DOCUMENT;
+  byte savedState=START_DOCUMENT;
   while (true) {
     int count=streamReader.read(buffer);
     if (count <= 0) {
