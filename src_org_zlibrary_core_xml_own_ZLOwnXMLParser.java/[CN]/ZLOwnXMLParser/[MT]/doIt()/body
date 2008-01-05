@@ -8,12 +8,12 @@
   final InputStreamReader streamReader=myStreamReader;
   final ZLXMLReader xmlReader=myXMLReader;
   char[] buffer=myBuffer;
-  final StringContainer tagName=new StringContainer();
-  final StringContainer attributeName=new StringContainer();
-  final StringContainer attributeValue=new StringContainer();
+  final ZLMutableString tagName=new ZLMutableString();
+  final ZLMutableString attributeName=new ZLMutableString();
+  final ZLMutableString attributeValue=new ZLMutableString();
   final boolean dontCacheAttributeValues=xmlReader.dontCacheAttributeValues();
-  final StringContainer entityName=new StringContainer();
-  final HashMap<StringContainer,String> strings=new HashMap<StringContainer,String>();
+  final ZLMutableString entityName=new ZLMutableString();
+  final HashMap<ZLMutableString,String> strings=new HashMap<ZLMutableString,String>();
   final StringMap attributes=new StringMap();
   int state=START_DOCUMENT;
   int savedState=START_DOCUMENT;

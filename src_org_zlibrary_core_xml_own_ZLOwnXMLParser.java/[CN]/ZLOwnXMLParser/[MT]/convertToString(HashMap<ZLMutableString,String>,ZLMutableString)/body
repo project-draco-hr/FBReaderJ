@@ -2,7 +2,7 @@
   String s=strings.get(contatiner);
   if (s == null) {
     s=contatiner.toString();
-    strings.put(new StringContainer(contatiner),s);
+    strings.put(new ZLMutableString(contatiner),s);
   }
   contatiner.clear();
   return s;

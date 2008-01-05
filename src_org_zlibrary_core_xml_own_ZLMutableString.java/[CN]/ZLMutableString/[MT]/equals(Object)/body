@@ -1,5 +1,5 @@
 {
-  final StringContainer container=(StringContainer)o;
+  final ZLMutableString container=(ZLMutableString)o;
   final int len=myLength;
   if (len != container.myLength) {
     return false;
