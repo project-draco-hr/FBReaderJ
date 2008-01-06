@@ -1,6 +1,6 @@
 {
   new ZLXMLReaderAdapter(){
-    public void startElementHandler(    String tag,    StringMap attributes){
+    public void startElementHandler(    String tag,    ZLStringHashMap attributes){
       if (tag.equals("property")) {
         myProperties.put(attributes.getValue("name"),attributes.getValue("value"));
       }

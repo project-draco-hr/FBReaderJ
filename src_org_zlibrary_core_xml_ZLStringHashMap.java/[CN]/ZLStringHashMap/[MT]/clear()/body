@@ -1,0 +1,10 @@
+{
+  if (mySize != 0) {
+    mySize=0;
+    final Entry[] table=myTable;
+    final int length=table.length;
+    for (int i=length; --i >= 0; ) {
+      table[i]=null;
+    }
+  }
+}

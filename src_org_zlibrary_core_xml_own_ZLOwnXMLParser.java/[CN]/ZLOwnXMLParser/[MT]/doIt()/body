@@ -14,7 +14,7 @@
   final boolean dontCacheAttributeValues=xmlReader.dontCacheAttributeValues();
   final ZLMutableString entityName=new ZLMutableString();
   final HashMap<ZLMutableString,String> strings=new HashMap<ZLMutableString,String>();
-  final StringMap attributes=new StringMap();
+  final ZLStringHashMap attributes=new ZLStringHashMap(8);
   byte state=START_DOCUMENT;
   byte savedState=START_DOCUMENT;
   while (true) {

@@ -1,0 +1,4 @@
+String key
+int hashCode
+String value
+Entry next
