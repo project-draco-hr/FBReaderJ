@@ -1,8 +1,7 @@
 {
   byte[] stack=myKindStack;
   if (stack.length == myKindStackSize) {
-    stack=new byte[myKindStackSize * 2];
-    System.arraycopy(myKindStack,0,stack,0,myKindStackSize);
+    stack=ZLArrayUtils.createCopy(stack,myKindStackSize,myKindStackSize << 1);
     myKindStack=stack;
   }
   stack[myKindStackSize++]=kind;

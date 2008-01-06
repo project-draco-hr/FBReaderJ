@@ -1,0 +1,5 @@
+{
+  int capacity;
+  for (capacity=1; capacity < initialCapacity; capacity<<=1)   ;
+  myTable=new Entry[capacity];
+}

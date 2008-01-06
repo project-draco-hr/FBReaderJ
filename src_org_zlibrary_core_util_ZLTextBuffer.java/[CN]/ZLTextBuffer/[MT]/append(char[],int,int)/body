@@ -7,11 +7,7 @@
     while (newLen > capacity) {
       capacity<<=1;
     }
-    char[] data1=new char[capacity];
-    if (oldLen > 0) {
-      System.arraycopy(data,0,data1,0,oldLen);
-    }
-    data=data1;
+    data=ZLArrayUtils.createCopy(data,oldLen,capacity);
     myData=data;
   }
   System.arraycopy(buffer,offset,data,oldLen,count);

@@ -3,11 +3,7 @@
   char[] data=myData;
   final int newLength=len + count;
   if (data.length < newLength) {
-    char[] data0=new char[newLength];
-    if (len > 0) {
-      System.arraycopy(data,0,data0,0,len);
-    }
-    data=data0;
+    data=ZLArrayUtils.createCopy(data,len,newLength);
     myData=data;
   }
   System.arraycopy(buffer,offset,data,len,count);

@@ -1,0 +1,13 @@
+{
+  if (mySize != 0) {
+    final int hashCode=key.hashCode();
+    final Entry[] table=myTable;
+    final int index=hashCode & (table.length - 1);
+    for (Entry entry=table[index]; entry != null; entry=entry.Next) {
+      if (entry.Key == key) {
+        return entry.Value;
+      }
+    }
+  }
+  return null;
+}

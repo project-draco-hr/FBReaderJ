@@ -1,0 +1,5 @@
+{
+  super.extend();
+  final int size=myParagraphKinds.length;
+  myParagraphKinds=ZLArrayUtils.createCopy(myParagraphKinds,size,size << 1);
+}

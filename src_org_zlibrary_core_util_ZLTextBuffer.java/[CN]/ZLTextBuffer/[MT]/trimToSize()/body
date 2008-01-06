@@ -1,9 +1,7 @@
 {
-  if (myDataLength < myData.length) {
-    char[] newData=new char[myDataLength];
-    if (myDataLength > 0) {
-      System.arraycopy(myData,0,newData,0,myDataLength);
-    }
-    myData=newData;
+  final int len=myDataLength;
+  final char[] data=myData;
+  if (len < data.length) {
+    myData=ZLArrayUtils.createCopy(data,len,len);
   }
 }

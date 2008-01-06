@@ -1,11 +1,11 @@
 {
-  final HashMap<String,Byte> tagByName=ourTagByName;
+  final StringToByteHashMap tagByName=ourTagByName;
   Byte num=tagByName.get(name);
   if (num == null) {
     final String upperCaseName=name.toUpperCase().intern();
     num=tagByName.get(upperCaseName);
     if (num == null) {
-      num=UNKNOWN;
+      num=ourUnknownTag;
       tagByName.put(upperCaseName,num);
     }
     tagByName.put(name,num);
