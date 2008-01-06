@@ -1,6 +1,0 @@
-{
-  Key=key;
-  HashCode=hashCode;
-  Value=value;
-  Next=next;
-}

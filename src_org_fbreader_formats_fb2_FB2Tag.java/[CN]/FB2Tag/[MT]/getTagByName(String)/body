@@ -1,5 +1,5 @@
 {
-  final StringToByteHashMap tagByName=ourTagByName;
+  final HashMap<String,Byte> tagByName=ourTagByName;
   Byte num=tagByName.get(name);
   if (num == null) {
     final String upperCaseName=name.toUpperCase().intern();
