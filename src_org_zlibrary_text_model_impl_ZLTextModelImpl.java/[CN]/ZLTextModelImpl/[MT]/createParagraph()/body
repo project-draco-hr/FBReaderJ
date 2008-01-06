@@ -1,4 +1,5 @@
 {
-  myStartEntryIndices.add(myData.isEmpty() ? 0 : (myData.size() - 1));
+  final ArrayList<char[]> data=myData;
+  myStartEntryIndices.add(data.isEmpty() ? 0 : (data.size() - 1));
   myStartEntryOffsets.add(myBlockOffset);
 }
