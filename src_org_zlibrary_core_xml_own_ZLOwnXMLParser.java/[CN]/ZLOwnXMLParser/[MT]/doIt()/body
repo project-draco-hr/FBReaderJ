@@ -32,10 +32,14 @@
       for (int i=-1; ; ) {
         mainSwitchLabel: switch (state) {
 case START_DOCUMENT:
-          while (buffer[++i] != '<')           ;
-        state=LANGLE;
-      startPosition=i + 1;
-    break;
+          while (true) {
+switch (buffer[++i]) {
+case '<':
+              state=LANGLE;
+            startPosition=i + 1;
+          break mainSwitchLabel;
+      }
+    }
 case LANGLE:
 switch (buffer[++i]) {
 case '/':
@@ -53,10 +57,14 @@ break;
 }
 break;
 case COMMENT:
-while (buffer[++i] != '>') ;
+while (true) {
+switch (buffer[++i]) {
+case '>':
 state=TEXT;
 startPosition=i + 1;
-break;
+break mainSwitchLabel;
+}
+}
 case START_TAG:
 while (true) {
 switch (buffer[++i]) {
@@ -140,14 +148,22 @@ break mainSwitchLabel;
 }
 }
 case WAIT_EQUALS:
-while (buffer[++i] != '=') ;
+while (true) {
+switch (buffer[++i]) {
+case '=':
 state=WAIT_ATTRIBUTE_VALUE;
-break;
+break mainSwitchLabel;
+}
+}
 case WAIT_ATTRIBUTE_VALUE:
-while (buffer[++i] != '"') ;
+while (true) {
+switch (buffer[++i]) {
+case '"':
 state=ATTRIBUTE_VALUE;
 startPosition=i + 1;
-break;
+break mainSwitchLabel;
+}
+}
 case ATTRIBUTE_VALUE:
 while (true) {
 switch (buffer[++i]) {
@@ -171,7 +187,9 @@ break mainSwitchLabel;
 }
 }
 case ENTITY_REF:
-while (buffer[++i] != ';') ;
+while (true) {
+switch (buffer[++i]) {
+case ';':
 entityName.append(buffer,startPosition,i - startPosition);
 state=savedState;
 startPosition=i + 1;
@@ -193,12 +211,18 @@ xmlReader.characterDataHandler(value,0,value.length);
 break;
 }
 }
-break;
+break mainSwitchLabel;
+}
+}
 case SLASH:
-while (buffer[++i] != '>') ;
+while (true) {
+switch (buffer[++i]) {
+case '>':
 state=TEXT;
 startPosition=i + 1;
-break;
+break mainSwitchLabel;
+}
+}
 case END_TAG:
 while (true) {
 switch (buffer[++i]) {
@@ -227,11 +251,15 @@ break mainSwitchLabel;
 }
 }
 case WS_AFTER_END_TAG_NAME:
-while (buffer[++i] != '>') ;
+while (true) {
+switch (buffer[++i]) {
+case '>':
 state=TEXT;
 processEndTag(xmlReader,convertToString(strings,tagName));
 startPosition=i + 1;
-break;
+break mainSwitchLabel;
+}
+}
 case TEXT:
 while (true) {
 switch (buffer[++i]) {
