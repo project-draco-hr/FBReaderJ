@@ -1,6 +1,6 @@
 {
   char[] block=getDataBlock(3 + length);
-  increaseLastParagraphSize();
+  myParagraphLengths.incrementLast();
   int blockOffset=myBlockOffset;
   block[blockOffset++]=(char)ZLTextParagraph.Entry.TEXT;
   block[blockOffset++]=(char)(length >> 16);

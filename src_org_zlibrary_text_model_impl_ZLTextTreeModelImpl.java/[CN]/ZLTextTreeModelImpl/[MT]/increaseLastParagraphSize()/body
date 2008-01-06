@@ -1,4 +1,0 @@
-{
-  final ArrayList<ZLTextTreeParagraphImpl> paragraphs=myParagraphs;
-  paragraphs.get(paragraphs.size() - 1).addEntry();
-}

@@ -1,5 +1,6 @@
 {
-  final ArrayList<char[]> data=myData;
-  myStartEntryIndices.add(data.isEmpty() ? 0 : (data.size() - 1));
+  final int dataSize=myData.size();
+  myStartEntryIndices.add((dataSize == 0) ? 0 : (dataSize - 1));
   myStartEntryOffsets.add(myBlockOffset);
+  myParagraphLengths.add(0);
 }

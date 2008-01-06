@@ -1,5 +1,4 @@
 {
   myModel=model;
   myIndex=index;
-  myLength=length;
 }

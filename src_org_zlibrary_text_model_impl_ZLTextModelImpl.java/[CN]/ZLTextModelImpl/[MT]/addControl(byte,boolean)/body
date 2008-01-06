@@ -1,6 +1,6 @@
 {
   final char[] block=getDataBlock(2);
-  increaseLastParagraphSize();
+  myParagraphLengths.incrementLast();
   block[myBlockOffset++]=(char)ZLTextParagraph.Entry.CONTROL;
   short kind=textKind;
   if (isStart) {

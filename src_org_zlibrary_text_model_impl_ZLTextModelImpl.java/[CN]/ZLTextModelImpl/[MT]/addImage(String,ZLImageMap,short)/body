@@ -1,6 +1,6 @@
 {
   final char[] block=getDataBlock(2);
-  increaseLastParagraphSize();
+  myParagraphLengths.incrementLast();
   final ArrayList<ZLImageEntry> entries=myEntries;
   block[myBlockOffset++]=(char)ZLTextParagraph.Entry.IMAGE;
   block[myBlockOffset++]=(char)entries.size();

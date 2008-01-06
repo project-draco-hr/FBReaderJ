@@ -1,4 +1,0 @@
-{
-  final ZLIntArray infos=myParagraphInfos;
-  infos.increment(infos.size() - 1);
-}
