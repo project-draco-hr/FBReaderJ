@@ -1,8 +1,0 @@
-{
-  if (myData.length == mySize) {
-    int[] data=new int[2 * mySize];
-    System.arraycopy(myData,0,data,0,mySize);
-    myData=data;
-  }
-  myData[mySize++]=number;
-}

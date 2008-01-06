@@ -1,5 +1,5 @@
 {
-  myLength=myParagraphLengths.get(index);
-  myDataIndex=myStartEntryIndices.get(index);
-  myDataOffset=myStartEntryOffsets.get(index);
+  myLength=myParagraphLengths[index];
+  myDataIndex=myStartEntryIndices[index];
+  myDataOffset=myStartEntryOffsets[index];
 }

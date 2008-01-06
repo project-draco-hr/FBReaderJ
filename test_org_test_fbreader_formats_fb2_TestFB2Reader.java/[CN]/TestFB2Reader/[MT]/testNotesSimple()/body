@@ -1,5 +1,5 @@
 {
   BookModel model=new BookModel(myDirectory + "simple_notes.fb2");
-  new FB2Reader().readBook(model);
+  new FB2Reader(model).read();
   assertNotNull(model.getFootnoteModel("1"));
 }

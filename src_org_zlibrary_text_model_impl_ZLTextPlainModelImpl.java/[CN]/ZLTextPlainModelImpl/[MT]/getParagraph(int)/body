@@ -1,4 +1,4 @@
 {
-  final byte kind=(byte)myParagraphInfos.get(index);
+  final byte kind=myParagraphKinds[index];
   return (kind == ZLTextParagraph.Kind.TEXT_PARAGRAPH) ? new ZLTextParagraphImpl(this,index) : new ZLTextSpecialParagraphImpl(kind,this,index);
 }

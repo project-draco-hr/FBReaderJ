@@ -1,6 +1,6 @@
 {
   BookModel model=new BookModel(myDirectory + "footnote1.fb2");
-  new FB2Reader().readBook(model);
+  new FB2Reader(model).read();
   ZLTextParagraph paragraph=model.getParagraphByLink("note1");
   ZLTextParagraph.EntryIterator it=paragraph.iterator();
   it.next();

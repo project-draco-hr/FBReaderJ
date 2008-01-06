@@ -1,6 +1,12 @@
 {
+  final int index=myParagraphsNumber++;
+  int[] startEntryIndices=myStartEntryIndices;
+  if (index == startEntryIndices.length) {
+    extend();
+    startEntryIndices=myStartEntryIndices;
+  }
   final int dataSize=myData.size();
-  myStartEntryIndices.add((dataSize == 0) ? 0 : (dataSize - 1));
-  myStartEntryOffsets.add(myBlockOffset);
-  myParagraphLengths.add(0);
+  startEntryIndices[index]=(dataSize == 0) ? 0 : (dataSize - 1);
+  myStartEntryOffsets[index]=myBlockOffset;
+  myParagraphLengths[index]=0;
 }

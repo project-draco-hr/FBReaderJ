@@ -1,0 +1,12 @@
+{
+  final int size=myStartEntryIndices.length;
+  int[] tmp=new int[2 * size];
+  System.arraycopy(myStartEntryIndices,0,tmp,0,size);
+  myStartEntryIndices=tmp;
+  tmp=new int[2 * size];
+  System.arraycopy(myStartEntryOffsets,0,tmp,0,size);
+  myStartEntryOffsets=tmp;
+  tmp=new int[2 * size];
+  System.arraycopy(myParagraphLengths,0,tmp,0,size);
+  myParagraphLengths=tmp;
+}

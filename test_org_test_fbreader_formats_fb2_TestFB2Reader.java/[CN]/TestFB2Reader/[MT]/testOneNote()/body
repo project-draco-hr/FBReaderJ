@@ -1,6 +1,6 @@
 {
   BookModel bookModel=new BookModel(myDirectory + "one_note.fb2");
-  new FB2Reader().readBook(bookModel);
+  new FB2Reader(bookModel).read();
   ZLTextModel model=bookModel.getFootnoteModel("1");
   String output=myDirectory + "one_note_act.txt";
   writeDumpToFile(model,output);

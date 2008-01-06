@@ -1,4 +1,12 @@
 {
+  final int index=myParagraphsNumber;
   createParagraph();
-  myParagraphInfos.add(kind);
+  byte[] paragraphKinds=myParagraphKinds;
+  if (index == paragraphKinds.length) {
+    byte[] tmp=new byte[2 * index];
+    System.arraycopy(paragraphKinds,0,tmp,0,index);
+    paragraphKinds=tmp;
+    myParagraphKinds=paragraphKinds;
+  }
+  paragraphKinds[index]=kind;
 }

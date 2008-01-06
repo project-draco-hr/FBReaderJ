@@ -2,5 +2,5 @@
   ZLTextPlainModel model=factory.createPlainModel(4096);
   ZLTextParagraph paragraph=factory.createParagraph();
   model.createParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
-  assertEquals(model.getParagraph(0).getEntryNumber(),1);
+  assertFalse(true);
 }
