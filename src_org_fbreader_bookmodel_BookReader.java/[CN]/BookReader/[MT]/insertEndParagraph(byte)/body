@@ -1,5 +1,5 @@
 {
-  final ZLTextPlainModel textModel=myCurrentTextModel;
+  final ZLTextPlainModelImpl textModel=myCurrentTextModel;
   if ((textModel != null) && mySectionContainsRegularContents) {
     int size=textModel.getParagraphsNumber();
     if ((size > 0) && (textModel.getParagraph(size - 1).getKind() != kind)) {
