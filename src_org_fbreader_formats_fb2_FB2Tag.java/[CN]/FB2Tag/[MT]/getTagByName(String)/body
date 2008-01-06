@@ -2,7 +2,7 @@
   final HashMap<String,Byte> tagByName=ourTagByName;
   Byte num=tagByName.get(name);
   if (num == null) {
-    final String upperCaseName=name.toUpperCase().intern();
+    final String upperCaseName=name.toLowerCase().intern();
     num=tagByName.get(upperCaseName);
     if (num == null) {
       num=ourUnknownTag;
