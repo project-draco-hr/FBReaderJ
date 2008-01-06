@@ -1,0 +1,3 @@
+ZLXMLReader xmlReader
+String tagName
+ZLStringMap attributes
