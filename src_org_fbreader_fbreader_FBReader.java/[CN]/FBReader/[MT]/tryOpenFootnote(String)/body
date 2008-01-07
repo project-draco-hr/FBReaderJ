@@ -1,0 +1,9 @@
+{
+  if (myBookModel != null) {
+    ZLTextModel footnoteModel=myBookModel.getFootnoteModel(id);
+    if (footnoteModel != null) {
+      myFootnoteView.setModel(footnoteModel);
+      setMode(ViewMode.FOOTNOTE);
+    }
+  }
+}

@@ -37,8 +37,9 @@ case FBTextKind.EXTERNAL_HYPERLINK:
         return true;
 case FBTextKind.FOOTNOTE:
 case FBTextKind.INTERNAL_HYPERLINK:
-      return true;
-  }
+      getFBReader().tryOpenFootnote(id);
+    return true;
+}
 }
 }
 }

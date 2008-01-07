@@ -11,6 +11,9 @@ case ViewMode.BOOK_TEXT:
 case ViewMode.CONTENTS:
 setView(myContentsView);
 break;
+case ViewMode.FOOTNOTE:
+setView(myFootnoteView);
+break;
 default :
 break;
 }

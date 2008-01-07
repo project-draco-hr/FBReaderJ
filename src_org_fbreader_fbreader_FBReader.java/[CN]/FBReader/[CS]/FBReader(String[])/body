@@ -39,6 +39,7 @@
   addAction(ActionCode.CLEAR_SELECTION,new DummyAction(this));
   myBookTextView=new BookTextView(this,getContext());
   myContentsView=new ContentsView(this,getContext());
+  myFootnoteView=new FootnoteView(this,getContext());
   String fileName=null;
   if (args.length > 0) {
     try {

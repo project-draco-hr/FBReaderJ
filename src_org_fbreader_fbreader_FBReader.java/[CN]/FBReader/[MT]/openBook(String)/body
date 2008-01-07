@@ -2,13 +2,14 @@
   if (fileName == null) {
     fileName=myBookNameOption.getValue();
   }
-  BookModel model=new BookModel(fileName);
-  if (!new FB2Reader(model).read()) {
+  myBookModel=new BookModel(fileName);
+  if (!new FB2Reader(myBookModel).read()) {
+    myBookModel=null;
     return false;
   }
   myBookNameOption.setValue(fileName);
-  myBookTextView.setModel(model.getBookTextModel(),model.getFileName());
-  myContentsView.setModel(model.getContentsModel());
+  myBookTextView.setModel(myBookModel.getBookTextModel(),myBookModel.getFileName());
+  myContentsView.setModel(myBookModel.getContentsModel());
   setMode(ViewMode.BOOK_TEXT);
   return true;
 }
