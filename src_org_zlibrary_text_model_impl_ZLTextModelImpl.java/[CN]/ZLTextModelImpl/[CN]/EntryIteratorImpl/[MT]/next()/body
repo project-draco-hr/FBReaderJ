@@ -28,6 +28,7 @@ myControlIsStart=(kind & 0x0100) == 0x0100;
 if ((kind & 0x0200) == 0x0200) {
 myControlIsHyperlink=true;
 short labelLength=(short)data[dataOffset++];
+myHyperlinkControlLabel=new String(data,dataOffset,labelLength);
 dataOffset+=labelLength;
 }
  else {
