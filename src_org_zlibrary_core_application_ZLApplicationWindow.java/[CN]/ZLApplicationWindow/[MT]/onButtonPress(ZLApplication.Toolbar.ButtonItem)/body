@@ -1,24 +1,3 @@
 {
-  if (myToggleButtonLock) {
-    return;
-  }
-  if (button.isToggleButton()) {
-    myToggleButtonLock=true;
-    if (button.isPressed()) {
-      setToggleButtonState(button);
-      myToggleButtonLock=false;
-      return;
-    }
- else {
-      button.press();
-      ZLApplication.Toolbar.ButtonGroup group=button.getButtonGroup();
-      final ArrayList<ZLApplication.Toolbar.ButtonItem> items=group.Items;
-      final int size=items.size();
-      for (int i=0; i < size; ++i) {
-        setToggleButtonState(items.get(i));
-      }
-    }
-    myToggleButtonLock=false;
-  }
   getApplication().doAction(button.getActionId());
 }
