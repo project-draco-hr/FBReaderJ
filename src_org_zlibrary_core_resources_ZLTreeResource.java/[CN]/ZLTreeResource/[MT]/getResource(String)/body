@@ -1,7 +1,7 @@
 {
-  final HashMap<String,ZLTreeResource> children=myChildren;
+  final HashMap children=myChildren;
   if (children != null) {
-    ZLResource child=children.get(key);
+    ZLResource child=(ZLResource)children.get(key);
     if (child != null) {
       return child;
     }

@@ -12,11 +12,11 @@
   final int[] labels=new int[lineInfosSize + 1];
   context.moveYTo(getTopMargin());
   for (int i=0; i < lineInfosSize; ) {
-    prepareTextLine(lineInfos.get(i));
+    prepareTextLine(lineInfos.getInfo(i));
     labels[++i]=myTextElementMap.size();
   }
   context.moveYTo(getTopMargin());
   for (int i=0; i < lineInfosSize; ++i) {
-    drawTextLine(context,lineInfos.get(i),labels[i],labels[i + 1]);
+    drawTextLine(context,lineInfos.getInfo(i),labels[i],labels[i + 1]);
   }
 }

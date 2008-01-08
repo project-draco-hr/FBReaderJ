@@ -1,6 +1,6 @@
 {
   if (SUBMENU == tag) {
-    final ArrayList<Menubar.Submenu> stack=mySubmenuStack;
+    final ArrayList stack=mySubmenuStack;
     if (!stack.isEmpty()) {
       stack.remove(stack.size() - 1);
     }

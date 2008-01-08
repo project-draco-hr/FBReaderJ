@@ -2,6 +2,6 @@
   if (myParent == null) {
     return false;
   }
-  ArrayList<ZLTextTreeParagraph> siblings=myParent.myChildren;
+  ArrayList siblings=myParent.myChildren;
   return this == siblings.get(siblings.size() - 1);
 }

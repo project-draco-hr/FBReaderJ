@@ -4,10 +4,10 @@
     ++myDataIndex;
     dataOffset=0;
   }
-  char[] data=myData.get(myDataIndex);
+  char[] data=(char[])myData.get(myDataIndex);
   byte type=(byte)data[dataOffset];
   if (type == 0) {
-    data=myData.get(++myDataIndex);
+    data=(char[])myData.get(++myDataIndex);
     dataOffset=0;
     type=(byte)data[0];
   }
@@ -37,7 +37,7 @@ myControlIsHyperlink=false;
 break;
 }
 case ZLTextParagraph.Entry.IMAGE:
-myImageEntry=myEntries.get((int)data[dataOffset++]);
+myImageEntry=(ZLImageEntry)myEntries.get((int)data[dataOffset++]);
 break;
 case ZLTextParagraph.Entry.FIXED_HSPACE:
 case ZLTextParagraph.Entry.FORCED_CONTROL:

@@ -9,7 +9,7 @@
     final int size=infos.size();
     ZLTextLineInfo info=null;
     for (int i=0; i < size; ++i) {
-      info=infos.get(i);
+      info=infos.getInfo(i);
       if (info.IsVisible) {
         visibleLineOccured=true;
       }

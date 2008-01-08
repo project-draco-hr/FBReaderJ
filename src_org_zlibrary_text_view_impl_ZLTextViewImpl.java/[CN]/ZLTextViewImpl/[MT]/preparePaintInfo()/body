@@ -13,7 +13,7 @@
   final int infosSize=infos.size();
   final ZLTextLineInfoCache cache=myLineInfoCache;
   for (int i=0; i < infosSize; ++i) {
-    cache.put(infos.get(i));
+    cache.put(infos.getInfo(i));
   }
 switch (myPaintState) {
 default :

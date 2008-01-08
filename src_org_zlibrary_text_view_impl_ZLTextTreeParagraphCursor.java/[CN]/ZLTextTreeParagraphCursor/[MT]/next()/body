@@ -3,7 +3,7 @@
   if (myIndex + 1 == model.getParagraphsNumber()) {
     return null;
   }
-  ZLTextTreeParagraph current=model.getParagraph(myIndex);
+  ZLTextTreeParagraph current=model.getTreeParagraph(myIndex);
   if (current.hasChildren() && current.isOpen()) {
     return cursor(model,myIndex + 1);
   }
@@ -14,7 +14,7 @@
   }
   if (parent != null) {
     int index=myIndex + 1;
-    while (model.getParagraph(index).getParent() != parent) {
+    while (model.getTreeParagraph(index).getParent() != parent) {
       ++index;
     }
     return cursor(model,index);

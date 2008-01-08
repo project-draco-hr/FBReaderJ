@@ -1,5 +1,5 @@
 {
-  char[] value=entityMap.get(name);
+  char[] value=(char[])entityMap.get(name);
   if (value == null) {
     if ((name.length() > 0) && (name.charAt(0) == '#')) {
       try {

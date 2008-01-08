@@ -15,7 +15,7 @@
   for (int wordNumber=info.RealStartWordNumber; wordNumber != endWordNumber; ++wordNumber, charNumber=0) {
     final ZLTextElement element=paragraph.getElement(wordNumber);
     if ((element instanceof ZLTextWord) || (element instanceof ZLTextImageElement)) {
-      ZLTextElementArea area=myTextElementMap.get(index++);
+      ZLTextElementArea area=(ZLTextElementArea)myTextElementMap.getArea(index++);
       if (area.ChangeStyle) {
         setTextStyle(area.Style);
       }
@@ -31,7 +31,7 @@
     }
   }
   if (index != to) {
-    ZLTextElementArea area=myTextElementMap.get(index++);
+    ZLTextElementArea area=(ZLTextElementArea)myTextElementMap.getArea(index++);
     if (area.ChangeStyle) {
       setTextStyle(area.Style);
     }

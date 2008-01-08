@@ -1,6 +1,6 @@
 {
   ContentsModel contentsModel=myBookModel.getContentsModel();
   if (contentsParagraphNumber < contentsModel.getParagraphsNumber()) {
-    contentsModel.setReference(contentsModel.getParagraph(contentsParagraphNumber),referenceNumber);
+    contentsModel.setReference(contentsModel.getTreeParagraph(contentsParagraphNumber),referenceNumber);
   }
 }

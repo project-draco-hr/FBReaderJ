@@ -1,0 +1,3 @@
+{
+  return (ZLTextLineInfo)super.get(info);
+}

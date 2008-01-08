@@ -1,0 +1,3 @@
+{
+  ourTagByName.put(name,tag);
+}

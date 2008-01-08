@@ -2,8 +2,8 @@
   if (myMenubar == null) {
     myMenubar=new Menubar();
   }
-  final ArrayList<Menubar.Submenu> stack=mySubmenuStack;
-  Menu menu=stack.isEmpty() ? myMenubar : stack.get(stack.size() - 1);
+  final ArrayList stack=mySubmenuStack;
+  Menu menu=stack.isEmpty() ? myMenubar : (Menu)stack.get(stack.size() - 1);
   if (ITEM == tag) {
     String action=attributes.getValue("action");
     String key=attributes.getValue("key");

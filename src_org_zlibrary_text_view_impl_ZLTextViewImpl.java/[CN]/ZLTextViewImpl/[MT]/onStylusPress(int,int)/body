@@ -1,9 +1,9 @@
 {
   if (myModel instanceof ZLTextTreeModel) {
-    ZLTextTreeNodeArea nodeArea=ZLTextRectangularArea.binarySearch(myTreeNodeMap,x,y);
+    ZLTextTreeNodeArea nodeArea=(ZLTextTreeNodeArea)myTreeNodeMap.binarySearch(x,y);
     if (nodeArea != null) {
       final int index=nodeArea.ParagraphNumber;
-      final ZLTextTreeParagraph paragraph=((ZLTextTreeModel)myModel).getParagraph(index);
+      final ZLTextTreeParagraph paragraph=((ZLTextTreeModel)myModel).getTreeParagraph(index);
       paragraph.open(!paragraph.isOpen());
       rebuildPaintInfo(true);
       preparePaintInfo();

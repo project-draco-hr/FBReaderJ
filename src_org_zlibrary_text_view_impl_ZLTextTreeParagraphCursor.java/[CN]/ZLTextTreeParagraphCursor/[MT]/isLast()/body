@@ -3,7 +3,7 @@
   if (myIndex + 1 == model.getParagraphsNumber()) {
     return true;
   }
-  ZLTextTreeParagraph current=model.getParagraph(myIndex);
+  ZLTextTreeParagraph current=model.getTreeParagraph(myIndex);
   if (current.isOpen() && current.hasChildren()) {
     return false;
   }

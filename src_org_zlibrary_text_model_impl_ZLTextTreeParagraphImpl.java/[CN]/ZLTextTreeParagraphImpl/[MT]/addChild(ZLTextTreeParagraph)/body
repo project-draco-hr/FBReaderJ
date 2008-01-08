@@ -1,6 +1,6 @@
 {
   if (myChildren == null) {
-    myChildren=new ArrayList<ZLTextTreeParagraph>();
+    myChildren=new ArrayList();
   }
   myChildren.add(child);
 }

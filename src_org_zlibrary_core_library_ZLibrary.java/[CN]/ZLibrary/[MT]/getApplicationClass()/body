@@ -1,6 +1,6 @@
 {
   try {
-    Class clazz=Class.forName(myProperties.get("applicationClass"));
+    Class clazz=Class.forName((String)myProperties.get("applicationClass"));
     if ((clazz != null) && ZLApplication.class.isAssignableFrom(clazz)) {
       return clazz;
     }

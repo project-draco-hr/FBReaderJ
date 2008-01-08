@@ -1,5 +1,5 @@
 {
-  final HashMap<String,char[]> entityMap=new HashMap<String,char[]>();
+  final HashMap entityMap=new HashMap();
   entityMap.put("amp",new char[]{'&'});
   entityMap.put("apos",new char[]{'\''});
   entityMap.put("gt",new char[]{'>'});
@@ -13,7 +13,7 @@
   final ZLMutableString attributeValue=new ZLMutableString();
   final boolean dontCacheAttributeValues=xmlReader.dontCacheAttributeValues();
   final ZLMutableString entityName=new ZLMutableString();
-  final HashMap<ZLMutableString,String> strings=new HashMap<ZLMutableString,String>();
+  final HashMap strings=new HashMap();
   final ZLStringMap attributes=new ZLStringMap();
   String[] tagStack=new String[10];
   int tagStackSize=0;

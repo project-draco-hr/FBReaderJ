@@ -1,6 +1,6 @@
 {
-  final HashMap<String,ZLTextPlainModelImpl> footnotes=myFootnotes;
-  ZLTextPlainModelImpl model=footnotes.get(id);
+  final HashMap footnotes=myFootnotes;
+  ZLTextPlainModelImpl model=(ZLTextPlainModelImpl)footnotes.get(id);
   if (model == null) {
     model=new ZLTextPlainModelImpl(4096);
     footnotes.put(id,model);

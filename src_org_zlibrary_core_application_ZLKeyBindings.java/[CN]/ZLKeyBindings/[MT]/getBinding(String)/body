@@ -1,4 +1,4 @@
 {
-  Integer num=myBindingsMap.get(key);
-  return (num == null) ? 0 : num;
+  Integer num=(Integer)myBindingsMap.get(key);
+  return (num == null) ? 0 : num.intValue();
 }

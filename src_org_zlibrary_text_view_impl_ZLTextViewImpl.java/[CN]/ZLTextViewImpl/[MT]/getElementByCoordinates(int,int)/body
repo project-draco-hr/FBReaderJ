@@ -1,3 +1,3 @@
 {
-  return ZLTextRectangularArea.binarySearch(myTextElementMap,x,y);
+  return (ZLTextElementArea)myTextElementMap.binarySearch(x,y);
 }

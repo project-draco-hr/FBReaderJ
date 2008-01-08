@@ -1,6 +1,6 @@
 {
   final ZLTextLineInfo info=new ZLTextLineInfo(paragraphCursor,startIndex,startCharNumber,myTextStyle);
-  final ZLTextLineInfo cachedInfo=myLineInfoCache.get(info);
+  final ZLTextLineInfo cachedInfo=myLineInfoCache.getInfo(info);
   if (cachedInfo != null) {
     return cachedInfo;
   }

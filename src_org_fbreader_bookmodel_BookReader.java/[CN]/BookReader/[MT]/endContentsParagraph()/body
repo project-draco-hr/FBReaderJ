@@ -1,5 +1,5 @@
 {
-  final ArrayList<ZLTextTreeParagraph> tocStack=myTOCStack;
+  final ArrayList tocStack=myTOCStack;
   if (!tocStack.isEmpty()) {
     ContentsModel contentsModel=myBookModel.getContentsModel();
     final ZLTextBuffer contentsBuffer=myContentsBuffer;

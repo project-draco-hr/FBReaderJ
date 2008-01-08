@@ -1,4 +1,4 @@
 {
-  WeakReference<ZLTextParagraphCursor> ref=ourMap.get(new Key(model,index));
-  return (ref != null) ? ref.get() : null;
+  WeakReference ref=(WeakReference)ourMap.get(new Key(model,index));
+  return (ref != null) ? (ZLTextParagraphCursor)ref.get() : null;
 }
