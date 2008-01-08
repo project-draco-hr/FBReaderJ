@@ -6,7 +6,7 @@
     int firstNonSpace=-1;
     boolean spaceInserted=false;
     for (int charPos=offset; charPos < end; ++charPos) {
-      if (Character.isWhitespace(data[charPos])) {
+      if (isWhitespace(data[charPos])) {
         if (firstNonSpace != -1) {
           addWord(data,firstNonSpace,charPos);
           myElements.add(hSpace);
