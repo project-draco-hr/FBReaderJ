@@ -3,15 +3,9 @@
     myToolbar=new Toolbar();
   }
   if (BUTTON == tag) {
-    String action=attributes.getValue("action");
-    String key=attributes.getValue("key");
-    if ((action != null) && (key != null)) {
-      try {
-        int actionId=Integer.parseInt(action);
-        myToolbar.addButton(actionId,key);
-      }
- catch (      NumberFormatException exception) {
-      }
+    String id=attributes.getValue("id");
+    if (id != null) {
+      myToolbar.addButton(id);
     }
   }
  else   if (SEPARATOR == tag) {

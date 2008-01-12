@@ -5,21 +5,15 @@
   final ArrayList stack=mySubmenuStack;
   Menu menu=stack.isEmpty() ? myMenubar : (Menu)stack.get(stack.size() - 1);
   if (ITEM == tag) {
-    String action=attributes.getValue("action");
-    String key=attributes.getValue("key");
-    if ((action != null) && (key != null)) {
-      try {
-        int actionId=Integer.parseInt(action);
-        menu.addItem(actionId,key);
-      }
- catch (      NumberFormatException exception) {
-      }
+    String id=attributes.getValue("id");
+    if (id != null) {
+      menu.addItem(id);
     }
   }
  else   if (SUBMENU == tag) {
-    String key=attributes.getValue("key");
-    if (key != null) {
-      stack.add(menu.addSubmenu(key));
+    String id=attributes.getValue("id");
+    if (id != null) {
+      stack.add(menu.addSubmenu(id));
     }
   }
 }

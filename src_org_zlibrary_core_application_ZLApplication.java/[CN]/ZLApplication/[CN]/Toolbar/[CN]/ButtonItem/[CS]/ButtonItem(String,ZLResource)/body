@@ -1,5 +1,4 @@
 {
   myActionId=actionId;
-  myIconName=iconName;
   myTooltip=tooltip;
 }

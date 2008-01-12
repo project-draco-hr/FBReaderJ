@@ -1,2 +1,2 @@
-int actionId
+String actionId
 ZLAction action

@@ -1,4 +1,0 @@
-{
-  ButtonItem button=new ButtonItem(actionId,key,myResource.getResource(key));
-  myItems.add(button);
-}
