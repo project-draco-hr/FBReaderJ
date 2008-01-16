@@ -1,0 +1,3 @@
+{
+  super.put(key,new Byte(value));
+}
