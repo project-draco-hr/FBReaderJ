@@ -1,2 +1,6 @@
 {
+  myGraphics.setColor(color.Red,color.Green,color.Blue);
+  myGraphics.fillRect(0,0,myCanvas.getWidth(),myCanvas.getHeight());
+  color=myTextNotFillMode ? myTextColor : myFillColor;
+  myGraphics.setColor(color.Red,color.Green,color.Blue);
 }

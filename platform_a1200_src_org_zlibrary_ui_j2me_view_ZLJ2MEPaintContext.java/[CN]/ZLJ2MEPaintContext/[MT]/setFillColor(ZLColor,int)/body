@@ -1,2 +1,11 @@
 {
+  if (color != myFillColor) {
+    myFillColor=color;
+    myGraphics.setColor(color.Red,color.Green,color.Blue);
+    myTextNotFillMode=false;
+  }
+ else   if (!myTextNotFillMode) {
+    myGraphics.setColor(color.Red,color.Green,color.Blue);
+    myTextNotFillMode=false;
+  }
 }

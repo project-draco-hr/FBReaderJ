@@ -2,12 +2,15 @@
   new ZLOwnXMLProcessorFactory();
   new ZLJ2MEConfigManager();
   loadProperties();
+  new ZLJ2MEImageManager();
+  myCanvas=new ZLCanvas();
   try {
     ZLApplication application=(ZLApplication)getApplicationClass().newInstance();
+    new ZLJ2MEApplicationWindow(application,myCanvas);
+    application.initWindow();
   }
  catch (  Exception e) {
     e.printStackTrace();
   }
-  ZLCanvas canvas=new ZLCanvas();
-  Display.getDisplay(midlet).setCurrent(canvas);
+  Display.getDisplay(midlet).setCurrent(myCanvas);
 }

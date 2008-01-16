@@ -1,4 +1,5 @@
 {
-  g.drawLine(0,0,getWidth(),getHeight());
-  System.err.println("HELLO");
+  myContext.begin(g);
+  myWidget.getView().paint();
+  myContext.end();
 }

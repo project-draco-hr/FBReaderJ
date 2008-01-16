@@ -1,2 +1,3 @@
 {
+  myGraphics.drawChars(string,offset,length,x,y,Graphics.BOTTOM | Graphics.LEFT);
 }

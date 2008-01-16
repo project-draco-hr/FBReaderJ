@@ -1,0 +1,5 @@
+{
+  super(Angle.DEGREES0);
+  myCanvas=canvas;
+  canvas.setViewWidget(this);
+}
