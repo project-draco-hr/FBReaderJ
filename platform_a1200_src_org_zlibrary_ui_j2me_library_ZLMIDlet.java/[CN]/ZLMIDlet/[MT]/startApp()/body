@@ -1,7 +1,3 @@
 {
-  new ZLJ2MELibrary().run();
-  Alert alert=new Alert("Info");
-  alert.setTimeout(Alert.FOREVER);
-  alert.setString("Hello, world!");
-  Display.getDisplay(this).setCurrent(alert);
+  new ZLJ2MELibrary().run(this);
 }

@@ -8,4 +8,6 @@
  catch (  Exception e) {
     e.printStackTrace();
   }
+  ZLCanvas canvas=new ZLCanvas();
+  Display.getDisplay(midlet).setCurrent(canvas);
 }
