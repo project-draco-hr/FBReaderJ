@@ -1,3 +1,11 @@
 {
   new ZLOwnXMLProcessorFactory();
+  new ZLJ2MEConfigManager();
+  loadProperties();
+  try {
+    ZLApplication application=(ZLApplication)getApplicationClass().newInstance();
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
 }

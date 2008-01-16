@@ -1,0 +1,3 @@
+{
+  setConfig(new ZLJ2MEConfig());
+}

@@ -1,0 +1,4 @@
+String family
+int size
+boolean bold
+boolean italic
