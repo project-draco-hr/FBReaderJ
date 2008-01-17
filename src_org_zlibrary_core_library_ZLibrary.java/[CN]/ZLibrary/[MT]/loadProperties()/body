@@ -6,5 +6,5 @@
       }
     }
   }
-.read("data/application.xml");
+.read(JAR_DATA_PREFIX + "data/application.xml");
 }

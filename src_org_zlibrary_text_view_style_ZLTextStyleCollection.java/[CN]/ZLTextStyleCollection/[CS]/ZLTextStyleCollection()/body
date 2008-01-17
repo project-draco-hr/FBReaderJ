@@ -1,5 +1,5 @@
 {
-  new TextStyleReader(this).read("data/default/styles.xml");
+  new TextStyleReader(this).read(ZLibrary.JAR_DATA_PREFIX + "data/default/styles.xml");
   if (myBaseStyle == null) {
     myBaseStyle=new ZLTextBaseStyle("",20);
   }

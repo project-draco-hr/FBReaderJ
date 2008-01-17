@@ -1,11 +1,4 @@
 {
-  InputStream stream=ZLibrary.getInstance().getResourceInputStream(fileName);
-  if (stream == null) {
-    try {
-      stream=new BufferedInputStream(new FileInputStream(fileName));
-    }
- catch (    FileNotFoundException e) {
-    }
-  }
+  InputStream stream=ZLibrary.getInstance().getInputStream(fileName);
   return (stream != null) ? read(xmlReader,stream) : false;
 }

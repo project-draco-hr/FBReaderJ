@@ -1,3 +1,3 @@
 {
-  read("data/default/keymap.xml");
+  read(ZLibrary.JAR_DATA_PREFIX + "data/default/keymap.xml");
 }
