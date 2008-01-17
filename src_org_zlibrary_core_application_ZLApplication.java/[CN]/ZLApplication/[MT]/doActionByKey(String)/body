@@ -1,6 +1,9 @@
 {
-  ZLAction a=getAction(keyBindings().getBinding(key));
-  if ((a != null)) {
-    a.checkAndRun();
+  String actionId=keyBindings().getBinding(key);
+  if (actionId != null) {
+    ZLAction a=getAction(keyBindings().getBinding(key));
+    if ((a != null)) {
+      a.checkAndRun();
+    }
   }
 }

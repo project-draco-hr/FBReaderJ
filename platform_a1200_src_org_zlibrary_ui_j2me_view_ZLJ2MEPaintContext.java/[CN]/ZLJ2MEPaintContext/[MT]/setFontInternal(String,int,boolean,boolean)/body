@@ -1,2 +1,6 @@
 {
+  if (myGraphics != null) {
+    final int style=(bold ? Font.STYLE_BOLD : Font.STYLE_PLAIN) | (italic ? Font.STYLE_ITALIC : Font.STYLE_PLAIN);
+    myGraphics.setFont(Font.getFont(Font.FACE_PROPORTIONAL,style,Font.SIZE_MEDIUM));
+  }
 }

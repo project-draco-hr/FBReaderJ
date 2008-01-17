@@ -1,2 +1,3 @@
 {
+  myGraphics.drawImage(((ZLJ2MEImageData)data).getImage(),x,y,Graphics.BOTTOM | Graphics.LEFT);
 }

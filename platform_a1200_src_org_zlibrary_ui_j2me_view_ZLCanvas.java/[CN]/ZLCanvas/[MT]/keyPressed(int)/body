@@ -1,2 +1,30 @@
 {
+  if (myApplication == null) {
+    return;
+  }
+  String keyName=null;
+switch (keyCode) {
+case -1:
+    keyName="<Up>";
+  break;
+case -2:
+keyName="<Down>";
+break;
+case -3:
+keyName="<Left>";
+break;
+case -4:
+keyName="<Right>";
+break;
+case -5:
+keyName="<Center>";
+break;
+default :
+if (keyCode > 0) {
+keyName="<" + (char)keyCode + ">";
+}
+}
+if (keyName != null) {
+myApplication.doActionByKey(keyName);
+}
 }
