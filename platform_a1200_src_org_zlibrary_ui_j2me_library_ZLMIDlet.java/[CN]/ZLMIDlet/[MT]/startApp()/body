@@ -1,3 +1,6 @@
 {
-  new ZLJ2MELibrary().run(this);
+  if (!myStarted) {
+    new ZLJ2MELibrary().run(this);
+    myStarted=true;
+  }
 }
