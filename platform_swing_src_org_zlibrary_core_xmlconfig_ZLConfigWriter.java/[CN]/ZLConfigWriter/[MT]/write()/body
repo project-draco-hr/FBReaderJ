@@ -1,34 +1,39 @@
 {
   final Set<String> usedCategories=myConfig.applyDelta();
-  final HashMap<String,StringBuffer> configFilesContent=new HashMap<String,StringBuffer>();
+  final HashMap<String,PrintWriter> categoryWriters=new HashMap<String,PrintWriter>();
+  final Set<String> groupExistsIn=new HashSet<String>();
   for (  String groupName : myConfig.groupNames()) {
-    final HashMap<String,Boolean> currentGroupOpenedIn=new HashMap<String,Boolean>();
     ZLGroup group=myConfig.getGroup(groupName);
     for (    String optionName : group.optionNames()) {
       ZLOptionInfo option=group.getOption(optionName);
-      StringBuffer sb=configFilesContent.get(option.getCategory());
-      if (currentGroupOpenedIn.get(option.getCategory()) == null) {
-        currentGroupOpenedIn.put(option.getCategory(),false);
+      String category=option.getCategory();
+      PrintWriter categoryWriter=categoryWriters.get(category);
+      if (categoryWriter == null) {
+        try {
+          categoryWriter=new PrintWriter(configFilePath(category));
+          categoryWriters.put(category,categoryWriter);
+          categoryWriter.write("<?xml version=\"1.0\" " + "encoding=\"UTF-8\"?>\n<config>\n");
+        }
+ catch (        FileNotFoundException fnf) {
+        }
       }
-      if (sb == null) {
-        sb=new StringBuffer();
-        configFilesContent.put(option.getCategory(),sb);
+      if (!groupExistsIn.contains(category)) {
+        groupExistsIn.add(category);
+        categoryWriter.write("  <group name=\"" + groupName + "\">\n");
       }
-      if (!currentGroupOpenedIn.get(option.getCategory())) {
-        sb.append("  <group name=\"" + groupName + "\">\n");
-        currentGroupOpenedIn.put(option.getCategory(),true);
-      }
-      sb.append(option);
+      categoryWriter.write(option.toXML(optionName) + "");
     }
-    for (    String category : currentGroupOpenedIn.keySet()) {
-      configFilesContent.get(category).append("  </group>\n");
+    for (    String category : groupExistsIn) {
+      categoryWriters.get(category).write("  </group>\n");
     }
+    groupExistsIn.clear();
+  }
+  for (  PrintWriter writer : categoryWriters.values()) {
+    writer.write("</config>");
+    writer.close();
   }
   for (  String category : usedCategories) {
-    this.writeConfigFile("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" + "<config>\n" + configFilesContent.get(category) + "</config>",configFilePath(category));
-  }
-  for (  String category : usedCategories) {
-    if (!configFilesContent.keySet().contains(category)) {
+    if (!categoryWriters.keySet().contains(category)) {
       deleteConfigFile(configFilePath(category));
     }
   }

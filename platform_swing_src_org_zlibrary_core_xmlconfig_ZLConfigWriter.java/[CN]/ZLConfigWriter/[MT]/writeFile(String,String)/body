@@ -1,18 +1,15 @@
 {
-  File file=new File(filePath);
+  File file=new File(path);
   try {
     PrintWriter pw=new PrintWriter(file,"UTF-8");
     try {
-      pw.write(configFileContent);
+      pw.write(content);
     }
   finally {
       pw.close();
     }
   }
  catch (  FileNotFoundException fnfException) {
-    if (!file.getName().equals("delta.xml")) {
-      System.err.println(fnfException.getMessage());
-    }
   }
 catch (  UnsupportedEncodingException e) {
     System.out.println(e.getMessage());

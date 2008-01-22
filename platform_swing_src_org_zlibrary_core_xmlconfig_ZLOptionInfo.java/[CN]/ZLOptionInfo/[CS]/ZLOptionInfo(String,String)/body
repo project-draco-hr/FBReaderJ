@@ -1,5 +1,4 @@
 {
   myValue=(value != null) ? value : "";
   myCategory=(category != null) ? category : "";
-  myName=(name != null) ? name : "";
 }

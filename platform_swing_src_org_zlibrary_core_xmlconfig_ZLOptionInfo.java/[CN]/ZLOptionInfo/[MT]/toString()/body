@@ -1,3 +1,0 @@
-{
-  return "    <option name=\"" + myName + "\" value=\""+ myValue+ "\"/>\n";
-}
