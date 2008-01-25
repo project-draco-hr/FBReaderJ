@@ -1,0 +1,11 @@
+{
+  int index=ZLFSManager.instance().findArchiveFileNameDelimiter(myPath);
+  if (index == -1) {
+    myInfo=ZLFSManager.instance().fileInfo(myPath);
+  }
+ else {
+    myInfo=ZLFSManager.instance().fileInfo(myPath.substring(0,index));
+    myInfo.IsDirectory=false;
+  }
+  myInfoIsFilled=true;
+}

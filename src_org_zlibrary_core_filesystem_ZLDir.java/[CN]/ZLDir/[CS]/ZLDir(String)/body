@@ -1,0 +1,4 @@
+{
+  myPath=path;
+  ZLFSManager.instance().normalize(myPath);
+}

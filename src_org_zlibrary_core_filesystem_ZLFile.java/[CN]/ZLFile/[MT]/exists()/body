@@ -1,0 +1,4 @@
+{
+  if (!myInfoIsFilled)   fillInfo();
+  return myInfo.Exists;
+}
