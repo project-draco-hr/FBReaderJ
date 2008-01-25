@@ -1,3 +1,0 @@
-{
-  return a1.sortKey().equals(a2.sortKey());
-}
