@@ -32,7 +32,7 @@
     description.myTitle=ZLFile.fileNameToUtf8(bookFile.name(true));
   }
   Author author=description.myAuthor;
-  if (author == null || author.displayName().length() == 0) {
+  if (author == null || author.getDisplayName().length() == 0) {
     description.myAuthor=SingleAuthor.create();
   }
   if (description.myEncoding.length() == 0) {
@@ -40,8 +40,8 @@
   }
 {
     BookInfo info=new BookInfo(fileName);
-    info.AuthorDisplayNameOption.setValue(description.myAuthor.displayName());
-    info.AuthorSortKeyOption.setValue(description.myAuthor.sortKey());
+    info.AuthorDisplayNameOption.setValue(description.myAuthor.getDisplayName());
+    info.AuthorSortKeyOption.setValue(description.myAuthor.getSortKey());
     info.TitleOption.setValue(description.myTitle);
     info.SequenceNameOption.setValue(description.mySequenceName);
     info.NumberInSequenceOption.setValue(description.myNumberInSequence);
