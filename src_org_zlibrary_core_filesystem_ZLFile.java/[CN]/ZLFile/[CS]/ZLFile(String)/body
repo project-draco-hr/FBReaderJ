@@ -40,7 +40,7 @@
       myArchiveType=(int)(myArchiveType | ArchiveType.TAR | ArchiveType.GZIP);
     }
   }
-  int index=myNameWithoutExtension.indexOf('.');
+  int index=myNameWithoutExtension.lastIndexOf('.');
   if (index > 0) {
     myExtension=myNameWithoutExtension.substring(index + 1);
     myNameWithoutExtension=myNameWithoutExtension.substring(0,index);

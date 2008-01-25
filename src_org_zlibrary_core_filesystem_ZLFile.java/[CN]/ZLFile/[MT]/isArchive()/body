@@ -1,3 +1,3 @@
 {
-  return !(0 == (myArchiveType & ArchiveType.ARCHIVE));
+  return (0 != (myArchiveType & ArchiveType.ARCHIVE));
 }

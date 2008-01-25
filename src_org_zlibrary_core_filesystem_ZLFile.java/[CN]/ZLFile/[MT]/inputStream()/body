@@ -2,14 +2,14 @@
   if (isDirectory()) {
     return null;
   }
-  ZLInputStream stream=null;
+  InputStream stream=null;
   int index=ZLFSManager.instance().findArchiveFileNameDelimiter(myPath);
   if (index == -1) {
     stream=ZLFSManager.instance().createPlainInputStream(myPath);
   }
  else {
     ZLFile baseFile=new ZLFile(myPath.substring(0,index));
-    ZLInputStream base=baseFile.inputStream();
+    InputStream base=baseFile.inputStream();
     if (base != null) {
       if (0 != (baseFile.myArchiveType & ArchiveType.ZIP)) {
       }
