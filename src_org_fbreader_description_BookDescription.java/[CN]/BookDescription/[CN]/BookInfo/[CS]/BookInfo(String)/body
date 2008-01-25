@@ -1,0 +1,10 @@
+{
+  AuthorDisplayNameOption=new ZLStringOption(FBOptions.BOOKS_CATEGORY,fileName,"AuthorDisplayName",EMPTY);
+  AuthorSortKeyOption=new ZLStringOption(FBOptions.BOOKS_CATEGORY,fileName,"AuthorSortKey",EMPTY);
+  TitleOption=new ZLStringOption(FBOptions.BOOKS_CATEGORY,fileName,"Title",EMPTY);
+  SequenceNameOption=new ZLStringOption(FBOptions.BOOKS_CATEGORY,fileName,"Sequence",EMPTY);
+  NumberInSequenceOption=new ZLIntegerRangeOption(FBOptions.BOOKS_CATEGORY,fileName,"Number in seq",0,100,0);
+  LanguageOption=new ZLStringOption(FBOptions.BOOKS_CATEGORY,fileName,"Language",UNKNOWN);
+  EncodingOption=new ZLStringOption(FBOptions.BOOKS_CATEGORY,fileName,"Encoding",EMPTY);
+  IsSequenceDefinedOption=new ZLBooleanOption(FBOptions.BOOKS_CATEGORY,fileName,"SequenceDefined",new ZLFile(fileName).extension().equals("fb2"));
+}

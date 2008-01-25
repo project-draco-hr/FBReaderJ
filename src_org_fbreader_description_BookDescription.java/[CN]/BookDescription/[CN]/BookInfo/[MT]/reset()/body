@@ -1,0 +1,9 @@
+{
+  AuthorDisplayNameOption.setValue(EMPTY);
+  AuthorSortKeyOption.setValue(EMPTY);
+  TitleOption.setValue(EMPTY);
+  SequenceNameOption.setValue(EMPTY);
+  NumberInSequenceOption.setValue(0);
+  LanguageOption.setValue(UNKNOWN);
+  EncodingOption.setValue(EMPTY);
+}

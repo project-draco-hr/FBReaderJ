@@ -1,0 +1,5 @@
+{
+  myFileName=fileName;
+  myAuthor=null;
+  myNumberInSequence=0;
+}

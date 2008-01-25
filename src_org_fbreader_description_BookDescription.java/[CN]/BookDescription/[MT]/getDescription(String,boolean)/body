@@ -1,0 +1,53 @@
+{
+  String physicalFileName=new ZLFile(fileName).physicalFilePath();
+  ZLFile file=new ZLFile(physicalFileName);
+  if (checkFile && !file.exists()) {
+    return null;
+  }
+  BookDescription description=ourDescriptions.get(fileName);
+  if (description == null) {
+    description=new BookDescription(fileName);
+    ourDescriptions.put(fileName,description);
+  }
+  if (!checkFile || BookDescriptionUtil.checkInfo(file)) {
+    BookInfo info=new BookInfo(fileName);
+    description.myAuthor=SingleAuthor.create(info.AuthorDisplayNameOption.getValue(),info.AuthorSortKeyOption.getValue());
+    description.myTitle=info.TitleOption.getValue();
+    description.mySequenceName=info.SequenceNameOption.getValue();
+    description.myNumberInSequence=info.NumberInSequenceOption.getValue();
+    description.myLanguage=info.LanguageOption.getValue();
+    description.myEncoding=info.EncodingOption.getValue();
+    if (info.isFull()) {
+      return description;
+    }
+  }
+ else {
+    if (physicalFileName != fileName) {
+      BookDescriptionUtil.resetZipInfo(file);
+    }
+    BookDescriptionUtil.saveInfo(file);
+  }
+  ZLFile bookFile=new ZLFile(fileName);
+  if (description.myTitle.equals("")) {
+    description.myTitle=ZLFile.fileNameToUtf8(bookFile.name(true));
+  }
+  Author author=description.myAuthor;
+  if (author == null || author.displayName().equals("")) {
+    description.myAuthor=SingleAuthor.create();
+  }
+  if (description.myEncoding.equals("")) {
+    description.myEncoding="auto";
+  }
+{
+    BookInfo info=new BookInfo(fileName);
+    info.AuthorDisplayNameOption.setValue(description.myAuthor.displayName());
+    info.AuthorSortKeyOption.setValue(description.myAuthor.sortKey());
+    info.TitleOption.setValue(description.myTitle);
+    info.SequenceNameOption.setValue(description.mySequenceName);
+    info.NumberInSequenceOption.setValue(description.myNumberInSequence);
+    info.LanguageOption.setValue(description.myLanguage);
+    info.EncodingOption.setValue(description.myEncoding);
+    info.IsSequenceDefinedOption.setValue(true);
+  }
+  return description;
+}
