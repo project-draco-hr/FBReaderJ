@@ -1,3 +1,12 @@
 {
   ZLDir zipDir=zipFile.directory(false);
+  if (zipDir != null) {
+    String zipPrefix=zipFile.path() + ':';
+    ArrayList entries=new ArrayList();
+    int counter=0;
+    zipDir.collectFiles(entries,false);
+    for (Iterator zit=entries.iterator(); zit.hasNext(); ) {
+    }
+    new ZLIntegerOption(FBOptions.BOOKS_CATEGORY,zipFile.path(),ENTRIES_NUMBER,-1).setValue(counter);
+  }
 }
