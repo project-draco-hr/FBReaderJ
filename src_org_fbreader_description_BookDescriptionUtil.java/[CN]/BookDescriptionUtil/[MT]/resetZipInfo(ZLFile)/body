@@ -1,0 +1,3 @@
+{
+  ZLDir zipDir=zipFile.directory(false);
+}

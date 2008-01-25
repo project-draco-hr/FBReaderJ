@@ -1,0 +1,3 @@
+{
+  new ZLIntegerOption(FBOptions.BOOKS_CATEGORY,file.path(),SIZE,-1).setValue((int)file.size());
+}
