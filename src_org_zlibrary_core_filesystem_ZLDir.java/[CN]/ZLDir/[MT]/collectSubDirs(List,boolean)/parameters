@@ -1,2 +1,2 @@
-List<String> names
+List names
 boolean includeSymlinks
