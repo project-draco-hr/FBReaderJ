@@ -1,3 +1,3 @@
 {
-  return (!(AuthorDisplayNameOption.getValue().length() == 0) && !(AuthorSortKeyOption.getValue().length() == 0) && !(TitleOption.getValue().length() == 0)&& !(EncodingOption.getValue().length() == 0)&& IsSequenceDefinedOption.getValue());
+  return ((AuthorDisplayNameOption.getValue().length() != 0) && (AuthorSortKeyOption.getValue().length() != 0) && (TitleOption.getValue().length() != 0)&& (EncodingOption.getValue().length() != 0)&& IsSequenceDefinedOption.getValue());
 }

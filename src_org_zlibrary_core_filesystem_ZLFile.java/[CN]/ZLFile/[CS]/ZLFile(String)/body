@@ -19,7 +19,7 @@
   }
  else {
     myArchiveType=ArchiveType.NONE;
-    String lowerCaseName="";
+    String lowerCaseName=myNameWithoutExtension;
     if (lowerCaseName.endsWith(".gz")) {
       myNameWithoutExtension=myNameWithoutExtension.substring(0,myNameWithoutExtension.length() - 3);
       lowerCaseName=lowerCaseName.substring(0,lowerCaseName.length() - 3);
