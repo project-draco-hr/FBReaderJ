@@ -31,10 +31,10 @@ myReadAuthorName[2]=true;
 }
 break;
 case FB2Tag.SEQUENCE:
-{
 if (myReadSomething) {
 }
-}
+break;
+default :
 break;
 }
 }

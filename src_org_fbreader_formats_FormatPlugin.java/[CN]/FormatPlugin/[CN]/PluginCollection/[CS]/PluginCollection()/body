@@ -1,2 +1,3 @@
 {
+  DefaultLanguageOption=new ZLIntegerOption(ZLOption.CONFIG_CATEGORY,"Format","DefaultLanguage",EncodingDetector.Language.RUSSIAN);
 }
