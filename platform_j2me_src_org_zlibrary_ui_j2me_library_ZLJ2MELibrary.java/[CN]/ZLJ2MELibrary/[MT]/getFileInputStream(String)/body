@@ -1,3 +1,11 @@
 {
+  try {
+    FileConnection connection=(FileConnection)Connector.open("file:///Memory Card" + fileName,Connector.READ);
+    if ((connection != null) && connection.exists()) {
+      return connection.openInputStream();
+    }
+  }
+ catch (  Exception e) {
+  }
   return null;
 }

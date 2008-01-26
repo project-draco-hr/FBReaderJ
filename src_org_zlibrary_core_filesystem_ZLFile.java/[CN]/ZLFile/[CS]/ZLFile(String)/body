@@ -12,10 +12,10 @@
     }
   }
   myNameWithoutExtension=myNameWithExtension;
-  Map forcedFiles=ZLFSManager.instance().getForcedFiles();
+  HashMap forcedFiles=ZLFSManager.instance().getForcedFiles();
   Integer value=(Integer)forcedFiles.get(myPath);
   if (value != null) {
-    myArchiveType=value;
+    myArchiveType=value.intValue();
   }
  else {
     myArchiveType=ArchiveType.NONE;
