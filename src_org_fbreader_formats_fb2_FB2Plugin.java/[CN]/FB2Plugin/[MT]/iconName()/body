@@ -1,0 +1,4 @@
+{
+  final String ICON_NAME="fb2";
+  return ICON_NAME;
+}

@@ -1,0 +1,9 @@
+{
+  for (Iterator it=myPlugins.iterator(); it.hasNext(); ) {
+    FormatPlugin fp=(FormatPlugin)it.next();
+    if ((!strong || fp.providesMetaInfo()) && fp.acceptsFile(file)) {
+      return fp;
+    }
+  }
+  return null;
+}

@@ -1,0 +1,7 @@
+{
+  if (ourInstance == null) {
+    ourInstance=new PluginCollection();
+    ourInstance.myPlugins.add(new FB2Plugin());
+  }
+  return ourInstance;
+}

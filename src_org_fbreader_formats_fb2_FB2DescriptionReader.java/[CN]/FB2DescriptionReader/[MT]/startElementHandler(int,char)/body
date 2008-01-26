@@ -1,0 +1,40 @@
+{
+switch (tag) {
+case FB2Tag.BODY:
+    myReturnCode=true;
+  break;
+case FB2Tag.TITLE_INFO:
+myReadSomething=true;
+break;
+case FB2Tag.BOOK_TITLE:
+myReadTitle=true;
+break;
+case FB2Tag.AUTHOR:
+myReadAuthor=true;
+break;
+case FB2Tag.LANG:
+myReadLanguage=true;
+break;
+case FB2Tag.FIRST_NAME:
+if (myReadAuthor) {
+myReadAuthorName[0]=true;
+}
+break;
+case FB2Tag.MIDDLE_NAME:
+if (myReadAuthor) {
+myReadAuthorName[1]=true;
+}
+break;
+case FB2Tag.LAST_NAME:
+if (myReadAuthor) {
+myReadAuthorName[2]=true;
+}
+break;
+case FB2Tag.SEQUENCE:
+{
+if (myReadSomething) {
+}
+}
+break;
+}
+}

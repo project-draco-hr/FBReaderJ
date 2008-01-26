@@ -1,0 +1,10 @@
+{
+  myReadSomething=false;
+  myReadTitle=false;
+  myReadAuthor=false;
+  myReadLanguage=false;
+  for (int i=0; i < 3; ++i) {
+    myReadAuthorName[i]=false;
+  }
+  return true;
+}

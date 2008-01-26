@@ -1,0 +1,21 @@
+{
+  String encoding=description.getEncoding();
+  if (encoding.length() == 0) {
+    encoding=EncodingDetector.detect(stream,PluginCollection.instance().DefaultLanguageOption.getValue());
+    if (encoding == "unknown") {
+      encoding="windows-1252";
+    }
+    new WritableBookDescription(description).setEncoding(encoding);
+  }
+  if (description.getLanguage() == "") {
+    if ((encoding.equals("US-ASCII")) || (encoding.equals("ISO-8859-1"))) {
+      new WritableBookDescription(description).setLanguage("en");
+    }
+ else     if ((description.getEncoding().equals("KOI8-R")) || (encoding.equals("windows-1251")) || (encoding.equals("ISO-8859-5"))|| (encoding.equals("IBM866"))) {
+      new WritableBookDescription(description).setLanguage("ru");
+    }
+ else     if ((PluginCollection.instance().DefaultLanguageOption.getValue() == EncodingDetector.Language.CZECH) && ((encoding == "windows-1250") || (encoding == "ISO-8859-2") || (encoding == "IBM852"))) {
+      new WritableBookDescription(description).setLanguage("cs");
+    }
+  }
+}
