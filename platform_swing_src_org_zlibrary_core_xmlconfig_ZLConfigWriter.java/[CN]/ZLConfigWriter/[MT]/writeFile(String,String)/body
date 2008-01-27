@@ -12,6 +12,5 @@
  catch (  FileNotFoundException fnfException) {
   }
 catch (  UnsupportedEncodingException e) {
-    System.out.println(e.getMessage());
   }
 }
