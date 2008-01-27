@@ -1,3 +1,0 @@
-{
-  runTask2a("0",Double.POSITIVE_INFINITY,0,0);
-}

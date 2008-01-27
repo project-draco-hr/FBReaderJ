@@ -1,3 +1,0 @@
-{
-  runTask2b("Infinity",1.0,Double.NEGATIVE_INFINITY,"-Infinity");
-}

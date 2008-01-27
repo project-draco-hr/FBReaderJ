@@ -1,3 +1,0 @@
-{
-  runTask2a("12E-78",Double.NaN,0,0);
-}

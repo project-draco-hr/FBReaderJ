@@ -1,3 +1,0 @@
-{
-  runTask1("1.1",Double.NaN,1.1);
-}

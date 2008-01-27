@@ -1,3 +1,0 @@
-{
-  runTask2a(null,Double.NaN,Double.NaN,Double.NaN);
-}

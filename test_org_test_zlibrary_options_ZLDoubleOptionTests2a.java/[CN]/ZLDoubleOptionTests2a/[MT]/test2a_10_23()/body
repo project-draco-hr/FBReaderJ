@@ -1,3 +1,0 @@
-{
-  runTask2a("12E-9000",Double.NaN,Double.POSITIVE_INFINITY,Double.POSITIVE_INFINITY);
-}
