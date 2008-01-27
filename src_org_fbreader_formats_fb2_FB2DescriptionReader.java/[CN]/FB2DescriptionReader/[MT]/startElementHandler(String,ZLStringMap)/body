@@ -1,5 +1,5 @@
 {
-switch (tag) {
+switch (FB2Tag.getTagByName(tagName)) {
 case FB2Tag.BODY:
     myReturnCode=true;
   break;
@@ -32,6 +32,14 @@ myReadAuthorName[2]=true;
 break;
 case FB2Tag.SEQUENCE:
 if (myReadSomething) {
+String name=attributes.getValue("name");
+if (name != null) {
+String sequenceName=name;
+sequenceName.trim();
+myDescription.setSequenceName(sequenceName);
+String number=attributes.getValue("number");
+myDescription.setNumberInSequence((number != null) ? Integer.parseInt(number) : 0);
+}
 }
 break;
 default :

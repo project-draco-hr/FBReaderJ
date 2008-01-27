@@ -1,5 +1,5 @@
 {
-switch (tag) {
+switch (FB2Tag.getTagByName(tag)) {
 case FB2Tag.TITLE_INFO:
     myReadSomething=false;
   break;
