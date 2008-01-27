@@ -1,5 +1,5 @@
 {
-  int i=0;
+  int i=defaultValue;
   String value=attributes.getValue(name);
   if (value != null) {
     try {

@@ -9,5 +9,5 @@ int rightIndent
 int firstLineIndentDelta
 int verticalShift
 byte alignment
-double lineSpace
+int lineSpace
 int allowHyphenations

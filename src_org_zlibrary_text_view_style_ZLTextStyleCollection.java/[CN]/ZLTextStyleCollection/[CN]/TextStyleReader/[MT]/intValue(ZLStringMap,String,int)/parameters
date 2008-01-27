@@ -1,2 +1,3 @@
 ZLStringMap attributes
 String name
+int defaultValue

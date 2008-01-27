@@ -7,5 +7,5 @@
   RightIndentOption=new ZLIntegerRangeOption(category,STYLE,name + ":rightIndent",-300,300,rightIndent);
   FirstLineIndentDeltaOption=new ZLIntegerRangeOption(category,STYLE,name + ":firstLineIndentDelta",-300,300,firstLineIndentDelta);
   AlignmentOption=new ZLIntegerOption(category,STYLE,name + ":alignment",alignment);
-  LineSpaceOption=new ZLDoubleOption(category,STYLE,name + ":lineSpace",lineSpace);
+  LineSpacePercentOption=new ZLIntegerOption(category,STYLE,name + ":lineSpacePercent",lineSpace);
 }
