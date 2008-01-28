@@ -1,3 +1,6 @@
 {
-  return ENGLISH;
+  if (ourDefaultLocale == null) {
+    ourDefaultLocale=new Locale(System.getProperty("microedition.locale"));
+  }
+  return ourDefaultLocale;
 }

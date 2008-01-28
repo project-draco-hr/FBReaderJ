@@ -1,3 +1,9 @@
 {
-  myLanguage=language;
+  if (property == null) {
+    final int index=property.indexOf('-');
+    myLanguage=(index != -1) ? property.substring(0,index) : property;
+  }
+ else {
+    myLanguage="en";
+  }
 }

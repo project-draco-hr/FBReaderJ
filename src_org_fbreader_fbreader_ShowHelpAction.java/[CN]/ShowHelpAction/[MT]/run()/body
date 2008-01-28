@@ -1,4 +1,4 @@
 {
-  fbreader().openBook(FBReader.HELP_FILE_NAME);
+  fbreader().openBook(fbreader().getHelpFileName());
   fbreader().refreshWindow();
 }

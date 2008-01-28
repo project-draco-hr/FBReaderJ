@@ -49,7 +49,7 @@
     }
   }
   if (!openBook(fileName)) {
-    openBook(HELP_FILE_NAME);
+    openBook(getHelpFileName());
   }
   refreshWindow();
 }
