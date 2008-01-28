@@ -1,5 +1,5 @@
 {
-  final HashSet bookFileNames=new HashSet();
+  final ArrayList bookFileNames=new ArrayList();
   final ArrayList dirs=collectDirNames();
   final int numberOfDirs=dirs.size();
   for (int i=0; i < numberOfDirs; ++i) {
@@ -14,7 +14,9 @@
       String fileName=dir.getItemPath((String)files.get(j));
       ZLFile file=new ZLFile(fileName);
       if (PluginCollection.instance().getPlugin(file,true) != null) {
-        bookFileNames.add(fileName);
+        if (!bookFileNames.contains(fileName)) {
+          bookFileNames.add(fileName);
+        }
       }
  else       if (file.getExtension() == "zip") {
         if (!BookDescriptionUtil.checkInfo(file)) {
@@ -25,7 +27,10 @@
         BookDescriptionUtil.listZipEntries(file,zipEntries);
         final int numberOfZipEntries=zipEntries.size();
         for (int k=0; k < numberOfZipEntries; ++k) {
-          bookFileNames.add(zipEntries.get(i));
+          String str=(String)zipEntries.get(i);
+          if (!bookFileNames.contains(str)) {
+            bookFileNames.add(str);
+          }
         }
       }
     }

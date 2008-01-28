@@ -11,7 +11,11 @@
     myAuthors.clear();
     myCollection.clear();
     myExternalBooks.clear();
-    final HashSet fileNamesSet=collectBookFileNames();
+    final ArrayList fileNamesSet=collectBookFileNames();
+    final int sizeOfSet=fileNamesSet.size();
+    for (int i=0; i < sizeOfSet; ++i) {
+      addDescription(BookDescription.getDescription((String)fileNamesSet.get(i)));
+    }
     final ArrayList bookListFileNames=new BookList().fileNames();
     final int sizeOfList=bookListFileNames.size();
     for (int i=0; i < sizeOfList; ++i) {
@@ -20,7 +24,7 @@
         BookDescription description=BookDescription.getDescription(fileName);
         if (description != null) {
           addDescription(description);
-          myExternalBooks.add(description);
+          addExternalBook(description);
         }
       }
     }
