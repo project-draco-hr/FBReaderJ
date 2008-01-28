@@ -1,0 +1,8 @@
+{
+  if (strong) {
+    myDoStrongRebuild=true;
+  }
+ else {
+    myDoWeakRebuild=true;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  PathOption=new ZLStringOption(ZLOption.CONFIG_CATEGORY,OPTIONS,"BookPath","");
+  ScanSubdirsOption=new ZLBooleanOption(ZLOption.CONFIG_CATEGORY,OPTIONS,"ScanSubdirs",false);
+  myDoStrongRebuild=true;
+  myDoWeakRebuild=false;
+}
