@@ -5,8 +5,8 @@
     int counter=0;
     final ArrayList entries=zipDir.collectFiles();
     final int size=entries.size();
-    for (Iterator zit=entries.iterator(); zit.hasNext(); ) {
-      String entry=(String)zit.next();
+    for (int i=0; i < size; ++i) {
+      String entry=(String)entries.get(i);
       if (PluginCollection.instance().plugin(new ZLFile(entry),true) != null) {
         String optionName=ENTRY;
         optionName+=counter;

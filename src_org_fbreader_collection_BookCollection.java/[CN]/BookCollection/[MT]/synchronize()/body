@@ -11,17 +11,13 @@
     myAuthors.clear();
     myCollection.clear();
     myExternalBooks.clear();
-    HashSet fileNamesSet=new HashSet();
-    collectBookFileNames(fileNamesSet);
-    for (Iterator it=fileNamesSet.iterator(); it.hasNext(); ) {
-      addDescription(BookDescription.getDescription((String)it.next()));
-    }
-    BookList bookList=new BookList();
-    HashSet bookListSet=bookList.fileNames();
-    for (Iterator it=bookListSet.iterator(); it.hasNext(); ) {
-      String itValue=(String)it.next();
-      if (!fileNamesSet.contains(itValue)) {
-        BookDescription description=BookDescription.getDescription(itValue);
+    final HashSet fileNamesSet=collectBookFileNames();
+    final ArrayList bookListFileNames=new BookList().fileNames();
+    final int sizeOfList=bookListFileNames.size();
+    for (int i=0; i < sizeOfList; ++i) {
+      final String fileName=(String)bookListFileNames.get(i);
+      if (!fileNamesSet.contains(fileName)) {
+        BookDescription description=BookDescription.getDescription(fileName);
         if (description != null) {
           addDescription(description);
           myExternalBooks.add(description);
@@ -30,24 +26,6 @@
     }
   }
  else {
-    BookList bookList=new BookList();
-    HashSet bookListSet=bookList.fileNames();
-    ArrayList fileNames=new ArrayList();
-    for (Iterator it=myCollection.entrySet().iterator(); it.hasNext(); ) {
-      final Map.Entry en=(Map.Entry)it.next();
-      final ArrayList books=(ArrayList)en.getValue();
-      for (Iterator jt=books.iterator(); jt.hasNext(); ) {
-        BookDescription jtValue=(BookDescription)jt.next();
-        if ((!myExternalBooks.contains(jtValue)) || (bookListSet.contains(jtValue.getFileName()))) {
-          fileNames.add(jtValue.getFileName());
-        }
-      }
-    }
-    myCollection.clear();
-    myAuthors.clear();
-    for (Iterator it=fileNames.iterator(); it.hasNext(); ) {
-      addDescription(BookDescription.getDescription((String)it.next(),false));
-    }
   }
   return true;
 }

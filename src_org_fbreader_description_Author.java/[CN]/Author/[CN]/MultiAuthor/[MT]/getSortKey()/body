@@ -1,0 +1,12 @@
+{
+  if ((mySortKey.length() == 0) && (myAuthors.size() != 0)) {
+    mySortKey=((Author)myAuthors.get(0)).getSortKey();
+    for (int i=1; i < myAuthors.size(); ++i) {
+      String key=((Author)myAuthors.get(i)).getSortKey();
+      if (key.compareTo(mySortKey) < 0) {
+        mySortKey=key;
+      }
+    }
+  }
+  return mySortKey;
+}

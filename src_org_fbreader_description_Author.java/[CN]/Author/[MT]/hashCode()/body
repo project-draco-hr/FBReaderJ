@@ -1,0 +1,3 @@
+{
+  return getSortKey().hashCode() + getDisplayName().hashCode();
+}

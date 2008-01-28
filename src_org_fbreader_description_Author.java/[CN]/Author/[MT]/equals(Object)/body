@@ -1,0 +1,10 @@
+{
+  if (o == this) {
+    return true;
+  }
+  if (!(o instanceof Author)) {
+    return false;
+  }
+  Author author=(Author)o;
+  return getSortKey().equals(author.getSortKey()) && getDisplayName().equals(author.getDisplayName());
+}

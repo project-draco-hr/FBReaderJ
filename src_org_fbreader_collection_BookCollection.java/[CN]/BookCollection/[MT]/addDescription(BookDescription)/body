@@ -2,25 +2,12 @@
   if (description == null) {
     return;
   }
-  Author author=description.getAuthor();
-  String displayName=author.getDisplayName();
-  String sortKey=author.getSortKey();
-  Iterator it=myCollection.entrySet().iterator();
-  for (; it.hasNext(); ) {
-    Map.Entry entry=(Map.Entry)it.next();
-    Author author1=(Author)entry.getKey();
-    if ((author1.getSortKey().equals(sortKey)) && (author1.getDisplayName().equals(displayName))) {
-      break;
-    }
-  }
-  if (it.hasNext()) {
-    Map.Entry entry=(Map.Entry)it.next();
-    ((ArrayList)entry.getValue()).add(description);
-  }
- else {
-    ArrayList books=new ArrayList();
-    books.add(description);
+  final Author author=description.getAuthor();
+  ArrayList books=(ArrayList)myCollection.get(author);
+  if (books == null) {
+    books=new ArrayList();
     myCollection.put(author,books);
     myAuthors.add(author);
   }
+  books.add(description);
 }
