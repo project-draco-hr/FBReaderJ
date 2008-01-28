@@ -1,3 +1,0 @@
-{
-  return ZLFSManager.instance().parentPath(myPath);
-}

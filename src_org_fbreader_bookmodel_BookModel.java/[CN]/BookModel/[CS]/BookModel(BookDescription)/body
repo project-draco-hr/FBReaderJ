@@ -1,0 +1,9 @@
+{
+  myFileName=description.getFileName();
+  myDescription=description;
+  ZLFile file=new ZLFile(description.getFileName());
+  FormatPlugin plugin=PluginCollection.instance().getPlugin(file,false);
+  if (plugin != null) {
+    plugin.readModel(description,this);
+  }
+}

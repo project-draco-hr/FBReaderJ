@@ -1,9 +1,9 @@
 {
   myPath=path;
   myInfoIsFilled=false;
-  ZLFSManager.instance().normalize(myPath);
+  ZLFSManager.getInstance().normalize(myPath);
 {
-    int index=ZLFSManager.instance().findLastFileNameDelimiter(myPath);
+    int index=ZLFSManager.getInstance().findLastFileNameDelimiter(myPath);
     if (index < myPath.length() - 1) {
       myNameWithExtension=myPath.substring(index + 1);
     }
@@ -12,7 +12,7 @@
     }
   }
   myNameWithoutExtension=myNameWithExtension;
-  HashMap forcedFiles=ZLFSManager.instance().getForcedFiles();
+  HashMap forcedFiles=ZLFSManager.getInstance().getForcedFiles();
   Integer value=(Integer)forcedFiles.get(myPath);
   if (value != null) {
     myArchiveType=value.intValue();

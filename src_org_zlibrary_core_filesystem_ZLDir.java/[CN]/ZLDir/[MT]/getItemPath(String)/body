@@ -1,0 +1,8 @@
+{
+  if (itemName == "..") {
+    return getParentPath();
+  }
+ else {
+    return isRoot() ? myPath + itemName : myPath + getDelimiter() + itemName;
+  }
+}

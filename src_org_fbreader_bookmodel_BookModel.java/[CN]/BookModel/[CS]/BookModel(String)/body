@@ -1,3 +1,4 @@
 {
   myFileName=fileName;
+  myDescription=null;
 }

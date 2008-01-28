@@ -1,0 +1,14 @@
+{
+  if (exists()) {
+    if (isDirectory()) {
+    }
+ else     if (0 != (myArchiveType & ArchiveType.ZIP)) {
+    }
+ else     if (0 != (myArchiveType & ArchiveType.TAR)) {
+    }
+  }
+ else   if (createUnexisting) {
+    myInfoIsFilled=false;
+  }
+  return null;
+}
