@@ -4,7 +4,7 @@
     return;
   }
   int index=handler().selectedIndex();
-  if ((index < 0) || (index >= (int)nodes.size())) {
+  if ((index < 0) || (index >= nodes.size())) {
     if (handler().isOpenHandler()) {
       index=0;
     }
