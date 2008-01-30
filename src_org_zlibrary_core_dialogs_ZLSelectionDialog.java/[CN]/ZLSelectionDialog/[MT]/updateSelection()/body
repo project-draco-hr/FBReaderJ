@@ -1,0 +1,16 @@
+{
+  ArrayList nodes=handler().subnodes();
+  if (nodes.size() == 0) {
+    return;
+  }
+  int index=handler().selectedIndex();
+  if ((index < 0) || (index >= (int)nodes.size())) {
+    if (handler().isOpenHandler()) {
+      index=0;
+    }
+ else {
+      return;
+    }
+  }
+  selectItem(index);
+}

@@ -1,0 +1,13 @@
+{
+  int info=handler().updateInfo();
+  if ((info & UpdateType.UPDATE_STATE) != 0) {
+    updateStateLine();
+  }
+  if ((info & UpdateType.UPDATE_LIST) != 0) {
+    updateList();
+  }
+  if ((info & UpdateType.UPDATE_SELECTION) != 0) {
+    updateSelection();
+  }
+  myHandler.resetUpdateInfo();
+}

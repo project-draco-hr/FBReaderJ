@@ -1,0 +1,6 @@
+{
+  this.myId=myId;
+  this.myDisplayName=myDisplayName;
+  this.myPixmapName=myPixmapName;
+  this.myIsFolder=myIsFolder;
+}
