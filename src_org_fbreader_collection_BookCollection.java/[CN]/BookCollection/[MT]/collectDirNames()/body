@@ -1,3 +1,31 @@
 {
-  return new ArrayList();
+  PriorityQueue nameQueue=new PriorityQueue();
+  ArrayList nameSet=new ArrayList();
+  String path=myPath;
+  int pos=path.indexOf(ZLibrary.PathDelimiter);
+  while (pos != -1) {
+    nameQueue.add(path.substring(0,pos));
+    path=path.substring(0,pos + 1);
+    pos=path.indexOf(ZLibrary.PathDelimiter);
+  }
+  if (path.length() != 0) {
+    nameQueue.add(path);
+  }
+  while (!nameQueue.isEmpty()) {
+    String name=(String)nameQueue.peek();
+    nameQueue.remove();
+    if (!nameSet.contains(name)) {
+      if (myScanSubdirs) {
+        ZLDir dir=new ZLFile(name).getDirectory();
+        if (dir != null) {
+          ArrayList subdirs=dir.collectSubDirs();
+          for (int i=0; i < subdirs.size(); ++i) {
+            nameQueue.add(dir.getItemPath((String)subdirs.get(i)));
+          }
+        }
+      }
+      nameSet.add(name);
+    }
+  }
+  return nameSet;
 }
