@@ -1,0 +1,3 @@
+{
+  return ZLibrary.getInstance().FileNameDelimiter;
+}

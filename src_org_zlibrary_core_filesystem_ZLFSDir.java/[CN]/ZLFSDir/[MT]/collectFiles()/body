@@ -1,0 +1,8 @@
+{
+  File[] dirs=myFile.listFiles();
+  ArrayList newdirs=new ArrayList();
+  for (int i=0; i < dirs.length; i++) {
+    newdirs.add(dirs[i].getName());
+  }
+  return newdirs;
+}

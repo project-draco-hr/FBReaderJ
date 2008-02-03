@@ -1,0 +1,5 @@
+{
+  File a=new File(path);
+  a.mkdirs();
+  return new ZLFSDir(path);
+}

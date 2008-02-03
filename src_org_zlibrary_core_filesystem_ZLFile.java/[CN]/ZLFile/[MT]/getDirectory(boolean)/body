@@ -1,6 +1,7 @@
 {
   if (exists()) {
     if (isDirectory()) {
+      return ZLFSManager.getInstance().createPlainDirectory(myPath);
     }
  else     if (0 != (myArchiveType & ArchiveType.ZIP)) {
     }
@@ -9,6 +10,7 @@
   }
  else   if (createUnexisting) {
     myInfoIsFilled=false;
+    return ZLFSManager.getInstance().createNewDirectory(myPath);
   }
   return null;
 }

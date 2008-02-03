@@ -3,5 +3,28 @@
     return null;
   }
   InputStream stream=null;
+  int index=ZLFSManager.getInstance().findArchiveFileNameDelimiter(myPath);
+  if (index == -1) {
+    stream=ZLFSManager.getInstance().createPlainInputStream(myPath);
+  }
+ else {
+    ZLFile baseFile=new ZLFile(myPath.substring(0,index));
+    InputStream base=baseFile.getInputStream();
+    if (base != null) {
+      if (0 != (baseFile.myArchiveType & ArchiveType.ZIP)) {
+        ZipFile zf=new ZipFile(myPath.substring(0,index));
+        ZipEntry entry=zf.getEntry(myPath.substring(index + 1));
+        stream=zf.getInputStream(entry);
+      }
+ else       if (0 != (baseFile.myArchiveType & ArchiveType.TAR)) {
+      }
+    }
+  }
+  if (stream != null) {
+    if (0 != (myArchiveType & ArchiveType.GZIP)) {
+    }
+    if (0 != (myArchiveType & ArchiveType.BZIP2)) {
+    }
+  }
   return stream;
 }
