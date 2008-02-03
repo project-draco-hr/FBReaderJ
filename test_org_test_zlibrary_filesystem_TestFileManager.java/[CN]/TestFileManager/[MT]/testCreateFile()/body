@@ -1,0 +1,4 @@
+{
+  ZLFile file=new ZLFile("test.fb2");
+  file.getInputStream("test.fb2");
+}
