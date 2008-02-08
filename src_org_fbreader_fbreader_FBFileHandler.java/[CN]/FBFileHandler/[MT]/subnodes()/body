@@ -1,0 +1,46 @@
+{
+  if (!myIsUpToDate) {
+    if (!myDir.isRoot()) {
+      mySubnodes.add(new ZLTreeNode("..","..",FOLDER_ICON,true));
+    }
+    HashMap folderNodes=new HashMap();
+    HashMap fileNodes=new HashMap();
+    ArrayList names=myDir.collectSubDirs();
+    int size=names.size();
+    for (int i=0; i < size; i++) {
+      final String subDir=(String)names.get(i);
+      final String displayName=ZLFile.fileNameToUtf8(new ZLFile(subDir).getName(false));
+      folderNodes.put(displayName,new ZLTreeNode(subDir,displayName,FOLDER_ICON,true));
+    }
+    names.clear();
+    names=myDir.collectFiles();
+    size=names.size();
+    for (int i=0; i < size; i++) {
+      final String fileName=(String)names.get(i);
+      if ("".equals(fileName)) {
+        continue;
+      }
+      ZLFile file=new ZLFile(myDir.getItemPath(fileName));
+      final String displayName=ZLFile.fileNameToUtf8(file.getName(false));
+      if ("".equals(displayName)) {
+        continue;
+      }
+      FormatPlugin plugin=PluginCollection.instance().getPlugin(file,false);
+      if (plugin != null) {
+        String icon=(String)pluginIcons.get(plugin);
+        if ("".equals(icon)) {
+          icon=plugin.getIconName();
+          pluginIcons.put(plugin,icon);
+        }
+        fileNodes.put(displayName,new ZLTreeNode(fileName,displayName,icon,false));
+      }
+ else       if (file.isArchive()) {
+        folderNodes.put(displayName,new ZLTreeNode(fileName,displayName,ZIP_FOLDER_ICON,true));
+      }
+    }
+    mySubnodes.add(folderNodes.values());
+    mySubnodes.add(fileNodes.values());
+    myIsUpToDate=true;
+  }
+  return mySubnodes;
+}

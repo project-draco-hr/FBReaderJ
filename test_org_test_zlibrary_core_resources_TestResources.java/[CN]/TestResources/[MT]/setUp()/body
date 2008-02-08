@@ -2,4 +2,6 @@
   new ZLSwingLibrary();
   new ZLOwnXMLProcessorFactory();
   Locale.setDefault(Locale.ENGLISH);
+  ZLResource.setApplicationDirectory("test/data/resources/application/");
+  ZLResource.setZLibraryDirectory("test/data/resources/zlibrary/");
 }

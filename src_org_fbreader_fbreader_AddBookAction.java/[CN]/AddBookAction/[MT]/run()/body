@@ -1,3 +1,3 @@
 {
-  ZLDialogManager.getInstance().runSelectionDialog("addFileDialog",null);
+  ZLDialogManager.getInstance().runSelectionDialog("addFileDialog",new FBFileHandler());
 }

@@ -1,0 +1,21 @@
+{
+  ZLDir dir=new ZLFile(myDir.getItemPath(node.id())).getDirectory();
+  if (dir != null) {
+    final String selectedId=myDir.getName();
+    myDir=dir;
+    myIsUpToDate=false;
+    mySubnodes.clear();
+    mySelectedIndex=0;
+    if ("..".equals(node.id())) {
+      final ArrayList subnodes=this.subnodes();
+      final int size=subnodes.size();
+      for (int index=0; index < size; index++) {
+        if (((ZLTreeNode)subnodes.get(index)).id().equals(selectedId)) {
+          mySelectedIndex=index;
+          break;
+        }
+      }
+    }
+    addUpdateInfo(UpdateType.UPDATE_ALL);
+  }
+}

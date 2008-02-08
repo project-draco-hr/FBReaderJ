@@ -1,4 +1,4 @@
 {
-  new ZLSwingSelectionDialog(myApplicationWindow.getFrame()).run();
+  new ZLSwingSelectionDialog(myApplicationWindow.getFrame(),getDialogTitle(key),handler).run();
   return false;
 }

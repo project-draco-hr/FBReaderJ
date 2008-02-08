@@ -1,3 +1,0 @@
-{
-  myJDialog=new JDialog(frame,true);
-}

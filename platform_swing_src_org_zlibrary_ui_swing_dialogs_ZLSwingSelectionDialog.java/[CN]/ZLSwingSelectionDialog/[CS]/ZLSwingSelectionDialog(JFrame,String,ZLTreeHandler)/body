@@ -1,0 +1,6 @@
+{
+  super(myHandler);
+  myJDialog=new JDialog(frame);
+  myCaption=caption;
+  update();
+}

@@ -1,0 +1,12 @@
+{
+  final String name=myDir.getItemPath(node.id());
+  FormatPlugin plugin=PluginCollection.instance().getPlugin(new ZLFile(name),false);
+  final String message=(plugin == null) ? "Unknown File Format" : plugin.tryOpen(name);
+  if ("".equals(message)) {
+    final String boxKey="openBookErrorBox";
+    ZLDialogManager.getInstance().showErrorBox(boxKey,ZLDialogManager.getDialogMessage(boxKey) + " " + message);
+    return false;
+  }
+  myDescription=BookDescription.getDescription(name);
+  return true;
+}

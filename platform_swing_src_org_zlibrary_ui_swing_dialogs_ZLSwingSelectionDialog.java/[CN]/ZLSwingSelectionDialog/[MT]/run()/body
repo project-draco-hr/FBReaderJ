@@ -1,9 +1,8 @@
 {
   myJDialog.setLayout(new BorderLayout());
-  JTextField textLine=new JTextField();
-  textLine.setText("directory name");
-  textLine.setEditable(false);
-  myJDialog.add(textLine,BorderLayout.NORTH);
+  myJDialog.setTitle(myCaption);
+  myStateLine.setEditable(false);
+  myJDialog.add(myStateLine,BorderLayout.NORTH);
   String[] books=new String[]{"..","Book 0","Book 1","Book 2","Book 3","Book 4","Book 5"};
   JList list=new JList(books);
   list.setCellRenderer(new CellRenderer());
@@ -21,4 +20,5 @@
   myJDialog.setSize(600,400);
   myJDialog.setLocationRelativeTo(myJDialog.getParent());
   myJDialog.setVisible(true);
+  return false;
 }
