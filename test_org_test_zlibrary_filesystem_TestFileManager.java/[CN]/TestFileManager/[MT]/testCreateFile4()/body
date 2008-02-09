@@ -1,0 +1,17 @@
+{
+  ZLFile file=new ZLFile(myDirectory);
+  file.getInputStream(myDirectory);
+  ZLDir dir=file.getDirectory();
+  assertEquals(dir.getItemPath(".."),"test\\data\\fb2");
+  assertEquals(dir.getItemPath("marina"),"test\\data\\fb2\\filesystem\\marina");
+  assertEquals(dir.getParentPath(),"test\\data\\fb2");
+  assertEquals(dir.getPath(),"test\\data\\fb2\\filesystem");
+  assertEquals(dir.isRoot(),false);
+  assertEquals(dir.getParentPath(),"test\\data\\fb2");
+  assertEquals(file.getExtension(),null);
+  assertEquals(file.exists(),true);
+  assertEquals(file.isArchive(),false);
+  assertEquals(file.isDirectory(),true);
+  assertEquals(file.isCompressed(),false);
+  assertEquals(file.getName(true),file.getName(false));
+}

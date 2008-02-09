@@ -1,0 +1,11 @@
+{
+  ZLFile file=new ZLFile(myDirectory + filenameZip);
+  file.getInputStream(myDirectory + filenameZip);
+  assertEquals(file.getDirectory(),null);
+  assertEquals(file.getExtension(),"zip");
+  assertEquals(file.exists(),true);
+  assertEquals(file.isArchive(),true);
+  assertEquals(file.isDirectory(),false);
+  assertEquals(file.isCompressed(),false);
+  assertEquals(file.getName(true) + ".zip",file.getName(false));
+}
