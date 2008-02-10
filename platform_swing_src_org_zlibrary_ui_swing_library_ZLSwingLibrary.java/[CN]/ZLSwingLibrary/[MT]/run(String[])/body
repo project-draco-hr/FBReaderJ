@@ -1,6 +1,4 @@
 {
-  ZLibrary.FileNameDelimiter="\\";
-  ZLibrary.PathDelimiter=";";
   new ZLOwnXMLProcessorFactory();
   loadProperties();
   new ZLXMLConfigManager(System.getProperty("user.home") + "/." + getInstance().getApplicationName());
