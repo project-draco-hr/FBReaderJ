@@ -1,0 +1,15 @@
+{
+  MaxListSizeOption=new ZLIntegerRangeOption(ZLOption.STATE_CATEGORY,GROUP,"MaxSize",1,100,10);
+  final int size=MaxListSizeOption.getValue();
+  for (int i=0; i < size; ++i) {
+    String num=BOOK;
+    num+=i;
+    String name=new ZLStringOption(ZLOption.STATE_CATEGORY,GROUP,num,"").getValue();
+    if (name.length() != 0) {
+      BookDescription description=BookDescription.getDescription(name);
+      if (description != null) {
+        myBooks.add(description);
+      }
+    }
+  }
+}

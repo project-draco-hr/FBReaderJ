@@ -1,0 +1,19 @@
+{
+  BookDescription d1=(BookDescription)descr1;
+  BookDescription d2=(BookDescription)descr2;
+  String sequenceName1=d1.getSequenceName();
+  String sequenceName2=d2.getSequenceName();
+  if ((sequenceName1.length() == 0) && (sequenceName2.length() == 0)) {
+    return d1.getTitle().compareTo(d2.getTitle());
+  }
+  if (sequenceName1.length() == 0) {
+    return d1.getTitle().compareTo(sequenceName2);
+  }
+  if (sequenceName2.length() == 0) {
+    return sequenceName1.compareTo(d2.getTitle());
+  }
+  if (!sequenceName1.equals(sequenceName2)) {
+    return sequenceName1.compareTo(sequenceName2);
+  }
+  return (d1.getNumberInSequence() - d2.getNumberInSequence());
+}
