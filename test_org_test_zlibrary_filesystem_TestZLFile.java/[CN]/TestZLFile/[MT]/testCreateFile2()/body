@@ -1,6 +1,5 @@
 {
-  ZLFile file=new ZLFile(myDirectory + "\\" + filename);
-  file.getInputStream(myDirectory + "\\" + filename);
+  ZLFile file=new ZLFile(myDirectory + "/" + filename);
   System.out.println(file.getPhysicalFilePath());
   assertEquals(file.getDirectory(),null);
   assertEquals(file.getExtension(),"fb2");

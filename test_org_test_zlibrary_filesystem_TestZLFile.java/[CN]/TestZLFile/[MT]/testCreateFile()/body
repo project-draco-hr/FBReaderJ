@@ -1,4 +1,4 @@
 {
-  ZLFile file=new ZLFile(myDirectory + filename);
-  file.getInputStream(myDirectory + filename);
+  ZLFile file=new ZLFile(myDirectory + "/" + filename);
+  file.getInputStream(myDirectory + "/" + filename);
 }

@@ -1,8 +1,8 @@
 {
-  BookDescription bd=BookDescription.getDescription(myDirectory + "\\" + filename);
+  BookDescription bd=BookDescription.getDescription(myDirectory + "/" + filename);
   assertTrue(bd != null);
   assertEquals(bd.getEncoding(),"auto");
-  assertEquals(bd.getFileName(),"test\\data\\fb2\\filesystem\\testfb2book.fb2");
+  assertEquals(bd.getFileName(),"test/data/fb2/filesystem/testfb2book.fb2");
   assertEquals(bd.getLanguage(),"ru");
   assertEquals(bd.getSequenceName(),"??????????? ?????? ?????????");
   assertEquals(bd.getTitle(),"???????? ?????????");

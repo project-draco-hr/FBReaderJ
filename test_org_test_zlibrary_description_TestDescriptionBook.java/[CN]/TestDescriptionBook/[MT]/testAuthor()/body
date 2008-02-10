@@ -1,5 +1,5 @@
 {
-  BookDescription bd=BookDescription.getDescription(myDirectory + "\\" + filename);
+  BookDescription bd=BookDescription.getDescription(myDirectory + "/" + filename);
   assertTrue(bd != null);
   Author author=bd.getAuthor();
   assertTrue(author != null);

@@ -1,5 +1,5 @@
 {
-  BookDescription bd=BookDescription.getDescription(myDirectory + "\\" + filename,false);
+  BookDescription bd=BookDescription.getDescription(myDirectory + "/" + filename,false);
   assertTrue(bd != null);
   BookModel bm=new BookModel(bd);
   assertTrue(bm != null);
