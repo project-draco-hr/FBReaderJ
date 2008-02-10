@@ -1,0 +1,4 @@
+{
+  BookDescription bd=BookDescription.getDescription(myDirectory + "\\" + filename);
+  assertTrue(bd != null);
+}

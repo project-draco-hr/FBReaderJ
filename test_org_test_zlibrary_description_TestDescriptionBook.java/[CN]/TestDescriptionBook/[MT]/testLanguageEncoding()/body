@@ -1,0 +1,5 @@
+{
+  BookDescription bd=BookDescription.getDescription(myDirectory + "\\" + filename);
+  assertTrue(bd != null);
+  System.out.println(bd.getTitle());
+}

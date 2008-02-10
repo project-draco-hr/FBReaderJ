@@ -3,6 +3,7 @@
   file.getInputStream(myDirectory);
   ZLDir dir=file.getDirectory();
   assertEquals(dir.getItemPath(".."),"test\\data\\fb2");
+  System.out.println(dir.getItemPath("marina"));
   assertEquals(dir.getItemPath("marina"),"test\\data\\fb2\\filesystem\\marina");
   assertEquals(dir.getParentPath(),"test\\data\\fb2");
   assertEquals(dir.getPath(),"test\\data\\fb2\\filesystem");
