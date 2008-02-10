@@ -1,0 +1,6 @@
+{
+  TestSuite suite=new TestSuite();
+  suite.addTestSuite(TestBookCollection.class);
+  suite.addTestSuite(TestBookList.class);
+  return suite;
+}
