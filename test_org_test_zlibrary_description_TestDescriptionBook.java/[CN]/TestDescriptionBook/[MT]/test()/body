@@ -1,4 +1,6 @@
 {
-  BookDescription bd=BookDescription.getDescription(myDirectory + "\\" + filename);
+  BookDescription bd=BookDescription.getDescription(myDirectory + "\\" + filename,false);
   assertTrue(bd != null);
+  BookDescription bd2=BookDescription.getDescription(myDirectory + "\\c" + filename,false);
+  assertTrue(bd2 == null);
 }
