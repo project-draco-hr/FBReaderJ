@@ -3,6 +3,7 @@
   assertTrue(bd != null);
   Author author=bd.getAuthor();
   assertTrue(author != null);
-  assertEquals(author.getDisplayName(),"Unknown Author");
+  assertEquals(author.getDisplayName(),"????? ??????");
+  assertEquals(author.getSortKey(),"??????");
   assertEquals(author.isSingle(),true);
 }

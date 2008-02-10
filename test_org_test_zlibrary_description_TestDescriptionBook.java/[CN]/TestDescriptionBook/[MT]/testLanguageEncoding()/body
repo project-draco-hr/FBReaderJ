@@ -1,5 +1,10 @@
 {
   BookDescription bd=BookDescription.getDescription(myDirectory + "\\" + filename);
   assertTrue(bd != null);
+  assertEquals(bd.getEncoding(),"auto");
+  System.out.println(bd.getFileName());
+  System.out.println(bd.getLanguage());
+  System.out.println(bd.getNumberInSequence());
+  System.out.println(bd.getSequenceName());
   System.out.println(bd.getTitle());
 }
