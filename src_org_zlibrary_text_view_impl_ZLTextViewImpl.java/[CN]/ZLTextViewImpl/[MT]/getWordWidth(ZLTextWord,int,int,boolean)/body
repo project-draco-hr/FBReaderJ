@@ -2,5 +2,13 @@
   if (start == 0 && length == -1) {
     return word.getWidth(getContext());
   }
-  return 0;
+  int startPos=start;
+  int endPos=(length == -1) ? word.Length : start + length;
+  if (!addHyphenationSign) {
+    return getContext().getStringWidth(word.Data,word.Offset + startPos,endPos - startPos);
+  }
+  String substr=new String(word.Data);
+  substr=substr.substring(startPos,endPos);
+  substr+="-";
+  return getContext().getStringWidth(substr.toCharArray(),0,substr.length());
 }

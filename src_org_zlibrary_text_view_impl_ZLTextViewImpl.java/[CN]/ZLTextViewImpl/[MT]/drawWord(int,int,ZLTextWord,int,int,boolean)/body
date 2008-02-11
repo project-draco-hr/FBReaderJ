@@ -5,6 +5,16 @@
     context.drawString(x,y,word.Data,word.Offset,word.Length);
   }
  else {
-    System.out.println("Shouldn't be here - no hyphenations supported yet.");
+    int startPos=start;
+    int endPos=(length == -1) ? word.Length : start + length;
+    if (!addHyphenationSign) {
+      context.drawString(x,y,word.Data,word.Offset + startPos,endPos - startPos);
+    }
+ else {
+      String substr=new String(word.Data);
+      substr=substr.substring(word.Offset + startPos,word.Offset + endPos);
+      substr+="-";
+      context.drawString(x,y,substr.toCharArray(),0,substr.length());
+    }
   }
 }

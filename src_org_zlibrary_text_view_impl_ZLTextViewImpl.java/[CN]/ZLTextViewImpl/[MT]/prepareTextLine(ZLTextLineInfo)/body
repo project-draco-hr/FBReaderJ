@@ -65,5 +65,17 @@ changeStyle=true;
 }
 context.moveX(width);
 }
+if (!endOfParagraph && (paragraph.getElement(info.EndWordNumber) instanceof ZLTextWord)) {
+int len=info.EndCharNumber;
+if (len > 0) {
+final ZLTextWord word=(ZLTextWord)paragraph.getElement(info.EndWordNumber);
+final boolean addHyphenationSign=word.Data[len - 1] != '-';
+final int x=context.getX();
+final int width=getWordWidth(word,0,len,addHyphenationSign);
+final int height=getElementHeight(word);
+final int descent=getElementDescent(word);
+myTextElementMap.add(new ZLTextElementArea(paragraphNumber,info.EndWordNumber,0,len,addHyphenationSign,changeStyle,myTextStyle,paragraph.getElement(info.EndWordNumber),x,x + width - 1,y - height + 1,y + descent));
+}
+}
 context.moveY(info.Height + info.Descent + info.VSpaceAfter);
 }

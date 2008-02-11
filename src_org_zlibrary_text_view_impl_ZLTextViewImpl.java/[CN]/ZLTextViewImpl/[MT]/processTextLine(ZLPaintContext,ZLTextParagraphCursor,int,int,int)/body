@@ -109,6 +109,35 @@
     }
   }
  while (currentWordIndex != endIndex);
+  if ((currentWordIndex != endIndex) && (ZLTextStyleCollection.getInstance().getBaseStyle().AutoHyphenationOption.getValue()) && (myTextStyle.allowHyphenations())) {
+    ZLTextElement element=paragraphCursor.getElement(currentWordIndex);
+    if (element instanceof ZLTextWord) {
+      newWidth-=getElementWidth(element,currentCharNumber);
+      final ZLTextWord word=(ZLTextWord)element;
+      int spaceLeft=maxWidth - newWidth;
+      if ((word.Length > 3) && (spaceLeft > 2 * getContext().getSpaceWidth())) {
+        int hyphenationPosition=word.Length - 1;
+        int subwordWidth=0;
+        for (; hyphenationPosition > 0; hyphenationPosition--) {
+          subwordWidth=getWordWidth(word,word.Offset,hyphenationPosition,word.Data[hyphenationPosition - 1] != '-');
+          if (subwordWidth <= spaceLeft) {
+            break;
+          }
+        }
+        if (hyphenationPosition > 0) {
+          info.IsVisible=true;
+          info.Width=newWidth + subwordWidth;
+          info.Height=Math.max(info.Height,newHeight);
+          info.Descent=Math.max(info.Descent,newDescent);
+          info.EndWordNumber=currentWordIndex;
+          info.EndCharNumber=hyphenationPosition;
+          info.SpaceCounter=internalSpaceCounter;
+          storedStyle=myTextStyle;
+          removeLastSpace=false;
+        }
+      }
+    }
+  }
   if (removeLastSpace) {
     info.Width-=lastSpaceWidth;
     info.SpaceCounter--;
