@@ -3,6 +3,7 @@
   if (dir != null) {
     final String selectedId=myDir.getName();
     myDir=dir;
+    DirectoryOption.setValue(myDir.getPath());
     myIsUpToDate=false;
     mySubnodes.clear();
     mySelectedIndex=0;

@@ -1,7 +1,7 @@
 {
   String s=((ZLTreeNode)value).displayName();
   setText(s);
-  setIcon(s.equals("..") ? upicon : (((ZLTreeNode)value).isFolder() ? folderIcon : icon));
+  setIcon(ZLSwingSelectionDialog.getIcon((ZLTreeNode)value));
   if (isSelected) {
     setBackground(list.getSelectionBackground());
     setForeground(list.getSelectionForeground());

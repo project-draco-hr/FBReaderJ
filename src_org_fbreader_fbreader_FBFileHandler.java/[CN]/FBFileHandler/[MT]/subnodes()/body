@@ -1,7 +1,7 @@
 {
   if (!myIsUpToDate) {
     if (!myDir.isRoot()) {
-      mySubnodes.add(new ZLTreeNode("..","..",FOLDER_ICON,true));
+      mySubnodes.add(new ZLTreeNode("..","..",UPFOLDER_ICON,true));
     }
     HashMap folderNodes=new HashMap();
     HashMap fileNodes=new HashMap();
@@ -28,7 +28,7 @@
       FormatPlugin plugin=PluginCollection.instance().getPlugin(file,false);
       if (plugin != null) {
         String icon=(String)pluginIcons.get(plugin);
-        if ("".equals(icon)) {
+        if (icon == null) {
           icon=plugin.getIconName();
           pluginIcons.put(plugin,icon);
         }

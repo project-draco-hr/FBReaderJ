@@ -1,6 +1,5 @@
 {
   myJDialog.setLayout(new BorderLayout());
-  myJDialog.setTitle(myCaption);
   myStateLine.setEditable(false);
   myJDialog.add(myStateLine,BorderLayout.NORTH);
   myList.setCellRenderer(new CellRenderer());

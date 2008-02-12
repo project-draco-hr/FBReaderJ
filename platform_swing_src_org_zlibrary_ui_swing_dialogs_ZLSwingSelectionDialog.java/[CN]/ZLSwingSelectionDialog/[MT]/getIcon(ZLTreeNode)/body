@@ -1,0 +1,9 @@
+{
+  final String pixmapName=node.pixmapName();
+  ImageIcon icon=(ImageIcon)ourIcons.get(pixmapName);
+  if (icon == null) {
+    icon=ZLSwingIconUtil.getIcon(ourIconDirectory + pixmapName + ".png");
+    ourIcons.put(pixmapName,icon);
+  }
+  return icon;
+}
