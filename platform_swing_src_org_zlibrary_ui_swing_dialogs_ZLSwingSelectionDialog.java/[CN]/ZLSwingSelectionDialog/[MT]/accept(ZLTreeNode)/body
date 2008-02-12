@@ -1,0 +1,5 @@
+{
+  if (handler().isOpenHandler()) {
+    ((ZLTreeOpenHandler)handler()).accept(node);
+  }
+}

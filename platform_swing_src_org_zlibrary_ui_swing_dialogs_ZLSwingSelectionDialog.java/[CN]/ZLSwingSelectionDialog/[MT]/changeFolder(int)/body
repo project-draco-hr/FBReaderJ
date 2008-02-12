@@ -1,0 +1,10 @@
+{
+  ZLTreeNode node=(ZLTreeNode)handler().subnodes().get(index);
+  if (node.isFolder()) {
+    handler().changeFolder(node);
+    update();
+  }
+ else {
+    accept(node);
+  }
+}

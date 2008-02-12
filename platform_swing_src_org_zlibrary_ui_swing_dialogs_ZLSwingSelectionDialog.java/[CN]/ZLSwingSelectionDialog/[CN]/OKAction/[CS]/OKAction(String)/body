@@ -1,0 +1,4 @@
+{
+  putValue(NAME,text);
+  setEnabled(false);
+}

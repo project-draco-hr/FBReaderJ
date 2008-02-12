@@ -38,8 +38,8 @@
         folderNodes.put(displayName,new ZLTreeNode(fileName,displayName,ZIP_FOLDER_ICON,true));
       }
     }
-    mySubnodes.add(folderNodes.values());
-    mySubnodes.add(fileNodes.values());
+    mySubnodes.addAll(folderNodes.values());
+    mySubnodes.addAll(fileNodes.values());
     myIsUpToDate=true;
   }
   return mySubnodes;

@@ -1,2 +1,3 @@
 {
+  myList.setListData(handler().subnodes().toArray());
 }

@@ -1,0 +1,4 @@
+{
+  int index=myList.getSelectedIndex();
+  myOKAction.setEnabled(index != -1 && !((ZLTreeNode)handler().subnodes().get(index)).isFolder());
+}

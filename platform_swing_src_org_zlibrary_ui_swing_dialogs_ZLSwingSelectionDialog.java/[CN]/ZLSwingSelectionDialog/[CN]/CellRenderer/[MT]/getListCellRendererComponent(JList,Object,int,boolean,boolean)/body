@@ -1,7 +1,7 @@
 {
-  String s=value.toString();
+  String s=((ZLTreeNode)value).displayName();
   setText(s);
-  setIcon(s.equals("..") ? upicon : icon);
+  setIcon(s.equals("..") ? upicon : (((ZLTreeNode)value).isFolder() ? folderIcon : icon));
   if (isSelected) {
     setBackground(list.getSelectionBackground());
     setForeground(list.getSelectionForeground());
