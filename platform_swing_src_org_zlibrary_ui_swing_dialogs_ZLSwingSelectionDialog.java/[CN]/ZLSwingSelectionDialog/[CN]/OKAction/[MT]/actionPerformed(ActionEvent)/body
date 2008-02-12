@@ -1,2 +1,3 @@
 {
+  runNode((ZLTreeNode)handler().subnodes().get(myList.getSelectedIndex()));
 }
