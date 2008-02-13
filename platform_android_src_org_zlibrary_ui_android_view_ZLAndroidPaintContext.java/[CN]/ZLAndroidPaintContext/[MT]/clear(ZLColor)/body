@@ -1,2 +1,5 @@
 {
+  myColor=color;
+  myPaint.setColor(Color.rgb(color.Red,color.Green,color.Blue));
+  myCanvas.drawRect(0,0,myWidth,myHeight,myPaint);
 }

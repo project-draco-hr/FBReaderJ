@@ -7,19 +7,19 @@ case ZLViewWidget.Angle.DEGREES0:
 case ZLViewWidget.Angle.DEGREES90:
 {
     int swap=x;
-    x=myHeight - y - 1;
+    x=getHeight() - y - 1;
     y=swap;
     break;
   }
 case ZLViewWidget.Angle.DEGREES180:
 {
-  x=myWidth - x - 1;
-  y=myHeight - y - 1;
+  x=getWidth() - x - 1;
+  y=getHeight() - y - 1;
   break;
 }
 case ZLViewWidget.Angle.DEGREES270:
 {
-int swap=myWidth - x - 1;
+int swap=getWidth() - x - 1;
 x=y;
 y=swap;
 break;

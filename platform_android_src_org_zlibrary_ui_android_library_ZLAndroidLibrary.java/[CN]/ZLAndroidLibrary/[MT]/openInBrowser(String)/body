@@ -1,5 +1,4 @@
 {
   Intent intent=new Intent(Intent.VIEW_ACTION);
-  intent.setData(ContentURI.create(reference));
   myActivity.startActivity(intent);
 }

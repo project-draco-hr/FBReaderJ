@@ -7,23 +7,25 @@
   if (view == null) {
     return;
   }
+  final int w=getWidth();
+  final int h=getHeight();
   myPaintContext.beginPaint(canvas);
   long start=System.currentTimeMillis();
 switch (myViewWidget.getRotation()) {
 case ZLViewWidget.Angle.DEGREES0:
-    myPaintContext.setSize(myWidth,myHeight);
+    myPaintContext.setSize(w,h);
   break;
 case ZLViewWidget.Angle.DEGREES90:
-myPaintContext.setSize(myHeight,myWidth);
-canvas.rotate(270,myHeight / 2,myHeight / 2);
+myPaintContext.setSize(h,w);
+canvas.rotate(270,h / 2,h / 2);
 break;
 case ZLViewWidget.Angle.DEGREES180:
-myPaintContext.setSize(myWidth,myHeight);
-canvas.rotate(180,myWidth / 2,myHeight / 2);
+myPaintContext.setSize(w,h);
+canvas.rotate(180,w / 2,h / 2);
 break;
 case ZLViewWidget.Angle.DEGREES270:
-myPaintContext.setSize(myHeight,myWidth);
-canvas.rotate(90,myWidth / 2,myWidth / 2);
+myPaintContext.setSize(h,w);
+canvas.rotate(90,w / 2,w / 2);
 break;
 }
 view.paint();
