@@ -1,5 +1,6 @@
 {
-switch (FB2Tag.getTagByName(tagName)) {
+  final byte tag=myTagStack[--myTagStackSize];
+switch (tag) {
 case FB2Tag.P:
     endParagraph();
   break;

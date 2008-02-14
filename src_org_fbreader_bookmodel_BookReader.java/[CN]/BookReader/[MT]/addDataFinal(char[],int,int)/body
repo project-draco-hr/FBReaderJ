@@ -1,5 +1,5 @@
 {
-  if (!myBuffer.isEmpty()) {
+  if (myBufferIsNotEmpty) {
     addData(data,offset,length);
   }
  else {

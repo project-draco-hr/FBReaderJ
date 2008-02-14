@@ -6,7 +6,14 @@
     }
     addHyperlinkLabel(id);
   }
-switch (FB2Tag.getTagByName(tagName)) {
+  final byte tag=FB2Tag.getTagByName(tagName);
+  byte[] tagStack=myTagStack;
+  if (tagStack.length == myTagStackSize) {
+    tagStack=ZLArrayUtils.createCopy(tagStack,myTagStackSize,myTagStackSize * 2);
+    myTagStack=tagStack;
+  }
+  tagStack[myTagStackSize++]=tag;
+switch (tag) {
 case FB2Tag.FICTIONBOOK:
 {
       final int attibutesNumber=attributes.getSize();

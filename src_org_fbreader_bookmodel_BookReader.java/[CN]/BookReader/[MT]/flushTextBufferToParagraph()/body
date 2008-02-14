@@ -1,7 +1,8 @@
 {
-  final ZLTextBuffer buffer=myBuffer;
-  if (!buffer.isEmpty()) {
+  if (myBufferIsNotEmpty) {
+    final ZLTextBuffer buffer=myBuffer;
     myCurrentTextModel.addText(buffer);
     buffer.clear();
+    myBufferIsNotEmpty=false;
   }
 }
