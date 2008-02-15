@@ -6,10 +6,8 @@
     final int startIndex=(myList.getSelectedIndex() + 1) % size;
     for (int i=0; i < size - 1; i++) {
       final int index=(startIndex + i) % size;
-      if (((ZLTreeNode)nodes.get(index)).displayName().toLowerCase().charAt(0) >= keyChar) {
-        if (((ZLTreeNode)nodes.get(index)).displayName().toLowerCase().charAt(0) == keyChar) {
-          selectItem(index);
-        }
+      if (((ZLTreeNode)nodes.get(index)).displayName().toLowerCase().charAt(0) == keyChar) {
+        selectItem(index);
         break;
       }
     }
