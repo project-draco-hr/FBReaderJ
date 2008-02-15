@@ -1,6 +1,7 @@
 {
   myJDialog.setLayout(new BorderLayout());
-  myStateLine.setEditable(false);
+  myStateLine.setEditable(!handler().isOpenHandler());
+  myStateLine.setFocusable(false);
   myJDialog.add(myStateLine,BorderLayout.NORTH);
   myList.setCellRenderer(new CellRenderer());
   JScrollPane scrollPane=new JScrollPane(myList);
@@ -12,12 +13,18 @@
   JPanel buttonPanel=new JPanel();
   buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
   JButton button1=ZLSwingDialogManager.createButton(ZLSwingDialogManager.OK_BUTTON);
-  buttonPanel.add(button1);
   myOKAction=new OKAction(button1.getText());
   button1.setAction(myOKAction);
   JButton button2=ZLSwingDialogManager.createButton(ZLSwingDialogManager.CANCEL_BUTTON);
-  buttonPanel.add(button2);
   button2.setAction(new CancelAction(button2.getText()));
+  if (button1.getPreferredSize().width < button2.getPreferredSize().width) {
+    button1.setPreferredSize(button2.getPreferredSize());
+  }
+ else {
+    button2.setPreferredSize(button1.getPreferredSize());
+  }
+  buttonPanel.add(button1);
+  buttonPanel.add(button2);
   myJDialog.add(buttonPanel,BorderLayout.SOUTH);
   myJDialog.pack();
   myJDialog.setSize(600,400);

@@ -1,0 +1,11 @@
+{
+  if (((ZLTreeNode)o1).isFolder() == ((ZLTreeNode)o2).isFolder()) {
+    return ((ZLTreeNode)o1).displayName().toLowerCase().compareTo(((ZLTreeNode)o2).displayName().toLowerCase());
+  }
+ else   if (((ZLTreeNode)o1).isFolder()) {
+    return -1;
+  }
+ else {
+    return 1;
+  }
+}

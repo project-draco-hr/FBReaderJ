@@ -41,6 +41,7 @@
     mySubnodes.addAll(folderNodes.values());
     mySubnodes.addAll(fileNodes.values());
     myIsUpToDate=true;
+    Collections.sort(mySubnodes,new ZLTreeNodeComparator());
   }
   return mySubnodes;
 }

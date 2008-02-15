@@ -1,5 +1,11 @@
 {
-  if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+  final int code=e.getKeyCode();
+switch (code) {
+case KeyEvent.VK_ENTER:
     changeFolder(myList.getSelectedIndex());
-  }
+  break;
+case KeyEvent.VK_ESCAPE:
+exitDialog();
+break;
+}
 }
