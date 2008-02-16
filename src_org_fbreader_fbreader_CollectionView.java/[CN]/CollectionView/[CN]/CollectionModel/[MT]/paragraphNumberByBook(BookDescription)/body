@@ -1,0 +1,4 @@
+{
+  Integer num=(Integer)myBookToParagraph.get(book);
+  return (num != null) ? num : 0;
+}

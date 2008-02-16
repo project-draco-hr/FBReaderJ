@@ -1,0 +1,10 @@
+{
+  if (myUpdateModel) {
+    ZLTextModel oldModel=getModel();
+    setModel(null);
+    ((CollectionModel)oldModel).update();
+    setModel(oldModel);
+    myUpdateModel=false;
+  }
+  super.paint();
+}

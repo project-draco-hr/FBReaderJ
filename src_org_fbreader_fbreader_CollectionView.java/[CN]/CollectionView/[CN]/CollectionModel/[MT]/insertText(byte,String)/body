@@ -1,0 +1,4 @@
+{
+  addControl(kind,true);
+  addText(text.toCharArray());
+}

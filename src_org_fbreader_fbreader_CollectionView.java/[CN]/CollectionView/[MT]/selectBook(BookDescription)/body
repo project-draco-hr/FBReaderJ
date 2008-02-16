@@ -1,0 +1,15 @@
+{
+  if (myUpdateModel) {
+    ZLTextModel oldModel=getModel();
+    setModel(null);
+    ((CollectionModel)oldModel).update();
+    setModel(oldModel);
+    myUpdateModel=false;
+  }
+  int toSelect=collectionModel().paragraphNumberByBook(book);
+  if (toSelect >= 0) {
+    highlightParagraph(toSelect);
+    gotoParagraph(toSelect);
+    scrollPage(false,ZLTextView.ScrollingMode.SCROLL_PERCENTAGE,40);
+  }
+}
