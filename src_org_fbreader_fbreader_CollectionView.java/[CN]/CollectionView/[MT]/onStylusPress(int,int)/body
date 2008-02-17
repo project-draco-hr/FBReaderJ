@@ -1,4 +1,7 @@
 {
+  if (super.onStylusPress(x,y)) {
+    return true;
+  }
   ZLTextElementArea imageArea=getElementByCoordinates(x,y);
   return false;
 }

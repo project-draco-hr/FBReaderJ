@@ -10,7 +10,7 @@
     }
     final ArrayList files=dir.collectFiles();
     final int numberOfFiles=files.size();
-    for (int j=0; i < numberOfFiles; ++j) {
+    for (int j=0; j < numberOfFiles; ++j) {
       String fileName=dir.getItemPath((String)files.get(j));
       ZLFile file=new ZLFile(fileName);
       if (PluginCollection.instance().getPlugin(file,true) != null) {
