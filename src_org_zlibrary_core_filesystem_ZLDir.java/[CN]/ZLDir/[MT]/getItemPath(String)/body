@@ -3,6 +3,6 @@
     return getParentPath();
   }
  else {
-    return isRoot() ? myPath + itemName : myPath + getDelimiter() + itemName;
+    return myPath.endsWith(File.separator) ? myPath + itemName : myPath + File.separator + itemName;
   }
 }

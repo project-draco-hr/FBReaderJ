@@ -1,3 +1,4 @@
 {
+  System.out.println("isRoot-->" + myPath + "<--");
   return myPath == ZLFSManager.getInstance().getRootDirectoryPath();
 }
