@@ -1,5 +1,4 @@
 {
   super();
   myCollection=collection;
-  String prefix="";
 }
