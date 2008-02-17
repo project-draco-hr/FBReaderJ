@@ -40,6 +40,7 @@
   myBookTextView=new BookTextView(this,getContext());
   myContentsView=new ContentsView(this,getContext());
   myFootnoteView=new FootnoteView(this,getContext());
+  myCollectionView=new CollectionView(this,getContext());
   myRecentBooksView=new RecentBooksView(this,getContext());
   String fileName=null;
   if (args.length > 0) {

@@ -14,6 +14,12 @@ break;
 case ViewMode.FOOTNOTE:
 setView(myFootnoteView);
 break;
+case ViewMode.RECENT_BOOKS:
+setView(myRecentBooksView);
+break;
+case ViewMode.BOOK_COLLECTION:
+setView(myCollectionView);
+break;
 default :
 break;
 }
