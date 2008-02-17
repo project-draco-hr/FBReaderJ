@@ -1,0 +1,29 @@
+{
+  ZLTextElementArea imageArea=getElementByCoordinates(x,y);
+  if ((imageArea != null) && (imageArea.Element instanceof ZLTextImageElement)) {
+    ZLTextWordCursor cursor=getStartCursor();
+    cursor.moveToParagraph(imageArea.ParagraphNumber);
+    cursor.moveTo(imageArea.TextElementNumber,0);
+    final ZLTextElement element=cursor.getElement();
+    if (!(element instanceof ZLTextImageElement)) {
+      return false;
+    }
+    final ZLTextImageElement imageElement=(ZLTextImageElement)element;
+    BookDescription book=collectionModel().bookByParagraphNumber(imageArea.ParagraphNumber);
+    if (book == null) {
+      return false;
+    }
+    return false;
+  }
+  int index=getParagraphIndexByCoordinate(y);
+  if (index == -1) {
+    return false;
+  }
+  BookDescription book=collectionModel().bookByParagraphNumber(index);
+  if (book != null) {
+    getFBReader().openBook(book);
+    getFBReader().showBookTextView();
+    return true;
+  }
+  return false;
+}

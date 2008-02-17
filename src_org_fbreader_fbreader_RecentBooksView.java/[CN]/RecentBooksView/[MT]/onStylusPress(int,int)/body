@@ -1,0 +1,10 @@
+{
+  final ArrayList books=myLastBooks.books();
+  int index=getParagraphIndexByCoordinate(y);
+  if ((index == -1) || (index >= (int)books.size())) {
+    return false;
+  }
+  getFBReader().openBook((BookDescription)books.get(index));
+  getFBReader().showBookTextView();
+  return true;
+}

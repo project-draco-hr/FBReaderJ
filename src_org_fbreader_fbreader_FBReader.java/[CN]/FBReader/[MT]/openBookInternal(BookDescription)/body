@@ -1,0 +1,25 @@
+{
+  if (description != null) {
+    BookTextView bookTextView=(BookTextView)myBookTextView;
+    ContentsView contentsView=(ContentsView)myContentsView;
+    FootnoteView footnoteView=(FootnoteView)myFootnoteView;
+    RecentBooksView recentBooksView=(RecentBooksView)myRecentBooksView;
+    bookTextView.saveState();
+    bookTextView.setModel(null,"");
+    bookTextView.setContentsModel(null);
+    contentsView.setModel(null,"");
+    if (myModel != null) {
+      myModel=null;
+    }
+    myModel=new BookModel(description);
+    new ZLStringOption(ZLOption.STATE_CATEGORY,STATE,BOOK,"").setValue(myModel.getFileName());
+    bookTextView.setModel(myModel.getBookTextModel(),description.getFileName());
+    bookTextView.setCaption(description.getTitle());
+    bookTextView.setContentsModel(myModel.getContentsModel());
+    footnoteView.setModel(null,"");
+    footnoteView.setCaption(description.getTitle());
+    contentsView.setModel(myModel.getContentsModel(),description.getFileName());
+    contentsView.setCaption(description.getTitle());
+    recentBooksView.lastBooks().addBook(description.getFileName());
+  }
+}
