@@ -1,0 +1,14 @@
+{
+  if (visible) {
+    if (!myInitialized) {
+      createItem();
+      myInitialized=true;
+    }
+    show();
+  }
+ else {
+    if (myInitialized) {
+      hide();
+    }
+  }
+}

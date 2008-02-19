@@ -1,7 +1,10 @@
 {
   super.setModel(model);
+  myFileName=fileName;
   myParagraphNumberOption=new ZLIntegerOption(ZLOption.STATE_CATEGORY,fileName,"Paragraph",0);
   myWordNumberOption=new ZLIntegerOption(ZLOption.STATE_CATEGORY,fileName,"Word",0);
   myCharNumberOption=new ZLIntegerOption(ZLOption.STATE_CATEGORY,fileName,"Char",0);
-  gotoPosition(myParagraphNumberOption.getValue(),myWordNumberOption.getValue(),myCharNumberOption.getValue());
+  if (model != null) {
+    gotoPosition(myParagraphNumberOption.getValue(),myWordNumberOption.getValue(),myCharNumberOption.getValue());
+  }
 }

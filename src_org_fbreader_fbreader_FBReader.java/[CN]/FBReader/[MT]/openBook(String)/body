@@ -1,4 +1,5 @@
 {
+  System.out.println("try open " + fileName);
   if (fileName == null) {
     fileName=myBookNameOption.getValue();
   }

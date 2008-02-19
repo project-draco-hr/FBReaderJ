@@ -1,0 +1,6 @@
+{
+  myName=name;
+  myOption=option;
+  myTooltip=tooltip;
+  myInitialized=false;
+}

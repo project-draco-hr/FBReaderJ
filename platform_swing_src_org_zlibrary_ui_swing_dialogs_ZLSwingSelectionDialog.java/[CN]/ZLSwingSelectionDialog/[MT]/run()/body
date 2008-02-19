@@ -1,7 +1,14 @@
 {
+  myJDialog.addWindowListener(new WindowAdapter(){
+    public void windowClosing(    WindowEvent e){
+      myWidthOption.setValue(myJDialog.getWidth());
+      myHeightOption.setValue(myJDialog.getHeight());
+    }
+  }
+);
   myJDialog.setLayout(new BorderLayout());
   myStateLine.setEditable(!handler().isOpenHandler());
-  myStateLine.setFocusable(false);
+  myStateLine.setEnabled(!handler().isOpenHandler());
   myJDialog.add(myStateLine,BorderLayout.NORTH);
   myList.setCellRenderer(new CellRenderer());
   JScrollPane scrollPane=new JScrollPane(myList);
@@ -27,9 +34,10 @@
   buttonPanel.add(button2);
   myJDialog.add(buttonPanel,BorderLayout.SOUTH);
   myJDialog.pack();
-  myJDialog.setSize(600,400);
+  myList.requestFocusInWindow();
+  myJDialog.setSize(myWidthOption.getValue(),myHeightOption.getValue());
   myJDialog.setLocationRelativeTo(myJDialog.getParent());
   myJDialog.setModal(true);
   myJDialog.setVisible(true);
-  return false;
+  return true;
 }

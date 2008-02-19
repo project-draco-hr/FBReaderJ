@@ -1,3 +1,10 @@
 {
-  ZLDialogManager.getInstance().runSelectionDialog("addFileDialog",new FBFileHandler());
+  FBFileHandler handler=new FBFileHandler();
+  if (ZLDialogManager.getInstance().runSelectionDialog("addFileDialog",handler)) {
+    BookDescription description=handler.description();
+    if (description != null) {
+      fbreader().openBook(description);
+      fbreader().refreshWindow();
+    }
+  }
 }
