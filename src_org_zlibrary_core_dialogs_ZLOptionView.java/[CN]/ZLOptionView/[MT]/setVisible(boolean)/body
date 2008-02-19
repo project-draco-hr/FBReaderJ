@@ -4,6 +4,7 @@
       createItem();
       myInitialized=true;
     }
+    setActive(myOption.isActive());
     show();
   }
  else {

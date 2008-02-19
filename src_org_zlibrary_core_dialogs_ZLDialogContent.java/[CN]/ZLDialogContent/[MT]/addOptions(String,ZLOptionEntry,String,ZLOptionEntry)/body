@@ -1,0 +1,5 @@
+{
+  final ZLResource resource0=myResource.getResource(key0);
+  final ZLResource resource1=myResource.getResource(key1);
+  addOptions(resource0.getValue(),resource0.getResource(key0).getValue(),option0,resource1.getValue(),resource1.getResource(key1).getValue(),option1);
+}

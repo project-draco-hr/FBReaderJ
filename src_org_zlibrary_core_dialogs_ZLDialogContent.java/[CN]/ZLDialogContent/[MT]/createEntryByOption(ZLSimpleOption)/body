@@ -1,0 +1,12 @@
+{
+switch (option.getType()) {
+case ZLSimpleOption.Type.BOOLEAN:
+    return new ZLSimpleBooleanOptionEntry((ZLBooleanOption)option);
+case ZLSimpleOption.Type.BOOLEAN3:
+  return new ZLSimpleBoolean3OptionEntry((ZLBoolean3Option)option);
+case ZLSimpleOption.Type.STRING:
+return new ZLSimpleStringOptionEntry((ZLStringOption)option);
+default :
+return null;
+}
+}

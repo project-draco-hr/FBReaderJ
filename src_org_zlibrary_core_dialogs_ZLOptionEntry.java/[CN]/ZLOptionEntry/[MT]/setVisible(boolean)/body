@@ -1,0 +1,6 @@
+{
+  myIsVisible=visible;
+  if (myView != null) {
+    myView.setVisible(visible);
+  }
+}

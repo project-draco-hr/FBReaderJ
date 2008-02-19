@@ -1,0 +1,6 @@
+{
+  myIsActive=active;
+  if (myView != null) {
+    myView.setActive(active);
+  }
+}
