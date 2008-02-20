@@ -1,0 +1,5 @@
+{
+  myResource=resource;
+  myApplyAction=applyAction;
+  myTabOption=new ZLStringOption(ZLOption.LOOK_AND_FEEL_CATEGORY,resource.Name,"SelectedTab","");
+}

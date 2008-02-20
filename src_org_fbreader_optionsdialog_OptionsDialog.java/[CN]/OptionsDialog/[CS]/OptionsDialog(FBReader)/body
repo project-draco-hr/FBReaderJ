@@ -1,0 +1,3 @@
+{
+  myDialog=ZLDialogManager.getInstance().createOptionsDialog("OptionsDialog",new OptionsApplyRunnable(fbreader),true);
+}

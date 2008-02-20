@@ -20,7 +20,6 @@
     footnoteView.setCaption(description.getTitle());
     contentsView.setModel(myModel.getContentsModel(),description.getFileName());
     contentsView.setCaption(description.getTitle());
-    System.out.println("yes");
     recentBooksView.lastBooks().addBook(description.getFileName());
   }
 }

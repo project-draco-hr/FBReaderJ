@@ -1,0 +1,3 @@
+{
+  return myResource.getResource(ZLDialogManager.DIALOG_TITLE).getValue();
+}

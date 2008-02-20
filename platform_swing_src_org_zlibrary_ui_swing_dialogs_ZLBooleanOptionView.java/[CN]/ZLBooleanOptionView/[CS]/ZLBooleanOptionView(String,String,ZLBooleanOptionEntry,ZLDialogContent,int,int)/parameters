@@ -1,0 +1,6 @@
+String name
+String tooltip
+ZLBooleanOptionEntry option
+ZLDialogContent tab
+int from
+int to

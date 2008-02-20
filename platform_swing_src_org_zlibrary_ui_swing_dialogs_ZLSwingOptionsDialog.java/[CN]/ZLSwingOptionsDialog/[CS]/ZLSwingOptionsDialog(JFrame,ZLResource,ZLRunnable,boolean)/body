@@ -1,0 +1,5 @@
+{
+  super(resource,applyAction);
+  myFrame=frame;
+  myShowApplyButton=showApplyButton;
+}
