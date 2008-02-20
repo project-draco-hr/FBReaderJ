@@ -1,5 +1,6 @@
 {
   super(resource,applyAction);
-  myFrame=frame;
+  myDialog=new JDialog(frame);
+  myDialog.setTitle(getCaption());
   myShowApplyButton=showApplyButton;
 }
