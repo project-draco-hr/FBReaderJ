@@ -13,6 +13,7 @@
     }
     myModel=new BookModel(description);
     new ZLStringOption(ZLOption.STATE_CATEGORY,STATE,BOOK,"").setValue(myModel.getFileName());
+    ZLTextHyphenator.getInstance().load(description.getLanguage());
     bookTextView.setModel(myModel.getBookTextModel(),description.getFileName());
     bookTextView.setCaption(description.getTitle());
     bookTextView.setContentsModel(myModel.getContentsModel());

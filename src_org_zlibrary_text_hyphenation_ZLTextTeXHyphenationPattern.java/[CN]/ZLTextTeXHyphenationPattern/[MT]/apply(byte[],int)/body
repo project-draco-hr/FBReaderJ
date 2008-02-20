@@ -1,0 +1,7 @@
+{
+  for (int i=0; i <= myLength; i++) {
+    if (values[position + i] < myValues[i]) {
+      values[position + i]=myValues[i];
+    }
+  }
+}

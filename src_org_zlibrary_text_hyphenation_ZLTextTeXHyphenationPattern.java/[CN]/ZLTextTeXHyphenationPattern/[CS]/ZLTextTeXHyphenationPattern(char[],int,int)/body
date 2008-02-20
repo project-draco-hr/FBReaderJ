@@ -1,0 +1,5 @@
+{
+  myLength=length;
+  System.arraycopy(ucs2String,offset,mySymbols,0,length);
+  myValues=null;
+}

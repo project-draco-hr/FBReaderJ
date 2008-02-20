@@ -1,0 +1,11 @@
+{
+  if (PATTERN.equals(tag)) {
+    myReadPattern=true;
+  }
+ else   if (LINE_BREAKING_ALGORITHM.equals(tag)) {
+    final String algorithm=attributes.getValue("name");
+    if (algorithm != null) {
+      myHyphenator.setBreakingAlgorithm(algorithm);
+    }
+  }
+}

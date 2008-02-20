@@ -1,0 +1,6 @@
+{
+  myMask=new ArrayList(length - 1);
+  for (int i=0; i < myMask.size(); i++) {
+    myMask.set(i,false);
+  }
+}

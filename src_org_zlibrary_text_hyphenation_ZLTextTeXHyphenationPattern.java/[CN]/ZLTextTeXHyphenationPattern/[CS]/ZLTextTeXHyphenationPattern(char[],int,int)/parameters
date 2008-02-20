@@ -1,0 +1,3 @@
+char[] ucs2String
+int offset
+int length

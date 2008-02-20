@@ -1,0 +1,10 @@
+{
+  System.err.println("here");
+  if (language.equals(myLanguage)) {
+    return;
+  }
+  myLanguage=language;
+  unload();
+  ZLOwnXMLProcessorFactory.getInstance().createXMLProcessor().read(new ZLTextHyphenationReader(this),"hyphenationPatterns.zip" + ":" + language + POSTFIX);
+  Collections.sort(myPatternTable,new ZLTextTeXPatternComparator());
+}

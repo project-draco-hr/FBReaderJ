@@ -1,0 +1,3 @@
+{
+  return (position < myMask.size() && ((Boolean)myMask.get(position)));
+}

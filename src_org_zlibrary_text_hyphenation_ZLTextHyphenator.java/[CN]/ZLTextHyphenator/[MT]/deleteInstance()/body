@@ -1,0 +1,6 @@
+{
+  if (ourInstance != null) {
+    ourInstance.unload();
+    ourInstance=null;
+  }
+}

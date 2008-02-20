@@ -1,0 +1,5 @@
+{
+  if (myReadPattern) {
+    myBuffer.append(ch,start,length);
+  }
+}

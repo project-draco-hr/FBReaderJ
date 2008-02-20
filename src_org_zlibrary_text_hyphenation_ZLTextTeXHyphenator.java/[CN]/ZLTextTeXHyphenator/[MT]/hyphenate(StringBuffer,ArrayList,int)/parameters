@@ -1,0 +1,3 @@
+StringBuffer ucs2String
+ArrayList mask
+int length
