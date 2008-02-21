@@ -1,8 +1,5 @@
 {
   if (!myIsUpToDate) {
-    if (!myDir.isRoot()) {
-      mySubnodes.add(new ZLTreeNode("..","..",UPFOLDER_ICON,true));
-    }
     HashMap folderNodes=new HashMap();
     HashMap fileNodes=new HashMap();
     ArrayList names=myDir.collectSubDirs();
@@ -42,6 +39,9 @@
     mySubnodes.addAll(fileNodes.values());
     myIsUpToDate=true;
     Collections.sort(mySubnodes,new ZLTreeNodeComparator());
+    if (!myDir.isRoot()) {
+      mySubnodes.add(0,new ZLTreeNode("..","..",UPFOLDER_ICON,true));
+    }
   }
   return mySubnodes;
 }
