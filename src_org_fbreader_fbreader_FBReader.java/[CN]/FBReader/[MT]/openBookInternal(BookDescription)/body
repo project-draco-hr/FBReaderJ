@@ -1,9 +1,9 @@
 {
   if (description != null) {
-    BookTextView bookTextView=(BookTextView)myBookTextView;
-    ContentsView contentsView=(ContentsView)myContentsView;
-    FootnoteView footnoteView=(FootnoteView)myFootnoteView;
-    RecentBooksView recentBooksView=(RecentBooksView)myRecentBooksView;
+    BookTextView bookTextView=myBookTextView;
+    ContentsView contentsView=myContentsView;
+    FootnoteView footnoteView=myFootnoteView;
+    RecentBooksView recentBooksView=myRecentBooksView;
     bookTextView.saveState();
     bookTextView.setModel(null,"");
     bookTextView.setContentsModel(null);

@@ -28,7 +28,6 @@
   myDialog.getContentPane().add(myTabbedPane,BorderLayout.NORTH);
   myDialog.pack();
   myDialog.setLocationRelativeTo(myDialog.getParent());
-  myDialog.setResizable(false);
   myDialog.setModal(true);
   myDialog.setVisible(true);
   return false;
