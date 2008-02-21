@@ -5,6 +5,6 @@
   }
   myLanguage=language;
   unload();
-  ZLOwnXMLProcessorFactory.getInstance().createXMLProcessor().read(new ZLTextHyphenationReader(this),"hyphenationPatterns.zip" + ":" + language + POSTFIX);
+  new ZLTextHyphenationReader(this).read("hyphenationPatterns.zip" + ":" + language + POSTFIX);
   Collections.sort(myPatternTable,new ZLTextTeXPatternComparator());
 }
