@@ -6,13 +6,29 @@
   JButton button2=ZLSwingDialogManager.createButton(ZLSwingDialogManager.CANCEL_BUTTON);
   buttonPanel.add(button1);
   buttonPanel.add(button2);
+  if (button1.getPreferredSize().width < button2.getPreferredSize().width) {
+    button1.setPreferredSize(button2.getPreferredSize());
+  }
+ else {
+    button2.setPreferredSize(button1.getPreferredSize());
+  }
   if (myShowApplyButton) {
     JButton button3=ZLSwingDialogManager.createButton(ZLSwingDialogManager.APPLY_BUTTON);
     buttonPanel.add(button3);
+    if (button3.getPreferredSize().width < button2.getPreferredSize().width) {
+      button3.setPreferredSize(button2.getPreferredSize());
+    }
+ else {
+      button2.setPreferredSize(button3.getPreferredSize());
+      button1.setPreferredSize(button3.getPreferredSize());
+    }
   }
   myDialog.add(buttonPanel,BorderLayout.SOUTH);
+  myTabbedPane.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+  myDialog.getContentPane().add(myTabbedPane,BorderLayout.NORTH);
   myDialog.pack();
   myDialog.setLocationRelativeTo(myDialog.getParent());
+  myDialog.setResizable(false);
   myDialog.setModal(true);
   myDialog.setVisible(true);
   return false;

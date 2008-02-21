@@ -1,3 +1,7 @@
 {
+  ZLSwingDialogContent tab=new ZLSwingDialogContent(getTabResource(key));
+  JPanel panel=new JPanel();
+  panel.setPreferredSize(new Dimension(400,300));
+  myTabbedPane.addTab(tab.getDisplayName(),panel);
   return null;
 }

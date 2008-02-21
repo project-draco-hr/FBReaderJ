@@ -3,6 +3,6 @@
     return getParentPath();
   }
  else {
-    return myPath.endsWith(File.separator) ? myPath + itemName : myPath + File.separator + itemName;
+    return myPath.endsWith(File.separator) || myPath == "" ? myPath + itemName : myPath + File.separator + itemName;
   }
 }

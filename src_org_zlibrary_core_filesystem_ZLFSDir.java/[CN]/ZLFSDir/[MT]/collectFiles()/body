@@ -1,7 +1,13 @@
 {
   File[] dirs=myFile.listFiles();
   ArrayList newdirs=new ArrayList();
-  if (dirs != null) {
+  if (dirs == null && isRoot()) {
+    dirs=File.listRoots();
+    for (int i=0; i < dirs.length; i++) {
+      newdirs.add(dirs[i].getPath());
+    }
+  }
+ else   if (dirs != null) {
     for (int i=0; i < dirs.length; i++) {
       newdirs.add(dirs[i].getName());
     }
