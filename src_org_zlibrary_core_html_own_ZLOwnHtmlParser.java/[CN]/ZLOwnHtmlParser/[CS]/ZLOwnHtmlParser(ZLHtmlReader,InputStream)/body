@@ -1,0 +1,27 @@
+{
+  myReader=htmlReader;
+  String encoding="UTF-8";
+  final char[] buffer=myBuffer;
+  int len;
+  for (len=0; len < 256; ++len) {
+    char c=(char)stream.read();
+    if (c == '>') {
+      break;
+    }
+    buffer[len]=c;
+  }
+  if (len < 256) {
+    String xmlDescription=new String(buffer,0,len + 1);
+    int index=xmlDescription.indexOf("encoding");
+    if (index > 0) {
+      int startIndex=xmlDescription.indexOf('=',index) + 1;
+      if (startIndex > 0) {
+        int endIndex=Math.min(xmlDescription.indexOf('"',startIndex + 1),Math.min(xmlDescription.indexOf(' ',startIndex + 1),xmlDescription.indexOf('>',startIndex + 1)));
+        if (endIndex > 0) {
+          encoding=xmlDescription.substring(startIndex + 1,endIndex);
+        }
+      }
+    }
+  }
+  myStreamReader=new InputStreamReader(stream,encoding);
+}

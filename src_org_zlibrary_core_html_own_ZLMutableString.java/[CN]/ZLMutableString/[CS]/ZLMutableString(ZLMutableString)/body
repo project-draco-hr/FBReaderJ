@@ -1,0 +1,5 @@
+{
+  final int len=container.myLength;
+  myData=ZLArrayUtils.createCopy(container.myData,len,len);
+  myLength=len;
+}

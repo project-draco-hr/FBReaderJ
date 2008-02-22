@@ -1,0 +1,12 @@
+{
+  try {
+    ZLOwnHtmlParser parser=new ZLOwnHtmlParser(reader,stream);
+    reader.startDocumentHandler();
+    parser.doIt();
+    reader.endDocumentHandler();
+  }
+ catch (  IOException e) {
+    return false;
+  }
+  return true;
+}

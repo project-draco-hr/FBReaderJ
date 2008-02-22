@@ -1,0 +1,4 @@
+{
+  new ZLOwnHtmlProcessorFactory();
+  myReader.read("src/org/zlibrary/core/html/own/test/subversion.htm");
+}

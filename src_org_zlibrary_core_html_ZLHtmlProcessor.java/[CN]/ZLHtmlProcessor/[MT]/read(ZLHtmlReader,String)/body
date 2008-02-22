@@ -1,0 +1,10 @@
+{
+  try {
+    InputStream stream=new FileInputStream(filename);
+    return (stream != null) ? read(xmlReader,stream) : false;
+  }
+ catch (  FileNotFoundException e) {
+    System.out.println(e);
+  }
+  return false;
+}

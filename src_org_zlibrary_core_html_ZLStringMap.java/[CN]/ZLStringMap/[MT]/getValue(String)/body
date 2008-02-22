@@ -1,0 +1,12 @@
+{
+  int index=mySize;
+  if (index > 0) {
+    final String[] keys=myKeys;
+    while (--index >= 0) {
+      if (keys[index] == key) {
+        return myValues[index];
+      }
+    }
+  }
+  return null;
+}

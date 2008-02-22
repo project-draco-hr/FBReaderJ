@@ -1,0 +1,10 @@
+{
+  System.out.print("<" + tag);
+  String key;
+  for (int i=0; i < attributes.getSize(); i++) {
+    key=attributes.getKey(i);
+    System.out.print(" " + key + "=\"");
+    System.out.print(attributes.getValue(key) + "\"");
+  }
+  System.out.print(">");
+}
