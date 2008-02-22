@@ -1,9 +1,9 @@
 {
   try {
-    InputStream stream=new FileInputStream(filename);
+    InputStream stream=ZLibrary.getInstance().getInputStream(filename);
     return (stream != null) ? read(xmlReader,stream) : false;
   }
- catch (  FileNotFoundException e) {
+ catch (  Exception e) {
     System.out.println(e);
   }
   return false;
