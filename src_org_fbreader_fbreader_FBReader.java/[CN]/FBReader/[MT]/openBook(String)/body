@@ -11,5 +11,6 @@
   myBookTextView.setModel(myBookModel.getBookTextModel(),myBookModel.getFileName());
   myContentsView.setModel(myBookModel.getContentsModel());
   setMode(ViewMode.BOOK_TEXT);
+  ZLTextHyphenator.getInstance().load("ru");
   return true;
 }
