@@ -4,7 +4,7 @@
   }
   if (myPatternTable.isEmpty()) {
     for (int i=0; i < length - 1; i++) {
-      mask.set(i,false);
+      mask[i]=false;
     }
     return;
   }
@@ -23,6 +23,6 @@
     }
   }
   for (int i=0; i < length - 1; i++) {
-    mask.set(i,(values[i + 1] % 2) == 1);
+    mask[i]=(values[i + 1] % 2) == 1;
   }
 }
