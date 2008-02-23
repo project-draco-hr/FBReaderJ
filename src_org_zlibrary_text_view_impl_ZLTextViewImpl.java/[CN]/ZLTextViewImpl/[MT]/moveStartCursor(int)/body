@@ -1,0 +1,3 @@
+{
+  moveStartCursor(paragraphNumber,0,0);
+}

@@ -1,0 +1,13 @@
+{
+  if (myPaintState == PaintState.NOTHING_TO_PAINT) {
+    return;
+  }
+  if (myStartCursor == null) {
+    myStartCursor.setCursor(myEndCursor);
+  }
+  myStartCursor.moveToParagraph(paragraphNumber);
+  myStartCursor.moveTo(wordNumber,charNumber);
+  myEndCursor.reset();
+  myLineInfos.clear();
+  myPaintState=PaintState.START_IS_KNOWN;
+}

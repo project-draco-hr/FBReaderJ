@@ -1,2 +1,36 @@
 {
+  if (myModel == null) {
+    return;
+  }
+  if (myModel instanceof ZLTextTreeModel) {
+    if ((num >= 0) && (num < (int)myModel.getParagraphsNumber())) {
+      ZLTextTreeParagraph tp=(ZLTextTreeParagraph)(myModel).getParagraph(num);
+      if (myTreeStateIsFrozen) {
+        int corrected=num;
+        ZLTextTreeParagraph parent=tp.getParent();
+        while ((corrected > 0) && (parent != null) && !parent.isOpen()) {
+          for (--corrected; ((corrected > 0) && parent != (myModel).getParagraph(corrected)); --corrected)           ;
+          parent=parent.getParent();
+        }
+        if (last && (corrected != num)) {
+          ++corrected;
+        }
+        num=corrected;
+      }
+ else {
+        tp.openTree();
+        rebuildPaintInfo(true);
+      }
+    }
+  }
+  if (last) {
+    if ((num > 0) && (num <= (int)myModel.getParagraphsNumber())) {
+      moveEndCursor(num);
+    }
+  }
+ else {
+    if ((num >= 0) && (num < (int)myModel.getParagraphsNumber())) {
+      moveStartCursor(num);
+    }
+  }
 }

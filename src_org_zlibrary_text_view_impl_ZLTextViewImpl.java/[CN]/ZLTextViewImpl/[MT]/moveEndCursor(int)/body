@@ -1,0 +1,3 @@
+{
+  moveEndCursor(paragraphNumber,0,0);
+}
