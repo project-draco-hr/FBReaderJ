@@ -1,0 +1,33 @@
+{
+  if (option == null) {
+    return;
+  }
+  ZLOptionView view=null;
+switch (option.getKind()) {
+case ZLOptionKind.BOOLEAN:
+    view=new ZLBooleanOptionView(name,tooltip,(ZLBooleanOptionEntry)option,this);
+  break;
+case ZLOptionKind.BOOLEAN3:
+break;
+case ZLOptionKind.STRING:
+break;
+case ZLOptionKind.CHOICE:
+break;
+case ZLOptionKind.SPIN:
+break;
+case ZLOptionKind.COMBO:
+break;
+case ZLOptionKind.COLOR:
+break;
+case ZLOptionKind.KEY:
+break;
+case ZLOptionKind.ORDER:
+break;
+case ZLOptionKind.MULTILINE:
+break;
+}
+if (view != null) {
+view.setVisible(option.isVisible());
+addView(view);
+}
+}

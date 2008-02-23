@@ -1,2 +1,3 @@
 {
+  createViewByEntry(name,tooltip,option);
 }

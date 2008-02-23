@@ -1,7 +1,10 @@
 {
   ZLSwingDialogContent tab=new ZLSwingDialogContent(getTabResource(key));
-  JPanel panel=new JPanel();
+  JPanel contentPanel=tab.getContentPanel();
+  JPanel panel=new JPanel(new BorderLayout());
   panel.setPreferredSize(new Dimension(400,300));
+  panel.add(contentPanel,BorderLayout.PAGE_START);
+  myPanelToKeyMap.put(panel,tab.getKey());
   myTabbedPane.addTab(tab.getDisplayName(),panel);
-  return null;
+  return tab;
 }

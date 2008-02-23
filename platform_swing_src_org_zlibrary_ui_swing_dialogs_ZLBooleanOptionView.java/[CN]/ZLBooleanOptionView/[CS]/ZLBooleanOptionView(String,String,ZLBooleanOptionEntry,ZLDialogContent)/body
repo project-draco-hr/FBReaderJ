@@ -1,0 +1,6 @@
+{
+  super(name,tooltip,option);
+  myCheckBox=new JCheckBox(name);
+  myCheckBox.setSelected(option.initialState());
+  ((ZLSwingDialogContent)tab).insertWidget(myCheckBox);
+}

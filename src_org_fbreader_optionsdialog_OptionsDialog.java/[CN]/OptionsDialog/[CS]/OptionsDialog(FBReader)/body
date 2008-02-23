@@ -5,6 +5,7 @@
   ZLDialogContent encodingTab=myDialog.createTab("Language");
   myDialog.createTab("Scrolling");
   ZLDialogContent selectionTab=myDialog.createTab("Selection");
+  selectionTab.addOption("enableSelection",FBView.selectionOption());
   ZLDialogContent marginTab=myDialog.createTab("Margins");
   myDialog.createTab("Format");
   myDialog.createTab("Styles");

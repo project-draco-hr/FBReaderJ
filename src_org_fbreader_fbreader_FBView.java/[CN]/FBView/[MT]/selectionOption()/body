@@ -1,0 +1,6 @@
+{
+  if (ourSelectionOption == null) {
+    ourSelectionOption=new ZLBooleanOption(ZLOption.LOOK_AND_FEEL_CATEGORY,"Options","IsSelectionEnabled",true);
+  }
+  return ourSelectionOption;
+}

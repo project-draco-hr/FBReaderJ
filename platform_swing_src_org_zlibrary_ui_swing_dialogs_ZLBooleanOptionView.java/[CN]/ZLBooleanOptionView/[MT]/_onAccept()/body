@@ -1,2 +1,3 @@
 {
+  ((ZLBooleanOptionEntry)myOption).onAccept(myCheckBox.isSelected());
 }
