@@ -1,9 +1,10 @@
 {
   if (PATTERN.equals(tag)) {
     myReadPattern=false;
-    if (!(myBuffer.length() == 0)) {
-      myHyphenator.addPattern(new ZLTextTeXHyphenationPattern(myBuffer.toString().toCharArray(),0,myBuffer.length()));
+    final int len=myBufferLength;
+    if (len != 0) {
+      myHyphenator.addPattern(new ZLTextTeXHyphenationPattern(myBuffer,0,len));
     }
-    myBuffer=new StringBuffer();
+    myBufferLength=0;
   }
 }

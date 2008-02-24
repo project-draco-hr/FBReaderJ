@@ -1,5 +1,9 @@
 {
   if (myReadPattern) {
-    myBuffer.append(ch,start,length);
+    if (myBufferLength + length > myBuffer.length) {
+      myBuffer=ZLArrayUtils.createCopy(myBuffer,myBufferLength,myBufferLength + length + 10);
+    }
+    System.arraycopy(ch,start,myBuffer,myBufferLength,length);
+    myBufferLength+=length;
   }
 }
