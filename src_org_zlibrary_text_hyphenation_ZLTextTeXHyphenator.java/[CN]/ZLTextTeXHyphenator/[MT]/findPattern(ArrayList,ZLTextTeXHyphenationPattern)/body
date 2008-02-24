@@ -1,0 +1,35 @@
+{
+  int left=0;
+  ZLTextTeXHyphenationPattern candidate=(ZLTextTeXHyphenationPattern)patternTable.get(left);
+  int test=comparePatterns(candidate,pattern);
+  if (test == 0) {
+    return candidate;
+  }
+  if (test > 0) {
+    return null;
+  }
+  int right=patternTable.size() - 1;
+  candidate=(ZLTextTeXHyphenationPattern)patternTable.get(right);
+  test=comparePatterns(candidate,pattern);
+  if (test == 0) {
+    return candidate;
+  }
+  if (test < 0) {
+    return null;
+  }
+  while (right - left > 1) {
+    final int middle=(left + right) / 2;
+    candidate=(ZLTextTeXHyphenationPattern)patternTable.get(middle);
+    test=comparePatterns(candidate,pattern);
+    if (test == 0) {
+      return candidate;
+    }
+    if (test < 0) {
+      left=middle;
+    }
+ else {
+      right=middle;
+    }
+  }
+  return null;
+}

@@ -34,18 +34,6 @@
     final BookList bookList=new BookList();
     final ArrayList bookListSet=bookList.fileNames();
     final ArrayList fileNames=new ArrayList();
-    final ArrayList list=new ArrayList(myCollection.keySet());
-    for (int i=0; i < list.size(); i++) {
-      final ArrayList books=(ArrayList)list.get(i);
-      final int numberOfBooks=books.size();
-      for (int j=0; j < numberOfBooks; ++j) {
-        final BookDescription description=(BookDescription)books.get(j);
-        final String fileName=description.getFileName();
-        if (!myExternalBooks.contains(description) || bookListSet.contains(fileName)) {
-          fileNames.add(fileName);
-        }
-      }
-    }
     myCollection.clear();
     myAuthors.clear();
     final int fileNamesSize=fileNames.size();

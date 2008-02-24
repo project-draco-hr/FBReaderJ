@@ -10,7 +10,7 @@
     myBooks.add(0,description);
   }
   final int maxSize=MaxListSizeOption.getValue();
-  if (myBooks.size() > maxSize) {
-    myBooks.retainAll(myBooks.subList(maxSize,myBooks.size()));
+  while (myBooks.size() > maxSize) {
+    myBooks.remove(myBooks.size() - 1);
   }
 }

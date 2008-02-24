@@ -9,21 +9,13 @@
   for (int i=0; i < length + 1; i++) {
     values[i]=0;
   }
-  ZLTextTeXPatternComparator comparator=new ZLTextTeXPatternComparator();
   for (int j=0; j < length - 2; j++) {
     for (int k=1; k <= length - j; k++) {
       ZLTextTeXHyphenationPattern pattern=new ZLTextTeXHyphenationPattern(ucs2String.toString().toCharArray(),j,k);
-      int index=-1;
-      for (int i=0; i < myPatternTable.size(); i++) {
-        if (comparator.compare(myPatternTable.get(i),pattern) == 0) {
-          index=i;
-          break;
-        }
+      ZLTextTeXHyphenationPattern toApply=findPattern(myPatternTable,pattern);
+      if (toApply != null) {
+        toApply.apply(values,j);
       }
-      if (index == -1) {
-        continue;
-      }
-      ((ZLTextTeXHyphenationPattern)myPatternTable.get(index)).apply(values,j);
     }
   }
   for (int i=0; i < length - 1; i++) {
