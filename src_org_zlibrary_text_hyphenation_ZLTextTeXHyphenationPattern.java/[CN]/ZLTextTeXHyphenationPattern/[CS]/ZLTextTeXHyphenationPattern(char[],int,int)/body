@@ -1,20 +1,23 @@
 {
-  myLength=0;
-  for (int i=0; i < length; i++) {
-    if (pattern[offset + i] < '0' || pattern[offset + i] > '9') {
-      myLength++;
+  int patternLength=0;
+  for (int i=0; i < length; ++i) {
+    final char symbol=pattern[offset + i];
+    if ((symbol > '9') || (symbol < '0')) {
+      ++patternLength;
     }
   }
-  mySymbols=new char[myLength];
-  myValues=new byte[myLength + 1];
+  myLength=patternLength;
+  mySymbols=new char[patternLength];
+  myValues=new byte[patternLength + 1];
   myValues[0]=0;
-  for (int j=0, k=0; j < length; j++) {
-    if (pattern[offset + j] >= '0' && pattern[offset + j] <= '9') {
-      myValues[k]=(byte)(pattern[offset + j] - '0');
+  for (int i=0, k=0; i < length; ++i) {
+    final char symbol=pattern[offset + i];
+    if ((symbol <= '9') && (symbol >= '0')) {
+      myValues[k]=(byte)(symbol - '0');
     }
  else {
-      mySymbols[k]=pattern[offset + j];
-      k++;
+      mySymbols[k]=symbol;
+      ++k;
       myValues[k]=0;
     }
   }
