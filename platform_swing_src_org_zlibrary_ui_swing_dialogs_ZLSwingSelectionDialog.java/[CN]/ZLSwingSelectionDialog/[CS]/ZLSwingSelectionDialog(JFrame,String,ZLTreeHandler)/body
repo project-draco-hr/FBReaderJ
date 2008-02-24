@@ -2,7 +2,7 @@
   super(myHandler);
   myWidthOption=new ZLIntegerRangeOption(ZLOption.LOOK_AND_FEEL_CATEGORY,OPTION_GROUP_NAME,"Width",10,2000,400);
   myHeightOption=new ZLIntegerRangeOption(ZLOption.LOOK_AND_FEEL_CATEGORY,OPTION_GROUP_NAME,"Height",10,2000,300);
-  myJDialog=new JDialog(frame);
-  myJDialog.setTitle(caption);
+  myDialog=new JDialog(frame);
+  myDialog.setTitle(caption);
   update();
 }

@@ -1,19 +1,19 @@
 {
-  myJDialog.addWindowListener(new WindowAdapter(){
+  myDialog.addWindowListener(new WindowAdapter(){
     public void windowClosing(    WindowEvent e){
-      myWidthOption.setValue(myJDialog.getWidth());
-      myHeightOption.setValue(myJDialog.getHeight());
+      myWidthOption.setValue(myDialog.getWidth());
+      myHeightOption.setValue(myDialog.getHeight());
     }
   }
 );
-  myJDialog.setLayout(new BorderLayout());
+  myDialog.setLayout(new BorderLayout());
   myStateLine.setEditable(!handler().isOpenHandler());
   myStateLine.setEnabled(!handler().isOpenHandler());
-  myJDialog.add(myStateLine,BorderLayout.NORTH);
+  myDialog.add(myStateLine,BorderLayout.NORTH);
   myList.setCellRenderer(new CellRenderer());
   JScrollPane scrollPane=new JScrollPane(myList);
   scrollPane.setBorder(BorderFactory.createLoweredBevelBorder());
-  myJDialog.add(scrollPane,BorderLayout.CENTER);
+  myDialog.add(scrollPane,BorderLayout.CENTER);
   myList.addListSelectionListener(new SelectionListener());
   myList.addKeyListener(new MyKeyAdapter());
   myList.addMouseListener(new MyMouseListener());
@@ -32,12 +32,12 @@
   }
   buttonPanel.add(button1);
   buttonPanel.add(button2);
-  myJDialog.add(buttonPanel,BorderLayout.SOUTH);
-  myJDialog.pack();
+  myDialog.add(buttonPanel,BorderLayout.SOUTH);
+  myDialog.pack();
   myList.requestFocusInWindow();
-  myJDialog.setSize(myWidthOption.getValue(),myHeightOption.getValue());
-  myJDialog.setLocationRelativeTo(myJDialog.getParent());
-  myJDialog.setModal(true);
-  myJDialog.setVisible(true);
+  myDialog.setSize(myWidthOption.getValue(),myHeightOption.getValue());
+  myDialog.setLocationRelativeTo(myDialog.getParent());
+  myDialog.setModal(true);
+  myDialog.setVisible(true);
   return myReturnValue;
 }

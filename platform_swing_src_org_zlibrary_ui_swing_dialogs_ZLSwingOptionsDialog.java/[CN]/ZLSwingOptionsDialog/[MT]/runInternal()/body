@@ -1,6 +1,8 @@
 {
   myDialog.addWindowListener(new WindowAdapter(){
     public void windowClosing(    WindowEvent e){
+      myWidthOption.setValue(myDialog.getWidth());
+      myHeightOption.setValue(myDialog.getHeight());
     }
   }
 );
@@ -33,6 +35,7 @@
   myDialog.getContentPane().add(myTabbedPane,BorderLayout.CENTER);
   myDialog.pack();
   button1.requestFocusInWindow();
+  myDialog.setSize(myWidthOption.getValue(),myHeightOption.getValue());
   myDialog.setLocationRelativeTo(myDialog.getParent());
   myDialog.setModal(true);
   myDialog.setVisible(true);
