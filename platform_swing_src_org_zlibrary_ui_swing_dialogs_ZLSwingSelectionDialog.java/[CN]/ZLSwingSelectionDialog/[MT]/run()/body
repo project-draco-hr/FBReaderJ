@@ -39,5 +39,5 @@
   myJDialog.setLocationRelativeTo(myJDialog.getParent());
   myJDialog.setModal(true);
   myJDialog.setVisible(true);
-  return true;
+  return myReturnValue;
 }

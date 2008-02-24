@@ -1,3 +1,4 @@
 {
+  myReturnValue=true;
   runNode((ZLTreeNode)handler().subnodes().get(myList.getSelectedIndex()));
 }

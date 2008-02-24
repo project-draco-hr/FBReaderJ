@@ -1,4 +1,9 @@
 {
+  myDialog.addWindowListener(new WindowAdapter(){
+    public void windowClosing(    WindowEvent e){
+    }
+  }
+);
   myDialog.setLayout(new BorderLayout());
   JPanel buttonPanel=new JPanel();
   buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
@@ -25,7 +30,7 @@
   }
   myDialog.add(buttonPanel,BorderLayout.SOUTH);
   myTabbedPane.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
-  myDialog.getContentPane().add(myTabbedPane,BorderLayout.NORTH);
+  myDialog.getContentPane().add(myTabbedPane,BorderLayout.CENTER);
   myDialog.pack();
   button1.requestFocusInWindow();
   myDialog.setLocationRelativeTo(myDialog.getParent());
