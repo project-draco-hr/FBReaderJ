@@ -1,9 +1,10 @@
 {
   final int patternLength=myLength;
-  for (int i=0; i <= patternLength; i++) {
-    final byte val=myValues[i];
-    if (values[position + i] < val) {
-      values[position + i]=val;
+  final byte[] values=myValues;
+  for (int i=0, j=position; i <= patternLength; ++i, ++j) {
+    final byte val=values[i];
+    if (mask[j] < val) {
+      mask[j]=val;
     }
   }
 }

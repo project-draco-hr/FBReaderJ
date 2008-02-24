@@ -1,2 +1,2 @@
-byte[] values
+byte[] mask
 int position
