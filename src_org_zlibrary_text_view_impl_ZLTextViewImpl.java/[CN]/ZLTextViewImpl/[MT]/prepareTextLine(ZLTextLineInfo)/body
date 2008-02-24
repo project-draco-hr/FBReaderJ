@@ -69,7 +69,7 @@ if (!endOfParagraph && (paragraph.getElement(info.EndWordNumber) instanceof ZLTe
 int len=info.EndCharNumber;
 if (len > 0) {
 final ZLTextWord word=(ZLTextWord)paragraph.getElement(info.EndWordNumber);
-final boolean addHyphenationSign=word.Data[len - 1] != '-';
+final boolean addHyphenationSign=word.Data[word.Offset + len - 1] != '-';
 final int x=context.getX();
 final int width=getWordWidth(word,0,len,addHyphenationSign);
 final int height=getElementHeight(word);

@@ -2,17 +2,18 @@
   if (start == 0 && length == -1) {
     return word.getWidth(getContext());
   }
-  int startPos=start;
-  int endPos=(length == -1) ? word.Length : start + length;
+  if (length == -1) {
+    length=word.Length - start;
+  }
   if (!addHyphenationSign) {
-    return getContext().getStringWidth(word.Data,word.Offset + startPos,endPos - startPos);
+    return getContext().getStringWidth(word.Data,word.Offset + start,length);
   }
   char[] part=myWordPartArray;
   if (length + 1 > part.length) {
     part=new char[length + 1];
     myWordPartArray=part;
   }
-  System.arraycopy(word.Data,startPos,part,0,length);
+  System.arraycopy(word.Data,word.Offset + start,part,0,length);
   part[length]='-';
   return getContext().getStringWidth(part,0,length + 1);
 }

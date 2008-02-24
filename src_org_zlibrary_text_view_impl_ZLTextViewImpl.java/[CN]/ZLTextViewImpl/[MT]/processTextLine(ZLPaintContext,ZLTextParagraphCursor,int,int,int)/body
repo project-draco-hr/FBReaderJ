@@ -135,7 +135,7 @@
         int subwordWidth=0;
         for (; hyphenationPosition > 0; hyphenationPosition--) {
           if (hyphenationInfo.isHyphenationPossible(hyphenationPosition)) {
-            subwordWidth=getWordWidth(word,word.Offset,hyphenationPosition,word.Data[hyphenationPosition - 1] != '-');
+            subwordWidth=getWordWidth(word,0,hyphenationPosition,word.Data[word.Offset + hyphenationPosition - 1] != '-');
             if (subwordWidth <= spaceLeft) {
               break;
             }

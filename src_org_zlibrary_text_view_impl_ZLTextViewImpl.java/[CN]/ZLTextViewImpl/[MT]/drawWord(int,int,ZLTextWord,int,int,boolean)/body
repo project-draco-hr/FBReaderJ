@@ -5,10 +5,11 @@
     context.drawString(x,y,word.Data,word.Offset,word.Length);
   }
  else {
-    int startPos=start;
-    int endPos=(length == -1) ? word.Length : start + length;
+    if (length == -1) {
+      length=word.Length - start;
+    }
     if (!addHyphenationSign) {
-      context.drawString(x,y,word.Data,word.Offset + startPos,endPos - startPos);
+      context.drawString(x,y,word.Data,word.Offset + start,length);
     }
  else {
       char[] part=myWordPartArray;
@@ -16,7 +17,7 @@
         part=new char[length + 1];
         myWordPartArray=part;
       }
-      System.arraycopy(word.Data,word.Offset + startPos,part,0,length);
+      System.arraycopy(word.Data,word.Offset + start,part,0,length);
       part[length]='-';
       context.drawString(x,y,part,0,length + 1);
     }
