@@ -1,0 +1,14 @@
+{
+  int hash=myHashCode;
+  if (hash == -1) {
+    final int len=myLength;
+    final char[] symbols=mySymbols;
+    hash=0;
+    for (int i=0; i < len; ++i) {
+      hash*=31;
+      hash+=symbols[i];
+    }
+    myHashCode=hash;
+  }
+  return hash;
+}

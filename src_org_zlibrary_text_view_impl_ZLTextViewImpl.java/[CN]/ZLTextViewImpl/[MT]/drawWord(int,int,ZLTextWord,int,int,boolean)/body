@@ -11,10 +11,14 @@
       context.drawString(x,y,word.Data,word.Offset + startPos,endPos - startPos);
     }
  else {
-      String substr=new String(word.Data);
-      substr=substr.substring(word.Offset + startPos,word.Offset + endPos);
-      substr+="-";
-      context.drawString(x,y,substr.toCharArray(),0,substr.length());
+      char[] part=myWordPartArray;
+      if (length + 1 > part.length) {
+        part=new char[length + 1];
+        myWordPartArray=part;
+      }
+      System.arraycopy(word.Data,word.Offset + startPos,part,0,length);
+      part[length]='-';
+      context.drawString(x,y,part,0,length + 1);
     }
   }
 }

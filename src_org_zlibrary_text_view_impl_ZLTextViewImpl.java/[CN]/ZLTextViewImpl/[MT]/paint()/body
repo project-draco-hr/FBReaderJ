@@ -1,5 +1,4 @@
 {
-  android.os.Debug.startMethodTracing("/tmp/paint");
   preparePaintInfo();
   myTextElementMap.clear();
   myTreeNodeMap.clear();
@@ -20,5 +19,4 @@
   for (int i=0; i < lineInfosSize; ++i) {
     drawTextLine(context,lineInfos.getInfo(i),labels[i],labels[i + 1]);
   }
-  android.os.Debug.stopMethodTracing();
 }
