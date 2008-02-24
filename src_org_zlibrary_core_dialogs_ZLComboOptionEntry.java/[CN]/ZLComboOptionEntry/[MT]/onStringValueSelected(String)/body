@@ -1,0 +1,6 @@
+{
+  int index=getValues().indexOf(value);
+  if (index != -1) {
+    onValueSelected(index);
+  }
+}
