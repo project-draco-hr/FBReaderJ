@@ -1,7 +1,7 @@
 {
   final ZLPaintContext context=getContext();
+  context.setColor(myTextStyle.getColor());
   if ((start == 0) && (length == -1)) {
-    context.setColor(myTextStyle.getColor());
     context.drawString(x,y,word.Data,word.Offset,word.Length);
   }
  else {
