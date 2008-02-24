@@ -1,3 +1,3 @@
-StringBuffer ucs2String
+char[] stringToHyphenate
 boolean[] mask
 int length

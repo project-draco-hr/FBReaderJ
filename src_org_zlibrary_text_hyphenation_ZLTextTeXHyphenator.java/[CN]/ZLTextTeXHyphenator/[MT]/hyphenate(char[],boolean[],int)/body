@@ -11,7 +11,7 @@
   }
   for (int j=0; j < length - 2; j++) {
     for (int k=1; k <= length - j; k++) {
-      ZLTextTeXHyphenationPattern pattern=new ZLTextTeXHyphenationPattern(ucs2String.toString().toCharArray(),j,k);
+      ZLTextTeXHyphenationPattern pattern=new ZLTextTeXHyphenationPattern(stringToHyphenate,j,k);
       ZLTextTeXHyphenationPattern toApply=findPattern(myPatternTable,pattern);
       if (toApply != null) {
         toApply.apply(values,j);

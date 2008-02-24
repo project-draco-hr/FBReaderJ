@@ -4,6 +4,6 @@
   }
   myLanguage=language;
   unload();
-  System.err.println(new ZLTextHyphenationReader(this).read(PREFIX + language + POSTFIX));
+  new ZLTextHyphenationReader(this).read(PREFIX + language + POSTFIX);
   System.err.println(myPatternTable.size());
 }
