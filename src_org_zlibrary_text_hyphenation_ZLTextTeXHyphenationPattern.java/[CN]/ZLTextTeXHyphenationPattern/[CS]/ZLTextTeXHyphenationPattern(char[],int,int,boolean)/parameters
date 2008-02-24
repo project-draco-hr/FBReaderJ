@@ -1,0 +1,4 @@
+char[] pattern
+int offset
+int length
+boolean useValues

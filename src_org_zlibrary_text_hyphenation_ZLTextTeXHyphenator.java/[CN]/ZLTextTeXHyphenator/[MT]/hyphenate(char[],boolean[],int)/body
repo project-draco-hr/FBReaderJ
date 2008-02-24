@@ -6,15 +6,14 @@
     return;
   }
   byte[] values=new byte[length + 1];
-  for (int i=0; i < length + 1; i++) {
-    values[i]=0;
-  }
-  for (int j=0; j < length - 2; j++) {
-    for (int k=1; k <= length - j; k++) {
-      ZLTextTeXHyphenationPattern pattern=new ZLTextTeXHyphenationPattern(stringToHyphenate,j,k);
-      ZLTextTeXHyphenationPattern toApply=(ZLTextTeXHyphenationPattern)myPatternTable.get(pattern);
+  final HashMap table=myPatternTable;
+  ZLTextTeXHyphenationPattern pattern=new ZLTextTeXHyphenationPattern(stringToHyphenate,0,length,false);
+  for (int offset=0; offset < length - 2; offset++) {
+    for (int len=1; len <= length - offset; len++) {
+      pattern.update(stringToHyphenate,offset,len);
+      ZLTextTeXHyphenationPattern toApply=(ZLTextTeXHyphenationPattern)table.get(pattern);
       if (toApply != null) {
-        toApply.apply(values,j);
+        toApply.apply(values,offset);
       }
     }
   }

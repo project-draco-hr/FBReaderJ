@@ -64,8 +64,18 @@
   do {
     ZLTextElement element=paragraphCursor.getElement(currentWordIndex);
     newWidth+=getElementWidth(element,currentCharNumber);
-    newHeight=Math.max(newHeight,getElementHeight(element));
-    newDescent=Math.max(newDescent,getElementDescent(element));
+{
+      final int eltHeight=getElementHeight(element);
+      if (newHeight < eltHeight) {
+        newHeight=eltHeight;
+      }
+    }
+{
+      final int eltDescent=getElementDescent(element);
+      if (newDescent < eltDescent) {
+        newDescent=eltDescent;
+      }
+    }
     if (element == ZLTextElement.HSpace) {
       if (wordOccurred) {
         wordOccurred=false;
@@ -99,8 +109,12 @@
     if (allowBreak) {
       info.IsVisible=isVisible;
       info.Width=newWidth;
-      info.Height=Math.max(info.Height,newHeight);
-      info.Descent=Math.max(info.Descent,newDescent);
+      if (info.Height < newHeight) {
+        info.Height=newHeight;
+      }
+      if (info.Descent < newDescent) {
+        info.Descent=newDescent;
+      }
       info.EndWordNumber=currentWordIndex;
       info.EndCharNumber=currentCharNumber;
       info.SpaceCounter=internalSpaceCounter;
@@ -130,8 +144,12 @@
         if (hyphenationPosition > 0) {
           info.IsVisible=true;
           info.Width=newWidth + subwordWidth;
-          info.Height=Math.max(info.Height,newHeight);
-          info.Descent=Math.max(info.Descent,newDescent);
+          if (info.Height < newHeight) {
+            info.Height=newHeight;
+          }
+          if (info.Descent < newDescent) {
+            info.Descent=newDescent;
+          }
           info.EndWordNumber=currentWordIndex;
           info.EndCharNumber=hyphenationPosition;
           info.SpaceCounter=internalSpaceCounter;

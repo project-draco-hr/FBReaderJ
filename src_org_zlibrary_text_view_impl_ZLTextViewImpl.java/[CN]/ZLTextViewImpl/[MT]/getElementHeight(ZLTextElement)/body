@@ -10,7 +10,7 @@
   }
  else   if (element instanceof ZLTextImageElement) {
     final ZLPaintContext context=getContext();
-    return context.imageHeight(((ZLTextImageElement)element).getImageData()) + Math.max((int)(context.getStringHeight() * (myTextStyle.getLineSpacePercent() - 100) / 100),3);
+    return context.imageHeight(((ZLTextImageElement)element).getImageData()) + Math.max(context.getStringHeight() * (myTextStyle.getLineSpacePercent() - 100) / 100,3);
   }
   return 0;
 }
