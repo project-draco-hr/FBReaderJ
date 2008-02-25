@@ -1,3 +1,3 @@
 {
-  myPath=ZLFSManager.getInstance().normalize(path);
+  myPath=ZLFSManagerUtil.getInstance().normalize(path);
 }

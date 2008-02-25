@@ -11,7 +11,7 @@
   }
  else   if (createUnexisting) {
     myInfoIsFilled=false;
-    return ZLFSManager.getInstance().createNewDirectory(myPath);
+    return createNewDirectory(myPath);
   }
   return null;
 }

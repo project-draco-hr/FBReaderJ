@@ -1,4 +1,4 @@
 {
-  int index=ZLFSManager.getInstance().findLastFileNameDelimiter(myPath);
+  int index=ZLFSManagerUtil.getInstance().findLastFileNameDelimiter(myPath);
   return myPath.substring(index + 1);
 }

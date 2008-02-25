@@ -1,6 +1,6 @@
 {
   if (ourInstance == null) {
-    ourInstance=new ZLFSManager();
+    ourInstance=new ZLFSManagerUtil();
   }
   return ourInstance;
 }

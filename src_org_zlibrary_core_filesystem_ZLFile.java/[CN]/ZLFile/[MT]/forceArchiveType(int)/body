@@ -1,6 +1,6 @@
 {
   if (myArchiveType != type) {
     myArchiveType=type;
-    ZLFSManager.getInstance().putForcedFile(myPath,myArchiveType);
+    putForcedFile(myPath,myArchiveType);
   }
 }

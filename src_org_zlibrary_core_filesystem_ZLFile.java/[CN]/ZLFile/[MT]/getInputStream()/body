@@ -4,9 +4,9 @@
     return null;
   }
   InputStream stream=null;
-  int index=ZLFSManager.getInstance().findArchiveFileNameDelimiter(myPath);
+  int index=ZLFSManagerUtil.getInstance().findArchiveFileNameDelimiter(myPath);
   if (index == -1) {
-    stream=ZLFSManager.getInstance().createPlainInputStream(myPath);
+    stream=ZLFSManagerUtil.getInstance().createPlainInputStream(myPath);
   }
  else {
     System.out.println("I am here" + myPath.substring(0,index));

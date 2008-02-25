@@ -1,5 +1,5 @@
 {
-  if (ZLFSManager.getInstance().removeFile(myPath)) {
+  if (removeFile(myPath)) {
     myInfoIsFilled=false;
     return true;
   }
