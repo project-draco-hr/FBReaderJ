@@ -1,0 +1,8 @@
+{
+  ZLColor color=myColor;
+  if (color == null) {
+    color=getColorInternal();
+    myColor=color;
+  }
+  return color;
+}

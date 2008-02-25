@@ -1,6 +1,6 @@
 {
   if (element instanceof ZLTextWord) {
-    return getContext().getDescent();
+    return context.getDescent();
   }
   return 0;
 }

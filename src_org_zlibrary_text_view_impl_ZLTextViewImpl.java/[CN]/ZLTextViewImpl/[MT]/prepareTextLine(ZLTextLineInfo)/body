@@ -41,7 +41,7 @@ int charNumber=info.RealStartCharNumber;
 for (int wordNumber=info.RealStartWordNumber; wordNumber != endWordNumber; ++wordNumber, charNumber=0) {
 final ZLTextElement element=paragraph.getElement(wordNumber);
 final int x=context.getX();
-final int width=getElementWidth(element,charNumber);
+final int width=getElementWidth(context,element,charNumber);
 if (element == ZLTextElement.HSpace) {
 if (wordOccurred && (spaceCounter > 0)) {
 int correction=fullCorrection / spaceCounter;
@@ -53,7 +53,7 @@ wordOccurred=false;
 }
  else if ((element instanceof ZLTextWord) || (element instanceof ZLTextImageElement)) {
 final int height=getElementHeight(element);
-final int descent=getElementDescent(element);
+final int descent=getElementDescent(context,element);
 final int length=(element instanceof ZLTextWord) ? ((ZLTextWord)element).Length : 0;
 myTextElementMap.add(new ZLTextElementArea(paragraphNumber,wordNumber,charNumber,length,false,changeStyle,myTextStyle,element,x,x + width - 1,y - height + 1,y + descent));
 changeStyle=false;
@@ -72,9 +72,9 @@ final int wordNumber=info.EndWordNumber;
 final ZLTextWord word=(ZLTextWord)paragraph.getElement(wordNumber);
 final boolean addHyphenationSign=word.Data[word.Offset + len - 1] != '-';
 final int x=context.getX();
-final int width=getWordWidth(word,0,len,addHyphenationSign);
+final int width=getWordWidth(context,word,0,len,addHyphenationSign);
 final int height=getElementHeight(word);
-final int descent=getElementDescent(word);
+final int descent=context.getDescent();
 myTextElementMap.add(new ZLTextElementArea(paragraphNumber,wordNumber,0,len,addHyphenationSign,changeStyle,myTextStyle,word,x,x + width - 1,y - height + 1,y + descent));
 }
 }

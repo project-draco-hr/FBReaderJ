@@ -1,0 +1,9 @@
+{
+  if (myFontSizeCached) {
+    return myFontSize;
+  }
+  final int size=getFontSizeInternal();
+  myFontSize=size;
+  myFontSizeCached=true;
+  return size;
+}

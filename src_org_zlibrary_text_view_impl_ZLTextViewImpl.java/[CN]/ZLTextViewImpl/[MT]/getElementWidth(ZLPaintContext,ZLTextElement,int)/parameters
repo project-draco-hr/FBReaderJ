@@ -1,2 +1,3 @@
+ZLPaintContext context
 ZLTextElement element
 int charNumber

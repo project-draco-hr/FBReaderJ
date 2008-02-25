@@ -1,0 +1,9 @@
+{
+  if (myIsItalicCached) {
+    return myIsItalic;
+  }
+  final boolean answer=isItalicInternal();
+  myIsItalic=answer;
+  myIsItalicCached=true;
+  return answer;
+}

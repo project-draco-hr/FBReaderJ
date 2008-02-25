@@ -1,12 +1,12 @@
 {
   if (length == -1) {
     if (start == 0) {
-      return word.getWidth(getContext());
+      return word.getWidth(context);
     }
     length=word.Length - start;
   }
   if (!addHyphenationSign) {
-    return getContext().getStringWidth(word.Data,word.Offset + start,length);
+    return context.getStringWidth(word.Data,word.Offset + start,length);
   }
   char[] part=myWordPartArray;
   if (length + 1 > part.length) {
@@ -15,5 +15,5 @@
   }
   System.arraycopy(word.Data,word.Offset + start,part,0,length);
   part[length]='-';
-  return getContext().getStringWidth(part,0,length + 1);
+  return context.getStringWidth(part,0,length + 1);
 }

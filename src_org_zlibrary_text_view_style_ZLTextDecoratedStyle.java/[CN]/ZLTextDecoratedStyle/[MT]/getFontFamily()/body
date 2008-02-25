@@ -1,0 +1,8 @@
+{
+  String family=myFontFamily;
+  if (family == null) {
+    family=getFontFamilyInternal();
+    myFontFamily=family;
+  }
+  return family;
+}
