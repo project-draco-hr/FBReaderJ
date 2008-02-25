@@ -1,4 +1,11 @@
 {
+  try {
+    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+  System.setProperty("com.apple.mrj.application.apple.menu.about.name",getApplicationName());
   new ZLOwnXMLProcessorFactory();
   loadProperties();
   new ZLXMLConfigManager(System.getProperty("user.home") + "/." + getInstance().getApplicationName());
