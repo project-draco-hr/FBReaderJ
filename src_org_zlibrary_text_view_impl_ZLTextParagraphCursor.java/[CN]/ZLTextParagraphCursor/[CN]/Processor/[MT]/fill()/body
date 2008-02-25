@@ -1,4 +1,5 @@
 {
+  final ArrayList elements=myElements;
   for (ZLTextParagraph.EntryIterator it=myParagraph.iterator(); it.hasNext(); ) {
     it.next();
 switch (it.getType()) {
@@ -7,10 +8,10 @@ case ZLTextParagraph.Entry.TEXT:
     break;
 case ZLTextParagraph.Entry.CONTROL:
   if (it.getControlIsStart() && it.getControlIsHyperlink()) {
-    myElements.add(new ZLTextHyperlinkControlElement(it.getControlKind(),it.getHyperlinkControlLabel()));
+    elements.add(new ZLTextHyperlinkControlElement(it.getControlKind(),it.getHyperlinkControlLabel()));
   }
  else {
-    myElements.add(ZLTextControlElement.get(it.getControlKind(),it.getControlIsStart()));
+    elements.add(ZLTextControlElement.get(it.getControlKind(),it.getControlIsStart()));
   }
 break;
 case ZLTextParagraph.Entry.IMAGE:
@@ -18,7 +19,7 @@ ZLImage image=it.getImageEntry().getImage();
 if (image != null) {
 ZLImageData data=ZLImageManager.getInstance().getImageData(image);
 if (data != null) {
-myElements.add(new ZLTextImageElement(data));
+elements.add(new ZLTextImageElement(data));
 }
 }
 break;

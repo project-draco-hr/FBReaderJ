@@ -1,5 +1,5 @@
 {
   System.arraycopy(pattern,offset,mySymbols,0,length);
   myLength=length;
-  myHashCode=-1;
+  myHashCode=0;
 }

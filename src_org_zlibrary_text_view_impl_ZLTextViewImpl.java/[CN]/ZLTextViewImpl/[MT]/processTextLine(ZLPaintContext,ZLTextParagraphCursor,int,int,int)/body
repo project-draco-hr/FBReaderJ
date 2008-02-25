@@ -126,8 +126,8 @@
   if ((currentWordIndex != endIndex) && (ZLTextStyleCollection.getInstance().getBaseStyle().AutoHyphenationOption.getValue()) && (myTextStyle.allowHyphenations())) {
     ZLTextElement element=paragraphCursor.getElement(currentWordIndex);
     if (element instanceof ZLTextWord) {
-      newWidth-=getElementWidth(element,currentCharNumber);
       final ZLTextWord word=(ZLTextWord)element;
+      newWidth-=getWordWidth(word,currentCharNumber,-1,false);
       int spaceLeft=maxWidth - newWidth;
       if ((word.Length > 3) && (spaceLeft > 2 * getContext().getSpaceWidth())) {
         ZLTextHyphenationInfo hyphenationInfo=ZLTextHyphenator.getInstance().getInfo(word);

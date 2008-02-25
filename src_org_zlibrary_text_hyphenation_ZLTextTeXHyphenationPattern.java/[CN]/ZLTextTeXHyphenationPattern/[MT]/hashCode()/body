@@ -1,12 +1,12 @@
 {
   int hash=myHashCode;
-  if (hash == -1) {
-    final int len=myLength;
+  if (hash == 0) {
     final char[] symbols=mySymbols;
     hash=0;
-    for (int i=0; i < len; ++i) {
+    int index=myLength;
+    while (index-- != 0) {
       hash*=31;
-      hash+=symbols[i];
+      hash+=symbols[index];
     }
     myHashCode=hash;
   }

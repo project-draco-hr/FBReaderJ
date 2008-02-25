@@ -1,7 +1,7 @@
 {
   final ZLTextParagraphCursor paragraph=info.ParagraphCursor;
   context.moveY(info.Height);
-  int maxY=getTextAreaHeight() + getTopMargin();
+  int maxY=getBottomLine();
   if (context.getY() > maxY) {
     context.moveYTo(maxY);
   }
