@@ -1,9 +1,10 @@
 {
   if (exists()) {
     if (isDirectory()) {
-      return ZLFSManager.getInstance().createPlainDirectory(myPath);
+      return new ZLFSDir(myPath);
     }
  else     if (0 != (myArchiveType & ArchiveType.ZIP)) {
+      return new ZLZipDir(myPath);
     }
  else     if (0 != (myArchiveType & ArchiveType.TAR)) {
     }

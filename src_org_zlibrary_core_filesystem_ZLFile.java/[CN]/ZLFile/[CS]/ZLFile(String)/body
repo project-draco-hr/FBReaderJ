@@ -1,7 +1,6 @@
 {
-  myPath=path;
   myInfoIsFilled=false;
-  ZLFSManager.getInstance().normalize(myPath);
+  myPath=ZLFSManager.getInstance().normalize(path);
 {
     int index=ZLFSManager.getInstance().findLastFileNameDelimiter(myPath);
     if (index < myPath.length() - 1) {
@@ -19,7 +18,7 @@
   }
  else {
     myArchiveType=ArchiveType.NONE;
-    String lowerCaseName=myNameWithoutExtension;
+    String lowerCaseName=myNameWithoutExtension.toLowerCase();
     if (lowerCaseName.endsWith(".gz")) {
       myNameWithoutExtension=myNameWithoutExtension.substring(0,myNameWithoutExtension.length() - 3);
       lowerCaseName=lowerCaseName.substring(0,lowerCaseName.length() - 3);
@@ -31,6 +30,7 @@
       myArchiveType=(int)(myArchiveType | ArchiveType.BZIP2);
     }
     if (lowerCaseName.endsWith(".zip")) {
+      System.out.println("it is zip file");
       myArchiveType=(int)(myArchiveType | ArchiveType.ZIP);
     }
  else     if (lowerCaseName.endsWith(".tar")) {

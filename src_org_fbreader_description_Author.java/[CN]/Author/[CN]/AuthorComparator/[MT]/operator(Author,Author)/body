@@ -1,0 +1,3 @@
+{
+  return a1.getSortKey().equals(a2.getSortKey());
+}

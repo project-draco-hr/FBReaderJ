@@ -4,6 +4,7 @@
     BookDescription description=handler.description();
     if (description != null) {
       fbreader().openBook(description);
+      fbreader().setMode(FBReader.ViewMode.BOOK_TEXT);
       fbreader().refreshWindow();
     }
   }

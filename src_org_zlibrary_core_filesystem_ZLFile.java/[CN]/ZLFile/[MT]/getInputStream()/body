@@ -1,4 +1,5 @@
 {
+  System.out.println("i am invisibl;e");
   if (isDirectory()) {
     return null;
   }
@@ -8,6 +9,7 @@
     stream=ZLFSManager.getInstance().createPlainInputStream(myPath);
   }
  else {
+    System.out.println("I am here" + myPath.substring(0,index));
     ZLFile baseFile=new ZLFile(myPath.substring(0,index));
     InputStream base=baseFile.getInputStream();
     if (base != null) {
