@@ -1,4 +1,4 @@
 {
-  ZLFSDir dir=ZLFSManager.getInstance().createNewDirectory(myDirectory + "\\test");
-  assertEquals(ZLFSManager.getInstance().removeFile(dir.getPath()),true);
+  ZLFSDir dir=ZLFSManagerUtil.getInstance().createNewDirectory(myDirectory + "\\test");
+  assertEquals(ZLFSManagerUtil.getInstance().removeFile(dir.getPath()),true);
 }
