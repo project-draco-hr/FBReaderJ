@@ -1,0 +1,30 @@
+{
+  System.out.println("in ZLZipDir -- collectFiles");
+  File[] dirs=myFile.listFiles();
+  ArrayList newdirs=new ArrayList();
+  ZipFile zf=null;
+  try {
+    System.out.println("********************" + myFile);
+    zf=new ZipFile(myFile);
+  }
+ catch (  ZipException e) {
+    e.printStackTrace();
+  }
+catch (  IOException e) {
+    e.printStackTrace();
+  }
+  if (zf == null) {
+    System.out.println("zf == null");
+    return null;
+  }
+  if (zf.entries() == null) {
+    System.out.println("en == null");
+    return null;
+  }
+  Enumeration en=zf.entries();
+  while (en.hasMoreElements()) {
+    ZipEntry entry=(ZipEntry)en.nextElement();
+    newdirs.add(entry.getName());
+  }
+  return newdirs;
+}
