@@ -4,6 +4,7 @@
   new ZLSQLiteConfigManager();
   loadProperties();
   new ZLAndroidImageManager();
+  new ZLAndroidDialogManager();
   try {
     ZLApplication application=(ZLApplication)getApplicationClass().newInstance();
     myMainWindow=new ZLAndroidApplicationWindow(application);
