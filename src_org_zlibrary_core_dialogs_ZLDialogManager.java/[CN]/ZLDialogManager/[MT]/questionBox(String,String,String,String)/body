@@ -1,0 +1,3 @@
+{
+  return questionBox(key,getDialogMessage(key),button0,button1,button2);
+}
