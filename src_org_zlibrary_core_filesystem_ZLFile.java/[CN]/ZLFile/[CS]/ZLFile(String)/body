@@ -1,8 +1,8 @@
 {
   myInfoIsFilled=false;
-  myPath=ZLFSManagerUtil.getInstance().normalize(path);
+  myPath=ZLFSUtil.normalize(path);
 {
-    int index=ZLFSManagerUtil.getInstance().findLastFileNameDelimiter(myPath);
+    int index=ZLFSUtil.findLastFileNameDelimiter(myPath);
     if (index < myPath.length() - 1) {
       myNameWithExtension=myPath.substring(index + 1);
     }

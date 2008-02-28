@@ -1,5 +1,0 @@
-{
-  if (ourInstance != null) {
-    ourInstance=null;
-  }
-}
