@@ -1,0 +1,31 @@
+{
+switch (HtmlTag.getTagByName(tagName)) {
+case HtmlTag.P:
+    endParagraph();
+  break;
+case HtmlTag.A:
+if (myUnnaturalParagraphExists) {
+  endParagraph();
+}
+addControl(myHyperlinkType,false);
+break;
+case HtmlTag.TITLE:
+popKind();
+exitTitle();
+myInsideTitle=false;
+break;
+case HtmlTag.BODY:
+popKind();
+myReadMainText=false;
+unsetCurrentTextModel();
+break;
+case HtmlTag.B:
+if (myUnnaturalParagraphExists) {
+endParagraph();
+}
+addControl(FBTextKind.STRONG,false);
+break;
+default :
+break;
+}
+}

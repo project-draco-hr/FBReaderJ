@@ -6,6 +6,7 @@
     e.printStackTrace();
   }
   new ZLOwnXMLProcessorFactory();
+  new ZLOwnHtmlProcessorFactory();
   loadProperties();
   new ZLXMLConfigManager(System.getProperty("user.home") + "/." + getInstance().getApplicationName());
   new ZLSwingImageManager();

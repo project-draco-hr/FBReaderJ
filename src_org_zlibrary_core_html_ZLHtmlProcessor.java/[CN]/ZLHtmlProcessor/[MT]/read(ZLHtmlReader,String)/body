@@ -1,7 +1,7 @@
 {
   try {
     InputStream stream=ZLibrary.getInstance().getInputStream(filename);
-    return (stream != null) ? read(xmlReader,stream) : false;
+    return (stream != null) ? read(htmlReader,stream) : false;
   }
  catch (  Exception e) {
     System.out.println(e);

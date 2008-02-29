@@ -1,0 +1,4 @@
+{
+  final String ICON_NAME="html";
+  return ICON_NAME;
+}

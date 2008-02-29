@@ -3,9 +3,17 @@
     fileName=myBookNameOption.getValue();
   }
   myBookModel=new BookModel(fileName);
-  if (!new FB2Reader(myBookModel).read()) {
-    myBookModel=null;
-    return false;
+  if (fileName.endsWith("html") || fileName.endsWith("htm")) {
+    if (!new HtmlReader(myBookModel).read()) {
+      myBookModel=null;
+      return false;
+    }
+  }
+ else {
+    if (!new FB2Reader(myBookModel).read()) {
+      myBookModel=null;
+      return false;
+    }
   }
   myBookNameOption.setValue(fileName);
   myBookTextView.setModel(myBookModel.getBookTextModel(),myBookModel.getFileName());
