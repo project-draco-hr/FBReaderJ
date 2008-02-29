@@ -1,4 +1,7 @@
 {
+  if (getRootDirectoryPath().equals(path)) {
+    return path;
+  }
   try {
     path=new File(path).getCanonicalPath();
   }

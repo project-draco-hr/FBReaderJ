@@ -1,3 +1,0 @@
-{
-  return File.listRoots().length == 1 ? File.listRoots()[0].getPath() : "";
-}
