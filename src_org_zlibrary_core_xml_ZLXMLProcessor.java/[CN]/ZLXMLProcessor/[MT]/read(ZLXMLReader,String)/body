@@ -1,4 +1,14 @@
 {
-  InputStream stream=ZLibrary.getInstance().getInputStream(fileName);
+  InputStream stream=null;
+  if (fileName.lastIndexOf(ZLibrary.JAR_DATA_PREFIX) != -1) {
+    stream=ZLibrary.getInstance().getInputStream(fileName);
+  }
+ else {
+    try {
+      stream=(new ZLFile(fileName)).getInputStream();
+    }
+ catch (    IOException e) {
+    }
+  }
   return (stream != null) ? read(xmlReader,stream) : false;
 }
