@@ -1,0 +1,12 @@
+{
+  if (getRootDirectoryPath().equals(path)) {
+    return path;
+  }
+  try {
+    path=new File(path).getCanonicalPath();
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
+  return path;
+}
