@@ -1,0 +1,5 @@
+{
+  Author a1=(Author)aobj1;
+  Author a2=(Author)aobj1;
+  return a1.getSortKey().compareTo(a2.getSortKey());
+}

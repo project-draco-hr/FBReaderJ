@@ -34,12 +34,41 @@
     final BookList bookList=new BookList();
     final ArrayList bookListSet=bookList.fileNames();
     final ArrayList fileNames=new ArrayList();
+    final ArrayList list=new ArrayList(myCollection.keySet());
+    for (int i=0; i < list.size(); i++) {
+      final ArrayList books=(ArrayList)list.get(i);
+      final int numberOfBooks=books.size();
+      for (int j=0; j < numberOfBooks; ++j) {
+        final BookDescription description=(BookDescription)books.get(j);
+        final String fileName=description.getFileName();
+        if (!myExternalBooks.contains(description) || bookListSet.contains(fileName)) {
+          fileNames.add(fileName);
+        }
+      }
+    }
+    for (Iterator it=myCollection.values().iterator(); it.hasNext(); ) {
+      final ArrayList books=(ArrayList)it.next();
+      final int numberOfBooks=books.size();
+      for (int j=0; j < numberOfBooks; ++j) {
+        final BookDescription description=(BookDescription)books.get(j);
+        final String fileName=description.getFileName();
+        if (!myExternalBooks.contains(description) || bookListSet.contains(fileName)) {
+          fileNames.add(fileName);
+        }
+      }
+    }
     myCollection.clear();
     myAuthors.clear();
     final int fileNamesSize=fileNames.size();
     for (int i=0; i < fileNamesSize; ++i) {
       addDescription(BookDescription.getDescription((String)fileNames.get(i),false));
     }
+  }
+  Collections.sort(myAuthors,new Author.AuthorComparator());
+  DescriptionComparator descriptionComparator=new DescriptionComparator();
+  for (Iterator it=myCollection.entrySet().iterator(); it.hasNext(); ) {
+    ArrayList list=(ArrayList)myCollection.get(it.next());
+    Collections.sort(list,descriptionComparator);
   }
   return true;
 }

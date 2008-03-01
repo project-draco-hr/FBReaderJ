@@ -30,7 +30,6 @@
       myArchiveType=(int)(myArchiveType | ArchiveType.BZIP2);
     }
     if (lowerCaseName.endsWith(".zip")) {
-      System.out.println("it is zip file");
       myArchiveType=(int)(myArchiveType | ArchiveType.ZIP);
     }
  else     if (lowerCaseName.endsWith(".tar")) {
