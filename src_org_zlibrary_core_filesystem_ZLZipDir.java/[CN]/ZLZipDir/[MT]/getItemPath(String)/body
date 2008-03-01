@@ -1,0 +1,8 @@
+{
+  if (itemName == "..") {
+    return getParentPath();
+  }
+ else {
+    return myPath.endsWith(File.separator) || myPath == "" ? myPath + itemName : myPath + ":" + itemName;
+  }
+}
