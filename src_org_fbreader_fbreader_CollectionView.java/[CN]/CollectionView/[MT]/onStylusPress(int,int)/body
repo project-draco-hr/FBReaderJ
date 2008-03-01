@@ -16,6 +16,22 @@
     if (book == null) {
       return false;
     }
+    if (imageElement.getId() == BOOK_INFO_IMAGE_ID) {
+      return true;
+    }
+ else     if (imageElement.getId() == DELETE_IMAGE_ID) {
+      String boxKey="removeBookBox";
+      final String message;
+      final String format=ZLDialogManager.getDialogMessage(boxKey);
+      int index=format.indexOf("%s");
+      if (index == -1) {
+        message=format;
+      }
+ else {
+        message=ZLDialogManager.getDialogMessage(boxKey).substring(0,index) + book.getTitle() + format.substring(index + 2);
+      }
+      return true;
+    }
     return false;
   }
   int index=getParagraphIndexByCoordinate(y);
