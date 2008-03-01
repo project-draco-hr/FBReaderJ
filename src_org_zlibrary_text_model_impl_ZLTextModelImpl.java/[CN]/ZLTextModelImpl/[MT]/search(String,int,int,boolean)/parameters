@@ -1,0 +1,4 @@
+String text
+int startIndex
+int endIndex
+boolean ignoreCase
