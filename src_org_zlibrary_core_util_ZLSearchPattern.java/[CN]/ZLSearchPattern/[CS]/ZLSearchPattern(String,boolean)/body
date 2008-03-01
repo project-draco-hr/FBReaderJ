@@ -1,0 +1,10 @@
+{
+  IgnoreCase=ignoreCase;
+  if (IgnoreCase) {
+    LowerCasePattern=pattern.toLowerCase();
+    UpperCasePattern=pattern.toUpperCase();
+  }
+ else {
+    LowerCasePattern=pattern;
+  }
+}
