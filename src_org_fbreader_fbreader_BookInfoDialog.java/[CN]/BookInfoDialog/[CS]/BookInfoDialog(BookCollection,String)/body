@@ -1,0 +1,7 @@
+{
+  myCollection=collection;
+  myBookInfo=new BookInfo(fileName);
+  myDialog=ZLDialogManager.getInstance().createOptionsDialog("InfoDialog");
+  ZLDialogContent commonTab=myDialog.createTab("Common");
+  ZLDialogContent seriesTab=myDialog.createTab("Series");
+}

@@ -5,6 +5,7 @@
   CollectionView collectionView=fbreader.getCollectionView();
   generalTab.addOption("lookInSubdirectories",collectionView.getCollection().ScanSubdirsOption);
   ZLDialogContent encodingTab=myDialog.createTab("Language");
+  encodingTab.addOption("autoDetect",new ZLSimpleBooleanOptionEntry(PluginCollection.instance().LanguageAutoDetectOption));
   myDialog.createTab("Scrolling");
   ZLDialogContent selectionTab=myDialog.createTab("Selection");
   selectionTab.addOption("enableSelection",FBView.selectionOption());
