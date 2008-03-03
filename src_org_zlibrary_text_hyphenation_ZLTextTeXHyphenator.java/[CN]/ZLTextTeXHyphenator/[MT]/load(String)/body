@@ -1,9 +1,3 @@
 {
-  if (language.equals(myLanguage)) {
-    return;
-  }
-  myLanguage=language;
-  unload();
-  new ZLTextHyphenationReader(this).read(ZLibrary.JAR_DATA_PREFIX + "data/hyphenationPatterns/" + language+ ".pattern");
-  System.err.println(myPatternTable.size());
+  load(language,ZLibrary.JAR_DATA_PREFIX + "data/hyphenationPatterns/" + language+ ".pattern");
 }

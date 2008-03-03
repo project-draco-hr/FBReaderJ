@@ -1,0 +1,8 @@
+{
+  if (language.equals(myLanguage)) {
+    return;
+  }
+  myLanguage=language;
+  unload();
+  new ZLTextHyphenationReader(this).read(path);
+}

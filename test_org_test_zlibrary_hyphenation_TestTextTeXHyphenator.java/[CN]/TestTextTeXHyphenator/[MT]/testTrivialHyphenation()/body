@@ -1,10 +1,11 @@
 {
   ZLTextTeXHyphenator hyphenator=new ZLTextTeXHyphenator();
-  hyphenator.load("en");
-  String s="griffon";
+  hyphenator.load("en","./data/hyphenationPatterns/en.pattern");
+  String s="short";
   int length=s.length();
   boolean[] mask=new boolean[length];
   char[] buf=s.toCharArray();
   hyphenator.hyphenate(buf,mask,length);
-  System.err.println(Arrays.toString(mask));
+  boolean[] right=new boolean[length];
+  assertEquals(Arrays.toString(mask),Arrays.toString(right));
 }

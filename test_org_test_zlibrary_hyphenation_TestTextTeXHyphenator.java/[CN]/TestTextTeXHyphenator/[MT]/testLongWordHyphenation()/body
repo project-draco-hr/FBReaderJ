@@ -1,0 +1,17 @@
+{
+  ZLTextTeXHyphenator hyphenator=new ZLTextTeXHyphenator();
+  hyphenator.load("en","./data/hyphenationPatterns/en.pattern");
+  String s="internationalization";
+  int length=s.length();
+  boolean[] mask=new boolean[length];
+  char[] buf=s.toCharArray();
+  hyphenator.hyphenate(buf,mask,length);
+  boolean[] right=new boolean[length];
+  right[1]=true;
+  right[4]=true;
+  right[6]=true;
+  right[10]=true;
+  right[12]=true;
+  right[15]=true;
+  assertEquals(Arrays.toString(mask),Arrays.toString(right));
+}
