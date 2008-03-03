@@ -1,2 +1,4 @@
 {
+  ZLSearchPattern pattern=new ZLSearchPattern(text,ignoreCase);
+  myMarks.clear();
 }

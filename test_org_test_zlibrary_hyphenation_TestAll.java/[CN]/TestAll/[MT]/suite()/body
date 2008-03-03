@@ -1,0 +1,6 @@
+{
+  TestSuite suite=new TestSuite();
+  suite.addTestSuite(TestTextTeXHyphenationPattern.class);
+  suite.addTestSuite(TestTextTeXHyphenator.class);
+  return suite;
+}

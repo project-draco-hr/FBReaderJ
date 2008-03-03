@@ -1,0 +1,8 @@
+{
+  int length=0;
+  char[] pattern=new char[length];
+  ZLTextTeXHyphenationPattern p=new ZLTextTeXHyphenationPattern(pattern,0,length,true);
+  assertEquals(p.getLength(),0);
+  assertEquals(Arrays.toString(p.getSymbols()),"[]");
+  assertEquals(Arrays.toString(p.getValues()),"[0]");
+}
