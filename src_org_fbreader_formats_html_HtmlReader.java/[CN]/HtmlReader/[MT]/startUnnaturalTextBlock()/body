@@ -1,0 +1,11 @@
+{
+  if (!isTextParagraphExists()) {
+    myUnnaturalTextBlockExists=true;
+    beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
+  }
+ else {
+    endParagraph();
+    myAdditionalParagraphExists=true;
+    beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
+  }
+}

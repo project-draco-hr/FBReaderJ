@@ -14,7 +14,7 @@ case HtmlTag.HTML:
     if (key.startsWith("xmlns:")) {
       final String value=attributes.getValue(key);
       if (value.endsWith("/xlink")) {
-        myHrefAttribute=(key.substring(6) + ":href").intern();
+        myHrefAttribute=(key.substring(6) + "href").intern();
         break;
       }
     }
@@ -23,26 +23,12 @@ case HtmlTag.HTML:
 break;
 case HtmlTag.BODY:
 ++myBodyCounter;
-myParagraphsBeforeBodyNumber=getModel().getBookTextModel().getParagraphsNumber();
 if ((myBodyCounter == 1) || (attributes.getValue("name") == null)) {
 setMainTextModel();
 myReadMainText=true;
 }
 pushKind(FBTextKind.REGULAR);
-break;
-case HtmlTag.TITLE:
-if (myInsidePoem) {
-pushKind(FBTextKind.POEM_TITLE);
-}
- else if (mySectionDepth == 0) {
-insertEndOfSectionParagraph();
-pushKind(FBTextKind.TITLE);
-}
- else {
-pushKind(FBTextKind.SECTION_TITLE);
-myInsideTitle=true;
-enterTitle();
-}
+startUnnaturalTextBlock();
 break;
 case HtmlTag.P:
 if (mySectionStarted) {
@@ -54,10 +40,6 @@ addContentsData(SPACE);
 beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
 break;
 case HtmlTag.A:
-if (!isTextParagraphExists()) {
-myUnnaturalParagraphExists=true;
-beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
-}
 String ref=attributes.getValue(myHrefAttribute);
 if ((ref != null) && (ref.length() != 0)) {
 if (ref.charAt(0) == '#') {
@@ -75,39 +57,47 @@ addControl(myHyperlinkType,true);
 }
 break;
 case HtmlTag.BR:
-if (!isTextParagraphExists()) {
+{
+boolean paragraphExists=isTextParagraphExists();
+if (paragraphExists) {
 endParagraph();
 }
 beginParagraph(ZLTextParagraph.Kind.EMPTY_LINE_PARAGRAPH);
 endParagraph();
-if (!isTextParagraphExists()) {
+if (paragraphExists) {
 beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
 }
 break;
-case HtmlTag.B:
-if (!isTextParagraphExists()) {
-myUnnaturalParagraphExists=true;
-beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
 }
-addControl(FBTextKind.STRONG,true);
+case HtmlTag.B:
+addControl(FBTextKind.BOLD,true);
+break;
+case HtmlTag.I:
+addControl(FBTextKind.ITALIC,true);
 break;
 case HtmlTag.H1:
-beginParagraph(FBTextKind.H1);
+startUnnaturalTextBlock();
+addControl(FBTextKind.H1,true);
 break;
 case HtmlTag.H2:
-beginParagraph(FBTextKind.H2);
+startUnnaturalTextBlock();
+addControl(FBTextKind.H2,true);
 break;
 case HtmlTag.H3:
-beginParagraph(FBTextKind.H3);
+startUnnaturalTextBlock();
+addControl(FBTextKind.H3,true);
 break;
 case HtmlTag.H4:
-beginParagraph(FBTextKind.H4);
+startUnnaturalTextBlock();
+addControl(FBTextKind.H4,true);
 break;
 case HtmlTag.H5:
-beginParagraph(FBTextKind.H5);
+startUnnaturalTextBlock();
+addControl(FBTextKind.H5,true);
 break;
 case HtmlTag.H6:
-beginParagraph(FBTextKind.H6);
+startUnnaturalTextBlock();
+addControl(FBTextKind.H6,true);
 break;
 default :
 break;

@@ -1,0 +1,7 @@
+{
+  if (myAdditionalParagraphExists) {
+    endParagraph();
+    beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
+    myAdditionalParagraphExists=false;
+  }
+}
