@@ -18,7 +18,6 @@ case HtmlTag.HTML:
         break;
       }
     }
-    System.out.println(key);
   }
 break;
 case HtmlTag.BODY:
