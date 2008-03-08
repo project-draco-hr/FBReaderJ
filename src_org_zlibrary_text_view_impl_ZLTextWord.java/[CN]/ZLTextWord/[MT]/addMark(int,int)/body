@@ -1,0 +1,15 @@
+{
+  Mark existingMark=myMark;
+  Mark mark=new Mark(start,length);
+  if ((existingMark == null) || (existingMark.getStart() > start)) {
+    mark.setNext(existingMark);
+    myMark=mark;
+  }
+ else {
+    while ((existingMark.getNext() != null) && (existingMark.getNext().getStart() < start)) {
+      existingMark=existingMark.getNext();
+    }
+    mark.setNext(existingMark.getNext());
+    existingMark.setNext(mark);
+  }
+}

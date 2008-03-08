@@ -1,0 +1,37 @@
+{
+  final ZLPaintContext context=getContext();
+  context.setColor(myTextStyle.getColor());
+  if (mark == null) {
+    context.drawString(x,y,str,offset,length);
+  }
+ else {
+    int pos=0;
+    for (; (mark != null) && (pos < length); mark=mark.getNext()) {
+      int markStart=mark.getStart() - shift;
+      int markLen=mark.getLength();
+      if (markStart < pos) {
+        markLen+=markStart - pos;
+        markStart=pos;
+      }
+      if (markLen <= 0) {
+        continue;
+      }
+      if (markStart > pos) {
+        int endPos=Math.min(markStart,length);
+        context.drawString(x,y,str,offset + pos,endPos - pos);
+        x+=context.getStringWidth(str,offset + pos,endPos - pos);
+      }
+      if (markStart < length) {
+        context.setColor(ZLTextStyleCollection.getInstance().getBaseStyle().SelectedTextColorOption.getValue());
+        int endPos=Math.min(markStart + markLen,length);
+        context.drawString(x,y,str,offset + markStart,endPos - markStart);
+        x+=context.getStringWidth(str,offset + markStart,endPos - markStart);
+        context.setColor(myTextStyle.getColor());
+      }
+      pos=markStart + markLen;
+    }
+    if (pos < length) {
+      context.drawString(x,y,str,offset + pos,length - pos);
+    }
+  }
+}

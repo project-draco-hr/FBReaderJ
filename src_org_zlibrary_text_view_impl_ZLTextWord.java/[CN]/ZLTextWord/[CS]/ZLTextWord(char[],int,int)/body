@@ -2,4 +2,5 @@
   Data=data;
   Offset=offset;
   Length=length;
+  myMark=new Mark(0,1);
 }

@@ -2,14 +2,14 @@
   final ZLPaintContext context=getContext();
   context.setColor(myTextStyle.getColor());
   if ((start == 0) && (length == -1)) {
-    context.drawString(x,y,word.Data,word.Offset,word.Length);
+    drawString(x,y,word.Data,word.Offset,word.Length,word.getMark(),0);
   }
  else {
     if (length == -1) {
       length=word.Length - start;
     }
     if (!addHyphenationSign) {
-      context.drawString(x,y,word.Data,word.Offset + start,length);
+      drawString(x,y,word.Data,word.Offset + start,length,word.getMark(),start);
     }
  else {
       char[] part=myWordPartArray;
@@ -19,7 +19,7 @@
       }
       System.arraycopy(word.Data,word.Offset + start,part,0,length);
       part[length]='-';
-      context.drawString(x,y,part,0,length + 1);
+      drawString(x,y,part,0,length + 1,word.getMark(),start);
     }
   }
 }
