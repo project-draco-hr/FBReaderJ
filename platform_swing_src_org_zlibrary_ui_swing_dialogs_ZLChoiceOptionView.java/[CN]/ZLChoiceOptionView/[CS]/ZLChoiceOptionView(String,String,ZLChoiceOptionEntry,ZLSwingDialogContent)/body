@@ -1,5 +1,6 @@
 {
   super(name,tooltip,option);
+  myButtonPanel.setBorder(new TitledBorder(name));
   final int choiceNumber=option.choiceNumber();
   for (int i=0; i < choiceNumber; i++) {
     JRadioButton button=new JRadioButton(option.getText(i));

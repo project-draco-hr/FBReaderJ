@@ -1,5 +1,5 @@
 {
   super(resource);
   myContentPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-  myContentPanel.setLayout(myGridLayout);
+  myContentPanel.setLayout(new GridLayout(0,1,10,5));
 }

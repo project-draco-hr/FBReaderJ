@@ -10,6 +10,7 @@ case ZLOptionKind.BOOLEAN:
 case ZLOptionKind.BOOLEAN3:
 break;
 case ZLOptionKind.STRING:
+view=new ZLStringOptionView(name,tooltip,(ZLStringOptionEntry)option,this);
 break;
 case ZLOptionKind.CHOICE:
 view=new ZLChoiceOptionView(name,tooltip,(ZLChoiceOptionEntry)option,this);
