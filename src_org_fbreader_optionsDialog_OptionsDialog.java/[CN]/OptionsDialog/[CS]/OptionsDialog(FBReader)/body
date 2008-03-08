@@ -4,6 +4,7 @@
   ZLDialogContent generalTab=myDialog.createTab("General");
   CollectionView collectionView=fbreader.getCollectionView();
   generalTab.addOption("lookInSubdirectories",collectionView.getCollection().ScanSubdirsOption);
+  generalTab.addOption("keyDelay",new ZLSimpleSpinOptionEntry(fbreader.KeyDelayOption,50));
   ZLDialogContent encodingTab=myDialog.createTab("Language");
   encodingTab.addOption("autoDetect",new ZLSimpleBooleanOptionEntry(PluginCollection.instance().LanguageAutoDetectOption));
   myDialog.createTab("Scrolling");

@@ -1,0 +1,3 @@
+{
+  ((ZLChoiceOptionEntry)myOption).onAccept(myButtonModels.indexOf(myButtonGroup.getSelection()));
+}

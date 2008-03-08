@@ -1,0 +1,4 @@
+String name
+String tooltip
+ZLSpinOptionEntry option
+ZLSwingDialogContent tab

@@ -1,0 +1,15 @@
+{
+  super(name,tooltip,option);
+  mySpinner=new JSpinner(new SpinnerNumberModel(option.initialValue(),option.minValue(),option.maxValue(),option.getStep()));
+  if (name == null) {
+    myLabel=null;
+    tab.insertWidget(mySpinner);
+  }
+ else {
+    myLabel=new JLabel(name);
+    JPanel panel=new JPanel(new GridLayout(1,2,10,10));
+    panel.add(myLabel);
+    panel.add(mySpinner);
+    tab.insertWidget(panel);
+  }
+}

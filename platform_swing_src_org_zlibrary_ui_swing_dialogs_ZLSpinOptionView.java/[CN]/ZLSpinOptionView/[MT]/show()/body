@@ -1,0 +1,6 @@
+{
+  mySpinner.setVisible(true);
+  if (myLabel != null) {
+    myLabel.setVisible(true);
+  }
+}
