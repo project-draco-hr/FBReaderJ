@@ -4,5 +4,6 @@
   }
   myLanguage=language;
   unload();
+  System.err.println(language);
   new ZLTextHyphenationReader(this).read(path);
 }
