@@ -1,0 +1,16 @@
+{
+  if (text.length() == 0) {
+    return;
+  }
+  int startIndex=0;
+  int endIndex=myModel.getParagraphsNumber();
+  if (thisSectionOnly) {
+  }
+  myModel.search(text,startIndex,endIndex,ignoreCase);
+  if (!myStartCursor.isNull()) {
+    rebuildPaintInfo(true);
+    ZLTextMark position=myStartCursor.getPosition();
+    gotoMark(wholeText ? (backward ? myModel.getLastMark() : myModel.getFirstMark()) : (backward ? myModel.getPreviousMark(position) : myModel.getNextMark(position)));
+    getApplication().refreshWindow();
+  }
+}

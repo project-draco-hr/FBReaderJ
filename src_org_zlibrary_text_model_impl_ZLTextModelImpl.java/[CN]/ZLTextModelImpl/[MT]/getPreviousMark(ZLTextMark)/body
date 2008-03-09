@@ -1,0 +1,12 @@
+{
+  ZLTextMark mark=null;
+  for (int i=0; i < myMarks.size(); i++) {
+    ZLTextMark current=(ZLTextMark)myMarks.get(i);
+    if (current.compareTo(position) < 0) {
+      if ((mark == null) || (mark.compareTo(current) < 0)) {
+        mark=current;
+      }
+    }
+  }
+  return (mark != null) ? mark : new ZLTextMark();
+}

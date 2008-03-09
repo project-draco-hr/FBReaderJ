@@ -1,0 +1,15 @@
+{
+  if (myParagraphCursor == null) {
+    return new ZLTextMark();
+  }
+  final ZLTextParagraphCursor paragraph=myParagraphCursor;
+  int paragraphLength=paragraph.getParagraphLength();
+  int wordNumber=myWordNumber;
+  while ((wordNumber != paragraphLength) && (!(paragraph.getElement(wordNumber) instanceof ZLTextWord))) {
+    wordNumber++;
+  }
+  if (wordNumber != paragraphLength) {
+    return new ZLTextMark(paragraph.getIndex(),((ZLTextWord)paragraph.getElement(wordNumber)).getParagraphOffset(),0);
+  }
+  return new ZLTextMark(paragraph.getIndex() + 1,0,0);
+}

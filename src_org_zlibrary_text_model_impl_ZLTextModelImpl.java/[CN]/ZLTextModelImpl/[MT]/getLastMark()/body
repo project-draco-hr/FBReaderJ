@@ -1,0 +1,3 @@
+{
+  return myMarks.size() == 0 ? new ZLTextMark() : (ZLTextMark)myMarks.get(myMarks.size() - 1);
+}

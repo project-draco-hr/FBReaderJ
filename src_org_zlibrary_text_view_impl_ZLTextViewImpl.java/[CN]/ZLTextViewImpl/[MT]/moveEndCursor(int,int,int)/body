@@ -2,7 +2,7 @@
   if (myPaintState == PaintState.NOTHING_TO_PAINT) {
     return;
   }
-  if (myEndCursor == null) {
+  if (myEndCursor.isNull()) {
     myEndCursor.setCursor(myStartCursor);
   }
   myEndCursor.moveToParagraph(paragraphNumber);

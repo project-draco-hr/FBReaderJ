@@ -1,0 +1,16 @@
+{
+  myParagraph=paragraph;
+  myElements=elements;
+  myMarks=marks;
+  ZLTextMark mark=new ZLTextMark(paragraphNumber,0,0);
+  int i;
+  for (i=0; i < myMarks.size(); i++) {
+    if (((ZLTextMark)myMarks.get(i)).compareTo(mark) >= 0) {
+      break;
+    }
+  }
+  myFirstMark=i;
+  myLastMark=myFirstMark;
+  for (; (myLastMark != myMarks.size()) && (((ZLTextMark)myMarks.get(myLastMark)).ParagraphNumber == paragraphNumber); myLastMark++)   ;
+  myOffset=0;
+}

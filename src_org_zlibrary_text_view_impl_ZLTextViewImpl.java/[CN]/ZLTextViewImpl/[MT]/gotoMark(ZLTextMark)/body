@@ -1,0 +1,29 @@
+{
+  if (mark.ParagraphNumber < 0) {
+    return;
+  }
+  boolean doRepaint=false;
+  if (myStartCursor.isNull()) {
+    doRepaint=true;
+    preparePaintInfo();
+  }
+  if (myStartCursor.isNull()) {
+    return;
+  }
+  if ((myStartCursor.getParagraphCursor().getIndex() != mark.ParagraphNumber) || (myStartCursor.getPosition().compareTo(mark) > 0)) {
+    doRepaint=true;
+    gotoParagraph(mark.ParagraphNumber);
+    preparePaintInfo();
+  }
+  if (myEndCursor.isNull()) {
+    preparePaintInfo();
+  }
+  while (mark.compareTo(myEndCursor.getPosition()) > 0) {
+    doRepaint=true;
+    scrollPage(true,ScrollingMode.NO_OVERLAPPING,0);
+    preparePaintInfo();
+  }
+  if (doRepaint) {
+    getApplication().refreshWindow();
+  }
+}
