@@ -1,0 +1,9 @@
+{
+  Component component=myTabbedPane.getSelectedComponent();
+  for (  Map.Entry entry : myPanelToKeyMap.entrySet()) {
+    if (entry.getValue().equals(component)) {
+      mySelectedTabKey=(String)entry.getKey();
+      break;
+    }
+  }
+}

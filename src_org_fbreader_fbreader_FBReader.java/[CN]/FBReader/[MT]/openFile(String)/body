@@ -1,0 +1,7 @@
+{
+  BookDescription description=BookDescription.getDescription(fileName);
+  if (description != null) {
+    openBook(description);
+    refreshWindow();
+  }
+}

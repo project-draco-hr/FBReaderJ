@@ -3,7 +3,8 @@
   JPanel contentPanel=tab.getContentPanel();
   JPanel panel=new JPanel(new BorderLayout());
   panel.add(contentPanel,BorderLayout.PAGE_START);
-  myPanelToKeyMap.put(panel,tab.getKey());
+  myPanelToKeyMap.put(tab.getKey(),panel);
   myTabbedPane.addTab(tab.getDisplayName(),panel);
+  myTabs.add(tab);
   return tab;
 }
