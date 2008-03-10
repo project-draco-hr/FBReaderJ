@@ -1,0 +1,5 @@
+{
+  myWidthOption.setValue(myDialog.getWidth());
+  myHeightOption.setValue(myDialog.getHeight());
+  myDialog.dispose();
+}

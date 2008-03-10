@@ -12,6 +12,7 @@
   JButton button1=ZLSwingDialogManager.createButton(ZLSwingDialogManager.OK_BUTTON);
   JButton button2=ZLSwingDialogManager.createButton(ZLSwingDialogManager.CANCEL_BUTTON);
   CancelAction cancelAction=new CancelAction(button2.getText());
+  button1.setAction(new OKAction(button1.getText()));
   button2.setAction(cancelAction);
   buttonPanel.add(button1);
   buttonPanel.add(button2);
@@ -24,6 +25,7 @@
   if (myShowApplyButton) {
     JButton button3=ZLSwingDialogManager.createButton(ZLSwingDialogManager.APPLY_BUTTON);
     buttonPanel.add(button3);
+    button3.setAction(new ApplyAction(button3.getText()));
     if (button3.getPreferredSize().width < button2.getPreferredSize().width) {
       button3.setPreferredSize(button2.getPreferredSize());
     }
@@ -48,5 +50,5 @@
   myDialog.setLocationRelativeTo(myDialog.getParent());
   myDialog.setModal(true);
   myDialog.setVisible(true);
-  return true;
+  return myReturnValue;
 }
