@@ -1,0 +1,21 @@
+{
+  myValues.clear();
+  HashSet valuesSet=new HashSet();
+  valuesSet.add(initialValue());
+  valuesSet.add("");
+  if (myOriginalAuthor != null) {
+    final ArrayList books=myInfoDialog.myCollection.books(myOriginalAuthor);
+    for (int i=0; i < books.size(); i++) {
+      valuesSet.add(((BookDescription)books.get(i)).getSequenceName());
+    }
+  }
+  Author currentAuthor=myInfoDialog.myAuthorDisplayNameEntry.myCurrentAuthor;
+  if (currentAuthor != null && (currentAuthor != myOriginalAuthor)) {
+    final ArrayList books=myInfoDialog.myCollection.books(currentAuthor);
+    for (int i=0; i < books.size(); i++) {
+      valuesSet.add(((BookDescription)books.get(i)).getSequenceName());
+    }
+  }
+  myValues.addAll(valuesSet);
+  return myValues;
+}

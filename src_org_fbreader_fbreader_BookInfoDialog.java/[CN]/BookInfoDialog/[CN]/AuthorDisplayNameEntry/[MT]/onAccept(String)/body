@@ -1,0 +1,3 @@
+{
+  myInfoDialog.myBookInfo.getAuthorDisplayNameOption().setValue(value);
+}

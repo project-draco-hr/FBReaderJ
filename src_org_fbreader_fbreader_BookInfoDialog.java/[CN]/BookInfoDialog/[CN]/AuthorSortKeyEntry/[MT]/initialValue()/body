@@ -1,0 +1,4 @@
+{
+  Author currentAuthor=myInfoDialog.myAuthorDisplayNameEntry.myCurrentAuthor;
+  return currentAuthor == null ? myInfoDialog.myBookInfo.getAuthorSortKeyOption().getValue() : currentAuthor.getSortKey();
+}

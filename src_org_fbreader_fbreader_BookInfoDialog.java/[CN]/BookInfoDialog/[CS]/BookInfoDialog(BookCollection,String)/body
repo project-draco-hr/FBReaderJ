@@ -3,5 +3,22 @@
   myBookInfo=new BookInfo(fileName);
   myDialog=ZLDialogManager.getInstance().createOptionsDialog("InfoDialog");
   ZLDialogContent commonTab=myDialog.createTab("Common");
+  commonTab.addOption("file",new ZLStringInfoEntry(ZLFile.fileNameToUtf8(new ZLFile(fileName).getPath())));
+  commonTab.addOption("title",myBookInfo.getTitleOption());
+  myAuthorDisplayNameEntry=new AuthorDisplayNameEntry(this);
+  myAuthorSortKeyEntry=new AuthorSortKeyEntry(this);
+  mySeriesTitleEntry=new SeriesTitleEntry(this);
+  myBookNumberEntry=new ZLSimpleSpinOptionEntry(myBookInfo.getNumberInSequenceOption(),1);
+  commonTab.addOption("authorDisplayName",myAuthorDisplayNameEntry);
+  commonTab.addOption("authorSortKey",myAuthorSortKeyEntry);
+  if (myEncodingSetEntry != null) {
+    commonTab.addOption("encodingSet",myEncodingSetEntry);
+  }
   ZLDialogContent seriesTab=myDialog.createTab("Series");
+  seriesTab.addOption("seriesTitle",mySeriesTitleEntry);
+  seriesTab.addOption("bookNumber",myBookNumberEntry);
+  mySeriesTitleEntry.onValueEdited(mySeriesTitleEntry.initialValue());
+  FormatPlugin plugin=PluginCollection.instance().getPlugin(new ZLFile(fileName),false);
+  if (plugin != null) {
+  }
 }

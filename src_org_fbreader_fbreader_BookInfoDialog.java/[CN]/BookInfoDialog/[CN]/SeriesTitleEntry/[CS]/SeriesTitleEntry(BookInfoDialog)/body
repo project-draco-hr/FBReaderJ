@@ -1,0 +1,14 @@
+{
+  super(true);
+  myInfoDialog=dialog;
+  final ArrayList authors=myInfoDialog.myCollection.authors();
+  final String authorName=myInfoDialog.myBookInfo.getAuthorDisplayNameOption().getValue();
+  final String authorKey=myInfoDialog.myBookInfo.getAuthorSortKeyOption().getValue();
+  for (int i=0; i < authors.size(); i++) {
+    final Author author=(Author)authors.get(i);
+    if ((authorName != null && authorName.equals(author.getDisplayName())) && (authorKey != null && authorKey.equals(author.getSortKey()))) {
+      myOriginalAuthor=author;
+      break;
+    }
+  }
+}

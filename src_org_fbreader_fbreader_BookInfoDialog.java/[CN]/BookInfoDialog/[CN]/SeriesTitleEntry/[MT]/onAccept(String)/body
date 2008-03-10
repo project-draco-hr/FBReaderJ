@@ -1,0 +1,3 @@
+{
+  myInfoDialog.myBookInfo.getSequenceNameOption().setValue(value);
+}
