@@ -36,6 +36,23 @@
  else {
         message=ZLDialogManager.getDialogMessage(boxKey).substring(0,index) + book.getTitle() + format.substring(index + 2);
       }
+      if (ZLDialogManager.getInstance().showQuestionBox(boxKey,message,ZLDialogManager.YES_BUTTON,ZLDialogManager.NO_BUTTON) == 0) {
+        new BookList().removeFileName(book.getFileName());
+        ZLTextTreeParagraph paragraph=(ZLTextTreeParagraph)collectionModel().getTreeParagraph(imageArea.ParagraphNumber);
+        ZLTextTreeParagraph parent=paragraph.getParent();
+        if (parent.getChildren().size() == 1) {
+          collectionModel().removeParagraph(imageArea.ParagraphNumber);
+          collectionModel().removeParagraph(imageArea.ParagraphNumber - 1);
+        }
+ else {
+          collectionModel().removeParagraph(imageArea.ParagraphNumber);
+        }
+        if (collectionModel().getParagraphsNumber() == 0) {
+          this.getStartCursor().setCursor((ZLTextParagraphCursor)null);
+        }
+        rebuildPaintInfo(true);
+        repaintView();
+      }
       return true;
     }
     return false;

@@ -1,0 +1,10 @@
+{
+  new ZLIntegerOption(ZLOption.STATE_CATEGORY,GROUP,SIZE,0).setValue(myFileNames.size());
+  int i=0;
+  for (Iterator it=myFileNames.iterator(); it.hasNext(); ++i) {
+    String optionName=BOOK;
+    optionName+=i;
+    new ZLStringOption(ZLOption.STATE_CATEGORY,GROUP,optionName,"").setValue((String)it.next());
+  }
+  System.out.println("add book");
+}

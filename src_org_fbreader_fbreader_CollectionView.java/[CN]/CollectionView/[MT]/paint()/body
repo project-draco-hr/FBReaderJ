@@ -1,10 +1,17 @@
 {
+  System.out.println("paint begin");
   if (myUpdateModel) {
+    System.out.println("myUpdateModel");
     ZLTextModel oldModel=getModel();
+    System.out.println("paint begin1");
     setModel(null);
+    System.out.println("paint begin2");
     ((CollectionModel)oldModel).update();
+    System.out.println("paint begin3");
     setModel(oldModel);
-    myUpdateModel=false;
+    System.out.println("paint begin4");
   }
+  System.out.println("paint begin5");
   super.paint();
+  System.out.println("paint begin6");
 }

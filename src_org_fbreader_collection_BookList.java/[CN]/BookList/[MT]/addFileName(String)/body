@@ -1,3 +1,4 @@
 {
   myFileNames.add(fileName);
+  save();
 }

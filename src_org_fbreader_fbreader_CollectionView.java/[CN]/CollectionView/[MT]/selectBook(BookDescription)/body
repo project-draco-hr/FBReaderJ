@@ -4,7 +4,6 @@
     setModel(null);
     ((CollectionModel)oldModel).update();
     setModel(oldModel);
-    myUpdateModel=false;
   }
   int toSelect=collectionModel().paragraphNumberByBook(book);
   if (toSelect >= 0) {

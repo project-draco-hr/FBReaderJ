@@ -1,5 +1,6 @@
 {
   final ArrayList authors=myCollection.authors();
+  System.out.println("after authors in build");
   String currentSequenceName="";
   ZLTextTreeParagraph sequenceParagraph;
   for (int i=0; i < authors.size(); i++) {
@@ -10,6 +11,7 @@
       sequenceParagraph=null;
       ZLTextTreeParagraph authorParagraph=createParagraph(null);
       insertText(FBTextKind.LIBRARY_AUTHOR_ENTRY,it.getDisplayName());
+      insertImage(AUTHOR_INFO_IMAGE_ID);
       for (int j=0; j < books.size(); j++) {
         BookDescription jt=(BookDescription)books.get(j);
         final String sequenceName=jt.getSequenceName();
@@ -21,6 +23,7 @@
           currentSequenceName=sequenceName;
           sequenceParagraph=createParagraph(authorParagraph);
           insertText(FBTextKind.LIBRARY_BOOK_ENTRY,sequenceName);
+          insertImage(SERIES_ORDER_IMAGE_ID);
         }
         ZLTextTreeParagraph bookParagraph=createParagraph((sequenceParagraph == null) ? authorParagraph : sequenceParagraph);
         insertText(FBTextKind.LIBRARY_BOOK_ENTRY,jt.getTitle());

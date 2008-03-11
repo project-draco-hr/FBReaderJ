@@ -1,3 +1,4 @@
 {
   myFileNames.remove(fileName);
+  save();
 }
