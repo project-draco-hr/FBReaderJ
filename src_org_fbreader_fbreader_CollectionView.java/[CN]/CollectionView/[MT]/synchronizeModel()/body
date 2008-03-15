@@ -1,5 +1,6 @@
 {
   if (myCollection.synchronize()) {
+    System.out.println("synchronizeModel");
     updateModel();
   }
 }
