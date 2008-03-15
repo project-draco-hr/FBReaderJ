@@ -13,4 +13,5 @@
   while (myBooks.size() > maxSize) {
     myBooks.remove(myBooks.size() - 1);
   }
+  save();
 }

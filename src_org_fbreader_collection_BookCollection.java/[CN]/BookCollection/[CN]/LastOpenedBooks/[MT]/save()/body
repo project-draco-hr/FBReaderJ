@@ -1,0 +1,8 @@
+{
+  int size=Math.min(MaxListSizeOption.getValue(),myBooks.size());
+  for (int i=0; i < size; ++i) {
+    String num=BOOK;
+    num+=i;
+    new ZLStringOption(ZLOption.STATE_CATEGORY,GROUP,num,"").setValue(((BookDescription)myBooks.get(i)).getFileName());
+  }
+}
