@@ -1,44 +1,46 @@
 {
 switch (HtmlTag.getTagByName(tagName)) {
 case HtmlTag.P:
-    endParagraph();
-  startUnnaturalTextBlock();
-break;
+    startNewParagraph();
+  break;
 case HtmlTag.H1:
-endUnnaturalTextBlock();
 addControl(FBTextKind.H1,false);
+startNewParagraph();
 break;
 case HtmlTag.H2:
-endUnnaturalTextBlock();
 addControl(FBTextKind.H2,false);
+startNewParagraph();
 break;
 case HtmlTag.H3:
-endUnnaturalTextBlock();
 addControl(FBTextKind.H3,false);
+startNewParagraph();
 break;
 case HtmlTag.H4:
-endUnnaturalTextBlock();
 addControl(FBTextKind.H4,false);
+startNewParagraph();
 break;
 case HtmlTag.H5:
-endUnnaturalTextBlock();
 addControl(FBTextKind.H5,false);
+startNewParagraph();
 break;
 case HtmlTag.H6:
-endUnnaturalTextBlock();
 addControl(FBTextKind.H6,false);
+startNewParagraph();
 break;
 case HtmlTag.A:
-endUnnaturalTextBlock();
 addControl(myHyperlinkType,false);
 break;
 case HtmlTag.BODY:
-popKind();
 myReadMainText=false;
+break;
+case HtmlTag.HTML:
 unsetCurrentTextModel();
 break;
 case HtmlTag.B:
 addControl(FBTextKind.BOLD,false);
+break;
+case HtmlTag.STRONG:
+addControl(FBTextKind.STRONG,false);
 break;
 case HtmlTag.I:
 addControl(FBTextKind.ITALIC,false);

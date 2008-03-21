@@ -27,7 +27,7 @@ setMainTextModel();
 myReadMainText=true;
 }
 pushKind(FBTextKind.REGULAR);
-startUnnaturalTextBlock();
+beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
 break;
 case HtmlTag.P:
 if (mySectionStarted) {
@@ -57,45 +57,40 @@ addControl(myHyperlinkType,true);
 break;
 case HtmlTag.BR:
 {
-boolean paragraphExists=isTextParagraphExists();
-if (paragraphExists) {
-endParagraph();
-}
-beginParagraph(ZLTextParagraph.Kind.EMPTY_LINE_PARAGRAPH);
-endParagraph();
-if (paragraphExists) {
-beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
-}
+startNewParagraph();
 break;
 }
 case HtmlTag.B:
 addControl(FBTextKind.BOLD,true);
 break;
+case HtmlTag.STRONG:
+addControl(FBTextKind.STRONG,true);
+break;
 case HtmlTag.I:
 addControl(FBTextKind.ITALIC,true);
 break;
 case HtmlTag.H1:
-startUnnaturalTextBlock();
+beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
 addControl(FBTextKind.H1,true);
 break;
 case HtmlTag.H2:
-startUnnaturalTextBlock();
+beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
 addControl(FBTextKind.H2,true);
 break;
 case HtmlTag.H3:
-startUnnaturalTextBlock();
+beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
 addControl(FBTextKind.H3,true);
 break;
 case HtmlTag.H4:
-startUnnaturalTextBlock();
+beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
 addControl(FBTextKind.H4,true);
 break;
 case HtmlTag.H5:
-startUnnaturalTextBlock();
+beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
 addControl(FBTextKind.H5,true);
 break;
 case HtmlTag.H6:
-startUnnaturalTextBlock();
+beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
 addControl(FBTextKind.H6,true);
 break;
 default :

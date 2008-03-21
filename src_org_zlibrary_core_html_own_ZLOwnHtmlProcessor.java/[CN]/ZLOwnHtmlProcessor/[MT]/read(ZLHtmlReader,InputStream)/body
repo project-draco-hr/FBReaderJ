@@ -5,8 +5,8 @@
     parser.doIt();
     reader.endDocumentHandler();
   }
- catch (  IOException e) {
-    System.out.println(e);
+ catch (  Exception e) {
+    e.printStackTrace();
     return false;
   }
   return true;

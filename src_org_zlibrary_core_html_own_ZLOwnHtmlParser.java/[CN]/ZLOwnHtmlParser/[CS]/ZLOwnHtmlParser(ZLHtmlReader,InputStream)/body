@@ -1,30 +1,36 @@
 {
   myReader=htmlReader;
   String encoding="UTF-8";
+  stream.mark(512);
   final char[] buffer=myBuffer;
   int len;
-  for (len=0; len < 256; ++len) {
+  for (len=0; len < 512; ++len) {
     char c=(char)stream.read();
-    if (c == '>') {
-      break;
-    }
     buffer[len]=c;
   }
-  if (len < 384) {
-    String xmlDescription=new String(buffer,0,len + 1);
-    int index=xmlDescription.indexOf("encoding");
-    if (index == 0) {
-      index=xmlDescription.indexOf("charset");
+  StringBuffer description=new StringBuffer(new String(buffer,0,512));
+  int index=description.indexOf("encoding");
+  if (index <= 0) {
+    index=description.indexOf("charset");
+  }
+  if (index > 0) {
+    int startIndex;
+    for (startIndex=description.indexOf("=",index) + 1; !Character.isLetter(description.charAt(startIndex)); startIndex++) {
     }
-    if (index > 0) {
-      int startIndex=xmlDescription.indexOf('=',index) + 1;
-      if (startIndex > 0) {
-        int endIndex=Math.min(xmlDescription.indexOf(' ',startIndex + 1),xmlDescription.indexOf('>',startIndex + 1));
-        if (endIndex > 0) {
-          encoding=xmlDescription.substring(startIndex + 1,endIndex);
-        }
+    if (startIndex > 0) {
+      int endIndex=Math.min(description.indexOf("\"",startIndex + 1),Math.min(description.indexOf(" ",startIndex + 1),description.indexOf(">",startIndex + 1)));
+      if (endIndex > 0) {
+        encoding=description.substring(startIndex,endIndex);
       }
     }
   }
-  myStreamReader=new InputStreamReader(stream,encoding);
+  stream.reset();
+  InputStreamReader test;
+  try {
+    test=new InputStreamReader(stream,encoding);
+  }
+ catch (  UnsupportedEncodingException e) {
+    test=new InputStreamReader(stream,"UTF-8");
+  }
+  myStreamReader=test;
 }

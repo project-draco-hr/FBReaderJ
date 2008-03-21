@@ -1,0 +1,9 @@
+{
+switch (HtmlTag.getTagByName(tagName)) {
+case HtmlTag.TITLE:
+    myReadTitle=true;
+  break;
+default :
+break;
+}
+}
