@@ -1,14 +1,15 @@
 {
   myReader=htmlReader;
-  String encoding="UTF-8";
-  stream.mark(512);
+  String encoding="cp1251";
+  int observeChars=1024;
+  stream.mark(observeChars);
   final char[] buffer=myBuffer;
   int len;
-  for (len=0; len < 512; ++len) {
+  for (len=0; len < observeChars; ++len) {
     char c=(char)stream.read();
     buffer[len]=c;
   }
-  StringBuffer description=new StringBuffer(new String(buffer,0,512));
+  StringBuffer description=new StringBuffer(new String(buffer,0,observeChars));
   int index=description.indexOf("encoding");
   if (index <= 0) {
     index=description.indexOf("charset");
@@ -30,7 +31,7 @@
     test=new InputStreamReader(stream,encoding);
   }
  catch (  UnsupportedEncodingException e) {
-    test=new InputStreamReader(stream,"UTF-8");
+    test=new InputStreamReader(stream,"cp1251");
   }
   myStreamReader=test;
 }

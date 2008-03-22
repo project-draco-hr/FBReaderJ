@@ -1,8 +1,12 @@
 {
 switch (HtmlTag.getTagByName(tagName)) {
-case HtmlTag.P:
+case HtmlTag.SCRIPT:
+case HtmlTag.SELECT:
     startNewParagraph();
   break;
+case HtmlTag.P:
+startNewParagraph();
+break;
 case HtmlTag.H1:
 addControl(FBTextKind.H1,false);
 startNewParagraph();
@@ -44,6 +48,13 @@ addControl(FBTextKind.STRONG,false);
 break;
 case HtmlTag.I:
 addControl(FBTextKind.ITALIC,false);
+break;
+case HtmlTag.OL:
+myOrderedListIsStarted=false;
+myOLCounter=0;
+break;
+case HtmlTag.UL:
+myUnorderedListIsStarted=false;
 break;
 default :
 break;
