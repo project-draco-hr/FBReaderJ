@@ -10,7 +10,7 @@
     contentsView.setModel(null);
     myBookModel=new BookModel(description);
     final String fileName=description.getFileName();
-    new ZLStringOption(ZLOption.STATE_CATEGORY,STATE,BOOK,"").setValue(fileName);
+    myBookNameOption.setValue(fileName);
     ZLTextHyphenator.getInstance().load(description.getLanguage());
     bookTextView.setModel(myBookModel.getBookTextModel(),fileName);
     bookTextView.setCaption(description.getTitle());

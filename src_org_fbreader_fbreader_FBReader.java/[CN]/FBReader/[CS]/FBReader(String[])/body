@@ -50,11 +50,14 @@
  catch (    IOException e) {
     }
   }
-  if (fileName == null) {
-    fileName=myBookNameOption.getValue();
+  BookDescription description=BookDescription.getDescription(fileName);
+  if (description == null) {
+    description=BookDescription.getDescription(myBookNameOption.getValue());
   }
-  if (!openBook(fileName)) {
-    openBook(getHelpFileName());
+  if (description == null) {
+    description=BookDescription.getDescription(getHelpFileName());
   }
+  openBook(description);
+  setMode(ViewMode.BOOK_TEXT);
   refreshWindow();
 }

@@ -1,5 +1,5 @@
 {
-  OpenBookRunnable runnable=new OpenBookRunnable(this,bookDescription);
+  OpenBookRunnable runnable=new OpenBookRunnable(bookDescription);
   runnable.run();
   resetWindowCaption();
 }
