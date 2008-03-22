@@ -1,17 +1,26 @@
 {
   if (fileName == null) {
-    fileName=myBookNameOption.getValue();
+    return false;
+  }
+  if (false) {
+    BookDescription description=BookDescription.getDescription(fileName);
+    if (description != null) {
+      openBook(description);
+      System.err.println("found description for " + fileName);
+      return true;
+    }
+ else {
+      return false;
+    }
   }
   myBookModel=new BookModel(fileName);
   if (fileName.endsWith("html") || fileName.endsWith("htm")) {
     if (!new HtmlReader(myBookModel).read()) {
-      myBookModel=null;
       return false;
     }
   }
  else {
     if (!new FB2Reader(myBookModel).read()) {
-      myBookModel=null;
       return false;
     }
   }

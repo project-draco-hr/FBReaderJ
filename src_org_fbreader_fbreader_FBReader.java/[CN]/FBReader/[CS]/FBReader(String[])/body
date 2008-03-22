@@ -50,6 +50,9 @@
  catch (    IOException e) {
     }
   }
+  if (fileName == null) {
+    fileName=myBookNameOption.getValue();
+  }
   if (!openBook(fileName)) {
     openBook(getHelpFileName());
   }

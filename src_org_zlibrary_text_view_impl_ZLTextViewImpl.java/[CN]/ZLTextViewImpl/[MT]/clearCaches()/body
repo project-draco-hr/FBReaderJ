@@ -1,4 +1,3 @@
 {
   rebuildPaintInfo(true);
-  ZLTextParagraphCursorCache.clear();
 }

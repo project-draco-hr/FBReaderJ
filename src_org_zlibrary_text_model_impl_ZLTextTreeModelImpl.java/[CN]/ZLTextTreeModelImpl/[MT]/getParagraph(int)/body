@@ -1,3 +1,7 @@
 {
-  return (ZLTextParagraph)myParagraphs.get(index);
+  final ArrayList paragraphs=myParagraphs;
+  if (index >= paragraphs.size()) {
+    index=paragraphs.size() - 1;
+  }
+  return (ZLTextParagraph)paragraphs.get(index);
 }

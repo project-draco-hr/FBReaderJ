@@ -5,6 +5,7 @@
   myLineInfos.clear();
   if (!myStartCursor.isNull()) {
     if (strong) {
+      ZLTextParagraphCursorCache.clear();
       myStartCursor.rebuild();
       myLineInfoCache.clear();
     }
@@ -13,6 +14,7 @@
   }
  else   if (!myEndCursor.isNull()) {
     if (strong) {
+      ZLTextParagraphCursorCache.clear();
       myEndCursor.rebuild();
       myLineInfoCache.clear();
     }

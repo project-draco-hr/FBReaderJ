@@ -1,4 +1,4 @@
 {
-  myId=id;
-  myImageData=image;
+  Id=id;
+  ImageData=imageData;
 }

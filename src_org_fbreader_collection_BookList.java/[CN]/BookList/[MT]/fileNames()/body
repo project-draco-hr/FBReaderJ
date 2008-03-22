@@ -1,4 +1,3 @@
 {
-  save();
-  return myFileNames;
+  return new ArrayList(myFileNames);
 }

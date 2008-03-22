@@ -1,0 +1,8 @@
+{
+  myParagraphsNumber=0;
+  myEntries.clear();
+  myData.clear();
+  myMarks.clear();
+  myCurrentDataBlock=null;
+  myBlockOffset=0;
+}

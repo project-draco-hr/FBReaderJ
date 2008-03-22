@@ -40,6 +40,8 @@ case ZLTextParagraph.Entry.IMAGE:
 myImageEntry=(ZLImageEntry)myEntries.get((int)data[dataOffset++]);
 break;
 case ZLTextParagraph.Entry.FIXED_HSPACE:
+myFixedHSpaceLength=(short)data[dataOffset++];
+break;
 case ZLTextParagraph.Entry.FORCED_CONTROL:
 break;
 }

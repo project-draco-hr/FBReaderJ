@@ -1,0 +1,6 @@
+{
+  myParagraphToBook.clear();
+  myBookToParagraph.clear();
+  super.clear();
+  build();
+}

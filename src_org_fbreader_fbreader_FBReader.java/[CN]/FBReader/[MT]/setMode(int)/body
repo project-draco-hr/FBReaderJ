@@ -18,6 +18,7 @@ case ViewMode.RECENT_BOOKS:
 setView(myRecentBooksView);
 break;
 case ViewMode.BOOK_COLLECTION:
+myCollectionView.updateModel();
 setView(myCollectionView);
 break;
 default :

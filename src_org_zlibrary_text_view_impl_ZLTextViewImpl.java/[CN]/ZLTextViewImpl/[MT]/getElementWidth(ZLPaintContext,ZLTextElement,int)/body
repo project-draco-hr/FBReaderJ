@@ -3,10 +3,13 @@
     return getWordWidth(context,(ZLTextWord)element,charNumber);
   }
  else   if (element instanceof ZLTextImageElement) {
-    return context.imageWidth(((ZLTextImageElement)element).getImageData());
+    return context.imageWidth(((ZLTextImageElement)element).ImageData);
   }
  else   if (element == ZLTextElement.IndentElement) {
     return myTextStyle.getFirstLineIndentDelta();
+  }
+ else   if (element instanceof ZLTextFixedHSpaceElement) {
+    return context.getSpaceWidth() * ((ZLTextFixedHSpaceElement)element).Length;
   }
   return 0;
 }

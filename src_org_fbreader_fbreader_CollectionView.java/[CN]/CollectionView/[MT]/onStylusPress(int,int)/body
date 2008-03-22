@@ -16,7 +16,8 @@
     if (book == null) {
       return false;
     }
-    if (imageElement.getId() == BOOK_INFO_IMAGE_ID) {
+    final String imageId=imageElement.Id;
+    if (imageId == CollectionModel.BookInfoImageId) {
       if (new BookInfoDialog(myCollection,book.getFileName()).getDialog().run()) {
         myCollection.rebuild(false);
         myUpdateModel=true;
@@ -25,33 +26,48 @@
       }
       return true;
     }
- else     if (imageElement.getId() == DELETE_IMAGE_ID) {
+ else     if (imageId == CollectionModel.RemoveBookImageId) {
       String boxKey="removeBookBox";
       final String message;
-      final String format=ZLDialogManager.getDialogMessage(boxKey);
-      int index=format.indexOf("%s");
-      if (index == -1) {
-        message=format;
-      }
+{
+        final String format=ZLDialogManager.getDialogMessage(boxKey);
+        int index=format.indexOf("%s");
+        if (index == -1) {
+          message=format;
+        }
  else {
-        message=ZLDialogManager.getDialogMessage(boxKey).substring(0,index) + book.getTitle() + format.substring(index + 2);
+          message=format.substring(0,index) + book.getTitle() + format.substring(index + 2);
+        }
       }
-      if (ZLDialogManager.getInstance().showQuestionBox(boxKey,message,ZLDialogManager.YES_BUTTON,ZLDialogManager.NO_BUTTON) == 0) {
+      if (ZLDialogManager.getInstance().showQuestionBox(boxKey,message,ZLDialogManager.YES_BUTTON,ZLDialogManager.NO_BUTTON,null) == 0) {
+        CollectionModel cModel=collectionModel();
         new BookList().removeFileName(book.getFileName());
-        ZLTextTreeParagraph paragraph=(ZLTextTreeParagraph)collectionModel().getTreeParagraph(imageArea.ParagraphNumber);
-        ZLTextTreeParagraph parent=paragraph.getParent();
-        if (parent.getChildren().size() == 1) {
-          collectionModel().removeParagraph(imageArea.ParagraphNumber);
-          collectionModel().removeParagraph(imageArea.ParagraphNumber - 1);
+        int index=cModel.paragraphNumberByBook(book);
+        ZLTextTreeParagraph paragraph=cModel.getTreeParagraph(index);
+        int count=1;
+        for (ZLTextTreeParagraph parent=paragraph.getParent(); (parent != null) && (parent.getChildren().size() == 1); parent=parent.getParent()) {
+          ++count;
+        }
+        if (count > index) {
+          count=index;
+        }
+        for (; count > 0; --count) {
+          cModel.removeParagraph(index--);
+        }
+        if (cModel.getParagraphsNumber() == 0) {
         }
  else {
-          collectionModel().removeParagraph(imageArea.ParagraphNumber);
-        }
-        if (collectionModel().getParagraphsNumber() == 0) {
-          this.getStartCursor().setCursor((ZLTextParagraphCursor)null);
+          int pIndex=getStartCursor().getParagraphCursor().getIndex();
+          if (pIndex >= cModel.getParagraphsNumber()) {
+            pIndex=cModel.getParagraphsNumber() - 1;
+          }
+          while (!cModel.getTreeParagraph(index).getParent().isOpen()) {
+            --pIndex;
+          }
+          gotoParagraph(pIndex);
         }
         rebuildPaintInfo(true);
-        repaintView();
+        getApplication().refreshWindow();
       }
       return true;
     }

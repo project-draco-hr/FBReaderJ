@@ -1,5 +1,5 @@
 {
   super(reader,context);
   myUpdateModel=true;
-  setModel(new CollectionModel(myCollection));
+  setModel(new CollectionModel(this,myCollection));
 }
