@@ -1,0 +1,11 @@
+{
+  close();
+  if (myBase == null || !myHeader.read(myBase)) {
+    return false;
+  }
+  myBase.skip(((Integer)myHeader.Offsets.get(0)));
+  myBufferLength=0;
+  myBufferOffset=0;
+  myOffset=0;
+  return true;
+}

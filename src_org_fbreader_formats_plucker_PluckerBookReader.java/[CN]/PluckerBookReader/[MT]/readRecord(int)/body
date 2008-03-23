@@ -1,0 +1,77 @@
+{
+  short uid=(short)PdbUtil.readUnsignedShort(myStream);
+  if (uid == 1) {
+    myCompressionVersion=(short)PdbUtil.readUnsignedShort(myStream);
+  }
+ else {
+    short paragraphs=(short)PdbUtil.readUnsignedShort(myStream);
+    short size=(short)PdbUtil.readUnsignedShort(myStream);
+    int type=(int)myStream.read();
+    int flags=(int)myStream.read();
+switch (type) {
+case 0:
+case 1:
+{
+        ArrayList pars=new ArrayList();
+        for (int i=0; i < paragraphs; ++i) {
+          short pSize=(short)PdbUtil.readUnsignedShort(myStream);
+          pars.add(pSize);
+          myStream.skip(2);
+        }
+        boolean doProcess=false;
+        if (type == 0) {
+          doProcess=myStream.read(myCharBuffer.toString().getBytes(),0,(int)size) == size;
+        }
+ else         if (myCompressionVersion == 1) {
+        }
+ else         if (myCompressionVersion == 2) {
+          myStream.skip(2);
+        }
+        if (doProcess) {
+          addHyperlinkLabel(fromNumber(uid));
+          myParagraphVector=(ArrayList)myParagraphMap.get(uid);
+          processTextRecord(size,pars);
+          if ((flags & 0x1) == 0) {
+          }
+        }
+        break;
+      }
+case 2:
+case 3:
+{
+      final String mime="image/palm";
+      ZLImage image=null;
+      if (type == 2) {
+      }
+ else       if (myCompressionVersion == 1) {
+      }
+ else       if (myCompressionVersion == 2) {
+      }
+      if (image != null) {
+        addImage(fromNumber(uid),image);
+      }
+      break;
+    }
+case 9:
+  break;
+case 10:
+short typeCode=(short)myStream.read();
+break;
+case 11:
+break;
+case 12:
+break;
+case 13:
+case 14:
+break;
+case 15:
+{
+short columns=(short)myStream.read();
+short rows=(short)myStream.read();
+break;
+}
+default :
+break;
+}
+}
+}

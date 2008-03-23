@@ -1,0 +1,34 @@
+{
+  final String extension=file.getExtension().toLowerCase();
+  if ((extension != "prc") && (extension != "pdb") && (extension != "mobi")) {
+    return "";
+  }
+  String fileName=file.getPath();
+  int index=fileName.indexOf(':');
+  ZLFile baseFile=(index == -1) ? file : new ZLFile(fileName.substring(0,index));
+  boolean upToDate=BookDescriptionUtil.checkInfo(baseFile);
+  ZLStringOption palmTypeOption=new ZLStringOption(FBOptions.BOOKS_CATEGORY,file.getPath(),"PalmType","");
+  String palmType=palmTypeOption.getValue();
+  if ((palmType.length() != 8) || !upToDate) {
+    InputStream stream=null;
+    byte[] id=new byte[8];
+    try {
+      stream=file.getInputStream();
+      if (stream == null || !((PdbStream)stream).open()) {
+        return "";
+      }
+      stream.skip(60);
+      stream.read(id,0,8);
+      stream.close();
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+    palmType=new String(id).substring(8);
+    if (!upToDate) {
+      BookDescriptionUtil.saveInfo(baseFile);
+    }
+    palmTypeOption.setValue(palmType);
+  }
+  return palmType;
+}

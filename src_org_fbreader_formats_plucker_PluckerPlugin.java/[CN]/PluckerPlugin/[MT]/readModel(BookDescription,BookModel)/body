@@ -1,0 +1,9 @@
+{
+  try {
+    return new PluckerBookReader(description.getFileName(),model,description.getEncoding()).readDocument();
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
+  return false;
+}

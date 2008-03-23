@@ -1,0 +1,101 @@
+{
+switch (ptr[cur]) {
+case 0x08:
+    safeAddControl(FBTextKind.INTERNAL_HYPERLINK,false);
+  break;
+case 0x0A:
+safeAddHyperlinkControl(fromNumber(twoBytes(ptr,cur + 1)));
+break;
+case 0x0C:
+{
+int sectionNum=twoBytes(ptr,cur + 1);
+int paragraphNum=twoBytes(ptr,cur + 3);
+safeAddHyperlinkControl(fromNumber(sectionNum) + '#' + fromNumber(paragraphNum));
+myReferencedParagraphs.add(new Pair(sectionNum,paragraphNum));
+break;
+}
+case 0x11:
+changeFont((ptr[cur + 1]));
+break;
+case 0x1A:
+safeBeginParagraph();
+break;
+case 0x22:
+if (!myParagraphStarted) {
+if (myForcedEntry == null) {
+myForcedEntry=ZLModelFactory.createForcedControlEntry();
+}
+myForcedEntry.setLeftIndent((short)ptr[cur + 1]);
+myForcedEntry.setRightIndent((short)ptr[cur + 2]);
+}
+break;
+case 0x29:
+if (!myParagraphStarted) {
+if (myForcedEntry == null) {
+myForcedEntry=ZLModelFactory.createForcedControlEntry();
+}
+switch (ptr[cur + 1]) {
+case 0:
+myForcedEntry.setAlignmentType(ZLTextAlignmentType.ALIGN_LEFT);
+break;
+case 1:
+myForcedEntry.setAlignmentType(ZLTextAlignmentType.ALIGN_RIGHT);
+break;
+case 2:
+myForcedEntry.setAlignmentType(ZLTextAlignmentType.ALIGN_CENTER);
+break;
+case 3:
+myForcedEntry.setAlignmentType(ZLTextAlignmentType.ALIGN_JUSTIFY);
+break;
+}
+}
+break;
+case 0x33:
+safeEndParagraph();
+break;
+case 0x38:
+safeEndParagraph();
+break;
+case 0x40:
+safeAddControl(FBTextKind.EMPHASIS,true);
+break;
+case 0x48:
+safeAddControl(FBTextKind.EMPHASIS,false);
+break;
+case 0x53:
+break;
+case 0x5C:
+break;
+case 0x60:
+break;
+case 0x68:
+break;
+case 0x70:
+break;
+case 0x78:
+break;
+case 0x83:
+{
+char[] utf8=new char[4];
+int len=0;
+safeBeginParagraph();
+addData(new String(utf8).substring(len).toCharArray());
+myBufferIsEmpty=false;
+myBytesToSkip=ptr[cur + 1];
+break;
+}
+case 0x85:
+break;
+case 0x8E:
+case 0x8C:
+case 0x8A:
+case 0x88:
+break;
+case 0x90:
+case 0x92:
+case 0x97:
+break;
+default :
+break;
+}
+}

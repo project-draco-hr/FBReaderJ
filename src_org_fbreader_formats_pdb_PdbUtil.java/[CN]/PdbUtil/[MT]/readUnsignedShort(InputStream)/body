@@ -1,0 +1,10 @@
+{
+  byte[] tmp=new byte[2];
+  try {
+    stream.read(tmp,0,2);
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
+  return tmp[1] + tmp[0] * 256;
+}

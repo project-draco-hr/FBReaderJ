@@ -1,0 +1,12 @@
+{
+  if (offset > 0) {
+    read(null,0,offset);
+  }
+ else   if (offset < 0) {
+    offset+=this.offset();
+    open();
+    if (offset >= 0) {
+      read(null,0,offset);
+    }
+  }
+}

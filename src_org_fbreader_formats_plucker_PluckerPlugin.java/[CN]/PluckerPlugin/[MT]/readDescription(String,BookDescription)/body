@@ -1,0 +1,15 @@
+{
+  ZLFile file=new ZLFile(path);
+  InputStream stream=null;
+  try {
+    stream=file.getInputStream();
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
+  detectEncodingAndLanguage(description,stream);
+  if (description.getEncoding().length() == 0) {
+    return false;
+  }
+  return true;
+}

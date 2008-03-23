@@ -1,0 +1,44 @@
+{
+  myStream=(PdbStream)new ZLFile(myFilePath).getInputStream();
+  if (myStream == null) {
+    return false;
+  }
+  PdbHeader header=new PdbHeader();
+  if (!header.read(myStream)) {
+    myStream.close();
+    return false;
+  }
+  setMainTextModel();
+  myFont=FontType.FT_REGULAR;
+  for (Iterator it=header.Offsets.iterator(); it.hasNext(); ) {
+    int currentOffset=((PdbStream)myStream).offset();
+    Integer pit=(Integer)it.next();
+    if (currentOffset > pit) {
+      break;
+    }
+    myStream.skip(pit - currentOffset);
+    if (((PdbStream)myStream).offset() != pit) {
+      break;
+    }
+    int recordSize=((pit != header.Offsets.size() - 1) ? (Integer)it.next() : ((PdbStream)myStream).sizeOfOpened()) - pit;
+    readRecord(recordSize);
+  }
+  myStream.close();
+  for (Iterator it=myReferencedParagraphs.iterator(); it.hasNext(); ) {
+    Pair pair=(Pair)it.next();
+    int first=(Integer)pair.myFirst;
+    int second=(Integer)pair.mySecond;
+    ArrayList list=(ArrayList)myParagraphMap.get(first);
+    if (list != null) {
+      for (int k=second; k < list.size(); ++k) {
+        if ((Integer)list.get(k) != -1) {
+          addHyperlinkLabel(fromNumber(first) + '#' + fromNumber(second)+ (Integer)list.get(k));
+          break;
+        }
+      }
+    }
+  }
+  myReferencedParagraphs.clear();
+  myParagraphMap.clear();
+  return true;
+}

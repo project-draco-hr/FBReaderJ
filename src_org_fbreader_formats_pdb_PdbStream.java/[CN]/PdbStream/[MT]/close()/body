@@ -1,0 +1,8 @@
+{
+  if (myBase != null) {
+    myBase.close();
+  }
+  if (myBuffer != null) {
+    myBuffer=null;
+  }
+}

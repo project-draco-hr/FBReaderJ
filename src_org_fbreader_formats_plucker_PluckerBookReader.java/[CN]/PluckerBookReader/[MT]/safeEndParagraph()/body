@@ -1,0 +1,10 @@
+{
+  if (myParagraphStarted) {
+    if (myBufferIsEmpty) {
+      final String SPACE=" ";
+      addData(SPACE.toCharArray());
+    }
+    endParagraph();
+    myParagraphStarted=false;
+  }
+}

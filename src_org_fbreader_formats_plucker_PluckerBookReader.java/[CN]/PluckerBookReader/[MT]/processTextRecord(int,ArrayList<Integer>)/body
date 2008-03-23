@@ -1,0 +1,16 @@
+{
+  int start=0;
+  int end=0;
+  for (Iterator it=pars.iterator(); it.hasNext(); ) {
+    start=end;
+    end=start + (Integer)it.next();
+    if (end > myCharBuffer[size]) {
+      return;
+    }
+    myParagraphStored=false;
+    processTextParagraph(myCharBuffer,start,end);
+    if (!myParagraphStored) {
+      myParagraphVector.add(-1);
+    }
+  }
+}
