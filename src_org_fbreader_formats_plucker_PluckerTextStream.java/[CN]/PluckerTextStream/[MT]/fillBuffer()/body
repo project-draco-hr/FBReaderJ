@@ -1,0 +1,23 @@
+{
+  while (myBufferOffset == myBufferLength) {
+    if (myRecordIndex + 1 > myHeader.Offsets.size() - 1) {
+      return false;
+    }
+    ++myRecordIndex;
+    int currentOffset=(Integer)myHeader.Offsets.get(myRecordIndex);
+    if (currentOffset < ((PdbStream)myBase).offset()) {
+      return false;
+    }
+    int nextOffset=(myRecordIndex + 1 < myHeader.Offsets.size()) ? (Integer)myHeader.Offsets.get(myRecordIndex + 1) : ((PdbStream)myBase).sizeOfOpened();
+    if (nextOffset < currentOffset) {
+      return false;
+    }
+    try {
+      processRecord(nextOffset - currentOffset);
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+  }
+  return true;
+}

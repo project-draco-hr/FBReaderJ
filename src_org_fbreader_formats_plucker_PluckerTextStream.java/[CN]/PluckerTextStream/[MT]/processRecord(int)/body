@@ -1,0 +1,40 @@
+{
+  myBase.skip(2);
+  short paragraphs;
+  paragraphs=(short)PdbUtil.readUnsignedShort(myBase);
+  short size=(short)PdbUtil.readUnsignedShort(myBase);
+  char type=0;
+  if (type > 1) {
+    return;
+  }
+  myBase.skip(1);
+  ArrayList pars=new ArrayList();
+  for (int i=0; i < paragraphs; ++i) {
+    short pSize=(short)PdbUtil.readUnsignedShort(myBase);
+    pars.add(pSize);
+    myBase.skip(2);
+  }
+  boolean doProcess=false;
+  if (type == 0) {
+    doProcess=myBase.read(myFullBuffer,0,size) == size;
+  }
+ else   if (myCompressionVersion == 1) {
+  }
+ else   if (myCompressionVersion == 2) {
+    myBase.skip(2);
+  }
+  if (doProcess) {
+    myBufferLength=0;
+    myBufferOffset=0;
+    int start=0;
+    int end=0;
+    for (Iterator it=pars.iterator(); it.hasNext(); ) {
+      start=end;
+      end=start + (Integer)it.next();
+      if (end > myFullBuffer[size]) {
+        break;
+      }
+      processTextParagraph(myFullBuffer.toString().toCharArray(),start,end);
+    }
+  }
+}

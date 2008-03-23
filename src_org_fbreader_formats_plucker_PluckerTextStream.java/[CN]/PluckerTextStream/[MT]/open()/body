@@ -1,0 +1,10 @@
+{
+  if (!super.open()) {
+    return false;
+  }
+  myCompressionVersion=(short)PdbUtil.readUnsignedShort(myBase);
+  myBuffer=new byte[65536];
+  myFullBuffer=new byte[65536];
+  myRecordIndex=0;
+  return true;
+}

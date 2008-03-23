@@ -1,0 +1,6 @@
+{
+  if (myFullBuffer != null) {
+    myFullBuffer=null;
+  }
+  super.close();
+}
