@@ -29,7 +29,7 @@
           insertImage(RemoveBookImageId);
         }
         myParagraphToBook.put(bookParagraph,jt);
-        myBookToParagraph.put(jt,getParagraphsNumber() - 1);
+        myBookToParagraphNumber.put(jt,getParagraphsNumber() - 1);
       }
     }
   }

@@ -1,5 +1,5 @@
 {
-  myStart=start;
-  myLength=length;
+  Start=start;
+  Length=length;
   myNext=null;
 }

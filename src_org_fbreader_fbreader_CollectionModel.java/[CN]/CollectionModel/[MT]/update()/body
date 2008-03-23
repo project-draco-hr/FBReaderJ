@@ -1,6 +1,6 @@
 {
   myParagraphToBook.clear();
-  myBookToParagraph.clear();
+  myBookToParagraphNumber.clear();
   super.clear();
   build();
 }

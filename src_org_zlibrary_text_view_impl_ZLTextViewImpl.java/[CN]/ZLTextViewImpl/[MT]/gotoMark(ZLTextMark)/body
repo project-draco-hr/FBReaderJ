@@ -12,7 +12,7 @@
   }
   if ((myStartCursor.getParagraphCursor().getIndex() != mark.ParagraphNumber) || (myStartCursor.getPosition().compareTo(mark) > 0)) {
     doRepaint=true;
-    gotoParagraph(mark.ParagraphNumber);
+    gotoParagraph(mark.ParagraphNumber,false);
     preparePaintInfo();
   }
   if (myEndCursor.isNull()) {

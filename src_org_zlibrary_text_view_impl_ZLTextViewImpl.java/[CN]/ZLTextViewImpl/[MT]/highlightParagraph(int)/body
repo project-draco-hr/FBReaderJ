@@ -1,4 +1,4 @@
 {
-  myModel.getParagraph(paragraphNumber);
+  myModel.selectParagraph(paragraphNumber);
   rebuildPaintInfo(true);
 }

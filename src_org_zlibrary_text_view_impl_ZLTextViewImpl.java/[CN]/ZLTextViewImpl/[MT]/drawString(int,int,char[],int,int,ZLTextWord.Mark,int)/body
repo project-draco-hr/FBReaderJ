@@ -7,8 +7,8 @@
  else {
     int pos=0;
     for (; (mark != null) && (pos < length); mark=mark.getNext()) {
-      int markStart=mark.getStart() - shift;
-      int markLen=mark.getLength();
+      int markStart=mark.Start - shift;
+      int markLen=mark.Length;
       if (markStart < pos) {
         markLen+=markStart - pos;
         markStart=pos;

@@ -1,9 +1,11 @@
 {
   ZLTextWord word=new ZLTextWord(data,offset,len,paragraphOffset);
-  for (int i=myFirstMark; i < myLastMark; i++) {
-    ZLTextMark mark=(ZLTextMark)myMarks.get(i);
-    if ((mark.Offset < offset + len) && (mark.Offset + mark.Length > offset)) {
-      word.addMark(mark.Offset - offset,mark.Length);
+  for (int i=myFirstMark; i < myLastMark; ++i) {
+    final ZLTextMark mark=(ZLTextMark)myMarks.get(i);
+    final int markOffset=mark.Offset + paragraphOffset;
+    final int markLength=mark.Length;
+    if ((markOffset < offset + len) && (markOffset + markLength > offset)) {
+      word.addMark(markOffset - offset,markLength);
     }
   }
   myElements.add(word);

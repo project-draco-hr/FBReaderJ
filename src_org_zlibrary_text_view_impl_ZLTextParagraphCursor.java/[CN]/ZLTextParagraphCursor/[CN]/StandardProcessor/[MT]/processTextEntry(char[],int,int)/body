@@ -9,7 +9,7 @@
       final char ch=data[charPos];
       if ((ch == ' ') || (ch <= 0x0D)) {
         if (firstNonSpace != -1) {
-          addWord(data,firstNonSpace,charPos - firstNonSpace,0);
+          addWord(data,firstNonSpace,charPos - firstNonSpace,offset);
           elements.add(hSpace);
           spaceInserted=true;
           firstNonSpace=-1;
@@ -24,7 +24,7 @@
       }
     }
     if (firstNonSpace != -1) {
-      addWord(data,firstNonSpace,end - firstNonSpace,0);
+      addWord(data,firstNonSpace,end - firstNonSpace,offset);
     }
     myOffset+=length;
   }

@@ -15,10 +15,14 @@ case ViewMode.FOOTNOTE:
 setView(myFootnoteView);
 break;
 case ViewMode.RECENT_BOOKS:
+myRecentBooksView.rebuild();
 setView(myRecentBooksView);
 break;
 case ViewMode.BOOK_COLLECTION:
 myCollectionView.updateModel();
+if (myBookModel != null) {
+myCollectionView.selectBook(myBookModel.getDescription());
+}
 setView(myCollectionView);
 break;
 default :

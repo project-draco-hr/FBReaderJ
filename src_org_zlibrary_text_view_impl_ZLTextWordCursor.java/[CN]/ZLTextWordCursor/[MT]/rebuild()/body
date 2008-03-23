@@ -2,5 +2,6 @@
   if (!isNull()) {
     myParagraphCursor.clear();
     myParagraphCursor.fill();
+    moveTo(myWordNumber,myCharNumber);
   }
 }

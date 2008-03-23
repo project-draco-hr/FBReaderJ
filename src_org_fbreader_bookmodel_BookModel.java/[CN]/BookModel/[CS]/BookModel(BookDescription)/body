@@ -1,5 +1,4 @@
 {
-  myFileName=description.getFileName();
   myDescription=description;
   ZLFile file=new ZLFile(description.getFileName());
   System.out.println(description.getFileName());
