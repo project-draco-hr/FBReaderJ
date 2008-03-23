@@ -1,4 +1,5 @@
 {
+  removeAllMarks();
   int index=paragraphNumberByBook(book);
   if (index == 0) {
     return;
