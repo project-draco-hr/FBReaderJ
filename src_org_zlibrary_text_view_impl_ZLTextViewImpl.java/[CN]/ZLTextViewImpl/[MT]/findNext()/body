@@ -1,0 +1,5 @@
+{
+  if (myEndCursor.isNull()) {
+    gotoMark(myModel.getNextMark(myEndCursor.getPosition()));
+  }
+}

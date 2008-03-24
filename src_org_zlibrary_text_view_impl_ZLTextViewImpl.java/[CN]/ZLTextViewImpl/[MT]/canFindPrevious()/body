@@ -1,0 +1,3 @@
+{
+  return !myStartCursor.isNull() && (myModel.getPreviousMark(myStartCursor.getPosition()).ParagraphNumber > -1);
+}

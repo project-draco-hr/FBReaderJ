@@ -1,0 +1,3 @@
+{
+  fbreader().getTextView().search("!",true,true,false,false);
+}
