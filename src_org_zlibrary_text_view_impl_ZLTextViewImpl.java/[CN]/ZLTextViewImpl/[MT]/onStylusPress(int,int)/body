@@ -1,4 +1,7 @@
 {
+  if (myModel == null) {
+    return false;
+  }
   ZLTextIndicatorInfo indicatorInfo=getIndicatorInfo();
   if (indicatorInfo.isVisible() && indicatorInfo.isSensitive()) {
     final ZLPaintContext context=getContext();
@@ -7,7 +10,30 @@
     final int xLeft=getLeftMargin();
     final int xRight=context.getWidth() - getRightMargin() - 1;
     if ((x > xLeft) && (x < xRight) && (y > yTop)&& (y < yBottom)) {
-      System.err.println("indicator touched at " + (x - xLeft) + " of "+ (xRight - xLeft - 1));
+      final int[] textSizeVector=myTextSize;
+      final int value=textSizeVector[textSizeVector.length - 1] * (x - xLeft) / (xRight - xLeft - 1);
+      final int paragraphIndex=lowerBound(textSizeVector,value);
+      gotoParagraph(paragraphIndex,true);
+      preparePaintInfo();
+      final int endCursorIndex=myEndCursor.getParagraphCursor().getIndex();
+      if (endCursorIndex == paragraphIndex) {
+        final int paragraphLength=myEndCursor.getParagraphCursor().getParagraphLength();
+        int wordCounter=paragraphLength * (value - textSizeVector[paragraphIndex]) / (textSizeVector[paragraphIndex + 1] - textSizeVector[paragraphIndex]);
+        if (wordCounter > 0) {
+          if (wordCounter == paragraphLength) {
+            myEndCursor.nextParagraph();
+          }
+ else {
+            wordCounter-=myEndCursor.getWordNumber();
+            while (wordCounter-- > 0) {
+              myEndCursor.nextWord();
+            }
+          }
+          myStartCursor.reset();
+          rebuildPaintInfo(false);
+        }
+      }
+      getApplication().refreshWindow();
       return true;
     }
   }
