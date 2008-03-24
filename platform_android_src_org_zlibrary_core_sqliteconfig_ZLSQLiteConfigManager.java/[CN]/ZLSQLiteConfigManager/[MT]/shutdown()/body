@@ -1,3 +1,5 @@
 {
-  saveAll();
+  if (myDatabase != null) {
+    myDatabase.close();
+  }
 }

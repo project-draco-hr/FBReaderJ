@@ -1,3 +1,10 @@
 {
-  return defaultValue;
+  Cursor cursor=myDatabase.query(true,ourTableName,ourColumns,"groupName='" + group + "' AND name='"+ name+ "'",ourSelectionArgs,null,null,null);
+  String answer=defaultValue;
+  if (cursor.count() != 0) {
+    cursor.first();
+    answer=cursor.getString(0);
+  }
+  cursor.close();
+  return answer;
 }

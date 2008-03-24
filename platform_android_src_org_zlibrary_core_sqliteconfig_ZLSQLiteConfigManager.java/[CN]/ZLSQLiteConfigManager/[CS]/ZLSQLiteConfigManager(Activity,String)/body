@@ -1,0 +1,16 @@
+{
+  try {
+    myDatabase=activity.openDatabase(applicationName,null);
+  }
+ catch (  FileNotFoundException e) {
+    try {
+      myDatabase=activity.createDatabase(applicationName,0,Activity.MODE_PRIVATE,null);
+      myDatabase.execSQL("CREATE TABLE config (groupName VARCHAR, name VARCHAR, value VARCHAR, PRIMARY KEY(groupName, name) )");
+    }
+ catch (    FileNotFoundException e2) {
+    }
+  }
+  if (myDatabase != null) {
+    setConfig(new ZLSQLiteConfig(myDatabase));
+  }
+}

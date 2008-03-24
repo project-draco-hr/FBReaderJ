@@ -1,8 +1,8 @@
 {
   myActivity=activity;
   new ZLOwnXMLProcessorFactory();
-  new ZLSQLiteConfigManager();
   loadProperties();
+  new ZLSQLiteConfigManager(activity,getApplicationName());
   new ZLAndroidImageManager();
   new ZLAndroidDialogManager();
   try {
