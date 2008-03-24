@@ -1,6 +1,7 @@
 {
   super(name,tooltip,option);
   myTextField=new JTextField(option.initialValue());
+  myTextField.setMargin(new Insets(0,5,0,5));
   if (name == null) {
     myLabel=null;
     tab.insertWidget(myTextField);

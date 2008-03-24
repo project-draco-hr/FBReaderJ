@@ -1,0 +1,4 @@
+String name
+String tooltip
+ZLComboOptionEntry option
+ZLSwingDialogContent tab

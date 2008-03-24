@@ -1,0 +1,14 @@
+{
+  ZLComboOptionEntry o=(ZLComboOptionEntry)myOption;
+  final ArrayList values=o.getValues();
+  final String initialValue=o.initialValue();
+  int index=0;
+  for (int i=0; i < values.size(); ++i) {
+    if (values.get(i).equals(initialValue)) {
+      index=i;
+      break;
+    }
+  }
+  myComboBox.setModel(new DefaultComboBoxModel(values.toArray()));
+  myComboBox.setSelectedIndex(index);
+}

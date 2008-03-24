@@ -1,0 +1,6 @@
+{
+  myComboBox.setVisible(true);
+  if (myLabel != null) {
+    myLabel.setVisible(true);
+  }
+}
