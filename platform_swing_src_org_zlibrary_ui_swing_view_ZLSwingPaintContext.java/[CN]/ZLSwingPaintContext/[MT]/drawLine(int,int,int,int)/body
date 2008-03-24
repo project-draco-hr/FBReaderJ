@@ -1,3 +1,11 @@
 {
+  if (myReversedX) {
+    ++x0;
+    ++x1;
+  }
+  if (myReversedY) {
+    ++y0;
+    ++y1;
+  }
   myGraphics.drawLine(x0,y0,x1,y1);
 }

@@ -1,5 +1,4 @@
 {
-  search("FBReader",true,true,false,false);
   if (myModel instanceof ZLTextTreeModel) {
     ZLTextTreeNodeArea nodeArea=(ZLTextTreeNodeArea)myTreeNodeMap.binarySearch(x,y);
     if (nodeArea != null) {

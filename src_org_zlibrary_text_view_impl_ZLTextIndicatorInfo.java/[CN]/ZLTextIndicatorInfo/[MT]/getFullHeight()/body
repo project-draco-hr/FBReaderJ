@@ -1,0 +1,6 @@
+{
+  if (!isVisible()) {
+    return 0;
+  }
+  return getHeight() + getOffset();
+}

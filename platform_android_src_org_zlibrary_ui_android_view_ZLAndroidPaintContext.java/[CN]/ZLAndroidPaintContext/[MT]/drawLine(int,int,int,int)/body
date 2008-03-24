@@ -1,4 +1,12 @@
 {
+  if (myReversedX) {
+    ++x0;
+    ++x1;
+  }
+  if (myReversedY) {
+    ++y0;
+    ++y1;
+  }
   final Paint paint=myPaint;
   final Canvas canvas=myCanvas;
   paint.setAntiAlias(false);
