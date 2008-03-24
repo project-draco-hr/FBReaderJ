@@ -1,0 +1,10 @@
+{
+  int size=0;
+  for (EntryIteratorImpl it=new EntryIteratorImpl(index); it.hasNext(); ) {
+    it.next();
+    if (it.getType() == ZLTextParagraph.Entry.TEXT) {
+      size+=it.getTextLength();
+    }
+  }
+  return size;
+}

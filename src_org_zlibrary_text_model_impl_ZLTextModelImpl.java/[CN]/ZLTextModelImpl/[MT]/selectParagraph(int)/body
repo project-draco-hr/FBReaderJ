@@ -1,5 +1,5 @@
 {
   if (index < myParagraphsNumber) {
-    myMarks.add(new ZLTextMark(index,0,getParagraph(index).getTextLength()));
+    myMarks.add(new ZLTextMark(index,0,getParagraphTextLength(index)));
   }
 }
