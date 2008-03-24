@@ -1,10 +1,40 @@
 {
-  int size=0;
-  for (EntryIteratorImpl it=new EntryIteratorImpl(index); it.hasNext(); ) {
-    it.next();
-    if (it.getType() == ZLTextParagraph.Entry.TEXT) {
-      size+=it.getTextLength();
+  int textLength=0;
+  int dataIndex=myStartEntryIndices[index];
+  int dataOffset=myStartEntryOffsets[index];
+  char[] data=(char[])myData.get(dataIndex);
+  for (int len=myParagraphLengths[index]; len > 0; --len) {
+    if (dataOffset == myDataBlockSize) {
+      data=(char[])myData.get(++dataIndex);
+      dataOffset=0;
     }
-  }
-  return size;
+    byte type=(byte)data[dataOffset];
+    if (type == 0) {
+      data=(char[])myData.get(++dataIndex);
+      dataOffset=0;
+      type=(byte)data[0];
+    }
+    ++dataOffset;
+switch (type) {
+case ZLTextParagraph.Entry.TEXT:
+      int entryLength=((int)data[dataOffset++] << 16) + (int)data[dataOffset++];
+    dataOffset+=entryLength;
+  textLength+=entryLength;
+break;
+case ZLTextParagraph.Entry.CONTROL:
+{
+if ((data[dataOffset++] & 0x0200) == 0x0200) {
+  dataOffset+=(short)data[dataOffset++];
+}
+break;
+}
+case ZLTextParagraph.Entry.IMAGE:
+case ZLTextParagraph.Entry.FIXED_HSPACE:
+++dataOffset;
+break;
+case ZLTextParagraph.Entry.FORCED_CONTROL:
+break;
+}
+}
+return textLength;
 }
