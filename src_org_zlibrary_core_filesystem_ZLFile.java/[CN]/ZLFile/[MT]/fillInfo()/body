@@ -1,11 +1,10 @@
 {
   int index=ZLFSUtil.findArchiveFileNameDelimiter(myPath);
   if (index == -1) {
-    myInfo=ZLFSUtil.getFileInfo(myPath);
+    myInfo=getFileInfo(myPath);
   }
  else {
-    myInfo=ZLFSUtil.getFileInfo(myPath.substring(0,index));
+    myInfo=getFileInfo(myPath.substring(0,index));
     myInfo.IsDirectory=false;
   }
-  myInfoIsFilled=true;
 }

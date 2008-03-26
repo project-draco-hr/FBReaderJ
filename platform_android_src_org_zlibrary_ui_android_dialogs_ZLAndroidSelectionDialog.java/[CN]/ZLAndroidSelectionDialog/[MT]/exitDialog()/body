@@ -1,2 +1,3 @@
 {
+  myDialog.dismiss();
 }

@@ -5,7 +5,7 @@
       int size=names.size();
       for (int i=0; i < size; i++) {
         final String subDir=(String)names.get(i);
-        final String displayName=ZLFile.fileNameToUtf8(new ZLFile(subDir).getName(false));
+        final String displayName=new ZLFile(subDir).getName(false);
         final ZLTreeNode node=new ZLTreeNode(subDir,displayName,FOLDER_ICON,true);
         mySubnodes.add(node);
       }
@@ -20,7 +20,7 @@
           continue;
         }
         ZLFile file=new ZLFile(myDir.getItemPath(fileName));
-        final String displayName=ZLFile.fileNameToUtf8(file.getName(false));
+        final String displayName=file.getName(false);
         if ("".equals(displayName)) {
           continue;
         }

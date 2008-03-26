@@ -1,6 +1,6 @@
 {
   if (removeFile(myPath)) {
-    myInfoIsFilled=false;
+    myInfo=null;
     return true;
   }
  else {

@@ -1,2 +1,4 @@
 {
+  mySelectionView.setAdapter(new SelectionViewAdapter());
+  mySelectionView.invalidate();
 }

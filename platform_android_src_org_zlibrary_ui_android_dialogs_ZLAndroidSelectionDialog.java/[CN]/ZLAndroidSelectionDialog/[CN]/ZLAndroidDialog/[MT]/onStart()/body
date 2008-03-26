@@ -1,0 +1,4 @@
+{
+  setContentView(mySelectionView);
+  setTitle(myCaption);
+}

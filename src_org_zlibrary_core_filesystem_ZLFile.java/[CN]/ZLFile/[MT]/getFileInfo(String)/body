@@ -1,0 +1,9 @@
+{
+  ZLFileInfo info=new ZLFileInfo();
+  File file=new File(path);
+  info.Exists=file.exists();
+  info.Size=file.length();
+  info.MTime=file.lastModified();
+  info.IsDirectory=file.isDirectory() || ZLFSUtil.getRootDirectoryPath().equals(path);
+  return info;
+}

@@ -10,7 +10,7 @@
     }
   }
  else   if (createUnexisting) {
-    myInfoIsFilled=false;
+    myInfo=null;
     return createNewDirectory(myPath);
   }
   return null;

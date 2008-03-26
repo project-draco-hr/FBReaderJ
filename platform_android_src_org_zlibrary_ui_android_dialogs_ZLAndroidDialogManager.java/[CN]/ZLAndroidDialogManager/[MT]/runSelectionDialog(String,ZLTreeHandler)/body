@@ -1,3 +1,7 @@
 {
-  return new ZLAndroidSelectionDialog(getDialogTitle(key),handler).run();
+  boolean code=new ZLAndroidSelectionDialog(myActivity,getDialogTitle(key),handler).run();
+  View mainView=((ZLAndroidLibrary)ZLAndroidLibrary.getInstance()).getWidget();
+  myActivity.setContentView(mainView);
+  mainView.requestFocus();
+  return code;
 }

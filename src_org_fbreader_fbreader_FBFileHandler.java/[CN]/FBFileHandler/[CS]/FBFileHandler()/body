@@ -1,5 +1,4 @@
 {
-  DirectoryOption=new ZLStringOption(ZLOption.LOOK_AND_FEEL_CATEGORY,"OpenFileDialog","Directory",System.getProperty("user.home"));
   myIsUpToDate=false;
   mySelectedIndex=0;
   myDir=(new ZLFile(DirectoryOption.getValue())).getDirectory();

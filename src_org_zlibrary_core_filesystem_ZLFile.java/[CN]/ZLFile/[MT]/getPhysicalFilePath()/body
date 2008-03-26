@@ -1,5 +1,8 @@
 {
   String path=myPath;
+  if (path.startsWith(ZLibrary.JAR_DATA_PREFIX)) {
+    return path;
+  }
   int index;
   while ((index=ZLFSUtil.findArchiveFileNameDelimiter(path)) != -1) {
     path=path.substring(0,index);

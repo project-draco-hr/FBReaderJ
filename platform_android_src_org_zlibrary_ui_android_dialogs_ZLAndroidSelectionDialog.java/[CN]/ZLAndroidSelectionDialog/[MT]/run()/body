@@ -1,3 +1,9 @@
 {
-  return false;
+  new Handler().post(new Runnable(){
+    public void run(){
+      myDialog.show();
+    }
+  }
+);
+  return myReturnValue;
 }
