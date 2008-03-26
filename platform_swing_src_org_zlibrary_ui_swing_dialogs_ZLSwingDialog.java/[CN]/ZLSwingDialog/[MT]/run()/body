@@ -1,0 +1,16 @@
+{
+  myDialog.addWindowListener(new WindowAdapter(){
+    public void windowClosing(    WindowEvent e){
+      myWidthOption.setValue(myDialog.getWidth());
+      myHeightOption.setValue(myDialog.getHeight());
+    }
+  }
+);
+  myDialog.setLayout(new BorderLayout());
+  myDialog.pack();
+  myDialog.setSize(myWidthOption.getValue(),myHeightOption.getValue());
+  myDialog.setLocationRelativeTo(myDialog.getParent());
+  myDialog.setModal(true);
+  myDialog.setVisible(true);
+  return true;
+}

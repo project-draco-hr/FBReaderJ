@@ -1,0 +1,3 @@
+{
+  myDialog.add(new JButton(key));
+}

@@ -1,0 +1,9 @@
+{
+  super();
+  myTab=new ZLSwingDialogContent(resource);
+  myDialog=new JDialog(frame);
+  myDialog.setTitle(resource.getResource(ZLDialogManager.DIALOG_TITLE).getValue());
+  final String optionGroupName=resource.Name;
+  myWidthOption=new ZLIntegerRangeOption(ZLOption.LOOK_AND_FEEL_CATEGORY,optionGroupName,"Width",10,2000,485);
+  myHeightOption=new ZLIntegerRangeOption(ZLOption.LOOK_AND_FEEL_CATEGORY,optionGroupName,"Height",10,2000,332);
+}

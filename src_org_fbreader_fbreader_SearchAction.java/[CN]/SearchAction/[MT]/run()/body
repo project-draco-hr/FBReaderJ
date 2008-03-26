@@ -1,3 +1,14 @@
 {
-  fbreader().getTextView().search("!",true,false,false,false);
+  ZLTextView textView=fbreader().getTextView();
+  ZLDialog searchDialog=ZLDialogManager.getInstance().createDialog("textSearchDialog");
+  searchDialog.addOption("ignoreCase",SearchIgnoreCaseOption);
+  searchDialog.addOption("wholeText",SearchInWholeTextOption);
+  searchDialog.addOption("backward",SearchBackwardOption);
+  searchDialog.addButton("go",true);
+  searchDialog.addButton(ZLDialogManager.CANCEL_BUTTON,false);
+  if (searchDialog.run()) {
+    searchDialog.acceptValues();
+    SearchPatternOption.setValue("FBReader");
+    textView.search(SearchPatternOption.getValue(),SearchIgnoreCaseOption.getValue(),SearchInWholeTextOption.getValue(),SearchBackwardOption.getValue(),SearchThisSectionOnlyOption.getValue());
+  }
 }

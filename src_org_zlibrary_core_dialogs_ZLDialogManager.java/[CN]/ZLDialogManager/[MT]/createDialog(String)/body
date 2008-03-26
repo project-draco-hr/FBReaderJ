@@ -1,0 +1,3 @@
+{
+  return createDialog(key,null,false);
+}

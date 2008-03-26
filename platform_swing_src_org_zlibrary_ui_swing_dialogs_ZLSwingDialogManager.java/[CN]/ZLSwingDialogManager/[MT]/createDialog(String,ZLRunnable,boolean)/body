@@ -1,0 +1,3 @@
+{
+  return new ZLSwingDialog(myApplicationWindow.getFrame(),getResource().getResource(key));
+}

@@ -1,3 +1,8 @@
 {
   super(fbreader);
+  SearchBackwardOption=new ZLBooleanOption(FBOptions.SEARCH_CATEGORY,SEARCH,"Backward",false);
+  SearchIgnoreCaseOption=new ZLBooleanOption(FBOptions.SEARCH_CATEGORY,SEARCH,"IgnoreCase",true);
+  SearchInWholeTextOption=new ZLBooleanOption(FBOptions.SEARCH_CATEGORY,SEARCH,"WholeText",false);
+  SearchThisSectionOnlyOption=new ZLBooleanOption(FBOptions.SEARCH_CATEGORY,SEARCH,"ThisSectionOnly",false);
+  SearchPatternOption=new ZLStringOption(FBOptions.SEARCH_CATEGORY,SEARCH,PATTERN,"");
 }
