@@ -1,0 +1,12 @@
+{
+  if (myValues.isEmpty()) {
+    myValues.add(myAction.SearchPatternOption.getValue());
+    for (int i=1; i < 6; i++) {
+      String value=(new ZLStringOption(FBOptions.SEARCH_CATEGORY,SearchAction.SEARCH,SearchAction.PATTERN + i,"")).getValue();
+      if (value != "") {
+        myValues.add(value);
+      }
+    }
+  }
+  return myValues;
+}
