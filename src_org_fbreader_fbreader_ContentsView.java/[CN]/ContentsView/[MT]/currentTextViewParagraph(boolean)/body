@@ -1,0 +1,21 @@
+{
+  final ZLTextWordCursor cursor=getFBReader().getBookTextView().getStartCursor();
+  if (!cursor.isNull()) {
+    int reference=cursor.getParagraphCursor().getIndex();
+    boolean startOfParagraph=cursor.getWordNumber() == 0;
+    if (cursor.isEndOfParagraph()) {
+      ++reference;
+      startOfParagraph=true;
+    }
+    final int length=getModel().getParagraphsNumber();
+    final ContentsModel contentsModel=(ContentsModel)getModel();
+    for (int i=1; i < length; ++i) {
+      final int contentsReference=contentsModel.getReference(contentsModel.getTreeParagraph(i));
+      if ((contentsReference > reference) || (!includeStart && startOfParagraph && (contentsReference == reference))) {
+        return i - 1;
+      }
+    }
+    return length - 1;
+  }
+  return -1;
+}

@@ -1,7 +1,0 @@
-{
-  super(handler);
-  myHeader=new TextView(context);
-  mySelectionView=new SelectionView(context);
-  myDialog=new ZLAndroidDialog(context,caption);
-  update();
-}

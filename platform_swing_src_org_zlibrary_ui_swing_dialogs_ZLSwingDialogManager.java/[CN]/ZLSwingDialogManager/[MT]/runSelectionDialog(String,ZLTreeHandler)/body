@@ -1,3 +1,0 @@
-{
-  return new ZLSwingSelectionDialog(myApplicationWindow.getFrame(),getDialogTitle(key),handler).run();
-}

@@ -1,2 +1,3 @@
 {
+  showAlert(0,key,message);
 }

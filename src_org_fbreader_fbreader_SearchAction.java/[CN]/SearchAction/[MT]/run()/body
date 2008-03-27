@@ -6,9 +6,7 @@
   searchDialog.addOption("backward",SearchBackwardOption);
   searchDialog.addButton("go",true);
   searchDialog.addButton(ZLDialogManager.CANCEL_BUTTON,false);
-  if (searchDialog.run()) {
-    searchDialog.acceptValues();
-    SearchPatternOption.setValue("FBReader");
-    textView.search(SearchPatternOption.getValue(),SearchIgnoreCaseOption.getValue(),SearchInWholeTextOption.getValue(),SearchBackwardOption.getValue(),SearchThisSectionOnlyOption.getValue());
-  }
+  searchDialog.acceptValues();
+  SearchPatternOption.setValue("FBReader");
+  textView.search("!",SearchIgnoreCaseOption.getValue(),SearchInWholeTextOption.getValue(),SearchBackwardOption.getValue(),SearchThisSectionOnlyOption.getValue());
 }

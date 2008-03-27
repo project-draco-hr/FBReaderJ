@@ -1,0 +1,8 @@
+{
+  super(handler);
+  myActionOnAccept=actionOnAccept;
+  myHeader=new TextView(context);
+  mySelectionView=new SelectionView(context);
+  myDialog=new ZLAndroidDialog(context,caption);
+  update();
+}

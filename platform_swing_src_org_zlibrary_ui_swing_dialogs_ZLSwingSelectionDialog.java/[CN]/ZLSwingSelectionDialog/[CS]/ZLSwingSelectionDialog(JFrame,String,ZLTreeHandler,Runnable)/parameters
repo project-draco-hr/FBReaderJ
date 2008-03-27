@@ -1,0 +1,4 @@
+JFrame frame
+String caption
+ZLTreeHandler myHandler
+Runnable actionOnAccept

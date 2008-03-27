@@ -1,0 +1,4 @@
+{
+  final AlertListener al=new AlertListener(action0,action1,action2);
+  AlertDialog.show(myActivity,null,0,message,button0,al,button1,al,button2,al,true,null);
+}

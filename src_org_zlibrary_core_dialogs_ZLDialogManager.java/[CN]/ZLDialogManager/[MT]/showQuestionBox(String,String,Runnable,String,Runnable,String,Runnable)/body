@@ -1,0 +1,3 @@
+{
+  showQuestionBox(key,getDialogMessage(key),button0,action0,button1,action1,button2,action2);
+}

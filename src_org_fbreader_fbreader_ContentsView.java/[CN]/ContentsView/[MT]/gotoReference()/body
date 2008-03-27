@@ -1,0 +1,7 @@
+{
+  getModel().removeAllMarks();
+  final int selected=currentTextViewParagraph(true);
+  highlightParagraph(selected);
+  gotoParagraph(selected,false);
+  scrollPage(false,ScrollingMode.SCROLL_PERCENTAGE,40);
+}

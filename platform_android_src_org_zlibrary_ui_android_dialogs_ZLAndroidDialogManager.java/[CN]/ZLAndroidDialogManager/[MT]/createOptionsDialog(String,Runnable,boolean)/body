@@ -1,0 +1,3 @@
+{
+  return new ZLAndroidOptionsDialog(getResource().getResource(key),applyAction);
+}

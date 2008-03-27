@@ -1,6 +1,6 @@
 {
   myCollection=collection;
-  myBookInfo=new BookInfo(fileName);
+  myBookInfo=new BookDescription.BookInfo(fileName);
   myDialog=ZLDialogManager.getInstance().createOptionsDialog("InfoDialog");
   ZLDialogContent commonTab=myDialog.createTab("Common");
   commonTab.addOption("file",new ZLStringInfoEntry(new ZLFile(fileName).getPath()));
@@ -18,7 +18,4 @@
   seriesTab.addOption("seriesTitle",mySeriesTitleEntry);
   seriesTab.addOption("bookNumber",myBookNumberEntry);
   mySeriesTitleEntry.onValueEdited(mySeriesTitleEntry.initialValue());
-  FormatPlugin plugin=PluginCollection.instance().getPlugin(new ZLFile(fileName),false);
-  if (plugin != null) {
-  }
 }

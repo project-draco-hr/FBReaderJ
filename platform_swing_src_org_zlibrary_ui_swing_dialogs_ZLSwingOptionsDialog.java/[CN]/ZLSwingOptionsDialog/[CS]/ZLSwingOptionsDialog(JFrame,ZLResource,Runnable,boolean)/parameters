@@ -1,0 +1,4 @@
+JFrame frame
+ZLResource resource
+Runnable applyAction
+boolean showApplyButton
