@@ -1,0 +1,6 @@
+{
+  exitDialog();
+  if (myAction != null) {
+    myAction.run();
+  }
+}

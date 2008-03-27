@@ -1,0 +1,3 @@
+{
+  buttonPanel.add(new JButton(new ButtonAction(ZLDialogManager.getButtonText(key).replace("&",""),action)));
+}

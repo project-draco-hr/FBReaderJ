@@ -16,5 +16,4 @@
   myDialog.setLocationRelativeTo(myDialog.getParent());
   myDialog.setModal(true);
   myDialog.setVisible(true);
-  return myReturnValue;
 }

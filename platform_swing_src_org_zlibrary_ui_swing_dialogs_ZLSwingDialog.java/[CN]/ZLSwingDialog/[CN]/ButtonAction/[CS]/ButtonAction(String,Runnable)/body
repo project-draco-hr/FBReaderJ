@@ -1,3 +1,4 @@
 {
   putValue(NAME,text);
+  myAction=action;
 }
