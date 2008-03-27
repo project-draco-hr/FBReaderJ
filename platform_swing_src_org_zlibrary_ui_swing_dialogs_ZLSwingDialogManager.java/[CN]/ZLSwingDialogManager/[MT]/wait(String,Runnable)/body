@@ -1,0 +1,7 @@
+{
+  if (myApplicationWindow != null) {
+  }
+  runnable.run();
+  if (myApplicationWindow != null) {
+  }
+}

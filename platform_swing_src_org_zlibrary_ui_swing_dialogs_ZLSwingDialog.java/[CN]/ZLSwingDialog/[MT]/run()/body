@@ -7,10 +7,14 @@
   }
 );
   myDialog.setLayout(new BorderLayout());
+  myDialog.add(((ZLSwingDialogContent)myTab).getContentPanel(),BorderLayout.PAGE_START);
+  JPanel panel=new JPanel(new BorderLayout());
+  panel.add(buttonPanel,BorderLayout.EAST);
+  myDialog.add(panel,BorderLayout.PAGE_END);
   myDialog.pack();
   myDialog.setSize(myWidthOption.getValue(),myHeightOption.getValue());
   myDialog.setLocationRelativeTo(myDialog.getParent());
   myDialog.setModal(true);
   myDialog.setVisible(true);
-  return true;
+  return myReturnValue;
 }

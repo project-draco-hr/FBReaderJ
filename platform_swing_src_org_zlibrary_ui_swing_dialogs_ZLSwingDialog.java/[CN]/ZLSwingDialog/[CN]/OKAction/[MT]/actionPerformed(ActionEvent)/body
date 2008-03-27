@@ -1,0 +1,4 @@
+{
+  myReturnValue=true;
+  exitDialog();
+}
