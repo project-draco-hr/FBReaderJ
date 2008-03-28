@@ -1,0 +1,8 @@
+{
+  if (ourAllFamilies.size() == 0) {
+    final ArrayList families=super.getValues();
+    ourAllFamilies.add(myResource.getResource(KEY_UNCHANGED).getValue());
+    ourAllFamilies.addAll(families);
+  }
+  return ourAllFamilies;
+}

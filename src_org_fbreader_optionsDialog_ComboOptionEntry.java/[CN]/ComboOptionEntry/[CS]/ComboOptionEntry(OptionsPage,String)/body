@@ -1,0 +1,4 @@
+{
+  this.myPage=myPage;
+  this.myInitialValue=myInitialValue;
+}
