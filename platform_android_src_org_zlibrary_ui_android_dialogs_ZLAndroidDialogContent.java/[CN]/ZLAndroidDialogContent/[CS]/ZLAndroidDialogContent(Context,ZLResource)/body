@@ -1,0 +1,5 @@
+{
+  super(resource);
+  myListView=new ListView(context);
+  myListView.setAdapter(new ViewAdapter());
+}

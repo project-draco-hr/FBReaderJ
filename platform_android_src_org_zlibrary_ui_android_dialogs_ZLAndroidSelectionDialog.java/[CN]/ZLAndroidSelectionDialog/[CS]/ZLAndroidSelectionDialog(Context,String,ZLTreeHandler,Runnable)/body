@@ -3,6 +3,6 @@
   myActionOnAccept=actionOnAccept;
   myHeader=new TextView(context);
   mySelectionView=new SelectionView(context);
-  myDialog=new ZLAndroidDialog(context,caption);
+  myDialog=new AndroidDialog(context,caption);
   update();
 }

@@ -1,0 +1,4 @@
+{
+  super(resource,applyAction);
+  myContext=context;
+}

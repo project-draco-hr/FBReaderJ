@@ -1,2 +1,33 @@
 {
+  name=name.replaceAll("&","");
+  View view=null;
+switch (option.getKind()) {
+case ZLOptionKind.BOOLEAN:
+    view=new CheckBox(myListView.getContext());
+  ((TextView)view).setText(name);
+break;
+case ZLOptionKind.BOOLEAN3:
+break;
+case ZLOptionKind.STRING:
+view=new EditText(myListView.getContext());
+((EditText)view).setText("HELLO",TextView.BufferType.EDITABLE);
+break;
+case ZLOptionKind.CHOICE:
+break;
+case ZLOptionKind.SPIN:
+break;
+case ZLOptionKind.COMBO:
+break;
+case ZLOptionKind.COLOR:
+break;
+case ZLOptionKind.KEY:
+break;
+case ZLOptionKind.ORDER:
+break;
+case ZLOptionKind.MULTILINE:
+break;
+}
+if (view != null) {
+myOptions.add(view);
+}
 }

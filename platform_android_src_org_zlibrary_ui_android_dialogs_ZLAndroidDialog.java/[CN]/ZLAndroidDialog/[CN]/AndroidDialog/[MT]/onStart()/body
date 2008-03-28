@@ -1,0 +1,4 @@
+{
+  setContentView(((ZLAndroidDialogContent)myTab).getView());
+  setTitle(myCaption);
+}

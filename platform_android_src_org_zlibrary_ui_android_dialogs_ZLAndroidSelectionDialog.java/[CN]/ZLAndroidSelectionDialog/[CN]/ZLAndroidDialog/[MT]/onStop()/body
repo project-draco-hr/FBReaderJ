@@ -1,6 +1,0 @@
-{
-  android.util.Log.i("onStop","" + myReturnValue);
-  if (myReturnValue) {
-    new Handler().post(myActionOnAccept);
-  }
-}

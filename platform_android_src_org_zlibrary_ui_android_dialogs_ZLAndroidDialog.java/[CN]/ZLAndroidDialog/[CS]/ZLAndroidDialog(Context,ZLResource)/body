@@ -1,0 +1,4 @@
+{
+  myTab=new ZLAndroidDialogContent(context,resource);
+  myDialog=new AndroidDialog(context,resource.getResource(ZLDialogManager.DIALOG_TITLE).getValue());
+}
