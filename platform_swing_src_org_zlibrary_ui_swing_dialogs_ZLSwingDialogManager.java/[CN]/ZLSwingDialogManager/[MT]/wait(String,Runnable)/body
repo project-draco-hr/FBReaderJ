@@ -1,7 +1,26 @@
 {
-  if (myApplicationWindow != null) {
+  Thread t=new Thread(runnable);
+  t.start();
+  try {
+    t.join(500);
   }
-  runnable.run();
-  if (myApplicationWindow != null) {
+ catch (  InterruptedException e) {
+  }
+  if (t.isAlive()) {
+    JDialog dialog=new JDialog();
+    JPanel panel=new JPanel(new BorderLayout());
+    panel.add(new JLabel(getWaitMessageText(key)),BorderLayout.CENTER);
+    panel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+    dialog.add(panel);
+    if (myApplicationWindow != null) {
+      dialog.setLocationRelativeTo(myApplicationWindow.getFrame());
+    }
+ else {
+      dialog.setLocation(300,300);
+    }
+    dialog.pack();
+    dialog.setModal(true);
+    dialog.addWindowListener(new MyWindowListener(dialog,t));
+    dialog.setVisible(true);
   }
 }

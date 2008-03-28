@@ -1,0 +1,8 @@
+{
+  try {
+    myThread.join();
+  }
+ catch (  InterruptedException ex) {
+  }
+  myDialog.dispose();
+}
