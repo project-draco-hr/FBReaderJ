@@ -1,0 +1,11 @@
+{
+  addControl(control,true);
+  if (++myControlsQuantity > myControls.length) {
+    byte[] temp=ZLArrayUtils.createCopy(myControls,0,myControls.length);
+    myControls=new byte[2 * myControlsQuantity];
+    for (int i=0; i < myControlsQuantity - 1; i++) {
+      myControls[i]=temp[i];
+    }
+  }
+  myControls[myControlsQuantity - 1]=control;
+}

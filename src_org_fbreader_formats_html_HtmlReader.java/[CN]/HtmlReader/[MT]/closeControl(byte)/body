@@ -1,0 +1,22 @@
+{
+  for (int i=0; i < myControlsQuantity; i++) {
+    addControl(myControls[i],false);
+  }
+  boolean flag=false;
+  int removedControl=myControlsQuantity;
+  for (int i=0; i < myControlsQuantity; i++) {
+    if (!flag && (myControls[i] == control)) {
+      flag=true;
+      removedControl=i;
+      continue;
+    }
+    addControl(myControls[i],true);
+  }
+  if (removedControl == myControlsQuantity) {
+    return;
+  }
+  --myControlsQuantity;
+  for (int i=removedControl; i < myControlsQuantity; i++) {
+    myControls[i]=myControls[i + 1];
+  }
+}
