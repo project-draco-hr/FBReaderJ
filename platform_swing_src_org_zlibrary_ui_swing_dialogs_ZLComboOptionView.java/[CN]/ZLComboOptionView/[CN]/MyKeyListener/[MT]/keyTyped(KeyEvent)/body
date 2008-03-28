@@ -1,0 +1,3 @@
+{
+  ((ZLComboOptionEntry)myOption).onValueEdited((String)myComboBox.getSelectedItem());
+}
