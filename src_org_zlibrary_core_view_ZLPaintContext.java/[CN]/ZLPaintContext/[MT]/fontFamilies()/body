@@ -1,0 +1,6 @@
+{
+  if (myFamilies.isEmpty()) {
+    fillFamiliesList(myFamilies);
+  }
+  return myFamilies;
+}

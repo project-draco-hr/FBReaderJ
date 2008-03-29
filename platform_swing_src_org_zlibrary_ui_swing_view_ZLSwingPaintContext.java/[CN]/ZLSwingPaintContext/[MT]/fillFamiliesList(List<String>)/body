@@ -1,0 +1,6 @@
+{
+  String[] fontlist=GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+  for (int i=0; i < fontlist.length; i++) {
+    families.add(fontlist[i]);
+  }
+}
