@@ -42,6 +42,7 @@ case 1:
     if (!containsSpecialSymbols && (ptr > wordStart)) {
       int length2=ptr - wordStart;
       if (encodingType == EncodingType.UTF8) {
+        length=ZLUnicodeUtil.utf8Length(buffer,wordStart,length2);
       }
       String str=new String(buffer);
       word+=str.substring(wordStart,wordStart + ptr - wordStart);
