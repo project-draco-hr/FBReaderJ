@@ -1,4 +1,3 @@
 {
-  final ZLResource resource=myResource.getResource(key);
-  addOption(resource.getValue(),resource.getResource(TOOLTIP_KEY).getValue(),option);
+  addOptionByName(myResource.getResource(key).getValue(),option);
 }

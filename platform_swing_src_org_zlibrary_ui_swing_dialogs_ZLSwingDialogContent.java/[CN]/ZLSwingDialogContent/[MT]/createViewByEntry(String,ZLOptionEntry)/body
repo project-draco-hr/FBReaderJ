@@ -1,0 +1,37 @@
+{
+  if (option == null) {
+    return;
+  }
+  ZLOptionView view=null;
+switch (option.getKind()) {
+case ZLOptionKind.BOOLEAN:
+    view=new ZLBooleanOptionView(name,(ZLBooleanOptionEntry)option,this);
+  break;
+case ZLOptionKind.BOOLEAN3:
+break;
+case ZLOptionKind.STRING:
+view=new ZLStringOptionView(name,(ZLStringOptionEntry)option,this);
+break;
+case ZLOptionKind.CHOICE:
+view=new ZLChoiceOptionView(name,(ZLChoiceOptionEntry)option,this);
+break;
+case ZLOptionKind.SPIN:
+view=new ZLSpinOptionView(name,(ZLSpinOptionEntry)option,this);
+break;
+case ZLOptionKind.COMBO:
+view=new ZLComboOptionView(name,(ZLComboOptionEntry)option,this);
+break;
+case ZLOptionKind.COLOR:
+break;
+case ZLOptionKind.KEY:
+break;
+case ZLOptionKind.ORDER:
+break;
+case ZLOptionKind.MULTILINE:
+break;
+}
+if (view != null) {
+view.setVisible(option.isVisible());
+addView(view);
+}
+}

@@ -1,0 +1,3 @@
+{
+  createViewByEntry(name,option);
+}

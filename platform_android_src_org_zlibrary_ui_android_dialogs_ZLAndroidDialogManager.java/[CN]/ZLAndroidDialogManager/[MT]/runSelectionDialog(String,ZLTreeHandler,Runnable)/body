@@ -1,6 +1,4 @@
 {
   new ZLAndroidSelectionDialog(myActivity,getDialogTitle(key),handler,actionOnAccept).run();
-  View mainView=((ZLAndroidLibrary)ZLAndroidLibrary.getInstance()).getWidget();
-  myActivity.setContentView(mainView);
-  mainView.requestFocus();
+  ((ZLAndroidLibrary)ZLAndroidLibrary.getInstance()).getWidget().requestFocus();
 }

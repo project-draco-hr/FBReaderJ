@@ -1,4 +1,7 @@
 {
-  myTab=new ZLAndroidDialogContent(context,resource);
+  myFooter=new LinearLayout(context);
+  myFooter.setOrientation(LinearLayout.HORIZONTAL);
+  myFooter.setHorizontalGravity(0x01);
+  myTab=new ZLAndroidDialogContent(context,resource,myFooter);
   myDialog=new AndroidDialog(context,resource.getResource(ZLDialogManager.DIALOG_TITLE).getValue());
 }

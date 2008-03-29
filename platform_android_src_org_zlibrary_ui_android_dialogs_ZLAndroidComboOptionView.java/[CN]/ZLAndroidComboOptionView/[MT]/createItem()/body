@@ -1,0 +1,6 @@
+{
+  Spinner view=new Spinner(myTab.getView().getContext());
+  view.setAdapter(new ComboAdapter());
+  view.setDrawSelectorOnTop(true);
+  myView=view;
+}

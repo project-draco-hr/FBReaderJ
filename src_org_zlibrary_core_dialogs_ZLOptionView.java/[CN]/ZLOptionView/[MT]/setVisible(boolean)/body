@@ -8,6 +8,8 @@
     show();
   }
  else {
-    hide();
+    if (myInitialized) {
+      hide();
+    }
   }
 }

@@ -1,0 +1,8 @@
+{
+  super(resource);
+  myListView=new ListView(context);
+  if (footer != null) {
+    myListView.addFooterView(footer,null,false);
+  }
+  myListView.setAdapter(new ViewAdapter());
+}

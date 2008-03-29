@@ -1,0 +1,7 @@
+{
+  myDialog.dismiss();
+  if (myAction != null) {
+    myAction.run();
+  }
+  return true;
+}

@@ -1,0 +1,6 @@
+{
+  EditText editor=((ComboAdapter)((Spinner)myView).getAdapter()).myEditor;
+  if (editor != null) {
+    ((ZLComboOptionEntry)myOption).onAccept(editor.getText().toString());
+  }
+}

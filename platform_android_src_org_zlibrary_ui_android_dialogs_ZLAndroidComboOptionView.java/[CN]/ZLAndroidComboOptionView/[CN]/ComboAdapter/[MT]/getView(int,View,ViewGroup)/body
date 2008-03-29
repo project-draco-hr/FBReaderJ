@@ -1,0 +1,9 @@
+{
+  if (convertView == null) {
+    myEditor=new EditText(parent.getContext());
+    myEditor.setSingleLine(true);
+    myEditor.setText((String)getItem(position),TextView.BufferType.EDITABLE);
+    convertView=myEditor;
+  }
+  return convertView;
+}

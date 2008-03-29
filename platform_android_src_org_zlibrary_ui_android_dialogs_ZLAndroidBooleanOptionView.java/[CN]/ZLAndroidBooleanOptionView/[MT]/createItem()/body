@@ -1,0 +1,6 @@
+{
+  CheckBox view=new CheckBox(myTab.getView().getContext());
+  view.setText(myName);
+  view.setChecked(((ZLBooleanOptionEntry)myOption).initialState());
+  myView=view;
+}

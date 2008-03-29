@@ -1,7 +1,0 @@
-{
-  myName=name;
-  myOption=option;
-  myTooltip=tooltip;
-  myInitialized=false;
-  myOption.setView(this);
-}

@@ -1,8 +1,0 @@
-{
-  myAddTwoOptions=true;
-  myTwoOptionsPanel=new JPanel(new GridLayout(1,2,10,0));
-  myContentPanel.add(myTwoOptionsPanel);
-  createViewByEntry(name0,tooltip0,option0);
-  createViewByEntry(name1,tooltip1,option1);
-  myAddTwoOptions=false;
-}

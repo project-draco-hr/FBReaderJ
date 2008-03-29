@@ -1,3 +1,0 @@
-{
-  myTab.addOption(name,tooltip,entry);
-}

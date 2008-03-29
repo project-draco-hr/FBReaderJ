@@ -1,0 +1,3 @@
+{
+  return ((ZLComboOptionEntry)myOption).getValues().size();
+}
