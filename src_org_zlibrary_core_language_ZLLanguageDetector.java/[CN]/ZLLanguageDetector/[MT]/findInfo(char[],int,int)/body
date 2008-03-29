@@ -62,7 +62,7 @@ containsSpecialSymbols=false;
 break;
 }
 }
-LanguageInfo info;
+LanguageInfo info=null;
 for (Iterator it=wbMatchers.iterator(); it.hasNext(); ) {
 ZLWordBasedMatcher itzl=(ZLWordBasedMatcher)it.next();
 int criterion=itzl.criterion();
