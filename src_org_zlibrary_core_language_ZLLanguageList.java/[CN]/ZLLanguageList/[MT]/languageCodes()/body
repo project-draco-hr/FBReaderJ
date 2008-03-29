@@ -1,0 +1,25 @@
+{
+  if (ourLanguageCodes.isEmpty()) {
+    ArrayList codes=new ArrayList();
+    codes.add("zh");
+    ZLDir dir=patternsDirectory();
+    if (dir != null) {
+      ArrayList fileNames=new ArrayList();
+      fileNames=dir.collectFiles();
+      for (Iterator it=fileNames.iterator(); it.hasNext(); ) {
+        String itstr=(String)it.next();
+        final int index=itstr.indexOf("_");
+        if (index != -1) {
+          String str=itstr.substring(0,index);
+          if (!codes.contains(str)) {
+            codes.add(str);
+          }
+        }
+      }
+    }
+    for (Iterator it=codes.iterator(); it.hasNext(); ) {
+      ourLanguageCodes.add(it.next());
+    }
+  }
+  return ourLanguageCodes;
+}

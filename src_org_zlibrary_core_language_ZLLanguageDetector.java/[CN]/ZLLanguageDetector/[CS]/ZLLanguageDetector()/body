@@ -1,0 +1,26 @@
+{
+  ZLDir dir=ZLLanguageList.patternsDirectory();
+  if (dir != null) {
+    ArrayList fileNames=new ArrayList();
+    fileNames=dir.collectFiles();
+    for (Iterator it=fileNames.iterator(); it.hasNext(); ) {
+      String itstr=(String)it.next();
+      final int index=itstr.indexOf('_');
+      if (index != -1) {
+        final String language=itstr.substring(0,index);
+        final String encoding=itstr.substring(index + 1);
+        ZLWordBasedMatcher matcher=new ZLLanguagePatternBasedMatcher(dir.getItemPath(itstr),new LanguageInfo(language,encoding));
+        if (encoding == ZLLanguageMatcher.UTF8_ENCODING_NAME) {
+          myUtf8Matchers.add(matcher);
+        }
+ else         if (encoding == "US-ASCII") {
+          myUtf8Matchers.add(matcher);
+          myNonUtf8Matchers.add(matcher);
+        }
+ else {
+          myNonUtf8Matchers.add(matcher);
+        }
+      }
+    }
+  }
+}

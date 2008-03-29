@@ -1,0 +1,3 @@
+{
+  return myProCounter * 2000 / (myProCounter + myContraCounter) - 1000;
+}

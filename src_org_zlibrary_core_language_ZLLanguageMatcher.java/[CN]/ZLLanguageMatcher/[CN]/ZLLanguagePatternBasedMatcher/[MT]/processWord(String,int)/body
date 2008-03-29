@@ -1,0 +1,10 @@
+{
+  if (length < 5) {
+    if (myDictionary.contains(word)) {
+      ++myProCounter;
+    }
+ else {
+      ++myContraCounter;
+    }
+  }
+}

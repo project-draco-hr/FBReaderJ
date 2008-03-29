@@ -1,0 +1,4 @@
+{
+  String dirName=ZLibrary.getInstance().getZLibraryDirectory() + File.separator + "languagePatterns.zip";
+  return new ZLFile(dirName).getDirectory(false);
+}

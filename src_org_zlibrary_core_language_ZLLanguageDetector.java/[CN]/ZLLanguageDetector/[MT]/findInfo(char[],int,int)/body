@@ -1,0 +1,81 @@
+{
+  final int start=0;
+  final int end=length;
+  EncodingType encodingType=EncodingType.ASCII;
+  int nonLeadingCharsCounter=0;
+  for (int ptr=start; ptr != end; ++ptr) {
+    if (nonLeadingCharsCounter == 0) {
+      if ((buffer[ptr] & 0x80) != 0) {
+        encodingType=EncodingType.UTF8;
+        if ((buffer[ptr] & 0xE0) == 0xC0) {
+          nonLeadingCharsCounter=1;
+        }
+ else         if ((buffer[ptr] & 0xF0) == 0xE0) {
+          nonLeadingCharsCounter=2;
+        }
+ else         if ((buffer[ptr] & 0xF8) == 0xF0) {
+          nonLeadingCharsCounter=3;
+        }
+ else {
+          encodingType=EncodingType.OTHER;
+          break;
+        }
+      }
+    }
+ else {
+      if ((buffer[ptr] & 0xC0) != 0x80) {
+        encodingType=EncodingType.OTHER;
+        break;
+      }
+      --nonLeadingCharsCounter;
+    }
+  }
+  ArrayList<ZLWordBasedMatcher> wbMatchers=(encodingType == EncodingType.UTF8) ? myUtf8Matchers : myNonUtf8Matchers;
+  int wordStart=start;
+  boolean containsSpecialSymbols=false;
+  String word="";
+  for (int ptr=start; ptr != end; ++ptr) {
+switch (SYMBOL_TYPE[buffer[ptr]]) {
+case 0:
+      break;
+case 1:
+    if (!containsSpecialSymbols && (ptr > wordStart)) {
+      int length2=ptr - wordStart;
+      if (encodingType == EncodingType.UTF8) {
+      }
+      String str=new String(buffer);
+      word+=str.substring(wordStart,wordStart + ptr - wordStart);
+      for (Iterator it=wbMatchers.iterator(); it.hasNext(); ) {
+        ((ZLWordBasedMatcher)it.next()).processWord(word,length2);
+      }
+      word="";
+    }
+  wordStart=ptr + 1;
+containsSpecialSymbols=false;
+break;
+case 2:
+containsSpecialSymbols=true;
+break;
+case 3:
+wordStart=ptr + 1;
+containsSpecialSymbols=false;
+break;
+}
+}
+LanguageInfo info;
+for (Iterator it=wbMatchers.iterator(); it.hasNext(); ) {
+ZLWordBasedMatcher itzl=(ZLWordBasedMatcher)it.next();
+int criterion=itzl.criterion();
+if (criterion > matchingCriterion) {
+info=itzl.info();
+matchingCriterion=criterion;
+}
+itzl.reset();
+}
+if (encodingType == EncodingType.OTHER) {
+}
+if (info != null && (encodingType == EncodingType.UTF8) && (info.Encoding != ZLLanguageMatcher.UTF8_ENCODING_NAME)) {
+return new LanguageInfo(info.Language,ZLLanguageMatcher.UTF8_ENCODING_NAME);
+}
+return info;
+}

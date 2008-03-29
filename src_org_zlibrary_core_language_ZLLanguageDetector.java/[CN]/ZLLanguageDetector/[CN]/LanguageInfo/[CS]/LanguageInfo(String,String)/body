@@ -1,0 +1,4 @@
+{
+  this.Language=language;
+  this.Encoding=encoding;
+}
