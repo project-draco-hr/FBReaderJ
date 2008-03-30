@@ -1,3 +1,5 @@
 {
+  final String keyName=ZLAndroidKeyUtil.getKeyNameByCode(keyCode);
+  myViewWidget.getView().getApplication().doActionByKey(keyName);
   return true;
 }
