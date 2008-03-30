@@ -1,2 +1,4 @@
 {
+  families.add("DroidSans");
+  families.add("DroidSerif");
 }
