@@ -20,11 +20,17 @@ myRecentBooksView.rebuild();
 setView(myRecentBooksView);
 break;
 case ViewMode.BOOK_COLLECTION:
+Runnable action=new Runnable(){
+public void run(){
 myCollectionView.updateModel();
 if (myBookModel != null) {
 myCollectionView.selectBook(myBookModel.getDescription());
 }
 setView(myCollectionView);
+}
+}
+;
+ZLDialogManager.getInstance().wait("loadingBookList",action);
 break;
 default :
 break;
