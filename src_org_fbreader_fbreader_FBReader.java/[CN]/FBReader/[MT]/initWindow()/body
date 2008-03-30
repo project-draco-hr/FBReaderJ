@@ -1,0 +1,21 @@
+{
+  super.initWindow();
+  refreshWindow();
+  String fileName=null;
+  if (myArg0 != null) {
+    try {
+      fileName=new File(myArg0).getCanonicalPath();
+    }
+ catch (    IOException e) {
+    }
+  }
+  BookDescription description=BookDescription.getDescription(fileName);
+  if (description == null) {
+    description=BookDescription.getDescription(myBookNameOption.getValue());
+  }
+  if (description == null) {
+    description=BookDescription.getDescription(getHelpFileName());
+  }
+  openBook(description);
+  refreshWindow();
+}

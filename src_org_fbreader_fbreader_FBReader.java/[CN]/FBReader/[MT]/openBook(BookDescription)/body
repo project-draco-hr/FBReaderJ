@@ -1,5 +1,4 @@
 {
   OpenBookRunnable runnable=new OpenBookRunnable(bookDescription);
   ZLDialogManager.getInstance().wait("loadingBook",runnable);
-  resetWindowCaption();
 }

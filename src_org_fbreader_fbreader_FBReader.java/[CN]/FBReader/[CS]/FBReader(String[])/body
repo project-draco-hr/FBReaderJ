@@ -1,4 +1,5 @@
 {
+  myArg0=(args.length > 0) ? args[0] : null;
   addAction(ActionCode.TOGGLE_FULLSCREEN,new ZLApplication.FullscreenAction(this,true));
   addAction(ActionCode.FULLSCREEN_ON,new ZLApplication.FullscreenAction(this,false));
   addAction(ActionCode.QUIT,new QuitAction(this));
@@ -42,22 +43,5 @@
   myFootnoteView=new FootnoteView(this,getContext());
   myCollectionView=new CollectionView(this,getContext());
   myRecentBooksView=new RecentBooksView(this,getContext());
-  String fileName=null;
-  if (args.length > 0) {
-    try {
-      fileName=new File(args[0]).getCanonicalPath();
-    }
- catch (    IOException e) {
-    }
-  }
-  BookDescription description=BookDescription.getDescription(fileName);
-  if (description == null) {
-    description=BookDescription.getDescription(myBookNameOption.getValue());
-  }
-  if (description == null) {
-    description=BookDescription.getDescription(getHelpFileName());
-  }
-  openBook(description);
   setMode(ViewMode.BOOK_TEXT);
-  refreshWindow();
 }

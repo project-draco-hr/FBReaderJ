@@ -1,3 +1,16 @@
 {
-  runnable.run();
+  final ProgressDialog progress=ProgressDialog.show(myActivity,null,getWaitMessageText(key),true,true);
+  final Handler handler=new Handler(){
+    public void handleMessage(    Message message){
+      progress.dismiss();
+    }
+  }
+;
+  new Thread(new Runnable(){
+    public void run(){
+      runnable.run();
+      handler.sendEmptyMessage(0);
+    }
+  }
+).start();
 }

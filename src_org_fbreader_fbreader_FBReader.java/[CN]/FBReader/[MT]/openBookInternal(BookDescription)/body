@@ -21,4 +21,5 @@
     contentsView.setCaption(description.getTitle());
     recentBooksView.lastBooks().addBook(fileName);
   }
+  refreshWindow();
 }
