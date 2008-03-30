@@ -7,10 +7,14 @@
   commonTab.addOption("title",myBookInfo.getTitleOption());
   myAuthorDisplayNameEntry=new AuthorDisplayNameEntry(this);
   myAuthorSortKeyEntry=new AuthorSortKeyEntry(this);
+  ArrayList languageCodes=ZLLanguageList.languageCodes();
+  languageCodes.add("de-traditional");
+  myLanguageEntry=new ZLLanguageOptionEntry(myBookInfo.LanguageOption,languageCodes);
   mySeriesTitleEntry=new SeriesTitleEntry(this);
   myBookNumberEntry=new ZLSimpleSpinOptionEntry(myBookInfo.getNumberInSequenceOption(),1);
   commonTab.addOption("authorDisplayName",myAuthorDisplayNameEntry);
   commonTab.addOption("authorSortKey",myAuthorSortKeyEntry);
+  commonTab.addOption("language",myLanguageEntry);
   if (myEncodingSetEntry != null) {
     commonTab.addOption("encodingSet",myEncodingSetEntry);
   }
@@ -18,4 +22,5 @@
   seriesTab.addOption("seriesTitle",mySeriesTitleEntry);
   seriesTab.addOption("bookNumber",myBookNumberEntry);
   mySeriesTitleEntry.onValueEdited(mySeriesTitleEntry.initialValue());
+  FormatPlugin plugin=FormatPlugin.PluginCollection.instance().getPlugin(new ZLFile(fileName),false);
 }
