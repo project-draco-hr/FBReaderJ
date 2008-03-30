@@ -6,13 +6,11 @@
     zf=new ZipFile(myFile);
   }
  catch (  ZipException e) {
-    e.printStackTrace();
   }
 catch (  IOException e) {
-    e.printStackTrace();
   }
   if ((zf == null) || (zf.entries() == null)) {
-    return null;
+    return new ArrayList();
   }
   Enumeration en=zf.entries();
   while (en.hasMoreElements()) {

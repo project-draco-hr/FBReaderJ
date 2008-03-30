@@ -16,7 +16,7 @@
   String otherName=ZLLanguageList.languageName(otherCode);
   myValues.add(otherName);
   myValuesToCodes.put(otherName,otherCode);
-  if (myInitialValue.length() == 0) {
+  if ((myInitialValue == null) || (myInitialValue.length() == 0)) {
     myInitialValue=otherName;
   }
 }
