@@ -1,0 +1,14 @@
+{
+  ZLEncodingCollection collection=ZLEncodingCollection.instance();
+  ArrayList<ZLEncodingConverterProvider> providers=collection.providers();
+  for (Iterator it=providers.iterator(); it.hasNext(); ) {
+    for (Iterator jt=myAliases.iterator(); jt.hasNext(); ) {
+      ZLEncodingConverterProvider itp=(ZLEncodingConverterProvider)it.next();
+      String str=(String)jt.next();
+      if (itp.providesConverter(str)) {
+        return itp.createConverter(str);
+      }
+    }
+  }
+  return ZLEncodingCollection.instance().defaultConverter();
+}

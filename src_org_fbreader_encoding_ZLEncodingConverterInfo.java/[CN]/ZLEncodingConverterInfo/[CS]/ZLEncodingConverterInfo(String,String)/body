@@ -1,0 +1,5 @@
+{
+  myName=name;
+  myVisibleName=region + " (" + name+ ")";
+  addAlias(myName);
+}
