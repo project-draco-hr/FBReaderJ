@@ -3,11 +3,11 @@
   InputStream stream=null;
   try {
     stream=file.getInputStream();
+    detectEncodingAndLanguage(description,stream);
   }
  catch (  IOException e) {
     e.printStackTrace();
   }
-  detectEncodingAndLanguage(description,stream);
   if (description.getEncoding().length() == 0) {
     return false;
   }

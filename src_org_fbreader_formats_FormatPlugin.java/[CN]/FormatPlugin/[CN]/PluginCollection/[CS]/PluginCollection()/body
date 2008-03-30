@@ -1,4 +1,5 @@
 {
   LanguageAutoDetectOption=new ZLBooleanOption(ZLOption.CONFIG_CATEGORY,"Format","AutoDetect",true);
   DefaultLanguageOption=new ZLStringOption(ZLOption.CONFIG_CATEGORY,"Format","DefaultLanguage","ru");
+  DefaultEncodingOption=new ZLStringOption(ZLOption.CONFIG_CATEGORY,"Format","DefaultEncoding","windows-1252");
 }

@@ -1,18 +1,30 @@
 {
+  String language=description.getLanguage();
   String encoding=description.getEncoding();
-  if (encoding.length() == 0) {
-    encoding=EncodingDetector.detect(stream,PluginCollection.instance().DefaultLanguageOption.getValue());
-    if (encoding == "unknown") {
-      encoding="windows-1252";
+  if (encoding.length() == 0 || language.length() == 0) {
+    PluginCollection collection=PluginCollection.instance();
+    if (language.length() == 0) {
+      language=collection.DefaultLanguageOption.getValue();
+    }
+    if (encoding.length() == 0) {
+      encoding=collection.DefaultEncodingOption.getValue();
+    }
+    if (collection.LanguageAutoDetectOption.getValue() && stream != null) {
+      int BUFSIZE=65536;
+      byte[] buffer=new byte[BUFSIZE];
+      int size=stream.read(buffer,0,BUFSIZE);
+      stream.close();
+      ZLLanguageDetector.LanguageInfo info=new ZLLanguageDetector().findInfo(buffer,0,size);
+      buffer=null;
+      if (info != null) {
+        language=info.Language;
+        encoding=info.Encoding;
+        if ((encoding == "US-ASCII") || (encoding == "ISO-8859-1")) {
+          encoding="windows-1252";
+        }
+      }
     }
     new WritableBookDescription(description).setEncoding(encoding);
-  }
-  if (description.getLanguage() == "") {
-    if ((encoding.equals("US-ASCII")) || (encoding.equals("ISO-8859-1"))) {
-      new WritableBookDescription(description).setLanguage("en");
-    }
- else     if ((description.getEncoding().equals("KOI8-R")) || (encoding.equals("windows-1251")) || (encoding.equals("ISO-8859-5"))|| (encoding.equals("IBM866"))) {
-      new WritableBookDescription(description).setLanguage("ru");
-    }
+    new WritableBookDescription(description).setLanguage(language);
   }
 }
