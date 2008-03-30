@@ -1,6 +1,0 @@
-{
-  final ZLAndroidDialogContent content=(ZLAndroidDialogContent)myTab;
-  final ListView contentView=(ListView)content.getView();
-  setContentView(contentView);
-  setTitle(myCaption);
-}

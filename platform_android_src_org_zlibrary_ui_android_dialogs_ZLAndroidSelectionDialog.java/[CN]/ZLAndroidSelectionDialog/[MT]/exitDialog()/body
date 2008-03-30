@@ -1,3 +1,6 @@
 {
   myDialog.dismiss();
+  if (myReturnValue) {
+    new Handler().post(myActionOnAccept);
+  }
 }
