@@ -1,4 +1,0 @@
-{
-  String text=getButtonText(key).replace("&","");
-  return new JButton(text);
-}

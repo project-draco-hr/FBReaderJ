@@ -1,3 +1,0 @@
-{
-  return createOptionsDialog(key,null,false);
-}

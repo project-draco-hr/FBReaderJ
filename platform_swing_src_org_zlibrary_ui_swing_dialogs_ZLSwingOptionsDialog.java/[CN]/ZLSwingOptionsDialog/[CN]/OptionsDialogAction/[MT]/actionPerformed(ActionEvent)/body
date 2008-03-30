@@ -1,0 +1,8 @@
+{
+  if (myDoAccept) {
+    accept();
+  }
+  if (myDoExit) {
+    exitDialog();
+  }
+}

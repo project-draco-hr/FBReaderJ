@@ -1,0 +1,5 @@
+{
+  putValue(NAME,ZLSwingDialogManager.createButtonText(name));
+  myDoAccept=doAccept;
+  myDoExit=doExit;
+}

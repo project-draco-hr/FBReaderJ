@@ -1,0 +1,3 @@
+String name
+boolean doAccept
+boolean doExit

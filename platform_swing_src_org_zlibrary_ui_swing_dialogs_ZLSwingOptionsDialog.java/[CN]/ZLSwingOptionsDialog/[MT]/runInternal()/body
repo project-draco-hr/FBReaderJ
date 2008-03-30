@@ -9,31 +9,27 @@
   myDialog.setLayout(new BorderLayout());
   JPanel buttonPanel=new JPanel();
   buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
-  JButton button1=ZLSwingDialogManager.createButton(ZLSwingDialogManager.OK_BUTTON);
-  JButton button2=ZLSwingDialogManager.createButton(ZLSwingDialogManager.CANCEL_BUTTON);
-  CancelAction cancelAction=new CancelAction(button2.getText());
-  button1.setAction(new OKAction(button1.getText()));
-  button2.setAction(cancelAction);
-  buttonPanel.add(button1);
-  buttonPanel.add(button2);
-  if (button1.getPreferredSize().width < button2.getPreferredSize().width) {
-    button1.setPreferredSize(button2.getPreferredSize());
-  }
- else {
-    button2.setPreferredSize(button1.getPreferredSize());
+  JButton okButton=new JButton(new OptionsDialogAction(ZLSwingDialogManager.OK_BUTTON,true,true));
+  Action cancelAction=new OptionsDialogAction(ZLSwingDialogManager.CANCEL_BUTTON,false,true);
+  JButton cancelButton=new JButton(cancelAction);
+  buttonPanel.add(okButton);
+  buttonPanel.add(cancelButton);
+  Dimension preferredSize=okButton.getPreferredSize();
+  Dimension size=cancelButton.getPreferredSize();
+  if (preferredSize.width < size.width) {
+    preferredSize=size;
   }
   if (myShowApplyButton) {
-    JButton button3=ZLSwingDialogManager.createButton(ZLSwingDialogManager.APPLY_BUTTON);
-    buttonPanel.add(button3);
-    button3.setAction(new ApplyAction(button3.getText()));
-    if (button3.getPreferredSize().width < button2.getPreferredSize().width) {
-      button3.setPreferredSize(button2.getPreferredSize());
+    JButton applyButton=new JButton(new OptionsDialogAction(ZLSwingDialogManager.APPLY_BUTTON,true,false));
+    buttonPanel.add(applyButton);
+    size=applyButton.getPreferredSize();
+    if (preferredSize.width < size.width) {
+      preferredSize=size;
     }
- else {
-      button2.setPreferredSize(button3.getPreferredSize());
-      button1.setPreferredSize(button3.getPreferredSize());
-    }
+    applyButton.setPreferredSize(preferredSize);
   }
+  okButton.setPreferredSize(preferredSize);
+  cancelButton.setPreferredSize(preferredSize);
   myDialog.add(buttonPanel,BorderLayout.SOUTH);
   myTabbedPane.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
   myDialog.getContentPane().add(myTabbedPane,BorderLayout.CENTER);
@@ -41,7 +37,7 @@
   if (myPanelToKeyMap.get(mySelectedTabKey) != null) {
     myTabbedPane.setSelectedComponent(myPanelToKeyMap.get(mySelectedTabKey));
   }
-  button1.requestFocusInWindow();
+  okButton.requestFocusInWindow();
   KeyStroke escape=KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE,0,false);
   myDialog.getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(escape,"ESCAPE");
   myDialog.getRootPane().getActionMap().put("ESCAPE",cancelAction);
@@ -50,5 +46,4 @@
   myDialog.setLocationRelativeTo(myDialog.getParent());
   myDialog.setModal(true);
   myDialog.setVisible(true);
-  return myReturnValue;
 }
