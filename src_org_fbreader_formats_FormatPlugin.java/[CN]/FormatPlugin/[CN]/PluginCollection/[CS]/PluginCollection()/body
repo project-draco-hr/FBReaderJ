@@ -1,4 +1,4 @@
 {
   LanguageAutoDetectOption=new ZLBooleanOption(ZLOption.CONFIG_CATEGORY,"Format","AutoDetect",true);
-  DefaultLanguageOption=new ZLIntegerOption(ZLOption.CONFIG_CATEGORY,"Format","DefaultLanguage",EncodingDetector.Language.RUSSIAN);
+  DefaultLanguageOption=new ZLStringOption(ZLOption.CONFIG_CATEGORY,"Format","DefaultLanguage","ru");
 }

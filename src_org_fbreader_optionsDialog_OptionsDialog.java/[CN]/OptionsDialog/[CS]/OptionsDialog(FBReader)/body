@@ -9,6 +9,8 @@
   libraryTab.addOption("recentListSize",new ZLSimpleSpinOptionEntry(recentBooksView.lastBooks().MaxListSizeOption,1));
   ZLDialogContent encodingTab=myDialog.createTab("Language");
   encodingTab.addOption("autoDetect",new ZLSimpleBooleanOptionEntry(PluginCollection.instance().LanguageAutoDetectOption));
+  new ZLLanguageOptionEntry(PluginCollection.instance().DefaultLanguageOption,ZLLanguageList.languageCodes());
+  encodingTab.addOption("defaultLanguage",new ZLLanguageOptionEntry(PluginCollection.instance().DefaultLanguageOption,ZLLanguageList.languageCodes()));
   myDialog.createTab("Scrolling");
   ZLDialogContent selectionTab=myDialog.createTab("Selection");
   selectionTab.addOption("enableSelection",FBView.selectionOption());

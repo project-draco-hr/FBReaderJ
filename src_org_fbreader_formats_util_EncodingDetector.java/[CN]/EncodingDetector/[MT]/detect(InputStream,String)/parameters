@@ -1,2 +1,2 @@
 InputStream stream
-int language
+String language

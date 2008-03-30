@@ -1,0 +1,22 @@
+{
+  myLanguageOption=languageOption;
+  String initialCode=myLanguageOption.getValue();
+  for (Iterator it=languageCodes.iterator(); it.hasNext(); ) {
+    String itstr=(String)it.next();
+    String name=ZLLanguageList.languageName(itstr);
+    myValuesToCodes.put(name,itstr);
+    if (initialCode.equals(itstr)) {
+      myInitialValue=name;
+    }
+  }
+  for (Iterator it=myValuesToCodes.keySet().iterator(); it.hasNext(); ) {
+    myValues.add(it.next());
+  }
+  String otherCode="other";
+  String otherName=ZLLanguageList.languageName(otherCode);
+  myValues.add(otherName);
+  myValuesToCodes.put(otherName,otherCode);
+  if (myInitialValue.length() == 0) {
+    myInitialValue=otherName;
+  }
+}
