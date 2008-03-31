@@ -3,7 +3,7 @@
     return convertView;
   }
   TextView textView=new TextView(parent.getContext());
-  textView.setText(((ZLAndroidDialogContent)getItem(position)).getDisplayName());
+  textView.setText(((ZLDialogContent)getItem(position)).getDisplayName());
   textView.setPadding(0,12,0,12);
   textView.setTextSize(20);
   return textView;

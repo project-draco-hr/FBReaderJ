@@ -1,4 +1,3 @@
 {
   new ZLAndroidSelectionDialog(myActivity,getDialogTitle(key),handler,actionOnAccept).run();
-  ((ZLAndroidLibrary)ZLAndroidLibrary.getInstance()).getWidget().requestFocus();
 }

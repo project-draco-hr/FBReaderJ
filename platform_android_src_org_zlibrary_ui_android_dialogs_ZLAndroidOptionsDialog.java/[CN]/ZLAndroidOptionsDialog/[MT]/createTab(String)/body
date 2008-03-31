@@ -1,10 +1,14 @@
 {
   final Context context=myDialog.getContext();
+  final int index=myTabs.size();
+  Runnable applyAction=new ReturnFromTabAction(index,true);
+  Runnable cancelAction=new ReturnFromTabAction(index,false);
+  myCancelActions.add(cancelAction);
   final LinearLayout header=new LinearLayout(context);
   header.setOrientation(LinearLayout.HORIZONTAL);
-  header.addView(new TabButton(context,ZLDialogManager.getButtonText(ZLDialogManager.APPLY_BUTTON).replaceAll("&",""),myReturnFromTabAction),new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT));
-  header.addView(new TabButton(context,ZLDialogManager.getButtonText(ZLDialogManager.CANCEL_BUTTON).replaceAll("&",""),myReturnFromTabAction),new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT));
-  final ZLAndroidDialogContent tab=new ZLAndroidDialogContent(context,getTabResource(key),header,null);
+  header.addView(new TabButton(context,ZLDialogManager.getButtonText(ZLDialogManager.APPLY_BUTTON).replaceAll("&",""),applyAction),new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT));
+  header.addView(new TabButton(context,ZLDialogManager.getButtonText(ZLDialogManager.CANCEL_BUTTON).replaceAll("&",""),cancelAction),new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT));
+  final ZLDialogContent tab=new ZLAndroidDialogContent(context,getTabResource(key),header,null);
   myTabs.add(tab);
   return tab;
 }

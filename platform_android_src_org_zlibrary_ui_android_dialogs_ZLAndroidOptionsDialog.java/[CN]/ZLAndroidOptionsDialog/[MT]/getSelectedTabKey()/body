@@ -3,7 +3,7 @@
   if (selectedView != null) {
     int index=myTabListView.indexOfChild(selectedView);
     if ((index >= 0) && (index <= myTabs.size())) {
-      return ((ZLAndroidDialogContent)myTabs.get(index)).getKey();
+      return ((ZLDialogContent)myTabs.get(index)).getKey();
     }
   }
   return "";

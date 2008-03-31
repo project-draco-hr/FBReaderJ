@@ -3,4 +3,11 @@
   myDialog.setContentView(myTabListView);
   myTabListView.requestFocus();
   myDialog.setCancelAction(null);
+  ZLDialogContent tab=(ZLDialogContent)myTabs.get(myIndex);
+  if (myDoApply) {
+    acceptTab(tab);
+  }
+ else {
+    resetTab(tab);
+  }
 }

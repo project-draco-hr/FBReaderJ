@@ -4,5 +4,4 @@
   myCaption=resource.getResource("title").getValue();
   myDialog=new AndroidDialog(context,myTabListView,myCaption);
   myDialog.setExitAction(exitAction);
-  myReturnFromTabAction=new ReturnFromTabAction();
 }

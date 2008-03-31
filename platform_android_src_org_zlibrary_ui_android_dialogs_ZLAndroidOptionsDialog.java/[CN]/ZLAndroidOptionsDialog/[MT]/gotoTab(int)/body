@@ -2,5 +2,5 @@
   ZLAndroidDialogContent tab=(ZLAndroidDialogContent)myTabListView.getAdapter().getItem(index);
   myDialog.setTitle(tab.getDisplayName());
   myDialog.setContentView(tab.getView());
-  myDialog.setCancelAction(myReturnFromTabAction);
+  myDialog.setCancelAction((Runnable)myCancelActions.get(index));
 }

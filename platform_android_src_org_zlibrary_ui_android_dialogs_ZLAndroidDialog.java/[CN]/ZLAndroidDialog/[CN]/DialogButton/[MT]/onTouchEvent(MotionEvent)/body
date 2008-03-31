@@ -1,7 +1,7 @@
 {
   myDialog.dismiss();
   if (myAction != null) {
-    myAction.run();
+    new Handler().post(myAction);
   }
   return true;
 }
