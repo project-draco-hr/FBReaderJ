@@ -1,6 +1,9 @@
 {
   super(resource);
   myListView=new ListView(context);
+  if (header != null) {
+    myListView.addHeaderView(header,null,false);
+  }
   if (footer != null) {
     myListView.addFooterView(footer,null,false);
   }

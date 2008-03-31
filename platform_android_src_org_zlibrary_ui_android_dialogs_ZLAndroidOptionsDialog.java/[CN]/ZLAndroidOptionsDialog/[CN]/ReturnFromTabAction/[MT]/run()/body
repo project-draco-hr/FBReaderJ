@@ -1,0 +1,6 @@
+{
+  myDialog.setTitle(myCaption);
+  myDialog.setContentView(myTabListView);
+  myTabListView.requestFocus();
+  myDialog.setCancelAction(null);
+}
