@@ -1,5 +1,10 @@
 {
-  ZLAndroidDialogContent tab=new ZLAndroidDialogContent(myDialog.getContext(),getTabResource(key),null,null);
+  final Context context=myDialog.getContext();
+  final LinearLayout header=new LinearLayout(context);
+  header.setOrientation(LinearLayout.HORIZONTAL);
+  header.addView(new TabButton(context,ZLDialogManager.getButtonText(ZLDialogManager.APPLY_BUTTON).replaceAll("&",""),myReturnFromTabAction),new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT));
+  header.addView(new TabButton(context,ZLDialogManager.getButtonText(ZLDialogManager.CANCEL_BUTTON).replaceAll("&",""),myReturnFromTabAction),new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT));
+  final ZLAndroidDialogContent tab=new ZLAndroidDialogContent(context,getTabResource(key),header,null);
   myTabs.add(tab);
   return tab;
 }
