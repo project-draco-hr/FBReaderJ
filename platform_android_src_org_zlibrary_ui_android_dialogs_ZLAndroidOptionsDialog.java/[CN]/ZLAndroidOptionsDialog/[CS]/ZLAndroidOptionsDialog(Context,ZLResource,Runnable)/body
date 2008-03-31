@@ -1,5 +1,5 @@
 {
   super(resource,applyAction);
-  myTabListView=new ListView(context);
+  myTabListView=new TabListView(context);
   myDialog=new AndroidDialog(context,myTabListView,resource.getResource("title").getValue());
 }
