@@ -1,3 +1,6 @@
 {
+  if (myExitAction != null) {
+    new Handler().post(myExitAction);
+  }
   ((ZLAndroidLibrary)ZLAndroidLibrary.getInstance()).getWidget().requestFocus();
 }

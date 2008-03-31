@@ -1,3 +1,4 @@
 Context context
 ZLResource resource
+Runnable exitAction
 Runnable applyAction

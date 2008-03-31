@@ -1,0 +1,4 @@
+{
+  View view=findViewById(R.id.zlandroidactivity);
+  return (view != null) ? view.onKeyUp(keyCode,event) : true;
+}

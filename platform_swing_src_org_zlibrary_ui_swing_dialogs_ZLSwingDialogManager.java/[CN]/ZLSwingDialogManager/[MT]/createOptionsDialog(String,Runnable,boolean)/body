@@ -1,3 +1,0 @@
-{
-  return new ZLSwingOptionsDialog(myApplicationWindow.getFrame(),getResource().getResource(key),applyAction,showApplyButton);
-}
