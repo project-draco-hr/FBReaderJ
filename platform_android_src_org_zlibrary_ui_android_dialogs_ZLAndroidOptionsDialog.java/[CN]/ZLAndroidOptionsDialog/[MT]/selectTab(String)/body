@@ -1,2 +1,11 @@
 {
+  final ArrayList tabs=myTabs;
+  final int len=tabs.size();
+  for (int i=0; i < len; ++i) {
+    ZLAndroidDialogContent tab=(ZLAndroidDialogContent)tabs.get(i);
+    if (tab.getKey().equals(key)) {
+      myTabListView.setSelection(i);
+      return;
+    }
+  }
 }

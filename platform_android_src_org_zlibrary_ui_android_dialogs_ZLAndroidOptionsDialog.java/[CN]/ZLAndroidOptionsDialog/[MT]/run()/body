@@ -1,0 +1,4 @@
+{
+  myTabListView.setAdapter(new TabListAdapter());
+  super.run();
+}
