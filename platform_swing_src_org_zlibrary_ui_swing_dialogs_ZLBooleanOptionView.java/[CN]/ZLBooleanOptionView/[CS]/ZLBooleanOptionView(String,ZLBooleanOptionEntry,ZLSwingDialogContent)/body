@@ -1,12 +1,3 @@
 {
-  super(name,option);
-  myCheckBox=new JCheckBox(name);
-  myCheckBox.setSelected(option.initialState());
-  myCheckBox.addChangeListener(new ChangeListener(){
-    public void stateChanged(    ChangeEvent e){
-      ((ZLBooleanOptionEntry)myOption).onStateChanged(myCheckBox.isSelected());
-    }
-  }
-);
-  tab.insertWidget(myCheckBox);
+  super(name,option,tab);
 }

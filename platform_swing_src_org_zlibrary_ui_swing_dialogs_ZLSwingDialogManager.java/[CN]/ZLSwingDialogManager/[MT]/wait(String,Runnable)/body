@@ -8,9 +8,10 @@
   }
   if (t.isAlive()) {
     JDialog dialog=new JDialog();
+    dialog.setUndecorated(true);
     JPanel panel=new JPanel(new BorderLayout());
     panel.add(new JLabel(getWaitMessageText(key)),BorderLayout.CENTER);
-    panel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+    panel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.black),BorderFactory.createEmptyBorder(10,10,10,10)));
     dialog.add(panel);
     if (myApplicationWindow != null) {
       dialog.setLocationRelativeTo(myApplicationWindow.getFrame());

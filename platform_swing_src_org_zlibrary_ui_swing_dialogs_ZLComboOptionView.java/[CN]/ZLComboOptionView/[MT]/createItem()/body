@@ -1,2 +1,37 @@
 {
+  final ZLComboOptionEntry option=(ZLComboOptionEntry)myOption;
+  final ArrayList values=(option).getValues();
+  final String initialValue=(option).initialValue();
+  int index=0;
+  for (int i=0; i < values.size(); ++i) {
+    if (values.get(i).equals(initialValue)) {
+      index=i;
+      break;
+    }
+  }
+  myComboBox=new JComboBox(values.toArray());
+  myComboBox.setSelectedIndex(index);
+  myComboBox.setEditable((option).isEditable());
+  myComboBox.addItemListener(new MyItemListener());
+  if (option.useOnValueEdited()) {
+    myComboBox.getEditor().getEditorComponent().addKeyListener(new MyKeyListener());
+  }
+  if (myName == null || "".equals(myName)) {
+    myLabel=null;
+    myTab.insertWidget(myComboBox);
+  }
+ else {
+    myComboBox.setMinimumSize(new Dimension(0,myComboBox.getPreferredSize().height));
+    JPanel panel1=new JPanel();
+    panel1.setLayout(new BoxLayout(panel1,BoxLayout.LINE_AXIS));
+    myComboBox.setMaximumSize(new Dimension(myComboBox.getMaximumSize().width,myComboBox.getPreferredSize().height));
+    panel1.add(myComboBox);
+    myLabel=new JLabel(myName);
+    JPanel panel2=new JPanel(new BorderLayout());
+    panel2.add(myLabel,BorderLayout.LINE_END);
+    JPanel panel=new JPanel(new GridLayout(1,2,10,0));
+    panel.add(panel2);
+    panel.add(panel1);
+    myTab.insertWidget(panel);
+  }
 }

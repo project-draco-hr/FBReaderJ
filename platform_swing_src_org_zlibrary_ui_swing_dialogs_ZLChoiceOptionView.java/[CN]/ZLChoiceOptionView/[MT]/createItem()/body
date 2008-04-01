@@ -1,2 +1,12 @@
 {
+  myButtonPanel.setBorder(new TitledBorder(myName));
+  final int choiceNumber=((ZLChoiceOptionEntry)myOption).choiceNumber();
+  for (int i=0; i < choiceNumber; i++) {
+    JRadioButton button=new JRadioButton(((ZLChoiceOptionEntry)myOption).getText(i));
+    myButtonGroup.add(button);
+    myButtonPanel.add(button);
+    myButtonModels.add(button.getModel());
+  }
+  myButtonGroup.setSelected(myButtonModels.get(((ZLChoiceOptionEntry)myOption).initialCheckedIndex()),true);
+  myTab.insertWidget(myButtonPanel);
 }
