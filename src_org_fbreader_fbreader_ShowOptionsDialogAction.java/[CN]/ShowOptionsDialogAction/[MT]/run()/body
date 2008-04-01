@@ -1,4 +1,3 @@
 {
-  FBReader f=fbreader();
-  new OptionsDialog(f).getDialog().run();
+  new OptionsDialog(fbreader()).getDialog().run();
 }
