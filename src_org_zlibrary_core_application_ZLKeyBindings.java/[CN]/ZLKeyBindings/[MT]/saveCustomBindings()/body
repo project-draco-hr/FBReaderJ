@@ -1,0 +1,23 @@
+{
+  if (!myIsChanged) {
+    return;
+  }
+  final HashMap keymap=new HashMap();
+  new ZLKeyBindingsReader(keymap).readBindings();
+  int counter=0;
+  final ZLStringOption keyOption=new ZLStringOption(ZLOption.CONFIG_CATEGORY,myName,"","");
+  final ZLIntegerOption actionOption=new ZLIntegerOption(ZLOption.CONFIG_CATEGORY,myName,"",-1);
+  for (Iterator it=myBindingsMap.keySet().iterator(); it.hasNext(); ) {
+    final String key=(String)it.next();
+    Integer originalValue=(Integer)keymap.get(key);
+    Integer value=(Integer)myBindingsMap.get(key);
+    if (!originalValue.equals(value)) {
+      keyOption.changeName(BINDED_KEY + counter);
+      actionOption.changeName(BINDED_ACTION + counter);
+      keyOption.setValue(key);
+      actionOption.setValue(value);
+      ++counter;
+    }
+  }
+  new ZLIntegerRangeOption(ZLOption.CONFIG_CATEGORY,myName,BINDINGS_NUMBER,0,256,0).setValue(counter);
+}

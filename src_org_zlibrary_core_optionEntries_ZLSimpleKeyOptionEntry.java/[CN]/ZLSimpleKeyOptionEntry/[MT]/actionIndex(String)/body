@@ -1,0 +1,4 @@
+{
+  String code=(String)myChangedCodes.get(key);
+  return codeIndexBimap().indexByCode((code != null) ? code : myBindings.getBinding(key));
+}

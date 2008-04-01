@@ -1,0 +1,7 @@
+{
+  for (Iterator it=myChangedCodes.entrySet().iterator(); it.hasNext(); ) {
+    Entry entry=(Entry)it.next();
+    myBindings.bindKey((String)entry.getKey(),(String)entry.getValue());
+  }
+  myBindings.saveCustomBindings();
+}
