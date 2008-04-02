@@ -24,6 +24,7 @@ break;
 case ZLOptionKind.COLOR:
 break;
 case ZLOptionKind.KEY:
+view=new ZLKeyOptionView(name,(ZLKeyOptionEntry)option,this);
 break;
 case ZLOptionKind.ORDER:
 break;

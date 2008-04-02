@@ -1,0 +1,6 @@
+{
+  if (str.equals("")) {
+    return "";
+  }
+  return "<" + str + ">+";
+}

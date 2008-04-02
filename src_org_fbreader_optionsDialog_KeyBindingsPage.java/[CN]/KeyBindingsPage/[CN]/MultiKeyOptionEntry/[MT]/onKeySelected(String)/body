@@ -1,0 +1,5 @@
+{
+  if (myExitOnCancelEntry != null) {
+    myExitOnCancelEntry.setVisible(ActionCode.CANCEL.equals(myBimap.codeByIndex(myCurrentEntry.actionIndex(key))));
+  }
+}

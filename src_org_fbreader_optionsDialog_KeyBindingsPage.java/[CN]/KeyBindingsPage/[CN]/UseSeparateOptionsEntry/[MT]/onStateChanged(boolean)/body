@@ -1,0 +1,5 @@
+{
+  super.onStateChanged(state);
+  myOrientationEntry.setVisible(state);
+  myKeyEntry.resetView();
+}

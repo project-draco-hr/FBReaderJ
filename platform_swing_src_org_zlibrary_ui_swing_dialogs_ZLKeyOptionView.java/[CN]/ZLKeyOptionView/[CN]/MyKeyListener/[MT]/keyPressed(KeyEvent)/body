@@ -1,0 +1,48 @@
+{
+  final String modifiers=e.getModifiersExText(e.getModifiersEx());
+  final int code=e.getKeyCode();
+  String main;
+switch (code) {
+case 27:
+    main="Esc";
+  break;
+case 33:
+main="Page Up";
+break;
+case 34:
+main="Page Down";
+break;
+case 35:
+main="End";
+break;
+case 36:
+main="Home";
+break;
+case 37:
+main="LeftArrow";
+break;
+case 38:
+main="UpArrow";
+break;
+case 39:
+main="RightArrow";
+break;
+case 40:
+main="DownArrow";
+break;
+default :
+main=e.getKeyText(code);
+break;
+}
+final String keyCode=keyTextModifiersParse(modifiers) + keyTextParse(main);
+if (keyCode.equals("<Ctrl>+<Ctrl>") || keyCode.equals("<Shift>+<Shift>")) {
+myCurrentKey="";
+}
+ else {
+myCurrentKey=keyCode;
+}
+myKeyEditor.setText(myCurrentKey);
+myComboBox.setVisible(!"".equals(myCurrentKey));
+myComboBox.setSelectedIndex(((ZLKeyOptionEntry)myOption).actionIndex(myCurrentKey));
+((ZLKeyOptionEntry)myOption).onKeySelected(myCurrentKey);
+}

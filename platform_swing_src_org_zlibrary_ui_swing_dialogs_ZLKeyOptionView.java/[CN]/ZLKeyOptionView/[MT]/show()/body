@@ -1,0 +1,5 @@
+{
+  myKeyEditor.setVisible(true);
+  myLabel.setVisible(true);
+  myComboBox.setVisible(!"".equals(myCurrentKey));
+}

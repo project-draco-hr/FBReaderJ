@@ -1,0 +1,9 @@
+{
+  if (VALUES.size() == 0) {
+    VALUES.add("0 Degrees");
+    VALUES.add("90 Degrees Counterclockwise");
+    VALUES.add("180 Degrees");
+    VALUES.add("90 Degrees Clockwise");
+  }
+  return VALUES;
+}

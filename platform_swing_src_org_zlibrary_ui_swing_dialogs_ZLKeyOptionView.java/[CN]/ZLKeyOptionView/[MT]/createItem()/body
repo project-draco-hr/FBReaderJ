@@ -1,0 +1,21 @@
+{
+  myKeyEditor=new KeyEditor("");
+  myKeyEditor.setInputMap(JComponent.WHEN_FOCUSED,null);
+  myKeyEditor.setCaretPosition(0);
+  myKeyEditor.setMargin(new Insets(0,5,0,0));
+  myKeyEditor.addKeyListener(new MyKeyListener());
+  JPanel panel1=new JPanel();
+  panel1.setLayout(new BoxLayout(panel1,BoxLayout.LINE_AXIS));
+  myKeyEditor.setMaximumSize(new Dimension(myKeyEditor.getMaximumSize().width,myKeyEditor.getPreferredSize().height));
+  panel1.add(myKeyEditor);
+  myLabel=new JLabel(ZLResource.resource("keyOptionView").getResource("actionFor").getValue());
+  JPanel panel2=new JPanel(new BorderLayout());
+  panel2.add(myLabel,BorderLayout.LINE_END);
+  JPanel panel=new JPanel(new GridLayout(1,2,10,0));
+  panel.add(panel2);
+  panel.add(panel1);
+  myTab.insertWidget(panel);
+  myComboBox=new JComboBox(((ZLKeyOptionEntry)myOption).getActionNames().toArray());
+  myComboBox.addItemListener(new MyItemListener());
+  myTab.insertWidget(myComboBox);
+}

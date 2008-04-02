@@ -1,3 +1,3 @@
 {
-  return (Integer)IndexByCode.get(code);
+  return IndexByCode.get(code) == null ? 0 : (Integer)IndexByCode.get(code);
 }

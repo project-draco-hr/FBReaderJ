@@ -1,0 +1,5 @@
+{
+  myCurrentKey=null;
+  myKeyEditor.setText("");
+  myComboBox.setVisible(false);
+}

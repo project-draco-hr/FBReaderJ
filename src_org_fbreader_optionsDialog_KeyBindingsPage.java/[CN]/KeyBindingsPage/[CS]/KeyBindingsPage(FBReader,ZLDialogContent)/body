@@ -1,0 +1,17 @@
+{
+  if (new ZLBooleanOption(ZLOption.EMPTY,"PlatformOptions","FullKeyboardControlSupported",false).getValue()) {
+    dialogTab.addOption("grabSystemKeys",new KeyboardControlEntry(fbreader));
+  }
+  MultiKeyOptionEntry keyEntry=new MultiKeyOptionEntry(dialogTab.getResource("action"),fbreader);
+  OrientationEntry orientationEntry=new OrientationEntry(keyEntry);
+  ZLBooleanOptionEntry useSeparateBindingsEntry=new UseSeparateOptionsEntry(fbreader,keyEntry,orientationEntry);
+  dialogTab.addOption("separate",useSeparateBindingsEntry);
+  dialogTab.addOption("orientation",orientationEntry);
+  dialogTab.addOption("action",keyEntry);
+  ZLOptionEntry exitOnCancelEntry=new ZLSimpleBooleanOptionEntry(fbreader.QuitOnCancelOption);
+  keyEntry.setExitOnCancelEntry(exitOnCancelEntry);
+  dialogTab.addOption("quitOnCancel",exitOnCancelEntry);
+  exitOnCancelEntry.setVisible(false);
+  useSeparateBindingsEntry.onStateChanged(useSeparateBindingsEntry.initialState());
+  dialogTab.addOption("keyDelay",new ZLSimpleSpinOptionEntry(fbreader.KeyDelayOption,50));
+}

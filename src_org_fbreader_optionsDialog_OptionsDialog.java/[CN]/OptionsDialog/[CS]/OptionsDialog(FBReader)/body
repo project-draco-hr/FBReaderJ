@@ -23,7 +23,6 @@
   ZLDialogContent rotationTab=myDialog.createTab("Rotation");
   rotationTab.addOption("direction",new RotationTypeEntry(rotationTab.getResource("direction"),fbreader.RotationAngleOption));
   ZLDialogContent colorsTab=myDialog.createTab("Colors");
-  ZLDialogContent keysTab=myDialog.createTab("Keys");
-  keysTab.addOption("keyDelay",new ZLSimpleSpinOptionEntry(fbreader.KeyDelayOption,50));
+  new KeyBindingsPage(fbreader,myDialog.createTab("Keys"));
   myDialog.createTab("Config");
 }

@@ -1,0 +1,11 @@
+{
+  if (str == null) {
+    return;
+  }
+  if (str.startsWith("<") || str.startsWith("+")) {
+    super.insertString(offs,str,a);
+  }
+ else {
+    super.insertString(offs,"",a);
+  }
+}
