@@ -49,4 +49,7 @@
     myExtension=myNameWithoutExtension.substring(index + 1);
     myNameWithoutExtension=myNameWithoutExtension.substring(0,index);
   }
+ else {
+    myExtension="";
+  }
 }

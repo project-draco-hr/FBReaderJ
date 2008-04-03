@@ -27,7 +27,7 @@
         BookDescriptionUtil.listZipEntries(file,zipEntries);
         final int numberOfZipEntries=zipEntries.size();
         for (int k=0; k < numberOfZipEntries; ++k) {
-          String str=(String)zipEntries.get(i);
+          String str=(String)zipEntries.get(k);
           if (!bookFileNames.contains(str)) {
             bookFileNames.add(str);
           }
