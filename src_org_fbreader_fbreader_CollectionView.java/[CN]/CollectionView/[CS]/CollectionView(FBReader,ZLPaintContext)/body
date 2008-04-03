@@ -2,4 +2,6 @@
   super(reader,context);
   myUpdateModel=true;
   setModel(new CollectionModel(this,myCollection));
+  myShowTags=ShowTagsOption.getValue();
+  myShowAllBooksList=ShowAllBooksTagOption.getValue();
 }

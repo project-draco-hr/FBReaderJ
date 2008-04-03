@@ -1,4 +1,9 @@
 {
+  if ((myShowTags != ShowTagsOption.getValue()) || (myShowAllBooksList != ShowAllBooksTagOption.getValue())) {
+    myShowTags=ShowTagsOption.getValue();
+    myShowAllBooksList=ShowAllBooksTagOption.getValue();
+    myUpdateModel=true;
+  }
   if (myUpdateModel) {
     ZLTextModel oldModel=getModel();
     setModel(null);
