@@ -13,9 +13,9 @@
     myLabel=new JLabel(myName);
     JPanel panel2=new JPanel(new BorderLayout());
     panel2.add(myLabel,BorderLayout.LINE_END);
-    JPanel panel=new JPanel(new GridLayout(1,2,10,0));
-    panel.add(panel2);
-    panel.add(panel1);
-    myTab.insertWidget(panel);
+    myPanel=new JPanel(new GridLayout(1,2,10,0));
+    myPanel.add(panel2);
+    myPanel.add(panel1);
+    myTab.insertWidget(myPanel);
   }
 }

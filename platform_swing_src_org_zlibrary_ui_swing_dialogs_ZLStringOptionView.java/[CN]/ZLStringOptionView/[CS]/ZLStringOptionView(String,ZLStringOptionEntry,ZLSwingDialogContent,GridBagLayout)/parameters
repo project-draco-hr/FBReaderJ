@@ -1,3 +1,4 @@
 String name
 ZLStringOptionEntry option
 ZLSwingDialogContent tab
+GridBagLayout layout

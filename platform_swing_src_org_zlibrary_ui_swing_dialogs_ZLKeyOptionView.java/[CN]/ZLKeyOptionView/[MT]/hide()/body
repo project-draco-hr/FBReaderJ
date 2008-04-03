@@ -1,5 +1,4 @@
 {
-  myKeyEditor.setVisible(false);
-  myLabel.setVisible(false);
-  myComboBox.setVisible(false);
+  hide(myPanel);
+  hide(myComboBox);
 }

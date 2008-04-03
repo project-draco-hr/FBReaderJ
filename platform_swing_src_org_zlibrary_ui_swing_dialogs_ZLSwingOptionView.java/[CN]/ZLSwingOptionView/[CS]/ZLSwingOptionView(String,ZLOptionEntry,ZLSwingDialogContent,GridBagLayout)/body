@@ -1,4 +1,5 @@
 {
   super(name,option);
   myTab=tab;
+  myLayout=layout;
 }

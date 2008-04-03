@@ -1,6 +1,8 @@
 {
-  mySpinner.setVisible(false);
-  if (myLabel != null) {
-    myLabel.setVisible(false);
+  if (myPanel != null) {
+    hide(myPanel);
+  }
+ else {
+    hide(mySpinner);
   }
 }

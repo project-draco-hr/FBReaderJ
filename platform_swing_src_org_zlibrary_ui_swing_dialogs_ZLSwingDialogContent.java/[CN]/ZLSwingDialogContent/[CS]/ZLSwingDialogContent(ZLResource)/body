@@ -1,5 +1,12 @@
 {
   super(resource);
   myContentPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-  myContentPanel.setLayout(new GridLayout(0,1,10,5));
+  myContentPanel.setLayout(myLayout);
+  myConstraints.fill=GridBagConstraints.HORIZONTAL;
+  myConstraints.anchor=GridBagConstraints.WEST;
+  myConstraints.gridx=0;
+  myConstraints.gridy=0;
+  myConstraints.insets=new Insets(5,5,0,5);
+  myConstraints.weightx=1;
+  myConstraints.ipady=0;
 }

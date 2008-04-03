@@ -1,0 +1,7 @@
+{
+  component.setVisible(false);
+  final GridBagConstraints constraints=myLayout.getConstraints(component);
+  constraints.insets.top=0;
+  constraints.insets.bottom=0;
+  myLayout.setConstraints(component,constraints);
+}

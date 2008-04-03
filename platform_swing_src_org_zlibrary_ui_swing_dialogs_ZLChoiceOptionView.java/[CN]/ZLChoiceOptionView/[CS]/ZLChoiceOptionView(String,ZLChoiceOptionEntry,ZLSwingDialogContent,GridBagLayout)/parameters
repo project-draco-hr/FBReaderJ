@@ -1,3 +1,4 @@
 String name
 ZLChoiceOptionEntry option
 ZLSwingDialogContent tab
+GridBagLayout layout

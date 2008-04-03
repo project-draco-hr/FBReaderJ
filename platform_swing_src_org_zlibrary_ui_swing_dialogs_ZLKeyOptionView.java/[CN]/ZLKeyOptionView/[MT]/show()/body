@@ -1,5 +1,6 @@
 {
-  myKeyEditor.setVisible(true);
-  myLabel.setVisible(true);
-  myComboBox.setVisible(!"".equals(myCurrentKey));
+  show(myPanel);
+  if (!"".equals(myCurrentKey)) {
+    show(myComboBox);
+  }
 }

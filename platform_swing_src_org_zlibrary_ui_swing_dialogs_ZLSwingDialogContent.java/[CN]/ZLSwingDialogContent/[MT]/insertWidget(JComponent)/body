@@ -1,8 +1,9 @@
 {
+  myContentPanel.add(comp,myConstraints);
   if (myAddTwoOptions) {
-    myTwoOptionsPanel.add(comp);
+    myConstraints.gridx=1;
   }
  else {
-    myContentPanel.add(comp);
+    myConstraints.gridy++;
   }
 }

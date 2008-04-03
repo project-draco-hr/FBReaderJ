@@ -5,26 +5,26 @@
   ZLOptionView view=null;
 switch (option.getKind()) {
 case ZLOptionKind.BOOLEAN:
-    view=new ZLBooleanOptionView(name,(ZLBooleanOptionEntry)option,this);
+    view=new ZLBooleanOptionView(name,(ZLBooleanOptionEntry)option,this,myLayout);
   break;
 case ZLOptionKind.BOOLEAN3:
 break;
 case ZLOptionKind.STRING:
-view=new ZLStringOptionView(name,(ZLStringOptionEntry)option,this);
+view=new ZLStringOptionView(name,(ZLStringOptionEntry)option,this,myLayout);
 break;
 case ZLOptionKind.CHOICE:
-view=new ZLChoiceOptionView(name,(ZLChoiceOptionEntry)option,this);
+view=new ZLChoiceOptionView(name,(ZLChoiceOptionEntry)option,this,myLayout);
 break;
 case ZLOptionKind.SPIN:
-view=new ZLSpinOptionView(name,(ZLSpinOptionEntry)option,this);
+view=new ZLSpinOptionView(name,(ZLSpinOptionEntry)option,this,myLayout);
 break;
 case ZLOptionKind.COMBO:
-view=new ZLComboOptionView(name,(ZLComboOptionEntry)option,this);
+view=new ZLComboOptionView(name,(ZLComboOptionEntry)option,this,myLayout);
 break;
 case ZLOptionKind.COLOR:
 break;
 case ZLOptionKind.KEY:
-view=new ZLKeyOptionView(name,(ZLKeyOptionEntry)option,this);
+view=new ZLKeyOptionView(name,(ZLKeyOptionEntry)option,this,myLayout);
 break;
 case ZLOptionKind.ORDER:
 break;

@@ -1,3 +1,4 @@
 String name
 ZLBooleanOptionEntry option
 ZLSwingDialogContent tab
+GridBagLayout layout

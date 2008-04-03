@@ -1,6 +1,8 @@
 {
-  mySpinner.setVisible(true);
-  if (myLabel != null) {
-    myLabel.setVisible(true);
+  if (myPanel != null) {
+    show(myPanel);
+  }
+ else {
+    show(mySpinner);
   }
 }
