@@ -10,7 +10,7 @@
 catch (  IOException e) {
   }
   if ((zf == null) || (zf.entries() == null)) {
-    return new ArrayList();
+    return EMPTY;
   }
   Enumeration en=zf.entries();
   while (en.hasMoreElements()) {

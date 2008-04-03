@@ -1,6 +1,4 @@
 {
   super(path);
-  System.out.println();
-  System.out.println(path);
   myFile=new File(path);
 }

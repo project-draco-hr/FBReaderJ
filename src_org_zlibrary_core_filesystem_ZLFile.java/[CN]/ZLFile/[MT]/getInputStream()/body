@@ -1,11 +1,12 @@
 {
+  System.out.println(myPath);
   if (isDirectory()) {
     return null;
   }
   InputStream stream=null;
   int index=ZLFSUtil.findArchiveFileNameDelimiter(myPath);
   if (index == -1) {
-    stream=createPlainInputStream(myPath);
+    stream=ZLibrary.getInstance().getInputStream(myPath);
   }
  else {
     ZLFile baseFile=new ZLFile(myPath.substring(0,index));

@@ -7,6 +7,7 @@
       return new ZLZipDir(myPath);
     }
  else     if (0 != (myArchiveType & ArchiveType.TAR)) {
+      return new ZLTarDir(myPath);
     }
   }
  else   if (createUnexisting) {

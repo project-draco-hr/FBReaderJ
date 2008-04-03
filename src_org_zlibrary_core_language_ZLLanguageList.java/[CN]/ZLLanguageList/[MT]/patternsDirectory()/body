@@ -1,4 +1,4 @@
 {
-  String dirName=ZLibrary.JAR_DATA_PREFIX + "zlibrary" + File.separator+ "languagePatterns.zip";
-  return new ZLFile(dirName).getDirectory(false);
+  String dirName=ZLibrary.JAR_DATA_PREFIX + "data/languagePatterns.tar";
+  return new ZLFile(dirName).getDirectory();
 }
