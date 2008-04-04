@@ -1,0 +1,12 @@
+{
+switch (code) {
+case ZLTextView.ScrollingMode.KEEP_LINES:
+    return ourKeepLinesString;
+case ZLTextView.ScrollingMode.SCROLL_LINES:
+  return ourScrollLinesString;
+case ZLTextView.ScrollingMode.SCROLL_PERCENTAGE:
+return ourScrollPercentageString;
+default :
+return ourNoOverlappingString;
+}
+}

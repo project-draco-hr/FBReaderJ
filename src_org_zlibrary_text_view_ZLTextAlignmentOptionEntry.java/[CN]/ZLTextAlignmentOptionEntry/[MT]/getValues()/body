@@ -1,0 +1,3 @@
+{
+  return myAllowUndefined ? values5() : values4();
+}

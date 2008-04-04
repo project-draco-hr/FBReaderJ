@@ -1,0 +1,4 @@
+FBReader fbreader
+ScrollingOptionsPage.ScrollingEntries entries
+ZLIntegerOption option
+boolean isTapOption

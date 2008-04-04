@@ -1,0 +1,17 @@
+{
+  if (myDelayEntry != null) {
+    if (myFingerOnlyEntry != null) {
+      myFingerOnlyEntry.setVisible(visible);
+    }
+    myDelayEntry.setVisible(visible);
+    myModeEntry.setVisible(visible);
+    if (visible) {
+      ((ScrollingModeEntry)myModeEntry).onMadeVisible();
+    }
+ else {
+      myLinesToKeepEntry.setVisible(false);
+      myLinesToScrollEntry.setVisible(false);
+      myPercentToScrollEntry.setVisible(false);
+    }
+  }
+}

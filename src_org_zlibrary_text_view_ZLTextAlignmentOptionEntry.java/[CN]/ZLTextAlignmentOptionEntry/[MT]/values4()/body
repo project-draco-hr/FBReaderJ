@@ -1,0 +1,9 @@
+{
+  if (ourValues4.size() == 0) {
+    ourValues4.add(myResource.getResource(KEY_LEFT).getValue());
+    ourValues4.add(myResource.getResource(KEY_RIGHT).getValue());
+    ourValues4.add(myResource.getResource(KEY_CENTER).getValue());
+    ourValues4.add(myResource.getResource(KEY_JUSTIFY).getValue());
+  }
+  return ourValues4;
+}

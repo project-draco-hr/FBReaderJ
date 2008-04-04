@@ -1,0 +1,14 @@
+{
+  if (myIsTapOption) {
+    if (ourDisableString.equals(value)) {
+      myFBReader.EnableTapScrollingOption.setValue(false);
+    }
+ else {
+      myFBReader.EnableTapScrollingOption.setValue(true);
+      myOption.setValue(codeByName(value));
+    }
+  }
+ else {
+    myOption.setValue(codeByName(value));
+  }
+}

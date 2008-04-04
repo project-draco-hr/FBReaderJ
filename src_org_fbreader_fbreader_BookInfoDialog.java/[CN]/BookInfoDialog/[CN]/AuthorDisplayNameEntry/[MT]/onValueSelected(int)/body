@@ -1,0 +1,6 @@
+{
+  final ArrayList authors=myInfoDialog.myCollection.authors();
+  myCurrentAuthor=(Author)authors.get(index);
+  myInfoDialog.myAuthorSortKeyEntry.resetView();
+  myInfoDialog.mySeriesTitleEntry.resetView();
+}

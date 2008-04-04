@@ -1,0 +1,19 @@
+{
+  myResource=resource;
+  myFBReader=fbreader;
+  myPage=page;
+  myLargeScrollingString=resource.getResource("large").getValue();
+  mySmallScrollingString=resource.getResource("small").getValue();
+  myMouseScrollingString=resource.getResource("mouse").getValue();
+  myTapScrollingString=resource.getResource("tap").getValue();
+  myValues.add(myLargeScrollingString);
+  myValues.add(mySmallScrollingString);
+  final boolean isMousePresented=new ZLBooleanOption(ZLOption.EMPTY,ZLOption.PLATFORM_GROUP,"MousePresented",false).getValue();
+  final boolean hasTouchScreen=new ZLBooleanOption(ZLOption.EMPTY,ZLOption.PLATFORM_GROUP,"TouchScreenPresented",false).getValue();
+  if (isMousePresented) {
+    myValues.add(myMouseScrollingString);
+  }
+  if (hasTouchScreen) {
+    myValues.add(myTapScrollingString);
+  }
+}

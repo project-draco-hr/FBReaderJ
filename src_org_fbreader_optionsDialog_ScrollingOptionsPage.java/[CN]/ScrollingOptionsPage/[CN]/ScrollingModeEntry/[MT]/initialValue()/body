@@ -1,0 +1,6 @@
+{
+  if (myIsTapOption && !myFBReader.EnableTapScrollingOption.getValue()) {
+    return ourDisableString;
+  }
+  return nameByCode(myOption.getValue());
+}

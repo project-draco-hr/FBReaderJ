@@ -1,0 +1,5 @@
+{
+  myAllowUndefined=allowUndefined;
+  myOption=option;
+  myResource=resource;
+}

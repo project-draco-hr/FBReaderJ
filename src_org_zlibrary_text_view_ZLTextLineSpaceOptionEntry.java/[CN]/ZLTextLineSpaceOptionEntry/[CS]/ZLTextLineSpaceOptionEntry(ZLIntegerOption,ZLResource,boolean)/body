@@ -1,0 +1,12 @@
+{
+  myAllowBase=allowBase;
+  myResource=resource;
+  myOption=option;
+  if (ourAllValuesPlusBase.size() == 0) {
+    for (int i=5; i <= 20; ++i) {
+      ourAllValues.add("" + (char)(i / 10 + '0') + '.'+ (char)(i % 10 + '0'));
+    }
+    ourAllValuesPlusBase.add(myResource.getResource(KEY_UNCHANGED).getValue());
+    ourAllValuesPlusBase.addAll(ourAllValues);
+  }
+}
