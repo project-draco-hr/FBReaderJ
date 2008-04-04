@@ -1,5 +1,6 @@
 {
   myXMLReader=xmlReader;
+  myProcessNamespaces=xmlReader.processNamespaces();
   String encoding="utf-8";
   final char[] buffer=myBuffer;
   int len;

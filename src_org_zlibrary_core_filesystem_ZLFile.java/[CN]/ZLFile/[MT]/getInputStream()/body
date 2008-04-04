@@ -23,8 +23,7 @@
   }
   if (stream != null) {
     if (0 != (myArchiveType & ArchiveType.GZIP)) {
-    }
-    if (0 != (myArchiveType & ArchiveType.BZIP2)) {
+      return new GZIPInputStream(stream);
     }
   }
   return stream;
