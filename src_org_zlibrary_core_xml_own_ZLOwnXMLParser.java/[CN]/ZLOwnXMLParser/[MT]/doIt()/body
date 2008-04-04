@@ -106,7 +106,10 @@ oldNamespaceMap=currentNamespaceMap;
 }
 namespaceMapStack.add(currentNamespaceMap);
 }
-processStartTag(xmlReader,stringTagName,attributes,currentNamespaceMap);
+if (processStartTag(xmlReader,stringTagName,attributes,currentNamespaceMap)) {
+streamReader.close();
+return;
+}
 currentNamespaceMap=null;
 }
 startPosition=i + 1;
@@ -114,7 +117,10 @@ break mainSwitchLabel;
 case '/':
 state=SLASH;
 tagName.append(buffer,startPosition,i - startPosition);
-processFullTag(xmlReader,convertToString(strings,tagName),attributes);
+if (processFullTag(xmlReader,convertToString(strings,tagName),attributes)) {
+streamReader.close();
+return;
+}
 currentNamespaceMap=null;
 break mainSwitchLabel;
 case '&':
@@ -140,7 +146,10 @@ oldNamespaceMap=currentNamespaceMap;
 }
 namespaceMapStack.add(currentNamespaceMap);
 }
-processStartTag(xmlReader,stringTagName,attributes,currentNamespaceMap);
+if (processStartTag(xmlReader,stringTagName,attributes,currentNamespaceMap)) {
+streamReader.close();
+return;
+}
 currentNamespaceMap=null;
 }
 state=TEXT;
@@ -148,7 +157,10 @@ startPosition=i + 1;
 break;
 case '/':
 state=SLASH;
-processFullTag(xmlReader,convertToString(strings,tagName),attributes);
+if (processFullTag(xmlReader,convertToString(strings,tagName),attributes)) {
+streamReader.close();
+return;
+}
 currentNamespaceMap=null;
 break;
 case 0x0008:
@@ -288,7 +300,10 @@ break;
 }
 }
 }
-processEndTag(xmlReader,tagStack[--tagStackSize],currentNamespaceMap);
+if (processEndTag(xmlReader,tagStack[--tagStackSize],currentNamespaceMap)) {
+streamReader.close();
+return;
+}
 currentNamespaceMap=null;
 }
 state=TEXT;

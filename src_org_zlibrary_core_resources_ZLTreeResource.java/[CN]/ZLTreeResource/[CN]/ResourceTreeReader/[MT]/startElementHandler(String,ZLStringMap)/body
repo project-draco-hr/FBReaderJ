@@ -27,4 +27,5 @@
       stack.add(node);
     }
   }
+  return false;
 }

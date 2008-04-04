@@ -2,4 +2,5 @@
   if (PATTERN.equals(tag)) {
     myReadPattern=true;
   }
+  return false;
 }

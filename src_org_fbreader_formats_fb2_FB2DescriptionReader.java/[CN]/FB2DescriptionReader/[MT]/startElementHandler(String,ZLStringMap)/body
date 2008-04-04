@@ -1,10 +1,9 @@
 {
 switch (FB2Tag.getTagByName(tagName)) {
 case FB2Tag.BODY:
-    myReturnCode=true;
-  break;
+    return true;
 case FB2Tag.TITLE_INFO:
-myReadSomething=true;
+  myReadSomething=true;
 break;
 case FB2Tag.BOOK_TITLE:
 myReadTitle=true;
@@ -42,7 +41,6 @@ myDescription.setNumberInSequence((number != null) ? Integer.parseInt(number) : 
 }
 }
 break;
-default :
-break;
 }
+return false;
 }

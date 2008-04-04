@@ -2,5 +2,5 @@
   if (currentNamespaceMap != null) {
     xmlReader.namespaceListChangedHandler(currentNamespaceMap);
   }
-  xmlReader.endElementHandler(tagName);
+  return xmlReader.endElementHandler(tagName);
 }

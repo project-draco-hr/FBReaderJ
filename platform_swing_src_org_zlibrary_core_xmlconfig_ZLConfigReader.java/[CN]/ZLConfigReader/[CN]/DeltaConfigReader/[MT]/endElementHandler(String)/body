@@ -3,4 +3,5 @@
     myConfig.removeGroup(myCurrentGroup);
   }
   myDepth--;
+  return false;
 }

@@ -16,4 +16,5 @@
       stack.add(menu.addSubmenu(id));
     }
   }
+  return false;
 }

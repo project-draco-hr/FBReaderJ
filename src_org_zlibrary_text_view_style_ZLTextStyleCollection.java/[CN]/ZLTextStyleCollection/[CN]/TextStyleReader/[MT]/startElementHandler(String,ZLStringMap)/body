@@ -61,4 +61,5 @@
       myCollection.myDecorationMap[id & 0xFF]=decoration;
     }
   }
+  return false;
 }

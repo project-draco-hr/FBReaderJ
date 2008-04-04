@@ -1,5 +1,5 @@
 {
   myWidthOption.setValue(myDialog.getWidth());
   myHeightOption.setValue(myDialog.getHeight());
-  myDialog.hide();
+  myDialog.setVisible(false);
 }

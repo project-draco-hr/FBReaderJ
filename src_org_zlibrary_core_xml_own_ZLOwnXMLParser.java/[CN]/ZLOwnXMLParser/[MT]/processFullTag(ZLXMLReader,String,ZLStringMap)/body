@@ -1,5 +1,10 @@
 {
-  xmlReader.startElementHandler(tagName,attributes);
-  xmlReader.endElementHandler(tagName);
+  if (xmlReader.startElementHandler(tagName,attributes)) {
+    return true;
+  }
+  if (xmlReader.endElementHandler(tagName)) {
+    return true;
+  }
   attributes.clear();
+  return false;
 }
