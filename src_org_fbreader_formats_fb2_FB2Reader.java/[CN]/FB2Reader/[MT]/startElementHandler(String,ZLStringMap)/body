@@ -14,29 +14,14 @@
   }
   tagStack[myTagStackSize++]=tag;
 switch (tag) {
-case FB2Tag.FICTIONBOOK:
-{
-      final int attibutesNumber=attributes.getSize();
-      for (int i=0; i < attibutesNumber; ++i) {
-        final String key=attributes.getKey(i);
-        if (key.startsWith("xmlns:")) {
-          final String value=attributes.getValue(key);
-          if (value.endsWith("/xlink")) {
-            myHrefAttribute=(key.substring(6) + ":href").intern();
-            break;
-          }
-        }
-      }
-      break;
-    }
 case FB2Tag.P:
-  if (mySectionStarted) {
-    mySectionStarted=false;
-  }
- else   if (myInsideTitle) {
-    addContentsData(SPACE);
-  }
-beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
+    if (mySectionStarted) {
+      mySectionStarted=false;
+    }
+ else     if (myInsideTitle) {
+      addContentsData(SPACE);
+    }
+  beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
 break;
 case FB2Tag.SUB:
 addControl(FBTextKind.SUB,true);
@@ -128,6 +113,7 @@ myReadMainText=true;
 pushKind(FBTextKind.REGULAR);
 break;
 case FB2Tag.A:
+if (myHrefAttribute != null) {
 String ref=attributes.getValue(myHrefAttribute);
 String type=attributes.getValue("type");
 if ((ref != null) && (ref.length() != 0)) {
@@ -144,6 +130,7 @@ addHyperlinkControl(myHyperlinkType,ref);
 myHyperlinkType=FBTextKind.FOOTNOTE;
 addControl(myHyperlinkType,true);
 }
+}
 break;
 case FB2Tag.COVERPAGE:
 if (myBodyCounter == 0) {
@@ -152,6 +139,7 @@ setMainTextModel();
 }
 break;
 case FB2Tag.IMAGE:
+if (myHrefAttribute != null) {
 String imgRef=attributes.getValue(myHrefAttribute);
 if ((imgRef != null) && (imgRef.length() != 0) && (imgRef.charAt(0) == '#')) {
 String vOffset=attributes.getValue("voffset");
@@ -167,6 +155,7 @@ addImageReference(imgRef,offset);
 }
 if (myInsideCoverpage) {
 myCoverImageReference=imgRef;
+}
 }
 }
 break;

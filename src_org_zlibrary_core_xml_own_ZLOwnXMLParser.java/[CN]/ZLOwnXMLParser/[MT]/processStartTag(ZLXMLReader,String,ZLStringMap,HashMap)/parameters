@@ -1,3 +1,4 @@
 ZLXMLReader xmlReader
 String tagName
 ZLStringMap attributes
+HashMap currentNamespaceMap
