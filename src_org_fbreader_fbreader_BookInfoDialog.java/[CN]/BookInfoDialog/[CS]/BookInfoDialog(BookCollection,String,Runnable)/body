@@ -7,6 +7,8 @@
   commonTab.addOption("title",myBookInfo.getTitleOption());
   myAuthorDisplayNameEntry=new AuthorDisplayNameEntry(this);
   myAuthorSortKeyEntry=new AuthorSortKeyEntry(this);
+  myEncodingEntry=new EncodingEntry(myBookInfo.EncodingOption);
+  myEncodingSetEntry=(!"auto".equals(myEncodingEntry.initialValue())) ? new EncodingSetEntry((EncodingEntry)myEncodingEntry) : null;
   ArrayList languageCodes=ZLLanguageList.languageCodes();
   languageCodes.add("de-traditional");
   myLanguageEntry=new ZLLanguageOptionEntry(myBookInfo.LanguageOption,languageCodes);
@@ -18,6 +20,7 @@
   if (myEncodingSetEntry != null) {
     commonTab.addOption("encodingSet",myEncodingSetEntry);
   }
+  commonTab.addOption("encoding",myEncodingEntry);
   ZLDialogContent seriesTab=myDialog.createTab("Series");
   seriesTab.addOption("seriesTitle",mySeriesTitleEntry);
   seriesTab.addOption("bookNumber",myBookNumberEntry);

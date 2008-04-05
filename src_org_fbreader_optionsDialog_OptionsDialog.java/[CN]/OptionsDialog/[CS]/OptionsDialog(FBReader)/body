@@ -16,8 +16,6 @@
   ZLDialogContent encodingTab=myDialog.createTab("Language");
   encodingTab.addOption("autoDetect",new ZLSimpleBooleanOptionEntry(PluginCollection.instance().LanguageAutoDetectOption));
   encodingTab.addOption("defaultLanguage",new ZLLanguageOptionEntry(PluginCollection.instance().DefaultLanguageOption,ZLLanguageList.languageCodes()));
-  EncodingEntry encodingEntry=new EncodingEntry(PluginCollection.instance().DefaultEncodingOption);
-  EncodingSetEntry encodingSetEntry=new EncodingSetEntry(encodingEntry);
   encodingTab.addOption("useWindows1252Hack",new ZLSimpleBooleanOptionEntry(ZLEncodingCollection.useWindows1252HackOption()));
   new ScrollingOptionsPage(myDialog.createTab("Scrolling"),fbreader);
   ZLDialogContent selectionTab=myDialog.createTab("Selection");
@@ -32,4 +30,6 @@
   rotationTab.addOption("direction",new RotationTypeEntry(rotationTab.getResource("direction"),fbreader.RotationAngleOption));
   ZLDialogContent colorsTab=myDialog.createTab("Colors");
   new KeyBindingsPage(fbreader,myDialog.createTab("Keys"));
+  ZLDialogContent webTab=myDialog.createTab("Web");
+  webTab.addOption("defaultText",new ZLToggleBooleanOptionEntry(fbreader.getBookTextView().OpenInBrowserOption));
 }

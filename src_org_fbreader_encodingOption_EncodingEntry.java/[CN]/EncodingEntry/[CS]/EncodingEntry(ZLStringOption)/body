@@ -23,7 +23,7 @@
       myValueByName.put(eci.visibleName(),eci.name());
     }
   }
-  if (myInitialSetName.length() == 0 && !mySetNames.isEmpty()) {
+  if (myInitialSetName.length() == 0) {
     myInitialSetName=(String)mySetNames.get(0);
   }
 }
