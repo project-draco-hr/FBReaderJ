@@ -1,0 +1,4 @@
+{
+  myData.myCurrentOptionName=name;
+  myData.myPreviousOptionName=name;
+}

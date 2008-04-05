@@ -1,0 +1,7 @@
+{
+  onReset(color);
+  for (int i=0; i < myData.myOptionNames.size(); i++) {
+    Object optionName=myData.myOptionNames.get(i);
+    ((ZLColorOption)myData.myOptions.get(optionName)).setValue((ZLColor)myData.myCurrentColors.get(optionName));
+  }
+}

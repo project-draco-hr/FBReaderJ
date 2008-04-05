@@ -1,0 +1,3 @@
+{
+  return ((ZLColorOption)myData.myOptions.get(myData.myCurrentOptionName)).getValue();
+}

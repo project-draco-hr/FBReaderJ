@@ -1,0 +1,5 @@
+{
+  myData.myOptionNames.add(name);
+  myData.myCurrentColors.put(name,option.getValue());
+  myData.myOptions.put(name,option);
+}

@@ -1,0 +1,8 @@
+{
+  Graphics2D g2d=(Graphics2D)g.create();
+  g2d.setColor(new Color(myColor.getIntValue()));
+  g2d.fillRect(x + 1,y + 1,myWidth,myHeight - 2);
+  g2d.setColor(Color.BLACK);
+  g2d.drawRect(x + 1,y + 1,myWidth,myHeight - 2);
+  g2d.dispose();
+}

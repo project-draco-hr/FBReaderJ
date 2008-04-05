@@ -1,0 +1,5 @@
+{
+  ZLColorOptionEntry colorEntry=(ZLColorOptionEntry)myOption;
+  colorEntry.onReset((ZLColor)myStandardColorComboBox.getSelectedItem());
+  myStandardColorComboBox.setSelectedItem(colorEntry.getColor());
+}

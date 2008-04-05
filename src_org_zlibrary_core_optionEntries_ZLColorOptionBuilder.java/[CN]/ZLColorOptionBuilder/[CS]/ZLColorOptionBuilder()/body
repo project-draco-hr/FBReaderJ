@@ -1,0 +1,5 @@
+{
+  myData=new ZLColorOptionsData();
+  myData.myComboEntry=new ZLColorComboOptionEntry(myData);
+  myData.myColorEntry=new ZLMultiColorOptionEntry(myData);
+}

@@ -1,0 +1,17 @@
+{
+  if (isSelected) {
+    setBackground(list.getSelectionBackground());
+    setForeground(list.getSelectionForeground());
+  }
+ else {
+    setBackground(list.getBackground());
+    setForeground(list.getForeground());
+  }
+  ZLColor color=(ZLColor)value;
+  setText((String)ourStandardColors.get(color));
+  setIcon(new ColorIcon(color,this.getPreferredSize().height));
+  setHorizontalTextPosition(SwingConstants.RIGHT);
+  setIconTextGap(5);
+  setFont(list.getFont());
+  return this;
+}

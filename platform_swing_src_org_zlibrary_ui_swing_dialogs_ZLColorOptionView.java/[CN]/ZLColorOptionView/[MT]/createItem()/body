@@ -1,0 +1,21 @@
+{
+  initStandardColors();
+  myStandardColorComboBox=new JComboBox(ourStandardColors.keySet().toArray());
+  myStandardColorComboBox.setSelectedItem(((ZLColorOptionEntry)myOption).getColor());
+  myStandardColorComboBox.setRenderer(new ComboBoxRenderer());
+  myStandardColorComboBox.setMinimumSize(new Dimension(0,myStandardColorComboBox.getPreferredSize().height));
+  JPanel panel1=new JPanel();
+  panel1.setLayout(new BoxLayout(panel1,BoxLayout.LINE_AXIS));
+  myStandardColorComboBox.setMaximumSize(new Dimension(myStandardColorComboBox.getMaximumSize().width,myStandardColorComboBox.getPreferredSize().height));
+  panel1.add(myStandardColorComboBox);
+  myCustomColorButton=new JButton(new CustomColorAction(ZLResource.resource("color").getResource("custom...").getValue()));
+  myCustomColorButton.setMinimumSize(new Dimension(0,myCustomColorButton.getPreferredSize().height));
+  myCustomColorButton.setMaximumSize(new Dimension(panel1.getMaximumSize().width,myCustomColorButton.getPreferredSize().height));
+  JPanel panel2=new JPanel();
+  panel2.setLayout(new BoxLayout(panel2,BoxLayout.LINE_AXIS));
+  panel2.add(myCustomColorButton);
+  myPanel=new JPanel(new GridLayout(1,2,10,0));
+  myPanel.add(panel1);
+  myPanel.add(panel2);
+  myTab.insertWidget(myPanel);
+}

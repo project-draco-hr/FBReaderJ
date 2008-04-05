@@ -23,6 +23,7 @@ case ZLOptionKind.COMBO:
 view=new ZLComboOptionView(name,(ZLComboOptionEntry)option,this,myLayout);
 break;
 case ZLOptionKind.COLOR:
+view=new ZLColorOptionView(name,(ZLColorOptionEntry)option,this,myLayout);
 break;
 case ZLOptionKind.KEY:
 view=new ZLKeyOptionView(name,(ZLKeyOptionEntry)option,this,myLayout);

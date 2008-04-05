@@ -1,0 +1,5 @@
+{
+  setOpaque(true);
+  setHorizontalAlignment(LEFT);
+  setVerticalAlignment(CENTER);
+}
