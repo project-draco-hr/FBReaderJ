@@ -1,6 +1,3 @@
 {
-  if (!description.getEncoding().equals(AUTO)) {
-    new BookDescription.BookInfo(description.getFileName()).EncodingOption.setValue(AUTO);
-  }
   return new FB2Reader(model).readBook(description.getFileName());
 }
