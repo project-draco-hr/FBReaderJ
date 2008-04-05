@@ -3,6 +3,7 @@
     ourInstance=new PluginCollection();
     ourInstance.myPlugins.add(new FB2Plugin());
     ourInstance.myPlugins.add(new HtmlPlugin());
+    ourInstance.myPlugins.add(new OEBPlugin());
   }
   return ourInstance;
 }

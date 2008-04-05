@@ -1,0 +1,7 @@
+{
+  path=getOpfFileName(path);
+  if (path == null) {
+    return false;
+  }
+  return false;
+}
