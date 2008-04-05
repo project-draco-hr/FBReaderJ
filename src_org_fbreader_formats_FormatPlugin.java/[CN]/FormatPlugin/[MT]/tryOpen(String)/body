@@ -1,4 +1,3 @@
 {
-  final String EMPTY="";
-  return EMPTY;
+  return "";
 }
