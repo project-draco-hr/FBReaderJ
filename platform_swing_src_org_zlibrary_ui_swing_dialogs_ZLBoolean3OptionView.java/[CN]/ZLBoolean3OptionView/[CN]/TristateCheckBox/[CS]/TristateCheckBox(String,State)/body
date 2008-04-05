@@ -1,0 +1,31 @@
+{
+  super(text);
+  Icon icon=new TristateCheckBoxIcon();
+  super.setIcon(icon);
+  super.addMouseListener(new MouseAdapter(){
+    public void mousePressed(    MouseEvent e){
+      TristateCheckBox.this.mousePressed();
+    }
+    public void mouseReleased(    MouseEvent e){
+      TristateCheckBox.this.mouseReleased();
+    }
+  }
+);
+  ActionMap map=new ActionMapUIResource();
+  map.put("pressed",new AbstractAction(){
+    public void actionPerformed(    ActionEvent e){
+      TristateCheckBox.this.mousePressed();
+    }
+  }
+);
+  map.put("released",new AbstractAction(){
+    public void actionPerformed(    ActionEvent e){
+      TristateCheckBox.this.mouseReleased();
+    }
+  }
+);
+  SwingUtilities.replaceUIActionMap(this,map);
+  model=new TristateModel(getModel());
+  setModel(model);
+  setState(initial);
+}

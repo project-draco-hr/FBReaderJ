@@ -1,0 +1,29 @@
+{
+  myEncodingOption=encodingOption;
+  final String value=myEncodingOption.getValue();
+  if (AUTO.equals(value)) {
+    myInitialSetName=value;
+    myInitialValues.put(value,value);
+    setActive(false);
+    return;
+  }
+  final ArrayList sets=ZLEncodingCollection.instance().sets();
+  for (int i=0; i < sets.size(); i++) {
+    ZLEncodingSet es=(ZLEncodingSet)sets.get(i);
+    final ArrayList infos=es.infos();
+    mySetNames.add(es.name());
+    ArrayList names=(ArrayList)myValues.get(es.name());
+    for (int j=0; j < infos.size(); j++) {
+      ZLEncodingConverterInfo eci=(ZLEncodingConverterInfo)infos.get(j);
+      if (eci.name().equals(value)) {
+        myInitialSetName=es.name();
+        myInitialValues.put(myInitialSetName,eci.visibleName());
+      }
+      names.add(eci.visibleName());
+      myValueByName.put(eci.visibleName(),eci.name());
+    }
+  }
+  if (myInitialSetName.length() == 0 && !mySetNames.isEmpty()) {
+    myInitialSetName=(String)mySetNames.get(0);
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return (currentState == SELECTED || currentState == DONT_CARE);
+}

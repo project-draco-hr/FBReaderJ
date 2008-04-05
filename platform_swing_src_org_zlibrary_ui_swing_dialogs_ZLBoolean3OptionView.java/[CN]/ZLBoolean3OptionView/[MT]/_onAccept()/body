@@ -1,0 +1,3 @@
+{
+  ((ZLBoolean3OptionEntry)myOption).onAccept(stateToInt(myTristateCheckBox.getState()));
+}

@@ -1,0 +1,5 @@
+{
+  grabFocus();
+  model.setPressed(true);
+  model.setArmed(true);
+}

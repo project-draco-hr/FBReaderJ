@@ -1,0 +1,31 @@
+{
+  JCheckBox cb=(JCheckBox)c;
+  TristateModel model=(TristateModel)cb.getModel();
+  int controlSize=getControlSize();
+  boolean drawCheck=model.getState() == SELECTED;
+  boolean drawCross=model.getState() == DONT_CARE;
+  if (model.isEnabled()) {
+    if (model.isPressed() && model.isArmed()) {
+      g.setColor(MetalLookAndFeel.getControlShadow());
+      g.fillRect(x,y,controlSize - 1,controlSize - 1);
+      drawPressed3DBorder(g,x,y,controlSize,controlSize);
+    }
+ else {
+      drawFlush3DBorder(g,x,y,controlSize,controlSize);
+    }
+    g.setColor(MetalLookAndFeel.getControlInfo());
+  }
+ else {
+    g.setColor(MetalLookAndFeel.getControlShadow());
+    g.drawRect(x,y,controlSize - 1,controlSize - 1);
+  }
+  if (drawCross) {
+    drawCross(c,g,x,y);
+  }
+  if (drawCheck) {
+    if (cb.isBorderPaintedFlat()) {
+      x++;
+    }
+    drawCheck(c,g,x,y);
+  }
+}

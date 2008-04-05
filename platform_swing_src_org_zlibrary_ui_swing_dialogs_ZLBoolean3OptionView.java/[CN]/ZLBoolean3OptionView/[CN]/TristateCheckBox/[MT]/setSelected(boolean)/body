@@ -1,0 +1,8 @@
+{
+  if (selected) {
+    setState(SELECTED);
+  }
+ else {
+    setState(NOT_SELECTED);
+  }
+}

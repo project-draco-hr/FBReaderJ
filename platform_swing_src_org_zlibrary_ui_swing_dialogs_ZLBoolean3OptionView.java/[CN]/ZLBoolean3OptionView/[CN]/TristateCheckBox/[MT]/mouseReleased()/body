@@ -1,0 +1,5 @@
+{
+  model.nextState();
+  model.setArmed(false);
+  model.setPressed(false);
+}

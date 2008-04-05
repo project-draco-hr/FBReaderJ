@@ -1,0 +1,4 @@
+{
+  myEncodingEntry.myInitialSetName=(String)getValues().get(index);
+  myEncodingEntry.resetView();
+}

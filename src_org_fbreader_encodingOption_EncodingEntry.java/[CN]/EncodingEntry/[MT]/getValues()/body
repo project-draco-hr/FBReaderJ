@@ -1,0 +1,10 @@
+{
+  if (AUTO.equals(initialValue())) {
+    if (AUTO_ENCODING == null) {
+      AUTO_ENCODING=new ArrayList();
+      AUTO_ENCODING.add(AUTO);
+    }
+    return AUTO_ENCODING;
+  }
+  return (ArrayList)myValues.get(myInitialSetName);
+}

@@ -1,0 +1,6 @@
+{
+  if (((ArrayList)myInitialValues.get(myInitialSetName)) == null) {
+    myInitialValues.put(myInitialSetName,((ArrayList)myValues.get(myInitialSetName)).get(0));
+  }
+  return (String)myInitialValues.get(myInitialSetName);
+}

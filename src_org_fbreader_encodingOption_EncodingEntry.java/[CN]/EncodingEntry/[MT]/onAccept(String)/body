@@ -1,0 +1,5 @@
+{
+  if (!AUTO.equals(initialValue())) {
+    myEncodingOption.setValue((String)myValueByName.get(value));
+  }
+}

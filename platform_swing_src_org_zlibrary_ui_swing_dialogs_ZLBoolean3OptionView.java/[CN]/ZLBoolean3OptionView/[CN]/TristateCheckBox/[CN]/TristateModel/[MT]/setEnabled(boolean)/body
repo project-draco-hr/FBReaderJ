@@ -1,0 +1,9 @@
+{
+  try {
+    setFocusable(b);
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+  }
+  other.setEnabled(b);
+}

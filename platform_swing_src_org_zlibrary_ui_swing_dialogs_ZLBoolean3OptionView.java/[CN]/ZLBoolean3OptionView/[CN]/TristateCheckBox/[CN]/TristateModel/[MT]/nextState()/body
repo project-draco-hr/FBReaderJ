@@ -1,0 +1,13 @@
+{
+  State current=getState();
+  if (current == NOT_SELECTED) {
+    setState(SELECTED);
+  }
+ else   if (current == SELECTED) {
+    setState(DONT_CARE);
+  }
+ else   if (current == DONT_CARE) {
+    setState(NOT_SELECTED);
+  }
+  other.setSelected(!other.isSelected());
+}

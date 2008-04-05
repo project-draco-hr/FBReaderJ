@@ -1,0 +1,9 @@
+{
+  if (state == TristateCheckBox.NOT_SELECTED) {
+    return ZLBoolean3.B3_FALSE;
+  }
+  if (state == TristateCheckBox.SELECTED) {
+    return ZLBoolean3.B3_TRUE;
+  }
+  return ZLBoolean3.B3_UNDEFINED;
+}

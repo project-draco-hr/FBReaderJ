@@ -1,0 +1,10 @@
+{
+  myTristateCheckBox=new TristateCheckBox(myName,intToState(((ZLBoolean3OptionEntry)myOption).initialState()));
+  myTab.insertWidget(myTristateCheckBox);
+  myTristateCheckBox.addChangeListener(new ChangeListener(){
+    public void stateChanged(    ChangeEvent e){
+      ((ZLBoolean3OptionEntry)myOption).onStateChanged(stateToInt(myTristateCheckBox.getState()));
+    }
+  }
+);
+}

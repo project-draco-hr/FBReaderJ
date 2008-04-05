@@ -1,0 +1,10 @@
+{
+switch (state) {
+case ZLBoolean3.B3_TRUE:
+    return TristateCheckBox.SELECTED;
+case ZLBoolean3.B3_FALSE:
+  return TristateCheckBox.NOT_SELECTED;
+default :
+return TristateCheckBox.DONT_CARE;
+}
+}
