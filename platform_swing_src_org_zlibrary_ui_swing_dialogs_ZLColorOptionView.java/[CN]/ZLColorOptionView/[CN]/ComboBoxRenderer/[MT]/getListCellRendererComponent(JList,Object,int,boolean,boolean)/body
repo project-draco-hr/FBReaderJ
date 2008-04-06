@@ -8,7 +8,12 @@
     setForeground(list.getForeground());
   }
   ZLColor color=(ZLColor)value;
-  setText((String)ourStandardColors.get(color));
+  if (ourStandardColors.containsKey(color)) {
+    setText((String)ourStandardColors.get(color));
+  }
+ else {
+    setText("(" + color.Red + ","+ color.Green+ ","+ color.Blue+ ")");
+  }
   setIcon(new ColorIcon(color,this.getPreferredSize().height));
   setHorizontalTextPosition(SwingConstants.RIGHT);
   setIconTextGap(5);

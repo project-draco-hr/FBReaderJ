@@ -1,19 +1,21 @@
 {
-  final ZLResource resource=ZLResource.resource(ZLDialogManager.COLOR_KEY);
-  ourStandardColors.put(new ZLColor(0,0,0),resource.getResource("black").getValue());
-  ourStandardColors.put(new ZLColor(255,255,255),resource.getResource("white").getValue());
-  ourStandardColors.put(new ZLColor(128,0,0),resource.getResource("maroon").getValue());
-  ourStandardColors.put(new ZLColor(0,128,0),resource.getResource("green").getValue());
-  ourStandardColors.put(new ZLColor(128,128,0),resource.getResource("olive").getValue());
-  ourStandardColors.put(new ZLColor(0,0,128),resource.getResource("navy").getValue());
-  ourStandardColors.put(new ZLColor(128,0,128),resource.getResource("purple").getValue());
-  ourStandardColors.put(new ZLColor(0,128,128),resource.getResource("teal").getValue());
-  ourStandardColors.put(new ZLColor(192,192,192),resource.getResource("silver").getValue());
-  ourStandardColors.put(new ZLColor(128,128,128),resource.getResource("gray").getValue());
-  ourStandardColors.put(new ZLColor(255,0,0),resource.getResource("red").getValue());
-  ourStandardColors.put(new ZLColor(0,255,0),resource.getResource("lime").getValue());
-  ourStandardColors.put(new ZLColor(255,255,0),resource.getResource("yellow").getValue());
-  ourStandardColors.put(new ZLColor(0,0,255),resource.getResource("blue").getValue());
-  ourStandardColors.put(new ZLColor(255,0,255),resource.getResource("magenta").getValue());
-  ourStandardColors.put(new ZLColor(0,255,255),resource.getResource("cyan").getValue());
+  if (ourStandardColors.size() == 0) {
+    final ZLResource resource=ZLResource.resource(ZLDialogManager.COLOR_KEY);
+    ourStandardColors.put(new ZLColor(0,0,0),resource.getResource("black").getValue());
+    ourStandardColors.put(new ZLColor(255,255,255),resource.getResource("white").getValue());
+    ourStandardColors.put(new ZLColor(128,0,0),resource.getResource("maroon").getValue());
+    ourStandardColors.put(new ZLColor(0,128,0),resource.getResource("green").getValue());
+    ourStandardColors.put(new ZLColor(128,128,0),resource.getResource("olive").getValue());
+    ourStandardColors.put(new ZLColor(0,0,128),resource.getResource("navy").getValue());
+    ourStandardColors.put(new ZLColor(128,0,128),resource.getResource("purple").getValue());
+    ourStandardColors.put(new ZLColor(0,128,128),resource.getResource("teal").getValue());
+    ourStandardColors.put(new ZLColor(192,192,192),resource.getResource("silver").getValue());
+    ourStandardColors.put(new ZLColor(128,128,128),resource.getResource("gray").getValue());
+    ourStandardColors.put(new ZLColor(255,0,0),resource.getResource("red").getValue());
+    ourStandardColors.put(new ZLColor(0,255,0),resource.getResource("lime").getValue());
+    ourStandardColors.put(new ZLColor(255,255,0),resource.getResource("yellow").getValue());
+    ourStandardColors.put(new ZLColor(0,0,255),resource.getResource("blue").getValue());
+    ourStandardColors.put(new ZLColor(255,0,255),resource.getResource("magenta").getValue());
+    ourStandardColors.put(new ZLColor(0,255,255),resource.getResource("cyan").getValue());
+  }
 }

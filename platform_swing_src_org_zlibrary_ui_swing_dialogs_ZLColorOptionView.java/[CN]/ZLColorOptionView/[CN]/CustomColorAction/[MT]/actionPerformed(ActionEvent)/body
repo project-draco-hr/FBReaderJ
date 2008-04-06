@@ -1,2 +1,9 @@
 {
+  JColorChooser chooser=new JColorChooser();
+  chooser.removeChooserPanel(chooser.getChooserPanels()[0]);
+  chooser.removeChooserPanel(chooser.getChooserPanels()[1]);
+  Color color=chooser.showDialog(null,ZLResource.resource("dialog").getResource("OptionsDialog").getResource("tab").getResource("Colors").getResource("colorFor").getValue(),new Color(((ZLColor)myStandardColorComboBox.getSelectedItem()).getIntValue()));
+  if (color != null) {
+    setSelectedColor(new ZLColor(color.getRGB()));
+  }
 }

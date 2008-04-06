@@ -1,0 +1,14 @@
+{
+  initStandardColors();
+  if (!ourStandardColors.containsKey(color)) {
+    if (!myUseCustomColor) {
+      myStandardColorComboBox.insertItemAt(color,0);
+      myUseCustomColor=true;
+    }
+ else {
+      myStandardColorComboBox.removeItem(myStandardColorComboBox.getItemAt(0));
+      myStandardColorComboBox.insertItemAt(color,0);
+    }
+  }
+  myStandardColorComboBox.setSelectedItem(color);
+}

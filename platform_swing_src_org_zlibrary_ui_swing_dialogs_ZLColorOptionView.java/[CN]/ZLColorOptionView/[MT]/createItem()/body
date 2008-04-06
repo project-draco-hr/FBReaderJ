@@ -1,7 +1,7 @@
 {
   initStandardColors();
   myStandardColorComboBox=new JComboBox(ourStandardColors.keySet().toArray());
-  myStandardColorComboBox.setSelectedItem(((ZLColorOptionEntry)myOption).getColor());
+  setSelectedColor(((ZLColorOptionEntry)myOption).getColor());
   myStandardColorComboBox.setRenderer(new ComboBoxRenderer());
   myStandardColorComboBox.setMinimumSize(new Dimension(0,myStandardColorComboBox.getPreferredSize().height));
   JPanel panel1=new JPanel();
