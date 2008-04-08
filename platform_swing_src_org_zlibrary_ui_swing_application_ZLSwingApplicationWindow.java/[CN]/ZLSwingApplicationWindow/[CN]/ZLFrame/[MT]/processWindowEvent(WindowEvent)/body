@@ -1,6 +1,6 @@
 {
   if (event.getID() == WindowEvent.WINDOW_CLOSING) {
-    ZLSwingLibrary.shutdown();
+    close();
   }
   super.processWindowEvent(event);
 }

@@ -1,6 +1,6 @@
 {
   if (convertView == null) {
-    convertView=((ZLAndroidOptionView)getViews().get(position)).getAndroidView();
+    convertView=(View)myAndroidViews.get(position);
   }
   return convertView;
 }

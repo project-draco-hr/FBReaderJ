@@ -1,19 +1,14 @@
 {
-  final ZLTextWordCursor cursor=getStartCursor();
+  if (getModel() == null) {
+    return;
+  }
   final String group=getFileName();
-  if (!cursor.isNull()) {
-    new ZLIntegerOption(ZLOption.STATE_CATEGORY,group,PARAGRAPH_OPTION_NAME,0).setValue(cursor.getParagraphCursor().getIndex());
-    new ZLIntegerOption(ZLOption.STATE_CATEGORY,group,WORD_OPTION_NAME,0).setValue(cursor.getWordNumber());
-    new ZLIntegerOption(ZLOption.STATE_CATEGORY,group,CHAR_OPTION_NAME,0).setValue(cursor.getCharNumber());
-    new ZLIntegerOption(ZLOption.STATE_CATEGORY,group,BUFFER_SIZE,0).setValue(myPositionStack.size());
-    new ZLIntegerOption(ZLOption.STATE_CATEGORY,group,POSITION_IN_BUFFER,0).setValue(myCurrentPointInStack);
-    for (int i=0; i < myPositionStack.size(); ++i) {
-      String bufferParagraph=BUFFER_PARAGRAPH_PREFIX;
-      String bufferWord=BUFFER_WORD_PREFIX;
-      bufferParagraph+=i;
-      bufferWord+=i;
-      new ZLIntegerOption(ZLOption.STATE_CATEGORY,group,bufferParagraph,-1).setValue(((Position)myPositionStack.get(i)).getFirst());
-      new ZLIntegerOption(ZLOption.STATE_CATEGORY,group,bufferWord,-1).setValue(((Position)myPositionStack.get(i)).getSecond());
-    }
+  new ZLIntegerOption(ZLOption.STATE_CATEGORY,group,BUFFER_SIZE,0).setValue(myPositionStack.size());
+  new ZLIntegerOption(ZLOption.STATE_CATEGORY,group,POSITION_IN_BUFFER,0).setValue(myCurrentPointInStack);
+  for (int i=0; i < myPositionStack.size(); ++i) {
+    Position position=(Position)myPositionStack.get(i);
+    new ZLIntegerOption(ZLOption.STATE_CATEGORY,group,PARAGRAPH_PREFIX + i,0).setValue(position.ParagraphIndex);
+    new ZLIntegerOption(ZLOption.STATE_CATEGORY,group,WORD_PREFIX + i,0).setValue(position.WordIndex);
+    new ZLIntegerOption(ZLOption.STATE_CATEGORY,group,CHAR_PREFIX + i,0).setValue(position.CharIndex);
   }
 }

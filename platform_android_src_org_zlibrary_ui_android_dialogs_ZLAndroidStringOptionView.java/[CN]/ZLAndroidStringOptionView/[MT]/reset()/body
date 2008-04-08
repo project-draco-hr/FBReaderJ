@@ -1,0 +1,5 @@
+{
+  if (myEditor != null) {
+    myEditor.setText(((ZLStringOptionEntry)myOption).initialValue());
+  }
+}

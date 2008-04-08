@@ -1,0 +1,3 @@
+{
+  return (ParagraphIndex == cursor.getParagraphCursor().getIndex()) && (WordIndex == cursor.getWordNumber()) && (CharIndex == cursor.getCharNumber());
+}

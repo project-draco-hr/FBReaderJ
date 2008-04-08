@@ -1,0 +1,3 @@
+{
+  setValue(((ZLSpinOptionEntry)myOption).initialValue());
+}

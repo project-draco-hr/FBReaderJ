@@ -1,4 +1,8 @@
 {
-  addOption(name0,option0);
-  addOption(name1,option1);
+  if (option0 != null) {
+    addOptionByName(name0,option0);
+  }
+  if (option1 != null) {
+    addOptionByName(name1,option1);
+  }
 }

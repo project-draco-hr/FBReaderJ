@@ -1,0 +1,5 @@
+{
+  final ZLColorOptionEntry colorOption=(ZLColorOptionEntry)myOption;
+  final ZLColor color=colorOption.initialColor();
+  myColorArea.setBackgroundColor(0xFF000000 + (color.Red << 16) + (color.Green << 8)+ color.Blue);
+}

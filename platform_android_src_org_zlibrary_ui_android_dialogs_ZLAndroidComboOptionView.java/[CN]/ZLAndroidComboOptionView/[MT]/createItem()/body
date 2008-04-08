@@ -1,5 +1,6 @@
 {
-  Spinner view=new Spinner(myTab.getView().getContext());
-  view.setAdapter(new ComboAdapter());
-  myView=view;
+  Spinner spinner=new Spinner(myTab.getView().getContext());
+  spinner.setAdapter(new ComboAdapter());
+  mySpinner=spinner;
+  addAndroidView(mySpinner,true);
 }

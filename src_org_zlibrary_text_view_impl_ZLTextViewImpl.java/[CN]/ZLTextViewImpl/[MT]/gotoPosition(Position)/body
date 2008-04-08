@@ -1,0 +1,3 @@
+{
+  gotoPosition(position.ParagraphIndex,position.WordIndex,position.CharIndex);
+}

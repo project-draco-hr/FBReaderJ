@@ -1,0 +1,13 @@
+{
+  final ZLSpinOptionEntry spinOption=(ZLSpinOptionEntry)myOption;
+  final int min=spinOption.minValue();
+  final int max=spinOption.maxValue();
+  if ((value >= min) && (value <= max)) {
+    myValue=value;
+    if (mySpinView != null) {
+      myDataView.setText("" + value);
+      myMinusButton.setEnabled(value > min);
+      myPlusButton.setEnabled(value < max);
+    }
+  }
+}

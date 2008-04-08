@@ -1,0 +1,4 @@
+{
+  getApplication().onQuit();
+  closeInternal();
+}

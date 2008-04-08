@@ -3,13 +3,14 @@
     return false;
   }
   ZLTextIndicatorInfo indicatorInfo=getIndicatorInfo();
-  if (indicatorInfo.isVisible() && indicatorInfo.isSensitive()) {
+  if (indicatorInfo.isVisible() && indicatorInfo.isSensitive() && !myStartCursor.isNull()) {
     final ZLPaintContext context=getContext();
     final int yBottom=context.getHeight() - getBottomMargin() - 1;
     final int yTop=yBottom - indicatorInfo.getHeight() + 1;
     final int xLeft=getLeftMargin();
     final int xRight=context.getWidth() - getRightMargin() - 1;
     if ((x > xLeft) && (x < xRight) && (y > yTop)&& (y < yBottom)) {
+      Position position=new Position(myStartCursor);
       myTreeStateIsFrozen=true;
       final int[] textSizeVector=myTextSize;
       final int value=textSizeVector[textSizeVector.length - 1] * (x - xLeft) / (xRight - xLeft - 1);
@@ -33,6 +34,12 @@
           myStartCursor.reset();
           rebuildPaintInfo(false);
         }
+      }
+      if (myStartCursor.isNull()) {
+        preparePaintInfo();
+      }
+      if (!position.equalsToCursor(myStartCursor)) {
+        savePosition(position);
       }
       getApplication().refreshWindow();
       myTreeStateIsFrozen=false;

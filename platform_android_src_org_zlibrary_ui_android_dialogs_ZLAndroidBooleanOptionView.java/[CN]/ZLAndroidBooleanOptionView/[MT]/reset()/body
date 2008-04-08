@@ -1,0 +1,5 @@
+{
+  if (myCheckBox != null) {
+    myCheckBox.setChecked(((ZLBooleanOptionEntry)myOption).initialState());
+  }
+}

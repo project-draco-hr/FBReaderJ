@@ -1,5 +1,6 @@
 {
   if (fbreader().getMode() == FBReader.ViewMode.BOOK_TEXT) {
+    fbreader().getBookTextView().undoPageMove();
   }
  else {
     fbreader().restorePreviousMode();

@@ -10,6 +10,7 @@
   if (myStartCursor.isNull()) {
     return;
   }
+  final Position position=new Position(myStartCursor);
   if ((myStartCursor.getParagraphCursor().getIndex() != mark.ParagraphNumber) || (myStartCursor.getPosition().compareTo(mark) > 0)) {
     doRepaint=true;
     gotoParagraph(mark.ParagraphNumber,false);
@@ -24,6 +25,12 @@
     preparePaintInfo();
   }
   if (doRepaint) {
+    if (myStartCursor.isNull()) {
+      preparePaintInfo();
+    }
+    if (!position.equalsToCursor(myStartCursor)) {
+      savePosition(position);
+    }
     getApplication().refreshWindow();
   }
 }

@@ -1,6 +1,7 @@
 {
-  CheckBox view=new CheckBox(myTab.getView().getContext());
-  view.setText(myName);
-  view.setChecked(((ZLBooleanOptionEntry)myOption).initialState());
-  myView=view;
+  CheckBox checkBox=new CheckBox(myTab.getView().getContext());
+  checkBox.setText(myName);
+  checkBox.setChecked(((ZLBooleanOptionEntry)myOption).initialState());
+  myCheckBox=checkBox;
+  addAndroidView(checkBox,true);
 }

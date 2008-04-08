@@ -1,0 +1,4 @@
+{
+  gotoPosition((Position)myPositionStack.get(--myCurrentPointInStack));
+  getFBReader().refreshWindow();
+}

@@ -1,0 +1,7 @@
+{
+  if (!cursor.isNull()) {
+    ParagraphIndex=cursor.getParagraphCursor().getIndex();
+    WordIndex=cursor.getWordNumber();
+    CharIndex=cursor.getCharNumber();
+  }
+}

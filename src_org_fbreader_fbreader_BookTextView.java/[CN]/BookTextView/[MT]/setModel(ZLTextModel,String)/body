@@ -1,10 +1,13 @@
 {
   super.setModel(model);
   myFileName=fileName;
-  myParagraphNumberOption=new ZLIntegerOption(ZLOption.STATE_CATEGORY,fileName,"Paragraph",0);
-  myWordNumberOption=new ZLIntegerOption(ZLOption.STATE_CATEGORY,fileName,"Word",0);
-  myCharNumberOption=new ZLIntegerOption(ZLOption.STATE_CATEGORY,fileName,"Char",0);
-  if (model != null) {
-    gotoPosition(myParagraphNumberOption.getValue(),myWordNumberOption.getValue(),myCharNumberOption.getValue());
+  myPositionStack.clear();
+  final int stackSize=new ZLIntegerRangeOption(ZLOption.STATE_CATEGORY,fileName,BUFFER_SIZE,0,MAX_UNDO_STACK_SIZE,0).getValue();
+  myCurrentPointInStack=new ZLIntegerRangeOption(ZLOption.STATE_CATEGORY,fileName,POSITION_IN_BUFFER,0,(stackSize == 0) ? 0 : (stackSize - 1),0).getValue();
+  for (int i=0; i < stackSize; ++i) {
+    myPositionStack.add(new Position(new ZLIntegerOption(ZLOption.STATE_CATEGORY,fileName,PARAGRAPH_PREFIX + i,0).getValue(),new ZLIntegerOption(ZLOption.STATE_CATEGORY,fileName,WORD_PREFIX + i,0).getValue(),new ZLIntegerOption(ZLOption.STATE_CATEGORY,fileName,CHAR_PREFIX + i,0).getValue()));
+  }
+  if ((model != null) && (!myPositionStack.isEmpty())) {
+    gotoPosition((Position)myPositionStack.get(myCurrentPointInStack));
   }
 }

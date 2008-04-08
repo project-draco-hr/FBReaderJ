@@ -1,0 +1,3 @@
+{
+  ((ZLStringOptionEntry)myOption).onAccept(myEditor.getText().toString());
+}

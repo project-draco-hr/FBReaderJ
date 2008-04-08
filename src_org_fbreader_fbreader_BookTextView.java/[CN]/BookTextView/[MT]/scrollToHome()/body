@@ -3,7 +3,12 @@
   if (!cursor.isNull() && cursor.isStartOfParagraph() && cursor.getParagraphCursor().getIndex() == 0) {
     return;
   }
+  final Position position=new Position(cursor);
   gotoParagraph(0,false);
   gotoPosition(0,0,0);
+  preparePaintInfo();
+  if (!position.equalsToCursor(getStartCursor())) {
+    savePosition(position);
+  }
   getApplication().refreshWindow();
 }

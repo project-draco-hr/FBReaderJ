@@ -1,0 +1,11 @@
+{
+  boolean[] marks=mySelectableMarks;
+  final int len=marks.length;
+  final int index=myAndroidViews.size();
+  if (index == len) {
+    marks=ZLArrayUtils.createCopy(marks,len,2 * len);
+    mySelectableMarks=marks;
+  }
+  myAndroidViews.add(view);
+  marks[index]=isSelectable;
+}
