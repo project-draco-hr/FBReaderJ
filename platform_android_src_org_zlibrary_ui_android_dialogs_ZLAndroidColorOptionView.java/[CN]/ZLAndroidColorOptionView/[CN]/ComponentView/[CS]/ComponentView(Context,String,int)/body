@@ -1,0 +1,80 @@
+{
+  super(context);
+  setOrientation(LinearLayout.HORIZONTAL);
+  setHorizontalGravity(0x05);
+  TextView label=new TextView(context);
+  label.setText(labelText + ":");
+  label.setPadding(0,6,0,6);
+  label.setTextSize(16);
+  myLeftLeftButton=new Button(context){
+    public boolean onTouchEvent(    MotionEvent event){
+      if (event.getAction() == MotionEvent.ACTION_DOWN) {
+        if (myValue > 0) {
+          myValue-=20;
+          if (myValue < 0) {
+            myValue=0;
+          }
+          setComponentValue(myValue);
+        }
+      }
+      return true;
+    }
+  }
+;
+  myLeftLeftButton.setText("<<");
+  myLeftLeftButton.setTextSize(14);
+  myLeftButton=new Button(context){
+    public boolean onTouchEvent(    MotionEvent event){
+      if (event.getAction() == MotionEvent.ACTION_DOWN) {
+        if (myValue > 0) {
+          setComponentValue(--myValue);
+        }
+      }
+      return true;
+    }
+  }
+;
+  myLeftButton.setText("<");
+  myLeftButton.setTextSize(14);
+  myValueView=new TextView(context);
+  myValueView.setPadding(2,6,2,6);
+  myValueView.setTextSize(16);
+  myRightButton=new Button(context){
+    public boolean onTouchEvent(    MotionEvent event){
+      if (event.getAction() == MotionEvent.ACTION_DOWN) {
+        if (myValue < 255) {
+          setComponentValue(++myValue);
+        }
+      }
+      return true;
+    }
+  }
+;
+  myRightButton.setText(">");
+  myRightButton.setTextSize(14);
+  myRightRightButton=new Button(context){
+    public boolean onTouchEvent(    MotionEvent event){
+      if (event.getAction() == MotionEvent.ACTION_DOWN) {
+        if (myValue < 255) {
+          myValue+=20;
+          if (myValue > 255) {
+            myValue=255;
+          }
+          setComponentValue(myValue);
+        }
+      }
+      return true;
+    }
+  }
+;
+  myRightRightButton.setText(">>");
+  myRightRightButton.setTextSize(14);
+  myValue=initialValue;
+  setComponentValue(initialValue);
+  addView(label,new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
+  addView(myLeftLeftButton,new LayoutParams(40,40));
+  addView(myLeftButton,new LayoutParams(40,40));
+  addView(myValueView,new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
+  addView(myRightButton,new LayoutParams(40,40));
+  addView(myRightRightButton,new LayoutParams(40,40));
+}

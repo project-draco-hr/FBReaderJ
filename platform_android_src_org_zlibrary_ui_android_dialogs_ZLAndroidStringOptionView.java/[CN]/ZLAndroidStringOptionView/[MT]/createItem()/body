@@ -8,8 +8,14 @@
     myLabel=label;
     addAndroidView(label,false);
   }
-  EditText editor=new EditText(context);
-  editor.setText(((ZLStringOptionEntry)myOption).initialValue());
-  myEditor=editor;
-  addAndroidView(editor,true);
+  final ZLStringOptionEntry stringEntry=(ZLStringOptionEntry)myOption;
+  myEditor=new EditText(context){
+    protected boolean getDefaultEditable(){
+      return stringEntry.isActive();
+    }
+  }
+;
+  myEditor.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT));
+  myEditor.setText(stringEntry.initialValue());
+  addAndroidView(myEditor,true);
 }

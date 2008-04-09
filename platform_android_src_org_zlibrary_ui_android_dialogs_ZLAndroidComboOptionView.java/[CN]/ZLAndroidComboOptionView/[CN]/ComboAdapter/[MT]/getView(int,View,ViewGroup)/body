@@ -1,9 +1,9 @@
 {
+  ((ZLComboOptionEntry)myOption).onValueSelected(position);
   if (convertView == null) {
     myEditor=new EditText(parent.getContext());
     myEditor.setSingleLine(true);
     myEditor.setText((String)getItem(position),TextView.BufferType.EDITABLE);
-    myEditor.setText((String)getItem(position),TextView.BufferType.SPANNABLE);
     convertView=myEditor;
   }
   return convertView;

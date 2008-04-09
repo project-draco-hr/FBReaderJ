@@ -1,3 +1,5 @@
 {
-  setValue(((ZLSpinOptionEntry)myOption).initialValue());
+  if (mySpinView != null) {
+    setValue(((ZLSpinOptionEntry)myOption).initialValue());
+  }
 }

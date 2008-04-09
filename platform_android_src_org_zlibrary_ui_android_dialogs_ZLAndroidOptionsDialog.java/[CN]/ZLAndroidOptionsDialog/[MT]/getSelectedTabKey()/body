@@ -1,10 +1,7 @@
 {
-  final View selectedView=myTabListView.getSelectedView();
-  if (selectedView != null) {
-    int index=myTabListView.indexOfChild(selectedView);
-    if ((index >= 0) && (index <= myTabs.size())) {
-      return ((ZLDialogContent)myTabs.get(index)).getKey();
-    }
+  int index=myTabListView.getSelectedItemPosition();
+  if ((index >= 0) && (index <= myTabs.size())) {
+    return ((ZLDialogContent)myTabs.get(index)).getKey();
   }
   return "";
 }

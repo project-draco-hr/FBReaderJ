@@ -1,5 +1,6 @@
 {
   ZLComboOptionEntry o=(ZLComboOptionEntry)myOption;
+  o.onReset();
   final ArrayList values=o.getValues();
   final String initialValue=o.initialValue();
   int index=0;

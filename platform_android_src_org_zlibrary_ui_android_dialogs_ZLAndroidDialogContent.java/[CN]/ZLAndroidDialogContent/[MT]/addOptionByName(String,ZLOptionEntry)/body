@@ -13,6 +13,7 @@ case ZLOptionKind.STRING:
 view=new ZLAndroidStringOptionView(this,name,(ZLStringOptionEntry)option);
 break;
 case ZLOptionKind.CHOICE:
+view=new ZLAndroidChoiceOptionView(this,name,(ZLChoiceOptionEntry)option);
 break;
 case ZLOptionKind.SPIN:
 view=new ZLAndroidSpinOptionView(this,name,(ZLSpinOptionEntry)option);

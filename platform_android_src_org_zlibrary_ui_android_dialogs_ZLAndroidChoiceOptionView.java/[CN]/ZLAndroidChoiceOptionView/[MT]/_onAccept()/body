@@ -1,0 +1,3 @@
+{
+  ((ZLChoiceOptionEntry)myOption).onAccept(myGroup.getCheckedRadioButtonId() - 1);
+}

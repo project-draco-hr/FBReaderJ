@@ -22,12 +22,10 @@
 ;
   minusButton.setText("-");
   minusButton.setTextSize(24);
-  minusButton.setEnabled(value > min);
   myMinusButton=minusButton;
   TextView data=new TextView(context);
   data.setPadding(0,12,0,12);
   data.setTextSize(20);
-  data.setText("" + value);
   myDataView=data;
   Button plusButton=new Button(context){
     public boolean onTouchEvent(    MotionEvent event){
@@ -40,7 +38,6 @@
 ;
   plusButton.setText("+");
   plusButton.setTextSize(24);
-  plusButton.setEnabled(value < max);
   myPlusButton=plusButton;
   setValue(((ZLSpinOptionEntry)myOption).initialValue());
   layout.addView(label,new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT));

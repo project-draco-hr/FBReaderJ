@@ -1,7 +1,7 @@
 {
   super();
   myResource=resource;
-  myBimap=new CodeIndexBimap();
+  myBimap=new ZLSimpleKeyOptionEntry.CodeIndexBimap();
   myEntry0=new SingleKeyOptionEntry(myBimap,fbreader.keyBindings(ZLViewWidget.Angle.DEGREES0));
   myEntry90=new SingleKeyOptionEntry(myBimap,fbreader.keyBindings(ZLViewWidget.Angle.DEGREES90));
   myEntry180=new SingleKeyOptionEntry(myBimap,fbreader.keyBindings(ZLViewWidget.Angle.DEGREES180));
