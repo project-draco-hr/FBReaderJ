@@ -1,0 +1,3 @@
+{
+  setSelectedColor(new ZLColor(myChooser.getColor().getRGB()));
+}
