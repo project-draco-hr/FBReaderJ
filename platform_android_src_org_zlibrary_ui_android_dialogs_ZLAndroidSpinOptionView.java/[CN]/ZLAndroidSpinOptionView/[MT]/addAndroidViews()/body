@@ -1,3 +1,4 @@
 {
+  myTab.addAndroidView(myLabel,false);
   myTab.addAndroidView(mySpinView,true);
 }
