@@ -45,5 +45,4 @@
   layout.addView(data,new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT));
   layout.addView(plusButton,new LinearLayout.LayoutParams(40,LinearLayout.LayoutParams.WRAP_CONTENT));
   mySpinView=layout;
-  addAndroidView(layout,true);
 }

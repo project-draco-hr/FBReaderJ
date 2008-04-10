@@ -17,5 +17,4 @@
   layout.addView(myGreenView,new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
   layout.addView(myBlueView,new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
   myContainer=layout;
-  addAndroidView(layout,true);
 }
