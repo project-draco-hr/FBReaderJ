@@ -11,7 +11,7 @@
   myLargeScrollingEntries=new ScrollingEntries(fbreader,fbreader.LargeScrollingOptions);
   mySmallScrollingEntries=new ScrollingEntries(fbreader,fbreader.SmallScrollingOptions);
   final boolean isMousePresented=new ZLBooleanOption(ZLOption.EMPTY,ZLOption.PLATFORM_GROUP,"MousePresented",false).getValue();
-  final boolean hasTouchScreen=new ZLBooleanOption(ZLOption.EMPTY,ZLOption.PLATFORM_GROUP,"TouchScreenPresented",false).getValue();
+  final boolean hasTouchScreen=new ZLBooleanOption(ZLOption.EMPTY,ZLOption.PLATFORM_GROUP,"TouchScreenPresented",true).getValue();
   if (isMousePresented) {
     myMouseScrollingEntries=new ScrollingEntries(fbreader,fbreader.MouseScrollingOptions);
   }
