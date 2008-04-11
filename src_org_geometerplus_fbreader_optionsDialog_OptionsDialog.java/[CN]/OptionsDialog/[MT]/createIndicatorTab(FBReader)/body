@@ -1,6 +1,6 @@
 {
   ZLDialogContent indicatorTab=myDialog.createTab("Indicator");
-  FBIndicatorInfo indicatorInfo=(FBIndicatorInfo)fbreader.getCollectionView().getIndicatorInfo();
+  FBIndicatorInfo indicatorInfo=FBView.getIndicatorInfoStatic();
   ZLToggleBooleanOptionEntry showIndicatorEntry=new ZLToggleBooleanOptionEntry(indicatorInfo.ShowOption);
   indicatorTab.addOption("show",showIndicatorEntry);
   ZLOptionEntry heightEntry=new ZLSimpleSpinOptionEntry(indicatorInfo.HeightOption,1);

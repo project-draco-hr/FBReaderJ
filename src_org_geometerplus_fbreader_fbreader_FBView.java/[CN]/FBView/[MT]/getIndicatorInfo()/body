@@ -1,6 +1,3 @@
 {
-  if (ourIndicatorInfo == null) {
-    ourIndicatorInfo=new FBIndicatorInfo();
-  }
-  return ourIndicatorInfo;
+  return getIndicatorInfoStatic();
 }
