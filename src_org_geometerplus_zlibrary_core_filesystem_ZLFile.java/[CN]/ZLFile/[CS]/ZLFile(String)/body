@@ -16,8 +16,7 @@
     }
   }
   myNameWithoutExtension=myNameWithExtension;
-  HashMap forcedFiles=getForcedFiles();
-  Integer value=(Integer)forcedFiles.get(myPath);
+  Integer value=(Integer)ourForcedFiles.get(myPath);
   if (value != null) {
     myArchiveType=value.intValue();
   }

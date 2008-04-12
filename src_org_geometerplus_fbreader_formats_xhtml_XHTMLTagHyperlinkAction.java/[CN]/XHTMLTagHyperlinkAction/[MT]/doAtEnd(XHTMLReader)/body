@@ -1,3 +1,6 @@
 {
-  reader.getModelReader().endParagraph();
+  byte kind=myHyperlinkStack[--myHyperlinkStackSize];
+  if (kind != FBTextKind.REGULAR) {
+    reader.getModelReader().addControl(kind,false);
+  }
 }

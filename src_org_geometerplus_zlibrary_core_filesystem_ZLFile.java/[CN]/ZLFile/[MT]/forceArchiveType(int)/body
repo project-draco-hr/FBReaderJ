@@ -1,6 +1,6 @@
 {
   if (myArchiveType != type) {
     myArchiveType=type;
-    putForcedFile(myPath,myArchiveType);
+    ourForcedFiles.put(myPath,myArchiveType);
   }
 }

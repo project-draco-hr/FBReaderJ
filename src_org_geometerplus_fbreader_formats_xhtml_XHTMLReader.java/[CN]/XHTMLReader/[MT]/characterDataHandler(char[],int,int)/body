@@ -7,8 +7,27 @@
       myModelReader.beginParagraph();
       myModelReader.addControl(FBTextKind.CODE,true);
     }
+    int spaceCounter=0;
+    cycle:     while (spaceCounter < len) {
+switch (data[start + spaceCounter]) {
+case 0x08:
+case 0x09:
+case 0x0A:
+case 0x0B:
+case 0x0C:
+case 0x0D:
+case ' ':
+        break;
+default :
+      break cycle;
   }
-  if (len > 0) {
-    myModelReader.addData(data,start,len);
-  }
+  ++spaceCounter;
+}
+myModelReader.addFixedHSpace((short)spaceCounter);
+start+=spaceCounter;
+len-=spaceCounter;
+}
+if (len > 0) {
+myModelReader.addData(data,start,len);
+}
 }

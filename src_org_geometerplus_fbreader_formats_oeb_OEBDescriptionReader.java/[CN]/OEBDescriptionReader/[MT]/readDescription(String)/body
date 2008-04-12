@@ -2,6 +2,7 @@
   myReadMetaData=false;
   myReadState=READ_NONE;
   if (!read(fileName)) {
+    System.err.println("HELLO");
     return false;
   }
   final ArrayList authors=myAuthorList.isEmpty() ? myAuthorList2 : myAuthorList;
