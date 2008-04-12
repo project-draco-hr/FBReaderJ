@@ -1,13 +1,11 @@
 {
   final String selectedValue=(String)getValues().get(index);
-  myPage.myLargeScrollingEntries.show(myLargeScrollingString.equals(selectedValue));
-  myPage.mySmallScrollingEntries.show(mySmallScrollingString.equals(selectedValue));
-  final boolean isMousePresented=new ZLBooleanOption(ZLOption.EMPTY,ZLOption.PLATFORM_GROUP,"MousePresented",false).getValue();
-  final boolean hasTouchScreen=new ZLBooleanOption(ZLOption.EMPTY,ZLOption.PLATFORM_GROUP,"TouchScreenPresented",true).getValue();
-  if (isMousePresented) {
-    myPage.myMouseScrollingEntries.show(myMouseScrollingString.equals(selectedValue));
+  myLargeScrollingEntries.show(myLargeScrollingString.equals(selectedValue));
+  mySmallScrollingEntries.show(mySmallScrollingString.equals(selectedValue));
+  if (myIsMousePresented) {
+    myMouseScrollingEntries.show(myMouseScrollingString.equals(selectedValue));
   }
-  if (hasTouchScreen) {
-    myPage.myTapScrollingEntries.show(myTapScrollingString.equals(selectedValue));
+  if (myHasTouchScreen) {
+    myTapScrollingEntries.show(myTapScrollingString.equals(selectedValue));
   }
 }

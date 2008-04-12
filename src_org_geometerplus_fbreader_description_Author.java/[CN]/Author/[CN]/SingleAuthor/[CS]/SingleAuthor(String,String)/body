@@ -1,4 +1,4 @@
 {
   myDisplayName=displayName;
-  mySortKey=sortKey;
+  mySortKey=sortKey.toLowerCase();
 }

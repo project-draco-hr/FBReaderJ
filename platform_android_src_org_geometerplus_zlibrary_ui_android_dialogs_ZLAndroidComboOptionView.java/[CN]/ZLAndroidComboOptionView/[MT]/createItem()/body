@@ -1,4 +1,14 @@
 {
-  mySpinner=new Spinner(myTab.getView().getContext());
-  mySpinner.setAdapter(new ComboAdapter());
+  final Context context=myTab.getView().getContext();
+  if (myName != null) {
+    myLabel=new TextView(context);
+    myLabel.setText(myName);
+    myLabel.setPadding(0,12,0,12);
+    myLabel.setTextSize(18);
+  }
+  mySpinner=new Spinner(context);
+  final ComboAdapter adapter=new ComboAdapter();
+  mySpinner.setAdapter(adapter);
+  mySpinner.setOnItemSelectedListener(adapter);
+  mySpinner.setSelection(initialIndex((ZLComboOptionEntry)myOption));
 }

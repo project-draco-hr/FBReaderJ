@@ -1,0 +1,4 @@
+{
+  final ZLComboOptionEntry comboEntry=(ZLComboOptionEntry)myOption;
+  comboEntry.onValueSelected(position);
+}

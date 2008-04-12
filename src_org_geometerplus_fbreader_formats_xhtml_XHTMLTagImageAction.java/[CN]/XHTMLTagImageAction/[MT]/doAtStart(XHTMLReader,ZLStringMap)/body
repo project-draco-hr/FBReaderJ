@@ -1,0 +1,19 @@
+{
+  String fileName=xmlattributes.getValue(myNameAttribute);
+  if (fileName != null) {
+    final BookReader modelReader=reader.getModelReader();
+    boolean flag=modelReader.paragraphIsOpen();
+    if (flag) {
+      modelReader.endParagraph();
+    }
+    if (fileName.startsWith("./")) {
+      fileName=fileName.substring(2);
+    }
+    final String fullfileName=reader.getPathPrefix() + fileName;
+    modelReader.addImageReference(fullfileName,(short)0);
+    modelReader.addImage(fullfileName,new ZLFileImage("image/auto",fullfileName,0));
+    if (flag) {
+      modelReader.beginParagraph();
+    }
+  }
+}

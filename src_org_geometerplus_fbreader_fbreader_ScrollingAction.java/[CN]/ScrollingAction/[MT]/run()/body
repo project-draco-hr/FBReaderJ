@@ -1,5 +1,5 @@
 {
-  int mode=myOptions.ModeOption.getValue();
+  final int mode=myOptions.ModeOption.getValue();
   int value=0;
 switch (mode) {
 case ZLTextView.ScrollingMode.KEEP_LINES:

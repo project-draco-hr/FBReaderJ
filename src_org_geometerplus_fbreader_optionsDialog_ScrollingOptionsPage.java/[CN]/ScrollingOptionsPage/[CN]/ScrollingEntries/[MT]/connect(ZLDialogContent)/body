@@ -1,5 +1,4 @@
 {
-  dialogTab.addOption("delay",myDelayEntry);
   dialogTab.addOption("mode",myModeEntry);
   dialogTab.addOption("linesToKeep",myLinesToKeepEntry);
   dialogTab.addOption("linesToScroll",myLinesToScrollEntry);

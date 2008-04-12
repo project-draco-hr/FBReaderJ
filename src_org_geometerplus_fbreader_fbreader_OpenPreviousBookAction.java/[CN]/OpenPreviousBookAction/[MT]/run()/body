@@ -1,0 +1,5 @@
+{
+  ArrayList books=fbreader().getRecentBooksView().lastBooks().books();
+  fbreader().openBook((BookDescription)books.get(1));
+  fbreader().refreshWindow();
+}

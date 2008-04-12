@@ -13,5 +13,4 @@
   dialogTab.addOption("quitOnCancel",exitOnCancelEntry);
   exitOnCancelEntry.setVisible(false);
   useSeparateBindingsEntry.onStateChanged(useSeparateBindingsEntry.initialState());
-  dialogTab.addOption("keyDelay",new ZLSimpleSpinOptionEntry(fbreader.KeyDelayOption,50));
 }

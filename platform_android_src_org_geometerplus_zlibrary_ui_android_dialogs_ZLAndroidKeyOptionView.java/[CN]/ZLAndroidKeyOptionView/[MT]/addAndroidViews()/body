@@ -1,0 +1,7 @@
+{
+  myTab.addAndroidView(myLabel,false);
+  myTab.addAndroidView(myEditor,true);
+  if (myEditor.getText().length() > 0) {
+    myTab.addAndroidView(mySpinner,true);
+  }
+}

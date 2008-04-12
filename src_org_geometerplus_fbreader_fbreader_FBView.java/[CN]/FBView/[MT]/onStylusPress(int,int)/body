@@ -1,0 +1,20 @@
+{
+  if (super.onStylusPress(x,y)) {
+    return true;
+  }
+  if (_onStylusPress(x,y)) {
+    return true;
+  }
+  if (getFBReader().EnableTapScrollingOption.getValue()) {
+    if (2 * y < getContext().getHeight()) {
+      getFBReader().doAction(ActionCode.FINGER_TAP_SCROLL_BACKWARD);
+    }
+ else {
+      getFBReader().doAction(ActionCode.FINGER_TAP_SCROLL_FORWARD);
+    }
+    return true;
+  }
+ else {
+    return false;
+  }
+}

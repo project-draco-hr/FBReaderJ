@@ -1,6 +1,6 @@
 {
   final String optionsForKey="optionsFor";
-  ZLComboOptionEntry mainEntry=new ScrollingTypeEntry(dialogTab.getResource(optionsForKey),fbreader,this);
+  ZLComboOptionEntry mainEntry=new ScrollingTypeEntry(dialogTab.getResource(optionsForKey),fbreader);
   dialogTab.addOption(optionsForKey,mainEntry);
   final ZLResource modeResource=dialogTab.getResource("mode");
   ScrollingModeEntry.ourNoOverlappingString=modeResource.getResource("noOverlapping").getValue();
@@ -10,21 +10,19 @@
   ScrollingModeEntry.ourDisableString=modeResource.getResource("disable").getValue();
   myLargeScrollingEntries=new ScrollingEntries(fbreader,fbreader.LargeScrollingOptions);
   mySmallScrollingEntries=new ScrollingEntries(fbreader,fbreader.SmallScrollingOptions);
-  final boolean isMousePresented=new ZLBooleanOption(ZLOption.EMPTY,ZLOption.PLATFORM_GROUP,"MousePresented",false).getValue();
-  final boolean hasTouchScreen=new ZLBooleanOption(ZLOption.EMPTY,ZLOption.PLATFORM_GROUP,"TouchScreenPresented",true).getValue();
-  if (isMousePresented) {
+  if (myIsMousePresented) {
     myMouseScrollingEntries=new ScrollingEntries(fbreader,fbreader.MouseScrollingOptions);
   }
-  if (hasTouchScreen) {
+  if (myHasTouchScreen) {
     myTapScrollingEntries=new ScrollingEntries(fbreader,fbreader.FingerTapScrollingOptions);
   }
   mainEntry.onStringValueSelected(mainEntry.initialValue());
   myLargeScrollingEntries.connect(dialogTab);
   mySmallScrollingEntries.connect(dialogTab);
-  if (isMousePresented) {
+  if (myIsMousePresented) {
     myMouseScrollingEntries.connect(dialogTab);
   }
-  if (hasTouchScreen) {
+  if (myHasTouchScreen) {
     myTapScrollingEntries.connect(dialogTab);
   }
 }

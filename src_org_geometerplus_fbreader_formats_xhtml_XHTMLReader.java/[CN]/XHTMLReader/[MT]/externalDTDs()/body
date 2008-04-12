@@ -1,0 +1,8 @@
+{
+  if (ourExternalDTDs.isEmpty()) {
+    ourExternalDTDs.add(ZLibrary.JAR_DATA_PREFIX + "data/formats/xhtml/xhtml-lat1.ent");
+    ourExternalDTDs.add(ZLibrary.JAR_DATA_PREFIX + "data/formats/xhtml/xhtml-special.ent");
+    ourExternalDTDs.add(ZLibrary.JAR_DATA_PREFIX + "data/formats/xhtml/xhtml-symbol.ent");
+  }
+  return ourExternalDTDs;
+}

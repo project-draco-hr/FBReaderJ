@@ -1,5 +1,8 @@
 {
   final String keyName=ZLAndroidKeyUtil.getKeyNameByCode(keyCode);
+  if (keyName.equals("<Menu>")) {
+    return false;
+  }
   myViewWidget.getView().getApplication().doActionByKey(keyName);
   return true;
 }

@@ -1,10 +1,7 @@
 {
   if (!myAndroidViews.isEmpty()) {
     myAndroidViews.clear();
-    android.util.Log.i("invalidateView","0");
     myListView.setAdapter(new ViewAdapter());
-    android.util.Log.i("invalidateView","1");
     myListView.invalidate();
-    android.util.Log.i("invalidateView","2");
   }
 }

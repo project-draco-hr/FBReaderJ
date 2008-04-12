@@ -1,6 +1,6 @@
 {
-  if ("DroidSerif".equals(fontFamily)) {
+  if ("Serif".equals(fontFamily)) {
     return fontFamily;
   }
-  return "DroidSans";
+  return "Sans";
 }

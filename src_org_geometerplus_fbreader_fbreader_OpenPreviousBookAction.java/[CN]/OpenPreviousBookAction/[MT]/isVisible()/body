@@ -1,0 +1,9 @@
+{
+switch (fbreader().getMode()) {
+case FBReader.ViewMode.BOOK_TEXT:
+case FBReader.ViewMode.CONTENTS:
+    return fbreader().getRecentBooksView().lastBooks().books().size() > 1;
+default :
+  return false;
+}
+}

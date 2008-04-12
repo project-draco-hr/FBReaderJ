@@ -1,3 +1,7 @@
 {
-  ((ZLComboOptionEntry)myOption).onReset();
+  final ZLComboOptionEntry comboEntry=(ZLComboOptionEntry)myOption;
+  comboEntry.onReset();
+  if (mySpinner != null) {
+    mySpinner.setSelection(initialIndex(comboEntry));
+  }
 }

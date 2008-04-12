@@ -1,0 +1,16 @@
+{
+  myResource=resource;
+  myFBReader=fbreader;
+  myLargeScrollingString=resource.getResource("large").getValue();
+  mySmallScrollingString=resource.getResource("small").getValue();
+  myMouseScrollingString=resource.getResource("mouse").getValue();
+  myTapScrollingString=resource.getResource("tap").getValue();
+  myValues.add(myLargeScrollingString);
+  myValues.add(mySmallScrollingString);
+  if (myIsMousePresented) {
+    myValues.add(myMouseScrollingString);
+  }
+  if (myHasTouchScreen) {
+    myValues.add(myTapScrollingString);
+  }
+}

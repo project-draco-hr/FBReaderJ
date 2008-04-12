@@ -1,13 +1,13 @@
 {
   myEntries=entries;
   myFBReader=fbreader;
-  myIsTapOption=isTapOption;
   myOption=option;
   myValues.add(ourNoOverlappingString);
   myValues.add(ourKeepLinesString);
   myValues.add(ourScrollLinesString);
   myValues.add(ourScrollPercentageString);
-  if (myIsTapOption) {
+  myIsTapOption=isTapOption;
+  if (isTapOption) {
     myValues.add(ourDisableString);
   }
 }

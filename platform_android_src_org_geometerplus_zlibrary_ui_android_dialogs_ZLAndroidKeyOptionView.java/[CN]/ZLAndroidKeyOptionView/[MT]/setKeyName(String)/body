@@ -1,0 +1,7 @@
+{
+  myEditor.setText(keyName);
+  myTab.invalidateView();
+  final ZLKeyOptionEntry keyEntry=(ZLKeyOptionEntry)myOption;
+  mySpinner.setSelection(keyEntry.actionIndex(keyName));
+  keyEntry.onKeySelected(keyName);
+}
