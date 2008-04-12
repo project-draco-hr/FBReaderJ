@@ -1,0 +1,33 @@
+{
+  myFilePrefix=htmlDirectoryPrefix(fileName);
+  myIdToHref.clear();
+  myHtmlFileNames.clear();
+  myTourTOC.clear();
+  myGuideTOC.clear();
+  myState=READ_NONE;
+  if (!read(fileName)) {
+    return false;
+  }
+  myModelReader.setMainTextModel();
+  myModelReader.pushKind(FBTextKind.REGULAR);
+  final int len=myHtmlFileNames.size();
+  for (int i=0; i < len; ++i) {
+    final String name=(String)myHtmlFileNames.get(i);
+    new XHTMLReader(myModelReader).readFile(myFilePrefix,name,name);
+  }
+  final ArrayList toc=myTourTOC.isEmpty() ? myGuideTOC : myTourTOC;
+  final int tocLen=toc.size();
+  for (int i=0; i < tocLen; ++i) {
+    final Reference ref=(Reference)toc.get(i);
+    final BookModel.Label label=myModelReader.getModel().getLabel(ref.HRef);
+    if (label != null) {
+      final int index=label.ParagraphNumber;
+      if (index != -1) {
+        myModelReader.beginContentsParagraph(index);
+        myModelReader.addContentsData(ref.Title.toCharArray());
+        myModelReader.endContentsParagraph();
+      }
+    }
+  }
+  return true;
+}

@@ -1,0 +1,21 @@
+{
+  tag=tag.toLowerCase();
+  if (myDCMetadataTag.equals(tag)) {
+    return true;
+  }
+  final String bufferContent=myBuffer.toString().trim();
+  if (bufferContent.length() != 0) {
+    if (myReadState == READ_TITLE) {
+      myDescription.setTitle(bufferContent);
+    }
+ else     if (myReadState == READ_AUTHOR) {
+      myAuthorList.add(bufferContent);
+    }
+ else     if (myReadState == READ_AUTHOR2) {
+      myAuthorList2.add(bufferContent);
+    }
+  }
+  myBuffer.delete(0,myBuffer.length());
+  myReadState=READ_NONE;
+  return false;
+}

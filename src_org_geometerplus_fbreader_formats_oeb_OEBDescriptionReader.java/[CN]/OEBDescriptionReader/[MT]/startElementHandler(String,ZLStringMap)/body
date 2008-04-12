@@ -1,0 +1,22 @@
+{
+  tag=tag.toLowerCase().intern();
+  if ((tag == "metadata") || (tag == "dc-metadata")) {
+    myDCMetadataTag=tag;
+    myReadMetaData=true;
+  }
+ else   if (myReadMetaData) {
+    if (tag == myTitleTag) {
+      myReadState=READ_TITLE;
+    }
+ else     if (tag == myAuthorTag) {
+      final String role=attributes.getValue("role");
+      if (role == null) {
+        myReadState=READ_AUTHOR2;
+      }
+ else       if (role.equals("aut")) {
+        myReadState=READ_AUTHOR;
+      }
+    }
+  }
+  return false;
+}

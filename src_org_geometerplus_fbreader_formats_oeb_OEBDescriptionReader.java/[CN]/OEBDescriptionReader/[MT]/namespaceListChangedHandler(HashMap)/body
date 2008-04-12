@@ -1,0 +1,13 @@
+{
+  myTitleTag="";
+  myAuthorTag="";
+  for (  Object o : namespaces.keySet()) {
+    final String id=(String)o;
+    if (id.startsWith("http://purl.org/dc/elements")) {
+      final String name=(String)namespaces.get(id);
+      myTitleTag=(name + ":title").intern();
+      myAuthorTag=(name + ":creator").intern();
+      break;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  tag=tag.toLowerCase().intern();
+  if ((MANIFEST == tag) || (SPINE == tag) || (GUIDE == tag)|| (TOUR == tag)) {
+    myState=READ_NONE;
+  }
+  return false;
+}

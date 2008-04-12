@@ -1,0 +1,11 @@
+{
+switch (myReadState) {
+case READ_NONE:
+    break;
+case READ_AUTHOR:
+case READ_AUTHOR2:
+case READ_TITLE:
+  myBuffer.append(data,start,len);
+break;
+}
+}

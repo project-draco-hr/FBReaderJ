@@ -1,0 +1,5 @@
+{
+  final BookReader modelReader=reader.getModelReader();
+  modelReader.addControl(myControl,false);
+  modelReader.popKind();
+}

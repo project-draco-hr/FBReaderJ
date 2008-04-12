@@ -1,0 +1,14 @@
+{
+  if (myPreformatted) {
+    final char first=data[start];
+    if ((first == '\r') || (first == '\n')) {
+      myModelReader.addControl(FBTextKind.CODE,false);
+      myModelReader.endParagraph();
+      myModelReader.beginParagraph();
+      myModelReader.addControl(FBTextKind.CODE,true);
+    }
+  }
+  if (len > 0) {
+    myModelReader.addData(data,start,len);
+  }
+}

@@ -1,0 +1,3 @@
+{
+  myModelReader=new BookReader(model);
+}

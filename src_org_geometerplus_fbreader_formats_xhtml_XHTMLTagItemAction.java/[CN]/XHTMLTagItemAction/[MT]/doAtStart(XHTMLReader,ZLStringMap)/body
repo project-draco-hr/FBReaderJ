@@ -1,0 +1,6 @@
+{
+  final BookReader modelReader=reader.getModelReader();
+  modelReader.endParagraph();
+  modelReader.beginParagraph();
+  modelReader.addData(BULLET);
+}

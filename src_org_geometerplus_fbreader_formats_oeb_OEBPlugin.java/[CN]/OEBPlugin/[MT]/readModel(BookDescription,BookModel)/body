@@ -3,5 +3,5 @@
   if (path == null) {
     return false;
   }
-  return false;
+  return new OEBBookReader(model).readBook(path);
 }

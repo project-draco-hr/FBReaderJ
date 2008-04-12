@@ -1,0 +1,5 @@
+{
+  final BookReader modelReader=reader.getModelReader();
+  modelReader.endParagraph();
+  modelReader.popKind();
+}

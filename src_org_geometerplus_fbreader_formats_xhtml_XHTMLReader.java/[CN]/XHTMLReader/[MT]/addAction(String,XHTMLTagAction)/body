@@ -1,0 +1,5 @@
+{
+  XHTMLTagAction old=(XHTMLTagAction)ourTagActions.get(tag);
+  ourTagActions.put(tag,action);
+  return old;
+}

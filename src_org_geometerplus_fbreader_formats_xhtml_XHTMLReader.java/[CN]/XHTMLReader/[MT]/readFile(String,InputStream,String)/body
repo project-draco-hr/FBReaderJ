@@ -1,0 +1,8 @@
+{
+  myModelReader.addHyperlinkLabel(referenceName);
+  fillTagTable();
+  myPathPrefix=pathPrefix;
+  myReferenceName=referenceName;
+  myPreformatted=false;
+  return read(stream);
+}
