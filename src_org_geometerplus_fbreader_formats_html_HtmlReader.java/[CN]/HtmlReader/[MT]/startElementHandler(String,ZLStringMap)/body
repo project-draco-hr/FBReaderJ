@@ -50,8 +50,8 @@ ref=ref.substring(1);
 myHyperlinkType=FBTextKind.EXTERNAL_HYPERLINK;
 }
 addHyperlinkControl(myHyperlinkType,ref);
-myControls[myControlsQuantity]=myHyperlinkType;
-myControlsQuantity++;
+myControls[myControlsNumber]=myHyperlinkType;
+myControlsNumber++;
 }
  else {
 }

@@ -1,10 +1,10 @@
 {
-  for (int i=0; i < myControlsQuantity; i++) {
+  for (int i=0; i < myControlsNumber; i++) {
     addControl(myControls[i],false);
   }
   boolean flag=false;
-  int removedControl=myControlsQuantity;
-  for (int i=0; i < myControlsQuantity; i++) {
+  int removedControl=myControlsNumber;
+  for (int i=0; i < myControlsNumber; i++) {
     if (!flag && (myControls[i] == control)) {
       flag=true;
       removedControl=i;
@@ -12,11 +12,11 @@
     }
     addControl(myControls[i],true);
   }
-  if (removedControl == myControlsQuantity) {
+  if (removedControl == myControlsNumber) {
     return;
   }
-  --myControlsQuantity;
-  for (int i=removedControl; i < myControlsQuantity; i++) {
+  --myControlsNumber;
+  for (int i=removedControl; i < myControlsNumber; i++) {
     myControls[i]=myControls[i + 1];
   }
 }
