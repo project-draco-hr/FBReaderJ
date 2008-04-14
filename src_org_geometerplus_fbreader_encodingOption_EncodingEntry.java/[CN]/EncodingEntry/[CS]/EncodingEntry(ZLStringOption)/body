@@ -8,11 +8,12 @@
     return;
   }
   final ArrayList sets=ZLEncodingCollection.instance().sets();
+  System.out.println("sets size = " + sets.size());
   for (int i=0; i < sets.size(); i++) {
     ZLEncodingSet es=(ZLEncodingSet)sets.get(i);
     final ArrayList infos=es.infos();
     mySetNames.add(es.name());
-    ArrayList names=(ArrayList)myValues.get(es.name());
+    ArrayList names=new ArrayList();
     for (int j=0; j < infos.size(); j++) {
       ZLEncodingConverterInfo eci=(ZLEncodingConverterInfo)infos.get(j);
       if (eci.name().equals(value)) {
@@ -22,8 +23,9 @@
       names.add(eci.visibleName());
       myValueByName.put(eci.visibleName(),eci.name());
     }
+    myValues.put(es.name(),names);
   }
-  if (myInitialSetName.length() == 0) {
+  if (myInitialSetName.length() == 0 && !mySetNames.isEmpty()) {
     myInitialSetName=(String)mySetNames.get(0);
   }
 }

@@ -1,0 +1,4 @@
+{
+  final String lowerCasedEncoding=encoding.toLowerCase();
+  return ("utf-8".equals(lowerCasedEncoding)) || ("us-ascii".equals(lowerCasedEncoding));
+}

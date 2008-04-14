@@ -1,0 +1,4 @@
+{
+  mySize=file.size();
+  myBase=file.getInputStream();
+}

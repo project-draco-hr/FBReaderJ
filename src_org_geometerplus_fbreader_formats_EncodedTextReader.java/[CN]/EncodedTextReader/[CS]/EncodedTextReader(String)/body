@@ -1,0 +1,5 @@
+{
+  ZLEncodingCollection collection=ZLEncodingCollection.instance();
+  ZLEncodingConverterInfo info=collection.info(encoding);
+  myConverter=(info != null) ? info.createConverter() : collection.defaultConverter();
+}

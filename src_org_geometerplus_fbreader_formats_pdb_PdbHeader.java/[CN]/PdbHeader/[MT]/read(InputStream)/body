@@ -4,14 +4,14 @@
     return false;
   }
   DocName=new String(buffer);
-  Flags=PdbUtil.readShort(stream);
+  Flags=PdbUtil.readUnsignedShort(stream);
   stream.skip(26);
   if (stream.read(buffer,0,8) != 8) {
     return false;
   }
   Id=new String(buffer,0,8);
   stream.skip(8);
-  short numRecords=PdbUtil.readShort(stream);
+  int numRecords=PdbUtil.readUnsignedShort(stream);
   if (numRecords <= 0) {
     return false;
   }
