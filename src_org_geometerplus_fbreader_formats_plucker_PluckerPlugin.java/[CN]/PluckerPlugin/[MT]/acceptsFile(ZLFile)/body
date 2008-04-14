@@ -1,3 +1,4 @@
 {
-  return PdbPlugin.fileType(file).equals("DataPlkr");
+  System.err.println("fileType = " + fileType(file));
+  return "DataPlkr".equals(fileType(file));
 }

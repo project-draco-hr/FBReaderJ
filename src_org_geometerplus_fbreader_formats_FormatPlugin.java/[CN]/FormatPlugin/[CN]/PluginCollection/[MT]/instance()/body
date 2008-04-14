@@ -2,6 +2,7 @@
   if (ourInstance == null) {
     ourInstance=new PluginCollection();
     ourInstance.myPlugins.add(new FB2Plugin());
+    ourInstance.myPlugins.add(new PluckerPlugin());
     ourInstance.myPlugins.add(new OEBPlugin());
   }
   return ourInstance;

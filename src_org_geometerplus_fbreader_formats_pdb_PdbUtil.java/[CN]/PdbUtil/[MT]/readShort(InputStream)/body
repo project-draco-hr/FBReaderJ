@@ -4,7 +4,7 @@
     stream.read(tmp,0,2);
   }
  catch (  IOException e) {
-    e.printStackTrace();
+    return -1;
   }
-  return tmp[1] + tmp[0] * 256;
+  return (short)(tmp[1] + (tmp[0] << 8));
 }

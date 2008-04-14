@@ -1,3 +1,11 @@
 {
-  myBuffer=null;
+  InputStream base;
+  try {
+    base=file.getInputStream();
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+    base=null;
+  }
+  myBase=base;
 }

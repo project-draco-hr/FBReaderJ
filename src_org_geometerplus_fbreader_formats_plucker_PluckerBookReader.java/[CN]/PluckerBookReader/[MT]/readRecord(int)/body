@@ -1,11 +1,11 @@
 {
-  short uid=(short)PdbUtil.readUnsignedShort(myStream);
+  short uid=PdbUtil.readShort(myStream);
   if (uid == 1) {
-    myCompressionVersion=(short)PdbUtil.readUnsignedShort(myStream);
+    myCompressionVersion=PdbUtil.readShort(myStream);
   }
  else {
-    short paragraphs=(short)PdbUtil.readUnsignedShort(myStream);
-    short size=(short)PdbUtil.readUnsignedShort(myStream);
+    short paragraphs=PdbUtil.readShort(myStream);
+    short size=PdbUtil.readShort(myStream);
     int type=(int)myStream.read();
     int flags=(int)myStream.read();
 switch (type) {
@@ -14,7 +14,7 @@ case 1:
 {
         ArrayList pars=new ArrayList();
         for (int i=0; i < paragraphs; ++i) {
-          short pSize=(short)PdbUtil.readUnsignedShort(myStream);
+          short pSize=PdbUtil.readShort(myStream);
           pars.add(pSize);
           myStream.skip(2);
         }

@@ -1,17 +1,15 @@
 {
   myBase.skip(2);
-  short paragraphs;
-  paragraphs=(short)PdbUtil.readUnsignedShort(myBase);
-  short size=(short)PdbUtil.readUnsignedShort(myBase);
-  char type=0;
+  short paragraphs=PdbUtil.readShort(myBase);
+  short size=PdbUtil.readShort(myBase);
+  char type=(char)myBase.read();
   if (type > 1) {
     return;
   }
   myBase.skip(1);
-  ArrayList pars=new ArrayList();
+  final short[] pars=new short[paragraphs];
   for (int i=0; i < paragraphs; ++i) {
-    short pSize=(short)PdbUtil.readUnsignedShort(myBase);
-    pars.add(pSize);
+    pars[i]=PdbUtil.readShort(myBase);
     myBase.skip(2);
   }
   boolean doProcess=false;
@@ -28,9 +26,9 @@
     myBufferOffset=0;
     int start=0;
     int end=0;
-    for (Iterator it=pars.iterator(); it.hasNext(); ) {
+    for (int i=0; i < paragraphs; ++i) {
       start=end;
-      end=start + (Integer)it.next();
+      end=start + pars[i];
       if (end > myFullBuffer[size]) {
         break;
       }
