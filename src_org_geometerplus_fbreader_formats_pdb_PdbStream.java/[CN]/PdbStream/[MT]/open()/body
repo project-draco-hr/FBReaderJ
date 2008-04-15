@@ -2,7 +2,7 @@
   if ((myBase == null) || !myHeader.read(myBase)) {
     return false;
   }
-  myBase.skip((myHeader.Offsets[0]));
+  myBase.skip(myHeader.Offsets[0] - 78 - 8 * myHeader.Offsets.length);
   myBufferLength=0;
   myBufferOffset=0;
   myOffset=0;

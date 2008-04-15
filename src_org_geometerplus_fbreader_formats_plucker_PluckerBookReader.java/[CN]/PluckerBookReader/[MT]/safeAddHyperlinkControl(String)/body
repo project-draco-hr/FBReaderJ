@@ -3,6 +3,6 @@
     addHyperlinkControl(FBTextKind.INTERNAL_HYPERLINK,id);
   }
  else {
-    myDelayedHyperlinks.add(myDelayedHyperlinks.size() - 1,(id));
+    myDelayedHyperlinks.add(id);
   }
 }

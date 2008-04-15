@@ -11,7 +11,7 @@
       functionFlag=true;
       if (ptr > textStart) {
         safeBeginParagraph();
-        myConvertedTextBuffer="";
+        myConvertedTextBuffer=myConverter.convert(data,textStart,ptr);
         addData(myConvertedTextBuffer.toCharArray());
         myBufferIsEmpty=false;
       }
@@ -36,14 +36,14 @@
       if (data[ptr] == 0xA0) {
         data[ptr]=0x20;
       }
-      if (!myParagraphStarted && (textStart == ptr)) {
+      if (!myParagraphStarted && (textStart == ptr) && (data[ptr] == ' ')) {
         ++textStart;
       }
     }
   }
   if (end > textStart) {
     safeBeginParagraph();
-    myConvertedTextBuffer="";
+    myConvertedTextBuffer=myConverter.convert(data,textStart,end);
     addData(myConvertedTextBuffer.toCharArray());
     myBufferIsEmpty=false;
   }

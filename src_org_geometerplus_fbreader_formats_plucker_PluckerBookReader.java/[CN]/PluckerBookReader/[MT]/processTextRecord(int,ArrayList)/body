@@ -4,7 +4,7 @@
   for (Iterator it=pars.iterator(); it.hasNext(); ) {
     start=end;
     end=start + (Integer)it.next();
-    if (end > myCharBuffer[size]) {
+    if (end > size) {
       return;
     }
     myParagraphStored=false;

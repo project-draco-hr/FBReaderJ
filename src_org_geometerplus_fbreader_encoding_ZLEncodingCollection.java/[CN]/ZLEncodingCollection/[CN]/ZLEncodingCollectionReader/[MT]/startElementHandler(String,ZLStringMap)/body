@@ -1,5 +1,4 @@
 {
-  System.out.println("reading");
   if (GROUP.equals(tag)) {
     final String name=attributes.getValue(NAME);
     if (name != null) {

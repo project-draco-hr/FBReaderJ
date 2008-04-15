@@ -1,10 +1,10 @@
 {
-  byte[] tmp=new byte[2];
+  final byte[] tmp=new byte[2];
   try {
     stream.read(tmp,0,2);
   }
  catch (  IOException e) {
     return -1;
   }
-  return (short)(tmp[1] + (tmp[0] << 8));
+  return (short)((tmp[1] & 0xFF) + ((tmp[0] & 0xFF) << 8));
 }

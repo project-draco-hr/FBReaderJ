@@ -1,27 +1,25 @@
 {
-  final PdbStream stream=new PluckerTextStream(new ZLFile(myFilePath));
-  myStream=stream;
-  if (!stream.open()) {
-    return false;
-  }
+  System.out.println("reading document");
+  myStream=new PdbInputStream(new ZLFile(myFilePath));
   PdbHeader header=new PdbHeader();
-  if (!header.read(stream)) {
-    stream.close();
+  if (!header.read(myStream)) {
+    myStream.close();
+    System.out.println("reading stream null");
     return false;
   }
   setMainTextModel();
   myFont=FontType.FT_REGULAR;
-  for (int i=0; i < header.Offsets.length; ++i) {
-    int currentOffset=((PdbStream)myStream).offset();
-    int pit=header.Offsets[i];
+  for (int index=0; index < header.Offsets.length; ++index) {
+    int currentOffset=myStream.offset();
+    int pit=header.Offsets[index];
     if (currentOffset > pit) {
       break;
     }
     myStream.skip(pit - currentOffset);
-    if (((PdbStream)myStream).offset() != pit) {
+    if (myStream.offset() != pit) {
       break;
     }
-    int recordSize=25;
+    int recordSize=((index != header.Offsets.length - 1) ? header.Offsets[index + 1] : myStream.sizeOfOpened()) - pit;
     readRecord(recordSize);
   }
   myStream.close();

@@ -1,10 +1,12 @@
 {
+  System.out.println("safe begin par ");
   if (!myParagraphStarted) {
     myParagraphStarted=true;
     myBufferIsEmpty=true;
+    System.out.println("Calling begin text par");
     beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
     if (!myParagraphStored) {
-      myParagraphVector.add(myParagraphVector.size() - 1,getModel().getBookTextModel().getParagraphsNumber() - 1);
+      myParagraphVector.add(getModel().getBookTextModel().getParagraphsNumber() - 1);
       myParagraphStored=true;
     }
     for (Iterator it=myDelayedControls.iterator(); it.hasNext(); ) {

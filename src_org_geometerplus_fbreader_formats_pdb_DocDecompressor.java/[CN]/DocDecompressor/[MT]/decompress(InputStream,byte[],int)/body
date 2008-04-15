@@ -1,0 +1,50 @@
+{
+  final int maxUncompressedSize=targetBuffer.length;
+  final byte[] sourceBuffer=new byte[compressedSize];
+  int sourceIndex=0;
+  int targetIndex=0;
+  if (stream.read(sourceBuffer,0,compressedSize) == compressedSize) {
+    byte token;
+    int shiftedIndex;
+    loop:     while ((sourceIndex < compressedSize) && (targetIndex < maxUncompressedSize)) {
+      token=sourceBuffer[sourceIndex++];
+switch (TOKEN_CODE[token]) {
+case 0:
+        targetBuffer[targetIndex++]=token;
+      break;
+case 1:
+    if ((sourceIndex + token > compressedSize) || (targetIndex + token > maxUncompressedSize)) {
+      break loop;
+    }
+  System.arraycopy(sourceBuffer,sourceIndex,targetBuffer,targetIndex,token);
+sourceIndex+=token;
+targetIndex+=token;
+break;
+case 2:
+if (targetIndex + 2 > maxUncompressedSize) {
+break loop;
+}
+targetBuffer[targetIndex++]=' ';
+targetBuffer[targetIndex++]=(byte)(token ^ 0x80);
+break;
+case 3:
+if (sourceIndex + 1 > compressedSize) {
+break loop;
+}
+int N=256 * token + sourceBuffer[sourceIndex++];
+int copyLength=(N & 7) + 3;
+if (targetIndex + copyLength > maxUncompressedSize) {
+break loop;
+}
+shiftedIndex=targetIndex - (N & 0x3fff) / 8;
+if (shiftedIndex >= 0) {
+for (int i=0; i < copyLength; i++) {
+targetBuffer[targetIndex++]=targetBuffer[shiftedIndex++];
+}
+}
+break;
+}
+}
+}
+return targetIndex;
+}
