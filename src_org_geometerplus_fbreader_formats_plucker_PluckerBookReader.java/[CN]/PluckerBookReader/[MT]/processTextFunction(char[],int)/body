@@ -76,10 +76,8 @@ case 0x78:
 break;
 case 0x83:
 {
-char[] utf8=new char[4];
-int len=0;
 safeBeginParagraph();
-addData(new String(utf8).substring(len).toCharArray());
+addData(new char[]{(char)twoBytes(ptr,cur + 2)});
 myBufferIsEmpty=false;
 myBytesToSkip=ptr[cur + 1];
 break;
