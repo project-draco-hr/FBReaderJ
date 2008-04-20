@@ -4,7 +4,6 @@
       final String SPACE=" ";
       addData(SPACE.toCharArray());
     }
-    System.out.println("Calling end par");
     endParagraph();
     myParagraphStarted=false;
   }

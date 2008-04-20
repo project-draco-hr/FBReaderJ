@@ -1,10 +1,8 @@
 {
-  System.out.println("reading document");
   myStream=new PdbInputStream(new ZLFile(myFilePath));
   PdbHeader header=new PdbHeader();
   if (!header.read(myStream)) {
     myStream.close();
-    System.out.println("reading stream null");
     return false;
   }
   setMainTextModel();
@@ -31,7 +29,7 @@
     if (list != null) {
       for (int k=second; k < list.size(); ++k) {
         if ((Integer)list.get(k) != -1) {
-          addHyperlinkLabel(fromNumber(first) + '#' + fromNumber(second)+ (Integer)list.get(k));
+          addHyperlinkLabel(fromNumber(first) + '#' + fromNumber(second),(Integer)list.get(k));
           break;
         }
       }

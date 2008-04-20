@@ -1,0 +1,3 @@
+{
+  myBookModel.addHyperlinkLabel(label,myCurrentTextModel,paragraphNumber);
+}

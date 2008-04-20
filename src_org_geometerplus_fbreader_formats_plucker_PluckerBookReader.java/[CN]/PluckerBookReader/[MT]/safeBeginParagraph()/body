@@ -1,9 +1,7 @@
 {
-  System.out.println("safe begin par ");
   if (!myParagraphStarted) {
     myParagraphStarted=true;
     myBufferIsEmpty=true;
-    System.out.println("Calling begin text par");
     beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
     if (!myParagraphStored) {
       myParagraphVector.add(getModel().getBookTextModel().getParagraphsNumber() - 1);
