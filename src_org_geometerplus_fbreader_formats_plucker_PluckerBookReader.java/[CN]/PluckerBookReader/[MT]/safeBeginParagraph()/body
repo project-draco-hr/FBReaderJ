@@ -4,7 +4,7 @@
     myBufferIsEmpty=true;
     beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
     if (!myParagraphStored) {
-      myParagraphVector.add(getModel().getBookTextModel().getParagraphsNumber() - 1);
+      myParagraphVector.add(Model.BookTextModel.getParagraphsNumber() - 1);
       myParagraphStored=true;
     }
     for (Iterator it=myDelayedControls.iterator(); it.hasNext(); ) {

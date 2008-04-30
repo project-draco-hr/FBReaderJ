@@ -1,6 +1,6 @@
 {
   myFBReader.grabAllKeys(myFBReader.KeyboardControlOption.getValue());
   myFBReader.clearTextCaches();
-  myFBReader.getCollectionView().synchronizeModel();
+  myFBReader.CollectionView.synchronizeModel();
   myFBReader.refreshWindow();
 }

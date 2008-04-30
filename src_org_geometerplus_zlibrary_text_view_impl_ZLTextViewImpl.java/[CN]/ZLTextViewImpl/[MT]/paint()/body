@@ -3,7 +3,7 @@
   myTextElementMap.clear();
   myTreeNodeMap.clear();
   final ZLTextBaseStyle baseStyle=ZLTextStyleCollection.getInstance().getBaseStyle();
-  final ZLPaintContext context=getContext();
+  final ZLPaintContext context=Context;
   context.clear(baseStyle.BackgroundColorOption.getValue());
   if ((myModel == null) || (myModel.getParagraphsNumber() == 0)) {
     return;

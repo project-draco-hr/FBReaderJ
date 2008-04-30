@@ -1,6 +1,6 @@
 {
   for (int i=0; i < myBooks.size(); i++) {
-    if (((BookDescription)(myBooks.get(i))).getFileName().equals(fileName)) {
+    if (((BookDescription)(myBooks.get(i))).FileName.equals(fileName)) {
       myBooks.remove(myBooks.get(i));
       break;
     }

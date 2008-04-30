@@ -105,7 +105,7 @@ enterTitle();
 break;
 case FB2Tag.BODY:
 ++myBodyCounter;
-myParagraphsBeforeBodyNumber=getModel().getBookTextModel().getParagraphsNumber();
+myParagraphsBeforeBodyNumber=Model.BookTextModel.getParagraphsNumber();
 if ((myBodyCounter == 1) || (attributes.getValue("name") == null)) {
 setMainTextModel();
 myReadMainText=true;
@@ -150,7 +150,7 @@ offset=Short.parseShort(vOffset);
  catch (NumberFormatException e) {
 }
 imgRef=imgRef.substring(1);
-if (!imgRef.equals(myCoverImageReference) || myParagraphsBeforeBodyNumber != getModel().getBookTextModel().getParagraphsNumber()) {
+if (!imgRef.equals(myCoverImageReference) || myParagraphsBeforeBodyNumber != Model.BookTextModel.getParagraphsNumber()) {
 addImageReference(imgRef,offset);
 }
 if (myInsideCoverpage) {

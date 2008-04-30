@@ -4,7 +4,7 @@
   }
   ZLTextIndicatorInfo indicatorInfo=getIndicatorInfo();
   if (indicatorInfo.isVisible() && indicatorInfo.isSensitive() && !myStartCursor.isNull()) {
-    final ZLPaintContext context=getContext();
+    final ZLPaintContext context=Context;
     final int yBottom=context.getHeight() - getBottomMargin() - 1;
     final int yTop=yBottom - indicatorInfo.getHeight() + 1;
     final int xLeft=getLeftMargin();
@@ -41,7 +41,7 @@
       if (!position.equalsToCursor(myStartCursor)) {
         savePosition(position);
       }
-      getApplication().refreshWindow();
+      Application.refreshWindow();
       myTreeStateIsFrozen=false;
       return true;
     }
@@ -65,7 +65,7 @@
       if (myStartCursor.isStartOfParagraph()) {
         --firstParagraphNumber;
       }
-      getApplication().refreshWindow();
+      Application.refreshWindow();
       return true;
     }
   }

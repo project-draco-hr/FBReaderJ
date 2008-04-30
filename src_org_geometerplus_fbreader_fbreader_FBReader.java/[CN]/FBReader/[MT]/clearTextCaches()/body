@@ -1,4 +1,7 @@
 {
-  myBookTextView.clearCaches();
-  myContentsView.clearCaches();
+  BookTextView.clearCaches();
+  ContentsView.clearCaches();
+  FootnoteView.clearCaches();
+  CollectionView.clearCaches();
+  RecentBooksView.clearCaches();
 }

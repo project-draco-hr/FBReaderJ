@@ -3,13 +3,13 @@
     int wordHeight=myWordHeight;
     if (wordHeight == -1) {
       final ZLTextStyle textStyle=myTextStyle;
-      wordHeight=(int)(getContext().getStringHeight() * textStyle.getLineSpacePercent() / 100) + textStyle.getVerticalShift();
+      wordHeight=(int)(Context.getStringHeight() * textStyle.getLineSpacePercent() / 100) + textStyle.getVerticalShift();
       myWordHeight=wordHeight;
     }
     return wordHeight;
   }
  else   if (element instanceof ZLTextImageElement) {
-    final ZLPaintContext context=getContext();
+    final ZLPaintContext context=Context;
     return context.imageHeight(((ZLTextImageElement)element).ImageData) + Math.max(context.getStringHeight() * (myTextStyle.getLineSpacePercent() - 100) / 100,3);
   }
   return 0;

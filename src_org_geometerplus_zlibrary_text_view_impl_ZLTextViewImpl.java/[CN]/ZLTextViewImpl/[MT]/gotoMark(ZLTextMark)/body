@@ -31,6 +31,6 @@
     if (!position.equalsToCursor(myStartCursor)) {
       savePosition(position);
     }
-    getApplication().refreshWindow();
+    Application.refreshWindow();
   }
 }

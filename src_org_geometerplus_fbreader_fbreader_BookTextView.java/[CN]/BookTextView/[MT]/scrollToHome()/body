@@ -10,5 +10,5 @@
   if (!position.equalsToCursor(getStartCursor())) {
     savePosition(position);
   }
-  getApplication().refreshWindow();
+  Application.refreshWindow();
 }

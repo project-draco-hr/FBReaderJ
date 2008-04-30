@@ -3,6 +3,6 @@
   for (int i=0; i < size; ++i) {
     String num=BOOK;
     num+=i;
-    new ZLStringOption(ZLOption.STATE_CATEGORY,GROUP,num,"").setValue(((BookDescription)myBooks.get(i)).getFileName());
+    new ZLStringOption(ZLOption.STATE_CATEGORY,GROUP,num,"").setValue(((BookDescription)myBooks.get(i)).FileName);
   }
 }

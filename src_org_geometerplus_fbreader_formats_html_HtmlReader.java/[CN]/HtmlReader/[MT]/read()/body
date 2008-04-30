@@ -1,4 +1,4 @@
 {
   final ZLHtmlProcessor processor=ZLHtmlProcessorFactory.getInstance().createHtmlProcessor();
-  return processor.read(this,getModel().getFileName());
+  return processor.read(this,Model.Description.FileName);
 }

@@ -1,5 +1,6 @@
 {
-  final ZLTextWordCursor cursor=getFBReader().getBookTextView().getStartCursor();
+  final FBReader fbreader=(FBReader)Application;
+  final ZLTextWordCursor cursor=fbreader.BookTextView.getStartCursor();
   if (!cursor.isNull()) {
     int reference=cursor.getParagraphCursor().getIndex();
     boolean startOfParagraph=cursor.getWordNumber() == 0;

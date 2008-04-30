@@ -6,27 +6,27 @@
   myMode=mode;
 switch (mode) {
 case ViewMode.BOOK_TEXT:
-    setView(myBookTextView);
+    setView(BookTextView);
   break;
 case ViewMode.CONTENTS:
-myContentsView.gotoReference();
-setView(myContentsView);
+ContentsView.gotoReference();
+setView(ContentsView);
 break;
 case ViewMode.FOOTNOTE:
-setView(myFootnoteView);
+setView(FootnoteView);
 break;
 case ViewMode.RECENT_BOOKS:
-myRecentBooksView.rebuild();
-setView(myRecentBooksView);
+RecentBooksView.rebuild();
+setView(RecentBooksView);
 break;
 case ViewMode.BOOK_COLLECTION:
 Runnable action=new Runnable(){
 public void run(){
-myCollectionView.updateModel();
+CollectionView.updateModel();
 if (myBookModel != null) {
-myCollectionView.selectBook(myBookModel.getDescription());
+CollectionView.selectBook(myBookModel.Description);
 }
-setView(myCollectionView);
+setView(CollectionView);
 }
 }
 ;

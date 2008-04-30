@@ -1,4 +1,4 @@
 {
-  ZLTextView view=fbreader().getTextView();
+  ZLTextView view=Reader.getTextView();
   return (view != null) && view.canFindNext();
 }

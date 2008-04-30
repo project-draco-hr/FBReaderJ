@@ -1,3 +1,3 @@
 {
-  new OptionsDialog(fbreader()).getDialog().run();
+  new OptionsDialog(Reader).getDialog().run();
 }

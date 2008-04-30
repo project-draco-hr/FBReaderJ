@@ -2,13 +2,13 @@
   if (myBookModel != null) {
     BookModel.Label label=myBookModel.getLabel(id);
     if ((label != null) && (label.Model != null)) {
-      if (label.Model == myBookModel.getBookTextModel()) {
-        myBookTextView.gotoParagraphSafe(label.ParagraphNumber);
+      if (label.Model == myBookModel.BookTextModel) {
+        BookTextView.gotoParagraphSafe(label.ParagraphNumber);
       }
  else {
-        myFootnoteView.setModel(label.Model);
+        FootnoteView.setModel(label.Model);
         setMode(ViewMode.FOOTNOTE);
-        myFootnoteView.gotoParagraph(label.ParagraphNumber,false);
+        FootnoteView.gotoParagraph(label.ParagraphNumber,false);
       }
       setHyperlinkCursor(false);
       refreshWindow();

@@ -1,8 +1,8 @@
 {
-  if (fbreader().getMode() == FBReader.ViewMode.BOOK_TEXT) {
-    fbreader().getBookTextView().undoPageMove();
+  if (Reader.getMode() == FBReader.ViewMode.BOOK_TEXT) {
+    Reader.BookTextView.undoPageMove();
   }
  else {
-    fbreader().restorePreviousMode();
+    Reader.restorePreviousMode();
   }
 }

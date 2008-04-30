@@ -1,5 +1,5 @@
 {
-  final ZLPaintContext context=getContext();
+  final ZLPaintContext context=Context;
   final ZLTextParagraphCursor paragraphCursor=cursor.getParagraphCursor();
   final int endWordNumber=paragraphCursor.getParagraphLength();
   resetTextStyle();

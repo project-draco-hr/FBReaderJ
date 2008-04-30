@@ -130,7 +130,7 @@
       final ZLTextWord word=(ZLTextWord)element;
       newWidth-=getWordWidth(context,word,currentCharNumber);
       int spaceLeft=maxWidth - newWidth;
-      if ((word.Length > 3) && (spaceLeft > 2 * getContext().getSpaceWidth())) {
+      if ((word.Length > 3) && (spaceLeft > 2 * Context.getSpaceWidth())) {
         ZLTextHyphenationInfo hyphenationInfo=ZLTextHyphenator.getInstance().getInfo(word);
         int hyphenationPosition=word.Length - 1;
         int subwordWidth=0;

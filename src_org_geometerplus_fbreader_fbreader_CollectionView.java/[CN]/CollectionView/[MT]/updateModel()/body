@@ -1,5 +1,5 @@
 {
-  myCollection.rebuild(true);
+  Collection.rebuild(true);
   myUpdateModel=true;
-  myCollection.authors();
+  Collection.authors();
 }

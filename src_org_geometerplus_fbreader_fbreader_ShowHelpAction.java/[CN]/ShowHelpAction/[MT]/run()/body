@@ -1,4 +1,4 @@
 {
-  fbreader().openBook(BookDescription.getDescription(fbreader().getHelpFileName()));
-  fbreader().refreshWindow();
+  Reader.openBook(BookDescription.getDescription(Reader.getHelpFileName()));
+  Reader.refreshWindow();
 }

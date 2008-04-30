@@ -1,3 +1,3 @@
 {
-  myFBReader=fbreader;
+  Reader=fbreader;
 }

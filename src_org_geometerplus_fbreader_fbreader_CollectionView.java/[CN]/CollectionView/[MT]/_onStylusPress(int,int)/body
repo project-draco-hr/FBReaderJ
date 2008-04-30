@@ -17,14 +17,14 @@
     if (imageId == CollectionModel.BookInfoImageId) {
       Runnable action=new Runnable(){
         public void run(){
-          myCollection.rebuild(false);
+          Collection.rebuild(false);
           myUpdateModel=true;
           selectBook(book);
-          repaintView();
+          Application.refreshWindow();
         }
       }
 ;
-      new BookInfoDialog(myCollection,book.getFileName(),action).getDialog().run();
+      new BookInfoDialog(Collection,book.FileName,action).getDialog().run();
       return true;
     }
  else     if (imageId == CollectionModel.RemoveBookImageId) {
@@ -43,7 +43,7 @@
       Runnable okAction=new Runnable(){
         public void run(){
           CollectionModel cModel=collectionModel();
-          new BookList().removeFileName(book.getFileName());
+          new BookList().removeFileName(book.FileName);
           cModel.removeBook(book);
           if (cModel.getParagraphsNumber() == 0) {
             gotoParagraph(0,false);
@@ -59,7 +59,7 @@
             gotoParagraph(index,false);
           }
           rebuildPaintInfo(true);
-          getApplication().refreshWindow();
+          Application.refreshWindow();
         }
       }
 ;
@@ -74,8 +74,9 @@
   }
   final BookDescription book=collectionModel().bookByParagraphNumber(index);
   if (book != null) {
-    getFBReader().openBook(book);
-    getFBReader().showBookTextView();
+    final FBReader fbreader=(FBReader)Application;
+    fbreader.openBook(book);
+    fbreader.showBookTextView();
     return true;
   }
   return false;

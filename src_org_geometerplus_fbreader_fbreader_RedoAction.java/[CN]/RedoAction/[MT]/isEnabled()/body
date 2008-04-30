@@ -1,3 +1,3 @@
 {
-  return isVisible() && fbreader().getBookTextView().canRedoPageMove();
+  return isVisible() && Reader.BookTextView.canRedoPageMove();
 }

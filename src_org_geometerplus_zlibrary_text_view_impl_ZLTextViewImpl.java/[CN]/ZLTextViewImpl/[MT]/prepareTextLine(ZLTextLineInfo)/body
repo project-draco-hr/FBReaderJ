@@ -1,5 +1,5 @@
 {
-  final ZLPaintContext context=getContext();
+  final ZLPaintContext context=Context;
   final ZLTextParagraphCursor paragraphCursor=info.ParagraphCursor;
   setTextStyle(info.StartStyle);
   final int y=Math.min(context.getY() + info.Height,getBottomLine());

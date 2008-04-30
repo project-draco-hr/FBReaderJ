@@ -5,6 +5,6 @@
     if (myTextParagraphExists) {
       --paragraphNumber;
     }
-    myBookModel.addHyperlinkLabel(label,textModel,paragraphNumber);
+    Model.addHyperlinkLabel(label,textModel,paragraphNumber);
   }
 }

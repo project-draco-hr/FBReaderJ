@@ -1,6 +1,6 @@
 {
   final BookReader modelReader=reader.getModelReader();
-  if ((myControl == FBTextKind.TITLE) && (modelReader.getModel().getBookTextModel().getParagraphsNumber() > 1)) {
+  if ((myControl == FBTextKind.TITLE) && (modelReader.Model.BookTextModel.getParagraphsNumber() > 1)) {
     modelReader.insertEndOfSectionParagraph();
   }
   modelReader.pushKind(myControl);

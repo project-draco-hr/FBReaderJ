@@ -1,4 +1,4 @@
 {
-  myApplication=application;
-  myContext=context;
+  Application=application;
+  Context=context;
 }

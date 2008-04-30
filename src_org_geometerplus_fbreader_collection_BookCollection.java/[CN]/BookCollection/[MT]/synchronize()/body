@@ -39,7 +39,7 @@
       final int numberOfBooks=books.size();
       for (int j=0; j < numberOfBooks; ++j) {
         final BookDescription description=(BookDescription)books.get(j);
-        final String fileName=description.getFileName();
+        final String fileName=description.FileName;
         if (!myExternalBooks.contains(description) || bookListSet.contains(fileName)) {
           fileNames.add(fileName);
         }

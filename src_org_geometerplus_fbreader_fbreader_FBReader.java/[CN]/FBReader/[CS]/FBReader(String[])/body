@@ -35,10 +35,10 @@
   addAction(ActionCode.SHOW_HELP,new ShowHelpAction(this));
   addAction(ActionCode.GOTO_NEXT_TOC_SECTION,new DummyAction(this));
   addAction(ActionCode.GOTO_PREVIOUS_TOC_SECTION,new DummyAction(this));
-  myBookTextView=new BookTextView(this,getContext());
-  myContentsView=new ContentsView(this,getContext());
-  myFootnoteView=new FootnoteView(this,getContext());
-  myCollectionView=new CollectionView(this,getContext());
-  myRecentBooksView=new RecentBooksView(this,getContext());
+  BookTextView=new BookTextView(this,Context);
+  ContentsView=new ContentsView(this,Context);
+  FootnoteView=new FootnoteView(this,Context);
+  CollectionView=new CollectionView(this,Context);
+  RecentBooksView=new RecentBooksView(this,Context);
   setMode(ViewMode.BOOK_TEXT);
 }

@@ -1,25 +1,21 @@
 {
   if (description != null) {
-    BookTextView bookTextView=myBookTextView;
-    ContentsView contentsView=myContentsView;
-    FootnoteView footnoteView=myFootnoteView;
-    RecentBooksView recentBooksView=myRecentBooksView;
-    bookTextView.saveState();
-    bookTextView.setModel(null,"");
-    bookTextView.setContentsModel(null);
-    contentsView.setModel(null);
+    BookTextView.saveState();
+    BookTextView.setModel(null,"");
+    BookTextView.setContentsModel(null);
+    ContentsView.setModel(null);
     myBookModel=new BookModel(description);
-    final String fileName=description.getFileName();
+    final String fileName=description.FileName;
     myBookNameOption.setValue(fileName);
     ZLTextHyphenator.getInstance().load(description.getLanguage());
-    bookTextView.setModel(myBookModel.getBookTextModel(),fileName);
-    bookTextView.setCaption(description.getTitle());
-    bookTextView.setContentsModel(myBookModel.getContentsModel());
-    footnoteView.setModel(null);
-    footnoteView.setCaption(description.getTitle());
-    contentsView.setModel(myBookModel.getContentsModel());
-    contentsView.setCaption(description.getTitle());
-    recentBooksView.lastBooks().addBook(fileName);
+    BookTextView.setModel(myBookModel.BookTextModel,fileName);
+    BookTextView.setCaption(description.getTitle());
+    BookTextView.setContentsModel(myBookModel.ContentsModel);
+    FootnoteView.setModel(null);
+    FootnoteView.setCaption(description.getTitle());
+    ContentsView.setModel(myBookModel.ContentsModel);
+    ContentsView.setCaption(description.getTitle());
+    RecentBooksView.lastBooks().addBook(fileName);
   }
   resetWindowCaption();
   refreshWindow();

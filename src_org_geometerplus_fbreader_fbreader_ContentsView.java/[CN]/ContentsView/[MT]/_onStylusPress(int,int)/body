@@ -6,8 +6,8 @@
   final ContentsModel contentsModel=(ContentsModel)getModel();
   final ZLTextTreeParagraph paragraph=contentsModel.getTreeParagraph(index);
   final int reference=contentsModel.getReference(paragraph);
-  FBReader fbreader=(FBReader)getApplication();
-  fbreader.getBookTextView().gotoPosition(reference,0,0);
+  final FBReader fbreader=(FBReader)Application;
+  fbreader.BookTextView.gotoPosition(reference,0,0);
   fbreader.setMode(FBReader.ViewMode.BOOK_TEXT);
   return true;
 }
