@@ -1,5 +1,5 @@
 {
-  myTextField=new JTextField(((ZLTextOptionEntry)myOption).initialValue());
+  myTextField=new JTextField(((ZLStringOptionEntry)myOption).initialValue());
   myTextField.setCaretPosition(0);
   myTextField.setMargin(new Insets(0,5,0,0));
   myTextField.addKeyListener(new MyKeyListener());

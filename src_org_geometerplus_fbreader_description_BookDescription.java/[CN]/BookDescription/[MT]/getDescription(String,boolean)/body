@@ -16,8 +16,8 @@
     BookInfo info=new BookInfo(fileName);
     description.myAuthor=Author.SingleAuthor.create(info.AuthorDisplayNameOption.getValue(),info.AuthorSortKeyOption.getValue());
     description.myTitle=info.TitleOption.getValue();
-    description.mySequenceName=info.SequenceNameOption.getValue();
-    description.myNumberInSequence=info.NumberInSequenceOption.getValue();
+    description.mySeriesName=info.SeriesNameOption.getValue();
+    description.myNumberInSeries=info.NumberInSeriesOption.getValue();
     description.myLanguage=info.LanguageOption.getValue();
     description.myEncoding=info.EncodingOption.getValue();
     if (info.isFull()) {
@@ -31,7 +31,7 @@
     BookDescriptionUtil.saveInfo(file);
   }
   ZLFile bookFile=new ZLFile(fileName);
-  FormatPlugin plugin=FormatPlugin.PluginCollection.instance().getPlugin(bookFile,false);
+  FormatPlugin plugin=PluginCollection.instance().getPlugin(bookFile,false);
   if ((plugin == null) || !plugin.readDescription(fileName,description)) {
     return null;
   }
@@ -50,11 +50,10 @@
     info.AuthorDisplayNameOption.setValue(description.myAuthor.getDisplayName());
     info.AuthorSortKeyOption.setValue(description.myAuthor.getSortKey());
     info.TitleOption.setValue(description.myTitle);
-    info.SequenceNameOption.setValue(description.mySequenceName);
-    info.NumberInSequenceOption.setValue(description.myNumberInSequence);
+    info.SeriesNameOption.setValue(description.mySeriesName);
+    info.NumberInSeriesOption.setValue(description.myNumberInSeries);
     info.LanguageOption.setValue(description.myLanguage);
     info.EncodingOption.setValue(description.myEncoding);
-    info.IsSequenceDefinedOption.setValue(true);
   }
   return description;
 }

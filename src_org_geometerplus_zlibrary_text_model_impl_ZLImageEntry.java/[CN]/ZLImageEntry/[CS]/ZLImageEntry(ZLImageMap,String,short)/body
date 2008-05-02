@@ -1,5 +1,5 @@
 {
   myImageMap=imageMap;
-  myId=id;
+  Id=id;
   VOffset=vOffset;
 }

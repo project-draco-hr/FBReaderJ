@@ -1,5 +1,5 @@
 {
-  ZLDir dir=new ZLFile(myDir.getItemPath(node.id())).getDirectory();
+  ZLDir dir=new ZLFile(myDir.getItemPath(node.Id)).getDirectory();
   if (dir != null) {
     final String selectedId=myDir.getName();
     myDir=dir;
@@ -7,16 +7,16 @@
     myIsUpToDate=false;
     mySubnodes.clear();
     mySelectedIndex=0;
-    if ("..".equals(node.id())) {
+    if ("..".equals(node.Id)) {
       final ArrayList subnodes=this.subnodes();
       final int size=subnodes.size();
       for (int index=0; index < size; index++) {
-        if (((ZLTreeNode)subnodes.get(index)).id().equals(selectedId)) {
+        if (((ZLTreeNode)subnodes.get(index)).Id.equals(selectedId)) {
           mySelectedIndex=index;
           break;
         }
       }
     }
-    addUpdateInfo(UpdateType.UPDATE_ALL);
+    addUpdateInfo(ZLSelectionDialog.UPDATE_ALL);
   }
 }

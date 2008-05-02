@@ -1,0 +1,13 @@
+{
+  super(true);
+  final ArrayList authors=myCollection.authors();
+  final String authorName=myBookInfo.AuthorDisplayNameOption.getValue();
+  final String authorKey=myBookInfo.AuthorSortKeyOption.getValue();
+  for (int i=0; i < authors.size(); i++) {
+    final Author author=(Author)authors.get(i);
+    if ((authorName != null && authorName.equals(author.getDisplayName())) && (authorKey != null && authorKey.equals(author.getSortKey()))) {
+      myOriginalAuthor=author;
+      break;
+    }
+  }
+}

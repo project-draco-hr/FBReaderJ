@@ -1,4 +1,4 @@
-String myId
-String myDisplayName
-String myPixmapName
-boolean myIsFolder
+String id
+String displayName
+String pixmapName
+boolean isFolder

@@ -1,5 +1,5 @@
 {
-  final String name=myDir.getItemPath(node.id());
+  final String name=myDir.getItemPath(node.Id);
   FormatPlugin plugin=PluginCollection.instance().getPlugin(new ZLFile(name),false);
   final String message=(plugin == null) ? "Unknown File Format" : plugin.tryOpen(name);
   if (message.length() != 0) {

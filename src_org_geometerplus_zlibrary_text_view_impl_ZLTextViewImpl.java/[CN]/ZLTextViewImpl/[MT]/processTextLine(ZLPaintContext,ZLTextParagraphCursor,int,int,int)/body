@@ -25,9 +25,7 @@
   if (isFirstLine) {
     ZLTextElement element=paragraphCursor.getElement(currentWordIndex);
     while (element instanceof ZLTextControlElement) {
-      if (element instanceof ZLTextControlElement) {
-        applyControl((ZLTextControlElement)element);
-      }
+      applyControl((ZLTextControlElement)element);
       ++currentWordIndex;
       currentCharNumber=0;
       if (currentWordIndex == endIndex) {

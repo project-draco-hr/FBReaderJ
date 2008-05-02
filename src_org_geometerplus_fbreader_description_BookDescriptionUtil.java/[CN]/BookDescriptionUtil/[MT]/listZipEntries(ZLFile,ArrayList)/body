@@ -4,10 +4,10 @@
     resetZipInfo(zipFile);
     entriesNumber=new ZLIntegerOption(FBOptions.BOOKS_CATEGORY,zipFile.getPath(),ENTRIES_NUMBER,-1).getValue();
   }
+  final ZLStringOption entryOption=new ZLStringOption(FBOptions.BOOKS_CATEGORY,zipFile.getPath(),"","");
   for (int i=0; i < entriesNumber; ++i) {
-    String optionName=ENTRY;
-    optionName+=i;
-    String entry=new ZLStringOption(FBOptions.BOOKS_CATEGORY,zipFile.getPath(),optionName,"").getValue();
+    entryOption.changeName(ENTRY + i);
+    final String entry=entryOption.getValue();
     if (entry.length() != 0) {
       entries.add(entry);
     }

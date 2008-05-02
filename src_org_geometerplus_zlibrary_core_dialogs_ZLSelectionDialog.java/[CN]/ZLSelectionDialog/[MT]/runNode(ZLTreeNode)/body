@@ -2,7 +2,7 @@
   if (node == null) {
     return;
   }
-  if (node.isFolder()) {
+  if (node.IsFolder) {
     myHandler.changeFolder(node);
     update();
   }

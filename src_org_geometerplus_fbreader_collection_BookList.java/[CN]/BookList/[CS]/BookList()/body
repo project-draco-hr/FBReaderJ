@@ -1,12 +1,12 @@
 {
-  int size=new ZLIntegerOption(ZLOption.STATE_CATEGORY,GROUP,SIZE,0).getValue();
-  for (int i=0; i < size; ++i) {
-    String optionName=BOOK;
-    optionName+=i;
-    ZLStringOption bookOption=new ZLStringOption(ZLOption.STATE_CATEGORY,GROUP,optionName,"");
-    final String fileName=bookOption.getValue();
-    if ((fileName.length() != 0) && !myFileNames.contains(fileName)) {
-      myFileNames.add(fileName);
+  final int len=new ZLIntegerOption(ZLOption.STATE_CATEGORY,GROUP,SIZE,0).getValue();
+  final ArrayList fileNames=myFileNames;
+  final ZLStringOption bookOption=new ZLStringOption(ZLOption.STATE_CATEGORY,GROUP,"","");
+  for (int i=0; i < len; ++i) {
+    bookOption.changeName(BOOK + i);
+    final String name=bookOption.getValue();
+    if ((name.length() != 0) && !fileNames.contains(name)) {
+      fileNames.add(name);
     }
   }
 }

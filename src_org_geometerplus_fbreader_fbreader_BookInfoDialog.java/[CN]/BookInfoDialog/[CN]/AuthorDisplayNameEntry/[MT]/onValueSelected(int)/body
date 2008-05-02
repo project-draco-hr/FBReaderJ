@@ -1,8 +1,8 @@
 {
-  final ArrayList authors=myInfoDialog.myCollection.authors();
+  final ArrayList authors=myCollection.authors();
   if (index < authors.size()) {
     myCurrentAuthor=(Author)authors.get(index);
   }
-  myInfoDialog.myAuthorSortKeyEntry.resetView();
-  myInfoDialog.mySeriesTitleEntry.resetView();
+  myAuthorSortKeyEntry.resetView();
+  mySeriesTitleEntry.resetView();
 }

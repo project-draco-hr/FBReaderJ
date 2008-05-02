@@ -1,7 +1,7 @@
 {
   if ("binding".equals(tag)) {
-    String key=attributes.getValue("key");
-    String actionId=attributes.getValue("action");
+    final String key=attributes.getValue("key");
+    final String actionId=attributes.getValue("action");
     if ((key != null) && (actionId != null)) {
       myKeymap.put(key,actionId);
     }

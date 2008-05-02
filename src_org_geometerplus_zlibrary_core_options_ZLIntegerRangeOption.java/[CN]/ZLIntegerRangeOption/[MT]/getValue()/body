@@ -4,11 +4,11 @@
     if (value != null) {
       try {
         int intValue=Integer.parseInt(value);
-        if (intValue < myMinValue) {
-          intValue=myMinValue;
+        if (intValue < MinValue) {
+          intValue=MinValue;
         }
- else         if (intValue > myMaxValue) {
-          intValue=myMaxValue;
+ else         if (intValue > MaxValue) {
+          intValue=MaxValue;
         }
         myValue=intValue;
       }

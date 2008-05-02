@@ -1,2 +1,8 @@
 {
+  if (myView.myTextElementMap.isEmpty()) {
+    return;
+  }
+  myIsActive=true;
+  myIsEmpty=false;
+  myTextIsUpToDate=true;
 }

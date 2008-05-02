@@ -1,4 +1,4 @@
 {
-  myInfoDialog.myBookNumberEntry.setVisible(value != null && !value.equals(""));
+  myBookNumberEntry.setVisible(value != null && !value.equals(""));
   ;
 }

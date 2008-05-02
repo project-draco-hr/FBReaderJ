@@ -8,12 +8,13 @@
     if (dir == null) {
       continue;
     }
+    final PluginCollection collection=PluginCollection.instance();
     final ArrayList files=dir.collectFiles();
     final int numberOfFiles=files.size();
     for (int j=0; j < numberOfFiles; ++j) {
       String fileName=dir.getItemPath((String)files.get(j));
       ZLFile file=new ZLFile(fileName);
-      if (PluginCollection.instance().getPlugin(file,true) != null) {
+      if (collection.getPlugin(file,true) != null) {
         if (!bookFileNames.contains(fileName)) {
           bookFileNames.add(fileName);
         }

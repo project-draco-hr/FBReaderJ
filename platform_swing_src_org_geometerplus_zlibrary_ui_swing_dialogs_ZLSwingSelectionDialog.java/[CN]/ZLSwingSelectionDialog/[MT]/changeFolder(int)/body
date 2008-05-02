@@ -1,5 +1,5 @@
 {
   ZLTreeNode node=(ZLTreeNode)handler().subnodes().get(index);
-  myReturnValue=!node.isFolder();
+  myReturnValue=!node.IsFolder;
   runNode(node);
 }

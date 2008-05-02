@@ -5,7 +5,7 @@ case KeyEvent.KEYCODE_NEWLINE:
     final ItemView view=(ItemView)getSelectedView();
   if (view != null) {
     final ZLTreeNode node=view.getNode();
-    myReturnValue=!node.isFolder();
+    myReturnValue=!node.IsFolder;
     runNode(view.getNode());
   }
 return false;

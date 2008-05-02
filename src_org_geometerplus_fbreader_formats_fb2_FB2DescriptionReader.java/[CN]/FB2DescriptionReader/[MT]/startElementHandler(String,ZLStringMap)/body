@@ -35,9 +35,9 @@ String name=attributes.getValue("name");
 if (name != null) {
 String sequenceName=name;
 sequenceName.trim();
-myDescription.setSequenceName(sequenceName);
+myDescription.setSeriesName(sequenceName);
 String number=attributes.getValue("number");
-myDescription.setNumberInSequence((number != null) ? Integer.parseInt(number) : 0);
+myDescription.setNumberInSeries((number != null) ? Integer.parseInt(number) : 0);
 }
 }
 break;

@@ -2,4 +2,19 @@
   myAllowUndefined=allowUndefined;
   myOption=option;
   myResource=resource;
+  if (ourValues5.isEmpty()) {
+    ourValues5.add(resource.getResource(KEY_UNCHANGED).getValue());
+    String value=resource.getResource(KEY_LEFT).getValue();
+    ourValues5.add(value);
+    ourValues4.add(value);
+    value=resource.getResource(KEY_RIGHT).getValue();
+    ourValues5.add(value);
+    ourValues4.add(value);
+    value=resource.getResource(KEY_CENTER).getValue();
+    ourValues5.add(value);
+    ourValues4.add(value);
+    value=resource.getResource(KEY_JUSTIFY).getValue();
+    ourValues5.add(value);
+    ourValues4.add(value);
+  }
 }

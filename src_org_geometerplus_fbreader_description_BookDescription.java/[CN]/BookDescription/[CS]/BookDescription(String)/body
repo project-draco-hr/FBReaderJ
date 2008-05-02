@@ -1,5 +1,5 @@
 {
   FileName=fileName;
   myAuthor=null;
-  myNumberInSequence=0;
+  myNumberInSeries=0;
 }

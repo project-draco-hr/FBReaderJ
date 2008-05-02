@@ -1,6 +1,6 @@
 {
-  this.myId=myId;
-  this.myDisplayName=myDisplayName;
-  this.myPixmapName=myPixmapName;
-  this.myIsFolder=myIsFolder;
+  Id=id;
+  DisplayName=displayName;
+  PixmapName=pixmapName;
+  IsFolder=isFolder;
 }

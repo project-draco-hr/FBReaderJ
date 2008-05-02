@@ -4,10 +4,10 @@
   }
   myValue=value;
   myIsSynchronized=true;
-  if (myValue == myDefaultValue) {
+  if (value == myDefaultValue) {
     unsetConfigValue();
   }
  else {
-    setConfigValue(myValue ? "true" : "false");
+    setConfigValue(value ? "true" : "false");
   }
 }

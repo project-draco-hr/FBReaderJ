@@ -1,7 +1,13 @@
 {
   super(category,group,optionName);
-  myMinValue=minValue;
-  myMaxValue=maxValue;
-  myDefaultValue=Math.max(myMinValue,Math.min(myMaxValue,defaultValue));
-  myValue=myDefaultValue;
+  MinValue=minValue;
+  MaxValue=maxValue;
+  if (defaultValue < MinValue) {
+    defaultValue=MinValue;
+  }
+ else   if (defaultValue > MaxValue) {
+    defaultValue=MaxValue;
+  }
+  myDefaultValue=defaultValue;
+  myValue=defaultValue;
 }

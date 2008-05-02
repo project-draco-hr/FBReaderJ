@@ -1,3 +1,3 @@
 {
-  return myImageMap.getImage(myId);
+  return myImageMap.getImage(Id);
 }

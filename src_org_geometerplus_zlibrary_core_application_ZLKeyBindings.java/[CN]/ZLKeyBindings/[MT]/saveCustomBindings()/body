@@ -9,8 +9,8 @@
   final ZLStringOption actionOption=new ZLStringOption(ZLOption.CONFIG_CATEGORY,myName,"","");
   for (Iterator it=myBindingsMap.keySet().iterator(); it.hasNext(); ) {
     final String key=(String)it.next();
-    String originalValue=(String)keymap.get(key);
-    String value=(String)myBindingsMap.get(key);
+    final String originalValue=(String)keymap.get(key);
+    final String value=(String)myBindingsMap.get(key);
     if (!value.equals(originalValue)) {
       keyOption.changeName(BINDED_KEY + counter);
       actionOption.changeName(BINDED_ACTION + counter);

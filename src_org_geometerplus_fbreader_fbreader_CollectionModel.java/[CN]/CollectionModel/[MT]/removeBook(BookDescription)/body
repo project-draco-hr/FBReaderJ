@@ -7,7 +7,7 @@
   myBookToParagraphNumber.remove(book);
   ZLTextTreeParagraph paragraph=getTreeParagraph(index);
   int count=1;
-  for (ZLTextTreeParagraph parent=paragraph.getParent(); (parent != null) && (parent.getChildren().size() == 1); parent=parent.getParent()) {
+  for (ZLTextTreeParagraph parent=paragraph.getParent(); (parent != null) && (parent.childNumber() == 1); parent=parent.getParent()) {
     ++count;
   }
   if (count > index) {

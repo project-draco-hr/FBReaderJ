@@ -1,3 +1,0 @@
-{
-  myXMLReader.endElementHandler(qName);
-}

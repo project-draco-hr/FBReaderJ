@@ -4,16 +4,16 @@
   myDialog=ZLDialogManager.getInstance().createOptionsDialog("InfoDialog",actionOnAccept,null,false);
   ZLDialogContent commonTab=myDialog.createTab("Common");
   commonTab.addOption("file",new ZLStringInfoEntry(new ZLFile(fileName).getPath()));
-  commonTab.addOption("title",myBookInfo.getTitleOption());
-  myAuthorDisplayNameEntry=new AuthorDisplayNameEntry(this);
-  myAuthorSortKeyEntry=new AuthorSortKeyEntry(this);
+  commonTab.addOption("title",myBookInfo.TitleOption);
+  myAuthorDisplayNameEntry=new AuthorDisplayNameEntry();
+  myAuthorSortKeyEntry=new AuthorSortKeyEntry();
   myEncodingEntry=new EncodingEntry(myBookInfo.EncodingOption);
   myEncodingSetEntry=(!"auto".equals(myEncodingEntry.initialValue())) ? new EncodingSetEntry((EncodingEntry)myEncodingEntry) : null;
   ArrayList languageCodes=ZLLanguageList.languageCodes();
   languageCodes.add("de-traditional");
   myLanguageEntry=new ZLLanguageOptionEntry(myBookInfo.LanguageOption,languageCodes);
-  mySeriesTitleEntry=new SeriesTitleEntry(this);
-  myBookNumberEntry=new ZLSimpleSpinOptionEntry(myBookInfo.getNumberInSequenceOption(),1);
+  mySeriesTitleEntry=new SeriesTitleEntry();
+  myBookNumberEntry=new ZLSimpleSpinOptionEntry(myBookInfo.NumberInSeriesOption,1);
   commonTab.addOption("authorDisplayName",myAuthorDisplayNameEntry);
   commonTab.addOption("authorSortKey",myAuthorSortKeyEntry);
   commonTab.addOption("language",myLanguageEntry);
@@ -25,5 +25,5 @@
   seriesTab.addOption("seriesTitle",mySeriesTitleEntry);
   seriesTab.addOption("bookNumber",myBookNumberEntry);
   mySeriesTitleEntry.onValueEdited(mySeriesTitleEntry.initialValue());
-  FormatPlugin plugin=FormatPlugin.PluginCollection.instance().getPlugin(new ZLFile(fileName),false);
+  FormatPlugin plugin=PluginCollection.instance().getPlugin(new ZLFile(fileName),false);
 }

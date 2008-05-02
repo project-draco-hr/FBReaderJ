@@ -1,4 +1,3 @@
 {
-  myValue=String.valueOf(value);
-  setActive(false);
+  this("" + value);
 }

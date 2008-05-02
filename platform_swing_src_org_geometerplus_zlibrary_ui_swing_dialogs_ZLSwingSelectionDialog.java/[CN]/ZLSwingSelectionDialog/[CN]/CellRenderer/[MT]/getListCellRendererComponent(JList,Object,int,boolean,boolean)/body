@@ -1,7 +1,7 @@
 {
-  String s=((ZLTreeNode)value).displayName();
-  setText(s);
-  setIcon(ZLSwingSelectionDialog.getIcon((ZLTreeNode)value));
+  final ZLTreeNode node=(ZLTreeNode)value;
+  setText(node.DisplayName);
+  setIcon(ZLSwingSelectionDialog.getIcon(node));
   if (isSelected) {
     setBackground(list.getSelectionBackground());
     setForeground(list.getSelectionForeground());

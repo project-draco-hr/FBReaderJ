@@ -1,11 +1,10 @@
 {
-  if (((ZLTreeNode)o1).isFolder() == ((ZLTreeNode)o2).isFolder()) {
-    return ((ZLTreeNode)o1).displayName().toLowerCase().compareTo(((ZLTreeNode)o2).displayName().toLowerCase());
-  }
- else   if (((ZLTreeNode)o1).isFolder()) {
-    return -1;
+  final ZLTreeNode node1=(ZLTreeNode)o1;
+  final ZLTreeNode node2=(ZLTreeNode)o2;
+  if (node1.IsFolder == node2.IsFolder) {
+    return node1.DisplayName.compareToIgnoreCase(node2.DisplayName);
   }
  else {
-    return 1;
+    return node1.IsFolder ? -1 : 1;
   }
 }

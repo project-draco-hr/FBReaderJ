@@ -1,6 +1,6 @@
 {
-  for (int i=0; i < values5().size(); ++i) {
-    if (values5().get(i).equals(value)) {
+  for (int i=0; i < 5; ++i) {
+    if (ourValues5.get(i).equals(value)) {
       myOption.setValue(i);
       break;
     }

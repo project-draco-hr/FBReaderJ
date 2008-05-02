@@ -2,7 +2,7 @@
   myOption=option;
   myContext=context;
   String value=option.getValue();
-  if (value != null && !value.equals("")) {
+  if (value != null && (value.length() > 0)) {
     option.setValue(myContext.realFontFamilyName(value));
   }
 }

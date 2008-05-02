@@ -1,4 +1,0 @@
-{
-  new ZLOwnHtmlProcessorFactory();
-  myReader.read("src/org.geometerplus.zlibrary/core/html/own/test/subversion.htm");
-}
