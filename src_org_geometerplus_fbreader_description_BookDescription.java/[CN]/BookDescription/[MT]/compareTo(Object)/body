@@ -1,8 +1,7 @@
 {
-  final BookDescription d1=(BookDescription)descr1;
-  final BookDescription d2=(BookDescription)descr2;
-  final Author a1=d1.getAuthor();
-  final Author a2=d2.getAuthor();
+  final BookDescription d=(BookDescription)o;
+  final Author a1=getAuthor();
+  final Author a2=d.getAuthor();
 {
     final int result=a1.getSortKey().compareTo(a2.getSortKey());
     if (result != 0) {
@@ -15,16 +14,16 @@
       return result;
     }
   }
-  final String seriesName1=d1.getSeriesName();
-  final String seriesName2=d2.getSeriesName();
+  final String seriesName1=getSeriesName();
+  final String seriesName2=d.getSeriesName();
   if ((seriesName1.length() == 0) && (seriesName2.length() == 0)) {
-    return d1.getTitle().compareTo(d2.getTitle());
+    return getTitle().compareTo(d.getTitle());
   }
   if (seriesName1.length() == 0) {
-    return d1.getTitle().compareTo(seriesName2);
+    return getTitle().compareTo(seriesName2);
   }
   if (seriesName2.length() == 0) {
-    return seriesName1.compareTo(d2.getTitle());
+    return seriesName1.compareTo(d.getTitle());
   }
 {
     final int result=seriesName1.compareTo(seriesName2);
@@ -32,5 +31,5 @@
       return result;
     }
   }
-  return d1.getNumberInSeries() - d2.getNumberInSeries();
+  return getNumberInSeries() - d.getNumberInSeries();
 }

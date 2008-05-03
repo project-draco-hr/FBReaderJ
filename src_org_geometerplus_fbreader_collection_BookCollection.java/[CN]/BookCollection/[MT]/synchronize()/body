@@ -48,6 +48,6 @@
       addDescription(BookDescription.getDescription((String)fileNames.get(i),false));
     }
   }
-  Collections.sort(myBooks,new DescriptionComparator());
+  Collections.sort(myBooks);
   return true;
 }
