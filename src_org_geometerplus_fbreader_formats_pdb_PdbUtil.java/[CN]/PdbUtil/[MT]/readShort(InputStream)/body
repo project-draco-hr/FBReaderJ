@@ -6,5 +6,5 @@
  catch (  IOException e) {
     return -1;
   }
-  return (short)((tmp[1] & 0xFF) + ((tmp[0] & 0xFF) << 8));
+  return ((tmp[1] & 0xFF) + ((tmp[0] & 0xFF) << 8));
 }
