@@ -1,7 +1,7 @@
 {
   int uid=PdbUtil.readShort(myStream);
   if (uid == 1) {
-    myCompressionVersion=PdbUtil.readShort(myStream);
+    myCompressionVersion=(short)PdbUtil.readShort(myStream);
   }
  else {
     int paragraphs=PdbUtil.readShort(myStream);
@@ -66,6 +66,7 @@ case 3:
       ZLImage image=null;
       if (type == 2) {
         System.out.println("type2");
+        image=new ZLFileImage(mime,myFilePath,myStream.offset());
       }
  else       if (myCompressionVersion == 1) {
       }
@@ -79,7 +80,7 @@ case 3:
 case 9:
   break;
 case 10:
-short typeCode=PdbUtil.readShort(myStream);
+short typeCode=(short)PdbUtil.readShort(myStream);
 break;
 case 11:
 break;
@@ -90,8 +91,8 @@ case 14:
 break;
 case 15:
 {
-short columns=PdbUtil.readShort(myStream);
-short rows=PdbUtil.readShort(myStream);
+short columns=(short)PdbUtil.readShort(myStream);
+short rows=(short)PdbUtil.readShort(myStream);
 break;
 }
 default :
