@@ -1,0 +1,3 @@
+{
+  return ((BookDescription)books.get(index)).getAuthor();
+}
