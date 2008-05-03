@@ -5,6 +5,6 @@
   if (!(o instanceof Author)) {
     return false;
   }
-  Author author=(Author)o;
-  return getSortKey().equals(author.getSortKey()) && getDisplayName().equals(author.getDisplayName());
+  Author a=(Author)o;
+  return getSortKey().equals(a.getSortKey()) && getDisplayName().equals(a.getDisplayName());
 }

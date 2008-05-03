@@ -8,13 +8,12 @@
   myDoWeakRebuild=false;
   myDoStrongRebuild=false;
   if (doStrongRebuild) {
+    myBooks.clear();
     myAuthors.clear();
-    myCollection.clear();
     myExternalBooks.clear();
-    final ArrayList fileNamesSet=collectBookFileNames();
-    final int sizeOfSet=fileNamesSet.size();
-    for (int i=0; i < sizeOfSet; ++i) {
-      addDescription(BookDescription.getDescription((String)fileNamesSet.get(i)));
+    final HashSet fileNamesSet=collectBookFileNames();
+    for (Iterator it=fileNamesSet.iterator(); it.hasNext(); ) {
+      addDescription(BookDescription.getDescription((String)it.next()));
     }
     final ArrayList bookListFileNames=new BookList().fileNames();
     final int sizeOfList=bookListFileNames.size();
@@ -24,43 +23,31 @@
         BookDescription description=BookDescription.getDescription(fileName);
         if (description != null) {
           addDescription(description);
-          addExternalBook(description);
+          myExternalBooks.add(description);
         }
       }
     }
   }
  else {
     final BookList bookList=new BookList();
-    final ArrayList bookListSet=bookList.fileNames();
+    final ArrayList bookListFileNames=bookList.fileNames();
     final ArrayList fileNames=new ArrayList();
-    final ArrayList list=new ArrayList(myCollection.keySet());
-    for (int i=0; i < list.size(); ++i) {
-      final ArrayList books=(ArrayList)myCollection.get(list.get(i));
-      final int numberOfBooks=books.size();
-      for (int j=0; j < numberOfBooks; ++j) {
-        final BookDescription description=(BookDescription)books.get(j);
-        final String fileName=description.FileName;
-        if (!myExternalBooks.contains(description) || bookListSet.contains(fileName)) {
-          fileNames.add(fileName);
-        }
+    final ArrayList books=myBooks;
+    final int booksLen=books.size();
+    for (int i=0; i < booksLen; ++i) {
+      final BookDescription book=(BookDescription)books.get(i);
+      final String bookFileName=book.FileName;
+      if (!myExternalBooks.contains(book) || bookListFileNames.contains(bookFileName)) {
+        fileNames.add(bookFileName);
       }
     }
-    myCollection.clear();
+    myBooks.clear();
     myAuthors.clear();
-    final int fileNamesSize=fileNames.size();
-    for (int i=0; i < fileNamesSize; ++i) {
+    final int fileNamesLen=fileNames.size();
+    for (int i=0; i < fileNamesLen; ++i) {
       addDescription(BookDescription.getDescription((String)fileNames.get(i),false));
     }
   }
-  if (myAuthors != null) {
-    Collections.sort(myAuthors,new Author.AuthorComparator());
-  }
-  DescriptionComparator descriptionComparator=new DescriptionComparator();
-  for (Iterator it=myCollection.keySet().iterator(); it.hasNext(); ) {
-    ArrayList list=(ArrayList)myCollection.get(it.next());
-    if (list != null) {
-      Collections.sort(list,descriptionComparator);
-    }
-  }
+  Collections.sort(myBooks,new DescriptionComparator());
   return true;
 }

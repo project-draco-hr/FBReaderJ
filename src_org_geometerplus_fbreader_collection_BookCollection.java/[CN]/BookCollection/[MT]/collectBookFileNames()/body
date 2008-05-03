@@ -1,23 +1,21 @@
 {
-  final ArrayList bookFileNames=new ArrayList();
-  final ArrayList dirs=collectDirNames();
-  final int numberOfDirs=dirs.size();
-  for (int i=0; i < numberOfDirs; ++i) {
-    final String dirfile=(String)dirs.get(i);
-    final ZLDir dir=new ZLFile(dirfile).getDirectory();
+  final HashSet dirs=collectDirNames();
+  final HashSet bookFileNames=new HashSet();
+  for (Iterator it=dirs.iterator(); it.hasNext(); ) {
+    final ZLDir dir=new ZLFile((String)it.next()).getDirectory();
     if (dir == null) {
       continue;
     }
-    final PluginCollection collection=PluginCollection.instance();
     final ArrayList files=dir.collectFiles();
-    final int numberOfFiles=files.size();
-    for (int j=0; j < numberOfFiles; ++j) {
-      String fileName=dir.getItemPath((String)files.get(j));
-      ZLFile file=new ZLFile(fileName);
-      if (collection.getPlugin(file,true) != null) {
-        if (!bookFileNames.contains(fileName)) {
-          bookFileNames.add(fileName);
-        }
+    if (files.isEmpty()) {
+      continue;
+    }
+    final int len=files.size();
+    for (int i=0; i < len; ++i) {
+      final String fileName=dir.getItemPath((String)files.get(i));
+      final ZLFile file=new ZLFile(fileName);
+      if (PluginCollection.instance().getPlugin(file,true) != null) {
+        bookFileNames.add(fileName);
       }
  else       if (file.getExtension().equals("zip")) {
         if (!BookDescriptionUtil.checkInfo(file)) {
@@ -26,11 +24,11 @@
         }
         final ArrayList zipEntries=new ArrayList();
         BookDescriptionUtil.listZipEntries(file,zipEntries);
-        final int numberOfZipEntries=zipEntries.size();
-        for (int k=0; k < numberOfZipEntries; ++k) {
-          String str=(String)zipEntries.get(k);
-          if (!bookFileNames.contains(str)) {
-            bookFileNames.add(str);
+        final int zipEntriesLen=zipEntries.size();
+        for (int j=0; j < zipEntriesLen; ++j) {
+          final String entryName=(String)zipEntries.get(j);
+          if (!bookFileNames.contains(entryName)) {
+            bookFileNames.add(entryName);
           }
         }
       }

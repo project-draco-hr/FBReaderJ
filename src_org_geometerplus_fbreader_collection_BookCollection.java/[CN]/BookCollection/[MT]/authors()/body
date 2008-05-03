@@ -1,4 +1,17 @@
 {
   synchronize();
+  if (myAuthors.isEmpty() && !myBooks.isEmpty()) {
+    final ArrayList books=myBooks;
+    final ArrayList authors=myAuthors;
+    final int len=books.size();
+    Author author=null;
+    for (int i=0; i < len; ++i) {
+      Author newAuthor=((BookDescription)books.get(i)).getAuthor();
+      if ((author == null) || (author.getSortKey() != newAuthor.getSortKey()) || (author.getDisplayName() != newAuthor.getDisplayName())) {
+        author=newAuthor;
+        authors.add(author);
+      }
+    }
+  }
   return myAuthors;
 }

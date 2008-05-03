@@ -1,13 +1,5 @@
 {
-  if (description == null) {
-    return;
+  if (description != null) {
+    myBooks.add(description);
   }
-  final Author author=description.getAuthor();
-  ArrayList books=(ArrayList)myCollection.get(author);
-  if (books == null) {
-    books=new ArrayList();
-    myCollection.put(author,books);
-    myAuthors.add(author);
-  }
-  books.add(description);
 }

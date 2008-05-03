@@ -1,4 +1,0 @@
-{
-  synchronize();
-  return (ArrayList)myCollection.get(author);
-}

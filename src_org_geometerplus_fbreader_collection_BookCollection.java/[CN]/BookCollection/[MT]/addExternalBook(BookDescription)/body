@@ -1,5 +1,0 @@
-{
-  if (!myExternalBooks.contains(bookDescription)) {
-    myExternalBooks.add(bookDescription);
-  }
-}
