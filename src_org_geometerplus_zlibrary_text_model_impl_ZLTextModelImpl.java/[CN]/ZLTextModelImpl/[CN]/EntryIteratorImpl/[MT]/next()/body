@@ -37,13 +37,19 @@ myControlIsHyperlink=false;
 break;
 }
 case ZLTextParagraph.Entry.IMAGE:
-myImageEntry=(ZLImageEntry)myEntries.get((int)data[dataOffset++]);
+{
+final int entryAddress=((int)data[dataOffset++] << 16) + (int)data[dataOffset++];
+myImageEntry=(ZLImageEntry)myEntries.get(entryAddress);
 break;
+}
 case ZLTextParagraph.Entry.FIXED_HSPACE:
 myFixedHSpaceLength=(short)data[dataOffset++];
 break;
 case ZLTextParagraph.Entry.FORCED_CONTROL:
+{
+final int entryAddress=((int)data[dataOffset++] << 16) + (int)data[dataOffset++];
 break;
+}
 }
 ++myCounter;
 myDataOffset=dataOffset;
