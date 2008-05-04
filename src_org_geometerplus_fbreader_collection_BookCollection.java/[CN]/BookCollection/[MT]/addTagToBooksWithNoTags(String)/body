@@ -1,2 +1,14 @@
 {
+  final String checkedName=BookDescriptionUtil.removeWhiteSpacesFromTag(tag);
+  if (checkedName.length() != 0) {
+    synchronize();
+    final ArrayList books=myBooks;
+    final int len=books.size();
+    for (int i=0; i < len; ++i) {
+      BookDescription description=(BookDescription)books.get(i);
+      if (description.getTags().isEmpty()) {
+        new BookDescription.WritableBookDescription(description).addTag(checkedName,false);
+      }
+    }
+  }
 }
