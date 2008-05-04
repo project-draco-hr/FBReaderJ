@@ -7,4 +7,10 @@
   final String tagValue=tagIsSpecial ? "" : tag;
   final boolean editNotClone=tag != SpecialTagAllBooks;
   final boolean includeSubtags=!tagIsSpecial && Collection.hasSubtags(tag);
+  final ZLDialog dialog=ZLDialogManager.getInstance().createDialog("editTagInfoDialog");
+  final String editOrCloneKey="editOrClone";
+  final EditOrCloneEntry editOrCloneEntry=new EditOrCloneEntry(dialog.getResource(editOrCloneKey),editNotClone);
+  editOrCloneEntry.setActive(!tagIsSpecial);
+  dialog.addOption(editOrCloneKey,editOrCloneEntry);
+  dialog.run();
 }

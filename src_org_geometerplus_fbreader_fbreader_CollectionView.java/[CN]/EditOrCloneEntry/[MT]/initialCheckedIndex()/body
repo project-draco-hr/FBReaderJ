@@ -1,0 +1,3 @@
+{
+  return myEditNotClone ? 0 : 1;
+}
