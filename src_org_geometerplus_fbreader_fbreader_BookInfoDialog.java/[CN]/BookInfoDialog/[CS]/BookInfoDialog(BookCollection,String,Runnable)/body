@@ -25,5 +25,6 @@
   seriesTab.addOption("seriesTitle",mySeriesTitleEntry);
   seriesTab.addOption("bookNumber",myBookNumberEntry);
   mySeriesTitleEntry.onValueEdited(mySeriesTitleEntry.initialValue());
-  FormatPlugin plugin=PluginCollection.instance().getPlugin(new ZLFile(fileName),false);
+  ZLDialogContent tagsTab=myDialog.createTab("Tags");
+  tagsTab.addOption("tags",myBookInfo.TagsOption);
 }

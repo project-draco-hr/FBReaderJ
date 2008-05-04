@@ -1,0 +1,16 @@
+{
+  synchronize();
+  final String prefix=tag + '/';
+  final ArrayList books=myBooks;
+  final int len=books.size();
+  for (int i=0; i < len; ++i) {
+    final ArrayList tags=((BookDescription)books.get(i)).getTags();
+    final int tagsLen=tags.size();
+    for (int j=0; j < tagsLen; ++j) {
+      if (((String)tags.get(j)).startsWith(prefix)) {
+        return true;
+      }
+    }
+  }
+  return false;
+}

@@ -6,4 +6,5 @@
   NumberInSeriesOption.setValue(0);
   LanguageOption.setValue(UNKNOWN);
   EncodingOption.setValue(EMPTY);
+  TagsOption.setValue(EMPTY);
 }

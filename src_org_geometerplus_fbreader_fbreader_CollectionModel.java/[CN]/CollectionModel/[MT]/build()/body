@@ -4,6 +4,11 @@
     insertText(FBTextKind.REGULAR,ZLResource.resource("library").getResource("noBooks").getValue());
   }
  else {
-    buildWithoutTags();
+    if (myView.ShowTagsOption.getValue()) {
+      buildWithTags();
+    }
+ else {
+      buildWithoutTags();
+    }
   }
 }

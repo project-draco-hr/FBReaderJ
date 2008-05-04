@@ -1,0 +1,25 @@
+{
+  if (tag == "genre") {
+    myCategoryName=null;
+    mySubCategoryName=null;
+    myGenreIds.clear();
+  }
+ else   if (tag == "subgenre") {
+    if ((myCategoryName != null) && (mySubCategoryName != null)) {
+      final String fullTagName=myCategoryName + '/' + mySubCategoryName;
+      final int len=myGenreIds.size();
+      for (int i=0; i < len; ++i) {
+        final Object id=myGenreIds.get(i);
+        ArrayList list=(ArrayList)ourMap.get(id);
+        if (list == null) {
+          list=new ArrayList();
+          ourMap.put(id,list);
+        }
+        list.add(fullTagName);
+      }
+    }
+    mySubCategoryName=null;
+    myGenreIds.clear();
+  }
+  return false;
+}

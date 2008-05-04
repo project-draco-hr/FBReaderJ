@@ -1,0 +1,25 @@
+{
+  if ((tag == "subgenre") || (tag == "genre-alt")) {
+    final String id=attributes.getValue("value");
+    if (id != null) {
+      myGenreIds.add(id);
+    }
+  }
+ else   if (tag == "root-descr") {
+    if (myLanguage == attributes.getValue("lang")) {
+      final String name=attributes.getValue("genre-title");
+      if (name != null) {
+        myCategoryName=name.trim();
+      }
+    }
+  }
+ else   if (tag == "genre-descr") {
+    if (myLanguage == attributes.getValue("lang")) {
+      final String name=attributes.getValue("title");
+      if (name != null) {
+        mySubCategoryName=name.trim();
+      }
+    }
+  }
+  return false;
+}

@@ -1,4 +1,0 @@
-{
-  Integer num=(Integer)myBookToParagraphNumber.get(book);
-  return (num != null) ? num.intValue() : -1;
-}

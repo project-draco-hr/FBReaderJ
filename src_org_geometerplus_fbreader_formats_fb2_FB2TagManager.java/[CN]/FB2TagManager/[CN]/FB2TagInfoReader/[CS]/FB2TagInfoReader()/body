@@ -1,0 +1,4 @@
+{
+  final String language=Locale.getDefault().getLanguage();
+  myLanguage=("ru".equals(language)) ? "ru" : "en";
+}

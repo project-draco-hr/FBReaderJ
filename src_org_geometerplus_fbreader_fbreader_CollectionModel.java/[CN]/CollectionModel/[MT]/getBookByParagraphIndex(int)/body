@@ -1,0 +1,6 @@
+{
+  if ((index < 0) || ((int)getParagraphsNumber() <= index)) {
+    return null;
+  }
+  return (BookDescription)myParagraphToBook.get(getParagraph(index));
+}

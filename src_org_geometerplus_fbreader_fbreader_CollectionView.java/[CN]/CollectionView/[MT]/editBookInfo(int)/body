@@ -1,0 +1,16 @@
+{
+  final BookDescription book=getCollectionModel().getBookByParagraphIndex(paragraphIndex);
+  if (book == null) {
+    return;
+  }
+  Runnable action=new Runnable(){
+    public void run(){
+      Collection.rebuild(false);
+      myUpdateModel=true;
+      selectBook(book);
+      Application.refreshWindow();
+    }
+  }
+;
+  new BookInfoDialog(Collection,book.FileName,action).getDialog().run();
+}

@@ -3,7 +3,5 @@
   myDescription.clearAuthor();
   myDescription.setTitle("");
   myDescription.setLanguage("");
-  myAuthorNames[0]="";
-  myAuthorNames[1]="";
-  myAuthorNames[2]="";
+  myDescription.removeAllTags();
 }

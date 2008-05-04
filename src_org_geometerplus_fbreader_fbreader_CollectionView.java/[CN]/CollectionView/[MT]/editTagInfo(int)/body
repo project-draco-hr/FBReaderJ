@@ -1,0 +1,6 @@
+{
+  final String tag=getCollectionModel().getTagByParagraphIndex(paragraphIndex);
+  if (tag == null) {
+    return;
+  }
+}

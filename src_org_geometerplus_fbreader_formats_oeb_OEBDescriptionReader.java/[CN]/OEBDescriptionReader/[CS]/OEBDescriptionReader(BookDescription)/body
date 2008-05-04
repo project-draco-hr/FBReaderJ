@@ -2,4 +2,5 @@
   myDescription=new BookDescription.WritableBookDescription(description);
   myDescription.clearAuthor();
   myDescription.setTitle("");
+  myDescription.removeAllTags();
 }

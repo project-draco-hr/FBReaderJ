@@ -1,16 +1,37 @@
 {
 switch (FB2Tag.getTagByName(tag)) {
 case FB2Tag.TITLE_INFO:
-    myReadSomething=false;
+    myReadState=READ_NOTHING;
   break;
 case FB2Tag.BOOK_TITLE:
-myReadTitle=false;
+if (myReadState == READ_TITLE) {
+  myReadState=READ_SOMETHING;
+}
+break;
+case FB2Tag.GENRE:
+if (myReadState == READ_GENRE) {
+final String genre=myGenreBuffer.toString().trim();
+myGenreBuffer.delete(0,myGenreBuffer.length());
+if (genre.length() > 0) {
+final ArrayList tags=FB2TagManager.humanReadableTags(genre);
+if (tags != null) {
+  final int len=tags.size();
+  for (int i=0; i < len; ++i) {
+    myDescription.addTag((String)tags.get(i),false);
+  }
+}
+ else {
+  myDescription.addTag(genre,true);
+}
+}
+myReadState=READ_SOMETHING;
+}
 break;
 case FB2Tag.AUTHOR:
-if (myReadSomething) {
-myAuthorNames[0].trim();
-myAuthorNames[1].trim();
-myAuthorNames[2].trim();
+if (myReadState == READ_AUTHOR) {
+myAuthorNames[0]=myAuthorNames[0].trim();
+myAuthorNames[1]=myAuthorNames[1].trim();
+myAuthorNames[2]=myAuthorNames[2].trim();
 String fullName=myAuthorNames[0];
 if (fullName.length() != 0 && myAuthorNames[1].length() != 0) {
 fullName+=' ';
@@ -24,20 +45,28 @@ myDescription.addAuthor(fullName,myAuthorNames[2]);
 myAuthorNames[0]="";
 myAuthorNames[1]="";
 myAuthorNames[2]="";
-myReadAuthor=false;
+myReadState=READ_SOMETHING;
 }
 break;
 case FB2Tag.LANG:
-myReadLanguage=false;
+if (myReadState == READ_LANGUAGE) {
+myReadState=READ_SOMETHING;
+}
 break;
 case FB2Tag.FIRST_NAME:
-myReadAuthorName[0]=false;
+if (myReadState == READ_AUTHOR_NAME_0) {
+myReadState=READ_AUTHOR;
+}
 break;
 case FB2Tag.MIDDLE_NAME:
-myReadAuthorName[1]=false;
+if (myReadState == READ_AUTHOR_NAME_1) {
+myReadState=READ_AUTHOR;
+}
 break;
 case FB2Tag.LAST_NAME:
-myReadAuthorName[2]=false;
+if (myReadState == READ_AUTHOR_NAME_2) {
+myReadState=READ_AUTHOR;
+}
 break;
 default :
 break;

@@ -1,9 +1,11 @@
 {
-  AuthorDisplayNameOption=new ZLStringOption(FBOptions.BOOKS_CATEGORY,fileName,"AuthorDisplayName",EMPTY);
-  AuthorSortKeyOption=new ZLStringOption(FBOptions.BOOKS_CATEGORY,fileName,"AuthorSortKey",EMPTY);
-  TitleOption=new ZLStringOption(FBOptions.BOOKS_CATEGORY,fileName,"Title",EMPTY);
-  SeriesNameOption=new ZLStringOption(FBOptions.BOOKS_CATEGORY,fileName,"Sequence",EMPTY);
-  NumberInSeriesOption=new ZLIntegerRangeOption(FBOptions.BOOKS_CATEGORY,fileName,"Number in seq",0,100,0);
-  LanguageOption=new ZLStringOption(FBOptions.BOOKS_CATEGORY,fileName,"Language",UNKNOWN);
-  EncodingOption=new ZLStringOption(FBOptions.BOOKS_CATEGORY,fileName,"Encoding",EMPTY);
+  final String category=FBOptions.BOOKS_CATEGORY;
+  AuthorDisplayNameOption=new ZLStringOption(category,fileName,"AuthorDisplayName",EMPTY);
+  AuthorSortKeyOption=new ZLStringOption(category,fileName,"AuthorSortKey",EMPTY);
+  TitleOption=new ZLStringOption(category,fileName,"Title",EMPTY);
+  SeriesNameOption=new ZLStringOption(category,fileName,"Sequence",EMPTY);
+  NumberInSeriesOption=new ZLIntegerRangeOption(category,fileName,"Number in seq",0,100,0);
+  LanguageOption=new ZLStringOption(category,fileName,"Language",UNKNOWN);
+  EncodingOption=new ZLStringOption(category,fileName,"Encoding",EMPTY);
+  TagsOption=new ZLStringOption(category,fileName,"TagList",EMPTY);
 }

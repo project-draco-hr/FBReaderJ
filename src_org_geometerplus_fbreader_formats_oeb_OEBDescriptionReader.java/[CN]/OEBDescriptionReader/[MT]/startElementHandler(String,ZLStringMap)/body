@@ -17,6 +17,9 @@
         myReadState=READ_AUTHOR;
       }
     }
+ else     if (tag == mySubjectTag) {
+      myReadState=READ_SUBJECT;
+    }
   }
   return false;
 }

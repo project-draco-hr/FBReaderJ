@@ -5,17 +5,22 @@
   }
   final String bufferContent=myBuffer.toString().trim();
   if (bufferContent.length() != 0) {
-    if (myReadState == READ_TITLE) {
+switch (myReadState) {
+case READ_TITLE:
       myDescription.setTitle(bufferContent);
-    }
- else     if (myReadState == READ_AUTHOR) {
-      myAuthorList.add(bufferContent);
-    }
- else     if (myReadState == READ_AUTHOR2) {
-      myAuthorList2.add(bufferContent);
-    }
-  }
-  myBuffer.delete(0,myBuffer.length());
-  myReadState=READ_NONE;
-  return false;
+    break;
+case READ_AUTHOR:
+  myAuthorList.add(bufferContent);
+break;
+case READ_AUTHOR2:
+myAuthorList2.add(bufferContent);
+break;
+case READ_SUBJECT:
+myDescription.addTag(bufferContent,true);
+break;
+}
+}
+myBuffer.delete(0,myBuffer.length());
+myReadState=READ_NONE;
+return false;
 }

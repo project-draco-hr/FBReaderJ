@@ -1,15 +1,7 @@
 {
   final BookDescription d=(BookDescription)o;
-  final Author a1=getAuthor();
-  final Author a2=d.getAuthor();
 {
-    final int result=a1.getSortKey().compareTo(a2.getSortKey());
-    if (result != 0) {
-      return result;
-    }
-  }
-{
-    final int result=a1.getDisplayName().compareTo(a2.getDisplayName());
+    final int result=getAuthor().compareTo(d.getAuthor());
     if (result != 0) {
       return result;
     }

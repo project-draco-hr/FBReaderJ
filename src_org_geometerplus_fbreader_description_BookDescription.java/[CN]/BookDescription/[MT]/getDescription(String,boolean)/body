@@ -20,6 +20,18 @@
     description.myNumberInSeries=info.NumberInSeriesOption.getValue();
     description.myLanguage=info.LanguageOption.getValue();
     description.myEncoding=info.EncodingOption.getValue();
+    description.myTags.clear();
+    final String tagList=info.TagsOption.getValue();
+    if (tagList.length() > 0) {
+      int index=0;
+      do {
+        final int newIndex=tagList.indexOf(',',index);
+        final String tagName=(newIndex == -1) ? tagList.substring(index) : tagList.substring(index,newIndex);
+        description.addTag(tagName,true);
+        index=newIndex + 1;
+      }
+ while (index != 0);
+    }
     if (info.isFull()) {
       return description;
     }

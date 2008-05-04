@@ -1,19 +1,22 @@
 {
-  final String text=new String(ch).substring(start,start + length);
-  if (myReadSomething) {
-    if (myReadTitle) {
-      myDescription.setTitle(myDescription.getTitle() + text);
-    }
- else     if (myReadLanguage) {
-      myDescription.setLanguage(myDescription.getLanguage() + text);
-    }
- else {
-      for (int i=0; i < 3; ++i) {
-        if (myReadAuthorName[i]) {
-          myAuthorNames[i]+=text;
-          break;
-        }
-      }
-    }
-  }
+switch (myReadState) {
+case READ_TITLE:
+    myDescription.setTitle(myDescription.getTitle() + new String(data,start,length));
+  break;
+case READ_LANGUAGE:
+myDescription.setLanguage(myDescription.getLanguage() + new String(data,start,length));
+break;
+case READ_AUTHOR_NAME_0:
+myAuthorNames[0]+=new String(data,start,length);
+break;
+case READ_AUTHOR_NAME_1:
+myAuthorNames[1]+=new String(data,start,length);
+break;
+case READ_AUTHOR_NAME_2:
+myAuthorNames[2]+=new String(data,start,length);
+break;
+case READ_GENRE:
+myGenreBuffer.append(data,start,length);
+break;
+}
 }

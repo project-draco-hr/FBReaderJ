@@ -1,0 +1,16 @@
+{
+  final ArrayList tags=myTags;
+  if (tags.isEmpty()) {
+    tagsOption.setValue("");
+  }
+ else {
+    final StringBuilder tagString=new StringBuilder();
+    tagString.append(tags.get(0));
+    final int len=tags.size();
+    for (int i=1; i < len; ++i) {
+      tagString.append(",");
+      tagString.append(tags.get(i));
+    }
+    tagsOption.setValue(tagString.toString());
+  }
+}

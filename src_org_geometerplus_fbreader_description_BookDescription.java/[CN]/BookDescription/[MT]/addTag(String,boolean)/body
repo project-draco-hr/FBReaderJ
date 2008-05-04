@@ -1,0 +1,10 @@
+{
+  if (check) {
+    tag=BookDescriptionUtil.removeWhiteSpacesFromTag(tag);
+  }
+  if ((tag.length() > 0) && !myTags.contains(tag)) {
+    myTags.add(tag);
+    return true;
+  }
+  return false;
+}

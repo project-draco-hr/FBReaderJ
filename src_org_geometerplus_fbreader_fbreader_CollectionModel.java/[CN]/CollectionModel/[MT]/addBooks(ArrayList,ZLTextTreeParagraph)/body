@@ -31,6 +31,11 @@
       insertImage(RemoveBookImageId);
     }
     myParagraphToBook.put(bookParagraph,description);
-    myBookToParagraphNumber.put(description,getParagraphsNumber() - 1);
+    ArrayList numbers=(ArrayList)myBookToParagraph.get(description);
+    if (numbers == null) {
+      numbers=new ArrayList();
+      myBookToParagraph.put(description,numbers);
+    }
+    numbers.add(getParagraphsNumber() - 1);
   }
 }
