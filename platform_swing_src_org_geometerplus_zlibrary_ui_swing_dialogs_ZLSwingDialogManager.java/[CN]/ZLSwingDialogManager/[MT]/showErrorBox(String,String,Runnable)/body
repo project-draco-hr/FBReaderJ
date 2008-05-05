@@ -1,3 +1,6 @@
 {
   JOptionPane.showMessageDialog(myApplicationWindow.getFrame(),message,getDialogTitle(key),1,null);
+  if (action != null) {
+    action.run();
+  }
 }
