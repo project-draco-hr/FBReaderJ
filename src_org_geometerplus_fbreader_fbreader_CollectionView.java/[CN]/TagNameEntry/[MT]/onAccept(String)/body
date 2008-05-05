@@ -1,3 +1,12 @@
 {
   myValue=value;
+  if (!myValuesList.contains(value)) {
+    if (myAddedManualValue) {
+      myValuesList.set(0,value);
+    }
+ else {
+      myAddedManualValue=true;
+      myValuesList.add(0,value);
+    }
+  }
 }
