@@ -1,3 +1,3 @@
 {
-  AlertDialog.show(myActivity,null,iconId,message,getButtonText(OK_BUTTON),null,true,null);
+  AlertDialog.show(myActivity,null,iconId,message,getButtonText(OK_BUTTON).replaceAll("&",""),null,true,null);
 }

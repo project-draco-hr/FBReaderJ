@@ -1,4 +1,13 @@
 {
   final AlertListener al=new AlertListener(action0,action1,action2);
+  if (button0 != null) {
+    button0.replaceAll("&","");
+  }
+  if (button1 != null) {
+    button1.replaceAll("&","");
+  }
+  if (button2 != null) {
+    button2.replaceAll("&","");
+  }
   AlertDialog.show(myActivity,null,0,message,button0,al,button1,al,button2,al,true,null);
 }

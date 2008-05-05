@@ -1,5 +1,5 @@
 {
-  AlertDialog.show(myActivity,null,0,message,getButtonText(OK_BUTTON),new DialogInterface.OnClickListener(){
+  AlertDialog.show(myActivity,null,0,message,getButtonText(OK_BUTTON).replaceAll("&",""),new DialogInterface.OnClickListener(){
     public void onClick(    DialogInterface dialog,    int which){
       action.run();
     }
