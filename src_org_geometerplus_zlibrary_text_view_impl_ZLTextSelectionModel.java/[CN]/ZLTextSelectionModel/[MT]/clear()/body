@@ -1,4 +1,5 @@
 {
+  stopSelectionScrolling();
   myIsEmpty=true;
   myIsActive=false;
   myDoUpdate=false;
