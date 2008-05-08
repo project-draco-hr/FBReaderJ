@@ -1,9 +1,9 @@
 {
   int left=0;
-  int right=size();
+  int right=myLength;
   while (left < right) {
     final int middle=(left + right) / 2;
-    final ZLTextRectangularArea candidate=(ZLTextRectangularArea)get(middle);
+    final ZLTextRectangularArea candidate=myData[middle];
     if (candidate.YStart > y) {
       right=middle;
     }

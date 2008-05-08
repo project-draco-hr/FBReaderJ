@@ -1,9 +1,9 @@
 {
-  ZLTextParagraph paragraph=myModel.getParagraph(myIndex);
+  ZLTextParagraph paragraph=myModel.getParagraph(Index);
 switch (paragraph.getKind()) {
 case ZLTextParagraph.Kind.TEXT_PARAGRAPH:
 case ZLTextParagraph.Kind.TREE_PARAGRAPH:
-    new StandardProcessor(paragraph,myModel.getMarks(),myIndex,myElements).fill();
+    new Processor(paragraph,myModel.getMarks(),Index,myElements).fill();
   break;
 default :
 break;

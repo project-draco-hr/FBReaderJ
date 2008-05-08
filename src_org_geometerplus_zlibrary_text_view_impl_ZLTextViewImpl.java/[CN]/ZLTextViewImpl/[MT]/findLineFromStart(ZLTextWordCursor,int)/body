@@ -16,6 +16,6 @@
       }
     }
     cursor.setCursor(info.ParagraphCursor);
-    cursor.moveTo(info.EndWordNumber,info.EndCharNumber);
+    cursor.moveTo(info.EndWordIndex,info.EndCharIndex);
   }
 }

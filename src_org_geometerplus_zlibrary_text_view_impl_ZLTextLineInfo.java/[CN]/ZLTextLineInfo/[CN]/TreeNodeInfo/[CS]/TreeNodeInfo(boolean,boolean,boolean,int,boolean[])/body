@@ -2,6 +2,6 @@
   IsLeaf=isLeaf;
   IsOpen=isOpen;
   IsFirstLine=isFirstLine;
-  ParagraphNumber=paragraphNumber;
+  ParagraphIndex=paragraphIndex;
   VerticalLinesStack=stack;
 }

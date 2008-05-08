@@ -1,9 +1,9 @@
 {
   super.preparePaintInfo();
   if (myPositionStack.isEmpty()) {
-    myPositionStack.add(new Position(getStartCursor()));
+    myPositionStack.add(new Position(StartCursor));
   }
  else {
-    ((Position)myPositionStack.get(myCurrentPointInStack)).set(getStartCursor());
+    ((Position)myPositionStack.get(myCurrentPointInStack)).set(StartCursor);
   }
 }

@@ -1,11 +1,11 @@
 {
   final ZLTextTreeModel model=(ZLTextTreeModel)myModel;
-  if (myIndex + 1 == model.getParagraphsNumber()) {
+  if (Index + 1 == model.getParagraphsNumber()) {
     return null;
   }
-  ZLTextTreeParagraph current=model.getTreeParagraph(myIndex);
+  ZLTextTreeParagraph current=model.getTreeParagraph(Index);
   if (current.hasChildren() && current.isOpen()) {
-    return cursor(model,myIndex + 1);
+    return cursor(model,Index + 1);
   }
   ZLTextTreeParagraph parent=current.getParent();
   while ((parent != null) && (current.isLastChild())) {
@@ -13,7 +13,7 @@
     parent=current.getParent();
   }
   if (parent != null) {
-    int index=myIndex + 1;
+    int index=Index + 1;
     while (model.getTreeParagraph(index).getParent() != parent) {
       ++index;
     }

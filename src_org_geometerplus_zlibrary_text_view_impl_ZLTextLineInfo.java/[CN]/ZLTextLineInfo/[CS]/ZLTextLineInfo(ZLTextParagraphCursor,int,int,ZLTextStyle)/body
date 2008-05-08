@@ -1,11 +1,11 @@
 {
   ParagraphCursor=paragraphCursor;
   ParagraphCursorLength=paragraphCursor.getParagraphLength();
-  StartWordNumber=wordNumber;
-  StartCharNumber=charNumber;
-  RealStartWordNumber=wordNumber;
-  RealStartCharNumber=charNumber;
-  EndWordNumber=wordNumber;
-  EndCharNumber=charNumber;
+  StartWordIndex=wordIndex;
+  StartCharIndex=charIndex;
+  RealStartWordIndex=wordIndex;
+  RealStartCharIndex=charIndex;
+  EndWordIndex=wordIndex;
+  EndCharIndex=charIndex;
   StartStyle=style;
 }

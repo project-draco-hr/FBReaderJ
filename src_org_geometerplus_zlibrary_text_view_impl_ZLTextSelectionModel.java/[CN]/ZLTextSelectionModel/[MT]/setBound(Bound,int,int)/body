@@ -1,2 +1,63 @@
 {
+  final ZLTextRectangularAreaVector areaVector=myView.myTextElementMap;
+  if (areaVector.isEmpty()) {
+    return;
+  }
+  final int areaVectorSize=areaVector.size();
+  int areaIndex=0;
+  ZLTextRectangularArea area=null;
+  for (; areaIndex < areaVectorSize; ++areaIndex) {
+    area=areaVector.get(areaIndex);
+    if ((area.YStart > y) || ((area.YEnd > y) && (area.XEnd > x))) {
+      break;
+    }
+  }
+  final ZLTextElementArea elementArea=(ZLTextElementArea)area;
+  if (areaIndex < areaVectorSize) {
+    bound.After.ParagraphIndex=elementArea.ParagraphIndex;
+    bound.After.TextElementIndex=elementArea.TextElementIndex;
+    bound.After.Exists=true;
+    bound.After.CharIndex=elementArea.StartCharIndex;
+    if (elementArea.contains(x,y)) {
+      bound.Before.ParagraphIndex=bound.After.ParagraphIndex;
+      bound.Before.TextElementIndex=bound.After.TextElementIndex;
+      bound.Before.Exists=true;
+      if (elementArea.Element instanceof ZLTextWord) {
+        myView.setTextStyle(elementArea.Style);
+        final ZLTextWord word=(ZLTextWord)elementArea.Element;
+        final int deltaX=x - elementArea.XStart;
+        final int start=elementArea.StartCharIndex;
+        final int len=elementArea.Length;
+        int diff=deltaX;
+        int previousDiff=diff;
+        int index;
+        for (index=0; (index < len) && (diff > 0); ++index) {
+          previousDiff=diff;
+          diff=deltaX - ZLTextViewImpl.getWordWidth(myView.Context,word,start,index + 1);
+        }
+        if (previousDiff + diff < 0) {
+          --index;
+        }
+        bound.After.CharIndex=start + index;
+        bound.Before.CharIndex=bound.After.CharIndex;
+      }
+    }
+ else     if (areaIndex == 0) {
+      bound.Before.Exists=false;
+    }
+ else {
+      final ZLTextElementArea previous=(ZLTextElementArea)areaVector.get(areaIndex - 1);
+      bound.Before.ParagraphIndex=previous.ParagraphIndex;
+      bound.Before.TextElementIndex=previous.TextElementIndex;
+      bound.Before.CharIndex=previous.StartCharIndex + previous.Length;
+      bound.Before.Exists=true;
+    }
+  }
+ else {
+    bound.Before.ParagraphIndex=elementArea.ParagraphIndex;
+    bound.Before.TextElementIndex=elementArea.TextElementIndex;
+    bound.Before.CharIndex=elementArea.StartCharIndex + elementArea.Length;
+    bound.Before.Exists=true;
+    bound.After.Exists=false;
+  }
 }

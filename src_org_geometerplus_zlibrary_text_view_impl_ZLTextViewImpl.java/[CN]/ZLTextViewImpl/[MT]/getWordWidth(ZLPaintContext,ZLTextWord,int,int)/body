@@ -1,0 +1,3 @@
+{
+  return context.getStringWidth(word.Data,word.Offset + start,length);
+}

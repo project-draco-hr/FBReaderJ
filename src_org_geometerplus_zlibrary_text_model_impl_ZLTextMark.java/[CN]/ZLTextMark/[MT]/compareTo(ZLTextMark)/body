@@ -1,4 +1,0 @@
-{
-  final int diff=ParagraphNumber - mark.ParagraphNumber;
-  return (diff != 0) ? diff : Offset - mark.Offset;
-}

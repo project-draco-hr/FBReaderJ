@@ -1,5 +1,5 @@
 {
   myParagraphCursor=null;
-  myWordNumber=0;
-  myCharNumber=0;
+  myWordIndex=0;
+  myCharIndex=0;
 }

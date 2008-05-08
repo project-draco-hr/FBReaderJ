@@ -1,6 +1,6 @@
 {
   if (getModel() == null) {
-    ZLTextPlainModel recentBooksModel=ZLModelFactory.createPlainModel(1024);
+    final ZLTextPlainModel recentBooksModel=new ZLTextPlainModel(1024);
     ;
     final ArrayList books=myLastBooks.books();
     for (int i=0; i < books.size(); i++) {

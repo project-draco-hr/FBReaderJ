@@ -40,7 +40,7 @@
  else {
         context.drawLine(x + 2 * qstep,y0 - space,x + 2 * qstep,y1 + space);
       }
-      myTreeNodeMap.add(new ZLTextTreeNodeArea(info.ParagraphNumber,x,x + 4 * qstep,y - height + 1,y));
+      myTreeNodeMap.add(new ZLTextTreeNodeArea(info.ParagraphIndex,x,x + 4 * qstep,y - height + 1,y));
     }
   }
  else   if (!info.IsLeaf && info.IsOpen) {

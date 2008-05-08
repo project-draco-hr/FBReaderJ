@@ -1,5 +1,5 @@
 {
   myParagraphCursor=cursor.myParagraphCursor;
-  myWordNumber=cursor.myWordNumber;
-  myCharNumber=cursor.myCharNumber;
+  myWordIndex=cursor.myWordIndex;
+  myCharIndex=cursor.myCharIndex;
 }

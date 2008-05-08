@@ -1,3 +1,22 @@
 {
+  if (!myIsActive || myView.myTextElementMap.isEmpty()) {
+    return false;
+  }
+  final Range oldRange=getRange();
+  setBound(mySecondBound,x,y);
+  final Range newRange=getRange();
+  myStoredX=x;
+  myStoredY=y;
+  if (!mySecondBound.Before.Exists) {
+  }
+ else   if (!mySecondBound.After.Exists) {
+  }
+ else {
+  }
+  if (!oldRange.Left.equalsTo(newRange.Left) || !oldRange.Right.equalsTo(newRange.Right)) {
+    myTextIsUpToDate=false;
+    myText.delete(0,myText.length());
+    return true;
+  }
   return false;
 }

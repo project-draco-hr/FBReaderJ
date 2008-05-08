@@ -1,3 +1,0 @@
-{
-  return new ZLTextParagraphImpl(new ZLTextPlainModelImpl(4096));
-}

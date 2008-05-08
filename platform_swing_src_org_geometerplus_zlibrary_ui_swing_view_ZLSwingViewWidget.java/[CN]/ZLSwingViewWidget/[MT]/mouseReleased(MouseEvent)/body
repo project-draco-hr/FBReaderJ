@@ -1,2 +1,3 @@
 {
+  getView().onStylusRelease(x(e),y(e));
 }

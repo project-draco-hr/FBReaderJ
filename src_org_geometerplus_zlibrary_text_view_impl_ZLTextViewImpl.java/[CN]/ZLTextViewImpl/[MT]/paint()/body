@@ -16,6 +16,7 @@
     prepareTextLine(lineInfos.getInfo(i));
     labels[++i]=myTextElementMap.size();
   }
+  mySelectionModel.update();
   context.moveYTo(getTopMargin());
   for (int i=0; i < lineInfosSize; ++i) {
     drawTextLine(context,lineInfos.getInfo(i),labels[i],labels[i + 1]);
@@ -33,17 +34,17 @@
     context.drawLine(xRight,yBottom,xRight,yTop);
     final long fullWidth=xRight - xLeft - 2;
     long width=fullWidth;
-    final ZLTextWordCursor wordCursor=new ZLTextWordCursor(myEndCursor);
+    final ZLTextWordCursor wordCursor=new ZLTextWordCursor(EndCursor);
     if (!wordCursor.isEndOfParagraph() || wordCursor.nextParagraph()) {
       final ZLTextParagraphCursor paragraphCursor=wordCursor.getParagraphCursor();
-      final int paragraphIndex=paragraphCursor.getIndex();
+      final int paragraphIndex=paragraphCursor.Index;
       final int[] textSizeVector=myTextSize;
       int fullTextSize=textSizeVector[textSizeVector.length - 1];
       if (fullTextSize > 0) {
         int textSizeBeforeCursor=textSizeVector[paragraphIndex];
         final int paragraphLength=paragraphCursor.getParagraphLength();
         if (paragraphLength > 0) {
-          textSizeBeforeCursor+=(textSizeVector[paragraphIndex + 1] - textSizeBeforeCursor) * wordCursor.getWordNumber() / paragraphLength;
+          textSizeBeforeCursor+=(textSizeVector[paragraphIndex + 1] - textSizeBeforeCursor) * wordCursor.getWordIndex() / paragraphLength;
         }
         width=fullWidth * textSizeBeforeCursor / fullTextSize;
         if (width < 0) {

@@ -1,0 +1,13 @@
+{
+switch (getRotation()) {
+case Angle.DEGREES0:
+default :
+    return e.getY();
+case Angle.DEGREES90:
+  return e.getX();
+case Angle.DEGREES180:
+return myPanel.getSize().height - e.getY() - 1;
+case Angle.DEGREES270:
+return myPanel.getSize().height - e.getX() - 1;
+}
+}

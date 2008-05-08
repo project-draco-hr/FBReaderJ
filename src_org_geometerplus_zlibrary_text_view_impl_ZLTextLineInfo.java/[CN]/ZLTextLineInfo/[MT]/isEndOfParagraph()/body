@@ -1,3 +1,3 @@
 {
-  return EndWordNumber == ParagraphCursorLength;
+  return EndWordIndex == ParagraphCursorLength;
 }

@@ -2,7 +2,7 @@
   myParagraph=paragraph;
   myElements=elements;
   myMarks=marks;
-  ZLTextMark mark=new ZLTextMark(paragraphNumber,0,0);
+  final ZLTextMark mark=new ZLTextMark(paragraphIndex,0,0);
   int i;
   for (i=0; i < myMarks.size(); i++) {
     if (((ZLTextMark)myMarks.get(i)).compareTo(mark) >= 0) {
@@ -11,6 +11,6 @@
   }
   myFirstMark=i;
   myLastMark=myFirstMark;
-  for (; (myLastMark != myMarks.size()) && (((ZLTextMark)myMarks.get(myLastMark)).ParagraphNumber == paragraphNumber); myLastMark++)   ;
+  for (; (myLastMark != myMarks.size()) && (((ZLTextMark)myMarks.get(myLastMark)).ParagraphIndex == paragraphIndex); myLastMark++)   ;
   myOffset=0;
 }

@@ -1,0 +1,9 @@
+{
+  final int index=myLength++;
+  if (index == myData.length) {
+    ZLTextRectangularArea[] extended=new ZLTextRectangularArea[2 * index];
+    System.arraycopy(myData,0,extended,0,index);
+    myData=extended;
+  }
+  myData[index]=area;
+}

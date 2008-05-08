@@ -4,5 +4,9 @@
   }
   myIsActive=true;
   myIsEmpty=false;
+  setBound(myFirstBound,x,y);
+  mySecondBound.copyFrom(myFirstBound);
+  myCursors.clear();
+  myText.delete(0,myText.length());
   myTextIsUpToDate=true;
 }

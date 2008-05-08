@@ -1,0 +1,7 @@
+{
+  if (mySelectionModel.extendTo(x,y)) {
+    Application.refreshWindow();
+    return true;
+  }
+  return false;
+}

@@ -25,7 +25,7 @@
         gotoParagraph(0,false);
       }
  else {
-        int index=getStartCursor().getParagraphCursor().getIndex();
+        int index=StartCursor.getParagraphCursor().Index;
         if (index >= cModel.getParagraphsNumber()) {
           index=cModel.getParagraphsNumber() - 1;
         }

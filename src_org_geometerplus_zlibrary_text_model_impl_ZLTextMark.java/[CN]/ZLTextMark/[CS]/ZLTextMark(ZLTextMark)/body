@@ -1,5 +1,0 @@
-{
-  ParagraphNumber=mark.ParagraphNumber;
-  Offset=mark.Offset;
-  Length=mark.Length;
-}

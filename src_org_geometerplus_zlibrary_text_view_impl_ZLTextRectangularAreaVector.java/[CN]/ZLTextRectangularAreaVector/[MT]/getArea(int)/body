@@ -1,3 +1,0 @@
-{
-  return (ZLTextRectangularArea)super.get(index);
-}

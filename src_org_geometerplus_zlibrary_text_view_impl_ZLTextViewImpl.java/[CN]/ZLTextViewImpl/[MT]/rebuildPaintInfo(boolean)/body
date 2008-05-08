@@ -3,22 +3,22 @@
     return;
   }
   myLineInfos.clear();
-  if (!myStartCursor.isNull()) {
+  if (!StartCursor.isNull()) {
     if (strong) {
       ZLTextParagraphCursorCache.clear();
-      myStartCursor.rebuild();
+      StartCursor.rebuild();
       myLineInfoCache.clear();
     }
-    myEndCursor.reset();
+    EndCursor.reset();
     myPaintState=PaintState.START_IS_KNOWN;
   }
- else   if (!myEndCursor.isNull()) {
+ else   if (!EndCursor.isNull()) {
     if (strong) {
       ZLTextParagraphCursorCache.clear();
-      myEndCursor.rebuild();
+      EndCursor.rebuild();
       myLineInfoCache.clear();
     }
-    myStartCursor.reset();
+    StartCursor.reset();
     myPaintState=PaintState.END_IS_KNOWN;
   }
 }

@@ -1,8 +1,8 @@
 {
   final HashMap footnotes=myFootnotes;
-  ZLTextPlainModelImpl model=(ZLTextPlainModelImpl)footnotes.get(id);
+  ZLTextPlainModel model=(ZLTextPlainModel)footnotes.get(id);
   if (model == null) {
-    model=new ZLTextPlainModelImpl(4096);
+    model=new ZLTextPlainModel(4096);
     footnotes.put(id,model);
   }
   return model;

@@ -1,3 +1,0 @@
-{
-  return (ParagraphNumber + " " + Offset+ " "+ Length);
-}

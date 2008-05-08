@@ -25,7 +25,7 @@ break;
 case 0x22:
 if (!myParagraphStarted) {
 if (myForcedEntry == null) {
-myForcedEntry=ZLModelFactory.createForcedControlEntry();
+myForcedEntry=new ZLTextForcedControlEntry();
 }
 myForcedEntry.setLeftIndent((short)ptr[cur + 1]);
 myForcedEntry.setRightIndent((short)ptr[cur + 2]);
@@ -34,7 +34,7 @@ break;
 case 0x29:
 if (!myParagraphStarted) {
 if (myForcedEntry == null) {
-myForcedEntry=ZLModelFactory.createForcedControlEntry();
+myForcedEntry=new ZLTextForcedControlEntry();
 }
 switch (ptr[cur + 1]) {
 case 0:

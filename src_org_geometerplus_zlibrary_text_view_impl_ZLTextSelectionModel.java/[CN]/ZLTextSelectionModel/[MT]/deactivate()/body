@@ -1,2 +1,4 @@
 {
+  myIsActive=false;
+  myDoUpdate=false;
 }

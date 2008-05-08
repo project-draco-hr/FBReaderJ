@@ -2,12 +2,12 @@
   if (myPaintState == PaintState.NOTHING_TO_PAINT) {
     return;
   }
-  if (myStartCursor.isNull()) {
-    myStartCursor.setCursor(myEndCursor);
+  if (StartCursor.isNull()) {
+    StartCursor.setCursor(EndCursor);
   }
-  myStartCursor.moveToParagraph(paragraphNumber);
-  myStartCursor.moveTo(wordNumber,charNumber);
-  myEndCursor.reset();
+  StartCursor.moveToParagraph(paragraphIndex);
+  StartCursor.moveTo(wordIndex,charIndex);
+  EndCursor.reset();
   myLineInfos.clear();
   myPaintState=PaintState.START_IS_KNOWN;
 }

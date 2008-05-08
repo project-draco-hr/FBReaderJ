@@ -1,3 +1,0 @@
-{
-  return new ZLTextTreeParagraphImpl(null,new ZLTextPlainModelImpl(4096));
-}

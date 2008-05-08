@@ -1,2 +1,8 @@
 {
+  myIsEmpty=true;
+  myIsActive=false;
+  myDoUpdate=false;
+  myCursors.clear();
+  myText.delete(0,myText.length());
+  myTextIsUpToDate=true;
 }

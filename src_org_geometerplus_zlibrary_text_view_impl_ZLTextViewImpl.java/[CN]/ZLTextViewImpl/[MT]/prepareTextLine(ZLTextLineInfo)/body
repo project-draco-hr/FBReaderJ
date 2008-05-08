@@ -23,7 +23,7 @@ case ZLTextAlignmentType.ALIGN_CENTER:
   }
 case ZLTextAlignmentType.ALIGN_JUSTIFY:
 {
-  if (!endOfParagraph && (paragraphCursor.getElement(info.EndWordNumber) != ZLTextElement.AfterParagraph)) {
+  if (!endOfParagraph && (paragraphCursor.getElement(info.EndWordIndex) != ZLTextElement.AfterParagraph)) {
     fullCorrection=maxWidth - myTextStyle.getRightIndent() - info.Width;
   }
   break;
@@ -35,13 +35,13 @@ break;
 }
 }
 final ZLTextParagraphCursor paragraph=info.ParagraphCursor;
-int paragraphNumber=paragraph.getIndex();
-final int endWordNumber=info.EndWordNumber;
-int charNumber=info.RealStartCharNumber;
-for (int wordNumber=info.RealStartWordNumber; wordNumber != endWordNumber; ++wordNumber, charNumber=0) {
-final ZLTextElement element=paragraph.getElement(wordNumber);
+int paragraphIndex=paragraph.Index;
+final int endWordIndex=info.EndWordIndex;
+int charIndex=info.RealStartCharIndex;
+for (int wordIndex=info.RealStartWordIndex; wordIndex != endWordIndex; ++wordIndex, charIndex=0) {
+final ZLTextElement element=paragraph.getElement(wordIndex);
 final int x=context.getX();
-final int width=getElementWidth(context,element,charNumber);
+final int width=getElementWidth(context,element,charIndex);
 if (element == ZLTextElement.HSpace) {
 if (wordOccurred && (spaceCounter > 0)) {
 int correction=fullCorrection / spaceCounter;
@@ -55,7 +55,7 @@ wordOccurred=false;
 final int height=getElementHeight(element);
 final int descent=getElementDescent(context,element);
 final int length=(element instanceof ZLTextWord) ? ((ZLTextWord)element).Length : 0;
-myTextElementMap.add(new ZLTextElementArea(paragraphNumber,wordNumber,charNumber,length,false,changeStyle,myTextStyle,element,x,x + width - 1,y - height + 1,y + descent));
+myTextElementMap.add(new ZLTextElementArea(paragraphIndex,wordIndex,charIndex,length - charIndex,false,changeStyle,myTextStyle,element,x,x + width - 1,y - height + 1,y + descent));
 changeStyle=false;
 wordOccurred=true;
 }
@@ -66,16 +66,16 @@ changeStyle=true;
 context.moveX(width);
 }
 if (!endOfParagraph) {
-int len=info.EndCharNumber;
+final int len=info.EndCharIndex;
 if (len > 0) {
-final int wordNumber=info.EndWordNumber;
-final ZLTextWord word=(ZLTextWord)paragraph.getElement(wordNumber);
+final int wordIndex=info.EndWordIndex;
+final ZLTextWord word=(ZLTextWord)paragraph.getElement(wordIndex);
 final boolean addHyphenationSign=word.Data[word.Offset + len - 1] != '-';
 final int x=context.getX();
 final int width=getWordWidth(context,word,0,len,addHyphenationSign);
 final int height=getElementHeight(word);
 final int descent=context.getDescent();
-myTextElementMap.add(new ZLTextElementArea(paragraphNumber,wordNumber,0,len,addHyphenationSign,changeStyle,myTextStyle,word,x,x + width - 1,y - height + 1,y + descent));
+myTextElementMap.add(new ZLTextElementArea(paragraphIndex,wordIndex,0,len,addHyphenationSign,changeStyle,myTextStyle,word,x,x + width - 1,y - height + 1,y + descent));
 }
 }
 context.moveY(info.Height + info.Descent + info.VSpaceAfter);

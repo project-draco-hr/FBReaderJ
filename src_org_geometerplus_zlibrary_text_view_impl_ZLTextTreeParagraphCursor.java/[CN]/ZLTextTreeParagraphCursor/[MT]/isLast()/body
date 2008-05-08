@@ -1,9 +1,9 @@
 {
   final ZLTextTreeModel model=(ZLTextTreeModel)myModel;
-  if (myIndex + 1 == model.getParagraphsNumber()) {
+  if (Index + 1 == model.getParagraphsNumber()) {
     return true;
   }
-  ZLTextTreeParagraph current=model.getTreeParagraph(myIndex);
+  ZLTextTreeParagraph current=model.getTreeParagraph(Index);
   if (current.isOpen() && current.hasChildren()) {
     return false;
   }

@@ -1,0 +1,5 @@
+{
+  ParagraphIndex=paragraphIndex;
+  Offset=offset;
+  Length=length;
+}

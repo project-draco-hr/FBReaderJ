@@ -3,8 +3,8 @@
     return null;
   }
   final ZLTextTreeModel model=(ZLTextTreeModel)myModel;
-  final ZLTextTreeParagraph parent=model.getTreeParagraph(myIndex).getParent();
-  int index=myIndex - 1;
+  final ZLTextTreeParagraph parent=model.getTreeParagraph(Index).getParent();
+  int index=Index - 1;
   ZLTextTreeParagraph newTreeParagraph=model.getTreeParagraph(index);
   if (newTreeParagraph != parent) {
     ZLTextTreeParagraph lastNotOpen=newTreeParagraph;

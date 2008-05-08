@@ -19,7 +19,7 @@ switch (myPaintState) {
 default :
     break;
 case PaintState.TO_SCROLL_FORWARD:
-  if (!myEndCursor.getParagraphCursor().isLast() || !myEndCursor.isEndOfParagraph()) {
+  if (!EndCursor.getParagraphCursor().isLast() || !EndCursor.isEndOfParagraph()) {
     final ZLTextWordCursor startCursor=new ZLTextWordCursor();
 switch (myScrollingMode) {
 case ScrollingMode.NO_OVERLAPPING:
@@ -37,69 +37,69 @@ case ScrollingMode.SCROLL_PERCENTAGE:
 findPercentFromStart(startCursor,myOverlappingValue);
 break;
 }
-if (!startCursor.isNull() && startCursor.equalsToCursor(myStartCursor)) {
+if (!startCursor.isNull() && startCursor.equalsToCursor(StartCursor)) {
 findLineFromStart(startCursor,1);
 }
 if (!startCursor.isNull()) {
 final ZLTextWordCursor endCursor=new ZLTextWordCursor();
 buildInfos(startCursor,endCursor);
-if (!pageIsEmpty() && ((myScrollingMode != ScrollingMode.KEEP_LINES) || (!endCursor.equalsToCursor(myEndCursor)))) {
-myStartCursor.setCursor(startCursor);
-myEndCursor.setCursor(endCursor);
+if (!pageIsEmpty() && ((myScrollingMode != ScrollingMode.KEEP_LINES) || (!endCursor.equalsToCursor(EndCursor)))) {
+StartCursor.setCursor(startCursor);
+EndCursor.setCursor(endCursor);
 break;
 }
 }
-myStartCursor.setCursor(myEndCursor);
-buildInfos(myStartCursor,myEndCursor);
+StartCursor.setCursor(EndCursor);
+buildInfos(StartCursor,EndCursor);
 }
 break;
 case PaintState.TO_SCROLL_BACKWARD:
-if (!myStartCursor.getParagraphCursor().isFirst() || !myStartCursor.isStartOfParagraph()) {
+if (!StartCursor.getParagraphCursor().isFirst() || !StartCursor.isStartOfParagraph()) {
 switch (myScrollingMode) {
 case ScrollingMode.NO_OVERLAPPING:
-myStartCursor.setCursor(findStart(myStartCursor,SizeUnit.PIXEL_UNIT,getTextAreaHeight()));
+StartCursor.setCursor(findStart(StartCursor,SizeUnit.PIXEL_UNIT,getTextAreaHeight()));
 break;
 case ScrollingMode.KEEP_LINES:
 {
 ZLTextWordCursor endCursor=new ZLTextWordCursor();
 findLineFromStart(endCursor,myOverlappingValue);
-if (!endCursor.isNull() && endCursor.equalsToCursor(myEndCursor)) {
+if (!endCursor.isNull() && endCursor.equalsToCursor(EndCursor)) {
 findLineFromEnd(endCursor,1);
 }
 if (!endCursor.isNull()) {
 ZLTextWordCursor startCursor=findStart(endCursor,SizeUnit.PIXEL_UNIT,getTextAreaHeight());
-if (startCursor.equalsToCursor(myStartCursor)) {
-myStartCursor.setCursor(findStart(myStartCursor,SizeUnit.PIXEL_UNIT,getTextAreaHeight()));
+if (startCursor.equalsToCursor(StartCursor)) {
+StartCursor.setCursor(findStart(StartCursor,SizeUnit.PIXEL_UNIT,getTextAreaHeight()));
 }
  else {
-myStartCursor.setCursor(startCursor);
+StartCursor.setCursor(startCursor);
 }
 }
  else {
-myStartCursor.setCursor(findStart(myStartCursor,SizeUnit.PIXEL_UNIT,getTextAreaHeight()));
+StartCursor.setCursor(findStart(StartCursor,SizeUnit.PIXEL_UNIT,getTextAreaHeight()));
 }
 break;
 }
 case ScrollingMode.SCROLL_LINES:
-myStartCursor.setCursor(findStart(myStartCursor,SizeUnit.LINE_UNIT,myOverlappingValue));
+StartCursor.setCursor(findStart(StartCursor,SizeUnit.LINE_UNIT,myOverlappingValue));
 break;
 case ScrollingMode.SCROLL_PERCENTAGE:
-myStartCursor.setCursor(findStart(myStartCursor,SizeUnit.PIXEL_UNIT,getTextAreaHeight() * myOverlappingValue / 100));
+StartCursor.setCursor(findStart(StartCursor,SizeUnit.PIXEL_UNIT,getTextAreaHeight() * myOverlappingValue / 100));
 break;
 }
-buildInfos(myStartCursor,myEndCursor);
+buildInfos(StartCursor,EndCursor);
 if (pageIsEmpty()) {
-myStartCursor.setCursor(findStart(myStartCursor,SizeUnit.LINE_UNIT,1));
-buildInfos(myStartCursor,myEndCursor);
+StartCursor.setCursor(findStart(StartCursor,SizeUnit.LINE_UNIT,1));
+buildInfos(StartCursor,EndCursor);
 }
 }
 break;
 case PaintState.START_IS_KNOWN:
-buildInfos(myStartCursor,myEndCursor);
+buildInfos(StartCursor,EndCursor);
 break;
 case PaintState.END_IS_KNOWN:
-myStartCursor.setCursor(findStart(myEndCursor,SizeUnit.PIXEL_UNIT,getTextAreaHeight()));
-buildInfos(myStartCursor,myEndCursor);
+StartCursor.setCursor(findStart(EndCursor,SizeUnit.PIXEL_UNIT,getTextAreaHeight()));
+buildInfos(StartCursor,EndCursor);
 break;
 }
 myPaintState=PaintState.READY;

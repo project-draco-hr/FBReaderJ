@@ -1,0 +1,4 @@
+{
+  mySelectionModel.deactivate();
+  return false;
+}

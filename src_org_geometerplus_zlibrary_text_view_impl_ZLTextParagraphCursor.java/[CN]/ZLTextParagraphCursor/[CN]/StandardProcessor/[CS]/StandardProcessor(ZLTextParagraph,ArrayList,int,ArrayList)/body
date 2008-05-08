@@ -1,3 +1,0 @@
-{
-  super(paragraph,marks,paragraphNumber,elements);
-}

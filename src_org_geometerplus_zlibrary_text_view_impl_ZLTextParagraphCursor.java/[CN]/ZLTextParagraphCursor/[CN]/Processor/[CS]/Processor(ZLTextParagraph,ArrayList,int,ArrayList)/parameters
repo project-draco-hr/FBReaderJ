@@ -1,4 +1,4 @@
 ZLTextParagraph paragraph
 ArrayList marks
-int paragraphNumber
+int paragraphIndex
 ArrayList elements

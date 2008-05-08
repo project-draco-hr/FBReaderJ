@@ -1,4 +1,4 @@
 {
   super(xStart,xEnd,yStart,yEnd);
-  ParagraphNumber=paragraphNumber;
+  ParagraphIndex=paragraphIndex;
 }

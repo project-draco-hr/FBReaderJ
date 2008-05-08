@@ -1,0 +1,31 @@
+{
+  if (length != 0) {
+    final ZLTextElement hSpace=ZLTextElement.HSpace;
+    final int end=offset + length;
+    int firstNonSpace=-1;
+    boolean spaceInserted=false;
+    final ArrayList elements=myElements;
+    for (int charPos=offset; charPos < end; ++charPos) {
+      final char ch=data[charPos];
+      if ((ch == ' ') || (ch <= 0x0D)) {
+        if (firstNonSpace != -1) {
+          addWord(data,firstNonSpace,charPos - firstNonSpace,myOffset + (firstNonSpace - offset));
+          elements.add(hSpace);
+          spaceInserted=true;
+          firstNonSpace=-1;
+        }
+ else         if (!spaceInserted) {
+          elements.add(hSpace);
+          spaceInserted=true;
+        }
+      }
+ else       if (firstNonSpace == -1) {
+        firstNonSpace=charPos;
+      }
+    }
+    if (firstNonSpace != -1) {
+      addWord(data,firstNonSpace,end - firstNonSpace,myOffset + (firstNonSpace - offset));
+    }
+    myOffset+=length;
+  }
+}

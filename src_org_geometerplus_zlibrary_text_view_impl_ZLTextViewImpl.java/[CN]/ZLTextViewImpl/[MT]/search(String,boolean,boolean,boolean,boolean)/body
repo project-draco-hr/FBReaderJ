@@ -7,9 +7,9 @@
   if (thisSectionOnly) {
   }
   myModel.search(text,startIndex,endIndex,ignoreCase);
-  if (!myStartCursor.isNull()) {
+  if (!StartCursor.isNull()) {
     rebuildPaintInfo(true);
-    ZLTextMark position=myStartCursor.getPosition();
+    ZLTextMark position=StartCursor.getPosition();
     gotoMark(wholeText ? (backward ? myModel.getLastMark() : myModel.getFirstMark()) : (backward ? myModel.getPreviousMark(position) : myModel.getNextMark(position)));
     Application.refreshWindow();
   }

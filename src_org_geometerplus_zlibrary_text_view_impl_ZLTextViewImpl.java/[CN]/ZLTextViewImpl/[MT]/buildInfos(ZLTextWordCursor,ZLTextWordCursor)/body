@@ -7,18 +7,18 @@
   do {
     resetTextStyle();
     final ZLTextParagraphCursor paragraphCursor=result.getParagraphCursor();
-    final int wordNumber=result.getWordNumber();
-    applyControls(paragraphCursor,0,wordNumber);
-    ZLTextLineInfo info=new ZLTextLineInfo(paragraphCursor,wordNumber,result.getCharNumber(),myTextStyle);
+    final int wordIndex=result.getWordIndex();
+    applyControls(paragraphCursor,0,wordIndex);
+    ZLTextLineInfo info=new ZLTextLineInfo(paragraphCursor,wordIndex,result.getCharIndex(),myTextStyle);
     final int endIndex=info.ParagraphCursorLength;
-    while (info.EndWordNumber != endIndex) {
-      info=processTextLine(context,paragraphCursor,info.EndWordNumber,info.EndCharNumber,endIndex);
+    while (info.EndWordIndex != endIndex) {
+      info=processTextLine(context,paragraphCursor,info.EndWordIndex,info.EndCharIndex,endIndex);
       textAreaHeight-=info.Height + info.Descent;
       if ((textAreaHeight < 0) && (counter > 0)) {
         break;
       }
       textAreaHeight-=info.VSpaceAfter;
-      result.moveTo(info.EndWordNumber,info.EndCharNumber);
+      result.moveTo(info.EndWordIndex,info.EndCharIndex);
       myLineInfos.add(info);
       if (textAreaHeight < 0) {
         break;

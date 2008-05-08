@@ -1,3 +1,3 @@
 {
-  return ParagraphCursor.hashCode() + StartWordNumber + 239 * StartCharNumber;
+  return ParagraphCursor.hashCode() + StartWordIndex + 239 * StartCharIndex;
 }

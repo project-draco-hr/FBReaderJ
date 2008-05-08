@@ -1,15 +1,15 @@
 {
   final ZLPaintContext context=Context;
   final ZLTextParagraphCursor paragraphCursor=cursor.getParagraphCursor();
-  final int endWordNumber=beforeCurrentPosition ? cursor.getWordNumber() : paragraphCursor.getParagraphLength();
+  final int endWordIndex=beforeCurrentPosition ? cursor.getWordIndex() : paragraphCursor.getParagraphLength();
   resetTextStyle();
   int size=0;
-  int wordNumber=0;
-  int charNumber=0;
-  while (wordNumber != endWordNumber) {
-    ZLTextLineInfo info=processTextLine(context,paragraphCursor,wordNumber,charNumber,endWordNumber);
-    wordNumber=info.EndWordNumber;
-    charNumber=info.EndCharNumber;
+  int wordIndex=0;
+  int charIndex=0;
+  while (wordIndex != endWordIndex) {
+    ZLTextLineInfo info=processTextLine(context,paragraphCursor,wordIndex,charIndex,endWordIndex);
+    wordIndex=info.EndWordIndex;
+    charIndex=info.EndCharIndex;
     size+=infoSize(info,unit);
   }
   return size;

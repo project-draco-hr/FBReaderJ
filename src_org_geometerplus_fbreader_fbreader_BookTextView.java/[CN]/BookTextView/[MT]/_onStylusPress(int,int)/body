@@ -3,13 +3,13 @@
   if (area != null) {
     ZLTextElement element=area.Element;
     if ((element instanceof ZLTextImageElement) || (element instanceof ZLTextWord)) {
-      final ZLTextWordCursor cursor=new ZLTextWordCursor(getStartCursor());
-      cursor.moveToParagraph(area.ParagraphNumber);
+      final ZLTextWordCursor cursor=new ZLTextWordCursor(StartCursor);
+      cursor.moveToParagraph(area.ParagraphIndex);
       cursor.moveToParagraphStart();
-      final int elementNumber=area.TextElementNumber;
+      final int elementIndex=area.TextElementIndex;
       byte hyperlinkKind=FBTextKind.REGULAR;
       String id=null;
-      for (int i=0; i < elementNumber; ++i) {
+      for (int i=0; i < elementIndex; ++i) {
         ZLTextElement e=cursor.getElement();
         if (e instanceof ZLTextControlElement) {
           if (e instanceof ZLTextHyperlinkControlElement) {

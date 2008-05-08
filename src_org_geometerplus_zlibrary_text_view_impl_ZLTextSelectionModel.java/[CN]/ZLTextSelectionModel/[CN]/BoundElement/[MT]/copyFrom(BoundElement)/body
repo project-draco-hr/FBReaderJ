@@ -1,0 +1,6 @@
+{
+  Exists=original.Exists;
+  ParagraphIndex=original.ParagraphIndex;
+  TextElementIndex=original.TextElementIndex;
+  CharIndex=original.CharIndex;
+}

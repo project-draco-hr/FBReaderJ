@@ -1,4 +1,4 @@
 ZLTextParagraphCursor paragraphCursor
-int wordNumber
-int charNumber
+int wordIndex
+int charIndex
 ZLTextStyle style

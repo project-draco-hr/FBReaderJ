@@ -2,18 +2,18 @@
   if (myPaintState == PaintState.NOTHING_TO_PAINT) {
     return;
   }
-  if (myEndCursor.isNull()) {
-    myEndCursor.setCursor(myStartCursor);
+  if (EndCursor.isNull()) {
+    EndCursor.setCursor(StartCursor);
   }
-  myEndCursor.moveToParagraph(paragraphNumber);
-  if ((paragraphNumber > 0) && (wordNumber == 0) && (charNumber == 0)) {
-    myEndCursor.previousParagraph();
-    myEndCursor.moveToParagraphEnd();
+  EndCursor.moveToParagraph(paragraphIndex);
+  if ((paragraphIndex > 0) && (wordIndex == 0) && (charIndex == 0)) {
+    EndCursor.previousParagraph();
+    EndCursor.moveToParagraphEnd();
   }
  else {
-    myEndCursor.moveTo(wordNumber,charNumber);
+    EndCursor.moveTo(wordIndex,charIndex);
   }
-  myStartCursor.reset();
+  StartCursor.reset();
   myLineInfos.clear();
   myPaintState=PaintState.END_IS_KNOWN;
 }

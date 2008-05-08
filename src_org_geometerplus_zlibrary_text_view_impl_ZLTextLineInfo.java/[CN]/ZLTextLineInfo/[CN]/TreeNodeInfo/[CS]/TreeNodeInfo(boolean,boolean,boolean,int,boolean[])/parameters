@@ -1,5 +1,5 @@
 boolean isLeaf
 boolean isOpen
 boolean isFirstLine
-int paragraphNumber
+int paragraphIndex
 boolean[] stack

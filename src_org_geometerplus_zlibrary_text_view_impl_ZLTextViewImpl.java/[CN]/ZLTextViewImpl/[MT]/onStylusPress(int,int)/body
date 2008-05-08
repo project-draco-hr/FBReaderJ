@@ -3,42 +3,42 @@
     return false;
   }
   ZLTextIndicatorInfo indicatorInfo=getIndicatorInfo();
-  if (indicatorInfo.isVisible() && indicatorInfo.isSensitive() && !myStartCursor.isNull()) {
+  if (indicatorInfo.isVisible() && indicatorInfo.isSensitive() && !StartCursor.isNull()) {
     final ZLPaintContext context=Context;
     final int yBottom=context.getHeight() - getBottomMargin() - 1;
     final int yTop=yBottom - indicatorInfo.getHeight() + 1;
     final int xLeft=getLeftMargin();
     final int xRight=context.getWidth() - getRightMargin() - 1;
     if ((x > xLeft) && (x < xRight) && (y > yTop)&& (y < yBottom)) {
-      Position position=new Position(myStartCursor);
+      Position position=new Position(StartCursor);
       myTreeStateIsFrozen=true;
       final int[] textSizeVector=myTextSize;
       final int value=textSizeVector[textSizeVector.length - 1] * (x - xLeft) / (xRight - xLeft - 1);
       final int paragraphIndex=lowerBound(textSizeVector,value);
       gotoParagraph(paragraphIndex,true);
       preparePaintInfo();
-      final int endCursorIndex=myEndCursor.getParagraphCursor().getIndex();
+      final int endCursorIndex=EndCursor.getParagraphCursor().Index;
       if (endCursorIndex == paragraphIndex) {
-        final int paragraphLength=myEndCursor.getParagraphCursor().getParagraphLength();
+        final int paragraphLength=EndCursor.getParagraphCursor().getParagraphLength();
         int wordCounter=paragraphLength * (value - textSizeVector[paragraphIndex]) / (textSizeVector[paragraphIndex + 1] - textSizeVector[paragraphIndex]);
         if (wordCounter > 0) {
           if (wordCounter == paragraphLength) {
-            myEndCursor.nextParagraph();
+            EndCursor.nextParagraph();
           }
  else {
-            wordCounter-=myEndCursor.getWordNumber();
+            wordCounter-=EndCursor.getWordIndex();
             while (wordCounter-- > 0) {
-              myEndCursor.nextWord();
+              EndCursor.nextWord();
             }
           }
-          myStartCursor.reset();
+          StartCursor.reset();
           rebuildPaintInfo(false);
         }
       }
-      if (myStartCursor.isNull()) {
+      if (StartCursor.isNull()) {
         preparePaintInfo();
       }
-      if (!position.equalsToCursor(myStartCursor)) {
+      if (!position.equalsToCursor(StartCursor)) {
         savePosition(position);
       }
       Application.refreshWindow();
@@ -49,21 +49,21 @@
   if (myModel instanceof ZLTextTreeModel) {
     ZLTextTreeNodeArea nodeArea=(ZLTextTreeNodeArea)myTreeNodeMap.binarySearch(x,y);
     if (nodeArea != null) {
-      final int index=nodeArea.ParagraphNumber;
+      final int index=nodeArea.ParagraphIndex;
       final ZLTextTreeParagraph paragraph=((ZLTextTreeModel)myModel).getTreeParagraph(index);
       paragraph.open(!paragraph.isOpen());
       rebuildPaintInfo(true);
       preparePaintInfo();
       if (paragraph.isOpen()) {
-        int nextParagraphNumber=index + paragraph.getFullSize();
-        int lastParagraphNumber=myEndCursor.getParagraphCursor().getIndex();
-        if (myEndCursor.isEndOfParagraph()) {
-          ++lastParagraphNumber;
+        int nextParagraphIndex=index + paragraph.getFullSize();
+        int lastParagraphIndex=EndCursor.getParagraphCursor().Index;
+        if (EndCursor.isEndOfParagraph()) {
+          ++lastParagraphIndex;
         }
       }
-      int firstParagraphNumber=myStartCursor.getParagraphCursor().getIndex();
-      if (myStartCursor.isStartOfParagraph()) {
-        --firstParagraphNumber;
+      int firstParagraphIndex=StartCursor.getParagraphCursor().Index;
+      if (StartCursor.isStartOfParagraph()) {
+        --firstParagraphIndex;
       }
       Application.refreshWindow();
       return true;

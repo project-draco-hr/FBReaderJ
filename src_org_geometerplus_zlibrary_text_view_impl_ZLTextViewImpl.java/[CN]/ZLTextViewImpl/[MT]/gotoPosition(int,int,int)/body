@@ -1,13 +1,13 @@
 {
-  final int maxParagraphNumber=myModel.getParagraphsNumber() - 1;
-  if (paragraphNumber > maxParagraphNumber) {
-    paragraphNumber=maxParagraphNumber;
+  final int maxParagraphIndex=myModel.getParagraphsNumber() - 1;
+  if (paragraphIndex > maxParagraphIndex) {
+    paragraphIndex=maxParagraphIndex;
   }
-  if (paragraphNumber < 0) {
-    paragraphNumber=0;
+  if (paragraphIndex < 0) {
+    paragraphIndex=0;
   }
-  myStartCursor.setCursor(ZLTextParagraphCursor.cursor(myModel,paragraphNumber));
-  myStartCursor.moveTo(wordNumber,charNumber);
-  myEndCursor.reset();
+  StartCursor.setCursor(ZLTextParagraphCursor.cursor(myModel,paragraphIndex));
+  StartCursor.moveTo(wordIndex,charIndex);
+  EndCursor.reset();
   myPaintState=PaintState.START_IS_KNOWN;
 }

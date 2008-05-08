@@ -1,4 +1,4 @@
 {
-  myWordNumber--;
-  myCharNumber=0;
+  myWordIndex--;
+  myCharIndex=0;
 }

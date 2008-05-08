@@ -1,5 +1,5 @@
 {
-  if (!myStartCursor.isNull()) {
-    gotoMark(myModel.getPreviousMark(myStartCursor.getPosition()));
+  if (!StartCursor.isNull()) {
+    gotoMark(myModel.getPreviousMark(StartCursor.getPosition()));
   }
 }

@@ -1,12 +1,12 @@
 {
   final ZLPaintContext context=Context;
   final ZLTextParagraphCursor paragraphCursor=cursor.getParagraphCursor();
-  final int endWordNumber=paragraphCursor.getParagraphLength();
+  final int endWordIndex=paragraphCursor.getParagraphLength();
   resetTextStyle();
-  applyControls(paragraphCursor,0,cursor.getWordNumber());
+  applyControls(paragraphCursor,0,cursor.getWordIndex());
   while (!cursor.isEndOfParagraph() && (size > 0)) {
-    ZLTextLineInfo info=processTextLine(context,paragraphCursor,cursor.getWordNumber(),cursor.getCharNumber(),endWordNumber);
-    cursor.moveTo(info.EndWordNumber,info.EndCharNumber);
+    ZLTextLineInfo info=processTextLine(context,paragraphCursor,cursor.getWordIndex(),cursor.getCharIndex(),endWordIndex);
+    cursor.moveTo(info.EndWordIndex,info.EndCharIndex);
     size-=infoSize(info,unit);
   }
 }

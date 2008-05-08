@@ -1,2 +1,11 @@
 {
+  if (!myView.isSelectionEnabled()) {
+    clear();
+  }
+ else   if (myDoUpdate) {
+    myDoUpdate=false;
+    setBound(mySecondBound,myStoredX,myStoredY);
+    myTextIsUpToDate=false;
+    myText.delete(0,myText.length());
+  }
 }
