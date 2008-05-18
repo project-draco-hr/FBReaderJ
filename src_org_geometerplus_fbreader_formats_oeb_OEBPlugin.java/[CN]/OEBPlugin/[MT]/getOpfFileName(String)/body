@@ -1,6 +1,6 @@
 {
   final ZLFile oebFile=new ZLFile(oebFileName);
-  if (oebFile.getExtension() == "opf") {
+  if (oebFile.getExtension().equals("opf")) {
     return oebFileName;
   }
   oebFile.forceArchiveType(ZLFile.ArchiveType.ZIP);
