@@ -2,7 +2,8 @@
   if (myBookModel != null) {
     BookModel.Label label=myBookModel.getLabel(id);
     if ((label != null) && (label.Model != null)) {
-      if (label.Model == myBookModel.BookTextModel) {
+      if (label.ModelNumber != -1) {
+        BookTextView.setModel(label.ModelNumber);
         BookTextView.gotoParagraphSafe(label.ParagraphNumber);
       }
  else {

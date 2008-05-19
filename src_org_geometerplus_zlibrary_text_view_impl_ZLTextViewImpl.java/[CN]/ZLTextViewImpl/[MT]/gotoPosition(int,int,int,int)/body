@@ -1,0 +1,4 @@
+{
+  setModel(modelIndex);
+  gotoPosition(paragraphIndex,wordIndex,charIndex);
+}

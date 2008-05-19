@@ -54,7 +54,8 @@ case 1:
           myParagraphVector=(ArrayList)myParagraphMap.get(uid);
           processTextRecord(size,pars);
           if ((flags & 0x1) == 0) {
-            insertEndOfTextParagraph();
+            System.out.println("setting new text model");
+            setNewTextModel();
           }
         }
         break;
@@ -65,8 +66,6 @@ case 3:
       final String mime="image/palm";
       ZLImage image=null;
       if (type == 2) {
-        System.out.println("type2");
-        image=new ZLFileImage(mime,myFilePath,myStream.offset());
       }
  else       if (myCompressionVersion == 1) {
       }

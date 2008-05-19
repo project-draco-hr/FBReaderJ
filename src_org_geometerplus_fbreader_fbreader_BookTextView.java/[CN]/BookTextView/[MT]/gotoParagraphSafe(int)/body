@@ -5,8 +5,6 @@
     final Position position=new Position(cursor);
     gotoParagraph(paragraphIndex,false);
     preparePaintInfo();
-    if (!position.equalsToCursor(StartCursor)) {
-      savePosition(position);
-    }
+    savePosition(position,StartCursor);
   }
 }

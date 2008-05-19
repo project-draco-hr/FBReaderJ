@@ -1,14 +1,13 @@
 {
   final ZLTextWordCursor cursor=StartCursor;
-  if (!cursor.isNull() && cursor.isStartOfParagraph() && cursor.getParagraphCursor().Index == 0) {
+  if (!cursor.isNull() && cursor.isStartOfParagraph() && cursor.getParagraphCursor().Index == 0 && myCurrentModelIndex == 0) {
     return;
   }
+  setModel(0);
   final Position position=new Position(cursor);
   gotoParagraph(0,false);
   gotoPosition(0,0,0);
   preparePaintInfo();
-  if (!position.equalsToCursor(StartCursor)) {
-    savePosition(position);
-  }
+  savePosition(position,StartCursor);
   Application.refreshWindow();
 }

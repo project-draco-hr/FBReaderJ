@@ -1,4 +1,5 @@
 {
   ParagraphNumber=paragraphNumber;
   Model=model;
+  ModelNumber=myBookTextModels.indexOf(model);
 }

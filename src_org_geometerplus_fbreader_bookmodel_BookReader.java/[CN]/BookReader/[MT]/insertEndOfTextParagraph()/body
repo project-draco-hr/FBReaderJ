@@ -1,3 +1,0 @@
-{
-  insertEndParagraph(ZLTextParagraph.Kind.END_OF_TEXT_PARAGRAPH);
-}

@@ -1,0 +1,8 @@
+{
+  if ((modelNumber != myCurrentModelIndex) && (modelNumber >= 0) && (modelNumber < myModels.size())) {
+    myModel=(ZLTextModel)myModels.get(modelNumber);
+    myCurrentModelIndex=modelNumber;
+    System.out.println("setting model number " + modelNumber);
+    setModelInternal();
+  }
+}

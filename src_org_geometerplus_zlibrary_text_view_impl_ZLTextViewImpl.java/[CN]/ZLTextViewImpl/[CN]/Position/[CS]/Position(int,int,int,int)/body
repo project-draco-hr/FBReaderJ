@@ -2,4 +2,5 @@
   ParagraphIndex=paragraphIndex;
   WordIndex=wordIndex;
   CharIndex=charIndex;
+  ModelIndex=modelIndex;
 }

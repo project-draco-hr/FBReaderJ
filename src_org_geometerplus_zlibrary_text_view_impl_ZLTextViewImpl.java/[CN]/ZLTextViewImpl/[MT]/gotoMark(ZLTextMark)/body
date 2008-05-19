@@ -28,9 +28,7 @@
     if (StartCursor.isNull()) {
       preparePaintInfo();
     }
-    if (!position.equalsToCursor(StartCursor)) {
-      savePosition(position);
-    }
+    savePosition(position,StartCursor);
     Application.refreshWindow();
   }
 }

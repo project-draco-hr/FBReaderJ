@@ -4,4 +4,5 @@
     WordIndex=cursor.getWordIndex();
     CharIndex=cursor.getCharIndex();
   }
+  ModelIndex=myCurrentModelIndex;
 }

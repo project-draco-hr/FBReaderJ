@@ -5,5 +5,7 @@
   }
  else {
     ((Position)myPositionStack.get(myCurrentPointInStack)).set(StartCursor);
+    Position position=(Position)myPositionStack.get(myCurrentPointInStack);
+    System.out.println("current position " + position.ModelIndex + " , "+ position.ParagraphIndex);
   }
 }

@@ -10,5 +10,7 @@
     new ZLIntegerOption(ZLOption.STATE_CATEGORY,group,PARAGRAPH_PREFIX + i,0).setValue(position.ParagraphIndex);
     new ZLIntegerOption(ZLOption.STATE_CATEGORY,group,WORD_PREFIX + i,0).setValue(position.WordIndex);
     new ZLIntegerOption(ZLOption.STATE_CATEGORY,group,CHAR_PREFIX + i,0).setValue(position.CharIndex);
+    new ZLIntegerOption(ZLOption.STATE_CATEGORY,group,MODEL_PREFIX + i,0).setValue(position.ModelIndex);
+    System.out.println("saving model index " + position.ModelIndex);
   }
 }

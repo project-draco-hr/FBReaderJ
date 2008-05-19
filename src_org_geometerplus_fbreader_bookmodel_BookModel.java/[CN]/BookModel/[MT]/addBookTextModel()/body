@@ -1,0 +1,5 @@
+{
+  ZLTextPlainModel bookTextModel=new ZLTextPlainModel(65536);
+  myBookTextModels.add(bookTextModel);
+  return bookTextModel;
+}

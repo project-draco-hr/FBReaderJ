@@ -1,14 +1,14 @@
 {
   if (description != null) {
     BookTextView.saveState();
-    BookTextView.setModel(null,"");
+    BookTextView.setModels(null,"");
     BookTextView.setContentsModel(null);
     ContentsView.setModel(null);
     myBookModel=new BookModel(description);
     final String fileName=description.FileName;
     myBookNameOption.setValue(fileName);
     ZLTextHyphenator.getInstance().load(description.getLanguage());
-    BookTextView.setModel(myBookModel.BookTextModel,fileName);
+    BookTextView.setModels(myBookModel.getBookTextModels(),fileName);
     BookTextView.setCaption(description.getTitle());
     BookTextView.setContentsModel(myBookModel.ContentsModel);
     FootnoteView.setModel(null);
