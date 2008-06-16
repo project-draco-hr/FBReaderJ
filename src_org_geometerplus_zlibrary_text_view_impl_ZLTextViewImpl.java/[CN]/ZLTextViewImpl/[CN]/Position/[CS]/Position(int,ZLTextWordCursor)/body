@@ -1,0 +1,4 @@
+{
+  ModelIndex=modelIndex;
+  set(cursor);
+}

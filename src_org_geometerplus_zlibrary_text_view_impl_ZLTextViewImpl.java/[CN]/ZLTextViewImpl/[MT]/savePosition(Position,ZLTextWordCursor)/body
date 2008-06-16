@@ -1,5 +1,3 @@
 {
-  if (!position.equalsToCursor(cursor)) {
-    savePosition(position);
-  }
+  savePosition(position,0,cursorToCheck);
 }
