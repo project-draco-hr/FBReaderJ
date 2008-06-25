@@ -3,11 +3,12 @@
   if (!cursor.isNull() && cursor.isStartOfParagraph() && cursor.getParagraphCursor().Index == 0 && myCurrentModelIndex == 0) {
     return;
   }
-  setModel(0);
-  final Position position=new Position(cursor);
+  final int modelIndexToCheck=myCurrentModelIndex;
+  setModelIndex(0);
+  final Position position=new Position(modelIndexToCheck,cursor);
   gotoParagraph(0,false);
   gotoPosition(0,0,0);
   preparePaintInfo();
-  savePosition(position,StartCursor);
+  savePosition(position,0,StartCursor);
   Application.refreshWindow();
 }

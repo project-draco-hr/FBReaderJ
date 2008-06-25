@@ -1,4 +1,4 @@
+int modelIndex
 int paragraphIndex
 int wordIndex
 int charIndex
-int modelIndex

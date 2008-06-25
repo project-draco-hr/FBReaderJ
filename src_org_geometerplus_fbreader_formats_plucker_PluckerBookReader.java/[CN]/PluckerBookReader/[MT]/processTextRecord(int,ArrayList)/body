@@ -10,7 +10,7 @@
     myParagraphStored=false;
     processTextParagraph(myCharBuffer,start,end);
     if (!myParagraphStored) {
-      myParagraphVector.add(-1);
+      myParagraphVector.add(new Pair(-1,-1));
     }
   }
 }

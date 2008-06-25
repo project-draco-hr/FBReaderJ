@@ -1,4 +1,8 @@
 {
   gotoPosition((Position)myPositionStack.get(--myCurrentPointInStack));
   ((FBReader)Application).refreshWindow();
+  for (  Object p : myPositionStack) {
+    System.out.print(((Position)p).ModelIndex + "," + ((Position)p).ParagraphIndex+ "; ");
+  }
+  System.out.println("current position " + myCurrentPointInStack);
 }

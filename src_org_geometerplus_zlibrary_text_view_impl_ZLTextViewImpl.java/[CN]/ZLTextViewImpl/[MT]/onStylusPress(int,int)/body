@@ -10,7 +10,7 @@
     final int xLeft=getLeftMargin();
     final int xRight=context.getWidth() - getRightMargin() - 1;
     if ((x > xLeft) && (x < xRight) && (y > yTop)&& (y < yBottom)) {
-      Position position=new Position(StartCursor);
+      Position position=new Position(myCurrentModelIndex,StartCursor);
       myTreeStateIsFrozen=true;
       final int[] textSizeVector=myTextSize;
       final int value=textSizeVector[textSizeVector.length - 1] * (x - xLeft) / (xRight - xLeft - 1);
@@ -38,7 +38,7 @@
       if (StartCursor.isNull()) {
         preparePaintInfo();
       }
-      savePosition(position,StartCursor);
+      savePosition(position,myCurrentModelIndex,StartCursor);
       Application.refreshWindow();
       myTreeStateIsFrozen=false;
       return true;

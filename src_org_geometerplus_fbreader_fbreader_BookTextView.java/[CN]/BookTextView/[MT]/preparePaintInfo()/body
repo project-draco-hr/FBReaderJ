@@ -1,11 +1,10 @@
 {
   super.preparePaintInfo();
   if (myPositionStack.isEmpty()) {
-    myPositionStack.add(new Position(StartCursor));
+    myPositionStack.add(new Position(myCurrentModelIndex,StartCursor));
   }
  else {
     ((Position)myPositionStack.get(myCurrentPointInStack)).set(StartCursor);
-    Position position=(Position)myPositionStack.get(myCurrentPointInStack);
-    System.out.println("current position " + position.ModelIndex + " , "+ position.ParagraphIndex);
+    ((Position)myPositionStack.get(myCurrentPointInStack)).ModelIndex=myCurrentModelIndex;
   }
 }

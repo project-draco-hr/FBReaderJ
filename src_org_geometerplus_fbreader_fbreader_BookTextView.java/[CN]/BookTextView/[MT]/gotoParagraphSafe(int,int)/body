@@ -3,8 +3,9 @@
   final ZLTextWordCursor cursor=StartCursor;
   if (cursor != null) {
     final Position position=new Position(myCurrentModelIndex,cursor);
+    setModelIndex(modelIndex);
     gotoParagraph(paragraphIndex,false);
     preparePaintInfo();
-    savePosition(position,myCurrentModelIndex,StartCursor);
+    savePosition(position,modelIndex,StartCursor);
   }
 }

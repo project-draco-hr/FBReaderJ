@@ -1,0 +1,3 @@
+{
+  Model.addHyperlinkLabel(label,(ZLTextModel)Model.getBookTextModels().get(modelNumber),paragraphNumber);
+}

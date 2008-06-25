@@ -1,0 +1,7 @@
+{
+  if ((modelIndex != myCurrentModelIndex) && (modelIndex >= 0) && (modelIndex < myModels.size())) {
+    myModel=(ZLTextModel)myModels.get(modelIndex);
+    myCurrentModelIndex=modelIndex;
+    setModelInternal();
+  }
+}

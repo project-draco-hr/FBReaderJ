@@ -1,7 +1,7 @@
 {
   Label label=(Label)myInternalHyperlinks.get(link);
   if (label != null) {
-    return label.Model.getParagraph(label.ParagraphNumber);
+    return label.Model.getParagraph(label.ParagraphIndex);
   }
   return null;
 }
