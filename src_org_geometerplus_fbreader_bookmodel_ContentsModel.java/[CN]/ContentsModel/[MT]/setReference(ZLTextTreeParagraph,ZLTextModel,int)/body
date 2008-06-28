@@ -1,0 +1,3 @@
+{
+  myReferenceByParagraph.put(paragraph,new Reference(reference,model));
+}

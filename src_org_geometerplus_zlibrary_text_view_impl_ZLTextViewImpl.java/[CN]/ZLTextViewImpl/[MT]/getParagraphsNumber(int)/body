@@ -1,3 +1,0 @@
-{
-  return (modelIndex >= 0 && modelIndex < myModels.size()) ? ((ZLTextModel)myModels.get(modelIndex)).getParagraphsNumber() : 0;
-}

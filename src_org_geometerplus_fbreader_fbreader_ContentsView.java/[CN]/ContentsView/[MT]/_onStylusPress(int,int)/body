@@ -5,9 +5,9 @@
   }
   final ContentsModel contentsModel=(ContentsModel)getModel();
   final ZLTextTreeParagraph paragraph=contentsModel.getTreeParagraph(index);
-  final int reference=contentsModel.getReference(paragraph);
+  final ContentsModel.Reference reference=contentsModel.getReference(paragraph);
   final FBReader fbreader=(FBReader)Application;
-  fbreader.BookTextView.gotoParagraphSafe(reference);
+  fbreader.BookTextView.gotoParagraphSafe(reference.Model,reference.ParagraphIndex);
   fbreader.setMode(FBReader.ViewMode.BOOK_TEXT);
   return true;
 }

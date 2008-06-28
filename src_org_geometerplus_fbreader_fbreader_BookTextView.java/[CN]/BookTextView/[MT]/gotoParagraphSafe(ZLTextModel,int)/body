@@ -1,0 +1,3 @@
+{
+  gotoParagraphSafe(getModelList().indexOf(model),paragraphIndex);
+}

@@ -10,9 +10,10 @@
     }
     final int length=getModel().getParagraphsNumber();
     final ContentsModel contentsModel=(ContentsModel)getModel();
+    final ZLTextModel currentModel=(ZLTextModel)fbreader.BookTextView.getModel();
     for (int i=1; i < length; ++i) {
-      final int contentsReference=contentsModel.getReference(contentsModel.getTreeParagraph(i));
-      if ((contentsReference > reference) || (!includeStart && startOfParagraph && (contentsReference == reference))) {
+      final ContentsModel.Reference contentsReference=contentsModel.getReference(contentsModel.getTreeParagraph(i));
+      if ((contentsReference.Model == currentModel) && ((contentsReference.ParagraphIndex > reference) || (!includeStart && startOfParagraph && (contentsReference.ParagraphIndex == reference)))) {
         return i - 1;
       }
     }

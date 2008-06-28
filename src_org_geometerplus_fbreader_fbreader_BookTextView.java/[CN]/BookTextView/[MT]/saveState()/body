@@ -10,8 +10,9 @@
     Position position=(Position)myPositionStack.get(i);
     option.changeName(PARAGRAPH_PREFIX + i);
     int paragraphIndex=position.ParagraphIndex + position.ModelIndex;
+    final ArrayList models=getModelList();
     for (int j=0; j < position.ModelIndex; j++) {
-      paragraphIndex+=getParagraphsNumber(j);
+      paragraphIndex+=((ZLTextModel)models.get(j)).getParagraphsNumber();
     }
     option.setValue(paragraphIndex);
     option.changeName(CHAR_PREFIX + i);

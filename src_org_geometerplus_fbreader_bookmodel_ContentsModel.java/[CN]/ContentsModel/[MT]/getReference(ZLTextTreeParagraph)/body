@@ -1,4 +1,3 @@
 {
-  Integer num=(Integer)myReferenceByParagraph.get(paragraph);
-  return (num != null) ? num.intValue() : -1;
+  return (Reference)myReferenceByParagraph.get(paragraph);
 }

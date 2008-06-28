@@ -1,6 +1,3 @@
 {
-  final ContentsModel contentsModel=Model.ContentsModel;
-  if (contentsParagraphNumber < contentsModel.getParagraphsNumber()) {
-    contentsModel.setReference(contentsModel.getTreeParagraph(contentsParagraphNumber),referenceNumber);
-  }
+  setReference(contentsParagraphNumber,myCurrentTextModel,referenceNumber);
 }
