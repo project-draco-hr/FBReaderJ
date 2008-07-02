@@ -1,0 +1,6 @@
+{
+  super(mimeType);
+  myPath=path;
+  myOffset=offset;
+  myCompressedSize=compressedSize;
+}
