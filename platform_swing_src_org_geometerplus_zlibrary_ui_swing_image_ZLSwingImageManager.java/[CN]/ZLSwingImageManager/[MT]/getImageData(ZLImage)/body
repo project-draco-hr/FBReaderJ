@@ -1,9 +1,19 @@
 {
-  try {
-    final BufferedImage awtImage=ImageIO.read(new ByteArrayInputStream(image.byteData()));
-    return new ZLSwingImageData(awtImage);
+  if (image instanceof ZLSingleImage) {
+    System.out.println("MimeType " + ((ZLSingleImage)image).mimeType());
+    if ("image/palm".equals(((ZLSingleImage)image).mimeType())) {
+      return new ZLSwingImageData(convertFromPalmImageFormat(((ZLSingleImage)image).byteData()));
+    }
+    try {
+      final BufferedImage awtImage=ImageIO.read(new ByteArrayInputStream(((ZLSingleImage)image).byteData()));
+      return new ZLSwingImageData(awtImage);
+    }
+ catch (    IOException e) {
+      return null;
+    }
   }
- catch (  IOException e) {
+ else {
+    System.out.println("non-single");
     return null;
   }
 }

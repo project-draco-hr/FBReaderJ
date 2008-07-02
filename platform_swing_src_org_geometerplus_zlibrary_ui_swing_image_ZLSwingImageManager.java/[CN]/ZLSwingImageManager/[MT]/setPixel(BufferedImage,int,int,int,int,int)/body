@@ -1,0 +1,3 @@
+{
+  image.setRGB(x,y,new Color(red,green,blue).getRGB());
+}

@@ -1,0 +1,84 @@
+{
+  if (byteData.length >= 16) {
+    PalmImageHeader header=new PalmImageHeader(byteData);
+switch (header.CompressionType) {
+case 0x00:
+      break;
+case 0x01:
+    break;
+case 0x02:
+  break;
+case (byte)0xFF:
+if (byteData.length >= header.BytesPerRow * header.Height + 16) {
+  if ((header.BitsPerPixel != 1) && (header.BitsPerPixel != 2) && (header.BitsPerPixel != 4)&& (header.BitsPerPixel != 8)&& (header.BitsPerPixel != 16)) {
+    break;
+  }
+  BufferedImage image=new BufferedImage(header.Width,header.Height,BufferedImage.TYPE_INT_RGB);
+  if (header.BitsPerPixel == 16) {
+    final byte redBits=byteData[16];
+    final byte greenBits=byteData[17];
+    final byte blueBits=byteData[18];
+    final int redMask=(1 << redBits) - 1;
+    final int greenMask=(1 << greenBits) - 1;
+    final int blueMask=(1 << blueBits) - 1;
+    for (int i=0; i < header.Height; ++i) {
+      int from_ptr=24;
+      final int to_ptr=from_ptr + header.BytesPerRow;
+      int j=0;
+      for (; from_ptr < to_ptr; from_ptr+=2) {
+        int color=256 * byteData[from_ptr] + byteData[from_ptr + 1];
+        setPixel(image,j++,i,(color >> (16 - redBits)) * 255 / redMask,((color >> blueBits) & greenMask) * 255 / greenMask,(color & blueMask) * 255 / blueMask);
+      }
+    }
+  }
+ else {
+    final byte from=16;
+    for (int i=0; i < header.Height; ++i) {
+      int from_ptr=from + header.BytesPerRow * i;
+      int x=0;
+      for (int j=0; j < (int)header.Width; j+=8 / header.BitsPerPixel, ++from_ptr) {
+switch (header.BitsPerPixel) {
+case 1:
+{
+            byte len=(byte)Math.min(8,(int)header.Width - j);
+            for (byte k=0; k < len; ++k) {
+              setGrayPixel(image,x++,i,(((byteData[from_ptr]) & (128 >> k)) != 0) ? 0 : 255);
+            }
+          }
+        break;
+case 2:
+{
+        byte len=(byte)Math.min(4,(int)header.Width - j);
+        for (byte k=0; k < len; ++k) {
+          setGrayPixel(image,x++,i,85 * (3 - (byteData[from_ptr] >> (6 - 2 * k)) & 0x3));
+        }
+      }
+    break;
+case 4:
+{
+    setGrayPixel(image,x++,i,17 * (15 - (byteData[from_ptr] >> 4)));
+    if (j != (int)header.Width - 1) {
+      setGrayPixel(image,x++,i,17 * (15 - (byteData[from_ptr] & 0xF)));
+    }
+  }
+break;
+case 8:
+{
+final int[] col=PalmImage8bitColormap[byteData[from_ptr] & 0xFF];
+setPixel(image,x++,i,col[0],col[1],col[2]);
+}
+break;
+}
+}
+}
+}
+System.out.println("Bits per pix " + header.BitsPerPixel);
+return image;
+}
+break;
+default :
+break;
+}
+}
+return null;
+}

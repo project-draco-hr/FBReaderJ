@@ -1,0 +1,3 @@
+{
+  setPixel(image,x,y,color,color,color);
+}
