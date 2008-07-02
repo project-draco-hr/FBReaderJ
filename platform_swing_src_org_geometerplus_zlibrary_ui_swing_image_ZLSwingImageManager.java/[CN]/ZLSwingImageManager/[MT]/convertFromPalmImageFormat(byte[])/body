@@ -72,7 +72,6 @@ break;
 }
 }
 }
-System.out.println("Bits per pix " + header.BitsPerPixel);
 return image;
 }
 break;
