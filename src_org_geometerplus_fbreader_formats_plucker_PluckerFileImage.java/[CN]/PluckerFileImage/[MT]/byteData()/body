@@ -1,0 +1,22 @@
+{
+  System.out.println("byteData: ");
+  System.out.println("path: " + myPath);
+  System.out.println("Offset: " + myOffset);
+  final InputStream stream=ZLibrary.getInstance().getInputStream(myPath);
+  if (stream == null) {
+    System.out.println("Stream == null");
+    return new byte[0];
+  }
+  byte[] buffer;
+  try {
+    stream.skip(myOffset);
+    buffer=new byte[mySize];
+    final int size=stream.read(buffer,0,mySize);
+    System.out.println("DataSize: " + size + " "+ mySize);
+    return buffer;
+  }
+ catch (  IOException e) {
+    System.out.println("ioexception");
+  }
+  return new byte[0];
+}
