@@ -1,24 +1,25 @@
 {
-  if (myPaintState == PaintState.NOTHING_TO_PAINT) {
-    return;
+  if (strong) {
+    ZLTextParagraphCursorCache.clear();
   }
-  myLineInfos.clear();
-  if (!StartCursor.isNull()) {
-    if (strong) {
-      ZLTextParagraphCursorCache.clear();
-      StartCursor.rebuild();
-      myLineInfoCache.clear();
+  if (myPaintState != PaintState.NOTHING_TO_PAINT) {
+    myLineInfos.clear();
+    if (!StartCursor.isNull()) {
+      if (strong) {
+        StartCursor.rebuild();
+      }
+      EndCursor.reset();
+      myPaintState=PaintState.START_IS_KNOWN;
     }
-    EndCursor.reset();
-    myPaintState=PaintState.START_IS_KNOWN;
+ else     if (!EndCursor.isNull()) {
+      if (strong) {
+        EndCursor.rebuild();
+      }
+      StartCursor.reset();
+      myPaintState=PaintState.END_IS_KNOWN;
+    }
   }
- else   if (!EndCursor.isNull()) {
-    if (strong) {
-      ZLTextParagraphCursorCache.clear();
-      EndCursor.rebuild();
-      myLineInfoCache.clear();
-    }
-    StartCursor.reset();
-    myPaintState=PaintState.END_IS_KNOWN;
+  if (strong) {
+    myLineInfoCache.clear();
   }
 }

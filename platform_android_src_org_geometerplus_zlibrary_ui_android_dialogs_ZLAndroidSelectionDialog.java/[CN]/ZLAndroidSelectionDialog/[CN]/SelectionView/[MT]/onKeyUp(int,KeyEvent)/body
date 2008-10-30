@@ -1,11 +1,9 @@
 {
 switch (keyCode) {
 case KeyEvent.KEYCODE_DPAD_CENTER:
-case KeyEvent.KEYCODE_NEWLINE:
+case KeyEvent.KEYCODE_ENTER:
     final ItemView view=(ItemView)getSelectedView();
   if (view != null) {
-    final ZLTreeNode node=view.getNode();
-    myReturnValue=!node.IsFolder;
     runNode(view.getNode());
   }
 return false;

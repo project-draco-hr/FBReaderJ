@@ -1,6 +1,6 @@
 {
   try {
-    return new BufferedInputStream(new FileInputStream(fileName));
+    return new FileInputStream(fileName);
   }
  catch (  FileNotFoundException e) {
     return null;

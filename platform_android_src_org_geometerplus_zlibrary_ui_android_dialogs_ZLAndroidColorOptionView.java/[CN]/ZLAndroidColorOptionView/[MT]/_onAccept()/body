@@ -1,3 +1,10 @@
 {
-  ((ZLColorOptionEntry)myOption).onAccept(new ZLColor(myRedView.getComponentValue(),myGreenView.getComponentValue(),myBlueView.getComponentValue()));
+  if (myContainer != null) {
+    ((ZLColorOptionEntry)myOption).onAccept(new ZLColor(myRedView.getComponentValue(),myGreenView.getComponentValue(),myBlueView.getComponentValue()));
+    myContainer=null;
+    myColorArea=null;
+    myRedView=null;
+    myGreenView=null;
+    myBlueView=null;
+  }
 }

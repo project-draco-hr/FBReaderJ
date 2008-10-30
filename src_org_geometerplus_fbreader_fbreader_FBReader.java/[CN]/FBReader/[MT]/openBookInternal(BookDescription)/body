@@ -1,9 +1,11 @@
 {
+  clearTextCaches();
   if (description != null) {
     BookTextView.saveState();
     BookTextView.setModels(null,"");
     BookTextView.setContentsModel(null);
     ContentsView.setModel(null);
+    myBookModel=null;
     myBookModel=new BookModel(description);
     final String fileName=description.FileName;
     myBookNameOption.setValue(fileName);

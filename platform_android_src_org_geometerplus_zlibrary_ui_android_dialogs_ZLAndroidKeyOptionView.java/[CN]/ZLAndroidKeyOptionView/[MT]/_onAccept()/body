@@ -1,3 +1,6 @@
 {
   ((ZLKeyOptionEntry)myOption).onAccept();
+  myLabel=null;
+  myEditor=null;
+  mySpinner=null;
 }

@@ -1,7 +1,0 @@
-{
-  super(resource,exitAction,applyAction);
-  myTabListView=new TabListView(context);
-  myCaption=resource.getResource("title").getValue();
-  myDialog=new AndroidDialog(context,myTabListView,myCaption);
-  myDialog.setExitAction(exitAction);
-}

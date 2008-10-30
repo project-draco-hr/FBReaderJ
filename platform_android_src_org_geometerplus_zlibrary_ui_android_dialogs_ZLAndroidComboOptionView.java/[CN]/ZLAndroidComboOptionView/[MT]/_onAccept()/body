@@ -1,6 +1,10 @@
 {
-  final EditText editor=((ComboAdapter)mySpinner.getAdapter()).myEditor;
-  if (editor != null) {
-    ((ZLComboOptionEntry)myOption).onAccept(editor.getText().toString());
+  if (mySpinner != null) {
+    final EditText editor=((ComboAdapter)mySpinner.getAdapter()).myEditor;
+    if (editor != null) {
+      ((ZLComboOptionEntry)myOption).onAccept(editor.getText().toString());
+    }
+    myLabel=null;
+    mySpinner=null;
   }
 }

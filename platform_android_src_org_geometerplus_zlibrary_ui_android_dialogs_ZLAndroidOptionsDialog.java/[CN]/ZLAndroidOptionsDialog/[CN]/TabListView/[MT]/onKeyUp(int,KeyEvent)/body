@@ -1,7 +1,7 @@
 {
 switch (keyCode) {
 case KeyEvent.KEYCODE_DPAD_CENTER:
-case KeyEvent.KEYCODE_NEWLINE:
+case KeyEvent.KEYCODE_ENTER:
     final int index=getSelectedItemPosition();
   if (index != -1) {
     gotoTab(index);

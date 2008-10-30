@@ -1,3 +1,7 @@
 {
-  ((ZLChoiceOptionEntry)myOption).onAccept(myGroup.getCheckedRadioButtonId() - 1);
+  if (myGroup != null) {
+    ((ZLChoiceOptionEntry)myOption).onAccept(myGroup.getCheckedRadioButtonId() - 1);
+    myGroup=null;
+    myButtons=null;
+  }
 }

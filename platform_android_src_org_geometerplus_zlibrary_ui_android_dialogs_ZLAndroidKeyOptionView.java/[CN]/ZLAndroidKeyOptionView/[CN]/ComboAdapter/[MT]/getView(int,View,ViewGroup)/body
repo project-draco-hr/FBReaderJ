@@ -1,13 +1,16 @@
 {
-  if (convertView == null) {
-    EditText editor=new EditText(parent.getContext()){
+  EditText editor;
+  if (convertView != null) {
+    editor=(EditText)convertView;
+  }
+ else {
+    editor=new EditText(parent.getContext()){
       protected boolean getDefaultEditable(){
         return false;
       }
     }
 ;
-    editor.setText((String)getItem(position));
-    return editor;
   }
-  return convertView;
+  editor.setText((String)getItem(position));
+  return editor;
 }

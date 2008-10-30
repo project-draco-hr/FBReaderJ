@@ -1,0 +1,5 @@
+{
+  mySelectionView=new SelectionView(activity);
+  activity.setContentView(mySelectionView);
+  update();
+}

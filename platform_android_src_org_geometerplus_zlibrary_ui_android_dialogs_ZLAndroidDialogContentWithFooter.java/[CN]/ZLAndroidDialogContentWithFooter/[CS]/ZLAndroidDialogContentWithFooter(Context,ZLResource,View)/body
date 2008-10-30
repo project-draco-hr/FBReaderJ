@@ -1,0 +1,16 @@
+{
+  super(context,resource);
+  createListView(context);
+  if (footer != null) {
+    LinearLayout layout=new LinearLayout(context);
+    layout.setOrientation(LinearLayout.VERTICAL);
+    layout.addView(myListView,new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
+    if (footer != null) {
+      layout.addView(footer,new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
+    }
+    myMainView=layout;
+  }
+ else {
+    myMainView=myListView;
+  }
+}

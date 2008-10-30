@@ -18,7 +18,7 @@
         }
       }
 ;
-      new BookInfoDialog(collection,fileName,action).getDialog().run();
+      action.run();
     }
   }
 ;

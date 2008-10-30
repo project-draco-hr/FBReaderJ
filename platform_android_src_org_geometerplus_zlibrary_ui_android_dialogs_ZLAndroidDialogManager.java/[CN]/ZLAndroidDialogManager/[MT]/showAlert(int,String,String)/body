@@ -1,3 +1,8 @@
 {
-  AlertDialog.show(myActivity,null,iconId,message,getButtonText(OK_BUTTON).replaceAll("&",""),null,true,null);
+  final AlertDialog dialog=new MyAlertDialog(myActivity,true,null);
+  dialog.setTitle(getDialogTitle(key));
+  dialog.setMessage(message);
+  dialog.setIcon(iconId);
+  dialog.setButton(getButtonText(OK_BUTTON).replaceAll("&",""),(AlertListener)null);
+  dialog.show();
 }

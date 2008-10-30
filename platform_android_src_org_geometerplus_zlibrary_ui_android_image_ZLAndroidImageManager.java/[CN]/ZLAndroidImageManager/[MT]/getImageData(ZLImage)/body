@@ -1,4 +1,13 @@
 {
-  byte[] array=image.byteData();
-  return new ZLAndroidImageData(BitmapFactory.decodeByteArray(array,0,array.length));
+  if (image instanceof ZLSingleImage) {
+    ZLSingleImage singleImage=(ZLSingleImage)image;
+    if ("image/palm".equals(singleImage.mimeType())) {
+      return null;
+    }
+    byte[] array=singleImage.byteData();
+    return new ZLAndroidImageData(BitmapFactory.decodeByteArray(array,0,array.length));
+  }
+ else {
+    return null;
+  }
 }

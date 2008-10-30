@@ -1,8 +1,8 @@
 {
   super.refresh();
-  for (  Map.Entry<Menu.Item,ZLApplication.Menubar.PlainItem> entry : myMenuItemMap.entrySet()) {
+  for (  Map.Entry<MenuItem,ZLApplication.Menubar.PlainItem> entry : myMenuItemMap.entrySet()) {
     final String actionId=entry.getValue().ActionId;
     final ZLApplication application=getApplication();
-    entry.getKey().setShown(application.isActionVisible(actionId) && application.isActionEnabled(actionId));
+    entry.getKey().setVisible(application.isActionVisible(actionId) && application.isActionEnabled(actionId));
   }
 }

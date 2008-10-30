@@ -1,19 +1,6 @@
 {
-  final HashMap entityMap=new HashMap();
-  entityMap.put("amp",new char[]{'&'});
-  entityMap.put("apos",new char[]{'\''});
-  entityMap.put("gt",new char[]{'>'});
-  entityMap.put("lt",new char[]{'<'});
-  entityMap.put("quot",new char[]{'\"'});
   final ZLXMLReader xmlReader=myXMLReader;
-  final ArrayList dtdList=xmlReader.externalDTDs();
-  final int dtdListSize=dtdList.size();
-  for (int i=0; i < dtdListSize; ++i) {
-    InputStream stream=new ZLFile((String)dtdList.get(i)).getInputStream();
-    if (stream != null) {
-      new ZLOwnDTDParser().doIt(stream,entityMap);
-    }
-  }
+  final HashMap entityMap=getDTDMap(xmlReader.externalDTDs());
   final InputStreamReader streamReader=myStreamReader;
   final boolean processNamespaces=myProcessNamespaces;
   HashMap oldNamespaceMap=processNamespaces ? new HashMap() : null;
@@ -281,7 +268,7 @@ entityName.append(buffer,startPosition,i - startPosition);
 state=savedState;
 startPosition=i + 1;
 final char[] value=getEntityValue(entityMap,convertToString(strings,entityName));
-if (value != null) {
+if ((value != null) && (value.length != 0)) {
 switch (state) {
 case ATTRIBUTE_VALUE:
 attributeValue.append(value,0,value.length);
@@ -358,6 +345,7 @@ break mainSwitchLabel;
 }
 }
  catch (ArrayIndexOutOfBoundsException e) {
+if (count > startPosition) {
 switch (state) {
 case START_TAG:
 tagName.append(buffer,startPosition,count - startPosition);
@@ -374,6 +362,7 @@ break;
 case TEXT:
 xmlReader.characterDataHandler(buffer,startPosition,count - startPosition);
 break;
+}
 }
 }
 }

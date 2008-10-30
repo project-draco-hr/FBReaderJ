@@ -1,4 +1,5 @@
 {
+  ZLTextParagraphCursorCache.clear();
   if (myModel != null) {
     final int paragraphsNumber=myModel.getParagraphsNumber();
     if (paragraphsNumber > 0) {

@@ -1,7 +1,0 @@
-{
-  if ((keyCode == KeyEvent.KEYCODE_BACK) && (myCancelAction != null)) {
-    myCancelAction.run();
-    return true;
-  }
-  return super.onKeyDown(keyCode,keyEvent);
-}

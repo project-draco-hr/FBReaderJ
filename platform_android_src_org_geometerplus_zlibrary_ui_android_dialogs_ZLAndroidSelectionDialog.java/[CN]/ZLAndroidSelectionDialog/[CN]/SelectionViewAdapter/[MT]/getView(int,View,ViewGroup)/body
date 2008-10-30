@@ -1,6 +1,3 @@
 {
-  if (convertView == null) {
-    convertView=new ItemView(myDialog.getContext(),(ZLTreeNode)getItem(position));
-  }
-  return convertView;
+  return new ItemView(myContext,(ZLTreeNode)getItem(position));
 }

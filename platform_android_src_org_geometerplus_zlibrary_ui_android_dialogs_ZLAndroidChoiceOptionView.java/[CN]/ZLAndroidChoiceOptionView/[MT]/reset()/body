@@ -1,4 +1,6 @@
 {
-  final ZLChoiceOptionEntry choiceEntry=(ZLChoiceOptionEntry)myOption;
-  myGroup.check(choiceEntry.initialCheckedIndex() + 1);
+  if (myGroup != null) {
+    final ZLChoiceOptionEntry choiceEntry=(ZLChoiceOptionEntry)myOption;
+    myGroup.check(choiceEntry.initialCheckedIndex() + 1);
+  }
 }

@@ -1,8 +1,13 @@
 {
-  AlertDialog.show(myActivity,null,0,message,getButtonText(OK_BUTTON).replaceAll("&",""),new DialogInterface.OnClickListener(){
+  final AlertDialog dialog=new MyAlertDialog(myActivity,true,null);
+  dialog.setTitle(getDialogTitle(key));
+  dialog.setMessage(message);
+  dialog.setIcon(0);
+  dialog.setButton(getButtonText(OK_BUTTON).replaceAll("&",""),new DialogInterface.OnClickListener(){
     public void onClick(    DialogInterface dialog,    int which){
       action.run();
     }
   }
-,true,null);
+);
+  dialog.show();
 }

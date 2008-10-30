@@ -1,13 +1,17 @@
 {
   final AlertListener al=new AlertListener(action0,action1,action2);
+  final AlertDialog dialog=new MyAlertDialog(myActivity,true,null);
+  dialog.setTitle(getDialogTitle(key));
+  dialog.setMessage(message);
+  dialog.setIcon(0);
   if (button0 != null) {
-    button0.replaceAll("&","");
+    dialog.setButton(button0.replaceAll("&",""),al);
   }
   if (button1 != null) {
-    button1.replaceAll("&","");
+    dialog.setButton2(button1.replaceAll("&",""),al);
   }
   if (button2 != null) {
-    button2.replaceAll("&","");
+    dialog.setButton3(button2.replaceAll("&",""),al);
   }
-  AlertDialog.show(myActivity,null,0,message,button0,al,button1,al,button2,al,true,null);
+  dialog.show();
 }

@@ -1,5 +1,5 @@
 {
-  myDialog.dismiss();
+  ((Activity)mySelectionView.getContext()).finish();
   if (myReturnValue) {
     new Handler().post(myActionOnAccept);
   }

@@ -1,6 +1,6 @@
 {
-  ZLAndroidDialogContent tab=(ZLAndroidDialogContent)myTabListView.getAdapter().getItem(index);
-  myDialog.setTitle(tab.getDisplayName());
-  myDialog.setContentView(tab.getView());
-  myDialog.setCancelAction((Runnable)myCancelActions.get(index));
+  myTabListView.setSelection(index);
+  final ZLAndroidDialogContentAsInterface tab=(ZLAndroidDialogContentAsInterface)myTabListView.getAdapter().getItem(index);
+  final Activity activity=(Activity)myTabListView.getContext();
+  ZLAndroidDialogManager.runDialog(activity,tab);
 }

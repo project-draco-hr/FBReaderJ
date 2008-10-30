@@ -1,3 +1,19 @@
 {
+  if (myGroup == null) {
+    final Context context=myTab.getContext();
+    myGroup=new RadioGroup(context);
+    myGroup.setOrientation(RadioGroup.VERTICAL);
+    final ZLChoiceOptionEntry choiceEntry=(ZLChoiceOptionEntry)myOption;
+    final int choiceNumber=choiceEntry.choiceNumber();
+    myButtons=new RadioButton[choiceNumber];
+    for (int i=0; i < choiceNumber; ++i) {
+      final RadioButton button=new RadioButton(context);
+      myButtons[i]=button;
+      button.setId(i + 1);
+      button.setText(choiceEntry.getText(i));
+      myGroup.addView(button,new RadioGroup.LayoutParams(RadioGroup.LayoutParams.WRAP_CONTENT,RadioGroup.LayoutParams.WRAP_CONTENT));
+    }
+    myGroup.check(choiceEntry.initialCheckedIndex() + 1);
+  }
   myTab.addAndroidView(myGroup,true);
 }

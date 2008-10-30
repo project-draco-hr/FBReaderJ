@@ -1,6 +1,9 @@
 {
   final ZLComboOptionEntry comboEntry=(ZLComboOptionEntry)myOption;
-  if (convertView == null) {
+  if (convertView != null) {
+    myEditor=(EditText)convertView;
+  }
+ else {
     myEditor=new EditText(parent.getContext()){
       protected boolean getDefaultEditable(){
         return comboEntry.isEditable();
@@ -8,8 +11,7 @@
     }
 ;
     myEditor.setSingleLine(true);
-    myEditor.setText((String)getItem(position),TextView.BufferType.EDITABLE);
-    convertView=myEditor;
   }
-  return convertView;
+  myEditor.setText((String)getItem(position),TextView.BufferType.EDITABLE);
+  return myEditor;
 }

@@ -1,0 +1,8 @@
+{
+  if (myApplyAction != null) {
+    myApplyAction.run();
+  }
+  if (myExitAction != null) {
+    myExitAction.run();
+  }
+}

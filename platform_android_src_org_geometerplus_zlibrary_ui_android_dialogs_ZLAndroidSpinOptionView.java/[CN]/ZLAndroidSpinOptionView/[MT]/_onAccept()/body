@@ -1,3 +1,10 @@
 {
-  ((ZLSpinOptionEntry)myOption).onAccept(myValue);
+  if (mySpinView != null) {
+    ((ZLSpinOptionEntry)myOption).onAccept(myValue);
+    myLabel=null;
+    mySpinView=null;
+    myDataView=null;
+    myMinusButton=null;
+    myPlusButton=null;
+  }
 }

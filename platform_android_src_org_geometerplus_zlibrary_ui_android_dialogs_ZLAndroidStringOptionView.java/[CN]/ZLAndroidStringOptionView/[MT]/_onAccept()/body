@@ -1,3 +1,7 @@
 {
-  ((ZLStringOptionEntry)myOption).onAccept(myEditor.getText().toString());
+  if (myEditor != null) {
+    ((ZLStringOptionEntry)myOption).onAccept(myEditor.getText().toString());
+    myLabel=null;
+    myEditor=null;
+  }
 }

@@ -1,0 +1,5 @@
+{
+  createListView(activity);
+  activity.setContentView(myListView);
+  activity.setTitle(getDisplayName());
+}

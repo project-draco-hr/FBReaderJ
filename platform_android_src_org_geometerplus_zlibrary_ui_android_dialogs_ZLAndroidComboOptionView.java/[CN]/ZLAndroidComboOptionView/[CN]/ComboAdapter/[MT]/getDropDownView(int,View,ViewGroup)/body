@@ -6,5 +6,8 @@
     textView.setText((String)getItem(position));
     convertView=textView;
   }
+ else {
+    ((TextView)convertView).setText((String)getItem(position));
+  }
   return convertView;
 }

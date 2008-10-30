@@ -1,7 +1,3 @@
 {
-  int index=myTabListView.getSelectedItemPosition();
-  if ((index >= 0) && (index <= myTabs.size())) {
-    return ((ZLDialogContent)myTabs.get(index)).getKey();
-  }
   return "";
 }

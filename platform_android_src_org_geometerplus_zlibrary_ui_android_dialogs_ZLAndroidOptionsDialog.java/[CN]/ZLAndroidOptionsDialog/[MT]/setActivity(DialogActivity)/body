@@ -1,0 +1,6 @@
+{
+  myTabListView=new TabListView(activity);
+  myTabListView.setAdapter(new TabListAdapter());
+  activity.setContentView(myTabListView);
+  activity.setTitle(myCaption);
+}

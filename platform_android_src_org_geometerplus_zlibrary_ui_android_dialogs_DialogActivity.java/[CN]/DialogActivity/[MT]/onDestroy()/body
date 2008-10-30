@@ -1,0 +1,4 @@
+{
+  myDialog.endActivity();
+  super.onDestroy();
+}
