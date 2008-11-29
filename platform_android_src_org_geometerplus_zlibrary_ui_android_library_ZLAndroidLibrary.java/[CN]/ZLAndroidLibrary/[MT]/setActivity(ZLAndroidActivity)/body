@@ -1,0 +1,5 @@
+{
+  myActivity=activity;
+  myDialogManager.setActivity(activity);
+  myWidget=null;
+}

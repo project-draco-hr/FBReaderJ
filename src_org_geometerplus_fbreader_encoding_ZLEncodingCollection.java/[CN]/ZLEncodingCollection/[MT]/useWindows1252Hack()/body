@@ -1,3 +1,3 @@
 {
-  return ZLConfigManager.getInstance() != null && useWindows1252HackOption().getValue();
+  return ZLConfig.Instance() != null && useWindows1252HackOption().getValue();
 }

@@ -1,3 +1,3 @@
 {
-  myDatabase.execSQL("DELETE FROM config WHERE groupName='" + group + "' AND name='"+ name+ "'");
+  database().execSQL("DELETE FROM config WHERE groupName='" + group + "' AND name='"+ name+ "'");
 }

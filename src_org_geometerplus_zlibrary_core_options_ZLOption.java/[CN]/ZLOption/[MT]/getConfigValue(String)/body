@@ -1,4 +1,4 @@
 {
-  ZLConfig config=ZLConfigManager.getConfig();
+  ZLConfig config=ZLConfig.Instance();
   return (config != null) ? config.getValue(myGroup,myOptionName,defaultValue) : defaultValue;
 }

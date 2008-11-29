@@ -1,5 +1,5 @@
 {
-  Context=ZLibrary.getInstance().createPaintContext();
+  ourInstance=this;
   if (ConfigAutoSavingOption.getValue()) {
   }
   new ToolbarCreator().read(ZLibrary.JAR_DATA_PREFIX + "data/default/toolbar.xml");

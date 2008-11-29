@@ -1,10 +1,6 @@
 {
   myCurrentIndex=index;
   final String selectedValue=(String)getValues().get(index);
-  if (myEntries.myFingerOnlyEntry != null) {
-    myEntries.myFingerOnlyEntry.setVisible(!ourDisableString.equals(selectedValue));
-  }
-  myEntries.myDelayEntry.setVisible(!ourDisableString.equals(selectedValue));
   myEntries.myLinesToKeepEntry.setVisible(ourKeepLinesString.equals(selectedValue));
   myEntries.myLinesToScrollEntry.setVisible(ourScrollLinesString.equals(selectedValue));
   myEntries.myPercentToScrollEntry.setVisible(ourScrollPercentageString.equals(selectedValue));

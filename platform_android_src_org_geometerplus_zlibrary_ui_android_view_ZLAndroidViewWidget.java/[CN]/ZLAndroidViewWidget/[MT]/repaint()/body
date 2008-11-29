@@ -1,3 +1,5 @@
 {
-  myWidget.postInvalidate();
+  final ZLAndroidWidget widget=((ZLAndroidLibrary)ZLAndroidLibrary.Instance()).getWidget();
+  widget.setViewWidget(this);
+  widget.postInvalidate();
 }

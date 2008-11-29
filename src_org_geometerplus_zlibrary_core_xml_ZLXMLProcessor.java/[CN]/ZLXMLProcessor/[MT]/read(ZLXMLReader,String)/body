@@ -1,7 +1,7 @@
 {
   InputStream stream=null;
   if (fileName.lastIndexOf(ZLibrary.JAR_DATA_PREFIX) != -1) {
-    stream=ZLibrary.getInstance().getInputStream(fileName);
+    stream=ZLibrary.Instance().getInputStream(fileName);
   }
  else {
     try {

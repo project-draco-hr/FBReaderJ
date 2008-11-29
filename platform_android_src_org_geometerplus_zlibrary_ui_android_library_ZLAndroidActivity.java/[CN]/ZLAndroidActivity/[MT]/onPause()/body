@@ -1,0 +1,4 @@
+{
+  ZLConfig.Instance().shutdown();
+  super.onPause();
+}

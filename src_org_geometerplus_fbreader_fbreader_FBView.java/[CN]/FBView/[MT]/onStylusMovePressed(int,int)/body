@@ -1,0 +1,17 @@
+{
+  if (super.onStylusMovePressed(x,y) || myTouchIsProcessed) {
+    return true;
+  }
+  final int diffY=y - myStartY;
+  if (Math.abs(diffY) * 5 >= Context.getHeight()) {
+    if (diffY > 0) {
+      Application.doAction(ActionCode.TOUCH_SCROLL_BACKWARD);
+    }
+ else {
+      Application.doAction(ActionCode.TOUCH_SCROLL_FORWARD);
+    }
+    myTouchIsProcessed=true;
+    return true;
+  }
+  return false;
+}

@@ -1,4 +1,5 @@
 {
   super(initialAngle);
-  myWidget.setViewWidget(this);
+  final ZLAndroidWidget widget=((ZLAndroidLibrary)ZLAndroidLibrary.Instance()).getWidget();
+  widget.setViewWidget(this);
 }

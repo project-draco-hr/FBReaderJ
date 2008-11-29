@@ -1,5 +1,5 @@
 {
-  ZLConfig config=ZLConfigManager.getConfig();
+  ZLConfig config=ZLConfig.Instance();
   if (config != null) {
     config.setValue(myGroup,myOptionName,value,myCategory);
   }

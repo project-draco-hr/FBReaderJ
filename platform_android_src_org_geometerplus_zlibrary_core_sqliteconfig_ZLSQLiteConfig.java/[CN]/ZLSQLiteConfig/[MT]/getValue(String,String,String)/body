@@ -1,5 +1,5 @@
 {
-  Cursor cursor=myDatabase.query(true,ourTableName,ourColumns,"groupName='" + group + "' AND name='"+ name+ "'",ourSelectionArgs,null,null,null,null);
+  Cursor cursor=database().query(true,ourTableName,ourColumns,"groupName='" + group + "' AND name='"+ name+ "'",ourSelectionArgs,null,null,null,null);
   String answer=defaultValue;
   if (cursor.getCount() != 0) {
     cursor.moveToFirst();

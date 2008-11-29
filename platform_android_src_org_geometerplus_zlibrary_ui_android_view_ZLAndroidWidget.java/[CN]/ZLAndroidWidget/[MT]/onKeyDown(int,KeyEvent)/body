@@ -3,6 +3,6 @@
   if (keyName.equals("<Menu>")) {
     return false;
   }
-  myViewWidget.getView().Application.doActionByKey(keyName);
+  ZLApplication.Instance().doActionByKey(keyName);
   return true;
 }

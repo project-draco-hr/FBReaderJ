@@ -3,7 +3,4 @@
   dialogTab.addOption("linesToKeep",myLinesToKeepEntry);
   dialogTab.addOption("linesToScroll",myLinesToScrollEntry);
   dialogTab.addOption("percentToScroll",myPercentToScrollEntry);
-  if (myFingerOnlyEntry != null) {
-    dialogTab.addOption("fingerOnly",myFingerOnlyEntry);
-  }
 }

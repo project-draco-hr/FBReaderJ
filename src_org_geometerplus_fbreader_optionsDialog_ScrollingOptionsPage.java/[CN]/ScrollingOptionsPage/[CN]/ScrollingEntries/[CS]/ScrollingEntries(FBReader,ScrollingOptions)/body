@@ -1,11 +1,5 @@
 {
-  final boolean isTapOption=fbreader.FingerTapScrollingOptions.equals(options);
-  final boolean isFingerTapDetectionSupported=new ZLBooleanOption(ZLOption.EMPTY,ZLOption.PLATFORM_GROUP,"FingerTapDetectable",false).getValue();
-  if (isTapOption && isFingerTapDetectionSupported) {
-    myFingerOnlyEntry=new ZLSimpleBooleanOptionEntry(fbreader.TapScrollingOnFingerOnlyOption);
-  }
-  myDelayEntry=new ZLSimpleSpinOptionEntry(options.DelayOption,50);
-  myModeEntry=new ScrollingModeEntry(fbreader,this,options.ModeOption,isTapOption);
+  myModeEntry=new ScrollingModeEntry(fbreader,this,options.ModeOption);
   myLinesToKeepEntry=new ZLSimpleSpinOptionEntry(options.LinesToKeepOption,1);
   myLinesToScrollEntry=new ZLSimpleSpinOptionEntry(options.LinesToScrollOption,1);
   myPercentToScrollEntry=new ZLSimpleSpinOptionEntry(options.PercentToScrollOption,5);

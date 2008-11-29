@@ -25,7 +25,7 @@ y=swap;
 break;
 }
 }
-ZLView view=myViewWidget.getView();
+ZLView view=ZLApplication.Instance().getCurrentView();
 switch (event.getAction()) {
 case MotionEvent.ACTION_UP:
 view.onStylusRelease(x,y);

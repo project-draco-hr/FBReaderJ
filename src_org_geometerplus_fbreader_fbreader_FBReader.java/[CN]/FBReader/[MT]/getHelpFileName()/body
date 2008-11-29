@@ -3,7 +3,7 @@
     myHelpFileName=ZLibrary.JAR_DATA_PREFIX + "data/help/MiniHelp." + Locale.getDefault().getLanguage()+ ".fb2";
     InputStream testStream=null;
     try {
-      testStream=ZLibrary.getInstance().getInputStream(myHelpFileName);
+      testStream=ZLibrary.Instance().getInputStream(myHelpFileName);
       testStream.close();
     }
  catch (    Exception e) {

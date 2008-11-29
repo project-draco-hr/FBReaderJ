@@ -1,8 +1,0 @@
-{
-  final String category=ZLOption.CONFIG_CATEGORY;
-  DelayOption=new ZLIntegerRangeOption(category,group,"ScrollingDelay",0,5000,delay);
-  ModeOption=new ZLIntegerOption(category,group,"Mode",mode);
-  LinesToKeepOption=new ZLIntegerRangeOption(category,group,"LinesToKeep",1,100,1);
-  LinesToScrollOption=new ZLIntegerRangeOption(category,group,"LinesToScroll",1,100,1);
-  PercentToScrollOption=new ZLIntegerRangeOption(category,group,"PercentToScrollOption",1,100,50);
-}

@@ -1,0 +1,4 @@
+{
+  ZLApplication.Instance().getCurrentView().onTrackballRotated((int)(10 * event.getX()),(int)(10 * event.getY()));
+  return true;
+}

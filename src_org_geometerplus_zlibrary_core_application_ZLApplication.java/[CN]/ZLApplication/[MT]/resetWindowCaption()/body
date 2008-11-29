@@ -1,11 +1,10 @@
 {
   if (myWindow != null) {
-    ZLView view=getCurrentView();
-    if (view != null) {
-      myWindow.setCaption(ZLibrary.getInstance().getApplicationName() + " - " + view.getCaption());
+    if (myView != null) {
+      myWindow.setCaption(ZLibrary.Instance().getApplicationName() + " - " + myView.getCaption());
     }
  else {
-      myWindow.setCaption(ZLibrary.getInstance().getApplicationName());
+      myWindow.setCaption(ZLibrary.Instance().getApplicationName());
     }
   }
 }

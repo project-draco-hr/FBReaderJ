@@ -8,21 +8,9 @@
   ScrollingModeEntry.ourScrollLinesString=modeResource.getResource("scrollLines").getValue();
   ScrollingModeEntry.ourScrollPercentageString=modeResource.getResource("scrollPercentage").getValue();
   ScrollingModeEntry.ourDisableString=modeResource.getResource("disable").getValue();
-  myLargeScrollingEntries=new ScrollingEntries(fbreader,fbreader.LargeScrollingOptions);
-  mySmallScrollingEntries=new ScrollingEntries(fbreader,fbreader.SmallScrollingOptions);
-  if (myIsMousePresented) {
-    myMouseScrollingEntries=new ScrollingEntries(fbreader,fbreader.MouseScrollingOptions);
-  }
-  if (myHasTouchScreen) {
-    myTapScrollingEntries=new ScrollingEntries(fbreader,fbreader.FingerTapScrollingOptions);
-  }
+  myTouchScrollingEntries=new ScrollingEntries(fbreader,fbreader.TouchScrollingOptions);
+  myTrackballScrollingEntries=new ScrollingEntries(fbreader,fbreader.TrackballScrollingOptions);
   mainEntry.onStringValueSelected(mainEntry.initialValue());
-  myLargeScrollingEntries.connect(dialogTab);
-  mySmallScrollingEntries.connect(dialogTab);
-  if (myIsMousePresented) {
-    myMouseScrollingEntries.connect(dialogTab);
-  }
-  if (myHasTouchScreen) {
-    myTapScrollingEntries.connect(dialogTab);
-  }
+  myTouchScrollingEntries.connect(dialogTab);
+  myTrackballScrollingEntries.connect(dialogTab);
 }

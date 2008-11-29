@@ -1,11 +1,5 @@
 {
   final String selectedValue=(String)getValues().get(index);
-  myLargeScrollingEntries.show(myLargeScrollingString.equals(selectedValue));
-  mySmallScrollingEntries.show(mySmallScrollingString.equals(selectedValue));
-  if (myIsMousePresented) {
-    myMouseScrollingEntries.show(myMouseScrollingString.equals(selectedValue));
-  }
-  if (myHasTouchScreen) {
-    myTapScrollingEntries.show(myTapScrollingString.equals(selectedValue));
-  }
+  myTouchScrollingEntries.show(myTouchScrollingString.equals(selectedValue));
+  myTrackballScrollingEntries.show(myTrackballScrollingString.equals(selectedValue));
 }

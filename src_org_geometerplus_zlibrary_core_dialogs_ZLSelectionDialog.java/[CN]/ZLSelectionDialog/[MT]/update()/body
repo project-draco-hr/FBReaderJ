@@ -9,5 +9,5 @@
   if ((info & UPDATE_SELECTION) != 0) {
     updateSelection();
   }
-  myHandler.resetUpdateInfo();
+  handler().resetUpdateInfo();
 }

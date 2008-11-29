@@ -1,0 +1,9 @@
+{
+  if (diffY > 0) {
+    Application.doAction(ActionCode.TRACKBALL_SCROLL_FORWARD);
+  }
+ else   if (diffY < 0) {
+    Application.doAction(ActionCode.TRACKBALL_SCROLL_BACKWARD);
+  }
+  return true;
+}

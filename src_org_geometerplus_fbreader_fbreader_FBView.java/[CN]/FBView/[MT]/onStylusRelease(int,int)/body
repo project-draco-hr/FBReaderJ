@@ -1,0 +1,6 @@
+{
+  if (super.onStylusRelease(x,y)) {
+    return true;
+  }
+  return myTouchIsProcessed;
+}

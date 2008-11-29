@@ -1,9 +1,5 @@
 {
-  if (myDelayEntry != null) {
-    if (myFingerOnlyEntry != null) {
-      myFingerOnlyEntry.setVisible(visible);
-    }
-    myDelayEntry.setVisible(visible);
+  if (myModeEntry != null) {
     myModeEntry.setVisible(visible);
     if (visible) {
       ((ScrollingModeEntry)myModeEntry).onMadeVisible();

@@ -24,7 +24,7 @@
   marginTab.addOptions("left",new ZLSimpleSpinOptionEntry(FBView.getLeftMarginOption(),1),"right",new ZLSimpleSpinOptionEntry(FBView.getRightMarginOption(),1));
   marginTab.addOptions("top",new ZLSimpleSpinOptionEntry(FBView.getTopMarginOption(),1),"bottom",new ZLSimpleSpinOptionEntry(FBView.getBottomMarginOption(),1));
   new FormatOptionsPage(myDialog.createTab("Format"));
-  new StyleOptionsPage(myDialog.createTab("Styles"),fbreader.Context);
+  new StyleOptionsPage(myDialog.createTab("Styles"),ZLibrary.Instance().getPaintContext());
   createIndicatorTab(fbreader);
   final ZLDialogContent rotationTab=myDialog.createTab("Rotation");
   rotationTab.addOption("direction",new RotationTypeEntry(rotationTab.getResource("direction"),fbreader.RotationAngleOption));

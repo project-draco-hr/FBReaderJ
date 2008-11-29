@@ -1,17 +1,9 @@
 {
-  if (super.onStylusPress(x,y) || _onStylusPress(x,y)) {
+  if (super.onStylusPress(x,y)) {
     return true;
   }
-  final FBReader fbreader=(FBReader)Application;
-  if (fbreader.EnableTapScrollingOption.getValue()) {
-    if (2 * y < Context.getHeight()) {
-      fbreader.doAction(ActionCode.FINGER_TAP_SCROLL_BACKWARD);
-    }
- else {
-      fbreader.doAction(ActionCode.FINGER_TAP_SCROLL_FORWARD);
-    }
-    return true;
-  }
-  activateSelection(x,y);
+  myStartX=x;
+  myStartY=y;
+  myTouchIsProcessed=false;
   return true;
 }
