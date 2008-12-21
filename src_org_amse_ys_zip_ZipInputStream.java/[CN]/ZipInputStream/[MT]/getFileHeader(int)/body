@@ -1,0 +1,8 @@
+{
+  if (index >= myFileHeaders.size()) {
+    return null;
+  }
+ else {
+    return myFileHeaders.get(index);
+  }
+}

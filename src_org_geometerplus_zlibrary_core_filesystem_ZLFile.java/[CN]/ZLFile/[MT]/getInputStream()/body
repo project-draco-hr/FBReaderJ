@@ -12,17 +12,13 @@
     InputStream base=baseFile.getInputStream();
     if (base != null) {
       if (0 != (baseFile.myArchiveType & ArchiveType.ZIP)) {
-        final ZipInputStream zipStream=new ZipInputStream(base);
+        final org.amse.ys.zip.ZipInputStream zipStream=new org.amse.ys.zip.ZipInputStream(myPath.substring(0,index));
         final String entryName=myPath.substring(index + 1);
-        while (true) {
-          ZipEntry entry=zipStream.getNextEntry();
-          if (entry == null) {
-            break;
-          }
- else           if (entryName.equals(entry.getName())) {
-            stream=zipStream;
-            break;
-          }
+        try {
+          zipStream.openFile(entryName);
+          stream=zipStream;
+        }
+ catch (        org.amse.ys.zip.WrongZipFormatException e) {
         }
       }
  else       if (0 != (baseFile.myArchiveType & ArchiveType.TAR)) {

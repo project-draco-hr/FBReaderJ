@@ -1,0 +1,26 @@
+{
+  if ((myState != ST_HEADER) || (myBytesRead >= myTotalLength)) {
+    throw new RuntimeException("unexpected case of readheader call");
+  }
+  myTheBlockIsFinal=(getBit() != 0);
+  int kindOfBlock;
+  kindOfBlock=readIntegerByBit(2);
+switch (kindOfBlock) {
+case 0:
+    myState=ST_NO_COMPRESSION;
+  readIntegerByBit(5);
+myCurrentBlockLength=readIntegerByBit(32);
+break;
+case 1:
+myState=ST_FIXED_CODES;
+myHuffmanCodes=CodeBuilder.buildFixedHuffmanCodes().buildTable();
+myDistanceCodes=CodeBuilder.buildFixedDistanceCodes().buildTable();
+break;
+case 2:
+myState=ST_DYNAMIC_CODES;
+readCodes();
+break;
+case 3:
+throw new WrongZipFormatException("Code 11 found in header of delflated block. (means error according to specification)");
+}
+}

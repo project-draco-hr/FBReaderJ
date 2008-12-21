@@ -1,0 +1,10 @@
+{
+switch (header.CompressionMethod) {
+case 0:
+    return new NoCompression(is,header);
+case 8:
+  return new Deflating(is,header);
+default :
+throw new WrongZipFormatException("Unsupported method of compression");
+}
+}

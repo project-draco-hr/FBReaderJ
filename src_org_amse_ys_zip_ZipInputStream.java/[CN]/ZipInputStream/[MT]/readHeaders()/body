@@ -1,0 +1,17 @@
+{
+  while (true) {
+    int header=read4Bytes();
+    if (header != LocalFileHeader.FILE_HEADER_SIGNATURE) {
+      if (header == LocalFileHeader.FOLDER_HEADER_SIGNATURE) {
+        break;
+      }
+ else {
+        throw new WrongZipFormatException("readHeaders. Wrong signature found = " + header + " at position "+ myCurrentPosition);
+      }
+    }
+    readFileHeader(false,"");
+  }
+  myAllFilesAreRead=true;
+  myCurrentPosition=0;
+  myZipFile.reset();
+}

@@ -1,0 +1,6 @@
+{
+  myZipFile.close();
+  myFileIsOpened=false;
+  myIndexOfFileOpened=-1;
+  myDecompressor=null;
+}

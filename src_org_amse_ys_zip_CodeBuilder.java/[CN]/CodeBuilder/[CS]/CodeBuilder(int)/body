@@ -1,0 +1,5 @@
+{
+  myCodeArray=new int[maxNumberOfCodes];
+  myLengthArray=new int[maxNumberOfCodes];
+  myNumberOfCodes=maxNumberOfCodes;
+}

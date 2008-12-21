@@ -1,0 +1,12 @@
+{
+  myCurrentPosition++;
+  if (myBytesReady == 0) {
+    myPositionInBuffer=0;
+    myBytesReady=myFile.read(myBuffer);
+    if (myBytesReady == 0) {
+      return -1;
+    }
+  }
+  myBytesReady--;
+  return (myBuffer[myPositionInBuffer++] & 255);
+}

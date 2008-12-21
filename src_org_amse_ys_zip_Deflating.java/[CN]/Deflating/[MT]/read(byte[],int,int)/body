@@ -1,0 +1,27 @@
+{
+  int i=0;
+  int available=myOutputBuffer.available();
+  while (i < len) {
+    int toRead=Math.min(MAX_LEN,len - i);
+    while (available < toRead) {
+      if (myState == ST_HEADER) {
+        readHeader();
+      }
+      available+=pushNextSymbolToDictionary();
+      if (myState == ST_END_OF_FILE) {
+        break;
+      }
+    }
+    if (available == 0) {
+      break;
+    }
+    if (toRead > available) {
+      toRead=available;
+    }
+    myOutputBuffer.read(b,off + i,toRead);
+    i+=toRead;
+    available-=toRead;
+  }
+  myCurrentPosition+=i;
+  return (i > 0) ? i : -1;
+}

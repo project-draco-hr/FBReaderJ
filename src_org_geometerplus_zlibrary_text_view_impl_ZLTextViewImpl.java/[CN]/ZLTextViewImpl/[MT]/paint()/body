@@ -1,11 +1,14 @@
 {
-  preparePaintInfo();
   myTextElementMap.clear();
   myTreeNodeMap.clear();
   final ZLTextBaseStyle baseStyle=ZLTextStyleCollection.getInstance().getBaseStyle();
   final ZLPaintContext context=Context;
   context.clear(baseStyle.BackgroundColorOption.getValue());
   if ((myModel == null) || (myModel.getParagraphsNumber() == 0)) {
+    return;
+  }
+  preparePaintInfo();
+  if (StartCursor.isNull() || EndCursor.isNull()) {
     return;
   }
   final ZLTextLineInfoVector lineInfos=myLineInfos;

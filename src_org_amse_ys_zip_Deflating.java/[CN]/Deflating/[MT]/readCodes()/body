@@ -1,0 +1,81 @@
+{
+  final int[] codeLenSequence={16,17,18,0,8,7,9,6,10,5,11,4,12,3,13,2,14,1,15};
+  final int numberOfLiteralCodes=readIntegerByBit(5);
+  final int numberOfDistanceCodes=readIntegerByBit(5);
+  final int numberOfLengthCodes=readIntegerByBit(4);
+  final CodeBuilder headerReadingCoder=new CodeBuilder(19);
+  for (int i=0; i < (numberOfLengthCodes + 4); i++) {
+    headerReadingCoder.addCodeLength(codeLenSequence[i],readIntegerByBit(3));
+  }
+  final int[] distHuffmanCodes=headerReadingCoder.buildTable();
+  CodeBuilder usualCodeBuilder=new CodeBuilder(288);
+  int previousNumber=0;
+  for (int i=0; i < (numberOfLiteralCodes + 257); i++) {
+    int currentHuffmanCode=readHuffmanCode(distHuffmanCodes);
+    if (currentHuffmanCode <= 15) {
+      usualCodeBuilder.addCodeLength(i,currentHuffmanCode);
+      previousNumber=currentHuffmanCode;
+    }
+ else {
+      boolean previous;
+      int repeatNumber=0;
+switch (currentHuffmanCode) {
+case 16:
+        repeatNumber=3 + readIntegerByBit(2);
+      previous=true;
+    break;
+case 17:
+  repeatNumber=3 + readIntegerByBit(3);
+previous=false;
+break;
+case 18:
+repeatNumber=11 + readIntegerByBit(7);
+previous=false;
+break;
+default :
+throw new RuntimeException("error when reading dynamic Huffman codes");
+}
+previousNumber=previous ? previousNumber : 0;
+for (int j=0; j < repeatNumber; j++) {
+usualCodeBuilder.addCodeLength(i + j,previousNumber);
+}
+i+=repeatNumber - 1;
+}
+}
+myHuffmanCodes=usualCodeBuilder.buildTable();
+CodeBuilder distanceCodeBuilder=new CodeBuilder(32);
+previousNumber=0;
+for (int i=0; i < (numberOfDistanceCodes + 1); i++) {
+int currentHuffmanCode=readHuffmanCode(distHuffmanCodes);
+if (currentHuffmanCode <= 15) {
+distanceCodeBuilder.addCodeLength(i,currentHuffmanCode);
+previousNumber=currentHuffmanCode;
+}
+ else {
+boolean previous;
+int repeatNumber=0;
+switch (currentHuffmanCode) {
+case 16:
+repeatNumber=3 + readIntegerByBit(2);
+previous=true;
+break;
+case 17:
+repeatNumber=3 + readIntegerByBit(3);
+previous=false;
+break;
+case 18:
+repeatNumber=11 + readIntegerByBit(7);
+previous=false;
+break;
+default :
+throw new RuntimeException("error when reading dynamic Huffman codes");
+}
+previousNumber=(previous ? previousNumber : 0);
+for (int j=0; j < repeatNumber; j++) {
+distanceCodeBuilder.addCodeLength(i + j,previousNumber);
+}
+i+=(repeatNumber - 1);
+}
+}
+myDistanceCodes=distanceCodeBuilder.buildTable();
+}

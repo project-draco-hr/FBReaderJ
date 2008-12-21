@@ -1,0 +1,14 @@
+{
+  if (!myFileIsOpened) {
+    throw new RuntimeException("There is no file open for reading");
+  }
+  if (!myFileHeaders.get(myIndexOfFileOpened).sizeIsKnown()) {
+    throw new RuntimeException("Reading of files with flag 3 is not implemented yet");
+  }
+  try {
+    return myDecompressor.read();
+  }
+ catch (  WrongZipFormatException e) {
+    throw new IOException("when reading occured exception " + e.getMessage());
+  }
+}

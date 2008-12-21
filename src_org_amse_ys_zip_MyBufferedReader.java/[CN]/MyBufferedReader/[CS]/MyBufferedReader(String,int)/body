@@ -1,0 +1,7 @@
+{
+  myFileName=s;
+  myFile=new FileInputStream(s);
+  myBuffer=new byte[arraySize];
+  myBytesReady=0;
+  myPositionInBuffer=0;
+}

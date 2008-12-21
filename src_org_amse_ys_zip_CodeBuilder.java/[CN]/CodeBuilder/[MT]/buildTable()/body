@@ -1,0 +1,23 @@
+{
+  final int[] table=new int[1 << 15];
+  if (!myCodesAreBuild) {
+    buildCodes();
+  }
+  final int length=myCodeArray.length;
+  for (int i=0; i < length; i++) {
+    final int codeLength=myLengthArray[i];
+    if (codeLength > 0) {
+      int revertedCode=myCodeArray[i];
+      int code=0;
+      for (int j=0; j < codeLength; ++j) {
+        code=(code << 1) + (revertedCode & 1);
+        revertedCode>>=1;
+      }
+      final int value=(codeLength << 16) + i;
+      for (int j=0; j < (1 << (15 - codeLength)); ++j) {
+        table[(j << codeLength) + code]=value;
+      }
+    }
+  }
+  return table;
+}

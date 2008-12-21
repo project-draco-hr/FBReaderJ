@@ -1,0 +1,7 @@
+int versionNeededToExtract
+int generalPurposeFlag
+int compressionMethod
+int compressedSize
+int uncompressedSize
+int offsetOfLocalData
+String fileName

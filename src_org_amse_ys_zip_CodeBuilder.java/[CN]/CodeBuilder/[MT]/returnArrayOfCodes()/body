@@ -1,0 +1,6 @@
+{
+  if (!myCodesAreBuild) {
+    buildCodes();
+  }
+  return myCodeArray;
+}

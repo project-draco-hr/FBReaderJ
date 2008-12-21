@@ -1,0 +1,8 @@
+{
+  if (!myCodesAreBuild) {
+    myLengthArray[codeNumber]=codeLen;
+  }
+ else {
+    throw new RuntimeException("Trying to addCodeLength after biulding huffman codes");
+  }
+}

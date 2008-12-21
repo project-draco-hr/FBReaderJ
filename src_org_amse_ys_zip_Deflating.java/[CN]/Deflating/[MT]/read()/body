@@ -1,0 +1,13 @@
+{
+  myCurrentPosition++;
+  while (myOutputBuffer.available() == 0) {
+    if (myState == ST_HEADER) {
+      readHeader();
+    }
+    pushNextSymbolToDictionary();
+    if (myState == ST_END_OF_FILE) {
+      return -1;
+    }
+  }
+  return myOutputBuffer.read() & 0xFF;
+}

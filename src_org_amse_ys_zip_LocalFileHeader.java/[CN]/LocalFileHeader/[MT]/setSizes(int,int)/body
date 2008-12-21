@@ -1,0 +1,8 @@
+{
+  if (mySizeIsKnown) {
+    throw new RuntimeException("Was attempt to change file sizes with use of setSizes");
+  }
+  myCompressedSize=compressedSize;
+  myUncompressedSize=uncompressedSize;
+  mySizeIsKnown=true;
+}

@@ -1,0 +1,9 @@
+{
+  if (myBitsInBuffer < 16) {
+    ensure16BitsInBuffer();
+  }
+  myBitsInBuffer--;
+  int result=(myTempInt & 1);
+  myTempInt=(myTempInt >> 1);
+  return result;
+}

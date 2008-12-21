@@ -1,0 +1,8 @@
+{
+  if (mySizeIsKnown) {
+    return myUncompressedSize;
+  }
+ else {
+    throw new RuntimeException("Error in getUncompressedSize: file size is not known yet");
+  }
+}

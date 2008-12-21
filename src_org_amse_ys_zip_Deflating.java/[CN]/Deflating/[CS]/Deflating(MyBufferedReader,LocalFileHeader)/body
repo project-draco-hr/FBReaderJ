@@ -1,0 +1,10 @@
+{
+  super();
+  myHeader=header;
+  myStream=is;
+  myBitsInBuffer=0;
+  myOutputBuffer=new CircularBuffer();
+  myTotalLength=header.getCompressedSize();
+  myBytesRead=0;
+  myState=ST_HEADER;
+}
