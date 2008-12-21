@@ -1,0 +1,4 @@
+{
+  addOptionByName(name0,option0);
+  addOptionByName(name1,option1);
+}
