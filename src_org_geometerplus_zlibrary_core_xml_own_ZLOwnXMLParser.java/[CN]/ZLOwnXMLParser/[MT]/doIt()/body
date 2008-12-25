@@ -223,7 +223,9 @@ state=WS_AFTER_START_TAG_NAME;
 --i;
 break;
 case '"':
+if (i != 0) {
 attributeValue.append(buffer,i - 1,1);
+}
 break mainSwitchLabel;
 default :
 state=ATTRIBUTE_VALUE;

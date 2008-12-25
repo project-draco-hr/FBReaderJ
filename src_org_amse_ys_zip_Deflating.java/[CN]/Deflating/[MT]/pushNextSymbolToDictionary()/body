@@ -1,6 +1,6 @@
 {
   if (myState == ST_NO_COMPRESSION) {
-    myOutputBuffer.writeByte((byte)myStream.read());
+    myOutputBuffer.writeByte((byte)readIntegerByBit(8));
     myReadInBlock++;
     if (myCurrentBlockLength == myReadInBlock) {
       if (myTheBlockIsFinal) {
@@ -60,10 +60,10 @@ case 281:
 case 282:
 case 283:
 case 284:
-length=((currentHuffmanCode - 281) << 5) + 115 + readIntegerByBit(5);
+length=((currentHuffmanCode - 281) << 5) + 131 + readIntegerByBit(5);
 break;
 case 285:
-length=285;
+length=258;
 break;
 }
 final int huffmanCode=readHuffmanCode(myDistanceCodes);

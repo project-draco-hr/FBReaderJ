@@ -9,7 +9,9 @@ switch (kindOfBlock) {
 case 0:
     myState=ST_NO_COMPRESSION;
   readIntegerByBit(5);
-myCurrentBlockLength=readIntegerByBit(32);
+myCurrentBlockLength=readIntegerByBit(16);
+readIntegerByBit(16);
+myReadInBlock=0;
 break;
 case 1:
 myState=ST_FIXED_CODES;

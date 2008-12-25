@@ -1,3 +1,0 @@
-{
-  return myTable[source & 0x7FFF];
-}
