@@ -1,4 +1,10 @@
 {
-  myContext=context;
-  myName=name;
+  myOpenHelper=new SQLiteOpenHelper(context,name,null,1){
+    public void onCreate(    SQLiteDatabase database){
+      database.execSQL("CREATE TABLE config (groupName VARCHAR, name VARCHAR, value VARCHAR, PRIMARY KEY(groupName, name))");
+    }
+    public void onUpgrade(    SQLiteDatabase database,    int oldVersion,    int newVersion){
+    }
+  }
+;
 }

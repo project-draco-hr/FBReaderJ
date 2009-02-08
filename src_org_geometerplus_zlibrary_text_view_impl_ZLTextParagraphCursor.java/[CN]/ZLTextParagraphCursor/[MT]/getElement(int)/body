@@ -1,3 +1,8 @@
 {
-  return (ZLTextElement)myElements.get(index);
+  try {
+    return (ZLTextElement)myElements.get(index);
+  }
+ catch (  IndexOutOfBoundsException e) {
+    return null;
+  }
 }

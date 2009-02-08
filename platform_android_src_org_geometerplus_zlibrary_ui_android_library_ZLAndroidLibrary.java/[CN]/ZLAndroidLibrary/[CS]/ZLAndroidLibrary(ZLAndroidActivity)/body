@@ -11,6 +11,6 @@
     application.initWindow();
   }
  catch (  Exception e) {
-    finish();
+    pause();
   }
 }

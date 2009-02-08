@@ -1,0 +1,5 @@
+{
+  if ((myActivity != null) && !myActivity.isFinishing()) {
+    myActivity.finish();
+  }
+}

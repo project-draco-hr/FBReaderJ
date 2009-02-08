@@ -1,4 +1,5 @@
 {
+  ZLApplication.Instance().closeWindow();
   ZLConfig.Instance().shutdown();
   super.onPause();
 }
