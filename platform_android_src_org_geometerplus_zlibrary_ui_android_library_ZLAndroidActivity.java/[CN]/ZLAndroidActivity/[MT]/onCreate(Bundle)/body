@@ -1,5 +1,6 @@
 {
   super.onCreate(icicle);
+  requestWindowFeature(Window.FEATURE_NO_TITLE);
   setContentView(R.layout.main);
   if (getLibrary() == null) {
     new ZLAndroidLibrary(this);

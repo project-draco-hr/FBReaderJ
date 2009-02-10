@@ -8,7 +8,7 @@
       Collection.rebuild(false);
       myUpdateModel=true;
       selectBook(book);
-      Application.refreshWindow();
+      ZLApplication.Instance().refreshWindow();
     }
   }
 ;

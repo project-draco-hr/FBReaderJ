@@ -2,48 +2,6 @@
   if (myModel == null) {
     return false;
   }
-  ZLTextIndicatorInfo indicatorInfo=getIndicatorInfo();
-  if (indicatorInfo.isVisible() && indicatorInfo.isSensitive() && !StartCursor.isNull()) {
-    final ZLPaintContext context=Context;
-    final int yBottom=context.getHeight() - getBottomMargin() - 1;
-    final int yTop=yBottom - indicatorInfo.getHeight() + 1;
-    final int xLeft=getLeftMargin();
-    final int xRight=context.getWidth() - getRightMargin() - 1;
-    if ((x > xLeft) && (x < xRight) && (y > yTop)&& (y < yBottom)) {
-      Position position=new Position(myCurrentModelIndex,StartCursor);
-      myTreeStateIsFrozen=true;
-      final int[] textSizeVector=myTextSize;
-      final int value=textSizeVector[textSizeVector.length - 1] * (x - xLeft) / (xRight - xLeft - 1);
-      final int paragraphIndex=lowerBound(textSizeVector,value);
-      gotoParagraph(paragraphIndex,true);
-      preparePaintInfo();
-      final int endCursorIndex=EndCursor.getParagraphCursor().Index;
-      if (endCursorIndex == paragraphIndex) {
-        final int paragraphLength=EndCursor.getParagraphCursor().getParagraphLength();
-        int wordCounter=paragraphLength * (value - textSizeVector[paragraphIndex]) / (textSizeVector[paragraphIndex + 1] - textSizeVector[paragraphIndex]);
-        if (wordCounter > 0) {
-          if (wordCounter == paragraphLength) {
-            EndCursor.nextParagraph();
-          }
- else {
-            wordCounter-=EndCursor.getWordIndex();
-            while (wordCounter-- > 0) {
-              EndCursor.nextWord();
-            }
-          }
-          StartCursor.reset();
-          rebuildPaintInfo(false);
-        }
-      }
-      if (StartCursor.isNull()) {
-        preparePaintInfo();
-      }
-      savePosition(position,myCurrentModelIndex,StartCursor);
-      Application.refreshWindow();
-      myTreeStateIsFrozen=false;
-      return true;
-    }
-  }
   if (myModel instanceof ZLTextTreeModel) {
     ZLTextTreeNodeArea nodeArea=(ZLTextTreeNodeArea)myTreeNodeMap.binarySearch(x,y);
     if (nodeArea != null) {
@@ -63,7 +21,7 @@
       if (StartCursor.isStartOfParagraph()) {
         --firstParagraphIndex;
       }
-      Application.refreshWindow();
+      ZLApplication.Instance().refreshWindow();
       return true;
     }
   }

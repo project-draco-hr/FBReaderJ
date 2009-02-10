@@ -1,0 +1,14 @@
+{
+  final ZLTextWordCursor cursor=new ZLTextWordCursor(wordCursor);
+  if (cursor.isEndOfParagraph() && !cursor.nextParagraph()) {
+    return -1;
+  }
+  final ZLTextParagraphCursor paragraphCursor=cursor.getParagraphCursor();
+  final int paragraphIndex=paragraphCursor.Index;
+  int sizeOfText=myTextSize[paragraphIndex];
+  final int paragraphLength=paragraphCursor.getParagraphLength();
+  if (paragraphLength > 0) {
+    sizeOfText+=(myTextSize[paragraphIndex + 1] - sizeOfText) * cursor.getWordIndex() / paragraphLength;
+  }
+  return sizeOfText;
+}

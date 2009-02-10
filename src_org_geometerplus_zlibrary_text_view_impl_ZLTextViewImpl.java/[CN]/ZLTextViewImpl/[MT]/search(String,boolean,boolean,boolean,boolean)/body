@@ -11,6 +11,6 @@
     rebuildPaintInfo(true);
     ZLTextMark position=StartCursor.getPosition();
     gotoMark(wholeText ? (backward ? myModel.getLastMark() : myModel.getFirstMark()) : (backward ? myModel.getPreviousMark(position) : myModel.getNextMark(position)));
-    Application.refreshWindow();
+    ZLApplication.Instance().refreshWindow();
   }
 }

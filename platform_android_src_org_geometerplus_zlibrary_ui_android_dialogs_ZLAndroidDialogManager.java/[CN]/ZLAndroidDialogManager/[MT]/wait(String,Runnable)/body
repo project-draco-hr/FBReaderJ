@@ -2,7 +2,11 @@
   final ProgressDialog progress=ProgressDialog.show(myActivity,null,getWaitMessageText(key),true,false);
   final Handler handler=new Handler(){
     public void handleMessage(    Message message){
-      progress.dismiss();
+      try {
+        progress.dismiss();
+      }
+ catch (      Exception e) {
+      }
     }
   }
 ;

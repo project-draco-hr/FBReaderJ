@@ -1,5 +1,7 @@
 {
-  final ZLDialogContent tab=new ZLAndroidOptionsTab(getTabResource(key));
+  final Context context=myMainActivity;
+  final int index=myTabs.size();
+  final ZLDialogContent tab=new ZLAndroidDialogContentAsInterface(context,getTabResource(key));
   myTabs.add(tab);
   return tab;
 }

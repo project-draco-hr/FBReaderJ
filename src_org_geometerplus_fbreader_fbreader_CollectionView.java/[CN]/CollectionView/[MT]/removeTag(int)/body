@@ -20,7 +20,7 @@
       getCollectionModel().removeAllMarks();
       Collection.removeTag(tag,false);
       updateModel();
-      Application.refreshWindow();
+      ZLApplication.Instance().refreshWindow();
     }
   }
 ;
@@ -29,7 +29,7 @@
       getCollectionModel().removeAllMarks();
       Collection.removeTag(tag,true);
       updateModel();
-      Application.refreshWindow();
+      ZLApplication.Instance().refreshWindow();
     }
   }
 ;

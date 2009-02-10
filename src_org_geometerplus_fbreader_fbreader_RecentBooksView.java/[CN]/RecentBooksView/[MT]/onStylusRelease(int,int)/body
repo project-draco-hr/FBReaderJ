@@ -7,7 +7,7 @@
   if ((index == -1) || (index >= (int)books.size())) {
     return false;
   }
-  final FBReader fbreader=(FBReader)Application;
+  final FBReader fbreader=(FBReader)ZLApplication.Instance();
   fbreader.openBook((BookDescription)books.get(index));
   fbreader.showBookTextView();
   return true;

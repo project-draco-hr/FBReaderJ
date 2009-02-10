@@ -1,4 +1,0 @@
-{
-  setVerticalScrollBarEnabled(true);
-  setVerticalFadingEdgeEnabled(true);
-}

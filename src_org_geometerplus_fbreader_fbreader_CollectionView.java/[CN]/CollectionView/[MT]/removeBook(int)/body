@@ -35,7 +35,7 @@
         gotoParagraph(index,false);
       }
       rebuildPaintInfo(true);
-      Application.refreshWindow();
+      ZLApplication.Instance().refreshWindow();
     }
   }
 ;

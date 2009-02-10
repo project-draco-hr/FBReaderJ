@@ -11,6 +11,12 @@
   if (StartCursor.isNull() || EndCursor.isNull()) {
     return;
   }
+{
+    final int fullScrollBarSize=myTextSize[myTextSize.length - 1];
+    final int scrollBarStart=sizeOfTextBeforeCursor(StartCursor);
+    final int scrollBarEnd=sizeOfTextBeforeCursor(EndCursor);
+    setVerticalScrollbarParameters(fullScrollBarSize,scrollBarStart,(scrollBarEnd != -1) ? scrollBarEnd : fullScrollBarSize);
+  }
   final ZLTextLineInfoVector lineInfos=myLineInfos;
   final int lineInfosSize=lineInfos.size();
   final int[] labels=new int[lineInfosSize + 1];
@@ -23,42 +29,5 @@
   context.moveYTo(getTopMargin());
   for (int i=0; i < lineInfosSize; ++i) {
     drawTextLine(context,lineInfos.getInfo(i),labels[i],labels[i + 1]);
-  }
-  ZLTextIndicatorInfo indicatorInfo=getIndicatorInfo();
-  if (indicatorInfo.isVisible()) {
-    final int yBottom=context.getHeight() - getBottomMargin() - 1;
-    final int yTop=yBottom - indicatorInfo.getHeight() + 1;
-    final int xLeft=getLeftMargin();
-    final int xRight=context.getWidth() - getRightMargin() - 1;
-    context.setColor(baseStyle.getColor());
-    context.drawLine(xLeft,yBottom,xRight,yBottom);
-    context.drawLine(xLeft,yTop,xRight,yTop);
-    context.drawLine(xLeft,yBottom,xLeft,yTop);
-    context.drawLine(xRight,yBottom,xRight,yTop);
-    final long fullWidth=xRight - xLeft - 2;
-    long width=fullWidth;
-    final ZLTextWordCursor wordCursor=new ZLTextWordCursor(EndCursor);
-    if (!wordCursor.isEndOfParagraph() || wordCursor.nextParagraph()) {
-      final ZLTextParagraphCursor paragraphCursor=wordCursor.getParagraphCursor();
-      final int paragraphIndex=paragraphCursor.Index;
-      final int[] textSizeVector=myTextSize;
-      int fullTextSize=textSizeVector[textSizeVector.length - 1];
-      if (fullTextSize > 0) {
-        int textSizeBeforeCursor=textSizeVector[paragraphIndex];
-        final int paragraphLength=paragraphCursor.getParagraphLength();
-        if (paragraphLength > 0) {
-          textSizeBeforeCursor+=(textSizeVector[paragraphIndex + 1] - textSizeBeforeCursor) * wordCursor.getWordIndex() / paragraphLength;
-        }
-        width=fullWidth * textSizeBeforeCursor / fullTextSize;
-        if (width < 0) {
-          width=0;
-        }
-        if (width > fullWidth) {
-          width=fullWidth;
-        }
-      }
-    }
-    context.setFillColor(indicatorInfo.getColor());
-    context.fillRectangle(xLeft + 1,yTop + 1,xLeft + 1 + (int)width,yBottom - 1);
   }
 }

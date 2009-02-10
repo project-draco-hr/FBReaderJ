@@ -29,6 +29,6 @@
       preparePaintInfo();
     }
     savePosition(position,myCurrentModelIndex,StartCursor);
-    Application.refreshWindow();
+    ZLApplication.Instance().refreshWindow();
   }
 }

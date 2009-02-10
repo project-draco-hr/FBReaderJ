@@ -1,5 +1,5 @@
 {
-  Cursor cursor=myOpenHelper.getReadableDatabase().query(true,ourTableName,ourColumns,"groupName = ? AND name = ?",new String[]{group,name},null,null,null,null);
+  Cursor cursor=database().query(true,ourTableName,ourColumns,"groupName = ? AND name = ?",new String[]{group,name},null,null,null,null);
   String answer=defaultValue;
   if (cursor.getCount() != 0) {
     cursor.moveToFirst();

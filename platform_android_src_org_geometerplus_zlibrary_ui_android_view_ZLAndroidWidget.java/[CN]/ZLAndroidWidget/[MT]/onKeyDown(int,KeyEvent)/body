@@ -1,6 +1,6 @@
 {
   final String keyName=ZLAndroidKeyUtil.getKeyNameByCode(keyCode);
-  if (keyName.equals("<Menu>")) {
+  if (keyName.equals("<Menu>") || keyName.equals("<Call>")) {
     return false;
   }
   ZLApplication.Instance().doActionByKey(keyName);

@@ -1,6 +1,6 @@
 {
   if (isSelectionEnabled()) {
     mySelectionModel.activate(x,y);
-    Application.refreshWindow();
+    ZLApplication.Instance().refreshWindow();
   }
 }

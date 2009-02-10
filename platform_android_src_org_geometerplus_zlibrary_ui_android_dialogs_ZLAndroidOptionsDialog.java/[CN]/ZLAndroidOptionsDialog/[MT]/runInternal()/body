@@ -1,6 +1,3 @@
 {
-  ((ZLAndroidApplication)myMainActivity.getApplication()).putData(OptionsActivity.DIALOG_KEY,this);
-  Intent intent=new Intent();
-  intent.setClass(myMainActivity,OptionsActivity.class);
-  myMainActivity.startActivity(intent);
+  ZLAndroidDialogManager.runDialog(myMainActivity,this);
 }

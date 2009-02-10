@@ -1,5 +1,0 @@
-{
-  ZLBooleanOption option=(FBView.getIndicatorInfoStatic()).ShowOption;
-  option.setValue(!option.getValue());
-  Reader.refreshWindow();
-}

@@ -1,3 +1,6 @@
 {
-  myOpenHelper.close();
+  if (myDatabase != null) {
+    myDatabase.close();
+    myDatabase=null;
+  }
 }

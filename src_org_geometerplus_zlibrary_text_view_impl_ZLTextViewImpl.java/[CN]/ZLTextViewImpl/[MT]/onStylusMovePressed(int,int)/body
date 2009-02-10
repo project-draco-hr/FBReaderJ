@@ -1,6 +1,6 @@
 {
   if (mySelectionModel.extendTo(x,y)) {
-    Application.refreshWindow();
+    ZLApplication.Instance().refreshWindow();
     return true;
   }
   return false;

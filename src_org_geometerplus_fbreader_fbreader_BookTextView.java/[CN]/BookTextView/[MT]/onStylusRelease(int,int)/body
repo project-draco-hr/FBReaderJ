@@ -39,7 +39,7 @@ case FBTextKind.EXTERNAL_HYPERLINK:
         return true;
 case FBTextKind.FOOTNOTE:
 case FBTextKind.INTERNAL_HYPERLINK:
-      ((FBReader)Application).tryOpenFootnote(id);
+      ((FBReader)ZLApplication.Instance()).tryOpenFootnote(id);
     return true;
 }
 }

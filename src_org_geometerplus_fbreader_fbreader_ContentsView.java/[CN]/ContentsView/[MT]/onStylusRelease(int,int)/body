@@ -9,7 +9,7 @@
   final ContentsModel contentsModel=(ContentsModel)getModel();
   final ZLTextTreeParagraph paragraph=contentsModel.getTreeParagraph(index);
   final ContentsModel.Reference reference=contentsModel.getReference(paragraph);
-  final FBReader fbreader=(FBReader)Application;
+  final FBReader fbreader=(FBReader)ZLApplication.Instance();
   fbreader.BookTextView.gotoParagraphSafe(reference.Model,reference.ParagraphIndex);
   fbreader.setMode(FBReader.ViewMode.BOOK_TEXT);
   return true;

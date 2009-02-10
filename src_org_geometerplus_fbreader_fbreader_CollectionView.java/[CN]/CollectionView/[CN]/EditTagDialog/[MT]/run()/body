@@ -34,7 +34,7 @@
         Collection.cloneTag(myTag,tagValue,myIncludeSubtagsEntry.initialState());
       }
       updateModel();
-      Application.refreshWindow();
+      ZLApplication.Instance().refreshWindow();
     }
   }
 ;

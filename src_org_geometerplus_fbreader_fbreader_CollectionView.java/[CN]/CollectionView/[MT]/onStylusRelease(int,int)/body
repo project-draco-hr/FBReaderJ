@@ -37,7 +37,7 @@
   }
   final BookDescription book=getCollectionModel().getBookByParagraphIndex(index);
   if (book != null) {
-    final FBReader fbreader=(FBReader)Application;
+    final FBReader fbreader=(FBReader)ZLApplication.Instance();
     fbreader.openBook(book);
     fbreader.showBookTextView();
     return true;

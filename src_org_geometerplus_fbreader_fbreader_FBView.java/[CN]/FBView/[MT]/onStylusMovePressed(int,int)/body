@@ -5,10 +5,10 @@
   final int diffY=y - myStartY;
   if (Math.abs(diffY) * 5 >= Context.getHeight()) {
     if (diffY > 0) {
-      Application.doAction(ActionCode.TOUCH_SCROLL_BACKWARD);
+      ZLApplication.Instance().doAction(ActionCode.TOUCH_SCROLL_BACKWARD);
     }
  else {
-      Application.doAction(ActionCode.TOUCH_SCROLL_FORWARD);
+      ZLApplication.Instance().doAction(ActionCode.TOUCH_SCROLL_FORWARD);
     }
     myTouchIsProcessed=true;
     return true;

@@ -1,5 +1,5 @@
 {
-  final FBReader fbreader=(FBReader)Application;
+  final FBReader fbreader=(FBReader)ZLApplication.Instance();
   final ZLTextWordCursor cursor=fbreader.BookTextView.StartCursor;
   if (!cursor.isNull()) {
     int reference=cursor.getParagraphCursor().Index;

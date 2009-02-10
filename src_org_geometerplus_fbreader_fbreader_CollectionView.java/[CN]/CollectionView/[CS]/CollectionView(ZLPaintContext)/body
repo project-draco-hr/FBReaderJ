@@ -1,0 +1,7 @@
+{
+  super(context);
+  myUpdateModel=true;
+  setModel(new CollectionModel(this,Collection));
+  myShowTags=ShowTagsOption.getValue();
+  myShowAllBooksList=ShowAllBooksTagOption.getValue();
+}

@@ -25,7 +25,6 @@
   marginTab.addOptions("top",new ZLSimpleSpinOptionEntry(FBView.getTopMarginOption(),1),"bottom",new ZLSimpleSpinOptionEntry(FBView.getBottomMarginOption(),1));
   new FormatOptionsPage(myDialog.createTab("Format"));
   new StyleOptionsPage(myDialog.createTab("Styles"),ZLibrary.Instance().getPaintContext());
-  createIndicatorTab(fbreader);
   final ZLDialogContent rotationTab=myDialog.createTab("Rotation");
   rotationTab.addOption("direction",new RotationTypeEntry(rotationTab.getResource("direction"),fbreader.RotationAngleOption));
   final ZLDialogContent colorsTab=myDialog.createTab("Colors");
@@ -39,7 +38,6 @@
   builder.addOption(resource.getResource("externalLink").getValue(),baseStyle.ExternalHyperlinkTextColorOption);
   builder.addOption(resource.getResource("highlighted").getValue(),baseStyle.HighlightedTextColorOption);
   builder.addOption(resource.getResource("treeLines").getValue(),baseStyle.TreeLinesColorOption);
-  builder.addOption(resource.getResource("indicator").getValue(),FBView.getIndicatorInfoStatic().ColorOption);
   builder.setInitial(BACKGROUND);
   colorsTab.addOption(colorKey,builder.comboEntry());
   colorsTab.addOption("",builder.colorEntry());

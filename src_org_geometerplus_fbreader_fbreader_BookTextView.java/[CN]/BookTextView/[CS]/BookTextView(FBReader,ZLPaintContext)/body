@@ -1,4 +1,0 @@
-{
-  super(fbreader,context);
-  ShowTOCMarksOption=new ZLBooleanOption(ZLOption.LOOK_AND_FEEL_CATEGORY,"Indicator","ShowTOCMarks",false);
-}

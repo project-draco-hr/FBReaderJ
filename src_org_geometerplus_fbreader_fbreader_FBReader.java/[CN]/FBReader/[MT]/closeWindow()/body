@@ -1,6 +1,0 @@
-{
-  if (BookTextView != null) {
-    BookTextView.saveState();
-  }
-  return super.closeWindow();
-}
