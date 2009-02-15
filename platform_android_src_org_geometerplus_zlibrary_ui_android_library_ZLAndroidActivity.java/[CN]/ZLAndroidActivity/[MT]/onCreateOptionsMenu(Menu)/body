@@ -1,5 +1,5 @@
 {
   super.onCreateOptionsMenu(menu);
-  getLibrary().getMainWindow().buildMenu(menu);
+  ((ZLAndroidApplication)getApplication()).myMainWindow.buildMenu(menu);
   return true;
 }

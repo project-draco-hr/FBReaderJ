@@ -1,0 +1,24 @@
+{
+  super.onCreate(icicle);
+  final Intent intent=getIntent();
+  final Uri uri=intent.getData();
+  if (uri == null) {
+    finish();
+    return;
+  }
+  final List<String> path=uri.getPathSegments();
+  final String fileName=path.get(path.size() - 1);
+  if (!fileName.endsWith(".fb2.zip") && !fileName.endsWith(".fb2") && !fileName.endsWith(".epub")) {
+    startNextMatchingActivity(intent);
+    finish();
+    return;
+  }
+  requestWindowFeature(Window.FEATURE_NO_TITLE);
+  setContentView(R.layout.downloader);
+  myProgressBar=(ProgressBar)findViewById(android.R.id.progress);
+  myProgressBar.setIndeterminate(true);
+  final TextView text=(TextView)findViewById(R.id.downloadertext);
+  text.setText(ZLDialogManager.getWaitMessageText("downloadingFile").replace("%s",fileName));
+  intent.setData(null);
+  startFileDownload(uri);
+}

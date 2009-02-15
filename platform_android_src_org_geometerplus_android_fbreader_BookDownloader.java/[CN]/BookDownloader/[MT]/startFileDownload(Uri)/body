@@ -1,0 +1,52 @@
+{
+  final String uriString=uri.toString();
+  final List<String> path=uri.getPathSegments();
+  final Handler handler=new Handler(){
+    public void handleMessage(    Message message){
+      try {
+        finish();
+      }
+ catch (      Exception e) {
+      }
+    }
+  }
+;
+  new Thread(new Runnable(){
+    public void run(){
+      try {
+        final URL url=new URL(uriString);
+        final URLConnection connection=url.openConnection();
+        final int length=connection.getContentLength();
+        if (length > 0) {
+          myProgressBar.setIndeterminate(false);
+          myProgressBar.setMax(length);
+          myProgressBar.setProgress(0);
+        }
+        final HttpURLConnection httpConnection=(HttpURLConnection)connection;
+        final int response=httpConnection.getResponseCode();
+        if (response == HttpURLConnection.HTTP_OK) {
+          InputStream inStream=httpConnection.getInputStream();
+          OutputStream outStream=new FileOutputStream("/sdcard/Books/xxx1.epub");
+          final byte[] buffer=new byte[8192];
+          int fullSize=0;
+          while (true) {
+            final int size=inStream.read(buffer);
+            if (size <= 0) {
+              break;
+            }
+            myProgressBar.incrementProgressBy(size);
+            outStream.write(buffer,0,size);
+          }
+          inStream.close();
+          outStream.close();
+        }
+      }
+ catch (      MalformedURLException e) {
+      }
+catch (      IOException e) {
+      }
+      handler.sendEmptyMessage(0);
+    }
+  }
+).start();
+}

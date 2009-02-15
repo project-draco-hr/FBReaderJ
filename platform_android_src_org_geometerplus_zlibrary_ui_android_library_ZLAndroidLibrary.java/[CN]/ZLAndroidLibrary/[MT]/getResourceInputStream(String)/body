@@ -10,5 +10,5 @@
 catch (  IllegalAccessException e) {
     return null;
   }
-  return myActivity.getResources().openRawResource(resourceId);
+  return myApplication.getResources().openRawResource(resourceId);
 }
