@@ -1,6 +1,0 @@
-{
-  if (!myFileNames.contains(fileName)) {
-    myFileNames.add(fileName);
-    save();
-  }
-}

@@ -1,4 +1,0 @@
-{
-  myFile.close();
-  myBytesReady=0;
-}

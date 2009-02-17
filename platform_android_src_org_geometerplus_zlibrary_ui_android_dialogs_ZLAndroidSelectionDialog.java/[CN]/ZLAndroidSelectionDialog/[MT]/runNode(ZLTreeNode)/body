@@ -1,6 +1,0 @@
-{
-  if (node != null) {
-    myReturnValue=!node.IsFolder;
-    super.runNode(node);
-  }
-}

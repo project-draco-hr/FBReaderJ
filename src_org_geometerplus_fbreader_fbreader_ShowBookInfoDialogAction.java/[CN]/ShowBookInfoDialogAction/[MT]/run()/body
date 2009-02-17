@@ -1,13 +1,11 @@
 {
-  final BookCollection collection=Reader.CollectionView.Collection;
   final String fileName=Reader.BookTextView.getFileName();
   Runnable action=new Runnable(){
     public void run(){
       Reader.openFile(fileName);
-      collection.rebuild(false);
       Reader.refreshWindow();
     }
   }
 ;
-  new BookInfoDialog(collection,fileName,action).getDialog().run();
+  new BookInfoDialog(fileName,action).getDialog().run();
 }

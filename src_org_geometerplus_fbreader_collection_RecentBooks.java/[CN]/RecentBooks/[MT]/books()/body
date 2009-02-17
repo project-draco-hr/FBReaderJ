@@ -1,0 +1,14 @@
+{
+  final ArrayList<BookDescription> bookList=new ArrayList<BookDescription>();
+  int count=0;
+  for (  String fileName : myFileNames) {
+    BookDescription description=BookDescription.getDescription(fileName);
+    if (description != null) {
+      bookList.add(description);
+    }
+    if (++count >= LIST_SIZE) {
+      break;
+    }
+  }
+  return bookList;
+}

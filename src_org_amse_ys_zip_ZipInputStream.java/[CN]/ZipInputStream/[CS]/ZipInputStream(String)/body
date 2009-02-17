@@ -1,5 +1,0 @@
-{
-  myFileName=fileName;
-  myFileHeaders=new ArrayList<LocalFileHeader>();
-  myZipFile=new MyBufferedReader(myFileName);
-}

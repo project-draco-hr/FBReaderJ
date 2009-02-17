@@ -1,6 +1,0 @@
-{
-  super(handler);
-  myCaption=caption;
-  myActionOnAccept=actionOnAccept;
-  myContext=context;
-}

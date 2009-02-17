@@ -1,4 +1,0 @@
-{
-  addFixedHSpace((short)1);
-  addImage(id,myImageMap,(short)0);
-}

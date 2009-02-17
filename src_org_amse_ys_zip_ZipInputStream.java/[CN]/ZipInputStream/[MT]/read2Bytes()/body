@@ -1,9 +1,0 @@
-{
-  int low=myZipFile.read();
-  int high=myZipFile.read();
-  myCurrentPosition+=2;
-  if ((low < 0) || (high < 0)) {
-    throw new WrongZipFormatException("read2bytes. unexpected end of file at position " + myCurrentPosition);
-  }
-  return ((high << 8) + low);
-}

@@ -1,53 +1,12 @@
 {
-  boolean doStrongRebuild=myDoStrongRebuild || (myScanSubdirs != ScanSubdirsOption.getValue()) || (myPath != PathOption.getValue());
-  if (!doStrongRebuild && !myDoWeakRebuild) {
-    return false;
-  }
-  myPath=PathOption.getValue();
-  myScanSubdirs=ScanSubdirsOption.getValue();
-  myDoWeakRebuild=false;
-  myDoStrongRebuild=false;
-  if (doStrongRebuild) {
-    myBooks.clear();
-    myAuthors.clear();
-    myExternalBooks.clear();
+  if (myDoRebuild) {
+    myAuthorToBookMap.clear();
+    myTagsToBookMap.clear();
+    myBooksWithoutTags.clear();
     final HashSet fileNamesSet=collectBookFileNames();
     for (Iterator it=fileNamesSet.iterator(); it.hasNext(); ) {
       addDescription(BookDescription.getDescription((String)it.next()));
     }
-    final ArrayList bookListFileNames=new BookList().fileNames();
-    final int sizeOfList=bookListFileNames.size();
-    for (int i=0; i < sizeOfList; ++i) {
-      final String fileName=(String)bookListFileNames.get(i);
-      if (!fileNamesSet.contains(fileName)) {
-        BookDescription description=BookDescription.getDescription(fileName);
-        if (description != null) {
-          addDescription(description);
-          myExternalBooks.add(description);
-        }
-      }
-    }
+    myDoRebuild=false;
   }
- else {
-    final BookList bookList=new BookList();
-    final ArrayList bookListFileNames=bookList.fileNames();
-    final ArrayList fileNames=new ArrayList();
-    final ArrayList books=myBooks;
-    final int booksLen=books.size();
-    for (int i=0; i < booksLen; ++i) {
-      final BookDescription book=(BookDescription)books.get(i);
-      final String bookFileName=book.FileName;
-      if (!myExternalBooks.contains(book) || bookListFileNames.contains(bookFileName)) {
-        fileNames.add(bookFileName);
-      }
-    }
-    myBooks.clear();
-    myAuthors.clear();
-    final int fileNamesLen=fileNames.size();
-    for (int i=0; i < fileNamesLen; ++i) {
-      addDescription(BookDescription.getDescription((String)fileNames.get(i),false));
-    }
-  }
-  Collections.sort(myBooks);
-  return true;
 }

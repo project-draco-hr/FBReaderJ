@@ -1,0 +1,4 @@
+{
+  LibraryTabUtil.setSeriesBookList(myView,myAuthor,mySeries);
+  myView.invalidate();
+}

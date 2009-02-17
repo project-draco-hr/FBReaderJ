@@ -1,0 +1,7 @@
+{
+  char[] array=new char[stringLength];
+  for (int i=0; i < stringLength; i++) {
+    array[i]=(char)read();
+  }
+  return new String(array);
+}

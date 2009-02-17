@@ -1,7 +1,7 @@
 {
-  final ArrayList authors=myCollection.authors();
+  final Collection<Author> authors=myCollection.authors();
   if (index < authors.size()) {
-    myCurrentAuthor=(Author)authors.get(index);
+    myCurrentAuthor=new ArrayList<Author>(authors).get(index);
   }
   myAuthorSortKeyEntry.resetView();
   mySeriesTitleEntry.resetView();

@@ -1,0 +1,19 @@
+{
+  if (myAllFilesAreRead) {
+    return;
+  }
+  myAllFilesAreRead=true;
+  while (true) {
+    int header=myBaseStream.read4Bytes();
+    if (header != LocalFileHeader.FILE_HEADER_SIGNATURE) {
+      if (header == LocalFileHeader.FOLDER_HEADER_SIGNATURE) {
+        break;
+      }
+ else {
+        throw new WrongZipFormatException("readHeaders. Wrong signature found = " + header + " at position "+ myBaseStream.offset());
+      }
+    }
+    readFileHeader(null);
+  }
+  myBaseStream.reset();
+}

@@ -9,9 +9,7 @@
   myCurrentEntry=myEntry0;
   myExitOnCancelEntry=null;
   addAction(ZLApplication.NoAction);
-  addAction(ActionCode.SHOW_COLLECTION);
-  addAction(ActionCode.SHOW_LAST_BOOKS);
-  addAction(ActionCode.OPEN_PREVIOUS_BOOK);
+  addAction(ActionCode.SHOW_LIBRARY);
   addAction(ActionCode.SHOW_CONTENTS);
   addAction(ActionCode.SCROLL_TO_HOME);
   addAction(ActionCode.SCROLL_TO_START_OF_TEXT);
@@ -30,7 +28,6 @@
   addAction(ActionCode.ROTATE_SCREEN);
   addAction(ActionCode.SHOW_OPTIONS);
   addAction(ActionCode.SHOW_BOOK_INFO);
-  addAction(ActionCode.ADD_BOOK);
   addAction(ActionCode.CANCEL);
   addAction(ActionCode.QUIT);
 }

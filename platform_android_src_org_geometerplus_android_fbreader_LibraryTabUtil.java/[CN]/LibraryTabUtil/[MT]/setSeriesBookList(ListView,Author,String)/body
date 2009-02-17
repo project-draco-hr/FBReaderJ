@@ -1,0 +1,14 @@
+{
+  LibraryListAdapter adapter=new LibraryListAdapter(view.getContext(),new Runnable(){
+    public void run(){
+      setBookList(view,author,series);
+    }
+  }
+);
+  for (  BookDescription book : BookCollection.Instance().booksByAuthor(author)) {
+    if (series.equals(book.getSeriesName())) {
+      adapter.addItem(new BookItem(book));
+    }
+  }
+  setAdapter(view,adapter);
+}

@@ -1,0 +1,12 @@
+{
+  if (myCurrentPosition < position) {
+    skip(position - myCurrentPosition);
+  }
+ else {
+    myFileInputStream.close();
+    myFileInputStream=new FileInputStream(myFileName);
+    myBytesReady=0;
+    skip(position);
+  }
+  myCurrentPosition=position;
+}

@@ -1,0 +1,11 @@
+{
+  final ZLStringOption option=new ZLStringOption(ZLOption.STATE_CATEGORY,GROUP,"","");
+  int count=0;
+  for (  String fileName : myFileNames) {
+    option.changeName(BOOK + count);
+    option.setValue(fileName);
+    ++count;
+  }
+  option.changeName(BOOK + count);
+  option.setValue("");
+}

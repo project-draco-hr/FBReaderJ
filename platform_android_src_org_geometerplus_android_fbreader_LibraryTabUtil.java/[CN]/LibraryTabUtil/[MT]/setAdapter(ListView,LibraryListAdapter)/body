@@ -1,0 +1,5 @@
+{
+  view.setAdapter(adapter);
+  view.setOnKeyListener(adapter);
+  view.setOnItemClickListener(adapter);
+}

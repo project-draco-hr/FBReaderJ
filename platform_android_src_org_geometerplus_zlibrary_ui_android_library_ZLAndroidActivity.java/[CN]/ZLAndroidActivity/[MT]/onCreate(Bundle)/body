@@ -3,10 +3,17 @@
   requestWindowFeature(Window.FEATURE_NO_TITLE);
   setContentView(R.layout.main);
   getLibrary().setActivity(this);
+  final Intent intent=getIntent();
+  final Uri uri=intent.getData();
+  final String fileToOpen=(uri != null) ? uri.getPath() : null;
+  intent.setData(null);
   if (((ZLAndroidApplication)getApplication()).myMainWindow == null) {
-    ZLApplication application=createApplication();
+    ZLApplication application=createApplication(fileToOpen);
     ((ZLAndroidApplication)getApplication()).myMainWindow=new ZLAndroidApplicationWindow(application);
     application.initWindow();
+  }
+ else   if (fileToOpen != null) {
+    ZLApplication.Instance().openFile(fileToOpen);
   }
   ZLApplication.Instance().refreshWindow();
 }

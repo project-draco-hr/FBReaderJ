@@ -2,9 +2,8 @@
   if (myValues.size() == 0) {
     final String initial=initialValue();
     boolean addInitial=true;
-    final ArrayList authors=myCollection.authors();
-    for (int i=0; i < authors.size(); i++) {
-      final String name=((Author)authors.get(i)).getDisplayName();
+    for (    Author author : myCollection.authors()) {
+      final String name=author.getDisplayName();
       if (addInitial && (name != null && name.equals(initial))) {
         addInitial=false;
       }

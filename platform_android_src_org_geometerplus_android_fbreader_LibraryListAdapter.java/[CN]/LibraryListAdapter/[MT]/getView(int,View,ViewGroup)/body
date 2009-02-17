@@ -1,0 +1,7 @@
+{
+  final View view=(convertView != null) ? convertView : LayoutInflater.from(myContext).inflate(R.layout.library_list_item,parent,false);
+  final LibraryListItem item=getItem(position);
+  ((TextView)view.findViewById(R.id.library_list_item_top)).setText(item.getTopText());
+  ((TextView)view.findViewById(R.id.library_list_item_bottom)).setText(item.getBottomText());
+  return view;
+}

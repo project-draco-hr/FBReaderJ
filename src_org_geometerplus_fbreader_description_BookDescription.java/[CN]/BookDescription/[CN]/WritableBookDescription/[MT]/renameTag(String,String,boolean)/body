@@ -1,12 +1,12 @@
 {
-  final ArrayList tags=myDescription.myTags;
+  final ArrayList<String> tags=myDescription.myTags;
   if (includeSubTags) {
     final String prefix=from + '/';
     final HashSet tagSet=new HashSet();
     boolean changed=false;
     final int len=tags.size();
     for (int i=0; i < len; ++i) {
-      final String value=(String)tags.get(i);
+      final String value=tags.get(i);
       if (from.equals(value)) {
         tagSet.add(to);
         changed=true;

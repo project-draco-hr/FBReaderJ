@@ -1,4 +1,0 @@
-{
-  synchronize();
-  return myExternalBooks.contains(description);
-}

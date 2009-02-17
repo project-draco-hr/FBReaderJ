@@ -1,5 +1,0 @@
-{
-  final ArrayList books=Reader.RecentBooksView.lastBooks().books();
-  Reader.openBook((BookDescription)books.get(1));
-  Reader.refreshWindow();
-}

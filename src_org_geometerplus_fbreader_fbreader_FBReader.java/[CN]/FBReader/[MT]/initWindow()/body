@@ -9,13 +9,7 @@
  catch (    IOException e) {
     }
   }
-  BookDescription description=BookDescription.getDescription(fileName);
-  if (description == null) {
-    description=BookDescription.getDescription(myBookNameOption.getValue());
+  if (!openFile(fileName) && !openFile(myBookNameOption.getValue())) {
+    openFile(getHelpFileName());
   }
-  if (description == null) {
-    description=BookDescription.getDescription(getHelpFileName());
-  }
-  openBook(description);
-  refreshWindow();
 }

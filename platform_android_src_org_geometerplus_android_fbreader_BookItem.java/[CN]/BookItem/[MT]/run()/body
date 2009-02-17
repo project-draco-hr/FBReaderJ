@@ -1,0 +1,6 @@
+{
+  if (LibraryTabActivity.ourActivity != null) {
+    LibraryTabActivity.ourActivity.finish();
+    ((FBReader)FBReader.Instance()).openBook(myBook);
+  }
+}

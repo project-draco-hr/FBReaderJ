@@ -1,0 +1,24 @@
+{
+  int version2extract=myBaseStream.read2Bytes();
+  int generalFlag=myBaseStream.read2Bytes();
+  int compressionMethod=myBaseStream.read2Bytes();
+  myBaseStream.skip(8);
+  int compressedSize=myBaseStream.read4Bytes();
+  int uncompressedSize=myBaseStream.read4Bytes();
+  int fileNameSize=myBaseStream.read2Bytes();
+  int extraField=myBaseStream.read2Bytes();
+  final String fileName=myBaseStream.readString(fileNameSize);
+  myBaseStream.skip(extraField);
+  myFileHeaders.add(new LocalFileHeader(version2extract,generalFlag,compressionMethod,compressedSize,uncompressedSize,myBaseStream.offset(),fileName));
+  if (fileName.equals(fileToFind)) {
+    return true;
+  }
+  if ((generalFlag & 8) == 0) {
+    myBaseStream.skip(compressedSize);
+  }
+ else {
+    System.out.println("Warning: flag 3 is set! Trying to find header.");
+    findAndReadDescriptor();
+  }
+  return false;
+}

@@ -1,21 +1,16 @@
 {
-  File[] dirs=myFile.listFiles();
-  ArrayList newdirs=new ArrayList();
   ZipFile zf=null;
   try {
-    zf=new ZipFile(myFile);
+    zf=new ZipFile(myFile.getCanonicalPath());
   }
- catch (  ZipException e) {
+ catch (  IOException e) {
   }
-catch (  IOException e) {
-  }
-  if ((zf == null) || (zf.entries() == null)) {
+  if (zf == null) {
     return EMPTY;
   }
-  Enumeration en=zf.entries();
-  while (en.hasMoreElements()) {
-    ZipEntry entry=(ZipEntry)en.nextElement();
-    newdirs.add(entry.getName());
+  ArrayList fileNames=new ArrayList();
+  for (  LocalFileHeader header : zf.headers()) {
+    fileNames.add(header.FileName);
   }
-  return newdirs;
+  return fileNames;
 }

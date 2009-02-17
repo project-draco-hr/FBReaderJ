@@ -1,0 +1,6 @@
+{
+  if (myBookList.length() > 0) {
+    myBookList+=",  ";
+  }
+  myBookList+=book.getTitle();
+}

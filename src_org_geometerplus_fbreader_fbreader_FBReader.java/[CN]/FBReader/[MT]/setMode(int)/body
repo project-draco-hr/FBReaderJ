@@ -15,23 +15,6 @@ break;
 case ViewMode.FOOTNOTE:
 setView(FootnoteView);
 break;
-case ViewMode.RECENT_BOOKS:
-RecentBooksView.rebuild();
-setView(RecentBooksView);
-break;
-case ViewMode.BOOK_COLLECTION:
-Runnable action=new Runnable(){
-public void run(){
-CollectionView.updateModel();
-if (myBookModel != null) {
-CollectionView.selectBook(myBookModel.Description);
-}
-setView(CollectionView);
-}
-}
-;
-ZLDialogManager.getInstance().wait("loadingBookList",action);
-break;
 default :
 break;
 }

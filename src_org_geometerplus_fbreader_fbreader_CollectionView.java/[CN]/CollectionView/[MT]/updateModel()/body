@@ -1,6 +1,0 @@
-{
-  Collection.rebuild(true);
-  myUpdateModel=true;
-  Collection.authors();
-  clearCaches();
-}

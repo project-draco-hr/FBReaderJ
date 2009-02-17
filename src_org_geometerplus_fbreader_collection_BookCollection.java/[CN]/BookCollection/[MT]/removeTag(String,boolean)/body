@@ -1,8 +1,2 @@
 {
-  synchronize();
-  final ArrayList books=myBooks;
-  final int len=books.size();
-  for (int i=0; i < len; ++i) {
-    new BookDescription.WritableBookDescription((BookDescription)books.get(i)).removeTag(tag,includeSubTags);
-  }
 }

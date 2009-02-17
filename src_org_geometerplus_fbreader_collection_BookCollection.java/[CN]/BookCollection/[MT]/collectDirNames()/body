@@ -1,27 +1,16 @@
 {
   ArrayList nameQueue=new ArrayList();
   HashSet nameSet=new HashSet();
-  String path=myPath;
-  int pos=path.indexOf(File.pathSeparator);
-  while (pos != -1) {
-    nameQueue.add(path.substring(0,pos));
-    path=path.substring(0,pos + 1);
-    pos=path.indexOf(File.pathSeparator);
-  }
-  if (path.length() != 0) {
-    nameQueue.add(path);
-  }
+  nameQueue.add(BookDirectory);
   while (!nameQueue.isEmpty()) {
     String name=(String)nameQueue.get(0);
     nameQueue.remove(0);
     if (!nameSet.contains(name)) {
-      if (myScanSubdirs) {
-        ZLDir dir=new ZLFile(name).getDirectory();
-        if (dir != null) {
-          ArrayList subdirs=dir.collectSubDirs();
-          for (int i=0; i < subdirs.size(); ++i) {
-            nameQueue.add(dir.getItemPath((String)subdirs.get(i)));
-          }
+      ZLDir dir=new ZLFile(name).getDirectory();
+      if (dir != null) {
+        ArrayList subdirs=dir.collectSubDirs();
+        for (int i=0; i < subdirs.size(); ++i) {
+          nameQueue.add(dir.getItemPath((String)subdirs.get(i)));
         }
       }
       nameSet.add(name);

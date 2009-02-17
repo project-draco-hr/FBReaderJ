@@ -1,0 +1,4 @@
+{
+  LibraryTabUtil.setBookList(myView,myAuthor,null);
+  myView.invalidate();
+}

@@ -1,12 +1,12 @@
 {
-  final ArrayList tags=myDescription.myTags;
+  final ArrayList<String> tags=myDescription.myTags;
   if (includeSubTags) {
     final String prefix=tag + '/';
     boolean changed=false;
     final int len=tags.size();
     ArrayList toRemove=null;
     for (int i=0; i < len; ++i) {
-      String current=(String)tags.get(i);
+      String current=tags.get(i);
       if (current.equals(tag) || current.startsWith(prefix)) {
         if (toRemove == null) {
           toRemove=new ArrayList();

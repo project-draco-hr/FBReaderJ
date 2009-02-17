@@ -17,7 +17,7 @@
     FootnoteView.setCaption(description.getTitle());
     ContentsView.setModel(myBookModel.ContentsModel);
     ContentsView.setCaption(description.getTitle());
-    RecentBooksView.lastBooks().addBook(fileName);
+    RecentBooks.Instance().addBook(fileName);
   }
   resetWindowCaption();
   refreshWindow();

@@ -1,3 +1,0 @@
-{
-  return (index == 0) ? myResource.getResource("edit").getValue() : myResource.getResource("clone").getValue();
-}

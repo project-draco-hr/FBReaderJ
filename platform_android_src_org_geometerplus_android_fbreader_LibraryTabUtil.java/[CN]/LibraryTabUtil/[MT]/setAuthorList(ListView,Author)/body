@@ -1,0 +1,16 @@
+{
+  final LibraryListAdapter adapter=new LibraryListAdapter(view.getContext());
+  int selectedIndex=-1;
+  int count=0;
+  for (  final Author author : BookCollection.Instance().authors()) {
+    adapter.addItem(new AuthorItem(view,author));
+    if (author.equals(selectedAuthor)) {
+      selectedIndex=count;
+    }
+    ++count;
+  }
+  setAdapter(view,adapter);
+  if (selectedIndex >= 0) {
+    view.setSelection(selectedIndex);
+  }
+}

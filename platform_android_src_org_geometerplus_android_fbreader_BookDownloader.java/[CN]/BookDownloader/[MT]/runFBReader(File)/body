@@ -1,0 +1,6 @@
+{
+  finish();
+  final Intent intent=new Intent(this,FBReader.class);
+  intent.setData(Uri.fromFile(file));
+  startActivity(intent);
+}

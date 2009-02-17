@@ -9,12 +9,10 @@
   addAction(ActionCode.REDO,new RedoAction(this));
   addAction(ActionCode.INCREASE_FONT,new ChangeFontSizeAction(this,+2));
   addAction(ActionCode.DECREASE_FONT,new ChangeFontSizeAction(this,-2));
-  addAction(ActionCode.SHOW_COLLECTION,new SetModeAction(this,ViewMode.BOOK_COLLECTION,ViewMode.BOOK_TEXT | ViewMode.CONTENTS | ViewMode.RECENT_BOOKS));
-  addAction(ActionCode.SHOW_LAST_BOOKS,new SetModeAction(this,ViewMode.RECENT_BOOKS,ViewMode.BOOK_TEXT | ViewMode.CONTENTS));
+  addAction(ActionCode.SHOW_LIBRARY,new ShowLibrary(this));
   addAction(ActionCode.SHOW_OPTIONS,new ShowOptionsDialogAction(this));
   addAction(ActionCode.SHOW_CONTENTS,new ShowContentsAction(this));
   addAction(ActionCode.SHOW_BOOK_INFO,new ShowBookInfoDialogAction(this));
-  addAction(ActionCode.ADD_BOOK,new AddBookAction(this));
   addAction(ActionCode.SEARCH,new SearchAction(this));
   addAction(ActionCode.FIND_NEXT,new FindNextAction(this));
   addAction(ActionCode.FIND_PREVIOUS,new FindPreviousAction(this));
@@ -26,7 +24,6 @@
   addAction(ActionCode.TRACKBALL_SCROLL_FORWARD,new ScrollingAction(this,TrackballScrollingOptions,true));
   addAction(ActionCode.TRACKBALL_SCROLL_BACKWARD,new ScrollingAction(this,TrackballScrollingOptions,false));
   addAction(ActionCode.CANCEL,new CancelAction(this));
-  addAction(ActionCode.OPEN_PREVIOUS_BOOK,new OpenPreviousBookAction(this));
   addAction(ActionCode.SHOW_HELP,new ShowHelpAction(this));
   addAction(ActionCode.GOTO_NEXT_TOC_SECTION,new DummyAction(this));
   addAction(ActionCode.GOTO_PREVIOUS_TOC_SECTION,new DummyAction(this));
@@ -34,7 +31,5 @@
   BookTextView=new BookTextView(context);
   ContentsView=new ContentsView(context);
   FootnoteView=new FootnoteView(context);
-  CollectionView=new CollectionView(context);
-  RecentBooksView=new RecentBooksView(context);
   setMode(ViewMode.BOOK_TEXT);
 }

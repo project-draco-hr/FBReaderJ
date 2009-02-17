@@ -4,7 +4,6 @@
   info.Exists=file.exists() || ZLFSUtil.getRootDirectoryPath().equals(path);
   ;
   info.Size=file.length();
-  info.MTime=file.lastModified();
   info.IsDirectory=file.isDirectory() || ZLFSUtil.getRootDirectoryPath().equals(path);
   return info;
 }

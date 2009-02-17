@@ -1,5 +1,0 @@
-{
-  if (Collection.synchronize()) {
-    updateModel();
-  }
-}

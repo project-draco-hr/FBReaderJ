@@ -1,3 +1,0 @@
-{
-  ((Activity)mySelectionView.getContext()).setTitle(myCaption + handler().stateDisplayName());
-}

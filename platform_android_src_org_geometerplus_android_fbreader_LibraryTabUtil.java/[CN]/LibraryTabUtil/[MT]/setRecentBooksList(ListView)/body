@@ -1,0 +1,7 @@
+{
+  LibraryListAdapter adapter=new LibraryListAdapter(view.getContext());
+  for (  BookDescription book : RecentBooks.Instance().books()) {
+    adapter.addItem(new BookItem(book));
+  }
+  setAdapter(view,adapter);
+}

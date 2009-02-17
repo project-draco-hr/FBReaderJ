@@ -1,5 +1,25 @@
 {
   if (description != null) {
-    myBooks.add(description);
+    List<String> tags=description.getTags();
+    if (tags.isEmpty()) {
+      myBooksWithoutTags.add(description);
+    }
+ else {
+      for (      String tag : tags) {
+        TreeSet<BookDescription> set=myTagsToBookMap.get(tag);
+        if (set == null) {
+          set=new TreeSet<BookDescription>();
+          myTagsToBookMap.put(tag,set);
+        }
+        set.add(description);
+      }
+    }
+    final Author author=description.getAuthor();
+    TreeSet<BookDescription> set=myAuthorToBookMap.get(author);
+    if (set == null) {
+      set=new TreeSet<BookDescription>();
+      myAuthorToBookMap.put(author,set);
+    }
+    set.add(description);
   }
 }

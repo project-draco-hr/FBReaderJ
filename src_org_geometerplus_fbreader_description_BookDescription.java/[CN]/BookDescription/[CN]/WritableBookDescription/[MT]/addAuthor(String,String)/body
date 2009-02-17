@@ -7,7 +7,7 @@
   String strippedKey=sortKey;
   strippedKey.trim();
   if (strippedKey.length() == 0) {
-    int index=strippedName.indexOf(' ');
+    int index=strippedName.lastIndexOf(' ');
     if (index == -1) {
       strippedKey=strippedName;
     }

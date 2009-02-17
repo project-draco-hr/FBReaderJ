@@ -1,0 +1,23 @@
+{
+  final LibraryListAdapter adapter=new LibraryListAdapter(view.getContext());
+  int selectedIndex=-1;
+  int count=0;
+  if (!BookCollection.Instance().booksByTag(null).isEmpty()) {
+    adapter.addItem(new TagItem(view,null));
+    if (selectedTag == null) {
+      selectedIndex=count;
+    }
+    ++count;
+  }
+  for (  final String tag : BookCollection.Instance().tags()) {
+    adapter.addItem(new TagItem(view,tag));
+    if (tag.equals(selectedTag)) {
+      selectedIndex=count;
+    }
+    ++count;
+  }
+  setAdapter(view,adapter);
+  if (selectedIndex >= 0) {
+    view.setSelection(selectedIndex);
+  }
+}

@@ -1,3 +1,0 @@
-{
-  runNode((ZLTreeNode)getAdapter().getItem(position));
-}

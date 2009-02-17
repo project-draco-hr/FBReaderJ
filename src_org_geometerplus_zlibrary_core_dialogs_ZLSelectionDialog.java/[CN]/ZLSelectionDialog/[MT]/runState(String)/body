@@ -1,7 +1,0 @@
-{
-  if (!myHandler.isOpenHandler()) {
-    if (((ZLTreeSaveHandler)myHandler).accept(state)) {
-      exitDialog();
-    }
-  }
-}

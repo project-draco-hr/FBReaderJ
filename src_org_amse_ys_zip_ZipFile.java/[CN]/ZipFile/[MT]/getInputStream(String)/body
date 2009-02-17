@@ -1,0 +1,49 @@
+{
+  if (!myFileHeaders.isEmpty()) {
+    int i;
+    final int listSize=myFileHeaders.size();
+    LocalFileHeader header=null;
+    for (i=0; i < listSize; i++) {
+      header=myFileHeaders.get(i);
+      if (header.FileName.equals(entryName)) {
+        try {
+          return new ZipInputStream(myFileName,header);
+        }
+ catch (        WrongZipFormatException e) {
+          return null;
+        }
+      }
+    }
+    if (myAllFilesAreRead) {
+      return null;
+    }
+    if (header.sizeIsKnown()) {
+      myBaseStream.setPosition(header.OffsetOfLocalData + header.getCompressedSize());
+    }
+ else {
+      findAndReadDescriptor();
+    }
+  }
+  do {
+    int signature=myBaseStream.read4Bytes();
+    if (signature != LocalFileHeader.FILE_HEADER_SIGNATURE) {
+      if (signature == LocalFileHeader.FOLDER_HEADER_SIGNATURE) {
+        break;
+      }
+ else {
+        throw new IOException("Wrong signature " + signature + " found at position "+ myBaseStream.offset());
+      }
+    }
+  }
+ while (!readFileHeader(entryName));
+  LocalFileHeader header=myFileHeaders.get(myFileHeaders.size() - 1);
+  if (header.FileName.equals(entryName)) {
+    try {
+      return new ZipInputStream(myFileName,header);
+    }
+ catch (    WrongZipFormatException e) {
+      return null;
+    }
+  }
+  return null;
+}

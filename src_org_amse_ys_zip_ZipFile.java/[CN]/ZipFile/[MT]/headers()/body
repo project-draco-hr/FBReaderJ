@@ -1,0 +1,10 @@
+{
+  try {
+    readAllHeaders();
+  }
+ catch (  IOException e) {
+  }
+catch (  WrongZipFormatException e) {
+  }
+  return Collections.unmodifiableList(myFileHeaders);
+}

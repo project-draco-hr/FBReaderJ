@@ -1,0 +1,4 @@
+{
+  myFileInputStream.close();
+  myBytesReady=0;
+}

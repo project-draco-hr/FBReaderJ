@@ -1,5 +1,0 @@
-{
-  super(true);
-  myValuesList=valuesList;
-  myValue=initialValue;
-}

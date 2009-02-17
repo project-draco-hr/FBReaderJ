@@ -1,6 +1,0 @@
-ArrayList names
-String tag
-boolean tagIsSpecial
-boolean includeSubtags
-boolean hasBooks
-boolean editNotClone

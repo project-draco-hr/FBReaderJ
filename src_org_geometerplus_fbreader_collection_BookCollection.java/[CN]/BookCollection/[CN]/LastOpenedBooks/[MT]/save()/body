@@ -1,8 +1,0 @@
-{
-  final ZLStringOption option=new ZLStringOption(ZLOption.STATE_CATEGORY,GROUP,"","");
-  int size=Math.min(MaxListSizeOption.getValue(),myBooks.size());
-  for (int i=0; i < size; ++i) {
-    option.changeName(BOOK + i);
-    option.setValue(((BookDescription)myBooks.get(i)).FileName);
-  }
-}

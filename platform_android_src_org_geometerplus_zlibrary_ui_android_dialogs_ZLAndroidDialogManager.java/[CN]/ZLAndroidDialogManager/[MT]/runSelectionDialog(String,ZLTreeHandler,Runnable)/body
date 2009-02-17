@@ -1,3 +1,0 @@
-{
-  runDialog(myActivity,new ZLAndroidSelectionDialog(myActivity,getDialogTitle(key),handler,actionOnAccept));
-}

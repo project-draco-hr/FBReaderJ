@@ -1,0 +1,12 @@
+{
+  LibraryListAdapter adapter=new LibraryListAdapter(view.getContext(),new Runnable(){
+    public void run(){
+      setTagList(view,tag);
+    }
+  }
+);
+  for (  BookDescription book : BookCollection.Instance().booksByTag(tag)) {
+    adapter.addItem(new BookItem(book));
+  }
+  setAdapter(view,adapter);
+}

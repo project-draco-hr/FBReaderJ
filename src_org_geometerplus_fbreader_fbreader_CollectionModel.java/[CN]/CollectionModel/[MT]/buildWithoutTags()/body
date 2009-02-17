@@ -1,3 +1,0 @@
-{
-  addBooks(myCollection.books(),null);
-}
