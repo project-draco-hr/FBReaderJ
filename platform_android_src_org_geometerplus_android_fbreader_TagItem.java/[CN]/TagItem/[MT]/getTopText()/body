@@ -1,0 +1,3 @@
+{
+  return (myTag != null) ? myTag : "Books with no tags";
+}
