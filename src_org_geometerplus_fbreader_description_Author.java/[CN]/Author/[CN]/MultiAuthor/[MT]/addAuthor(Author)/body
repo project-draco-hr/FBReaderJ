@@ -1,5 +1,0 @@
-{
-  myAuthors.add(author);
-  myDisplayName="";
-  mySortKey="";
-}

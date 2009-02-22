@@ -3,8 +3,8 @@
     final String initial=initialValue();
     boolean addInitial=true;
     for (    Author author : myCollection.authors()) {
-      final String name=author.getDisplayName();
-      if (addInitial && (name != null && name.equals(initial))) {
+      final String name=author.DisplayName;
+      if (addInitial && name.equals(initial)) {
         addInitial=false;
       }
       myValues.add(name);

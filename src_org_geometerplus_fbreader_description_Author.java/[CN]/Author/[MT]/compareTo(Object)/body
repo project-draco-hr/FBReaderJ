@@ -1,8 +1,0 @@
-{
-  final Author a=(Author)o;
-  final int result=getSortKey().compareTo(a.getSortKey());
-  if (result != 0) {
-    return result;
-  }
-  return a.getDisplayName().compareTo(getDisplayName());
-}

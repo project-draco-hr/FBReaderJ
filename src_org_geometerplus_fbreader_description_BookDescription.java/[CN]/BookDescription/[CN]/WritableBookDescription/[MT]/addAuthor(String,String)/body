@@ -19,14 +19,10 @@
       strippedName=strippedName.substring(0,index + 1) + ' ' + strippedKey;
     }
   }
-  Author author=Author.SingleAuthor.create(strippedName,strippedKey);
+  Author author=new Author(strippedName,strippedKey);
   if (myDescription.myAuthor == null) {
     myDescription.myAuthor=author;
   }
  else {
-    if (myDescription.myAuthor.isSingle()) {
-      myDescription.myAuthor=Author.MultiAuthor.create(myDescription.myAuthor);
-    }
-    ((Author.MultiAuthor)myDescription.myAuthor).addAuthor(author);
   }
 }

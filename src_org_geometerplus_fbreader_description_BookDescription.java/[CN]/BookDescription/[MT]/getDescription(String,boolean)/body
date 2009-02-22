@@ -14,7 +14,7 @@
   }
   if (!checkFile || BookDescriptionUtil.checkInfo(file)) {
     BookInfo info=new BookInfo(fileName);
-    description.myAuthor=Author.SingleAuthor.create(info.AuthorDisplayNameOption.getValue(),info.AuthorSortKeyOption.getValue());
+    description.myAuthor=new Author(info.AuthorDisplayNameOption.getValue(),info.AuthorSortKeyOption.getValue());
     description.myTitle=info.TitleOption.getValue();
     description.mySeriesName=info.SeriesNameOption.getValue();
     description.myNumberInSeries=info.NumberInSeriesOption.getValue();
@@ -51,16 +51,16 @@
     description.myTitle=bookFile.getName(true);
   }
   Author author=description.myAuthor;
-  if (author == null || author.getDisplayName().length() == 0) {
-    description.myAuthor=Author.SingleAuthor.create();
+  if (author == null || author.DisplayName.length() == 0) {
+    description.myAuthor=new Author();
   }
   if (description.myEncoding.length() == 0) {
     description.myEncoding="auto";
   }
 {
     BookInfo info=new BookInfo(fileName);
-    info.AuthorDisplayNameOption.setValue(description.myAuthor.getDisplayName());
-    info.AuthorSortKeyOption.setValue(description.myAuthor.getSortKey());
+    info.AuthorDisplayNameOption.setValue(description.myAuthor.DisplayName);
+    info.AuthorSortKeyOption.setValue(description.myAuthor.SortKey);
     info.TitleOption.setValue(description.myTitle);
     info.SeriesNameOption.setValue(description.mySeriesName);
     info.NumberInSeriesOption.setValue(description.myNumberInSeries);

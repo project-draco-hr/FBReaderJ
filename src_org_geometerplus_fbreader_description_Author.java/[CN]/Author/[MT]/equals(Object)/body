@@ -6,5 +6,5 @@
     return false;
   }
   Author a=(Author)o;
-  return getSortKey().equals(a.getSortKey()) && getDisplayName().equals(a.getDisplayName());
+  return SortKey.equals(a.SortKey) && DisplayName.equals(a.DisplayName);
 }
