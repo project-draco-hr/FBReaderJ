@@ -7,7 +7,6 @@
       if (size < 0) {
         throw new CachedCharStorageException("Error during reading " + myFileNamePrefix + index);
       }
-      android.util.Log.w("file size = ","" + size);
       block=new char[size / 2];
       InputStreamReader reader=new InputStreamReader(new FileInputStream(file),"UTF-16LE");
       if (reader.read(block) != block.length) {

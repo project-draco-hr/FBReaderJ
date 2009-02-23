@@ -1,4 +1,3 @@
 {
-  android.util.Log.w("onItemClick","position " + position + " id "+ id);
   getItem(position).run();
 }
