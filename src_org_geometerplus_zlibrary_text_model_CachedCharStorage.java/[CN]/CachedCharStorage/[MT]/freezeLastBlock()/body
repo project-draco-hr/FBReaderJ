@@ -1,0 +1,17 @@
+{
+  int index=myArray.size() - 1;
+  if (index >= 0) {
+    char[] block=myArray.get(index).get();
+    if (block == null) {
+      throw new CachedCharStorageException("Block reference in null during freeze");
+    }
+    try {
+      OutputStreamWriter writer=new OutputStreamWriter(new FileOutputStream(myFileNamePrefix + index),"UTF-16LE");
+      writer.write(block);
+      writer.close();
+    }
+ catch (    IOException e) {
+      throw new CachedCharStorageException("Error during writing " + myFileNamePrefix + index);
+    }
+  }
+}

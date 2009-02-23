@@ -2,15 +2,15 @@
   int textLength=0;
   int dataIndex=myStartEntryIndices[index];
   int dataOffset=myStartEntryOffsets[index];
-  char[] data=(char[])myData.get(dataIndex);
+  char[] data=myStorage.block(dataIndex);
   for (int len=myParagraphLengths[index]; len > 0; --len) {
-    if (dataOffset == myDataBlockSize) {
-      data=(char[])myData.get(++dataIndex);
+    if (dataOffset == data.length) {
+      data=myStorage.block(++dataIndex);
       dataOffset=0;
     }
     byte type=(byte)data[dataOffset];
     if (type == 0) {
-      data=(char[])myData.get(++dataIndex);
+      data=myStorage.block(++dataIndex);
       dataOffset=0;
       type=(byte)data[0];
     }

@@ -1,0 +1,27 @@
+{
+  char[] block=myArray.get(index).get();
+  if (block == null) {
+    try {
+      File file=new File(myFileNamePrefix + index);
+      int size=(int)file.length();
+      if (size < 0) {
+        throw new CachedCharStorageException("Error during reading " + myFileNamePrefix + index);
+      }
+      android.util.Log.w("file size = ","" + size);
+      block=new char[size / 2];
+      InputStreamReader reader=new InputStreamReader(new FileInputStream(file),"UTF-16LE");
+      if (reader.read(block) != block.length) {
+        throw new CachedCharStorageException("Error during reading " + myFileNamePrefix + index);
+      }
+      reader.close();
+    }
+ catch (    FileNotFoundException e) {
+      throw new CachedCharStorageException("Error during reading " + myFileNamePrefix + index);
+    }
+catch (    IOException e) {
+      throw new CachedCharStorageException("Error during reading " + myFileNamePrefix + index);
+    }
+    myArray.set(index,new WeakReference<char[]>(block));
+  }
+  return block;
+}

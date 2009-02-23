@@ -1,0 +1,9 @@
+{
+  int blockSize=myBlockSize;
+  if (minimumLength > blockSize) {
+    blockSize=minimumLength;
+  }
+  char[] block=new char[blockSize];
+  myArray.add(new WeakReference(block));
+  return block;
+}

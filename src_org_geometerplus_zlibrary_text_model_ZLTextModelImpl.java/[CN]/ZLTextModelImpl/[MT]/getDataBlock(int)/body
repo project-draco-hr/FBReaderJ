@@ -1,12 +1,10 @@
 {
   char[] block=myCurrentDataBlock;
   if ((block == null) || (minimumLength > block.length - myBlockOffset)) {
-    int blockSize=myDataBlockSize;
-    if (minimumLength > blockSize) {
-      blockSize=minimumLength;
+    if (block != null) {
+      myStorage.freezeLastBlock();
     }
-    block=new char[blockSize];
-    myData.add(block);
+    block=myStorage.createNewBlock(minimumLength);
     myCurrentDataBlock=block;
     myBlockOffset=0;
   }

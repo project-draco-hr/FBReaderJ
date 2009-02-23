@@ -1,13 +1,13 @@
 {
   int dataOffset=myDataOffset;
-  if (dataOffset == myDataBlockSize) {
-    ++myDataIndex;
+  char[] data=myStorage.block(myDataIndex);
+  if (dataOffset == data.length) {
+    data=myStorage.block(++myDataIndex);
     dataOffset=0;
   }
-  char[] data=(char[])myData.get(myDataIndex);
   byte type=(byte)data[dataOffset];
   if (type == 0) {
-    data=(char[])myData.get(++myDataIndex);
+    data=myStorage.block(++myDataIndex);
     dataOffset=0;
     type=(byte)data[0];
   }

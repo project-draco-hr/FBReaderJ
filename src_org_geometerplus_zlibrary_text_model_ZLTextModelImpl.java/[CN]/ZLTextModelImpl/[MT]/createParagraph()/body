@@ -5,7 +5,7 @@
     extend();
     startEntryIndices=myStartEntryIndices;
   }
-  final int dataSize=myData.size();
+  final int dataSize=myStorage.size();
   startEntryIndices[index]=(dataSize == 0) ? 0 : (dataSize - 1);
   myStartEntryOffsets[index]=myBlockOffset;
   myParagraphLengths[index]=0;
