@@ -1,0 +1,3 @@
+int dataBlockSize
+String directoryName
+String extension

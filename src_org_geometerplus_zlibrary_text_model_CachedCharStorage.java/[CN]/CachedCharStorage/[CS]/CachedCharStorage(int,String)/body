@@ -1,4 +1,0 @@
-{
-  myBlockSize=blockSize;
-  myFileNamePrefix=fileNamePrefix;
-}

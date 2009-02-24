@@ -1,7 +1,9 @@
 {
   myReadMetaData=false;
   myReadState=READ_NONE;
-  if (!read(fileName)) {
+  final ZLXMLProcessor processor=ZLXMLProcessorFactory.getInstance().createXMLProcessor();
+  processor.setBufferSize(2048);
+  if (!processor.read(this,fileName)) {
     return false;
   }
   final ArrayList authors=myAuthorList.isEmpty() ? myAuthorList2 : myAuthorList;

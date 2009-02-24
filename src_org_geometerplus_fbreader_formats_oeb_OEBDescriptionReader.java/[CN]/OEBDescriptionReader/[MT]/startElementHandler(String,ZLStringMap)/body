@@ -1,7 +1,7 @@
 {
   tag=tag.toLowerCase().intern();
-  if ((tag == "metadata") || (tag == "dc-metadata")) {
-    myDCMetadataTag=tag;
+  if ((tag == myMetadataTag) || (tag == myDCMetadataTag)) {
+    myMetadataTagRealName=tag;
     myReadMetaData=true;
   }
  else   if (myReadMetaData) {
@@ -19,6 +19,9 @@
     }
  else     if (tag == mySubjectTag) {
       myReadState=READ_SUBJECT;
+    }
+ else     if (tag == myLanguageTag) {
+      myReadState=READ_LANGUAGE;
     }
   }
   return false;

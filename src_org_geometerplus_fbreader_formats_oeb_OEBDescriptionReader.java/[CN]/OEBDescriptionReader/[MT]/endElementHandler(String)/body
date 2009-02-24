@@ -1,9 +1,9 @@
 {
   tag=tag.toLowerCase();
-  if (myDCMetadataTag.equals(tag)) {
+  if (tag.equals(myMetadataTagRealName)) {
     return true;
   }
-  final String bufferContent=myBuffer.toString().trim();
+  String bufferContent=myBuffer.toString().trim();
   if (bufferContent.length() != 0) {
 switch (myReadState) {
 case READ_TITLE:
@@ -17,6 +17,19 @@ myAuthorList2.add(bufferContent);
 break;
 case READ_SUBJECT:
 myDescription.addTag(bufferContent,true);
+break;
+case READ_LANGUAGE:
+{
+int index=bufferContent.indexOf('_');
+if (index >= 0) {
+bufferContent=bufferContent.substring(0,index);
+}
+index=bufferContent.indexOf('-');
+if (index >= 0) {
+bufferContent=bufferContent.substring(0,index);
+}
+myDescription.setLanguage("cz".equals(bufferContent) ? "cs" : bufferContent);
+}
 break;
 }
 }

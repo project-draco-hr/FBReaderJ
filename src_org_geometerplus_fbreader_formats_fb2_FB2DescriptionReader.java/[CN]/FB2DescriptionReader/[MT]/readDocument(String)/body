@@ -1,4 +1,5 @@
 {
   final ZLXMLProcessor processor=ZLXMLProcessorFactory.getInstance().createXMLProcessor();
+  processor.setBufferSize(2048);
   return processor.read(this,fileName);
 }

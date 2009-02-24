@@ -2,14 +2,20 @@
   myTitleTag=null;
   myAuthorTag=null;
   mySubjectTag=null;
+  myLanguageTag=null;
+  myMetadataTag="metadata";
   for (  Object o : namespaces.keySet()) {
     final String id=(String)o;
-    if (id.startsWith("http://purl.org/dc/elements")) {
+    if (id.startsWith(DublinCorePrefix) || id.startsWith(DublinCoreLegacyPrefix)) {
       final String name=(String)namespaces.get(id);
       myTitleTag=(name + ":title").intern();
       myAuthorTag=(name + ":creator").intern();
       mySubjectTag=(name + ":subject").intern();
-      break;
+      myLanguageTag=(name + ":language").intern();
+    }
+ else     if (id.equals(OpenPackagingFormat)) {
+      final String name=(String)namespaces.get(id);
+      myMetadataTag=(name + ":metadata").intern();
     }
   }
 }

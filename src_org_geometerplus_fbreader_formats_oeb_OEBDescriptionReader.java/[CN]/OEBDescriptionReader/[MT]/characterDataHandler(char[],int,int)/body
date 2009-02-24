@@ -6,6 +6,7 @@ case READ_AUTHOR:
 case READ_AUTHOR2:
 case READ_TITLE:
 case READ_SUBJECT:
+case READ_LANGUAGE:
   myBuffer.append(data,start,len);
 break;
 }

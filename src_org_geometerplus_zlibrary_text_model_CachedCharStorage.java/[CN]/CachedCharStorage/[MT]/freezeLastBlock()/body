@@ -6,12 +6,12 @@
       throw new CachedCharStorageException("Block reference in null during freeze");
     }
     try {
-      OutputStreamWriter writer=new OutputStreamWriter(new FileOutputStream(myFileNamePrefix + index),"UTF-16LE");
+      OutputStreamWriter writer=new OutputStreamWriter(new FileOutputStream(fileName(index)),"UTF-16LE");
       writer.write(block);
       writer.close();
     }
  catch (    IOException e) {
-      throw new CachedCharStorageException("Error during writing " + myFileNamePrefix + index);
+      throw new CachedCharStorageException("Error during writing " + fileName(index));
     }
   }
 }

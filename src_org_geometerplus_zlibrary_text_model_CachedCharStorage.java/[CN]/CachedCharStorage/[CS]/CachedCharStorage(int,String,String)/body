@@ -1,0 +1,6 @@
+{
+  myBlockSize=blockSize;
+  myDirectoryName=directoryName + '/';
+  myFileExtension='.' + fileExtension;
+  new File(directoryName).mkdirs();
+}

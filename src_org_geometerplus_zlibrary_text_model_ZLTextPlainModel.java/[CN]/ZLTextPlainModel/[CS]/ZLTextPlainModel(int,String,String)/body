@@ -1,0 +1,3 @@
+{
+  super(new CachedCharStorage(dataBlockSize,directoryName,extension));
+}

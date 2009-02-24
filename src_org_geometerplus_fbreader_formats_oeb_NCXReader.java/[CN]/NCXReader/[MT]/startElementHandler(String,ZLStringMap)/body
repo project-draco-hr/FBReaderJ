@@ -1,0 +1,22 @@
+{
+  tag=tag.toLowerCase().intern();
+switch (myReadState) {
+case READ_NONE:
+    if (tag == TAG_NAVMAP) {
+      myReadState=READ_MAP;
+    }
+  break;
+case READ_MAP:
+if (tag == TAG_NAVPOINT) {
+  String order=attributes.getValue(ATTRIBUTE_PLAYORDER);
+}
+break;
+case READ_POINT:
+break;
+case READ_LABEL:
+break;
+case READ_TEXT:
+break;
+}
+return false;
+}

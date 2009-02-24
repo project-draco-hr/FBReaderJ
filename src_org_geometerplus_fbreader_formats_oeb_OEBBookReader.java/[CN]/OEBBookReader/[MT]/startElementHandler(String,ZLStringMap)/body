@@ -1,9 +1,14 @@
 {
-  tag=tag.toLowerCase().intern();
+  tag=tag.toLowerCase();
+  if ((myOPFSchemePrefix != null) && tag.startsWith(myOPFSchemePrefix)) {
+    tag=tag.substring(myOPFSchemePrefix.length());
+  }
+  tag=tag.intern();
   if (MANIFEST == tag) {
     myState=READ_MANIFEST;
   }
  else   if (SPINE == tag) {
+    myNCXTOCFileName=xmlattributes.getValue("toc");
     myState=READ_SPINE;
   }
  else   if (GUIDE == tag) {

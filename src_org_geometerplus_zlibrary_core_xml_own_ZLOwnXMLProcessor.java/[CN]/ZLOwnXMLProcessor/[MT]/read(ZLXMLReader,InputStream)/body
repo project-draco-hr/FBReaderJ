@@ -1,6 +1,6 @@
 {
   try {
-    ZLOwnXMLParser parser=new ZLOwnXMLParser(reader,stream);
+    ZLOwnXMLParser parser=new ZLOwnXMLParser(reader,stream,myBufferSize);
     reader.startDocumentHandler();
     parser.doIt();
     reader.endDocumentHandler();
