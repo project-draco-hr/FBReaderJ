@@ -1,3 +1,25 @@
 {
-  return false;
+switch (myReadState) {
+case READ_NONE:
+    break;
+case READ_MAP:
+  if (TAG_NAVMAP == tag) {
+    myReadState=READ_NONE;
+  }
+break;
+case READ_POINT:
+if (TAG_NAVPOINT == tag) {
+}
+case READ_LABEL:
+if (TAG_NAVLABEL == tag) {
+myReadState=READ_POINT;
+}
+break;
+case READ_TEXT:
+if (TAG_TEXT == tag) {
+myReadState=READ_LABEL;
+}
+break;
+}
+return false;
 }

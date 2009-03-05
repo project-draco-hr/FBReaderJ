@@ -8,12 +8,32 @@ case READ_NONE:
   break;
 case READ_MAP:
 if (tag == TAG_NAVPOINT) {
-  String order=attributes.getValue(ATTRIBUTE_PLAYORDER);
+  final String order=attributes.getValue(ATTRIBUTE_PLAYORDER);
+  final int index=(order != null) ? atoi(order) : myPlayIndex++;
+  myPointStack.add(new NavPoint(index,myPointStack.size()));
+  myReadState=READ_POINT;
 }
 break;
 case READ_POINT:
+if (tag == TAG_NAVPOINT) {
+final String order=attributes.getValue(ATTRIBUTE_PLAYORDER);
+final int index=(order != null) ? atoi(order) : myPlayIndex++;
+myPointStack.add(new NavPoint(index,myPointStack.size()));
+}
+ else if (tag == TAG_NAVLABEL) {
+myReadState=READ_LABEL;
+}
+ else if (tag == TAG_CONTENT) {
+final int size=myPointStack.size();
+if (size > 0) {
+myPointStack.get(size - 1).ContentHRef=attributes.getValue("src");
+}
+}
 break;
 case READ_LABEL:
+if (TAG_TEXT == tag) {
+myReadState=READ_TEXT;
+}
 break;
 case READ_TEXT:
 break;
