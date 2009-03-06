@@ -28,6 +28,9 @@ start+=spaceCounter;
 len-=spaceCounter;
 }
 if (len > 0) {
+if (myInsideBody && !myModelReader.paragraphIsOpen()) {
+  myModelReader.beginParagraph();
+}
 myModelReader.addData(data,start,len);
 }
 }

@@ -1,0 +1,4 @@
+{
+  reader.getModelReader().endParagraph();
+  reader.myInsideBody=false;
+}

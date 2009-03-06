@@ -1,6 +1,6 @@
 {
   if (ourTagActions.isEmpty()) {
-    addAction("body",new XHTMLTagParagraphAction());
+    addAction("body",new XHTMLTagBodyAction());
     addAction("p",new XHTMLTagParagraphAction());
     addAction("h1",new XHTMLTagParagraphWithControlAction(FBTextKind.H1));
     addAction("h2",new XHTMLTagParagraphWithControlAction(FBTextKind.H2));

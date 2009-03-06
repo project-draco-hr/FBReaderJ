@@ -4,5 +4,6 @@
   myPathPrefix=pathPrefix;
   myReferenceName=referenceName;
   myPreformatted=false;
+  myInsideBody=false;
   return read(pathPrefix + fileName);
 }
