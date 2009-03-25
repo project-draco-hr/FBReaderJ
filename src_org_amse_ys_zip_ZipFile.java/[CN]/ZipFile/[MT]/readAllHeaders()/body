@@ -3,6 +3,8 @@
     return;
   }
   myAllFilesAreRead=true;
+  myBaseStream.reset();
+  myFileHeaders.clear();
   while (true) {
     int header=myBaseStream.read4Bytes();
     if (header != LocalFileHeader.FILE_HEADER_SIGNATURE) {

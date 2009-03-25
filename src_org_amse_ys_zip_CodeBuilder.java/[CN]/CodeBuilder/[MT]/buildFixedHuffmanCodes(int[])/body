@@ -1,0 +1,21 @@
+{
+  CodeBuilder builder=new CodeBuilder(288);
+  final int[] codeArray=new int[288];
+  for (int i=0; i <= 143; i++) {
+    builder.myLengthArray[i]=8;
+    codeArray[i]=48 + i;
+  }
+  for (int i=144; i <= 255; i++) {
+    builder.myLengthArray[i]=9;
+    codeArray[i]=256 + i;
+  }
+  for (int i=256; i <= 279; i++) {
+    builder.myLengthArray[i]=7;
+    codeArray[i]=0 + i - 256;
+  }
+  for (int i=280; i <= 287; i++) {
+    builder.myLengthArray[i]=8;
+    codeArray[i]=192 + i - 280;
+  }
+  builder.buildTable(codeArray,table);
+}

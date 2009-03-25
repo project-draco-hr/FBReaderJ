@@ -1,3 +1,0 @@
-{
-  myBuffer=new byte[DICTIONARY_LENGTH];
-}

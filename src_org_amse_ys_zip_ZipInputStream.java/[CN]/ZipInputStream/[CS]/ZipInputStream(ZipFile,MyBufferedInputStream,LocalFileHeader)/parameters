@@ -1,0 +1,3 @@
+ZipFile parent
+MyBufferedInputStream baseStream
+LocalFileHeader header

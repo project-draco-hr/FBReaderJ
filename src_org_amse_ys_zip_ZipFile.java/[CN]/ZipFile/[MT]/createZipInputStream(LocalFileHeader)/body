@@ -1,0 +1,4 @@
+{
+  MyBufferedInputStream baseStream=myStoredStreams.isEmpty() ? new MyBufferedInputStream(myFileName) : myStoredStreams.poll();
+  return new ZipInputStream(this,baseStream,header);
+}

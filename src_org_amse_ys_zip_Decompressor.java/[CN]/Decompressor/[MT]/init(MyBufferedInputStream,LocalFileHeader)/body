@@ -3,7 +3,14 @@ switch (header.CompressionMethod) {
 case 0:
     return new NoCompressionDecompressor(is,header);
 case 8:
-  return new DeflatingDecompressor(is,header);
+synchronized (ourDeflators) {
+    if (!ourDeflators.isEmpty()) {
+      DeflatingDecompressor decompressor=ourDeflators.poll();
+      decompressor.reset(is,header);
+      return decompressor;
+    }
+  }
+return new DeflatingDecompressor(is,header);
 default :
 throw new WrongZipFormatException("Unsupported method of compression");
 }

@@ -6,5 +6,5 @@
   }
 catch (  WrongZipFormatException e) {
   }
-  return Collections.unmodifiableList(myFileHeaders);
+  return myFileHeaders.values();
 }

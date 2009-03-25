@@ -1,0 +1,9 @@
+{
+  CodeBuilder builder=new CodeBuilder(32);
+  final int[] codeArray=new int[32];
+  for (int i=0; i < 32; i++) {
+    codeArray[i]=i;
+    builder.myLengthArray[i]=5;
+  }
+  builder.buildTable(codeArray,table);
+}

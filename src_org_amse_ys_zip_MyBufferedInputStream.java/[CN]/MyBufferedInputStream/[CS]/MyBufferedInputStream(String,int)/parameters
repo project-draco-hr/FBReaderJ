@@ -1,2 +1,2 @@
-String s
-int arraySize
+String fileName
+int bufferSize

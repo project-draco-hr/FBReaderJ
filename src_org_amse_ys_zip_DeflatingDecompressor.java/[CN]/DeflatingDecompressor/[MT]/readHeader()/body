@@ -15,8 +15,8 @@ myReadInBlock=0;
 break;
 case 1:
 myState=ST_FIXED_CODES;
-myHuffmanCodes=CodeBuilder.buildFixedHuffmanCodes().buildTable();
-myDistanceCodes=CodeBuilder.buildFixedDistanceCodes().buildTable();
+CodeBuilder.buildFixedHuffmanCodes(myHuffmanCodes);
+CodeBuilder.buildFixedDistanceCodes(myDistanceCodes);
 break;
 case 2:
 myState=ST_DYNAMIC_CODES;

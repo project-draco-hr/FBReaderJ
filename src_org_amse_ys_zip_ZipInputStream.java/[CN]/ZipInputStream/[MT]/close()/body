@@ -1,3 +1,7 @@
 {
-  myBaseStream.close();
+  if (!myIsClosed) {
+    myIsClosed=true;
+    myParent.storeBaseStream(myBaseStream);
+    Decompressor.storeDecompressor(myDecompressor);
+  }
 }

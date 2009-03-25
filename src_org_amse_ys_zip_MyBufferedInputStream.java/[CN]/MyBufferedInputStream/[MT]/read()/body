@@ -8,5 +8,5 @@
     }
   }
   myBytesReady--;
-  return (myBuffer[myPositionInBuffer++] & 255);
+  return myBuffer[myPositionInBuffer++] & 255;
 }

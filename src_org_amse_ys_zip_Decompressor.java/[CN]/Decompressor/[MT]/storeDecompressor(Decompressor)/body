@@ -1,0 +1,7 @@
+{
+  if (decompressor instanceof DeflatingDecompressor) {
+synchronized (ourDeflators) {
+      ourDeflators.add((DeflatingDecompressor)decompressor);
+    }
+  }
+}

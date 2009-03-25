@@ -9,16 +9,13 @@
   int extraField=myBaseStream.read2Bytes();
   final String fileName=myBaseStream.readString(fileNameSize);
   myBaseStream.skip(extraField);
-  myFileHeaders.add(new LocalFileHeader(version2extract,generalFlag,compressionMethod,compressedSize,uncompressedSize,myBaseStream.offset(),fileName));
-  if (fileName.equals(fileToFind)) {
-    return true;
-  }
-  if ((generalFlag & 8) == 0) {
+  LocalFileHeader header=new LocalFileHeader(version2extract,generalFlag,compressionMethod,compressedSize,uncompressedSize,myBaseStream.offset(),fileName);
+  myFileHeaders.put(fileName,header);
+  if (header.sizeIsKnown()) {
     myBaseStream.skip(compressedSize);
   }
  else {
-    System.out.println("Warning: flag 3 is set! Trying to find header.");
-    findAndReadDescriptor();
+    findAndReadDescriptor(header);
   }
-  return false;
+  return fileName.equals(fileToFind);
 }

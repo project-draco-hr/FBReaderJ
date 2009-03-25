@@ -1,5 +1,0 @@
-{
-  CodeBuilder builder=new CodeBuilder(288);
-  builder.loadFixed();
-  return builder;
-}
