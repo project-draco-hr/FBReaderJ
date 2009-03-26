@@ -1,7 +1,5 @@
 {
   if (!myFileHeaders.isEmpty()) {
-    int i;
-    final int listSize=myFileHeaders.size();
     LocalFileHeader header=myFileHeaders.get(entryName);
     if (header != null) {
       try {

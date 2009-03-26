@@ -7,12 +7,12 @@
   HashMap currentNamespaceMap=null;
   final ArrayList namespaceMapStack=new ArrayList();
   char[] buffer=myBuffer;
-  final ZLMutableString tagName=new ZLMutableString();
-  final ZLMutableString attributeName=new ZLMutableString();
-  final ZLMutableString attributeValue=new ZLMutableString();
+  final ZLMutableString tagName=myTagName;
+  final ZLMutableString attributeName=myAttributeName;
+  final ZLMutableString attributeValue=myAttributeValue;
   final boolean dontCacheAttributeValues=xmlReader.dontCacheAttributeValues();
-  final ZLMutableString entityName=new ZLMutableString();
-  final HashMap strings=new HashMap();
+  final ZLMutableString entityName=myEntityName;
+  final HashMap strings=ourStringMap;
   final ZLStringMap attributes=new ZLStringMap();
   String[] tagStack=new String[10];
   int tagStackSize=0;
@@ -24,12 +24,14 @@
       streamReader.close();
       return;
     }
-    if (count < buffer.length) {
-      buffer=ZLArrayUtils.createCopy(buffer,count,count);
-    }
     int startPosition=0;
+    if (count < buffer.length) {
+      startPosition=buffer.length - count;
+      System.arraycopy(buffer,0,buffer,startPosition,count);
+      count=buffer.length;
+    }
     try {
-      for (int i=-1; ; ) {
+      for (int i=startPosition - 1; ; ) {
         mainSwitchLabel: switch (state) {
 case START_DOCUMENT:
           while (true) {

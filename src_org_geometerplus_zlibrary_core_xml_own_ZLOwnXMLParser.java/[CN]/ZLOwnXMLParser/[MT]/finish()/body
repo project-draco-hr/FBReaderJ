@@ -1,0 +1,7 @@
+{
+  storeBuffer(myBuffer);
+  storeString(myTagName);
+  storeString(myAttributeName);
+  storeString(myAttributeValue);
+  storeString(myEntityName);
+}

@@ -2,7 +2,7 @@
   myXMLReader=xmlReader;
   myProcessNamespaces=xmlReader.processNamespaces();
   String encoding="utf-8";
-  final char[] buffer=new char[bufferSize];
+  final char[] buffer=getBuffer(bufferSize);
   myBuffer=buffer;
   int len;
   for (len=0; len < 256; ++len) {
