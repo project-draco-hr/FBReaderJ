@@ -1,0 +1,10 @@
+{
+synchronized (ourZipFileMap) {
+    ZipFile zf=ourZipFileMap.get(fileName);
+    if (zf == null) {
+      zf=new ZipFile(fileName);
+      ourZipFileMap.put(fileName,zf);
+    }
+    return zf;
+  }
+}

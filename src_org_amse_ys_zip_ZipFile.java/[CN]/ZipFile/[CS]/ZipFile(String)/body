@@ -1,4 +1,3 @@
 {
   myFileName=fileName;
-  myBaseStream=new MyBufferedInputStream(myFileName);
 }

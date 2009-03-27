@@ -2,22 +2,22 @@
   while (true) {
     int signature=0;
     do {
-      int nextByte=myBaseStream.read();
+      int nextByte=baseStream.read();
       if (nextByte < 0) {
         throw new IOException("readFileHeaders. Unexpected end of file when looking for DataDescriptor");
       }
       signature=((signature << 8) & (0x0FFFFFFFF)) + (byte)nextByte;
     }
  while (signature != LocalFileHeader.DATA_DESCRIPTOR_SIGNATURE);
-    myBaseStream.skip(4);
-    int compressedSize=myBaseStream.read4Bytes();
-    int uncompressedSize=myBaseStream.read4Bytes();
-    if ((myBaseStream.offset() - header.OffsetOfLocalData - 16) == compressedSize) {
+    baseStream.skip(4);
+    int compressedSize=baseStream.read4Bytes();
+    int uncompressedSize=baseStream.read4Bytes();
+    if ((baseStream.offset() - header.OffsetOfLocalData - 16) == compressedSize) {
       header.setSizes(compressedSize,uncompressedSize);
       break;
     }
  else {
-      myBaseStream.backSkip(12);
+      baseStream.backSkip(12);
       continue;
     }
   }

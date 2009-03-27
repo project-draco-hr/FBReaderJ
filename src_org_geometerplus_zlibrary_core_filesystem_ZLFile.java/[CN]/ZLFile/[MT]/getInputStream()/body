@@ -12,15 +12,7 @@
     InputStream base=baseFile.getInputStream();
     if (base != null) {
       if (0 != (baseFile.myArchiveType & ArchiveType.ZIP)) {
-        final String baseFileName=myPath.substring(0,index);
-        ZipFile zf;
-synchronized (ourZipFileMap) {
-          zf=ourZipFileMap.get(baseFileName);
-          if (zf == null) {
-            zf=new ZipFile(baseFileName);
-            ourZipFileMap.put(baseFileName,zf);
-          }
-        }
+        ZipFile zf=getZipFile(myPath.substring(0,index));
         final String entryName=myPath.substring(index + 1);
         stream=zf.getInputStream(entryName);
       }

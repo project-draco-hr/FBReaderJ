@@ -1,0 +1,2 @@
+MyBufferedInputStream baseStream
+String fileToFind

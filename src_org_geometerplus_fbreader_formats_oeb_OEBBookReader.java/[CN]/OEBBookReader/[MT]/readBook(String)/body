@@ -1,5 +1,5 @@
 {
-  myFilePrefix=htmlDirectoryPrefix(fileName);
+  myFilePrefix=MiscUtil.htmlDirectoryPrefix(fileName);
   myIdToHref.clear();
   myHtmlFileNames.clear();
   myNCXTOCFileName=null;
@@ -14,7 +14,7 @@
   final int len=myHtmlFileNames.size();
   for (int i=0; i < len; ++i) {
     final String name=(String)myHtmlFileNames.get(i);
-    new XHTMLReader(myModelReader).readFile(myFilePrefix,name,name);
+    new XHTMLReader(myModelReader).readFile(myFilePrefix + name,name);
   }
   generateTOC();
   return true;

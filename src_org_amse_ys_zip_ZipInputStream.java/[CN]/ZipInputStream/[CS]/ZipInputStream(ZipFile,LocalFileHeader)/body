@@ -1,0 +1,6 @@
+{
+  myParent=parent;
+  myBaseStream=parent.getBaseStream();
+  myBaseStream.setPosition(header.OffsetOfLocalData);
+  myDecompressor=Decompressor.init(myBaseStream,header);
+}

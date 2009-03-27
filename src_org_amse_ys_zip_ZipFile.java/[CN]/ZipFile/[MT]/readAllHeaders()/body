@@ -3,19 +3,24 @@
     return;
   }
   myAllFilesAreRead=true;
-  myBaseStream.reset();
+  MyBufferedInputStream baseStream=getBaseStream();
+  baseStream.setPosition(0);
   myFileHeaders.clear();
-  while (true) {
-    int header=myBaseStream.read4Bytes();
-    if (header != LocalFileHeader.FILE_HEADER_SIGNATURE) {
-      if (header == LocalFileHeader.FOLDER_HEADER_SIGNATURE) {
-        break;
-      }
+  try {
+    while (true) {
+      int header=baseStream.read4Bytes();
+      if (header != LocalFileHeader.FILE_HEADER_SIGNATURE) {
+        if (header == LocalFileHeader.FOLDER_HEADER_SIGNATURE) {
+          break;
+        }
  else {
-        throw new WrongZipFormatException("readHeaders. Wrong signature found = " + header + " at position "+ myBaseStream.offset());
+          throw new WrongZipFormatException("readHeaders. Wrong signature found = " + header + " at position "+ baseStream.offset());
+        }
       }
+      readFileHeader(baseStream,null);
     }
-    readFileHeader(null);
   }
-  myBaseStream.reset();
+  finally {
+    storeBaseStream(baseStream);
+  }
 }

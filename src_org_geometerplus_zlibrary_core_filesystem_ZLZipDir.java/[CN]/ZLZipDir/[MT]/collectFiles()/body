@@ -1,7 +1,7 @@
 {
   ZipFile zf=null;
   try {
-    zf=new ZipFile(myFile.getCanonicalPath());
+    zf=ZLFile.getZipFile(myFile.getCanonicalPath());
   }
  catch (  IOException e) {
   }
