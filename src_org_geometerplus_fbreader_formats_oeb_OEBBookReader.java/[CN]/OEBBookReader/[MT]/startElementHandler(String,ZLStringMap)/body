@@ -8,7 +8,7 @@
     myState=READ_MANIFEST;
   }
  else   if (SPINE == tag) {
-    myNCXTOCFileName=xmlattributes.getValue("toc");
+    myNCXTOCFileName=myIdToHref.get(xmlattributes.getValue("toc"));
     myState=READ_SPINE;
   }
  else   if (GUIDE == tag) {
@@ -27,7 +27,7 @@
  else   if ((myState == READ_SPINE) && (ITEMREF == tag)) {
     final String id=xmlattributes.getValue("idref");
     if (id != null) {
-      final String fileName=(String)myIdToHref.get(id);
+      final String fileName=myIdToHref.get(id);
       if (fileName != null) {
         myHtmlFileNames.add(fileName);
       }

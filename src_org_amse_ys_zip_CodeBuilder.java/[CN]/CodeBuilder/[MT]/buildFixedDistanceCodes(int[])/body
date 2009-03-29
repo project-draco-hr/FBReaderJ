@@ -5,5 +5,5 @@
     codeArray[i]=i;
     builder.myLengthArray[i]=5;
   }
-  builder.buildTable(codeArray,table);
+  builder.buildTable(codeArray,table,5);
 }

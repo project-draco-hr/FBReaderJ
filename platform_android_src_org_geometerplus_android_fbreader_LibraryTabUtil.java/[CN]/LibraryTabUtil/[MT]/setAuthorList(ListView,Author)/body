@@ -1,5 +1,5 @@
 {
-  final LibraryListAdapter adapter=new LibraryListAdapter(view.getContext());
+  final ZLListAdapter adapter=new ZLListAdapter(view.getContext());
   int selectedIndex=-1;
   int count=0;
   for (  final Author author : BookCollection.Instance().authors()) {

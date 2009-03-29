@@ -4,7 +4,7 @@ case KeyEvent.ACTION_UP:
 switch (keyCode) {
 case KeyEvent.KEYCODE_DPAD_CENTER:
 case KeyEvent.KEYCODE_ENTER:
-      ((LibraryListItem)((ListView)view).getSelectedItem()).run();
+      ((ZLListItem)((ListView)view).getSelectedItem()).run();
     return true;
 case KeyEvent.KEYCODE_BACK:
   return true;

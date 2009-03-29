@@ -1,4 +1,5 @@
 {
+  tag=tag.toLowerCase().intern();
 switch (myReadState) {
 case READ_NONE:
     break;
@@ -9,6 +10,13 @@ case READ_MAP:
 break;
 case READ_POINT:
 if (TAG_NAVPOINT == tag) {
+NavPoint last=myPointStack.get(myPointStack.size() - 1);
+if (last.Text.length() == 0) {
+  last.Text="...";
+}
+myNavigationMap.put(last.Order,last);
+myPointStack.remove(myPointStack.size() - 1);
+myReadState=(myPointStack.isEmpty()) ? READ_MAP : READ_POINT;
 }
 case READ_LABEL:
 if (TAG_NAVLABEL == tag) {

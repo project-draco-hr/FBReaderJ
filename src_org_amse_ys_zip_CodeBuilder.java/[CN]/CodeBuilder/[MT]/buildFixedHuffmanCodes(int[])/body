@@ -17,5 +17,5 @@
     builder.myLengthArray[i]=8;
     codeArray[i]=192 + i - 280;
   }
-  builder.buildTable(codeArray,table);
+  builder.buildTable(codeArray,table,9);
 }

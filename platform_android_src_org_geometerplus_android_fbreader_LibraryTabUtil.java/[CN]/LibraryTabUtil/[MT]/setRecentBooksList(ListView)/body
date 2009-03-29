@@ -1,5 +1,5 @@
 {
-  LibraryListAdapter adapter=new LibraryListAdapter(view.getContext());
+  ZLListAdapter adapter=new ZLListAdapter(view.getContext());
   for (  BookDescription book : RecentBooks.Instance().books()) {
     adapter.addItem(new BookItem(book));
   }

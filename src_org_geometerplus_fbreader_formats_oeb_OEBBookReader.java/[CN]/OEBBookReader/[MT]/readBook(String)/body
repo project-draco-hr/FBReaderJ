@@ -11,9 +11,7 @@
   }
   myModelReader.setMainTextModel();
   myModelReader.pushKind(FBTextKind.REGULAR);
-  final int len=myHtmlFileNames.size();
-  for (int i=0; i < len; ++i) {
-    final String name=(String)myHtmlFileNames.get(i);
+  for (  String name : myHtmlFileNames) {
     new XHTMLReader(myModelReader).readFile(myFilePrefix + name,name);
   }
   generateTOC();

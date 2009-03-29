@@ -1,5 +1,5 @@
 {
-  LibraryListAdapter adapter=new LibraryListAdapter(view.getContext(),new Runnable(){
+  ZLListAdapter adapter=new ZLListAdapter(view.getContext(),new Runnable(){
     public void run(){
       setBookList(view,author,series);
     }

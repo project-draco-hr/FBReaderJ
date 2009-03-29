@@ -2,5 +2,6 @@
   if (myReadState == READ_TEXT) {
     final ArrayList<NavPoint> stack=myPointStack;
     final NavPoint last=stack.get(stack.size() - 1);
+    last.Text+=new String(ch,start,length);
   }
 }

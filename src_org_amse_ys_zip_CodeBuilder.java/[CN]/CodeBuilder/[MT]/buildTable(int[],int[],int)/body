@@ -4,15 +4,20 @@
     final int codeLength=myLengthArray[i];
     if (codeLength > 0) {
       int revertedCode=codeArray[i];
-      int code=0;
+      int c=0;
       for (int j=0; j < codeLength; ++j) {
-        code=(code << 1) + (revertedCode & 1);
+        c=(c << 1) + (revertedCode & 1);
         revertedCode>>=1;
       }
       final int value=(codeLength << 16) + i;
-      for (int j=0; j < (1 << (15 - codeLength)); ++j) {
-        table[(j << codeLength) + code]=value;
+      final int num=1 << maxCodeLength;
+      final int step=1 << codeLength;
+      for (; c < num; c+=step) {
+        table[c]=value;
       }
     }
+  }
+  for (int i=maxCodeLength; i < 15; ++i) {
+    System.arraycopy(table,0,table,1 << i,1 << i);
   }
 }

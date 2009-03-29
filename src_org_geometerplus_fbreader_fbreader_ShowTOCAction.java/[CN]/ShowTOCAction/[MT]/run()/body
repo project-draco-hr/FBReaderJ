@@ -1,0 +1,4 @@
+{
+  final ZLAndroidDialogManager dialogManager=(ZLAndroidDialogManager)ZLAndroidDialogManager.getInstance();
+  dialogManager.runActivity(TOCActivity.class);
+}
