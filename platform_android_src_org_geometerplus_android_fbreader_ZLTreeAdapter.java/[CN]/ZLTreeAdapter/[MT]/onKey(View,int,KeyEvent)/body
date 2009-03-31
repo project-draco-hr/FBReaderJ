@@ -1,0 +1,15 @@
+{
+switch (keyEvent.getAction()) {
+case KeyEvent.ACTION_UP:
+switch (keyCode) {
+case KeyEvent.KEYCODE_DPAD_CENTER:
+case KeyEvent.KEYCODE_ENTER:
+      runTreeItem((ZLTreeItem)((ListView)view).getSelectedItem());
+    return true;
+case KeyEvent.KEYCODE_BACK:
+  return true;
+}
+break;
+}
+return false;
+}

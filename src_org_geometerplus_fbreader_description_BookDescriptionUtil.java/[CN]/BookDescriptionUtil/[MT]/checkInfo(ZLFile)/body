@@ -1,4 +1,4 @@
 {
-  ZLIntegerOption op=new ZLIntegerOption(FBOptions.BOOKS_CATEGORY,file.getPath(),SIZE,-1);
+  ZLIntegerOption op=new ZLIntegerOption(file.getPath(),SIZE,-1);
   return op.getValue() == (int)file.size();
 }

@@ -29,7 +29,6 @@
   addAction(ActionCode.GOTO_PREVIOUS_TOC_SECTION,new DummyAction(this));
   ZLPaintContext context=ZLibrary.Instance().getPaintContext();
   BookTextView=new BookTextView(context);
-  ContentsView=new ContentsView(context);
   FootnoteView=new FootnoteView(context);
   setMode(ViewMode.BOOK_TEXT);
 }

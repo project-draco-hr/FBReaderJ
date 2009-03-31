@@ -1,5 +1,5 @@
 {
-  final ZLStringOption option=new ZLStringOption(ZLOption.STATE_CATEGORY,GROUP,"","");
+  final ZLStringOption option=new ZLStringOption(GROUP,"","");
   for (int count=0; ; ++count) {
     option.changeName(BOOK + count);
     String name=option.getValue();

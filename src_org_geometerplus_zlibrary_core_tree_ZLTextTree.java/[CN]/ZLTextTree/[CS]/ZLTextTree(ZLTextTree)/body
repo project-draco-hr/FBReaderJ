@@ -1,0 +1,4 @@
+{
+  myParent=parent;
+  myLevel=parent.myLevel + 1;
+}

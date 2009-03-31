@@ -7,7 +7,7 @@
     final int size=entries.size();
     for (int i=0; i < size; ++i) {
       String entry=(String)entries.get(i);
-      final ZLStringOption entryOption=new ZLStringOption(FBOptions.BOOKS_CATEGORY,zipFile.getPath(),"","");
+      final ZLStringOption entryOption=new ZLStringOption(zipFile.getPath(),"","");
       if (PluginCollection.instance().getPlugin(new ZLFile(entry),true) != null) {
         final String fullName=zipPrefix + entry;
         entryOption.changeName(ENTRY + counter);
@@ -16,6 +16,6 @@
         ++counter;
       }
     }
-    new ZLIntegerOption(FBOptions.BOOKS_CATEGORY,zipFile.getPath(),ENTRIES_NUMBER,-1).setValue(counter);
+    new ZLIntegerOption(zipFile.getPath(),ENTRIES_NUMBER,-1).setValue(counter);
   }
 }

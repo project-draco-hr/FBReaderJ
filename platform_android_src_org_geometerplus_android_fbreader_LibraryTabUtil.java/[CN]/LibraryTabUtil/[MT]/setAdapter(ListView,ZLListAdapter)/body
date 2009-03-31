@@ -2,4 +2,8 @@
   view.setAdapter(adapter);
   view.setOnKeyListener(adapter);
   view.setOnItemClickListener(adapter);
+  int selectedIndex=adapter.getSelectedIndex();
+  if (selectedIndex >= 0) {
+    view.setSelection(selectedIndex);
+  }
 }

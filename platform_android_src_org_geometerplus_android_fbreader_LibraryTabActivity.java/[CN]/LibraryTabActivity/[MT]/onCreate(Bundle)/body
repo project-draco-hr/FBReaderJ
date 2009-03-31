@@ -3,10 +3,8 @@
   requestWindowFeature(Window.FEATURE_NO_TITLE);
   final TabHost host=getTabHost();
   LayoutInflater.from(this).inflate(R.layout.library,host.getTabContentView(),true);
-  host.addTab(host.newTabSpec("By Author").setIndicator("By Author").setContent(R.id.by_author));
-  host.addTab(host.newTabSpec("By Tag").setIndicator("By Tag").setContent(R.id.by_tag));
-  host.addTab(host.newTabSpec("Recent").setIndicator("Recent").setContent(R.id.recent));
-  LibraryTabUtil.setAuthorList((ListView)findViewById(R.id.by_author),null);
-  LibraryTabUtil.setTagList((ListView)findViewById(R.id.by_tag),"");
-  LibraryTabUtil.setRecentBooksList((ListView)findViewById(R.id.recent));
+  LibraryTabUtil.setAuthorList(createTab("byAuthor",R.id.by_author),null);
+  LibraryTabUtil.setTagList(createTab("byTag",R.id.by_tag),"");
+  LibraryTabUtil.setRecentBooksList(createTab("recent",R.id.recent));
+  host.setCurrentTabByTag(mySelectedTabOption.getValue());
 }

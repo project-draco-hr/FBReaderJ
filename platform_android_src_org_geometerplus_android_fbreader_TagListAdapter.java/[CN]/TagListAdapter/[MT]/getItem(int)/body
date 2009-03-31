@@ -1,0 +1,19 @@
+{
+  ZLListItem item=myItems[position];
+  if (item == null) {
+    int pos=position;
+    if (myHasBooksWithNoTags) {
+      if (pos == 0) {
+        item=new TagItem(myView,null);
+      }
+ else {
+        --pos;
+      }
+    }
+    if (item == null) {
+      item=new TagItem(myView,myTags.get(pos));
+    }
+    myItems[position]=item;
+  }
+  return item;
+}

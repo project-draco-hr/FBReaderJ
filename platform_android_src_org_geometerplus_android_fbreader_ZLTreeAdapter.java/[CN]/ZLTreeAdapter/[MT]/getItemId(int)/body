@@ -1,0 +1,3 @@
+{
+  return indexByPosition(position + 1,myTree);
+}

@@ -1,0 +1,4 @@
+{
+  mySelectedTabOption.setValue(getTabHost().getCurrentTabTag());
+  super.onStop();
+}

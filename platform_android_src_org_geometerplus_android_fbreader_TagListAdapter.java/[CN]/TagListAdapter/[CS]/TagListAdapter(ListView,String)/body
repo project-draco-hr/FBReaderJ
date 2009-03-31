@@ -1,0 +1,11 @@
+{
+  super(view.getContext(),null);
+  myView=view;
+  mySelectedTag=selectedTag;
+  myHasBooksWithNoTags=!BookCollection.Instance().booksByTag(null).isEmpty();
+  int count=myTags.size();
+  if (myHasBooksWithNoTags) {
+    ++count;
+  }
+  myItems=new ZLListItem[count];
+}

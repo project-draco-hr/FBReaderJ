@@ -1,3 +1,0 @@
-{
-  return (Reference)myReferenceByParagraph.get(paragraph);
-}

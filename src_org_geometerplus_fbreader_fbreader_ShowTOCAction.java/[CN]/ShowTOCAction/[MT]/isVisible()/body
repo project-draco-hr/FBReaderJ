@@ -1,9 +1,3 @@
 {
-switch (Reader.getMode()) {
-case FBReader.ViewMode.BOOK_TEXT:
-case FBReader.ViewMode.FOOTNOTE:
-    return !Reader.ContentsView.isEmpty();
-default :
-  return false;
-}
+  return Reader.myBookModel.ContentsTree.getSize() > 1;
 }

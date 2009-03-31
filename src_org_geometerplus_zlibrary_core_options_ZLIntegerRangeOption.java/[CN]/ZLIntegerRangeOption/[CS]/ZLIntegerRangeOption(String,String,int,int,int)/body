@@ -1,0 +1,13 @@
+{
+  super(group,optionName);
+  MinValue=minValue;
+  MaxValue=maxValue;
+  if (defaultValue < MinValue) {
+    defaultValue=MinValue;
+  }
+ else   if (defaultValue > MaxValue) {
+    defaultValue=MaxValue;
+  }
+  myDefaultValue=defaultValue;
+  myValue=defaultValue;
+}

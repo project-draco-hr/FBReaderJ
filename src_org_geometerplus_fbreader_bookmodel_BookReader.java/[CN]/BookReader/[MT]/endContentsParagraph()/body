@@ -1,18 +1,16 @@
 {
-  final ArrayList tocStack=myTOCStack;
-  if (!tocStack.isEmpty()) {
-    final ContentsModel contentsModel=Model.ContentsModel;
-    final ZLTextBuffer contentsBuffer=myContentsBuffer;
-    if (!contentsBuffer.isEmpty()) {
-      contentsModel.addText(contentsBuffer);
-      contentsBuffer.clear();
-      myLastTOCParagraphIsEmpty=false;
-    }
- else     if (myLastTOCParagraphIsEmpty) {
-      contentsModel.addText(PERIOD);
-      myLastTOCParagraphIsEmpty=false;
-    }
-    tocStack.remove(tocStack.size() - 1);
+  final ZLTextTree tree=myCurrentContentsTree;
+  final ZLTextBuffer contentsBuffer=myContentsBuffer;
+  if (tree.getLevel() == 0) {
+    contentsBuffer.clear();
+    return;
   }
-  myContentsParagraphExists=false;
+  if (!contentsBuffer.isEmpty()) {
+    tree.setText(contentsBuffer.toString());
+    contentsBuffer.clear();
+  }
+ else   if (tree.getText() == null) {
+    tree.setText("...");
+  }
+  myCurrentContentsTree=tree.getParent();
 }

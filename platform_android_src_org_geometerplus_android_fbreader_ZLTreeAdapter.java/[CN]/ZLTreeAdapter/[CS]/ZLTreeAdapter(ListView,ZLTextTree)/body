@@ -1,0 +1,6 @@
+{
+  myParent=parent;
+  myTree=tree;
+  myItems=new ZLTreeItem[tree.getSize() - 1];
+  myOpenItems.add(tree);
+}

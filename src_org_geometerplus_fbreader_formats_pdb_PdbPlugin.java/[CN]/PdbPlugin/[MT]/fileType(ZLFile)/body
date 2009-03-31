@@ -7,7 +7,7 @@
   int index=fileName.indexOf(':');
   ZLFile baseFile=(index == -1) ? file : new ZLFile(fileName.substring(0,index));
   boolean upToDate=BookDescriptionUtil.checkInfo(baseFile);
-  ZLStringOption palmTypeOption=new ZLStringOption(FBOptions.BOOKS_CATEGORY,file.getPath(),"PalmType","");
+  ZLStringOption palmTypeOption=new ZLStringOption(file.getPath(),"PalmType","");
   String palmType=palmTypeOption.getValue();
   if ((palmType.length() != 8) || !upToDate) {
     byte[] id=new byte[8];

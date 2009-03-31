@@ -1,7 +1,7 @@
 {
   init();
   String lowerCaseName=name.toLowerCase();
-  if (useWindows1252Hack() && (lowerCaseName == "iso-8859-1")) {
+  if (lowerCaseName == "iso-8859-1") {
     lowerCaseName="windows-1252";
   }
   return (ZLEncodingConverterInfo)myInfosByName.get(lowerCaseName);

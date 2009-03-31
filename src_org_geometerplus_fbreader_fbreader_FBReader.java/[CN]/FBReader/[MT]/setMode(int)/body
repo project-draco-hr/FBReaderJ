@@ -8,10 +8,6 @@ switch (mode) {
 case ViewMode.BOOK_TEXT:
     setView(BookTextView);
   break;
-case ViewMode.CONTENTS:
-ContentsView.gotoReference();
-setView(ContentsView);
-break;
 case ViewMode.FOOTNOTE:
 setView(FootnoteView);
 break;

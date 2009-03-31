@@ -1,6 +1,0 @@
-{
-  myCategory=category.intern();
-  myGroup=group.intern();
-  myOptionName=optionName.intern();
-  myIsSynchronized=false;
-}

@@ -5,6 +5,9 @@
       BookCollection collection=BookCollection.Instance();
       collection.rebuild();
       collection.synchronize();
+      RecentBooks recentBooks=RecentBooks.Instance();
+      recentBooks.rebuild();
+      recentBooks.synchronize();
       dialogManager.runActivity(LibraryTabActivity.class);
     }
   }

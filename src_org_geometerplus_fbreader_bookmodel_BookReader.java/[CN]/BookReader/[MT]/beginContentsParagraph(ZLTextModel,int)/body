@@ -1,27 +1,25 @@
 {
   final ZLTextPlainModel textModel=myCurrentTextModel;
-  final ArrayList tocStack=myTOCStack;
   if (textModel == bookTextModel) {
-    ContentsModel contentsModel=Model.ContentsModel;
     if (referenceNumber == -1) {
       referenceNumber=textModel.getParagraphsNumber();
     }
-    int size=tocStack.size();
-    ZLTextTreeParagraph peek=(size != 0) ? (ZLTextTreeParagraph)tocStack.get(size - 1) : null;
-    final ZLTextBuffer contentsBuffer=myContentsBuffer;
-    if (!contentsBuffer.isEmpty()) {
-      contentsModel.addText(contentsBuffer);
-      contentsBuffer.clear();
-      myLastTOCParagraphIsEmpty=false;
+    ZLTextTree parentTree=myCurrentContentsTree;
+    if (parentTree.getLevel() > 0) {
+      final ZLTextBuffer contentsBuffer=myContentsBuffer;
+      if (!contentsBuffer.isEmpty()) {
+        parentTree.setText(contentsBuffer.toString());
+        contentsBuffer.clear();
+      }
+ else       if (parentTree.getText() == null) {
+        parentTree.setText("...");
+      }
     }
- else     if (myLastTOCParagraphIsEmpty) {
-      contentsModel.addText(PERIOD);
+ else {
+      myContentsBuffer.clear();
     }
-    ZLTextTreeParagraph para=contentsModel.createParagraph(peek);
-    contentsModel.addControl(FBTextKind.CONTENTS_TABLE_ENTRY,true);
-    contentsModel.setReference(para,myCurrentTextModel,referenceNumber);
-    tocStack.add(para);
-    myLastTOCParagraphIsEmpty=true;
-    myContentsParagraphExists=true;
+    ZLTextTree tree=parentTree.createSubTree();
+    Model.ContentsTree.setReference(tree,myCurrentTextModel,referenceNumber);
+    myCurrentContentsTree=tree;
   }
 }

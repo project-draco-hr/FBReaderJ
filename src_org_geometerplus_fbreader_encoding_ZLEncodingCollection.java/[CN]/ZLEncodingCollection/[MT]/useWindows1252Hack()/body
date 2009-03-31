@@ -1,3 +1,0 @@
-{
-  return ZLConfig.Instance() != null && useWindows1252HackOption().getValue();
-}

@@ -1,4 +1,4 @@
 {
-  FontFamilyOption=new ZLStringOption(CATEGORY,GROUP,"Base:fontFamily",fontFamily);
-  FontSizeOption=new ZLIntegerRangeOption(CATEGORY,GROUP,"Base:fontSize",0,72,fontSize);
+  FontFamilyOption=new ZLStringOption(GROUP,"Base:fontFamily",fontFamily);
+  FontSizeOption=new ZLIntegerRangeOption(GROUP,"Base:fontSize",0,72,fontSize);
 }

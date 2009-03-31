@@ -1,5 +1,4 @@
 {
   BookTextView.clearCaches();
-  ContentsView.clearCaches();
   FootnoteView.clearCaches();
 }

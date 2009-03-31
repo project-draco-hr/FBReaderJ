@@ -3,9 +3,9 @@
     return;
   }
   final String group=getFileName();
-  new ZLIntegerOption(ZLOption.STATE_CATEGORY,group,BUFFER_SIZE,0).setValue(myPositionStack.size());
-  new ZLIntegerOption(ZLOption.STATE_CATEGORY,group,POSITION_IN_BUFFER,0).setValue(myCurrentPointInStack);
-  final ZLIntegerOption option=new ZLIntegerOption(ZLOption.STATE_CATEGORY,group,"",0);
+  new ZLIntegerOption(group,BUFFER_SIZE,0).setValue(myPositionStack.size());
+  new ZLIntegerOption(group,POSITION_IN_BUFFER,0).setValue(myCurrentPointInStack);
+  final ZLIntegerOption option=new ZLIntegerOption(group,"",0);
   for (int i=0; i < myPositionStack.size(); ++i) {
     Position position=(Position)myPositionStack.get(i);
     option.changeName(PARAGRAPH_PREFIX + i);

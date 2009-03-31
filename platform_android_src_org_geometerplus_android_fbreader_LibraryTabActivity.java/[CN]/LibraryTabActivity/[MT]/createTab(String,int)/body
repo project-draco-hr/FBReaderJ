@@ -1,0 +1,6 @@
+{
+  final TabHost host=getTabHost();
+  final String label=ZLResource.resource("libraryView").getResource(tag).getValue();
+  host.addTab(host.newTabSpec(tag).setIndicator(label).setContent(id));
+  return (ListView)findViewById(id);
+}

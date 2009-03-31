@@ -1,0 +1,13 @@
+{
+  if (mySelectedAuthor == null) {
+    return -1;
+  }
+  int count=0;
+  for (  Author author : myAuthors) {
+    if (author.equals(mySelectedAuthor)) {
+      return count;
+    }
+    ++count;
+  }
+  return -1;
+}

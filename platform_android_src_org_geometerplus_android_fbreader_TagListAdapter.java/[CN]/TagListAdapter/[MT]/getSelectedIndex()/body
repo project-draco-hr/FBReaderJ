@@ -1,0 +1,16 @@
+{
+  if (mySelectedTag == null) {
+    return 0;
+  }
+  if (mySelectedTag.length() == 0) {
+    return -1;
+  }
+  int count=myHasBooksWithNoTags ? 1 : 0;
+  for (  String tag : myTags) {
+    if (tag.equals(mySelectedTag)) {
+      return count;
+    }
+    ++count;
+  }
+  return -1;
+}

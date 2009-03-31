@@ -1,0 +1,8 @@
+{
+  super.onCreate(bundle);
+  ZLTextTree tree=(ZLTextTree)((ZLAndroidApplication)getApplication()).getData(DATA_KEY);
+  ZLTreeAdapter adapter=new ZLTreeAdapter(getListView(),tree);
+  getListView().setAdapter(adapter);
+  getListView().setOnKeyListener(adapter);
+  getListView().setOnItemClickListener(adapter);
+}

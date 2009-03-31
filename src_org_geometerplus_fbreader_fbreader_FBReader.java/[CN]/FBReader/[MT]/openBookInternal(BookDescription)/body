@@ -3,8 +3,6 @@
   if (description != null) {
     BookTextView.saveState();
     BookTextView.setModels(null,"");
-    BookTextView.setContentsModel(null);
-    ContentsView.setModel(null);
     myBookModel=null;
     myBookModel=new BookModel(description);
     final String fileName=description.FileName;
@@ -12,11 +10,8 @@
     ZLTextHyphenator.getInstance().load(description.getLanguage());
     BookTextView.setModels(myBookModel.getBookTextModels(),fileName);
     BookTextView.setCaption(description.getTitle());
-    BookTextView.setContentsModel(myBookModel.ContentsModel);
     FootnoteView.setModel(null);
     FootnoteView.setCaption(description.getTitle());
-    ContentsView.setModel(myBookModel.ContentsModel);
-    ContentsView.setCaption(description.getTitle());
     RecentBooks.Instance().addBook(fileName);
   }
   resetWindowCaption();

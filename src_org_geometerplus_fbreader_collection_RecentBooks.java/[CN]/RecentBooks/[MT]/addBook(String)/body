@@ -1,5 +1,6 @@
 {
   myFileNames.remove(fileName);
   myFileNames.add(0,fileName);
+  myBooks.clear();
   save();
 }

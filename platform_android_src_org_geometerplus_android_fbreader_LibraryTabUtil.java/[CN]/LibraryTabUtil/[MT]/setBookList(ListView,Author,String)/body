@@ -1,5 +1,5 @@
 {
-  ZLListAdapter adapter=new ZLListAdapter(view.getContext(),new Runnable(){
+  ZLListAdapterImpl adapter=new ZLListAdapterImpl(view.getContext(),new Runnable(){
     public void run(){
       setAuthorList(view,author);
     }

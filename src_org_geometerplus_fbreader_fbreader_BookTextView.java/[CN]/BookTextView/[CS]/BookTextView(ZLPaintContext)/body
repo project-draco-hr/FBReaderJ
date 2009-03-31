@@ -1,4 +1,4 @@
 {
   super(context);
-  ShowTOCMarksOption=new ZLBooleanOption(ZLOption.LOOK_AND_FEEL_CATEGORY,"Indicator","ShowTOCMarks",false);
+  ShowTOCMarksOption=new ZLBooleanOption("Indicator","ShowTOCMarks",false);
 }

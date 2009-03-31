@@ -1,6 +1,0 @@
-String category
-String group
-String optionName
-int minValue
-int maxValue
-int defaultValue

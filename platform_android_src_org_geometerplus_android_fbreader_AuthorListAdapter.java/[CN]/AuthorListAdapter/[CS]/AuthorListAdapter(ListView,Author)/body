@@ -1,0 +1,5 @@
+{
+  super(view.getContext(),null);
+  myView=view;
+  mySelectedAuthor=selectedAuthor;
+}

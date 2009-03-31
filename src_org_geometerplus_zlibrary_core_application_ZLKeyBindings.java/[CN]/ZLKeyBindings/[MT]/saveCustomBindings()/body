@@ -5,8 +5,8 @@
   final HashMap keymap=new HashMap();
   new ZLKeyBindingsReader(keymap).readBindings();
   int counter=0;
-  final ZLStringOption keyOption=new ZLStringOption(ZLOption.CONFIG_CATEGORY,myName,"","");
-  final ZLStringOption actionOption=new ZLStringOption(ZLOption.CONFIG_CATEGORY,myName,"","");
+  final ZLStringOption keyOption=new ZLStringOption(myName,"","");
+  final ZLStringOption actionOption=new ZLStringOption(myName,"","");
   for (Iterator it=myBindingsMap.keySet().iterator(); it.hasNext(); ) {
     final String key=(String)it.next();
     final String originalValue=(String)keymap.get(key);
@@ -19,5 +19,5 @@
       ++counter;
     }
   }
-  new ZLIntegerRangeOption(ZLOption.CONFIG_CATEGORY,myName,BINDINGS_NUMBER,0,256,0).setValue(counter);
+  new ZLIntegerRangeOption(myName,BINDINGS_NUMBER,0,256,0).setValue(counter);
 }

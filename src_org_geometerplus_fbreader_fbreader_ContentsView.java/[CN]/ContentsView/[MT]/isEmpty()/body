@@ -1,4 +1,0 @@
-{
-  final ContentsModel contentsModel=(ContentsModel)getModel();
-  return (contentsModel == null) || (contentsModel.getParagraphsNumber() == 0);
-}

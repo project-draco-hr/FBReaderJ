@@ -1,0 +1,8 @@
+{
+  ZLListItem item=myItems[position];
+  if (item == null) {
+    item=new AuthorItem(myView,myAuthors.get(position));
+    myItems[position]=item;
+  }
+  return item;
+}
