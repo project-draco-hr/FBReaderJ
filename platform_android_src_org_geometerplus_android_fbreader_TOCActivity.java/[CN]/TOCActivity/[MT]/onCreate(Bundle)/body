@@ -1,5 +1,6 @@
 {
   super.onCreate(bundle);
+  requestWindowFeature(Window.FEATURE_NO_TITLE);
   ZLTextTree tree=(ZLTextTree)((ZLAndroidApplication)getApplication()).getData(DATA_KEY);
   ZLTreeAdapter adapter=new ZLTreeAdapter(getListView(),tree);
   getListView().setAdapter(adapter);
