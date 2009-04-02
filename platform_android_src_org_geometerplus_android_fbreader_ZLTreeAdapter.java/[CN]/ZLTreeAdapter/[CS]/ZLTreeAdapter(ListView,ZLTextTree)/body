@@ -3,4 +3,8 @@
   myTree=tree;
   myItems=new ZLTreeItem[tree.getSize() - 1];
   myOpenItems.add(tree);
+  parent.setAdapter(this);
+  parent.setOnKeyListener(this);
+  parent.setOnItemClickListener(this);
+  parent.setOnItemLongClickListener(this);
 }

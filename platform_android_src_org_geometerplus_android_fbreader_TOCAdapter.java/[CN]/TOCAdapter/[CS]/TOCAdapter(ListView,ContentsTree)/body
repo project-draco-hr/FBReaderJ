@@ -1,4 +1,0 @@
-{
-  super(parent,tree);
-  myContentsTree=tree;
-}
