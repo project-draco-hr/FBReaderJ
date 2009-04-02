@@ -1,0 +1,7 @@
+{
+  if (super.runTree(tree)) {
+    return true;
+  }
+  final ContentsTree.Reference reference=myContentsTree.getReference(tree);
+  return true;
+}
