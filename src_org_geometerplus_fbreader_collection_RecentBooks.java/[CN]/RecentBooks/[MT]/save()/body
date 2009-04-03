@@ -1,11 +1,16 @@
 {
-  final ZLStringOption option=new ZLStringOption(GROUP,"","");
-  int count=0;
-  for (  String fileName : myFileNames) {
-    option.changeName(BOOK + count);
-    option.setValue(fileName);
-    ++count;
+  ZLConfig.Instance().executeAsATransaction(new Runnable(){
+    public void run(){
+      final ZLStringOption option=new ZLStringOption(GROUP,"","");
+      int count=0;
+      for (      String fileName : myFileNames) {
+        option.changeName(BOOK + count);
+        option.setValue(fileName);
+        ++count;
+      }
+      option.changeName(BOOK + count);
+      option.setValue("");
+    }
   }
-  option.changeName(BOOK + count);
-  option.setValue("");
+);
 }

@@ -1,3 +1,0 @@
-{
-  return (mySubTrees != null) ? mySubTrees : ourEmptyList;
-}

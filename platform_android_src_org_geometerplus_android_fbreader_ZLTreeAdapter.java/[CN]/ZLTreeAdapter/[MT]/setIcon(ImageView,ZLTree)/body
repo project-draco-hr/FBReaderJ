@@ -1,0 +1,14 @@
+{
+  if (tree.hasChildren()) {
+    if (myOpenItems.contains(tree)) {
+      imageView.setImageResource(R.drawable.tree_icon_group_open);
+    }
+ else {
+      imageView.setImageResource(R.drawable.tree_icon_group_closed);
+    }
+  }
+ else {
+    imageView.setImageResource(R.drawable.tree_icon_group_empty);
+  }
+  imageView.setPadding(25 * (tree.getLevel() - 1),imageView.getPaddingTop(),0,imageView.getPaddingBottom());
+}

@@ -2,18 +2,23 @@
   if (!myBooks.isEmpty()) {
     return;
   }
-  int count=0;
   myIsFullySynchronized=true;
-  for (  String fileName : myFileNames) {
-    BookDescription description=BookDescription.getDescription(fileName);
-    if (description != null) {
-      myBooks.add(description);
-    }
+  ZLConfig.Instance().executeAsATransaction(new Runnable(){
+    public void run(){
+      int count=0;
+      for (      String fileName : myFileNames) {
+        BookDescription description=BookDescription.getDescription(fileName);
+        if (description != null) {
+          myBooks.add(description);
+        }
  else {
-      myIsFullySynchronized=false;
-    }
-    if (++count >= LIST_SIZE) {
-      break;
+          myIsFullySynchronized=false;
+        }
+        if (++count >= LIST_SIZE) {
+          break;
+        }
+      }
     }
   }
+);
 }

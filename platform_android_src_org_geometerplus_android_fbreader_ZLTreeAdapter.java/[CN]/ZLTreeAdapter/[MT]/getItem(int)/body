@@ -1,8 +1,8 @@
 {
   final int index=indexByPosition(position + 1,myTree) - 1;
-  ZLTreeItem item=myItems[index];
+  ZLTree item=myItems[index];
   if (item == null) {
-    item=new ZLTreeItem(myTree.getTree(index + 1));
+    item=myTree.getTree(index + 1);
     myItems[index]=item;
   }
   return item;

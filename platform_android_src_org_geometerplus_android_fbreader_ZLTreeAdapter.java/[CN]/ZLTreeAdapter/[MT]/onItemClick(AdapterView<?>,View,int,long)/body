@@ -1,3 +1,0 @@
-{
-  runTreeItem((ZLTreeItem)getItem(position));
-}

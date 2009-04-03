@@ -1,4 +1,0 @@
-{
-  ((ZLAndroidApplication)myActivity.getApplication()).putData(key,data);
-  myActivity.startActivity(new Intent(myActivity,activityClass));
-}

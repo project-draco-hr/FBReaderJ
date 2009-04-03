@@ -1,3 +1,3 @@
 {
-  return Reader.myBookModel.ContentsTree.getSize() > 1;
+  return Reader.Model.ContentsTree.hasChildren();
 }

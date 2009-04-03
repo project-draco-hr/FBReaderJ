@@ -1,0 +1,10 @@
+{
+  if (super.runTreeItem(tree)) {
+    return true;
+  }
+  final ContentsTree.Reference reference=myContentsTree.getReference((ZLStringTree)tree);
+  final FBReader fbreader=(FBReader)ZLApplication.Instance();
+  fbreader.BookTextView.gotoParagraphSafe(reference.Model,reference.ParagraphIndex);
+  finish();
+  return true;
+}

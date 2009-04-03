@@ -1,5 +1,5 @@
 {
-  final ZLTextTree tree=myCurrentContentsTree;
+  final ZLStringTree tree=myCurrentContentsTree;
   final ZLTextBuffer contentsBuffer=myContentsBuffer;
   if (tree.getLevel() == 0) {
     contentsBuffer.clear();

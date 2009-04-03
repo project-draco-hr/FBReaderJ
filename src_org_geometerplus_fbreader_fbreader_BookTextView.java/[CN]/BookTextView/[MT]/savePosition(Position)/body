@@ -12,8 +12,4 @@
     myPositionStack.remove(0);
   }
   myCurrentPointInStack=myPositionStack.size() - 1;
-  for (  Object p : myPositionStack) {
-    System.out.print(((Position)p).ModelIndex + "," + ((Position)p).ParagraphIndex+ "; ");
-  }
-  System.out.println("current position " + myCurrentPointInStack);
 }

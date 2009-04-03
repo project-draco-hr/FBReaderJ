@@ -1,13 +1,22 @@
 {
-  if (keyEvent.getAction() == KeyEvent.ACTION_UP) {
+switch (keyEvent.getAction()) {
+case KeyEvent.ACTION_UP:
 switch (keyCode) {
 case KeyEvent.KEYCODE_DPAD_CENTER:
 case KeyEvent.KEYCODE_ENTER:
-      runTreeItem((ZLTreeItem)((ListView)view).getSelectedItem());
+      runTreeItem((ZLTree)((ListView)view).getSelectedItem());
     return true;
 case KeyEvent.KEYCODE_BACK:
   return true;
 }
+break;
+case KeyEvent.ACTION_DOWN:
+switch (keyCode) {
+case KeyEvent.KEYCODE_DPAD_CENTER:
+case KeyEvent.KEYCODE_ENTER:
+return true;
+}
+break;
 }
 return false;
 }

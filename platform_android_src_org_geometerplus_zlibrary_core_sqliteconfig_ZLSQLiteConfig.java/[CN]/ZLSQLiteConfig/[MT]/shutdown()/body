@@ -1,6 +1,15 @@
 {
   if (myDatabase != null) {
-    myDatabase.close();
-    myDatabase=null;
+    new Thread(new Runnable(){
+      public void run(){
+synchronized (this) {
+          if (myDatabase != null) {
+            myDatabase.close();
+            myDatabase=null;
+          }
+        }
+      }
+    }
+).start();
   }
 }

@@ -1,4 +1,4 @@
 {
   final ZLAndroidDialogManager dialogManager=(ZLAndroidDialogManager)ZLAndroidDialogManager.getInstance();
-  dialogManager.runActivity(TOCActivity.class,TOCActivity.DATA_KEY,Reader.myBookModel.ContentsTree);
+  dialogManager.runActivity(TOCActivity.class);
 }
