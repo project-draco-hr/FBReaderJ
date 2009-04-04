@@ -1,19 +1,14 @@
 {
   myCollection=BookCollection.Instance();
-  myBookInfo=new BookDescription.BookInfo(fileName);
   myDialog=ZLDialogManager.getInstance().createOptionsDialog("InfoDialog",actionOnAccept,null,false);
   ZLDialogContent commonTab=myDialog.createTab("Common");
   commonTab.addOption("file",new ZLStringInfoEntry(new ZLFile(fileName).getPath()));
-  commonTab.addOption("title",myBookInfo.TitleOption);
   myAuthorDisplayNameEntry=new AuthorDisplayNameEntry();
   myAuthorSortKeyEntry=new AuthorSortKeyEntry();
-  myEncodingEntry=new EncodingEntry(myBookInfo.EncodingOption);
   myEncodingSetEntry=(!"auto".equals(myEncodingEntry.initialValue())) ? new EncodingSetEntry((EncodingEntry)myEncodingEntry) : null;
   ArrayList languageCodes=ZLLanguageList.languageCodes();
   languageCodes.add("de-traditional");
-  myLanguageEntry=new ZLLanguageOptionEntry(myBookInfo.LanguageOption,languageCodes);
   mySeriesTitleEntry=new SeriesTitleEntry();
-  myBookNumberEntry=new ZLSimpleSpinOptionEntry(myBookInfo.NumberInSeriesOption,1);
   commonTab.addOption("authorDisplayName",myAuthorDisplayNameEntry);
   commonTab.addOption("authorSortKey",myAuthorSortKeyEntry);
   commonTab.addOption("language",myLanguageEntry);
@@ -26,5 +21,4 @@
   seriesTab.addOption("bookNumber",myBookNumberEntry);
   mySeriesTitleEntry.onValueEdited(mySeriesTitleEntry.initialValue());
   ZLDialogContent tagsTab=myDialog.createTab("Tags");
-  tagsTab.addOption("tags",myBookInfo.TagsOption);
 }

@@ -1,0 +1,11 @@
+{
+  final String key0=getSortKey();
+  final String key1=ct.getSortKey();
+  if (key0 == null) {
+    return (key1 == null) ? 0 : -1;
+  }
+  if (key1 == null) {
+    return 1;
+  }
+  return key0.toLowerCase().compareTo(key1.toLowerCase());
+}

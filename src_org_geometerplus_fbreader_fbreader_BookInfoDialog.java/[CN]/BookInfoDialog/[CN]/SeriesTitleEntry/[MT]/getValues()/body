@@ -4,11 +4,9 @@
   valuesSet.add(initialValue());
   valuesSet.add("");
   if (myOriginalAuthor != null) {
-    myCollection.collectSeriesNames(myOriginalAuthor,valuesSet);
   }
   Author currentAuthor=myAuthorDisplayNameEntry.myCurrentAuthor;
   if (currentAuthor != null && (currentAuthor != myOriginalAuthor)) {
-    myCollection.collectSeriesNames(currentAuthor,valuesSet);
   }
   myValues.addAll(valuesSet);
   return myValues;

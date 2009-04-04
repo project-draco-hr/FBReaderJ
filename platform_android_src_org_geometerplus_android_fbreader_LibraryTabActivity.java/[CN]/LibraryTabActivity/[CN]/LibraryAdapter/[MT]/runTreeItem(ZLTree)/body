@@ -1,0 +1,9 @@
+{
+  if (super.runTreeItem(tree)) {
+    return true;
+  }
+  finish();
+  final FBReader fbreader=(FBReader)ZLApplication.Instance();
+  fbreader.openBook(((BookTree)tree).Description);
+  return true;
+}

@@ -1,0 +1,7 @@
+{
+  if (!(object instanceof AuthorSeriesPair)) {
+    return false;
+  }
+  AuthorSeriesPair pair=(AuthorSeriesPair)object;
+  return myAuthor.equals(pair.myAuthor) && mySeries.equals(pair.mySeries);
+}

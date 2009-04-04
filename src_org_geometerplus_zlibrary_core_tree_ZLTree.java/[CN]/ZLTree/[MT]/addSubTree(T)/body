@@ -1,0 +1,10 @@
+{
+  if (mySubTrees == null) {
+    mySubTrees=new ArrayList<T>();
+  }
+  final int subTreeSize=subtree.getSize();
+  mySubTrees.add(subtree);
+  for (ZLTree parent=this; parent != null; parent=parent.myParent) {
+    parent.mySize+=subTreeSize;
+  }
+}

@@ -1,3 +1,0 @@
-{
-  setAdapter(view,new AuthorListAdapter(view,selectedAuthor));
-}

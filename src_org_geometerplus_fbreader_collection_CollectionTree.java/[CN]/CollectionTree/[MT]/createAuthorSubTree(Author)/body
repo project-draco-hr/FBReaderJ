@@ -1,0 +1,5 @@
+{
+  AuthorTree tree=new AuthorTree(this,author);
+  addSubTree(tree);
+  return tree;
+}

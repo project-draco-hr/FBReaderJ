@@ -1,11 +1,10 @@
 {
-  SQLiteDatabase db=database();
-  db.beginTransaction();
+  myDatabase.beginTransaction();
   try {
     actions.run();
-    database().setTransactionSuccessful();
+    myDatabase.setTransactionSuccessful();
   }
   finally {
-    database().endTransaction();
+    myDatabase.endTransaction();
   }
 }

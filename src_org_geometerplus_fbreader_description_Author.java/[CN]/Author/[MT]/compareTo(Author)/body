@@ -1,7 +1,0 @@
-{
-  final int result=SortKey.compareTo(a.SortKey);
-  if (result != 0) {
-    return result;
-  }
-  return DisplayName.compareTo(a.DisplayName);
-}

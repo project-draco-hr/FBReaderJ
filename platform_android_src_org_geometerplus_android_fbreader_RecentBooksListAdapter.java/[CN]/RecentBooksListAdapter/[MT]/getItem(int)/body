@@ -1,8 +1,0 @@
-{
-  ZLListItem item=myItems[position];
-  if (item == null) {
-    item=new BookItem(myBooks.get(position));
-    myItems[position]=item;
-  }
-  return item;
-}

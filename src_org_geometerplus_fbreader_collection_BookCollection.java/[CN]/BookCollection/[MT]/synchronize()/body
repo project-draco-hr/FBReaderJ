@@ -1,17 +1,15 @@
 {
   if (myDoRebuild) {
-    myAuthorToBookMap.clear();
-    myTagsToBookMap.clear();
-    myBooksWithoutTags.clear();
-    final HashSet fileNamesSet=collectBookFileNames();
+    myCollectionByAuthor.clear();
+    myCollectionByTag.clear();
     ZLConfig.Instance().executeAsATransaction(new Runnable(){
       public void run(){
-        for (Iterator it=fileNamesSet.iterator(); it.hasNext(); ) {
-          addDescription(BookDescription.getDescription((String)it.next()));
-        }
+        build();
       }
     }
 );
+    myCollectionByAuthor.sortAllChildren();
+    myCollectionByTag.sortAllChildren();
     myDoRebuild=false;
   }
 }

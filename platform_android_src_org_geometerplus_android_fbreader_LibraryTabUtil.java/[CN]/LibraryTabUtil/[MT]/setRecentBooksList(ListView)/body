@@ -1,3 +1,0 @@
-{
-  setAdapter(view,new RecentBooksListAdapter(view.getContext()));
-}

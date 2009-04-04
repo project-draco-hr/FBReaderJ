@@ -2,13 +2,6 @@
   if (myValues.size() == 0) {
     final String initial=initialValue();
     boolean addInitial=true;
-    for (    Author author : myCollection.authors()) {
-      final String name=author.DisplayName;
-      if (addInitial && name.equals(initial)) {
-        addInitial=false;
-      }
-      myValues.add(name);
-    }
     if (addInitial) {
       myValues.add(initial);
     }

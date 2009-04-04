@@ -2,5 +2,5 @@
   super.onCreate(bundle);
   requestWindowFeature(Window.FEATURE_NO_TITLE);
   final FBReader fbreader=(FBReader)ZLApplication.Instance();
-  ZLTreeAdapter adapter=new TOCAdapter(this,fbreader.Model.ContentsTree);
+  new TOCAdapter(fbreader.Model.ContentsTree);
 }

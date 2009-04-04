@@ -1,4 +1,0 @@
-{
-  synchronize();
-  return Collections.unmodifiableSet((tag != null) ? myTagsToBookMap.get(tag) : myBooksWithoutTags);
-}

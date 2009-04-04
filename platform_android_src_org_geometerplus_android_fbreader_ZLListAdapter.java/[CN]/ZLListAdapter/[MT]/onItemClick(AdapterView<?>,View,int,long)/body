@@ -1,3 +1,0 @@
-{
-  getItem(position).run();
-}

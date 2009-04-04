@@ -1,6 +1,5 @@
 {
   if (!description.getEncoding().equals(AUTO)) {
-    new BookDescription.BookInfo(description.FileName).EncodingOption.setValue(AUTO);
   }
   return new HtmlReader(model).readBook(description.FileName);
 }

@@ -1,4 +1,0 @@
-{
-  synchronize();
-  return Collections.unmodifiableSet(myAuthorToBookMap.get(author));
-}

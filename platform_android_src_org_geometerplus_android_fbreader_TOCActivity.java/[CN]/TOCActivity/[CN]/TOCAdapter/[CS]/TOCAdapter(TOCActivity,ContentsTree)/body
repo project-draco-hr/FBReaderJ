@@ -1,4 +1,0 @@
-{
-  super(activity.getListView(),tree);
-  myContentsTree=tree;
-}

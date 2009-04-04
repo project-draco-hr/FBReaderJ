@@ -1,10 +1,11 @@
 {
-  Cursor cursor=database().query(true,ourTableName,ourColumns,"groupName = ? AND name = ?",new String[]{group,name},null,null,null,null);
   String answer=defaultValue;
-  if (cursor.getCount() != 0) {
-    cursor.moveToFirst();
-    answer=cursor.getString(0);
+  myGetValueStatement.bindString(1,group);
+  myGetValueStatement.bindString(2,name);
+  try {
+    answer=myGetValueStatement.simpleQueryForString();
   }
-  cursor.close();
+ catch (  SQLException e) {
+  }
   return answer;
 }

@@ -1,5 +1,5 @@
 {
-  if (!myBooks.isEmpty()) {
+  if (myBooks.hasChildren()) {
     return;
   }
   myIsFullySynchronized=true;
@@ -9,7 +9,7 @@
       for (      String fileName : myFileNames) {
         BookDescription description=BookDescription.getDescription(fileName);
         if (description != null) {
-          myBooks.add(description);
+          myBooks.createBookSubTree(description);
         }
  else {
           myIsFullySynchronized=false;

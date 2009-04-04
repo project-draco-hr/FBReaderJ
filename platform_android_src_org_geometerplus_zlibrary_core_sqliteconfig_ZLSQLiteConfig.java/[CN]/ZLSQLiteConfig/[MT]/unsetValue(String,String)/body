@@ -1,3 +1,9 @@
 {
-  database().delete(ourTableName,"groupName = ? AND name = ?",new String[]{group,name});
+  myUnsetValueStatement.bindString(1,group);
+  myUnsetValueStatement.bindString(2,name);
+  try {
+    myUnsetValueStatement.execute();
+  }
+ catch (  SQLException e) {
+  }
 }

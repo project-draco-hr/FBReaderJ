@@ -1,3 +1,10 @@
 {
-  database().execSQL("INSERT OR REPLACE INTO config (groupName, name, value) VALUES (?, ?, ?)",new String[]{group,name,value});
+  mySetValueStatement.bindString(1,group);
+  mySetValueStatement.bindString(2,name);
+  mySetValueStatement.bindString(3,value);
+  try {
+    mySetValueStatement.execute();
+  }
+ catch (  SQLException e) {
+  }
 }

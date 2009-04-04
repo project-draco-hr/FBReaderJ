@@ -1,0 +1,5 @@
+{
+  BookTree tree=new BookInSeriesTree(this,book);
+  addSubTree(tree);
+  return tree;
+}

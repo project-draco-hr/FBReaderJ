@@ -1,4 +1,4 @@
 {
   Author currentAuthor=myAuthorDisplayNameEntry.myCurrentAuthor;
-  return currentAuthor == null ? myBookInfo.AuthorSortKeyOption.getValue() : currentAuthor.SortKey;
+  return currentAuthor.SortKey;
 }

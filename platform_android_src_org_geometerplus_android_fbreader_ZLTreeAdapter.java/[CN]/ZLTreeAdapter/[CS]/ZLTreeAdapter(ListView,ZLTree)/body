@@ -6,5 +6,5 @@
   parent.setAdapter(this);
   parent.setOnKeyListener(this);
   parent.setOnItemClickListener(this);
-  parent.setOnItemLongClickListener(this);
+  parent.setOnCreateContextMenuListener(this);
 }

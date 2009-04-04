@@ -1,3 +1,11 @@
 {
-  myContext=context;
+  myDatabase=context.openOrCreateDatabase("config.db",Context.MODE_PRIVATE,null);
+  if (myDatabase.getVersion() == 0) {
+    myDatabase.execSQL("CREATE TABLE config (groupName VARCHAR, name VARCHAR, value VARCHAR, PRIMARY KEY(groupName, name) )");
+    myDatabase.setVersion(1);
+  }
+  myGetValueStatement=myDatabase.compileStatement("SELECT value FROM config WHERE groupName = ? AND name = ?");
+  mySetValueStatement=myDatabase.compileStatement("INSERT OR REPLACE INTO config (groupName, name, value) VALUES (?, ?, ?)");
+  myUnsetValueStatement=myDatabase.compileStatement("DELETE FROM config WHERE groupName = ? AND name = ?");
+  myDeleteGroupStatement=myDatabase.compileStatement("DELETE FROM config WHERE groupName = ?");
 }
