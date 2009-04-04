@@ -1,0 +1,5 @@
+{
+  if (myIsChanged) {
+    myIsChanged=false;
+  }
+}

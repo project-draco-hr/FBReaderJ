@@ -1,0 +1,16 @@
+{
+  Database=context.openOrCreateDatabase("books.db",Context.MODE_PRIVATE,null);
+  if (Database.getVersion() == 0) {
+    Database.beginTransaction();
+    Database.execSQL("CREATE TABLE Books(" + "book_id INTEGER PRIMARY KEY," + "encoding TEXT,"+ "lenguage TEXT,"+ "title TEXT NOT NULL,"+ "file_name TEXT UNIQUE NOT NULL)");
+    Database.execSQL("CREATE TABLE Authors(" + "author_id INTEGER PRIMARY KEY," + "name TEXT NOT NULL,"+ "sort_key TEXT NOT NULL,"+ "CONSTRAINT Authors_Unique UNIQUE (name, sort_key))");
+    Database.execSQL("CREATE TABLE BookAuthor(" + "author_id INTEGER NOT NULL REFERENCES Authors(author_id)," + "book_id INTEGER NOT NULL REFERENCES Books(book_id),"+ "CONSTRAINT BookAuthor_Unique UNIQUE (author_id, book_id))");
+    Database.execSQL("CREATE TABLE Series(" + "series_id INTEGER PRIMARY KEY," + "name TEXT UNIQUE NOT NULL)");
+    Database.execSQL("CREATE TABLE BookSeries(" + "series_id INTEGER NOT NULL REFERENCES Series(series_id)," + "book_id INTEGER NOT NULL REFERENCES Books(book_id),"+ "number_in_series INTEGER,"+ "CONSTRAINT BookSeries_Unique UNIQUE (series_id, book_id))");
+    Database.execSQL("CREATE TABLE Tags(" + "tag_id INTEGER PRIMARY KEY," + "name TEXT NOT NULL,"+ "parent INTEGER REFERENCES Tags(tag_id),"+ "CONSTRAINT Tags_Unique UNIQUE (name, parent))");
+    Database.execSQL("CREATE TABLE BookTag(" + "tag_id INTEGER REFERENCES Tags(tag_id)," + "book_id INTEGER REFERENCES Books(book_id),"+ "CONSTRAINT BookTag_Unique UNIQUE (tag_id, book_id))");
+    Database.setTransactionSuccessful();
+    Database.endTransaction();
+    Database.setVersion(1);
+  }
+}

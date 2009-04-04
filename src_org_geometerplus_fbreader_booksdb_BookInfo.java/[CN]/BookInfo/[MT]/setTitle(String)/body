@@ -1,0 +1,6 @@
+{
+  if (!myTitle.equals(title)) {
+    myTitle=title;
+    myIsChanged=true;
+  }
+}

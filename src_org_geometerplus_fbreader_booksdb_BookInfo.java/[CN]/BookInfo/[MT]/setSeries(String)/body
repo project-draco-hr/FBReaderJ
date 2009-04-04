@@ -1,0 +1,6 @@
+{
+  if (!equals(mySeries,series)) {
+    mySeries=series;
+    myIsChanged=true;
+  }
+}

@@ -1,0 +1,9 @@
+{
+  FileName=fileName;
+  myTitle="";
+  myLanguage="";
+  myEncoding="";
+  myAuthorName="";
+  myAuthorSortKey="";
+  myIsSaved=false;
+}

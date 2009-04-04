@@ -1,0 +1,6 @@
+{
+  if (!myAuthorName.equals(authorName)) {
+    myAuthorName=authorName;
+    myIsChanged=true;
+  }
+}

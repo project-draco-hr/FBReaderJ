@@ -1,0 +1,17 @@
+{
+  final String whereClause="book_id = ?";
+  final String[] parameters=new String[]{myBookId};
+  myDatabase.delete("Books",whereClause,parameters);
+  myDatabase.delete("BookAuthor",whereClause,parameters);
+  myDatabase.delete("BookSeries",whereClause,parameters);
+  myDatabase.delete("BookTag",whereClause,parameters);
+  myTitle="";
+  myLanguage="";
+  myEncoding="";
+  myAuthorName="";
+  myAuthorSortKey="";
+  mySeries=null;
+  myNumberInSeries=0;
+  myIsChanged=false;
+  myIsSaved=false;
+}

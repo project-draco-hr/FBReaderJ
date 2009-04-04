@@ -1,0 +1,6 @@
+{
+  if (!myAuthorSortKey.equals(authorSortKey)) {
+    myAuthorSortKey=authorSortKey;
+    myIsChanged=true;
+  }
+}

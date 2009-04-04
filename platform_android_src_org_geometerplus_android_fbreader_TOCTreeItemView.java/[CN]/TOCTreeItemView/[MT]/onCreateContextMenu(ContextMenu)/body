@@ -1,6 +1,0 @@
-{
-  System.err.println("onCreateContextMenu");
-  menu.add("Item 0");
-  menu.add("Item 1");
-  menu.add("Item 2");
-}
