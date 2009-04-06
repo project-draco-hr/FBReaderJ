@@ -1,0 +1,9 @@
+{
+  TagTree tagTree=tagTreeMap.get(tag);
+  if (tagTree == null) {
+    CollectionTree parent=((tag != null) && (tag.Parent != null)) ? getTagTree(tag.Parent,tagTreeMap) : myCollectionByTag;
+    tagTree=parent.createTagSubTree(tag);
+    tagTreeMap.put(tag,tagTree);
+  }
+  return tagTree;
+}

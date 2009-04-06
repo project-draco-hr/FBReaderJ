@@ -16,7 +16,7 @@ case READ_AUTHOR2:
 myAuthorList2.add(bufferContent);
 break;
 case READ_SUBJECT:
-myDescription.addTag(bufferContent,true);
+myDescription.addTag(bufferContent);
 break;
 case READ_LANGUAGE:
 {

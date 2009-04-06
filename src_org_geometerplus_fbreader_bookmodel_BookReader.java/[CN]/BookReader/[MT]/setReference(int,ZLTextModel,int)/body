@@ -1,6 +1,6 @@
 {
-  final ContentsTree contentsTree=Model.ContentsTree;
+  final TOCTree contentsTree=Model.TOCTree;
   if (contentsParagraphNumber < contentsTree.getSize()) {
-    contentsTree.setReference(contentsTree.getTree(contentsParagraphNumber),textModel,referenceNumber);
+    contentsTree.getTree(contentsParagraphNumber).setReference(textModel,referenceNumber);
   }
 }

@@ -1,0 +1,16 @@
+{
+  if (name == null) {
+    return parent;
+  }
+  name=name.trim();
+  if (name.length() == 0) {
+    return parent;
+  }
+  Tag tag=new Tag(parent,name);
+  Tag stored=ourTagSet.get(tag);
+  if (stored != null) {
+    return stored;
+  }
+  ourTagSet.put(tag,tag);
+  return tag;
+}

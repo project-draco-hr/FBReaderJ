@@ -2,5 +2,5 @@
   if (ourMap.isEmpty()) {
     new FB2TagInfoReader().read(ZLibrary.JAR_DATA_PREFIX + "data/formats/fb2/fb2genres.xml");
   }
-  return (ArrayList)ourMap.get(id);
+  return ourMap.get(id);
 }

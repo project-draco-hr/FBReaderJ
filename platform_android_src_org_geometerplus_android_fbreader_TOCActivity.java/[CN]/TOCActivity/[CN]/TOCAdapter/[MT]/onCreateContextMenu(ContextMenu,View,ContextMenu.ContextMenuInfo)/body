@@ -1,0 +1,9 @@
+{
+  final int position=((AdapterView.AdapterContextMenuInfo)menuInfo).position;
+  final TOCTree tree=(TOCTree)getItem(position);
+  if (tree.hasChildren()) {
+    menu.setHeaderTitle(tree.getText());
+    menu.add(0,PROCESS_TREE_ITEM_ID,0,isOpen(tree) ? "Collapse tree" : "Expand tree");
+    menu.add(0,READ_BOOK_ITEM_ID,0,"Read book text");
+  }
+}

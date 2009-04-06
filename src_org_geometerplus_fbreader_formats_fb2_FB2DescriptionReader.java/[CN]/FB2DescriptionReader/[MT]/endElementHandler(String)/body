@@ -5,23 +5,22 @@ case FB2Tag.TITLE_INFO:
   break;
 case FB2Tag.BOOK_TITLE:
 if (myReadState == READ_TITLE) {
+  myDescription.setTitle(myBuffer.toString().trim());
   myReadState=READ_SOMETHING;
 }
 break;
 case FB2Tag.GENRE:
 if (myReadState == READ_GENRE) {
-final String genre=myGenreBuffer.toString().trim();
-myGenreBuffer.delete(0,myGenreBuffer.length());
+final String genre=myBuffer.toString().trim();
 if (genre.length() > 0) {
-final ArrayList tags=FB2TagManager.humanReadableTags(genre);
+final ArrayList<Tag> tags=FB2TagManager.humanReadableTags(genre);
 if (tags != null) {
-  final int len=tags.size();
-  for (int i=0; i < len; ++i) {
-    myDescription.addTag((String)tags.get(i),false);
+  for (  Tag t : tags) {
+    myDescription.addTag(t);
   }
 }
  else {
-  myDescription.addTag(genre,true);
+  myDescription.addTag(genre);
 }
 }
 myReadState=READ_SOMETHING;
@@ -50,6 +49,7 @@ myReadState=READ_SOMETHING;
 break;
 case FB2Tag.LANG:
 if (myReadState == READ_LANGUAGE) {
+myDescription.setLanguage(myBuffer.toString().trim());
 myReadState=READ_SOMETHING;
 }
 break;
@@ -71,5 +71,6 @@ break;
 default :
 break;
 }
+myBuffer.delete(0,myBuffer.length());
 return false;
 }

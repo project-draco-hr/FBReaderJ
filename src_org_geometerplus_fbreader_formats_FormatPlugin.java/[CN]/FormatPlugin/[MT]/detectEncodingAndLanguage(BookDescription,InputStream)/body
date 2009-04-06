@@ -24,7 +24,7 @@
         }
       }
     }
-    new WritableBookDescription(description).setEncoding(encoding);
-    new WritableBookDescription(description).setLanguage(language);
+    description.setEncoding(encoding);
+    description.setLanguage(language);
   }
 }

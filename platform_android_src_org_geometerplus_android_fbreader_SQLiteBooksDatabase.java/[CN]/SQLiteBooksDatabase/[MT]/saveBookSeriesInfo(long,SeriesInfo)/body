@@ -1,0 +1,27 @@
+{
+  if (myGetSeriesIdStatement == null) {
+    myGetSeriesIdStatement=myDatabase.compileStatement("SELECT series_id FROM Series WHERE name = ?");
+    myInsertSeriesStatement=myDatabase.compileStatement("INSERT INTO Series (name) VALUES (?)");
+    myInsertBookSeriesStatement=myDatabase.compileStatement("INSERT OR REPLACE INTO BookSeries (book_id,series_id,book_index) VALUES (?,?,?)");
+    myDeleteBookSeriesStatement=myDatabase.compileStatement("DELETE FROM BookSeries WHERE book_id = ?");
+  }
+  if (seriesInfo == null) {
+    myDeleteBookSeriesStatement.bindLong(1,bookId);
+    myDeleteBookSeriesStatement.execute();
+  }
+ else {
+    long seriesId;
+    try {
+      myGetSeriesIdStatement.bindString(1,seriesInfo.Name);
+      seriesId=myGetSeriesIdStatement.simpleQueryForLong();
+    }
+ catch (    SQLException e) {
+      myInsertSeriesStatement.bindString(1,seriesInfo.Name);
+      seriesId=myInsertSeriesStatement.executeInsert();
+    }
+    myInsertBookSeriesStatement.bindLong(1,bookId);
+    myInsertBookSeriesStatement.bindLong(2,seriesId);
+    myInsertBookSeriesStatement.bindLong(3,seriesInfo.Index);
+    myInsertBookSeriesStatement.execute();
+  }
+}

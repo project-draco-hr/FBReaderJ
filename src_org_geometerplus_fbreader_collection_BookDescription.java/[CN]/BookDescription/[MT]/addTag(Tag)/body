@@ -1,0 +1,11 @@
+{
+  if (tag != null) {
+    if (myTags == null) {
+      myTags=new ArrayList<Tag>();
+    }
+    if (!myTags.contains(tag)) {
+      myTags.add(tag);
+      myIsChanged=true;
+    }
+  }
+}

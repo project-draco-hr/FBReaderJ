@@ -3,6 +3,6 @@
   myAuthorNames[0]="";
   myAuthorNames[1]="";
   myAuthorNames[2]="";
-  myGenreBuffer.delete(0,myGenreBuffer.length());
+  myBuffer.delete(0,myBuffer.length());
   return readDocument(fileName);
 }

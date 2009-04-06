@@ -4,7 +4,6 @@
   myItems=new ZLTree[tree.getSize() - 1];
   myOpenItems.add(tree);
   parent.setAdapter(this);
-  parent.setOnKeyListener(this);
   parent.setOnItemClickListener(this);
   parent.setOnCreateContextMenuListener(this);
 }

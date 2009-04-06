@@ -1,7 +1,5 @@
 {
-  myDescription=new WritableBookDescription(description);
-  myDescription.clearAuthor();
-  myDescription.setTitle("");
-  myDescription.setLanguage("");
-  myDescription.removeAllTags();
+  myDescription=description;
+  myDescription.setTitle(null);
+  myDescription.setLanguage(null);
 }

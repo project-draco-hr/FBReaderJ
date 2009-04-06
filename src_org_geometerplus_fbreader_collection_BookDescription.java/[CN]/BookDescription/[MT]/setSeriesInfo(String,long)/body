@@ -1,0 +1,13 @@
+{
+  if (mySeriesInfo == null) {
+    if (name != null) {
+      mySeriesInfo=new SeriesInfo(name,index);
+    }
+  }
+ else   if (name == null) {
+    mySeriesInfo=null;
+  }
+ else   if (!mySeriesInfo.Name.equals(name) || (mySeriesInfo.Index != index)) {
+    mySeriesInfo=new SeriesInfo(name,index);
+  }
+}

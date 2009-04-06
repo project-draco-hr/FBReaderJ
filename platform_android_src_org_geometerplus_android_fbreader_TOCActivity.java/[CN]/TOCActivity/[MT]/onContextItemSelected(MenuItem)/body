@@ -1,0 +1,13 @@
+{
+  final int position=((AdapterView.AdapterContextMenuInfo)item.getMenuInfo()).position;
+  final TOCTree tree=(TOCTree)myAdapter.getItem(position);
+switch (item.getItemId()) {
+case PROCESS_TREE_ITEM_ID:
+    myAdapter.runTreeItem(tree);
+  return true;
+case READ_BOOK_ITEM_ID:
+myAdapter.openBookText(tree);
+return true;
+}
+return super.onContextItemSelected(item);
+}

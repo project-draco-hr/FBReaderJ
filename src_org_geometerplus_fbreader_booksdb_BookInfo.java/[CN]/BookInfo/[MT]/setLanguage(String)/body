@@ -1,6 +1,0 @@
-{
-  if (!myLanguage.equals(language)) {
-    myLanguage=language;
-    myIsChanged=true;
-  }
-}

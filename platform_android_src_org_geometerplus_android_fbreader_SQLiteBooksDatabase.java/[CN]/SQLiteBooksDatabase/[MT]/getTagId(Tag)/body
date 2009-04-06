@@ -1,0 +1,36 @@
+{
+  if (myGetTagIdStatement == null) {
+    myGetTagIdStatement=myDatabase.compileStatement("SELECT tag_id FROM Tags WHERE parent = ? AND name = ?");
+    myCreateTagIdStatement=myDatabase.compileStatement("INSERT INTO Tags (parent,name) VALUES (?,?)");
+  }
+{
+    final Long id=myIdByTag.get(tag);
+    if (id != null) {
+      return id;
+    }
+  }
+  if (tag.Parent != null) {
+    myGetTagIdStatement.bindLong(1,getTagId(tag.Parent));
+  }
+ else {
+    myGetTagIdStatement.bindNull(1);
+  }
+  myGetTagIdStatement.bindString(2,tag.Name);
+  long id;
+  try {
+    id=myGetTagIdStatement.simpleQueryForLong();
+  }
+ catch (  SQLException e) {
+    if (tag.Parent != null) {
+      myCreateTagIdStatement.bindLong(1,getTagId(tag.Parent));
+    }
+ else {
+      myCreateTagIdStatement.bindNull(1);
+    }
+    myCreateTagIdStatement.bindString(2,tag.Name);
+    id=myCreateTagIdStatement.executeInsert();
+  }
+  myIdByTag.put(tag,id);
+  myTagById.put(id,tag);
+  return id;
+}

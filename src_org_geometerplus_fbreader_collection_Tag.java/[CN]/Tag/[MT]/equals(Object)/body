@@ -1,0 +1,7 @@
+{
+  if (!(o instanceof Tag)) {
+    return false;
+  }
+  Tag t=(Tag)o;
+  return (Parent == t.Parent) && Name.equals(t.Name);
+}

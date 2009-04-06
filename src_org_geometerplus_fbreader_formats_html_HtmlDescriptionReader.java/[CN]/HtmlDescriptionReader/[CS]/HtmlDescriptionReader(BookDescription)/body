@@ -1,4 +1,4 @@
 {
-  myDescription=new WritableBookDescription(description);
+  myDescription=description;
   myDescription.setTitle("");
 }

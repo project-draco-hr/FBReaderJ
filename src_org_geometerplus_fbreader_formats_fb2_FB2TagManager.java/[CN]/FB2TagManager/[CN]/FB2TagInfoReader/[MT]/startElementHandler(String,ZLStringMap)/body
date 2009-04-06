@@ -7,18 +7,12 @@
   }
  else   if (tag == "root-descr") {
     if (myLanguage == attributes.getValue("lang")) {
-      final String name=attributes.getValue("genre-title");
-      if (name != null) {
-        myCategoryName=name.trim();
-      }
+      myCategoryTag=Tag.getTag(null,attributes.getValue("genre-title"));
     }
   }
  else   if (tag == "genre-descr") {
     if (myLanguage == attributes.getValue("lang")) {
-      final String name=attributes.getValue("title");
-      if (name != null) {
-        mySubCategoryName=name.trim();
-      }
+      mySubCategoryTag=Tag.getTag(myCategoryTag,attributes.getValue("title"));
     }
   }
   return false;

@@ -44,11 +44,11 @@ case FB2Tag.SEQUENCE:
 if (myReadState == READ_SOMETHING) {
 String name=attributes.getValue("name");
 if (name != null) {
-String sequenceName=name;
-sequenceName.trim();
-myDescription.setSeriesName(sequenceName);
-String number=attributes.getValue("number");
-myDescription.setNumberInSeries((number != null) ? Integer.parseInt(number) : 0);
+name.trim();
+if (name.length() != 0) {
+String index=attributes.getValue("number");
+myDescription.setSeriesInfo(name,(index != null) ? Integer.parseInt(index) : 0);
+}
 }
 }
 break;

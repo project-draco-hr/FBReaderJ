@@ -1,0 +1,21 @@
+{
+  if (myResetBookInfoStatement == null) {
+    myResetBookInfoStatement=myDatabase.compileStatement("SELECT book_id FROM Books WHERE file_name = ?");
+  }
+  myResetBookInfoStatement.bindString(1,fileName);
+  try {
+    final long bookId=myResetBookInfoStatement.simpleQueryForLong();
+    final String[] parameters={"" + bookId};
+    executeAsATransaction(new Runnable(){
+      public void run(){
+        myDatabase.delete("Books",myBookIdWhereClause,parameters);
+        myDatabase.delete("BookAuthor",myBookIdWhereClause,parameters);
+        myDatabase.delete("BookSeries",myBookIdWhereClause,parameters);
+        myDatabase.delete("BookTag",myBookIdWhereClause,parameters);
+      }
+    }
+);
+  }
+ catch (  SQLException e) {
+  }
+}

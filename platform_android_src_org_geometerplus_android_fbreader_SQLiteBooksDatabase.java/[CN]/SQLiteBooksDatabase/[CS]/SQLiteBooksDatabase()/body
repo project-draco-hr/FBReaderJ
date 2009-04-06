@@ -1,0 +1,6 @@
+{
+  myDatabase=ZLAndroidApplication.Instance().openOrCreateDatabase("books.db",Context.MODE_PRIVATE,null);
+  if (myDatabase.getVersion() == 0) {
+    createTables();
+  }
+}

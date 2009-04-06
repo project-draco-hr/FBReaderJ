@@ -1,6 +1,6 @@
 {
   int count=1;
-  if (myOpenItems.contains(tree)) {
+  if (isOpen(tree)) {
     for (    ZLTree subtree : tree.subTrees()) {
       count+=getCount(subtree);
     }

@@ -1,3 +1,3 @@
 {
-  return myAuthor.DisplayName;
+  return (myAuthor != null) ? myAuthor.DisplayName : "Unknown Author";
 }

@@ -1,6 +1,0 @@
-{
-  if (!myEncoding.equals(encoding)) {
-    myEncoding=encoding;
-    myIsChanged=true;
-  }
-}

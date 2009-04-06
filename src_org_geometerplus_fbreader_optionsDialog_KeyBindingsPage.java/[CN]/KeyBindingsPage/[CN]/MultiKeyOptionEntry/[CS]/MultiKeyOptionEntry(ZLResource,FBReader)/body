@@ -27,7 +27,6 @@
   addAction(ActionCode.FULLSCREEN_ON);
   addAction(ActionCode.ROTATE_SCREEN);
   addAction(ActionCode.SHOW_OPTIONS);
-  addAction(ActionCode.SHOW_BOOK_INFO);
   addAction(ActionCode.CANCEL);
   addAction(ActionCode.QUIT);
 }

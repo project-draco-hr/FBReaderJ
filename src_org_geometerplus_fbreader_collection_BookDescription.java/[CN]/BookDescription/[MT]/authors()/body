@@ -1,0 +1,3 @@
+{
+  return (myAuthors != null) ? Collections.unmodifiableList(myAuthors) : Collections.<Author>emptyList();
+}

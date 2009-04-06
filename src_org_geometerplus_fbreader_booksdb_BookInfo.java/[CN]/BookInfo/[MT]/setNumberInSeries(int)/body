@@ -1,6 +1,0 @@
-{
-  if (myNumberInSeries != numberInSeries) {
-    myNumberInSeries=numberInSeries;
-    myIsChanged=true;
-  }
-}

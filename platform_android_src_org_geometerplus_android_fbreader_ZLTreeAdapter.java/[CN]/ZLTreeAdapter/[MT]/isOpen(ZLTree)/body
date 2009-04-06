@@ -1,0 +1,3 @@
+{
+  return myOpenItems.contains(tree);
+}

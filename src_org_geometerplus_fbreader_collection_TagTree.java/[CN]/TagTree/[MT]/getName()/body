@@ -1,3 +1,3 @@
 {
-  return (myTag != null) ? myTag : "Books with no tags";
+  return (myTag != null) ? myTag.Name : "Books with no tags";
 }

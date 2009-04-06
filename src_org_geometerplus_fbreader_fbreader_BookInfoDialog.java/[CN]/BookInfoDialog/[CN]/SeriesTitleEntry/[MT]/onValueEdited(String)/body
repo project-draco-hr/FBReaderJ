@@ -1,4 +1,0 @@
-{
-  myBookNumberEntry.setVisible(value != null && !value.equals(""));
-  ;
-}

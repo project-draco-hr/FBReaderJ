@@ -1,5 +1,0 @@
-{
-  ZLStringTree subtree=new ZLStringTree(this);
-  addSubTree(subtree);
-  return subtree;
-}

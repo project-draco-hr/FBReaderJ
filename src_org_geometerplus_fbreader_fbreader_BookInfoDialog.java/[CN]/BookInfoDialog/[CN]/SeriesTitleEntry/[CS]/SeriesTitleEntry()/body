@@ -1,5 +1,0 @@
-{
-  super(true);
-  final String authorName="";
-  final String authorKey="";
-}

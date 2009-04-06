@@ -1,3 +1,0 @@
-{
-  return Reader.getMode() == FBReader.ViewMode.BOOK_TEXT;
-}

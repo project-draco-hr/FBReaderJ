@@ -1,0 +1,27 @@
+{
+  if (!myIsChanged) {
+    return;
+  }
+  final BooksDatabase database=BooksDatabase.Instance();
+  database.executeAsATransaction(new Runnable(){
+    public void run(){
+      if (myBookId >= 0) {
+        database.updateBookInfo(myBookId,myEncoding,myLanguage,myTitle);
+      }
+ else {
+        myBookId=database.insertBookInfo(FileName,myEncoding,myLanguage,myTitle);
+      }
+      long index=0;
+      for (      Author author : authors()) {
+        database.saveBookAuthorInfo(myBookId,index++,author);
+      }
+      for (      Tag tag : tags()) {
+        database.saveBookTagInfo(myBookId,tag);
+      }
+      database.saveBookSeriesInfo(myBookId,mySeriesInfo);
+    }
+  }
+);
+  myIsChanged=false;
+  myIsSaved=true;
+}

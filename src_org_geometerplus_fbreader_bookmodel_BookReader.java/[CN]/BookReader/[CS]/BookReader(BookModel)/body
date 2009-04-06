@@ -1,4 +1,4 @@
 {
   Model=model;
-  myCurrentContentsTree=model.ContentsTree;
+  myCurrentContentsTree=model.TOCTree;
 }

@@ -2,7 +2,7 @@
   if (myDoRebuild) {
     myCollectionByAuthor.clear();
     myCollectionByTag.clear();
-    ZLConfig.Instance().executeAsATransaction(new Runnable(){
+    BooksDatabase.Instance().executeAsATransaction(new Runnable(){
       public void run(){
         build();
       }

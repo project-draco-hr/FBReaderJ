@@ -1,0 +1,3 @@
+{
+  myReference=new Reference(reference,model);
+}

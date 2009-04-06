@@ -2,7 +2,7 @@
   if (!tree.hasChildren()) {
     return false;
   }
-  if (myOpenItems.contains(tree)) {
+  if (isOpen(tree)) {
     myOpenItems.remove(tree);
   }
  else {

@@ -1,3 +1,0 @@
-{
-  myReferenceByTree.put(tree,new Reference(reference,model));
-}

@@ -1,0 +1,3 @@
+{
+  return (myTags != null) ? Collections.unmodifiableList(myTags) : Collections.<Tag>emptyList();
+}

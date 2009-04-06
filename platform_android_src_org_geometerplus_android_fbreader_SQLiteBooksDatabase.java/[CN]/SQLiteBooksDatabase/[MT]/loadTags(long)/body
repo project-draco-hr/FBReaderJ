@@ -1,0 +1,13 @@
+{
+  final Cursor cursor=myDatabase.rawQuery("SELECT Tags.tag_id FROM BookTag INNER JOIN Tags ON Tags.tag_id = BookTag.tag_id WHERE BookTag.book_id = ?",new String[]{"" + bookId});
+  if (!cursor.moveToNext()) {
+    return null;
+  }
+  ArrayList<Tag> list=new ArrayList<Tag>(cursor.getCount());
+  do {
+    list.add(getTagById(cursor.getLong(0)));
+  }
+ while (cursor.moveToNext());
+  cursor.close();
+  return list;
+}

@@ -1,0 +1,22 @@
+{
+  if (myGetAuthorIdStatement == null) {
+    myGetAuthorIdStatement=myDatabase.compileStatement("SELECT author_id FROM Authors WHERE name = ? AND sort_key = ?");
+    myInsertAuthorStatement=myDatabase.compileStatement("INSERT INTO Authors (name,sort_key) VALUES (?,?)");
+    myInsertBookAuthorStatement=myDatabase.compileStatement("INSERT OR IGNORE INTO BookAuthor (book_id,author_id,author_index) VALUES (?,?,?)");
+  }
+  long authorId;
+  try {
+    myGetAuthorIdStatement.bindString(1,author.DisplayName);
+    myGetAuthorIdStatement.bindString(2,author.SortKey);
+    authorId=myGetAuthorIdStatement.simpleQueryForLong();
+  }
+ catch (  SQLException e) {
+    myInsertAuthorStatement.bindString(1,author.DisplayName);
+    myInsertAuthorStatement.bindString(2,author.SortKey);
+    authorId=myInsertAuthorStatement.executeInsert();
+  }
+  myInsertBookAuthorStatement.bindLong(1,bookId);
+  myInsertBookAuthorStatement.bindLong(2,authorId);
+  myInsertBookAuthorStatement.bindLong(3,index);
+  myInsertBookAuthorStatement.execute();
+}

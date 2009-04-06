@@ -1,0 +1,6 @@
+{
+  if (!equals(myLanguage,language)) {
+    myLanguage=language;
+    myIsChanged=true;
+  }
+}

@@ -1,3 +1,0 @@
-{
-  saveTags(new ZLStringOption(FileName,"TagList",EMPTY));
-}

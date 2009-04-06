@@ -1,0 +1,10 @@
+{
+  if (myInsertBookInfoStatement == null) {
+    myInsertBookInfoStatement=myDatabase.compileStatement("INSERT INTO Books (encoding,language,title,file_name) VALUES (?,?,?,?)");
+  }
+  bindString(myInsertBookInfoStatement,1,encoding);
+  bindString(myInsertBookInfoStatement,2,language);
+  myInsertBookInfoStatement.bindString(3,title);
+  myInsertBookInfoStatement.bindString(4,fileName);
+  return myInsertBookInfoStatement.executeInsert();
+}

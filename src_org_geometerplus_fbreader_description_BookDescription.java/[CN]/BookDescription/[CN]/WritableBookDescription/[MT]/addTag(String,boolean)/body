@@ -1,5 +1,0 @@
-{
-  if (myDescription.addTag(tag,check)) {
-    myDescription.saveTags();
-  }
-}

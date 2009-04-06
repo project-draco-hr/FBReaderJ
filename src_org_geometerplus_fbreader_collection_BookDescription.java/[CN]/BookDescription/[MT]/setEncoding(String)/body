@@ -1,0 +1,6 @@
+{
+  if (!equals(myEncoding,encoding)) {
+    myEncoding=encoding;
+    myIsChanged=true;
+  }
+}

@@ -12,7 +12,6 @@
   addAction(ActionCode.SHOW_LIBRARY,new ShowLibrary(this));
   addAction(ActionCode.SHOW_OPTIONS,new ShowOptionsDialogAction(this));
   addAction(ActionCode.SHOW_CONTENTS,new ShowTOCAction(this));
-  addAction(ActionCode.SHOW_BOOK_INFO,new ShowBookInfoDialogAction(this));
   addAction(ActionCode.SEARCH,new SearchAction(this));
   addAction(ActionCode.FIND_NEXT,new FindNextAction(this));
   addAction(ActionCode.FIND_PREVIOUS,new FindPreviousAction(this));

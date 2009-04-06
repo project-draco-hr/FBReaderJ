@@ -1,4 +1,0 @@
-{
-  Author currentAuthor=myAuthorDisplayNameEntry.myCurrentAuthor;
-  return currentAuthor.SortKey;
-}

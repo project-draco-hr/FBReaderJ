@@ -1,6 +1,6 @@
 {
   final View view=(convertView != null) ? convertView : LayoutInflater.from(parent.getContext()).inflate(R.layout.toc_tree_item,parent,false);
-  final ZLStringTree tree=(ZLStringTree)getItem(position);
+  final TOCTree tree=(TOCTree)getItem(position);
   setIcon((ImageView)view.findViewById(R.id.toc_tree_item_icon),tree);
   ((TextView)view.findViewById(R.id.toc_tree_item_text)).setText(tree.getText());
   return view;

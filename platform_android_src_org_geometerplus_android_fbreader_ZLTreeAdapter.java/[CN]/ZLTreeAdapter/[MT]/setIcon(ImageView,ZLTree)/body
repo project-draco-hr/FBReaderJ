@@ -1,6 +1,6 @@
 {
   if (tree.hasChildren()) {
-    if (myOpenItems.contains(tree)) {
+    if (isOpen(tree)) {
       imageView.setImageResource(R.drawable.tree_icon_group_open);
     }
  else {

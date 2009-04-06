@@ -4,7 +4,7 @@
     if (referenceNumber == -1) {
       referenceNumber=textModel.getParagraphsNumber();
     }
-    ZLStringTree parentTree=myCurrentContentsTree;
+    TOCTree parentTree=myCurrentContentsTree;
     if (parentTree.getLevel() > 0) {
       final ZLTextBuffer contentsBuffer=myContentsBuffer;
       if (!contentsBuffer.isEmpty()) {
@@ -18,8 +18,8 @@
  else {
       myContentsBuffer.clear();
     }
-    ZLStringTree tree=parentTree.createSubTree();
-    Model.ContentsTree.setReference(tree,myCurrentTextModel,referenceNumber);
+    TOCTree tree=parentTree.createSubTree();
+    tree.setReference(myCurrentTextModel,referenceNumber);
     myCurrentContentsTree=tree;
   }
 }

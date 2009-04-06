@@ -1,3 +1,0 @@
-{
-  myBookNumberEntry.setVisible(index != 0);
-}

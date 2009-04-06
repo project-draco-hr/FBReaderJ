@@ -2,5 +2,24 @@
   super.onCreate(bundle);
   requestWindowFeature(Window.FEATURE_NO_TITLE);
   final FBReader fbreader=(FBReader)ZLApplication.Instance();
-  new TOCAdapter(fbreader.Model.ContentsTree);
+  final TOCTree root=fbreader.Model.TOCTree;
+  myAdapter=new TOCAdapter(root);
+  final ZLTextWordCursor cursor=fbreader.BookTextView.StartCursor;
+  int index=cursor.getParagraphCursor().Index;
+  if (cursor.isEndOfParagraph()) {
+    ++index;
+  }
+  TOCTree treeToSelect=null;
+  for (int i=0; i < root.getSize(); ++i) {
+    final TOCTree tree=root.getTree(i);
+    final TOCTree.Reference reference=tree.getReference();
+    if (reference == null) {
+      continue;
+    }
+    if (reference.ParagraphIndex > index) {
+      break;
+    }
+    treeToSelect=tree;
+  }
+  myAdapter.selectItem(treeToSelect);
 }

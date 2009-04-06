@@ -1,6 +1,5 @@
 {
   path=getOpfFileName(path);
-  System.err.println("path = " + path);
   if (path == null) {
     return false;
   }

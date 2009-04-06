@@ -1,22 +1,18 @@
 {
 switch (myReadState) {
-case READ_TITLE:
-    myDescription.setTitle(myDescription.getTitle() + new String(data,start,length));
-  break;
-case READ_LANGUAGE:
-myDescription.setLanguage(myDescription.getLanguage() + new String(data,start,length));
-break;
 case READ_AUTHOR_NAME_0:
-myAuthorNames[0]+=new String(data,start,length);
-break;
+    myAuthorNames[0]+=new String(data,start,length);
+  break;
 case READ_AUTHOR_NAME_1:
 myAuthorNames[1]+=new String(data,start,length);
 break;
 case READ_AUTHOR_NAME_2:
 myAuthorNames[2]+=new String(data,start,length);
 break;
+case READ_TITLE:
+case READ_LANGUAGE:
 case READ_GENRE:
-myGenreBuffer.append(data,start,length);
+myBuffer.append(data,start,length);
 break;
 }
 }
