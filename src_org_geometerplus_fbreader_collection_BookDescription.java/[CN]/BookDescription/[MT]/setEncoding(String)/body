@@ -1,5 +1,5 @@
 {
-  if (!equals(myEncoding,encoding)) {
+  if (!ZLMiscUtil.equals(myEncoding,encoding)) {
     myEncoding=encoding;
     myIsChanged=true;
   }
