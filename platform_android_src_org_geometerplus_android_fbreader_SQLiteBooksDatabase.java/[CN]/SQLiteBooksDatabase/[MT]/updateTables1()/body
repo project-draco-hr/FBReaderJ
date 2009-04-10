@@ -1,0 +1,13 @@
+{
+  myDatabase.beginTransaction();
+  myDatabase.execSQL("ALTER TABLE Tags RENAME TO Tags_Obsolete");
+  myDatabase.execSQL("CREATE TABLE Tags(" + "tag_id INTEGER PRIMARY KEY," + "name TEXT NOT NULL,"+ "parent_id INTEGER REFERENCES Tags(tag_id),"+ "CONSTRAINT Tags_Unique UNIQUE (name, parent_id))");
+  myDatabase.execSQL("INSERT INTO Tags (tag_id,name,parent_id) SELECT tag_id,name,parent FROM Tags_Obsolete");
+  myDatabase.execSQL("DROP TABLE Tags_Obsolete");
+  myDatabase.execSQL("ALTER TABLE BookTag RENAME TO BookTag_Obsolete");
+  myDatabase.execSQL("CREATE TABLE BookTag(" + "tag_id INTEGER NOT NULL REFERENCES Tags(tag_id)," + "book_id INTEGER NOT NULL REFERENCES Books(book_id),"+ "CONSTRAINT BookTag_Unique UNIQUE (tag_id, book_id))");
+  myDatabase.execSQL("INSERT INTO BookTag (tag_id,book_id) SELECT tag_id,book_id FROM BookTag_Obsolete");
+  myDatabase.execSQL("DROP TABLE BookTag_Obsolete");
+  myDatabase.setTransactionSuccessful();
+  myDatabase.endTransaction();
+}

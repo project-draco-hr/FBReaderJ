@@ -1,5 +1,5 @@
 {
-  final ArrayList list=new ArrayList(1);
+  final ArrayList<ZLTextModel> list=new ArrayList<ZLTextModel>(1);
   list.add(model);
   setModels(list,0);
 }

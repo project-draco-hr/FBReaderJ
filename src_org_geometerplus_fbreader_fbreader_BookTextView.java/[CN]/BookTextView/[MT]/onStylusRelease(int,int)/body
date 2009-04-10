@@ -33,9 +33,7 @@
       if (id != null) {
 switch (hyperlinkKind) {
 case FBTextKind.EXTERNAL_HYPERLINK:
-          if (OpenInBrowserOption.getValue()) {
-            ZLibrary.Instance().openInBrowser(id);
-          }
+          ZLibrary.Instance().openInBrowser(id);
         return true;
 case FBTextKind.FOOTNOTE:
 case FBTextKind.INTERNAL_HYPERLINK:

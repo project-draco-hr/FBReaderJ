@@ -1,7 +1,7 @@
 {
   Tag tag=myTagById.get(id);
   if (tag == null) {
-    final Cursor cursor=myDatabase.rawQuery("SELECT parent,name FROM Tags WHERE tag_id = ?",new String[]{"" + id});
+    final Cursor cursor=myDatabase.rawQuery("SELECT parent_id,name FROM Tags WHERE tag_id = ?",new String[]{"" + id});
     if (cursor.moveToNext()) {
       final Tag parent=cursor.isNull(0) ? null : getTagById(cursor.getLong(0));
       tag=Tag.getTag(parent,cursor.getString(1));

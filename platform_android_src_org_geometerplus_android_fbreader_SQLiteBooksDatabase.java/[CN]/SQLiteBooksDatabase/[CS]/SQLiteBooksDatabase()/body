@@ -1,6 +1,10 @@
 {
   myDatabase=ZLAndroidApplication.Instance().openOrCreateDatabase("books.db",Context.MODE_PRIVATE,null);
-  if (myDatabase.getVersion() == 0) {
+switch (myDatabase.getVersion()) {
+case 0:
     createTables();
-  }
+case 1:
+  updateTables1();
+}
+myDatabase.setVersion(2);
 }

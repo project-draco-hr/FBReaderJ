@@ -1,4 +1,3 @@
 {
   super(context);
-  ShowTOCMarksOption=new ZLBooleanOption("Indicator","ShowTOCMarks",false);
 }

@@ -9,5 +9,4 @@
   myDatabase.execSQL("CREATE TABLE BookTag(" + "tag_id INTEGER REFERENCES Tags(tag_id)," + "book_id INTEGER REFERENCES Books(book_id),"+ "CONSTRAINT BookTag_Unique UNIQUE (tag_id, book_id))");
   myDatabase.setTransactionSuccessful();
   myDatabase.endTransaction();
-  myDatabase.setVersion(1);
 }
