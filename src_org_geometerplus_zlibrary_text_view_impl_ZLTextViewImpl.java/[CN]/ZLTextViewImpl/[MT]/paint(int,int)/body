@@ -1,0 +1,36 @@
+{
+  myTextElementMap.clear();
+  final ZLTextBaseStyle baseStyle=ZLTextStyleCollection.getInstance().getBaseStyle();
+  final ZLPaintContext context=Context;
+  context.clear(baseStyle.BackgroundColorOption.getValue());
+  if ((myModel == null) || (myModel.getParagraphsNumber() == 0)) {
+    return;
+  }
+  preparePaintInfo();
+  if (StartCursor.isNull() || EndCursor.isNull()) {
+    return;
+  }
+{
+    final int fullScrollBarSize=myTextSize[myTextSize.length - 1];
+    final int scrollBarStart=sizeOfTextBeforeCursor(StartCursor);
+    final int scrollBarEnd=sizeOfTextBeforeCursor(EndCursor);
+    setVerticalScrollbarParameters(fullScrollBarSize,scrollBarStart,(scrollBarEnd != -1) ? scrollBarEnd : fullScrollBarSize);
+  }
+  final ArrayList<ZLTextLineInfo> lineInfos=myLineInfos;
+  final int[] labels=new int[lineInfos.size() + 1];
+  context.moveYTo(getTopMargin());
+  int index=0;
+  for (  ZLTextLineInfo info : lineInfos) {
+    final int y=Math.min(context.getY() + info.Height,getBottomLine());
+    prepareTextLine(info,y);
+    context.moveY(info.Height + info.Descent + info.VSpaceAfter);
+    labels[++index]=myTextElementMap.size();
+  }
+  mySelectionModel.update();
+  context.moveYTo(getTopMargin());
+  index=0;
+  for (  ZLTextLineInfo info : lineInfos) {
+    drawTextLine(context,info,labels[index],labels[index + 1]);
+    ++index;
+  }
+}

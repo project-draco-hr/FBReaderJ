@@ -55,23 +55,18 @@
   if (context.getY() > maxY) {
     context.moveYTo(maxY);
   }
-  context.moveXTo(getLeftMargin());
-  if (info.NodeInfo != null) {
-    drawTreeLines(context,info.NodeInfo,info.Height,info.Descent + info.VSpaceAfter);
-  }
   int index=from;
   final int endWordIndex=info.EndWordIndex;
   int charIndex=info.RealStartCharIndex;
   for (int wordIndex=info.RealStartWordIndex; wordIndex != endWordIndex; ++wordIndex, charIndex=0) {
     final ZLTextElement element=paragraph.getElement(wordIndex);
     if ((element instanceof ZLTextWord) || (element instanceof ZLTextImageElement)) {
-      final ZLTextElementArea area=(ZLTextElementArea)myTextElementMap.get(index++);
+      final ZLTextElementArea area=myTextElementMap.get(index++);
       if (area.ChangeStyle) {
         setTextStyle(area.Style);
       }
       final int x=area.XStart;
       final int y=area.YEnd - getElementDescent(context,element) - myTextStyle.getVerticalShift();
-      context.moveXTo(x);
       if (element instanceof ZLTextWord) {
         drawWord(x,y,(ZLTextWord)element,charIndex,-1,false);
       }
@@ -81,7 +76,7 @@
     }
   }
   if (index != to) {
-    ZLTextElementArea area=(ZLTextElementArea)myTextElementMap.get(index++);
+    ZLTextElementArea area=myTextElementMap.get(index++);
     if (area.ChangeStyle) {
       setTextStyle(area.Style);
     }

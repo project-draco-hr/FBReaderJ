@@ -1,3 +1,3 @@
 {
-  return myModel.getParagraph(Index);
+  return Model.getParagraph(Index);
 }

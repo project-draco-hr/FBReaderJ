@@ -1,7 +1,0 @@
-{
-  if (myParent == null) {
-    return false;
-  }
-  ArrayList siblings=myParent.myChildren;
-  return this == siblings.get(siblings.size() - 1);
-}

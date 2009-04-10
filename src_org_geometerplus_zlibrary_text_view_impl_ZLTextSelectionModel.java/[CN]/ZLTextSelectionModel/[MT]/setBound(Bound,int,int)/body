@@ -1,18 +1,18 @@
 {
-  final ZLTextRectangularAreaVector areaVector=myView.myTextElementMap;
+  final ZLTextElementAreaVector areaVector=myView.myTextElementMap;
   if (areaVector.isEmpty()) {
     return;
   }
   final int areaVectorSize=areaVector.size();
   int areaIndex=0;
-  ZLTextRectangularArea area=null;
+  ZLTextElementArea area=null;
   for (; areaIndex < areaVectorSize; ++areaIndex) {
     area=areaVector.get(areaIndex);
     if ((area.YStart > y) || ((area.YEnd > y) && (area.XEnd > x))) {
       break;
     }
   }
-  final ZLTextElementArea elementArea=(ZLTextElementArea)area;
+  final ZLTextElementArea elementArea=area;
   if (areaIndex < areaVectorSize) {
     bound.After.ParagraphIndex=elementArea.ParagraphIndex;
     bound.After.TextElementIndex=elementArea.TextElementIndex;
@@ -46,7 +46,7 @@
       bound.Before.Exists=false;
     }
  else {
-      final ZLTextElementArea previous=(ZLTextElementArea)areaVector.get(areaIndex - 1);
+      final ZLTextElementArea previous=areaVector.get(areaIndex - 1);
       bound.Before.ParagraphIndex=previous.ParagraphIndex;
       bound.Before.TextElementIndex=previous.TextElementIndex;
       bound.Before.CharIndex=previous.StartCharIndex + previous.Length;

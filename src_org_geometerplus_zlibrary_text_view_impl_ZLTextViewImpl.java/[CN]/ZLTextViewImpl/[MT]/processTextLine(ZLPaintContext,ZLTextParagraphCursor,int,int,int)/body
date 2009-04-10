@@ -1,6 +1,6 @@
 {
   final ZLTextLineInfo info=new ZLTextLineInfo(paragraphCursor,startIndex,startCharIndex,myTextStyle);
-  final ZLTextLineInfo cachedInfo=myLineInfoCache.getInfo(info);
+  final ZLTextLineInfo cachedInfo=myLineInfoCache.get(info);
   if (cachedInfo != null) {
     applyControls(paragraphCursor,startIndex,cachedInfo.EndWordIndex);
     return cachedInfo;
@@ -8,20 +8,6 @@
   int currentWordIndex=startIndex;
   int currentCharIndex=startCharIndex;
   final boolean isFirstLine=(startIndex == 0) && (startCharIndex == 0);
-  final ZLTextParagraph para=paragraphCursor.getParagraph();
-  if (para.getKind() == ZLTextParagraph.Kind.TREE_PARAGRAPH) {
-    final ZLTextTreeParagraph treeParagraph=(ZLTextTreeParagraph)para;
-    final int stackLength=treeParagraph.getDepth() - 1;
-    final boolean[] stack=new boolean[stackLength];
-    if (stackLength > 0) {
-      ZLTextTreeParagraph ctp=treeParagraph;
-      for (int index=0; index < stackLength; ++index) {
-        stack[index]=!ctp.isLastChild();
-        ctp=ctp.getParent();
-      }
-    }
-    info.NodeInfo=new ZLTextLineInfo.TreeNodeInfo(!treeParagraph.hasChildren(),treeParagraph.isOpen(),isFirstLine,paragraphCursor.Index,stack);
-  }
   if (isFirstLine) {
     ZLTextElement element=paragraphCursor.getElement(currentWordIndex);
     while (element instanceof ZLTextControlElement) {
@@ -41,9 +27,6 @@
   info.LeftIndent=myTextStyle.getLeftIndent();
   if (isFirstLine) {
     info.LeftIndent+=myTextStyle.getFirstLineIndentDelta();
-  }
-  if (info.NodeInfo != null) {
-    info.LeftIndent+=(context.getStringHeight() + 2) / 3 * 4 * (info.NodeInfo.VerticalLinesStack.length + 1);
   }
   info.Width=info.LeftIndent;
   if (info.RealStartWordIndex == endIndex) {
@@ -170,7 +153,7 @@
     info.VSpaceAfter=myTextStyle.getSpaceAfter();
   }
   if ((info.EndWordIndex != endIndex) || (endIndex == info.ParagraphCursorLength)) {
-    myLineInfoCache.put(info);
+    myLineInfoCache.put(info,info);
   }
   return info;
 }

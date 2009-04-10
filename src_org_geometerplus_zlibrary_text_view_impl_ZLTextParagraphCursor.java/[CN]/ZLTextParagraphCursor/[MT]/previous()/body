@@ -1,0 +1,3 @@
+{
+  return isFirst() ? null : cursor(Model,Index - 1);
+}

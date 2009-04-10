@@ -1,8 +1,6 @@
 {
-  final ZLTextLineInfoVector infos=myLineInfos;
-  final int infosSize=infos.size();
-  for (int i=0; i < infosSize; ++i) {
-    if (infos.getInfo(i).IsVisible) {
+  for (  ZLTextLineInfo info : myLineInfos) {
+    if (info.IsVisible) {
       return false;
     }
   }

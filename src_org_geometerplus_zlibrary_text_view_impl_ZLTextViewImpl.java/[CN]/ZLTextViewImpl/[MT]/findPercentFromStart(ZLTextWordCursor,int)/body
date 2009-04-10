@@ -5,11 +5,9 @@
  else {
     int height=getTextAreaHeight() * percent / 100;
     boolean visibleLineOccured=false;
-    final ZLTextLineInfoVector infos=myLineInfos;
-    final int size=infos.size();
     ZLTextLineInfo info=null;
-    for (int i=0; i < size; ++i) {
-      info=infos.getInfo(i);
+    for (    ZLTextLineInfo i : myLineInfos) {
+      info=i;
       if (info.IsVisible) {
         visibleLineOccured=true;
       }

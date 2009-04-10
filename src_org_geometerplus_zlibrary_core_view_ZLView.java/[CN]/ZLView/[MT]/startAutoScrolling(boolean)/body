@@ -1,0 +1,6 @@
+{
+  ZLViewWidget viewWidget=ZLApplication.Instance().getViewWidget();
+  if (viewWidget != null) {
+    viewWidget.startAutoScrolling(forward);
+  }
+}

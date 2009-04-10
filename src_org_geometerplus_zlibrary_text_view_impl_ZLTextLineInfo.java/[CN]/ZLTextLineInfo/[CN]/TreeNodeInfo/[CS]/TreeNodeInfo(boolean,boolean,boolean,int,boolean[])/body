@@ -1,7 +1,0 @@
-{
-  IsLeaf=isLeaf;
-  IsOpen=isOpen;
-  IsFirstLine=isFirstLine;
-  ParagraphIndex=paragraphIndex;
-  VerticalLinesStack=stack;
-}

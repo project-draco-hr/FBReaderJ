@@ -1,8 +1,0 @@
-{
-  super(model);
-  myParent=(ZLTextTreeParagraphImpl)parent;
-  if (parent != null) {
-    myParent.addChild(this);
-    myDepth=parent.getDepth() + 1;
-  }
-}

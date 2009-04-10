@@ -1,5 +1,0 @@
-{
-  if (myParent != null) {
-    myParent.myChildren.remove(this);
-  }
-}

@@ -1,35 +1,9 @@
 {
   super.onDraw(canvas);
-  if (myViewWidget == null) {
-    return;
+  if (myScrollingInProgress || (myScrollingShift != 0)) {
+    onDrawInScrolling(canvas);
   }
-  ZLView view=ZLApplication.Instance().getCurrentView();
-  if (view == null) {
-    return;
+ else {
+    onDrawStatic(canvas);
   }
-  final int w=getWidth();
-  final int h=getHeight();
-  ZLAndroidPaintContext.Instance().beginPaint(canvas);
-  final int rotation=myViewWidget.getRotation();
-  ZLAndroidPaintContext.Instance().setRotation(rotation);
-  final int scrollbarWidth=getVerticalScrollbarWidth();
-switch (rotation) {
-case ZLViewWidget.Angle.DEGREES0:
-    ZLAndroidPaintContext.Instance().setSize(w,h,scrollbarWidth);
-  break;
-case ZLViewWidget.Angle.DEGREES90:
-ZLAndroidPaintContext.Instance().setSize(h,w,scrollbarWidth);
-canvas.rotate(270,h / 2,h / 2);
-break;
-case ZLViewWidget.Angle.DEGREES180:
-ZLAndroidPaintContext.Instance().setSize(w,h,scrollbarWidth);
-canvas.rotate(180,w / 2,h / 2);
-break;
-case ZLViewWidget.Angle.DEGREES270:
-ZLAndroidPaintContext.Instance().setSize(h,w,scrollbarWidth);
-canvas.rotate(90,w / 2,w / 2);
-break;
-}
-view.paint();
-ZLAndroidPaintContext.Instance().endPaint();
 }

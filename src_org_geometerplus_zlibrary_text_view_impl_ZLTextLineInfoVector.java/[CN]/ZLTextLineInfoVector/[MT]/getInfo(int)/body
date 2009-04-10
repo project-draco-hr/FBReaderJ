@@ -1,3 +1,0 @@
-{
-  return (ZLTextLineInfo)super.get(index);
-}

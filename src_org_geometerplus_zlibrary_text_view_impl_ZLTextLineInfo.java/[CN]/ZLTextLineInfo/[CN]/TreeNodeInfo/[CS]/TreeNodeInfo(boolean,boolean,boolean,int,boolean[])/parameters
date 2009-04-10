@@ -1,5 +1,0 @@
-boolean isLeaf
-boolean isOpen
-boolean isFirstLine
-int paragraphIndex
-boolean[] stack

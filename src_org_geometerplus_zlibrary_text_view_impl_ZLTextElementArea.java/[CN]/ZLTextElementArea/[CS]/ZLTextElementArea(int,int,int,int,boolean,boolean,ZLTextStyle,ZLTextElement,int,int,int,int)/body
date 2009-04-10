@@ -1,5 +1,8 @@
 {
-  super(xStart,xEnd,yStart,yEnd);
+  XStart=xStart;
+  XEnd=xEnd;
+  YStart=yStart;
+  YEnd=yEnd;
   ParagraphIndex=paragraphIndex;
   TextElementIndex=textElementIndex;
   StartCharIndex=startCharIndex;

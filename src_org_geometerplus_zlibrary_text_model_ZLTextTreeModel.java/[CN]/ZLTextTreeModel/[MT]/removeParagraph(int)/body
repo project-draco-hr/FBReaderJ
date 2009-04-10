@@ -1,5 +1,0 @@
-{
-  ZLTextTreeParagraph p=getTreeParagraph(index);
-  p.removeFromParent();
-  myParagraphs.remove(index);
-}

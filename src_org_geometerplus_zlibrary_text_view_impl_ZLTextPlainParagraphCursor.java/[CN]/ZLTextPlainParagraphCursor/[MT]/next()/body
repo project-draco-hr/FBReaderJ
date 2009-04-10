@@ -1,3 +1,0 @@
-{
-  return isLast() ? null : cursor(myModel,Index + 1);
-}

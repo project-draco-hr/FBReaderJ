@@ -1,0 +1,44 @@
+{
+  final int w=getWidth();
+  final int h=getHeight();
+  final ZLAndroidPaintContext context=ZLAndroidPaintContext.Instance();
+  boolean stopScrolling=false;
+  if (myScrollingInProgress) {
+    myScrollingShift+=(int)myScrollingSpeed;
+    if (myScrollingSpeed > 0) {
+      if (myScrollingShift >= myScrollingBound) {
+        myScrollingShift=myScrollingBound;
+        stopScrolling=true;
+      }
+    }
+ else {
+      if (myScrollingShift <= myScrollingBound) {
+        myScrollingShift=myScrollingBound;
+        stopScrolling=true;
+      }
+    }
+    myScrollingSpeed*=1.5;
+  }
+  canvas.drawBitmap(myMainBitmap,0,myScrollingShift,context.Paint);
+  int shift=(myScrollingShift < 0) ? (myScrollingShift + h) : (myScrollingShift - h);
+  canvas.drawBitmap(mySecondaryBitmap,0,shift,context.Paint);
+  if (stopScrolling) {
+    if (myScrollingBound != 0) {
+      Bitmap swap=myMainBitmap;
+      myMainBitmap=mySecondaryBitmap;
+      mySecondaryBitmap=swap;
+    }
+    mySecondaryBitmapIsUpToDate=false;
+    myScrollingInProgress=false;
+    myScrollingShift=0;
+  }
+ else {
+    if (shift < 0) {
+      shift+=h;
+    }
+    canvas.drawLine(0,shift,w,shift,context.Paint);
+    if (myScrollingInProgress) {
+      postInvalidate();
+    }
+  }
+}

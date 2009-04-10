@@ -1,3 +1,3 @@
 {
-  return (int)(myPaint.getTextSize() + 0.5f);
+  return (int)(Paint.getTextSize() + 0.5f);
 }

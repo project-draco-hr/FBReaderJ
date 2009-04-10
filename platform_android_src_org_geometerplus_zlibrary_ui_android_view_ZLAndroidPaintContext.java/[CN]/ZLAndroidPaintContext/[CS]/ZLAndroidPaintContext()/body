@@ -1,6 +1,6 @@
 {
-  myPaint=new Paint();
-  myPaint.setLinearText(false);
-  myPaint.setAntiAlias(true);
-  myPaint.setSubpixelText(false);
+  Paint=new Paint();
+  Paint.setLinearText(false);
+  Paint.setAntiAlias(true);
+  Paint.setSubpixelText(false);
 }

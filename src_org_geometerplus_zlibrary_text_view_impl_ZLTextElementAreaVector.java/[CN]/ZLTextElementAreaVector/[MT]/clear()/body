@@ -1,0 +1,7 @@
+{
+  final ZLTextElementArea[] data=myData;
+  for (int i=myLength - 1; i >= 0; --i) {
+    data[i]=null;
+  }
+  myLength=0;
+}

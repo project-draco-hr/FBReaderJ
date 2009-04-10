@@ -7,7 +7,7 @@
     ++y0;
     ++y1;
   }
-  final Paint paint=myPaint;
+  final Paint paint=Paint;
   final Canvas canvas=myCanvas;
   paint.setAntiAlias(false);
   canvas.drawLine(x0,y0,x1,y1,paint);

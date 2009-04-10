@@ -1,0 +1,43 @@
+{
+  final ZLView view=ZLApplication.Instance().getCurrentView();
+  if ((myViewWidget == null) || (view == null)) {
+    return;
+  }
+  if (bitmap == myMainBitmap) {
+    mySecondaryBitmapIsUpToDate=false;
+  }
+ else   if (mySecondaryBitmapIsUpToDate) {
+    return;
+  }
+ else {
+    mySecondaryBitmapIsUpToDate=true;
+  }
+  final int w=getWidth();
+  final int h=getHeight();
+  final ZLAndroidPaintContext context=ZLAndroidPaintContext.Instance();
+  Canvas canvas=new Canvas(bitmap);
+  context.beginPaint(canvas);
+  final int rotation=myViewWidget.getRotation();
+  context.setRotation(rotation);
+  final int scrollbarWidth=getVerticalScrollbarWidth();
+switch (rotation) {
+case ZLViewWidget.Angle.DEGREES0:
+    context.setSize(w,h,scrollbarWidth);
+  break;
+case ZLViewWidget.Angle.DEGREES90:
+context.setSize(h,w,scrollbarWidth);
+canvas.rotate(270,h / 2,h / 2);
+break;
+case ZLViewWidget.Angle.DEGREES180:
+context.setSize(w,h,scrollbarWidth);
+canvas.rotate(180,w / 2,h / 2);
+break;
+case ZLViewWidget.Angle.DEGREES270:
+context.setSize(h,w,scrollbarWidth);
+canvas.rotate(90,w / 2,w / 2);
+break;
+}
+int dy=(bitmap == myMainBitmap) ? 0 : ((myScrollingShift > 0) ? 1 : 0);
+view.paint(0,dy);
+context.endPaint();
+}

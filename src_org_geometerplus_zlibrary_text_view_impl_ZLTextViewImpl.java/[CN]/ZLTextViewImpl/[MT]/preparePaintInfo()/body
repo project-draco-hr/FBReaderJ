@@ -9,11 +9,9 @@
   if ((myPaintState == PaintState.NOTHING_TO_PAINT) || (myPaintState == PaintState.READY)) {
     return;
   }
-  final ZLTextLineInfoVector infos=myLineInfos;
-  final int infosSize=infos.size();
-  final ZLTextLineInfoCache cache=myLineInfoCache;
-  for (int i=0; i < infosSize; ++i) {
-    cache.put(infos.getInfo(i));
+  final HashMap<ZLTextLineInfo,ZLTextLineInfo> cache=myLineInfoCache;
+  for (  ZLTextLineInfo info : myLineInfos) {
+    cache.put(info,info);
   }
 switch (myPaintState) {
 default :

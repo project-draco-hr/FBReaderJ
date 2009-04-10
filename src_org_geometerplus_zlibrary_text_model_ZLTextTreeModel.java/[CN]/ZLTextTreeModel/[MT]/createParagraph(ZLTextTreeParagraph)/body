@@ -1,9 +1,0 @@
-{
-  createParagraph();
-  if (parent == null) {
-    parent=myRoot;
-  }
-  ZLTextTreeParagraphImpl tp=new ZLTextTreeParagraphImpl(parent,this);
-  myParagraphs.add(tp);
-  return tp;
-}

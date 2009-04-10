@@ -1,0 +1,8 @@
+{
+  if (myMainBitmap == null) {
+    return;
+  }
+  drawOnBitmap(mySecondaryBitmap);
+  myScrollingShift=shift;
+  postInvalidate();
+}

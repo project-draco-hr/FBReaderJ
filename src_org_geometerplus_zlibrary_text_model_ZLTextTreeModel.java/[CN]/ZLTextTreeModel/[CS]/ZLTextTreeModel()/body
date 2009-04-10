@@ -1,5 +1,0 @@
-{
-  super(new SimpleCharStorage(4096));
-  myRoot=new ZLTextTreeParagraphImpl(null,this);
-  myRoot.open(true);
-}

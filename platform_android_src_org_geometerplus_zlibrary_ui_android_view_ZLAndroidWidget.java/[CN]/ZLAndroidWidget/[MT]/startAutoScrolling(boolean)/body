@@ -1,0 +1,12 @@
+{
+  if (myMainBitmap == null) {
+    return;
+  }
+  drawOnBitmap(mySecondaryBitmap);
+  myScrollingInProgress=true;
+  final boolean scrollUp=myScrollingShift > 0;
+  myScrollingSpeed=(scrollUp == forward) ? 3 : -3;
+  final int h=getHeight();
+  myScrollingBound=forward ? (scrollUp ? h : -h) : 0;
+  postInvalidate();
+}

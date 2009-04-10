@@ -1,0 +1,5 @@
+{
+  final ZLAndroidWidget widget=((ZLAndroidLibrary)ZLAndroidLibrary.Instance()).getWidget();
+  widget.setViewWidget(this);
+  widget.startAutoScrolling(forward);
+}
