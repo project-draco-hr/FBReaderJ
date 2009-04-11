@@ -1,0 +1,10 @@
+{
+  if (StartCursor.isNull()) {
+    StartCursor.setCursor(EndCursor);
+  }
+  StartCursor.moveToParagraph(paragraphIndex);
+  StartCursor.moveTo(wordIndex,charIndex);
+  EndCursor.reset();
+  LineInfos.clear();
+  PaintState=PaintStateEnum.START_IS_KNOWN;
+}

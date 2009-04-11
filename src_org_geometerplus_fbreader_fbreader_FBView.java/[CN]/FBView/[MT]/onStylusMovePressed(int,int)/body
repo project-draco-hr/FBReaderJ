@@ -1,17 +1,22 @@
 {
-  if (super.onStylusMovePressed(x,y) || myTouchIsProcessed) {
+  if (super.onStylusMovePressed(x,y)) {
     return true;
   }
-  final int diffY=y - myStartY;
-  if (Math.abs(diffY) * 5 >= Context.getHeight()) {
+  if (myScrollingIsActive) {
+    final int diffY=y - myStartY;
+    boolean doScroll=true;
     if (diffY > 0) {
-      ZLApplication.Instance().doAction(ActionCode.TOUCH_SCROLL_BACKWARD);
+      ZLTextWordCursor cursor=getStartCursor();
+      doScroll=!cursor.isStartOfParagraph() || !cursor.getParagraphCursor().isFirst();
     }
- else {
-      ZLApplication.Instance().doAction(ActionCode.TOUCH_SCROLL_FORWARD);
+ else     if (diffY < 0) {
+      ZLTextWordCursor cursor=getEndCursor();
+      doScroll=!cursor.isEndOfParagraph() || !cursor.getParagraphCursor().isLast();
     }
-    myTouchIsProcessed=true;
-    return true;
+    if (doScroll) {
+      scrollTo(diffY);
+      return true;
+    }
   }
   return false;
 }

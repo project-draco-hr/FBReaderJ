@@ -4,6 +4,6 @@
   }
   myStartX=x;
   myStartY=y;
-  myTouchIsProcessed=false;
+  myScrollingIsActive=true;
   return true;
 }

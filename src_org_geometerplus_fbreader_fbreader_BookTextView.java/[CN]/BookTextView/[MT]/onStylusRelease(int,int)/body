@@ -6,7 +6,7 @@
   if (area != null) {
     ZLTextElement element=area.Element;
     if ((element instanceof ZLTextImageElement) || (element instanceof ZLTextWord)) {
-      final ZLTextWordCursor cursor=new ZLTextWordCursor(StartCursor);
+      final ZLTextWordCursor cursor=new ZLTextWordCursor(getStartCursor());
       cursor.moveToParagraph(area.ParagraphIndex);
       cursor.moveToParagraphStart();
       final int elementIndex=area.TextElementIndex;

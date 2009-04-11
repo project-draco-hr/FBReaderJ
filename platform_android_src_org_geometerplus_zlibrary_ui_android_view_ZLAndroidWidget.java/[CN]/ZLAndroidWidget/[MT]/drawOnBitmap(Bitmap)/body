@@ -37,7 +37,7 @@ context.setSize(h,w,scrollbarWidth);
 canvas.rotate(90,w / 2,w / 2);
 break;
 }
-int dy=(bitmap == myMainBitmap) ? 0 : ((myScrollingShift > 0) ? 1 : 0);
+int dy=(bitmap == myMainBitmap) ? 0 : ((myScrollingShift > 0) ? -1 : 1);
 view.paint(0,dy);
 context.endPaint();
 }

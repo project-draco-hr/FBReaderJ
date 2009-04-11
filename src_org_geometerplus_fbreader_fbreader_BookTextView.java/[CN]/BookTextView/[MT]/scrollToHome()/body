@@ -1,5 +1,5 @@
 {
-  final ZLTextWordCursor cursor=StartCursor;
+  final ZLTextWordCursor cursor=getStartCursor();
   if (!cursor.isNull() && cursor.isStartOfParagraph() && cursor.getParagraphCursor().Index == 0 && myCurrentModelIndex == 0) {
     return;
   }
@@ -9,6 +9,6 @@
   gotoParagraph(0,false);
   gotoPosition(0,0,0);
   preparePaintInfo();
-  savePosition(position,0,StartCursor);
+  savePosition(position,0,getStartCursor());
   ZLApplication.Instance().refreshWindow();
 }

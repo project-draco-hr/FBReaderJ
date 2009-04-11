@@ -1,6 +1,27 @@
 {
+  boolean scrollingWasActive=myScrollingIsActive;
+  myScrollingIsActive=false;
   if (super.onStylusRelease(x,y)) {
     return true;
   }
-  return myTouchIsProcessed;
+  if (scrollingWasActive) {
+    final int diffY=y - myStartY;
+    boolean doScroll=false;
+    if (diffY > 0) {
+      ZLTextWordCursor cursor=getStartCursor();
+      doScroll=!cursor.isStartOfParagraph() || !cursor.getParagraphCursor().isFirst();
+    }
+ else     if (diffY < 0) {
+      ZLTextWordCursor cursor=getEndCursor();
+      doScroll=!cursor.isEndOfParagraph() || !cursor.getParagraphCursor().isLast();
+    }
+    if (doScroll) {
+      final int h=Context.getHeight();
+      final int w=Context.getWidth();
+      final int minDiff=(h > w) ? h / 4 : h / 3;
+      startAutoScrolling(Math.abs(diffY) >= minDiff);
+      return true;
+    }
+  }
+  return false;
 }

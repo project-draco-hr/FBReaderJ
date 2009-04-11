@@ -1,0 +1,19 @@
+{
+  myPreviousPage.reset();
+  myNextPage.reset();
+  ZLTextParagraphCursorCache.clear();
+  if (myCurrentPage.PaintState != PaintStateEnum.NOTHING_TO_PAINT) {
+    myCurrentPage.LineInfos.clear();
+    if (!myCurrentPage.StartCursor.isNull()) {
+      myCurrentPage.StartCursor.rebuild();
+      myCurrentPage.EndCursor.reset();
+      myCurrentPage.PaintState=PaintStateEnum.START_IS_KNOWN;
+    }
+ else     if (!myCurrentPage.EndCursor.isNull()) {
+      myCurrentPage.EndCursor.rebuild();
+      myCurrentPage.StartCursor.reset();
+      myCurrentPage.PaintState=PaintStateEnum.END_IS_KNOWN;
+    }
+  }
+  myLineInfoCache.clear();
+}

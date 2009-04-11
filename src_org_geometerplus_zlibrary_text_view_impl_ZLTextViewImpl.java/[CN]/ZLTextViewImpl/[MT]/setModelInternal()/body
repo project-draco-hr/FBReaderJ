@@ -8,9 +8,9 @@
       for (int i=0; i < paragraphsNumber; ++i) {
         myTextSize[i + 1]=myTextSize[i] + myModel.getParagraphTextLength(i);
       }
-      StartCursor.setCursor(ZLTextParagraphCursor.cursor(myModel,0));
-      EndCursor.reset();
-      myPaintState=PaintState.START_IS_KNOWN;
+      myCurrentPage.moveStartCursor(ZLTextParagraphCursor.cursor(myModel,0));
+      myPreviousPage.reset();
+      myNextPage.reset();
     }
   }
 }

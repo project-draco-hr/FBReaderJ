@@ -2,7 +2,10 @@
   if (myMainBitmap == null) {
     return;
   }
-  drawOnBitmap(mySecondaryBitmap);
+  if (((shift > 0) && (myScrollingShift <= 0)) || ((shift < 0) && (myScrollingShift >= 0))) {
+    mySecondaryBitmapIsUpToDate=false;
+  }
   myScrollingShift=shift;
+  drawOnBitmap(mySecondaryBitmap);
   postInvalidate();
 }

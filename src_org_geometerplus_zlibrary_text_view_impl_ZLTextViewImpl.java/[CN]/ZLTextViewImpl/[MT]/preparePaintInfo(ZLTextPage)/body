@@ -1,0 +1,120 @@
+{
+  int newWidth=getViewWidth();
+  int newHeight=getTextAreaHeight();
+  if ((newWidth != page.OldWidth) || (newHeight != page.OldHeight)) {
+    page.OldWidth=newWidth;
+    page.OldHeight=newHeight;
+    if (page.PaintState != PaintStateEnum.NOTHING_TO_PAINT) {
+      page.LineInfos.clear();
+      if (!page.StartCursor.isNull()) {
+        page.EndCursor.reset();
+        page.PaintState=PaintStateEnum.START_IS_KNOWN;
+      }
+ else       if (!page.EndCursor.isNull()) {
+        page.StartCursor.reset();
+        page.PaintState=PaintStateEnum.END_IS_KNOWN;
+      }
+    }
+  }
+  if ((page.PaintState == PaintStateEnum.NOTHING_TO_PAINT) || (page.PaintState == PaintStateEnum.READY)) {
+    return;
+  }
+  final HashMap<ZLTextLineInfo,ZLTextLineInfo> cache=myLineInfoCache;
+  for (  ZLTextLineInfo info : page.LineInfos) {
+    cache.put(info,info);
+  }
+switch (page.PaintState) {
+default :
+    break;
+case PaintStateEnum.TO_SCROLL_FORWARD:
+  if (!page.EndCursor.getParagraphCursor().isLast() || !page.EndCursor.isEndOfParagraph()) {
+    final ZLTextWordCursor startCursor=new ZLTextWordCursor();
+switch (myScrollingMode) {
+case ScrollingMode.NO_OVERLAPPING:
+      break;
+case ScrollingMode.KEEP_LINES:
+    page.findLineFromEnd(startCursor,myOverlappingValue);
+  break;
+case ScrollingMode.SCROLL_LINES:
+page.findLineFromStart(startCursor,myOverlappingValue);
+if (startCursor.isEndOfParagraph()) {
+startCursor.nextParagraph();
+}
+break;
+case ScrollingMode.SCROLL_PERCENTAGE:
+page.findPercentFromStart(startCursor,getTextAreaHeight(),myOverlappingValue);
+break;
+}
+if (!startCursor.isNull() && startCursor.equalsToCursor(page.StartCursor)) {
+page.findLineFromStart(startCursor,1);
+}
+if (!startCursor.isNull()) {
+final ZLTextWordCursor endCursor=new ZLTextWordCursor();
+buildInfos(page,startCursor,endCursor);
+if (!page.isEmptyPage() && ((myScrollingMode != ScrollingMode.KEEP_LINES) || (!endCursor.equalsToCursor(page.EndCursor)))) {
+page.StartCursor.setCursor(startCursor);
+page.EndCursor.setCursor(endCursor);
+break;
+}
+}
+page.StartCursor.setCursor(page.EndCursor);
+buildInfos(page,page.StartCursor,page.EndCursor);
+}
+break;
+case PaintStateEnum.TO_SCROLL_BACKWARD:
+if (!page.StartCursor.getParagraphCursor().isFirst() || !page.StartCursor.isStartOfParagraph()) {
+switch (myScrollingMode) {
+case ScrollingMode.NO_OVERLAPPING:
+page.StartCursor.setCursor(findStart(page.StartCursor,SizeUnit.PIXEL_UNIT,getTextAreaHeight()));
+break;
+case ScrollingMode.KEEP_LINES:
+{
+ZLTextWordCursor endCursor=new ZLTextWordCursor();
+page.findLineFromStart(endCursor,myOverlappingValue);
+if (!endCursor.isNull() && endCursor.equalsToCursor(page.EndCursor)) {
+page.findLineFromEnd(endCursor,1);
+}
+if (!endCursor.isNull()) {
+ZLTextWordCursor startCursor=findStart(endCursor,SizeUnit.PIXEL_UNIT,getTextAreaHeight());
+if (startCursor.equalsToCursor(page.StartCursor)) {
+page.StartCursor.setCursor(findStart(page.StartCursor,SizeUnit.PIXEL_UNIT,getTextAreaHeight()));
+}
+ else {
+page.StartCursor.setCursor(startCursor);
+}
+}
+ else {
+page.StartCursor.setCursor(findStart(page.StartCursor,SizeUnit.PIXEL_UNIT,getTextAreaHeight()));
+}
+break;
+}
+case ScrollingMode.SCROLL_LINES:
+page.StartCursor.setCursor(findStart(page.StartCursor,SizeUnit.LINE_UNIT,myOverlappingValue));
+break;
+case ScrollingMode.SCROLL_PERCENTAGE:
+page.StartCursor.setCursor(findStart(page.StartCursor,SizeUnit.PIXEL_UNIT,getTextAreaHeight() * myOverlappingValue / 100));
+break;
+}
+buildInfos(page,page.StartCursor,page.EndCursor);
+if (page.isEmptyPage()) {
+page.StartCursor.setCursor(findStart(page.StartCursor,SizeUnit.LINE_UNIT,1));
+buildInfos(page,page.StartCursor,page.EndCursor);
+}
+}
+break;
+case PaintStateEnum.START_IS_KNOWN:
+buildInfos(page,page.StartCursor,page.EndCursor);
+break;
+case PaintStateEnum.END_IS_KNOWN:
+page.StartCursor.setCursor(findStart(page.EndCursor,SizeUnit.PIXEL_UNIT,getTextAreaHeight()));
+buildInfos(page,page.StartCursor,page.EndCursor);
+break;
+}
+page.PaintState=PaintStateEnum.READY;
+myLineInfoCache.clear();
+if (page == myCurrentPage) {
+myPreviousPage.reset();
+myNextPage.reset();
+onPreparePaintInfo();
+}
+}

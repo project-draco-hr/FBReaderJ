@@ -1,3 +1,3 @@
 {
-  rebuildPaintInfo(true);
+  rebuildPaintInfo();
 }

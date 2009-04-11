@@ -1,4 +1,4 @@
 {
   myModel.selectParagraph(paragraphIndex);
-  rebuildPaintInfo(true);
+  rebuildPaintInfo();
 }

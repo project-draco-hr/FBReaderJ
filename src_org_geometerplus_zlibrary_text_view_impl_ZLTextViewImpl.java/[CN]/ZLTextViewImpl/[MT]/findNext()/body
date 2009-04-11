@@ -1,5 +1,6 @@
 {
-  if (!EndCursor.isNull()) {
-    gotoMark(myModel.getNextMark(EndCursor.getPosition()));
+  final ZLTextWordCursor end=myCurrentPage.EndCursor;
+  if (!end.isNull()) {
+    gotoMark(myModel.getNextMark(end.getPosition()));
   }
 }

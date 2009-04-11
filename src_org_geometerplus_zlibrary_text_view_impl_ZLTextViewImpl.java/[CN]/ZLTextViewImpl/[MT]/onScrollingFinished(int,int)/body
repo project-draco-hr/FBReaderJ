@@ -1,0 +1,26 @@
+{
+  if ((dx < 0) || (dy < 0)) {
+    ZLTextPage swap=myNextPage;
+    myNextPage=myCurrentPage;
+    myCurrentPage=myPreviousPage;
+    myPreviousPage=swap;
+    myPreviousPage.reset();
+    if (myCurrentPage.PaintState == PaintStateEnum.NOTHING_TO_PAINT) {
+      preparePaintInfo(myNextPage);
+      myCurrentPage.EndCursor.setCursor(myNextPage.StartCursor);
+      myCurrentPage.PaintState=PaintStateEnum.START_IS_KNOWN;
+    }
+  }
+ else   if ((dx > 0) || (dy > 0)) {
+    ZLTextPage swap=myPreviousPage;
+    myPreviousPage=myCurrentPage;
+    myCurrentPage=myNextPage;
+    myNextPage=swap;
+    myNextPage.reset();
+    if (myCurrentPage.PaintState == PaintStateEnum.NOTHING_TO_PAINT) {
+      preparePaintInfo(myPreviousPage);
+      myCurrentPage.StartCursor.setCursor(myPreviousPage.EndCursor);
+      myCurrentPage.PaintState=PaintStateEnum.END_IS_KNOWN;
+    }
+  }
+}

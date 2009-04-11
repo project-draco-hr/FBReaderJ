@@ -1,3 +1,4 @@
 {
-  return !EndCursor.isNull() && (myModel != null) && (myModel.getNextMark(EndCursor.getPosition()).ParagraphIndex > -1);
+  final ZLTextWordCursor end=myCurrentPage.EndCursor;
+  return !end.isNull() && (myModel != null) && (myModel.getNextMark(end.getPosition()).ParagraphIndex > -1);
 }

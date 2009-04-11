@@ -1,19 +1,5 @@
 {
-  if (myPaintState == PaintState.NOTHING_TO_PAINT) {
-    return;
-  }
-  if (EndCursor.isNull()) {
-    EndCursor.setCursor(StartCursor);
-  }
-  EndCursor.moveToParagraph(paragraphIndex);
-  if ((paragraphIndex > 0) && (wordIndex == 0) && (charIndex == 0)) {
-    EndCursor.previousParagraph();
-    EndCursor.moveToParagraphEnd();
-  }
- else {
-    EndCursor.moveTo(wordIndex,charIndex);
-  }
-  StartCursor.reset();
-  myLineInfos.clear();
-  myPaintState=PaintState.END_IS_KNOWN;
+  myCurrentPage.moveEndCursor(paragraphIndex,wordIndex,charIndex);
+  myPreviousPage.reset();
+  myNextPage.reset();
 }

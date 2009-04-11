@@ -1,0 +1,21 @@
+{
+  if (LineInfos.isEmpty()) {
+    cursor.reset();
+    return;
+  }
+  int height=areaHeight * percent / 100;
+  boolean visibleLineOccured=false;
+  ZLTextLineInfo info=null;
+  for (  ZLTextLineInfo i : LineInfos) {
+    info=i;
+    if (info.IsVisible) {
+      visibleLineOccured=true;
+    }
+    height-=info.Height + info.Descent + info.VSpaceAfter;
+    if (visibleLineOccured && (height <= 0)) {
+      break;
+    }
+  }
+  cursor.setCursor(info.ParagraphCursor);
+  cursor.moveTo(info.EndWordIndex,info.EndCharIndex);
+}

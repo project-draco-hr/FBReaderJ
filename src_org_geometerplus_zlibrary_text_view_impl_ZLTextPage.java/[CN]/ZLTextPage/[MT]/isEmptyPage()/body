@@ -1,0 +1,8 @@
+{
+  for (  ZLTextLineInfo info : LineInfos) {
+    if (info.IsVisible) {
+      return false;
+    }
+  }
+  return true;
+}

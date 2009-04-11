@@ -1,0 +1,6 @@
+{
+  StartCursor.reset();
+  EndCursor.reset();
+  LineInfos.clear();
+  PaintState=PaintStateEnum.NOTHING_TO_PAINT;
+}

@@ -27,8 +27,9 @@
       Bitmap swap=myMainBitmap;
       myMainBitmap=mySecondaryBitmap;
       mySecondaryBitmap=swap;
+      mySecondaryBitmapIsUpToDate=false;
+      ZLApplication.Instance().getCurrentView().onScrollingFinished(0,(myScrollingBound < 0) ? 1 : -1);
     }
-    mySecondaryBitmapIsUpToDate=false;
     myScrollingInProgress=false;
     myScrollingShift=0;
   }

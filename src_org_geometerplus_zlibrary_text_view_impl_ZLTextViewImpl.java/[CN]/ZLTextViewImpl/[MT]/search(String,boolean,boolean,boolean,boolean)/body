@@ -7,9 +7,11 @@
   if (thisSectionOnly) {
   }
   myModel.search(text,startIndex,endIndex,ignoreCase);
-  if (!StartCursor.isNull()) {
-    rebuildPaintInfo(true);
-    ZLTextMark position=StartCursor.getPosition();
+  myPreviousPage.reset();
+  myNextPage.reset();
+  if (!myCurrentPage.StartCursor.isNull()) {
+    rebuildPaintInfo();
+    ZLTextMark position=myCurrentPage.StartCursor.getPosition();
     gotoMark(wholeText ? (backward ? myModel.getLastMark() : myModel.getFirstMark()) : (backward ? myModel.getPreviousMark(position) : myModel.getNextMark(position)));
     ZLApplication.Instance().refreshWindow();
   }

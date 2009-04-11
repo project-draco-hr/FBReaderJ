@@ -1,13 +1,4 @@
 {
-  final int w=getWidth();
-  final int h=getHeight();
-  if ((myMainBitmap != null) && ((myMainBitmap.getWidth() != w) || (myMainBitmap.getHeight() != h))) {
-    myMainBitmap=null;
-  }
-  if (myMainBitmap == null) {
-    myMainBitmap=Bitmap.createBitmap(w,h,Bitmap.Config.ARGB_8888);
-    mySecondaryBitmap=Bitmap.createBitmap(w,h,Bitmap.Config.ARGB_8888);
-  }
   drawOnBitmap(myMainBitmap);
   canvas.drawBitmap(myMainBitmap,0,0,ZLAndroidPaintContext.Instance().Paint);
 }

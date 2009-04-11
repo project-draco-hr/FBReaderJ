@@ -1,0 +1,6 @@
+{
+  if (myCurrentPage.StartCursor.isNull()) {
+    preparePaintInfo(myCurrentPage);
+  }
+  return myCurrentPage.StartCursor;
+}

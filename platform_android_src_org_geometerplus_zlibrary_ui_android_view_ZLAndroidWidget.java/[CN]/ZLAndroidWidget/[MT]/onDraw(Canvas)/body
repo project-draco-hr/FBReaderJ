@@ -1,5 +1,16 @@
 {
   super.onDraw(canvas);
+  final int w=getWidth();
+  final int h=getHeight();
+  if ((myMainBitmap != null) && ((myMainBitmap.getWidth() != w) || (myMainBitmap.getHeight() != h))) {
+    myMainBitmap=null;
+  }
+  if (myMainBitmap == null) {
+    myMainBitmap=Bitmap.createBitmap(w,h,Bitmap.Config.ARGB_8888);
+    mySecondaryBitmap=Bitmap.createBitmap(w,h,Bitmap.Config.ARGB_8888);
+    mySecondaryBitmapIsUpToDate=false;
+    drawOnBitmap(myMainBitmap);
+  }
   if (myScrollingInProgress || (myScrollingShift != 0)) {
     onDrawInScrolling(canvas);
   }

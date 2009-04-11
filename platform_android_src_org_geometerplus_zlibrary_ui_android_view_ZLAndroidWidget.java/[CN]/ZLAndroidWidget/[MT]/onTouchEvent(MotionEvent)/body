@@ -25,13 +25,17 @@ y=swap;
 break;
 }
 }
-ZLView view=ZLApplication.Instance().getCurrentView();
+myTouchX=x;
+myTouchY=y;
+final ZLView view=ZLApplication.Instance().getCurrentView();
 switch (event.getAction()) {
 case MotionEvent.ACTION_UP:
 view.onStylusRelease(x,y);
+myScreenIsTouched=false;
 break;
 case MotionEvent.ACTION_DOWN:
 view.onStylusPress(x,y);
+myScreenIsTouched=true;
 break;
 case MotionEvent.ACTION_MOVE:
 view.onStylusMovePressed(x,y);

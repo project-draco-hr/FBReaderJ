@@ -6,8 +6,7 @@
   if (paragraphIndex < 0) {
     paragraphIndex=0;
   }
-  StartCursor.setCursor(ZLTextParagraphCursor.cursor(myModel,paragraphIndex));
-  StartCursor.moveTo(wordIndex,charIndex);
-  EndCursor.reset();
-  myPaintState=PaintState.START_IS_KNOWN;
+  myCurrentPage.moveStartCursor(paragraphIndex,wordIndex,charIndex);
+  myPreviousPage.reset();
+  myNextPage.reset();
 }

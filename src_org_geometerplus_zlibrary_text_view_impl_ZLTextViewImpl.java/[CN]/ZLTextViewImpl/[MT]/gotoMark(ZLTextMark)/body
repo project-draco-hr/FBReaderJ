@@ -1,34 +1,36 @@
 {
+  myPreviousPage.reset();
+  myNextPage.reset();
   if (mark.ParagraphIndex < 0) {
     return;
   }
   boolean doRepaint=false;
-  if (StartCursor.isNull()) {
+  if (myCurrentPage.StartCursor.isNull()) {
     doRepaint=true;
-    preparePaintInfo();
+    preparePaintInfo(myCurrentPage);
   }
-  if (StartCursor.isNull()) {
+  if (myCurrentPage.StartCursor.isNull()) {
     return;
   }
-  final Position position=new Position(myCurrentModelIndex,StartCursor);
-  if ((StartCursor.getParagraphCursor().Index != mark.ParagraphIndex) || (StartCursor.getPosition().compareTo(mark) > 0)) {
+  final Position position=new Position(myCurrentModelIndex,myCurrentPage.StartCursor);
+  if ((myCurrentPage.StartCursor.getParagraphCursor().Index != mark.ParagraphIndex) || (myCurrentPage.StartCursor.getPosition().compareTo(mark) > 0)) {
     doRepaint=true;
     gotoParagraph(mark.ParagraphIndex,false);
-    preparePaintInfo();
+    preparePaintInfo(myCurrentPage);
   }
-  if (EndCursor.isNull()) {
-    preparePaintInfo();
+  if (myCurrentPage.EndCursor.isNull()) {
+    preparePaintInfo(myCurrentPage);
   }
-  while (mark.compareTo(EndCursor.getPosition()) > 0) {
+  while (mark.compareTo(myCurrentPage.EndCursor.getPosition()) > 0) {
     doRepaint=true;
     scrollPage(true,ScrollingMode.NO_OVERLAPPING,0);
-    preparePaintInfo();
+    preparePaintInfo(myCurrentPage);
   }
   if (doRepaint) {
-    if (StartCursor.isNull()) {
-      preparePaintInfo();
+    if (myCurrentPage.StartCursor.isNull()) {
+      preparePaintInfo(myCurrentPage);
     }
-    savePosition(position,myCurrentModelIndex,StartCursor);
+    savePosition(position,myCurrentModelIndex,myCurrentPage.StartCursor);
     ZLApplication.Instance().refreshWindow();
   }
 }
