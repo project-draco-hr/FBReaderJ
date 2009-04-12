@@ -1,0 +1,6 @@
+{
+  super.onCreate(icicle);
+  final ZLAndroidApplication application=ZLAndroidApplication.Instance();
+  myFullScreenFlag=application.ShowStatusBarOption.getValue() ? 0 : WindowManager.LayoutParams.FLAG_FULLSCREEN;
+  getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,myFullScreenFlag);
+}

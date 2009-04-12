@@ -1,6 +1,0 @@
-{
-  myEntry0.onAccept();
-  myEntry90.onAccept();
-  myEntry180.onAccept();
-  myEntry270.onAccept();
-}

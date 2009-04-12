@@ -1,4 +1,7 @@
 {
+  if (isScrollingActive()) {
+    return;
+  }
   preparePaintInfo(myCurrentPage);
   myPreviousPage.reset();
   myNextPage.reset();

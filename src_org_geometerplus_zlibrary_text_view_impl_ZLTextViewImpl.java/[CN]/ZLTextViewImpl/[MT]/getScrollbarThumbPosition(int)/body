@@ -1,0 +1,8 @@
+{
+  if ((myTextSize == null) || (myTextSize.length == 0)) {
+    return 0;
+  }
+  ZLTextPage page=getPage(viewPage);
+  preparePaintInfo(page);
+  return Math.max(0,sizeOfTextBeforeCursor(page.StartCursor));
+}

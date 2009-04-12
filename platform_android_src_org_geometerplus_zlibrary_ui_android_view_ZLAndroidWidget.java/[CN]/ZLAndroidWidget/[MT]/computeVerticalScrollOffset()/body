@@ -1,3 +1,14 @@
 {
-  return myScrollBarOffset;
+  final ZLView view=ZLApplication.Instance().getCurrentView();
+  if (myScrollingInProgress || (myScrollingShift != 0)) {
+    final int from=view.getScrollbarThumbPosition(ZLView.PAGE_CENTRAL);
+    final int to=view.getScrollbarThumbPosition(myViewPageToScroll);
+    final boolean horizontal=(myViewPageToScroll == ZLView.PAGE_RIGHT) || (myViewPageToScroll == ZLView.PAGE_LEFT);
+    final int size=horizontal ? getWidth() : getHeight();
+    final int shift=Math.abs(myScrollingShift);
+    return (from * (size - shift) + to * shift) / size;
+  }
+ else {
+    return view.getScrollbarThumbPosition(ZLView.PAGE_CENTRAL);
+  }
 }

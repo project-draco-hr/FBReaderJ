@@ -1,7 +1,0 @@
-{
-  myCurrentIndex=index;
-  final String selectedValue=(String)getValues().get(index);
-  myEntries.myLinesToKeepEntry.setVisible(ourKeepLinesString.equals(selectedValue));
-  myEntries.myLinesToScrollEntry.setVisible(ourScrollLinesString.equals(selectedValue));
-  myEntries.myPercentToScrollEntry.setVisible(ourScrollPercentageString.equals(selectedValue));
-}

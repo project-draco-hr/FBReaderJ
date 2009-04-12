@@ -1,4 +1,0 @@
-{
-  final int angles[]={ZLViewWidget.Angle.DEGREES0,ZLViewWidget.Angle.DEGREES90,ZLViewWidget.Angle.DEGREES180,ZLViewWidget.Angle.DEGREES270};
-  myKeyEntry.setOrientation(angles[index]);
-}

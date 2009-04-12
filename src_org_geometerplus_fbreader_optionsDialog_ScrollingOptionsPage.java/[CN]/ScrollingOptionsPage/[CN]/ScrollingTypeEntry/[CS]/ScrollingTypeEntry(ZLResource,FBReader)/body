@@ -1,8 +1,0 @@
-{
-  myResource=resource;
-  myFBReader=fbreader;
-  myTouchScrollingString=resource.getResource("touch").getValue();
-  myTrackballScrollingString=resource.getResource("trackball").getValue();
-  myValues.add(myTouchScrollingString);
-  myValues.add(myTrackballScrollingString);
-}

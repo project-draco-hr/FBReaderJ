@@ -6,13 +6,25 @@
     page.OldHeight=newHeight;
     if (page.PaintState != PaintStateEnum.NOTHING_TO_PAINT) {
       page.LineInfos.clear();
-      if (!page.StartCursor.isNull()) {
-        page.EndCursor.reset();
-        page.PaintState=PaintStateEnum.START_IS_KNOWN;
+      if (page == myPreviousPage) {
+        if (!page.EndCursor.isNull()) {
+          page.StartCursor.reset();
+          page.PaintState=PaintStateEnum.END_IS_KNOWN;
+        }
+ else         if (!page.StartCursor.isNull()) {
+          page.EndCursor.reset();
+          page.PaintState=PaintStateEnum.START_IS_KNOWN;
+        }
       }
- else       if (!page.EndCursor.isNull()) {
-        page.StartCursor.reset();
-        page.PaintState=PaintStateEnum.END_IS_KNOWN;
+ else {
+        if (!page.StartCursor.isNull()) {
+          page.EndCursor.reset();
+          page.PaintState=PaintStateEnum.START_IS_KNOWN;
+        }
+ else         if (!page.EndCursor.isNull()) {
+          page.StartCursor.reset();
+          page.PaintState=PaintStateEnum.END_IS_KNOWN;
+        }
       }
     }
   }
@@ -115,6 +127,6 @@ myLineInfoCache.clear();
 if (page == myCurrentPage) {
 myPreviousPage.reset();
 myNextPage.reset();
-onPreparePaintInfo();
+onPaintInfoPrepared();
 }
 }

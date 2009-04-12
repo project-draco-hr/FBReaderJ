@@ -1,4 +1,0 @@
-{
-  final ZLKeyOptionEntry keyEntry=(ZLKeyOptionEntry)myOption;
-  keyEntry.onValueChanged(myEditor.getText().toString(),position);
-}

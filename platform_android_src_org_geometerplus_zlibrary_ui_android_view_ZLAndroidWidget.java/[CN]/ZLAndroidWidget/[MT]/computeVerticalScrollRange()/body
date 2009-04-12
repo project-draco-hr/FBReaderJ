@@ -1,3 +1,4 @@
 {
-  return myScrollBarRange;
+  final ZLView view=ZLApplication.Instance().getCurrentView();
+  return view.getScrollbarFullSize();
 }

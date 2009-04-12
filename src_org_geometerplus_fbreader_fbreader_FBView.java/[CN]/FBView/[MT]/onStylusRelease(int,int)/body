@@ -1,25 +1,40 @@
 {
-  boolean scrollingWasActive=myScrollingIsActive;
-  myScrollingIsActive=false;
   if (super.onStylusRelease(x,y)) {
     return true;
   }
-  if (scrollingWasActive) {
-    final int diffY=y - myStartY;
-    boolean doScroll=false;
-    if (diffY > 0) {
-      ZLTextWordCursor cursor=getStartCursor();
-      doScroll=!cursor.isStartOfParagraph() || !cursor.getParagraphCursor().isFirst();
-    }
- else     if (diffY < 0) {
-      ZLTextWordCursor cursor=getEndCursor();
-      doScroll=!cursor.isEndOfParagraph() || !cursor.getParagraphCursor().isLast();
-    }
-    if (doScroll) {
-      final int h=Context.getHeight();
-      final int w=Context.getWidth();
-      final int minDiff=(h > w) ? h / 4 : h / 3;
-      startAutoScrolling(Math.abs(diffY) >= minDiff);
+synchronized (this) {
+    if (isScrollingActive() && myIsManualScrollingActive) {
+      setScrollingActive(false);
+      myIsManualScrollingActive=false;
+      final boolean horizontal=ScrollingPreferences.Instance().HorizontalOption.getValue();
+      final int diff=horizontal ? x - myStartX : y - myStartY;
+      boolean doScroll=false;
+      if (diff > 0) {
+        ZLTextWordCursor cursor=getStartCursor();
+        doScroll=!cursor.isStartOfParagraph() || !cursor.getParagraphCursor().isFirst();
+      }
+ else       if (diff < 0) {
+        ZLTextWordCursor cursor=getEndCursor();
+        doScroll=!cursor.isEndOfParagraph() || !cursor.getParagraphCursor().isLast();
+      }
+      if (doScroll) {
+        final int h=Context.getHeight();
+        final int w=Context.getWidth();
+        final int minDiff=horizontal ? ((w > h) ? w / 4 : w / 3) : ((h > w) ? h / 4 : h / 3);
+        int viewPage=PAGE_CENTRAL;
+        if (Math.abs(diff) > minDiff) {
+          viewPage=horizontal ? ((diff < 0) ? PAGE_RIGHT : PAGE_LEFT) : ((diff < 0) ? PAGE_BOTTOM : PAGE_TOP);
+        }
+        if (ScrollingPreferences.Instance().AnimateOption.getValue()) {
+          startAutoScrolling(viewPage);
+        }
+ else {
+          scrollTo(PAGE_CENTRAL,0);
+          onScrollingFinished(viewPage);
+          ZLApplication.Instance().refreshWindow();
+          setScrollingActive(false);
+        }
+      }
       return true;
     }
   }

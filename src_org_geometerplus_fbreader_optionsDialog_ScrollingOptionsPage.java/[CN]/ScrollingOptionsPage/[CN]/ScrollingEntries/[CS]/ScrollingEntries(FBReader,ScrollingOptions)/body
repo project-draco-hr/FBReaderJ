@@ -1,7 +1,0 @@
-{
-  myModeEntry=new ScrollingModeEntry(fbreader,this,options.ModeOption);
-  myLinesToKeepEntry=new ZLSimpleSpinOptionEntry(options.LinesToKeepOption,1);
-  myLinesToScrollEntry=new ZLSimpleSpinOptionEntry(options.LinesToScrollOption,1);
-  myPercentToScrollEntry=new ZLSimpleSpinOptionEntry(options.PercentToScrollOption,5);
-  myModeEntry.onStringValueSelected(myModeEntry.initialValue());
-}

@@ -2,19 +2,25 @@
   if (super.onStylusMovePressed(x,y)) {
     return true;
   }
-  if (myScrollingIsActive) {
-    final int diffY=y - myStartY;
-    boolean doScroll=true;
-    if (diffY > 0) {
-      ZLTextWordCursor cursor=getStartCursor();
-      doScroll=!cursor.isStartOfParagraph() || !cursor.getParagraphCursor().isFirst();
-    }
- else     if (diffY < 0) {
-      ZLTextWordCursor cursor=getEndCursor();
-      doScroll=!cursor.isEndOfParagraph() || !cursor.getParagraphCursor().isLast();
-    }
-    if (doScroll) {
-      scrollTo(diffY);
+synchronized (this) {
+    if (isScrollingActive() && myIsManualScrollingActive) {
+      final boolean horizontal=ScrollingPreferences.Instance().HorizontalOption.getValue();
+      final int diff=horizontal ? x - myStartX : y - myStartY;
+      if (diff > 0) {
+        ZLTextWordCursor cursor=getStartCursor();
+        if (!cursor.isStartOfParagraph() || !cursor.getParagraphCursor().isFirst()) {
+          scrollTo(horizontal ? PAGE_LEFT : PAGE_TOP,diff);
+        }
+      }
+ else       if (diff < 0) {
+        ZLTextWordCursor cursor=getEndCursor();
+        if (!cursor.isEndOfParagraph() || !cursor.getParagraphCursor().isLast()) {
+          scrollTo(horizontal ? PAGE_RIGHT : PAGE_BOTTOM,-diff);
+        }
+      }
+ else {
+        scrollTo(PAGE_CENTRAL,0);
+      }
       return true;
     }
   }

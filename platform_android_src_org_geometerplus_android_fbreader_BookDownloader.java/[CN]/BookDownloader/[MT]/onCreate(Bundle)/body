@@ -1,5 +1,6 @@
 {
   super.onCreate(icicle);
+  setRequestedOrientation(ZLAndroidApplication.Instance().AutoOrientationOption.getValue() ? ActivityInfo.SCREEN_ORIENTATION_SENSOR : ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
   requestWindowFeature(Window.FEATURE_NO_TITLE);
   setContentView(R.layout.downloader);
   ourProgressBar=(ProgressBar)findViewById(android.R.id.progress);

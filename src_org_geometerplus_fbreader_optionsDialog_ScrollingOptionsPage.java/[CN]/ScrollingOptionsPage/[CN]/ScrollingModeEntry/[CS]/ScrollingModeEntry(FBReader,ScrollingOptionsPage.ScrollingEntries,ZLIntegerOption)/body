@@ -1,9 +1,0 @@
-{
-  myEntries=entries;
-  myFBReader=fbreader;
-  myOption=option;
-  myValues.add(ourNoOverlappingString);
-  myValues.add(ourKeepLinesString);
-  myValues.add(ourScrollLinesString);
-  myValues.add(ourScrollPercentageString);
-}

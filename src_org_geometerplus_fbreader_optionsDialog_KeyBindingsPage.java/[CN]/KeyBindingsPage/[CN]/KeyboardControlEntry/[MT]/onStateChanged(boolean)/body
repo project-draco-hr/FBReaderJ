@@ -1,4 +1,0 @@
-{
-  super.onStateChanged(state);
-  myFBReader.grabAllKeys(state);
-}

@@ -3,6 +3,5 @@
   if (keyName.equals("<Menu>") || keyName.equals("<Call>")) {
     return false;
   }
-  ZLApplication.Instance().doActionByKey(keyName);
-  return true;
+  return ZLApplication.Instance().doActionByKey(keyName);
 }

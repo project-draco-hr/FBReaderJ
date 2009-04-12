@@ -1,7 +1,0 @@
-{
-  final ZLKeyOptionEntry keyEntry=(ZLKeyOptionEntry)myOption;
-  keyEntry.onReset();
-  if (myEditor != null) {
-    setKeyName("");
-  }
-}

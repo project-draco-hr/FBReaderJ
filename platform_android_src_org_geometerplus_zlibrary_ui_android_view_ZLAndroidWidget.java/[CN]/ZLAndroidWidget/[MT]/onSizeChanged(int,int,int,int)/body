@@ -1,9 +1,10 @@
 {
   if (myScreenIsTouched) {
     final ZLView view=ZLApplication.Instance().getCurrentView();
-    view.onStylusRelease(myTouchX,myTouchY);
     myScrollingInProgress=false;
     myScrollingShift=0;
     myScreenIsTouched=false;
+    view.onScrollingFinished(ZLView.PAGE_CENTRAL);
+    setPageToScroll(ZLView.PAGE_CENTRAL);
   }
 }

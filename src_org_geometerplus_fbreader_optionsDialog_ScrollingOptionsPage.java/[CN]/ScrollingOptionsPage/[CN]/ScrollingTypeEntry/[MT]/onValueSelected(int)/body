@@ -1,5 +1,0 @@
-{
-  final String selectedValue=(String)getValues().get(index);
-  myTouchScrollingEntries.show(myTouchScrollingString.equals(selectedValue));
-  myTrackballScrollingEntries.show(myTrackballScrollingString.equals(selectedValue));
-}

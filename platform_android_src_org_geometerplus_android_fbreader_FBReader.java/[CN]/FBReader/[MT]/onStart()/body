@@ -1,0 +1,10 @@
+{
+  super.onStart();
+  final ZLAndroidApplication application=ZLAndroidApplication.Instance();
+  final int fullScreenFlag=application.ShowStatusBarOption.getValue() ? 0 : WindowManager.LayoutParams.FLAG_FULLSCREEN;
+  if (fullScreenFlag != myFullScreenFlag) {
+    startActivity(new Intent(this,this.getClass()));
+    finish();
+  }
+  setRequestedOrientation(application.AutoOrientationOption.getValue() ? ActivityInfo.SCREEN_ORIENTATION_SENSOR : ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
+}

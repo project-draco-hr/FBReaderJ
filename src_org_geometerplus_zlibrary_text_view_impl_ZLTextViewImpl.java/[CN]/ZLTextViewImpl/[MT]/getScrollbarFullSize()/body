@@ -1,0 +1,6 @@
+{
+  if ((myTextSize == null) || (myTextSize.length == 0)) {
+    return 1;
+  }
+  return myTextSize[myTextSize.length - 1];
+}

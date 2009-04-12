@@ -1,0 +1,54 @@
+{
+  myTextElementMap.clear();
+  final ZLTextBaseStyle baseStyle=ZLTextStyleCollection.getInstance().getBaseStyle();
+  final ZLPaintContext context=Context;
+  context.clear(baseStyle.BackgroundColorOption.getValue());
+  if ((myModel == null) || (myModel.getParagraphsNumber() == 0)) {
+    return;
+  }
+  ZLTextPage page;
+switch (viewPage) {
+default :
+case PAGE_CENTRAL:
+    page=myCurrentPage;
+  break;
+case PAGE_TOP:
+case PAGE_LEFT:
+page=myPreviousPage;
+if (myPreviousPage.PaintState == PaintStateEnum.NOTHING_TO_PAINT) {
+preparePaintInfo(myCurrentPage);
+myPreviousPage.EndCursor.setCursor(myCurrentPage.StartCursor);
+myPreviousPage.PaintState=PaintStateEnum.END_IS_KNOWN;
+}
+break;
+case PAGE_BOTTOM:
+case PAGE_RIGHT:
+page=myNextPage;
+if (myNextPage.PaintState == PaintStateEnum.NOTHING_TO_PAINT) {
+preparePaintInfo(myCurrentPage);
+myNextPage.StartCursor.setCursor(myCurrentPage.EndCursor);
+myNextPage.PaintState=PaintStateEnum.START_IS_KNOWN;
+}
+}
+preparePaintInfo(page);
+if (page.StartCursor.isNull() || page.EndCursor.isNull()) {
+return;
+}
+final ArrayList<ZLTextLineInfo> lineInfos=page.LineInfos;
+final int[] labels=new int[lineInfos.size() + 1];
+context.moveYTo(getTopMargin());
+int index=0;
+for (ZLTextLineInfo info : lineInfos) {
+final int y=Math.min(context.getY() + info.Height,getBottomLine());
+prepareTextLine(info,y);
+context.moveY(info.Height + info.Descent + info.VSpaceAfter);
+labels[++index]=myTextElementMap.size();
+}
+mySelectionModel.update();
+context.moveYTo(getTopMargin());
+index=0;
+for (ZLTextLineInfo info : lineInfos) {
+drawTextLine(context,info,labels[index],labels[index + 1]);
+++index;
+}
+}

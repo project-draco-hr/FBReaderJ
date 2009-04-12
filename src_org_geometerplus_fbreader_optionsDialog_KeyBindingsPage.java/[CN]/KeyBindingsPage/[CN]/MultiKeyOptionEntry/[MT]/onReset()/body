@@ -1,6 +1,0 @@
-{
-  myEntry0.onReset();
-  myEntry90.onReset();
-  myEntry180.onReset();
-  myEntry270.onReset();
-}

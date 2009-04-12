@@ -1,3 +1,0 @@
-{
-  myOption.setValue(codeByName(value));
-}

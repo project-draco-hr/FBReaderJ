@@ -1,6 +1,0 @@
-{
-  dialogTab.addOption("mode",myModeEntry);
-  dialogTab.addOption("linesToKeep",myLinesToKeepEntry);
-  dialogTab.addOption("linesToScroll",myLinesToScrollEntry);
-  dialogTab.addOption("percentToScroll",myPercentToScrollEntry);
-}

@@ -1,5 +1,0 @@
-{
-  super(fbreader.UseSeparateBindingsOption);
-  myKeyEntry=keyEntry;
-  myOrientationEntry=orientationEntry;
-}

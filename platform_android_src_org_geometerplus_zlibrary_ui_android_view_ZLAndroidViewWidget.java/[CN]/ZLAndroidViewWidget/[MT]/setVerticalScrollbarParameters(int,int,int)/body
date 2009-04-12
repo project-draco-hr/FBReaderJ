@@ -1,3 +1,0 @@
-{
-  ((ZLAndroidLibrary)ZLAndroidLibrary.Instance()).getWidget().setVerticalScrollbarParameters(full,from,to);
-}

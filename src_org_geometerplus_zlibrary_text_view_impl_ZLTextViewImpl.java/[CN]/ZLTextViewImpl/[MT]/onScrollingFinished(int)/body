@@ -1,0 +1,48 @@
+{
+  setScrollingActive(false);
+switch (viewPage) {
+case PAGE_CENTRAL:
+    break;
+case PAGE_LEFT:
+case PAGE_TOP:
+{
+    ZLTextPage swap=myNextPage;
+    myNextPage=myCurrentPage;
+    myCurrentPage=myPreviousPage;
+    myPreviousPage=swap;
+    myPreviousPage.reset();
+    if (myCurrentPage.PaintState == PaintStateEnum.NOTHING_TO_PAINT) {
+      preparePaintInfo(myNextPage);
+      myCurrentPage.EndCursor.setCursor(myNextPage.StartCursor);
+      myCurrentPage.PaintState=PaintStateEnum.END_IS_KNOWN;
+    }
+ else     if (!myCurrentPage.EndCursor.isNull() && !myNextPage.StartCursor.isNull() && !myCurrentPage.EndCursor.equalsToCursor(myNextPage.StartCursor)) {
+      myNextPage.reset();
+      myNextPage.StartCursor.setCursor(myCurrentPage.EndCursor);
+      myNextPage.PaintState=PaintStateEnum.START_IS_KNOWN;
+    }
+    if (myCurrentPage.PaintState == PaintStateEnum.READY) {
+      onPaintInfoPrepared();
+    }
+    break;
+  }
+case PAGE_RIGHT:
+case PAGE_BOTTOM:
+{
+  ZLTextPage swap=myPreviousPage;
+  myPreviousPage=myCurrentPage;
+  myCurrentPage=myNextPage;
+  myNextPage=swap;
+  myNextPage.reset();
+  if (myCurrentPage.PaintState == PaintStateEnum.NOTHING_TO_PAINT) {
+    preparePaintInfo(myPreviousPage);
+    myCurrentPage.StartCursor.setCursor(myNextPage.EndCursor);
+    myCurrentPage.PaintState=PaintStateEnum.START_IS_KNOWN;
+  }
+  if (myCurrentPage.PaintState == PaintStateEnum.READY) {
+    onPaintInfoPrepared();
+  }
+  break;
+}
+}
+}

@@ -1,4 +1,0 @@
-{
-  myBimap.insert(actionId);
-  addActionName(myResource.getResource(actionId).getValue());
-}
