@@ -80,7 +80,7 @@ unsetCurrentTextModel();
 break;
 case FB2Tag.BINARY:
 if (myCurrentImage != null) {
-myCurrentImage.trimToSize();
+myCurrentImage.close();
 myCurrentImage=null;
 }
 break;

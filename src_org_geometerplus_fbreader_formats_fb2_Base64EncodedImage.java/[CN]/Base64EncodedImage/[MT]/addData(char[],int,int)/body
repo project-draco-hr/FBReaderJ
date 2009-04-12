@@ -1,3 +1,9 @@
 {
-  myEncodedData.append(data,offset,length);
+  if (myStreamWriter != null) {
+    try {
+      myStreamWriter.write(data,offset,length);
+    }
+ catch (    IOException e) {
+    }
+  }
 }

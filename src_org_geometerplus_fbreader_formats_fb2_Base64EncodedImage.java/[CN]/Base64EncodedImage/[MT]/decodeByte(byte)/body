@@ -1,5 +1,5 @@
 {
-switch (encodedChar) {
+switch (encodedByte) {
 case 'A':
 case 'B':
 case 'C':
@@ -26,7 +26,7 @@ case 'W':
 case 'X':
 case 'Y':
 case 'Z':
-    return (byte)(encodedChar - 'A');
+    return (byte)(encodedByte - 'A');
 case 'a':
 case 'b':
 case 'c':
@@ -53,7 +53,7 @@ case 'w':
 case 'x':
 case 'y':
 case 'z':
-  return (byte)(encodedChar - 'a' + 26);
+  return (byte)(encodedByte - 'a' + 26);
 case '0':
 case '1':
 case '2':
@@ -64,7 +64,7 @@ case '6':
 case '7':
 case '8':
 case '9':
-return (byte)(encodedChar - '0' + 52);
+return (byte)(encodedByte - '0' + 52);
 case '+':
 return 62;
 case '/':
