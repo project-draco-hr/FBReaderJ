@@ -1,7 +1,6 @@
 {
   if (ourLanguageCodes.isEmpty()) {
     TreeSet codes=new TreeSet();
-    codes.add("zh");
     ZLDir dir=patternsDirectory();
     if (dir != null) {
       final ArrayList fileNames=dir.collectFiles();
@@ -19,5 +18,5 @@
     }
     ourLanguageCodes.addAll(codes);
   }
-  return ourLanguageCodes;
+  return Collections.unmodifiableList(ourLanguageCodes);
 }

@@ -1,0 +1,4 @@
+{
+  myGroup.addPreference(preference);
+  myPreferences.add(preference);
+}

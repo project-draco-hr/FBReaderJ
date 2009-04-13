@@ -1,6 +1,6 @@
 {
   if (!myIsChanged) {
-    return;
+    return false;
   }
   final BooksDatabase database=BooksDatabase.Instance();
   database.executeAsATransaction(new Runnable(){
@@ -26,4 +26,5 @@
 );
   myIsChanged=false;
   myIsSaved=true;
+  return true;
 }

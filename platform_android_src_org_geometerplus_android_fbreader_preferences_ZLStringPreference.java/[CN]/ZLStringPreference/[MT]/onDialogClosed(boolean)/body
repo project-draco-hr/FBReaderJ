@@ -2,4 +2,5 @@
   if (result) {
     setValue(getEditText().getText().toString());
   }
+  super.onDialogClosed(result);
 }

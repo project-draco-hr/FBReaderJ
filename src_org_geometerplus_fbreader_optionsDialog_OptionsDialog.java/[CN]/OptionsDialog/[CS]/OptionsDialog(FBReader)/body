@@ -3,7 +3,6 @@
   myDialog=ZLDialogManager.getInstance().createOptionsDialog("OptionsDialog",null,new OptionsApplyRunnable(fbreader),true);
   final ZLDialogContent encodingTab=myDialog.createTab("Language");
   encodingTab.addOption("autoDetect",new ZLSimpleBooleanOptionEntry(PluginCollection.instance().LanguageAutoDetectOption));
-  encodingTab.addOption("defaultLanguage",new ZLLanguageOptionEntry(PluginCollection.instance().DefaultLanguageOption,ZLLanguageList.languageCodes()));
   final ZLDialogContent selectionTab=myDialog.createTab("Selection");
   selectionTab.addOption("enableSelection",FBView.selectionOption());
   ZLDialogContent marginTab=myDialog.createTab("Margins");

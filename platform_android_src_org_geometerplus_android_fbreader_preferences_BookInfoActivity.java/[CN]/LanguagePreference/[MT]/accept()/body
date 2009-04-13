@@ -1,0 +1,4 @@
+{
+  final String value=getValue();
+  myDescription.setLanguage((value.length() != 0) ? value : null);
+}

@@ -3,7 +3,8 @@
   final TOCTree tree=(TOCTree)getItem(position);
   if (tree.hasChildren()) {
     menu.setHeaderTitle(tree.getText());
-    menu.add(0,PROCESS_TREE_ITEM_ID,0,isOpen(tree) ? "Collapse tree" : "Expand tree");
-    menu.add(0,READ_BOOK_ITEM_ID,0,"Read book text");
+    final ZLResource resource=ZLResource.resource("tocView");
+    menu.add(0,PROCESS_TREE_ITEM_ID,0,resource.getResource(isOpen(tree) ? "collapseTree" : "expandTree").getValue());
+    menu.add(0,READ_BOOK_ITEM_ID,0,resource.getResource("readText").getValue());
   }
 }

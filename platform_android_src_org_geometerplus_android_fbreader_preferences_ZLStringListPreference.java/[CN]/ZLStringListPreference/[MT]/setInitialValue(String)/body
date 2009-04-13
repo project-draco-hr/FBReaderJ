@@ -1,0 +1,9 @@
+{
+  final int index=findIndexOfValue(value);
+  if (index >= 0) {
+    setValueIndex(index);
+    setSummary(getEntry());
+    return true;
+  }
+  return false;
+}
