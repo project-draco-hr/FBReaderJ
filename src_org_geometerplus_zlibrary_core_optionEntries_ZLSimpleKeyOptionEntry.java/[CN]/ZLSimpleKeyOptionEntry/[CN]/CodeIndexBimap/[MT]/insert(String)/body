@@ -1,4 +1,0 @@
-{
-  IndexByCode.put(code,CodeByIndex.size());
-  CodeByIndex.add(code);
-}

@@ -1,6 +1,0 @@
-{
-  if ((index < 0) || (index >= (int)CodeByIndex.size())) {
-    return ZLApplication.NoAction;
-  }
-  return (String)CodeByIndex.get(index);
-}
