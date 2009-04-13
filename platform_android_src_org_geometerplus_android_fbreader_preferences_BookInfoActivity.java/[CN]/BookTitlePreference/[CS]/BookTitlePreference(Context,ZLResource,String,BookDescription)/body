@@ -1,6 +1,5 @@
 {
   super(context,rootResource,resourceKey);
   myDescription=description;
-  setSummary(description.getTitle());
-  setText(description.getTitle());
+  setValue(description.getTitle());
 }

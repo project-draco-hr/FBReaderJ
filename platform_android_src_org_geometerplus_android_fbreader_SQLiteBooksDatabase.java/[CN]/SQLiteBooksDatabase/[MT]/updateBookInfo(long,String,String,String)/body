@@ -1,6 +1,6 @@
 {
   if (myUpdateBookInfoStatement == null) {
-    myUpdateBookInfoStatement=myDatabase.compileStatement("UPDATE Books SET encoding = ? language = ? title = ? WHERE book_id = ?");
+    myUpdateBookInfoStatement=myDatabase.compileStatement("UPDATE Books SET encoding = ?, language = ?, title = ? WHERE book_id = ?");
   }
   bindString(myUpdateBookInfoStatement,1,encoding);
   bindString(myUpdateBookInfoStatement,2,language);

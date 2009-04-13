@@ -1,0 +1,4 @@
+{
+  setSummary(text);
+  setText(text);
+}
