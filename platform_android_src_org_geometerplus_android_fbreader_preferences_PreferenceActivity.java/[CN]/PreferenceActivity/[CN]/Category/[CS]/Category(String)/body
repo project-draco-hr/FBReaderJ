@@ -1,6 +1,0 @@
-{
-  myResource=PreferenceActivity.this.myResource.getResource(resourceKey);
-  myCategory=new PreferenceCategory(PreferenceActivity.this);
-  myCategory.setTitle(myResource.getValue());
-  myScreen.addPreference(myCategory);
-}

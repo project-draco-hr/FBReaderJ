@@ -1,0 +1,6 @@
+{
+  myResource=ZLPreferenceActivity.this.myResource.getResource(resourceKey);
+  myCategory=new PreferenceCategory(ZLPreferenceActivity.this);
+  myCategory.setTitle(myResource.getValue());
+  myScreen.addPreference(myCategory);
+}

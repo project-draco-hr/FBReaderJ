@@ -1,0 +1,5 @@
+{
+  super(context);
+  ZLResource resource=rootResource.getResource(resourceKey);
+  setTitle(resource.getValue());
+}

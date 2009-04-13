@@ -1,6 +1,4 @@
 {
-  super.onCreate(bundle);
-  myScreen=getPreferenceManager().createPreferenceScreen(this);
   final Category lookNFeelCategory=new Category("LookNFeel");
   lookNFeelCategory.addOption(ZLAndroidApplication.Instance().AutoOrientationOption,"autoOrientation");
   lookNFeelCategory.addOption(ZLAndroidApplication.Instance().ShowStatusBarOption,"showStatusBar");
@@ -10,5 +8,4 @@
   scrollingCategory.addOption(scrollingPreferences.VolumeKeysOption,"volumeKeys");
   scrollingCategory.addOption(scrollingPreferences.AnimateOption,"animated");
   scrollingCategory.addOption(scrollingPreferences.HorizontalOption,"horizontal");
-  setPreferenceScreen(myScreen);
 }

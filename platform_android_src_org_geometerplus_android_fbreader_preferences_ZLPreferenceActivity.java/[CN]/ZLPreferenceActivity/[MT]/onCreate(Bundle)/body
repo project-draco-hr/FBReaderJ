@@ -1,0 +1,6 @@
+{
+  super.onCreate(bundle);
+  myScreen=getPreferenceManager().createPreferenceScreen(this);
+  init();
+  setPreferenceScreen(myScreen);
+}

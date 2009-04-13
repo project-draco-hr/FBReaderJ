@@ -1,0 +1,4 @@
+{
+  myCategory.addPreference(preference);
+  myPreferences.add(preference);
+}
