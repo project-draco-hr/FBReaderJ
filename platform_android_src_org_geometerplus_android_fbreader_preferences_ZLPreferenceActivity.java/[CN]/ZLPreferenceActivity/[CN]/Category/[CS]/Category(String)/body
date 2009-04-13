@@ -1,6 +1,12 @@
 {
-  myResource=ZLPreferenceActivity.this.myResource.getResource(resourceKey);
-  myCategory=new PreferenceCategory(ZLPreferenceActivity.this);
-  myCategory.setTitle(myResource.getValue());
-  myScreen.addPreference(myCategory);
+  if (resourceKey != null) {
+    myResource=ZLPreferenceActivity.this.myResource.getResource(resourceKey);
+    myGroup=new PreferenceCategory(ZLPreferenceActivity.this);
+    myGroup.setTitle(myResource.getValue());
+    myScreen.addPreference(myGroup);
+  }
+ else {
+    myResource=ZLPreferenceActivity.this.myResource;
+    myGroup=myScreen;
+  }
 }

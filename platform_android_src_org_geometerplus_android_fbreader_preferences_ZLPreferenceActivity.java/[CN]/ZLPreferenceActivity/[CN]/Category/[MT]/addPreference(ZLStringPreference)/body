@@ -1,4 +1,4 @@
 {
-  myCategory.addPreference(preference);
+  myGroup.addPreference(preference);
   myPreferences.add(preference);
 }
