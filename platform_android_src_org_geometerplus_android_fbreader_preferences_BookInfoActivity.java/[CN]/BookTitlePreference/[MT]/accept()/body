@@ -1,2 +1,3 @@
 {
+  myDescription.setTitle(getValue());
 }

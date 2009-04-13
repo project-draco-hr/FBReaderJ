@@ -1,4 +1,5 @@
 {
-  setSummary(text);
-  setText(text);
+  setSummary(value);
+  setText(value);
+  myValue=value;
 }

@@ -1,0 +1,7 @@
+{
+  if (myDeleteBookTagsStatement == null) {
+    myDeleteBookTagsStatement=myDatabase.compileStatement("DELETE FROM BookTag WHERE book_id = ?");
+    myDeleteBookTagsStatement.bindLong(1,bookId);
+    myDeleteBookTagsStatement.execute();
+  }
+}

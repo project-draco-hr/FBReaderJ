@@ -1,0 +1,7 @@
+{
+  if (myDeleteBookAuthorsStatement == null) {
+    myDeleteBookAuthorsStatement=myDatabase.compileStatement("DELETE FROM BookAuthor WHERE book_id = ?");
+    myDeleteBookAuthorsStatement.bindLong(1,bookId);
+    myDeleteBookAuthorsStatement.execute();
+  }
+}
