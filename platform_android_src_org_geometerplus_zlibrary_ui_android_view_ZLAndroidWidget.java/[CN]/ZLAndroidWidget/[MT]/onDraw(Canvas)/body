@@ -4,6 +4,7 @@
   final int h=getHeight();
   if ((myMainBitmap != null) && ((myMainBitmap.getWidth() != w) || (myMainBitmap.getHeight() != h))) {
     myMainBitmap=null;
+    mySecondaryBitmap=null;
   }
   if (myMainBitmap == null) {
     myMainBitmap=Bitmap.createBitmap(w,h,Bitmap.Config.ARGB_8888);
