@@ -1,3 +1,0 @@
-{
-  android.util.Log.w("ZLAndroidApplicationWindow","setFullscreen " + fullscreen);
-}

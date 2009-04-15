@@ -1,4 +1,0 @@
-{
-  Reader.openBook(BookDescription.getDescription(Reader.getHelpFileName()));
-  Reader.refreshWindow();
-}

@@ -34,5 +34,6 @@
       }
     }
   }
+  bookFileNames.add(getHelpFileName());
   return bookFileNames;
 }
