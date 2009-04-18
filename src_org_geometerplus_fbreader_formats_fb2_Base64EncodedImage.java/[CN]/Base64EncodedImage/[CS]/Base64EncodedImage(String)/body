@@ -1,9 +1,9 @@
 {
   super(contentType);
   new File(DIRECTORY_NAME).mkdirs();
-  myFileName=DIRECTORY_NAME + "/image" + ourCounter++;
+  myFileNumber=ourCounter++;
   try {
-    myStreamWriter=new OutputStreamWriter(new FileOutputStream(myFileName),"UTF-8");
+    myStreamWriter=new OutputStreamWriter(new FileOutputStream(DIRECTORY_NAME + "/image" + myFileNumber),"UTF-8");
   }
  catch (  IOException e) {
   }
