@@ -2,12 +2,7 @@
   if (myDoRebuild) {
     myCollectionByAuthor.clear();
     myCollectionByTag.clear();
-    BooksDatabase.Instance().executeAsATransaction(new Runnable(){
-      public void run(){
-        build();
-      }
-    }
-);
+    build();
     myCollectionByAuthor.sortAllChildren();
     myCollectionByTag.sortAllChildren();
     myDoRebuild=false;

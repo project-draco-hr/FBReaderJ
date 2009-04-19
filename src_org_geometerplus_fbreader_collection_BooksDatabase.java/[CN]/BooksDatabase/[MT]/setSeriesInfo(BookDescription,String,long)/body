@@ -1,0 +1,3 @@
+{
+  description.setSeriesInfoWithNoCheck(series,index);
+}

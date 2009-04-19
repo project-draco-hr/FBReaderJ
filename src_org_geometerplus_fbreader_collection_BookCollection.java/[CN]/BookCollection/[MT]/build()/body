@@ -1,10 +1,11 @@
 {
-  final HashSet fileNamesSet=collectBookFileNames();
+  System.err.println("before build: " + System.currentTimeMillis());
   final HashMap<Tag,TagTree> tagTreeMap=new HashMap<Tag,TagTree>();
   final HashMap<Author,AuthorTree> authorTreeMap=new HashMap<Author,AuthorTree>();
   final HashMap<AuthorSeriesPair,SeriesTree> seriesTreeMap=new HashMap<AuthorSeriesPair,SeriesTree>();
-  for (Iterator it=fileNamesSet.iterator(); it.hasNext(); ) {
-    final BookDescription description=BookDescription.getDescription((String)it.next());
+  final List<BookDescription> allDescriptions=collectBookDescriptions();
+  System.err.println(allDescriptions.size() + " books");
+  for (  BookDescription description : allDescriptions) {
     List<Author> authors=description.authors();
     if (authors.isEmpty()) {
       authors=(List<Author>)ourNullList;
@@ -38,4 +39,13 @@
       getTagTree(t,tagTreeMap).createBookSubTree(description);
     }
   }
+  BooksDatabase.Instance().executeAsATransaction(new Runnable(){
+    public void run(){
+      for (      BookDescription description : allDescriptions) {
+        description.save();
+      }
+    }
+  }
+);
+  System.err.println("after build: " + System.currentTimeMillis());
 }

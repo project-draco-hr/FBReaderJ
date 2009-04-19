@@ -1,6 +1,6 @@
 {
   if (!ZLMiscUtil.equals(myLanguage,language)) {
     myLanguage=language;
-    myIsChanged=true;
+    myIsSaved=false;
   }
 }

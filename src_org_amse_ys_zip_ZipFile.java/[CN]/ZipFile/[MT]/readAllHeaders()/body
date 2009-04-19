@@ -14,7 +14,7 @@
           break;
         }
  else {
-          throw new WrongZipFormatException("readHeaders. Wrong signature found = " + header + " at position "+ baseStream.offset());
+          throw new ZipException("readHeaders. Wrong signature found = " + header + " at position "+ baseStream.offset());
         }
       }
       readFileHeader(baseStream,null);

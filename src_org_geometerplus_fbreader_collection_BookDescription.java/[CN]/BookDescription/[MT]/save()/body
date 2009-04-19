@@ -1,5 +1,5 @@
 {
-  if (!myIsChanged) {
+  if (myIsSaved) {
     return false;
   }
   final BooksDatabase database=BooksDatabase.Instance();
@@ -24,7 +24,6 @@
     }
   }
 );
-  myIsChanged=false;
   myIsSaved=true;
   return true;
 }

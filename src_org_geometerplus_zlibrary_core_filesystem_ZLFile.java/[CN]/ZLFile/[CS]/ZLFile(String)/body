@@ -6,7 +6,7 @@
     myNameWithExtension=path;
   }
  else {
-    myPath=ZLFSUtil.normalize(path);
+    myPath=path;
     int index=ZLFSUtil.findLastFileNameDelimiter(myPath);
     if (index < myPath.length() - 1) {
       myNameWithExtension=myPath.substring(index + 1);
@@ -15,35 +15,5 @@
       myNameWithExtension=myPath;
     }
   }
-  myNameWithoutExtension=myNameWithExtension;
-  Integer value=(Integer)ourForcedFiles.get(myPath);
-  if (value != null) {
-    myArchiveType=value.intValue();
-  }
- else {
-    myArchiveType=ArchiveType.NONE;
-    String lowerCaseName=myNameWithoutExtension.toLowerCase();
-    if (lowerCaseName.endsWith(".gz")) {
-      myNameWithoutExtension=myNameWithoutExtension.substring(0,myNameWithoutExtension.length() - 3);
-      lowerCaseName=lowerCaseName.substring(0,lowerCaseName.length() - 3);
-      myArchiveType=myArchiveType | ArchiveType.GZIP;
-    }
-    if (lowerCaseName.endsWith(".zip")) {
-      myArchiveType=myArchiveType | ArchiveType.ZIP;
-    }
- else     if (lowerCaseName.endsWith(".tar")) {
-      myArchiveType=myArchiveType | ArchiveType.TAR;
-    }
- else     if (lowerCaseName.endsWith(".tgz") || lowerCaseName.endsWith(".ipk")) {
-      myArchiveType=myArchiveType | ArchiveType.TAR | ArchiveType.GZIP;
-    }
-  }
-  int index=myNameWithoutExtension.lastIndexOf('.');
-  if (index > 0) {
-    myExtension=myNameWithoutExtension.substring(index + 1);
-    myNameWithoutExtension=myNameWithoutExtension.substring(0,index);
-  }
- else {
-    myExtension="";
-  }
+  init();
 }

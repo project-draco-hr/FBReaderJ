@@ -1,0 +1,44 @@
+{
+  final Queue<String> dirNameQueue=new LinkedList<String>();
+  final HashSet<String> dirNameSet=new HashSet<String>();
+  final Map<String,BookDescription> savedDescriptions=BooksDatabase.Instance().listBooks();
+  final LinkedList<BookDescription> bookDescriptions=new LinkedList<BookDescription>();
+  addDescription(bookDescriptions,null,getHelpFileName(),savedDescriptions);
+  dirNameQueue.offer(BookDirectory);
+  while (!dirNameQueue.isEmpty()) {
+    String name=dirNameQueue.poll();
+    if (dirNameSet.contains(name)) {
+      continue;
+    }
+    dirNameSet.add(name);
+    File[] items=new File(name).listFiles();
+    if (items == null) {
+      continue;
+    }
+    for (    File i : items) {
+      if (i.getName().startsWith(".")) {
+        continue;
+      }
+      final String fileName=i.getPath();
+      if (i.isDirectory()) {
+        dirNameQueue.add(fileName);
+      }
+ else {
+        final ZLFile file=new ZLFile(i);
+        if (PluginCollection.instance().getPlugin(file) != null) {
+          addDescription(bookDescriptions,null,fileName,savedDescriptions);
+        }
+ else         if (file.isArchive()) {
+          if (!BookDescriptionUtil.checkInfo(file)) {
+            BookDescriptionUtil.resetZipInfo(file);
+            BookDescriptionUtil.saveInfo(file);
+          }
+          for (          String entryName : BookDescriptionUtil.listZipEntries(file)) {
+            addDescription(bookDescriptions,file,entryName,savedDescriptions);
+          }
+        }
+      }
+    }
+  }
+  return bookDescriptions;
+}

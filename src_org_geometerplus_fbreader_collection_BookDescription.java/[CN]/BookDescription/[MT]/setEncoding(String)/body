@@ -1,6 +1,6 @@
 {
   if (!ZLMiscUtil.equals(myEncoding,encoding)) {
     myEncoding=encoding;
-    myIsChanged=true;
+    myIsSaved=false;
   }
 }

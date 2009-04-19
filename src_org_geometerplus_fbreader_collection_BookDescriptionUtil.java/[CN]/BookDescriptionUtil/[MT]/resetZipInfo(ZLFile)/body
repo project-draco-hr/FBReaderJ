@@ -8,7 +8,7 @@
     for (int i=0; i < size; ++i) {
       String entry=(String)entries.get(i);
       final ZLStringOption entryOption=new ZLStringOption(zipFile.getPath(),"","");
-      if (PluginCollection.instance().getPlugin(new ZLFile(entry),true) != null) {
+      if (PluginCollection.instance().getPlugin(new ZLFile(entry)) != null) {
         final String fullName=zipPrefix + entry;
         entryOption.changeName(ENTRY + counter);
         entryOption.setValue(fullName);

@@ -1,0 +1,6 @@
+{
+  if (myTags == null) {
+    myTags=new ArrayList<Tag>();
+  }
+  myTags.add(tag);
+}

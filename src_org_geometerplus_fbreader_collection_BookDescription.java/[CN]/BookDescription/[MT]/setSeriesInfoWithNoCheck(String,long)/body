@@ -1,0 +1,3 @@
+{
+  mySeriesInfo=new SeriesInfo(name,index);
+}

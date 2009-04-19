@@ -1,0 +1,8 @@
+{
+  myDatabase.beginTransaction();
+  myDatabase.execSQL("CREATE INDEX BookAuthor_BookIndex ON BookAuthor (book_id)");
+  myDatabase.execSQL("CREATE INDEX BookTag_BookIndex ON BookTag (book_id)");
+  myDatabase.execSQL("CREATE INDEX BookSeries_BookIndex ON BookSeries (book_id)");
+  myDatabase.setTransactionSuccessful();
+  myDatabase.endTransaction();
+}

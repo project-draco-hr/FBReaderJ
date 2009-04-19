@@ -1,6 +1,6 @@
 {
   if (!ZLMiscUtil.equals(myTitle,title)) {
     myTitle=title;
-    myIsChanged=true;
+    myIsSaved=false;
   }
 }

@@ -1,9 +1,9 @@
 {
   myCurrentPosition++;
-  if (myBytesReady == 0) {
+  if (myBytesReady <= 0) {
     myPositionInBuffer=0;
     myBytesReady=myFileInputStream.read(myBuffer);
-    if (myBytesReady == 0) {
+    if (myBytesReady <= 0) {
       return -1;
     }
   }

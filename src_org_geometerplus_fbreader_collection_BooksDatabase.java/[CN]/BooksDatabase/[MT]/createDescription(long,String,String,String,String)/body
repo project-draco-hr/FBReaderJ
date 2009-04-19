@@ -1,0 +1,3 @@
+{
+  return new BookDescription(bookId,fileName,title,encoding,language);
+}

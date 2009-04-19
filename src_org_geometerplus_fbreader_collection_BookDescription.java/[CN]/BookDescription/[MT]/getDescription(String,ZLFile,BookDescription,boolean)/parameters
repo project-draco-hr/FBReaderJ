@@ -1,0 +1,4 @@
+String fileName
+ZLFile file
+BookDescription description
+boolean readFromDB

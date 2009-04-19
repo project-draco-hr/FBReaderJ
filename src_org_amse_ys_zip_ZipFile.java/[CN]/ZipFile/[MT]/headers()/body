@@ -4,7 +4,5 @@
   }
  catch (  IOException e) {
   }
-catch (  WrongZipFormatException e) {
-  }
   return myFileHeaders.values();
 }

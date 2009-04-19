@@ -5,7 +5,7 @@
     }
     if (!myTags.contains(tag)) {
       myTags.add(tag);
-      myIsChanged=true;
+      myIsSaved=false;
     }
   }
 }

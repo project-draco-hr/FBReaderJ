@@ -8,10 +8,5 @@
  else   if (len == 0) {
     return 0;
   }
-  try {
-    return myDecompressor.read(b,off,len);
-  }
- catch (  WrongZipFormatException e) {
-    throw new IOException("when reading occured exception " + e.getMessage());
-  }
+  return myDecompressor.read(b,off,len);
 }

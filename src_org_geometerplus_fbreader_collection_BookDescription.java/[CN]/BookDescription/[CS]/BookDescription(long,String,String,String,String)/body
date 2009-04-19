@@ -1,0 +1,8 @@
+{
+  myBookId=bookId;
+  FileName=fileName;
+  myTitle=title;
+  myEncoding=encoding;
+  myLanguage=language;
+  myIsSaved=true;
+}

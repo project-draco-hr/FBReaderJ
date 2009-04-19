@@ -2,7 +2,7 @@
   do {
     int tmp=myStream.read();
     if (tmp < 0) {
-      throw new RuntimeException("getBit: read after end of file");
+      throw new ZipException("getBit: read after end of file");
     }
     myTempInt+=tmp << myBitsInBuffer;
     myBitsInBuffer+=8;

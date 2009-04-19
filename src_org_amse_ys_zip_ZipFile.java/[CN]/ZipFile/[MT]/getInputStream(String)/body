@@ -2,12 +2,7 @@
   if (!myFileHeaders.isEmpty()) {
     LocalFileHeader header=myFileHeaders.get(entryName);
     if (header != null) {
-      try {
-        return createZipInputStream(header);
-      }
- catch (      WrongZipFormatException e) {
-        return null;
-      }
+      return createZipInputStream(header);
     }
     if (myAllFilesAreRead) {
       return null;
@@ -23,7 +18,7 @@
           break;
         }
  else {
-          throw new IOException("Wrong signature " + signature + " found at position "+ baseStream.offset());
+          throw new ZipException("Wrong signature " + signature + " found at position "+ baseStream.offset());
         }
       }
     }
@@ -33,7 +28,7 @@
       try {
         return createZipInputStream(header);
       }
- catch (      WrongZipFormatException e) {
+ catch (      ZipException e) {
       }
     }
   }

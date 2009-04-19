@@ -21,6 +21,6 @@ myState=ST_DYNAMIC_CODES;
 readCodes();
 break;
 case 3:
-throw new WrongZipFormatException("Code 11 found in header of delflated block. (means error according to specification)");
+throw new ZipException("Code 11 found in header of delflated block. (means error according to specification)");
 }
 }

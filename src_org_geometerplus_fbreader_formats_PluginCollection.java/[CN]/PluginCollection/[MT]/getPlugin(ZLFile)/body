@@ -1,0 +1,8 @@
+{
+  for (  FormatPlugin plugin : myPlugins) {
+    if (plugin.acceptsFile(file)) {
+      return plugin;
+    }
+  }
+  return null;
+}

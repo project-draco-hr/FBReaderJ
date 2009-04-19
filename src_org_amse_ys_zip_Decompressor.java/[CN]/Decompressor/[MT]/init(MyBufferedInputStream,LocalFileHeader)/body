@@ -12,6 +12,6 @@ synchronized (ourDeflators) {
   }
 return new DeflatingDecompressor(is,header);
 default :
-throw new WrongZipFormatException("Unsupported method of compression");
+throw new ZipException("Unsupported method of compression");
 }
 }

@@ -5,12 +5,10 @@
   if (myAuthors == null) {
     myAuthors=new ArrayList<Author>();
     myAuthors.add(author);
-    myIsChanged=true;
+    myIsSaved=false;
   }
- else {
-    if (!myAuthors.contains(author)) {
-      myAuthors.add(author);
-      myIsChanged=true;
-    }
+ else   if (!myAuthors.contains(author)) {
+    myAuthors.add(author);
+    myIsSaved=false;
   }
 }

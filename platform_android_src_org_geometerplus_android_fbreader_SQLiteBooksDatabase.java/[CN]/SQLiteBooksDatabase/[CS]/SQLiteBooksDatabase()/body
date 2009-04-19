@@ -5,6 +5,8 @@ case 0:
     createTables();
 case 1:
   updateTables1();
+case 2:
+updateTables2();
 }
-myDatabase.setVersion(2);
+myDatabase.setVersion(3);
 }
