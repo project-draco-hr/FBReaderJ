@@ -7,6 +7,8 @@ case 1:
   updateTables1();
 case 2:
 updateTables2();
+case 3:
+updateTables3();
 }
-myDatabase.setVersion(3);
+myDatabase.setVersion(4);
 }

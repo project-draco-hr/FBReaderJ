@@ -1,0 +1,6 @@
+{
+  myDatabase.beginTransaction();
+  myDatabase.execSQL("CREATE TABLE Files(" + "file_id INTEGER PRIMARY KEY," + "name TEXT NOT NULL,"+ "parent_id INTEGER REFERENCES Files(file_id),"+ "size INTEGER,"+ "CONSTRAINT Files_Unique UNIQUE (name, parent_id))");
+  myDatabase.setTransactionSuccessful();
+  myDatabase.endTransaction();
+}
