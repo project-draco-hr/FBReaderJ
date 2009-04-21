@@ -1,0 +1,4 @@
+{
+  myFile.mkdirs();
+  return new ZLFSDir(getPath());
+}

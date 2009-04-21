@@ -1,4 +1,0 @@
-{
-  if (myInfo == null)   fillInfo();
-  return myInfo.Size;
-}

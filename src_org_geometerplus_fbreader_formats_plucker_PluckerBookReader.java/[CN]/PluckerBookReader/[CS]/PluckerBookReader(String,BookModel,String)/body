@@ -1,9 +1,0 @@
-{
-  super(model);
-  myConverter=new EncodedTextReader(encoding).getConverter();
-  myFilePath=filePath;
-  System.out.println(filePath + "  " + encoding);
-  myFont=FontType.FT_REGULAR;
-  myCharBuffer=new char[65535];
-  myForcedEntry=null;
-}

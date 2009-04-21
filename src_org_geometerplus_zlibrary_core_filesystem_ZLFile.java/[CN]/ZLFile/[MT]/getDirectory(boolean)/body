@@ -1,18 +1,17 @@
 {
   if (exists()) {
     if (isDirectory()) {
-      return new ZLFSDir(myPath);
+      return new ZLFSDir(getPath());
     }
  else     if (0 != (myArchiveType & ArchiveType.ZIP)) {
-      return new ZLZipDir(myPath);
+      return new ZLZipDir(getPath());
     }
  else     if (0 != (myArchiveType & ArchiveType.TAR)) {
-      return new ZLTarDir(myPath);
+      return new ZLTarDir(getPath());
     }
   }
  else   if (createUnexisting) {
-    myInfo=null;
-    return createNewDirectory(myPath);
+    return createUnexistingDirectory();
   }
   return null;
 }

@@ -1,6 +1,0 @@
-{
-  super(mimeType);
-  myPath=path;
-  myOffset=offset;
-  mySize=size;
-}

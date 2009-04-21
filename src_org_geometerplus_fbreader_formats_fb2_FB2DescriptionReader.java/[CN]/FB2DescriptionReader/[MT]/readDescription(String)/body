@@ -1,8 +1,0 @@
-{
-  myReadState=READ_NOTHING;
-  myAuthorNames[0]="";
-  myAuthorNames[1]="";
-  myAuthorNames[2]="";
-  myBuffer.delete(0,myBuffer.length());
-  return readDocument(fileName);
-}

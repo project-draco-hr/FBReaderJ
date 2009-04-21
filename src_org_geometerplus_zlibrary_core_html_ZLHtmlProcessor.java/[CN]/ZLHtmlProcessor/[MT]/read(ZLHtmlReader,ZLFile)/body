@@ -1,0 +1,9 @@
+{
+  try {
+    InputStream stream=file.getInputStream();
+    return (stream != null) ? read(htmlReader,stream) : false;
+  }
+ catch (  IOException e) {
+  }
+  return false;
+}

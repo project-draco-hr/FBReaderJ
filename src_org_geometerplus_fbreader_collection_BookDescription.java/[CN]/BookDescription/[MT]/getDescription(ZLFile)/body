@@ -1,0 +1,26 @@
+{
+  if (bookFile == null) {
+    return null;
+  }
+  final ZLPhysicalFile physicalFile=bookFile.getPhysicalFile();
+  if ((physicalFile != null) && !physicalFile.exists()) {
+    return null;
+  }
+  final BookDescription description=new BookDescription(bookFile,true);
+  if (BookDescriptionUtil.checkInfo(physicalFile) && description.myIsSaved) {
+    return description;
+  }
+  if ((physicalFile != null) && (physicalFile != bookFile)) {
+    BookDescriptionUtil.resetZipInfo(physicalFile);
+    BookDescriptionUtil.saveInfo(physicalFile);
+  }
+  final FormatPlugin plugin=PluginCollection.instance().getPlugin(bookFile);
+  if ((plugin == null) || !plugin.readDescription(bookFile,description)) {
+    return null;
+  }
+  String title=description.getTitle();
+  if ((title == null) || (title.length() == 0)) {
+    description.setTitle(bookFile.getName(true));
+  }
+  return description;
+}

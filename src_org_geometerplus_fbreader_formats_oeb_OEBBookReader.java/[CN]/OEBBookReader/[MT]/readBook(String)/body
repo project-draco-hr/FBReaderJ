@@ -6,13 +6,13 @@
   myTourTOC.clear();
   myGuideTOC.clear();
   myState=READ_NONE;
-  if (!read(fileName)) {
+  if (!read(ZLFile.createFile(fileName))) {
     return false;
   }
   myModelReader.setMainTextModel();
   myModelReader.pushKind(FBTextKind.REGULAR);
   for (  String name : myHtmlFileNames) {
-    new XHTMLReader(myModelReader).readFile(myFilePrefix + name,name);
+    new XHTMLReader(myModelReader).readFile(ZLFile.createFile(myFilePrefix + name),name);
   }
   generateTOC();
   return true;

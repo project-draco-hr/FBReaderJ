@@ -11,7 +11,7 @@
     }
     final String fullfileName=reader.getPathPrefix() + fileName;
     modelReader.addImageReference(fullfileName,(short)0);
-    modelReader.addImage(fullfileName,new ZLFileImage("image/auto",fullfileName));
+    modelReader.addImage(fullfileName,new ZLFileImage("image/auto",ZLFile.createFile(fullfileName)));
     if (flag) {
       modelReader.beginParagraph();
     }

@@ -1,6 +1,0 @@
-{
-  BookDescription description=BookDescription.getDescription(fileName,physicalFile,saved.get(fileName),false);
-  if (description != null) {
-    list.add(description);
-  }
-}

@@ -1,8 +1,0 @@
-{
-  if (fileName.startsWith(JAR_DATA_PREFIX)) {
-    return getResourceInputStream(fileName.substring(JAR_DATA_PREFIX.length()));
-  }
- else {
-    return getFileInputStream(fileName);
-  }
-}

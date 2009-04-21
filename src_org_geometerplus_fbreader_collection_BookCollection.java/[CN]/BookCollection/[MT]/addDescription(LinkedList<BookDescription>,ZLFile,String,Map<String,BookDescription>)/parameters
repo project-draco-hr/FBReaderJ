@@ -1,4 +1,0 @@
-LinkedList<BookDescription> list
-ZLFile physicalFile
-String fileName
-Map<String,BookDescription> saved

@@ -1,0 +1,19 @@
+{
+  BookDescription description=saved.get(bookFile.getPath());
+  boolean doReadMetaInfo=false;
+  if (description == null) {
+    doReadMetaInfo=true;
+    description=new BookDescription(bookFile,false);
+  }
+  if (doReadMetaInfo) {
+    final FormatPlugin plugin=PluginCollection.instance().getPlugin(bookFile);
+    if ((plugin == null) || !plugin.readDescription(bookFile,description)) {
+      return;
+    }
+    String title=description.getTitle();
+    if ((title == null) || (title.length() == 0)) {
+      description.setTitle(bookFile.getName(true));
+    }
+  }
+  list.add(description);
+}

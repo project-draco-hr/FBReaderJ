@@ -1,0 +1,4 @@
+{
+  myReadTitle=false;
+  return readDocument(file);
+}

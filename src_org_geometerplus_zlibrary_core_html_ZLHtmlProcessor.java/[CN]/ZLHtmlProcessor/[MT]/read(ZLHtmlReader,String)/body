@@ -1,9 +1,0 @@
-{
-  try {
-    InputStream stream=ZLibrary.Instance().getInputStream(filename);
-    return (stream != null) ? read(htmlReader,stream) : false;
-  }
- catch (  Exception e) {
-  }
-  return false;
-}

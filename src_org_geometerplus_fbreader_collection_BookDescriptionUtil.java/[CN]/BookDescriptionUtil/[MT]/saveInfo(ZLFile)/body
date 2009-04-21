@@ -1,3 +1,0 @@
-{
-  new ZLIntegerOption(file.getPath(),SIZE,-1).setValue((int)file.size());
-}

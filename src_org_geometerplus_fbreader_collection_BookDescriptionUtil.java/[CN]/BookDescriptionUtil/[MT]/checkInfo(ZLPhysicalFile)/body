@@ -1,0 +1,3 @@
+{
+  return (file == null) || (new ZLIntegerOption(file.getPath(),SIZE,-1).getValue() == (int)file.size());
+}

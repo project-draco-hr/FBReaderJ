@@ -1,9 +1,0 @@
-{
-  myPath=file.getPath();
-  myInfo=new ZLFileInfo();
-  myInfo.Exists=file.exists();
-  myInfo.Size=file.length();
-  myInfo.IsDirectory=file.isDirectory();
-  myNameWithExtension=file.getName();
-  init();
-}

@@ -1,6 +1,6 @@
 {
   try {
-    return new PluckerBookReader(description.FileName,model,description.getEncoding()).readDocument();
+    return new PluckerBookReader(description.File,model,description.getEncoding()).readDocument();
   }
  catch (  IOException e) {
     e.printStackTrace();

@@ -1,7 +1,0 @@
-{
-  path=getOpfFileName(path);
-  if (path == null) {
-    return false;
-  }
-  return new OEBDescriptionReader(description).readDescription(path);
-}

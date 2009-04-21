@@ -5,7 +5,7 @@
     BookTextView.setModels(null,"");
     Model=null;
     Model=new BookModel(description);
-    final String fileName=description.FileName;
+    final String fileName=description.File.getPath();
     myBookNameOption.setValue(fileName);
     ZLTextHyphenator.Instance().load(description.getLanguage());
     BookTextView.setModels(Model.getBookTextModels(),fileName);

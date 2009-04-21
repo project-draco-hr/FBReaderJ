@@ -1,0 +1,12 @@
+{
+  super(path);
+  final String fieldName=path.replace("/","__").replace(".","_").replace("-","_").toLowerCase();
+  try {
+    myResourceId=R.raw.class.getField(fieldName).getInt(null);
+    myExists=true;
+  }
+ catch (  NoSuchFieldException e) {
+  }
+catch (  IllegalAccessException e) {
+  }
+}

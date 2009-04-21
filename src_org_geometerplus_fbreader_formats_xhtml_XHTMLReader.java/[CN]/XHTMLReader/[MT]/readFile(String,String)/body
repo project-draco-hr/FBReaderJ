@@ -1,9 +1,0 @@
-{
-  myModelReader.addHyperlinkLabel(referenceName);
-  fillTagTable();
-  myPathPrefix=MiscUtil.htmlDirectoryPrefix(filePath);
-  myReferenceName=referenceName;
-  myPreformatted=false;
-  myInsideBody=false;
-  return read(filePath);
-}

@@ -1,0 +1,7 @@
+{
+  final ZLResourceFile file=ZLResourceFile.createResourceFile("data/help/MiniHelp." + Locale.getDefault().getLanguage() + ".fb2");
+  if (file.exists()) {
+    return file;
+  }
+  return ZLResourceFile.createResourceFile("data/help/MiniHelp.en.fb2");
+}

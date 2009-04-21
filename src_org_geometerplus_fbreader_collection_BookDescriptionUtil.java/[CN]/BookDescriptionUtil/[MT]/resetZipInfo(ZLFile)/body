@@ -1,5 +1,5 @@
 {
-  ZLDir zipDir=zipFile.getDirectory();
+  ZLDir zipDir=zipFile.getDirectory(false);
   if (zipDir != null) {
     final String zipPrefix=zipFile.getPath() + ':';
     int counter=0;
@@ -8,7 +8,7 @@
     for (int i=0; i < size; ++i) {
       String entry=(String)entries.get(i);
       final ZLStringOption entryOption=new ZLStringOption(zipFile.getPath(),"","");
-      if (PluginCollection.instance().getPlugin(new ZLFile(entry)) != null) {
+      if (PluginCollection.instance().getPlugin(ZLFile.createFile(entry)) != null) {
         final String fullName=zipPrefix + entry;
         entryOption.changeName(ENTRY + counter);
         entryOption.setValue(fullName);

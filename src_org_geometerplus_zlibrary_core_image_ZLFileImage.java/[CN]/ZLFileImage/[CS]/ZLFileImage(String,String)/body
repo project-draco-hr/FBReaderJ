@@ -1,4 +1,3 @@
 {
-  super(mimeType);
-  myPath=path;
+  this(mimeType,ZLFile.createFile(path));
 }

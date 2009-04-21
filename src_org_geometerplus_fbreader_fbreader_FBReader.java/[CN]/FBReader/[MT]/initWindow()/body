@@ -10,6 +10,6 @@
     }
   }
   if (!openFile(fileName) && !openFile(myBookNameOption.getValue())) {
-    openFile(BookCollection.Instance().getHelpFileName());
+    openFile(BookCollection.Instance().getHelpFile());
   }
 }

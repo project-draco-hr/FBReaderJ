@@ -1,9 +1,0 @@
-{
-  if (removeFile(myPath)) {
-    myInfo=null;
-    return true;
-  }
- else {
-    return false;
-  }
-}

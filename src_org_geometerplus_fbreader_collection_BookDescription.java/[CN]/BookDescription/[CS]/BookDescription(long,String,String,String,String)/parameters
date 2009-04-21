@@ -1,5 +1,0 @@
-long bookId
-String fileName
-String title
-String encoding
-String language

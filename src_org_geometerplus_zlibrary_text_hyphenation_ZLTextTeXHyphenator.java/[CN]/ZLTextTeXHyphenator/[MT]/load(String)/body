@@ -5,7 +5,6 @@
   myLanguage=language;
   unload();
   if (language != null) {
-    final String path=ZLibrary.JAR_DATA_PREFIX + "data/hyphenationPatterns/" + language+ ".pattern";
-    new ZLTextHyphenationReader(this).read(path);
+    new ZLTextHyphenationReader(this).read(ZLResourceFile.createResourceFile("data/hyphenationPatterns/" + language + ".pattern"));
   }
 }

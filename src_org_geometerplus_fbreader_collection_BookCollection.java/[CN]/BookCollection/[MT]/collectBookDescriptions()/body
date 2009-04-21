@@ -3,7 +3,7 @@
   final HashSet<String> dirNameSet=new HashSet<String>();
   final Map<String,BookDescription> savedDescriptions=BooksDatabase.Instance().listBooks();
   final LinkedList<BookDescription> bookDescriptions=new LinkedList<BookDescription>();
-  addDescription(bookDescriptions,null,getHelpFileName(),savedDescriptions);
+  addDescription(bookDescriptions,getHelpFile(),savedDescriptions);
   dirNameQueue.offer(BookDirectory);
   while (!dirNameQueue.isEmpty()) {
     String name=dirNameQueue.poll();
@@ -24,9 +24,9 @@
         dirNameQueue.add(fileName);
       }
  else {
-        final ZLFile file=new ZLFile(i);
+        final ZLPhysicalFile file=new ZLPhysicalFile(i);
         if (PluginCollection.instance().getPlugin(file) != null) {
-          addDescription(bookDescriptions,null,fileName,savedDescriptions);
+          addDescription(bookDescriptions,file,savedDescriptions);
         }
  else         if (file.isArchive()) {
           if (!BookDescriptionUtil.checkInfo(file)) {
@@ -34,7 +34,7 @@
             BookDescriptionUtil.saveInfo(file);
           }
           for (          String entryName : BookDescriptionUtil.listZipEntries(file)) {
-            addDescription(bookDescriptions,file,entryName,savedDescriptions);
+            addDescription(bookDescriptions,ZLFile.createFile(entryName),savedDescriptions);
           }
         }
       }

@@ -1,31 +1,3 @@
 {
-  if (fileName == null) {
-    return false;
-  }
-  BookDescription description=BookDescription.getDescription(fileName);
-  if (description == null) {
-    final ZLFile file=new ZLFile(fileName);
-    if (file.isArchive()) {
-      final ZLDir directory=file.getDirectory();
-      if (directory != null) {
-        final ArrayList items=directory.collectFiles();
-        final int size=items.size();
-        for (int i=0; i < size; ++i) {
-          final String itemFileName=directory.getItemPath((String)items.get(i));
-          description=BookDescription.getDescription(itemFileName);
-          if (description != null) {
-            break;
-          }
-        }
-      }
-    }
-  }
-  if (description != null) {
-    openBook(description);
-    refreshWindow();
-    return true;
-  }
- else {
-    return false;
-  }
+  return openFile(ZLFile.createFile(path));
 }

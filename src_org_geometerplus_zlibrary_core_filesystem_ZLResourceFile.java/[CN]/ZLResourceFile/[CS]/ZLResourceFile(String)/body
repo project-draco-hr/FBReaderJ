@@ -1,0 +1,5 @@
+{
+  myPath=path;
+  myName=path.substring(path.lastIndexOf('/') + 1);
+  init();
+}

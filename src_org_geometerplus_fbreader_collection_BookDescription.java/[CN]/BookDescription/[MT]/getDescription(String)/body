@@ -1,3 +1,6 @@
 {
-  return getDescription(fileName,null,null,true);
+  if (fileName == null) {
+    return null;
+  }
+  return getDescription(ZLFile.createFile(fileName));
 }

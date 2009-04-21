@@ -1,0 +1,3 @@
+{
+  return ZLibrary.Instance().createResourceFile(path);
+}

@@ -1,5 +1,5 @@
 {
-  myStream=new PdbInputStream(new ZLFile(myFilePath));
+  myStream=new PdbInputStream(myFile);
   PdbHeader header=new PdbHeader();
   if (!header.read(myStream)) {
     myStream.close();

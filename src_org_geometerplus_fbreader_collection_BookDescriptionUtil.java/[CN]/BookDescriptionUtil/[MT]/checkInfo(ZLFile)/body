@@ -1,4 +1,0 @@
-{
-  ZLIntegerOption op=new ZLIntegerOption(file.getPath(),SIZE,-1);
-  return op.getValue() == (int)file.size();
-}

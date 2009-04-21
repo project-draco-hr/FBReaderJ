@@ -1,0 +1,5 @@
+{
+  myStack.clear();
+  myStack.add(root);
+  read(file);
+}

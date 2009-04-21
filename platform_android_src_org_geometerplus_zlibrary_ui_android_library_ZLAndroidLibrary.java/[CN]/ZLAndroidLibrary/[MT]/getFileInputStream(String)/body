@@ -1,8 +1,0 @@
-{
-  try {
-    return new FileInputStream(fileName);
-  }
- catch (  FileNotFoundException e) {
-    return null;
-  }
-}

@@ -1,33 +1,20 @@
 {
-  myNameWithoutExtension=myNameWithExtension;
-  Integer value=(Integer)ourForcedFiles.get(myPath);
-  if (value != null) {
-    myArchiveType=value.intValue();
+  final String name=getNameWithExtension();
+  final int index=name.lastIndexOf('.');
+  myNameWithoutExtension=(index != -1) ? name.substring(0,index) : name;
+  myExtension=(index != -1) ? name.substring(index + 1).toLowerCase().intern() : "";
+  int archiveType=ArchiveType.NONE;
+  if (myExtension == "zip") {
+    archiveType|=ArchiveType.ZIP;
   }
- else {
-    myArchiveType=ArchiveType.NONE;
-    String lowerCaseName=myNameWithoutExtension.toLowerCase();
-    if (lowerCaseName.endsWith(".gz")) {
-      myNameWithoutExtension=myNameWithoutExtension.substring(0,myNameWithoutExtension.length() - 3);
-      lowerCaseName=lowerCaseName.substring(0,lowerCaseName.length() - 3);
-      myArchiveType=myArchiveType | ArchiveType.GZIP;
-    }
-    if (lowerCaseName.endsWith(".zip")) {
-      myArchiveType=myArchiveType | ArchiveType.ZIP;
-    }
- else     if (lowerCaseName.endsWith(".tar")) {
-      myArchiveType=myArchiveType | ArchiveType.TAR;
-    }
- else     if (lowerCaseName.endsWith(".tgz")) {
-      myArchiveType=myArchiveType | ArchiveType.TAR | ArchiveType.GZIP;
-    }
+ else   if (myExtension == "oebzip") {
+    archiveType|=ArchiveType.ZIP;
   }
-  int index=myNameWithoutExtension.lastIndexOf('.');
-  if (index > 0) {
-    myExtension=myNameWithoutExtension.substring(index + 1);
-    myNameWithoutExtension=myNameWithoutExtension.substring(0,index);
+ else   if (myExtension == "epub") {
+    archiveType|=ArchiveType.ZIP;
   }
- else {
-    myExtension="";
+ else   if (myExtension == "tar") {
+    archiveType|=ArchiveType.TAR;
   }
+  myArchiveType=archiveType;
 }

@@ -1,5 +1,5 @@
 {
-  final String path=getOpfFileName(description.FileName);
+  final String path=getOpfFileName(description.File);
   if (path == null) {
     return false;
   }

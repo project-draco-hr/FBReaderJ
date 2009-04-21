@@ -1,0 +1,7 @@
+{
+  ZLFile ancestor=myParent;
+  while ((ancestor != null) && !(ancestor instanceof ZLPhysicalFile)) {
+    ancestor=ancestor.getParent();
+  }
+  return (ZLPhysicalFile)ancestor;
+}
