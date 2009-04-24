@@ -1,7 +1,7 @@
 {
   final TOCTree tree=myCurrentContentsTree;
   final ZLTextBuffer contentsBuffer=myContentsBuffer;
-  if (tree.getLevel() == 0) {
+  if (tree.Level == 0) {
     contentsBuffer.clear();
     return;
   }
@@ -12,5 +12,5 @@
  else   if (tree.getText() == null) {
     tree.setText("...");
   }
-  myCurrentContentsTree=tree.getParent();
+  myCurrentContentsTree=tree.Parent;
 }

@@ -1,0 +1,10 @@
+{
+  final Pair pair=new Pair(name,parent);
+  FileInfo info=myInfosByPair.get(pair);
+  if (info == null) {
+    info=new FileInfo(name,parent);
+    myInfosByPair.put(pair,info);
+    myInfosToSave.add(info);
+  }
+  return info;
+}

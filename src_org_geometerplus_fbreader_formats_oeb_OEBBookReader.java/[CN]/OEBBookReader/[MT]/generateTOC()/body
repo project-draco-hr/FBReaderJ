@@ -1,7 +1,7 @@
 {
   if (myNCXTOCFileName != null) {
     NCXReader ncxReader=new NCXReader(myModelReader);
-    if (ncxReader.read(ZLFile.createFile(myFilePrefix + myNCXTOCFileName))) {
+    if (ncxReader.read(ZLFile.createFileByPath(myFilePrefix + myNCXTOCFileName))) {
       final Map<Integer,NCXReader.NavPoint> navigationMap=ncxReader.navigationMap();
       if (!navigationMap.isEmpty()) {
         int level=0;

@@ -1,0 +1,10 @@
+{
+switch (archive.myArchiveType & ArchiveType.ARCHIVE) {
+case ArchiveType.ZIP:
+    return ZLZipEntryFile.archiveEntries(archive);
+case ArchiveType.TAR:
+  return ZLTarEntryFile.archiveEntries(archive);
+default :
+return Collections.emptyList();
+}
+}

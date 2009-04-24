@@ -1,4 +1,0 @@
-{
-  int index=path.lastIndexOf(':');
-  return (index == 1) ? -1 : index;
-}

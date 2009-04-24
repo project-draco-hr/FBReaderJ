@@ -1,3 +1,13 @@
 {
+  if (myShortName == null) {
+    final String name=myName;
+    final int index=name.lastIndexOf('/');
+    if (index == -1) {
+      myShortName=name;
+    }
+ else {
+      myShortName=name.substring(index + 1);
+    }
+  }
   return myShortName;
 }

@@ -1,7 +1,0 @@
-{
-  myFileName=fileName;
-  myFileInputStream=new FileInputStream(fileName);
-  myBuffer=new byte[bufferSize];
-  myBytesReady=0;
-  myPositionInBuffer=0;
-}

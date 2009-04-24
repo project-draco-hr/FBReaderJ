@@ -1,0 +1,11 @@
+{
+  if (oebFile.getExtension().equals("opf")) {
+    return oebFile;
+  }
+  for (  ZLFile child : oebFile.children()) {
+    if (child.getExtension().equals("opf")) {
+      return child;
+    }
+  }
+  return null;
+}

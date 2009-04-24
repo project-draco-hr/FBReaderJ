@@ -3,9 +3,7 @@
   if ((extension != "prc") && (extension != "pdb") && (extension != "mobi")) {
     return null;
   }
-  String fileName=file.getPath();
-  int index=fileName.indexOf(':');
-  ZLFile baseFile=(index == -1) ? file : ZLFile.createFile(fileName.substring(0,index));
+  ZLFile baseFile=file.getPhysicalFile();
   boolean upToDate=true;
   ZLStringOption palmTypeOption=new ZLStringOption(file.getPath(),"PalmType","");
   String palmType=palmTypeOption.getValue();

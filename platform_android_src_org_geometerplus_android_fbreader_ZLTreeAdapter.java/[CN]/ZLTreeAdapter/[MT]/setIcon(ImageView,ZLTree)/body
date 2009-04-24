@@ -10,5 +10,5 @@
  else {
     imageView.setImageResource(R.drawable.tree_icon_group_empty);
   }
-  imageView.setPadding(25 * (tree.getLevel() - 1),imageView.getPaddingTop(),0,imageView.getPaddingBottom());
+  imageView.setPadding(25 * (tree.Level - 1),imageView.getPaddingTop(),0,imageView.getPaddingBottom());
 }

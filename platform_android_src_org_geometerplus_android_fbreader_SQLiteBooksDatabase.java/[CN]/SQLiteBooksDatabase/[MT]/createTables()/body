@@ -1,5 +1,4 @@
 {
-  myDatabase.beginTransaction();
   myDatabase.execSQL("CREATE TABLE Books(" + "book_id INTEGER PRIMARY KEY," + "encoding TEXT,"+ "language TEXT,"+ "title TEXT NOT NULL,"+ "file_name TEXT UNIQUE NOT NULL)");
   myDatabase.execSQL("CREATE TABLE Authors(" + "author_id INTEGER PRIMARY KEY," + "name TEXT NOT NULL,"+ "sort_key TEXT NOT NULL,"+ "CONSTRAINT Authors_Unique UNIQUE (name, sort_key))");
   myDatabase.execSQL("CREATE TABLE BookAuthor(" + "author_id INTEGER NOT NULL REFERENCES Authors(author_id)," + "book_id INTEGER NOT NULL REFERENCES Books(book_id),"+ "author_index INTEGER NOT NULL,"+ "CONSTRAINT BookAuthor_Unique0 UNIQUE (author_id, book_id),"+ "CONSTRAINT BookAuthor_Unique1 UNIQUE (book_id, author_index))");
@@ -7,6 +6,4 @@
   myDatabase.execSQL("CREATE TABLE BookSeries(" + "series_id INTEGER NOT NULL REFERENCES Series(series_id)," + "book_id INTEGER NOT NULL UNIQUE REFERENCES Books(book_id),"+ "book_index INTEGER)");
   myDatabase.execSQL("CREATE TABLE Tags(" + "tag_id INTEGER PRIMARY KEY," + "name TEXT NOT NULL,"+ "parent INTEGER REFERENCES Tags(tag_id),"+ "CONSTRAINT Tags_Unique UNIQUE (name, parent))");
   myDatabase.execSQL("CREATE TABLE BookTag(" + "tag_id INTEGER REFERENCES Tags(tag_id)," + "book_id INTEGER REFERENCES Books(book_id),"+ "CONSTRAINT BookTag_Unique UNIQUE (tag_id, book_id))");
-  myDatabase.setTransactionSuccessful();
-  myDatabase.endTransaction();
 }

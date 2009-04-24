@@ -1,4 +1,5 @@
 {
+  System.err.println("wait " + myActivity);
   final ProgressDialog progress=ProgressDialog.show(myActivity,null,getWaitMessageText(key),true,false);
   final Handler handler=new Handler(){
     public void handleMessage(    Message message){

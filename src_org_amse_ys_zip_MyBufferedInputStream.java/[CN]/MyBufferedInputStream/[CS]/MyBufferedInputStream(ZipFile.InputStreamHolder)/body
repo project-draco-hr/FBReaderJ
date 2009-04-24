@@ -1,0 +1,3 @@
+{
+  this(streamHolder,1 << 10);
+}

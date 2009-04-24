@@ -1,0 +1,11 @@
+{
+  BookDescription description=getDescription(file,savedDescriptions,doReadMetaInfo);
+  if (description != null) {
+    bookDescriptions.add(description);
+  }
+ else   if (file.isArchive()) {
+    for (    ZLFile entry : fileInfos.archiveEntries(file)) {
+      collectBookDescriptions(entry,fileInfos,bookDescriptions,savedDescriptions,doReadMetaInfo);
+    }
+  }
+}

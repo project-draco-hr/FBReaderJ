@@ -1,0 +1,9 @@
+{
+  String shortName=file.getName(false);
+  String path=file.getPath();
+  int index=-1;
+  if ((path.length() > shortName.length()) && (path.charAt(path.length() - shortName.length() - 1) == ':')) {
+    index=shortName.lastIndexOf('/');
+  }
+  return path.substring(0,path.length() - shortName.length() + index + 1);
+}

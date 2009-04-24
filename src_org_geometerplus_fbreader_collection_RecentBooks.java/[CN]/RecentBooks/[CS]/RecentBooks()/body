@@ -6,6 +6,6 @@
     if (name.length() == 0) {
       break;
     }
-    myFileNames.add(name);
+    myFiles.add(ZLFile.createFileByPath(name));
   }
 }

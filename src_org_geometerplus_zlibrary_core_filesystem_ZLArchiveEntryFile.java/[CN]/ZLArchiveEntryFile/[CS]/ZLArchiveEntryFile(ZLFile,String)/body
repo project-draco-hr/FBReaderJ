@@ -1,6 +1,5 @@
 {
   myParent=parent;
   myName=name;
-  myShortName=name.substring(name.lastIndexOf('/') + 1);
   init();
 }

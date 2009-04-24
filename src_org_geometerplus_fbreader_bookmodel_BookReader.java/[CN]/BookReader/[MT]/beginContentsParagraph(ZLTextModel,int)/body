@@ -5,7 +5,7 @@
       referenceNumber=textModel.getParagraphsNumber();
     }
     TOCTree parentTree=myCurrentContentsTree;
-    if (parentTree.getLevel() > 0) {
+    if (parentTree.Level > 0) {
       final ZLTextBuffer contentsBuffer=myContentsBuffer;
       if (!contentsBuffer.isEmpty()) {
         parentTree.setText(contentsBuffer.toString());
@@ -18,7 +18,7 @@
  else {
       myContentsBuffer.clear();
     }
-    TOCTree tree=parentTree.createSubTree();
+    TOCTree tree=new TOCTree(parentTree);
     tree.setReference(myCurrentTextModel,referenceNumber);
     myCurrentContentsTree=tree;
   }

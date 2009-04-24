@@ -1,10 +1,10 @@
 {
-  System.err.println("before build: " + System.currentTimeMillis());
+  System.err.println("before build: " + System.currentTimeMillis() % 20000);
   final HashMap<Tag,TagTree> tagTreeMap=new HashMap<Tag,TagTree>();
   final HashMap<Author,AuthorTree> authorTreeMap=new HashMap<Author,AuthorTree>();
   final HashMap<AuthorSeriesPair,SeriesTree> seriesTreeMap=new HashMap<AuthorSeriesPair,SeriesTree>();
   final List<BookDescription> allDescriptions=collectBookDescriptions();
-  System.err.println(allDescriptions.size() + " books");
+  System.err.println(allDescriptions.size() + " books " + System.currentTimeMillis() % 20000);
   for (  BookDescription description : allDescriptions) {
     List<Author> authors=description.authors();
     if (authors.isEmpty()) {
@@ -47,5 +47,5 @@
     }
   }
 );
-  System.err.println("after build: " + System.currentTimeMillis());
+  System.err.println("after build: " + System.currentTimeMillis() % 20000);
 }

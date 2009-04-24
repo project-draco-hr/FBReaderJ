@@ -1,0 +1,12 @@
+{
+  for (  ZLFile child : file.children()) {
+    final FileInfo info=get(child);
+    if (myInfosToRemove.contains(info)) {
+      myInfosToRemove.remove(info);
+    }
+ else {
+      myInfosToSave.add(info);
+    }
+    addChildren(child);
+  }
+}

@@ -1,14 +1,5 @@
 {
+  System.err.println("+ SQLiteBooksDatabase");
   myDatabase=ZLAndroidApplication.Instance().openOrCreateDatabase("books.db",Context.MODE_PRIVATE,null);
-switch (myDatabase.getVersion()) {
-case 0:
-    createTables();
-case 1:
-  updateTables1();
-case 2:
-updateTables2();
-case 3:
-updateTables3();
-}
-myDatabase.setVersion(4);
+  migrate();
 }

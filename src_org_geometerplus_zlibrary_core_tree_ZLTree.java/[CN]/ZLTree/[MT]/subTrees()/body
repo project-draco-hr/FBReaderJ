@@ -1,3 +1,6 @@
 {
-  return (mySubTrees != null) ? mySubTrees : (ArrayList<T>)ourEmptyList;
+  if (mySubTrees == null) {
+    return Collections.emptyList();
+  }
+  return mySubTrees;
 }

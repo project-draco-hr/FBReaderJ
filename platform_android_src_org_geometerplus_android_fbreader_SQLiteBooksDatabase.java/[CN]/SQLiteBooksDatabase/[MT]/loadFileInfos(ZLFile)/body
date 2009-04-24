@@ -1,0 +1,26 @@
+{
+  final LinkedList<ZLFile> fileStack=new LinkedList<ZLFile>();
+  for (; file != null; file=file.getParent()) {
+    fileStack.addFirst(file);
+  }
+  final ArrayList<FileInfo> infos=new ArrayList<FileInfo>(fileStack.size());
+  final String[] parameters={null};
+  FileInfo current=null;
+  for (  ZLFile f : fileStack) {
+    parameters[0]=f.getName(false);
+    Cursor cursor=myDatabase.rawQuery((current == null) ? "SELECT file_id,size FROM Files WHERE name = ?" : "SELECT file_id,size FROM Files WHERE parent_id = " + current.Id + " AND name = ?",parameters);
+    if (cursor.moveToNext()) {
+      current=createFileInfo(cursor.getLong(0),parameters[0],current);
+      if (!cursor.isNull(1)) {
+        current.FileSize=cursor.getLong(1);
+      }
+      infos.add(current);
+      cursor.close();
+    }
+ else {
+      cursor.close();
+      break;
+    }
+  }
+  return infos;
+}

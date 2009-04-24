@@ -1,3 +1,0 @@
-{
-  return ZLFSUtil.getRootDirectoryPath().equals(myPath);
-}

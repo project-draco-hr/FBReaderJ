@@ -1,0 +1,3 @@
+{
+  return getZipFile(myParent).getInputStream(myName);
+}

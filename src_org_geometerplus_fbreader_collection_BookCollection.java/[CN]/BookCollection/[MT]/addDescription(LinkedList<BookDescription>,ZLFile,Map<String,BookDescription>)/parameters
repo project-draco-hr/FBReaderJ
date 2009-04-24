@@ -1,3 +1,0 @@
-LinkedList<BookDescription> list
-ZLFile bookFile
-Map<String,BookDescription> saved

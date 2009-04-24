@@ -1,5 +1,0 @@
-{
-  TOCTree subtree=new TOCTree(this);
-  addSubTree(subtree);
-  return subtree;
-}

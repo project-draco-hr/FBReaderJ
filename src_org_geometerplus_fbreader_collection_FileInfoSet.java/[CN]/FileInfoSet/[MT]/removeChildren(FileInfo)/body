@@ -1,0 +1,11 @@
+{
+  for (  FileInfo child : info.subTrees()) {
+    if (myInfosToSave.contains(child)) {
+      myInfosToSave.remove(child);
+    }
+ else {
+      myInfosToRemove.add(child);
+    }
+    removeChildren(child);
+  }
+}

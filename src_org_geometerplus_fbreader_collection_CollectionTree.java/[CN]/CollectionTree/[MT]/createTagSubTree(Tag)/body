@@ -1,5 +1,3 @@
 {
-  TagTree tree=new TagTree(this,tag);
-  addSubTree(tree);
-  return tree;
+  return new TagTree(this,tag);
 }

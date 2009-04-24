@@ -1,0 +1,11 @@
+{
+  if (exists()) {
+    if (isDirectory()) {
+      return directoryEntries();
+    }
+ else     if (isArchive()) {
+      return ZLArchiveEntryFile.archiveEntries(this);
+    }
+  }
+  return Collections.emptyList();
+}

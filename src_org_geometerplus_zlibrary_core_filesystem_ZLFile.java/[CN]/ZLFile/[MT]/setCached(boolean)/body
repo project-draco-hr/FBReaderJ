@@ -1,0 +1,12 @@
+{
+  myIsCached=cached;
+  if (cached) {
+    ourCachedFiles.put(getPath(),this);
+  }
+ else {
+    ourCachedFiles.remove(getPath());
+    if (0 != (myArchiveType & ArchiveType.ZIP)) {
+      ZLZipEntryFile.removeFromCache(this);
+    }
+  }
+}

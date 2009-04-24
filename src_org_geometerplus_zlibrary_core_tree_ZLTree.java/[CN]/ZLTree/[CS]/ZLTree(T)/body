@@ -1,4 +1,10 @@
 {
-  myParent=parent;
-  myLevel=parent.myLevel + 1;
+  Parent=parent;
+  if (parent != null) {
+    Level=parent.Level + 1;
+    parent.addSubTree(this);
+  }
+ else {
+    Level=0;
+  }
 }

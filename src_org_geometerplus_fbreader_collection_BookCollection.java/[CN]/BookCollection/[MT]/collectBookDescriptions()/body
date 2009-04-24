@@ -1,44 +1,18 @@
 {
-  final Queue<String> dirNameQueue=new LinkedList<String>();
-  final HashSet<String> dirNameSet=new HashSet<String>();
+  final List<ZLPhysicalFile> physicalFilesList=collectPhysicalFiles();
+  System.err.println(physicalFilesList.size() + " files " + System.currentTimeMillis() % 20000);
   final Map<String,BookDescription> savedDescriptions=BooksDatabase.Instance().listBooks();
+  System.err.println(savedDescriptions.size() + " saved books " + System.currentTimeMillis() % 20000);
   final LinkedList<BookDescription> bookDescriptions=new LinkedList<BookDescription>();
-  addDescription(bookDescriptions,getHelpFile(),savedDescriptions);
-  dirNameQueue.offer(BookDirectory);
-  while (!dirNameQueue.isEmpty()) {
-    String name=dirNameQueue.poll();
-    if (dirNameSet.contains(name)) {
-      continue;
-    }
-    dirNameSet.add(name);
-    File[] items=new File(name).listFiles();
-    if (items == null) {
-      continue;
-    }
-    for (    File i : items) {
-      if (i.getName().startsWith(".")) {
-        continue;
-      }
-      final String fileName=i.getPath();
-      if (i.isDirectory()) {
-        dirNameQueue.add(fileName);
-      }
- else {
-        final ZLPhysicalFile file=new ZLPhysicalFile(i);
-        if (PluginCollection.instance().getPlugin(file) != null) {
-          addDescription(bookDescriptions,file,savedDescriptions);
-        }
- else         if (file.isArchive()) {
-          if (!BookDescriptionUtil.checkInfo(file)) {
-            BookDescriptionUtil.resetZipInfo(file);
-            BookDescriptionUtil.saveInfo(file);
-          }
-          for (          String entryName : BookDescriptionUtil.listZipEntries(file)) {
-            addDescription(bookDescriptions,ZLFile.createFile(entryName),savedDescriptions);
-          }
-        }
-      }
-    }
+  FileInfoSet fileInfos=new FileInfoSet();
+  fileInfos.loadAll();
+  System.err.println("file infos have been loaded " + System.currentTimeMillis() % 20000);
+  for (  ZLPhysicalFile file : physicalFilesList) {
+    collectBookDescriptions(file,fileInfos,bookDescriptions,savedDescriptions,!fileInfos.check(file));
+    file.setCached(false);
   }
+  bookDescriptions.add(getDescription(getHelpFile(),savedDescriptions,false));
+  System.err.println("descriptions have been synchronized " + System.currentTimeMillis() % 20000);
+  fileInfos.save();
   return bookDescriptions;
 }

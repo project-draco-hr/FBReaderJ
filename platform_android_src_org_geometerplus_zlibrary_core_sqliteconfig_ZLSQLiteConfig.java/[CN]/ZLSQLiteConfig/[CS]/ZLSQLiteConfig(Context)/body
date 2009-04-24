@@ -8,4 +8,5 @@
   mySetValueStatement=myDatabase.compileStatement("INSERT OR REPLACE INTO config (groupName, name, value) VALUES (?, ?, ?)");
   myUnsetValueStatement=myDatabase.compileStatement("DELETE FROM config WHERE groupName = ? AND name = ?");
   myDeleteGroupStatement=myDatabase.compileStatement("DELETE FROM config WHERE groupName = ?");
+  System.err.println("+ ZLSQLiteConfig");
 }

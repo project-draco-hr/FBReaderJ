@@ -1,0 +1,9 @@
+{
+  if (o == this) {
+    return true;
+  }
+  if (!(o instanceof ZLFile)) {
+    return false;
+  }
+  return getPath().equals(((ZLFile)o).getPath());
+}

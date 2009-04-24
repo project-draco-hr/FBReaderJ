@@ -2,10 +2,10 @@
   if (tree == null) {
     return;
   }
-  openTree(tree.getParent());
+  openTree(tree.Parent);
   int index=0;
   while (true) {
-    ZLTree<?> parent=tree.getParent();
+    ZLTree<?> parent=tree.Parent;
     if (parent == null) {
       break;
     }

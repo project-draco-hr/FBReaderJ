@@ -1,0 +1,7 @@
+{
+  InputStream base=myParent.getInputStream();
+  if (base != null) {
+    return new ZLTarInputStream(base,myName);
+  }
+  return null;
+}

@@ -11,17 +11,12 @@
     booksByFilename.put(fileName,description);
   }
   cursor.close();
-  cursor=myDatabase.rawQuery("SELECT author_id,name,sort_key FROM Authors",null);
-  final HashMap<Long,Author> authorsById=new HashMap<Long,Author>(cursor.getCount());
-  while (cursor.moveToNext()) {
-    authorsById.put(cursor.getLong(0),new Author(cursor.getString(1),cursor.getString(2)));
-  }
-  cursor.close();
+  initCaches();
   cursor=myDatabase.rawQuery("SELECT book_id,author_id FROM BookAuthor ORDER BY author_index",null);
   while (cursor.moveToNext()) {
     BookDescription book=booksById.get(cursor.getLong(0));
     if (book != null) {
-      Author author=authorsById.get(cursor.getLong(1));
+      Author author=myAuthorById.get(cursor.getLong(1));
       if (author != null) {
         addAuthor(book,author);
       }
@@ -36,17 +31,11 @@
     }
   }
   cursor.close();
-  cursor=myDatabase.rawQuery("SELECT series_id,name FROM Series",null);
-  final HashMap<Long,String> seriesById=new HashMap<Long,String>(cursor.getCount());
-  while (cursor.moveToNext()) {
-    seriesById.put(cursor.getLong(0),cursor.getString(1));
-  }
-  cursor.close();
   cursor=myDatabase.rawQuery("SELECT book_id,series_id,book_index FROM BookSeries",null);
   while (cursor.moveToNext()) {
     BookDescription book=booksById.get(cursor.getLong(0));
     if (book != null) {
-      String series=seriesById.get(cursor.getLong(1));
+      String series=mySeriesById.get(cursor.getLong(1));
       if (series != null) {
         setSeriesInfo(book,series,cursor.getLong(2));
       }

@@ -1,0 +1,14 @@
+{
+  Cursor cursor=myDatabase.rawQuery("SELECT file_id,name,parent_id,size FROM Files",null);
+  HashMap<Long,FileInfo> infosById=new HashMap<Long,FileInfo>(cursor.getCount());
+  while (cursor.moveToNext()) {
+    final long id=cursor.getLong(0);
+    final FileInfo info=createFileInfo(id,cursor.getString(1),cursor.isNull(2) ? null : infosById.get(cursor.getLong(2)));
+    if (!cursor.isNull(3)) {
+      info.FileSize=cursor.getLong(3);
+    }
+    infosById.put(id,info);
+  }
+  cursor.close();
+  return infosById.values();
+}

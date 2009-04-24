@@ -1,7 +1,7 @@
 {
   myModelReader.addHyperlinkLabel(referenceName);
   fillTagTable();
-  myPathPrefix=MiscUtil.htmlDirectoryPrefix(file.getPath());
+  myPathPrefix=MiscUtil.htmlDirectoryPrefix(file);
   myReferenceName=referenceName;
   myPreformatted=false;
   myInsideBody=false;

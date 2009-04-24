@@ -1,0 +1,14 @@
+{
+  myDatabase.delete("Files",null,null);
+  final FileInfoSet fileInfos=new FileInfoSet();
+  fileInfos.loadAll();
+  Cursor cursor=myDatabase.rawQuery("SELECT file_name FROM Books",null);
+  while (cursor.moveToNext()) {
+    fileInfos.check(ZLFile.createFileByPath(cursor.getString(0)).getPhysicalFile());
+  }
+  cursor.close();
+  fileInfos.save();
+  cursor=myDatabase.rawQuery("SELECT file_id FROM Files",null);
+  System.err.println("saved " + cursor.getCount() + " books");
+  cursor.close();
+}

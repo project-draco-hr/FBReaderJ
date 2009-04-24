@@ -1,0 +1,10 @@
+{
+  if (fileId == -1) {
+    return;
+  }
+  if (myRemoveFileInfoStatement == null) {
+    myRemoveFileInfoStatement=myDatabase.compileStatement("DELETE FROM Files WHERE file_id = ?");
+  }
+  myRemoveFileInfoStatement.bindLong(1,fileId);
+  myRemoveFileInfoStatement.execute();
+}

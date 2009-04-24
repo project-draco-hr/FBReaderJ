@@ -1,0 +1,10 @@
+{
+switch (archive.myArchiveType & ArchiveType.ARCHIVE) {
+case ArchiveType.ZIP:
+    return new ZLZipEntryFile(archive,entryName);
+case ArchiveType.TAR:
+  return new ZLTarEntryFile(archive,entryName);
+default :
+return null;
+}
+}

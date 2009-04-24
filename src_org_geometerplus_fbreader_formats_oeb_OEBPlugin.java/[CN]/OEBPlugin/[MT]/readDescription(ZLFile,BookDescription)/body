@@ -1,7 +1,4 @@
 {
-  final String path=getOpfFileName(file);
-  if (path == null) {
-    return false;
-  }
-  return new OEBDescriptionReader(description).readDescription(ZLFile.createFile(path));
+  final ZLFile opfFile=getOpfFile(file);
+  return (opfFile != null) ? new OEBDescriptionReader(description).readDescription(opfFile) : false;
 }

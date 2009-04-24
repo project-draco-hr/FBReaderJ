@@ -1,7 +1,5 @@
 {
-  final String path=getOpfFileName(description.File);
-  if (path == null) {
-    return false;
-  }
-  return new OEBBookReader(model).readBook(path);
+  description.File.setCached(true);
+  final ZLFile opfFile=getOpfFile(description.File);
+  return (opfFile != null) ? new OEBBookReader(model).readBook(opfFile) : false;
 }

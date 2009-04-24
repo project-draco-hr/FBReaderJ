@@ -1,0 +1,3 @@
+{
+  return (file == null) ? null : get(file.getName(false),get(file.getParent()));
+}

@@ -1,0 +1,5 @@
+{
+  super(parent);
+  Name=name;
+  Id=id;
+}

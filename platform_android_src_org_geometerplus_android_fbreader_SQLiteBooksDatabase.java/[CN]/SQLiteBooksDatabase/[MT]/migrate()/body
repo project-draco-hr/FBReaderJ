@@ -1,0 +1,28 @@
+{
+  final int version=myDatabase.getVersion();
+  if (version >= 5) {
+    return;
+  }
+  ZLDialogManager.getInstance().wait("migrating",new Runnable(){
+    public void run(){
+      myDatabase.beginTransaction();
+switch (version) {
+case 0:
+        createTables();
+case 1:
+      updateTables1();
+case 2:
+    updateTables2();
+case 3:
+  updateTables3();
+case 4:
+updateTables4();
+}
+myDatabase.setTransactionSuccessful();
+myDatabase.endTransaction();
+myDatabase.execSQL("VACUUM");
+myDatabase.setVersion(4);
+}
+}
+);
+}

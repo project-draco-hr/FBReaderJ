@@ -4,6 +4,6 @@
   }
   while (!myOpenItems.contains(tree)) {
     myOpenItems.add(tree);
-    tree=tree.getParent();
+    tree=tree.Parent;
   }
 }

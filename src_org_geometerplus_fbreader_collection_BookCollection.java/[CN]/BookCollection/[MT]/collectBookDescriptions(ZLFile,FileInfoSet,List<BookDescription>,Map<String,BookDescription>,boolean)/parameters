@@ -1,0 +1,5 @@
+ZLFile file
+FileInfoSet fileInfos
+List<BookDescription> bookDescriptions
+Map<String,BookDescription> savedDescriptions
+boolean doReadMetaInfo

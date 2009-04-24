@@ -1,0 +1,13 @@
+{
+  final FileInfo info=get(file);
+  if (!info.hasChildren()) {
+    return Collections.emptyList();
+  }
+  final LinkedList<ZLFile> entries=new LinkedList<ZLFile>();
+  for (  FileInfo child : info.subTrees()) {
+    if (!myInfosToRemove.contains(child)) {
+      entries.add(ZLArchiveEntryFile.createArchiveEntryFile(file,child.Name));
+    }
+  }
+  return entries;
+}

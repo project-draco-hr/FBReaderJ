@@ -5,16 +5,10 @@
   BookDescription description=BookDescription.getDescription(file);
   if (description == null) {
     if (file.isArchive()) {
-      final ZLDir directory=file.getDirectory(false);
-      if (directory != null) {
-        final ArrayList items=directory.collectFiles();
-        final int size=items.size();
-        for (int i=0; i < size; ++i) {
-          final String itemFileName=directory.getItemPath((String)items.get(i));
-          description=BookDescription.getDescription(itemFileName);
-          if (description != null) {
-            break;
-          }
+      for (      ZLFile child : file.children()) {
+        description=BookDescription.getDescription(child);
+        if (description != null) {
+          break;
         }
       }
     }

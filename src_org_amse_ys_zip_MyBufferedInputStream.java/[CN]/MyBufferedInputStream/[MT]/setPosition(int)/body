@@ -4,7 +4,7 @@
   }
  else {
     myFileInputStream.close();
-    myFileInputStream=new FileInputStream(myFileName);
+    myFileInputStream=myStreamHolder.getInputStream();
     myBytesReady=0;
     skip(position);
   }

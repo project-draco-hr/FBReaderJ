@@ -1,5 +1,3 @@
 {
-  SeriesTree tree=new SeriesTree(this,series);
-  addSubTree(tree);
-  return tree;
+  return new SeriesTree(this,series);
 }

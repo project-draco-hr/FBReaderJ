@@ -1,0 +1,11 @@
+{
+  File[] subFiles=myFile.listFiles();
+  if ((subFiles == null) || (subFiles.length == 0)) {
+    return Collections.emptyList();
+  }
+  ArrayList<ZLFile> entries=new ArrayList<ZLFile>(subFiles.length);
+  for (  File f : subFiles) {
+    entries.add(new ZLPhysicalFile(f));
+  }
+  return entries;
+}

@@ -1,0 +1,3 @@
+{
+  ourZipFileMap.remove(file);
+}

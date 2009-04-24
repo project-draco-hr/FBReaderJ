@@ -7,13 +7,12 @@
     return null;
   }
   final BookDescription description=new BookDescription(bookFile,true);
-  if (BookDescriptionUtil.checkInfo(physicalFile) && description.myIsSaved) {
+  FileInfoSet fileInfos=new FileInfoSet();
+  fileInfos.load(physicalFile);
+  if (fileInfos.check(physicalFile) && description.myIsSaved) {
     return description;
   }
-  if ((physicalFile != null) && (physicalFile != bookFile)) {
-    BookDescriptionUtil.resetZipInfo(physicalFile);
-    BookDescriptionUtil.saveInfo(physicalFile);
-  }
+  fileInfos.save();
   final FormatPlugin plugin=PluginCollection.instance().getPlugin(bookFile);
   if ((plugin == null) || !plugin.readDescription(bookFile,description)) {
     return null;

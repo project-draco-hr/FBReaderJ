@@ -1,0 +1,17 @@
+{
+  if (file == null) {
+    return true;
+  }
+  final long fileSize=file.size();
+  FileInfo info=get(file);
+  if (info.FileSize == fileSize) {
+    return true;
+  }
+ else {
+    info.FileSize=fileSize;
+    removeChildren(info);
+    myInfosToSave.add(info);
+    addChildren(file);
+    return false;
+  }
+}

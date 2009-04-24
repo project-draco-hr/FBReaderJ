@@ -13,7 +13,7 @@
     application.initWindow();
   }
  else   if (fileToOpen != null) {
-    ZLApplication.Instance().openFile(ZLFile.createFile(fileToOpen));
+    ZLApplication.Instance().openFile(new ZLPhysicalFile(new File(fileToOpen)));
   }
   ZLApplication.Instance().refreshWindow();
 }

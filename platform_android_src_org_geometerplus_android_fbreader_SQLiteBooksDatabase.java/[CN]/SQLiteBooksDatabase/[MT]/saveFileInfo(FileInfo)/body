@@ -1,0 +1,38 @@
+{
+  final long id=fileInfo.Id;
+  SQLiteStatement statement;
+  if (id == -1) {
+    if (myInsertFileInfoStatement == null) {
+      myInsertFileInfoStatement=myDatabase.compileStatement("INSERT INTO Files (name,parent_id,size) VALUES (?,?,?)");
+    }
+    statement=myInsertFileInfoStatement;
+  }
+ else {
+    if (myUpdateFileInfoStatement == null) {
+      myUpdateFileInfoStatement=myDatabase.compileStatement("UPDATE Files SET name = ?, parent_id = ?, size = ? WHERE file_id = ?");
+    }
+    statement=myUpdateFileInfoStatement;
+  }
+  statement.bindString(1,fileInfo.Name);
+  final FileInfo parent=fileInfo.Parent;
+  if (parent != null) {
+    statement.bindLong(2,parent.Id);
+  }
+ else {
+    statement.bindNull(2);
+  }
+  final long size=fileInfo.FileSize;
+  if (size != -1) {
+    statement.bindLong(3,size);
+  }
+ else {
+    statement.bindNull(3);
+  }
+  if (id == -1) {
+    fileInfo.Id=statement.executeInsert();
+  }
+ else {
+    statement.bindLong(4,id);
+    statement.execute();
+  }
+}

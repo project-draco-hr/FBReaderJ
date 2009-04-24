@@ -1,7 +1,0 @@
-{
-  int index=findArchiveFileNameDelimiter(path);
-  if (index == -1) {
-    index=path.lastIndexOf(File.separatorChar);
-  }
-  return index;
-}

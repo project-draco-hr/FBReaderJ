@@ -3,9 +3,9 @@
     public void run(){
       final ZLStringOption option=new ZLStringOption(GROUP,"","");
       int count=0;
-      for (      String fileName : myFileNames) {
+      for (      ZLFile file : myFiles) {
         option.changeName(BOOK + count);
-        option.setValue(fileName);
+        option.setValue(file.getPath());
         ++count;
       }
       option.changeName(BOOK + count);

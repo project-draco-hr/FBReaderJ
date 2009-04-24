@@ -1,0 +1,19 @@
+{
+  myFilePrefix=MiscUtil.htmlDirectoryPrefix(file);
+  myIdToHref.clear();
+  myHtmlFileNames.clear();
+  myNCXTOCFileName=null;
+  myTourTOC.clear();
+  myGuideTOC.clear();
+  myState=READ_NONE;
+  if (!read(file)) {
+    return false;
+  }
+  myModelReader.setMainTextModel();
+  myModelReader.pushKind(FBTextKind.REGULAR);
+  for (  String name : myHtmlFileNames) {
+    new XHTMLReader(myModelReader).readFile(ZLFile.createFileByPath(myFilePrefix + name),name);
+  }
+  generateTOC();
+  return true;
+}

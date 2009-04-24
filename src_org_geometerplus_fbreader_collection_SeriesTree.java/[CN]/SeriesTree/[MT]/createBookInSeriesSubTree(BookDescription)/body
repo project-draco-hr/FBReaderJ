@@ -1,5 +1,3 @@
 {
-  BookTree tree=new BookInSeriesTree(this,book);
-  addSubTree(tree);
-  return tree;
+  return new BookInSeriesTree(this,book);
 }

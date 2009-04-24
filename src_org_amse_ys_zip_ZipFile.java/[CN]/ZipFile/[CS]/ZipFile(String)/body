@@ -1,3 +1,3 @@
 {
-  myFileName=fileName;
+  this(new FileInputStreamHolder(filePath));
 }
