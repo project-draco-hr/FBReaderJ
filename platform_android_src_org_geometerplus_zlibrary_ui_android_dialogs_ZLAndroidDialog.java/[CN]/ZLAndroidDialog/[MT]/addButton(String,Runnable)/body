@@ -1,4 +1,0 @@
-{
-  final DialogButton button=new DialogButton(myDialog,ZLDialogManager.getButtonText(key).replace("&",""),action);
-  myFooter.addView(button,new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT));
-}

@@ -1,6 +1,0 @@
-{
-  super(dialog.getContext());
-  setText(text);
-  myDialog=dialog;
-  myAction=action;
-}

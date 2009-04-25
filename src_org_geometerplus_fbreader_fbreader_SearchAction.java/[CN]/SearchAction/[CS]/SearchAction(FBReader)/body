@@ -1,8 +1,3 @@
 {
   super(fbreader);
-  SearchBackwardOption=new ZLBooleanOption(SEARCH,"Backward",false);
-  SearchIgnoreCaseOption=new ZLBooleanOption(SEARCH,"IgnoreCase",true);
-  SearchInWholeTextOption=new ZLBooleanOption(SEARCH,"WholeText",false);
-  SearchThisSectionOnlyOption=new ZLBooleanOption(SEARCH,"ThisSectionOnly",false);
-  SearchPatternOption=new ZLStringOption(SEARCH,PATTERN,"");
 }
