@@ -1,6 +1,6 @@
 {
   myTextElementMap.clear();
-  final ZLTextBaseStyle baseStyle=ZLTextStyleCollection.getInstance().getBaseStyle();
+  final ZLTextBaseStyle baseStyle=ZLTextStyleCollection.Instance().getBaseStyle();
   final ZLPaintContext context=Context;
   context.clear(baseStyle.BackgroundColorOption.getValue());
   if ((myModel == null) || (myModel.getParagraphsNumber() == 0)) {

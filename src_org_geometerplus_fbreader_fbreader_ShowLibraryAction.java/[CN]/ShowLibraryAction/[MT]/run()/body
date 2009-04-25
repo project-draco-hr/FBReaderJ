@@ -1,0 +1,13 @@
+{
+  final ZLAndroidDialogManager dialogManager=(ZLAndroidDialogManager)ZLAndroidDialogManager.Instance();
+  Runnable action=new Runnable(){
+    public void run(){
+      BookCollection collection=BookCollection.Instance();
+      collection.rebuild();
+      collection.synchronize();
+      dialogManager.runActivity(LibraryTabActivity.class);
+    }
+  }
+;
+  dialogManager.wait("loadingBookList",action);
+}

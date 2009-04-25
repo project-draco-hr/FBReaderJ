@@ -4,16 +4,21 @@
   setContentView(R.layout.main);
   getLibrary().setActivity(this);
   final Intent intent=getIntent();
-  final Uri uri=intent.getData();
-  final String fileToOpen=(uri != null) ? uri.getPath() : null;
-  intent.setData(null);
+  String fileToOpen=null;
+  if (Intent.ACTION_VIEW.equals(intent.getAction())) {
+    final Uri uri=intent.getData();
+    if (uri != null) {
+      fileToOpen=uri.getPath();
+    }
+    intent.setData(null);
+  }
   if (((ZLAndroidApplication)getApplication()).myMainWindow == null) {
     ZLApplication application=createApplication(fileToOpen);
     ((ZLAndroidApplication)getApplication()).myMainWindow=new ZLAndroidApplicationWindow(application);
     application.initWindow();
   }
  else   if (fileToOpen != null) {
-    ZLApplication.Instance().openFile(new ZLPhysicalFile(new File(fileToOpen)));
+    ZLApplication.Instance().openFiles(new ZLPhysicalFile(new File(fileToOpen)));
   }
   ZLApplication.Instance().refreshWindow();
 }

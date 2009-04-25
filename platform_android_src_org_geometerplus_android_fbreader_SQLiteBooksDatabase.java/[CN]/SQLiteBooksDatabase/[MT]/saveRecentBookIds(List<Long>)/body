@@ -1,0 +1,15 @@
+{
+  if (mySaveRecentBookStatement == null) {
+    mySaveRecentBookStatement=myDatabase.compileStatement("INSERT INTO RecentBooks (book_id) VALUES (?)");
+  }
+  executeAsATransaction(new Runnable(){
+    public void run(){
+      myDatabase.delete("RecentBooks",null,null);
+      for (      long id : ids) {
+        mySaveRecentBookStatement.bindLong(1,id);
+        mySaveRecentBookStatement.execute();
+      }
+    }
+  }
+);
+}

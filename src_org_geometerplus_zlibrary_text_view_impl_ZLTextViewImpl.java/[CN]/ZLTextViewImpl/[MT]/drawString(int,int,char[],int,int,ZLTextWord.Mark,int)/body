@@ -22,7 +22,7 @@
         x+=context.getStringWidth(str,offset + pos,endPos - pos);
       }
       if (markStart < length) {
-        context.setColor(ZLTextStyleCollection.getInstance().getBaseStyle().HighlightedTextColorOption.getValue());
+        context.setColor(ZLTextStyleCollection.Instance().getBaseStyle().HighlightedTextColorOption.getValue());
         int endPos=Math.min(markStart + markLen,length);
         context.drawString(x,y,str,offset + markStart,endPos - markStart);
         x+=context.getStringWidth(str,offset + markStart,endPos - markStart);

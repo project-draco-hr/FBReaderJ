@@ -1,7 +1,4 @@
 {
-  System.err.println("infos " + myInfosByPair.size());
-  System.err.println("to save " + myInfosToSave.size());
-  System.err.println("to remove " + myInfosToRemove.size());
   final BooksDatabase database=BooksDatabase.Instance();
   database.executeAsATransaction(new Runnable(){
     public void run(){

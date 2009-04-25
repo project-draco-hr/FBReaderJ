@@ -1,5 +1,0 @@
-{
-  if (!myIsFullySynchronized) {
-    myBooks.clear();
-  }
-}

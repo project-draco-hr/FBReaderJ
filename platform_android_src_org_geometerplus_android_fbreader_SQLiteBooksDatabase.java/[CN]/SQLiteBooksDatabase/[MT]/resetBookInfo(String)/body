@@ -1,10 +1,6 @@
 {
-  if (myResetBookInfoStatement == null) {
-    myResetBookInfoStatement=myDatabase.compileStatement("SELECT book_id FROM Books WHERE file_name = ?");
-  }
-  myResetBookInfoStatement.bindString(1,fileName);
-  try {
-    final long bookId=myResetBookInfoStatement.simpleQueryForLong();
+  final long bookId=getBookId(fileName);
+  if (bookId != -1) {
     final String[] parameters={"" + bookId};
     executeAsATransaction(new Runnable(){
       public void run(){
@@ -15,7 +11,5 @@
       }
     }
 );
-  }
- catch (  SQLException e) {
   }
 }

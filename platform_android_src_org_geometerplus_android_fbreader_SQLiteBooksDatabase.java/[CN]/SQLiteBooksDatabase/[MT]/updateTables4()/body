@@ -1,5 +1,4 @@
 {
-  myDatabase.delete("Files",null,null);
   final FileInfoSet fileInfos=new FileInfoSet();
   fileInfos.loadAll();
   Cursor cursor=myDatabase.rawQuery("SELECT file_name FROM Books",null);
@@ -8,7 +7,16 @@
   }
   cursor.close();
   fileInfos.save();
-  cursor=myDatabase.rawQuery("SELECT file_id FROM Files",null);
-  System.err.println("saved " + cursor.getCount() + " books");
-  cursor.close();
+  myDatabase.execSQL("CREATE TABLE RecentBooks(" + "book_index INTEGER PRIMARY KEY," + "book_id INTEGER REFERENCES Books(book_id))");
+  final ArrayList<Long> ids=new ArrayList<Long>();
+  for (int i=0; i < 20; ++i) {
+    final ZLStringOption option=new ZLStringOption("LastOpenedBooks","Book" + i,"");
+    final String name=option.getValue();
+    option.setValue("");
+    final long bookId=getBookId(name);
+    if (bookId != -1) {
+      ids.add(bookId);
+    }
+  }
+  saveRecentBookIds(ids);
 }

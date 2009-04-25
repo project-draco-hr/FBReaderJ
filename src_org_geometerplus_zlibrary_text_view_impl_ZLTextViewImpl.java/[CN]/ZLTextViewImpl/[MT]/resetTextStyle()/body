@@ -1,3 +1,3 @@
 {
-  setTextStyle(ZLTextStyleCollection.getInstance().getBaseStyle());
+  setTextStyle(ZLTextStyleCollection.Instance().getBaseStyle());
 }

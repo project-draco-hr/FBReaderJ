@@ -1,0 +1,16 @@
+{
+  if (myTagCacheIsInitialized) {
+    return;
+  }
+  myTagCacheIsInitialized=true;
+  Cursor cursor=myDatabase.rawQuery("SELECT tag_id,parent_id,name FROM Tags ORDER BY tag_id",null);
+  while (cursor.moveToNext()) {
+    long id=cursor.getLong(0);
+    if (myTagById.get(id) == null) {
+      final Tag tag=Tag.getTag(myTagById.get(cursor.getLong(1)),cursor.getString(2));
+      myIdByTag.put(tag,id);
+      myTagById.put(id,tag);
+    }
+  }
+  cursor.close();
+}

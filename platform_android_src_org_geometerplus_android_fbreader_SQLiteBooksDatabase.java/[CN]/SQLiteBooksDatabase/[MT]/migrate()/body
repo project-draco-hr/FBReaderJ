@@ -3,7 +3,7 @@
   if (version >= 5) {
     return;
   }
-  ZLDialogManager.getInstance().wait("migrating",new Runnable(){
+  ZLDialogManager.Instance().wait((version == 0) ? "creatingBooksDatabase" : "updatingBooksDatabase",new Runnable(){
     public void run(){
       myDatabase.beginTransaction();
 switch (version) {
@@ -17,11 +17,13 @@ case 3:
   updateTables3();
 case 4:
 updateTables4();
+case 5:
+updateTables5();
 }
 myDatabase.setTransactionSuccessful();
 myDatabase.endTransaction();
 myDatabase.execSQL("VACUUM");
-myDatabase.setVersion(4);
+myDatabase.setVersion(5);
 }
 }
 );

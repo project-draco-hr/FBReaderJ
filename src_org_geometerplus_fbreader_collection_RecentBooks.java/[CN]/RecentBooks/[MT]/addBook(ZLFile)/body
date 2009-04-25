@@ -1,6 +1,0 @@
-{
-  myFiles.remove(file);
-  myFiles.add(0,file);
-  myBooks.clear();
-  save();
-}

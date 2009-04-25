@@ -1,0 +1,29 @@
+{
+  ZLDialogManager.Instance().wait("loadingBook",new Runnable(){
+    public void run(){
+      BookDescription description=null;
+      main:       for (      ZLFile f : files) {
+        if (f == null) {
+          continue;
+        }
+        description=BookDescription.getDescription(f);
+        if (description != null) {
+          break;
+        }
+        if (f.isArchive()) {
+          for (          ZLFile child : f.children()) {
+            description=BookDescription.getDescription(child);
+            if (description != null) {
+              break main;
+            }
+          }
+        }
+      }
+      if (description != null) {
+        openBookInternal(description);
+        refreshWindow();
+      }
+    }
+  }
+);
+}

@@ -1,3 +1,3 @@
 {
-  return Reader.Model.TOCTree.hasChildren();
+  return (Reader.Model != null) && Reader.Model.TOCTree.hasChildren();
 }

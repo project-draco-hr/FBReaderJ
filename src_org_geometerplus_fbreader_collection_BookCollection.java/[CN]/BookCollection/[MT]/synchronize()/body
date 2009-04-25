@@ -2,6 +2,7 @@
   if (myDoRebuild) {
     myCollectionByAuthor.clear();
     myCollectionByTag.clear();
+    myRecentBooks.clear();
     build();
     myCollectionByAuthor.sortAllChildren();
     myCollectionByTag.sortAllChildren();

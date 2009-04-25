@@ -105,7 +105,7 @@
     }
   }
  while (currentWordIndex != endIndex);
-  if ((currentWordIndex != endIndex) && (ZLTextStyleCollection.getInstance().getBaseStyle().AutoHyphenationOption.getValue()) && (myTextStyle.allowHyphenations())) {
+  if ((currentWordIndex != endIndex) && (ZLTextStyleCollection.Instance().getBaseStyle().AutoHyphenationOption.getValue()) && (myTextStyle.allowHyphenations())) {
     ZLTextElement element=paragraphCursor.getElement(currentWordIndex);
     if (element instanceof ZLTextWord) {
       final ZLTextWord word=(ZLTextWord)element;

@@ -1,20 +1,3 @@
 {
-  final ZLTextView textView=Reader.getTextView();
-  final ZLDialog searchDialog=ZLDialogManager.getInstance().createDialog("textSearchDialog");
-  searchDialog.addOption("text",new SearchPatternEntry(this));
-  searchDialog.addOption("ignoreCase",SearchIgnoreCaseOption);
-  searchDialog.addOption("wholeText",SearchInWholeTextOption);
-  searchDialog.addOption("backward",SearchBackwardOption);
-  searchDialog.addButton("go",new Runnable(){
-    public void run(){
-      searchDialog.acceptValues();
-      final String pattern=SearchPatternOption.getValue();
-      if (pattern.length() != 0) {
-        textView.search(pattern,SearchIgnoreCaseOption.getValue(),SearchInWholeTextOption.getValue(),SearchBackwardOption.getValue(),SearchThisSectionOnlyOption.getValue());
-      }
-    }
-  }
-);
-  searchDialog.addButton(ZLDialogManager.CANCEL_BUTTON,null);
-  searchDialog.run();
+  ZLDialogManager.Instance().startSearch();
 }

@@ -1,18 +1,14 @@
 {
   final List<ZLPhysicalFile> physicalFilesList=collectPhysicalFiles();
-  System.err.println(physicalFilesList.size() + " files " + System.currentTimeMillis() % 20000);
   final Map<String,BookDescription> savedDescriptions=BooksDatabase.Instance().listBooks();
-  System.err.println(savedDescriptions.size() + " saved books " + System.currentTimeMillis() % 20000);
   final LinkedList<BookDescription> bookDescriptions=new LinkedList<BookDescription>();
   FileInfoSet fileInfos=new FileInfoSet();
   fileInfos.loadAll();
-  System.err.println("file infos have been loaded " + System.currentTimeMillis() % 20000);
   for (  ZLPhysicalFile file : physicalFilesList) {
     collectBookDescriptions(file,fileInfos,bookDescriptions,savedDescriptions,!fileInfos.check(file));
     file.setCached(false);
   }
   bookDescriptions.add(getDescription(getHelpFile(),savedDescriptions,false));
-  System.err.println("descriptions have been synchronized " + System.currentTimeMillis() % 20000);
   fileInfos.save();
   return bookDescriptions;
 }

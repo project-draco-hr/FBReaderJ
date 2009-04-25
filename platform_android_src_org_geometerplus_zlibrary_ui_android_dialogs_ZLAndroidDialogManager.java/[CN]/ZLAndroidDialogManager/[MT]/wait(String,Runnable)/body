@@ -1,20 +1,29 @@
 {
-  System.err.println("wait " + myActivity);
-  final ProgressDialog progress=ProgressDialog.show(myActivity,null,getWaitMessageText(key),true,false);
-  final Handler handler=new Handler(){
-    public void handleMessage(    Message message){
-      try {
-        progress.dismiss();
-      }
- catch (      Exception e) {
-      }
+synchronized (this) {
+    final String message=getWaitMessageText(key);
+    myTaskQueue.offer(new Pair(action,message));
+    if (myProgress == null) {
+      myProgress=ProgressDialog.show(myActivity,null,message,true,false);
+    }
+ else {
+      return;
     }
   }
-;
+  final ProgressDialog currentProgress=myProgress;
   new Thread(new Runnable(){
     public void run(){
-      runnable.run();
-      handler.sendEmptyMessage(0);
+      while ((myProgress == currentProgress) && !myTaskQueue.isEmpty()) {
+        Pair p=myTaskQueue.poll();
+        p.Action.run();
+synchronized (ZLAndroidDialogManager.this) {
+          myProgressHandler.sendEmptyMessage(0);
+          try {
+            ZLAndroidDialogManager.this.wait();
+          }
+ catch (          InterruptedException e) {
+          }
+        }
+      }
     }
   }
 ).start();

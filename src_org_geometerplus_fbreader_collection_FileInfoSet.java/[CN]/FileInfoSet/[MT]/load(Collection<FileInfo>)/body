@@ -2,5 +2,4 @@
   for (  FileInfo info : infos) {
     myInfosByPair.put(new Pair(info.Name,info.Parent),info);
   }
-  System.err.println(myInfosByPair.size() + " infos have been loaded");
 }

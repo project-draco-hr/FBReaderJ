@@ -1,0 +1,11 @@
+{
+  super.onCreate(icicle);
+  final Intent intent=getIntent();
+  if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+    final FBReader fbreader=(FBReader)FBReader.Instance();
+    final String pattern=intent.getStringExtra(SearchManager.QUERY);
+    fbreader.getTextView().search(pattern,true,false,false,false);
+    fbreader.refreshWindow();
+  }
+  finish();
+}

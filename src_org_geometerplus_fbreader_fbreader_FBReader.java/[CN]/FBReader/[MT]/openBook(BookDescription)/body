@@ -1,4 +1,8 @@
 {
-  OpenBookRunnable runnable=new OpenBookRunnable(bookDescription);
-  ZLDialogManager.getInstance().wait("loadingBook",runnable);
+  ZLDialogManager.Instance().wait("loadingBook",new Runnable(){
+    public void run(){
+      openBookInternal(bookDescription);
+    }
+  }
+);
 }

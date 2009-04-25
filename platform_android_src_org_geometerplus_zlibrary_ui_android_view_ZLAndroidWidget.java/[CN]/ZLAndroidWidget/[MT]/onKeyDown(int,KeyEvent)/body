@@ -1,7 +1,9 @@
 {
-  final String keyName=ZLAndroidKeyUtil.getKeyNameByCode(keyCode);
-  if (keyName.equals("<Menu>") || keyName.equals("<Call>")) {
+switch (keyCode) {
+case KeyEvent.KEYCODE_CALL:
+case KeyEvent.KEYCODE_MENU:
+case KeyEvent.KEYCODE_SEARCH:
     return false;
-  }
-  return ZLApplication.Instance().doActionByKey(keyName);
+}
+return ZLApplication.Instance().doActionByKey(ZLAndroidKeyUtil.getKeyNameByCode(keyCode));
 }
