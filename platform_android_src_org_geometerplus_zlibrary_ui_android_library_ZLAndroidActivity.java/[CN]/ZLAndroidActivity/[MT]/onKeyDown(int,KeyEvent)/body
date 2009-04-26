@@ -1,4 +1,4 @@
 {
-  View view=findViewById(R.id.zlandroidactivity);
-  return (view != null) ? view.onKeyDown(keyCode,event) : true;
+  View view=findViewById(R.id.main_view);
+  return ((view != null) && view.onKeyDown(keyCode,event)) || super.onKeyDown(keyCode,event);
 }

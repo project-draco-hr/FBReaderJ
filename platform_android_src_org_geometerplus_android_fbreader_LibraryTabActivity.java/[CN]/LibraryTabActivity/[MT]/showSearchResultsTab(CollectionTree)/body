@@ -1,0 +1,9 @@
+{
+  if (mySearchResultsAdapter == null) {
+    mySearchResultsAdapter=new LibraryAdapter(createTab("searchResults",R.id.search_results),tree);
+  }
+ else {
+    mySearchResultsAdapter.resetTree(tree);
+  }
+  getTabHost().setCurrentTabByTag("searchResults");
+}

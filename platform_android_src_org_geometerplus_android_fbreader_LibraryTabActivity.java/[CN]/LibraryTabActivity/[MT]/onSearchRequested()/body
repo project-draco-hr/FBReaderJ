@@ -1,0 +1,5 @@
+{
+  final FBReader fbreader=(FBReader)FBReader.Instance();
+  startSearch(fbreader.BookSearchPatternOption.getValue(),true,null,false);
+  return true;
+}

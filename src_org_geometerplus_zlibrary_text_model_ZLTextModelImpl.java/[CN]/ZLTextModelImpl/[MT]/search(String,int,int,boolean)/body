@@ -1,4 +1,5 @@
 {
+  int count=0;
   ZLSearchPattern pattern=new ZLSearchPattern(text,ignoreCase);
   myMarks.clear();
   if (startIndex > myParagraphsNumber) {
@@ -18,9 +19,11 @@
         int textLength=it.getTextLength();
         for (int pos=ZLSearchUtil.find(textData,textOffset,textLength,pattern); pos != -1; pos=ZLSearchUtil.find(textData,textOffset,textLength,pattern,pos + 1)) {
           myMarks.add(new ZLTextMark(index,offset + pos,pattern.getLength()));
+          ++count;
         }
         offset+=textLength;
       }
     }
   }
+  return count;
 }

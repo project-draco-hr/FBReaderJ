@@ -1,5 +1,0 @@
-{
-  super(fbreader);
-  myOptions=options;
-  myForward=forward;
-}

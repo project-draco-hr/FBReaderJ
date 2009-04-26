@@ -1,6 +1,5 @@
 {
   new SQLiteBooksDatabase();
   String[] args=(fileName != null) ? new String[]{fileName} : new String[0];
-  ZLApplication application=new org.geometerplus.fbreader.fbreader.FBReader(args);
-  return application;
+  return new org.geometerplus.fbreader.fbreader.FBReader(args);
 }

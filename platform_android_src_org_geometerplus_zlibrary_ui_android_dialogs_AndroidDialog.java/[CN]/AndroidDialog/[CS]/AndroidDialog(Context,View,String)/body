@@ -1,5 +1,0 @@
-{
-  super(context);
-  myView=view;
-  myCaption=caption;
-}

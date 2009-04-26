@@ -2,9 +2,9 @@
   final HashMap<Tag,TagTree> tagTreeMap=new HashMap<Tag,TagTree>();
   final HashMap<Author,AuthorTree> authorTreeMap=new HashMap<Author,AuthorTree>();
   final HashMap<AuthorSeriesPair,SeriesTree> seriesTreeMap=new HashMap<AuthorSeriesPair,SeriesTree>();
-  final List<BookDescription> allDescriptions=collectBookDescriptions();
   final HashMap<Long,BookDescription> bookById=new HashMap<Long,BookDescription>();
-  for (  BookDescription description : allDescriptions) {
+  collectBookDescriptions();
+  for (  BookDescription description : myBookDescriptions) {
     bookById.put(description.getBookId(),description);
     List<Author> authors=description.authors();
     if (authors.isEmpty()) {
@@ -18,7 +18,7 @@
         authorTreeMap.put(a,authorTree);
       }
       if (seriesInfo == null) {
-        authorTree.createBookSubTree(description);
+        authorTree.createBookSubTree(description,false);
       }
  else {
         final String series=seriesInfo.Name;
@@ -36,19 +36,19 @@
       tags=(List<Tag>)ourNullList;
     }
     for (    Tag t : tags) {
-      getTagTree(t,tagTreeMap).createBookSubTree(description);
+      getTagTree(t,tagTreeMap).createBookSubTree(description,true);
     }
   }
   final BooksDatabase db=BooksDatabase.Instance();
   for (  long id : db.listRecentBookIds()) {
     BookDescription description=bookById.get(id);
     if (description != null) {
-      myRecentBooks.createBookSubTree(description);
+      myRecentBooks.createBookSubTree(description,true);
     }
   }
   db.executeAsATransaction(new Runnable(){
     public void run(){
-      for (      BookDescription description : allDescriptions) {
+      for (      BookDescription description : myBookDescriptions) {
         description.save();
       }
     }

@@ -3,7 +3,7 @@
     return true;
   }
   finish();
-  final FBReader fbreader=(FBReader)ZLApplication.Instance();
+  final FBReader fbreader=(FBReader)FBReader.Instance();
   fbreader.openBook(((BookTree)tree).Description);
   return true;
 }

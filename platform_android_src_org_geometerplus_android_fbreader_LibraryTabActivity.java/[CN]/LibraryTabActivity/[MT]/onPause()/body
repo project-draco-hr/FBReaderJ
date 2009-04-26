@@ -1,4 +1,3 @@
 {
-  ourActivity=null;
   super.onPause();
 }

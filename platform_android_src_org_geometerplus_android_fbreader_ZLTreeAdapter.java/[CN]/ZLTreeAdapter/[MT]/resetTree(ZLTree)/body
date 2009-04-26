@@ -1,0 +1,8 @@
+{
+  myTree=tree;
+  myItems=new ZLTree[tree.getSize() - 1];
+  myOpenItems.clear();
+  myOpenItems.add(tree);
+  myParent.invalidateViews();
+  myParent.requestLayout();
+}

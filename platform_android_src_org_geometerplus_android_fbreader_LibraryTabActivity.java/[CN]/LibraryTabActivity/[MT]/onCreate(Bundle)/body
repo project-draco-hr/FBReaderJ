@@ -1,6 +1,7 @@
 {
   super.onCreate(icicle);
   requestWindowFeature(Window.FEATURE_NO_TITLE);
+  setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
   final TabHost host=getTabHost();
   LayoutInflater.from(this).inflate(R.layout.library,host.getTabContentView(),true);
   new LibraryAdapter(createTab("byAuthor",R.id.by_author),BookCollection.Instance().collectionByAuthor());

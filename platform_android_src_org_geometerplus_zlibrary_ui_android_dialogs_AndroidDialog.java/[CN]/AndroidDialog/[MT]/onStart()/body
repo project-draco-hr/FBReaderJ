@@ -1,4 +1,0 @@
-{
-  setContentView(myView);
-  setTitle(myCaption);
-}

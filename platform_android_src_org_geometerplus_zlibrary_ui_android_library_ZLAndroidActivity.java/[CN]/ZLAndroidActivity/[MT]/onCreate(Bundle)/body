@@ -2,6 +2,7 @@
   super.onCreate(icicle);
   requestWindowFeature(Window.FEATURE_NO_TITLE);
   setContentView(R.layout.main);
+  setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
   getLibrary().setActivity(this);
   final Intent intent=getIntent();
   String fileToOpen=null;
