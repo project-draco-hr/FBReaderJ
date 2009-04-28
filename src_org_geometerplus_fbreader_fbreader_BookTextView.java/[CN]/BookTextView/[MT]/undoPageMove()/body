@@ -1,8 +1,4 @@
 {
   gotoPosition((Position)myPositionStack.get(--myCurrentPointInStack));
-  ZLApplication.Instance().refreshWindow();
-  for (  Object p : myPositionStack) {
-    System.out.print(((Position)p).ModelIndex + "," + ((Position)p).ParagraphIndex+ "; ");
-  }
-  System.out.println("current position " + myCurrentPointInStack);
+  ZLApplication.Instance().repaintView();
 }

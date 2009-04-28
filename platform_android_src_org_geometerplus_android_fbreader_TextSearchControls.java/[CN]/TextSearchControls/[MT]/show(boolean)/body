@@ -1,0 +1,9 @@
+{
+  if (animate) {
+    fade(View.VISIBLE,0.0f,1.0f);
+  }
+ else {
+    setVisibility(View.VISIBLE);
+  }
+  Visible=true;
+}

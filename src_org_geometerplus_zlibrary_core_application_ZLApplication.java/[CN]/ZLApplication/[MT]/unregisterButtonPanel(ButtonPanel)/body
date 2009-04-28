@@ -1,0 +1,3 @@
+{
+  myPanels.remove(panel);
+}

@@ -2,8 +2,7 @@
   if (view != null) {
     myView=view;
     if (myViewWidget != null) {
-      resetWindowCaption();
-      refreshWindow();
+      repaintView();
     }
   }
 }

@@ -1,6 +1,0 @@
-{
-  final ZoomControls controls=new ZoomControls(this);
-  controls.setVisibility(View.GONE);
-  controls.setZoomSpeed(0);
-  controls.show();
-}

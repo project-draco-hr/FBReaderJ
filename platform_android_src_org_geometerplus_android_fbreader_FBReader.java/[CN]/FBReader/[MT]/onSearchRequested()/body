@@ -1,4 +1,17 @@
 {
+  if (myTextSearchControls != null) {
+    final boolean visible=myTextSearchControls.Visible;
+    myTextSearchControls.hide(false);
+    SearchManager manager=(SearchManager)getSystemService(Context.SEARCH_SERVICE);
+    manager.setOnCancelListener(new SearchManager.OnCancelListener(){
+      public void onCancel(){
+        if ((myTextSearchControls != null) && visible) {
+          myTextSearchControls.show(false);
+        }
+      }
+    }
+);
+  }
   final org.geometerplus.fbreader.fbreader.FBReader fbreader=(org.geometerplus.fbreader.fbreader.FBReader)ZLApplication.Instance();
   startSearch(fbreader.TextSearchPatternOption.getValue(),true,null,false);
   return true;

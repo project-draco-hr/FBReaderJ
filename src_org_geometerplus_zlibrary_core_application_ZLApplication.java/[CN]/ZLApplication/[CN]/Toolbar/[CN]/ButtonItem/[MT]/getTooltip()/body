@@ -1,3 +1,0 @@
-{
-  return myTooltip.hasValue() ? myTooltip.getValue() : null;
-}

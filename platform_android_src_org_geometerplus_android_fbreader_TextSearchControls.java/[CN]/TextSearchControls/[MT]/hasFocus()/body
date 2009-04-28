@@ -1,0 +1,3 @@
+{
+  return myFindPreviousButton.hasFocus() || myFindNextButton.hasFocus() || myCloseButton.hasFocus();
+}

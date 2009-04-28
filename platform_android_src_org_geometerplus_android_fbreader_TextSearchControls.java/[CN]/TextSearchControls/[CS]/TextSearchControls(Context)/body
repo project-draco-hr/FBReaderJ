@@ -1,0 +1,13 @@
+{
+  super(context);
+  setFocusable(false);
+  final LayoutInflater inflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+  inflater.inflate(R.layout.text_search_controls,this,true);
+  myFindPreviousButton=(ZoomButton)findViewById(R.id.previous);
+  myFindPreviousButton.setOnClickListener(this);
+  myCloseButton=(ZoomButton)findViewById(R.id.close);
+  myCloseButton.setEnabled(true);
+  myCloseButton.setOnClickListener(this);
+  myFindNextButton=(ZoomButton)findViewById(R.id.next);
+  myFindNextButton.setOnClickListener(this);
+}

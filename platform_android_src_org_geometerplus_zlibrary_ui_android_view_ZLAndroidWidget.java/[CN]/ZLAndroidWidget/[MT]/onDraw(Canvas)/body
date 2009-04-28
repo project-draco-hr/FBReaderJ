@@ -20,5 +20,6 @@
   }
  else {
     onDrawStatic(canvas);
+    ZLApplication.Instance().onRepaintFinished();
   }
 }

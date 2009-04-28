@@ -10,8 +10,7 @@
         setMode(ViewMode.FOOTNOTE);
         FootnoteView.gotoParagraph(label.ParagraphIndex,false);
       }
-      setHyperlinkCursor(false);
-      refreshWindow();
+      repaintView();
     }
   }
 }

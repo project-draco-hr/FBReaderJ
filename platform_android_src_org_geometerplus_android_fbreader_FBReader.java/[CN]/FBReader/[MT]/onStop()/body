@@ -1,0 +1,9 @@
+{
+  if (myTextSearchControls != null) {
+    ZLApplication.Instance().unregisterButtonPanel(myTextSearchControls);
+    myRestoreTextSearchControls=myTextSearchControls.Visible;
+    myTextSearchControls.hide(false);
+    myTextSearchControls=null;
+  }
+  super.onStop();
+}

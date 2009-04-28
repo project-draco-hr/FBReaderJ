@@ -1,6 +1,6 @@
 {
   gotoPosition((Position)myPositionStack.get(++myCurrentPointInStack));
-  ZLApplication.Instance().refreshWindow();
+  ZLApplication.Instance().repaintView();
   for (  Object p : myPositionStack) {
     System.out.print(((Position)p).ModelIndex + "," + ((Position)p).ParagraphIndex+ "; ");
   }

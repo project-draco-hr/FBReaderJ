@@ -1,0 +1,10 @@
+{
+  if (myTextSearchControls != null) {
+    if (show) {
+      myTextSearchControls.show(true);
+    }
+ else {
+      myTextSearchControls.hide(false);
+    }
+  }
+}

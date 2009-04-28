@@ -7,4 +7,13 @@
     finish();
   }
   setRequestedOrientation(application.AutoOrientationOption.getValue() ? ActivityInfo.SCREEN_ORIENTATION_SENSOR : ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
+  if (myTextSearchControls == null) {
+    myTextSearchControls=new TextSearchControls(this);
+    myTextSearchControls.Visible=myRestoreTextSearchControls;
+    RelativeLayout root=(RelativeLayout)findViewById(R.id.root_view);
+    RelativeLayout.LayoutParams p=new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
+    p.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+    p.addRule(RelativeLayout.CENTER_HORIZONTAL);
+    root.addView(myTextSearchControls,p);
+  }
 }

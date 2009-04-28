@@ -1,5 +1,4 @@
 {
-  myFBReader.grabAllKeys(myFBReader.KeyboardControlOption.getValue());
   myFBReader.clearTextCaches();
-  myFBReader.refreshWindow();
+  myFBReader.repaintView();
 }

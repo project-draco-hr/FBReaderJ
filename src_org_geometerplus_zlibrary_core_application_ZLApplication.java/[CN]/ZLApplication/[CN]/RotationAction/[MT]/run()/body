@@ -10,5 +10,5 @@
   }
   myViewWidget.rotate(newAngle);
   AngleStateOption.setValue(newAngle);
-  refreshWindow();
+  repaintView();
 }

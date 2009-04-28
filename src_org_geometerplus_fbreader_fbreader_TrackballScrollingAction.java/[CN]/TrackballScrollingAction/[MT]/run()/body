@@ -1,4 +1,4 @@
 {
   Reader.getTextView().scrollPage(myForward,ZLTextView.ScrollingMode.SCROLL_LINES,1);
-  Reader.refreshWindow();
+  Reader.repaintView();
 }

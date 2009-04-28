@@ -1,11 +1,4 @@
 {
   myApplication.setViewWidget(createViewWidget());
-  final ZLApplication.Toolbar toolbar=myApplication.getToolbar();
-  if (toolbar != null) {
-    final int size=toolbar.size();
-    for (int i=0; i < size; ++i) {
-      addToolbarItem(toolbar.getItem(i));
-    }
-  }
   initMenu();
 }

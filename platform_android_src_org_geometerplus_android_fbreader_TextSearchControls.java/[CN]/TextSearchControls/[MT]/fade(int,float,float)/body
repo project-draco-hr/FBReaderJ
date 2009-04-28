@@ -1,0 +1,6 @@
+{
+  final AlphaAnimation animation=new AlphaAnimation(startAlpha,endAlpha);
+  animation.setDuration(500);
+  startAnimation(animation);
+  setVisibility(visibility);
+}

@@ -1,0 +1,3 @@
+{
+  LibraryTabActivity.Instance.showSearchResultsTab(myTree);
+}

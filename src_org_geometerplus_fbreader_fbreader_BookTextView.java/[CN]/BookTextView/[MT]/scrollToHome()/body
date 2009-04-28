@@ -10,5 +10,5 @@
   gotoPosition(0,0,0);
   preparePaintInfo();
   savePosition(position,0,getStartCursor());
-  ZLApplication.Instance().refreshWindow();
+  ZLApplication.Instance().repaintView();
 }

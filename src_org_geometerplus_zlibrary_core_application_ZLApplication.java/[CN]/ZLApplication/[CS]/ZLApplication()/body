@@ -2,6 +2,5 @@
   ourInstance=this;
   if (ConfigAutoSavingOption.getValue()) {
   }
-  new ToolbarCreator().read(ZLResourceFile.createResourceFile("data/default/toolbar.xml"));
   new MenubarCreator().read(ZLResourceFile.createResourceFile("data/default/menubar.xml"));
 }
