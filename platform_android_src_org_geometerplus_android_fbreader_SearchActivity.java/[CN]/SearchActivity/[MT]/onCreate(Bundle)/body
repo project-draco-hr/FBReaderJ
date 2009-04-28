@@ -14,12 +14,13 @@
       public void handleMessage(      Message message){
 switch (message.what) {
 case 0:
-          myAlertDialog=new AlertDialog.Builder(getParentActivity()).setMessage(ZLResource.resource("errorMessage").getResource(getFailureMessageResourceKey()).getValue()).create();
-        myAlertDialog.show();
-      break;
+          onFailure();
+        myAlertDialog=new AlertDialog.Builder(getParentActivity()).setMessage(ZLResource.resource("errorMessage").getResource(getFailureMessageResourceKey()).getValue()).create();
+      myAlertDialog.show();
+    break;
 case 1:
-    myAlertDialog.dismiss();
-  break;
+  myAlertDialog.dismiss();
+break;
 }
 }
 }
@@ -32,14 +33,14 @@ successHandler.sendEmptyMessage(0);
  else {
 failureHandler.sendEmptyMessage(0);
 new Thread(new Runnable(){
-  public synchronized void run(){
-    try {
-      wait(3000);
-    }
- catch (    InterruptedException e) {
-    }
-    failureHandler.sendEmptyMessage(1);
+public synchronized void run(){
+  try {
+    wait(3000);
   }
+ catch (  InterruptedException e) {
+  }
+  failureHandler.sendEmptyMessage(1);
+}
 }
 ).start();
 }

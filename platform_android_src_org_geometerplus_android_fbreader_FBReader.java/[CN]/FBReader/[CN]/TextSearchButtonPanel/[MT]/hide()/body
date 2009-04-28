@@ -1,0 +1,6 @@
+{
+  Visible=false;
+  if (TextSearchControls != null) {
+    TextSearchControls.hide(false);
+  }
+}

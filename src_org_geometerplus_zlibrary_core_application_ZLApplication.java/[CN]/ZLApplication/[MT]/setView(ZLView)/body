@@ -4,5 +4,6 @@
     if (myViewWidget != null) {
       repaintView();
     }
+    onViewChanged();
   }
 }

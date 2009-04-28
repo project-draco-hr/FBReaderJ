@@ -1,8 +1,6 @@
 {
   super.onResume();
-  if (myTextSearchControls != null) {
-    final org.geometerplus.fbreader.fbreader.FBReader fbreader=(org.geometerplus.fbreader.fbreader.FBReader)ZLApplication.Instance();
-    myTextSearchControls.setVisibility(myTextSearchControls.Visible ? View.VISIBLE : View.GONE);
-    fbreader.registerButtonPanel(myTextSearchControls);
+  if (myPanel.TextSearchControls != null) {
+    myPanel.TextSearchControls.setVisibility(myPanel.Visible ? View.VISIBLE : View.GONE);
   }
 }

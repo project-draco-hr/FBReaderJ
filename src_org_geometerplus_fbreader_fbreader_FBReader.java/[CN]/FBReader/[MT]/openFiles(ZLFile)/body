@@ -21,7 +21,6 @@
       }
       if (description != null) {
         openBookInternal(description);
-        repaintView();
       }
     }
   }

@@ -1,9 +1,8 @@
 {
-  if (myTextSearchControls != null) {
-    ZLApplication.Instance().unregisterButtonPanel(myTextSearchControls);
-    myRestoreTextSearchControls=myTextSearchControls.Visible;
-    myTextSearchControls.hide(false);
-    myTextSearchControls=null;
+  if (myPanel.TextSearchControls != null) {
+    myPanel.Visible=myPanel.TextSearchControls.getVisibility() == View.VISIBLE;
+    myPanel.TextSearchControls.hide(false);
+    myPanel.TextSearchControls=null;
   }
   super.onStop();
 }

@@ -1,10 +1,10 @@
 {
-  if (myTextSearchControls != null) {
+  if (myPanel.TextSearchControls != null) {
     if (show) {
-      myTextSearchControls.show(true);
+      myPanel.TextSearchControls.show(true);
     }
  else {
-      myTextSearchControls.hide(false);
+      myPanel.TextSearchControls.hide(false);
     }
   }
 }

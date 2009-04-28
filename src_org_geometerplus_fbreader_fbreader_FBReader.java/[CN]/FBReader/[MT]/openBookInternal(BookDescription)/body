@@ -1,6 +1,7 @@
 {
   clearTextCaches();
   if (description != null) {
+    onViewChanged();
     BookTextView.saveState();
     BookTextView.setModels(null,"");
     Model=null;
