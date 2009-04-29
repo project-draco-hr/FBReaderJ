@@ -1,6 +1,5 @@
 {
   if (myPanel.TextSearchControls != null) {
-    myPanel.Visible=myPanel.TextSearchControls.getVisibility() == View.VISIBLE;
     myPanel.TextSearchControls.hide(false);
     myPanel.TextSearchControls=null;
   }
