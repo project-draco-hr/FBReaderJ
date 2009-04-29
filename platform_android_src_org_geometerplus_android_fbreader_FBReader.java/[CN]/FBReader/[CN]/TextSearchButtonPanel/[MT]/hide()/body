@@ -1,6 +1,6 @@
 {
   Visible=false;
-  if (TextSearchControls != null) {
-    TextSearchControls.hide(false);
+  if (ControlPanel != null) {
+    ControlPanel.hide(false);
   }
 }

@@ -1,5 +1,5 @@
 {
-  if (TextSearchControls != null) {
-    TextSearchControls.updateStates();
+  if (ControlPanel != null) {
+    ControlPanel.updateStates();
   }
 }

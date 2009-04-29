@@ -1,7 +1,7 @@
 {
-  if (myPanel.TextSearchControls != null) {
-    myPanel.TextSearchControls.hide(false);
-    myPanel.TextSearchControls=null;
+  if (myPanel.ControlPanel != null) {
+    myPanel.ControlPanel.hide(false);
+    myPanel.ControlPanel=null;
   }
   super.onStop();
 }

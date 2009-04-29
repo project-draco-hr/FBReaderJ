@@ -1,6 +1,6 @@
 {
-  if (myPanel.TextSearchControls != null) {
-    myPanel.Visible=myPanel.TextSearchControls.getVisibility() == View.VISIBLE;
+  if (myPanel.ControlPanel != null) {
+    myPanel.Visible=myPanel.ControlPanel.getVisibility() == View.VISIBLE;
   }
   super.onPause();
 }

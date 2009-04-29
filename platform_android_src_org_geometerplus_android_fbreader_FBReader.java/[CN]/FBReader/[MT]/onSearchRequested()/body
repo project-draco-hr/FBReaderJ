@@ -1,12 +1,12 @@
 {
-  if (myPanel.TextSearchControls != null) {
-    final boolean visible=myPanel.TextSearchControls.getVisibility() == View.VISIBLE;
-    myPanel.TextSearchControls.hide(false);
+  if (myPanel.ControlPanel != null) {
+    final boolean visible=myPanel.ControlPanel.getVisibility() == View.VISIBLE;
+    myPanel.ControlPanel.hide(false);
     SearchManager manager=(SearchManager)getSystemService(Context.SEARCH_SERVICE);
     manager.setOnCancelListener(new SearchManager.OnCancelListener(){
       public void onCancel(){
-        if ((myPanel.TextSearchControls != null) && visible) {
-          myPanel.TextSearchControls.show(false);
+        if ((myPanel.ControlPanel != null) && visible) {
+          myPanel.ControlPanel.show(false);
         }
       }
     }

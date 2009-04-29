@@ -7,12 +7,15 @@
     finish();
   }
   setRequestedOrientation(application.AutoOrientationOption.getValue() ? ActivityInfo.SCREEN_ORIENTATION_SENSOR : ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
-  if (myPanel.TextSearchControls == null) {
-    myPanel.TextSearchControls=new TextSearchControls(this);
+  if (myPanel.ControlPanel == null) {
+    myPanel.ControlPanel=new ControlPanel(this);
+    myPanel.ControlPanel.addButton(ActionCode.FIND_PREVIOUS,false,R.drawable.text_search_previous);
+    myPanel.ControlPanel.addButton(ActionCode.CLEAR_FIND_RESULTS,true,R.drawable.text_search_close);
+    myPanel.ControlPanel.addButton(ActionCode.FIND_NEXT,false,R.drawable.text_search_next);
     RelativeLayout root=(RelativeLayout)findViewById(R.id.root_view);
     RelativeLayout.LayoutParams p=new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
     p.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
     p.addRule(RelativeLayout.CENTER_HORIZONTAL);
-    root.addView(myPanel.TextSearchControls,p);
+    root.addView(myPanel.ControlPanel,p);
   }
 }

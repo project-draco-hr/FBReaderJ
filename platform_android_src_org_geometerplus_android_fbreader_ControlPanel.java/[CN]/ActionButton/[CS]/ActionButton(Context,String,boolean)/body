@@ -2,5 +2,4 @@
   super(context);
   ActionId=actionId;
   IsCloseButton=isCloseButton;
-  setImageResource(R.drawable.text_search_previous);
 }
