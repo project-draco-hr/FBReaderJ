@@ -1,5 +1,6 @@
 {
   final ZLApplication application=ZLApplication.Instance();
-  myFindNextButton.setEnabled(application.isActionEnabled(ActionCode.FIND_NEXT));
-  myFindPreviousButton.setEnabled(application.isActionEnabled(ActionCode.FIND_PREVIOUS));
+  for (  ActionButton button : myButtons) {
+    button.setEnabled(application.isActionEnabled(button.ActionId));
+  }
 }

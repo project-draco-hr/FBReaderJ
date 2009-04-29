@@ -1,9 +1,9 @@
 {
-  myPreviousPage.reset();
-  myNextPage.reset();
-  if (mark.ParagraphIndex < 0) {
+  if (mark == null) {
     return;
   }
+  myPreviousPage.reset();
+  myNextPage.reset();
   boolean doRepaint=false;
   if (myCurrentPage.StartCursor.isNull()) {
     doRepaint=true;

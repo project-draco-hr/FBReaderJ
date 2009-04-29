@@ -3,11 +3,8 @@
   setFocusable(false);
   final LayoutInflater inflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
   inflater.inflate(R.layout.text_search_controls,this,true);
-  myFindPreviousButton=(ZoomButton)findViewById(R.id.previous);
-  myFindPreviousButton.setOnClickListener(this);
-  myCloseButton=(ZoomButton)findViewById(R.id.close);
-  myCloseButton.setEnabled(true);
-  myCloseButton.setOnClickListener(this);
-  myFindNextButton=(ZoomButton)findViewById(R.id.next);
-  myFindNextButton.setOnClickListener(this);
+  myPlateLayout=(LinearLayout)findViewById(R.id.tools_plate);
+  addButton(ActionCode.FIND_PREVIOUS,false,R.drawable.text_search_previous);
+  addButton(ActionCode.CLEAR_FIND_RESULTS,true,R.drawable.text_search_close);
+  addButton(ActionCode.FIND_NEXT,false,R.drawable.text_search_next);
 }

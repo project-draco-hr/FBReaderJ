@@ -1,3 +1,3 @@
 {
-  return myMarks.size() == 0 ? new ZLTextMark() : myMarks.get(0);
+  return myMarks.isEmpty() ? null : myMarks.get(0);
 }

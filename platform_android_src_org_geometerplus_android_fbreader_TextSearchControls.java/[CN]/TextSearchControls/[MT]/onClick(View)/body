@@ -1,12 +1,7 @@
 {
-  if (view == myFindPreviousButton) {
-    ZLApplication.Instance().doAction(ActionCode.FIND_PREVIOUS);
-  }
- else   if (view == myFindNextButton) {
-    ZLApplication.Instance().doAction(ActionCode.FIND_NEXT);
-  }
- else {
-    ZLApplication.Instance().doAction(ActionCode.CLEAR_FIND_RESULTS);
+  final ActionButton button=(ActionButton)view;
+  ZLApplication.Instance().doAction(button.ActionId);
+  if (button.IsCloseButton) {
     hide(true);
   }
 }
