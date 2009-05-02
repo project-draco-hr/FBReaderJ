@@ -1,0 +1,22 @@
+{
+  super.setModel(model);
+  myFileName=fileName;
+  myPositionStack.clear();
+  final int stackSize=new ZLIntegerRangeOption(fileName,BUFFER_SIZE,0,MAX_UNDO_STACK_SIZE,0).getValue();
+  myCurrentPointInStack=new ZLIntegerRangeOption(fileName,POSITION_IN_BUFFER,0,(stackSize == 0) ? 0 : (stackSize - 1),0).getValue();
+  if (model != null) {
+    final ZLIntegerOption option=new ZLIntegerOption(fileName,"",0);
+    for (int i=0; i < stackSize; ++i) {
+      option.changeName(PARAGRAPH_PREFIX + i);
+      int paragraphIndex=option.getValue();
+      option.changeName(WORD_PREFIX + i);
+      final int wordIndex=option.getValue();
+      option.changeName(CHAR_PREFIX + i);
+      final int charIndex=option.getValue();
+      myPositionStack.add(new ZLTextPosition(paragraphIndex,wordIndex,charIndex));
+    }
+    if (!myPositionStack.isEmpty()) {
+      gotoPosition(myPositionStack.get(myCurrentPointInStack));
+    }
+  }
+}

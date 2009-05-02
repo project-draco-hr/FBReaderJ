@@ -1,6 +1,0 @@
-{
-  final String text=new String(ch).substring(start,start + length);
-  if (myReadTitle) {
-    myDescription.setTitle(myDescription.getTitle() + text);
-  }
-}

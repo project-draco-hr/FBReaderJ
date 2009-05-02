@@ -1,5 +1,4 @@
 {
-  ParagraphIndex=paragraphIndex;
   Model=model;
-  ModelIndex=myBookTextModels.indexOf(model);
+  ParagraphIndex=paragraphIndex;
 }

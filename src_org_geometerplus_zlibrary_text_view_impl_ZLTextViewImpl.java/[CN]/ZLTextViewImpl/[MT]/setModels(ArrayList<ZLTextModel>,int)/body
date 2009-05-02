@@ -1,6 +1,0 @@
-{
-  myModelList=(models != null) ? models : new ArrayList<ZLTextModel>();
-  myModel=(current >= 0 && current < myModelList.size()) ? (ZLTextModel)myModelList.get(current) : null;
-  myCurrentModelIndex=current;
-  setModelInternal();
-}

@@ -1,4 +1,0 @@
-ZLFile file
-FileInfoSet fileInfos
-Map<String,BookDescription> savedDescriptions
-boolean doReadMetaInfo

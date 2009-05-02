@@ -1,0 +1,5 @@
+{
+  myText=text;
+  myCreationDate=new Date();
+  myPosition=position;
+}

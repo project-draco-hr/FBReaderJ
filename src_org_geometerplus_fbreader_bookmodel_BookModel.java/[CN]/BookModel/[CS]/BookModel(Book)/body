@@ -1,0 +1,7 @@
+{
+  Book=book;
+  FormatPlugin plugin=PluginCollection.instance().getPlugin(book.File);
+  if (plugin != null) {
+    plugin.readModel(this);
+  }
+}

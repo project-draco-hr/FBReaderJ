@@ -1,8 +1,0 @@
-{
-  myDoRebuild=true;
-  myBookDescriptions.clear();
-  myCollectionByAuthor.clear();
-  myCollectionByTag.clear();
-  myRecentBooks.clear();
-  mySearchResult.clear();
-}

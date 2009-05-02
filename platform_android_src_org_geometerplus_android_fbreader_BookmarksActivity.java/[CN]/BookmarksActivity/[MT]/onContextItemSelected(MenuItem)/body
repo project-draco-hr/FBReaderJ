@@ -1,0 +1,16 @@
+{
+  final int position=((AdapterView.AdapterContextMenuInfo)item.getMenuInfo()).position;
+switch (item.getItemId()) {
+case OPEN_ITEM_ID:
+    gotoBookmark(position - 1);
+  return true;
+case EDIT_ITEM_ID:
+return true;
+case DELETE_ITEM_ID:
+myBookmarks.removeBookmark(position - 1);
+getListView().invalidateViews();
+getListView().requestLayout();
+return true;
+}
+return super.onContextItemSelected(item);
+}

@@ -1,0 +1,5 @@
+{
+  if (get(index).setText(text)) {
+    myIsChanged=true;
+  }
+}

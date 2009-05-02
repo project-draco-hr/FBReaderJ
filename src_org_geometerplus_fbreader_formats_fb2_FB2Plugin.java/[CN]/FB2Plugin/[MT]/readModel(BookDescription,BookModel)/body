@@ -1,3 +1,0 @@
-{
-  return new FB2Reader(model).readBook(description.File);
-}

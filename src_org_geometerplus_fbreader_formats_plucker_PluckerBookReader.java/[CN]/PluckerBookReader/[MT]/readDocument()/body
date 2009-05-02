@@ -30,7 +30,6 @@
       for (int k=second; k < list.size(); ++k) {
         if (((Integer)((Pair)list.get(k)).myFirst) != -1) {
           final Pair p=(Pair)list.get(k);
-          addHyperlinkLabel(fromNumber(first) + '#' + fromNumber(second),(Integer)p.mySecond,(Integer)p.myFirst);
           break;
         }
       }

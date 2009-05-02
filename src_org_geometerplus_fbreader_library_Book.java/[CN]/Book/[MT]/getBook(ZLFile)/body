@@ -1,0 +1,25 @@
+{
+  if (bookFile == null) {
+    return null;
+  }
+  final ZLPhysicalFile physicalFile=bookFile.getPhysicalFile();
+  if ((physicalFile != null) && !physicalFile.exists()) {
+    return null;
+  }
+  final Book book=new Book(bookFile,true);
+  FileInfoSet fileInfos=new FileInfoSet();
+  fileInfos.load(physicalFile);
+  if (fileInfos.check(physicalFile) && book.myIsSaved) {
+    return book;
+  }
+  fileInfos.save();
+  final FormatPlugin plugin=PluginCollection.instance().getPlugin(bookFile);
+  if ((plugin == null) || !plugin.readMetaInfo(book)) {
+    return null;
+  }
+  String title=book.getTitle();
+  if ((title == null) || (title.length() == 0)) {
+    book.setTitle(bookFile.getName(true));
+  }
+  return book;
+}

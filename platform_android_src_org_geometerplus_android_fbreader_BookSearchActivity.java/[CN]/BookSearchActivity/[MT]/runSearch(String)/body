@@ -1,6 +1,6 @@
 {
   final FBReader fbreader=(FBReader)FBReader.Instance();
   fbreader.BookSearchPatternOption.setValue(pattern);
-  myTree=BookCollection.Instance().searchBooks(pattern);
+  myTree=Library.Instance().searchBooks(pattern);
   return myTree.hasChildren();
 }

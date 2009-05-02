@@ -1,0 +1,12 @@
+{
+  final List<ZLPhysicalFile> physicalFilesList=collectPhysicalFiles();
+  final Map<String,Book> savedBooks=BooksDatabase.Instance().listBooks();
+  FileInfoSet fileInfos=new FileInfoSet();
+  fileInfos.loadAll();
+  for (  ZLPhysicalFile file : physicalFilesList) {
+    collectBooks(file,fileInfos,savedBooks,!fileInfos.check(file));
+    file.setCached(false);
+  }
+  myBooks.add(getBook(getHelpFile(),savedBooks,false));
+  fileInfos.save();
+}

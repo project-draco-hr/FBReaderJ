@@ -1,0 +1,7 @@
+{
+  Cursor cursor=myDatabase.rawQuery("SELECT bookmark_text,creation_time,modification_time,access_time,access_counter,paragraph,word,char FROM Bookmarks WHERE book_id = ?",new String[]{"" + bookId});
+  while (cursor.moveToNext()) {
+    list.add(createBookmark(cursor.getString(0),getDate(cursor,1),getDate(cursor,2),getDate(cursor,3),(int)cursor.getLong(4),(int)cursor.getLong(5),(int)cursor.getLong(6),(int)cursor.getLong(7)));
+  }
+  cursor.close();
+}

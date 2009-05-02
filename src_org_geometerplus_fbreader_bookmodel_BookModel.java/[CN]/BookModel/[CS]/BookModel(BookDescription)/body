@@ -1,9 +1,0 @@
-{
-  myBookTextModels=new ArrayList();
-  myBookTextModels.add(BookTextModel);
-  Description=description;
-  FormatPlugin plugin=PluginCollection.instance().getPlugin(description.File);
-  if (plugin != null) {
-    plugin.readModel(description,this);
-  }
-}

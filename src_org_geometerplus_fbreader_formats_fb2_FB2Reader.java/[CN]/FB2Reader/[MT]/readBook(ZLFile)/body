@@ -1,5 +1,0 @@
-{
-  Base64EncodedImage.resetCounter();
-  final ZLXMLProcessor processor=ZLXMLProcessorFactory.Instance().createXMLProcessor();
-  return processor.read(this,file);
-}

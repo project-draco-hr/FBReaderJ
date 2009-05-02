@@ -1,5 +1,4 @@
 {
-  System.err.println("onViewChanged");
   for (  ButtonPanel panel : myPanels) {
     panel.hide();
   }

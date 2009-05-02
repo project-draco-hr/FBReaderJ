@@ -2,9 +2,9 @@
   preparePaintInfo();
   final ZLTextWordCursor cursor=getStartCursor();
   if (!cursor.isNull()) {
-    final Position position=new Position(myCurrentModelIndex,cursor);
+    final ZLTextPosition position=new ZLTextPosition(cursor);
     gotoParagraph(paragraphIndex,false);
     preparePaintInfo();
-    savePosition(position,myCurrentModelIndex,getStartCursor());
+    savePosition(position,getStartCursor());
   }
 }

@@ -1,0 +1,3 @@
+{
+  return (position > 0) ? myBookmarks.get(position - 1) : null;
+}

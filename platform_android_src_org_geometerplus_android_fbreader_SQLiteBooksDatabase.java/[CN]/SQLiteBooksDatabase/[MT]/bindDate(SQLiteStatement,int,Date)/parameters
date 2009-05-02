@@ -1,0 +1,3 @@
+SQLiteStatement statement
+int index
+Date value

@@ -1,0 +1,4 @@
+{
+  myBook=book;
+  BooksDatabase.Instance().listBookmarks(book.getId(),this);
+}

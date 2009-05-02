@@ -1,4 +1,0 @@
-{
-  ModelIndex=modelIndex;
-  set(cursor);
-}

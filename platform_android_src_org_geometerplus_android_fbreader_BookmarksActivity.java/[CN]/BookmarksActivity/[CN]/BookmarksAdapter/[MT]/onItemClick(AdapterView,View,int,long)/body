@@ -1,0 +1,8 @@
+{
+  if (position == 0) {
+    addBookmark();
+  }
+ else {
+    gotoBookmark(position - 1);
+  }
+}

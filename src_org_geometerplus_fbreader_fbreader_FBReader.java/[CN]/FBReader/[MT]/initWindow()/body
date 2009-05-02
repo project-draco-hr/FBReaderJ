@@ -1,4 +1,4 @@
 {
   super.initWindow();
-  openFiles(ZLFile.createFileByPath(myArg0),ZLFile.createFileByPath(myBookNameOption.getValue()),BookCollection.Instance().getHelpFile());
+  openFiles(ZLFile.createFileByPath(myArg0),ZLFile.createFileByPath(myBookNameOption.getValue()),Library.Instance().getHelpFile());
 }

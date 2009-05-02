@@ -7,14 +7,9 @@
   new ZLIntegerOption(group,POSITION_IN_BUFFER,0).setValue(myCurrentPointInStack);
   final ZLIntegerOption option=new ZLIntegerOption(group,"",0);
   for (int i=0; i < myPositionStack.size(); ++i) {
-    Position position=(Position)myPositionStack.get(i);
+    final ZLTextPosition position=myPositionStack.get(i);
     option.changeName(PARAGRAPH_PREFIX + i);
-    int paragraphIndex=position.ParagraphIndex + position.ModelIndex;
-    final ArrayList models=getModelList();
-    for (int j=0; j < position.ModelIndex; j++) {
-      paragraphIndex+=((ZLTextModel)models.get(j)).getParagraphsNumber();
-    }
-    option.setValue(paragraphIndex);
+    option.setValue(position.ParagraphIndex);
     option.changeName(CHAR_PREFIX + i);
     option.setValue(position.CharIndex);
     option.changeName(WORD_PREFIX + i);

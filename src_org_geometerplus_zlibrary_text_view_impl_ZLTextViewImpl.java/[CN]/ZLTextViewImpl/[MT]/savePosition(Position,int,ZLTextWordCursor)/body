@@ -1,5 +1,0 @@
-{
-  if ((position.ModelIndex != modelIndexToCheck) || !position.equalsToCursor(cursorToCheck)) {
-    savePosition(position);
-  }
-}

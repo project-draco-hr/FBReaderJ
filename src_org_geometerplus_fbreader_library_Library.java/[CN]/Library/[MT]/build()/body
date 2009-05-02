@@ -1,0 +1,57 @@
+{
+  final HashMap<Tag,TagTree> tagTreeMap=new HashMap<Tag,TagTree>();
+  final HashMap<Author,AuthorTree> authorTreeMap=new HashMap<Author,AuthorTree>();
+  final HashMap<AuthorSeriesPair,SeriesTree> seriesTreeMap=new HashMap<AuthorSeriesPair,SeriesTree>();
+  final HashMap<Long,Book> bookById=new HashMap<Long,Book>();
+  collectBooks();
+  for (  Book book : myBooks) {
+    bookById.put(book.getId(),book);
+    List<Author> authors=book.authors();
+    if (authors.isEmpty()) {
+      authors=(List<Author>)ourNullList;
+    }
+    final SeriesInfo seriesInfo=book.getSeriesInfo();
+    for (    Author a : authors) {
+      AuthorTree authorTree=authorTreeMap.get(a);
+      if (authorTree == null) {
+        authorTree=myLibraryByAuthor.createAuthorSubTree(a);
+        authorTreeMap.put(a,authorTree);
+      }
+      if (seriesInfo == null) {
+        authorTree.createBookSubTree(book,false);
+      }
+ else {
+        final String series=seriesInfo.Name;
+        final AuthorSeriesPair pair=new AuthorSeriesPair(a,series);
+        SeriesTree seriesTree=seriesTreeMap.get(pair);
+        if (seriesTree == null) {
+          seriesTree=authorTree.createSeriesSubTree(series);
+          seriesTreeMap.put(pair,seriesTree);
+        }
+        seriesTree.createBookInSeriesSubTree(book);
+      }
+    }
+    List<Tag> tags=book.tags();
+    if (tags.isEmpty()) {
+      tags=(List<Tag>)ourNullList;
+    }
+    for (    Tag t : tags) {
+      getTagTree(t,tagTreeMap).createBookSubTree(book,true);
+    }
+  }
+  final BooksDatabase db=BooksDatabase.Instance();
+  for (  long id : db.listRecentBookIds()) {
+    Book book=bookById.get(id);
+    if (book != null) {
+      myRecentBooks.createBookSubTree(book,true);
+    }
+  }
+  db.executeAsATransaction(new Runnable(){
+    public void run(){
+      for (      Book book : myBooks) {
+        book.save();
+      }
+    }
+  }
+);
+}

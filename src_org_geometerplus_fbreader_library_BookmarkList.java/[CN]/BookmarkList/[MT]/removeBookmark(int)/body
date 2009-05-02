@@ -1,0 +1,4 @@
+{
+  remove(index);
+  myIsChanged=true;
+}

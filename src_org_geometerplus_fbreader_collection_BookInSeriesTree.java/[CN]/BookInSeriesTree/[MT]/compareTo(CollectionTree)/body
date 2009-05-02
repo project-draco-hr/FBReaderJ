@@ -1,9 +1,0 @@
-{
-  if (tree instanceof BookInSeriesTree) {
-    final long difference=Description.getSeriesInfo().Index - ((BookTree)tree).Description.getSeriesInfo().Index;
-    if (difference != 0) {
-      return (int)difference;
-    }
-  }
-  return super.compareTo(tree);
-}

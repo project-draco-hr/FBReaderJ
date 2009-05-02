@@ -1,4 +1,0 @@
-{
-  final ZLFile opfFile=getOpfFile(file);
-  return (opfFile != null) ? new OEBDescriptionReader(description).readDescription(opfFile) : false;
-}

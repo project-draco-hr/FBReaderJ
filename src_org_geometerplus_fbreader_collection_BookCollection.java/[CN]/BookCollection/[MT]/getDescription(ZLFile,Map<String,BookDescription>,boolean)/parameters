@@ -1,3 +1,0 @@
-ZLFile bookFile
-Map<String,BookDescription> saved
-boolean doReadMetaInfo

@@ -1,0 +1,14 @@
+{
+  try {
+    PdbStream stream=new PluckerTextStream(book.File);
+    if (stream.open()) {
+      stream.close();
+    }
+  }
+ catch (  IOException e) {
+  }
+  if (book.getEncoding().length() == 0) {
+    return false;
+  }
+  return true;
+}

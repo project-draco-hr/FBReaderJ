@@ -1,9 +1,0 @@
-{
-  List<CollectionTree> children=subTrees();
-  if (!children.isEmpty()) {
-    Collections.sort(children);
-    for (    CollectionTree tree : children) {
-      tree.sortAllChildren();
-    }
-  }
-}

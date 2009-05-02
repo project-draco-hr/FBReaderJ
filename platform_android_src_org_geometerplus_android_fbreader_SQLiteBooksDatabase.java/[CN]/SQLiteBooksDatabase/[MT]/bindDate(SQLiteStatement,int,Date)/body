@@ -1,0 +1,8 @@
+{
+  if (value != null) {
+    statement.bindLong(index,value.getTime());
+  }
+ else {
+    statement.bindNull(index);
+  }
+}

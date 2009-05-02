@@ -54,7 +54,6 @@ case 1:
           myParagraphVector=(ArrayList)myParagraphMap.get(uid);
           processTextRecord(size,pars);
           if ((flags & 0x1) == 0) {
-            setNewTextModel();
           }
         }
         break;

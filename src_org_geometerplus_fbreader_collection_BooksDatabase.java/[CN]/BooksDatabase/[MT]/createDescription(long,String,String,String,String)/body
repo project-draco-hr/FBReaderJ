@@ -1,3 +1,0 @@
-{
-  return new BookDescription(bookId,ZLFile.createFileByPath(filePath),title,encoding,language);
-}

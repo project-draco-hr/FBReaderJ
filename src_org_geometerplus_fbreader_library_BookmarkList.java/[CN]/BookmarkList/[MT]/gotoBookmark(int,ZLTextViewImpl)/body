@@ -1,0 +1,6 @@
+{
+  myIsChanged=true;
+  final Bookmark bookmark=get(index);
+  bookmark.onAccess();
+  view.gotoPosition(bookmark.getPosition());
+}

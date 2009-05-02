@@ -1,0 +1,8 @@
+String text
+Date creationDate
+Date modificationDate
+Date accessDate
+int accessCounter
+int paragraphIndex
+int wordIndex
+int charIndex

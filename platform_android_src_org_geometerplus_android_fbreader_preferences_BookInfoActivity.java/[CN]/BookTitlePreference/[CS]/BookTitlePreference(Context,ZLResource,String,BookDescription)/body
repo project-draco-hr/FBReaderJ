@@ -1,5 +1,0 @@
-{
-  super(context,rootResource,resourceKey);
-  myDescription=description;
-  setValue(description.getTitle());
-}

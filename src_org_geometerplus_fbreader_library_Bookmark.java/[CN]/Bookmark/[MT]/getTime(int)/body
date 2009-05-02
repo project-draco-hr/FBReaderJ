@@ -1,0 +1,11 @@
+{
+switch (timeStamp) {
+default :
+case CREATION:
+    return myCreationDate;
+case MODIFICATION:
+  return myModificationDate;
+case ACCESS:
+return myAccessDate;
+}
+}

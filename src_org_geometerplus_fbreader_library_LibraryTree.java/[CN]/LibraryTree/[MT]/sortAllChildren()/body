@@ -1,0 +1,9 @@
+{
+  List<LibraryTree> children=subTrees();
+  if (!children.isEmpty()) {
+    Collections.sort(children);
+    for (    LibraryTree tree : children) {
+      tree.sortAllChildren();
+    }
+  }
+}

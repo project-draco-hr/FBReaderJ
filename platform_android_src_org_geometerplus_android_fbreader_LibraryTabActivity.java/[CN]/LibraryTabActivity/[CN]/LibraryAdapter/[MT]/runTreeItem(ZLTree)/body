@@ -4,6 +4,6 @@
   }
   finish();
   final FBReader fbreader=(FBReader)FBReader.Instance();
-  fbreader.openBook(((BookTree)tree).Description);
+  fbreader.openBook(((BookTree)tree).Book);
   return true;
 }

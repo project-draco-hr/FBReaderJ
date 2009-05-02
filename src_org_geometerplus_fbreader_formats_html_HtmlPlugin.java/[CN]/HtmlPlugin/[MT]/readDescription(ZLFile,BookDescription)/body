@@ -1,3 +1,0 @@
-{
-  return new HtmlDescriptionReader(description).readDescription(file);
-}

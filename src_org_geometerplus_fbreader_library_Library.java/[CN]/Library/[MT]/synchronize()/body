@@ -1,0 +1,8 @@
+{
+  if (myDoRebuild) {
+    build();
+    myLibraryByAuthor.sortAllChildren();
+    myLibraryByTag.sortAllChildren();
+    myDoRebuild=false;
+  }
+}

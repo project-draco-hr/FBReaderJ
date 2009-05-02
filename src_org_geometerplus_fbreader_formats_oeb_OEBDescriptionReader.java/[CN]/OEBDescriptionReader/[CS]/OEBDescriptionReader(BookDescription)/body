@@ -1,5 +1,0 @@
-{
-  myDescription=description;
-  myDescription.setTitle(null);
-  myDescription.setLanguage(null);
-}

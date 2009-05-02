@@ -1,3 +1,0 @@
-{
-  return new FB2DescriptionReader(description).readDescription(file);
-}

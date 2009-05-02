@@ -1,8 +1,0 @@
-{
-  myBookId=bookId;
-  File=file;
-  myTitle=title;
-  myEncoding=encoding;
-  myLanguage=language;
-  myIsSaved=true;
-}

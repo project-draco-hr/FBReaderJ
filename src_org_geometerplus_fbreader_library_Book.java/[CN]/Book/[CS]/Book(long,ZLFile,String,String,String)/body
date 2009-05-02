@@ -1,0 +1,8 @@
+{
+  myId=id;
+  File=file;
+  myTitle=title;
+  myEncoding=encoding;
+  myLanguage=language;
+  myIsSaved=true;
+}

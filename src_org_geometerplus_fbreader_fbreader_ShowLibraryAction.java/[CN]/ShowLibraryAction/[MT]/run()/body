@@ -2,9 +2,9 @@
   final ZLAndroidDialogManager dialogManager=(ZLAndroidDialogManager)ZLAndroidDialogManager.Instance();
   Runnable action=new Runnable(){
     public void run(){
-      BookCollection collection=BookCollection.Instance();
-      collection.clear();
-      collection.synchronize();
+      Library library=Library.Instance();
+      library.clear();
+      library.synchronize();
       dialogManager.runActivity(LibraryTabActivity.class);
     }
   }

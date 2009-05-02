@@ -1,9 +1,8 @@
 {
   if (myPositionStack.isEmpty()) {
-    myPositionStack.add(new Position(myCurrentModelIndex,getStartCursor()));
+    myPositionStack.add(new ZLTextPosition(getStartCursor()));
   }
  else {
-    ((Position)myPositionStack.get(myCurrentPointInStack)).set(getStartCursor());
-    ((Position)myPositionStack.get(myCurrentPointInStack)).ModelIndex=myCurrentModelIndex;
+    myPositionStack.get(myCurrentPointInStack).set(getStartCursor());
   }
 }

@@ -1,0 +1,57 @@
+{
+switch (FB2Tag.getTagByName(tagName)) {
+case FB2Tag.BODY:
+    return true;
+case FB2Tag.TITLE_INFO:
+  myReadState=READ_SOMETHING;
+break;
+case FB2Tag.BOOK_TITLE:
+if (myReadState == READ_SOMETHING) {
+myReadState=READ_TITLE;
+}
+break;
+case FB2Tag.GENRE:
+if (myReadState == READ_SOMETHING) {
+myReadState=READ_GENRE;
+}
+break;
+case FB2Tag.AUTHOR:
+if (myReadState == READ_SOMETHING) {
+myReadState=READ_AUTHOR;
+}
+break;
+case FB2Tag.LANG:
+if (myReadState == READ_SOMETHING) {
+myReadState=READ_LANGUAGE;
+}
+break;
+case FB2Tag.FIRST_NAME:
+if (myReadState == READ_AUTHOR) {
+myReadState=READ_AUTHOR_NAME_0;
+}
+break;
+case FB2Tag.MIDDLE_NAME:
+if (myReadState == READ_AUTHOR) {
+myReadState=READ_AUTHOR_NAME_1;
+}
+break;
+case FB2Tag.LAST_NAME:
+if (myReadState == READ_AUTHOR) {
+myReadState=READ_AUTHOR_NAME_2;
+}
+break;
+case FB2Tag.SEQUENCE:
+if (myReadState == READ_SOMETHING) {
+String name=attributes.getValue("name");
+if (name != null) {
+name.trim();
+if (name.length() != 0) {
+String index=attributes.getValue("number");
+myBook.setSeriesInfo(name,(index != null) ? Integer.parseInt(index) : 0);
+}
+}
+}
+break;
+}
+return false;
+}

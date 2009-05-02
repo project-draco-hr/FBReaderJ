@@ -1,0 +1,6 @@
+{
+  if (cursor.isNull(index)) {
+    return null;
+  }
+  return new Date(cursor.getLong(index));
+}

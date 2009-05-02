@@ -1,0 +1,5 @@
+{
+  myBook=book;
+  myBook.setTitle(null);
+  myBook.setLanguage(null);
+}

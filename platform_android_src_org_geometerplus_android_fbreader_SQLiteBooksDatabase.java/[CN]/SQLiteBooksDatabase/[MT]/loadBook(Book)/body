@@ -1,0 +1,12 @@
+{
+  final Cursor cursor=myDatabase.query(BOOKS_TABLE,BOOKS_COLUMNS,FILE_NAME_CONDITION,new String[]{book.File.getPath()},null,null,null,null);
+  long id=-1;
+  if (cursor.moveToNext()) {
+    id=cursor.getLong(0);
+    book.setEncoding(cursor.getString(1));
+    book.setLanguage(cursor.getString(2));
+    book.setTitle(cursor.getString(3));
+  }
+  cursor.close();
+  return id;
+}

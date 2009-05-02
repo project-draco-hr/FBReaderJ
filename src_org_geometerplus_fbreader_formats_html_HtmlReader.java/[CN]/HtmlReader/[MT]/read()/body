@@ -1,4 +1,0 @@
-{
-  final ZLHtmlProcessor processor=ZLHtmlProcessorFactory.Instance().createHtmlProcessor();
-  return processor.read(this,Model.Description.File);
-}

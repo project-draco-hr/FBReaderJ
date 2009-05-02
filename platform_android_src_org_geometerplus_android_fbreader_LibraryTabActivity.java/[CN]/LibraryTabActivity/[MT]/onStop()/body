@@ -1,6 +1,6 @@
 {
   mySelectedTabOption.setValue(getTabHost().getCurrentTabTag());
   Instance=null;
-  BookCollection.Instance().clear();
+  Library.Instance().clear();
   super.onStop();
 }

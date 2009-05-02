@@ -1,0 +1,10 @@
+{
+  super.onCreate(bundle);
+  requestWindowFeature(Window.FEATURE_NO_TITLE);
+  myBookmarks=new BookmarkList(((FBReader)FBReader.Instance()).Model.Book);
+  final BookmarksAdapter adapter=new BookmarksAdapter();
+  final ListView listView=getListView();
+  listView.setAdapter(adapter);
+  listView.setOnItemClickListener(adapter);
+  listView.setOnCreateContextMenuListener(adapter);
+}

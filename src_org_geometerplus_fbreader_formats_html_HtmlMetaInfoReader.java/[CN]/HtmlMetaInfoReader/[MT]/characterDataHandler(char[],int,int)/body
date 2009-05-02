@@ -1,0 +1,6 @@
+{
+  final String text=new String(ch).substring(start,start + length);
+  if (myReadTitle) {
+    myBook.setTitle(myBook.getTitle() + text);
+  }
+}

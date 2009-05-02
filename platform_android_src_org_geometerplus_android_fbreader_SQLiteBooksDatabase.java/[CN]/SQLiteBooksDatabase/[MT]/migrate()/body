@@ -1,6 +1,6 @@
 {
   final int version=myDatabase.getVersion();
-  if (version >= 5) {
+  if (version >= 6) {
     return;
   }
   ZLDialogManager.Instance().wait((version == 0) ? "creatingBooksDatabase" : "updatingBooksDatabase",new Runnable(){
@@ -19,11 +19,13 @@ case 4:
 updateTables4();
 case 5:
 updateTables5();
+case 6:
+updateTables6();
 }
 myDatabase.setTransactionSuccessful();
 myDatabase.endTransaction();
 myDatabase.execSQL("VACUUM");
-myDatabase.setVersion(5);
+myDatabase.setVersion(6);
 }
 }
 );

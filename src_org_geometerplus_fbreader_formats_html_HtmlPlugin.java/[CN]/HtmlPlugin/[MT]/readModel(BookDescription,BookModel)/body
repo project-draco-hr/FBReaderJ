@@ -1,5 +1,0 @@
-{
-  if (!description.getEncoding().equals(AUTO)) {
-  }
-  return new HtmlReader(model).readBook(description.File);
-}

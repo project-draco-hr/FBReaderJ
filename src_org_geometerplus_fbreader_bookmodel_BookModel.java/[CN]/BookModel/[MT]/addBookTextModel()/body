@@ -1,5 +1,0 @@
-{
-  ZLTextPlainModel bookTextModel=new ZLTextPlainModel(65536,"/sdcard/Books/.FBReader","cache" + myBookTextModels.size());
-  myBookTextModels.add(bookTextModel);
-  return bookTextModel;
-}

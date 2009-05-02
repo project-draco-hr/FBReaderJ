@@ -1,8 +1,0 @@
-{
-  if (myDoRebuild) {
-    build();
-    myCollectionByAuthor.sortAllChildren();
-    myCollectionByTag.sortAllChildren();
-    myDoRebuild=false;
-  }
-}

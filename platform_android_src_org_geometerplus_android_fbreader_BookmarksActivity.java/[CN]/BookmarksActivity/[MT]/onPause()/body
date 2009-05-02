@@ -1,0 +1,4 @@
+{
+  myBookmarks.save();
+  super.onPause();
+}

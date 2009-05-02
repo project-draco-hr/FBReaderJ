@@ -1,0 +1,5 @@
+{
+  if (!model.Book.getEncoding().equals(AUTO)) {
+  }
+  return new HtmlReader(model).readBook();
+}
