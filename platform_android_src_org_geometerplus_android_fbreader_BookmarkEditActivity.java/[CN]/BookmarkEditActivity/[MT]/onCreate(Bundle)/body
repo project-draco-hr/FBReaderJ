@@ -1,0 +1,5 @@
+{
+  super.onCreate(bundle);
+  requestWindowFeature(Window.FEATURE_NO_TITLE);
+  setContentView(R.layout.edit_bookmark);
+}

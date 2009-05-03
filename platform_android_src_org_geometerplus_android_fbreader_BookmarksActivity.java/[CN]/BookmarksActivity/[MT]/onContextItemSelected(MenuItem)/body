@@ -7,6 +7,8 @@ case OPEN_ITEM_ID:
     gotoBookmark(bookmark);
   return true;
 case EDIT_ITEM_ID:
+final Intent intent=new Intent(this,BookmarkEditActivity.class);
+startActivityForResult(intent,1);
 return true;
 case DELETE_ITEM_ID:
 bookmark.delete();
