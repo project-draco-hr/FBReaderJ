@@ -4,10 +4,10 @@
   setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
   final TabHost host=getTabHost();
   LayoutInflater.from(this).inflate(R.layout.bookmarks,host.getTabContentView(),true);
-  myAllBooksBookmarks=Bookmark.bookmarks();
-  Collections.sort(myAllBooksBookmarks,new Bookmark.ByTimeComparator());
+  AllBooksBookmarks=Bookmark.bookmarks();
+  Collections.sort(AllBooksBookmarks,new Bookmark.ByTimeComparator());
   final long bookId=((FBReader)FBReader.Instance()).Model.Book.getId();
-  for (  Bookmark bookmark : myAllBooksBookmarks) {
+  for (  Bookmark bookmark : AllBooksBookmarks) {
     if (bookmark.getBookId() == bookId) {
       myThisBookBookmarks.add(bookmark);
     }
@@ -15,6 +15,6 @@
   myThisBookView=createTab("thisBook",R.id.this_book);
   new BookmarksAdapter(myThisBookView,myThisBookBookmarks,true);
   myAllBooksView=createTab("allBooks",R.id.all_books);
-  new BookmarksAdapter(myAllBooksView,myAllBooksBookmarks,false);
+  new BookmarksAdapter(myAllBooksView,AllBooksBookmarks,false);
   findViewById(R.id.search_results).setVisibility(View.GONE);
 }

@@ -1,0 +1,12 @@
+{
+  final FBReader fbreader=(FBReader)FBReader.Instance();
+  fbreader.BookmarkSearchPatternOption.setValue(pattern);
+  pattern=pattern.toLowerCase();
+  myBookmarks.clear();
+  for (  Bookmark bookmark : BookmarksActivity.Instance.AllBooksBookmarks) {
+    if (ZLMiscUtil.matchesIgnoreCase(bookmark.getText(),pattern)) {
+      myBookmarks.add(bookmark);
+    }
+  }
+  return !myBookmarks.isEmpty();
+}

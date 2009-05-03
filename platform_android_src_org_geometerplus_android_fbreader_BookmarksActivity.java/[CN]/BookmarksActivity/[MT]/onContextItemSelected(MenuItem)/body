@@ -11,7 +11,8 @@ return true;
 case DELETE_ITEM_ID:
 bookmark.delete();
 myThisBookBookmarks.remove(bookmark);
-myAllBooksBookmarks.remove(bookmark);
+AllBooksBookmarks.remove(bookmark);
+mySearchResults.remove(bookmark);
 invalidateAllViews();
 return true;
 }

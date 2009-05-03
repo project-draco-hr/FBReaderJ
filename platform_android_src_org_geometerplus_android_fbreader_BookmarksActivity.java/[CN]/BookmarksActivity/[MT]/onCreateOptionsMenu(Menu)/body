@@ -1,0 +1,5 @@
+{
+  super.onCreateOptionsMenu(menu);
+  menu.add(0,1,Menu.NONE,myResource.getResource("menu").getResource("search").getValue()).setOnMenuItemClickListener(this);
+  return true;
+}

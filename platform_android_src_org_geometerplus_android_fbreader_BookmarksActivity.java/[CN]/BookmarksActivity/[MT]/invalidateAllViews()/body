@@ -3,4 +3,8 @@
   myThisBookView.requestLayout();
   myAllBooksView.invalidateViews();
   myAllBooksView.requestLayout();
+  if (mySearchResultsView != null) {
+    mySearchResultsView.invalidateViews();
+    mySearchResultsView.requestLayout();
+  }
 }

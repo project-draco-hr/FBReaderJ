@@ -1,5 +1,5 @@
 {
-  for (  Bookmark bookmark : myAllBooksBookmarks) {
+  for (  Bookmark bookmark : AllBooksBookmarks) {
     bookmark.save();
   }
   super.onPause();
