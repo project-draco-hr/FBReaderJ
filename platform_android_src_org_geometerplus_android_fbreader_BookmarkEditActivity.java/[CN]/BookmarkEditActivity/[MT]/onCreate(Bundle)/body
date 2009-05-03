@@ -1,5 +1,9 @@
 {
   super.onCreate(bundle);
   requestWindowFeature(Window.FEATURE_NO_TITLE);
-  setContentView(R.layout.edit_bookmark);
+  final LinearLayout v=new LinearLayout(this);
+  v.setOrientation(LinearLayout.VERTICAL);
+  v.addView(new EditText(this));
+  final SimpleContainer container=new SimpleContainer(this,v);
+  setContentView(container);
 }

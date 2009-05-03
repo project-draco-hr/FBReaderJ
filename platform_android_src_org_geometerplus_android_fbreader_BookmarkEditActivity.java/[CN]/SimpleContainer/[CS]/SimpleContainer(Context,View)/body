@@ -1,0 +1,5 @@
+{
+  super(context);
+  myChild=child;
+  addView(child);
+}
