@@ -1,4 +1,0 @@
-{
-  myBookmarks.gotoBookmark(index,((FBReader)FBReader.Instance()).BookTextView);
-  finish();
-}

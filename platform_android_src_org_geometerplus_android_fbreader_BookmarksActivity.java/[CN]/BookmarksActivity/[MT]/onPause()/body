@@ -1,4 +1,6 @@
 {
-  myBookmarks.save();
+  for (  Bookmark bookmark : myAllBooksBookmarks) {
+    bookmark.save();
+  }
   super.onPause();
 }

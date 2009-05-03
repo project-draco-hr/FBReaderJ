@@ -1,0 +1,9 @@
+{
+  if (ParagraphIndex != position.ParagraphIndex) {
+    return ParagraphIndex - position.ParagraphIndex;
+  }
+  if (WordIndex != position.WordIndex) {
+    return WordIndex - position.WordIndex;
+  }
+  return CharIndex - position.CharIndex;
+}

@@ -1,0 +1,10 @@
+{
+  final FormatPlugin plugin=PluginCollection.instance().getPlugin(File);
+  if ((plugin == null) || !plugin.readMetaInfo(this)) {
+    return false;
+  }
+  if ((myTitle == null) || (myTitle.length() == 0)) {
+    setTitle(File.getName(true));
+  }
+  return true;
+}

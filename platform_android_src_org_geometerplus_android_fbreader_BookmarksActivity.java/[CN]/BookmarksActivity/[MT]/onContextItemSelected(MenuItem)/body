@@ -1,15 +1,18 @@
 {
   final int position=((AdapterView.AdapterContextMenuInfo)item.getMenuInfo()).position;
+  final ListView view=(ListView)getTabHost().getCurrentView();
+  final Bookmark bookmark=((BookmarksAdapter)view.getAdapter()).getItem(position);
 switch (item.getItemId()) {
 case OPEN_ITEM_ID:
-    gotoBookmark(position - 1);
+    gotoBookmark(bookmark);
   return true;
 case EDIT_ITEM_ID:
 return true;
 case DELETE_ITEM_ID:
-myBookmarks.removeBookmark(position - 1);
-getListView().invalidateViews();
-getListView().requestLayout();
+bookmark.delete();
+myThisBookBookmarks.remove(bookmark);
+myAllBooksBookmarks.remove(bookmark);
+invalidateAllViews();
 return true;
 }
 return super.onContextItemSelected(item);

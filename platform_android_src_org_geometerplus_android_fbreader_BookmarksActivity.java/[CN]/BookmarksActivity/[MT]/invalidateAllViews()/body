@@ -1,0 +1,6 @@
+{
+  myThisBookView.invalidateViews();
+  myThisBookView.requestLayout();
+  myAllBooksView.invalidateViews();
+  myAllBooksView.requestLayout();
+}

@@ -1,10 +1,20 @@
 {
   super.onCreate(bundle);
   requestWindowFeature(Window.FEATURE_NO_TITLE);
-  myBookmarks=new BookmarkList(((FBReader)FBReader.Instance()).Model.Book);
-  final BookmarksAdapter adapter=new BookmarksAdapter();
-  final ListView listView=getListView();
-  listView.setAdapter(adapter);
-  listView.setOnItemClickListener(adapter);
-  listView.setOnCreateContextMenuListener(adapter);
+  setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
+  final TabHost host=getTabHost();
+  LayoutInflater.from(this).inflate(R.layout.bookmarks,host.getTabContentView(),true);
+  myAllBooksBookmarks=Bookmark.bookmarks();
+  Collections.sort(myAllBooksBookmarks,new Bookmark.ByTimeComparator());
+  final long bookId=((FBReader)FBReader.Instance()).Model.Book.getId();
+  for (  Bookmark bookmark : myAllBooksBookmarks) {
+    if (bookmark.getBookId() == bookId) {
+      myThisBookBookmarks.add(bookmark);
+    }
+  }
+  myThisBookView=createTab("thisBook",R.id.this_book);
+  new BookmarksAdapter(myThisBookView,myThisBookBookmarks,true);
+  myAllBooksView=createTab("allBooks",R.id.all_books);
+  new BookmarksAdapter(myAllBooksView,myAllBooksBookmarks,false);
+  findViewById(R.id.search_results).setVisibility(View.GONE);
 }

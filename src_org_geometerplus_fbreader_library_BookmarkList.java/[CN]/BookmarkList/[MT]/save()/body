@@ -1,7 +1,0 @@
-{
-  if (!myIsChanged) {
-    return;
-  }
-  BooksDatabase.Instance().saveBookmarks(myBook.getId(),this);
-  myIsChanged=false;
-}

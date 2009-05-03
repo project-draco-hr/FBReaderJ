@@ -1,0 +1,23 @@
+{
+  if (bookFile == null) {
+    return null;
+  }
+  final ZLPhysicalFile physicalFile=bookFile.getPhysicalFile();
+  if ((physicalFile != null) && !physicalFile.exists()) {
+    return null;
+  }
+  Book book=BooksDatabase.Instance().loadBook(bookFile.getPath());
+  if (book != null) {
+    book.loadLists();
+  }
+  FileInfoSet fileInfos=new FileInfoSet();
+  fileInfos.load(physicalFile);
+  if (fileInfos.check(physicalFile) && (book != null)) {
+    return book;
+  }
+  fileInfos.save();
+  if (book == null) {
+    book=new Book(bookFile);
+  }
+  return book.readMetaInfo() ? book : null;
+}

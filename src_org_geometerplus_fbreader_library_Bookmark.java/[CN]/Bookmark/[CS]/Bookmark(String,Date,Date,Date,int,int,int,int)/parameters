@@ -1,8 +1,0 @@
-String text
-Date creationDate
-Date modificationDate
-Date accessDate
-int accessCount
-int paragraphIndex
-int wordIndex
-int charIndex

@@ -1,8 +1,9 @@
 {
-  if (position == 0) {
-    addBookmark();
+  final Bookmark bookmark=getItem(position);
+  if (bookmark != null) {
+    gotoBookmark(bookmark);
   }
  else {
-    gotoBookmark(position - 1);
+    addBookmark();
   }
 }

@@ -1,0 +1,6 @@
+{
+  myAccessDate=new Date();
+  ++myAccessCount;
+  myLatestDate=myAccessDate;
+  myIsChanged=true;
+}

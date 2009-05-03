@@ -1,0 +1,21 @@
+{
+  final Book book=BooksDatabase.Instance().loadBook(bookId);
+  if (book == null) {
+    return null;
+  }
+  book.loadLists();
+  final ZLPhysicalFile physicalFile=book.File.getPhysicalFile();
+  if (physicalFile == null) {
+    return book;
+  }
+  if (!physicalFile.exists()) {
+    return null;
+  }
+  FileInfoSet fileInfos=new FileInfoSet();
+  fileInfos.load(physicalFile);
+  if (fileInfos.check(physicalFile)) {
+    return book;
+  }
+  fileInfos.save();
+  return book.readMetaInfo() ? book : null;
+}

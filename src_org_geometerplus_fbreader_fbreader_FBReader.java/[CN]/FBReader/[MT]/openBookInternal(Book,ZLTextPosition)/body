@@ -1,0 +1,22 @@
+{
+  clearTextCaches();
+  if (book != null) {
+    onViewChanged();
+    BookTextView.saveState();
+    BookTextView.setModel(null,"");
+    Model=null;
+    Model=new BookModel(book);
+    final String fileName=book.File.getPath();
+    myBookNameOption.setValue(fileName);
+    ZLTextHyphenator.Instance().load(book.getLanguage());
+    BookTextView.setModel(Model.BookTextModel,fileName);
+    BookTextView.setCaption(book.getTitle());
+    if (position != null) {
+      BookTextView.gotoPosition(position);
+    }
+    FootnoteView.setModel(null);
+    FootnoteView.setCaption(book.getTitle());
+    Library.Instance().addBookToRecentList(book);
+  }
+  repaintView();
+}

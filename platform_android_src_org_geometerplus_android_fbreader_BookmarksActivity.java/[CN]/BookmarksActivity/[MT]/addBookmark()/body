@@ -1,6 +1,8 @@
 {
-  ZLTextWordCursor cursor=((FBReader)FBReader.Instance()).BookTextView.getStartCursor();
-  if (!cursor.isNull()) {
+  final FBReader fbreader=(FBReader)FBReader.Instance();
+  ZLTextWordCursor cursor=fbreader.BookTextView.getStartCursor();
+  if (cursor.isNull()) {
+    return;
   }
   final ZLTextPosition position=new ZLTextPosition(cursor);
   final StringBuilder builder=new StringBuilder();
@@ -22,7 +24,8 @@
     }
   }
  while ((builder.length() == 0) && cursor.nextParagraph());
-  myBookmarks.addNewBookmark(builder.toString(),position);
-  getListView().invalidateViews();
-  getListView().requestLayout();
+  final Bookmark bookmark=new Bookmark(fbreader.Model.Book,builder.toString(),position);
+  myThisBookBookmarks.add(0,bookmark);
+  myAllBooksBookmarks.add(0,bookmark);
+  invalidateAllViews();
 }

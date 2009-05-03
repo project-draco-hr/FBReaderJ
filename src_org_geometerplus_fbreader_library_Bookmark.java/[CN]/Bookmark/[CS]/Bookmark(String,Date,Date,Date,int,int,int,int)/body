@@ -1,8 +1,0 @@
-{
-  myText=text;
-  myCreationDate=creationDate;
-  myModificationDate=modificationDate;
-  myAccessDate=accessDate;
-  myAccessCount=accessCount;
-  myPosition=new ZLTextPosition(paragraphIndex,wordIndex,charIndex);
-}

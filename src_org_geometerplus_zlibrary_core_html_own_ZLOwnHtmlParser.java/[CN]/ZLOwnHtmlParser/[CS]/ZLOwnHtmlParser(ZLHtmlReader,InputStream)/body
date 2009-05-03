@@ -16,7 +16,7 @@
   }
   if (index > 0) {
     int startIndex;
-    for (startIndex=description.indexOf("=",index) + 1; !CharacterUtil.isLetter(description.charAt(startIndex)); startIndex++) {
+    for (startIndex=description.indexOf("=",index) + 1; !Character.isLetter(description.charAt(startIndex)); startIndex++) {
     }
     if (startIndex > 0) {
       int endIndex=Math.min(description.indexOf("\"",startIndex + 1),Math.min(description.indexOf(" ",startIndex + 1),description.indexOf(">",startIndex + 1)));

@@ -6,13 +6,13 @@
         if (f == null) {
           continue;
         }
-        book=Book.getBook(f);
+        book=Book.getByFile(f);
         if (book != null) {
           break;
         }
         if (f.isArchive()) {
           for (          ZLFile child : f.children()) {
-            book=Book.getBook(child);
+            book=Book.getByFile(child);
             if (book != null) {
               break main;
             }
@@ -20,7 +20,7 @@
         }
       }
       if (book != null) {
-        openBookInternal(book);
+        openBookInternal(book,null);
       }
     }
   }

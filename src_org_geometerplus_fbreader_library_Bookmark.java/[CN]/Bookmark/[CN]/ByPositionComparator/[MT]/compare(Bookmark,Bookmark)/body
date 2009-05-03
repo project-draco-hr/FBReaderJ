@@ -1,0 +1,3 @@
+{
+  return bm0.getPosition().compareTo(bm1.getPosition());
+}

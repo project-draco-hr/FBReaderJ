@@ -7,5 +7,7 @@ case MODIFICATION:
   return myModificationDate;
 case ACCESS:
 return myAccessDate;
+case LATEST:
+return myLatestDate;
 }
 }

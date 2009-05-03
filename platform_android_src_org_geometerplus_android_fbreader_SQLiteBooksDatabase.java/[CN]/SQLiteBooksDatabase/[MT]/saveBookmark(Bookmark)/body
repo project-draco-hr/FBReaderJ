@@ -1,0 +1,34 @@
+{
+  SQLiteStatement statement;
+  if (bookmark.getId() == -1) {
+    if (myInsertBookmarkStatement == null) {
+      myInsertBookmarkStatement=myDatabase.compileStatement("INSERT INTO Bookmarks (book_id,bookmark_text,creation_time,modification_time,access_time,access_counter,paragraph,word,char) VALUES (?,?,?,?,?,?,?,?,?)");
+    }
+    statement=myInsertBookmarkStatement;
+  }
+ else {
+    if (myUpdateBookmarkStatement == null) {
+      myUpdateBookmarkStatement=myDatabase.compileStatement("UPDATE Bookmarks SET book_id = ?, bookmark_text = ?, creation_time =?, modification_time = ?,access_time = ?, access_counter = ?, paragraph = ?, word = ?, char = ? WHERE bookmark_id = ?");
+    }
+    statement=myUpdateBookmarkStatement;
+  }
+  statement.bindLong(1,bookmark.getBookId());
+  statement.bindString(2,bookmark.getText());
+  bindDate(statement,3,bookmark.getTime(Bookmark.CREATION));
+  bindDate(statement,4,bookmark.getTime(Bookmark.MODIFICATION));
+  bindDate(statement,5,bookmark.getTime(Bookmark.ACCESS));
+  statement.bindLong(6,bookmark.getAccessCount());
+  final ZLTextPosition position=bookmark.getPosition();
+  statement.bindLong(7,position.ParagraphIndex);
+  statement.bindLong(8,position.WordIndex);
+  statement.bindLong(9,position.CharIndex);
+  if (statement == myInsertBookmarkStatement) {
+    return statement.executeInsert();
+  }
+ else {
+    final long id=bookmark.getId();
+    statement.bindLong(10,id);
+    statement.execute();
+    return id;
+  }
+}

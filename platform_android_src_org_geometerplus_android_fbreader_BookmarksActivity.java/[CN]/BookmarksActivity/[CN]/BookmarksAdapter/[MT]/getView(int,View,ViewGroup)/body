@@ -1,6 +1,7 @@
 {
   final View view=(convertView != null) ? convertView : LayoutInflater.from(parent.getContext()).inflate(R.layout.bookmark_item,parent,false);
-  ((ImageView)view.findViewById(R.id.bookmark_item_icon)).setImageResource((position > 0) ? R.drawable.tree_icon_strut : R.drawable.tree_icon_plus);
-  ((TextView)view.findViewById(R.id.bookmark_item_text)).setText((position > 0) ? getItem(position).getText() : ZLResource.resource("bookmarksView").getResource("new").getValue());
+  final Bookmark bookmark=getItem(position);
+  ((ImageView)view.findViewById(R.id.bookmark_item_icon)).setImageResource((bookmark != null) ? R.drawable.tree_icon_strut : R.drawable.tree_icon_plus);
+  ((TextView)view.findViewById(R.id.bookmark_item_text)).setText((bookmark != null) ? bookmark.getText() : ZLResource.resource("bookmarksView").getResource("new").getValue());
   return view;
 }

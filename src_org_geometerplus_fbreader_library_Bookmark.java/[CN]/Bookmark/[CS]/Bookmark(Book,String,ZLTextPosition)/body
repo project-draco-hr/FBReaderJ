@@ -1,0 +1,8 @@
+{
+  myId=-1;
+  myBookId=book.getId();
+  myText=text;
+  myCreationDate=new Date();
+  myPosition=position;
+  myIsChanged=true;
+}

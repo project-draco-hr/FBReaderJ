@@ -1,0 +1,6 @@
+{
+  if (myIsChanged) {
+    myId=BooksDatabase.Instance().saveBookmark(this);
+    myIsChanged=false;
+  }
+}

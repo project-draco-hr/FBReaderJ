@@ -2,7 +2,7 @@
   if (!text.equals(myText)) {
     myText=text;
     myModificationDate=new Date();
-    return true;
+    myLatestDate=myModificationDate;
+    myIsChanged=true;
   }
-  return false;
 }

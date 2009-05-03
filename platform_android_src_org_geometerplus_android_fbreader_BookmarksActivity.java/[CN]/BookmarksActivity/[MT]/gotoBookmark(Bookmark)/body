@@ -1,0 +1,19 @@
+{
+  bookmark.onOpen();
+  final FBReader fbreader=(FBReader)FBReader.Instance();
+  final long bookId=bookmark.getBookId();
+  if (fbreader.Model.Book.getId() != bookId) {
+    final Book book=Book.getById(bookId);
+    if (book != null) {
+      finish();
+      fbreader.openBook(book,bookmark.getPosition());
+    }
+ else {
+      Toast.makeText(this,ZLResource.resource("errorMessage").getResource("cannotOpenBook").getValue(),Toast.LENGTH_SHORT).show();
+    }
+  }
+ else {
+    finish();
+    fbreader.BookTextView.gotoPosition(bookmark.getPosition());
+  }
+}

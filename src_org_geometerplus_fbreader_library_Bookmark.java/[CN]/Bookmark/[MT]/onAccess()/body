@@ -1,4 +1,0 @@
-{
-  myAccessDate=new Date();
-  ++myAccessCount;
-}

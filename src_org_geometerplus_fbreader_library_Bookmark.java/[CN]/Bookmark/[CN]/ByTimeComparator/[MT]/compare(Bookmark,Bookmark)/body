@@ -1,0 +1,3 @@
+{
+  return bm1.getTime(LATEST).compareTo(bm0.getTime(LATEST));
+}
