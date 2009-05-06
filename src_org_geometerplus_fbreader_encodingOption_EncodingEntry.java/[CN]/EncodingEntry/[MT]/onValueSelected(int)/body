@@ -1,3 +1,0 @@
-{
-  myInitialValues.put(myInitialSetName,getValues().get(index));
-}

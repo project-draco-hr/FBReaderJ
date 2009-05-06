@@ -4,6 +4,9 @@
   }
   finish();
   final FBReader fbreader=(FBReader)FBReader.Instance();
-  fbreader.openBook(((BookTree)tree).Book,null);
+  final Book book=((BookTree)tree).Book;
+  if ((fbreader.Model == null) || (fbreader.Model.Book.getId() != book.getId())) {
+    fbreader.openBook(book,null);
+  }
   return true;
 }

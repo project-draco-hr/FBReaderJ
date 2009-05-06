@@ -11,6 +11,5 @@
       myBufferOffset+=size;
     }
   }
-  myOffset+=realSize;
   return realSize;
 }

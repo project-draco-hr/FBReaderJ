@@ -21,9 +21,6 @@ case PAGE_TOP:
       myNextPage.StartCursor.setCursor(myCurrentPage.EndCursor);
       myNextPage.PaintState=PaintStateEnum.START_IS_KNOWN;
     }
-    if (myCurrentPage.PaintState == PaintStateEnum.READY) {
-      onPaintInfoPrepared();
-    }
     break;
   }
 case PAGE_RIGHT:
@@ -38,9 +35,6 @@ case PAGE_BOTTOM:
     preparePaintInfo(myPreviousPage);
     myCurrentPage.StartCursor.setCursor(myNextPage.EndCursor);
     myCurrentPage.PaintState=PaintStateEnum.START_IS_KNOWN;
-  }
-  if (myCurrentPage.PaintState == PaintStateEnum.READY) {
-    onPaintInfoPrepared();
   }
   break;
 }

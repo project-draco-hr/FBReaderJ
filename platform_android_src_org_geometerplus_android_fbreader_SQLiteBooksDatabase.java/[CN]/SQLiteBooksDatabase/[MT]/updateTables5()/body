@@ -1,3 +1,23 @@
 {
   myDatabase.execSQL("CREATE TABLE Bookmarks(" + "bookmark_id INTEGER PRIMARY KEY," + "book_id INTEGER NOT NULL REFERENCES Books(book_id),"+ "bookmark_text TEXT NOT NULL,"+ "creation_time INTEGER NOT NULL,"+ "modification_time INTEGER,"+ "access_time INTEGER,"+ "access_counter INTEGER NOT NULL,"+ "paragraph INTEGER NOT NULL,"+ "word INTEGER NOT NULL,"+ "char INTEGER NOT NULL)");
+  myDatabase.execSQL("CREATE TABLE BookState(" + "book_id INTEGER UNIQUE NOT NULL REFERENCES Books(book_id)," + "paragraph INTEGER NOT NULL,"+ "word INTEGER NOT NULL,"+ "char INTEGER NOT NULL)");
+  Cursor cursor=myDatabase.rawQuery("SELECT book_id,file_name FROM Books",null);
+  final SQLiteStatement statement=myDatabase.compileStatement("INSERT INTO BookState (book_id,paragraph,word,char) VALUES (?,?,?,?)");
+  while (cursor.moveToNext()) {
+    final long bookId=cursor.getLong(0);
+    final String fileName=cursor.getString(1);
+    final int position=new ZLIntegerOption(fileName,"PositionInBuffer",0).getValue();
+    final int paragraph=new ZLIntegerOption(fileName,"Paragraph_" + position,0).getValue();
+    final int word=new ZLIntegerOption(fileName,"Word_" + position,0).getValue();
+    final int chr=new ZLIntegerOption(fileName,"Char_" + position,0).getValue();
+    if ((paragraph != 0) || (word != 0) || (chr != 0)) {
+      statement.bindLong(1,bookId);
+      statement.bindLong(2,paragraph);
+      statement.bindLong(3,word);
+      statement.bindLong(4,chr);
+      statement.execute();
+    }
+    ZLConfig.Instance().removeGroup(fileName);
+  }
+  cursor.close();
 }

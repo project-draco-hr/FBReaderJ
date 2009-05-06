@@ -1,3 +1,0 @@
-{
-  return isVisible() && Reader.BookTextView.canRedoPageMove();
-}

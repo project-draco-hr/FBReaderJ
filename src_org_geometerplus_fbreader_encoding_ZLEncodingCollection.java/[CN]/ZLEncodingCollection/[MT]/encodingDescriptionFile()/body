@@ -1,3 +1,0 @@
-{
-  return ZLResourceFile.createResourceFile("data/encodings/Encodings.xml");
-}

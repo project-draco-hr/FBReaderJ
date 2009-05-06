@@ -1,4 +1,0 @@
-{
-  String name="" + code;
-  return info(name);
-}

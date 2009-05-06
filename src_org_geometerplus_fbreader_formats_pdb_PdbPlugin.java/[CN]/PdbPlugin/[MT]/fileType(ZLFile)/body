@@ -1,13 +1,8 @@
 {
-  final String extension=file.getExtension().toLowerCase().intern();
-  if ((extension != "prc") && (extension != "pdb") && (extension != "mobi")) {
-    return null;
-  }
   ZLFile baseFile=file.getPhysicalFile();
-  boolean upToDate=true;
   ZLStringOption palmTypeOption=new ZLStringOption(file.getPath(),"PalmType","");
   String palmType=palmTypeOption.getValue();
-  if ((palmType.length() != 8) || !upToDate) {
+  if (palmType.length() != 8) {
     byte[] id=new byte[8];
     try {
       final InputStream stream=file.getInputStream();
@@ -15,16 +10,13 @@
         return null;
       }
       stream.skip(60);
-      stream.read(id,0,8);
+      stream.read(id);
       stream.close();
     }
  catch (    IOException e) {
-      e.printStackTrace();
     }
-    palmType=new String(id);
-    if (!upToDate) {
-    }
+    palmType=new String(id).intern();
     palmTypeOption.setValue(palmType);
   }
-  return palmType;
+  return palmType.intern();
 }

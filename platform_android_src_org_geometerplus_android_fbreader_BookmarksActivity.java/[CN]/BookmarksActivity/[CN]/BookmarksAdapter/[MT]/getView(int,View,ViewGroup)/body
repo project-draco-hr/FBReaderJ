@@ -1,7 +1,25 @@
 {
   final View view=(convertView != null) ? convertView : LayoutInflater.from(parent.getContext()).inflate(R.layout.bookmark_item,parent,false);
+  final ImageView imageView=(ImageView)view.findViewById(R.id.bookmark_item_icon);
+  final TextView textView=(TextView)view.findViewById(R.id.bookmark_item_text);
+  final TextView bookTitleView=(TextView)view.findViewById(R.id.bookmark_item_booktitle);
   final Bookmark bookmark=getItem(position);
-  ((ImageView)view.findViewById(R.id.bookmark_item_icon)).setImageResource((bookmark != null) ? R.drawable.tree_icon_strut : R.drawable.tree_icon_plus);
-  ((TextView)view.findViewById(R.id.bookmark_item_text)).setText((bookmark != null) ? bookmark.getText() : ZLResource.resource("bookmarksView").getResource("new").getValue());
+  if (bookmark == null) {
+    imageView.setVisibility(View.VISIBLE);
+    imageView.setImageResource(R.drawable.tree_icon_plus);
+    textView.setText(ZLResource.resource("bookmarksView").getResource("new").getValue());
+    bookTitleView.setVisibility(View.GONE);
+  }
+ else {
+    imageView.setVisibility(View.GONE);
+    textView.setText(bookmark.getText());
+    if (myCurrentBook) {
+      bookTitleView.setVisibility(View.GONE);
+    }
+ else {
+      bookTitleView.setVisibility(View.VISIBLE);
+      bookTitleView.setText(bookmark.getBookTitle());
+    }
+  }
   return view;
 }

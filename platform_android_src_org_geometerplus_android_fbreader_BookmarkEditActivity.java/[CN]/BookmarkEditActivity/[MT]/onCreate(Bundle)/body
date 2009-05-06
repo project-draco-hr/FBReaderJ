@@ -1,9 +1,6 @@
 {
   super.onCreate(bundle);
   requestWindowFeature(Window.FEATURE_NO_TITLE);
-  final LinearLayout v=new LinearLayout(this);
-  v.setOrientation(LinearLayout.VERTICAL);
-  v.addView(new EditText(this));
-  final SimpleContainer container=new SimpleContainer(this,v);
+  final SimpleContainer container=new SimpleContainer(this);
   setContentView(container);
 }

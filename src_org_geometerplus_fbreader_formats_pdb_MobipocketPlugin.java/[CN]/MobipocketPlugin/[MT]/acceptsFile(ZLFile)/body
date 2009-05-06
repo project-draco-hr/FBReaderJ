@@ -1,0 +1,3 @@
+{
+  return super.acceptsFile(file) && (fileType(file) == "BOOKMOBI");
+}

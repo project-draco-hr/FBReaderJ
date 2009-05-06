@@ -1,4 +1,0 @@
-{
-  gotoPosition(myPositionStack.get(++myCurrentPointInStack));
-  ZLApplication.Instance().repaintView();
-}

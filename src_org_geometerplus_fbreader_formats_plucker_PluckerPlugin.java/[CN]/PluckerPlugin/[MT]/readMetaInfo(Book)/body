@@ -1,6 +1,6 @@
 {
   try {
-    PdbStream stream=new PluckerTextStream(book.File);
+    PluckerTextStream stream=new PluckerTextStream(book.File);
     if (stream.open()) {
       stream.close();
     }

@@ -5,7 +5,7 @@
       return createZipInputStream(header);
     }
     if (myAllFilesAreRead) {
-      return null;
+      throw new ZipException("Entry " + entryName + " is not found");
     }
   }
   MyBufferedInputStream baseStream=getBaseStream();
@@ -25,15 +25,11 @@
  while (!readFileHeader(baseStream,entryName));
     LocalFileHeader header=myFileHeaders.get(entryName);
     if (header != null) {
-      try {
-        return createZipInputStream(header);
-      }
- catch (      ZipException e) {
-      }
+      return createZipInputStream(header);
     }
   }
   finally {
     storeBaseStream(baseStream);
   }
-  return null;
+  throw new ZipException("Entry " + entryName + " is not found");
 }

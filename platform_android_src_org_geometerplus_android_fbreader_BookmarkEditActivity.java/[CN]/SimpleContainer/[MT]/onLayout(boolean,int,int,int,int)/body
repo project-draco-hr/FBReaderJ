@@ -1,3 +1,6 @@
 {
-  myChild.layout(left + 5,top + 5,right - 5,bottom - 5);
+  final int buttonHeight=Math.max(54,Math.max(myOkButton.getHeight(),myCancelButton.getHeight()));
+  myEditText.layout(left + 8,top + 8,right - 8,bottom - buttonHeight - 16);
+  myOkButton.layout(left + 8,bottom - buttonHeight - 8,(left + right) / 2 - 4,bottom - 8);
+  myCancelButton.layout((left + right) / 2 + 4,bottom - buttonHeight - 8,right - 8,bottom - 8);
 }

@@ -1,0 +1,11 @@
+{
+  super(context);
+  myEditText=new EditText(context);
+  myOkButton=new Button(context);
+  myOkButton.setText("ok");
+  myCancelButton=new Button(context);
+  myCancelButton.setText("cancel");
+  addView(myOkButton);
+  addView(myCancelButton);
+  addView(myEditText);
+}

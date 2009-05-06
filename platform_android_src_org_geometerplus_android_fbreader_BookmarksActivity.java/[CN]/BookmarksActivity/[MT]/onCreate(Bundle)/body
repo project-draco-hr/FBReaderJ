@@ -6,14 +6,20 @@
   LayoutInflater.from(this).inflate(R.layout.bookmarks,host.getTabContentView(),true);
   AllBooksBookmarks=Bookmark.bookmarks();
   Collections.sort(AllBooksBookmarks,new Bookmark.ByTimeComparator());
-  final long bookId=((FBReader)FBReader.Instance()).Model.Book.getId();
-  for (  Bookmark bookmark : AllBooksBookmarks) {
-    if (bookmark.getBookId() == bookId) {
-      myThisBookBookmarks.add(bookmark);
+  final FBReader fbreader=(FBReader)FBReader.Instance();
+  if (fbreader.Model != null) {
+    final long bookId=fbreader.Model.Book.getId();
+    for (    Bookmark bookmark : AllBooksBookmarks) {
+      if (bookmark.getBookId() == bookId) {
+        myThisBookBookmarks.add(bookmark);
+      }
     }
+    myThisBookView=createTab("thisBook",R.id.this_book);
+    new BookmarksAdapter(myThisBookView,myThisBookBookmarks,true);
   }
-  myThisBookView=createTab("thisBook",R.id.this_book);
-  new BookmarksAdapter(myThisBookView,myThisBookBookmarks,true);
+ else {
+    findViewById(R.id.this_book).setVisibility(View.GONE);
+  }
   myAllBooksView=createTab("allBooks",R.id.all_books);
   new BookmarksAdapter(myAllBooksView,AllBooksBookmarks,false);
   findViewById(R.id.search_results).setVisibility(View.GONE);

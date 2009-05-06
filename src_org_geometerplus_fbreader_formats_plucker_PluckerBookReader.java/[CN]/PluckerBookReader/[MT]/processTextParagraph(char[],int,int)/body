@@ -11,7 +11,7 @@
       functionFlag=true;
       if (ptr > textStart) {
         safeBeginParagraph();
-        myConvertedTextBuffer=myConverter.convert(data,textStart,ptr);
+        myConvertedTextBuffer="";
         addData(myConvertedTextBuffer.toCharArray());
         myBufferIsEmpty=false;
       }
@@ -43,7 +43,7 @@
   }
   if (end > textStart) {
     safeBeginParagraph();
-    myConvertedTextBuffer=myConverter.convert(data,textStart,end);
+    myConvertedTextBuffer="";
     addData(myConvertedTextBuffer.toCharArray());
     myBufferIsEmpty=false;
   }

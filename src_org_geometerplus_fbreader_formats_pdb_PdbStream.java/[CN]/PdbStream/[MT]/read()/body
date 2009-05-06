@@ -1,0 +1,6 @@
+{
+  if (!fillBuffer()) {
+    return -1;
+  }
+  return myBuffer[myBufferOffset++];
+}

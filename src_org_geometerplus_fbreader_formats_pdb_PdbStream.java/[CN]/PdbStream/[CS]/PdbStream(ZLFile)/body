@@ -1,11 +1,7 @@
 {
-  InputStream base;
-  try {
-    base=file.getInputStream();
-  }
- catch (  IOException e) {
-    e.printStackTrace();
-    base=null;
-  }
-  myBase=base;
+  myBase=file.getInputStream();
+  myHeader=new PdbHeader(myBase);
+  myBase.skip(myHeader.Offsets[0] - myHeader.length());
+  myBufferLength=0;
+  myBufferOffset=0;
 }

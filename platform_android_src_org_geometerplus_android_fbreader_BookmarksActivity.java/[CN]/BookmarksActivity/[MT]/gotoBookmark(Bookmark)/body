@@ -2,7 +2,7 @@
   bookmark.onOpen();
   final FBReader fbreader=(FBReader)FBReader.Instance();
   final long bookId=bookmark.getBookId();
-  if (fbreader.Model.Book.getId() != bookId) {
+  if ((fbreader.Model == null) || (fbreader.Model.Book.getId() != bookId)) {
     final Book book=Book.getById(bookId);
     if (book != null) {
       finish();

@@ -1,7 +1,4 @@
 {
-  if (!super.open()) {
-    return false;
-  }
   myCompressionVersion=(short)PdbUtil.readShort(myBase);
   myBuffer=new byte[65536];
   myFullBuffer=new byte[65536];

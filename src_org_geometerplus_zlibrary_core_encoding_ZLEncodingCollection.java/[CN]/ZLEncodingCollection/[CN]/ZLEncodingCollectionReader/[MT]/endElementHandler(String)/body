@@ -1,0 +1,6 @@
+{
+  if (ENCODING == tag) {
+    myCurrentEncodingName=null;
+  }
+  return false;
+}

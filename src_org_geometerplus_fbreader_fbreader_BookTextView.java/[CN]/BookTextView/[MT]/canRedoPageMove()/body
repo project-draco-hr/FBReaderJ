@@ -1,3 +1,0 @@
-{
-  return myCurrentPointInStack < myPositionStack.size() - 1;
-}

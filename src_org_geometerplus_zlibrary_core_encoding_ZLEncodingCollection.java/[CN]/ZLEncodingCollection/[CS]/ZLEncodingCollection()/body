@@ -1,0 +1,3 @@
+{
+  new ZLEncodingCollectionReader().read(ZLResourceFile.createResourceFile("data/encodings/Encodings.xml"));
+}

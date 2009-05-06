@@ -1,5 +1,0 @@
-{
-  if (mySets.isEmpty()) {
-    new ZLEncodingCollectionReader(this).read(encodingDescriptionFile());
-  }
-}

@@ -1,4 +1,8 @@
 {
   finish();
+  final Activity oldActivity=org.geometerplus.android.fbreader.FBReader.Instance;
+  if (oldActivity != null) {
+    oldActivity.finish();
+  }
   startActivity(new Intent(Intent.ACTION_VIEW,Uri.fromFile(file),this,FBReader.class));
 }

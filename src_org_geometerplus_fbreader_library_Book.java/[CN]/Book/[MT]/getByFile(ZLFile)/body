@@ -19,5 +19,9 @@
   if (book == null) {
     book=new Book(bookFile);
   }
-  return book.readMetaInfo() ? book : null;
+  if (book.readMetaInfo()) {
+    book.save();
+    return book;
+  }
+  return null;
 }

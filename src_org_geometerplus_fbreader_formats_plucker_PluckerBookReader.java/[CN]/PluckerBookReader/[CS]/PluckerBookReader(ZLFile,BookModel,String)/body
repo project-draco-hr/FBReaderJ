@@ -1,6 +1,5 @@
 {
   super(model);
-  myConverter=new EncodedTextReader(encoding).getConverter();
   myFile=file;
   myFont=FontType.FT_REGULAR;
   myCharBuffer=new char[65535];

@@ -30,7 +30,6 @@
     if (myCurrentPage.StartCursor.isNull()) {
       preparePaintInfo(myCurrentPage);
     }
-    savePosition(position,myCurrentPage.StartCursor);
     ZLApplication.Instance().repaintView();
   }
 }

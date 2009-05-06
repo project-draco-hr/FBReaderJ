@@ -1,8 +1,0 @@
-{
-  if (myPositionStack.isEmpty()) {
-    myPositionStack.add(new ZLTextPosition(getStartCursor()));
-  }
- else {
-    myPositionStack.get(myCurrentPointInStack).set(getStartCursor());
-  }
-}

@@ -1,0 +1,5 @@
+{
+  super(view,tree);
+  myLibraryTree=tree;
+  myIsFlat=isFlat;
+}

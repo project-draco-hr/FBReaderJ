@@ -1,0 +1,8 @@
+{
+  numBytes-=stream.skip(numBytes);
+  for (; numBytes > 0; --numBytes) {
+    if (stream.read() == -1) {
+      throw new IOException("Unexpected end of stream");
+    }
+  }
+}

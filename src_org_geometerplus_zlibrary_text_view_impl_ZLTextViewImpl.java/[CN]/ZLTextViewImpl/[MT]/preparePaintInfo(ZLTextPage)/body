@@ -127,6 +127,5 @@ myLineInfoCache.clear();
 if (page == myCurrentPage) {
 myPreviousPage.reset();
 myNextPage.reset();
-onPaintInfoPrepared();
 }
 }

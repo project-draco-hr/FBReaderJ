@@ -4,9 +4,9 @@
   setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
   final TabHost host=getTabHost();
   LayoutInflater.from(this).inflate(R.layout.library,host.getTabContentView(),true);
-  new LibraryAdapter(createTab("byAuthor",R.id.by_author),Library.Instance().byAuthor());
-  new LibraryAdapter(createTab("byTag",R.id.by_tag),Library.Instance().byTag());
-  new LibraryAdapter(createTab("recent",R.id.recent),Library.Instance().recentBooks());
+  new LibraryAdapter(createTab("byAuthor",R.id.by_author),Library.Instance().byAuthor(),false);
+  new LibraryAdapter(createTab("byTag",R.id.by_tag),Library.Instance().byTag(),false);
+  new LibraryAdapter(createTab("recent",R.id.recent),Library.Instance().recentBooks(),true);
   findViewById(R.id.search_results).setVisibility(View.GONE);
   host.setCurrentTabByTag(mySelectedTabOption.getValue());
 }

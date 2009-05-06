@@ -5,6 +5,5 @@
     final ZLTextPosition position=new ZLTextPosition(cursor);
     gotoParagraph(paragraphIndex,false);
     preparePaintInfo();
-    savePosition(position,getStartCursor());
   }
 }

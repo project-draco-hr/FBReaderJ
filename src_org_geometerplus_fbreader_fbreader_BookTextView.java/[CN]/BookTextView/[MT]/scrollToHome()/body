@@ -5,8 +5,7 @@
   }
   final ZLTextPosition position=new ZLTextPosition(cursor);
   gotoParagraph(0,false);
-  gotoPosition(0,0,0);
+  gotoPosition(new ZLTextPosition(0,0,0));
   preparePaintInfo();
-  savePosition(position,getStartCursor());
   ZLApplication.Instance().repaintView();
 }

@@ -10,7 +10,7 @@
     intent.setData(null);
     final List<String> path=uri.getPathSegments();
     ourFileName=path.get(path.size() - 1);
-    if (!ourFileName.endsWith(".fb2.zip") && !ourFileName.endsWith(".fb2") && !ourFileName.endsWith(".epub")) {
+    if (!ourFileName.endsWith(".fb2.zip") && !ourFileName.endsWith(".fb2") && !ourFileName.endsWith(".epub")&& !ourFileName.endsWith(".mobi")) {
       startNextMatchingActivity(intent);
       finish();
       return;
