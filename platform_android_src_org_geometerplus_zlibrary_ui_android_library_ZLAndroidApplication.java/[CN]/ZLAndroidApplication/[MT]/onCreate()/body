@@ -1,6 +1,5 @@
 {
   super.onCreate();
-  new ZLOwnXMLProcessorFactory();
   new ZLSQLiteConfig(this);
   new ZLAndroidImageManager();
   new ZLAndroidDialogManager();

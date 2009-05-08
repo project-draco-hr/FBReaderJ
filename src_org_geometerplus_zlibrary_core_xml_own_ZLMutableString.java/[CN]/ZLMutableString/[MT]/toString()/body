@@ -1,3 +1,0 @@
-{
-  return new String(myData,0,myLength).intern();
-}

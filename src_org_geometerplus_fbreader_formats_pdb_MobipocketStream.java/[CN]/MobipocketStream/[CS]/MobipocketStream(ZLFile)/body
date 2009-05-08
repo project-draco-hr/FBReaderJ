@@ -1,6 +1,5 @@
 {
   super(file);
-  myFileSize=file.size();
   final int version=PdbUtil.readShort(myBase);
 switch (version) {
 case 1:
@@ -13,4 +12,11 @@ default :
 throw new IOException("Unsupported compression type: " + version);
 }
 PdbUtil.skip(myBase,6);
+myMaxRecordIndex=Math.min(PdbUtil.readShort(myBase),myHeader.Offsets.length - 1);
+final int maxRecordSize=PdbUtil.readShort(myBase);
+if (maxRecordSize == 0) {
+throw new IOException("The records are too short");
+}
+myBuffer=new byte[maxRecordSize];
+myRecordIndex=0;
 }

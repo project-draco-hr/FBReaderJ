@@ -1,5 +1,8 @@
 {
-  if (!model.Book.getEncoding().equals(AUTO)) {
+  try {
+    return new HtmlReader(model).readBook();
   }
-  return new HtmlReader(model).readBook();
+ catch (  IOException e) {
+    return false;
+  }
 }

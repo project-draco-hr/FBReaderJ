@@ -1,0 +1,18 @@
+{
+  ZLXMLParser parser=null;
+  try {
+    parser=new ZLXMLParser(reader,stream,bufferSize);
+    reader.startDocumentHandler();
+    parser.doIt();
+    reader.endDocumentHandler();
+  }
+ catch (  IOException e) {
+    return false;
+  }
+ finally {
+    if (parser != null) {
+      parser.finish();
+    }
+  }
+  return true;
+}

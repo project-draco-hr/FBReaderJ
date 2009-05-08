@@ -1,0 +1,12 @@
+{
+  int index=mySize;
+  if (index > 0) {
+    final ZLByteBuffer[] keys=myKeys;
+    while (--index >= 0) {
+      if (keys[index].equalsToLCString(lcPattern)) {
+        return myValues[index];
+      }
+    }
+  }
+  return null;
+}

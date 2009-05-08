@@ -1,4 +1,3 @@
 {
-  final ZLHtmlProcessor processor=ZLHtmlProcessorFactory.Instance().createHtmlProcessor();
-  return processor.read(this,Model.Book.File);
+  return ZLHtmlProcessor.read(this,getInputStream());
 }

@@ -1,3 +1,0 @@
-{
-  return ZLHtmlProcessorFactory.Instance().createHtmlProcessor().read(this,file);
-}

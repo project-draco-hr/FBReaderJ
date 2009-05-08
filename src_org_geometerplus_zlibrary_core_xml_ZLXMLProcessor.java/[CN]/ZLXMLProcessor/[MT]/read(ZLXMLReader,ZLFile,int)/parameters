@@ -1,0 +1,3 @@
+ZLXMLReader xmlReader
+ZLFile file
+int bufferSize

@@ -1,0 +1,29 @@
+{
+  while (myBufferOffset == myBufferLength) {
+    if (myRecordIndex + 1 > myMaxRecordIndex) {
+      return false;
+    }
+    ++myRecordIndex;
+    final int currentOffset=myHeader.Offsets[myRecordIndex];
+    try {
+      myBase.skip(currentOffset - myBase.offset());
+      final int nextOffset=(myRecordIndex + 1 < myHeader.Offsets.length) ? myHeader.Offsets[myRecordIndex + 1] : (int)myFileSize;
+      if (nextOffset < currentOffset) {
+        return false;
+      }
+      final short recordSize=(short)(nextOffset - currentOffset);
+      if (myIsCompressed) {
+        myBufferLength=(short)DocDecompressor.decompress(myBase,myBuffer,recordSize);
+      }
+ else {
+        myBase.read(myBuffer,0,recordSize);
+        myBufferLength=recordSize;
+      }
+    }
+ catch (    IOException e) {
+      return false;
+    }
+    myBufferOffset=0;
+  }
+  return true;
+}

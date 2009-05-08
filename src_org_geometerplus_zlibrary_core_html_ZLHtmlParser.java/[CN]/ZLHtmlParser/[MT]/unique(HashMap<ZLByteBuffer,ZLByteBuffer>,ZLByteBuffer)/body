@@ -1,0 +1,9 @@
+{
+  ZLByteBuffer s=strings.get(container);
+  if (s == null) {
+    s=new ZLByteBuffer(container);
+    strings.put(s,s);
+  }
+  container.clear();
+  return s;
+}

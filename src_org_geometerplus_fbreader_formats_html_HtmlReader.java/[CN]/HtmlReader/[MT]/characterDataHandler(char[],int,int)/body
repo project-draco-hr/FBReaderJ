@@ -1,6 +1,0 @@
-{
-  if (length == 0) {
-    return;
-  }
-  addData(ch,start,length);
-}

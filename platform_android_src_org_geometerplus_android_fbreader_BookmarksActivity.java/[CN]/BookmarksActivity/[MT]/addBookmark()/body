@@ -12,19 +12,23 @@
   int sentenceCounter=0;
   int storedWordCounter=0;
   boolean lineIsNonEmpty=false;
+  boolean appendLineBreak=false;
   mainLoop:   while ((wordCounter < 20) && (sentenceCounter < 3)) {
     while (cursor.isEndOfParagraph()) {
       if (!cursor.nextParagraph()) {
         break mainLoop;
       }
       if (sentenceBuilder.length() > 0) {
+        if (appendLineBreak) {
+          builder.append("\n");
+        }
         builder.append(sentenceBuilder);
-        builder.append("\n");
         sentenceBuilder.delete(0,sentenceBuilder.length());
         ++sentenceCounter;
         storedWordCounter=wordCounter;
-        lineIsNonEmpty=false;
       }
+      lineIsNonEmpty=false;
+      appendLineBreak=true;
     }
     final ZLTextElement element=cursor.getElement();
     if (element instanceof ZLTextWord) {
@@ -39,10 +43,14 @@ switch (word.Data[word.Offset + word.Length - 1]) {
 case '.':
 case '!':
 case '?':
-        builder.append(sentenceBuilder);
-      sentenceBuilder.delete(0,sentenceBuilder.length());
-    ++sentenceCounter;
-  storedWordCounter=wordCounter;
+        if (appendLineBreak) {
+          builder.append("\n");
+          appendLineBreak=false;
+        }
+      builder.append(sentenceBuilder);
+    sentenceBuilder.delete(0,sentenceBuilder.length());
+  ++sentenceCounter;
+storedWordCounter=wordCounter;
 }
 }
 cursor.nextWord();

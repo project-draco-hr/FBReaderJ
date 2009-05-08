@@ -1,0 +1,11 @@
+{
+  final int size=mySize++;
+  ZLByteBuffer[] keys=myKeys;
+  if (keys.length == size) {
+    keys=ZLArrayUtils.createCopy(keys,size,size << 1);
+    myKeys=keys;
+    myValues=ZLArrayUtils.createCopy(myValues,size,size << 1);
+  }
+  keys[size]=key;
+  myValues[size]=value;
+}

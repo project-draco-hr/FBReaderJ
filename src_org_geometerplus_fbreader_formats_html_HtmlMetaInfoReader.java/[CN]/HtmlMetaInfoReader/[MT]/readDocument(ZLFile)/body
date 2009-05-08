@@ -1,4 +1,3 @@
 {
-  final ZLXMLProcessor processor=ZLXMLProcessorFactory.Instance().createXMLProcessor();
-  return processor.read(this,file);
+  return ZLXMLProcessor.read(this,file);
 }

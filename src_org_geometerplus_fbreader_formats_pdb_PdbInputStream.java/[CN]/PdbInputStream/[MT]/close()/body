@@ -1,4 +1,0 @@
-{
-  myOffset=0;
-  super.close();
-}

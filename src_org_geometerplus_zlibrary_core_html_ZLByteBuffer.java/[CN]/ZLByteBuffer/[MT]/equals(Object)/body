@@ -1,0 +1,15 @@
+{
+  final ZLByteBuffer container=(ZLByteBuffer)o;
+  final int len=myLength;
+  if (len != container.myLength) {
+    return false;
+  }
+  final byte[] data0=myData;
+  final byte[] data1=container.myData;
+  for (int i=len; --i >= 0; ) {
+    if (data0[i] != data1[i]) {
+      return false;
+    }
+  }
+  return true;
+}

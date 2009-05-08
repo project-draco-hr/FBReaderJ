@@ -1,0 +1,3 @@
+{
+  return (myLength == lcPattern.length()) && lcPattern.equals(new String(myData,0,myLength).toLowerCase());
+}

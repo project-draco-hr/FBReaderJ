@@ -1,6 +1,6 @@
 {
   try {
-    myStream=new PdbInputStream(myFile);
+    myStream=new ZLInputStreamWithOffset(myFile.getInputStream());
     PdbHeader header=new PdbHeader(myStream);
     setMainTextModel();
     myFont=FontType.FT_REGULAR;
@@ -14,7 +14,7 @@
       if (myStream.offset() != pit) {
         break;
       }
-      int recordSize=((index != header.Offsets.length - 1) ? header.Offsets[index + 1] : myStream.sizeOfOpened()) - pit;
+      int recordSize=((index != header.Offsets.length - 1) ? header.Offsets[index + 1] : myFileSize) - pit;
       readRecord(recordSize);
     }
     myStream.close();

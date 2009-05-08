@@ -4,12 +4,14 @@
     if (!fillBuffer()) {
       break;
     }
-    int size=Math.min((maxSize - realSize),(myBufferLength - myBufferOffset));
+    int size=Math.min(maxSize - realSize,myBufferLength - myBufferOffset);
     if (size > 0) {
-      System.arraycopy(myBuffer,myBufferOffset,buffer,offset + realSize,size);
+      if (buffer != null) {
+        System.arraycopy(myBuffer,myBufferOffset,buffer,offset + realSize,size);
+      }
       realSize+=size;
       myBufferOffset+=size;
     }
   }
-  return realSize;
+  return (realSize > 0) ? realSize : -1;
 }

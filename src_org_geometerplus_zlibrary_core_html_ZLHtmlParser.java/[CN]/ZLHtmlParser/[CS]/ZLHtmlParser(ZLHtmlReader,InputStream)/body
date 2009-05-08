@@ -1,0 +1,4 @@
+{
+  myReader=htmlReader;
+  myStream=stream;
+}

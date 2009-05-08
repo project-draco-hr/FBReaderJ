@@ -1,0 +1,9 @@
+{
+  if (length != 0) {
+    try {
+      addData(new String(ch,start,length,myEncoding).toCharArray());
+    }
+ catch (    UnsupportedEncodingException e) {
+    }
+  }
+}
