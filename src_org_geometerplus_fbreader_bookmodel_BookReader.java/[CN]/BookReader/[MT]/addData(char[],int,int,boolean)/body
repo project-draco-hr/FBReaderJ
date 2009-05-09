@@ -1,0 +1,23 @@
+{
+  if (!myTextParagraphExists) {
+    return;
+  }
+  if (direct && (myTextBufferLength == 0) && !myInsideTitle) {
+    myCurrentTextModel.addText(data,offset,length);
+  }
+ else {
+    final int oldLength=myTextBufferLength;
+    final int newLength=oldLength + length;
+    if (myTextBuffer.length < newLength) {
+      myTextBuffer=ZLArrayUtils.createCopy(myTextBuffer,oldLength,newLength);
+    }
+    System.arraycopy(data,offset,myTextBuffer,oldLength,length);
+    myTextBufferLength=newLength;
+    if (myInsideTitle) {
+      addContentsData(myTextBuffer,oldLength,length);
+    }
+  }
+  if (!myInsideTitle) {
+    mySectionContainsRegularContents=true;
+  }
+}

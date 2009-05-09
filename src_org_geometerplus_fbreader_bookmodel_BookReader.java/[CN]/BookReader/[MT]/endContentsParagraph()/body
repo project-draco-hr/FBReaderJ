@@ -1,13 +1,12 @@
 {
   final TOCTree tree=myCurrentContentsTree;
-  final ZLTextBuffer contentsBuffer=myContentsBuffer;
   if (tree.Level == 0) {
-    contentsBuffer.clear();
+    myContentsBuffer.delete(0,myContentsBuffer.length());
     return;
   }
-  if (!contentsBuffer.isEmpty()) {
-    tree.setText(contentsBuffer.toString());
-    contentsBuffer.clear();
+  if (myContentsBuffer.length() > 0) {
+    tree.setText(myContentsBuffer.toString());
+    myContentsBuffer.delete(0,myContentsBuffer.length());
   }
  else   if (tree.getText() == null) {
     tree.setText("...");

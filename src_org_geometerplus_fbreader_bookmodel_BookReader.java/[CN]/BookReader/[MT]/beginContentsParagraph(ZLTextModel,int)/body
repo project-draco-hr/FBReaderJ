@@ -6,17 +6,16 @@
     }
     TOCTree parentTree=myCurrentContentsTree;
     if (parentTree.Level > 0) {
-      final ZLTextBuffer contentsBuffer=myContentsBuffer;
-      if (!contentsBuffer.isEmpty()) {
-        parentTree.setText(contentsBuffer.toString());
-        contentsBuffer.clear();
+      if (myContentsBuffer.length() > 0) {
+        parentTree.setText(myContentsBuffer.toString());
+        myContentsBuffer.delete(0,myContentsBuffer.length());
       }
  else       if (parentTree.getText() == null) {
         parentTree.setText("...");
       }
     }
  else {
-      myContentsBuffer.clear();
+      myContentsBuffer.delete(0,myContentsBuffer.length());
     }
     TOCTree tree=new TOCTree(parentTree);
     tree.setReference(myCurrentTextModel,referenceNumber);

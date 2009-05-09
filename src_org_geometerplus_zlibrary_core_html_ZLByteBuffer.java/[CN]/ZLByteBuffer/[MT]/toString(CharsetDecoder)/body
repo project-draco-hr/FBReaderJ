@@ -1,0 +1,14 @@
+{
+  if (myStringValue == null) {
+synchronized (myConverterLock) {
+      if (myConverterBuffer.length < myLength) {
+        myConverterBuffer=new char[myLength];
+      }
+      ByteBuffer byteBuffer=ByteBuffer.wrap(myData,0,myLength);
+      CharBuffer charBuffer=CharBuffer.wrap(myConverterBuffer);
+      decoder.decode(byteBuffer,charBuffer,true);
+      myStringValue=new String(myConverterBuffer,0,charBuffer.position());
+    }
+  }
+  return myStringValue;
+}

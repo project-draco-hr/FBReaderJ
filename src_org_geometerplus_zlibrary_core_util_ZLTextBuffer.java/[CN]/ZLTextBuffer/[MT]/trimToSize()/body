@@ -1,7 +1,0 @@
-{
-  final int len=myDataLength;
-  final char[] data=myData;
-  if (len < data.length) {
-    myData=ZLArrayUtils.createCopy(data,len,len);
-  }
-}

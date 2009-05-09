@@ -1,3 +1,0 @@
-{
-  addText(buffer.getData(),0,buffer.getLength());
-}

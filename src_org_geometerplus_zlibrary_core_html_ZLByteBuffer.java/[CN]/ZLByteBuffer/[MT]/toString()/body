@@ -1,0 +1,6 @@
+{
+  if (myStringValue == null) {
+    myStringValue=new String(myData,0,myLength);
+  }
+  return myStringValue;
+}

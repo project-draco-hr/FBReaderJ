@@ -1,0 +1,102 @@
+{
+  final byte tag=HtmlTag.getTagByName(tagName);
+switch (tag) {
+case HtmlTag.HTML:
+    break;
+case HtmlTag.BODY:
+  setMainTextModel();
+pushKind(FBTextKind.REGULAR);
+beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
+break;
+case HtmlTag.P:
+if (mySectionStarted) {
+mySectionStarted=false;
+}
+ else if (myInsideTitle) {
+addContentsData(SPACE);
+}
+beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
+break;
+case HtmlTag.A:
+{
+String ref=attributes.getStringValue(myHrefAttribute,myAttributeDecoder);
+if ((ref != null) && (ref.length() != 0)) {
+if (ref.charAt(0) == '#') {
+myHyperlinkType=FBTextKind.FOOTNOTE;
+ref=ref.substring(1);
+}
+ else {
+myHyperlinkType=FBTextKind.EXTERNAL_HYPERLINK;
+}
+addHyperlinkControl(myHyperlinkType,ref);
+myControls[myControlsNumber]=myHyperlinkType;
+myControlsNumber++;
+}
+break;
+}
+case HtmlTag.IMG:
+{
+String ref=attributes.getStringValue(mySrcAttribute,myAttributeDecoder);
+if ((ref != null) && (ref.length() != 0)) {
+addImageReference(ref,(short)0);
+String filePath=ref;
+if (!":\\".equals(ref.substring(1,3))) {
+filePath=Model.Book.File.getPath();
+filePath=filePath.substring(0,filePath.lastIndexOf('\\') + 1) + ref;
+}
+addImage(ref,new ZLFileImage("image/auto",ZLFile.createFileByPath(filePath)));
+}
+break;
+}
+case HtmlTag.B:
+case HtmlTag.S:
+case HtmlTag.SUB:
+case HtmlTag.SUP:
+case HtmlTag.PRE:
+case HtmlTag.STRONG:
+case HtmlTag.CODE:
+case HtmlTag.EM:
+case HtmlTag.CITE:
+case HtmlTag.DFN:
+case HtmlTag.I:
+openControl(myStyleTable[tag]);
+break;
+case HtmlTag.H1:
+case HtmlTag.H2:
+case HtmlTag.H3:
+case HtmlTag.H4:
+case HtmlTag.H5:
+case HtmlTag.H6:
+startNewParagraph();
+openControl(myStyleTable[tag]);
+break;
+case HtmlTag.OL:
+myOrderedListIsStarted=true;
+break;
+case HtmlTag.UL:
+myUnorderedListIsStarted=true;
+break;
+case HtmlTag.LI:
+startNewParagraph();
+if (myOrderedListIsStarted) {
+char[] number=(new Integer(++myOLCounter)).toString().toCharArray();
+addData(number);
+addData(new char[]{'.',' '});
+}
+ else {
+addData(new char[]{'*',' '});
+}
+break;
+case HtmlTag.SCRIPT:
+case HtmlTag.SELECT:
+case HtmlTag.STYLE:
+endParagraph();
+break;
+case HtmlTag.TR:
+case HtmlTag.BR:
+startNewParagraph();
+break;
+default :
+break;
+}
+}

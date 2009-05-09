@@ -7,6 +7,6 @@
     image.addData(ch,start,length);
   }
  else {
-    addData(ch,start,length);
+    addData(ch,start,length,false);
   }
 }

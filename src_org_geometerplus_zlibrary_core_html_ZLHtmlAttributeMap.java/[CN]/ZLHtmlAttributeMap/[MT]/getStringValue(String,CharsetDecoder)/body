@@ -1,0 +1,4 @@
+{
+  final ZLByteBuffer buffer=getValue(lcPattern);
+  return (buffer != null) ? buffer.toString(decoder) : null;
+}

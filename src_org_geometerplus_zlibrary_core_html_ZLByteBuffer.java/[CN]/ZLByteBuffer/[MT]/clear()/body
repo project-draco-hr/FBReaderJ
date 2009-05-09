@@ -1,3 +1,4 @@
 {
   myLength=0;
+  myStringValue=null;
 }

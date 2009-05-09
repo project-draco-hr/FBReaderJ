@@ -1,9 +1,3 @@
 {
-  if (length != 0) {
-    try {
-      addDataFinal(new String(ch,start,length,myEncoding).toCharArray());
-    }
- catch (    UnsupportedEncodingException e) {
-    }
-  }
+  addByteData(data,start,length,true);
 }

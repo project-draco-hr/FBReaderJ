@@ -8,4 +8,5 @@
   }
   System.arraycopy(buffer,offset,data,len,count);
   myLength=newLength;
+  myStringValue=null;
 }

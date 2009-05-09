@@ -1,3 +1,0 @@
-{
-  addDataFinal(data,0,data.length);
-}

@@ -5,15 +5,14 @@
   final ZLByteBuffer tagName=new ZLByteBuffer();
   final ZLByteBuffer attributeName=new ZLByteBuffer();
   final ZLByteBuffer attributeValue=new ZLByteBuffer();
+  final ZLByteBuffer entityName=new ZLByteBuffer();
   final HashMap<ZLByteBuffer,ZLByteBuffer> strings=new HashMap<ZLByteBuffer,ZLByteBuffer>();
   final ZLHtmlAttributeMap attributes=new ZLHtmlAttributeMap();
   boolean scriptOpened=false;
   boolean html=false;
   byte state=START_DOCUMENT;
-  int CNT=0;
-  while (++CNT < 300) {
-    int count=stream.read(buffer);
-    System.err.println(CNT + ":" + count);
+  while (true) {
+    final int count=stream.read(buffer);
     if (count <= 0) {
       return;
     }
@@ -343,6 +342,25 @@ htmlReader.byteDataHandlerFinal(buffer,startPosition,i - startPosition);
 }
 state=LANGLE;
 break mainSwitchLabel;
+case '&':
+if (i > startPosition) {
+htmlReader.byteDataHandler(buffer,startPosition,i - startPosition);
+}
+state=ENTITY_REF;
+startPosition=i + 1;
+break mainSwitchLabel;
+}
+}
+case ENTITY_REF:
+while (true) {
+switch (buffer[++i]) {
+case ';':
+entityName.append(buffer,startPosition,i - startPosition);
+state=TEXT;
+startPosition=i + 1;
+htmlReader.entityDataHandler(unique(strings,entityName).toString());
+entityName.clear();
+break mainSwitchLabel;
 }
 }
 }
@@ -363,6 +381,9 @@ attributeValue.append(buffer,startPosition,count - startPosition);
 break;
 case TEXT:
 htmlReader.byteDataHandler(buffer,startPosition,count - startPosition);
+break;
+case ENTITY_REF:
+entityName.append(buffer,startPosition,count - startPosition);
 break;
 }
 }

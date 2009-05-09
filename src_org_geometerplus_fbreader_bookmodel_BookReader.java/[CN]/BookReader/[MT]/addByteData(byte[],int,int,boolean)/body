@@ -1,0 +1,48 @@
+{
+  if (!myTextParagraphExists || (length == 0)) {
+    return;
+  }
+  final int oldLength=myTextBufferLength;
+  if (myTextBuffer.length < oldLength + length) {
+    myTextBuffer=ZLArrayUtils.createCopy(myTextBuffer,oldLength,oldLength + length);
+  }
+  if (myUnderflowLength > 0) {
+    int l=myUnderflowLength;
+    final CharBuffer ucb=CharBuffer.wrap(myUnderflowCharBuffer);
+    while (length-- > 0) {
+      myUnderflowByteBuffer[l++]=data[start++];
+      final ByteBuffer ubb=ByteBuffer.wrap(myUnderflowByteBuffer);
+      myByteDecoder.decode(ubb,ucb,false);
+      if (ucb.position() == 1) {
+        addData(myUnderflowCharBuffer);
+        myUnderflowLength=0;
+      }
+    }
+    if (length == 0) {
+      myUnderflowLength=l;
+      return;
+    }
+  }
+  char[] charBuffer=myCharBuffer;
+  if (length > charBuffer.length) {
+    charBuffer=new char[length];
+    myCharBuffer=charBuffer;
+  }
+  ByteBuffer bb=ByteBuffer.wrap(data,start,length);
+  CharBuffer cb=CharBuffer.wrap(charBuffer);
+  myByteDecoder.decode(bb,cb,endOfInput);
+  if (endOfInput) {
+    myByteDecoder.reset();
+  }
+  int rem=bb.remaining();
+  if (rem > 0) {
+    for (int i=0, j=start + length - rem; i < rem; ) {
+      myUnderflowByteBuffer[i++]=data[j++];
+    }
+    myUnderflowLength=rem;
+  }
+  final int position=cb.position();
+  if (position > 0) {
+    addData(charBuffer,0,position,endOfInput);
+  }
+}

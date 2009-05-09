@@ -1,5 +1,6 @@
 {
-  htmlReader.startElementHandler(tagName,attributes);
-  htmlReader.endElementHandler(tagName);
+  String stringTagName=tagName.toString();
+  htmlReader.startElementHandler(stringTagName,attributes);
+  htmlReader.endElementHandler(stringTagName);
   attributes.clear();
 }
