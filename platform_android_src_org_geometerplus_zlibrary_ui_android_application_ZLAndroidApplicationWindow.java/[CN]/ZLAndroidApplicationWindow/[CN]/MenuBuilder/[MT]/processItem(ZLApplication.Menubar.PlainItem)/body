@@ -1,5 +1,13 @@
 {
   MenuItem menuItem=myMenuStack.peek().add(0,myItemCount++,Menu.NONE,item.Name);
+  try {
+    final String fieldName="menu_icon_" + item.ActionId.toLowerCase();
+    menuItem.setIcon(R.drawable.class.getField(fieldName).getInt(null));
+  }
+ catch (  NoSuchFieldException e) {
+  }
+catch (  IllegalAccessException e) {
+  }
   menuItem.setOnMenuItemClickListener(myMenuListener);
   myMenuItemMap.put(menuItem,item);
 }
