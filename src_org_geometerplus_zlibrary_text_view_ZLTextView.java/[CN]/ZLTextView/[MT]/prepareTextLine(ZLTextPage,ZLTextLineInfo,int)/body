@@ -1,0 +1,71 @@
+{
+  y=Math.min(y + info.Height,getBottomLine());
+  final ZLPaintContext context=Context;
+  final ZLTextParagraphCursor paragraphCursor=info.ParagraphCursor;
+  setTextStyle(info.StartStyle);
+  int spaceCounter=info.SpaceCounter;
+  int fullCorrection=0;
+  final boolean endOfParagraph=info.isEndOfParagraph();
+  boolean wordOccurred=false;
+  boolean changeStyle=true;
+  int x=getLeftMargin() + info.LeftIndent;
+  final int maxWidth=getTextAreaWidth();
+switch (getTextStyle().getAlignment()) {
+case ZLTextAlignmentType.ALIGN_RIGHT:
+    x+=maxWidth - getTextStyle().getRightIndent() - info.Width;
+  break;
+case ZLTextAlignmentType.ALIGN_CENTER:
+x+=(maxWidth - getTextStyle().getRightIndent() - info.Width) / 2;
+break;
+case ZLTextAlignmentType.ALIGN_JUSTIFY:
+if (!endOfParagraph && (paragraphCursor.getElement(info.EndWordIndex) != ZLTextElement.AfterParagraph)) {
+fullCorrection=maxWidth - getTextStyle().getRightIndent() - info.Width;
+}
+break;
+case ZLTextAlignmentType.ALIGN_LEFT:
+case ZLTextAlignmentType.ALIGN_UNDEFINED:
+break;
+}
+final ZLTextParagraphCursor paragraph=info.ParagraphCursor;
+final int paragraphIndex=paragraph.Index;
+final int endWordIndex=info.EndWordIndex;
+int charIndex=info.RealStartCharIndex;
+for (int wordIndex=info.RealStartWordIndex; wordIndex != endWordIndex; ++wordIndex, charIndex=0) {
+final ZLTextElement element=paragraph.getElement(wordIndex);
+final int width=getElementWidth(element,charIndex);
+if (element == ZLTextElement.HSpace) {
+if (wordOccurred && (spaceCounter > 0)) {
+int correction=fullCorrection / spaceCounter;
+x+=context.getSpaceWidth() + correction;
+fullCorrection-=correction;
+wordOccurred=false;
+--spaceCounter;
+}
+}
+ else if ((element instanceof ZLTextWord) || (element instanceof ZLTextImageElement)) {
+final int height=getElementHeight(element);
+final int descent=getElementDescent(element);
+final int length=(element instanceof ZLTextWord) ? ((ZLTextWord)element).Length : 0;
+page.TextElementMap.add(new ZLTextElementArea(paragraphIndex,wordIndex,charIndex,length - charIndex,false,changeStyle,getTextStyle(),element,x,x + width - 1,y - height + 1,y + descent));
+changeStyle=false;
+wordOccurred=true;
+}
+ else if (element instanceof ZLTextControlElement) {
+applyControl((ZLTextControlElement)element);
+changeStyle=true;
+}
+x+=width;
+}
+if (!endOfParagraph) {
+final int len=info.EndCharIndex;
+if (len > 0) {
+final int wordIndex=info.EndWordIndex;
+final ZLTextWord word=(ZLTextWord)paragraph.getElement(wordIndex);
+final boolean addHyphenationSign=word.Data[word.Offset + len - 1] != '-';
+final int width=getWordWidth(word,0,len,addHyphenationSign);
+final int height=getElementHeight(word);
+final int descent=context.getDescent();
+page.TextElementMap.add(new ZLTextElementArea(paragraphIndex,wordIndex,0,len,addHyphenationSign,changeStyle,getTextStyle(),word,x,x + width - 1,y - height + 1,y + descent));
+}
+}
+}

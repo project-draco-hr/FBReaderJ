@@ -1,4 +1,0 @@
-byte[] data
-int start
-int length
-boolean endOfInput

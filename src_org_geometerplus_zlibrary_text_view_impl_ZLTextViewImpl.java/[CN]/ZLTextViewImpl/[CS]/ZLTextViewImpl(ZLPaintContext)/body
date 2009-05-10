@@ -1,5 +1,0 @@
-{
-  super(context);
-  resetTextStyle();
-  mySelectionModel=new ZLTextSelectionModel(this);
-}

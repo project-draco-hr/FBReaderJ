@@ -1,13 +1,9 @@
 {
   final int size=new ZLIntegerRangeOption(myName,BINDINGS_NUMBER,0,256,0).getValue();
-  final ZLStringOption keyOption=new ZLStringOption(myName,"","");
-  final ZLStringOption actionOption=new ZLStringOption(myName,"","");
   for (int i=0; i < size; ++i) {
-    keyOption.changeName(BINDED_KEY + i);
-    final String keyValue=keyOption.getValue();
+    final String keyValue=new ZLStringOption(myName,BINDED_KEY + i,"").getValue();
     if (keyValue.length() != 0) {
-      actionOption.changeName(BINDED_ACTION + i);
-      final String actionValue=actionOption.getValue();
+      final String actionValue=new ZLStringOption(myName,BINDED_ACTION + i,"").getValue();
       if (actionValue.length() != 0) {
         bindKey(keyValue,actionValue);
       }

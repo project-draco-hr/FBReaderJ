@@ -18,6 +18,9 @@
       if (!cursor.nextParagraph()) {
         break mainLoop;
       }
+      if ((builder.length() > 0) && cursor.getParagraphCursor().isEndOfSection()) {
+        break mainLoop;
+      }
       if (sentenceBuilder.length() > 0) {
         if (appendLineBreak) {
           builder.append("\n");

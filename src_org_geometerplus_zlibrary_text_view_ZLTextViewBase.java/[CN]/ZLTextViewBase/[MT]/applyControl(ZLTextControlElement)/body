@@ -1,0 +1,9 @@
+{
+  if (control.IsStart) {
+    ZLTextStyleDecoration decoration=ZLTextStyleCollection.Instance().getDecoration(control.Kind);
+    setTextStyle(decoration.createDecoratedStyle(myTextStyle));
+  }
+ else {
+    setTextStyle(myTextStyle.getBase());
+  }
+}

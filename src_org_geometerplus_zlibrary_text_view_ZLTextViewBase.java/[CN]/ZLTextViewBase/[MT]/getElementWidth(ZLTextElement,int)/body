@@ -1,0 +1,15 @@
+{
+  if (element instanceof ZLTextWord) {
+    return getWordWidth((ZLTextWord)element,charIndex);
+  }
+ else   if (element instanceof ZLTextImageElement) {
+    return Context.imageWidth(((ZLTextImageElement)element).ImageData);
+  }
+ else   if (element == ZLTextElement.IndentElement) {
+    return myTextStyle.getFirstLineIndentDelta();
+  }
+ else   if (element instanceof ZLTextFixedHSpaceElement) {
+    return Context.getSpaceWidth() * ((ZLTextFixedHSpaceElement)element).Length;
+  }
+  return 0;
+}

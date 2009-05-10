@@ -1,5 +1,5 @@
 {
-  final ZLTextPlainModel textModel=myCurrentTextModel;
+  final ZLTextModel textModel=myCurrentTextModel;
   if (textModel != null) {
     mySectionContainsRegularContents=true;
     if (myTextParagraphExists) {

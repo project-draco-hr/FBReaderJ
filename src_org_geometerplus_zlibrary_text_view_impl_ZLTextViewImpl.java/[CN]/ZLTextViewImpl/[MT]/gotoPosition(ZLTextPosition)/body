@@ -1,5 +1,0 @@
-{
-  if (position != null) {
-    gotoPosition(position.ParagraphIndex,position.WordIndex,position.CharIndex);
-  }
-}

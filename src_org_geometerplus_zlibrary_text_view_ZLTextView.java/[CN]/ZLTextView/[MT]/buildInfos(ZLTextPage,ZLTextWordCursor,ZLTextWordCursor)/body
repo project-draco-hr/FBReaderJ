@@ -1,0 +1,30 @@
+{
+  result.setCursor(start);
+  int textAreaHeight=getTextAreaHeight();
+  page.LineInfos.clear();
+  int counter=0;
+  do {
+    resetTextStyle();
+    final ZLTextParagraphCursor paragraphCursor=result.getParagraphCursor();
+    final int wordIndex=result.getWordIndex();
+    applyControls(paragraphCursor,0,wordIndex);
+    ZLTextLineInfo info=new ZLTextLineInfo(paragraphCursor,wordIndex,result.getCharIndex(),getTextStyle());
+    final int endIndex=info.ParagraphCursorLength;
+    while (info.EndWordIndex != endIndex) {
+      info=processTextLine(paragraphCursor,info.EndWordIndex,info.EndCharIndex,endIndex);
+      textAreaHeight-=info.Height + info.Descent;
+      if ((textAreaHeight < 0) && (counter > 0)) {
+        break;
+      }
+      textAreaHeight-=info.VSpaceAfter;
+      result.moveTo(info.EndWordIndex,info.EndCharIndex);
+      page.LineInfos.add(info);
+      if (textAreaHeight < 0) {
+        break;
+      }
+      counter++;
+    }
+  }
+ while (result.isEndOfParagraph() && result.nextParagraph() && !result.getParagraphCursor().isEndOfSection()&& (textAreaHeight >= 0));
+  resetTextStyle();
+}

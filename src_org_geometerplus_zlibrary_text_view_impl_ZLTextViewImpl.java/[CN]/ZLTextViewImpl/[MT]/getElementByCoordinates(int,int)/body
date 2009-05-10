@@ -1,3 +1,0 @@
-{
-  return myTextElementMap.binarySearch(x,y);
-}

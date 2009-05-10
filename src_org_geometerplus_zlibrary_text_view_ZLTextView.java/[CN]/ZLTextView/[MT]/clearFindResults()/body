@@ -1,0 +1,7 @@
+{
+  if (!findResultsAreEmpty()) {
+    myModel.removeAllMarks();
+    rebuildPaintInfo();
+    ZLApplication.Instance().repaintView();
+  }
+}

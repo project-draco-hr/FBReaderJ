@@ -1,0 +1,42 @@
+{
+  if (!myTextParagraphExists || (length == 0)) {
+    return;
+  }
+  final int oldLength=myTextBufferLength;
+  if (myTextBuffer.length < oldLength + length) {
+    myTextBuffer=ZLArrayUtils.createCopy(myTextBuffer,oldLength,oldLength + length);
+  }
+  final CharBuffer cb=CharBuffer.wrap(myTextBuffer,myTextBufferLength,length);
+  if (myUnderflowLength > 0) {
+    int l=myUnderflowLength;
+    while (length-- > 0) {
+      myUnderflowByteBuffer[l++]=data[start++];
+      final ByteBuffer ubb=ByteBuffer.wrap(myUnderflowByteBuffer);
+      myByteDecoder.decode(ubb,cb,false);
+      if (cb.position() != oldLength) {
+        myUnderflowLength=0;
+        break;
+      }
+    }
+    if (length == 0) {
+      myUnderflowLength=l;
+      return;
+    }
+  }
+  ByteBuffer bb=ByteBuffer.wrap(data,start,length);
+  myByteDecoder.decode(bb,cb,false);
+  myTextBufferLength=cb.position();
+  int rem=bb.remaining();
+  if (rem > 0) {
+    for (int i=0, j=start + length - rem; i < rem; ) {
+      myUnderflowByteBuffer[i++]=data[j++];
+    }
+    myUnderflowLength=rem;
+  }
+  if (myInsideTitle) {
+    addContentsData(myTextBuffer,oldLength,myTextBufferLength - oldLength);
+  }
+ else {
+    mySectionContainsRegularContents=true;
+  }
+}

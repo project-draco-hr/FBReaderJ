@@ -1,4 +1,0 @@
-{
-  myOptionName=optionName.intern();
-  myIsSynchronized=false;
-}

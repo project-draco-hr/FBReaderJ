@@ -1,0 +1,17 @@
+{
+  ZLTextParagraphCursorCache.clear();
+  myModel=model;
+  if (myModel != null) {
+    final int paragraphsNumber=myModel.getParagraphsNumber();
+    if (paragraphsNumber > 0) {
+      myTextSize=new int[paragraphsNumber + 1];
+      myTextSize[0]=0;
+      for (int i=0; i < paragraphsNumber; ++i) {
+        myTextSize[i + 1]=myTextSize[i] + myModel.getParagraphTextLength(i);
+      }
+      myCurrentPage.moveStartCursor(ZLTextParagraphCursor.cursor(myModel,0));
+      myPreviousPage.reset();
+      myNextPage.reset();
+    }
+  }
+}

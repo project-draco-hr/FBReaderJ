@@ -1,0 +1,5 @@
+ZLTextPage page
+ZLTextLineInfo info
+int from
+int to
+int y

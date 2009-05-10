@@ -1,5 +1,13 @@
 {
-  final int index=myParagraphsNumber;
-  createParagraph();
+  final int index=myParagraphsNumber++;
+  int[] startEntryIndices=myStartEntryIndices;
+  if (index == startEntryIndices.length) {
+    extend();
+    startEntryIndices=myStartEntryIndices;
+  }
+  final int dataSize=myStorage.size();
+  startEntryIndices[index]=(dataSize == 0) ? 0 : (dataSize - 1);
+  myStartEntryOffsets[index]=myBlockOffset;
+  myParagraphLengths[index]=0;
   myParagraphKinds[index]=kind;
 }

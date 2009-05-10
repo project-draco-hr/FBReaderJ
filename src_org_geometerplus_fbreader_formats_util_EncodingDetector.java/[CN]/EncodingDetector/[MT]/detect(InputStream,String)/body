@@ -1,4 +1,0 @@
-{
-  String encodingString="ISO-8859-1";
-  return encodingString;
-}

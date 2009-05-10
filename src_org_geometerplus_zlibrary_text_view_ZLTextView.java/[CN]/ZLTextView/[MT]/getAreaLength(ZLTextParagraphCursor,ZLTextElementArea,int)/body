@@ -1,0 +1,14 @@
+{
+  setTextStyle(area.Style);
+  final ZLTextWord word=(ZLTextWord)paragraph.getElement(area.TextElementIndex);
+  int length=toCharIndex - area.StartCharIndex;
+  boolean selectHyphenationSign=false;
+  if (length >= area.Length) {
+    selectHyphenationSign=area.AddHyphenationSign;
+    length=area.Length;
+  }
+  if (length > 0) {
+    return getWordWidth(word,area.StartCharIndex,length,selectHyphenationSign);
+  }
+  return 0;
+}

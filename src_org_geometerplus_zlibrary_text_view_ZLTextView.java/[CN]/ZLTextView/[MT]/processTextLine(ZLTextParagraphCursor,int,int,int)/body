@@ -1,0 +1,160 @@
+{
+  final ZLPaintContext context=Context;
+  final ZLTextLineInfo info=new ZLTextLineInfo(paragraphCursor,startIndex,startCharIndex,getTextStyle());
+  final ZLTextLineInfo cachedInfo=myLineInfoCache.get(info);
+  if (cachedInfo != null) {
+    applyControls(paragraphCursor,startIndex,cachedInfo.EndWordIndex);
+    return cachedInfo;
+  }
+  int currentWordIndex=startIndex;
+  int currentCharIndex=startCharIndex;
+  final boolean isFirstLine=(startIndex == 0) && (startCharIndex == 0);
+  if (isFirstLine) {
+    ZLTextElement element=paragraphCursor.getElement(currentWordIndex);
+    while (element instanceof ZLTextControlElement) {
+      applyControl((ZLTextControlElement)element);
+      ++currentWordIndex;
+      currentCharIndex=0;
+      if (currentWordIndex == endIndex) {
+        break;
+      }
+      element=paragraphCursor.getElement(currentWordIndex);
+    }
+    info.StartStyle=getTextStyle();
+    info.RealStartWordIndex=currentWordIndex;
+    info.RealStartCharIndex=currentCharIndex;
+  }
+  ZLTextStyle storedStyle=getTextStyle();
+  info.LeftIndent=getTextStyle().getLeftIndent();
+  if (isFirstLine) {
+    info.LeftIndent+=getTextStyle().getFirstLineIndentDelta();
+  }
+  info.Width=info.LeftIndent;
+  if (info.RealStartWordIndex == endIndex) {
+    info.EndWordIndex=info.RealStartWordIndex;
+    info.EndCharIndex=info.RealStartCharIndex;
+    return info;
+  }
+  int newWidth=info.Width;
+  int newHeight=info.Height;
+  int newDescent=info.Descent;
+  int maxWidth=getTextAreaWidth() - getTextStyle().getRightIndent();
+  boolean wordOccurred=false;
+  boolean isVisible=false;
+  int lastSpaceWidth=0;
+  int internalSpaceCounter=0;
+  boolean removeLastSpace=false;
+  do {
+    ZLTextElement element=paragraphCursor.getElement(currentWordIndex);
+    newWidth+=getElementWidth(element,currentCharIndex);
+{
+      final int eltHeight=getElementHeight(element);
+      if (newHeight < eltHeight) {
+        newHeight=eltHeight;
+      }
+    }
+{
+      final int eltDescent=getElementDescent(element);
+      if (newDescent < eltDescent) {
+        newDescent=eltDescent;
+      }
+    }
+    if (element == ZLTextElement.HSpace) {
+      if (wordOccurred) {
+        wordOccurred=false;
+        internalSpaceCounter++;
+        lastSpaceWidth=context.getSpaceWidth();
+        newWidth+=lastSpaceWidth;
+      }
+    }
+ else     if (element instanceof ZLTextWord) {
+      wordOccurred=true;
+      isVisible=true;
+    }
+ else     if (element instanceof ZLTextControlElement) {
+      applyControl((ZLTextControlElement)element);
+    }
+ else     if (element instanceof ZLTextImageElement) {
+      wordOccurred=true;
+      isVisible=true;
+    }
+    if ((newWidth > maxWidth) && (info.EndWordIndex != startIndex)) {
+      break;
+    }
+    ZLTextElement previousElement=element;
+    ++currentWordIndex;
+    currentCharIndex=0;
+    boolean allowBreak=currentWordIndex == endIndex;
+    if (!allowBreak) {
+      element=paragraphCursor.getElement(currentWordIndex);
+      allowBreak=(((!(element instanceof ZLTextWord)) || (previousElement instanceof ZLTextWord)) && !(element instanceof ZLTextImageElement) && !(element instanceof ZLTextControlElement));
+    }
+    if (allowBreak) {
+      info.IsVisible=isVisible;
+      info.Width=newWidth;
+      if (info.Height < newHeight) {
+        info.Height=newHeight;
+      }
+      if (info.Descent < newDescent) {
+        info.Descent=newDescent;
+      }
+      info.EndWordIndex=currentWordIndex;
+      info.EndCharIndex=currentCharIndex;
+      info.SpaceCounter=internalSpaceCounter;
+      storedStyle=getTextStyle();
+      removeLastSpace=!wordOccurred && (internalSpaceCounter > 0);
+    }
+  }
+ while (currentWordIndex != endIndex);
+  if ((currentWordIndex != endIndex) && (ZLTextStyleCollection.Instance().getBaseStyle().AutoHyphenationOption.getValue()) && (getTextStyle().allowHyphenations())) {
+    ZLTextElement element=paragraphCursor.getElement(currentWordIndex);
+    if (element instanceof ZLTextWord) {
+      final ZLTextWord word=(ZLTextWord)element;
+      newWidth-=getWordWidth(word,currentCharIndex);
+      int spaceLeft=maxWidth - newWidth;
+      if ((word.Length > 3) && (spaceLeft > 2 * Context.getSpaceWidth())) {
+        ZLTextHyphenationInfo hyphenationInfo=ZLTextHyphenator.Instance().getInfo(word);
+        int hyphenationPosition=word.Length - 1;
+        int subwordWidth=0;
+        for (; hyphenationPosition > 0; hyphenationPosition--) {
+          if (hyphenationInfo.isHyphenationPossible(hyphenationPosition)) {
+            subwordWidth=getWordWidth(word,0,hyphenationPosition,word.Data[word.Offset + hyphenationPosition - 1] != '-');
+            if (subwordWidth <= spaceLeft) {
+              break;
+            }
+          }
+        }
+        if (hyphenationPosition > 0) {
+          info.IsVisible=true;
+          info.Width=newWidth + subwordWidth;
+          if (info.Height < newHeight) {
+            info.Height=newHeight;
+          }
+          if (info.Descent < newDescent) {
+            info.Descent=newDescent;
+          }
+          info.EndWordIndex=currentWordIndex;
+          info.EndCharIndex=hyphenationPosition;
+          info.SpaceCounter=internalSpaceCounter;
+          storedStyle=getTextStyle();
+          removeLastSpace=false;
+        }
+      }
+    }
+  }
+  if (removeLastSpace) {
+    info.Width-=lastSpaceWidth;
+    info.SpaceCounter--;
+  }
+  setTextStyle(storedStyle);
+  if (isFirstLine) {
+    info.Height+=info.StartStyle.getSpaceBefore();
+  }
+  if (info.isEndOfParagraph()) {
+    info.VSpaceAfter=getTextStyle().getSpaceAfter();
+  }
+  if ((info.EndWordIndex != endIndex) || (endIndex == info.ParagraphCursorLength)) {
+    myLineInfoCache.put(info,info);
+  }
+  return info;
+}
