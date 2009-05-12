@@ -1,2 +1,3 @@
-String tagName
+byte tag
+int offset
 ZLHtmlAttributeMap attributes

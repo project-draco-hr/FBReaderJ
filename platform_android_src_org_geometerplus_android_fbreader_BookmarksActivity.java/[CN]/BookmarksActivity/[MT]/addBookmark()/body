@@ -46,13 +46,16 @@ switch (word.Data[word.Offset + word.Length - 1]) {
 case '.':
 case '!':
 case '?':
-        if (appendLineBreak) {
-          builder.append("\n");
-          appendLineBreak=false;
-        }
-      builder.append(sentenceBuilder);
-    sentenceBuilder.delete(0,sentenceBuilder.length());
-  ++sentenceCounter;
+        ++sentenceCounter;
+case ',':
+case ':':
+case ';':
+      if (appendLineBreak) {
+        builder.append("\n");
+        appendLineBreak=false;
+      }
+    builder.append(sentenceBuilder);
+  sentenceBuilder.delete(0,sentenceBuilder.length());
 storedWordCounter=wordCounter;
 }
 }

@@ -1,9 +1,0 @@
-{
-  preparePaintInfo();
-  final ZLTextWordCursor cursor=getStartCursor();
-  if (!cursor.isNull()) {
-    final ZLTextPosition position=new ZLTextPosition(cursor);
-    gotoParagraph(paragraphIndex,false);
-    preparePaintInfo();
-  }
-}

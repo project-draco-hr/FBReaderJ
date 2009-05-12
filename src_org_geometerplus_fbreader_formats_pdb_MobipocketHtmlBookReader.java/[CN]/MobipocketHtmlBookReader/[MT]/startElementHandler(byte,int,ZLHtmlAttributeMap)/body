@@ -1,0 +1,30 @@
+{
+switch (tag) {
+case HtmlTag.REFERENCE:
+{
+      System.err.println("REFERENCE");
+      final ZLByteBuffer fp=attributes.getValue("filepos");
+      if (fp != null) {
+        System.err.println(": filepos = " + fp);
+      }
+      final ZLByteBuffer title=attributes.getValue("title");
+      if (title != null) {
+        System.err.println(": title = " + title);
+      }
+      final ZLByteBuffer type=attributes.getValue("type");
+      if (type != null) {
+        System.err.println(": type = " + type);
+      }
+      break;
+    }
+default :
+{
+    final ZLByteBuffer fp=attributes.getValue("filepos");
+    if (fp != null) {
+      System.err.println("filepos = " + fp);
+    }
+    super.startElementHandler(tag,offset,attributes);
+    break;
+  }
+}
+}

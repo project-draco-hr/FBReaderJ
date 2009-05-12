@@ -1,5 +1,4 @@
 {
-  final byte tag=HtmlTag.getTagByName(tagName);
 switch (tag) {
 case HtmlTag.HTML:
     break;

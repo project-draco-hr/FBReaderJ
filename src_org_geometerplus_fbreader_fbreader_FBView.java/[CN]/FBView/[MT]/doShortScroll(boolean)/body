@@ -1,0 +1,10 @@
+{
+  System.err.println("count = " + myHyperlinkCount);
+  if (myHyperlinkCount == -1) {
+    myHyperlinkCount=0;
+    for (    ZLTextElementArea area : allElements()) {
+    }
+  }
+  scrollPage(forward,ZLTextView.ScrollingMode.SCROLL_LINES,1);
+  ZLApplication.Instance().repaintView();
+}

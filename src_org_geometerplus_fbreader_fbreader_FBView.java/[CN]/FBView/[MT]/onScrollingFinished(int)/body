@@ -1,0 +1,6 @@
+{
+  if (viewPage != PAGE_CENTRAL) {
+    myHyperlinkCount=-1;
+  }
+  super.onScrollingFinished(viewPage);
+}

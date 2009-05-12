@@ -1,9 +1,9 @@
 {
   int left=0;
-  int right=myLength;
+  int right=size();
   while (left < right) {
     final int middle=(left + right) / 2;
-    final ZLTextElementArea candidate=myData[middle];
+    final ZLTextElementArea candidate=get(middle);
     if (candidate.YStart > y) {
       right=middle;
     }
