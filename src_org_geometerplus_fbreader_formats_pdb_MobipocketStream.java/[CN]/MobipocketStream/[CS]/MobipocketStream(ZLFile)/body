@@ -1,5 +1,6 @@
 {
   super(file);
+  myFileSize=(int)file.size();
   final int version=PdbUtil.readShort(myBase);
 switch (version) {
 case 1:

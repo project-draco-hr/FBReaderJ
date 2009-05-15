@@ -1,0 +1,24 @@
+{
+switch (tag) {
+case HtmlTag.IMG:
+    break;
+case HtmlTag.GUIDE:
+  myReadGuide=false;
+break;
+case HtmlTag.REFERENCE:
+break;
+case HtmlTag.A:
+if (myCurrentTocPosition != -1) {
+if (!myTocBuffer.isEmpty()) {
+myTocEntries.put(myCurrentTocPosition,myTocBuffer.toString(myTocDecoder));
+myTocBuffer.clear();
+}
+myCurrentTocPosition=-1;
+}
+super.endElementHandler(tag);
+break;
+default :
+super.endElementHandler(tag);
+break;
+}
+}

@@ -2,8 +2,8 @@
   super(model);
   try {
     String encoding=model.Book.getEncoding();
-    myAttributeDecoder=Charset.forName(encoding).newDecoder().onMalformedInput(CodingErrorAction.REPLACE).onUnmappableCharacter(CodingErrorAction.REPLACE);
-    setByteDecoder(Charset.forName(encoding).newDecoder().onMalformedInput(CodingErrorAction.REPLACE).onUnmappableCharacter(CodingErrorAction.REPLACE));
+    myAttributeDecoder=createDecoder();
+    setByteDecoder(createDecoder());
   }
  catch (  UnsupportedCharsetException e) {
     throw new UnsupportedEncodingException(e.getMessage());

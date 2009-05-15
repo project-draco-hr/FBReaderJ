@@ -1,0 +1,8 @@
+{
+  try {
+    return myHeader.Offsets[index + myMaxRecordIndex + 1];
+  }
+ catch (  ArrayIndexOutOfBoundsException e) {
+    return -1;
+  }
+}

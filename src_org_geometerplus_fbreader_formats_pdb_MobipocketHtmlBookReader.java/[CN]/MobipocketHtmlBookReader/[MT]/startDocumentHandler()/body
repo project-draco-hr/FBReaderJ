@@ -1,0 +1,14 @@
+{
+  super.startDocumentHandler();
+  for (int index=0; ; ++index) {
+    final int offset=myMobipocketStream.getImageOffset(index);
+    if (offset < 0) {
+      break;
+    }
+    final int length=myMobipocketStream.getImageLength(index);
+    if (length <= 0) {
+      break;
+    }
+    addImage("" + index,new ZLFileImage("image/auto",Model.Book.File,offset,length));
+  }
+}

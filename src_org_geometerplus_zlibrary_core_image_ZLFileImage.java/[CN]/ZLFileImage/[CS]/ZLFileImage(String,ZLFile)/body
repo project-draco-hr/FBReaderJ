@@ -1,4 +1,3 @@
 {
-  super(mimeType);
-  myFile=file;
+  this(mimeType,file,0,(int)file.size());
 }

@@ -21,7 +21,6 @@
     if (count < buffer.length) {
       buffer=ZLArrayUtils.createCopy(buffer,count,count);
     }
-    bufferOffset+=count;
     int startPosition=0;
     try {
       for (int i=-1; ; ) {
@@ -391,5 +390,6 @@ entityName.append(buffer,startPosition,count - startPosition);
 break;
 }
 }
+bufferOffset+=count;
 }
 }

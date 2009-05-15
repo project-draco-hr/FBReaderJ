@@ -1,0 +1,48 @@
+{
+switch (tag) {
+case HtmlTag.SCRIPT:
+case HtmlTag.SELECT:
+case HtmlTag.STYLE:
+case HtmlTag.P:
+    startNewParagraph();
+  break;
+case HtmlTag.H1:
+case HtmlTag.H2:
+case HtmlTag.H3:
+case HtmlTag.H4:
+case HtmlTag.H5:
+case HtmlTag.H6:
+case HtmlTag.PRE:
+closeControl(myStyleTable[tag]);
+startNewParagraph();
+break;
+case HtmlTag.A:
+closeControl(myHyperlinkType);
+break;
+case HtmlTag.BODY:
+break;
+case HtmlTag.HTML:
+break;
+case HtmlTag.B:
+case HtmlTag.S:
+case HtmlTag.SUB:
+case HtmlTag.SUP:
+case HtmlTag.EM:
+case HtmlTag.DFN:
+case HtmlTag.CITE:
+case HtmlTag.CODE:
+case HtmlTag.STRONG:
+case HtmlTag.I:
+closeControl(myStyleTable[tag]);
+break;
+case HtmlTag.OL:
+myOrderedListIsStarted=false;
+myOLCounter=0;
+break;
+case HtmlTag.UL:
+myUnorderedListIsStarted=false;
+break;
+default :
+break;
+}
+}

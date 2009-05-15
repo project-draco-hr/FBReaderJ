@@ -1,0 +1,11 @@
+{
+  try {
+    final int i=index + myMaxRecordIndex + 1;
+    final int start=myHeader.Offsets[i];
+    final int end=(i == myHeader.Offsets.length) ? myFileSize : myHeader.Offsets[i + 1];
+    return end - start;
+  }
+ catch (  ArrayIndexOutOfBoundsException e) {
+    return -1;
+  }
+}

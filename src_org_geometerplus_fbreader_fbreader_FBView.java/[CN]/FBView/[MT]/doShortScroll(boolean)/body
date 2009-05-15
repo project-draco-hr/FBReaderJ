@@ -1,5 +1,4 @@
 {
-  System.err.println("count = " + myHyperlinkCount);
   if (myHyperlinkCount == -1) {
     myHyperlinkCount=0;
     for (    ZLTextElementArea area : allElements()) {

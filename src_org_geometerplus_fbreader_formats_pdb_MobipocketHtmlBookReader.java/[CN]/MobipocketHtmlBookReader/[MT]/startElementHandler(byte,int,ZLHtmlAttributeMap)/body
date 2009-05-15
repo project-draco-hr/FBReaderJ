@@ -1,30 +1,76 @@
 {
+  final int paragraphIndex=Model.BookTextModel.getParagraphsNumber();
+  myPositionToParagraph.put(offset,paragraphIsOpen() ? paragraphIndex - 1 : paragraphIndex);
 switch (tag) {
-case HtmlTag.REFERENCE:
+case HtmlTag.IMG:
 {
-      System.err.println("REFERENCE");
-      final ZLByteBuffer fp=attributes.getValue("filepos");
-      if (fp != null) {
-        System.err.println(": filepos = " + fp);
-      }
-      final ZLByteBuffer title=attributes.getValue("title");
-      if (title != null) {
-        System.err.println(": title = " + title);
-      }
-      final ZLByteBuffer type=attributes.getValue("type");
-      if (type != null) {
-        System.err.println(": type = " + type);
+      final ZLByteBuffer recIndex=attributes.getValue("recindex");
+      if (recIndex != null) {
+        try {
+          final int index=Integer.parseInt(recIndex.toString());
+          if (paragraphIsOpen()) {
+            endParagraph();
+            addImageReference("" + index);
+            beginParagraph();
+          }
+ else {
+            addImageReference("" + index);
+          }
+        }
+ catch (        NumberFormatException e) {
+        }
       }
       break;
     }
-default :
-{
-    final ZLByteBuffer fp=attributes.getValue("filepos");
-    if (fp != null) {
-      System.err.println("filepos = " + fp);
+case HtmlTag.GUIDE:
+  myReadGuide=true;
+break;
+case HtmlTag.REFERENCE:
+if (myReadGuide) {
+final ZLByteBuffer fp=attributes.getValue("filepos");
+final ZLByteBuffer title=attributes.getValue("title");
+if ((fp != null) && (title != null)) {
+  try {
+    int filePosition=Integer.parseInt(fp.toString());
+    myTocEntries.put(filePosition,title.toString(myAttributeDecoder));
+    if (tocRangeContainsPosition(filePosition)) {
+      myTocEndOffset=filePosition;
     }
-    super.startElementHandler(tag,offset,attributes);
-    break;
+    if (attributes.getValue("type").equalsToLCString("toc")) {
+      myTocStartOffset=filePosition;
+      final SortedMap<Integer,String> subMap=myTocEntries.tailMap(filePosition + 1);
+      if (!subMap.isEmpty()) {
+        myTocEndOffset=subMap.firstKey();
+      }
+    }
   }
+ catch (  NumberFormatException e) {
+  }
+}
+}
+break;
+case HtmlTag.A:
+{
+final ZLByteBuffer fp=attributes.getValue("filepos");
+if (fp != null) {
+try {
+int filePosition=Integer.parseInt(fp.toString());
+if (tocRangeContainsPosition(offset)) {
+  myCurrentTocPosition=filePosition;
+  if (tocRangeContainsPosition(filePosition)) {
+    myTocEndOffset=filePosition;
+  }
+}
+myFileposReferences.add(filePosition);
+}
+ catch (NumberFormatException e) {
+}
+}
+super.startElementHandler(tag,offset,attributes);
+break;
+}
+default :
+super.startElementHandler(tag,offset,attributes);
+break;
 }
 }
