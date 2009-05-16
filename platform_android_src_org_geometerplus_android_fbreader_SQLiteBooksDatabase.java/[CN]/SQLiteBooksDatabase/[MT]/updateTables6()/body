@@ -1,2 +1,3 @@
 {
+  myDatabase.execSQL("ALTER TABLE Bookmarks ADD COLUMN model_id TEXT");
 }

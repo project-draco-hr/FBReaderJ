@@ -1,3 +1,4 @@
 Book book
 String text
+String modelId
 ZLTextPosition position

@@ -6,6 +6,7 @@ Date creationDate
 Date modificationDate
 Date accessDate
 int accessCount
+String modelId
 int paragraphIndex
 int wordIndex
 int charIndex

@@ -1,4 +1,8 @@
 {
+  if (bookmark.getModelId() != null) {
+    System.err.println("Cannot go to position in footnote model " + bookmark.getModelId());
+    return;
+  }
   bookmark.onOpen();
   final FBReader fbreader=(FBReader)FBReader.Instance();
   final long bookId=bookmark.getBookId();

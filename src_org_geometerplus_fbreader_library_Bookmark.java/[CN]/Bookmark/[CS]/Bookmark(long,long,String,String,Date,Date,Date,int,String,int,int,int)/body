@@ -13,6 +13,7 @@
     }
   }
   myAccessCount=accessCount;
+  myModelId=modelId;
   myPosition=new ZLTextPosition(paragraphIndex,wordIndex,charIndex);
   myIsChanged=false;
 }
