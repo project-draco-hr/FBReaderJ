@@ -6,12 +6,11 @@
   if ((physicalFile != null) && !physicalFile.exists()) {
     return null;
   }
-  Book book=BooksDatabase.Instance().loadBook(bookFile.getPath());
+  final FileInfoSet fileInfos=new FileInfoSet(bookFile);
+  Book book=BooksDatabase.Instance().loadBookByFile(fileInfos.getId(bookFile),bookFile);
   if (book != null) {
     book.loadLists();
   }
-  FileInfoSet fileInfos=new FileInfoSet();
-  fileInfos.load(physicalFile);
   if (fileInfos.check(physicalFile) && (book != null)) {
     return book;
   }

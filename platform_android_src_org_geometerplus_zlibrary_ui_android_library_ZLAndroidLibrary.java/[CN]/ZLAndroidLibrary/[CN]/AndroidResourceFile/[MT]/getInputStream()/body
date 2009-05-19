@@ -1,6 +1,6 @@
 {
   if (!myExists) {
-    throw new IOException("No such file: " + getPath());
+    throw new IOException("File not found: " + getPath());
   }
   try {
     return myApplication.getResources().openRawResource(myResourceId);

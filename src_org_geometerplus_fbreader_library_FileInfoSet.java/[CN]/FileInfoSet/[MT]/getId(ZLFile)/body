@@ -1,0 +1,10 @@
+{
+  final FileInfo info=get(file);
+  if (info == null) {
+    return -1;
+  }
+  if (info.Id == -1) {
+    save();
+  }
+  return info.Id;
+}

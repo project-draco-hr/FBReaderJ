@@ -1,11 +1,11 @@
 {
   ParagraphCursor=paragraphCursor;
   ParagraphCursorLength=paragraphCursor.getParagraphLength();
-  StartWordIndex=wordIndex;
+  StartElementIndex=elementIndex;
   StartCharIndex=charIndex;
-  RealStartWordIndex=wordIndex;
+  RealStartElementIndex=elementIndex;
   RealStartCharIndex=charIndex;
-  EndWordIndex=wordIndex;
+  EndElementIndex=elementIndex;
   EndCharIndex=charIndex;
   StartStyle=style;
 }

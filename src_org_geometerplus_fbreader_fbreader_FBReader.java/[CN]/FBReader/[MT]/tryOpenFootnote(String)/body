@@ -3,12 +3,12 @@
     BookModel.Label label=Model.getLabel(id);
     if ((label != null) && (label.Model != null)) {
       if (label.Model == Model.BookTextModel) {
-        BookTextView.gotoParagraph(label.ParagraphIndex,false);
+        BookTextView.gotoPosition(label.ParagraphIndex,0,0);
       }
  else {
         FootnoteView.setModel(label.Model);
         setMode(ViewMode.FOOTNOTE);
-        FootnoteView.gotoParagraph(label.ParagraphIndex,false);
+        FootnoteView.gotoPosition(label.ParagraphIndex,0,0);
       }
       repaintView();
     }

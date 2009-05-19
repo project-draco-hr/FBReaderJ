@@ -1,6 +1,0 @@
-{
-  if (ourSelectionOption == null) {
-    ourSelectionOption=new ZLBooleanOption("Options","IsSelectionEnabled",true);
-  }
-  return ourSelectionOption;
-}

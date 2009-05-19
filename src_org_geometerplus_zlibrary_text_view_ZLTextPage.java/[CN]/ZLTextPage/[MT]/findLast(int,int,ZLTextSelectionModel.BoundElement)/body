@@ -1,12 +1,12 @@
 {
-  final int boundElementIndex=bound.TextElementIndex;
+  final int boundElementIndex=bound.ElementIndex;
   final int boundCharIndex=bound.CharIndex;
   final ZLTextElementAreaVector textAreas=TextElementMap;
   ZLTextElementArea elementArea=textAreas.get(from);
-  if ((elementArea.TextElementIndex < boundElementIndex) || ((elementArea.TextElementIndex == boundElementIndex) && (elementArea.StartCharIndex <= boundCharIndex))) {
+  if ((elementArea.ElementIndex < boundElementIndex) || ((elementArea.ElementIndex == boundElementIndex) && (elementArea.CharIndex <= boundCharIndex))) {
     for (++from; from < to; ++from) {
       elementArea=textAreas.get(from);
-      if ((elementArea.TextElementIndex > boundElementIndex) || ((elementArea.TextElementIndex == boundElementIndex) && (elementArea.StartCharIndex > boundCharIndex))) {
+      if ((elementArea.ElementIndex > boundElementIndex) || ((elementArea.ElementIndex == boundElementIndex) && (elementArea.CharIndex > boundCharIndex))) {
         return textAreas.get(from - 1);
       }
     }

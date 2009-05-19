@@ -1,3 +1,0 @@
-{
-  return (myWordIndex == cursor.myWordIndex) && (myCharIndex == cursor.myCharIndex) && (myParagraphCursor.Index == cursor.myParagraphCursor.Index);
-}

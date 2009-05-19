@@ -1,11 +1,11 @@
 {
   final ZLTextParagraphCursor paragraphCursor=cursor.getParagraphCursor();
-  final int endWordIndex=paragraphCursor.getParagraphLength();
+  final int endElementIndex=paragraphCursor.getParagraphLength();
   resetTextStyle();
-  applyControls(paragraphCursor,0,cursor.getWordIndex());
+  applyControls(paragraphCursor,0,cursor.getElementIndex());
   while (!cursor.isEndOfParagraph() && (size > 0)) {
-    ZLTextLineInfo info=processTextLine(paragraphCursor,cursor.getWordIndex(),cursor.getCharIndex(),endWordIndex);
-    cursor.moveTo(info.EndWordIndex,info.EndCharIndex);
+    ZLTextLineInfo info=processTextLine(paragraphCursor,cursor.getElementIndex(),cursor.getCharIndex(),endElementIndex);
+    cursor.moveTo(info.EndElementIndex,info.EndCharIndex);
     size-=infoSize(info,unit);
   }
 }

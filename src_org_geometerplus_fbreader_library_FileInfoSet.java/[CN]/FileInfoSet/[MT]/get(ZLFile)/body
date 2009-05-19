@@ -1,3 +1,11 @@
 {
-  return (file == null) ? null : get(file.getName(false),get(file.getParent()));
+  if (file == null) {
+    return null;
+  }
+  FileInfo info=myInfosByFile.get(file);
+  if (info == null) {
+    info=get(file.getName(false),get(file.getParent()));
+    myInfosByFile.put(file,info);
+  }
+  return info;
 }

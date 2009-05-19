@@ -1,8 +1,0 @@
-{
-  ZLDialogManager.Instance().wait("loadingBook",new Runnable(){
-    public void run(){
-      openBookInternal(book,position);
-    }
-  }
-);
-}

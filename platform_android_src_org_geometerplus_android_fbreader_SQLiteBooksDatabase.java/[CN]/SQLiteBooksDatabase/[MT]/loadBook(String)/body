@@ -1,9 +1,0 @@
-{
-  Book book=null;
-  final Cursor cursor=myDatabase.rawQuery("SELECT book_id,title,encoding,language FROM Books WHERE file_name = ?",new String[]{fileName});
-  if (cursor.moveToNext()) {
-    book=createBook(cursor.getLong(0),fileName,cursor.getString(1),cursor.getString(2),cursor.getString(3));
-  }
-  cursor.close();
-  return book;
-}

@@ -1,5 +1,6 @@
 {
   for (  FileInfo info : infos) {
     myInfosByPair.put(new Pair(info.Name,info.Parent),info);
+    myInfosById.put(info.Id,info);
   }
 }

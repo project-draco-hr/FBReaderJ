@@ -1,5 +1,5 @@
 {
   if ((Model != null) && (BookTextView != null)) {
-    Model.Book.storePosition(new ZLTextPosition(BookTextView.getStartCursor()));
+    Model.Book.storePosition(BookTextView.getStartCursor());
   }
 }

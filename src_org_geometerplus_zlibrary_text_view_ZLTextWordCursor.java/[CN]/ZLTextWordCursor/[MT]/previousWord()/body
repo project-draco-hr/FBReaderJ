@@ -1,4 +1,4 @@
 {
-  myWordIndex--;
+  myElementIndex--;
   myCharIndex=0;
 }

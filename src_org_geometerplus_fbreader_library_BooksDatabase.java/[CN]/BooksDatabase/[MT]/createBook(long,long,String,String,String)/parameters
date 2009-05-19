@@ -1,0 +1,5 @@
+long id
+long fileId
+String title
+String encoding
+String language

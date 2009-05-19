@@ -12,16 +12,15 @@
   if (myCurrentPage.StartCursor.isNull()) {
     return;
   }
-  final ZLTextPosition position=new ZLTextPosition(myCurrentPage.StartCursor);
-  if ((myCurrentPage.StartCursor.getParagraphCursor().Index != mark.ParagraphIndex) || (myCurrentPage.StartCursor.getPosition().compareTo(mark) > 0)) {
+  if ((myCurrentPage.StartCursor.getParagraphIndex() != mark.ParagraphIndex) || (myCurrentPage.StartCursor.getMark().compareTo(mark) > 0)) {
     doRepaint=true;
-    gotoParagraph(mark.ParagraphIndex,false);
+    gotoPosition(mark.ParagraphIndex,0,0);
     preparePaintInfo(myCurrentPage);
   }
   if (myCurrentPage.EndCursor.isNull()) {
     preparePaintInfo(myCurrentPage);
   }
-  while (mark.compareTo(myCurrentPage.EndCursor.getPosition()) > 0) {
+  while (mark.compareTo(myCurrentPage.EndCursor.getMark()) > 0) {
     doRepaint=true;
     scrollPage(true,ScrollingMode.NO_OVERLAPPING,0);
     preparePaintInfo(myCurrentPage);

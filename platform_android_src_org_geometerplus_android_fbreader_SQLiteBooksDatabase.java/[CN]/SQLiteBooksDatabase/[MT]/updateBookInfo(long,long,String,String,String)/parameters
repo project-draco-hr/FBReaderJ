@@ -1,0 +1,5 @@
+long bookId
+long fileId
+String encoding
+String language
+String title

@@ -1,0 +1,28 @@
+{
+  clearTextCaches();
+  if (book != null) {
+    onViewChanged();
+    if (Model != null) {
+      Model.Book.storePosition(BookTextView.getStartCursor());
+    }
+    BookTextView.setModel(null);
+    FootnoteView.setModel(null);
+    Model=null;
+    System.gc();
+    System.gc();
+    Model=BookModel.createModel(book);
+    if (Model != null) {
+      ZLTextHyphenator.Instance().load(book.getLanguage());
+      BookTextView.setModel(Model.BookTextModel);
+      BookTextView.gotoPosition(book.getStoredPosition());
+      if (bookmark == null) {
+        setMode(ViewMode.BOOK_TEXT);
+      }
+ else {
+        gotoBookmark(bookmark);
+      }
+      Library.Instance().addBookToRecentList(book);
+    }
+  }
+  repaintView();
+}

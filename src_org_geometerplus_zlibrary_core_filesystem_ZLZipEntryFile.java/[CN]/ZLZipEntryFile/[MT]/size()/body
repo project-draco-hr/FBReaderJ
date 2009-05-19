@@ -1,3 +1,8 @@
 {
-  throw new RuntimeException("Not implemented yet.");
+  try {
+    return getZipFile(myParent).getEntrySize(myName);
+  }
+ catch (  IOException e) {
+    return 0;
+  }
 }

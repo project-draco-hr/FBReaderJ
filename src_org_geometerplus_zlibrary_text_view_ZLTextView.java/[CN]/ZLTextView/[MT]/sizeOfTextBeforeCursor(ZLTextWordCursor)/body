@@ -11,7 +11,7 @@
   int sizeOfText=myTextSize[paragraphIndex];
   final int paragraphLength=paragraphCursor.getParagraphLength();
   if (paragraphLength > 0) {
-    sizeOfText+=(myTextSize[paragraphIndex + 1] - sizeOfText) * cursor.getWordIndex() / paragraphLength;
+    sizeOfText+=(myTextSize[paragraphIndex + 1] - sizeOfText) * cursor.getElementIndex() / paragraphLength;
   }
   return sizeOfText;
 }

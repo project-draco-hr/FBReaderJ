@@ -1,12 +1,12 @@
 {
+  final long start=System.currentTimeMillis();
   final List<ZLPhysicalFile> physicalFilesList=collectPhysicalFiles();
-  final Map<String,Book> savedBooks=BooksDatabase.Instance().listBooks();
   FileInfoSet fileInfos=new FileInfoSet();
-  fileInfos.loadAll();
+  final Map<Long,Book> savedBooks=BooksDatabase.Instance().listBooks(fileInfos);
   for (  ZLPhysicalFile file : physicalFilesList) {
     collectBooks(file,fileInfos,savedBooks,!fileInfos.check(file));
     file.setCached(false);
   }
-  myBooks.add(getBook(getHelpFile(),savedBooks,false));
+  myBooks.add(getBook(getHelpFile(),fileInfos,savedBooks,false));
   fileInfos.save();
 }

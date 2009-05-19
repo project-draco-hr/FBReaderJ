@@ -1,4 +1,5 @@
 {
+  super(paragraphIndex,elementIndex,charIndex);
   myId=id;
   myBookId=bookId;
   myBookTitle=bookTitle;
@@ -14,6 +15,5 @@
   }
   myAccessCount=accessCount;
   myModelId=modelId;
-  myPosition=new ZLTextPosition(paragraphIndex,wordIndex,charIndex);
   myIsChanged=false;
 }

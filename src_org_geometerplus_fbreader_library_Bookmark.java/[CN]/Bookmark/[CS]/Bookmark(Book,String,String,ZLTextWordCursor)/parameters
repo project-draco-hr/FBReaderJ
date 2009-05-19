@@ -1,0 +1,4 @@
+Book book
+String text
+String modelId
+ZLTextWordCursor cursor

@@ -18,17 +18,16 @@
   bindDate(statement,4,bookmark.getTime(Bookmark.MODIFICATION));
   bindDate(statement,5,bookmark.getTime(Bookmark.ACCESS));
   statement.bindLong(6,bookmark.getAccessCount());
-  final ZLTextPosition position=bookmark.getPosition();
   bindString(statement,7,bookmark.getModelId());
-  statement.bindLong(8,position.ParagraphIndex);
-  statement.bindLong(9,position.WordIndex);
-  statement.bindLong(10,position.CharIndex);
+  statement.bindLong(8,bookmark.ParagraphIndex);
+  statement.bindLong(9,bookmark.ElementIndex);
+  statement.bindLong(10,bookmark.CharIndex);
   if (statement == myInsertBookmarkStatement) {
     return statement.executeInsert();
   }
  else {
     final long id=bookmark.getId();
-    statement.bindLong(10,id);
+    statement.bindLong(11,id);
     statement.execute();
     return id;
   }

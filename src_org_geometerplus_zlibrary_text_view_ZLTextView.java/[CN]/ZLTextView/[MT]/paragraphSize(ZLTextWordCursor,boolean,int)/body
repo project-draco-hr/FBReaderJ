@@ -1,13 +1,13 @@
 {
   final ZLTextParagraphCursor paragraphCursor=cursor.getParagraphCursor();
-  final int endWordIndex=beforeCurrentPosition ? cursor.getWordIndex() : paragraphCursor.getParagraphLength();
+  final int endElementIndex=beforeCurrentPosition ? cursor.getElementIndex() : paragraphCursor.getParagraphLength();
   resetTextStyle();
   int size=0;
   int wordIndex=0;
   int charIndex=0;
-  while (wordIndex != endWordIndex) {
-    ZLTextLineInfo info=processTextLine(paragraphCursor,wordIndex,charIndex,endWordIndex);
-    wordIndex=info.EndWordIndex;
+  while (wordIndex != endElementIndex) {
+    ZLTextLineInfo info=processTextLine(paragraphCursor,wordIndex,charIndex,endElementIndex);
+    wordIndex=info.EndElementIndex;
     charIndex=info.EndCharIndex;
     size+=infoSize(info,unit);
   }

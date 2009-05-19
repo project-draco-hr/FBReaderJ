@@ -8,5 +8,5 @@ Date accessDate
 int accessCount
 String modelId
 int paragraphIndex
-int wordIndex
+int elementIndex
 int charIndex

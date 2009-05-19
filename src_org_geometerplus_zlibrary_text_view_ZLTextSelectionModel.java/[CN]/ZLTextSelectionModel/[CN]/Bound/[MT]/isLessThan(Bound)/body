@@ -11,17 +11,5 @@
   if (!bound.After.Exists) {
     return true;
   }
-{
-    int diff=Before.ParagraphIndex - bound.Before.ParagraphIndex;
-    if (diff != 0) {
-      return diff < 0;
-    }
-  }
-{
-    int diff=Before.TextElementIndex - bound.Before.TextElementIndex;
-    if (diff != 0) {
-      return diff < 0;
-    }
-  }
-  return Before.CharIndex < bound.Before.CharIndex;
+  return Before.compareTo(bound.Before) < 0;
 }

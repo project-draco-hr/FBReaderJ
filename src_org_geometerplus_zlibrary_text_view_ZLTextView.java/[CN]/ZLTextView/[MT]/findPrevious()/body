@@ -1,6 +1,6 @@
 {
   final ZLTextWordCursor start=myCurrentPage.StartCursor;
   if (!start.isNull()) {
-    gotoMark(myModel.getPreviousMark(start.getPosition()));
+    gotoMark(myModel.getPreviousMark(start.getMark()));
   }
 }

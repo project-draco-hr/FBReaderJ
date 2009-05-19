@@ -19,7 +19,7 @@
     application.initWindow();
   }
  else   if (fileToOpen != null) {
-    ZLApplication.Instance().openFiles(new ZLPhysicalFile(new File(fileToOpen)));
+    ZLApplication.Instance().openFile(new ZLPhysicalFile(new File(fileToOpen)));
   }
   ZLApplication.Instance().repaintView();
 }

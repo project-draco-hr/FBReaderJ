@@ -1,6 +1,6 @@
 int paragraphIndex
-int textElementIndex
-int startCharIndex
+int elementIndex
+int charIndex
 int length
 boolean addHyphenationSign
 boolean changeStyle

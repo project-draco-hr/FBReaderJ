@@ -1,0 +1,13 @@
+{
+  final String modelId=bookmark.getModelId();
+  if (modelId == null) {
+    BookTextView.gotoPosition(bookmark);
+    setMode(ViewMode.BOOK_TEXT);
+  }
+ else {
+    FootnoteView.setModel(Model.getFootnoteModel(modelId));
+    FootnoteView.gotoPosition(bookmark);
+    setMode(ViewMode.FOOTNOTE);
+  }
+  repaintView();
+}

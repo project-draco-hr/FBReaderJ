@@ -12,8 +12,8 @@
   if (!myCurrentPage.StartCursor.isNull()) {
     rebuildPaintInfo();
     if (count > 0) {
-      ZLTextMark position=myCurrentPage.StartCursor.getPosition();
-      gotoMark(wholeText ? (backward ? myModel.getLastMark() : myModel.getFirstMark()) : (backward ? myModel.getPreviousMark(position) : myModel.getNextMark(position)));
+      ZLTextMark mark=myCurrentPage.StartCursor.getMark();
+      gotoMark(wholeText ? (backward ? myModel.getLastMark() : myModel.getFirstMark()) : (backward ? myModel.getPreviousMark(mark) : myModel.getNextMark(mark)));
     }
     ZLApplication.Instance().repaintView();
   }

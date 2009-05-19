@@ -1,6 +1,8 @@
 {
   if (!isNull() && (paragraphIndex != myParagraphCursor.Index)) {
-    myParagraphCursor=ZLTextParagraphCursor.cursor(myParagraphCursor.Model,paragraphIndex);
+    final ZLTextModel model=myParagraphCursor.Model;
+    paragraphIndex=Math.max(0,Math.min(paragraphIndex,model.getParagraphsNumber() - 1));
+    myParagraphCursor=ZLTextParagraphCursor.cursor(model,paragraphIndex);
     moveToParagraphStart();
   }
 }

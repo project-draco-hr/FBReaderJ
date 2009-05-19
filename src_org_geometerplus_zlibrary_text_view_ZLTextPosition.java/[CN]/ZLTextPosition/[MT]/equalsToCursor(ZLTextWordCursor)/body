@@ -1,3 +1,0 @@
-{
-  return (ParagraphIndex == cursor.getParagraphCursor().Index) && (WordIndex == cursor.getWordIndex()) && (CharIndex == cursor.getCharIndex());
-}

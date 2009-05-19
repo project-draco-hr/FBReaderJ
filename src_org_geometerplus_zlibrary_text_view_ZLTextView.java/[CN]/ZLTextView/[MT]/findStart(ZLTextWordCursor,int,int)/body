@@ -17,11 +17,11 @@
   }
   skip(start,unit,-size);
   if (unit == SizeUnit.PIXEL_UNIT) {
-    boolean sameStart=start.equalsToCursor(end);
+    boolean sameStart=start.samePositionAs(end);
     if (!sameStart && start.isEndOfParagraph() && end.isStartOfParagraph()) {
       ZLTextWordCursor startCopy=start;
       startCopy.nextParagraph();
-      sameStart=startCopy.equalsToCursor(end);
+      sameStart=startCopy.samePositionAs(end);
     }
     if (sameStart) {
       start.setCursor(findStart(end,SizeUnit.LINE_UNIT,1));

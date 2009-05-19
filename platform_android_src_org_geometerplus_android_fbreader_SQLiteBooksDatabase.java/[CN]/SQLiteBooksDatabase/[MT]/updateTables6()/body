@@ -1,3 +1,33 @@
 {
   myDatabase.execSQL("ALTER TABLE Bookmarks ADD COLUMN model_id TEXT");
+  myDatabase.execSQL("ALTER TABLE Books ADD COLUMN file_id INTEGER");
+  myDatabase.execSQL("DELETE FROM Files");
+  final FileInfoSet infoSet=new FileInfoSet();
+  Cursor cursor=myDatabase.rawQuery("SELECT file_name FROM Books",null);
+  while (cursor.moveToNext()) {
+    infoSet.check(ZLFile.createFileByPath(cursor.getString(0)).getPhysicalFile());
+  }
+  cursor.close();
+  infoSet.save();
+  cursor=myDatabase.rawQuery("SELECT book_id,file_name FROM Books",null);
+  final SQLiteStatement deleteStatement=myDatabase.compileStatement("DELETE FROM Books WHERE book_id = ?");
+  final SQLiteStatement updateStatement=myDatabase.compileStatement("UPDATE Books SET file_id = ? WHERE book_id = ?");
+  while (cursor.moveToNext()) {
+    final long bookId=cursor.getLong(0);
+    final long fileId=infoSet.getId(ZLFile.createFileByPath(cursor.getString(1)));
+    if (fileId == -1) {
+      deleteStatement.bindLong(1,bookId);
+      deleteStatement.execute();
+    }
+ else {
+      updateStatement.bindLong(1,fileId);
+      updateStatement.bindLong(2,bookId);
+      updateStatement.execute();
+    }
+  }
+  cursor.close();
+  myDatabase.execSQL("ALTER TABLE Books RENAME TO Books_Obsolete");
+  myDatabase.execSQL("CREATE TABLE Books(" + "book_id INTEGER PRIMARY KEY," + "encoding TEXT,"+ "language TEXT,"+ "title TEXT NOT NULL,"+ "file_id INTEGER UNIQUE NOT NULL REFERENCES Files(file_id))");
+  myDatabase.execSQL("INSERT INTO Books (book_id,encoding,language,title,file_id) SELECT book_id,encoding,language,title,file_id FROM Books_Obsolete");
+  myDatabase.execSQL("DROP TABLE Books_Obsolete");
 }

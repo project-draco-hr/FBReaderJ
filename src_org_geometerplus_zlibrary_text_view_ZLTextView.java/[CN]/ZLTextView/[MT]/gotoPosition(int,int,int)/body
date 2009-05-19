@@ -1,12 +1,7 @@
 {
-  final int maxParagraphIndex=myModel.getParagraphsNumber() - 1;
-  if (paragraphIndex > maxParagraphIndex) {
-    paragraphIndex=maxParagraphIndex;
+  if (myModel != null) {
+    myCurrentPage.moveStartCursor(paragraphIndex,wordIndex,charIndex);
+    myPreviousPage.reset();
+    myNextPage.reset();
   }
-  if (paragraphIndex < 0) {
-    paragraphIndex=0;
-  }
-  myCurrentPage.moveStartCursor(paragraphIndex,wordIndex,charIndex);
-  myPreviousPage.reset();
-  myNextPage.reset();
 }

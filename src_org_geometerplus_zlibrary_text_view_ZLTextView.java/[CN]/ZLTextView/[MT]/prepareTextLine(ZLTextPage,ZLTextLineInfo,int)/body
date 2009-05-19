@@ -18,7 +18,7 @@ case ZLTextAlignmentType.ALIGN_CENTER:
 x+=(maxWidth - getTextStyle().getRightIndent() - info.Width) / 2;
 break;
 case ZLTextAlignmentType.ALIGN_JUSTIFY:
-if (!endOfParagraph && (paragraphCursor.getElement(info.EndWordIndex) != ZLTextElement.AfterParagraph)) {
+if (!endOfParagraph && (paragraphCursor.getElement(info.EndElementIndex) != ZLTextElement.AfterParagraph)) {
 fullCorrection=maxWidth - getTextStyle().getRightIndent() - info.Width;
 }
 break;
@@ -28,9 +28,9 @@ break;
 }
 final ZLTextParagraphCursor paragraph=info.ParagraphCursor;
 final int paragraphIndex=paragraph.Index;
-final int endWordIndex=info.EndWordIndex;
+final int endElementIndex=info.EndElementIndex;
 int charIndex=info.RealStartCharIndex;
-for (int wordIndex=info.RealStartWordIndex; wordIndex != endWordIndex; ++wordIndex, charIndex=0) {
+for (int wordIndex=info.RealStartElementIndex; wordIndex != endElementIndex; ++wordIndex, charIndex=0) {
 final ZLTextElement element=paragraph.getElement(wordIndex);
 final int width=getElementWidth(element,charIndex);
 if (element == ZLTextElement.HSpace) {
@@ -59,7 +59,7 @@ x+=width;
 if (!endOfParagraph) {
 final int len=info.EndCharIndex;
 if (len > 0) {
-final int wordIndex=info.EndWordIndex;
+final int wordIndex=info.EndElementIndex;
 final ZLTextWord word=(ZLTextWord)paragraph.getElement(wordIndex);
 final boolean addHyphenationSign=word.Data[word.Offset + len - 1] != '-';
 final int width=getWordWidth(word,0,len,addHyphenationSign);

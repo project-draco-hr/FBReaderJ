@@ -1,3 +1,3 @@
 {
-  return getBottomMarginOption().getValue();
+  return myReader.BottomMarginOption.getValue();
 }

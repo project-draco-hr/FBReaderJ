@@ -1,6 +1,7 @@
 {
   if (myHyperlinkCount == -1) {
     myHyperlinkCount=0;
+    final ZLTextWordCursor cursor=new ZLTextWordCursor(getStartCursor());
     for (    ZLTextElementArea area : allElements()) {
     }
   }

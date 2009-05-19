@@ -1,4 +1,16 @@
 {
   super.initWindow();
-  openFiles(ZLFile.createFileByPath(myArg0),ZLFile.createFileByPath(myBookNameOption.getValue()),Library.Instance().getHelpFile());
+  ZLDialogManager.Instance().wait("loadingBook",new Runnable(){
+    public void run(){
+      Book book=Book.getByFile(ZLFile.createFileByPath(myArg0));
+      if (book == null) {
+        book=Library.Instance().getRecentBook();
+      }
+      if (book == null) {
+        book=Book.getByFile(Library.Instance().getHelpFile());
+      }
+      openBookInternal(book,null);
+    }
+  }
+);
 }

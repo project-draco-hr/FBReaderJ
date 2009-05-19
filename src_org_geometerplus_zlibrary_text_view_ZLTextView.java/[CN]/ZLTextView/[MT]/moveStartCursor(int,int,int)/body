@@ -1,5 +1,0 @@
-{
-  myCurrentPage.moveStartCursor(paragraphIndex,wordIndex,charIndex);
-  myPreviousPage.reset();
-  myNextPage.reset();
-}

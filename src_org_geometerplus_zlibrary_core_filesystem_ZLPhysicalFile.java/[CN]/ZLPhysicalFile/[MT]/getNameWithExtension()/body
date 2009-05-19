@@ -1,3 +1,3 @@
 {
-  return myFile.getName();
+  return isDirectory() ? getPath() : myFile.getName();
 }

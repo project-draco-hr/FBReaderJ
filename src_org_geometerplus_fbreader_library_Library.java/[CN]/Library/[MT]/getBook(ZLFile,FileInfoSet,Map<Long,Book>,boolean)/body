@@ -1,0 +1,11 @@
+{
+  Book book=saved.get(fileInfos.getId(bookFile));
+  if (book == null) {
+    doReadMetaInfo=true;
+    book=new Book(bookFile);
+  }
+  if (doReadMetaInfo && !book.readMetaInfo()) {
+    return null;
+  }
+  return book;
+}

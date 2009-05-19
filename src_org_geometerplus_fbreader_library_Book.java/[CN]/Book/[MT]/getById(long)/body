@@ -11,8 +11,7 @@
   if (!physicalFile.exists()) {
     return null;
   }
-  FileInfoSet fileInfos=new FileInfoSet();
-  fileInfos.load(physicalFile);
+  FileInfoSet fileInfos=new FileInfoSet(physicalFile);
   if (fileInfos.check(physicalFile)) {
     return book;
   }

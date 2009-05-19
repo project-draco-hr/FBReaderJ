@@ -1,18 +1,18 @@
 {
   if (!isNull()) {
     if (wordIndex == 0 && charIndex == 0) {
-      myWordIndex=0;
+      myElementIndex=0;
       myCharIndex=0;
     }
  else {
       wordIndex=Math.max(0,wordIndex);
       int size=myParagraphCursor.getParagraphLength();
       if (wordIndex > size) {
-        myWordIndex=size;
+        myElementIndex=size;
         myCharIndex=0;
       }
  else {
-        myWordIndex=wordIndex;
+        myElementIndex=wordIndex;
         setCharIndex(charIndex);
       }
     }

@@ -5,7 +5,9 @@
   }
   ArrayList<ZLFile> entries=new ArrayList<ZLFile>(subFiles.length);
   for (  File f : subFiles) {
-    entries.add(new ZLPhysicalFile(f));
+    if (!f.getName().startsWith(".")) {
+      entries.add(new ZLPhysicalFile(f));
+    }
   }
   return entries;
 }

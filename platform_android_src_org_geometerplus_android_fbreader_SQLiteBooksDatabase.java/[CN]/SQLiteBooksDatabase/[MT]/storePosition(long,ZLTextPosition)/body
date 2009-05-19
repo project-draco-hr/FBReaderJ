@@ -3,8 +3,8 @@
     myStorePositionStatement=myDatabase.compileStatement("INSERT OR REPLACE INTO BookState (book_id,paragraph,word,char) VALUES (?,?,?,?)");
   }
   myStorePositionStatement.bindLong(1,bookId);
-  myStorePositionStatement.bindLong(2,position.ParagraphIndex);
-  myStorePositionStatement.bindLong(3,position.WordIndex);
-  myStorePositionStatement.bindLong(4,position.CharIndex);
+  myStorePositionStatement.bindLong(2,position.getParagraphIndex());
+  myStorePositionStatement.bindLong(3,position.getElementIndex());
+  myStorePositionStatement.bindLong(4,position.getCharIndex());
   myStorePositionStatement.execute();
 }

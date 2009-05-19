@@ -1,6 +1,6 @@
 {
   if (!isNull()) {
-    myWordIndex=myParagraphCursor.getParagraphLength();
+    myElementIndex=myParagraphCursor.getParagraphLength();
     myCharIndex=0;
   }
 }

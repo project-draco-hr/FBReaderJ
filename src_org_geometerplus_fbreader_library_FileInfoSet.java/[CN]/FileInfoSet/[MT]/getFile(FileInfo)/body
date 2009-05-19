@@ -1,0 +1,11 @@
+{
+  if (info == null) {
+    return null;
+  }
+  ZLFile file=myFilesByInfo.get(info);
+  if (file == null) {
+    file=ZLFile.createFile(getFile(info.Parent),info.Name);
+    myFilesByInfo.put(info,file);
+  }
+  return file;
+}

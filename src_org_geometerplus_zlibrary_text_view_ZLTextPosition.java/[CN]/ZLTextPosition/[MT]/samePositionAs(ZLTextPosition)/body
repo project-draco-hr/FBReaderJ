@@ -1,0 +1,3 @@
+{
+  return (getParagraphIndex() == position.getParagraphIndex()) && (getElementIndex() == position.getElementIndex()) && (getCharIndex() == position.getCharIndex());
+}

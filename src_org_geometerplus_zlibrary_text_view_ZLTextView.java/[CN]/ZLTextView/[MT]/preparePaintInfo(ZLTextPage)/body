@@ -57,13 +57,13 @@ case ScrollingMode.SCROLL_PERCENTAGE:
 page.findPercentFromStart(startCursor,getTextAreaHeight(),myOverlappingValue);
 break;
 }
-if (!startCursor.isNull() && startCursor.equalsToCursor(page.StartCursor)) {
+if (!startCursor.isNull() && startCursor.samePositionAs(page.StartCursor)) {
 page.findLineFromStart(startCursor,1);
 }
 if (!startCursor.isNull()) {
 final ZLTextWordCursor endCursor=new ZLTextWordCursor();
 buildInfos(page,startCursor,endCursor);
-if (!page.isEmptyPage() && ((myScrollingMode != ScrollingMode.KEEP_LINES) || (!endCursor.equalsToCursor(page.EndCursor)))) {
+if (!page.isEmptyPage() && ((myScrollingMode != ScrollingMode.KEEP_LINES) || (!endCursor.samePositionAs(page.EndCursor)))) {
 page.StartCursor.setCursor(startCursor);
 page.EndCursor.setCursor(endCursor);
 break;
@@ -83,12 +83,12 @@ case ScrollingMode.KEEP_LINES:
 {
 ZLTextWordCursor endCursor=new ZLTextWordCursor();
 page.findLineFromStart(endCursor,myOverlappingValue);
-if (!endCursor.isNull() && endCursor.equalsToCursor(page.EndCursor)) {
+if (!endCursor.isNull() && endCursor.samePositionAs(page.EndCursor)) {
 page.findLineFromEnd(endCursor,1);
 }
 if (!endCursor.isNull()) {
 ZLTextWordCursor startCursor=findStart(endCursor,SizeUnit.PIXEL_UNIT,getTextAreaHeight());
-if (startCursor.equalsToCursor(page.StartCursor)) {
+if (startCursor.samePositionAs(page.StartCursor)) {
 page.StartCursor.setCursor(findStart(page.StartCursor,SizeUnit.PIXEL_UNIT,getTextAreaHeight()));
 }
  else {

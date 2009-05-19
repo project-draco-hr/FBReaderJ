@@ -2,7 +2,7 @@
   ZLTextPosition position=null;
   Cursor cursor=myDatabase.rawQuery("SELECT paragraph,word,char FROM BookState WHERE book_id = " + bookId,null);
   if (cursor.moveToNext()) {
-    position=new ZLTextPosition((int)cursor.getLong(0),(int)cursor.getLong(1),(int)cursor.getLong(2));
+    position=new ZLTextFixedPosition((int)cursor.getLong(0),(int)cursor.getLong(1),(int)cursor.getLong(2));
   }
   cursor.close();
   return position;

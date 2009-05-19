@@ -1,0 +1,25 @@
+{
+  final ArrayList<FileInfo> infos=new ArrayList<FileInfo>();
+  while (fileId != -1) {
+    final Cursor cursor=myDatabase.rawQuery("SELECT name,size,parent_id FROM Files WHERE file_id = " + fileId,null);
+    if (cursor.moveToNext()) {
+      FileInfo info=createFileInfo(fileId,cursor.getString(0),null);
+      if (!cursor.isNull(1)) {
+        info.FileSize=cursor.getLong(1);
+      }
+      infos.add(0,info);
+      fileId=cursor.isNull(2) ? -1 : cursor.getLong(2);
+    }
+ else {
+      fileId=-1;
+    }
+    cursor.close();
+  }
+  for (int i=1; i < infos.size(); ++i) {
+    final FileInfo oldInfo=infos.get(i);
+    final FileInfo newInfo=createFileInfo(oldInfo.Id,oldInfo.Name,infos.get(i - 1));
+    newInfo.FileSize=oldInfo.FileSize;
+    infos.set(i,newInfo);
+  }
+  return infos;
+}

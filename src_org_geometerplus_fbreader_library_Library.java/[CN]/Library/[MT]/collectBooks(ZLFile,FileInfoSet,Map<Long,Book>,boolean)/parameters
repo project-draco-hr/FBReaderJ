@@ -1,0 +1,4 @@
+ZLFile file
+FileInfoSet fileInfos
+Map<Long,Book> savedBooks
+boolean doReadMetaInfo

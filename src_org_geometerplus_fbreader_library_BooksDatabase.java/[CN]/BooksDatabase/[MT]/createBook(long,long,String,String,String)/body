@@ -1,0 +1,4 @@
+{
+  final FileInfoSet infos=new FileInfoSet(fileId);
+  return createBook(id,infos.getFile(fileId),title,encoding,language);
+}

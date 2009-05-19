@@ -1,0 +1,4 @@
+{
+  super(ZLibrary.Instance().getPaintContext());
+  myReader=reader;
+}

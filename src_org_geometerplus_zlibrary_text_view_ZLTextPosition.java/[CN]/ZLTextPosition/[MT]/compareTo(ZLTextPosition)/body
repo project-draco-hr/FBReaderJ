@@ -1,9 +1,11 @@
 {
-  if (ParagraphIndex != position.ParagraphIndex) {
-    return ParagraphIndex - position.ParagraphIndex;
+  final int pDiff=getParagraphIndex() - position.getParagraphIndex();
+  if (pDiff != 0) {
+    return pDiff;
   }
-  if (WordIndex != position.WordIndex) {
-    return WordIndex - position.WordIndex;
+  final int eDiff=getElementIndex() - position.getElementIndex();
+  if (eDiff != 0) {
+    return eDiff;
   }
-  return CharIndex - position.CharIndex;
+  return getCharIndex() - position.getCharIndex();
 }

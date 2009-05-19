@@ -16,7 +16,7 @@ case PAGE_TOP:
       myCurrentPage.EndCursor.setCursor(myNextPage.StartCursor);
       myCurrentPage.PaintState=PaintStateEnum.END_IS_KNOWN;
     }
- else     if (!myCurrentPage.EndCursor.isNull() && !myNextPage.StartCursor.isNull() && !myCurrentPage.EndCursor.equalsToCursor(myNextPage.StartCursor)) {
+ else     if (!myCurrentPage.EndCursor.isNull() && !myNextPage.StartCursor.isNull() && !myCurrentPage.EndCursor.samePositionAs(myNextPage.StartCursor)) {
       myNextPage.reset();
       myNextPage.StartCursor.setCursor(myCurrentPage.EndCursor);
       myNextPage.PaintState=PaintStateEnum.START_IS_KNOWN;

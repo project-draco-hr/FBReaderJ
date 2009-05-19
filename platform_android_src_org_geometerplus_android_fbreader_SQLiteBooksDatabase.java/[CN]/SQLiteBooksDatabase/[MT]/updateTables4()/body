@@ -1,7 +1,6 @@
 {
   final FileInfoSet fileInfos=new FileInfoSet();
-  fileInfos.loadAll();
-  Cursor cursor=myDatabase.rawQuery("SELECT file_name FROM Books",null);
+  final Cursor cursor=myDatabase.rawQuery("SELECT file_name FROM Books",null);
   while (cursor.moveToNext()) {
     fileInfos.check(ZLFile.createFileByPath(cursor.getString(0)).getPhysicalFile());
   }
@@ -9,13 +8,19 @@
   fileInfos.save();
   myDatabase.execSQL("CREATE TABLE RecentBooks(" + "book_index INTEGER PRIMARY KEY," + "book_id INTEGER REFERENCES Books(book_id))");
   final ArrayList<Long> ids=new ArrayList<Long>();
+  final SQLiteStatement statement=myDatabase.compileStatement("SELECT book_id FROM Books WHERE file_name = ?");
   for (int i=0; i < 20; ++i) {
     final ZLStringOption option=new ZLStringOption("LastOpenedBooks","Book" + i,"");
-    final String name=option.getValue();
+    final String fileName=option.getValue();
     option.setValue("");
-    final long bookId=getBookId(name);
-    if (bookId != -1) {
-      ids.add(bookId);
+    try {
+      statement.bindString(1,fileName);
+      final long bookId=statement.simpleQueryForLong();
+      if (bookId != -1) {
+        ids.add(bookId);
+      }
+    }
+ catch (    SQLException e) {
     }
   }
   saveRecentBookIds(ids);

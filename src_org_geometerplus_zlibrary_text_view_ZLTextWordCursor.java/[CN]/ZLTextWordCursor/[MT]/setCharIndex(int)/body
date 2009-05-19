@@ -2,7 +2,7 @@
   charIndex=Math.max(0,charIndex);
   myCharIndex=0;
   if (charIndex > 0) {
-    ZLTextElement element=myParagraphCursor.getElement(myWordIndex);
+    ZLTextElement element=myParagraphCursor.getElement(myElementIndex);
     if (element instanceof ZLTextWord) {
       if (charIndex <= ((ZLTextWord)element).Length) {
         myCharIndex=charIndex;

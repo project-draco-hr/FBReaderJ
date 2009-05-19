@@ -1,4 +1,3 @@
 {
-  final boolean mask[]=myMask;
-  return (position < mask.length && mask[position]);
+  return (position < Mask.length && Mask[position]);
 }

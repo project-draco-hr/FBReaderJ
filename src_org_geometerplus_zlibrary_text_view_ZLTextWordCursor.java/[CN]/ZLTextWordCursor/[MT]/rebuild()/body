@@ -2,6 +2,6 @@
   if (!isNull()) {
     myParagraphCursor.clear();
     myParagraphCursor.fill();
-    moveTo(myWordIndex,myCharIndex);
+    moveTo(myElementIndex,myCharIndex);
   }
 }

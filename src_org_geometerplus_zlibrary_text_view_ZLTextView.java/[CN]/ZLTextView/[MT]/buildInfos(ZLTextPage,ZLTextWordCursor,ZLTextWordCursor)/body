@@ -6,18 +6,18 @@
   do {
     resetTextStyle();
     final ZLTextParagraphCursor paragraphCursor=result.getParagraphCursor();
-    final int wordIndex=result.getWordIndex();
+    final int wordIndex=result.getElementIndex();
     applyControls(paragraphCursor,0,wordIndex);
     ZLTextLineInfo info=new ZLTextLineInfo(paragraphCursor,wordIndex,result.getCharIndex(),getTextStyle());
     final int endIndex=info.ParagraphCursorLength;
-    while (info.EndWordIndex != endIndex) {
-      info=processTextLine(paragraphCursor,info.EndWordIndex,info.EndCharIndex,endIndex);
+    while (info.EndElementIndex != endIndex) {
+      info=processTextLine(paragraphCursor,info.EndElementIndex,info.EndCharIndex,endIndex);
       textAreaHeight-=info.Height + info.Descent;
       if ((textAreaHeight < 0) && (counter > 0)) {
         break;
       }
       textAreaHeight-=info.VSpaceAfter;
-      result.moveTo(info.EndWordIndex,info.EndCharIndex);
+      result.moveTo(info.EndElementIndex,info.EndCharIndex);
       page.LineInfos.add(info);
       if (textAreaHeight < 0) {
         break;

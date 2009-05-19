@@ -1,0 +1,3 @@
+{
+  return (file != null) ? new Book(id,file,title,encoding,language) : null;
+}

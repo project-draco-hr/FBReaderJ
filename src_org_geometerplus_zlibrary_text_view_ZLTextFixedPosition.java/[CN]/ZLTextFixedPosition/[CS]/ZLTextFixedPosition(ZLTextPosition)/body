@@ -1,0 +1,5 @@
+{
+  ParagraphIndex=position.getParagraphIndex();
+  ElementIndex=position.getElementIndex();
+  CharIndex=position.getCharIndex();
+}

@@ -1,6 +1,0 @@
-{
-  if (ourBottomMarginOption == null) {
-    ourBottomMarginOption=createMarginOption("BottomMargin",4);
-  }
-  return ourBottomMarginOption;
-}

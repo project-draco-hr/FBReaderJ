@@ -6,10 +6,11 @@
   database.executeAsATransaction(new Runnable(){
     public void run(){
       if (myId >= 0) {
-        database.updateBookInfo(myId,myEncoding,myLanguage,myTitle);
+        final FileInfoSet fileInfos=new FileInfoSet(File);
+        database.updateBookInfo(myId,fileInfos.getId(File),myEncoding,myLanguage,myTitle);
       }
  else {
-        myId=database.insertBookInfo(File.getPath(),myEncoding,myLanguage,myTitle);
+        myId=database.insertBookInfo(File,myEncoding,myLanguage,myTitle);
       }
       long index=0;
       database.deleteAllBookAuthors(myId);

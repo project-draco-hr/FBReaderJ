@@ -35,16 +35,6 @@ break;
 }
 case HtmlTag.IMG:
 {
-String ref=attributes.getStringValue(mySrcAttribute,myAttributeDecoder);
-if ((ref != null) && (ref.length() != 0)) {
-addImageReference(ref,(short)0);
-String filePath=ref;
-if (!":\\".equals(ref.substring(1,3))) {
-filePath=Model.Book.File.getPath();
-filePath=filePath.substring(0,filePath.lastIndexOf('\\') + 1) + ref;
-}
-addImage(ref,new ZLFileImage("image/auto",ZLFile.createFileByPath(filePath)));
-}
 break;
 }
 case HtmlTag.B:

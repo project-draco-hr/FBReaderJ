@@ -11,11 +11,11 @@
       left=getLeftMargin();
     }
  else     if (paragraphIndex == lBound.ParagraphIndex) {
-      final int boundElementIndex=lBound.TextElementIndex;
-      if (info.StartWordIndex > boundElementIndex) {
+      final int boundElementIndex=lBound.ElementIndex;
+      if (info.StartElementIndex > boundElementIndex) {
         left=getLeftMargin();
       }
- else       if ((info.EndWordIndex > boundElementIndex) || ((info.EndWordIndex == boundElementIndex) && (info.EndCharIndex >= lBound.CharIndex))) {
+ else       if ((info.EndElementIndex > boundElementIndex) || ((info.EndElementIndex == boundElementIndex) && (info.EndCharIndex >= lBound.CharIndex))) {
         final ZLTextElementArea elementArea=page.findLast(from,to,lBound);
         left=elementArea.XStart;
         if (elementArea.Element instanceof ZLTextWord) {
@@ -31,12 +31,12 @@
       bottom+=info.VSpaceAfter;
     }
  else     if (paragraphIndex == rBound.ParagraphIndex) {
-      final int boundElementIndex=rBound.TextElementIndex;
-      if ((info.EndWordIndex < boundElementIndex) || ((info.EndWordIndex == boundElementIndex) && (info.EndCharIndex < rBound.CharIndex))) {
+      final int boundElementIndex=rBound.ElementIndex;
+      if ((info.EndElementIndex < boundElementIndex) || ((info.EndElementIndex == boundElementIndex) && (info.EndCharIndex < rBound.CharIndex))) {
         right=getRightLine();
         bottom+=info.VSpaceAfter;
       }
- else       if ((info.StartWordIndex < boundElementIndex) || ((info.StartWordIndex == boundElementIndex) && (info.StartCharIndex <= rBound.CharIndex))) {
+ else       if ((info.StartElementIndex < boundElementIndex) || ((info.StartElementIndex == boundElementIndex) && (info.StartCharIndex <= rBound.CharIndex))) {
         final ZLTextElementArea elementArea=page.findLast(from,to,rBound);
         if (elementArea.Element instanceof ZLTextWord) {
           right=elementArea.XStart + getAreaLength(paragraph,elementArea,rBound.CharIndex) - 1;
@@ -52,9 +52,9 @@
     }
   }
   int index=from;
-  final int endWordIndex=info.EndWordIndex;
+  final int endElementIndex=info.EndElementIndex;
   int charIndex=info.RealStartCharIndex;
-  for (int wordIndex=info.RealStartWordIndex; wordIndex != endWordIndex; ++wordIndex, charIndex=0) {
+  for (int wordIndex=info.RealStartElementIndex; wordIndex != endElementIndex; ++wordIndex, charIndex=0) {
     final ZLTextElement element=paragraph.getElement(wordIndex);
     if ((element instanceof ZLTextWord) || (element instanceof ZLTextImageElement)) {
       final ZLTextElementArea area=page.TextElementMap.get(index++);
@@ -77,7 +77,7 @@
       setTextStyle(area.Style);
     }
     int len=info.EndCharIndex;
-    final ZLTextWord word=(ZLTextWord)paragraph.getElement(info.EndWordIndex);
+    final ZLTextWord word=(ZLTextWord)paragraph.getElement(info.EndElementIndex);
     drawWord(area.XStart,area.YEnd - context.getDescent() - getTextStyle().getVerticalShift(),word,0,len,area.AddHyphenationSign);
   }
 }
