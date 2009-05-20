@@ -1,0 +1,18 @@
+{
+  if (file == null) {
+    return null;
+  }
+  Book book=Book.getByFile(file);
+  if (book != null) {
+    return book;
+  }
+  if (file.isArchive()) {
+    for (    ZLFile child : file.children()) {
+      book=Book.getByFile(child);
+      if (book != null) {
+        return book;
+      }
+    }
+  }
+  return null;
+}

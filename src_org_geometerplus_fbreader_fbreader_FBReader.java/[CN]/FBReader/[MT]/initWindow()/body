@@ -2,7 +2,7 @@
   super.initWindow();
   ZLDialogManager.Instance().wait("loadingBook",new Runnable(){
     public void run(){
-      Book book=Book.getByFile(ZLFile.createFileByPath(myArg0));
+      Book book=createBookForFile(ZLFile.createFileByPath(myArg0));
       if (book == null) {
         book=Library.Instance().getRecentBook();
       }
