@@ -1,6 +1,5 @@
 {
   mySelectedTabOption.setValue(getTabHost().getCurrentTabTag());
   Instance=null;
-  Library.Instance().clear();
   super.onStop();
 }

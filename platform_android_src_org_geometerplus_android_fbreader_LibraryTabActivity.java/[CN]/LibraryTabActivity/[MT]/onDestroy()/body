@@ -1,0 +1,4 @@
+{
+  Library.Instance().clear();
+  super.onDestroy();
+}
