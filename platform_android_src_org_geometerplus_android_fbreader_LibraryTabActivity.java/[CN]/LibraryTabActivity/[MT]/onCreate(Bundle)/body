@@ -1,5 +1,7 @@
 {
   super.onCreate(icicle);
+  final BookModel model=((FBReader)FBReader.Instance()).Model;
+  myCurrentBook=(model != null) ? model.Book : null;
   requestWindowFeature(Window.FEATURE_NO_TITLE);
   setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
   final TabHost host=getTabHost();

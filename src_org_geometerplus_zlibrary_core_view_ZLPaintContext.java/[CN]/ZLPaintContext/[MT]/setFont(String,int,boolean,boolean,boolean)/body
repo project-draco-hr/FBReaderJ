@@ -15,9 +15,13 @@
     myFontIsItalic=italic;
     myResetFont=true;
   }
+  if (myFontIsUnderlined != underline) {
+    myFontIsUnderlined=underline;
+    myResetFont=true;
+  }
   if (myResetFont) {
     myResetFont=false;
-    setFontInternal(myFontFamily,myFontSize,myFontIsBold,myFontIsItalic);
+    setFontInternal(myFontFamily,size,bold,italic,underline);
     mySpaceWidth=-1;
     myStringHeight=-1;
     myDescent=-1;

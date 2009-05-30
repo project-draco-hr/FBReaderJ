@@ -1,0 +1,23 @@
+{
+  final T element=myCurrentElement;
+  if (element.hasChildren()) {
+    myCurrentElement=(T)element.mySubTrees.get(0);
+    myIndexStack.add(0);
+  }
+ else {
+    ZLTree<T> parent=element;
+    while (!myIndexStack.isEmpty()) {
+      final int index=myIndexStack.removeLast() + 1;
+      parent=parent.Parent;
+      if (parent.mySubTrees.size() > index) {
+        myCurrentElement=parent.mySubTrees.get(index);
+        myIndexStack.add(index);
+        break;
+      }
+    }
+    if (myIndexStack.isEmpty()) {
+      myCurrentElement=null;
+    }
+  }
+  return element;
+}

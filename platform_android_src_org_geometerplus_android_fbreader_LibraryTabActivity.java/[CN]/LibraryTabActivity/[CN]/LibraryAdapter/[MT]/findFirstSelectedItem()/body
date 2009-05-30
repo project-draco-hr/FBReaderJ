@@ -1,0 +1,11 @@
+{
+  if (myCurrentBook == null) {
+    return null;
+  }
+  for (  LibraryTree tree : myLibraryTree) {
+    if ((tree instanceof BookTree) && ((BookTree)tree).Book.equals(myCurrentBook)) {
+      return tree;
+    }
+  }
+  return null;
+}

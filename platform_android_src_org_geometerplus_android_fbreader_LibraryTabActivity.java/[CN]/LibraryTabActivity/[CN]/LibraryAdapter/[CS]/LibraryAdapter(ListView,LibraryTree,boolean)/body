@@ -2,4 +2,7 @@
   super(view,tree);
   myLibraryTree=tree;
   myIsFlat=isFlat;
+  if (!isFlat) {
+    selectItem(findFirstSelectedItem());
+  }
 }

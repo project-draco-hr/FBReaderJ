@@ -2,6 +2,7 @@ String name
 int fontSizeDelta
 int bold
 int italic
+int underline
 int spaceBefore
 int spaceAfter
 int leftIndent

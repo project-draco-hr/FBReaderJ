@@ -2,5 +2,6 @@ String name
 int fontSizeDelta
 int bold
 int italic
+int underline
 int verticalShift
 int allowHyphenations

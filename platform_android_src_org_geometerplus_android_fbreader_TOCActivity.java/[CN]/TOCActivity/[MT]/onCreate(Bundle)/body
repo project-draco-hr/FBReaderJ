@@ -10,8 +10,7 @@
     ++index;
   }
   TOCTree treeToSelect=null;
-  for (int i=0; i < root.getSize(); ++i) {
-    final TOCTree tree=root.getTree(i);
+  for (  TOCTree tree : root) {
     final TOCTree.Reference reference=tree.getReference();
     if (reference == null) {
       continue;
@@ -22,4 +21,5 @@
     treeToSelect=tree;
   }
   myAdapter.selectItem(treeToSelect);
+  mySelectedItem=treeToSelect;
 }

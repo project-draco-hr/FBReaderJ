@@ -13,4 +13,5 @@
   }
   paint.setTypeface(typeface);
   paint.setTextSize(size);
+  paint.setUnderlineText(underline);
 }

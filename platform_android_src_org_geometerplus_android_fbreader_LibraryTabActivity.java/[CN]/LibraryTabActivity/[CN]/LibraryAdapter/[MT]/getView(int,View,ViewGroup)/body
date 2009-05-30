@@ -1,6 +1,12 @@
 {
   final View view=(convertView != null) ? convertView : LayoutInflater.from(parent.getContext()).inflate(R.layout.library_tree_item,parent,false);
   final LibraryTree tree=(LibraryTree)getItem(position);
+  if ((tree instanceof BookTree) && ((BookTree)tree).Book.equals(myCurrentBook)) {
+    view.setBackgroundColor(0xff808080);
+  }
+ else {
+    view.setBackgroundColor(0);
+  }
   final ImageView iconView=(ImageView)view.findViewById(R.id.library_tree_item_icon);
   if (myIsFlat) {
     iconView.setVisibility(View.GONE);

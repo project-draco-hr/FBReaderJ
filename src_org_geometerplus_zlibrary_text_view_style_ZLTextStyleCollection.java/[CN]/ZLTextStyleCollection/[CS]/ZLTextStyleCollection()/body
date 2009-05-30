@@ -1,6 +1,3 @@
 {
   new TextStyleReader(this).read(ZLResourceFile.createResourceFile("data/default/styles.xml"));
-  if (myBaseStyle == null) {
-    myBaseStyle=new ZLTextBaseStyle("",20);
-  }
 }

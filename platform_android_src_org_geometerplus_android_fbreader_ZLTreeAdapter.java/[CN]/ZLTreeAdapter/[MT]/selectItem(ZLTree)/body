@@ -1,5 +1,4 @@
 {
-  SelectedItem=tree;
   if (tree == null) {
     return;
   }
