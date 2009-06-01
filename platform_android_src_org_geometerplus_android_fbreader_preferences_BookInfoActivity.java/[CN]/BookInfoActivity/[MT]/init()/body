@@ -1,6 +1,6 @@
 {
-  final Category commonCategory=new Category(null);
+  final Category commonCategory=createCategory(null);
   myBook=((FBReader)FBReader.Instance()).Model.Book;
-  commonCategory.addPreference(new BookTitlePreference(this,commonCategory.getResource(),"title",myBook));
-  commonCategory.addPreference(new LanguagePreference(this,commonCategory.getResource(),"language",myBook));
+  commonCategory.addPreference(new BookTitlePreference(this,commonCategory.Resource,"title",myBook));
+  commonCategory.addPreference(new LanguagePreference(this,commonCategory.Resource,"language",myBook));
 }

@@ -1,0 +1,9 @@
+{
+  myFontFamily=getFontFamilyInternal();
+  myFontSize=getFontSizeInternal();
+  myIsItalic=isItalicInternal();
+  myIsBold=isBoldInternal();
+  myIsUnderline=isUnderlineInternal();
+  myVerticalShift=getVerticalShiftInternal();
+  myIsNotCached=false;
+}

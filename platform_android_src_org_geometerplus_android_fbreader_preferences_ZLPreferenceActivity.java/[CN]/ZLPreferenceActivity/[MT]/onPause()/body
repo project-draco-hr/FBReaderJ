@@ -1,6 +1,6 @@
 {
   for (  ZLPreference preference : myPreferences) {
-    preference.accept();
+    preference.onAccept();
   }
   super.onPause();
 }

@@ -1,8 +1,16 @@
 {
-  final Category lookNFeelCategory=new Category("LookNFeel");
+  final Category lookNFeelCategory=createCategory("LookNFeel");
   lookNFeelCategory.addOption(ZLAndroidApplication.Instance().AutoOrientationOption,"autoOrientation");
   lookNFeelCategory.addOption(ZLAndroidApplication.Instance().ShowStatusBarOption,"showStatusBar");
-  final Category scrollingCategory=new Category("Scrolling");
+  final FBReader fbreader=(FBReader)FBReader.Instance();
+  final Screen colorProfileScreen=lookNFeelCategory.createPreferenceScreen("colorProfile");
+  final Category colorProfileCategory=colorProfileScreen.createCategory(null);
+  final ZLResource resource=colorProfileCategory.Resource;
+  colorProfileScreen.setSummary(ColorProfilePreference.createTitle(resource,fbreader.getColorProfileName()));
+  for (  String key : ColorProfile.names()) {
+    colorProfileCategory.addPreference(new ColorProfilePreference(this,fbreader,colorProfileScreen,key,ColorProfilePreference.createTitle(resource,key)));
+  }
+  final Category scrollingCategory=createCategory("Scrolling");
   final ScrollingPreferences scrollingPreferences=ScrollingPreferences.Instance();
   scrollingCategory.addOption(scrollingPreferences.FlickOption,"flick");
   scrollingCategory.addOption(scrollingPreferences.VolumeKeysOption,"volumeKeys");

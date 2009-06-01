@@ -1,0 +1,4 @@
+{
+  onClick();
+  return true;
+}

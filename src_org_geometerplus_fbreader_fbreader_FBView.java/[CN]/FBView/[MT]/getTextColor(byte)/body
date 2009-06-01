@@ -1,0 +1,11 @@
+{
+  final ColorProfile profile=myReader.getColorProfile();
+switch (hyperlinkType) {
+default :
+case FBHyperlinkType.NONE:
+    return profile.RegularTextOption.getValue();
+case FBHyperlinkType.INTERNAL:
+case FBHyperlinkType.EXTERNAL:
+  return profile.HyperlinkTextOption.getValue();
+}
+}

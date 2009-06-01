@@ -1,0 +1,8 @@
+{
+  ColorProfile profile=ourProfiles.get(name);
+  if (profile == null) {
+    profile=new ColorProfile(name);
+    ourProfiles.put(name,profile);
+  }
+  return profile;
+}

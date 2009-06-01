@@ -1,4 +1,4 @@
 {
   String decoratedValue=myDecoration.FontFamilyOption.getValue();
-  return (decoratedValue.length() != 0) ? decoratedValue : getBase().getFontFamily();
+  return (decoratedValue.length() != 0) ? decoratedValue : Base.getFontFamily();
 }

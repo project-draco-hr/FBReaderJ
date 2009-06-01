@@ -1,4 +1,4 @@
 {
   int a=myDecoration.AllowHyphenationsOption.getValue();
-  return (a == ZLBoolean3.B3_UNDEFINED) ? getBase().allowHyphenations() : (a == ZLBoolean3.B3_TRUE);
+  return (a == ZLBoolean3.B3_UNDEFINED) ? Base.allowHyphenations() : (a == ZLBoolean3.B3_TRUE);
 }

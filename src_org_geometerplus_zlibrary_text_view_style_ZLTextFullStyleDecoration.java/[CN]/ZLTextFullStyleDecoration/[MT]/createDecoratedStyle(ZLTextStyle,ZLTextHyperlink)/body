@@ -1,0 +1,3 @@
+{
+  return new ZLTextFullDecoratedStyle(base,this,hyperlink);
+}

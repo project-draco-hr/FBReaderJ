@@ -1,8 +1,8 @@
 {
-  String actionId=keyBindings().getBinding(key);
+  final String actionId=keyBindings().getBinding(key);
   if (actionId != null) {
-    ZLAction a=getAction(keyBindings().getBinding(key));
-    return (a != null) && a.checkAndRun();
+    final ZLAction action=myIdToActionMap.get(keyBindings().getBinding(key));
+    return (action != null) && action.checkAndRun();
   }
   return false;
 }

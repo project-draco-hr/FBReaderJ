@@ -1,9 +1,14 @@
 {
   if (control.IsStart) {
     ZLTextStyleDecoration decoration=ZLTextStyleCollection.Instance().getDecoration(control.Kind);
-    setTextStyle(decoration.createDecoratedStyle(myTextStyle));
+    if (control instanceof ZLTextHyperlinkControlElement) {
+      setTextStyle(decoration.createDecoratedStyle(myTextStyle,((ZLTextHyperlinkControlElement)control).Hyperlink));
+    }
+ else {
+      setTextStyle(decoration.createDecoratedStyle(myTextStyle));
+    }
   }
  else {
-    setTextStyle(myTextStyle.getBase());
+    setTextStyle(myTextStyle.Base);
   }
 }

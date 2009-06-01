@@ -1,4 +1,4 @@
 {
-  int value=myDecoration.LineSpacePercentOption.getValue();
-  return (value != -1) ? value : getBase().getLineSpacePercent();
+  int value=myFullDecoration.LineSpacePercentOption.getValue();
+  return (value != -1) ? value : Base.getLineSpacePercent();
 }

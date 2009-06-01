@@ -1,5 +1,5 @@
 {
-  ZLBooleanPreference preference=new ZLBooleanPreference(ZLPreferenceActivity.this,option,myResource,resourceKey);
+  ZLBooleanPreference preference=new ZLBooleanPreference(ZLPreferenceActivity.this,option,Resource,resourceKey);
   myGroup.addPreference(preference);
   myPreferences.add(preference);
 }

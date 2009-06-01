@@ -1,0 +1,16 @@
+{
+  if ("defaultDark".equals(name)) {
+    BackgroundOption=new ZLColorOption("Colors",name + ":Background",new ZLColor(0,0,0));
+    SelectionBackgroundOption=new ZLColorOption("Colors",name + ":SelectionBackground",new ZLColor(82,131,194));
+    HighlightedTextOption=new ZLColorOption("Colors",name + ":SelectedText",new ZLColor(45,105,192));
+    RegularTextOption=new ZLColorOption("Colors",name + ":Text",new ZLColor(192,192,192));
+    HyperlinkTextOption=new ZLColorOption("Colors",name + ":Hyperlink",new ZLColor(45,105,192));
+  }
+ else {
+    BackgroundOption=new ZLColorOption("Colors",name + ":Background",new ZLColor(255,255,255));
+    SelectionBackgroundOption=new ZLColorOption("Colors",name + ":SelectionBackground",new ZLColor(82,131,194));
+    HighlightedTextOption=new ZLColorOption("Colors",name + ":SelectedText",new ZLColor(60,139,255));
+    RegularTextOption=new ZLColorOption("Colors",name + ":Text",new ZLColor(0,0,0));
+    HyperlinkTextOption=new ZLColorOption("Colors",name + ":Hyperlink",new ZLColor(60,139,255));
+  }
+}

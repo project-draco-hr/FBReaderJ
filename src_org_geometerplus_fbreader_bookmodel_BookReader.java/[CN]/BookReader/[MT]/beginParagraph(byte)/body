@@ -8,7 +8,7 @@
       textModel.addControl(stack[i],true);
     }
     if (myHyperlinkReference.length() != 0) {
-      textModel.addHyperlinkControl(myHyperlinkKind,myHyperlinkReference);
+      textModel.addHyperlinkControl(myHyperlinkKind,hyperlinkType(myHyperlinkKind),myHyperlinkReference);
     }
     myTextParagraphExists=true;
   }

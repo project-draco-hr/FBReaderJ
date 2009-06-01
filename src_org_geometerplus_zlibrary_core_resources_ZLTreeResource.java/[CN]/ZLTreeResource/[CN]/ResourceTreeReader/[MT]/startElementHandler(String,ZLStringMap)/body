@@ -6,14 +6,14 @@
       String value=attributes.getValue("value");
       ZLTreeResource peek=stack.get(stack.size() - 1);
       ZLTreeResource node;
-      HashMap children=peek.myChildren;
+      HashMap<String,ZLTreeResource> children=peek.myChildren;
       if (children == null) {
         node=null;
-        children=new HashMap();
+        children=new HashMap<String,ZLTreeResource>();
         peek.myChildren=children;
       }
  else {
-        node=(ZLTreeResource)children.get(name);
+        node=children.get(name);
       }
       if (node == null) {
         node=new ZLTreeResource(name,value);

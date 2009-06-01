@@ -1,0 +1,4 @@
+{
+  super(base,decoration,hyperlink);
+  myFullDecoration=decoration;
+}

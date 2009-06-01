@@ -1,0 +1,6 @@
+{
+  if (myColorProfile == null) {
+    myColorProfile=ColorProfile.get(ColorProfileOption.getValue());
+  }
+  return myColorProfile;
+}

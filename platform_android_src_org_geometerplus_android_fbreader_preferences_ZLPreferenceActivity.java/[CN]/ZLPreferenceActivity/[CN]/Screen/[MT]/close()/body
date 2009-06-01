@@ -1,0 +1,4 @@
+{
+  myScreen.getDialog().dismiss();
+  ZLPreferenceActivity.this.getListView().invalidateViews();
+}

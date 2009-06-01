@@ -1,0 +1,3 @@
+{
+  myScreen.setSummary(summary);
+}

@@ -5,6 +5,6 @@ case ZLBoolean3.B3_TRUE:
 case ZLBoolean3.B3_FALSE:
   return false;
 default :
-return getBase().isItalic();
+return Base.isItalic();
 }
 }

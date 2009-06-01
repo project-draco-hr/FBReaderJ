@@ -1,5 +1,5 @@
 {
-  Context.clear(ZLTextStyleCollection.Instance().getBaseStyle().BackgroundColorOption.getValue());
+  Context.clear(getBackgroundColor());
   if ((myModel == null) || (myModel.getParagraphsNumber() == 0)) {
     return;
   }

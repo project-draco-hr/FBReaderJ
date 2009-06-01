@@ -1,0 +1,12 @@
+{
+  if (resourceKey != null) {
+    Resource=root.getResource(resourceKey);
+    myGroup=new PreferenceCategory(ZLPreferenceActivity.this);
+    myGroup.setTitle(Resource.getValue());
+    screen.addPreference(myGroup);
+  }
+ else {
+    Resource=root;
+    myGroup=screen;
+  }
+}

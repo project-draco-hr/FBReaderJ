@@ -6,7 +6,6 @@
       i=Integer.parseInt(value);
     }
  catch (    NumberFormatException e) {
-      e.printStackTrace();
     }
   }
   return i;

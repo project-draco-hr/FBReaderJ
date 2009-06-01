@@ -1,9 +1,6 @@
 {
-  if (myIsBoldCached) {
-    return myIsBold;
+  if (myIsNotCached) {
+    initCache();
   }
-  final boolean answer=isBoldInternal();
-  myIsBold=answer;
-  myIsBoldCached=true;
-  return answer;
+  return myIsBold;
 }

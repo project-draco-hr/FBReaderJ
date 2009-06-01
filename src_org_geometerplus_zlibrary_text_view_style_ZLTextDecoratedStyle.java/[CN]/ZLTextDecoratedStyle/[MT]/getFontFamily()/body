@@ -1,8 +1,6 @@
 {
-  String family=myFontFamily;
-  if (family == null) {
-    family=getFontFamilyInternal();
-    myFontFamily=family;
+  if (myIsNotCached) {
+    initCache();
   }
-  return family;
+  return myFontFamily;
 }

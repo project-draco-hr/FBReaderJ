@@ -1,0 +1,5 @@
+{
+  myScreen.setSummary(getTitle());
+  myFBReader.setColorProfileName(myKey);
+  myScreen.close();
+}

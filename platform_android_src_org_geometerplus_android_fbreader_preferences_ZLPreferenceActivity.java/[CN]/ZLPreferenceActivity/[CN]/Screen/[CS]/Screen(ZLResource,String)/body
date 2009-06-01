@@ -1,0 +1,5 @@
+{
+  Resource=root.getResource(resourceKey);
+  myScreen=getPreferenceManager().createPreferenceScreen(ZLPreferenceActivity.this);
+  myScreen.setTitle(Resource.getValue());
+}

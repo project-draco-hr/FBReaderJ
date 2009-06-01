@@ -1,9 +1,6 @@
 {
-  if (myIsUnderlineCached) {
-    return myIsUnderline;
+  if (myIsNotCached) {
+    initCache();
   }
-  final boolean answer=isUnderlineInternal();
-  myIsUnderline=answer;
-  myIsUnderlineCached=true;
-  return answer;
+  return myIsUnderline;
 }

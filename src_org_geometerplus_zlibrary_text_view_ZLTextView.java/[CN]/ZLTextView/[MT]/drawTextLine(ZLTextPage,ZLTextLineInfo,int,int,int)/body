@@ -47,7 +47,7 @@
       }
     }
     if (left < right) {
-      context.setFillColor(ZLTextStyleCollection.Instance().getBaseStyle().SelectionBackgroundColorOption.getValue());
+      context.setFillColor(getSelectedBackgroundColor());
       context.fillRectangle(left,top,right,bottom);
     }
   }

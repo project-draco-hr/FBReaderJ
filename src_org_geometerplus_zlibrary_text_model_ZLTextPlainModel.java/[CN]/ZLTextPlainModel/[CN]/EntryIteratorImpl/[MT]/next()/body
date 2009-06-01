@@ -25,14 +25,11 @@ case ZLTextParagraph.Entry.CONTROL:
 short kind=(short)data[dataOffset++];
 myControlKind=(byte)kind;
 myControlIsStart=(kind & 0x0100) == 0x0100;
-if ((kind & 0x0200) == 0x0200) {
-myControlIsHyperlink=true;
+myHyperlinkType=(byte)(kind >> 9);
+if (myHyperlinkType != 0) {
 short labelLength=(short)data[dataOffset++];
-myHyperlinkControlLabel=new String(data,dataOffset,labelLength);
+myHyperlinkId=new String(data,dataOffset,labelLength);
 dataOffset+=labelLength;
-}
- else {
-myControlIsHyperlink=false;
 }
 break;
 }

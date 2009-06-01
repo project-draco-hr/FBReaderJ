@@ -1,0 +1,4 @@
+{
+  Base=(base != null) ? base : this;
+  Hyperlink=hyperlink;
+}

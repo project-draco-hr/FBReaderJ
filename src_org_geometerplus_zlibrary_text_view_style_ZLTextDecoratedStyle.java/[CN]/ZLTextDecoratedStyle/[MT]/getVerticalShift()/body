@@ -1,9 +1,6 @@
 {
-  if (myVerticalShiftCached) {
-    return myVerticalShift;
+  if (myIsNotCached) {
+    initCache();
   }
-  final int shift=getVerticalShiftInternal();
-  myVerticalShift=shift;
-  myVerticalShiftCached=true;
-  return shift;
+  return myVerticalShift;
 }
