@@ -32,6 +32,7 @@
   addAction("object",new XHTMLTagImageAction("data"));
   addAction("br",new XHTMLTagRestartParagraphAction());
   addAction("div",new XHTMLTagParagraphAction());
+  addAction("dt",new XHTMLTagParagraphAction());
   addAction("pre",new XHTMLTagPreAction());
   addAction("td",new XHTMLTagParagraphAction());
   addAction("th",new XHTMLTagParagraphAction());

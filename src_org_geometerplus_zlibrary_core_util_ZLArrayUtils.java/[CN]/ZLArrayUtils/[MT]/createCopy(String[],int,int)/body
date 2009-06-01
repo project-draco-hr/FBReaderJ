@@ -1,5 +1,5 @@
 {
-  T[] newArray=(T[])new Object[newLength];
+  String[] newArray=new String[newLength];
   if (dataSize > 0) {
     System.arraycopy(array,0,newArray,0,dataSize);
   }

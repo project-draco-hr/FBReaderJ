@@ -3,9 +3,9 @@
   final HashMap<String,char[]> entityMap=getDTDMap(xmlReader.externalDTDs());
   final InputStreamReader streamReader=myStreamReader;
   final boolean processNamespaces=myProcessNamespaces;
-  HashMap oldNamespaceMap=processNamespaces ? new HashMap() : null;
-  HashMap currentNamespaceMap=null;
-  final ArrayList namespaceMapStack=new ArrayList();
+  HashMap<String,String> oldNamespaceMap=processNamespaces ? new HashMap<String,String>() : null;
+  HashMap<String,String> currentNamespaceMap=null;
+  final ArrayList<HashMap<String,String>> namespaceMapStack=new ArrayList<HashMap<String,String>>();
   char[] buffer=myBuffer;
   final ZLMutableString tagName=myTagName;
   final ZLMutableString attributeName=myAttributeName;
@@ -292,7 +292,7 @@ break mainSwitchLabel;
 final String aName=convertToString(strings,attributeName);
 if (processNamespaces && aName.startsWith("xmlns:")) {
 if (currentNamespaceMap == null) {
-currentNamespaceMap=new HashMap(oldNamespaceMap);
+currentNamespaceMap=new HashMap<String,String>(oldNamespaceMap);
 }
 currentNamespaceMap.put(attributeValue.toString(),aName.substring(6));
 attributeValue.clear();
@@ -363,9 +363,9 @@ case '>':
 if (tagStackSize > 0) {
 if (processNamespaces && (namespaceMapStack.remove(tagStackSize - 1) != null)) {
 for (int j=namespaceMapStack.size() - 1; j >= 0; --j) {
-Object element=namespaceMapStack.get(j);
+HashMap<String,String> element=namespaceMapStack.get(j);
 if (element != null) {
-oldNamespaceMap=(HashMap)element;
+oldNamespaceMap=element;
 currentNamespaceMap=oldNamespaceMap;
 break;
 }

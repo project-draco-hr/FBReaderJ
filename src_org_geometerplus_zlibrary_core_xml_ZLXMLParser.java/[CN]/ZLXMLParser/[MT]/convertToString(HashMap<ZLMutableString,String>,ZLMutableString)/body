@@ -1,5 +1,5 @@
 {
-  String s=(String)strings.get(container);
+  String s=strings.get(container);
   if (s == null) {
     s=container.toString();
     strings.put(new ZLMutableString(container),s);
