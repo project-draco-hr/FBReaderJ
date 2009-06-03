@@ -1,0 +1,5 @@
+{
+  HyperlinkAreas.clear();
+  myCurrentHyperlinkArea=null;
+  super.clear();
+}

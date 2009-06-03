@@ -1,0 +1,26 @@
+{
+  final ArrayList<ZLTextHyperlinkArea> hyperlinkAreas=myCurrentPage.TextElementMap.HyperlinkAreas;
+  boolean hyperlinkIsChanged=false;
+  if (!hyperlinkAreas.isEmpty()) {
+    final int index=hyperlinkAreas.indexOf(myCurrentHyperlink);
+    if (index == -1) {
+      myCurrentHyperlink=hyperlinkAreas.get(forward ? 0 : hyperlinkAreas.size() - 1);
+      return true;
+    }
+ else {
+      if (forward) {
+        if (index + 1 < hyperlinkAreas.size()) {
+          myCurrentHyperlink=hyperlinkAreas.get(index + 1);
+          return true;
+        }
+      }
+ else {
+        if (index > 0) {
+          myCurrentHyperlink=hyperlinkAreas.get(index - 1);
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+}

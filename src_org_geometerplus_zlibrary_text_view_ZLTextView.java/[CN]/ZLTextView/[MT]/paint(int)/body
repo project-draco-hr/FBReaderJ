@@ -51,4 +51,14 @@ drawTextLine(page,info,labels[index],labels[index + 1],y);
 y+=info.Height + info.Descent + info.VSpaceAfter;
 ++index;
 }
+final ZLTextHyperlinkArea hyperlinkArea=getCurrentHyperlinkArea(page);
+if (hyperlinkArea != null) {
+Context.setColor(new ZLColor(255,0,0));
+for (ZLTextElementArea area : hyperlinkArea.textAreas()) {
+Context.drawLine(area.XStart,area.YStart,area.XEnd,area.YStart);
+Context.drawLine(area.XEnd,area.YStart,area.XEnd,area.YEnd);
+Context.drawLine(area.XEnd,area.YEnd,area.XStart,area.YEnd);
+Context.drawLine(area.XStart,area.YEnd,area.XStart,area.YStart);
+}
+}
 }

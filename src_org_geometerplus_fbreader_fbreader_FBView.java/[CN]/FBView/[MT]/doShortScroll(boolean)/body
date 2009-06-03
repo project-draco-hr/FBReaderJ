@@ -1,10 +1,6 @@
 {
-  if (myHyperlinkCount == -1) {
-    myHyperlinkCount=0;
-    final ZLTextWordCursor cursor=new ZLTextWordCursor(getStartCursor());
-    for (    ZLTextElementArea area : allElements()) {
-    }
+  if (!moveHyperlinkPointer(forward)) {
+    scrollPage(forward,ZLTextView.ScrollingMode.SCROLL_LINES,1);
   }
-  scrollPage(forward,ZLTextView.ScrollingMode.SCROLL_LINES,1);
   ZLApplication.Instance().repaintView();
 }

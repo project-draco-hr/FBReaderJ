@@ -1,5 +1,4 @@
 {
-  myHyperlinkCount=-1;
   final ScrollingPreferences preferences=ScrollingPreferences.Instance();
   if (preferences.AnimateOption.getValue()) {
     if (forward) {
