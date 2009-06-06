@@ -1,6 +1,6 @@
 {
   Bitmap bitmap=((ZLAndroidImageData)imageData).getBitmap(myWidth,myHeight);
   if (bitmap != null) {
-    myCanvas.drawBitmap(bitmap,x,y - bitmap.getHeight(),Paint);
+    myCanvas.drawBitmap(bitmap,x,y - bitmap.getHeight(),myFillPaint);
   }
 }

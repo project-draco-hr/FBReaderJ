@@ -1,4 +1,9 @@
 {
-  ZLApplication.Instance().getCurrentView().onTrackballRotated((int)(10 * event.getX()),(int)(10 * event.getY()));
+  if (event.getAction() == MotionEvent.ACTION_DOWN) {
+    onKeyDown(KeyEvent.KEYCODE_DPAD_CENTER,null);
+  }
+ else {
+    ZLApplication.Instance().getCurrentView().onTrackballRotated((int)(10 * event.getX()),(int)(10 * event.getY()));
+  }
   return true;
 }

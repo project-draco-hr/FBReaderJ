@@ -1,4 +1,4 @@
 {
-  ZLTextView view=Reader.getTextView();
+  FBView view=Reader.getTextView();
   return (view != null) && view.canFindNext();
 }

@@ -1,0 +1,10 @@
+{
+switch (hyperlink.Type) {
+case FBHyperlinkType.EXTERNAL:
+    ZLibrary.Instance().openInBrowser(hyperlink.Id);
+  break;
+case FBHyperlinkType.INTERNAL:
+((FBReader)ZLApplication.Instance()).tryOpenFootnote(hyperlink.Id);
+break;
+}
+}

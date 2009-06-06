@@ -5,42 +5,37 @@
   if (isScrollingActive()) {
     return false;
   }
-  ZLTextElementArea area=getElementByCoordinates(x,y);
-  if (area != null) {
-    final ZLTextHyperlink hyperlink=area.Style.Hyperlink;
-switch (hyperlink.Type) {
-case FBHyperlinkType.EXTERNAL:
-      ZLibrary.Instance().openInBrowser(hyperlink.Id);
+  final ZLTextHyperlink hyperlink=findHyperlink(x,y,10);
+  if (hyperlink != null) {
+    selectHyperlink(hyperlink);
+    ZLApplication.Instance().repaintView();
+    followHyperlink(hyperlink);
     return true;
-case FBHyperlinkType.INTERNAL:
-  ((FBReader)ZLApplication.Instance()).tryOpenFootnote(hyperlink.Id);
-return true;
-}
-}
-final ScrollingPreferences preferences=ScrollingPreferences.Instance();
-if (preferences.FlickOption.getValue()) {
-myStartX=x;
-myStartY=y;
-setScrollingActive(true);
-myIsManualScrollingActive=true;
-}
+  }
+  final ScrollingPreferences preferences=ScrollingPreferences.Instance();
+  if (preferences.FlickOption.getValue()) {
+    myStartX=x;
+    myStartY=y;
+    setScrollingActive(true);
+    myIsManualScrollingActive=true;
+  }
  else {
-if (preferences.HorizontalOption.getValue()) {
-if (x <= Context.getWidth() / 3) {
-doScrollPage(false);
-}
- else if (x >= Context.getWidth() * 2 / 3) {
-doScrollPage(true);
-}
-}
+    if (preferences.HorizontalOption.getValue()) {
+      if (x <= Context.getWidth() / 3) {
+        doScrollPage(false);
+      }
+ else       if (x >= Context.getWidth() * 2 / 3) {
+        doScrollPage(true);
+      }
+    }
  else {
-if (y <= Context.getHeight() / 3) {
-doScrollPage(false);
-}
- else if (y >= Context.getHeight() * 2 / 3) {
-doScrollPage(true);
-}
-}
-}
-return true;
+      if (y <= Context.getHeight() / 3) {
+        doScrollPage(false);
+      }
+ else       if (y >= Context.getHeight() * 2 / 3) {
+        doScrollPage(true);
+      }
+    }
+  }
+  return true;
 }

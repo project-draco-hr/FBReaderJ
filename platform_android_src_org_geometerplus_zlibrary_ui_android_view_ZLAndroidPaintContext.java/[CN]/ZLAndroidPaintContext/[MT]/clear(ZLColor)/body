@@ -1,5 +1,4 @@
 {
-  myColor=color;
-  Paint.setColor(Color.rgb(color.Red,color.Green,color.Blue));
-  myCanvas.drawRect(0,0,myWidth + myScrollbarWidth,myHeight,Paint);
+  myFillPaint.setColor(Color.rgb(color.Red,color.Green,color.Blue));
+  myCanvas.drawRect(0,0,myWidth + myScrollbarWidth,myHeight,myFillPaint);
 }

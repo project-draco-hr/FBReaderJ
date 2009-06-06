@@ -1,3 +1,3 @@
 {
-  myFillColor=color;
+  myFillPaint.setColor(Color.rgb(color.Red,color.Green,color.Blue));
 }

@@ -1,0 +1,67 @@
+{
+  final LinkedList<Rectangle> rectangles=new LinkedList<Rectangle>(myRectangles);
+  while (!rectangles.isEmpty()) {
+    final LinkedList<Rectangle> connected=new LinkedList<Rectangle>();
+    Rectangle previous=null;
+    for (final Iterator<Rectangle> iter=rectangles.iterator(); iter.hasNext(); ) {
+      final Rectangle current=iter.next();
+      if ((previous != null) && ((previous.Left > current.Right) || (current.Left > previous.Right))) {
+        break;
+      }
+      iter.remove();
+      connected.add(current);
+      previous=current;
+    }
+    final LinkedList<Integer> xList=new LinkedList<Integer>();
+    final LinkedList<Integer> yList=new LinkedList<Integer>();
+    int x=0, xPrev=0;
+    final ListIterator<Rectangle> iter=connected.listIterator();
+    Rectangle r=iter.next();
+    x=r.Right + 2;
+    xList.add(x);
+    yList.add(r.Top);
+    while (iter.hasNext()) {
+      xPrev=x;
+      r=iter.next();
+      x=r.Right + 2;
+      if (x != xPrev) {
+        final int y=(x < xPrev) ? r.Top + 2 : r.Top;
+        xList.add(xPrev);
+        yList.add(y);
+        xList.add(x);
+        yList.add(y);
+      }
+    }
+    xList.add(x);
+    yList.add(r.Bottom + 2);
+    r=iter.previous();
+    x=r.Left - 2;
+    xList.add(x);
+    yList.add(r.Bottom + 2);
+    while (iter.hasPrevious()) {
+      xPrev=x;
+      r=iter.previous();
+      x=r.Left - 2;
+      if (x != xPrev) {
+        final int y=(x > xPrev) ? r.Bottom : r.Bottom + 2;
+        xList.add(xPrev);
+        yList.add(y);
+        xList.add(x);
+        yList.add(y);
+      }
+    }
+    xList.add(x);
+    yList.add(r.Top);
+    final int xs[]=new int[xList.size()];
+    final int ys[]=new int[yList.size()];
+    int count=0;
+    for (    int xx : xList) {
+      xs[count++]=xx;
+    }
+    count=0;
+    for (    int yy : yList) {
+      ys[count++]=yy;
+    }
+    context.drawOutline(xs,ys);
+  }
+}

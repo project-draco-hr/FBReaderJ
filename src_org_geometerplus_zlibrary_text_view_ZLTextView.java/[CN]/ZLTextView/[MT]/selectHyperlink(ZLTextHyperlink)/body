@@ -1,0 +1,8 @@
+{
+  for (  ZLTextHyperlinkArea area : myCurrentPage.TextElementMap.HyperlinkAreas) {
+    if (area.Hyperlink == hyperlink) {
+      myCurrentHyperlink=area;
+      break;
+    }
+  }
+}

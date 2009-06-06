@@ -1,0 +1,34 @@
+{
+  final int last=xs.length - 1;
+  int xStart=(xs[0] + xs[last]) / 2;
+  int yStart=(ys[0] + ys[last]) / 2;
+  int xEnd=xStart;
+  int yEnd=yStart;
+  if (xs[0] != xs[last]) {
+    if (xs[0] > xs[last]) {
+      xStart-=5;
+      xEnd+=5;
+    }
+ else {
+      xStart+=5;
+      xEnd-=5;
+    }
+  }
+ else {
+    if (ys[0] > ys[last]) {
+      yStart-=5;
+      yEnd+=5;
+    }
+ else {
+      yStart+=5;
+      yEnd-=5;
+    }
+  }
+  final Path path=new Path();
+  path.moveTo(xStart,yStart);
+  for (int i=0; i <= last; ++i) {
+    path.lineTo(xs[i],ys[i]);
+  }
+  path.lineTo(xEnd,yEnd);
+  myCanvas.drawPath(path,myOutlinePaint);
+}

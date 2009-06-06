@@ -1,0 +1,4 @@
+{
+  FBView view=Reader.getTextView();
+  return (view != null) && (view.getCurrentHyperlink() != null);
+}

@@ -1,0 +1,41 @@
+{
+  if (myRectangles.isEmpty()) {
+    myRectangles.add(new Rectangle(area.XStart,area.XEnd,area.YStart,area.YEnd));
+    return;
+  }
+  final int top=area.YStart;
+  final int bottom=area.YEnd;
+  for (ListIterator<Rectangle> iter=myRectangles.listIterator(); iter.hasNext(); ) {
+    Rectangle r=iter.next();
+    if (r.Bottom <= top) {
+      continue;
+    }
+    if (r.Top >= bottom) {
+      break;
+    }
+    if (r.Top < top) {
+      final Rectangle before=new Rectangle(r);
+      before.Bottom=top;
+      r.Top=top;
+      iter.previous();
+      iter.add(before);
+      iter.next();
+    }
+    if (r.Bottom > bottom) {
+      final Rectangle after=new Rectangle(r);
+      after.Top=bottom;
+      r.Bottom=bottom;
+      iter.add(after);
+    }
+    r.Left=Math.min(r.Left,area.XStart);
+    r.Right=Math.max(r.Right,area.XEnd);
+  }
+  final Rectangle first=myRectangles.getFirst();
+  if (top < first.Top) {
+    myRectangles.add(0,new Rectangle(area.XStart,area.XEnd,top,Math.min(bottom,first.Top)));
+  }
+  final Rectangle last=myRectangles.getLast();
+  if (bottom > last.Bottom) {
+    myRectangles.add(new Rectangle(area.XStart,area.XEnd,Math.max(top,last.Bottom),bottom));
+  }
+}

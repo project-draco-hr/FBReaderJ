@@ -1,0 +1,8 @@
+{
+  final List<String> path=uri.getPathSegments();
+  if ((path == null) || path.isEmpty()) {
+    return false;
+  }
+  final String fileName=path.get(path.size() - 1);
+  return fileName.endsWith(".fb2.zip") || fileName.endsWith(".fb2") || fileName.endsWith(".epub")|| fileName.endsWith(".mobi");
+}

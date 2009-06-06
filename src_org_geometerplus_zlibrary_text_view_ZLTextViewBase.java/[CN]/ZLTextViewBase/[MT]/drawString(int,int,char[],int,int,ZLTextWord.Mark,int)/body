@@ -1,6 +1,6 @@
 {
   final ZLPaintContext context=Context;
-  context.setColor(getTextColor(myTextStyle.Hyperlink.Type));
+  context.setTextColor(getTextColor(myTextStyle.Hyperlink.Type));
   if (mark == null) {
     context.drawString(x,y,str,offset,length);
   }
@@ -22,11 +22,11 @@
         x+=context.getStringWidth(str,offset + pos,endPos - pos);
       }
       if (markStart < length) {
-        context.setColor(getHighlightedTextColor());
+        context.setTextColor(getHighlightedTextColor());
         int endPos=Math.min(markStart + markLen,length);
         context.drawString(x,y,str,offset + markStart,endPos - markStart);
         x+=context.getStringWidth(str,offset + markStart,endPos - markStart);
-        context.setColor(getTextColor(myTextStyle.Hyperlink.Type));
+        context.setTextColor(getTextColor(myTextStyle.Hyperlink.Type));
       }
       pos=markStart + markLen;
     }

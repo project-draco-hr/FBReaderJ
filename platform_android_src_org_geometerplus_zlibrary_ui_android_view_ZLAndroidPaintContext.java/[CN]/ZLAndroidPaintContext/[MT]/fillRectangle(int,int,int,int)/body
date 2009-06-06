@@ -1,6 +1,4 @@
 {
-  ZLColor color=myFillColor;
-  Paint.setColor(Color.rgb(color.Red,color.Green,color.Blue));
   if (x1 < x0) {
     int swap=x1;
     x1=x0;
@@ -11,7 +9,5 @@
     y1=y0;
     y0=swap;
   }
-  myCanvas.drawRect(x0,y0,x1 + 1,y1 + 1,Paint);
-  color=myColor;
-  Paint.setColor(Color.rgb(color.Red,color.Green,color.Blue));
+  myCanvas.drawRect(x0,y0,x1 + 1,y1 + 1,myFillPaint);
 }

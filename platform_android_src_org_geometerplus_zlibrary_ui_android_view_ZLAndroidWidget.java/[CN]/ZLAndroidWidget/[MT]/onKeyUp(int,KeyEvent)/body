@@ -3,6 +3,8 @@ switch (keyCode) {
 case KeyEvent.KEYCODE_VOLUME_DOWN:
 case KeyEvent.KEYCODE_VOLUME_UP:
 case KeyEvent.KEYCODE_BACK:
+case KeyEvent.KEYCODE_ENTER:
+case KeyEvent.KEYCODE_DPAD_CENTER:
     return true;
 default :
   return false;

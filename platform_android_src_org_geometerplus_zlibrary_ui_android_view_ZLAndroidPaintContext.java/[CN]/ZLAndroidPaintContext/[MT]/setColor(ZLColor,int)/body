@@ -1,6 +1,0 @@
-{
-  if (!myColor.equals(color)) {
-    myColor=color;
-    Paint.setColor(Color.rgb(color.Red,color.Green,color.Blue));
-  }
-}

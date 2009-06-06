@@ -1,6 +1,5 @@
 {
   final int style=(bold ? Typeface.BOLD : 0) | (italic ? Typeface.ITALIC : 0);
-  final Paint paint=Paint;
   Typeface[] typefaces=myTypefaces.get(family);
   if (typefaces == null) {
     typefaces=new Typeface[4];
@@ -11,7 +10,7 @@
     typeface=Typeface.create(family,style);
     typefaces[style]=typeface;
   }
-  paint.setTypeface(typeface);
-  paint.setTextSize(size);
-  paint.setUnderlineText(underline);
+  myTextPaint.setTypeface(typeface);
+  myTextPaint.setTextSize(size);
+  myTextPaint.setUnderlineText(underline);
 }

@@ -1,0 +1,12 @@
+{
+  ZLTextHyperlinkArea area=null;
+  int distance=Integer.MAX_VALUE;
+  for (  ZLTextHyperlinkArea a : myCurrentPage.TextElementMap.HyperlinkAreas) {
+    final int d=a.distanceTo(x,y);
+    if ((d < distance) && (d <= maxDistance)) {
+      area=a;
+      distance=d;
+    }
+  }
+  return (area != null) ? area.Hyperlink : null;
+}

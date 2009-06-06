@@ -1,4 +1,4 @@
 {
   drawOnBitmap(myMainBitmap);
-  canvas.drawBitmap(myMainBitmap,0,0,ZLAndroidPaintContext.Instance().Paint);
+  canvas.drawBitmap(myMainBitmap,0,0,myPaint);
 }
