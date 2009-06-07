@@ -2,7 +2,7 @@
   if (myPanel.ControlPanel != null) {
     final boolean visible=myPanel.ControlPanel.getVisibility() == View.VISIBLE;
     myPanel.ControlPanel.hide(false);
-    SearchManager manager=(SearchManager)getSystemService(Context.SEARCH_SERVICE);
+    SearchManager manager=(SearchManager)getSystemService(SEARCH_SERVICE);
     manager.setOnCancelListener(new SearchManager.OnCancelListener(){
       public void onCancel(){
         if ((myPanel.ControlPanel != null) && visible) {

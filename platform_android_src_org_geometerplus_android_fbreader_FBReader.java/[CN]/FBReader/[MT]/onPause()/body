@@ -1,4 +1,7 @@
 {
+  if (myWakeLock != null) {
+    myWakeLock.release();
+  }
   if (myPanel.ControlPanel != null) {
     myPanel.Visible=myPanel.ControlPanel.getVisibility() == View.VISIBLE;
   }
