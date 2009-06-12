@@ -1,3 +1,3 @@
 {
-  myCurrentTextModel=Model.getFootnoteModel(id);
+  myCurrentTextModel=(ZLTextWritableModel)Model.getFootnoteModel(id);
 }

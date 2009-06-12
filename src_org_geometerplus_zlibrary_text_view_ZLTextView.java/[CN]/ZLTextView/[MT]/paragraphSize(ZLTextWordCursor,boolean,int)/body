@@ -1,5 +1,8 @@
 {
   final ZLTextParagraphCursor paragraphCursor=cursor.getParagraphCursor();
+  if (paragraphCursor == null) {
+    return 0;
+  }
   final int endElementIndex=beforeCurrentPosition ? cursor.getElementIndex() : paragraphCursor.getParagraphLength();
   resetTextStyle();
   int size=0;

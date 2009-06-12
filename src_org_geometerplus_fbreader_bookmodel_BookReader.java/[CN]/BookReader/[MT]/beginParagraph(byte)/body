@@ -1,5 +1,5 @@
 {
-  final ZLTextModel textModel=myCurrentTextModel;
+  final ZLTextWritableModel textModel=myCurrentTextModel;
   if (textModel != null) {
     textModel.createParagraph(kind);
     final byte[] stack=myKindStack;

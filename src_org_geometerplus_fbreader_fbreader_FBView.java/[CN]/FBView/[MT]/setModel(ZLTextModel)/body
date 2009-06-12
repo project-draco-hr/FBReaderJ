@@ -1,0 +1,4 @@
+{
+  myIsManualScrollingActive=false;
+  super.setModel(model);
+}

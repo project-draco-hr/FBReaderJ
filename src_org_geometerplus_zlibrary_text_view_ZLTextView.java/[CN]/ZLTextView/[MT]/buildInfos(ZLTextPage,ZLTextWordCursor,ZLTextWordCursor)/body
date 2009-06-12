@@ -6,6 +6,9 @@
   do {
     resetTextStyle();
     final ZLTextParagraphCursor paragraphCursor=result.getParagraphCursor();
+    if (paragraphCursor == null) {
+      break;
+    }
     final int wordIndex=result.getElementIndex();
     applyControls(paragraphCursor,0,wordIndex);
     ZLTextLineInfo info=new ZLTextLineInfo(paragraphCursor,wordIndex,result.getCharIndex(),getTextStyle());

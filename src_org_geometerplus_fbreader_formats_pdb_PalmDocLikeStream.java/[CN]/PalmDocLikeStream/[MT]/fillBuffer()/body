@@ -12,18 +12,22 @@
         return false;
       }
       final short recordSize=(short)(nextOffset - currentOffset);
-      if (myIsCompressed) {
-        myBufferLength=(short)DocDecompressor.decompress(myBase,myBuffer,recordSize);
-      }
- else {
+switch (myCompressionType) {
+case CompressionType.NONE:
         myBase.read(myBuffer,0,recordSize);
-        myBufferLength=recordSize;
-      }
-    }
- catch (    IOException e) {
-      return false;
-    }
-    myBufferOffset=0;
-  }
-  return true;
+      myBufferLength=recordSize;
+    break;
+case CompressionType.DOC:
+  myBufferLength=(short)DocDecompressor.decompress(myBase,myBuffer,recordSize);
+break;
+default :
+return false;
+}
+}
+ catch (IOException e) {
+return false;
+}
+myBufferOffset=0;
+}
+return true;
 }
