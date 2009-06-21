@@ -33,7 +33,7 @@ case PAGE_BOTTOM:
   myNextPage.reset();
   if (myCurrentPage.PaintState == PaintStateEnum.NOTHING_TO_PAINT) {
     preparePaintInfo(myPreviousPage);
-    myCurrentPage.StartCursor.setCursor(myNextPage.EndCursor);
+    myCurrentPage.StartCursor.setCursor(myPreviousPage.EndCursor);
     myCurrentPage.PaintState=PaintStateEnum.START_IS_KNOWN;
   }
   break;

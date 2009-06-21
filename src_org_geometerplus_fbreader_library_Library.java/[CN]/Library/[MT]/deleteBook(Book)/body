@@ -1,0 +1,14 @@
+{
+  synchronize();
+  myBooks.remove(book);
+  myLibraryByAuthor.removeBook(book);
+  myLibraryByTag.removeBook(book);
+  if (myRecentBooks.removeBook(book)) {
+    final BooksDatabase db=BooksDatabase.Instance();
+    final List<Long> ids=db.listRecentBookIds();
+    ids.remove(book.getId());
+    db.saveRecentBookIds(ids);
+  }
+  mySearchResult.removeBook(book);
+  book.File.getPhysicalFile().delete();
+}

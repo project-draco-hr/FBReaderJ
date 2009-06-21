@@ -1,0 +1,12 @@
+{
+  final int position=((AdapterView.AdapterContextMenuInfo)menuInfo).position;
+  final LibraryTree tree=(LibraryTree)getItem(position);
+  if (tree instanceof BookTree) {
+    menu.setHeaderTitle(tree.getName());
+    final ZLResource resource=ZLResource.resource("libraryView");
+    menu.add(0,OPEN_BOOK_ITEM_ID,0,resource.getResource("openBook").getValue());
+    if (Library.Instance().canDeleteBook(((BookTree)tree).Book)) {
+      menu.add(0,DELETE_BOOK_ITEM_ID,0,resource.getResource("deleteBook").getValue());
+    }
+  }
+}

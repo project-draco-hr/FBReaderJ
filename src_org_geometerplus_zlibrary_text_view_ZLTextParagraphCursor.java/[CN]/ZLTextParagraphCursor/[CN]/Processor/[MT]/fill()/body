@@ -1,5 +1,5 @@
 {
-  final ArrayList elements=myElements;
+  final ArrayList<ZLTextElement> elements=myElements;
   for (ZLTextParagraph.EntryIterator it=myParagraph.iterator(); it.hasNext(); ) {
     it.next();
 switch (it.getType()) {

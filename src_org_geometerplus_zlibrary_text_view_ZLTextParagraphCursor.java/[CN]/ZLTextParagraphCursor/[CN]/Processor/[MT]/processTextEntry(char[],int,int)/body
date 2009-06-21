@@ -4,7 +4,7 @@
     final int end=offset + length;
     int firstNonSpace=-1;
     boolean spaceInserted=false;
-    final ArrayList elements=myElements;
+    final ArrayList<ZLTextElement> elements=myElements;
     for (int charPos=offset; charPos < end; ++charPos) {
       final char ch=data[charPos];
       if ((ch == ' ') || (ch <= 0x0D)) {

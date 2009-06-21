@@ -1,0 +1,3 @@
+{
+  return "ZLTextParagraphCursor [" + Index + " (0.."+ myElements.size()+ ")]";
+}

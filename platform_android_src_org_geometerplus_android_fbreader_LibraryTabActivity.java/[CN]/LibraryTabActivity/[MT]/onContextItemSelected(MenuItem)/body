@@ -1,0 +1,14 @@
+{
+  final LibraryAdapter adapter=(LibraryAdapter)((ListView)getTabHost().getCurrentView()).getAdapter();
+  final int position=((AdapterView.AdapterContextMenuInfo)item.getMenuInfo()).position;
+  final BookTree tree=(BookTree)adapter.getItem(position);
+switch (item.getItemId()) {
+case OPEN_BOOK_ITEM_ID:
+    adapter.runTreeItem(tree);
+  return true;
+case DELETE_BOOK_ITEM_ID:
+tryToDeleteBook(tree.Book);
+return true;
+}
+return super.onContextItemSelected(item);
+}
