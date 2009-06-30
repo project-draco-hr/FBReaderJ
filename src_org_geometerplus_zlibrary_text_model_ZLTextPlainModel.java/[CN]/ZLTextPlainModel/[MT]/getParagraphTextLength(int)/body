@@ -29,13 +29,16 @@ if ((data[dataOffset++] & 0x0200) == 0x0200) {
 break;
 }
 case ZLTextParagraph.Entry.IMAGE:
-dataOffset+=2;
+dataOffset++;
+dataOffset+=(short)data[dataOffset++];
 break;
 case ZLTextParagraph.Entry.FIXED_HSPACE:
 ++dataOffset;
 break;
 case ZLTextParagraph.Entry.FORCED_CONTROL:
-dataOffset+=2;
+for (int mask=(int)data[dataOffset++]; mask != 0; mask>>=1) {
+dataOffset+=mask & 1;
+}
 break;
 }
 }

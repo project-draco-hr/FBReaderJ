@@ -3,7 +3,7 @@
   setRequestedOrientation(ZLAndroidApplication.Instance().AutoOrientationOption.getValue() ? ActivityInfo.SCREEN_ORIENTATION_SENSOR : ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
   requestWindowFeature(Window.FEATURE_NO_TITLE);
   setContentView(R.layout.downloader);
-  ourProgressBar=(ProgressBar)findViewById(android.R.id.progress);
+  myProgressBar=(ProgressBar)findViewById(android.R.id.progress);
   final Intent intent=getIntent();
   final Uri uri=intent.getData();
   if (uri != null) {
@@ -28,8 +28,8 @@
       finish();
       return;
     }
-    ourFileName=path.get(path.size() - 1);
-    final File fileFile=new File(dirFile,ourFileName);
+    myFileName=path.get(path.size() - 1);
+    final File fileFile=new File(dirFile,myFileName);
     if (fileFile.exists()) {
       if (!fileFile.isFile()) {
         finish();
@@ -40,14 +40,14 @@
     }
     startFileDownload(uri.toString(),fileFile);
   }
-  if (ourFileLength <= 0) {
-    ourProgressBar.setIndeterminate(true);
+  if (myFileLength <= 0) {
+    myProgressBar.setIndeterminate(true);
   }
  else {
-    ourProgressBar.setIndeterminate(false);
-    ourProgressBar.setMax(ourFileLength);
-    ourProgressBar.setProgress(ourDownloadedPart);
+    myProgressBar.setIndeterminate(false);
+    myProgressBar.setMax(myFileLength);
+    myProgressBar.setProgress(myDownloadedPart);
   }
   final TextView textView=(TextView)findViewById(R.id.downloadertext);
-  textView.setText(ZLDialogManager.getWaitMessageText("downloadingFile").replace("%s",ourFileName));
+  textView.setText(ZLDialogManager.getWaitMessageText("downloadingFile").replace("%s",myFileName));
 }

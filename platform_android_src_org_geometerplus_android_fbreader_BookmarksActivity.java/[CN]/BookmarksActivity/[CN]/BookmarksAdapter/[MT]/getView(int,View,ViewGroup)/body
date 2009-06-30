@@ -6,7 +6,7 @@
   final Bookmark bookmark=getItem(position);
   if (bookmark == null) {
     imageView.setVisibility(View.VISIBLE);
-    imageView.setImageResource(R.drawable.tree_icon_plus);
+    imageView.setImageResource(R.drawable.ic_list_plus);
     textView.setText(ZLResource.resource("bookmarksView").getResource("new").getValue());
     bookTitleView.setVisibility(View.GONE);
   }

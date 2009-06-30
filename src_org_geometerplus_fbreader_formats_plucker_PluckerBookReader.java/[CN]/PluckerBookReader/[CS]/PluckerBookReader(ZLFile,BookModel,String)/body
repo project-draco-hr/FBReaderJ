@@ -4,5 +4,4 @@
   myFileSize=(int)file.size();
   myFont=FontType.FT_REGULAR;
   myCharBuffer=new char[65535];
-  myForcedEntry=null;
 }

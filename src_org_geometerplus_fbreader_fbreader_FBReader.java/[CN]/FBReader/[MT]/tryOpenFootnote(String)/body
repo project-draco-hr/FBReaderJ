@@ -7,7 +7,7 @@
       }
  else {
         FootnoteView.setModel(label.Model);
-        setMode(ViewMode.FOOTNOTE);
+        setView(FootnoteView);
         FootnoteView.gotoPosition(label.ParagraphIndex,0,0);
       }
       repaintView();

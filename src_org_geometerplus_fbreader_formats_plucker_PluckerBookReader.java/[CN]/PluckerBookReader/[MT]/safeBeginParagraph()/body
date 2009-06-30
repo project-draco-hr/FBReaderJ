@@ -10,12 +10,7 @@
       Pair pit=(Pair)it.next();
       addControl((Byte)pit.myFirst,(Boolean)pit.mySecond);
     }
-    if (myForcedEntry != null) {
-      addControl(myForcedEntry);
-    }
- else {
-      addControl(FBTextKind.REGULAR,true);
-    }
+    addControl(FBTextKind.REGULAR,true);
     for (Iterator it=myDelayedHyperlinks.iterator(); it.hasNext(); ) {
       addHyperlinkControl(FBTextKind.INTERNAL_HYPERLINK,(String)it.next());
     }

@@ -1,0 +1,14 @@
+{
+  if (myAvailable <= 0) {
+    return -1;
+  }
+  if (myOutBufferLength == 0) {
+    fillOutBuffer();
+  }
+  if (myOutBufferLength == 0) {
+    throw new IOException("cannot read from zip");
+  }
+  --myAvailable;
+  --myOutBufferLength;
+  return myOutBuffer[myOutBufferOffset++];
+}

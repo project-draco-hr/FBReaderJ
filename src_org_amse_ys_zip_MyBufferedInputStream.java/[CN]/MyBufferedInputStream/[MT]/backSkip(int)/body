@@ -1,3 +1,3 @@
 {
-  throw new RuntimeException("back skip not implemented");
+  throw new IOException("Back skip is not implemented");
 }

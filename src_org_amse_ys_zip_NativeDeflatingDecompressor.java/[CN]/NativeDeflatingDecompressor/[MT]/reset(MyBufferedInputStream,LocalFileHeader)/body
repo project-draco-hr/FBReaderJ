@@ -1,0 +1,11 @@
+{
+  endInflating();
+  myStream=inputStream;
+  myCompressedAvailable=header.getCompressedSize();
+  myAvailable=header.getUncompressedSize();
+  myInBufferOffset=IN_BUFFER_SIZE;
+  myInBufferLength=0;
+  myOutBufferOffset=OUT_BUFFER_SIZE;
+  myOutBufferLength=0;
+  System.err.println(startInflating());
+}

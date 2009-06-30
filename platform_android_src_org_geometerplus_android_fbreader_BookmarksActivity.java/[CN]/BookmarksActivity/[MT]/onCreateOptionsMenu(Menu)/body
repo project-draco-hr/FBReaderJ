@@ -2,6 +2,6 @@
   super.onCreateOptionsMenu(menu);
   final MenuItem item=menu.add(0,1,Menu.NONE,myResource.getResource("menu").getResource("search").getValue());
   item.setOnMenuItemClickListener(this);
-  item.setIcon(R.drawable.menu_icon_search);
+  item.setIcon(R.drawable.ic_menu_search);
   return true;
 }

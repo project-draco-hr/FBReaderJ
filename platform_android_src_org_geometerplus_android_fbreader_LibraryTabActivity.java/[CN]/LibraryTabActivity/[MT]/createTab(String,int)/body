@@ -1,6 +1,0 @@
-{
-  final TabHost host=getTabHost();
-  final String label=myResource.getResource(tag).getValue();
-  host.addTab(host.newTabSpec(tag).setIndicator(label).setContent(id));
-  return (ListView)findViewById(id);
-}

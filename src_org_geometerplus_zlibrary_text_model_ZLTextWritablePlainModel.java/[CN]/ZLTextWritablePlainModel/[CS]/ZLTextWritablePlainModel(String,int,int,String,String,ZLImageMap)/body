@@ -1,0 +1,3 @@
+{
+  super(id,arraySize,dataBlockSize,directoryName,extension,imageMap);
+}

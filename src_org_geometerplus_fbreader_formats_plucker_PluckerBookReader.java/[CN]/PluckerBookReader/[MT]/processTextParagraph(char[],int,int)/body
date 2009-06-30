@@ -48,8 +48,5 @@
     myBufferIsEmpty=false;
   }
   safeEndParagraph();
-  if (myForcedEntry != null) {
-    myForcedEntry=null;
-  }
   myDelayedControls.clear();
 }

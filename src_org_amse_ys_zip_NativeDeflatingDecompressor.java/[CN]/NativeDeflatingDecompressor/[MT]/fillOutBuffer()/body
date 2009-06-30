@@ -1,0 +1,22 @@
+{
+  while (myOutBufferLength == 0) {
+    if (myInBufferLength == 0) {
+      myInBufferOffset=0;
+      final int toRead=(myCompressedAvailable < IN_BUFFER_SIZE) ? myCompressedAvailable : IN_BUFFER_SIZE;
+      if (myStream.read(myInBuffer,0,toRead) != toRead) {
+        throw new IOException("cannot read from base stream");
+      }
+      myInBufferLength=toRead;
+      myCompressedAvailable-=toRead;
+    }
+    final int code=inflate(myInBuffer,myInBufferOffset,myInBufferLength,myOutBuffer);
+    if (code == 0) {
+      throw new IOException("cannot read from base stream");
+    }
+    myInBufferOffset+=code >> 16;
+    myInBufferLength-=code >> 16;
+    myOutBufferOffset=0;
+    myOutBufferLength=code & 0x0FFFF;
+    System.err.println(myInBufferLength + ":" + myOutBufferLength+ ":"+ myAvailable);
+  }
+}

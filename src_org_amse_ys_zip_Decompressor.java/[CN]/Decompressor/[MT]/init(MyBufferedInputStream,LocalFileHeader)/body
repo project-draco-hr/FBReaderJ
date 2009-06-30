@@ -5,12 +5,12 @@ case 0:
 case 8:
 synchronized (ourDeflators) {
     if (!ourDeflators.isEmpty()) {
-      DeflatingDecompressor decompressor=ourDeflators.poll();
+      AbstractDeflatingDecompressor decompressor=ourDeflators.poll();
       decompressor.reset(is,header);
       return decompressor;
     }
   }
-return new DeflatingDecompressor(is,header);
+return NativeDeflatingDecompressor.INITIALIZED ? new NativeDeflatingDecompressor(is,header) : new DeflatingDecompressor(is,header);
 default :
 throw new ZipException("Unsupported method of compression");
 }

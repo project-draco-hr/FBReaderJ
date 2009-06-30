@@ -1,6 +1,6 @@
 {
   if (mySearchResultsAdapter == null) {
-    mySearchResultsAdapter=new LibraryAdapter(createTab("searchResults",R.id.search_results),tree,true);
+    mySearchResultsAdapter=new LibraryAdapter(createTab("searchResults",R.id.search_results,R.drawable.ic_tab_library_results),tree,Type.FLAT);
   }
  else {
     mySearchResultsAdapter.resetTree(tree);

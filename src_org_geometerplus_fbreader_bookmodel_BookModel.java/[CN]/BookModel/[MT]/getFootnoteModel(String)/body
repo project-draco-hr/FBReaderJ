@@ -1,7 +1,7 @@
 {
   ZLTextModel model=myFootnotes.get(id);
   if (model == null) {
-    model=new ZLTextPlainModel(id,8,2048,"/sdcard/Books/.FBReader","cache" + myFootnotes.size());
+    model=new ZLTextWritablePlainModel(id,8,2048,"/sdcard/Books/.FBReader","cache" + myFootnotes.size(),myImageMap);
     myFootnotes.put(id,model);
   }
   return model;

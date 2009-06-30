@@ -14,12 +14,12 @@
       try {
         final URL url=new URL(uriString);
         final URLConnection connection=url.openConnection();
-        ourFileLength=connection.getContentLength();
-        if (ourFileLength > 0) {
-          ourProgressBar.setIndeterminate(false);
-          ourProgressBar.setMax(ourFileLength);
-          ourProgressBar.setProgress(0);
-          ourDownloadedPart=0;
+        myFileLength=connection.getContentLength();
+        if (myFileLength > 0) {
+          myProgressBar.setIndeterminate(false);
+          myProgressBar.setMax(myFileLength);
+          myProgressBar.setProgress(0);
+          myDownloadedPart=0;
         }
         final HttpURLConnection httpConnection=(HttpURLConnection)connection;
         final int response=httpConnection.getResponseCode();
@@ -33,8 +33,8 @@
             if (size <= 0) {
               break;
             }
-            ourDownloadedPart+=size;
-            ourProgressBar.setProgress(ourDownloadedPart);
+            myDownloadedPart+=size;
+            myProgressBar.setProgress(myDownloadedPart);
             outStream.write(buffer,0,size);
           }
           inStream.close();
@@ -46,7 +46,7 @@
 catch (      IOException e) {
       }
       handler.sendEmptyMessage(0);
-      ourFileLength=-1;
+      myFileLength=-1;
     }
   }
 ).start();

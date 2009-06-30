@@ -1,5 +1,0 @@
-{
-  super(fbreader);
-  myModeToSet=modeToSet;
-  myVisibleInModes=visibleInModes;
-}

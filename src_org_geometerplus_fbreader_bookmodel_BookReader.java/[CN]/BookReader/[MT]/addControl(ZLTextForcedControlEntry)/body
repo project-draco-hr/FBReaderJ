@@ -1,6 +1,0 @@
-{
-  if (myTextParagraphExists) {
-    flushTextBufferToParagraph();
-    myCurrentTextModel.addControl(entry);
-  }
-}

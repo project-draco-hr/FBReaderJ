@@ -1,8 +1,0 @@
-{
-  myId=id;
-  myStartEntryIndices=new int[arraySize];
-  myStartEntryOffsets=new int[arraySize];
-  myParagraphLengths=new int[arraySize];
-  myParagraphKinds=new byte[arraySize];
-  myStorage=new CachedCharStorage(dataBlockSize,directoryName,extension);
-}

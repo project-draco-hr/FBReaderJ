@@ -2,7 +2,7 @@
   this(name);
   BackgroundOption.setValue(base.BackgroundOption.getValue());
   SelectionBackgroundOption.setValue(base.SelectionBackgroundOption.getValue());
-  HighlightedTextOption.setValue(base.HighlightedTextOption.getValue());
+  HighlightingOption.setValue(base.HighlightingOption.getValue());
   RegularTextOption.setValue(base.RegularTextOption.getValue());
   HyperlinkTextOption.setValue(base.HyperlinkTextOption.getValue());
 }

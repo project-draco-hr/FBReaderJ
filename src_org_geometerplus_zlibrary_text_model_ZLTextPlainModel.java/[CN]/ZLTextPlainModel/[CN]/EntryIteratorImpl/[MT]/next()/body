@@ -35,8 +35,11 @@ break;
 }
 case ZLTextParagraph.Entry.IMAGE:
 {
-final int entryAddress=((int)data[dataOffset++] << 16) + (int)data[dataOffset++];
-myImageEntry=(ZLImageEntry)myEntries.get(entryAddress);
+final short vOffset=(short)data[dataOffset++];
+final short len=(short)data[dataOffset++];
+final String id=new String(data,dataOffset,len);
+dataOffset+=len;
+myImageEntry=new ZLImageEntry(myImageMap,id,vOffset);
 break;
 }
 case ZLTextParagraph.Entry.FIXED_HSPACE:
@@ -44,8 +47,18 @@ myFixedHSpaceLength=(short)data[dataOffset++];
 break;
 case ZLTextParagraph.Entry.FORCED_CONTROL:
 {
-final int entryAddress=((int)data[dataOffset++] << 16) + (int)data[dataOffset++];
-break;
+final int mask=(int)data[dataOffset++];
+final ZLTextForcedControlEntry entry=new ZLTextForcedControlEntry();
+if ((mask & ZLTextForcedControlEntry.SUPPORTS_LEFT_INDENT) == ZLTextForcedControlEntry.SUPPORTS_LEFT_INDENT) {
+entry.setLeftIndent((short)data[dataOffset++]);
+}
+if ((mask & ZLTextForcedControlEntry.SUPPORTS_RIGHT_INDENT) == ZLTextForcedControlEntry.SUPPORTS_RIGHT_INDENT) {
+entry.setRightIndent((short)data[dataOffset++]);
+}
+if ((mask & ZLTextForcedControlEntry.SUPPORTS_ALIGNMENT_TYPE) == ZLTextForcedControlEntry.SUPPORTS_ALIGNMENT_TYPE) {
+entry.setAlignmentType((byte)data[dataOffset++]);
+}
+myForcedControlEntry=entry;
 }
 }
 ++myCounter;

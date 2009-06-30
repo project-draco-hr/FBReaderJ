@@ -23,32 +23,10 @@ addImageReference(fromNumber(twoBytes(ptr,cur + 1)),(short)0);
 break;
 case 0x22:
 if (!myParagraphStarted) {
-if (myForcedEntry == null) {
-myForcedEntry=new ZLTextForcedControlEntry();
-}
-myForcedEntry.setLeftIndent((short)ptr[cur + 1]);
-myForcedEntry.setRightIndent((short)ptr[cur + 2]);
 }
 break;
 case 0x29:
 if (!myParagraphStarted) {
-if (myForcedEntry == null) {
-myForcedEntry=new ZLTextForcedControlEntry();
-}
-switch (ptr[cur + 1]) {
-case 0:
-myForcedEntry.setAlignmentType(ZLTextAlignmentType.ALIGN_LEFT);
-break;
-case 1:
-myForcedEntry.setAlignmentType(ZLTextAlignmentType.ALIGN_RIGHT);
-break;
-case 2:
-myForcedEntry.setAlignmentType(ZLTextAlignmentType.ALIGN_CENTER);
-break;
-case 3:
-myForcedEntry.setAlignmentType(ZLTextAlignmentType.ALIGN_JUSTIFY);
-break;
-}
 }
 break;
 case 0x33:

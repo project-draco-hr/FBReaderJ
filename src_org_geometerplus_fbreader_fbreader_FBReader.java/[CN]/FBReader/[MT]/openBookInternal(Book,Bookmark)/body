@@ -16,7 +16,7 @@
       BookTextView.setModel(Model.BookTextModel);
       BookTextView.gotoPosition(book.getStoredPosition());
       if (bookmark == null) {
-        setMode(ViewMode.BOOK_TEXT);
+        setView(BookTextView);
       }
  else {
         gotoBookmark(bookmark);

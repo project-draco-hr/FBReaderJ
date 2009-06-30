@@ -1,0 +1,11 @@
+{
+  final int len=id.length();
+  final char[] block=getDataBlock(3 + len);
+  ++myParagraphLengths[myParagraphsNumber - 1];
+  int blockOffset=myBlockOffset;
+  block[blockOffset++]=(char)ZLTextParagraph.Entry.IMAGE;
+  block[blockOffset++]=(char)vOffset;
+  block[blockOffset++]=(char)len;
+  id.getChars(0,len,block,blockOffset);
+  myBlockOffset=blockOffset + len;
+}

@@ -1,0 +1,6 @@
+{
+  final TabHost host=getTabHost();
+  final String label=myResource.getResource(tag).getValue();
+  host.addTab(host.newTabSpec(tag).setIndicator(label,getResources().getDrawable(iconId)).setContent(viewId));
+  return (ListView)findViewById(viewId);
+}

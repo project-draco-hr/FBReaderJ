@@ -1,0 +1,6 @@
+{
+  super(view,tree);
+  myLibraryTree=tree;
+  myType=type;
+  selectItem(findFirstSelectedItem());
+}
