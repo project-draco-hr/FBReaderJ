@@ -17,6 +17,5 @@
     myInBufferLength-=code >> 16;
     myOutBufferOffset=0;
     myOutBufferLength=code & 0x0FFFF;
-    System.err.println(myInBufferLength + ":" + myOutBufferLength+ ":"+ myAvailable);
   }
 }

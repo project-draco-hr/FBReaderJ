@@ -7,5 +7,5 @@
   myInBufferLength=0;
   myOutBufferOffset=OUT_BUFFER_SIZE;
   myOutBufferLength=0;
-  System.err.println(startInflating());
+  startInflating();
 }
