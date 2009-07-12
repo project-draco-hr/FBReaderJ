@@ -1,5 +1,5 @@
 {
-  if (position == null) {
+  if ((position == null) || (myMarks == null)) {
     return null;
   }
   ZLTextMark mark=null;

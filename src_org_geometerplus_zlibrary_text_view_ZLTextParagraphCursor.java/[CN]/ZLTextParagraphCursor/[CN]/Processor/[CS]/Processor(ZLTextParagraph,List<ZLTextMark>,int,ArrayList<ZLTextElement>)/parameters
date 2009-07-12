@@ -1,4 +1,4 @@
 ZLTextParagraph paragraph
-ArrayList marks
+List<ZLTextMark> marks
 int paragraphIndex
 ArrayList<ZLTextElement> elements

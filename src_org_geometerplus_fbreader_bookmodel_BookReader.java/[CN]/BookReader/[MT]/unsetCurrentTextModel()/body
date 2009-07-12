@@ -1,3 +1,6 @@
 {
+  if (myCurrentTextModel != null) {
+    myCurrentTextModel.stopReading();
+  }
   myCurrentTextModel=null;
 }

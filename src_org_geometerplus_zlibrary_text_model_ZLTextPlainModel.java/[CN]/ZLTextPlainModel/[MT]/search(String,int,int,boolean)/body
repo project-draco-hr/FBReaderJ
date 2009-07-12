@@ -1,7 +1,7 @@
 {
   int count=0;
   ZLSearchPattern pattern=new ZLSearchPattern(text,ignoreCase);
-  myMarks.clear();
+  myMarks=new ArrayList<ZLTextMark>();
   if (startIndex > myParagraphsNumber) {
     startIndex=myParagraphsNumber;
   }
