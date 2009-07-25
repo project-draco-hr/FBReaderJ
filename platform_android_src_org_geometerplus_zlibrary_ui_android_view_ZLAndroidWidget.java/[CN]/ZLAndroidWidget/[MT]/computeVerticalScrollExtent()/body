@@ -1,5 +1,8 @@
 {
   final ZLView view=ZLApplication.Instance().getCurrentView();
+  if (!view.showScrollbar()) {
+    return 0;
+  }
   if (myScrollingInProgress || (myScrollingShift != 0)) {
     final int from=view.getScrollbarThumbLength(ZLView.PAGE_CENTRAL);
     final int to=view.getScrollbarThumbLength(myViewPageToScroll);

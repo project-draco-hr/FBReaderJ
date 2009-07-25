@@ -1,0 +1,11 @@
+{
+  super(context,rootResource,resourceKey);
+  myReader=(FBReader)FBReader.Instance();
+  final String[] names=new String[myCodes.length];
+  final ZLResource r=rootResource.getResource(resourceKey);
+  for (int i=0; i < myCodes.length; ++i) {
+    names[i]=r.getResource(myCodes[i]).getValue();
+  }
+  setLists(myCodes,names);
+  setInitialValue(myCodes[Math.max(0,Math.min(myCodes.length - 1,myReader.ScrollbarTypeOption.getValue()))]);
+}

@@ -4,7 +4,7 @@
   }
   ZLTextPage page=getPage(viewPage);
   preparePaintInfo(page);
-  int start=sizeOfTextBeforeCursor(page.StartCursor);
+  int start=(scrollbarType() == SCROLLBAR_SHOW_AS_PROGRESS) ? 0 : sizeOfTextBeforeCursor(page.StartCursor);
   if (start == -1) {
     start=0;
   }

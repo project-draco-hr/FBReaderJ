@@ -1,0 +1,11 @@
+{
+  final String value=getValue();
+  int intValue=0;
+  for (int i=0; i < myCodes.length; ++i) {
+    if (value == myCodes[i]) {
+      intValue=i;
+      break;
+    }
+  }
+  myReader.ScrollbarTypeOption.setValue(intValue);
+}

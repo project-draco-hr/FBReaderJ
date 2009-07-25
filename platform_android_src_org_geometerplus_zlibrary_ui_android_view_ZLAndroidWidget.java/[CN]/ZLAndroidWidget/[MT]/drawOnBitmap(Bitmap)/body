@@ -19,7 +19,7 @@
   context.beginPaint(canvas);
   final int rotation=myViewWidget.getRotation();
   context.setRotation(rotation);
-  final int scrollbarWidth=getVerticalScrollbarWidth();
+  final int scrollbarWidth=view.showScrollbar() ? getVerticalScrollbarWidth() : 0;
 switch (rotation) {
 case ZLViewWidget.Angle.DEGREES0:
     context.setSize(w,h,scrollbarWidth);
