@@ -1,8 +1,8 @@
 {
   final String value=getValue();
   int intValue=0;
-  for (int i=0; i < myCodes.length; ++i) {
-    if (value == myCodes[i]) {
+  for (int i=0; i < ourCodes.length; ++i) {
+    if (value == ourCodes[i]) {
       intValue=i;
       break;
     }
