@@ -1,0 +1,5 @@
+{
+  final ZLFile file=ZLFile.createFileByPath(filePath);
+  myLocalPathPrefix=MiscUtil.archiveEntryName(MiscUtil.htmlDirectoryPrefix(file));
+  return read(file);
+}

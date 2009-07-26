@@ -26,7 +26,7 @@ myReadState=READ_LABEL;
  else if (tag == TAG_CONTENT) {
 final int size=myPointStack.size();
 if (size > 0) {
-myPointStack.get(size - 1).ContentHRef=attributes.getValue("src");
+myPointStack.get(size - 1).ContentHRef=myLocalPathPrefix + attributes.getValue("src");
 }
 }
 break;

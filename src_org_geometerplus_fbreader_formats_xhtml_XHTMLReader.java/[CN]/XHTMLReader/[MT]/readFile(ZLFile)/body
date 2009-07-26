@@ -1,0 +1,10 @@
+{
+  fillTagTable();
+  myReferenceName=MiscUtil.archiveEntryName(file.getPath());
+  myModelReader.addHyperlinkLabel(myReferenceName);
+  myPathPrefix=MiscUtil.htmlDirectoryPrefix(file);
+  myLocalPathPrefix=MiscUtil.archiveEntryName(myPathPrefix);
+  myPreformatted=false;
+  myInsideBody=false;
+  return read(file);
+}

@@ -1,0 +1,3 @@
+{
+  setLineBreaksForString(data,myLanguage,breaks);
+}

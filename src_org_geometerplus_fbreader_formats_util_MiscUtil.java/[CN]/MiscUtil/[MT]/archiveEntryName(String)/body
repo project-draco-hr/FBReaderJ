@@ -1,0 +1,4 @@
+{
+  final int index=fullPath.lastIndexOf(':');
+  return (index >= 2) ? fullPath.substring(index + 1) : fullPath;
+}
