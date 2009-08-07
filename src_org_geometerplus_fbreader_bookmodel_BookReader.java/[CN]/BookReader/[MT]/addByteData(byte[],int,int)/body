@@ -2,6 +2,7 @@
   if (!myTextParagraphExists || (length == 0)) {
     return;
   }
+  myTextParagraphIsNonEmpty=true;
   final int oldLength=myTextBufferLength;
   if (myTextBuffer.length < oldLength + length) {
     myTextBuffer=ZLArrayUtils.createCopy(myTextBuffer,oldLength,oldLength + length);

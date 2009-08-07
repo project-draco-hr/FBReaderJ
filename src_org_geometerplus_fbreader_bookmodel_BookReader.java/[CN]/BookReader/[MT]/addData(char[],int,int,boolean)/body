@@ -1,7 +1,8 @@
 {
-  if (!myTextParagraphExists) {
+  if (!myTextParagraphExists || (length == 0)) {
     return;
   }
+  myTextParagraphIsNonEmpty=true;
   if (direct && (myTextBufferLength == 0) && !myInsideTitle) {
     myCurrentTextModel.addText(data,offset,length);
   }
