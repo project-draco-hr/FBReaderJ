@@ -1,4 +1,4 @@
 {
   Bitmap bitmap=((ZLAndroidImageData)imageData).getBitmap(myWidth,myHeight);
-  return (bitmap != null) ? bitmap.getWidth() : 0;
+  return ((bitmap != null) && !bitmap.isRecycled()) ? bitmap.getWidth() : 0;
 }
