@@ -28,7 +28,7 @@
       finish();
       return;
     }
-    myFileName=path.get(path.size() - 1);
+    myFileName=getFileName(path);
     final File fileFile=new File(dirFile,myFileName);
     if (fileFile.exists()) {
       if (!fileFile.isFile()) {

@@ -1,0 +1,5 @@
+{
+  final String fileName=path.get(path.size() - 1).toLowerCase();
+  final int index=fileName.indexOf('?');
+  return (index >= 0) ? fileName.substring(0,index) : fileName;
+}
