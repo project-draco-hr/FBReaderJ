@@ -6,7 +6,7 @@
       if (!navigationMap.isEmpty()) {
         int level=0;
         for (        NCXReader.NavPoint point : navigationMap.values()) {
-          final BookModel.Label label=myModelReader.Model.getLabel(point.ContentHRef);
+          final BookModel.Label label=getTOCLabel(point.ContentHRef);
           int index=(label != null) ? label.ParagraphIndex : -1;
           while (level > point.Level) {
             myModelReader.endContentsParagraph();
@@ -28,7 +28,7 @@
     }
   }
   for (  Reference ref : myTourTOC.isEmpty() ? myGuideTOC : myTourTOC) {
-    final BookModel.Label label=myModelReader.Model.getLabel(ref.HRef);
+    final BookModel.Label label=getTOCLabel(ref.HRef);
     if (label != null) {
       final int index=label.ParagraphIndex;
       if (index != -1) {

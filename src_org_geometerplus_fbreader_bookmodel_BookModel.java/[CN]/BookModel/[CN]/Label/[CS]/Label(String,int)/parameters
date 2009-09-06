@@ -1,2 +1,2 @@
-ZLTextModel model
+String modelId
 int paragraphIndex

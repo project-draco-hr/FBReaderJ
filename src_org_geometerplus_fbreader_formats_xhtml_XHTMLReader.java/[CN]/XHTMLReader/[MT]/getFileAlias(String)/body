@@ -1,0 +1,8 @@
+{
+  Integer num=myFileNumbers.get(fileName);
+  if (num == null) {
+    num=myFileNumbers.size();
+    myFileNumbers.put(fileName,num);
+  }
+  return num.toString();
+}

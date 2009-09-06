@@ -1,0 +1,16 @@
+{
+  final int index=id.indexOf('#');
+  final String path=(index >= 0) ? id.substring(0,index) : id;
+  Integer num=myFileNumbers.get(path);
+  if (num == null) {
+    return null;
+  }
+  if (index == -1) {
+    final Integer para=myTOCLabels.get(num.toString());
+    if (para == null) {
+      return null;
+    }
+    return new BookModel.Label(null,para);
+  }
+  return myModelReader.Model.getLabel(num + id.substring(index));
+}

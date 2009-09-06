@@ -1,7 +1,7 @@
 {
   String id=attributes.getValue("id");
   if (id != null) {
-    myModelReader.addHyperlinkLabel(myReferenceName + '#' + id);
+    myModelReader.addHyperlinkLabel(myReferencePrefix + id);
   }
   XHTMLTagAction action=(XHTMLTagAction)ourTagActions.get(tag.toLowerCase());
   if (action != null) {

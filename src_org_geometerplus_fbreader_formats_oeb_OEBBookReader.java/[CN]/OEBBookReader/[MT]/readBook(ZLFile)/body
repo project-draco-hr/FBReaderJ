@@ -12,7 +12,12 @@
   myModelReader.setMainTextModel();
   myModelReader.pushKind(FBTextKind.REGULAR);
   for (  String name : myHtmlFileNames) {
-    new XHTMLReader(myModelReader).readFile(ZLFile.createFileByPath(myFilePrefix + name));
+    final ZLFile xhtmlFile=ZLFile.createFileByPath(myFilePrefix + name);
+    final XHTMLReader reader=new XHTMLReader(myModelReader,myFileNumbers);
+    final String referenceName=reader.getFileAlias(MiscUtil.archiveEntryName(xhtmlFile.getPath()));
+    myModelReader.addHyperlinkLabel(referenceName);
+    myTOCLabels.put(referenceName,myModelReader.Model.BookTextModel.getParagraphsNumber());
+    reader.readFile(xhtmlFile,referenceName + '#');
     myModelReader.insertEndOfSectionParagraph();
   }
   generateTOC();
