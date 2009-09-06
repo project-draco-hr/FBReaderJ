@@ -1,5 +1,5 @@
 {
-  if ((myModel == null) || (myTextSize == null) || (myTextSize.length == 0)) {
+  if ((myModel == null) || (myModel.getParagraphsNumber() == 0)) {
     return 0;
   }
   if (scrollbarType() == SCROLLBAR_SHOW_AS_PROGRESS) {

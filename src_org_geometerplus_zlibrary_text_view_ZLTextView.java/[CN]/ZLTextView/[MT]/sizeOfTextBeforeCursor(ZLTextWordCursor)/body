@@ -8,10 +8,10 @@
     return -1;
   }
   final int paragraphIndex=paragraphCursor.Index;
-  int sizeOfText=myTextSize[paragraphIndex];
+  int sizeOfText=myModel.getTextLength(paragraphIndex - 1);
   final int paragraphLength=paragraphCursor.getParagraphLength();
   if (paragraphLength > 0) {
-    sizeOfText+=(myTextSize[paragraphIndex + 1] - sizeOfText) * cursor.getElementIndex() / paragraphLength;
+    sizeOfText+=(myModel.getTextLength(paragraphIndex) - sizeOfText) * cursor.getElementIndex() / paragraphLength;
   }
   return sizeOfText;
 }

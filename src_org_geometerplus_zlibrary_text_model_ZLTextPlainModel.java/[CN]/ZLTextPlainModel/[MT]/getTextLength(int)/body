@@ -1,0 +1,3 @@
+{
+  return myTextSizes[index];
+}

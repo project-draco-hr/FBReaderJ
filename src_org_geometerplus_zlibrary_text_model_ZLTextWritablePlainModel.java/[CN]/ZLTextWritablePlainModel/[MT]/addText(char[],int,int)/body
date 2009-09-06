@@ -7,4 +7,5 @@
   block[blockOffset++]=(char)length;
   System.arraycopy(text,offset,block,blockOffset,length);
   myBlockOffset=blockOffset + length;
+  myTextSizes[myParagraphsNumber - 1]+=length;
 }

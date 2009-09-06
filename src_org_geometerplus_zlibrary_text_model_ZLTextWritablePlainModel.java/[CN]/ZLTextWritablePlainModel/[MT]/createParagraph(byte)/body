@@ -1,5 +1,8 @@
 {
   final int index=myParagraphsNumber++;
+  if (index > 0) {
+    myTextSizes[index]=myTextSizes[index - 1];
+  }
   int[] startEntryIndices=myStartEntryIndices;
   if (index == startEntryIndices.length) {
     extend();

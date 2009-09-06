@@ -1,5 +1,5 @@
 {
-  if ((myModel == null) || (myTextSize == null) || (myTextSize.length == 0)) {
+  if ((myModel == null) || (myModel.getParagraphsNumber() == 0)) {
     return 0;
   }
   ZLTextPage page=getPage(viewPage);
@@ -10,7 +10,7 @@
   }
   int end=sizeOfTextBeforeCursor(page.EndCursor);
   if (end == -1) {
-    end=myTextSize[myTextSize.length - 1];
+    end=myModel.getTextLength(myModel.getParagraphsNumber() - 1) - 1;
   }
   return Math.max(1,end - start);
 }

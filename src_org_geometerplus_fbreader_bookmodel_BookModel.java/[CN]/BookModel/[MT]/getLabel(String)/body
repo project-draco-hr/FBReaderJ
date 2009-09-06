@@ -1,5 +1,4 @@
 {
-  System.err.println("searching label for " + id);
   final int len=id.length();
   final int size=myInternalHyperlinks.size();
   for (int i=0; i < size; ++i) {

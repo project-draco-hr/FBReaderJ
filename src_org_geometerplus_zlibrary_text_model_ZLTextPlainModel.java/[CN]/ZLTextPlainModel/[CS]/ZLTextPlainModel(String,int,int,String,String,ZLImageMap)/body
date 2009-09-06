@@ -3,6 +3,7 @@
   myStartEntryIndices=new int[arraySize];
   myStartEntryOffsets=new int[arraySize];
   myParagraphLengths=new int[arraySize];
+  myTextSizes=new int[arraySize];
   myParagraphKinds=new byte[arraySize];
   myStorage=new CachedCharStorage(dataBlockSize,directoryName,extension);
   myImageMap=imageMap;
