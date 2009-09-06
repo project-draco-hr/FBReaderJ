@@ -1,0 +1,8 @@
+{
+  try {
+    return getPackageManager().getPackageInfo(getPackageName(),0).versionName;
+  }
+ catch (  Exception e) {
+    return "";
+  }
+}
