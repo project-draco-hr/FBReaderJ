@@ -1,6 +1,3 @@
 {
-  if (ourExternalDTDs.isEmpty()) {
-    ourExternalDTDs.add("data/formats/fb2/FBReaderVersion.ent");
-  }
-  return ourExternalDTDs;
+  return Collections.emptyList();
 }
