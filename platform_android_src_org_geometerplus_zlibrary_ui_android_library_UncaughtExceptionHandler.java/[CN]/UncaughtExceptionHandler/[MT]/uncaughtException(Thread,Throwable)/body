@@ -1,6 +1,7 @@
 {
   StringWriter stackTrace=new StringWriter();
   exception.printStackTrace(new PrintWriter(stackTrace));
+  System.err.println(stackTrace);
   Intent intent=new Intent(myContext,BugReportActivity.class);
   intent.putExtra(BugReportActivity.STACKTRACE,stackTrace.toString());
   myContext.startActivity(intent);
