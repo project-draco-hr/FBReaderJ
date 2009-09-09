@@ -1,7 +1,7 @@
 {
   try {
     decode();
-    final File file=new File(DIRECTORY_NAME + "/dimage" + myFileNumber);
+    final File file=new File(Constants.CACHE_DIRECTORY + "/dimage" + myFileNumber);
     final byte[] data=new byte[(int)file.length()];
     final FileInputStream stream=new FileInputStream(file);
     stream.read(data);

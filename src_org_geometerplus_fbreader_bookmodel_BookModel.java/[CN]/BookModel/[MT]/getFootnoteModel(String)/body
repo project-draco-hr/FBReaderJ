@@ -1,7 +1,7 @@
 {
   ZLTextModel model=myFootnotes.get(id);
   if (model == null) {
-    model=new ZLTextWritablePlainModel(id,8,512,CacheDirectory,"cache" + myFootnotes.size(),myImageMap);
+    model=new ZLTextWritablePlainModel(id,8,512,Constants.CACHE_DIRECTORY,"cache" + myFootnotes.size(),myImageMap);
     myFootnotes.put(id,model);
   }
   return model;

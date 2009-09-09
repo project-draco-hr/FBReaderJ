@@ -6,8 +6,8 @@
   int dataLength;
   byte[] encodedData;
   FileOutputStream outputStream;
-  final File file=new File(DIRECTORY_NAME + "/image" + myFileNumber);
-  outputStream=new FileOutputStream(DIRECTORY_NAME + "/dimage" + myFileNumber);
+  final File file=new File(Constants.CACHE_DIRECTORY + "/image" + myFileNumber);
+  outputStream=new FileOutputStream(Constants.CACHE_DIRECTORY + "/dimage" + myFileNumber);
   dataLength=(int)file.length();
   final FileInputStream inputStream=new FileInputStream(file);
   encodedData=new byte[dataLength];
