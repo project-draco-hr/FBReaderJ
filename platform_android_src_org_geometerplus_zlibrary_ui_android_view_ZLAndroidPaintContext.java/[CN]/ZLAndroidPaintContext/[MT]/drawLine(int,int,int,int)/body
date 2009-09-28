@@ -1,12 +1,4 @@
 {
-  if (myReversedX) {
-    ++x0;
-    ++x1;
-  }
-  if (myReversedY) {
-    ++y0;
-    ++y1;
-  }
   final Canvas canvas=myCanvas;
   final Paint paint=myLinePaint;
   paint.setAntiAlias(false);

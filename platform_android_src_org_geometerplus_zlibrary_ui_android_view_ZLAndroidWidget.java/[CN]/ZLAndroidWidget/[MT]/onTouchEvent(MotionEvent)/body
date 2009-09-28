@@ -1,35 +1,11 @@
 {
   int x=(int)event.getX();
   int y=(int)event.getY();
-switch (myViewWidget.getRotation()) {
-case ZLViewWidget.Angle.DEGREES0:
-    break;
-case ZLViewWidget.Angle.DEGREES90:
-{
-    int swap=x;
-    x=getHeight() - y - 1;
-    y=swap;
-    break;
-  }
-case ZLViewWidget.Angle.DEGREES180:
-{
-  x=getWidth() - x - 1;
-  y=getHeight() - y - 1;
-  break;
-}
-case ZLViewWidget.Angle.DEGREES270:
-{
-int swap=getWidth() - x - 1;
-x=y;
-y=swap;
-break;
-}
-}
-final ZLView view=ZLApplication.Instance().getCurrentView();
+  final ZLView view=ZLApplication.Instance().getCurrentView();
 switch (event.getAction()) {
 case MotionEvent.ACTION_UP:
-view.onStylusRelease(x,y);
-myScreenIsTouched=false;
+    view.onStylusRelease(x,y);
+  myScreenIsTouched=false;
 break;
 case MotionEvent.ACTION_DOWN:
 view.onStylusPress(x,y);

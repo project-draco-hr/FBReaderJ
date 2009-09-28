@@ -1,4 +1,0 @@
-{
-  ZLAndroidViewWidget viewWidget=new ZLAndroidViewWidget(getApplication().AngleStateOption.getValue());
-  return viewWidget;
-}

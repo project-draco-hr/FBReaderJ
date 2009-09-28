@@ -1,0 +1,6 @@
+{
+  if (myViewWidget == null) {
+    myViewWidget=new ZLAndroidViewWidget();
+  }
+  return myViewWidget;
+}
