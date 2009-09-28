@@ -1,0 +1,3 @@
+{
+  getViewWidget().scrollTo(viewPage,shift);
+}

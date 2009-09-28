@@ -29,7 +29,7 @@ synchronized (this) {
           startAutoScrolling(viewPage);
         }
  else {
-          scrollTo(PAGE_CENTRAL,0);
+          ZLApplication.Instance().scrollViewTo(PAGE_CENTRAL,0);
           onScrollingFinished(viewPage);
           ZLApplication.Instance().repaintView();
           setScrollingActive(false);

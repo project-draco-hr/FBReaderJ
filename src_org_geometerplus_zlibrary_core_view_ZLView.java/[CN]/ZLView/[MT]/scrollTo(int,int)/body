@@ -1,6 +1,0 @@
-{
-  ZLViewWidget viewWidget=ZLApplication.Instance().getViewWidget();
-  if (viewWidget != null) {
-    viewWidget.scrollTo(viewPage,shift);
-  }
-}
