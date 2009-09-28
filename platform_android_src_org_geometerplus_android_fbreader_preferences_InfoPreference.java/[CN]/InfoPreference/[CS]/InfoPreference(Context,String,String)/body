@@ -1,0 +1,6 @@
+{
+  super(context);
+  setTitle(title);
+  setSummary(value);
+  setEnabled(false);
+}
