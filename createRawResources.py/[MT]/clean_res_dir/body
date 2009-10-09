@@ -1,0 +1,6 @@
+def clean_res_dir(dir):
+    if os.path.exists(dir):
+        for file in os.listdir(dir):
+            os.remove(((dir + os.sep) + file))
+        os.rmdir(dir)
+    os.mkdir(dir)
