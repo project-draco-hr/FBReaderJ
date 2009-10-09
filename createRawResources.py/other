@@ -6,7 +6,6 @@ menu_icons_dir = 'icons/menu'
 tabs_icons_dir = 'icons/tabs'
 text_search_icons_dir = 'icons/text_search'
 data_dir = 'data'
-print os.getcwd()
 clean_res_dir(raw_res_dir)
 clean_res_dir(drawable_res_dir)
 process_data_dir('data__', data_dir, raw_res_dir)
