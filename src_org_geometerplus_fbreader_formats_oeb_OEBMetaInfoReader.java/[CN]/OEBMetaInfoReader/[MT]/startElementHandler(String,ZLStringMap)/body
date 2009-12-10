@@ -23,6 +23,19 @@
  else     if (tag == myLanguageTag) {
       myReadState=READ_LANGUAGE;
     }
+ else     if (tag == myMetaTag) {
+      if (attributes.getValue("name").equals("calibre:series")) {
+        mySeriesTitle=attributes.getValue("content");
+      }
+ else       if (attributes.getValue("name").equals("calibre:series_index")) {
+        final String strIndex=attributes.getValue("content");
+        try {
+          mySeriesIndex=Integer.parseInt(strIndex);
+        }
+ catch (        NumberFormatException e) {
+        }
+      }
+    }
   }
   return false;
 }
