@@ -1,0 +1,3 @@
+{
+  return CatalogType.OTHER;
+}
