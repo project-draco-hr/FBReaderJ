@@ -1,0 +1,6 @@
+{
+  if (myUpdateChildren) {
+    myUpdateChildren=false;
+    makeUpToDate();
+  }
+}

@@ -1,0 +1,52 @@
+{
+  final List<FBTree> toRemove=new LinkedList<FBTree>();
+  Iterator<FBTree> nodeIterator=myRootTree.iterator();
+  FBTree currentNode=null;
+  int nodeCount=0;
+  for (int i=0; i < myLinks.size(); ++i) {
+    NetworkLink link=myLinks.get(i);
+    if (!link.OnOption.getValue()) {
+      continue;
+    }
+    boolean processed=false;
+    while (currentNode != null || nodeIterator.hasNext()) {
+      if (currentNode == null) {
+        currentNode=nodeIterator.next();
+      }
+      if (!(currentNode instanceof NetworkCatalogTree)) {
+        currentNode=null;
+        continue;
+      }
+      final NetworkLink nodeLink=((NetworkCatalogTree)currentNode).Item.Link;
+      if (nodeLink == link) {
+        currentNode=null;
+        ++nodeCount;
+        processed=true;
+        break;
+      }
+ else {
+        boolean found=false;
+        for (int j=i + 1; j < myLinks.size(); ++j) {
+          if (nodeLink == myLinks.get(j)) {
+            found=true;
+            break;
+          }
+        }
+        if (!found) {
+          toRemove.add(currentNode);
+          currentNode=null;
+          ++nodeCount;
+        }
+ else {
+          break;
+        }
+      }
+    }
+    if (!processed) {
+      NetworkCatalogRootTree ptr=new NetworkCatalogRootTree(myRootTree,link,nodeCount++);
+    }
+  }
+  for (  FBTree tree : toRemove) {
+    tree.removeSelf();
+  }
+}
