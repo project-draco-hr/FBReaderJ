@@ -2,7 +2,7 @@
   if (myChildrenString == null) {
     StringBuilder builder=new StringBuilder();
     int count=0;
-    for (    LibraryTree subtree : subTrees()) {
+    for (    FBTree subtree : subTrees()) {
       if (count++ > 0) {
         builder.append(",  ");
       }
