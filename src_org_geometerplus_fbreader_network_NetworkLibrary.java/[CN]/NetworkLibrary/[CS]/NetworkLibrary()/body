@@ -1,14 +1,2 @@
 {
-  myLinks.add(new NetworkLink("feedbooks.com"){
-    public NetworkLibraryItem libraryItem(){
-      return new DummyCatalogItem(this,"Feedbooks catalog","feedbooks online catalog");
-    }
-  }
-);
-  myLinks.add(new NetworkLink("litres.ru"){
-    public NetworkLibraryItem libraryItem(){
-      return new DummyCatalogItem(this,"Litres catalog","litres online catalog");
-    }
-  }
-);
 }

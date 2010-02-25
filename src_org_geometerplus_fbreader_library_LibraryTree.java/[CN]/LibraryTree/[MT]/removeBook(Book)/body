@@ -12,7 +12,7 @@
       parent.removeSelf();
     }
     for (; parent != null; parent=parent.Parent) {
-      ((LibraryTree)parent).myChildrenString=null;
+      ((LibraryTree)parent).invalidateChildren();
     }
   }
   return !toRemove.isEmpty();

@@ -1,0 +1,7 @@
+{
+  int key=SortKey.compareTo(data.SortKey);
+  if (key != 0) {
+    return key;
+  }
+  return DisplayName.compareTo(data.DisplayName);
+}

@@ -1,0 +1,5 @@
+{
+  super(parent);
+  myTitle=seriesTitle;
+  myShowAuthors=showAuthors;
+}

@@ -1,0 +1,7 @@
+{
+  if (o == null || !(o instanceof AuthorData)) {
+    return false;
+  }
+  AuthorData data=(AuthorData)o;
+  return SortKey == data.SortKey && DisplayName == data.DisplayName;
+}

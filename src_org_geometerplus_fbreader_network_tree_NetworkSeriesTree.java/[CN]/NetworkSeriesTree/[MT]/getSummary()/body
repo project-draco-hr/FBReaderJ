@@ -1,0 +1,27 @@
+{
+  if (!myShowAuthors) {
+    return super.getSecondString();
+  }
+  StringBuilder builder=new StringBuilder();
+  int count=0;
+  Set<NetworkBookItem.AuthorData> authorSet=new TreeSet<NetworkBookItem.AuthorData>();
+  for (  FBTree tree : this) {
+    if (!(tree instanceof NetworkBookTree)) {
+      continue;
+    }
+    final NetworkBookItem book=(NetworkBookItem)((NetworkBookTree)tree).Book;
+    for (    NetworkBookItem.AuthorData author : book.Authors) {
+      if (!authorSet.contains(author)) {
+        authorSet.add(author);
+        if (count++ > 0) {
+          builder.append(",  ");
+        }
+        builder.append(author.DisplayName);
+        if (count == 5) {
+          return builder.toString();
+        }
+      }
+    }
+  }
+  return builder.toString();
+}

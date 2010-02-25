@@ -1,0 +1,16 @@
+{
+  StringBuilder builder=new StringBuilder();
+  int count=0;
+  for (  NetworkBookItem.AuthorData author : Book.Authors) {
+    if (count++ > 0) {
+      builder.append(",  ");
+    }
+    builder.append(author.DisplayName);
+  }
+  String authorsString=builder.toString();
+  FBTree parent=this.Parent;
+  if (parent.getName().equals(authorsString)) {
+    return "";
+  }
+  return authorsString;
+}

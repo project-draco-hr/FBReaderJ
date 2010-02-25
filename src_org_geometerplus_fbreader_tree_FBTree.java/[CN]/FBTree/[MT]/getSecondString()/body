@@ -1,0 +1,6 @@
+{
+  if (myChildrenString == null) {
+    myChildrenString=getSummary();
+  }
+  return myChildrenString;
+}
