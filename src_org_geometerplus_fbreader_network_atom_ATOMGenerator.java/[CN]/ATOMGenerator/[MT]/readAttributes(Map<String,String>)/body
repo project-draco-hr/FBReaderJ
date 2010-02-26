@@ -1,0 +1,5 @@
+{
+  super.readAttributes(source);
+  readAttribute(URI,source);
+  readAttribute(VERSION,source);
+}

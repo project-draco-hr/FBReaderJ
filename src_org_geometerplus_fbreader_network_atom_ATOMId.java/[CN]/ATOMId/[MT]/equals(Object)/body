@@ -1,0 +1,7 @@
+{
+  if (o == null || !(o instanceof ATOMId)) {
+    return false;
+  }
+  ATOMId id=(ATOMId)o;
+  return Uri.equals(id.Uri);
+}

@@ -1,0 +1,7 @@
+int year
+int month
+int day
+int hour
+int minutes
+int seconds
+float sfract
