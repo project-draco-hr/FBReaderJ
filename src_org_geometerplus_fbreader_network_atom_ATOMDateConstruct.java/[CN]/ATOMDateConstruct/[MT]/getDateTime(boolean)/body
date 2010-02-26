@@ -1,0 +1,84 @@
+{
+  StringBuilder timezone=new StringBuilder("Z");
+  if (TZMinutes != 0 || TZHour != 0) {
+    int tzminnum=TZMinutes;
+    int tzhournum=TZHour;
+    char sign;
+    if (tzhournum == 0) {
+      sign=(tzminnum >= 0) ? '+' : '-';
+    }
+ else {
+      sign=(tzhournum > 0) ? '+' : '-';
+      if (tzhournum > 0 && tzminnum < 0) {
+        --tzhournum;
+        tzminnum=60 + tzminnum;
+      }
+ else       if (tzhournum < 0 && tzminnum > 0) {
+        ++tzhournum;
+        tzminnum=60 - tzminnum;
+      }
+    }
+    String tzmin=String.valueOf(tzminnum < 0 ? -tzminnum : tzminnum);
+    String tzhour=String.valueOf(tzhournum < 0 ? -tzhournum : tzhournum);
+    timezone.append(sign);
+    appendChars(timezone,'0',2 - tzhour.length());
+    timezone.append(tzhour);
+    timezone.append(':');
+    appendChars(timezone,'0',2 - tzmin.length());
+    timezone.append(tzmin);
+  }
+  StringBuilder time=new StringBuilder();
+  StringBuilder temp=new StringBuilder();
+  if (SecondFraction >= 0.01f) {
+    int sfrnum=Math.round(100 * SecondFraction);
+    String sfr=String.valueOf(sfrnum);
+    time.append('.');
+    appendChars(time,'0',2 - sfr.length());
+    time.append(sfr);
+  }
+  if (!brief || time.length() != 0 || Seconds != 0) {
+    String sec=String.valueOf(Seconds);
+    temp.append(':');
+    appendChars(temp,'0',2 - sec.length());
+    temp.append(sec);
+    time.insert(0,temp.toString());
+    temp.delete(0,temp.length());
+  }
+  if (!brief || time.length() != 0 || Hour != 0 || Minutes != 0 || timezone.length() > 1) {
+    String hour=String.valueOf(Hour);
+    String min=String.valueOf(Minutes);
+    appendChars(temp,'0',2 - hour.length());
+    temp.append(hour);
+    temp.append(':');
+    appendChars(temp,'0',2 - min.length());
+    temp.append(min);
+    time.insert(0,temp.toString());
+    temp.delete(0,temp.length());
+  }
+  StringBuilder date=new StringBuilder();
+  if (!brief || time.length() != 0 || Day != 0) {
+    String day=String.valueOf(Day);
+    date.append('-');
+    appendChars(date,'0',2 - day.length());
+    date.append(day);
+  }
+  if (!brief || date.length() != 0 || Month != 0) {
+    String month=String.valueOf(Month);
+    temp.append('-');
+    appendChars(temp,'0',2 - month.length());
+    temp.append(month);
+    date.insert(0,temp.toString());
+    temp.delete(0,temp.length());
+  }
+  String year=String.valueOf(Year);
+  appendChars(temp,'0',4 - year.length());
+  temp.append(year);
+  date.insert(0,temp.toString());
+  temp.delete(0,temp.length());
+  if (!brief || time.length() != 0) {
+    date.append('T');
+    date.append(time.toString());
+    date.append(timezone.toString());
+  }
+  return date.toString();
+}

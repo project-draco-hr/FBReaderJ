@@ -1,0 +1,11 @@
+{
+  Year=year;
+  Month=month;
+  Day=day;
+  Hour=hour;
+  Minutes=minutes;
+  Seconds=seconds;
+  TZHour=tzhour;
+  TZMinutes=tzminutes;
+  SecondFraction=sfract;
+}

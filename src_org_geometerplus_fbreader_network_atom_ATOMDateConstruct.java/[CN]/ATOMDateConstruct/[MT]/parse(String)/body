@@ -1,0 +1,130 @@
+{
+  int year=0;
+  int month=0;
+  int day=0;
+  int hour=0;
+  int minutes=0;
+  int seconds=0;
+  float secondFraction=0.0f;
+  int tzHour=0;
+  int tzMinutes=0;
+  final int len=str.length();
+  if (len != 4 && len != 7 && len != 10 && len != 17 && len != 20 && len < 22) {
+    return null;
+  }
+  int num=0, sign=1;
+  float fnum=0.0f, fmult=0.1f;
+  int start, end, log;
+  char ch;
+  end=4;
+  start=0;
+  log=0;
+  while (start < len) {
+    ch=str.charAt(start++);
+    if (!Character.isDigit(ch)) {
+      return null;
+    }
+    num=10 * num + ((int)(ch - '0'));
+    fnum+=fmult * ((int)(ch - '0'));
+    fmult*=0.1f;
+    if (start == end) {
+switch (log) {
+case 0:
+        year=num;
+      break;
+case 1:
+    month=num;
+  break;
+case 2:
+day=num;
+break;
+case 3:
+hour=num;
+break;
+case 4:
+minutes=num;
+break;
+case 5:
+seconds=num;
+break;
+case 6:
+secondFraction=fnum;
+break;
+case 7:
+tzHour=sign * num;
+break;
+case 8:
+tzMinutes=sign * num;
+break;
+default :
+return null;
+}
+num=0;
+fnum=0.0f;
+fmult=0.1f;
+if (start == len) return new ATOMDateConstruct(year,month,day,hour,minutes,seconds,secondFraction,tzHour,tzMinutes);
+switch (log) {
+case 0:
+case 1:
+if (str.charAt(start++) != '-') return null;
+end=start + 2;
+break;
+case 2:
+if (str.charAt(start++) != 'T') return null;
+end=start + 2;
+break;
+case 3:
+case 7:
+if (str.charAt(start++) != ':') return null;
+end=start + 2;
+break;
+case 4:
+ch=str.charAt(start++);
+if (ch == ':') {
+end=start + 2;
+}
+ else if (ch == '+' || ch == '-') {
+sign=(ch == '-') ? -1 : 1;
+log+=2;
+end=start + 2;
+}
+ else if (ch == 'Z') {
+return new ATOMDateConstruct(year,month,day,hour,minutes,seconds,secondFraction,tzHour,tzMinutes);
+}
+ else return null;
+break;
+case 5:
+ch=str.charAt(start++);
+if (ch == '.') {
+end=start;
+while (Character.isDigit(str.charAt(++end))) ;
+}
+ else if (ch == '+' || ch == '-') {
+sign=(ch == '-') ? -1 : 1;
+log+=1;
+end=start + 2;
+}
+ else if (ch == 'Z') {
+return new ATOMDateConstruct(year,month,day,hour,minutes,seconds,secondFraction,tzHour,tzMinutes);
+}
+ else return null;
+break;
+case 6:
+ch=str.charAt(start++);
+if (ch == '+' || ch == '-') {
+sign=(ch == '-') ? -1 : 1;
+end=start + 2;
+}
+ else if (ch == 'Z') {
+return new ATOMDateConstruct(year,month,day,hour,minutes,seconds,secondFraction,tzHour,tzMinutes);
+}
+ else return null;
+break;
+default :
+return null;
+}
+++log;
+}
+}
+return null;
+}

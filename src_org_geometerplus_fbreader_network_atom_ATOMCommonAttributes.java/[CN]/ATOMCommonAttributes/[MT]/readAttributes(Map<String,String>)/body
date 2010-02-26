@@ -1,0 +1,4 @@
+{
+  readAttribute(XML_BASE,source);
+  readAttribute(XML_LANG,source);
+}
