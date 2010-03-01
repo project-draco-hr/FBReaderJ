@@ -1,0 +1,6 @@
+{
+  if (myAttributes == null) {
+    return null;
+  }
+  return myAttributes.get(name);
+}

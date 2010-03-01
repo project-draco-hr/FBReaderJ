@@ -1,3 +1,3 @@
 {
-  return Attributes.get(HREF);
+  return getAttribute(HREF);
 }

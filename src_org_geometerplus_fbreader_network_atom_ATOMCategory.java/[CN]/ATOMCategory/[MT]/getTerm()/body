@@ -1,3 +1,3 @@
 {
-  return Attributes.get(TERM);
+  return getAttribute(TERM);
 }

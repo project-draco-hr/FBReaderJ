@@ -11,7 +11,7 @@
       index-=subtree.mySize;
     }
  else {
-      return (T)subtree.getTree(index);
+      return (T)subtree.getTreeByParagraphNumber(index);
     }
   }
   throw new RuntimeException("That's impossible!!!");

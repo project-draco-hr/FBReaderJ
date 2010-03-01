@@ -1,3 +1,3 @@
 {
-  return Attributes.get(HREFLANG);
+  return getAttribute(HREFLANG);
 }
