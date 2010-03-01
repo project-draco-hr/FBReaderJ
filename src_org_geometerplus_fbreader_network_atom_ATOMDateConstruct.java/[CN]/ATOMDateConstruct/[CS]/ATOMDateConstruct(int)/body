@@ -1,5 +1,3 @@
 {
   Year=year;
-  Month=Day=Hour=Minutes=Seconds=TZHour=TZMinutes=0;
-  SecondFraction=0.0f;
 }

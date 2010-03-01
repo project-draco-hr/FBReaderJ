@@ -5,6 +5,5 @@
   Hour=hour;
   Minutes=minutes;
   Seconds=seconds;
-  TZHour=TZMinutes=0;
   SecondFraction=sfract;
 }

@@ -1,4 +1,0 @@
-{
-  super(link,title,summary);
-  Visibility=visibility;
-}

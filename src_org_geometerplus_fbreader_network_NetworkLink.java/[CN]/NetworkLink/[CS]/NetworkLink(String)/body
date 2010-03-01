@@ -1,4 +1,0 @@
-{
-  SiteName=siteName;
-  OnOption=new ZLBooleanOption(SiteName,"on",true);
-}

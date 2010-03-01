@@ -1,0 +1,3 @@
+{
+  super(siteName,title,summary,links);
+}
