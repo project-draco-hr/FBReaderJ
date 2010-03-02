@@ -1,5 +1,5 @@
 {
-  tag=tag.toLowerCase().intern();
+  tag=tag.intern();
   if (TAG_SITE == tag) {
     myState=READ_SITENAME;
   }

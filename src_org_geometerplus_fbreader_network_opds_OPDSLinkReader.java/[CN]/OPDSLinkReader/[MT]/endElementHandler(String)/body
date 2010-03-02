@@ -1,5 +1,5 @@
 {
-  tag=tag.toLowerCase().intern();
+  tag=tag.intern();
   String bufferContent=myBuffer.toString().trim();
   myBuffer.delete(0,myBuffer.length());
   if (bufferContent.length() != 0) {
