@@ -1,6 +1,6 @@
 {
   if (!myShowAuthors) {
-    return super.getSecondString();
+    return super.getSummary();
   }
   StringBuilder builder=new StringBuilder();
   int count=0;
