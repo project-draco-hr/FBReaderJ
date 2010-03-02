@@ -1,0 +1,47 @@
+{
+  tag=tag.toLowerCase().intern();
+  String bufferContent=myBuffer.toString().trim();
+  myBuffer.delete(0,myBuffer.length());
+  if (bufferContent.length() != 0) {
+switch (myState) {
+case READ_NOTHING:
+case READ_SEARCH_DESCRIPTION:
+case READ_FEEDS:
+case READ_URL_REWRITING_RULES:
+      break;
+case READ_SITENAME:
+    mySiteName=bufferContent;
+  break;
+case READ_TITLE:
+myTitle=bufferContent;
+break;
+case READ_SUMMARY:
+mySummary=bufferContent;
+break;
+case READ_ICON_NAME:
+myIcon=bufferContent;
+break;
+case READ_LINK:
+myLinks.put(myAttrBuffer,bufferContent);
+break;
+case READ_SEARCH_FIELD:
+mySearchFields.put(myAttrBuffer,bufferContent);
+break;
+case READ_FEEDS_CONDITION:
+myUrlConditions.put(bufferContent,myAttrBuffer.equals("signedIn") ? OPDSLink.URLCondition.URL_CONDITION_SIGNED_IN : OPDSLink.URLCondition.URL_CONDITION_NEVER);
+break;
+}
+}
+if (myState == READ_SEARCH_FIELD) {
+myState=READ_SEARCH_DESCRIPTION;
+}
+ else if (myState == READ_FEEDS_CONDITION) {
+myState=READ_FEEDS;
+}
+ else if (myState == READ_URL_REWRITING_RULES && TAG_RULE == tag) {
+}
+ else {
+myState=READ_NOTHING;
+}
+return false;
+}

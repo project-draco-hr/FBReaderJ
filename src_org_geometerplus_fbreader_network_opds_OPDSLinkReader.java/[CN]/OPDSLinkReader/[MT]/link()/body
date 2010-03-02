@@ -1,0 +1,9 @@
+{
+  if (mySiteName == null || myTitle == null || myLinks.get(NetworkLink.URL_MAIN) == null) {
+    return null;
+  }
+  OPDSLink opdsLink=new OPDSLink(mySiteName,myTitle,mySummary,myLinks);
+  opdsLink.setUrlConditions(myUrlConditions);
+  opdsLink.setUrlRewritingRules(myUrlRewritingRules);
+  return opdsLink;
+}

@@ -1,0 +1,3 @@
+{
+  myUrlConditions=new TreeMap(conditions);
+}
