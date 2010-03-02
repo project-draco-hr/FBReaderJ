@@ -1,0 +1,9 @@
+{
+  String value=source.getValue(name);
+  if (value != null) {
+    if (myAttributes == null) {
+      myAttributes=new ZLStringMap();
+    }
+    myAttributes.put(name,value);
+  }
+}

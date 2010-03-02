@@ -1,0 +1,20 @@
+{
+  myDublinCoreNamespaceId=null;
+  myAtomNamespaceId=null;
+  myOpenSearchNamespaceId=null;
+  myCalibreNamespaceId=null;
+  for (  String key : namespaces.keySet()) {
+    if (key.startsWith(XMLNamespace.DublinCoreTermsPrefix)) {
+      myDublinCoreNamespaceId=namespaces.get(key).intern();
+    }
+ else     if (key.equals(XMLNamespace.Atom)) {
+      myAtomNamespaceId=namespaces.get(key).intern();
+    }
+ else     if (key.startsWith(XMLNamespace.OpenSearchPrefix)) {
+      myOpenSearchNamespaceId=namespaces.get(key).intern();
+    }
+ else     if (key.equals(XMLNamespace.CalibreMetadata)) {
+      myCalibreNamespaceId=namespaces.get(key).intern();
+    }
+  }
+}

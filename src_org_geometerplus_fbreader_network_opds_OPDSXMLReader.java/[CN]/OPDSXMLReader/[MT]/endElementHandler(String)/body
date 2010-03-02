@@ -1,0 +1,257 @@
+{
+  String tagPrefix=null;
+  final int index=tag.indexOf(':');
+  if (index >= 0) {
+    tagPrefix=tag.substring(0,index).intern();
+    tag=tag.substring(index + 1).intern();
+  }
+ else {
+    tag=tag.intern();
+  }
+  final String bufferContent=myBuffer.toString().trim();
+  myBuffer.delete(0,myBuffer.length());
+switch (myState) {
+case START:
+    break;
+case FEED:
+  if (tagPrefix == myAtomNamespaceId && tag == TAG_FEED) {
+    myFeedReader.processFeedMetadata(myFeed);
+    myFeed=null;
+    myFeedReader.processFeedEnd();
+    myState=START;
+  }
+break;
+case F_ENTRY:
+if (tagPrefix == myAtomNamespaceId && tag == TAG_ENTRY) {
+myFeedReader.processFeedEntry(myEntry);
+myEntry=null;
+myState=FEED;
+}
+break;
+case F_ID:
+if (tagPrefix == myAtomNamespaceId && tag == TAG_ID) {
+myId.Uri=bufferContent;
+if (myFeed != null) {
+myFeed.Id=myId;
+}
+myId=null;
+myState=FEED;
+}
+break;
+case F_LINK:
+if (tagPrefix == myAtomNamespaceId && tag == TAG_LINK) {
+if (myFeed != null) {
+myFeed.Links.add(myLink);
+}
+myLink=null;
+myState=FEED;
+}
+break;
+case F_CATEGORY:
+if (tagPrefix == myAtomNamespaceId && tag == TAG_CATEGORY) {
+if (myFeed != null) {
+myFeed.Categories.add(myCategory);
+}
+myCategory=null;
+myState=FEED;
+}
+break;
+case F_TITLE:
+if (tagPrefix == myAtomNamespaceId && tag == TAG_TITLE) {
+if (myFeed != null) {
+myFeed.Title=bufferContent;
+}
+myState=FEED;
+}
+break;
+case F_UPDATED:
+if (tagPrefix == myAtomNamespaceId && tag == TAG_UPDATED) {
+ATOMDateConstruct.parse(bufferContent,myUpdated);
+if (myFeed != null) {
+myFeed.Updated=myUpdated;
+}
+myUpdated=null;
+myState=FEED;
+}
+break;
+case F_AUTHOR:
+if (tagPrefix == myAtomNamespaceId && tag == TAG_AUTHOR) {
+if (myFeed != null) {
+myFeed.Authors.add(myAuthor);
+}
+myAuthor=null;
+myState=FEED;
+}
+break;
+case FA_NAME:
+if (tagPrefix == myAtomNamespaceId && tag == TAG_NAME) {
+myAuthor.Name=bufferContent;
+myState=F_AUTHOR;
+}
+break;
+case FEA_NAME:
+if (tagPrefix == myAtomNamespaceId && tag == TAG_NAME) {
+myAuthor.Name=bufferContent;
+myState=FE_AUTHOR;
+}
+break;
+case FA_URI:
+if (tagPrefix == myAtomNamespaceId && tag == TAG_URI) {
+myAuthor.Uri=bufferContent;
+myState=F_AUTHOR;
+}
+break;
+case FEA_URI:
+if (tagPrefix == myAtomNamespaceId && tag == TAG_URI) {
+myAuthor.Uri=bufferContent;
+myState=FE_AUTHOR;
+}
+break;
+case FA_EMAIL:
+if (tagPrefix == myAtomNamespaceId && tag == TAG_EMAIL) {
+myAuthor.Email=bufferContent;
+myState=F_AUTHOR;
+}
+break;
+case FEA_EMAIL:
+if (tagPrefix == myAtomNamespaceId && tag == TAG_EMAIL) {
+myAuthor.Email=bufferContent;
+myState=FE_AUTHOR;
+}
+break;
+case FE_AUTHOR:
+if (tagPrefix == myAtomNamespaceId && tag == TAG_AUTHOR) {
+myEntry.Authors.add(myAuthor);
+myAuthor=null;
+myState=F_ENTRY;
+}
+break;
+case FE_ID:
+if (tagPrefix == myAtomNamespaceId && tag == TAG_ID) {
+myId.Uri=bufferContent;
+myEntry.Id=myId;
+myId=null;
+myState=F_ENTRY;
+}
+break;
+case FE_CATEGORY:
+if (tagPrefix == myAtomNamespaceId && tag == TAG_CATEGORY) {
+myEntry.Categories.add(myCategory);
+myCategory=null;
+myState=F_ENTRY;
+}
+break;
+case FE_LINK:
+if (tagPrefix == myAtomNamespaceId && tag == TAG_LINK) {
+myEntry.Links.add(myLink);
+myLink=null;
+myState=F_ENTRY;
+}
+break;
+case FE_PUBLISHED:
+if (tagPrefix == myAtomNamespaceId && tag == TAG_PUBLISHED) {
+ATOMDateConstruct.parse(bufferContent,myPublished);
+myEntry.Published=myPublished;
+myPublished=null;
+myState=F_ENTRY;
+}
+break;
+case FE_SUMMARY:
+if (tagPrefix == myAtomNamespaceId && tag == TAG_SUMMARY) {
+myEntry.Summary=bufferContent;
+mySummaryTagFound=true;
+myState=F_ENTRY;
+}
+break;
+case FE_CONTENT:
+if (tagPrefix == myAtomNamespaceId && tag == TAG_CONTENT) {
+if (!mySummaryTagFound) {
+myEntry.Summary=bufferContent;
+}
+myState=F_ENTRY;
+}
+break;
+case FE_SUBTITLE:
+if (tagPrefix == myAtomNamespaceId && tag == TAG_SUBTITLE) {
+if (!mySummaryTagFound) {
+myEntry.Summary=bufferContent;
+}
+myState=F_ENTRY;
+}
+break;
+case FE_TITLE:
+if (tagPrefix == myAtomNamespaceId && tag == TAG_TITLE) {
+myEntry.Title=bufferContent;
+myState=F_ENTRY;
+}
+break;
+case FE_UPDATED:
+if (tagPrefix == myAtomNamespaceId && tag == TAG_UPDATED) {
+ATOMDateConstruct.parse(bufferContent,myUpdated);
+myEntry.Updated=myUpdated;
+myUpdated=null;
+myState=F_ENTRY;
+}
+break;
+case FE_DC_LANGUAGE:
+if (tagPrefix == myDublinCoreNamespaceId && tag == DC_TAG_LANGUAGE) {
+myEntry.DCLanguage=bufferContent;
+myState=F_ENTRY;
+}
+break;
+case FE_DC_ISSUED:
+if (tagPrefix == myDublinCoreNamespaceId && tag == DC_TAG_ISSUED) {
+DCDate issued=new DCDate();
+ATOMDateConstruct.parse(bufferContent,issued);
+myEntry.DCIssued=issued;
+myState=F_ENTRY;
+}
+break;
+case FE_DC_PUBLISHER:
+if (tagPrefix == myDublinCoreNamespaceId && tag == DC_TAG_PUBLISHER) {
+myEntry.DCPublisher=bufferContent;
+myState=F_ENTRY;
+}
+break;
+case OPENSEARCH_TOTALRESULTS:
+if (tagPrefix == myOpenSearchNamespaceId && tag == OPENSEARCH_TAG_TOTALRESULTS) {
+try {
+int number=Integer.parseInt(bufferContent);
+if (myFeed != null) {
+myFeed.OpensearchTotalResults=number;
+}
+}
+ catch (NumberFormatException ex) {
+}
+myState=FEED;
+}
+break;
+case OPENSEARCH_ITEMSPERPAGE:
+if (tagPrefix == myOpenSearchNamespaceId && tag == OPENSEARCH_TAG_ITEMSPERPAGE) {
+try {
+int number=Integer.parseInt(bufferContent);
+if (myFeed != null) {
+myFeed.OpensearchItemsPerPage=number;
+}
+}
+ catch (NumberFormatException ex) {
+}
+myState=FEED;
+}
+break;
+case OPENSEARCH_STARTINDEX:
+if (tagPrefix == myOpenSearchNamespaceId && tag == OPENSEARCH_TAG_STARTINDEX) {
+try {
+int number=Integer.parseInt(bufferContent);
+if (myFeed != null) {
+myFeed.OpensearchStartIndex=number;
+}
+}
+ catch (NumberFormatException ex) {
+}
+myState=FEED;
+}
+break;
+}
+return false;
+}

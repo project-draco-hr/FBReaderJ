@@ -1,9 +1,0 @@
-{
-  String value=source.get(name);
-  if (value != null) {
-    if (myAttributes == null) {
-      myAttributes=new TreeMap<String,String>();
-    }
-    myAttributes.put(name,value);
-  }
-}
