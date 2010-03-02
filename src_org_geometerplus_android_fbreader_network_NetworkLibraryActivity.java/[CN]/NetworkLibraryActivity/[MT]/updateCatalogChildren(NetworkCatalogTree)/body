@@ -1,8 +1,10 @@
 {
   tree.clear();
   ArrayList<NetworkLibraryItem> children=new ArrayList<NetworkLibraryItem>();
-  String error=tree.Item.loadChildren(children);
-  if (error != null) {
+  LoadSubCatalogRunnable loader=new LoadSubCatalogRunnable(tree.Item,children);
+  loader.executeWithUI();
+  if (loader.hasErrors()) {
+    loader.showErrorMessage(this);
   }
  else   if (children.isEmpty()) {
     final ZLResource dialogResource=ZLResource.resource("dialog");

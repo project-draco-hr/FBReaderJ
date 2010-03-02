@@ -1,0 +1,6 @@
+{
+  final ZLResource dialogResource=ZLResource.resource("dialog");
+  final ZLResource buttonResource=dialogResource.getResource("button");
+  final ZLResource boxResource=dialogResource.getResource("networkError");
+  new AlertDialog.Builder(context).setTitle(boxResource.getResource("title").getValue()).setMessage(message).setIcon(0).setPositiveButton(buttonResource.getResource("ok").getValue(),null).create().show();
+}

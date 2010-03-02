@@ -1,0 +1,3 @@
+{
+  myErrorMessage=myItem.loadChildren(myChildren);
+}
