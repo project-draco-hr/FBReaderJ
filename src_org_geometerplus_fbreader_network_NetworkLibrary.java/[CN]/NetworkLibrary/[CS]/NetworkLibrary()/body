@@ -1,2 +1,12 @@
 {
+  LinkedList<String> catalogs=readCatalogFileNames();
+  OPDSLinkReader reader=new OPDSLinkReader();
+  for (  String fileName : catalogs) {
+    System.err.println("FBREADER -- FILE: " + fileName);
+    NetworkLink link=reader.readDocument(ZLResourceFile.createResourceFile("data/network/" + fileName));
+    if (link != null) {
+      System.err.println("FBREADER -- ADD LINK");
+      myLinks.add(link);
+    }
+  }
 }

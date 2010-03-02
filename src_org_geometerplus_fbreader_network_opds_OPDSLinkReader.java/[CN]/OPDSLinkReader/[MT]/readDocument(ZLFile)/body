@@ -1,0 +1,12 @@
+{
+  mySiteName=myTitle=mySummary=myIcon=mySearchType=myAuthenticationType=null;
+  myLinks.clear();
+  mySearchFields.clear();
+  myUrlConditions.clear();
+  myUrlRewritingRules.clear();
+  myState=READ_NOTHING;
+  if (!ZLXMLProcessor.read(this,file)) {
+    return null;
+  }
+  return link();
+}
