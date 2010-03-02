@@ -1,0 +1,14 @@
+{
+  if (super.runTreeItem(tree)) {
+    return true;
+  }
+  if (tree instanceof NetworkCatalogTree) {
+    NetworkCatalogTree catalogTree=(NetworkCatalogTree)tree;
+    if (!catalogTree.hasChildren()) {
+      updateCatalogChildren(catalogTree);
+    }
+    super.runTreeItem(tree);
+    return true;
+  }
+  return false;
+}

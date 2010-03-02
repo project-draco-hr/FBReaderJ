@@ -1,4 +1,0 @@
-{
-  super(parent);
-  Book=book;
-}

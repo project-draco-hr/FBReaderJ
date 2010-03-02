@@ -1,0 +1,40 @@
+{
+  NetworkSeriesTree seriesTree=null;
+  boolean showAuthors=!(parent instanceof NetworkAuthorTree) && !(parent instanceof NetworkCatalogTree && ((NetworkCatalogTree)parent).Item.catalogType() == NetworkCatalogItem.CatalogType.BY_AUTHORS);
+  ListIterator<NetworkLibraryItem> it=books.listIterator();
+  while (it.hasNext()) {
+    NetworkLibraryItem item=it.next();
+    if (!(item instanceof NetworkBookItem)) {
+      continue;
+    }
+    final NetworkBookItem book=(NetworkBookItem)item;
+    String seriesTitle=book.SeriesTitle;
+    if (seriesTitle.length() > 0 && (seriesTree == null || !seriesTree.SeriesTitle.equals(seriesTitle))) {
+      ListIterator<NetworkLibraryItem> jt=books.listIterator(it.nextIndex());
+      NetworkBookItem next=null;
+      while (jt.hasNext()) {
+        final NetworkLibraryItem jtem=jt.next();
+        if (jtem instanceof NetworkBookItem) {
+          next=(NetworkBookItem)jtem;
+          break;
+        }
+      }
+      if (next == null) {
+        seriesTitle="";
+      }
+ else       if (!next.SeriesTitle.equals(seriesTitle)) {
+        seriesTitle="";
+      }
+    }
+    if (seriesTitle.length() == 0) {
+      seriesTree=null;
+      new NetworkBookTree(parent,book,-1);
+    }
+ else {
+      if (seriesTree == null || !seriesTree.SeriesTitle.equals(seriesTitle)) {
+        seriesTree=new NetworkSeriesTree(parent,seriesTitle,showAuthors);
+      }
+      new NetworkBookTree(seriesTree,book,-1);
+    }
+  }
+}

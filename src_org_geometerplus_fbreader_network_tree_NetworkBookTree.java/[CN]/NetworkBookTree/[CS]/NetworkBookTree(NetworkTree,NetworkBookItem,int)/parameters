@@ -1,2 +1,3 @@
 NetworkTree parent
 NetworkBookItem book
+int position

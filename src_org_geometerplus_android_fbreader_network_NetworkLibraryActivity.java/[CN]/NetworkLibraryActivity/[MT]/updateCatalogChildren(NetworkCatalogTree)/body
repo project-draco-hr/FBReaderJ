@@ -1,0 +1,28 @@
+{
+  tree.clear();
+  ArrayList<NetworkLibraryItem> children=new ArrayList<NetworkLibraryItem>();
+  String error=tree.Item.loadChildren(children);
+  if (error != null) {
+  }
+ else   if (children.isEmpty()) {
+    final ZLResource dialogResource=ZLResource.resource("dialog");
+    final ZLResource buttonResource=dialogResource.getResource("button");
+    final ZLResource boxResource=dialogResource.getResource("emptyCatalogBox");
+    new AlertDialog.Builder(this).setTitle(boxResource.getResource("title").getValue()).setMessage(boxResource.getResource("message").getValue()).setIcon(0).setPositiveButton(buttonResource.getResource("ok").getValue(),null).create().show();
+  }
+  boolean hasSubcatalogs=false;
+  for (  NetworkLibraryItem child : children) {
+    if (child instanceof NetworkCatalogItem) {
+      hasSubcatalogs=true;
+      break;
+    }
+  }
+  if (hasSubcatalogs) {
+    for (    NetworkLibraryItem child : children) {
+      NetworkTreeFactory.createNetworkTree(tree,child);
+    }
+  }
+ else {
+    NetworkTreeFactory.fillAuthorNode(tree,children);
+  }
+}

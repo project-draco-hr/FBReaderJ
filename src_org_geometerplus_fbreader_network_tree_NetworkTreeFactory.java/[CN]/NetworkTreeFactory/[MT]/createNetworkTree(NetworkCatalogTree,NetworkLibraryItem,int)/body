@@ -1,0 +1,10 @@
+{
+  if (item instanceof NetworkCatalogItem) {
+    NetworkCatalogTree tree=new NetworkCatalogTree(parent,(NetworkCatalogItem)item,position);
+    return tree;
+  }
+ else   if (item instanceof NetworkBookItem) {
+    return new NetworkBookTree(parent,(NetworkBookItem)item,position);
+  }
+  return null;
+}
