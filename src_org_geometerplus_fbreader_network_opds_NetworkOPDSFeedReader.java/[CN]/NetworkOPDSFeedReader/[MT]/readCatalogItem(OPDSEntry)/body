@@ -42,7 +42,13 @@
   }
   Integer entryCondition=myUrlConditions.get(entry.Id.Uri);
   final boolean dependsOnAccount=entryCondition != null && entryCondition.intValue() == OPDSLink.URLCondition.URL_CONDITION_SIGNED_IN;
-  final String annotation=entry.Summary.replace("\011","").replace("\012","");
+  final String annotation;
+  if (entry.Summary == null) {
+    annotation=null;
+  }
+ else {
+    annotation=entry.Summary.replace("\011","").replace("\012","");
+  }
   HashMap<Integer,String> urlMap=new HashMap<Integer,String>();
   urlMap.put(NetworkLibraryItem.URLType.URL_COVER,coverURL);
   urlMap.put(NetworkLibraryItem.URLType.URL_CATALOG,ZLNetworkUtil.url(myBaseURL,url));

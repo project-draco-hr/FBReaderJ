@@ -1,7 +1,10 @@
 {
-  String date=null;
+  final String date;
   if (entry.DCIssued != null) {
     date=entry.DCIssued.getDateTime(true);
+  }
+ else {
+    date=null;
   }
   LinkedList<String> tags=new LinkedList<String>();
   for (  ATOMCategory category : entry.Categories) {
