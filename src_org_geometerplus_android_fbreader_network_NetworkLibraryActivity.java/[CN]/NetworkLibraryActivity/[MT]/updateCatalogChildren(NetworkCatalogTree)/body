@@ -12,6 +12,7 @@
     final ZLResource boxResource=dialogResource.getResource("emptyCatalogBox");
     new AlertDialog.Builder(this).setTitle(boxResource.getResource("title").getValue()).setMessage(boxResource.getResource("message").getValue()).setIcon(0).setPositiveButton(buttonResource.getResource("ok").getValue(),null).create().show();
   }
+  System.err.println("FBREADER -- " + "children size = " + children.size());
   boolean hasSubcatalogs=false;
   for (  NetworkLibraryItem child : children) {
     if (child instanceof NetworkCatalogItem) {
