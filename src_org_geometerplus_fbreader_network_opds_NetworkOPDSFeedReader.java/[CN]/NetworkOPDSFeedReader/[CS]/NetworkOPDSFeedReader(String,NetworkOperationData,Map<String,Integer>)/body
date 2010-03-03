@@ -1,0 +1,5 @@
+{
+  myBaseURL=baseURL;
+  myData=result;
+  myUrlConditions=new HashMap<String,Integer>(conditions);
+}

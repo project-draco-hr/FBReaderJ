@@ -1,0 +1,28 @@
+{
+  if (entry == null) {
+    return;
+  }
+  Integer entryCondition=myUrlConditions.get(entry.Id.Uri);
+  if (entryCondition != null && entryCondition.intValue() == OPDSLink.URLCondition.URL_CONDITION_NEVER) {
+    return;
+  }
+  boolean hasBookLink=false;
+  for (  ATOMLink link : entry.Links) {
+    final String rel=intern(link.getRel());
+    final String type=intern(link.getType());
+    if ((rel == OPDSConstants.REL_ACQUISITION || rel == OPDSConstants.REL_ACQUISITION_SAMPLE || rel == null) && (type == OPDSConstants.MIME_APP_EPUB || type == OPDSConstants.MIME_APP_MOBI || type == OPDSConstants.MIME_APP_FB2ZIP)) {
+      hasBookLink=true;
+      break;
+    }
+  }
+  NetworkLibraryItem item;
+  if (hasBookLink) {
+    item=readBookItem(entry);
+  }
+ else {
+    item=readCatalogItem(entry);
+  }
+  if (item != null) {
+    myData.Items.add(item);
+  }
+}

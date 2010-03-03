@@ -1,0 +1,15 @@
+{
+  for (  ATOMLink link : feed.Links) {
+    String href=link.getHref();
+    String rel=intern(link.getRel());
+    String type=intern(link.getType());
+    if (type == OPDSConstants.MIME_APP_ATOM) {
+      if (rel == "next") {
+        myData.ResumeURI=href;
+      }
+ else       if (rel == ATOMConstants.REL_SELF) {
+      }
+    }
+  }
+  myIndex=feed.OpensearchStartIndex - 1;
+}

@@ -1,0 +1,17 @@
+{
+  if (relativePath == null || relativePath.length() == 0) {
+    return null;
+  }
+  if (relativePath.contains("://")) {
+    return relativePath;
+  }
+  if (relativePath.charAt(0) == '/') {
+    int index=baseUrl.indexOf("://");
+    index=baseUrl.indexOf("/",index + 3);
+    return baseUrl.substring(0,index) + relativePath;
+  }
+ else {
+    int index=baseUrl.lastIndexOf('/');
+    return baseUrl.substring(0,index + 1) + relativePath;
+  }
+}

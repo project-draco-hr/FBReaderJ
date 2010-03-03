@@ -1,0 +1,3 @@
+String baseURL
+NetworkOperationData result
+Map<String,Integer> conditions
