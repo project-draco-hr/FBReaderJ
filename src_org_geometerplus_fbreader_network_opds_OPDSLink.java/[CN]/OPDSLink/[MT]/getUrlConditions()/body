@@ -1,0 +1,6 @@
+{
+  if (myUrlConditions == null) {
+    return Collections.emptyMap();
+  }
+  return myUrlConditions;
+}

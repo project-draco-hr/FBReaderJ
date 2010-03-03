@@ -1,0 +1,6 @@
+{
+  if (myUrlRewritingRules == null) {
+    return Collections.emptyList();
+  }
+  return myUrlRewritingRules;
+}
