@@ -7,5 +7,5 @@
       myData.ResumeURI=href;
     }
   }
-  myIndex=feed.OpensearchStartIndex - 1;
+  myOpenSearchStartIndex=feed.OpensearchStartIndex - 1;
 }

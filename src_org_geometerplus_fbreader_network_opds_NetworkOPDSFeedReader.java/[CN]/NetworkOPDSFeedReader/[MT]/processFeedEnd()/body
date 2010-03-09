@@ -1,2 +1,9 @@
 {
+  for (  NetworkLibraryItem item : myData.Items) {
+    if (!(item instanceof NetworkBookItem)) {
+      continue;
+    }
+    NetworkBookItem book=(NetworkBookItem)item;
+    book.Index+=myOpenSearchStartIndex;
+  }
 }
