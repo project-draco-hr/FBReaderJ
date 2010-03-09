@@ -1,3 +1,8 @@
 {
-  myUrlRewritingRules=new LinkedList(rules);
+  if (rules != null && rules.size() > 0) {
+    myUrlRewritingRules=new LinkedList(rules);
+  }
+ else {
+    myUrlRewritingRules=null;
+  }
 }

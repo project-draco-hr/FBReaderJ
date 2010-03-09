@@ -1,7 +1,4 @@
 {
-  if (entry == null) {
-    return;
-  }
   Integer entryCondition=myUrlConditions.get(entry.Id.Uri);
   if (entryCondition != null && entryCondition.intValue() == OPDSLink.URLCondition.URL_CONDITION_NEVER) {
     return;

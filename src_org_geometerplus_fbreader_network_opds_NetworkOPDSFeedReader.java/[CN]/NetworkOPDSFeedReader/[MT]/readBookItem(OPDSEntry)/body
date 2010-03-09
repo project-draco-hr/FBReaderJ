@@ -72,7 +72,7 @@
  else {
       name=name.trim();
       index=name.lastIndexOf(' ');
-      authorData=new NetworkBookItem.AuthorData(name,name.substring(index + 1).trim());
+      authorData=new NetworkBookItem.AuthorData(name,name.substring(index + 1));
     }
     authors.add(authorData);
   }

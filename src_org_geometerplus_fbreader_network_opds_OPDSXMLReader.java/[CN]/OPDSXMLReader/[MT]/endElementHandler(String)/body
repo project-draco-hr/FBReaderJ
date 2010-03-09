@@ -8,14 +8,19 @@
  else {
     tag=tag.intern();
   }
-  final String bufferContent=myBuffer.toString().trim();
+  String bufferContent=myBuffer.toString().trim();
+  if (bufferContent.length() == 0) {
+    bufferContent=null;
+  }
   myBuffer.delete(0,myBuffer.length());
 switch (myState) {
 case START:
     break;
 case FEED:
   if (tagPrefix == myAtomNamespaceId && tag == TAG_FEED) {
-    myFeedReader.processFeedMetadata(myFeed);
+    if (myFeed != null && myFeed.Id != null) {
+      myFeedReader.processFeedMetadata(myFeed);
+    }
     myFeed=null;
     myFeedReader.processFeedEnd();
     myState=START;
@@ -23,15 +28,17 @@ case FEED:
 break;
 case F_ENTRY:
 if (tagPrefix == myAtomNamespaceId && tag == TAG_ENTRY) {
-myFeedReader.processFeedEntry(myEntry);
+if (myEntry != null && myEntry.Id != null) {
+  myFeedReader.processFeedEntry(myEntry);
+}
 myEntry=null;
 myState=FEED;
 }
 break;
 case F_ID:
 if (tagPrefix == myAtomNamespaceId && tag == TAG_ID) {
+if (bufferContent != null && myFeed != null) {
 myId.Uri=bufferContent;
-if (myFeed != null) {
 myFeed.Id=myId;
 }
 myId=null;
@@ -66,8 +73,7 @@ myState=FEED;
 break;
 case F_UPDATED:
 if (tagPrefix == myAtomNamespaceId && tag == TAG_UPDATED) {
-ATOMDateConstruct.parse(bufferContent,myUpdated);
-if (myFeed != null) {
+if (ATOMDateConstruct.parse(bufferContent,myUpdated) && myFeed != null) {
 myFeed.Updated=myUpdated;
 }
 myUpdated=null;
@@ -76,7 +82,7 @@ myState=FEED;
 break;
 case F_AUTHOR:
 if (tagPrefix == myAtomNamespaceId && tag == TAG_AUTHOR) {
-if (myFeed != null) {
+if (myFeed != null && myAuthor.Name != null) {
 myFeed.Authors.add(myAuthor);
 }
 myAuthor=null;
@@ -121,15 +127,19 @@ myState=FE_AUTHOR;
 break;
 case FE_AUTHOR:
 if (tagPrefix == myAtomNamespaceId && tag == TAG_AUTHOR) {
+if (myAuthor.Name != null) {
 myEntry.Authors.add(myAuthor);
+}
 myAuthor=null;
 myState=F_ENTRY;
 }
 break;
 case FE_ID:
 if (tagPrefix == myAtomNamespaceId && tag == TAG_ID) {
+if (bufferContent != null) {
 myId.Uri=bufferContent;
 myEntry.Id=myId;
+}
 myId=null;
 myState=F_ENTRY;
 }
@@ -150,22 +160,25 @@ myState=F_ENTRY;
 break;
 case FE_PUBLISHED:
 if (tagPrefix == myAtomNamespaceId && tag == TAG_PUBLISHED) {
-ATOMDateConstruct.parse(bufferContent,myPublished);
+if (ATOMDateConstruct.parse(bufferContent,myPublished)) {
 myEntry.Published=myPublished;
+}
 myPublished=null;
 myState=F_ENTRY;
 }
 break;
 case FE_SUMMARY:
 if (tagPrefix == myAtomNamespaceId && tag == TAG_SUMMARY) {
+if (bufferContent != null) {
 myEntry.Summary=bufferContent;
 mySummaryTagFound=true;
+}
 myState=F_ENTRY;
 }
 break;
 case FE_CONTENT:
 if (tagPrefix == myAtomNamespaceId && tag == TAG_CONTENT) {
-if (!mySummaryTagFound) {
+if (bufferContent != null && !mySummaryTagFound) {
 myEntry.Summary=bufferContent;
 }
 myState=F_ENTRY;
@@ -173,7 +186,7 @@ myState=F_ENTRY;
 break;
 case FE_SUBTITLE:
 if (tagPrefix == myAtomNamespaceId && tag == TAG_SUBTITLE) {
-if (!mySummaryTagFound) {
+if (bufferContent != null && !mySummaryTagFound) {
 myEntry.Summary=bufferContent;
 }
 myState=F_ENTRY;
@@ -187,8 +200,9 @@ myState=F_ENTRY;
 break;
 case FE_UPDATED:
 if (tagPrefix == myAtomNamespaceId && tag == TAG_UPDATED) {
-ATOMDateConstruct.parse(bufferContent,myUpdated);
+if (ATOMDateConstruct.parse(bufferContent,myUpdated)) {
 myEntry.Updated=myUpdated;
+}
 myUpdated=null;
 myState=F_ENTRY;
 }
@@ -201,9 +215,10 @@ myState=F_ENTRY;
 break;
 case FE_DC_ISSUED:
 if (tagPrefix == myDublinCoreNamespaceId && tag == DC_TAG_ISSUED) {
-DCDate issued=new DCDate();
-ATOMDateConstruct.parse(bufferContent,issued);
-myEntry.DCIssued=issued;
+if (ATOMDateConstruct.parse(bufferContent,myDCIssued)) {
+myEntry.DCIssued=myDCIssued;
+}
+myDCIssued=null;
 myState=F_ENTRY;
 }
 break;
@@ -215,39 +230,36 @@ myState=F_ENTRY;
 break;
 case OPENSEARCH_TOTALRESULTS:
 if (tagPrefix == myOpenSearchNamespaceId && tag == OPENSEARCH_TAG_TOTALRESULTS) {
+if (myFeed != null && bufferContent != null) {
 try {
-int number=Integer.parseInt(bufferContent);
-if (myFeed != null) {
-myFeed.OpensearchTotalResults=number;
-}
+myFeed.OpensearchTotalResults=Integer.parseInt(bufferContent);
 }
  catch (NumberFormatException ex) {
+}
 }
 myState=FEED;
 }
 break;
 case OPENSEARCH_ITEMSPERPAGE:
 if (tagPrefix == myOpenSearchNamespaceId && tag == OPENSEARCH_TAG_ITEMSPERPAGE) {
+if (myFeed != null && bufferContent != null) {
 try {
-int number=Integer.parseInt(bufferContent);
-if (myFeed != null) {
-myFeed.OpensearchItemsPerPage=number;
-}
+myFeed.OpensearchItemsPerPage=Integer.parseInt(bufferContent);
 }
  catch (NumberFormatException ex) {
+}
 }
 myState=FEED;
 }
 break;
 case OPENSEARCH_STARTINDEX:
 if (tagPrefix == myOpenSearchNamespaceId && tag == OPENSEARCH_TAG_STARTINDEX) {
+if (myFeed != null && bufferContent != null) {
 try {
-int number=Integer.parseInt(bufferContent);
-if (myFeed != null) {
-myFeed.OpensearchStartIndex=number;
-}
+myFeed.OpensearchStartIndex=Integer.parseInt(bufferContent);
 }
  catch (NumberFormatException ex) {
+}
 }
 myState=FEED;
 }

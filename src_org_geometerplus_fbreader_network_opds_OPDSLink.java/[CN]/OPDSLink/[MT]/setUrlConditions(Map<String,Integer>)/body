@@ -1,3 +1,8 @@
 {
-  myUrlConditions=new TreeMap(conditions);
+  if (conditions != null && conditions.size() > 0) {
+    myUrlConditions=new TreeMap(conditions);
+  }
+ else {
+    myUrlConditions=null;
+  }
 }

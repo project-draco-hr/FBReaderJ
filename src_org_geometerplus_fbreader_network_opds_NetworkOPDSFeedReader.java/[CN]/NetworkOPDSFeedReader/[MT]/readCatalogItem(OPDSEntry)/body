@@ -50,8 +50,14 @@
     annotation=entry.Summary.replace("\011","").replace("\012","");
   }
   HashMap<Integer,String> urlMap=new HashMap<Integer,String>();
-  urlMap.put(NetworkLibraryItem.URLType.URL_COVER,coverURL);
-  urlMap.put(NetworkLibraryItem.URLType.URL_CATALOG,ZLNetworkUtil.url(myBaseURL,url));
-  urlMap.put(NetworkLibraryItem.URLType.URL_HTML_PAGE,ZLNetworkUtil.url(myBaseURL,htmlURL));
+  if (coverURL != null) {
+    urlMap.put(NetworkLibraryItem.URLType.URL_COVER,coverURL);
+  }
+  if (url != null) {
+    urlMap.put(NetworkLibraryItem.URLType.URL_CATALOG,ZLNetworkUtil.url(myBaseURL,url));
+  }
+  if (htmlURL != null) {
+    urlMap.put(NetworkLibraryItem.URLType.URL_HTML_PAGE,ZLNetworkUtil.url(myBaseURL,htmlURL));
+  }
   return new OPDSCatalogItem(myData.Link,entry.Title,annotation,urlMap,dependsOnAccount ? OPDSCatalogItem.VisibilityType.LOGGED_USERS : OPDSCatalogItem.VisibilityType.ALWAYS);
 }

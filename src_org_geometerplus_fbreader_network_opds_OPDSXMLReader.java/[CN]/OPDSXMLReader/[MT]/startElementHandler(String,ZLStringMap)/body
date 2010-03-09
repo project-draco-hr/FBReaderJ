@@ -132,6 +132,8 @@ if (tag == DC_TAG_LANGUAGE) {
 myState=FE_DC_LANGUAGE;
 }
  else if (tag == DC_TAG_ISSUED) {
+myDCIssued=new DCDate();
+myDCIssued.readAttributes(attributes);
 myState=FE_DC_ISSUED;
 }
  else if (tag == DC_TAG_PUBLISHER) {
