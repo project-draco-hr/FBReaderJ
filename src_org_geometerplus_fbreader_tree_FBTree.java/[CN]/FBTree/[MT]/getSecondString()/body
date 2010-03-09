@@ -1,6 +1,6 @@
 {
-  if (myChildrenString == null) {
-    myChildrenString=getSummary();
+  if (mySecondString == null) {
+    mySecondString=getSummary();
   }
-  return myChildrenString;
+  return mySecondString;
 }
