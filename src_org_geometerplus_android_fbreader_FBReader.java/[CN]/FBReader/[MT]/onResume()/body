@@ -1,5 +1,6 @@
 {
   super.onResume();
+  System.err.println("FBREADER -- ON RESUME");
   if (myPanel.ControlPanel != null) {
     myPanel.ControlPanel.setVisibility(myPanel.Visible ? View.VISIBLE : View.GONE);
   }

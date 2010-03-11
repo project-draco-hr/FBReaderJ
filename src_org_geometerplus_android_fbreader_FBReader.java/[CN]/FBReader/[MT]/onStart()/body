@@ -1,5 +1,6 @@
 {
   super.onStart();
+  System.err.println("FBREADER -- ON START");
   final ZLAndroidApplication application=ZLAndroidApplication.Instance();
   final int fullScreenFlag=application.ShowStatusBarOption.getValue() ? 0 : WindowManager.LayoutParams.FLAG_FULLSCREEN;
   if (fullScreenFlag != myFullScreenFlag) {

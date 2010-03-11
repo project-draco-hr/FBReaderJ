@@ -1,0 +1,4 @@
+{
+  super.onNewIntent(intent);
+  System.err.println("FBREADER -- ON NEW INTENT");
+}
