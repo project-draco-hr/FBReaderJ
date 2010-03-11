@@ -1,5 +1,4 @@
 {
-  System.err.println("FBREADER -- ON STOP");
   if (myPanel.ControlPanel != null) {
     myPanel.ControlPanel.hide(false);
     myPanel.ControlPanel=null;
