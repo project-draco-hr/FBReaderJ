@@ -1,53 +1,13 @@
 {
   super.onCreate(icicle);
-  setRequestedOrientation(ZLAndroidApplication.Instance().AutoOrientationOption.getValue() ? ActivityInfo.SCREEN_ORIENTATION_SENSOR : ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
-  requestWindowFeature(Window.FEATURE_NO_TITLE);
-  setContentView(R.layout.downloader);
-  myProgressBar=(ProgressBar)findViewById(android.R.id.progress);
+  Thread.setDefaultUncaughtExceptionHandler(new org.geometerplus.zlibrary.ui.android.library.UncaughtExceptionHandler(this));
   final Intent intent=getIntent();
   final Uri uri=intent.getData();
-  if (uri != null) {
-    intent.setData(null);
-    if (!acceptsUri(uri)) {
-      startNextMatchingActivity(intent);
-      finish();
-      return;
-    }
-    String host=uri.getHost();
-    if (host.equals("www.feedbooks.com")) {
-      host="feedbooks.com";
-    }
-    String dir=Constants.BOOKS_DIRECTORY + "/" + host;
-    final List<String> path=uri.getPathSegments();
-    for (int i=0; i < path.size() - 1; ++i) {
-      dir+='/' + path.get(i);
-    }
-    final File dirFile=new File(dir);
-    dirFile.mkdirs();
-    if (!dirFile.isDirectory()) {
-      finish();
-      return;
-    }
-    myFileName=getFileName(path);
-    final File fileFile=new File(dirFile,myFileName);
-    if (fileFile.exists()) {
-      if (!fileFile.isFile()) {
-        finish();
-        return;
-      }
-      runFBReader(fileFile);
-      return;
-    }
-    startFileDownload(uri.toString(),fileFile);
+  if (uri == null || !acceptsUri(uri)) {
+    finish();
+    return;
   }
-  if (myFileLength <= 0) {
-    myProgressBar.setIndeterminate(true);
-  }
- else {
-    myProgressBar.setIndeterminate(false);
-    myProgressBar.setMax(myFileLength);
-    myProgressBar.setProgress(myDownloadedPart);
-  }
-  final TextView textView=(TextView)findViewById(R.id.downloadertext);
-  textView.setText(ZLDialogManager.getWaitMessageText("downloadingFile").replace("%s",myFileName));
+  intent.setData(null);
+  startService(new Intent(Intent.ACTION_VIEW,uri,this,org.geometerplus.android.fbreader.network.BookDownloaderService.class));
+  finish();
 }

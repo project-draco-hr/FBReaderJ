@@ -1,0 +1,5 @@
+{
+  super.onCreate();
+  myStartIds=new ConcurrentLinkedQueue<Integer>();
+  System.err.println("FBREADER -- CREATE DOWNLOADER SERVICE");
+}

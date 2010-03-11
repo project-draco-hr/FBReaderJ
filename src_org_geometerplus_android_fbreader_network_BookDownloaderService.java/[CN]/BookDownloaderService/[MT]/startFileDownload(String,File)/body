@@ -14,13 +14,8 @@
       try {
         final URL url=new URL(uriString);
         final URLConnection connection=url.openConnection();
-        myFileLength=connection.getContentLength();
-        if (myFileLength > 0) {
-          myProgressBar.setIndeterminate(false);
-          myProgressBar.setMax(myFileLength);
-          myProgressBar.setProgress(0);
-          myDownloadedPart=0;
-        }
+        int length=connection.getContentLength();
+        int downloaded=0;
         final HttpURLConnection httpConnection=(HttpURLConnection)connection;
         final int response=httpConnection.getResponseCode();
         if (response == HttpURLConnection.HTTP_OK) {
@@ -33,8 +28,14 @@
             if (size <= 0) {
               break;
             }
-            myDownloadedPart+=size;
-            myProgressBar.setProgress(myDownloadedPart);
+            downloaded+=size;
+            if (length > 0) {
+              int percent=(100 * downloaded) / length;
+              System.err.println("FBREADER -- DOWNLOADER SERVICE (" + file.getName() + ") : "+ percent+ "%");
+            }
+ else {
+              System.err.println("FBREADER -- DOWNLOADER SERVICE (" + file.getName() + ") : "+ downloaded+ " bytes");
+            }
             outStream.write(buffer,0,size);
           }
           inStream.close();
@@ -46,7 +47,6 @@
 catch (      IOException e) {
       }
       handler.sendEmptyMessage(0);
-      myFileLength=-1;
     }
   }
 ).start();

@@ -1,0 +1,5 @@
+{
+  System.err.println("FBREADER -- DESTROY DOWNLOADER SERVICE");
+  myStartIds=null;
+  super.onDestroy();
+}
