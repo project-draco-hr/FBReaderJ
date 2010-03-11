@@ -1,7 +1,6 @@
 {
   super.onStart(intent,startId);
   myStartIds.offer(startId);
-  System.err.println("FBREADER -- START DOWNLOADER SERVICE");
   final Uri uri=intent.getData();
   if (uri == null || !BookDownloader.acceptsUri(uri)) {
     stopSelf(myStartIds.poll().intValue());
