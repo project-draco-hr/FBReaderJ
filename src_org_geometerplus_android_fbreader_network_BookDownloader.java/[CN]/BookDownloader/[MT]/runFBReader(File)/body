@@ -1,0 +1,4 @@
+{
+  finish();
+  startActivity(new Intent(Intent.ACTION_VIEW,Uri.fromFile(file),this,org.geometerplus.android.fbreader.FBReader.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+}
