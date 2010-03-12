@@ -29,7 +29,8 @@
       stopSelf(myStartIds.poll().intValue());
       return;
     }
-    runFBReader(fileFile);
+    stopSelf(myStartIds.poll().intValue());
+    startActivity(getFBReaderIntent(fileFile));
     return;
   }
   startFileDownload(uri.toString(),fileFile);

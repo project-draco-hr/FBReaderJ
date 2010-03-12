@@ -1,11 +1,13 @@
 {
   final Handler handler=new Handler(){
     public void handleMessage(    Message message){
-      try {
-        runFBReader(file);
-      }
- catch (      Exception e) {
-      }
+      final Notification notification=new Notification(android.R.drawable.stat_sys_download_done,"Book has been downloaded",System.currentTimeMillis());
+      notification.flags|=Notification.FLAG_AUTO_CANCEL;
+      final PendingIntent contentIntent=PendingIntent.getActivity(BookDownloaderService.this,0,getFBReaderIntent(file),0);
+      notification.setLatestEventInfo(getApplicationContext(),file.getName(),"Download successful",contentIntent);
+      final NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+      notificationManager.notify(FBNotifications.BOOKDOWNLOADER_DOWNLOADSUCCESSFUL,notification);
+      stopSelf(myStartIds.poll().intValue());
     }
   }
 ;
