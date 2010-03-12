@@ -1,3 +1,7 @@
 {
-  return new Intent(Intent.ACTION_VIEW,Uri.fromFile(file),this,org.geometerplus.android.fbreader.FBReader.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+  final Intent intent=new Intent(this,org.geometerplus.android.fbreader.FBReader.class);
+  if (file != null) {
+    intent.setAction(Intent.ACTION_VIEW).setData(Uri.fromFile(file));
+  }
+  return intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
 }

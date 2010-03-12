@@ -20,11 +20,11 @@
     }
   }
 ;
-  final Handler downloadSuccessfulHandler=new Handler(){
+  final Handler downloadFinishHandler=new Handler(){
     public void handleMessage(    Message message){
       final NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
       notificationManager.cancel(notificationId);
-      notificationManager.notify(notificationId,createDownloadSuccessfulNotification(file));
+      notificationManager.notify(notificationId,createDownloadFinishNotification(file,message.what != 0));
       stopSelf(myStartIds.poll().intValue());
     }
   }
@@ -32,6 +32,7 @@
   new Thread(new Runnable(){
     public void run(){
       final int updateIntervalMillis=1000;
+      boolean downloadSuccess=false;
       try {
         final URL url=new URL(uriString);
         final URLConnection connection=url.openConnection();
@@ -44,34 +45,44 @@
         final HttpURLConnection httpConnection=(HttpURLConnection)connection;
         final int response=httpConnection.getResponseCode();
         if (response == HttpURLConnection.HTTP_OK) {
-          InputStream inStream=httpConnection.getInputStream();
           OutputStream outStream=new FileOutputStream(file);
-          final byte[] buffer=new byte[8192];
-          int fullSize=0;
-          while (true) {
-            final int size=inStream.read(buffer);
-            if (size <= 0) {
-              break;
-            }
-            downloadedPart+=size;
-            if (fileLength > 0) {
-              final long currentTime=System.currentTimeMillis();
-              if (currentTime > progressTime) {
-                progressTime=currentTime + updateIntervalMillis;
-                progressHandler.sendEmptyMessage(downloadedPart * 100 / fileLength);
+          try {
+            InputStream inStream=httpConnection.getInputStream();
+            final byte[] buffer=new byte[8192];
+            int fullSize=0;
+            while (true) {
+              final int size=inStream.read(buffer);
+              if (size <= 0) {
+                break;
               }
+              downloadedPart+=size;
+              if (fileLength > 0) {
+                final long currentTime=System.currentTimeMillis();
+                if (currentTime > progressTime) {
+                  progressTime=currentTime + updateIntervalMillis;
+                  progressHandler.sendEmptyMessage(downloadedPart * 100 / fileLength);
+                }
+              }
+              outStream.write(buffer,0,size);
             }
-            outStream.write(buffer,0,size);
+            inStream.close();
           }
-          inStream.close();
-          outStream.close();
+  finally {
+            outStream.close();
+          }
+          downloadSuccess=true;
         }
       }
  catch (      MalformedURLException e) {
       }
 catch (      IOException e) {
       }
-      downloadSuccessfulHandler.sendEmptyMessage(0);
+ finally {
+        downloadFinishHandler.sendEmptyMessage(downloadSuccess ? 1 : 0);
+        if (!downloadSuccess) {
+          file.delete();
+        }
+      }
     }
   }
 ).start();

@@ -7,7 +7,7 @@
   contentView.setTextViewText(R.id.download_notification_title,title);
   contentView.setTextViewText(R.id.download_notification_progress_text,"");
   contentView.setProgressBar(R.id.download_notification_progress_bar,100,0,true);
-  final Intent intent=new Intent(this,org.geometerplus.android.fbreader.FBReader.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+  final Intent intent=getFBReaderIntent(null);
   final PendingIntent contentIntent=PendingIntent.getActivity(this,0,intent,0);
   final Notification notification=new Notification();
   notification.icon=android.R.drawable.stat_sys_download;
