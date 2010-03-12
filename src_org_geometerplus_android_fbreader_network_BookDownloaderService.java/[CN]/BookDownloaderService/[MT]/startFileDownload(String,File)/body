@@ -1,21 +1,46 @@
 {
-  final Handler handler=new Handler(){
+  final int notificationId=file.getPath().hashCode();
+  final Notification progressNotification=createDownloadProgressNotification(file);
+  final NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+  notificationManager.notify(notificationId,progressNotification);
+  final Handler progressHandler=new Handler(){
     public void handleMessage(    Message message){
-      final Notification notification=new Notification(android.R.drawable.stat_sys_download_done,"Book has been downloaded",System.currentTimeMillis());
-      notification.flags|=Notification.FLAG_AUTO_CANCEL;
-      final PendingIntent contentIntent=PendingIntent.getActivity(BookDownloaderService.this,0,getFBReaderIntent(file),0);
-      notification.setLatestEventInfo(getApplicationContext(),file.getName(),"Download successful",contentIntent);
+      final int progress=message.what;
+      final RemoteViews contentView=(RemoteViews)progressNotification.contentView;
+      if (progress < 0) {
+        contentView.setTextViewText(R.id.download_notification_progress_text,"");
+        contentView.setProgressBar(R.id.download_notification_progress_bar,100,0,true);
+      }
+ else {
+        contentView.setTextViewText(R.id.download_notification_progress_text,"" + progress + "%");
+        contentView.setProgressBar(R.id.download_notification_progress_bar,100,progress,false);
+      }
       final NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-      notificationManager.notify(FBNotifications.BOOKDOWNLOADER_DOWNLOADSUCCESSFUL,notification);
+      notificationManager.notify(notificationId,progressNotification);
+    }
+  }
+;
+  final Handler downloadSuccessfulHandler=new Handler(){
+    public void handleMessage(    Message message){
+      final NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+      notificationManager.cancel(notificationId);
+      notificationManager.notify(notificationId,createDownloadSuccessfulNotification(file));
       stopSelf(myStartIds.poll().intValue());
     }
   }
 ;
   new Thread(new Runnable(){
     public void run(){
+      final int updateIntervalMillis=1000;
       try {
         final URL url=new URL(uriString);
         final URLConnection connection=url.openConnection();
+        final int fileLength=connection.getContentLength();
+        int downloadedPart=0;
+        long progressTime=System.currentTimeMillis() + updateIntervalMillis;
+        if (fileLength <= 0) {
+          progressHandler.sendEmptyMessage(-1);
+        }
         final HttpURLConnection httpConnection=(HttpURLConnection)connection;
         final int response=httpConnection.getResponseCode();
         if (response == HttpURLConnection.HTTP_OK) {
@@ -28,6 +53,14 @@
             if (size <= 0) {
               break;
             }
+            downloadedPart+=size;
+            if (fileLength > 0) {
+              final long currentTime=System.currentTimeMillis();
+              if (currentTime > progressTime) {
+                progressTime=currentTime + updateIntervalMillis;
+                progressHandler.sendEmptyMessage(downloadedPart * 100 / fileLength);
+              }
+            }
             outStream.write(buffer,0,size);
           }
           inStream.close();
@@ -38,7 +71,7 @@
       }
 catch (      IOException e) {
       }
-      handler.sendEmptyMessage(0);
+      downloadSuccessfulHandler.sendEmptyMessage(0);
     }
   }
 ).start();

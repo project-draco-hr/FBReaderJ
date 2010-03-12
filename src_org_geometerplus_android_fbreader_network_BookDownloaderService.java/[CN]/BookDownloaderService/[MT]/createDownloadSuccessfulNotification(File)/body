@@ -1,0 +1,7 @@
+{
+  final Notification notification=new Notification(android.R.drawable.stat_sys_download_done,"Book has been downloaded",System.currentTimeMillis());
+  notification.flags|=Notification.FLAG_AUTO_CANCEL;
+  final PendingIntent contentIntent=PendingIntent.getActivity(this,0,getFBReaderIntent(file),0);
+  notification.setLatestEventInfo(getApplicationContext(),file.getName(),"Download successful",contentIntent);
+  return notification;
+}

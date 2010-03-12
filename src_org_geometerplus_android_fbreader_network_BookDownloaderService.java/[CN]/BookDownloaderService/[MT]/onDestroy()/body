@@ -1,4 +1,0 @@
-{
-  myStartIds=null;
-  super.onDestroy();
-}
