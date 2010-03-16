@@ -1,0 +1,85 @@
+{
+  URI uri;
+  try {
+    uri=new URI(url);
+  }
+ catch (  java.net.URISyntaxException ex) {
+    return null;
+  }
+  String host=uri.getHost();
+  StringBuilder path=new StringBuilder(host);
+  if (host.startsWith("www.")) {
+    path.delete(0,4);
+  }
+  path.append(File.separator);
+  path.insert(0,File.separator);
+  path.insert(0,Constants.BOOKS_DIRECTORY);
+  int index=path.length();
+  path.append(uri.getPath());
+  int nameIndex=index;
+  while (index < path.length()) {
+    char ch=path.charAt(index);
+    if (ch == '<' || ch == '>' || ch == ':' || ch == '"' || ch == '|' || ch == '?' || ch == '*' || ch == '\\') {
+      path.setCharAt(index,'_');
+    }
+    if (ch == '/') {
+      if (index + 1 == path.length()) {
+        path.deleteCharAt(index);
+      }
+ else {
+        path.setCharAt(index,File.separatorChar);
+        nameIndex=index + 1;
+      }
+    }
+    ++index;
+  }
+  String ext=null;
+switch (format) {
+case Format.EPUB:
+    ext=".epub";
+  break;
+case Format.MOBIPOCKET:
+ext=".mobi";
+break;
+case Format.FB2_ZIP:
+ext=".fb2.zip";
+break;
+}
+if (ext == null) {
+int j=path.lastIndexOf(".");
+if (j > nameIndex) {
+ext=path.substring(j);
+path.delete(j,path.length());
+}
+}
+ else if (path.length() > ext.length() && path.substring(path.length() - ext.length()).equals(ext)) {
+path.delete(path.length() - ext.length(),path.length());
+}
+String query=uri.getQuery();
+if (query != null) {
+index=0;
+while (index < query.length()) {
+int j=query.indexOf("&",index);
+if (j == -1) {
+j=query.length();
+}
+String param=query.substring(index,j);
+if (!param.startsWith("username=") && !param.startsWith("password=") && !param.endsWith("=")) {
+int k=path.length();
+path.append("_").append(param);
+while (k < path.length()) {
+char ch=path.charAt(k);
+if (ch == '<' || ch == '>' || ch == ':' || ch == '"' || ch == '|' || ch == '?' || ch == '*' || ch == '\\' || ch == '/') {
+path.setCharAt(k,'_');
+}
+++k;
+}
+}
+index=j + 1;
+}
+}
+if (type == Type.DOWNLOAD_DEMO) {
+path.append(".trial");
+}
+return path.append(ext).toString();
+}

@@ -1,0 +1,9 @@
+{
+  if (price == null || currency == null) {
+    return null;
+  }
+  if (currency.equals("RUB")) {
+    return price + " \u0440.";
+  }
+  return currency + " " + price;
+}

@@ -1,0 +1,7 @@
+{
+  String fileName=makeBookFileName(cleanURL(),BookFormat,ReferenceType);
+  if (fileName != null && new File(fileName).exists()) {
+    return fileName;
+  }
+  return null;
+}
