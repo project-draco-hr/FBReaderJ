@@ -1,0 +1,11 @@
+{
+  final LibraryAdapter adapter=(LibraryAdapter)getListView().getAdapter();
+  final int position=((AdapterView.AdapterContextMenuInfo)item.getMenuInfo()).position;
+  final NetworkTree tree=(NetworkTree)adapter.getItem(position);
+switch (item.getItemId()) {
+case EXPAND_OR_COLLAPSE_TREE_ITEM_ID:
+    adapter.runTreeItem(tree);
+  return true;
+}
+return super.onContextItemSelected(item);
+}

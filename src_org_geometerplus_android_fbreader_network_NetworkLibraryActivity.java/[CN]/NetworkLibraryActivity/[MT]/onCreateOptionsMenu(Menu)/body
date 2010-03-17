@@ -1,4 +1,3 @@
 {
-  super.onCreateOptionsMenu(menu);
-  return true;
+  return super.onCreateOptionsMenu(menu);
 }
