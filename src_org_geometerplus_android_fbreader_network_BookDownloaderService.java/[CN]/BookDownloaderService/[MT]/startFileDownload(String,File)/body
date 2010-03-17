@@ -1,5 +1,5 @@
 {
-  final int notificationId=file.getPath().hashCode();
+  final int notificationId=(int)System.currentTimeMillis();
   final Notification progressNotification=createDownloadProgressNotification(file);
   final NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
   notificationManager.notify(notificationId,progressNotification);
