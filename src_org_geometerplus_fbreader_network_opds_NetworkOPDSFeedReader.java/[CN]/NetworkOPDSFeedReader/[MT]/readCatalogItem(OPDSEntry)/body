@@ -1,36 +1,44 @@
 {
+  final OPDSLink opdsLink=(OPDSLink)myData.Link;
   String coverURL=null;
   String url=null;
   boolean urlIsAlternate=false;
   String htmlURL=null;
+  boolean litresCatalogue=false;
+  int catalogType=NetworkCatalogItem.CATALOG_OTHER;
   for (  ATOMLink link : entry.Links) {
     final String href=link.getHref();
-    final String rel=intern(link.getRel());
-    final String type=intern(link.getType());
-    if (rel == OPDSConstants.REL_COVER || rel == OPDSConstants.REL_STANZA_COVER) {
-      if (coverURL == null && (type == OPDSConstants.MIME_IMG_PNG || type == OPDSConstants.MIME_IMG_JPEG)) {
+    final String type=link.getType();
+    final String rel=opdsLink.relation(filter(link.getRel()),type);
+    if (type == OPDSConstants.MIME_IMG_PNG || type == OPDSConstants.MIME_IMG_JPEG) {
+      if (rel == OPDSConstants.REL_THUMBNAIL || (coverURL == null && rel == OPDSConstants.REL_COVER)) {
         coverURL=href;
       }
     }
- else     if (rel == OPDSConstants.REL_THUMBNAIL || rel == OPDSConstants.REL_STANZA_THUMBNAIL) {
-      if (type == OPDSConstants.MIME_IMG_PNG || type == OPDSConstants.MIME_IMG_JPEG) {
-        coverURL=href;
-      }
-    }
- else     if (rel == OPDSConstants.REL_ACQUISITION || rel == ATOMConstants.REL_ALTERNATE || rel == null) {
-      if (type == OPDSConstants.MIME_APP_ATOM) {
-        if (rel == ATOMConstants.REL_ALTERNATE) {
-          if (url == null) {
-            url=href;
-            urlIsAlternate=true;
-          }
-        }
- else {
+ else     if (type == OPDSConstants.MIME_APP_ATOM) {
+      if (rel == ATOMConstants.REL_ALTERNATE) {
+        if (url == null) {
           url=href;
+          urlIsAlternate=true;
         }
       }
- else       if (type == OPDSConstants.MIME_TEXT_HTML) {
+ else {
+        url=href;
+        urlIsAlternate=false;
+        if (rel == OPDSConstants.REL_CATALOG_AUTHOR) {
+          catalogType=NetworkCatalogItem.CATALOG_BY_AUTHORS;
+        }
+      }
+    }
+ else     if (type == OPDSConstants.MIME_TEXT_HTML) {
+      if (rel == OPDSConstants.REL_ACQUISITION || rel == ATOMConstants.REL_ALTERNATE || rel == null) {
         htmlURL=href;
+      }
+    }
+ else     if (type == OPDSConstants.MIME_APP_LITRES) {
+      if (rel == OPDSConstants.REL_BOOKSHELF) {
+        litresCatalogue=true;
+        url=href;
       }
     }
   }
@@ -40,8 +48,7 @@
   if (url != null && !urlIsAlternate) {
     htmlURL=null;
   }
-  Integer entryCondition=myUrlConditions.get(entry.Id.Uri);
-  final boolean dependsOnAccount=entryCondition != null && entryCondition.intValue() == OPDSLink.URLCondition.URL_CONDITION_SIGNED_IN;
+  final boolean dependsOnAccount=opdsLink.getCondition(entry.Id.Uri) == OPDSLink.FeedCondition.SIGNED_IN;
   final String annotation;
   if (entry.Summary == null) {
     annotation=null;
@@ -51,13 +58,18 @@
   }
   HashMap<Integer,String> urlMap=new HashMap<Integer,String>();
   if (coverURL != null) {
-    urlMap.put(NetworkLibraryItem.URLType.URL_COVER,coverURL);
+    urlMap.put(NetworkLibraryItem.URL_COVER,coverURL);
   }
   if (url != null) {
-    urlMap.put(NetworkLibraryItem.URLType.URL_CATALOG,ZLNetworkUtil.url(myBaseURL,url));
+    urlMap.put(NetworkLibraryItem.URL_CATALOG,ZLNetworkUtil.url(myBaseURL,url));
   }
   if (htmlURL != null) {
-    urlMap.put(NetworkLibraryItem.URLType.URL_HTML_PAGE,ZLNetworkUtil.url(myBaseURL,htmlURL));
+    urlMap.put(NetworkLibraryItem.URL_HTML_PAGE,ZLNetworkUtil.url(myBaseURL,htmlURL));
   }
-  return new OPDSCatalogItem(myData.Link,entry.Title,annotation,urlMap,dependsOnAccount ? OPDSCatalogItem.VisibilityType.LOGGED_USERS : OPDSCatalogItem.VisibilityType.ALWAYS);
+  if (litresCatalogue) {
+    return null;
+  }
+ else {
+    return new OPDSCatalogItem(opdsLink,entry.Title,annotation,urlMap,dependsOnAccount ? NetworkCatalogItem.VISIBLE_LOGGED_USER : NetworkCatalogItem.VISIBLE_ALWAYS,catalogType);
+  }
 }

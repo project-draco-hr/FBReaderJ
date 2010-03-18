@@ -1,0 +1,3 @@
+{
+  return NetworkErrors.errorMessage(NetworkErrors.ERROR_UNSUPPORTED_OPERATION);
+}

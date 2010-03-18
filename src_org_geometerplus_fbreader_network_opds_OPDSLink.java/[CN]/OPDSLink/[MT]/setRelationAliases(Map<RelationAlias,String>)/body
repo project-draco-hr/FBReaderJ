@@ -1,0 +1,8 @@
+{
+  if (relationAliases != null && relationAliases.size() > 0) {
+    myRelationAliases=new TreeMap(relationAliases);
+  }
+ else {
+    myRelationAliases=null;
+  }
+}

@@ -1,0 +1,12 @@
+{
+  super(link,title,summary,urlByType);
+  Index=index;
+  Id=id;
+  Language=language;
+  Date=date;
+  Authors=new LinkedList<AuthorData>(authors);
+  Tags=new LinkedList<String>(tags);
+  SeriesTitle=seriesTitle;
+  IndexInSeries=indexInSeries;
+  myReferences=new LinkedList(references);
+}

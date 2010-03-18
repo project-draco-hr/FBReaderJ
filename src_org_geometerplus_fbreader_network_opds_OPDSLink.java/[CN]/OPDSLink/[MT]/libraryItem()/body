@@ -1,5 +1,6 @@
 {
   TreeMap<Integer,String> urlMap=new TreeMap<Integer,String>();
-  urlMap.put(NetworkLibraryItem.URLType.URL_CATALOG,Links.get(URL_MAIN));
+  urlMap.put(NetworkLibraryItem.URL_COVER,Icon);
+  urlMap.put(NetworkLibraryItem.URL_CATALOG,Links.get(URL_MAIN));
   return new OPDSCatalogItem(this,Title,Summary,urlMap);
 }

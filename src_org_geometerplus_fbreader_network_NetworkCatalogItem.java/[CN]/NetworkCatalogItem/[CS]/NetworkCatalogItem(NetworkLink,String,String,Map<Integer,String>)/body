@@ -1,3 +1,3 @@
 {
-  this(link,title,summary,urlByType,VisibilityType.ALWAYS);
+  this(link,title,summary,urlByType,VISIBLE_ALWAYS,CATALOG_OTHER);
 }

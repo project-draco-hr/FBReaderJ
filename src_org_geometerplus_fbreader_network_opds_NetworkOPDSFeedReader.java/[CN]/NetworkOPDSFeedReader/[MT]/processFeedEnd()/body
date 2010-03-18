@@ -1,9 +1,11 @@
 {
-  for (  NetworkLibraryItem item : myData.Items) {
-    if (!(item instanceof NetworkBookItem)) {
-      continue;
+  if (myOpenSearchStartIndex > 0) {
+    for (    NetworkLibraryItem item : myData.Items) {
+      if (!(item instanceof NetworkBookItem)) {
+        continue;
+      }
+      NetworkBookItem book=(NetworkBookItem)item;
+      book.Index+=myOpenSearchStartIndex;
     }
-    NetworkBookItem book=(NetworkBookItem)item;
-    book.Index+=myOpenSearchStartIndex;
   }
 }

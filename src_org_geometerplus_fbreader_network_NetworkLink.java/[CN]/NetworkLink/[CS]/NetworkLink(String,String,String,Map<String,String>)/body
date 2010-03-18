@@ -1,7 +1,0 @@
-{
-  SiteName=siteName;
-  Title=title;
-  Summary=summary;
-  OnOption=new ZLBooleanOption(SiteName,"on",true);
-  Links=new TreeMap(links);
-}

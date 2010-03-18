@@ -3,18 +3,22 @@
   myAtomNamespaceId=null;
   myOpenSearchNamespaceId=null;
   myCalibreNamespaceId=null;
+  myOpdsNamespaceId=null;
   for (  String key : namespaces.keySet()) {
-    if (key.startsWith(XMLNamespace.DublinCoreTermsPrefix)) {
-      myDublinCoreNamespaceId=namespaces.get(key).intern();
+    if (key == XMLNamespace.DublinCoreTerms) {
+      myDublinCoreNamespaceId=intern(namespaces.get(key));
     }
- else     if (key.equals(XMLNamespace.Atom)) {
-      myAtomNamespaceId=namespaces.get(key).intern();
+ else     if (key == XMLNamespace.Atom) {
+      myAtomNamespaceId=intern(namespaces.get(key));
     }
- else     if (key.startsWith(XMLNamespace.OpenSearchPrefix)) {
-      myOpenSearchNamespaceId=namespaces.get(key).intern();
+ else     if (key == XMLNamespace.OpenSearch) {
+      myOpenSearchNamespaceId=intern(namespaces.get(key));
     }
- else     if (key.equals(XMLNamespace.CalibreMetadata)) {
-      myCalibreNamespaceId=namespaces.get(key).intern();
+ else     if (key == XMLNamespace.CalibreMetadata) {
+      myCalibreNamespaceId=intern(namespaces.get(key));
+    }
+ else     if (key == XMLNamespace.Opds) {
+      myOpdsNamespaceId=intern(namespaces.get(key));
     }
   }
 }

@@ -1,0 +1,7 @@
+{
+  if (o == null || !(o instanceof RelationAlias)) {
+    return false;
+  }
+  RelationAlias r=(RelationAlias)o;
+  return Alias == r.Alias && Type == r.Type;
+}

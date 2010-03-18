@@ -1,13 +1,13 @@
 {
-  Integer entryCondition=myUrlConditions.get(entry.Id.Uri);
-  if (entryCondition != null && entryCondition.intValue() == OPDSLink.URLCondition.URL_CONDITION_NEVER) {
+  final OPDSLink opdsLink=(OPDSLink)myData.Link;
+  if (opdsLink.getCondition(entry.Id.Uri) == OPDSLink.FeedCondition.NEVER) {
     return;
   }
   boolean hasBookLink=false;
   for (  ATOMLink link : entry.Links) {
-    final String rel=intern(link.getRel());
-    final String type=intern(link.getType());
-    if ((rel == OPDSConstants.REL_ACQUISITION || rel == OPDSConstants.REL_ACQUISITION_SAMPLE || rel == null) && (type == OPDSConstants.MIME_APP_EPUB || type == OPDSConstants.MIME_APP_MOBI || type == OPDSConstants.MIME_APP_FB2ZIP)) {
+    final String type=link.getType();
+    final String rel=opdsLink.relation(filter(link.getRel()),type);
+    if (rel == OPDSConstants.REL_ACQUISITION || rel == OPDSConstants.REL_ACQUISITION_SAMPLE || rel == OPDSConstants.REL_ACQUISITION_BUY || rel == OPDSConstants.REL_ACQUISITION_CONDITIONAL || rel == OPDSConstants.REL_ACQUISITION_SAMPLE_OR_FULL || (rel == null && formatByMimeType(type) != BookReference.Format.NONE)) {
       hasBookLink=true;
       break;
     }

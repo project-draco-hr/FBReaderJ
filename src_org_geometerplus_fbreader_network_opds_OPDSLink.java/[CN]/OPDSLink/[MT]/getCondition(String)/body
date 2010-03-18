@@ -1,0 +1,10 @@
+{
+  if (myUrlConditions == null) {
+    return FeedCondition.REGULAR;
+  }
+  Integer cond=myUrlConditions.get(url);
+  if (cond == null) {
+    return FeedCondition.REGULAR;
+  }
+  return cond.intValue();
+}

@@ -1,8 +1,9 @@
 {
+  final OPDSLink opdsLink=(OPDSLink)myData.Link;
   for (  ATOMLink link : feed.Links) {
     String href=link.getHref();
-    String rel=intern(link.getRel());
-    String type=intern(link.getType());
+    String type=link.getType();
+    String rel=opdsLink.relation(filter(link.getRel()),type);
     if (type == OPDSConstants.MIME_APP_ATOM && rel == "next") {
       myData.ResumeURI=href;
     }

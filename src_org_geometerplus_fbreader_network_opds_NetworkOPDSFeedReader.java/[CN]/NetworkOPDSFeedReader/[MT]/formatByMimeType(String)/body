@@ -1,0 +1,12 @@
+{
+  if (mimeType == OPDSConstants.MIME_APP_FB2ZIP) {
+    return BookReference.Format.FB2_ZIP;
+  }
+ else   if (mimeType == OPDSConstants.MIME_APP_EPUB) {
+    return BookReference.Format.EPUB;
+  }
+ else   if (mimeType == OPDSConstants.MIME_APP_MOBI) {
+    return BookReference.Format.MOBIPOCKET;
+  }
+  return BookReference.Format.NONE;
+}

@@ -1,5 +1,5 @@
 {
-  int key=SortKey.compareTo(data.SortKey);
+  final int key=SortKey.compareTo(data.SortKey);
   if (key != 0) {
     return key;
   }

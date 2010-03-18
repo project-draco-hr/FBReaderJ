@@ -1,0 +1,3 @@
+{
+  return (Alias == null ? 0 : Alias.hashCode()) + (Type == null ? 0 : Type.hashCode());
+}

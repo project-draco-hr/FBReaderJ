@@ -1,0 +1,23 @@
+{
+  if (stringToEncode == null) {
+    return null;
+  }
+  StringBuilder encodedString=new StringBuilder();
+  for (int i=0; i < stringToEncode.length(); ++i) {
+    final char ch=stringToEncode.charAt(i);
+    if (Character.isLetter(ch) || (ch == '.') || (ch == '~')|| (ch == '-')|| (ch == '_')) {
+      encodedString.append(ch);
+    }
+ else {
+      try {
+        byte[] bytes=String.valueOf(ch).getBytes("UTF-8");
+        for (        byte b : bytes) {
+          encodedString.append('%').append(hexDigits[b / 16]).append(hexDigits[b % 16]);
+        }
+      }
+ catch (      java.io.UnsupportedEncodingException ex) {
+      }
+    }
+  }
+  return encodedString.toString();
+}

@@ -4,6 +4,7 @@
   mySearchFields.clear();
   myUrlConditions.clear();
   myUrlRewritingRules.clear();
+  myRelationAliases.clear();
   myState=READ_NOTHING;
   if (!ZLXMLProcessor.read(this,file)) {
     return null;

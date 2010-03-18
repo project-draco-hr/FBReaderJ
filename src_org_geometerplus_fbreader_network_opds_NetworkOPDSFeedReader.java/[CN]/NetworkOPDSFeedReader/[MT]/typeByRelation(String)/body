@@ -1,0 +1,20 @@
+{
+  if (rel == null || rel == OPDSConstants.REL_ACQUISITION) {
+    return BookReference.Type.DOWNLOAD_FULL;
+  }
+ else   if (rel == OPDSConstants.REL_ACQUISITION_SAMPLE) {
+    return BookReference.Type.DOWNLOAD_DEMO;
+  }
+ else   if (rel == OPDSConstants.REL_ACQUISITION_CONDITIONAL) {
+    return BookReference.Type.DOWNLOAD_FULL_CONDITIONAL;
+  }
+ else   if (rel == OPDSConstants.REL_ACQUISITION_SAMPLE_OR_FULL) {
+    return BookReference.Type.DOWNLOAD_FULL_OR_DEMO;
+  }
+ else   if (rel == OPDSConstants.REL_ACQUISITION_BUY) {
+    return BookReference.Type.BUY;
+  }
+ else {
+    return BookReference.Type.UNKNOWN;
+  }
+}
