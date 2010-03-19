@@ -1,0 +1,8 @@
+{
+  NetworkBookTree bookTree=(NetworkBookTree)tree;
+  NetworkBookItem book=bookTree.Book;
+  BookReference ref=book.reference(demo ? BookReference.Type.DOWNLOAD_DEMO : BookReference.Type.DOWNLOAD_FULL);
+  if (ref != null) {
+    startService(new Intent(Intent.ACTION_VIEW,Uri.parse(ref.URL),this,BookDownloaderService.class).putExtra(BookDownloaderService.BOOK_FORMAT_KEY,ref.BookFormat).putExtra(BookDownloaderService.REFERENCE_TYPE_KEY,ref.ReferenceType));
+  }
+}

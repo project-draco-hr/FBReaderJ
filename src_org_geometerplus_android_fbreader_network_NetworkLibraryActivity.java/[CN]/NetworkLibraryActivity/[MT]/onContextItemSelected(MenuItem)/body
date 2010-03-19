@@ -7,31 +7,19 @@ case EXPAND_OR_COLLAPSE_TREE_ITEM_ID:
     adapter.runTreeItem(tree);
   return true;
 case DOWNLOAD_BOOK_ITEM_ID:
-{
-  NetworkBookTree bookTree=(NetworkBookTree)tree;
-  NetworkBookItem book=bookTree.Book;
-  BookReference ref=book.reference(BookReference.Type.DOWNLOAD_FULL);
-  if (ref != null) {
-    startService(new Intent(Intent.ACTION_VIEW,Uri.parse(ref.URL),this,BookDownloaderService.class).putExtra(BookDownloaderService.BOOK_FORMAT_KEY,ref.BookFormat).putExtra(BookDownloaderService.REFERENCE_TYPE_KEY,ref.ReferenceType));
-  }
-}
+doDownloadBook(tree,false);
+return true;
+case DOWNLOAD_DEMO_ITEM_ID:
+doDownloadBook(tree,true);
 return true;
 case READ_BOOK_ITEM_ID:
-{
-NetworkBookTree bookTree=(NetworkBookTree)tree;
-NetworkBookItem book=bookTree.Book;
-String local=book.localCopyFileName();
-if (local != null) {
-startActivity(new Intent(Intent.ACTION_VIEW,Uri.fromFile(new File(local)),this,org.geometerplus.android.fbreader.FBReader.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
-}
-}
+doReadBook(tree,false);
+return true;
+case READ_DEMO_ITEM_ID:
+doReadBook(tree,true);
 return true;
 case DELETE_BOOK_ITEM_ID:
-{
-NetworkBookTree bookTree=(NetworkBookTree)tree;
-NetworkBookItem book=bookTree.Book;
-tryToDeleteBook(book);
-}
+tryToDeleteBook(tree);
 return true;
 }
 return super.onContextItemSelected(item);

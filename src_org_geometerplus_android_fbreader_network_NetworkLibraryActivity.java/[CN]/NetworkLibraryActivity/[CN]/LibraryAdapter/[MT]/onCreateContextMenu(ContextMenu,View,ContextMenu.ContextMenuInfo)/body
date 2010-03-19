@@ -29,11 +29,18 @@
         menu.add(0,READ_BOOK_ITEM_ID,0,resource.getResource("read").getValue());
         menu.add(0,DELETE_BOOK_ITEM_ID,0,resource.getResource("delete").getValue());
       }
-      if (book.localCopyFileName() == null && book.reference(BookReference.Type.DOWNLOAD_FULL) != null) {
+ else       if (book.reference(BookReference.Type.DOWNLOAD_FULL) != null) {
         menu.add(0,DOWNLOAD_BOOK_ITEM_ID,0,resource.getResource("download").getValue());
       }
     }
-    if (book.reference(BookReference.Type.DOWNLOAD_DEMO) != null) {
+    if (book.reference(BookReference.Type.DOWNLOAD_DEMO) != null && book.localCopyFileName() == null && book.reference(BookReference.Type.DOWNLOAD_FULL) == null) {
+      BookReference reference=book.reference(BookReference.Type.DOWNLOAD_DEMO);
+      if (reference.localCopyFileName() != null) {
+        menu.add(0,READ_DEMO_ITEM_ID,0,resource.getResource("readDemo").getValue());
+      }
+ else {
+        menu.add(0,DOWNLOAD_DEMO_ITEM_ID,0,resource.getResource("downloadDemo").getValue());
+      }
     }
     if (book.reference(BookReference.Type.BUY) != null) {
     }
