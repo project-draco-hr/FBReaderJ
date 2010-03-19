@@ -1,0 +1,4 @@
+{
+  updateCatalogChildren(tree);
+  resetTree();
+}

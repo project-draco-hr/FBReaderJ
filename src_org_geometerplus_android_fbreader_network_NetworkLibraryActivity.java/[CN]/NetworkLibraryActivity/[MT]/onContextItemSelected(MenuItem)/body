@@ -4,7 +4,7 @@
   final NetworkTree tree=(NetworkTree)adapter.getItem(position);
 switch (item.getItemId()) {
 case EXPAND_OR_COLLAPSE_TREE_ITEM_ID:
-    adapter.runTreeItem(tree);
+    adapter.expandCatalog((NetworkCatalogTree)tree);
   return true;
 case DOWNLOAD_BOOK_ITEM_ID:
 doDownloadBook(tree,false);
@@ -26,6 +26,12 @@ doBuyDirectly(tree);
 return true;
 case BUY_IN_BROWSER_ITEM_ID:
 doBuyInBrowser(tree);
+return true;
+case OPEN_IN_BROWSER_ITEM_ID:
+openInBrowser(((NetworkCatalogTree)tree).Item.URLByType.get(NetworkLibraryItem.URL_HTML_PAGE));
+return true;
+case RELOAD_ITEM_ID:
+adapter.reloadCatalog((NetworkCatalogTree)tree);
 return true;
 }
 return super.onContextItemSelected(item);

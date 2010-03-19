@@ -1,0 +1,12 @@
+{
+  NetworkCatalogItem item=tree.Item;
+  NetworkLink link=item.Link;
+  if (link.authenticationManager() != null) {
+    NetworkAuthenticationManager mgr=link.authenticationManager();
+  }
+  if (!tree.hasChildren()) {
+    updateCatalogChildren(tree);
+    resetTree();
+  }
+  super.runTreeItem(tree);
+}

@@ -13,11 +13,18 @@
   }
  else   if (tree instanceof NetworkCatalogTree) {
     menu.setHeaderTitle(tree.getName());
-    if (tree.hasChildren() && isOpen(tree)) {
-      menu.add(0,EXPAND_OR_COLLAPSE_TREE_ITEM_ID,0,resource.getResource("collapseTree").getValue());
+    NetworkCatalogTree catalogTree=(NetworkCatalogTree)tree;
+    NetworkCatalogItem item=catalogTree.Item;
+    if (item.URLByType.get(NetworkLibraryItem.URL_CATALOG) != null) {
+      String key=(tree.hasChildren() && isOpen(tree)) ? "collapseTree" : "expandTree";
+      menu.add(0,EXPAND_OR_COLLAPSE_TREE_ITEM_ID,0,resource.getResource(key).getValue());
     }
- else {
-      menu.add(0,EXPAND_OR_COLLAPSE_TREE_ITEM_ID,0,resource.getResource("expandTree").getValue());
+    String htmlUrl=item.URLByType.get(NetworkLibraryItem.URL_HTML_PAGE);
+    if (htmlUrl != null) {
+      menu.add(0,OPEN_IN_BROWSER_ITEM_ID,0,resource.getResource("openInBrowser").getValue());
+    }
+    if (tree.hasChildren() && isOpen(tree)) {
+      menu.add(0,RELOAD_ITEM_ID,0,resource.getResource("reload").getValue());
     }
   }
  else   if (tree instanceof NetworkBookTree) {

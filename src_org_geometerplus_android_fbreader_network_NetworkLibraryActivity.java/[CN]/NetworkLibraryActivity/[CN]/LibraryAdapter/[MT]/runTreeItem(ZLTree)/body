@@ -3,12 +3,7 @@
     return true;
   }
   if (tree instanceof NetworkCatalogTree) {
-    NetworkCatalogTree catalogTree=(NetworkCatalogTree)tree;
-    if (!catalogTree.hasChildren()) {
-      updateCatalogChildren(catalogTree);
-      resetTree();
-    }
-    super.runTreeItem(tree);
+    expandCatalog((NetworkCatalogTree)tree);
     return true;
   }
   return false;
