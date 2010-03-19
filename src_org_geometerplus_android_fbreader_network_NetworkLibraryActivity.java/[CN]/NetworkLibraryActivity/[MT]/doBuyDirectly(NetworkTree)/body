@@ -1,0 +1,4 @@
+{
+  NetworkBookTree bookTree=(NetworkBookTree)tree;
+  NetworkBookItem book=bookTree.Book;
+}

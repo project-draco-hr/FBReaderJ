@@ -11,9 +11,5 @@
     super.runTreeItem(tree);
     return true;
   }
- else   if (tree instanceof NetworkBookTree) {
-    NetworkBookTree bookTree=(NetworkBookTree)tree;
-    NetworkBookItem book=bookTree.Book;
-  }
   return false;
 }

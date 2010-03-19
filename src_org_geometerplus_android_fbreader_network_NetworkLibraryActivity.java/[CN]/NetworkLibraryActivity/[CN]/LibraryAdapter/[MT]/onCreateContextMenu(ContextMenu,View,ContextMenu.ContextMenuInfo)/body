@@ -43,8 +43,18 @@
       }
     }
     if (book.reference(BookReference.Type.BUY) != null) {
+      if (book.localCopyFileName() == null && book.reference(BookReference.Type.DOWNLOAD_FULL) == null) {
+        BookReference reference=book.reference(BookReference.Type.BUY);
+        String title=resource.getResource("buy").getValue().replace("%s",((BuyBookReference)reference).Price);
+        menu.add(0,BUY_DIRECTLY_ITEM_ID,0,title);
+      }
     }
  else     if (book.reference(BookReference.Type.BUY_IN_BROWSER) != null) {
+      if (book.localCopyFileName() == null && book.reference(BookReference.Type.DOWNLOAD_FULL) == null) {
+        BookReference reference=book.reference(BookReference.Type.BUY_IN_BROWSER);
+        String title=resource.getResource("buy").getValue().replace("%s",((BuyBookReference)reference).Price);
+        menu.add(0,BUY_IN_BROWSER_ITEM_ID,0,title);
+      }
     }
   }
 }
