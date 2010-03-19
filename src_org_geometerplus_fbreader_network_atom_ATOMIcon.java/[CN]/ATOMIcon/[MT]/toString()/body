@@ -1,0 +1,7 @@
+{
+  StringBuilder buf=new StringBuilder("[");
+  buf.append(super.toString());
+  buf.append(",\nUri=").append(Uri);
+  buf.append("]");
+  return buf.toString();
+}

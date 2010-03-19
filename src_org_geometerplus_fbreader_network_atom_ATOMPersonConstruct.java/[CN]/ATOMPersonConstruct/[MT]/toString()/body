@@ -1,0 +1,9 @@
+{
+  StringBuilder buf=new StringBuilder("[");
+  buf.append(super.toString());
+  buf.append(",\nName=").append(Name);
+  buf.append(",\nUri=").append(Uri);
+  buf.append(",\nEmail=").append(Email);
+  buf.append("]");
+  return buf.toString();
+}

@@ -1,9 +1,12 @@
 {
   if (price == null || currency == null) {
-    return null;
+    return price;
   }
-  if (currency.equals("RUB")) {
+ else   if (currency.equals("RUB")) {
     return price + " \u0440.";
+  }
+ else   if (currency.equals("USD")) {
+    return "$" + price;
   }
   return currency + " " + price;
 }
