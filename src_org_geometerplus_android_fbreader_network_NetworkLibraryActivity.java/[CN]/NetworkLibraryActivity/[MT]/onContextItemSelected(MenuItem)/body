@@ -6,6 +6,16 @@ switch (item.getItemId()) {
 case EXPAND_OR_COLLAPSE_TREE_ITEM_ID:
     adapter.runTreeItem(tree);
   return true;
+case DOWNLOAD_BOOK_ITEM_ID:
+{
+  NetworkBookTree bookTree=(NetworkBookTree)tree;
+  NetworkBookItem book=bookTree.Book;
+  BookReference ref=book.reference(BookReference.Type.DOWNLOAD_FULL);
+  if (ref != null) {
+    startService(new Intent(Intent.ACTION_VIEW,Uri.parse(ref.URL),this,BookDownloaderService.class).putExtra(BookDownloaderService.BOOK_FORMAT_KEY,ref.BookFormat).putExtra(BookDownloaderService.REFERENCE_TYPE_KEY,ref.ReferenceType));
+  }
+}
+return true;
 }
 return super.onContextItemSelected(item);
 }

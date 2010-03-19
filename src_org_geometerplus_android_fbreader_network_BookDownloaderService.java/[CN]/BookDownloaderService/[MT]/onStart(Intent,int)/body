@@ -7,7 +7,10 @@
     return;
   }
   intent.setData(null);
-  String fileName=BookReference.makeBookFileName(uri.toString(),BookReference.Format.NONE,BookReference.Type.UNKNOWN);
+  final String url=uri.toString();
+  final int bookFormat=intent.getIntExtra(BOOK_FORMAT_KEY,BookReference.Format.NONE);
+  final int referenceType=intent.getIntExtra(REFERENCE_TYPE_KEY,BookReference.Type.UNKNOWN);
+  String fileName=BookReference.makeBookFileName(url,bookFormat,referenceType);
   if (fileName == null) {
     doStop();
     return;
@@ -35,5 +38,5 @@
     startActivity(getFBReaderIntent(fileFile));
     return;
   }
-  startFileDownload(uri.toString(),fileFile);
+  startFileDownload(url,fileFile);
 }

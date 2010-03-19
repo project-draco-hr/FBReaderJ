@@ -23,5 +23,17 @@
  else   if (tree instanceof NetworkBookTree) {
     NetworkBookTree bookTree=(NetworkBookTree)tree;
     NetworkBookItem book=bookTree.Book;
+    menu.setHeaderTitle(tree.getName());
+    if (book.reference(BookReference.Type.DOWNLOAD_FULL) != null || book.reference(BookReference.Type.DOWNLOAD_FULL_CONDITIONAL) != null) {
+      if (book.localCopyFileName() == null && book.reference(BookReference.Type.DOWNLOAD_FULL) != null) {
+        menu.add(0,DOWNLOAD_BOOK_ITEM_ID,0,resource.getResource("download").getValue());
+      }
+    }
+    if (book.reference(BookReference.Type.DOWNLOAD_DEMO) != null) {
+    }
+    if (book.reference(BookReference.Type.BUY) != null) {
+    }
+ else     if (book.reference(BookReference.Type.BUY_IN_BROWSER) != null) {
+    }
   }
 }
