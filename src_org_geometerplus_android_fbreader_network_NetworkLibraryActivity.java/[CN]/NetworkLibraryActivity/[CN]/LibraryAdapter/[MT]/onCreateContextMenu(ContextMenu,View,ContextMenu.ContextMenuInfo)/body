@@ -25,6 +25,9 @@
     NetworkBookItem book=bookTree.Book;
     menu.setHeaderTitle(tree.getName());
     if (book.reference(BookReference.Type.DOWNLOAD_FULL) != null || book.reference(BookReference.Type.DOWNLOAD_FULL_CONDITIONAL) != null) {
+      if (book.localCopyFileName() != null) {
+        menu.add(0,READ_BOOK_ITEM_ID,0,resource.getResource("read").getValue());
+      }
       if (book.localCopyFileName() == null && book.reference(BookReference.Type.DOWNLOAD_FULL) != null) {
         menu.add(0,DOWNLOAD_BOOK_ITEM_ID,0,resource.getResource("download").getValue());
       }

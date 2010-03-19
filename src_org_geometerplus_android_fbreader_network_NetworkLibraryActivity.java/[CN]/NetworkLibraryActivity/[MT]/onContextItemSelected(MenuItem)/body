@@ -16,6 +16,16 @@ case DOWNLOAD_BOOK_ITEM_ID:
   }
 }
 return true;
+case READ_BOOK_ITEM_ID:
+{
+NetworkBookTree bookTree=(NetworkBookTree)tree;
+NetworkBookItem book=bookTree.Book;
+String local=book.localCopyFileName();
+if (local != null) {
+startActivity(new Intent(Intent.ACTION_VIEW,Uri.fromFile(new File(local)),this,org.geometerplus.android.fbreader.FBReader.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+}
+}
+return true;
 }
 return super.onContextItemSelected(item);
 }
