@@ -101,9 +101,6 @@ myState=FE_SUMMARY;
  else if (tag == TAG_CONTENT) {
 myState=FE_CONTENT;
 }
- else if (tag == TAG_SUBTITLE) {
-myState=FE_SUBTITLE;
-}
  else if (tag == TAG_TITLE) {
 myState=FE_TITLE;
 }

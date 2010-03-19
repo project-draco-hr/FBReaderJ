@@ -201,14 +201,6 @@ myEntry.Summary=bufferContent;
 myState=F_ENTRY;
 }
 break;
-case FE_SUBTITLE:
-if (tagPrefix == myAtomNamespaceId && tag == TAG_SUBTITLE) {
-if (bufferContent != null && !mySummaryTagFound) {
-myEntry.Summary=bufferContent;
-}
-myState=F_ENTRY;
-}
-break;
 case FE_TITLE:
 if (tagPrefix == myAtomNamespaceId && tag == TAG_TITLE) {
 myEntry.Title=bufferContent;
