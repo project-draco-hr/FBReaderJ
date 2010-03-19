@@ -12,6 +12,7 @@
         break;
       }
       final HttpURLConnection httpConnection=(HttpURLConnection)connection;
+      httpConnection.setConnectTimeout(30000);
       final int response=httpConnection.getResponseCode();
       if (response == HttpURLConnection.HTTP_OK) {
         InputStream inStream=httpConnection.getInputStream();
@@ -33,8 +34,18 @@
     }
   }
  catch (  MalformedURLException ex) {
+    return null;
+  }
+catch (  SocketTimeoutException ex) {
+    return NetworkErrors.errorMessage("operationTimedOutMessage");
   }
 catch (  IOException ex) {
+    try {
+      return NetworkErrors.errorMessage(NetworkErrors.ERROR_SOMETHING_WRONG,new URL(urlString).getHost());
+    }
+ catch (    MalformedURLException ex2) {
+      return null;
+    }
   }
   return null;
 }
