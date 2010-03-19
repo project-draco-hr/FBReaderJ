@@ -33,6 +33,8 @@ return true;
 case RELOAD_ITEM_ID:
 adapter.reloadCatalog((NetworkCatalogTree)tree);
 return true;
+case DONT_SHOW_ITEM_ID:
+return true;
 }
 return super.onContextItemSelected(item);
 }
