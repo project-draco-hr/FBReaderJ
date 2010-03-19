@@ -1,33 +1,37 @@
 {
   super.onStart(intent,startId);
-  myStartIds.offer(startId);
+  doStart();
   final Uri uri=intent.getData();
   if (uri == null) {
-    stopSelf(myStartIds.poll().intValue());
+    doStop();
     return;
   }
   intent.setData(null);
   String fileName=BookReference.makeBookFileName(uri.toString(),BookReference.Format.NONE,BookReference.Type.UNKNOWN);
   if (fileName == null) {
-    stopSelf(myStartIds.poll().intValue());
+    doStop();
     return;
   }
   int index=fileName.lastIndexOf(File.separator);
   if (index != -1) {
     final String dir=fileName.substring(0,index);
     final File dirFile=new File(dir);
-    if (!dirFile.mkdirs() || !dirFile.isDirectory()) {
-      stopSelf(myStartIds.poll().intValue());
+    if (!dirFile.exists() && !dirFile.mkdirs()) {
+      doStop();
+      return;
+    }
+    if (!dirFile.exists() || !dirFile.isDirectory()) {
+      doStop();
       return;
     }
   }
   final File fileFile=new File(fileName);
   if (fileFile.exists()) {
     if (!fileFile.isFile()) {
-      stopSelf(myStartIds.poll().intValue());
+      doStop();
       return;
     }
-    stopSelf(myStartIds.poll().intValue());
+    doStop();
     startActivity(getFBReaderIntent(fileFile));
     return;
   }

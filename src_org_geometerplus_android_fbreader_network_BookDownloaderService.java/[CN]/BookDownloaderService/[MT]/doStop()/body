@@ -1,0 +1,5 @@
+{
+  if (--myServiceCounter == 0) {
+    stopSelf();
+  }
+}
