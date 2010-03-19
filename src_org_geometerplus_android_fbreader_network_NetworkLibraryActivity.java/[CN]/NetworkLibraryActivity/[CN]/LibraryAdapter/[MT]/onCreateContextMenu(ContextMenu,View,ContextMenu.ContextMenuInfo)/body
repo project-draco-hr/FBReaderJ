@@ -27,6 +27,7 @@
     if (book.reference(BookReference.Type.DOWNLOAD_FULL) != null || book.reference(BookReference.Type.DOWNLOAD_FULL_CONDITIONAL) != null) {
       if (book.localCopyFileName() != null) {
         menu.add(0,READ_BOOK_ITEM_ID,0,resource.getResource("read").getValue());
+        menu.add(0,DELETE_BOOK_ITEM_ID,0,resource.getResource("delete").getValue());
       }
       if (book.localCopyFileName() == null && book.reference(BookReference.Type.DOWNLOAD_FULL) != null) {
         menu.add(0,DOWNLOAD_BOOK_ITEM_ID,0,resource.getResource("download").getValue());

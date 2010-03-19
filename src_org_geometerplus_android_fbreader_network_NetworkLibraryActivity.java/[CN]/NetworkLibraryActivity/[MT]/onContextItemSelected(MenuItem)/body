@@ -26,6 +26,13 @@ startActivity(new Intent(Intent.ACTION_VIEW,Uri.fromFile(new File(local)),this,o
 }
 }
 return true;
+case DELETE_BOOK_ITEM_ID:
+{
+NetworkBookTree bookTree=(NetworkBookTree)tree;
+NetworkBookItem book=bookTree.Book;
+tryToDeleteBook(book);
+}
+return true;
 }
 return super.onContextItemSelected(item);
 }
