@@ -2,7 +2,7 @@
   final RemoteViews contentView=new RemoteViews(getPackageName(),R.layout.download_notification);
   String title=file.getName();
   if (title == null || title.length() == 0) {
-    title="<Untitled>";
+    title=getResource().getResource("untitled").getValue();
   }
   contentView.setTextViewText(R.id.download_notification_title,title);
   contentView.setTextViewText(R.id.download_notification_progress_text,"");
