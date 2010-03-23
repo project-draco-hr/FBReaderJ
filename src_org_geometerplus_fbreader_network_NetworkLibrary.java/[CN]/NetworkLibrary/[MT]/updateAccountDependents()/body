@@ -1,0 +1,8 @@
+{
+  for (  FBTree tree : myRootTree.subTrees()) {
+    if (!(tree instanceof NetworkCatalogTree)) {
+      continue;
+    }
+    ((NetworkCatalogTree)tree).updateAccountDependents();
+  }
+}

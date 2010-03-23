@@ -3,4 +3,8 @@
     myUpdateChildren=false;
     makeUpToDate();
   }
+  if (myUpdateAccountDependents) {
+    myUpdateAccountDependents=false;
+    updateAccountDependents();
+  }
 }

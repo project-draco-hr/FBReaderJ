@@ -1,6 +1,6 @@
 {
   final LinkedList<FBTree> toRemove=new LinkedList<FBTree>();
-  Iterator<FBTree> nodeIterator=myRootTree.iterator();
+  Iterator<FBTree> nodeIterator=myRootTree.subTrees().iterator();
   FBTree currentNode=null;
   int nodeCount=0;
   for (int i=0; i < myLinks.size(); ++i) {
@@ -15,6 +15,7 @@
       }
       if (!(currentNode instanceof NetworkCatalogTree)) {
         currentNode=null;
+        ++nodeCount;
         continue;
       }
       final NetworkLink nodeLink=((NetworkCatalogTree)currentNode).Item.Link;

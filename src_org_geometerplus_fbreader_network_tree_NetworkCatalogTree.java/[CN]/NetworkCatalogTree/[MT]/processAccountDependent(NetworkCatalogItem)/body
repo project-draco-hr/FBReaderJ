@@ -1,0 +1,10 @@
+{
+  if (item.Visibility == NetworkCatalogItem.VISIBLE_ALWAYS) {
+    return true;
+  }
+  final NetworkLink link=item.Link;
+  if (link.authenticationManager() == null) {
+    return false;
+  }
+  return link.authenticationManager().isAuthorised(true).Status != ZLBoolean3.B3_FALSE;
+}
