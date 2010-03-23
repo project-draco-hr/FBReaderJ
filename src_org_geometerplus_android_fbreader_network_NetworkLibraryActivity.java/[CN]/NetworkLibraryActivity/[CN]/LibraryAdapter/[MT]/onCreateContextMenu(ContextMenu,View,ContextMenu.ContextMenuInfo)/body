@@ -48,6 +48,7 @@
       BookReference reference=book.reference(BookReference.Type.DOWNLOAD_DEMO);
       if (reference.localCopyFileName() != null) {
         menu.add(0,READ_DEMO_ITEM_ID,0,resource.getResource("readDemo").getValue());
+        menu.add(0,DELETE_DEMO_ITEM_ID,0,resource.getResource("deleteDemo").getValue());
       }
  else {
         menu.add(0,DOWNLOAD_DEMO_ITEM_ID,0,resource.getResource("downloadDemo").getValue());

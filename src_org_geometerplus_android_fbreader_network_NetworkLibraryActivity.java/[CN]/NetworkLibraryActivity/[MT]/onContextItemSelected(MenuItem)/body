@@ -19,7 +19,10 @@ case READ_DEMO_ITEM_ID:
 doReadBook(tree,true);
 return true;
 case DELETE_BOOK_ITEM_ID:
-tryToDeleteBook(tree);
+tryToDeleteBook(tree,false);
+return true;
+case DELETE_DEMO_ITEM_ID:
+tryToDeleteBook(tree,true);
 return true;
 case BUY_DIRECTLY_ITEM_ID:
 doBuyDirectly(tree);
