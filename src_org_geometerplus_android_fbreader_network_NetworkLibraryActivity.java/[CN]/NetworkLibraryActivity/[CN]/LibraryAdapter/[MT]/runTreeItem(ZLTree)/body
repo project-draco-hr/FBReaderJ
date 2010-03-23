@@ -6,5 +6,55 @@
     expandCatalog((NetworkCatalogTree)tree);
     return true;
   }
+ else   if (tree instanceof NetworkBookTree) {
+    final ZLResource resource=myResource.getResource("confirmQuestions");
+    final NetworkBookTree bookTree=(NetworkBookTree)tree;
+    final NetworkBookItem book=bookTree.Book;
+    int actionCode=-1;
+    String confirm=null;
+    if (book.reference(BookReference.Type.DOWNLOAD_FULL) != null || book.reference(BookReference.Type.DOWNLOAD_FULL_CONDITIONAL) != null) {
+      if (book.localCopyFileName() != null) {
+        actionCode=READ_BOOK_ITEM_ID;
+        confirm=resource.getResource("read").getValue();
+      }
+ else       if (book.reference(BookReference.Type.DOWNLOAD_FULL) != null) {
+        actionCode=DOWNLOAD_BOOK_ITEM_ID;
+        confirm=resource.getResource("download").getValue();
+      }
+    }
+ else     if (book.reference(BookReference.Type.DOWNLOAD_DEMO) != null && book.localCopyFileName() == null && book.reference(BookReference.Type.DOWNLOAD_FULL) == null) {
+      BookReference reference=book.reference(BookReference.Type.DOWNLOAD_DEMO);
+      if (reference.localCopyFileName() != null) {
+        actionCode=READ_DEMO_ITEM_ID;
+        confirm=resource.getResource("readDemo").getValue();
+      }
+ else {
+        actionCode=DOWNLOAD_DEMO_ITEM_ID;
+        confirm=resource.getResource("downloadDemo").getValue();
+      }
+    }
+ else     if (book.localCopyFileName() == null && book.reference(BookReference.Type.DOWNLOAD_FULL) == null) {
+      if (book.reference(BookReference.Type.BUY) != null) {
+        actionCode=BUY_DIRECTLY_ITEM_ID;
+        BookReference reference=book.reference(BookReference.Type.BUY);
+        confirm=resource.getResource("buy").getValue().replace("%s",((BuyBookReference)reference).Price);
+      }
+ else       if (book.reference(BookReference.Type.BUY_IN_BROWSER) != null) {
+        actionCode=BUY_IN_BROWSER_ITEM_ID;
+        BookReference reference=book.reference(BookReference.Type.BUY_IN_BROWSER);
+        confirm=resource.getResource("buy").getValue().replace("%s",((BuyBookReference)reference).Price);
+      }
+    }
+    if (confirm != null) {
+      final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
+      final int actionCodeValue=actionCode;
+      new AlertDialog.Builder(NetworkLibraryActivity.this).setTitle(book.Title).setMessage(confirm).setIcon(0).setPositiveButton(buttonResource.getResource("yes").getValue(),new DialogInterface.OnClickListener(){
+        public void onClick(        DialogInterface dialog,        int which){
+          runContextMenuItem(bookTree,actionCodeValue);
+        }
+      }
+).setNegativeButton(buttonResource.getResource("no").getValue(),null).create().show();
+    }
+  }
   return false;
 }

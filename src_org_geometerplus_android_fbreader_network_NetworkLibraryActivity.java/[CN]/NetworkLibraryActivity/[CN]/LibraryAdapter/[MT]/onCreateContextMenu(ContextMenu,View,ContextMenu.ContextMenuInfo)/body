@@ -1,7 +1,6 @@
 {
   final int position=((AdapterView.AdapterContextMenuInfo)menuInfo).position;
   final NetworkTree tree=(NetworkTree)getItem(position);
-  final ZLResource resource=ZLResource.resource("networkView");
   if (tree instanceof NetworkCatalogRootTree) {
     menu.setHeaderTitle(tree.getName());
     NetworkCatalogTree catalogTree=(NetworkCatalogTree)tree;
@@ -9,10 +8,10 @@
     NetworkAuthenticationManager mgr=item.Link.authenticationManager();
     if (item.URLByType.get(NetworkLibraryItem.URL_CATALOG) != null) {
       String key=(tree.hasChildren() && isOpen(tree)) ? "closeCatalog" : "openCatalog";
-      menu.add(0,EXPAND_OR_COLLAPSE_TREE_ITEM_ID,0,resource.getResource(key).getValue());
+      menu.add(0,EXPAND_OR_COLLAPSE_TREE_ITEM_ID,0,myResource.getResource(key).getValue());
     }
     if (tree.hasChildren() && isOpen(tree)) {
-      menu.add(0,RELOAD_ITEM_ID,0,resource.getResource("reload").getValue());
+      menu.add(0,RELOAD_ITEM_ID,0,myResource.getResource("reload").getValue());
     }
   }
  else   if (tree instanceof NetworkCatalogTree) {
@@ -21,14 +20,14 @@
     NetworkCatalogItem item=catalogTree.Item;
     if (item.URLByType.get(NetworkLibraryItem.URL_CATALOG) != null) {
       String key=(tree.hasChildren() && isOpen(tree)) ? "collapseTree" : "expandTree";
-      menu.add(0,EXPAND_OR_COLLAPSE_TREE_ITEM_ID,0,resource.getResource(key).getValue());
+      menu.add(0,EXPAND_OR_COLLAPSE_TREE_ITEM_ID,0,myResource.getResource(key).getValue());
     }
     String htmlUrl=item.URLByType.get(NetworkLibraryItem.URL_HTML_PAGE);
     if (htmlUrl != null) {
-      menu.add(0,OPEN_IN_BROWSER_ITEM_ID,0,resource.getResource("openInBrowser").getValue());
+      menu.add(0,OPEN_IN_BROWSER_ITEM_ID,0,myResource.getResource("openInBrowser").getValue());
     }
     if (tree.hasChildren() && isOpen(tree)) {
-      menu.add(0,RELOAD_ITEM_ID,0,resource.getResource("reload").getValue());
+      menu.add(0,RELOAD_ITEM_ID,0,myResource.getResource("reload").getValue());
     }
   }
  else   if (tree instanceof NetworkBookTree) {
@@ -37,34 +36,32 @@
     menu.setHeaderTitle(tree.getName());
     if (book.reference(BookReference.Type.DOWNLOAD_FULL) != null || book.reference(BookReference.Type.DOWNLOAD_FULL_CONDITIONAL) != null) {
       if (book.localCopyFileName() != null) {
-        menu.add(0,READ_BOOK_ITEM_ID,0,resource.getResource("read").getValue());
-        menu.add(0,DELETE_BOOK_ITEM_ID,0,resource.getResource("delete").getValue());
+        menu.add(0,READ_BOOK_ITEM_ID,0,myResource.getResource("read").getValue());
+        menu.add(0,DELETE_BOOK_ITEM_ID,0,myResource.getResource("delete").getValue());
       }
  else       if (book.reference(BookReference.Type.DOWNLOAD_FULL) != null) {
-        menu.add(0,DOWNLOAD_BOOK_ITEM_ID,0,resource.getResource("download").getValue());
+        menu.add(0,DOWNLOAD_BOOK_ITEM_ID,0,myResource.getResource("download").getValue());
       }
     }
     if (book.reference(BookReference.Type.DOWNLOAD_DEMO) != null && book.localCopyFileName() == null && book.reference(BookReference.Type.DOWNLOAD_FULL) == null) {
       BookReference reference=book.reference(BookReference.Type.DOWNLOAD_DEMO);
       if (reference.localCopyFileName() != null) {
-        menu.add(0,READ_DEMO_ITEM_ID,0,resource.getResource("readDemo").getValue());
-        menu.add(0,DELETE_DEMO_ITEM_ID,0,resource.getResource("deleteDemo").getValue());
+        menu.add(0,READ_DEMO_ITEM_ID,0,myResource.getResource("readDemo").getValue());
+        menu.add(0,DELETE_DEMO_ITEM_ID,0,myResource.getResource("deleteDemo").getValue());
       }
  else {
-        menu.add(0,DOWNLOAD_DEMO_ITEM_ID,0,resource.getResource("downloadDemo").getValue());
+        menu.add(0,DOWNLOAD_DEMO_ITEM_ID,0,myResource.getResource("downloadDemo").getValue());
       }
     }
-    if (book.reference(BookReference.Type.BUY) != null) {
-      if (book.localCopyFileName() == null && book.reference(BookReference.Type.DOWNLOAD_FULL) == null) {
+    if (book.localCopyFileName() == null && book.reference(BookReference.Type.DOWNLOAD_FULL) == null) {
+      if (book.reference(BookReference.Type.BUY) != null) {
         BookReference reference=book.reference(BookReference.Type.BUY);
-        String title=resource.getResource("buy").getValue().replace("%s",((BuyBookReference)reference).Price);
+        String title=myResource.getResource("buy").getValue().replace("%s",((BuyBookReference)reference).Price);
         menu.add(0,BUY_DIRECTLY_ITEM_ID,0,title);
       }
-    }
- else     if (book.reference(BookReference.Type.BUY_IN_BROWSER) != null) {
-      if (book.localCopyFileName() == null && book.reference(BookReference.Type.DOWNLOAD_FULL) == null) {
+ else       if (book.reference(BookReference.Type.BUY_IN_BROWSER) != null) {
         BookReference reference=book.reference(BookReference.Type.BUY_IN_BROWSER);
-        String title=resource.getResource("buy").getValue().replace("%s",((BuyBookReference)reference).Price);
+        String title=myResource.getResource("buy").getValue().replace("%s",((BuyBookReference)reference).Price);
         menu.add(0,BUY_IN_BROWSER_ITEM_ID,0,title);
       }
     }

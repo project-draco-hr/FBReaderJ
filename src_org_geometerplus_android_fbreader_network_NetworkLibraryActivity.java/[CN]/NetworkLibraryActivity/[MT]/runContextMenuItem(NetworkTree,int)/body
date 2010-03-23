@@ -1,0 +1,41 @@
+{
+  final LibraryAdapter adapter=(LibraryAdapter)getListView().getAdapter();
+switch (actionCode) {
+case EXPAND_OR_COLLAPSE_TREE_ITEM_ID:
+    adapter.expandCatalog((NetworkCatalogTree)tree);
+  return true;
+case DOWNLOAD_BOOK_ITEM_ID:
+doDownloadBook(tree,false);
+return true;
+case DOWNLOAD_DEMO_ITEM_ID:
+doDownloadBook(tree,true);
+return true;
+case READ_BOOK_ITEM_ID:
+doReadBook(tree,false);
+return true;
+case READ_DEMO_ITEM_ID:
+doReadBook(tree,true);
+return true;
+case DELETE_BOOK_ITEM_ID:
+tryToDeleteBook(tree,false);
+return true;
+case DELETE_DEMO_ITEM_ID:
+tryToDeleteBook(tree,true);
+return true;
+case BUY_DIRECTLY_ITEM_ID:
+doBuyDirectly(tree);
+return true;
+case BUY_IN_BROWSER_ITEM_ID:
+doBuyInBrowser(tree);
+return true;
+case OPEN_IN_BROWSER_ITEM_ID:
+openInBrowser(((NetworkCatalogTree)tree).Item.URLByType.get(NetworkLibraryItem.URL_HTML_PAGE));
+return true;
+case RELOAD_ITEM_ID:
+adapter.reloadCatalog((NetworkCatalogTree)tree);
+return true;
+case DONT_SHOW_ITEM_ID:
+return true;
+}
+return false;
+}
