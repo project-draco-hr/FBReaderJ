@@ -1,0 +1,3 @@
+{
+  return myResource.getResource("confirmQuestions").getResource(key).getValue();
+}

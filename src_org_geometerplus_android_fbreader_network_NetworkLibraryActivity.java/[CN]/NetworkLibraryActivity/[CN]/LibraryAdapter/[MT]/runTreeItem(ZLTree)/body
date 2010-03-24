@@ -2,27 +2,37 @@
   if (super.runTreeItem(tree)) {
     return true;
   }
+  final NetworkTreeActions actions;
   if (tree instanceof NetworkCatalogTree) {
-    expandCatalog((NetworkCatalogTree)tree);
-    return true;
+    actions=new NetworkCatalogActions(NetworkLibraryActivity.this,this);
   }
  else   if (tree instanceof NetworkBookTree) {
-    final ZLResource resource=myResource.getResource("confirmQuestions");
-    final NetworkBookTree bookTree=(NetworkBookTree)tree;
-    final NetworkBookItem book=bookTree.Book;
-    NetworkBookActions actions=new NetworkBookActions(NetworkLibraryActivity.this);
-    int actionCode=actions.getDefaultActionCode(bookTree);
-    String confirm=actions.getConfirmText(bookTree,actionCode);
-    if (confirm != null) {
-      final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
-      final int actionCodeValue=actionCode;
-      new AlertDialog.Builder(NetworkLibraryActivity.this).setTitle(book.Title).setMessage(confirm).setIcon(0).setPositiveButton(buttonResource.getResource("yes").getValue(),new DialogInterface.OnClickListener(){
-        public void onClick(        DialogInterface dialog,        int which){
-          runContextMenuItem(bookTree,actionCodeValue);
-        }
-      }
-).setNegativeButton(buttonResource.getResource("no").getValue(),null).create().show();
-    }
+    actions=new NetworkBookActions(NetworkLibraryActivity.this);
   }
-  return false;
+ else {
+    actions=null;
+  }
+  if (actions == null) {
+    return false;
+  }
+  final NetworkTree networkTree=(NetworkTree)tree;
+  final int actionCode=actions.getDefaultActionCode(networkTree);
+  final String confirm=actions.getConfirmText(networkTree,actionCode);
+  if (actionCode < 0) {
+    return false;
+  }
+  if (confirm != null) {
+    final ZLResource resource=myResource.getResource("confirmQuestions");
+    final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
+    new AlertDialog.Builder(NetworkLibraryActivity.this).setTitle(networkTree.getName()).setMessage(confirm).setIcon(0).setPositiveButton(buttonResource.getResource("yes").getValue(),new DialogInterface.OnClickListener(){
+      public void onClick(      DialogInterface dialog,      int which){
+        actions.runAction(networkTree,actionCode);
+      }
+    }
+).setNegativeButton(buttonResource.getResource("no").getValue(),null).create().show();
+  }
+ else {
+    actions.runAction(networkTree,actionCode);
+  }
+  return true;
 }

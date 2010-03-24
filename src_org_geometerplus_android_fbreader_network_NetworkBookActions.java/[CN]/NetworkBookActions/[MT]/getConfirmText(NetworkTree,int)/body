@@ -3,17 +3,17 @@
   final NetworkBookItem book=bookTree.Book;
 switch (actionCode) {
 case READ_BOOK_ITEM_ID:
-    return getResourceValue("read");
+    return getConfirmValue("read");
 case DOWNLOAD_BOOK_ITEM_ID:
-  return getResourceValue("download");
+  return getConfirmValue("download");
 case READ_DEMO_ITEM_ID:
-return getResourceValue("readDemo");
+return getConfirmValue("readDemo");
 case DOWNLOAD_DEMO_ITEM_ID:
-return getResourceValue("downloadDemo");
+return getConfirmValue("downloadDemo");
 case BUY_DIRECTLY_ITEM_ID:
-return getResourceValue("buy",((BuyBookReference)book.reference(BookReference.Type.BUY)).Price);
+return getConfirmValue("buy",((BuyBookReference)book.reference(BookReference.Type.BUY)).Price);
 case BUY_IN_BROWSER_ITEM_ID:
-return getResourceValue("buy",((BuyBookReference)book.reference(BookReference.Type.BUY_IN_BROWSER)).Price);
+return getConfirmValue("buy",((BuyBookReference)book.reference(BookReference.Type.BUY_IN_BROWSER)).Price);
 }
 return null;
 }

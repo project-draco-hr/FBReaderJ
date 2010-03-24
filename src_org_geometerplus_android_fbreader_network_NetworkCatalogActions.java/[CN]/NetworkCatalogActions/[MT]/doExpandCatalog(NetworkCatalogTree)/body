@@ -1,0 +1,33 @@
+{
+  if (!startProgressNotification(tree)) {
+    return;
+  }
+  final ArrayList<NetworkLibraryItem> children=new ArrayList<NetworkLibraryItem>();
+  final boolean hadChildren=tree.hasChildren();
+  final Handler finishHandler=new Handler(){
+    public void handleMessage(    Message message){
+      if (!hadChildren) {
+        afterUpdateCatalogChildren(tree,children,(String)message.obj);
+        myAdapter.resetTree();
+      }
+      myAdapter.expandOrCollapseTree(tree);
+      endProgressNotification(tree);
+    }
+  }
+;
+  new Thread(new Runnable(){
+    public void run(){
+      NetworkCatalogItem item=tree.Item;
+      NetworkLink link=item.Link;
+      if (link.authenticationManager() != null) {
+        NetworkAuthenticationManager mgr=link.authenticationManager();
+      }
+      Message msg=new Message();
+      if (!hadChildren) {
+        msg.obj=tree.Item.loadChildren(children);
+      }
+      finishHandler.sendMessage(msg);
+    }
+  }
+).start();
+}

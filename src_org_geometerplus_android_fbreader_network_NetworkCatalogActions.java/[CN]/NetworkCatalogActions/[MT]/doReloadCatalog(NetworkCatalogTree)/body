@@ -1,0 +1,26 @@
+{
+  if (!startProgressNotification(tree)) {
+    return;
+  }
+  final ArrayList<NetworkLibraryItem> children=new ArrayList<NetworkLibraryItem>();
+  final Handler finishHandler=new Handler(){
+    public void handleMessage(    Message message){
+      afterUpdateCatalogChildren(tree,children,(String)message.obj);
+      myAdapter.resetTree();
+      myAdapter.expandOrCollapseTree(tree);
+      endProgressNotification(tree);
+    }
+  }
+;
+  myAdapter.expandOrCollapseTree(tree);
+  tree.clear();
+  myAdapter.resetTree();
+  new Thread(new Runnable(){
+    public void run(){
+      Message msg=new Message();
+      msg.obj=tree.Item.loadChildren(children);
+      finishHandler.sendMessage(msg);
+    }
+  }
+).start();
+}

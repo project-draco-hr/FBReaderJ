@@ -1,0 +1,13 @@
+{
+  if (!tree.hasChildren()) {
+    return;
+  }
+  if (isOpen(tree)) {
+    myOpenItems.remove(tree);
+  }
+ else {
+    myOpenItems.add(tree);
+  }
+  myParent.invalidateViews();
+  myParent.requestLayout();
+}

@@ -4,7 +4,7 @@
   final ZLResource dialogResource=ZLResource.resource("dialog");
   final ZLResource buttonResource=dialogResource.getResource("button");
   final ZLResource boxResource=dialogResource.getResource("deleteBookBox");
-  new AlertDialog.Builder(myContext).setTitle(book.Title).setMessage(boxResource.getResource("message").getValue()).setIcon(0).setPositiveButton(buttonResource.getResource("yes").getValue(),new DialogInterface.OnClickListener(){
+  new AlertDialog.Builder(myActivity).setTitle(book.Title).setMessage(boxResource.getResource("message").getValue()).setIcon(0).setPositiveButton(buttonResource.getResource("yes").getValue(),new DialogInterface.OnClickListener(){
     public void onClick(    DialogInterface dialog,    int which){
       if (!demo) {
         book.removeLocalFiles();

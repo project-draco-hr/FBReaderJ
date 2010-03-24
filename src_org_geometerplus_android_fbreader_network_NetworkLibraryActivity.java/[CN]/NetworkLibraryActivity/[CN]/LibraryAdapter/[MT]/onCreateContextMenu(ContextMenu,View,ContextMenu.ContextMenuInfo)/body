@@ -1,34 +1,8 @@
 {
   final int position=((AdapterView.AdapterContextMenuInfo)menuInfo).position;
   final NetworkTree tree=(NetworkTree)getItem(position);
-  if (tree instanceof NetworkCatalogRootTree) {
-    menu.setHeaderTitle(tree.getName());
-    NetworkCatalogTree catalogTree=(NetworkCatalogTree)tree;
-    NetworkCatalogItem item=catalogTree.Item;
-    NetworkAuthenticationManager mgr=item.Link.authenticationManager();
-    if (item.URLByType.get(NetworkLibraryItem.URL_CATALOG) != null) {
-      String key=(tree.hasChildren() && isOpen(tree)) ? "closeCatalog" : "openCatalog";
-      menu.add(0,EXPAND_OR_COLLAPSE_TREE_ITEM_ID,0,myResource.getResource(key).getValue());
-    }
-    if (tree.hasChildren() && isOpen(tree)) {
-      menu.add(0,RELOAD_ITEM_ID,0,myResource.getResource("reload").getValue());
-    }
-  }
- else   if (tree instanceof NetworkCatalogTree) {
-    menu.setHeaderTitle(tree.getName());
-    NetworkCatalogTree catalogTree=(NetworkCatalogTree)tree;
-    NetworkCatalogItem item=catalogTree.Item;
-    if (item.URLByType.get(NetworkLibraryItem.URL_CATALOG) != null) {
-      String key=(tree.hasChildren() && isOpen(tree)) ? "collapseTree" : "expandTree";
-      menu.add(0,EXPAND_OR_COLLAPSE_TREE_ITEM_ID,0,myResource.getResource(key).getValue());
-    }
-    String htmlUrl=item.URLByType.get(NetworkLibraryItem.URL_HTML_PAGE);
-    if (htmlUrl != null) {
-      menu.add(0,OPEN_IN_BROWSER_ITEM_ID,0,myResource.getResource("openInBrowser").getValue());
-    }
-    if (tree.hasChildren() && isOpen(tree)) {
-      menu.add(0,RELOAD_ITEM_ID,0,myResource.getResource("reload").getValue());
-    }
+  if (tree instanceof NetworkCatalogTree) {
+    new NetworkCatalogActions(NetworkLibraryActivity.this,this).buildContextMenu(menu,tree);
   }
  else   if (tree instanceof NetworkBookTree) {
     new NetworkBookActions(NetworkLibraryActivity.this).buildContextMenu(menu,tree);

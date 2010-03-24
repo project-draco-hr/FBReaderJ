@@ -1,0 +1,14 @@
+{
+switch (actionCode) {
+case EXPAND_OR_COLLAPSE_TREE_ITEM_ID:
+    doExpandCatalog((NetworkCatalogTree)tree);
+  return true;
+case OPEN_IN_BROWSER_ITEM_ID:
+myActivity.openInBrowser(((NetworkCatalogTree)tree).Item.URLByType.get(NetworkLibraryItem.URL_HTML_PAGE));
+return true;
+case RELOAD_ITEM_ID:
+doReloadCatalog((NetworkCatalogTree)tree);
+return true;
+}
+return false;
+}

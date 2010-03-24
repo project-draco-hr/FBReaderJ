@@ -12,6 +12,6 @@
     }
   }
   if (local != null) {
-    myContext.startActivity(new Intent(Intent.ACTION_VIEW,Uri.fromFile(new File(local)),myContext,org.geometerplus.android.fbreader.FBReader.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+    myActivity.startActivity(new Intent(Intent.ACTION_VIEW,Uri.fromFile(new File(local)),myActivity,org.geometerplus.android.fbreader.FBReader.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
   }
 }

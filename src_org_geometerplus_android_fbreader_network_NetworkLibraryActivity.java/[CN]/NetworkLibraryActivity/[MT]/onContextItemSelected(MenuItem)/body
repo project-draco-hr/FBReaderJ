@@ -2,12 +2,17 @@
   final LibraryAdapter adapter=(LibraryAdapter)getListView().getAdapter();
   final int position=((AdapterView.AdapterContextMenuInfo)item.getMenuInfo()).position;
   final NetworkTree tree=(NetworkTree)adapter.getItem(position);
-  if (tree instanceof NetworkBookTree) {
-    if (new NetworkBookActions(this).runAction(tree,item.getItemId())) {
-      return true;
-    }
+  final NetworkTreeActions actions;
+  if (tree instanceof NetworkCatalogTree) {
+    actions=new NetworkCatalogActions(this,adapter);
   }
- else   if (runContextMenuItem(tree,item.getItemId())) {
+ else   if (tree instanceof NetworkBookTree) {
+    actions=new NetworkBookActions(this);
+  }
+ else {
+    actions=null;
+  }
+  if (actions != null && actions.runAction(tree,item.getItemId())) {
     return true;
   }
   return super.onContextItemSelected(item);
