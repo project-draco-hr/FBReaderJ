@@ -1,13 +1,13 @@
 {
-  tree.clear();
-  ArrayList<NetworkLibraryItem> children=tree.ChildrenItems;
-  children.clear();
-  LoadSubCatalogRunnable loader=new LoadSubCatalogRunnable(tree.Item,children);
-  loader.executeWithUI();
-  if (loader.hasErrors()) {
-    loader.showErrorMessage(this);
+  tree.ChildrenItems.clear();
+  tree.ChildrenItems.addAll(children);
+  if (errorMessage != null) {
+    final ZLResource dialogResource=ZLResource.resource("dialog");
+    final ZLResource buttonResource=dialogResource.getResource("button");
+    final ZLResource boxResource=dialogResource.getResource("networkError");
+    new AlertDialog.Builder(this).setTitle(boxResource.getResource("title").getValue()).setMessage(errorMessage).setIcon(0).setPositiveButton(buttonResource.getResource("ok").getValue(),null).create().show();
   }
- else   if (children.isEmpty()) {
+ else   if (children.size() == 0) {
     final ZLResource dialogResource=ZLResource.resource("dialog");
     final ZLResource buttonResource=dialogResource.getResource("button");
     final ZLResource boxResource=dialogResource.getResource("emptyCatalogBox");

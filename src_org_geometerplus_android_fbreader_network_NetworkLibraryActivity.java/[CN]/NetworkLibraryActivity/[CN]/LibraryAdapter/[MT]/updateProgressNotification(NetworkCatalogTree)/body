@@ -1,0 +1,16 @@
+{
+  final RemoteViews contentView=new RemoteViews(getPackageName(),R.layout.download_notification);
+  String title="Downloading catalogs";
+  contentView.setTextViewText(R.id.download_notification_title,title);
+  contentView.setTextViewText(R.id.download_notification_progress_text,"");
+  contentView.setProgressBar(R.id.download_notification_progress_bar,100,0,true);
+  final PendingIntent contentIntent=PendingIntent.getActivity(NetworkLibraryActivity.this,0,new Intent(),0);
+  final Notification notification=new Notification();
+  notification.icon=android.R.drawable.stat_notify_sync;
+  notification.flags|=Notification.FLAG_ONGOING_EVENT;
+  notification.contentView=contentView;
+  notification.contentIntent=contentIntent;
+  notification.number=myProcessingTrees.size();
+  final NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+  notificationManager.notify(myProcessingNotificationId,notification);
+}

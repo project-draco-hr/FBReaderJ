@@ -1,0 +1,10 @@
+{
+  myProcessingTrees.remove(tree);
+  if (myProcessingTrees.size() == 0) {
+    final NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+    notificationManager.cancel(myProcessingNotificationId);
+  }
+ else {
+    updateProgressNotification(tree);
+  }
+}
