@@ -2,20 +2,11 @@
   if (super.runTreeItem(tree)) {
     return true;
   }
-  final NetworkTreeActions actions;
-  if (tree instanceof NetworkCatalogTree) {
-    actions=new NetworkCatalogActions(NetworkLibraryActivity.this,this);
-  }
- else   if (tree instanceof NetworkBookTree) {
-    actions=new NetworkBookActions(NetworkLibraryActivity.this);
-  }
- else {
-    actions=null;
-  }
+  final NetworkTree networkTree=(NetworkTree)tree;
+  final NetworkTreeActions actions=chooseActions(networkTree);
   if (actions == null) {
     return false;
   }
-  final NetworkTree networkTree=(NetworkTree)tree;
   final int actionCode=actions.getDefaultActionCode(networkTree);
   final String confirm=actions.getConfirmText(networkTree,actionCode);
   if (actionCode < 0) {

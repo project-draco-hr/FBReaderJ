@@ -2,5 +2,8 @@
   super.onCreate(icicle);
   Thread.setDefaultUncaughtExceptionHandler(new org.geometerplus.zlibrary.ui.android.library.UncaughtExceptionHandler(this));
   requestWindowFeature(Window.FEATURE_NO_TITLE);
-  new LibraryAdapter(getListView(),NetworkLibrary.Instance().getTree());
+  LibraryAdapter adapter=new LibraryAdapter(getListView(),NetworkLibrary.Instance().getTree());
+  myActions.add(new NetworkBookActions(this));
+  myActions.add(new NetworkCatalogActions(this,adapter));
+  myActions.trimToSize();
 }

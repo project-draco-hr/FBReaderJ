@@ -2,16 +2,7 @@
   final LibraryAdapter adapter=(LibraryAdapter)getListView().getAdapter();
   final int position=((AdapterView.AdapterContextMenuInfo)item.getMenuInfo()).position;
   final NetworkTree tree=(NetworkTree)adapter.getItem(position);
-  final NetworkTreeActions actions;
-  if (tree instanceof NetworkCatalogTree) {
-    actions=new NetworkCatalogActions(this,adapter);
-  }
- else   if (tree instanceof NetworkBookTree) {
-    actions=new NetworkBookActions(this);
-  }
- else {
-    actions=null;
-  }
+  final NetworkTreeActions actions=chooseActions(tree);
   if (actions != null && actions.runAction(tree,item.getItemId())) {
     return true;
   }

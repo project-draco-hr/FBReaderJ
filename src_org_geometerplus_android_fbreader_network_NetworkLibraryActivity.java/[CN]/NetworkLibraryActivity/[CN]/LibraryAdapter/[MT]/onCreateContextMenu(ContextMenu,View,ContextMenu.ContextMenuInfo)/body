@@ -1,10 +1,8 @@
 {
   final int position=((AdapterView.AdapterContextMenuInfo)menuInfo).position;
   final NetworkTree tree=(NetworkTree)getItem(position);
-  if (tree instanceof NetworkCatalogTree) {
-    new NetworkCatalogActions(NetworkLibraryActivity.this,this).buildContextMenu(menu,tree);
-  }
- else   if (tree instanceof NetworkBookTree) {
-    new NetworkBookActions(NetworkLibraryActivity.this).buildContextMenu(menu,tree);
+  final NetworkTreeActions actions=chooseActions(tree);
+  if (actions != null) {
+    actions.buildContextMenu(menu,tree);
   }
 }

@@ -28,6 +28,7 @@
  else {
     NetworkTreeFactory.fillAuthorNode(tree,children);
   }
-  NetworkLibrary.Instance().invalidateAccountDependents();
-  NetworkLibrary.Instance().synchronize();
+  final NetworkLibrary library=NetworkLibrary.Instance();
+  library.invalidateAccountDependents();
+  library.synchronize();
 }
