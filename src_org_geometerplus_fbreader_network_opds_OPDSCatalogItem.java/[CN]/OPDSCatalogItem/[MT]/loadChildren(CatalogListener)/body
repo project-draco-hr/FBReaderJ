@@ -1,5 +1,5 @@
 {
-  NetworkOperationData data=new NetworkOperationData(Link);
+  OperationData data=new OperationData(Link,listener);
   String urlString=URLByType.get(URL_CATALOG);
   if (urlString == null) {
     return null;
@@ -28,7 +28,6 @@
  else {
         return null;
       }
-      children.addAll(data.Items);
       urlString=data.ResumeURI;
       data.clear();
     }
@@ -46,6 +45,9 @@ catch (  IOException ex) {
  catch (    MalformedURLException ex2) {
       return null;
     }
+  }
+ finally {
+    listener.onStop();
   }
   return null;
 }

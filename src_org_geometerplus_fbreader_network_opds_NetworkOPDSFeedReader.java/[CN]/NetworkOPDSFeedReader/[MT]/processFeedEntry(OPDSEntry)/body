@@ -20,6 +20,6 @@
     item=readCatalogItem(entry);
   }
   if (item != null) {
-    myData.Items.add(item);
+    myData.Listener.onNewItem(item);
   }
 }

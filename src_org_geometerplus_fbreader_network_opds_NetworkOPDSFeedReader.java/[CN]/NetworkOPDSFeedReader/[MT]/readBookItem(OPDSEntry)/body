@@ -84,5 +84,5 @@
     }
     authors.add(authorData);
   }
-  return new NetworkBookItem(myData.Link,entry.Id.Uri,myIndex++,entry.Title,entry.Summary,entry.DCLanguage,date,authors,tags,entry.SeriesTitle,entry.SeriesIndex,urlMap,references);
+  return new NetworkBookItem(opdsLink,entry.Id.Uri,myIndex++,entry.Title,entry.Summary,entry.DCLanguage,date,authors,tags,entry.SeriesTitle,entry.SeriesIndex,urlMap,references);
 }

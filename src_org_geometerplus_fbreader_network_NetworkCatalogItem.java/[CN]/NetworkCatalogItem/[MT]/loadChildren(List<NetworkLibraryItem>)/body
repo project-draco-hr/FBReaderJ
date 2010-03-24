@@ -1,0 +1,10 @@
+{
+  return loadChildren(new CatalogListener(){
+    public void onNewItem(    NetworkLibraryItem item){
+      children.add(item);
+    }
+    public void onStop(){
+    }
+  }
+);
+}
