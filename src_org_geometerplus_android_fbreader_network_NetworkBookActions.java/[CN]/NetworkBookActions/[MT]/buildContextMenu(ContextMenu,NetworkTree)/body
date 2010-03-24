@@ -1,0 +1,40 @@
+{
+  final NetworkBookTree bookTree=(NetworkBookTree)tree;
+  final NetworkBookItem book=bookTree.Book;
+  menu.setHeaderTitle(tree.getName());
+  if (useFullReferences(book)) {
+    if (book.localCopyFileName() != null) {
+      addMenuItem(menu,READ_BOOK_ITEM_ID,"read");
+      addMenuItem(menu,DELETE_BOOK_ITEM_ID,"delete");
+    }
+ else     if (book.reference(BookReference.Type.DOWNLOAD_FULL) != null) {
+      addMenuItem(menu,DOWNLOAD_BOOK_ITEM_ID,"download");
+    }
+  }
+  if (useDemoReferences(book)) {
+    BookReference reference=book.reference(BookReference.Type.DOWNLOAD_DEMO);
+    if (reference.localCopyFileName() != null) {
+      addMenuItem(menu,READ_DEMO_ITEM_ID,"readDemo");
+      addMenuItem(menu,DELETE_DEMO_ITEM_ID,"deleteDemo");
+    }
+ else {
+      addMenuItem(menu,DOWNLOAD_DEMO_ITEM_ID,"downloadDemo");
+    }
+  }
+  if (useBuyReferences(book)) {
+    int id=-1;
+    BookReference reference=null;
+    if (book.reference(BookReference.Type.BUY) != null) {
+      reference=book.reference(BookReference.Type.BUY);
+      id=BUY_DIRECTLY_ITEM_ID;
+    }
+ else     if (book.reference(BookReference.Type.BUY_IN_BROWSER) != null) {
+      reference=book.reference(BookReference.Type.BUY_IN_BROWSER);
+      id=BUY_IN_BROWSER_ITEM_ID;
+    }
+    if (reference != null) {
+      String price=((BuyBookReference)reference).Price;
+      addMenuItem(menu,id,"buy",price);
+    }
+  }
+}

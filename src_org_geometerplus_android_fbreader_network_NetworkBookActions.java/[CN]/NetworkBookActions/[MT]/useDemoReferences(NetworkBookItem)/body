@@ -1,0 +1,3 @@
+{
+  return book.reference(BookReference.Type.DOWNLOAD_DEMO) != null && book.localCopyFileName() == null && book.reference(BookReference.Type.DOWNLOAD_FULL) == null;
+}

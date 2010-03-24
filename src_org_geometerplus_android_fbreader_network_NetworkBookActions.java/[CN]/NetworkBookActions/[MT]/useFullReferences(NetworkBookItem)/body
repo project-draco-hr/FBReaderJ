@@ -1,0 +1,3 @@
+{
+  return book.reference(BookReference.Type.DOWNLOAD_FULL) != null || book.reference(BookReference.Type.DOWNLOAD_FULL_CONDITIONAL) != null;
+}

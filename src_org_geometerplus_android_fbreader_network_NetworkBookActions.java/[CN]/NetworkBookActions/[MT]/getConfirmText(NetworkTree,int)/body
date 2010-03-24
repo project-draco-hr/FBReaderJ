@@ -1,0 +1,19 @@
+{
+  final NetworkBookTree bookTree=(NetworkBookTree)tree;
+  final NetworkBookItem book=bookTree.Book;
+switch (actionCode) {
+case READ_BOOK_ITEM_ID:
+    return getResourceValue("read");
+case DOWNLOAD_BOOK_ITEM_ID:
+  return getResourceValue("download");
+case READ_DEMO_ITEM_ID:
+return getResourceValue("readDemo");
+case DOWNLOAD_DEMO_ITEM_ID:
+return getResourceValue("downloadDemo");
+case BUY_DIRECTLY_ITEM_ID:
+return getResourceValue("buy",((BuyBookReference)book.reference(BookReference.Type.BUY)).Price);
+case BUY_IN_BROWSER_ITEM_ID:
+return getResourceValue("buy",((BuyBookReference)book.reference(BookReference.Type.BUY_IN_BROWSER)).Price);
+}
+return null;
+}

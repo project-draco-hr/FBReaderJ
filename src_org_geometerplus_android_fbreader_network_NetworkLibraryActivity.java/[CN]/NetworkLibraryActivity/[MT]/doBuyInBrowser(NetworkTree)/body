@@ -1,8 +1,0 @@
-{
-  NetworkBookTree bookTree=(NetworkBookTree)tree;
-  NetworkBookItem book=bookTree.Book;
-  BookReference reference=book.reference(BookReference.Type.BUY_IN_BROWSER);
-  if (reference != null) {
-    openInBrowser(reference.URL);
-  }
-}

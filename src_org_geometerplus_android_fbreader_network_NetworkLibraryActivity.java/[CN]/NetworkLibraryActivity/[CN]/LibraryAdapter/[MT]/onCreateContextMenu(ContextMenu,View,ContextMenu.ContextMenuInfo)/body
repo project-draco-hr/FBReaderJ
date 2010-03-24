@@ -31,39 +31,6 @@
     }
   }
  else   if (tree instanceof NetworkBookTree) {
-    NetworkBookTree bookTree=(NetworkBookTree)tree;
-    NetworkBookItem book=bookTree.Book;
-    menu.setHeaderTitle(tree.getName());
-    if (book.reference(BookReference.Type.DOWNLOAD_FULL) != null || book.reference(BookReference.Type.DOWNLOAD_FULL_CONDITIONAL) != null) {
-      if (book.localCopyFileName() != null) {
-        menu.add(0,READ_BOOK_ITEM_ID,0,myResource.getResource("read").getValue());
-        menu.add(0,DELETE_BOOK_ITEM_ID,0,myResource.getResource("delete").getValue());
-      }
- else       if (book.reference(BookReference.Type.DOWNLOAD_FULL) != null) {
-        menu.add(0,DOWNLOAD_BOOK_ITEM_ID,0,myResource.getResource("download").getValue());
-      }
-    }
-    if (book.reference(BookReference.Type.DOWNLOAD_DEMO) != null && book.localCopyFileName() == null && book.reference(BookReference.Type.DOWNLOAD_FULL) == null) {
-      BookReference reference=book.reference(BookReference.Type.DOWNLOAD_DEMO);
-      if (reference.localCopyFileName() != null) {
-        menu.add(0,READ_DEMO_ITEM_ID,0,myResource.getResource("readDemo").getValue());
-        menu.add(0,DELETE_DEMO_ITEM_ID,0,myResource.getResource("deleteDemo").getValue());
-      }
- else {
-        menu.add(0,DOWNLOAD_DEMO_ITEM_ID,0,myResource.getResource("downloadDemo").getValue());
-      }
-    }
-    if (book.localCopyFileName() == null && book.reference(BookReference.Type.DOWNLOAD_FULL) == null) {
-      if (book.reference(BookReference.Type.BUY) != null) {
-        BookReference reference=book.reference(BookReference.Type.BUY);
-        String title=myResource.getResource("buy").getValue().replace("%s",((BuyBookReference)reference).Price);
-        menu.add(0,BUY_DIRECTLY_ITEM_ID,0,title);
-      }
- else       if (book.reference(BookReference.Type.BUY_IN_BROWSER) != null) {
-        BookReference reference=book.reference(BookReference.Type.BUY_IN_BROWSER);
-        String title=myResource.getResource("buy").getValue().replace("%s",((BuyBookReference)reference).Price);
-        menu.add(0,BUY_IN_BROWSER_ITEM_ID,0,title);
-      }
-    }
+    new NetworkBookActions(NetworkLibraryActivity.this).buildContextMenu(menu,tree);
   }
 }
