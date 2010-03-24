@@ -1,5 +1,0 @@
-{
-  if (myErrorMessage != null) {
-    showErrorMessage(context,myErrorMessage);
-  }
-}

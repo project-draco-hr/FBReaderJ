@@ -1,5 +1,0 @@
-{
-  super("loadSubCatalog");
-  myItem=item;
-  myChildren=children;
-}
