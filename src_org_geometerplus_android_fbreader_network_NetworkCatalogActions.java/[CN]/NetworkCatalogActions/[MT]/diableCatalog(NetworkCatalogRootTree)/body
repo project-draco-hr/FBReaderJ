@@ -1,7 +1,0 @@
-{
-  tree.Link.OnOption.setValue(false);
-  final NetworkLibrary library=NetworkLibrary.Instance();
-  library.invalidate();
-  library.synchronize();
-  myAdapter.resetTree();
-}

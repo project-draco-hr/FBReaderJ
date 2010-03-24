@@ -1,3 +1,0 @@
-NetworkCatalogTree tree
-ArrayList<NetworkLibraryItem> children
-String errorMessage

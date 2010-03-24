@@ -2,15 +2,29 @@
   if (!startProgressNotification(tree)) {
     return;
   }
-  final ArrayList<NetworkLibraryItem> children=new ArrayList<NetworkLibraryItem>();
   final boolean hadChildren=tree.hasChildren();
+  final Handler progressHandler=new Handler(){
+    public void handleMessage(    Message message){
+      NetworkLibraryItem item=(NetworkLibraryItem)message.obj;
+      boolean expand=!tree.hasChildren();
+      tree.ChildrenItems.add(item);
+      NetworkTreeFactory.createNetworkTree(tree,item);
+      tree.updateAccountDependents();
+      myAdapter.resetTree();
+      if (expand) {
+        myAdapter.expandOrCollapseTree(tree);
+      }
+    }
+  }
+;
   final Handler finishHandler=new Handler(){
     public void handleMessage(    Message message){
       if (!hadChildren) {
-        afterUpdateCatalogChildren(tree,children,(String)message.obj);
-        myAdapter.resetTree();
+        afterUpdateCatalog((String)message.obj,tree.ChildrenItems.size() == 0);
       }
-      myAdapter.expandOrCollapseTree(tree);
+ else {
+        myAdapter.expandOrCollapseTree(tree);
+      }
       endProgressNotification(tree);
     }
   }
@@ -24,7 +38,14 @@
       }
       Message msg=new Message();
       if (!hadChildren) {
-        msg.obj=tree.Item.loadChildren(children);
+        msg.obj=tree.Item.loadChildren(new NetworkCatalogItem.CatalogListener(){
+          public void onNewItem(          NetworkLibraryItem item){
+            Message itemMsg=new Message();
+            itemMsg.obj=item;
+            progressHandler.sendMessage(itemMsg);
+          }
+        }
+);
       }
       finishHandler.sendMessage(msg);
     }

@@ -1,34 +1,18 @@
 {
-  tree.ChildrenItems.clear();
-  tree.ChildrenItems.addAll(children);
   if (errorMessage != null) {
     final ZLResource dialogResource=ZLResource.resource("dialog");
     final ZLResource buttonResource=dialogResource.getResource("button");
     final ZLResource boxResource=dialogResource.getResource("networkError");
     new AlertDialog.Builder(myActivity).setTitle(boxResource.getResource("title").getValue()).setMessage(errorMessage).setIcon(0).setPositiveButton(buttonResource.getResource("ok").getValue(),null).create().show();
   }
- else   if (children.size() == 0) {
+ else   if (childrenEmpty) {
     final ZLResource dialogResource=ZLResource.resource("dialog");
     final ZLResource buttonResource=dialogResource.getResource("button");
     final ZLResource boxResource=dialogResource.getResource("emptyCatalogBox");
     new AlertDialog.Builder(myActivity).setTitle(boxResource.getResource("title").getValue()).setMessage(boxResource.getResource("message").getValue()).setIcon(0).setPositiveButton(buttonResource.getResource("ok").getValue(),null).create().show();
   }
-  boolean hasSubcatalogs=false;
-  for (  NetworkLibraryItem child : children) {
-    if (child instanceof NetworkCatalogItem) {
-      hasSubcatalogs=true;
-      break;
-    }
-  }
-  if (hasSubcatalogs) {
-    for (    NetworkLibraryItem child : children) {
-      NetworkTreeFactory.createNetworkTree(tree,child);
-    }
-  }
- else {
-    NetworkTreeFactory.fillAuthorNode(tree,children);
-  }
   final NetworkLibrary library=NetworkLibrary.Instance();
   library.invalidateAccountDependents();
   library.synchronize();
+  myAdapter.resetTree();
 }
