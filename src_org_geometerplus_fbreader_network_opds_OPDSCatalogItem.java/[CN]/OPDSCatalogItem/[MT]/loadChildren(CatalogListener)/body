@@ -39,12 +39,7 @@ catch (  SocketTimeoutException ex) {
     return NetworkErrors.errorMessage("operationTimedOutMessage");
   }
 catch (  IOException ex) {
-    try {
-      return NetworkErrors.errorMessage(NetworkErrors.ERROR_SOMETHING_WRONG,new URL(urlString).getHost());
-    }
- catch (    MalformedURLException ex2) {
-      return null;
-    }
+    return NetworkErrors.errorMessage(NetworkErrors.ERROR_SOMETHING_WRONG,ZLNetworkUtil.hostFromUrl(urlString));
   }
   return null;
 }

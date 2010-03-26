@@ -1,9 +1,11 @@
 {
   final Intent intent=new Intent(Intent.ACTION_VIEW);
-  final Uri uri=Uri.parse(reference);
-  if (BookDownloader.acceptsUri(uri)) {
+  boolean externalUrl=true;
+  if (BookDownloader.acceptsUri(Uri.parse(reference))) {
     intent.setClass(myActivity,BookDownloader.class);
+    externalUrl=false;
   }
-  intent.setData(uri);
+  reference=NetworkLibrary.Instance().rewriteUrl(reference,externalUrl);
+  intent.setData(Uri.parse(reference));
   myActivity.startActivity(intent);
 }
