@@ -10,7 +10,11 @@
   final String url=uri.toString();
   final int bookFormat=intent.getIntExtra(BOOK_FORMAT_KEY,BookReference.Format.NONE);
   final int referenceType=intent.getIntExtra(REFERENCE_TYPE_KEY,BookReference.Type.UNKNOWN);
-  String fileName=BookReference.makeBookFileName(url,bookFormat,referenceType);
+  String cleanURL=intent.getStringExtra(CLEAN_URL_KEY);
+  if (cleanURL == null) {
+    cleanURL=url;
+  }
+  String fileName=BookReference.makeBookFileName(cleanURL,bookFormat,referenceType);
   if (fileName == null) {
     doStop();
     return;
