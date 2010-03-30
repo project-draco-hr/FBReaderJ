@@ -14,7 +14,7 @@
       tags.add(term);
     }
   }
-  HashMap<Integer,String> urlMap=new HashMap<Integer,String>();
+  HashMap<Integer,NetworkLibraryItem.Link> urlMap=new HashMap<Integer,NetworkLibraryItem.Link>();
   LinkedList<BookReference> references=new LinkedList<BookReference>();
   for (  ATOMLink link : entry.Links) {
     final String href=link.getHref();
@@ -22,13 +22,13 @@
     final String rel=opdsLink.relation(filter(link.getRel()),type);
     final int referenceType=typeByRelation(rel);
     if (rel == OPDSConstants.REL_COVER) {
-      if (urlMap.get(NetworkLibraryItem.URL_COVER) == null && (type == OPDSConstants.MIME_IMG_PNG || type == OPDSConstants.MIME_IMG_JPEG)) {
-        urlMap.put(NetworkLibraryItem.URL_COVER,href);
+      if (urlMap.get(NetworkLibraryItem.URL_COVER) == null && (type == NetworkImage.MIME_PNG || type == NetworkImage.MIME_JPEG)) {
+        urlMap.put(NetworkLibraryItem.URL_COVER,new NetworkLibraryItem.Link(href,type));
       }
     }
  else     if (rel == OPDSConstants.REL_THUMBNAIL) {
-      if (type == OPDSConstants.MIME_IMG_PNG || type == OPDSConstants.MIME_IMG_JPEG) {
-        urlMap.put(NetworkLibraryItem.URL_COVER,href);
+      if (type == NetworkImage.MIME_PNG || type == NetworkImage.MIME_JPEG) {
+        urlMap.put(NetworkLibraryItem.URL_COVER,new NetworkLibraryItem.Link(href,type));
       }
     }
  else     if (referenceType == BookReference.Type.BUY) {

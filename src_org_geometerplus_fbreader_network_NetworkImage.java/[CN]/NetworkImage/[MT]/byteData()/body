@@ -1,0 +1,23 @@
+{
+  if (!mySynchronized) {
+    return null;
+  }
+  final String fileName=getFileName();
+  if (fileName == null) {
+    return null;
+  }
+  final File imageFile=new File(fileName);
+  if (!imageFile.exists()) {
+    return null;
+  }
+  try {
+    final byte[] data=new byte[(int)imageFile.length()];
+    final FileInputStream stream=new FileInputStream(imageFile);
+    stream.read(data);
+    stream.close();
+    return data;
+  }
+ catch (  IOException e) {
+    return null;
+  }
+}

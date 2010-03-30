@@ -4,7 +4,7 @@
   menu.setHeaderTitle(tree.getName());
   final boolean isOpened=tree.hasChildren() && myAdapter.isOpen(tree);
   if (tree instanceof NetworkCatalogRootTree) {
-    if (item.URLByType.get(NetworkLibraryItem.URL_CATALOG) != null) {
+    if (item.LinkByType.get(NetworkLibraryItem.URL_CATALOG) != null) {
       addMenuItem(menu,EXPAND_OR_COLLAPSE_TREE_ITEM_ID,isOpened ? "closeCatalog" : "openCatalog");
     }
     if (isOpened) {
@@ -12,11 +12,10 @@
     }
   }
  else {
-    if (item.URLByType.get(NetworkLibraryItem.URL_CATALOG) != null) {
+    if (item.LinkByType.get(NetworkLibraryItem.URL_CATALOG) != null) {
       addMenuItem(menu,EXPAND_OR_COLLAPSE_TREE_ITEM_ID,isOpened ? "collapseTree" : "expandTree");
     }
-    final String htmlUrl=item.URLByType.get(NetworkLibraryItem.URL_HTML_PAGE);
-    if (htmlUrl != null) {
+    if (item.LinkByType.get(NetworkLibraryItem.URL_HTML_PAGE) != null) {
       addMenuItem(menu,OPEN_IN_BROWSER_ITEM_ID,"openInBrowser");
     }
     if (isOpened) {

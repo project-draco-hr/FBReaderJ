@@ -1,3 +1,0 @@
-{
-  super(link,title,summary,urlByType,visibility,catalogType);
-}

@@ -1,0 +1,7 @@
+{
+  if (!myCoverRequested) {
+    myCover=createCover();
+    myCoverRequested=true;
+  }
+  return myCover;
+}

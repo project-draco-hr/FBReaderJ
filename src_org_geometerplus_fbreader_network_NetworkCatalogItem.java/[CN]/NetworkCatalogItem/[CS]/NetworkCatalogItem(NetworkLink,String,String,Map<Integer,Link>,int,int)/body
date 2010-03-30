@@ -1,0 +1,5 @@
+{
+  super(link,title,summary,linkByType);
+  Visibility=visibility;
+  CatalogType=catalogType;
+}

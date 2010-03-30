@@ -1,11 +1,10 @@
 {
   final NetworkCatalogTree catalogTree=(NetworkCatalogTree)tree;
   final NetworkCatalogItem item=catalogTree.Item;
-  if (item.URLByType.get(NetworkLibraryItem.URL_CATALOG) != null) {
+  if (item.LinkByType.get(NetworkLibraryItem.URL_CATALOG) != null) {
     return EXPAND_OR_COLLAPSE_TREE_ITEM_ID;
   }
-  final String htmlUrl=item.URLByType.get(NetworkLibraryItem.URL_HTML_PAGE);
-  if (htmlUrl != null) {
+  if (item.LinkByType.get(NetworkLibraryItem.URL_HTML_PAGE) != null) {
     return OPEN_IN_BROWSER_ITEM_ID;
   }
   return -1;

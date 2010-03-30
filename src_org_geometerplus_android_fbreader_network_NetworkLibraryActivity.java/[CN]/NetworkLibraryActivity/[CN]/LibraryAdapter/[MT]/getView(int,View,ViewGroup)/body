@@ -1,9 +1,54 @@
 {
   final View view=(convertView != null) ? convertView : LayoutInflater.from(parent.getContext()).inflate(R.layout.network_tree_item,parent,false);
   final NetworkTree tree=(NetworkTree)getItem(position);
-  final ImageView iconView=(ImageView)view.findViewById(R.id.network_tree_item_icon);
-  setIcon(iconView,tree);
   ((TextView)view.findViewById(R.id.network_tree_item_name)).setText(tree.getName());
   ((TextView)view.findViewById(R.id.network_tree_item_childrenlist)).setText(tree.getSecondString());
+  view.measure(-1,-2);
+  final int maxHeight=view.getMeasuredHeight();
+  final int maxWidth=maxHeight * 2 / 3;
+  final ImageView iconView=(ImageView)view.findViewById(R.id.network_tree_item_icon);
+  Bitmap coverBitmap=null;
+  final ZLImage cover=tree.getCover();
+  if (cover != null) {
+    ZLAndroidImageData data=null;
+    final ZLAndroidImageManager mgr=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
+    if (cover instanceof NetworkImage) {
+      final NetworkImage img=(NetworkImage)cover;
+      if (img.isSynchronized()) {
+        data=mgr.getImageData(img);
+      }
+ else       if (!myTreesToDraw.contains(tree)) {
+        myTreesToDraw.add(tree);
+        final Handler handler=new Handler(){
+          public void handleMessage(          Message message){
+            myTreesToDraw.remove(tree);
+            ListView view=NetworkLibraryActivity.this.getListView();
+            view.invalidateViews();
+            view.requestLayout();
+          }
+        }
+;
+        myPool.execute(new Runnable(){
+          public void run(){
+            img.synchronize();
+            handler.sendEmptyMessage(0);
+          }
+        }
+);
+      }
+    }
+ else {
+      data=mgr.getImageData(cover);
+    }
+    if (data != null) {
+      coverBitmap=data.getBitmap(maxWidth,maxHeight);
+    }
+  }
+  if (coverBitmap != null) {
+    setIcon(iconView,tree,coverBitmap);
+  }
+ else {
+    setIcon(iconView,tree);
+  }
   return view;
 }

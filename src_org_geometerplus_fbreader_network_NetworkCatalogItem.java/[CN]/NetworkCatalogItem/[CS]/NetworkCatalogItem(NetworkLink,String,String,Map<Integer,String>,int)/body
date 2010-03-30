@@ -1,3 +1,0 @@
-{
-  this(link,title,summary,urlByType,visibility,CATALOG_OTHER);
-}

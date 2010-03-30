@@ -1,0 +1,7 @@
+{
+  NetworkLibraryItem.Link link=item.LinkByType.get(NetworkLibraryItem.URL_COVER);
+  if (link == null) {
+    return null;
+  }
+  return createCover(link.URL,link.MimeType);
+}

@@ -1,0 +1,3 @@
+{
+  return makeImageFileName(myUrl,mimeType());
+}
