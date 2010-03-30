@@ -9,8 +9,10 @@
       boolean expand=!tree.hasChildren();
       tree.ChildrenItems.add(item);
       NetworkTreeFactory.createNetworkTree(tree,item);
-      tree.updateAccountDependents();
-      myAdapter.resetTree();
+      if (!hasMessages(0)) {
+        tree.updateAccountDependents();
+        myAdapter.resetTree();
+      }
       if (expand) {
         myAdapter.expandOrCollapseTree(tree);
       }
@@ -36,18 +38,16 @@
       if (link.authenticationManager() != null) {
         NetworkAuthenticationManager mgr=link.authenticationManager();
       }
-      Message msg=new Message();
+      String err=null;
       if (!hadChildren) {
-        msg.obj=tree.Item.loadChildren(new NetworkCatalogItem.CatalogListener(){
+        err=tree.Item.loadChildren(new NetworkCatalogItem.CatalogListener(){
           public void onNewItem(          NetworkLibraryItem item){
-            Message itemMsg=new Message();
-            itemMsg.obj=item;
-            progressHandler.sendMessage(itemMsg);
+            progressHandler.sendMessage(progressHandler.obtainMessage(0,item));
           }
         }
 );
       }
-      finishHandler.sendMessage(msg);
+      finishHandler.sendMessage(finishHandler.obtainMessage(0,err));
     }
   }
 ).start();
