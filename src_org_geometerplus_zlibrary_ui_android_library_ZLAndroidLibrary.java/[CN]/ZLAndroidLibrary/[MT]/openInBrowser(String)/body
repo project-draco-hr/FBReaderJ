@@ -3,6 +3,7 @@
   boolean externalUrl=true;
   if (BookDownloader.acceptsUri(Uri.parse(reference))) {
     intent.setClass(myActivity,BookDownloader.class);
+    intent.putExtra(BookDownloaderService.SHOW_NOTIFICATIONS_KEY,BookDownloaderService.Notifications.ALL);
     externalUrl=false;
   }
   reference=NetworkLibrary.Instance().rewriteUrl(reference,externalUrl);

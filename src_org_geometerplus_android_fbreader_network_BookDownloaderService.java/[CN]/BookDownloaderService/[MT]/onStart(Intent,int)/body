@@ -7,6 +7,7 @@
     return;
   }
   intent.setData(null);
+  final int notifications=intent.getIntExtra(SHOW_NOTIFICATIONS_KEY,0);
   final String url=uri.toString();
   final int bookFormat=intent.getIntExtra(BOOK_FORMAT_KEY,BookReference.Format.NONE);
   final int referenceType=intent.getIntExtra(REFERENCE_TYPE_KEY,BookReference.Type.UNKNOWN);
@@ -48,6 +49,9 @@
   }
   if (title == null || title.length() == 0) {
     title=getResource().getResource("untitled").getValue();
+  }
+  if ((notifications & Notifications.DOWNLOAD_STARTED) != 0) {
+    Toast.makeText(getApplicationContext(),getResource().getResource("downloadingStarted").getValue(),Toast.LENGTH_SHORT).show();
   }
   startFileDownload(url,fileFile,title);
 }
