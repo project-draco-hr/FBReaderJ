@@ -1,6 +1,6 @@
 {
   final int notificationId=(int)System.currentTimeMillis();
-  final Notification progressNotification=createDownloadProgressNotification(file);
+  final Notification progressNotification=createDownloadProgressNotification(title);
   final NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
   notificationManager.notify(notificationId,progressNotification);
   final Handler progressHandler=new Handler(){
@@ -24,7 +24,7 @@
     public void handleMessage(    Message message){
       final NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
       notificationManager.cancel(notificationId);
-      notificationManager.notify(notificationId,createDownloadFinishNotification(file,message.what != 0));
+      notificationManager.notify(notificationId,createDownloadFinishNotification(file,title,message.what != 0));
       doStop();
     }
   }

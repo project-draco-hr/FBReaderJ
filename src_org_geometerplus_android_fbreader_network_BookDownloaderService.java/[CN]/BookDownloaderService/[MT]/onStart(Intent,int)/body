@@ -42,5 +42,12 @@
     startActivity(getFBReaderIntent(fileFile));
     return;
   }
-  startFileDownload(url,fileFile);
+  String title=intent.getStringExtra(TITLE_KEY);
+  if (title == null || title.length() == 0) {
+    title=fileFile.getName();
+  }
+  if (title == null || title.length() == 0) {
+    title=getResource().getResource("untitled").getValue();
+  }
+  startFileDownload(url,fileFile,title);
 }
