@@ -5,7 +5,7 @@
   for (  BookReference ref : myReferences) {
     final int type=ref.ReferenceType;
     if ((type == BookReference.Type.DOWNLOAD_FULL || type == BookReference.Type.DOWNLOAD_FULL_CONDITIONAL || (!hasBuyReference && type == BookReference.Type.DOWNLOAD_FULL_OR_DEMO)) && (reference == null || ref.BookFormat > reference.BookFormat)) {
-      String name=ref.localCopyFileName();
+      String name=ref.localCopyFileName(BookReference.Type.DOWNLOAD_FULL);
       if (name != null) {
         reference=ref;
         fileName=name;

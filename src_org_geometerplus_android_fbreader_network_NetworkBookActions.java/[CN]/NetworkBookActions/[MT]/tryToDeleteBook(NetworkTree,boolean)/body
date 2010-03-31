@@ -12,7 +12,7 @@
  else {
         final BookReference reference=book.reference(BookReference.Type.DOWNLOAD_DEMO);
         if (reference != null) {
-          final String fileName=reference.localCopyFileName();
+          final String fileName=reference.localCopyFileName(BookReference.Type.DOWNLOAD_DEMO);
           if (fileName != null) {
             new File(fileName).delete();
           }

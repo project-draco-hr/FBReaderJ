@@ -8,7 +8,7 @@
  else {
     BookReference reference=book.reference(BookReference.Type.DOWNLOAD_DEMO);
     if (reference != null) {
-      local=reference.localCopyFileName();
+      local=reference.localCopyFileName(BookReference.Type.DOWNLOAD_DEMO);
     }
   }
   if (local != null) {

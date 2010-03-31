@@ -1,5 +1,5 @@
 {
-  String fileName=makeBookFileName();
+  String fileName=makeBookFileName(resolvedReferenceType);
   if (fileName != null && new File(fileName).exists()) {
     return fileName;
   }

@@ -11,7 +11,7 @@
   }
   if (useDemoReferences(book)) {
     BookReference reference=book.reference(BookReference.Type.DOWNLOAD_DEMO);
-    if (reference.localCopyFileName() != null) {
+    if (reference.localCopyFileName(BookReference.Type.DOWNLOAD_DEMO) != null) {
       return READ_DEMO_ITEM_ID;
     }
  else {
