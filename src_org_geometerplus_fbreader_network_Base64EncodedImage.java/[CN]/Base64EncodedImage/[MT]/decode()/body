@@ -14,7 +14,12 @@
   try {
     File file=new File(myFileName);
     if (file.exists()) {
-      return;
+      final long diff=System.currentTimeMillis() - file.lastModified();
+      final long valid=24 * 60 * 60* 1000;
+      if (diff >= 0 && diff <= valid) {
+        return;
+      }
+      file.delete();
     }
     outputStream=new FileOutputStream(file);
     final int dataLength=myData.length();
