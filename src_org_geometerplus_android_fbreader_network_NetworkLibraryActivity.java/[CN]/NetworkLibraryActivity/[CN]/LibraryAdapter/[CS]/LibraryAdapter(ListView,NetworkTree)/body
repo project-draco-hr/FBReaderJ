@@ -1,5 +1,5 @@
 {
   super(view,tree);
   myPool=Executors.newFixedThreadPool(10);
-  myTreesToDraw=new HashSet<NetworkTree>();
+  myIconsToSync=new HashSet<NetworkImage>();
 }

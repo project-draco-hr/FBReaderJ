@@ -1,6 +1,9 @@
 {
   if (!myCoverRequested) {
     myCover=createCover();
+    if (myCover == null) {
+      myCover=Parent.getCover();
+    }
     myCoverRequested=true;
   }
   return myCover;

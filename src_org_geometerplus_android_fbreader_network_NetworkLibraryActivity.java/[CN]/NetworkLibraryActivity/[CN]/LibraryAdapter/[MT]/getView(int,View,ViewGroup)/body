@@ -17,11 +17,11 @@
       if (img.isSynchronized()) {
         data=mgr.getImageData(img);
       }
- else       if (!myTreesToDraw.contains(tree)) {
-        myTreesToDraw.add(tree);
+ else       if (!myIconsToSync.contains(img)) {
+        myIconsToSync.add(img);
         final Handler handler=new Handler(){
           public void handleMessage(          Message message){
-            myTreesToDraw.remove(tree);
+            myIconsToSync.remove(img);
             ListView view=NetworkLibraryActivity.this.getListView();
             view.invalidateViews();
             view.requestLayout();
