@@ -1,0 +1,3 @@
+{
+  return NetworkImage.makeImagesDir() + File.separator + "base64";
+}

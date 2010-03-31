@@ -1,5 +1,5 @@
 {
   super(mimeType);
-  myUrl=url;
+  myData=data;
   new File(makeImagesDir()).mkdirs();
 }

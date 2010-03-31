@@ -9,6 +9,23 @@
     return new NetworkImage(url,mimeType);
   }
  else   if (url.startsWith("data:")) {
+    int commaIndex=url.indexOf(',');
+    if (commaIndex == -1) {
+      return null;
+    }
+    if (mimeType == "image/auto") {
+      int index=url.indexOf(';');
+      if (index == -1 || index > commaIndex) {
+        index=commaIndex;
+      }
+      if (url.startsWith("image/",5)) {
+        mimeType=url.substring(5,index);
+      }
+    }
+    int key=url.indexOf("base64");
+    if (key != -1 && key < commaIndex) {
+      return new Base64EncodedImage(mimeType,url.substring(commaIndex + 1));
+    }
   }
   return null;
 }
