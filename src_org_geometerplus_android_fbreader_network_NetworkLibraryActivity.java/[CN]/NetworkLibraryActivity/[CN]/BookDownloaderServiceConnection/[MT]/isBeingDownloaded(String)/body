@@ -1,0 +1,10 @@
+{
+  if (myInterface != null) {
+    try {
+      return myInterface.isBeingDownloaded(url);
+    }
+ catch (    android.os.RemoteException e) {
+    }
+  }
+  return false;
+}

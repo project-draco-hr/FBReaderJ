@@ -1,0 +1,3 @@
+{
+  myInterface=BookDownloaderInterface.Stub.asInterface(service);
+}

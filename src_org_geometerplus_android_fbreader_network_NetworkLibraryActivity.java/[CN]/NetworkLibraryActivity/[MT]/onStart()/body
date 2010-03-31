@@ -1,0 +1,6 @@
+{
+  super.onStart();
+  Instance=this;
+  myConnection=new BookDownloaderServiceConnection();
+  bindService(new Intent(this,BookDownloaderService.class),myConnection,BIND_AUTO_CREATE);
+}
