@@ -2,7 +2,7 @@
   if (!startProgressNotification(tree)) {
     return;
   }
-  final Handler handler=new ExpandCatalogHandler(tree);
+  final ExpandCatalogHandler handler=new ExpandCatalogHandler(tree);
   myAdapter.expandOrCollapseTree(tree);
   tree.ChildrenItems.clear();
   tree.clear();
@@ -10,11 +10,19 @@
   new Thread(new Runnable(){
     public void run(){
       final String err=tree.Item.loadChildren(new NetworkCatalogItem.CatalogListener(){
+        private long myUpdateTime;
         public void onNewItem(        NetworkLibraryItem item){
-          handler.sendMessage(handler.obtainMessage(WHAT_NEW_ITEM,item));
+          handler.addItem(item);
+          final long now=System.currentTimeMillis();
+          if (now > myUpdateTime) {
+            handler.sendEmptyMessage(WHAT_UPDATE_ITEMS);
+            myUpdateTime=now + 1000;
+          }
         }
       }
 );
+      handler.sendEmptyMessage(WHAT_UPDATE_ITEMS);
+      handler.ensureFinish();
       handler.sendMessage(handler.obtainMessage(WHAT_FINISHED,err));
     }
   }

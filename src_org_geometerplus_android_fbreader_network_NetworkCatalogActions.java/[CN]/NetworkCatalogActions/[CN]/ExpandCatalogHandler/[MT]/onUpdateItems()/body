@@ -1,0 +1,7 @@
+{
+  boolean expand=!myTree.hasChildren();
+  displayItems();
+  if (expand) {
+    myAdapter.expandOrCollapseTree(myTree);
+  }
+}

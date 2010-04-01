@@ -1,9 +1,11 @@
 {
-  for (  NetworkLibraryItem item : myItems) {
-    myTree.ChildrenItems.add(item);
-    NetworkTreeFactory.createNetworkTree(myTree,item);
-    myTree.updateAccountDependents();
+synchronized (myItems) {
+    for (    NetworkLibraryItem item : myItems) {
+      myTree.ChildrenItems.add(item);
+      NetworkTreeFactory.createNetworkTree(myTree,item);
+    }
+    myItems.clear();
+    myItems.notifyAll();
   }
-  myItems.clear();
   myAdapter.resetTree();
 }

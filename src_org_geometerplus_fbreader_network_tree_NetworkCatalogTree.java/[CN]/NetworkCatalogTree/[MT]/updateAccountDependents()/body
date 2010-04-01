@@ -49,8 +49,8 @@
         }
       }
     }
-    if (!processed && processAccountDependent((NetworkCatalogItem)currentItem)) {
-      NetworkTreeFactory.createNetworkTree(this,currentItem,nodeCount++);
+    if (!processed && NetworkTreeFactory.createNetworkTree(this,currentItem,nodeCount) != null) {
+      ++nodeCount;
     }
   }
   while (currentNode != null || nodeIterator.hasNext()) {

@@ -1,7 +1,7 @@
 {
 switch (message.what) {
-case WHAT_NEW_ITEM:
-    onNewItem((NetworkLibraryItem)message.obj);
+case WHAT_UPDATE_ITEMS:
+    onUpdateItems();
   break;
 case WHAT_FINISHED:
 onFinish((String)message.obj);

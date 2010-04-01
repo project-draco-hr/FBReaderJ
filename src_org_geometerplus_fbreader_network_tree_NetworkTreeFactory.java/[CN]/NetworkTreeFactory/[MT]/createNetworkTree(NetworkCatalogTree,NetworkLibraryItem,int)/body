@@ -1,6 +1,10 @@
 {
   if (item instanceof NetworkCatalogItem) {
-    NetworkCatalogTree tree=new NetworkCatalogTree(parent,(NetworkCatalogItem)item,position);
+    NetworkCatalogItem catalogItem=(NetworkCatalogItem)item;
+    if (!NetworkCatalogTree.processAccountDependent(catalogItem)) {
+      return null;
+    }
+    NetworkCatalogTree tree=new NetworkCatalogTree(parent,catalogItem,position);
     return tree;
   }
  else   if (item instanceof NetworkBookItem) {

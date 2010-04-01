@@ -1,7 +1,4 @@
 {
-  if (myItems.size() > 0) {
-    displayItems();
-  }
   afterUpdateCatalog(err,myTree.ChildrenItems.size() == 0);
   endProgressNotification(myTree);
 }

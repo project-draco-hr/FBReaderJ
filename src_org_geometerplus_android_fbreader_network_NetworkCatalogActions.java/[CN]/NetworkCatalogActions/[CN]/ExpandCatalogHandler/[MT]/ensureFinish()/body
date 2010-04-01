@@ -1,0 +1,11 @@
+{
+synchronized (myItems) {
+    while (myItems.size() > 0) {
+      try {
+        myItems.wait();
+      }
+ catch (      InterruptedException e) {
+      }
+    }
+  }
+}
