@@ -9,9 +9,7 @@
       tree.ChildrenItems.add(item);
       NetworkTreeFactory.createNetworkTree(tree,item);
       tree.updateAccountDependents();
-      if (!hasMessages(0)) {
-        myAdapter.resetTree();
-      }
+      myAdapter.resetTree();
       if (expand) {
         myAdapter.expandOrCollapseTree(tree);
       }

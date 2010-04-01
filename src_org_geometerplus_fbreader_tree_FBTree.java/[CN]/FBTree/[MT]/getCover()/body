@@ -1,7 +1,7 @@
 {
   if (!myCoverRequested) {
     myCover=createCover();
-    if (myCover == null) {
+    if (myCover == null && Parent != null) {
       myCover=Parent.getCover();
     }
     myCoverRequested=true;

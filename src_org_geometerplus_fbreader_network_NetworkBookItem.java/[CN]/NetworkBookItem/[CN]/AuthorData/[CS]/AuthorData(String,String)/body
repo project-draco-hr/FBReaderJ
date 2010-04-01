@@ -1,4 +1,4 @@
 {
-  DisplayName=displayName;
-  SortKey=sortKey;
+  DisplayName=displayName.intern();
+  SortKey=sortKey.intern();
 }
