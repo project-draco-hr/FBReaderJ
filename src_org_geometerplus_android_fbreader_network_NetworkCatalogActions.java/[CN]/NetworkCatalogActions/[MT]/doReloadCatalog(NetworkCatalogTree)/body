@@ -2,27 +2,7 @@
   if (!startProgressNotification(tree)) {
     return;
   }
-  final Handler progressHandler=new Handler(){
-    public void handleMessage(    Message message){
-      NetworkLibraryItem item=(NetworkLibraryItem)message.obj;
-      boolean expand=!tree.hasChildren();
-      tree.ChildrenItems.add(item);
-      NetworkTreeFactory.createNetworkTree(tree,item);
-      tree.updateAccountDependents();
-      myAdapter.resetTree();
-      if (expand) {
-        myAdapter.expandOrCollapseTree(tree);
-      }
-    }
-  }
-;
-  final Handler finishHandler=new Handler(){
-    public void handleMessage(    Message message){
-      afterUpdateCatalog((String)message.obj,tree.ChildrenItems.size() == 0);
-      endProgressNotification(tree);
-    }
-  }
-;
+  final Handler handler=new ExpandCatalogHandler(tree);
   myAdapter.expandOrCollapseTree(tree);
   tree.ChildrenItems.clear();
   tree.clear();
@@ -31,11 +11,11 @@
     public void run(){
       final String err=tree.Item.loadChildren(new NetworkCatalogItem.CatalogListener(){
         public void onNewItem(        NetworkLibraryItem item){
-          progressHandler.sendMessage(progressHandler.obtainMessage(0,item));
+          handler.sendMessage(handler.obtainMessage(WHAT_NEW_ITEM,item));
         }
       }
 );
-      finishHandler.sendMessage(finishHandler.obtainMessage(0,err));
+      handler.sendMessage(handler.obtainMessage(WHAT_FINISHED,err));
     }
   }
 ).start();

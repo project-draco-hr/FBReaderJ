@@ -6,35 +6,7 @@
   if (!startProgressNotification(tree)) {
     return;
   }
-  final Handler progressHandler=new Handler(){
-    public void handleMessage(    Message message){
-      NetworkLibraryItem item=(NetworkLibraryItem)message.obj;
-      boolean expand=!tree.hasChildren();
-      tree.ChildrenItems.add(item);
-      NetworkTreeFactory.createNetworkTree(tree,item);
-      tree.updateAccountDependents();
-      if (item instanceof NetworkCatalogItem) {
-        ++dbgCatalogsCounter;
-      }
-      if (item instanceof NetworkBookItem) {
-        ++dbgBooksCounter;
-      }
-      myAdapter.resetTree();
-      if (expand) {
-        myAdapter.expandOrCollapseTree(tree);
-      }
-    }
-  }
-;
-  final Handler finishHandler=new Handler(){
-    public void handleMessage(    Message message){
-      afterUpdateCatalog((String)message.obj,tree.ChildrenItems.size() == 0);
-      endProgressNotification(tree);
-      System.err.println("FBREADER -- dbgCatalogsCounter = " + dbgCatalogsCounter);
-      System.err.println("FBREADER -- dbgBooksCounter = " + dbgBooksCounter);
-    }
-  }
-;
+  final Handler handler=new ExpandCatalogHandler(tree);
   new Thread(new Runnable(){
     public void run(){
       NetworkCatalogItem item=tree.Item;
@@ -44,11 +16,11 @@
       }
       final String err=tree.Item.loadChildren(new NetworkCatalogItem.CatalogListener(){
         public void onNewItem(        NetworkLibraryItem item){
-          progressHandler.sendMessage(progressHandler.obtainMessage(0,item));
+          handler.sendMessage(handler.obtainMessage(WHAT_NEW_ITEM,item));
         }
       }
 );
-      finishHandler.sendMessage(finishHandler.obtainMessage(0,err));
+      handler.sendMessage(handler.obtainMessage(WHAT_FINISHED,err));
     }
   }
 ).start();

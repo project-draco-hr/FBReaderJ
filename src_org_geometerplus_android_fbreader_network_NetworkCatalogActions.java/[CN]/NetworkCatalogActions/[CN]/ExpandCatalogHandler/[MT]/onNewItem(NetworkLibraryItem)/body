@@ -1,0 +1,10 @@
+{
+  myItems.add(item);
+  if (!hasMessages(WHAT_NEW_ITEM)) {
+    final boolean expand=!myTree.hasChildren();
+    displayItems();
+    if (expand) {
+      myAdapter.expandOrCollapseTree(myTree);
+    }
+  }
+}

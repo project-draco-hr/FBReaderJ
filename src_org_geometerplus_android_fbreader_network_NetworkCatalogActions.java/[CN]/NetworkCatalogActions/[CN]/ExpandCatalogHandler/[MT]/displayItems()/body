@@ -1,0 +1,9 @@
+{
+  for (  NetworkLibraryItem item : myItems) {
+    myTree.ChildrenItems.add(item);
+    NetworkTreeFactory.createNetworkTree(myTree,item);
+    myTree.updateAccountDependents();
+  }
+  myItems.clear();
+  myAdapter.resetTree();
+}

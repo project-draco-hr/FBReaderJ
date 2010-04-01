@@ -1,0 +1,10 @@
+{
+switch (message.what) {
+case WHAT_NEW_ITEM:
+    onNewItem((NetworkLibraryItem)message.obj);
+  break;
+case WHAT_FINISHED:
+onFinish((String)message.obj);
+break;
+}
+}
