@@ -22,4 +22,7 @@
       addMenuItem(menu,RELOAD_ITEM_ID,"reload");
     }
   }
+  if (tree.hasChildren()) {
+    menu.add(0,DBG_UNLOAD_CATALOG_ITEM_ID,0,"Unload catalog");
+  }
 }

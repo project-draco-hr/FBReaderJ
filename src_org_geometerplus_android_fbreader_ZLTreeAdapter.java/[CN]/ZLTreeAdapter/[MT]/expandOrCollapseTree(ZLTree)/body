@@ -8,6 +8,5 @@
  else {
     myOpenItems.add(tree);
   }
-  myParent.invalidateViews();
-  myParent.requestLayout();
+  notifyDataSetChanged();
 }

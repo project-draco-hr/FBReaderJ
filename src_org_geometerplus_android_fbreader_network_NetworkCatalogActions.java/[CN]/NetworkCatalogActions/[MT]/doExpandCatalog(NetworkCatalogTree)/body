@@ -1,8 +1,11 @@
 {
+  if (tree.hasChildren()) {
+    myAdapter.expandOrCollapseTree(tree);
+    return;
+  }
   if (!startProgressNotification(tree)) {
     return;
   }
-  final boolean hadChildren=tree.hasChildren();
   final Handler progressHandler=new Handler(){
     public void handleMessage(    Message message){
       NetworkLibraryItem item=(NetworkLibraryItem)message.obj;
@@ -21,12 +24,7 @@
 ;
   final Handler finishHandler=new Handler(){
     public void handleMessage(    Message message){
-      if (!hadChildren) {
-        afterUpdateCatalog((String)message.obj,tree.ChildrenItems.size() == 0);
-      }
- else {
-        myAdapter.expandOrCollapseTree(tree);
-      }
+      afterUpdateCatalog((String)message.obj,tree.ChildrenItems.size() == 0);
       endProgressNotification(tree);
     }
   }
@@ -38,15 +36,12 @@
       if (link.authenticationManager() != null) {
         NetworkAuthenticationManager mgr=link.authenticationManager();
       }
-      String err=null;
-      if (!hadChildren) {
-        err=tree.Item.loadChildren(new NetworkCatalogItem.CatalogListener(){
-          public void onNewItem(          NetworkLibraryItem item){
-            progressHandler.sendMessage(progressHandler.obtainMessage(0,item));
-          }
+      final String err=tree.Item.loadChildren(new NetworkCatalogItem.CatalogListener(){
+        public void onNewItem(        NetworkLibraryItem item){
+          progressHandler.sendMessage(progressHandler.obtainMessage(0,item));
         }
-);
       }
+);
       finishHandler.sendMessage(finishHandler.obtainMessage(0,err));
     }
   }

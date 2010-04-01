@@ -31,7 +31,7 @@
   myAdapter.resetTree();
   new Thread(new Runnable(){
     public void run(){
-      String err=tree.Item.loadChildren(new NetworkCatalogItem.CatalogListener(){
+      final String err=tree.Item.loadChildren(new NetworkCatalogItem.CatalogListener(){
         public void onNewItem(        NetworkLibraryItem item){
           progressHandler.sendMessage(progressHandler.obtainMessage(0,item));
         }

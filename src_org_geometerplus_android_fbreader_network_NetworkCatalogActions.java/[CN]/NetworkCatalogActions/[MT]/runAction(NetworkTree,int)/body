@@ -9,6 +9,17 @@ return true;
 case RELOAD_ITEM_ID:
 doReloadCatalog((NetworkCatalogTree)tree);
 return true;
+case DBG_UNLOAD_CATALOG_ITEM_ID:
+{
+final NetworkCatalogTree catalogTree=(NetworkCatalogTree)tree;
+if (tree.hasChildren() && myAdapter.isOpen(tree)) {
+myAdapter.expandOrCollapseTree(tree);
+}
+catalogTree.ChildrenItems.clear();
+tree.clear();
+myAdapter.resetTree();
+}
+return true;
 }
 return false;
 }
