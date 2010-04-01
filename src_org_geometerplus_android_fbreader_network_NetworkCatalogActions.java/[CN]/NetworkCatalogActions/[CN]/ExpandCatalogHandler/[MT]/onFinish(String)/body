@@ -1,6 +1,6 @@
 {
   if (myItems.size() > 0) {
-    throw new RuntimeException("Not all items have been displayed!!!");
+    displayItems();
   }
   afterUpdateCatalog(err,myTree.ChildrenItems.size() == 0);
   endProgressNotification(myTree);

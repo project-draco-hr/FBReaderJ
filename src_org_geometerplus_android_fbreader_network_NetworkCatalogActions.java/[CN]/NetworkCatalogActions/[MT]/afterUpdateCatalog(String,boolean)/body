@@ -1,13 +1,11 @@
 {
+  final ZLResource dialogResource=ZLResource.resource("dialog");
+  final ZLResource buttonResource=dialogResource.getResource("button");
   if (errorMessage != null) {
-    final ZLResource dialogResource=ZLResource.resource("dialog");
-    final ZLResource buttonResource=dialogResource.getResource("button");
     final ZLResource boxResource=dialogResource.getResource("networkError");
     new AlertDialog.Builder(myActivity).setTitle(boxResource.getResource("title").getValue()).setMessage(errorMessage).setIcon(0).setPositiveButton(buttonResource.getResource("ok").getValue(),null).create().show();
   }
  else   if (childrenEmpty) {
-    final ZLResource dialogResource=ZLResource.resource("dialog");
-    final ZLResource buttonResource=dialogResource.getResource("button");
     final ZLResource boxResource=dialogResource.getResource("emptyCatalogBox");
     new AlertDialog.Builder(myActivity).setTitle(boxResource.getResource("title").getValue()).setMessage(boxResource.getResource("message").getValue()).setIcon(0).setPositiveButton(buttonResource.getResource("ok").getValue(),null).create().show();
   }
