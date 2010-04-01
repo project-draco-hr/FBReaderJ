@@ -4,8 +4,12 @@
     final File file=new File(myFileName);
     final byte[] data=new byte[(int)file.length()];
     final FileInputStream stream=new FileInputStream(file);
-    stream.read(data);
-    stream.close();
+    try {
+      stream.read(data);
+    }
+  finally {
+      stream.close();
+    }
     return data;
   }
  catch (  IOException e) {

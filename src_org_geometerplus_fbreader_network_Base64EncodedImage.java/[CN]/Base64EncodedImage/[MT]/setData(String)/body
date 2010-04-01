@@ -1,0 +1,31 @@
+{
+  myFileName=makeImagesDir() + File.separator + Integer.toHexString(data.hashCode());
+  String type=mimeType();
+  if (type == NetworkImage.MIME_PNG) {
+    myFileName+=".png";
+  }
+ else   if (type == NetworkImage.MIME_JPEG) {
+    myFileName+=".jpg";
+  }
+  myIsDecoded=isCacheValid(new File(myFileName));
+  if (myIsDecoded) {
+    return;
+  }
+  myFileName+=ENCODED_SUFFIX;
+  File file=new File(myFileName);
+  if (isCacheValid(file)) {
+    return;
+  }
+  OutputStreamWriter writer=null;
+  try {
+    writer=new OutputStreamWriter(new FileOutputStream(file),"UTF-8");
+    try {
+      writer.write(data,0,data.length());
+    }
+  finally {
+      writer.close();
+    }
+  }
+ catch (  IOException e) {
+  }
+}
