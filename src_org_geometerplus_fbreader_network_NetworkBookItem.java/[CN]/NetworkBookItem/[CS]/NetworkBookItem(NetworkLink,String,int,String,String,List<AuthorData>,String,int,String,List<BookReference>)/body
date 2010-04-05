@@ -1,5 +1,5 @@
 {
-  super(link,title,summary,urlByType);
+  super(link,title,summary,cover);
   Index=index;
   Id=id;
   Authors=new LinkedList<AuthorData>(authors);

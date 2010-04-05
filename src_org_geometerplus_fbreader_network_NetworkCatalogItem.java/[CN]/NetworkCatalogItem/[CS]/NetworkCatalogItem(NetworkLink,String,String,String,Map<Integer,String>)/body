@@ -1,0 +1,3 @@
+{
+  this(link,title,summary,cover,urlByType,VISIBLE_ALWAYS,CATALOG_OTHER);
+}

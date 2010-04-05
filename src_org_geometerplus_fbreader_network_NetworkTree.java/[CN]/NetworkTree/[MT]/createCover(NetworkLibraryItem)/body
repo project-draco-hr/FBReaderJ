@@ -1,7 +1,6 @@
 {
-  String link=item.URLByType.get(NetworkLibraryItem.URL_COVER);
-  if (link == null) {
+  if (item.Cover == null) {
     return null;
   }
-  return createCover(link,null);
+  return createCover(item.Cover,null);
 }

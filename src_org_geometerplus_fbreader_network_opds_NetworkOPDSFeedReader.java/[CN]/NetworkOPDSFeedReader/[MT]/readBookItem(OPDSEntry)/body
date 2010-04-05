@@ -14,7 +14,7 @@
       tags.add(term);
     }
   }
-  HashMap<Integer,String> urlMap=new HashMap<Integer,String>();
+  String cover=null;
   LinkedList<BookReference> references=new LinkedList<BookReference>();
   for (  ATOMLink link : entry.Links) {
     final String href=link.getHref();
@@ -22,13 +22,13 @@
     final String rel=opdsLink.relation(filter(link.getRel()),type);
     final int referenceType=typeByRelation(rel);
     if (rel == OPDSConstants.REL_COVER) {
-      if (urlMap.get(NetworkLibraryItem.URL_COVER) == null && (type == NetworkImage.MIME_PNG || type == NetworkImage.MIME_JPEG)) {
-        urlMap.put(NetworkLibraryItem.URL_COVER,href);
+      if (cover == null && (type == NetworkImage.MIME_PNG || type == NetworkImage.MIME_JPEG)) {
+        cover=href;
       }
     }
  else     if (rel == OPDSConstants.REL_THUMBNAIL) {
       if (type == NetworkImage.MIME_PNG || type == NetworkImage.MIME_JPEG) {
-        urlMap.put(NetworkLibraryItem.URL_COVER,href);
+        cover=href;
       }
     }
  else     if (referenceType == BookReference.Type.BUY) {
@@ -84,5 +84,5 @@
     }
     authors.add(authorData);
   }
-  return new NetworkBookItem(opdsLink,entry.Id.Uri,myIndex++,entry.Title,entry.Summary,authors,entry.SeriesTitle,entry.SeriesIndex,urlMap,references);
+  return new NetworkBookItem(opdsLink,entry.Id.Uri,myIndex++,entry.Title,entry.Summary,authors,entry.SeriesTitle,entry.SeriesIndex,cover,references);
 }

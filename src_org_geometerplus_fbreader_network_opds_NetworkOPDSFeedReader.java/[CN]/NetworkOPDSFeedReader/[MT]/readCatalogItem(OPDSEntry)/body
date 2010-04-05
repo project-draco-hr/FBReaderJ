@@ -57,19 +57,16 @@
     annotation=entry.Summary.replace("\011","").replace("\012","");
   }
   HashMap<Integer,String> urlMap=new HashMap<Integer,String>();
-  if (coverURL != null) {
-    urlMap.put(NetworkLibraryItem.URL_COVER,coverURL);
-  }
   if (url != null) {
-    urlMap.put(NetworkLibraryItem.URL_CATALOG,ZLNetworkUtil.url(myBaseURL,url));
+    urlMap.put(NetworkCatalogItem.URL_CATALOG,ZLNetworkUtil.url(myBaseURL,url));
   }
   if (htmlURL != null) {
-    urlMap.put(NetworkLibraryItem.URL_HTML_PAGE,ZLNetworkUtil.url(myBaseURL,htmlURL));
+    urlMap.put(NetworkCatalogItem.URL_HTML_PAGE,ZLNetworkUtil.url(myBaseURL,htmlURL));
   }
   if (litresCatalogue) {
     return null;
   }
  else {
-    return new OPDSCatalogItem(opdsLink,entry.Title,annotation,urlMap,dependsOnAccount ? NetworkCatalogItem.VISIBLE_LOGGED_USER : NetworkCatalogItem.VISIBLE_ALWAYS,catalogType);
+    return new OPDSCatalogItem(opdsLink,entry.Title,annotation,coverURL,urlMap,dependsOnAccount ? NetworkCatalogItem.VISIBLE_LOGGED_USER : NetworkCatalogItem.VISIBLE_ALWAYS,catalogType);
   }
 }
