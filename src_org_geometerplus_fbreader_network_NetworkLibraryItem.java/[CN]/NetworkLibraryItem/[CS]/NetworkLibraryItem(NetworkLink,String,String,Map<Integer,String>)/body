@@ -1,0 +1,6 @@
+{
+  Link=link;
+  Title=title;
+  Summary=summary;
+  URLByType=new TreeMap<Integer,String>(urlByType);
+}

@@ -1,6 +1,0 @@
-{
-  Link=link;
-  Title=title;
-  Summary=summary;
-  LinkByType=new TreeMap<Integer,Link>(linkByType);
-}

@@ -1,5 +1,4 @@
 NetworkLink link
 String title
 String summary
-Map<Integer,Link> linkByType
-int visibility
+Map<Integer,String> urlByType

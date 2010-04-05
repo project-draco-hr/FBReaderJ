@@ -1,10 +1,9 @@
 {
   OperationData data=new OperationData(Link,listener);
-  final NetworkLibraryItem.Link urlLink=LinkByType.get(URL_CATALOG);
-  if (urlLink == null) {
+  String urlString=URLByType.get(URL_CATALOG);
+  if (urlString == null) {
     return null;
   }
-  String urlString=urlLink.URL;
   try {
     while (data.ResumeCount < 10 && urlString != null) {
       urlString=Link.rewriteUrl(urlString,false);

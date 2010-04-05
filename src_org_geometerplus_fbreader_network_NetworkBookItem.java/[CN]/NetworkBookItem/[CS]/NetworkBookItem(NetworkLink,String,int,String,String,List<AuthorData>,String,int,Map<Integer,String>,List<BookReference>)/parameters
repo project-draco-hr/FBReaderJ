@@ -6,5 +6,5 @@ String summary
 List<AuthorData> authors
 String seriesTitle
 int indexInSeries
-Map<Integer,Link> linkByType
+Map<Integer,String> urlByType
 List<BookReference> references
