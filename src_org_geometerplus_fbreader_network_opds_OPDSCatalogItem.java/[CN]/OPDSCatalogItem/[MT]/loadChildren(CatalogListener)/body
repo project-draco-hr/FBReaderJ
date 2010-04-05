@@ -15,6 +15,7 @@
       }
       final HttpURLConnection httpConnection=(HttpURLConnection)connection;
       httpConnection.setConnectTimeout(15000);
+      httpConnection.setRequestProperty("Connection","Close");
       final int response=httpConnection.getResponseCode();
       if (response == HttpURLConnection.HTTP_OK) {
         InputStream inStream=httpConnection.getInputStream();
