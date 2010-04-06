@@ -38,15 +38,22 @@
       try {
         final URL url=new URL(urlString);
         final URLConnection connection=url.openConnection();
-        final int fileLength=connection.getContentLength();
-        int downloadedPart=0;
-        long progressTime=System.currentTimeMillis() + updateIntervalMillis;
-        if (fileLength <= 0) {
-          progressHandler.sendEmptyMessage(-1);
+        if (!(connection instanceof HttpURLConnection)) {
+          return;
         }
         final HttpURLConnection httpConnection=(HttpURLConnection)connection;
+        httpConnection.setConnectTimeout(15000);
+        httpConnection.setReadTimeout(30000);
+        httpConnection.setRequestProperty("Connection","Close");
+        httpConnection.setRequestProperty("User-Agent",ZLNetworkUtil.getUserAgent());
         final int response=httpConnection.getResponseCode();
         if (response == HttpURLConnection.HTTP_OK) {
+          final int fileLength=httpConnection.getContentLength();
+          int downloadedPart=0;
+          long progressTime=System.currentTimeMillis() + updateIntervalMillis;
+          if (fileLength <= 0) {
+            progressHandler.sendEmptyMessage(-1);
+          }
           OutputStream outStream=new FileOutputStream(file);
           try {
             InputStream inStream=httpConnection.getInputStream();
@@ -75,6 +82,8 @@
         }
       }
  catch (      MalformedURLException e) {
+      }
+catch (      SocketTimeoutException ex) {
       }
 catch (      IOException e) {
       }

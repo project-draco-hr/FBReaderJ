@@ -4,5 +4,4 @@
   new ZLAndroidImageManager();
   new ZLAndroidDialogManager();
   new ZLAndroidLibrary(this);
-  System.setProperty("http.agent",ZLNetworkUtil.getUserAgent(ZLAndroidApplication.Instance().getVersionName()));
 }

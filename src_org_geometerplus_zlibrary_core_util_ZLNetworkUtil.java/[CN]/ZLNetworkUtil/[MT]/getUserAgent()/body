@@ -1,0 +1,3 @@
+{
+  return "FBReader/" + ZLibrary.Instance().getVersionName() + "(java)";
+}

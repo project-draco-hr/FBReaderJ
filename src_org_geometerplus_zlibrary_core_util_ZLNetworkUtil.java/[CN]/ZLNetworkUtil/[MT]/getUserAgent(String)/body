@@ -1,3 +1,0 @@
-{
-  return "FBReader/" + versionName + "(java)";
-}
