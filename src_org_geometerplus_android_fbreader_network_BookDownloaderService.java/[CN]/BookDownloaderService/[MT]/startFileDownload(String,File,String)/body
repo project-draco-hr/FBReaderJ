@@ -3,6 +3,7 @@
   final int notificationId=(int)System.currentTimeMillis();
   final Notification progressNotification=createDownloadProgressNotification(title);
   final NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+  myOngoingNotifications.add(Integer.valueOf(notificationId));
   notificationManager.notify(notificationId,progressNotification);
   final Handler progressHandler=new Handler(){
     public void handleMessage(    Message message){
@@ -26,6 +27,7 @@
       myDownloadingURLs.remove(urlString);
       final NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
       notificationManager.cancel(notificationId);
+      myOngoingNotifications.remove(Integer.valueOf(notificationId));
       notificationManager.notify(notificationId,createDownloadFinishNotification(file,title,message.what != 0));
       doStop();
     }

@@ -1,3 +1,6 @@
 {
+  for (  NetworkTreeActions actions : myActions) {
+    actions.onDestroy();
+  }
   super.onDestroy();
 }
