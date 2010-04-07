@@ -9,19 +9,13 @@
   intent.setData(null);
   final int notifications=intent.getIntExtra(SHOW_NOTIFICATIONS_KEY,0);
   final String url=uri.toString();
-  final boolean cancelDownload=intent.getBooleanExtra(CANCEL_DOWNLOAD_KEY,false);
-  if (cancelDownload) {
-    System.err.println("FBREADER -- CANCEL!!!");
-    doStop();
-    return;
-  }
   final int bookFormat=intent.getIntExtra(BOOK_FORMAT_KEY,BookReference.Format.NONE);
   final int referenceType=intent.getIntExtra(REFERENCE_TYPE_KEY,BookReference.Type.UNKNOWN);
   String cleanURL=intent.getStringExtra(CLEAN_URL_KEY);
   if (cleanURL == null) {
     cleanURL=url;
   }
-  if (isDownloadInProgress(url)) {
+  if (myDownloadingURLs.contains(url)) {
     if ((notifications & Notifications.ALREADY_DOWNLOADING) != 0) {
       Toast.makeText(getApplicationContext(),getResource().getResource("alreadyDownloading").getValue(),Toast.LENGTH_SHORT).show();
     }
