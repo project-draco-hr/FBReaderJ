@@ -1,0 +1,5 @@
+{
+synchronized (myDownloadsPermissions) {
+    return myDownloadsPermissions.containsKey(url);
+  }
+}

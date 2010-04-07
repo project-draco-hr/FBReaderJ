@@ -1,7 +1,7 @@
 {
   return new BookDownloaderInterface.Stub(){
     public boolean isBeingDownloaded(    String url){
-      return myDownloadingURLs.contains(url);
+      return isDownloadInProgress(url);
     }
   }
 ;

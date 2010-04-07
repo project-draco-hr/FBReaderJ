@@ -1,7 +1,9 @@
 {
-  myDownloadingURLs.add(urlString);
+synchronized (myDownloadsPermissions) {
+    myDownloadsPermissions.put(urlString,Boolean.valueOf(true));
+  }
   final int notificationId=(int)System.currentTimeMillis();
-  final Notification progressNotification=createDownloadProgressNotification(title);
+  final Notification progressNotification=createDownloadProgressNotification(title,urlString);
   final NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
   notificationManager.notify(notificationId,progressNotification);
   final Handler progressHandler=new Handler(){
@@ -23,77 +25,113 @@
 ;
   final Handler downloadFinishHandler=new Handler(){
     public void handleMessage(    Message message){
-      myDownloadingURLs.remove(urlString);
-      final NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-      notificationManager.cancel(notificationId);
-      notificationManager.notify(notificationId,createDownloadFinishNotification(file,title,message.what != 0));
-      doStop();
-    }
-  }
+synchronized (myDownloadsPermissions) {
+        myDownloadsPermissions.remove(urlString);
+      }
+      boolean success=false;
+      boolean cancel=false;
+switch (message.what) {
+case DOWNLOAD_SUCCESS:
+        success=true;
+      break;
+case DOWNLOAD_CANCEL:
+    cancel=true;
+  break;
+case DOWNLOAD_FAILURE:
+break;
+}
+final NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+notificationManager.cancel(notificationId);
+if (!cancel) {
+notificationManager.notify(notificationId,createDownloadFinishNotification(file,title,success));
+}
+doStop();
+}
+}
 ;
-  new Thread(new Runnable(){
-    public void run(){
-      final int updateIntervalMillis=1000;
-      boolean downloadSuccess=false;
-      try {
-        final URL url=new URL(urlString);
-        final URLConnection connection=url.openConnection();
-        if (!(connection instanceof HttpURLConnection)) {
-          return;
-        }
-        final HttpURLConnection httpConnection=(HttpURLConnection)connection;
-        httpConnection.setConnectTimeout(15000);
-        httpConnection.setReadTimeout(30000);
-        httpConnection.setRequestProperty("Connection","Close");
-        httpConnection.setRequestProperty("User-Agent",ZLNetworkUtil.getUserAgent());
-        final int response=httpConnection.getResponseCode();
-        if (response == HttpURLConnection.HTTP_OK) {
-          final int fileLength=httpConnection.getContentLength();
-          int downloadedPart=0;
-          long progressTime=System.currentTimeMillis() + updateIntervalMillis;
-          if (fileLength <= 0) {
-            progressHandler.sendEmptyMessage(-1);
-          }
-          OutputStream outStream=new FileOutputStream(file);
-          try {
-            InputStream inStream=httpConnection.getInputStream();
-            final byte[] buffer=new byte[8192];
-            while (true) {
-              final int size=inStream.read(buffer);
-              if (size <= 0) {
-                break;
-              }
-              downloadedPart+=size;
-              if (fileLength > 0) {
-                final long currentTime=System.currentTimeMillis();
-                if (currentTime > progressTime) {
-                  progressTime=currentTime + updateIntervalMillis;
-                  progressHandler.sendEmptyMessage(downloadedPart * 100 / fileLength);
-                }
-              }
-              outStream.write(buffer,0,size);
-            }
-            inStream.close();
-          }
-  finally {
-            outStream.close();
-          }
-          downloadSuccess=true;
-        }
-      }
- catch (      MalformedURLException e) {
-      }
-catch (      SocketTimeoutException ex) {
-      }
-catch (      IOException e) {
-      }
- finally {
-        downloadFinishHandler.sendEmptyMessage(downloadSuccess ? 1 : 0);
-        if (!downloadSuccess) {
-          file.delete();
-        }
+new Thread(new Runnable(){
+public void run(){
+final int updateIntervalMillis=1000;
+boolean downloadSuccess=false;
+boolean downloadCanceled=false;
+try {
+final URL url=new URL(urlString);
+final URLConnection connection=url.openConnection();
+if (!(connection instanceof HttpURLConnection)) {
+return;
+}
+final HttpURLConnection httpConnection=(HttpURLConnection)connection;
+httpConnection.setConnectTimeout(15000);
+httpConnection.setReadTimeout(30000);
+httpConnection.setRequestProperty("Connection","Close");
+httpConnection.setRequestProperty("User-Agent",ZLNetworkUtil.getUserAgent());
+final int response=httpConnection.getResponseCode();
+if (response == HttpURLConnection.HTTP_OK) {
+final int fileLength=httpConnection.getContentLength();
+int downloadedPart=0;
+long progressTime=System.currentTimeMillis() + updateIntervalMillis;
+if (fileLength <= 0) {
+  progressHandler.sendEmptyMessage(-1);
+}
+OutputStream outStream=new FileOutputStream(file);
+try {
+  InputStream inStream=httpConnection.getInputStream();
+  final byte[] buffer=new byte[8192];
+  while (true) {
+synchronized (myDownloadsPermissions) {
+      Boolean b=myDownloadsPermissions.get(urlString);
+      if (b != null) {
+        downloadCanceled=!b.booleanValue();
       }
     }
+    if (downloadCanceled) {
+      break;
+    }
+    final int size=inStream.read(buffer);
+    if (size <= 0) {
+      break;
+    }
+    downloadedPart+=size;
+    if (fileLength > 0) {
+      final long currentTime=System.currentTimeMillis();
+      if (currentTime > progressTime) {
+        progressTime=currentTime + updateIntervalMillis;
+        progressHandler.sendEmptyMessage(downloadedPart * 100 / fileLength);
+      }
+    }
+    outStream.write(buffer,0,size);
   }
+  inStream.close();
+}
+  finally {
+  outStream.close();
+}
+downloadSuccess=!downloadCanceled;
+}
+}
+ catch (MalformedURLException e) {
+}
+catch (SocketTimeoutException ex) {
+}
+catch (IOException e) {
+}
+ finally {
+final int state;
+if (downloadCanceled) {
+state=DOWNLOAD_CANCEL;
+}
+ else if (downloadSuccess) {
+state=DOWNLOAD_SUCCESS;
+}
+ else {
+state=DOWNLOAD_FAILURE;
+}
+downloadFinishHandler.sendEmptyMessage(state);
+if (state != DOWNLOAD_SUCCESS) {
+file.delete();
+}
+}
+}
+}
 ).start();
 }
