@@ -1,0 +1,69 @@
+{
+  boolean sucess=false;
+  try {
+    final URL url=new URL(request.URL);
+    final URLConnection connection=url.openConnection();
+    if (!(connection instanceof HttpURLConnection)) {
+      return ZLNetworkErrors.errorMessage(ZLNetworkErrors.ERROR_UNSUPPORTED_URL);
+    }
+    String error=doBeforeRequest(request);
+    if (error != null) {
+      return error;
+    }
+    final HttpURLConnection httpConnection=(HttpURLConnection)connection;
+    httpConnection.setInstanceFollowRedirects(request.FollowRedirects);
+    httpConnection.setConnectTimeout(15000);
+    httpConnection.setReadTimeout(30000);
+    httpConnection.setRequestProperty("Connection","Close");
+    httpConnection.setRequestProperty("User-Agent",ZLNetworkUtil.getUserAgent());
+    final int response=httpConnection.getResponseCode();
+    if (response == HttpURLConnection.HTTP_OK) {
+      InputStream stream=httpConnection.getInputStream();
+      try {
+        if (!request.handleStream(stream)) {
+          final String err=request.getErrorMessage();
+          if (err != null) {
+            return err;
+          }
+          return ZLNetworkErrors.errorMessage(ZLNetworkErrors.ERROR_SOMETHING_WRONG,ZLNetworkUtil.hostFromUrl(request.URL));
+        }
+      }
+  finally {
+        stream.close();
+      }
+      sucess=true;
+    }
+ else {
+      return ZLNetworkErrors.errorMessage(ZLNetworkErrors.ERROR_SOMETHING_WRONG,ZLNetworkUtil.hostFromUrl(request.URL));
+    }
+  }
+ catch (  ConnectException ex) {
+    return ZLNetworkErrors.errorMessage(ZLNetworkErrors.ERROR_CONNECTION_REFUSED,ZLNetworkUtil.hostFromUrl(request.URL));
+  }
+catch (  NoRouteToHostException ex) {
+    return ZLNetworkErrors.errorMessage(ZLNetworkErrors.ERROR_HOST_CANNOT_BE_REACHED,ZLNetworkUtil.hostFromUrl(request.URL));
+  }
+catch (  UnknownHostException ex) {
+    return ZLNetworkErrors.errorMessage(ZLNetworkErrors.ERROR_RESOLVE_HOST,ZLNetworkUtil.hostFromUrl(request.URL));
+  }
+catch (  MalformedURLException ex) {
+    return ZLNetworkErrors.errorMessage(ZLNetworkErrors.ERROR_INVALID_URL);
+  }
+catch (  SocketTimeoutException ex) {
+    return ZLNetworkErrors.errorMessage(ZLNetworkErrors.ERROR_TIMEOUT);
+  }
+catch (  IOException ex) {
+    return ZLNetworkErrors.errorMessage(ZLNetworkErrors.ERROR_SOMETHING_WRONG,ZLNetworkUtil.hostFromUrl(request.URL));
+  }
+ finally {
+    boolean res=request.doAfter(sucess);
+    if (sucess && !res) {
+      final String err=request.getErrorMessage();
+      if (err != null) {
+        return err;
+      }
+      return ZLNetworkErrors.errorMessage(ZLNetworkErrors.ERROR_SOMETHING_WRONG,ZLNetworkUtil.hostFromUrl(request.URL));
+    }
+  }
+  return null;
+}
