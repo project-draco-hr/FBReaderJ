@@ -1,5 +1,0 @@
-{
-  final NotificationManager notificationManager=(NotificationManager)myActivity.getSystemService(Context.NOTIFICATION_SERVICE);
-  notificationManager.cancel(ourProcessingNotificationId);
-  super.onDestroy();
-}

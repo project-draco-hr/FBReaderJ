@@ -1,0 +1,9 @@
+{
+  if (myServiceCounter == 0) {
+    final NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+    notificationManager.cancel(ourProcessingNotificationId);
+  }
+ else {
+    updateProgressNotification();
+  }
+}

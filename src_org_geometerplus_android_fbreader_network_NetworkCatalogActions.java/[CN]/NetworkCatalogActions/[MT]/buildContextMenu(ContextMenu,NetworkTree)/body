@@ -2,7 +2,7 @@
   final NetworkCatalogTree catalogTree=(NetworkCatalogTree)tree;
   final NetworkCatalogItem item=catalogTree.Item;
   menu.setHeaderTitle(tree.getName());
-  final boolean isOpened=tree.hasChildren() && myAdapter.isOpen(tree);
+  final boolean isOpened=tree.hasChildren() && NetworkLibraryActivity.Instance.getAdapter().isOpen(tree);
   if (tree instanceof NetworkCatalogRootTree) {
     if (item.URLByType.get(NetworkCatalogItem.URL_CATALOG) != null) {
       addMenuItem(menu,EXPAND_OR_COLLAPSE_TREE_ITEM_ID,isOpened ? "closeCatalog" : "openCatalog");

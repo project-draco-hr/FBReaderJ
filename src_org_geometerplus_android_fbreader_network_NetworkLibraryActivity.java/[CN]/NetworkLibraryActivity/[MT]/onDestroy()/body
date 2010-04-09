@@ -1,6 +1,4 @@
 {
-  for (  NetworkTreeActions actions : myActions) {
-    actions.onDestroy();
-  }
+  Instance=null;
   super.onDestroy();
 }

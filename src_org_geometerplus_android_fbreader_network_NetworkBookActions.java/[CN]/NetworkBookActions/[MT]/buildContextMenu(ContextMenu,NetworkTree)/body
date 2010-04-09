@@ -4,7 +4,7 @@
   menu.setHeaderTitle(tree.getName());
   if (useFullReferences(book)) {
     BookReference reference=book.reference(BookReference.Type.DOWNLOAD_FULL);
-    if (reference != null && myActivity.isBeingDownloaded(reference.URL)) {
+    if (reference != null && NetworkLibraryActivity.Instance.isBeingDownloaded(reference.URL)) {
       addMenuItem(menu,-1,"alreadyDownloading").setEnabled(false);
     }
  else     if (book.localCopyFileName() != null) {
@@ -17,7 +17,7 @@
   }
   if (useDemoReferences(book)) {
     BookReference reference=book.reference(BookReference.Type.DOWNLOAD_DEMO);
-    if (myActivity.isBeingDownloaded(reference.URL)) {
+    if (NetworkLibraryActivity.Instance.isBeingDownloaded(reference.URL)) {
       addMenuItem(menu,-1,"alreadyDownloadingDemo").setEnabled(false);
     }
  else     if (reference.localCopyFileName(BookReference.Type.DOWNLOAD_DEMO) != null) {

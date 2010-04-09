@@ -1,7 +1,7 @@
 {
   boolean expand=!myTree.hasChildren();
   displayItems();
-  if (expand) {
-    myAdapter.expandOrCollapseTree(myTree);
+  if (expand && NetworkLibraryActivity.Instance != null) {
+    NetworkLibraryActivity.Instance.getAdapter().expandOrCollapseTree(myTree);
   }
 }

@@ -1,0 +1,21 @@
+{
+  final NetworkLink link=myTree.Item.Link;
+  if (myCheckAuthentication && link.authenticationManager() != null) {
+    NetworkAuthenticationManager mgr=link.authenticationManager();
+  }
+  final String err=myTree.Item.loadChildren(new NetworkCatalogItem.CatalogListener(){
+    private long myUpdateTime;
+    public void onNewItem(    NetworkLibraryItem item){
+      myHandler.addItem(item);
+      final long now=System.currentTimeMillis();
+      if (now > myUpdateTime) {
+        myHandler.sendEmptyMessage(WHAT_UPDATE_ITEMS);
+        myUpdateTime=now + 1000;
+      }
+    }
+  }
+);
+  myHandler.sendEmptyMessage(WHAT_UPDATE_ITEMS);
+  myHandler.ensureFinish();
+  myHandler.sendMessage(myHandler.obtainMessage(WHAT_FINISHED,err));
+}

@@ -1,8 +1,0 @@
-{
-  if (ourProcessingTrees.contains(tree)) {
-    return false;
-  }
-  ourProcessingTrees.add(tree);
-  updateProgressNotification(tree);
-  return true;
-}

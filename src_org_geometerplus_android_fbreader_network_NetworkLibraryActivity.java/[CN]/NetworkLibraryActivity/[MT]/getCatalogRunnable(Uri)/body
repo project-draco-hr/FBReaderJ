@@ -1,0 +1,5 @@
+{
+  Runnable r=myCatalogRunnables.get(uri);
+  myCatalogRunnables.remove(uri);
+  return r;
+}

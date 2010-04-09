@@ -1,35 +1,15 @@
 {
   if (tree.hasChildren()) {
-    myAdapter.expandOrCollapseTree(tree);
+    NetworkLibraryActivity.Instance.getAdapter().expandOrCollapseTree(tree);
     return;
   }
-  if (!startProgressNotification(tree)) {
+  if (!startProcessingTree(tree)) {
     return;
+  }
+  final String url=tree.Item.URLByType.get(NetworkCatalogItem.URL_CATALOG);
+  if (url == null) {
+    throw new RuntimeException("That's impossible!!!");
   }
   final ExpandCatalogHandler handler=new ExpandCatalogHandler(tree);
-  new Thread(new Runnable(){
-    public void run(){
-      NetworkCatalogItem item=tree.Item;
-      NetworkLink link=item.Link;
-      if (link.authenticationManager() != null) {
-        NetworkAuthenticationManager mgr=link.authenticationManager();
-      }
-      final String err=tree.Item.loadChildren(new NetworkCatalogItem.CatalogListener(){
-        private long myUpdateTime;
-        public void onNewItem(        NetworkLibraryItem item){
-          handler.addItem(item);
-          final long now=System.currentTimeMillis();
-          if (now > myUpdateTime) {
-            handler.sendEmptyMessage(WHAT_UPDATE_ITEMS);
-            myUpdateTime=now + 1000;
-          }
-        }
-      }
-);
-      handler.sendEmptyMessage(WHAT_UPDATE_ITEMS);
-      handler.ensureFinish();
-      handler.sendMessage(handler.obtainMessage(WHAT_FINISHED,err));
-    }
-  }
-).start();
+  NetworkLibraryActivity.Instance.loadCatalog(Uri.parse(url),new ExpandCatalogRunnable(tree,handler,true));
 }

@@ -1,0 +1,30 @@
+{
+  super.onStart(intent,startId);
+  doStart();
+  final Uri uri=intent.getData();
+  if (uri == null) {
+    doStop();
+    return;
+  }
+  intent.setData(null);
+  if (NetworkLibraryActivity.Instance == null) {
+    doStop();
+    return;
+  }
+  final Handler finishHandler=new Handler(){
+    public void handleMessage(    Message message){
+      doStop();
+      endProgressNotification();
+    }
+  }
+;
+  startProgressNotification();
+  final Runnable runnable=NetworkLibraryActivity.Instance.getCatalogRunnable(uri);
+  new Thread(new Runnable(){
+    public void run(){
+      runnable.run();
+      finishHandler.sendEmptyMessage(0);
+    }
+  }
+).start();
+}

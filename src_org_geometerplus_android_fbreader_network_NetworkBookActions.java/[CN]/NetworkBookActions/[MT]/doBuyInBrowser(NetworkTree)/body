@@ -3,6 +3,6 @@
   NetworkBookItem book=bookTree.Book;
   BookReference reference=book.reference(BookReference.Type.BUY_IN_BROWSER);
   if (reference != null) {
-    myActivity.openInBrowser(reference.URL);
+    NetworkLibraryActivity.Instance.openInBrowser(reference.URL);
   }
 }

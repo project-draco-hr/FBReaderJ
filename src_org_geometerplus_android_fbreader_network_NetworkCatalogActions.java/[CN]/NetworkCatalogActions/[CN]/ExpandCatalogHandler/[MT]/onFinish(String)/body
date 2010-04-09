@@ -1,4 +1,4 @@
 {
   afterUpdateCatalog(err,myTree.ChildrenItems.size() == 0);
-  endProgressNotification(myTree);
+  endProcessingTree(myTree);
 }

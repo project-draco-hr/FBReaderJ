@@ -1,5 +1,5 @@
 {
-  final LibraryAdapter adapter=(LibraryAdapter)getListView().getAdapter();
+  final LibraryAdapter adapter=(LibraryAdapter)getAdapter();
   final int position=((AdapterView.AdapterContextMenuInfo)item.getMenuInfo()).position;
   final NetworkTree tree=(NetworkTree)adapter.getItem(position);
   final NetworkTreeActions actions=chooseActions(tree);
