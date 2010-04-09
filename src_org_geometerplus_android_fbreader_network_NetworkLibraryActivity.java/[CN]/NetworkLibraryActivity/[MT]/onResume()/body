@@ -1,0 +1,24 @@
+{
+  super.onResume();
+  if (!myLibraryLoaded) {
+    myLibraryLoaded=true;
+    final Handler handler=new Handler(){
+      public void handleMessage(      Message message){
+        ListView view=getListView();
+        new LibraryAdapter(view,NetworkLibrary.Instance().getTree());
+        myActions.add(new NetworkBookActions());
+        myActions.add(new NetworkCatalogActions());
+        myActions.trimToSize();
+        view.invalidateViews();
+      }
+    }
+;
+    ((ZLAndroidDialogManager)ZLAndroidDialogManager.Instance()).wait("loadingNetworkLibrary",new Runnable(){
+      public void run(){
+        NetworkLibrary.Instance().synchronize();
+        handler.sendEmptyMessage(0);
+      }
+    }
+,this);
+  }
+}
