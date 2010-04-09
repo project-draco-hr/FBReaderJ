@@ -7,6 +7,7 @@
   final int maxHeight=view.getMeasuredHeight();
   final int maxWidth=maxHeight * 2 / 3;
   final ImageView iconView=(ImageView)view.findViewById(R.id.network_tree_item_icon);
+  iconView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
   Bitmap coverBitmap=null;
   final ZLImage cover=tree.getCover();
   if (cover != null) {
