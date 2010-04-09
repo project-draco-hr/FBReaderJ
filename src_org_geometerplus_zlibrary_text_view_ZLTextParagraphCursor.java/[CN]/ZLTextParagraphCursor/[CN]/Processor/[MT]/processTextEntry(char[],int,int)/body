@@ -1,5 +1,9 @@
 {
   if (length != 0) {
+    final LineBreak breaker=new LineBreak("en");
+    final byte[] breaks=new byte[length];
+    System.err.println(length);
+    breaker.setLineBreaks(data,offset,length,breaks);
     final ZLTextElement hSpace=ZLTextElement.HSpace;
     final int end=offset + length;
     int firstNonSpace=-1;

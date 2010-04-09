@@ -1,0 +1,3 @@
+{
+  setLineBreaksForCharArray(data,offset,length,myLanguage,breaks);
+}

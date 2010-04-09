@@ -1,2 +1,4 @@
 char[] data
+int offset
+int length
 byte[] breaks
