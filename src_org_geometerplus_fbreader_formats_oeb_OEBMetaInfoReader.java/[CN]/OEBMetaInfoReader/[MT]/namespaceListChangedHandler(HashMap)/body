@@ -3,7 +3,7 @@
   myAuthorTag=null;
   mySubjectTag=null;
   myLanguageTag=null;
-  myMetadataTag="metadata";
+  myOpfMetadataTag="metadata";
   for (  Object o : namespaces.keySet()) {
     final String id=(String)o;
     if (id.startsWith(DublinCorePrefix) || id.startsWith(DublinCoreLegacyPrefix)) {
@@ -15,7 +15,7 @@
     }
  else     if (id.equals(OpenPackagingFormat)) {
       final String name=(String)namespaces.get(id);
-      myMetadataTag=(name + ":metadata").intern();
+      myOpfMetadataTag=(name + ":metadata").intern();
     }
   }
 }

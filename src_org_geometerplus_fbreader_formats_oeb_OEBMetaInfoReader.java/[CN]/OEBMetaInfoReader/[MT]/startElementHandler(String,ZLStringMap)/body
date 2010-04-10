@@ -1,6 +1,6 @@
 {
   tag=tag.toLowerCase().intern();
-  if ((tag == myMetadataTag) || (tag == myDCMetadataTag)) {
+  if (tag == myMetadataTag || tag == myDCMetadataTag || tag == myOpfMetadataTag) {
     myMetadataTagRealName=tag;
     myReadMetaData=true;
   }
