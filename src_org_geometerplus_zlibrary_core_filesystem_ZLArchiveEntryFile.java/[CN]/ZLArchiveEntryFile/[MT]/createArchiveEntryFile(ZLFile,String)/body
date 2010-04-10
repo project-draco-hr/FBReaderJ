@@ -1,4 +1,7 @@
 {
+  if (archive == null) {
+    return null;
+  }
 switch (archive.myArchiveType & ArchiveType.ARCHIVE) {
 case ArchiveType.ZIP:
     return new ZLZipEntryFile(archive,entryName);
