@@ -1,5 +1,6 @@
 {
   myParagraph=paragraph;
+  myLineBreaker=lineBreaker;
   myElements=elements;
   myMarks=marks;
   final ZLTextMark mark=new ZLTextMark(paragraphIndex,0,0);

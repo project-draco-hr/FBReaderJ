@@ -2,7 +2,7 @@
   ZLTextParagraph paragraph=Model.getParagraph(Index);
 switch (paragraph.getKind()) {
 case ZLTextParagraph.Kind.TEXT_PARAGRAPH:
-    new Processor(paragraph,Model.getMarks(),Index,myElements).fill();
+    new Processor(paragraph,new LineBreaker(Model.getLanguage()),Model.getMarks(),Index,myElements).fill();
   break;
 default :
 break;

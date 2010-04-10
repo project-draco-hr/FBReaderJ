@@ -1,5 +1,6 @@
 {
   myId=id;
+  myLanguage=language;
   myStartEntryIndices=new int[arraySize];
   myStartEntryOffsets=new int[arraySize];
   myParagraphLengths=new int[arraySize];

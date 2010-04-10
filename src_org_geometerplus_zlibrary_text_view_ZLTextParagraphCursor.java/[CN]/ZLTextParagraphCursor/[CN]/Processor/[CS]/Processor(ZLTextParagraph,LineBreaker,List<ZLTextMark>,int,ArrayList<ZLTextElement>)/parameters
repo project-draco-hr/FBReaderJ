@@ -1,4 +1,5 @@
 ZLTextParagraph paragraph
+LineBreaker lineBreaker
 List<ZLTextMark> marks
 int paragraphIndex
 ArrayList<ZLTextElement> elements
