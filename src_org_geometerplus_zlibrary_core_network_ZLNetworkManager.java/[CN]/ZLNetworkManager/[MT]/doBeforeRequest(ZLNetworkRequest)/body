@@ -1,10 +1,7 @@
 {
-  if (!request.doBefore()) {
-    final String err=request.getErrorMessage();
-    if (err != null) {
-      return err;
-    }
-    return ZLNetworkErrors.errorMessage(ZLNetworkErrors.ERROR_SOMETHING_WRONG,ZLNetworkUtil.hostFromUrl(request.URL));
+  final String err=request.doBefore();
+  if (err != null) {
+    return err;
   }
   return null;
 }

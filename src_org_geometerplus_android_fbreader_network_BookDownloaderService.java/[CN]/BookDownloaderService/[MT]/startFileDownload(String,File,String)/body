@@ -33,67 +33,54 @@
     }
   }
 ;
+  final ZLNetworkRequest request=new ZLNetworkRequest(urlString){
+    public String handleStream(    URLConnection connection,    InputStream inputStream) throws IOException {
+      final int updateIntervalMillis=1000;
+      final int fileLength=connection.getContentLength();
+      int downloadedPart=0;
+      long progressTime=System.currentTimeMillis() + updateIntervalMillis;
+      if (fileLength <= 0) {
+        progressHandler.sendEmptyMessage(-1);
+      }
+      OutputStream outStream;
+      try {
+        outStream=new FileOutputStream(file);
+      }
+ catch (      FileNotFoundException ex) {
+        return ZLNetworkErrors.errorMessage(ZLNetworkErrors.ERROR_CREATE_FILE,file.getPath());
+      }
+      try {
+        final byte[] buffer=new byte[8192];
+        while (true) {
+          final int size=inputStream.read(buffer);
+          if (size <= 0) {
+            break;
+          }
+          downloadedPart+=size;
+          if (fileLength > 0) {
+            final long currentTime=System.currentTimeMillis();
+            if (currentTime > progressTime) {
+              progressTime=currentTime + updateIntervalMillis;
+              progressHandler.sendEmptyMessage(downloadedPart * 100 / fileLength);
+            }
+          }
+          outStream.write(buffer,0,size);
+        }
+      }
+  finally {
+        outStream.close();
+      }
+      return null;
+    }
+  }
+;
   new Thread(new Runnable(){
     public void run(){
-      final int updateIntervalMillis=1000;
-      boolean downloadSuccess=false;
-      try {
-        final URL url=new URL(urlString);
-        final URLConnection connection=url.openConnection();
-        if (!(connection instanceof HttpURLConnection)) {
-          return;
-        }
-        final HttpURLConnection httpConnection=(HttpURLConnection)connection;
-        httpConnection.setConnectTimeout(15000);
-        httpConnection.setReadTimeout(30000);
-        httpConnection.setRequestProperty("Connection","Close");
-        httpConnection.setRequestProperty("User-Agent",ZLNetworkUtil.getUserAgent());
-        final int response=httpConnection.getResponseCode();
-        if (response == HttpURLConnection.HTTP_OK) {
-          final int fileLength=httpConnection.getContentLength();
-          int downloadedPart=0;
-          long progressTime=System.currentTimeMillis() + updateIntervalMillis;
-          if (fileLength <= 0) {
-            progressHandler.sendEmptyMessage(-1);
-          }
-          OutputStream outStream=new FileOutputStream(file);
-          try {
-            InputStream inStream=httpConnection.getInputStream();
-            final byte[] buffer=new byte[8192];
-            while (true) {
-              final int size=inStream.read(buffer);
-              if (size <= 0) {
-                break;
-              }
-              downloadedPart+=size;
-              if (fileLength > 0) {
-                final long currentTime=System.currentTimeMillis();
-                if (currentTime > progressTime) {
-                  progressTime=currentTime + updateIntervalMillis;
-                  progressHandler.sendEmptyMessage(downloadedPart * 100 / fileLength);
-                }
-              }
-              outStream.write(buffer,0,size);
-            }
-            inStream.close();
-          }
-  finally {
-            outStream.close();
-          }
-          downloadSuccess=true;
-        }
-      }
- catch (      MalformedURLException e) {
-      }
-catch (      SocketTimeoutException ex) {
-      }
-catch (      IOException e) {
-      }
- finally {
-        downloadFinishHandler.sendEmptyMessage(downloadSuccess ? 1 : 0);
-        if (!downloadSuccess) {
-          file.delete();
-        }
+      final String err=ZLNetworkManager.Instance().perform(request);
+      final boolean success=(err == null);
+      downloadFinishHandler.sendEmptyMessage(success ? 1 : 0);
+      if (!success) {
+        file.delete();
       }
     }
   }
