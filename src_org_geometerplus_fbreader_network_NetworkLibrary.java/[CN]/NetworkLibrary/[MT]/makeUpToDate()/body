@@ -45,6 +45,7 @@
     }
     if (!processed) {
       NetworkCatalogRootTree ptr=new NetworkCatalogRootTree(myRootTree,link,nodeCount++);
+      ptr.Item.onDisplayItem();
     }
   }
   for (  FBTree tree : toRemove) {

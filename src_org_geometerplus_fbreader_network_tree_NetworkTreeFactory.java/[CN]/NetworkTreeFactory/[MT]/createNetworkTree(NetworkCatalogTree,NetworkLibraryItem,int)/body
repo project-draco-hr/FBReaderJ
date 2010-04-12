@@ -5,6 +5,7 @@
       return null;
     }
     NetworkCatalogTree tree=new NetworkCatalogTree(parent,catalogItem,position);
+    catalogItem.onDisplayItem();
     return tree;
   }
  else   if (item instanceof NetworkBookItem) {
