@@ -2,6 +2,17 @@
   final NetworkLink link=myTree.Item.Link;
   if (myCheckAuthentication && link.authenticationManager() != null) {
     NetworkAuthenticationManager mgr=link.authenticationManager();
+    AuthenticationStatus auth=mgr.isAuthorised(true);
+    if (auth.Message != null) {
+      myHandler.sendMessage(myHandler.obtainMessage(WHAT_FINISHED,auth.Message));
+      return;
+    }
+    if (auth.Status == ZLBoolean3.B3_TRUE && mgr.needsInitialization()) {
+      final String err=mgr.initialize();
+      if (err != null) {
+        mgr.logOut();
+      }
+    }
   }
   final String err=myTree.Item.loadChildren(new NetworkCatalogItem.CatalogListener(){
     private long myUpdateTime;

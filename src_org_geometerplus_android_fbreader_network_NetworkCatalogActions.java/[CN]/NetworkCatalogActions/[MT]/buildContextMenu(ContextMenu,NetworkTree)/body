@@ -10,6 +10,15 @@
     if (isOpened) {
       addMenuItem(menu,RELOAD_ITEM_ID,"reload");
     }
+    NetworkAuthenticationManager mgr=item.Link.authenticationManager();
+    if (mgr != null) {
+      if (mgr.refillAccountLink() != null) {
+      }
+      if (mgr.registrationSupported()) {
+      }
+      if (mgr.passwordRecoverySupported()) {
+      }
+    }
   }
  else {
     if (item.URLByType.get(NetworkCatalogItem.URL_CATALOG) != null) {
