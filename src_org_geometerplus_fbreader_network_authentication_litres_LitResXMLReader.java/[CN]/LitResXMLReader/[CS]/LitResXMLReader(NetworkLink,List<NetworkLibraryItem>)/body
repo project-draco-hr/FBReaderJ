@@ -1,4 +1,5 @@
 {
-  myLink=link;
-  myBooks=books;
+  super(link.SiteName);
+  Link=link;
+  Books=books;
 }

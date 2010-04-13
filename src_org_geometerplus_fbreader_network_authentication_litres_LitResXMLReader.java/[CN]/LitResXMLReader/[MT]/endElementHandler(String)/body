@@ -22,7 +22,7 @@ if (TAG_BOOK == tag) {
   if (summary.length() == 0) {
     summary=null;
   }
-  myBooks.add(new NetworkBookItem(myLink,myBookId,myIndex++,myTitle,summary,myAuthors,mySeriesTitle,myIndexInSeries,myCover,myReferences));
+  Books.add(new NetworkBookItem(Link,myBookId,myIndex++,myTitle,summary,myAuthors,mySeriesTitle,myIndexInSeries,myCover,myReferences));
   myBookId=null;
   myTitle=null;
   myLanguage=null;

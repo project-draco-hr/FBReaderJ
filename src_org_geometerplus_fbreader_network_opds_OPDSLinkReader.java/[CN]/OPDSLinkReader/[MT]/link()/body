@@ -6,5 +6,12 @@
   opdsLink.setRelationAliases(myRelationAliases);
   opdsLink.setUrlConditions(myUrlConditions);
   opdsLink.setUrlRewritingRules(myUrlRewritingRules);
+  NetworkAuthenticationManager authManager=null;
+  if (myAuthenticationType == "basic") {
+  }
+ else   if (myAuthenticationType == "litres") {
+    authManager=new LitResAuthenticationManager(opdsLink);
+  }
+  opdsLink.setAuthenticationManager(authManager);
   return opdsLink;
 }

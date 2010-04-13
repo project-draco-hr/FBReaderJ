@@ -1,0 +1,4 @@
+{
+  super(url,base.BookFormat,base.ReferenceType);
+  myCleanURL=base.cleanURL();
+}

@@ -1,3 +1,9 @@
 {
-  return null;
+  String url=Link.Links.get(NetworkLink.URL_RECOVER_PASSWORD);
+  if (url == null) {
+    return NetworkErrors.errorMessage(NetworkErrors.ERROR_UNSUPPORTED_OPERATION);
+  }
+  url=ZLNetworkUtil.appendParameter(url,"mail",email);
+  final LitResPasswordRecoveryXMLReader xmlReader=new LitResPasswordRecoveryXMLReader(Link.SiteName);
+  return ZLNetworkManager.Instance().perform(new LitResNetworkRequest(url,xmlReader));
 }

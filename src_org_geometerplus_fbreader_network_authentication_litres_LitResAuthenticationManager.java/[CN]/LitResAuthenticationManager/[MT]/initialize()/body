@@ -6,5 +6,20 @@
   if (sid.equals(myInitializedDataSid)) {
     return null;
   }
+  LitResNetworkRequest purchasedBooksRequest=loadPurchasedBooks();
+  LitResNetworkRequest accountRequest=loadAccount();
+  final LinkedList<ZLNetworkRequest> requests=new LinkedList<ZLNetworkRequest>();
+  requests.add(purchasedBooksRequest);
+  requests.add(accountRequest);
+  final String error=ZLNetworkManager.Instance().perform(requests);
+  if (error != null) {
+    myInitializedDataSid=null;
+    loadPurchasedBooksOnError();
+    loadAccountOnError();
+    return error;
+  }
+  myInitializedDataSid=sid;
+  loadPurchasedBooksOnSuccess(purchasedBooksRequest);
+  loadAccountOnSuccess(accountRequest);
   return null;
 }

@@ -3,5 +3,11 @@
   if (sid.length() == 0) {
     return null;
   }
-  return null;
+  BookReference reference=book.reference(BookReference.Type.DOWNLOAD_FULL_CONDITIONAL);
+  if (reference == null) {
+    return null;
+  }
+  String url=reference.URL;
+  url=ZLNetworkUtil.appendParameter(url,"sid",sid);
+  return new DecoratedBookReference(reference,url);
 }

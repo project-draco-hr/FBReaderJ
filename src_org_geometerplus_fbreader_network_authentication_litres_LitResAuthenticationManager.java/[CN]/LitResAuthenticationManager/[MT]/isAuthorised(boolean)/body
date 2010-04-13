@@ -9,5 +9,23 @@
     mySidOption.setValue("");
     return new AuthenticationStatus(false);
   }
-  return new AuthenticationStatus(false);
+  String url=Link.Links.get(NetworkLink.URL_SIGN_IN);
+  if (url == null) {
+    return new AuthenticationStatus(NetworkErrors.errorMessage(NetworkErrors.ERROR_UNSUPPORTED_OPERATION));
+  }
+  url=ZLNetworkUtil.appendParameter(url,"sid",mySidOption.getValue());
+  final LitResLoginXMLReader xmlReader=new LitResLoginXMLReader(Link.SiteName);
+  final String error=ZLNetworkManager.Instance().perform(new LitResNetworkRequest(url,xmlReader));
+  if (error != null) {
+    if (!error.equals(NetworkErrors.errorMessage(NetworkErrors.ERROR_AUTHENTICATION_FAILED))) {
+      return new AuthenticationStatus(error);
+    }
+    mySidChecked=true;
+    mySidUserNameOption.setValue("");
+    mySidOption.setValue("");
+    return new AuthenticationStatus(false);
+  }
+  mySidChecked=true;
+  mySidOption.setValue(xmlReader.Sid);
+  return new AuthenticationStatus(true);
 }

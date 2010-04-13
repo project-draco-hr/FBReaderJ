@@ -9,5 +9,16 @@
     mySidOption.setValue("");
     return NetworkErrors.errorMessage(NetworkErrors.ERROR_AUTHENTICATION_FAILED);
   }
+  final LitResNetworkRequest networkRequest=loadPurchasedBooks();
+  final String error=ZLNetworkManager.Instance().perform(networkRequest);
+  if (error != null) {
+    if (error.equals(NetworkErrors.errorMessage(NetworkErrors.ERROR_AUTHENTICATION_FAILED))) {
+      mySidChecked=true;
+      mySidUserNameOption.setValue("");
+      mySidOption.setValue("");
+    }
+    return error;
+  }
+  loadPurchasedBooksOnSuccess(networkRequest);
   return null;
 }

@@ -1,5 +1,3 @@
 {
-  if (myPurchasedBooksList != null) {
-    list.addAll(myPurchasedBooksList);
-  }
+  list.addAll(myPurchasedBooks.values());
 }
