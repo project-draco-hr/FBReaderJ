@@ -3,7 +3,7 @@
   final NetworkTree tree=(NetworkTree)getItem(position);
   ((TextView)view.findViewById(R.id.network_tree_item_name)).setText(tree.getName());
   ((TextView)view.findViewById(R.id.network_tree_item_childrenlist)).setText(tree.getSecondString());
-  view.measure(-1,-2);
+  view.measure(ViewGroup.LayoutParams.FILL_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
   final int maxHeight=view.getMeasuredHeight();
   final int maxWidth=maxHeight * 2 / 3;
   final ImageView iconView=(ImageView)view.findViewById(R.id.network_tree_item_icon);

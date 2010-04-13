@@ -1,0 +1,45 @@
+{
+  if (message.what < 0) {
+    myErrorMessage=(String)message.obj;
+    myActivity.showDialog(NetworkLibraryActivity.DIALOG_AUTHENTICATION);
+  }
+ else   if (message.what == 1) {
+    final NetworkAuthenticationManager mgr=myTree.Item.Link.authenticationManager();
+    if (mgr.UserNameOption.getValue().length() == 0) {
+      myErrorMessage=myResource.getResource("loginIsEmpty").getValue();
+      myActivity.showDialog(NetworkLibraryActivity.DIALOG_AUTHENTICATION);
+      return;
+    }
+    final String password=(String)message.obj;
+    final Runnable runnable=new Runnable(){
+      public void run(){
+        String err=mgr.authorise(password);
+        if (err != null) {
+          mgr.logOut();
+          DialogHandler.this.sendMessage(DialogHandler.this.obtainMessage(-1,err));
+        }
+        if (mgr.needsInitialization()) {
+          err=mgr.initialize();
+          if (err != null) {
+            mgr.logOut();
+            DialogHandler.this.sendMessage(DialogHandler.this.obtainMessage(-1,err));
+          }
+        }
+      }
+    }
+;
+    ((ZLAndroidDialogManager)ZLAndroidDialogManager.Instance()).wait("authentication",runnable,myActivity);
+  }
+ else {
+    final NetworkAuthenticationManager mgr=myTree.Item.Link.authenticationManager();
+    final Runnable runnable=new Runnable(){
+      public void run(){
+        if (mgr.isAuthorised(false).Status != ZLBoolean3.B3_FALSE) {
+          mgr.logOut();
+        }
+      }
+    }
+;
+    ((ZLAndroidDialogManager)ZLAndroidDialogManager.Instance()).wait("signOut",runnable,myActivity);
+  }
+}

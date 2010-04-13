@@ -1,0 +1,9 @@
+{
+  Dialog dialog=null;
+switch (id) {
+case DIALOG_AUTHENTICATION:
+    dialog=AuthenticationDialog.Instance().createDialog(this);
+  break;
+}
+return dialog;
+}

@@ -12,11 +12,17 @@
     }
     NetworkAuthenticationManager mgr=item.Link.authenticationManager();
     if (mgr != null) {
-      if (mgr.refillAccountLink() != null) {
+      final boolean maybeSignedIn=mgr.isAuthorised(false).Status != ZLBoolean3.B3_FALSE;
+      if (maybeSignedIn) {
+        if (mgr.refillAccountLink() != null) {
+        }
       }
-      if (mgr.registrationSupported()) {
-      }
-      if (mgr.passwordRecoverySupported()) {
+ else {
+        addMenuItem(menu,SIGNIN_ITEM_ID,"signIn");
+        if (mgr.registrationSupported()) {
+        }
+        if (mgr.passwordRecoverySupported()) {
+        }
       }
     }
   }

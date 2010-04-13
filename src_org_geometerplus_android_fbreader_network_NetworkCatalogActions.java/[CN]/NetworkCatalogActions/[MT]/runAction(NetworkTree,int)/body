@@ -9,6 +9,9 @@ return true;
 case RELOAD_ITEM_ID:
 doReloadCatalog((NetworkCatalogTree)tree);
 return true;
+case SIGNIN_ITEM_ID:
+AuthenticationDialog.Instance().show((NetworkCatalogTree)tree);
+return true;
 }
 return false;
 }
