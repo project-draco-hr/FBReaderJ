@@ -1,0 +1,5 @@
+{
+  super(link);
+  mySidUserNameOption=new ZLStringOption(link.SiteName,"sidUserName","");
+  mySidOption=new ZLStringOption(link.SiteName,"sid","");
+}

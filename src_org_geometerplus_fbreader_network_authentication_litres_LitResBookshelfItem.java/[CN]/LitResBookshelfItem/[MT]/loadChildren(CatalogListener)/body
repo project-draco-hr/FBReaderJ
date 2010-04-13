@@ -1,0 +1,18 @@
+{
+  LitResAuthenticationManager mgr=(LitResAuthenticationManager)Link.authenticationManager();
+  if (mgr.isAuthorised(true).Status == ZLBoolean3.B3_FALSE) {
+    return NetworkErrors.errorMessage(NetworkErrors.ERROR_AUTHENTICATION_FAILED);
+  }
+  String error=null;
+  if (myForceReload) {
+    error=mgr.reloadPurchasedBooks();
+  }
+  myForceReload=true;
+  LinkedList<NetworkLibraryItem> children=new LinkedList<NetworkLibraryItem>();
+  mgr.collectPurchasedBooks(children);
+  Collections.sort(children,new NetworkBookItemComparator());
+  for (  NetworkLibraryItem item : children) {
+    listener.onNewItem(item);
+  }
+  return error;
+}

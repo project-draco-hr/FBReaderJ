@@ -1,0 +1,31 @@
+{
+  tag=tag.toLowerCase().intern();
+  if (TAG_AUTHORIZATION_FAILED == tag) {
+    setErrorCode(NetworkErrors.ERROR_AUTHENTICATION_FAILED);
+  }
+ else {
+    Account=attributes.getValue("account");
+    BookId=attributes.getValue("art");
+    if (TAG_PURCHASE_OK == tag) {
+    }
+ else     if (TAG_PURCHASE_FAILED == tag) {
+      final String error=attributes.getValue("error");
+      if ("1".equals(error)) {
+        setErrorCode(NetworkErrors.ERROR_PURCHASE_NOT_ENOUGH_MONEY);
+      }
+ else       if ("2".equals(error)) {
+        setErrorCode(NetworkErrors.ERROR_PURCHASE_MISSING_BOOK);
+      }
+ else       if ("3".equals(error)) {
+        setErrorCode(NetworkErrors.ERROR_PURCHASE_ALREADY_PURCHASED);
+      }
+ else {
+        setErrorCode(NetworkErrors.ERROR_INTERNAL);
+      }
+    }
+ else {
+      setErrorCode(NetworkErrors.ERROR_SOMETHING_WRONG,HostName);
+    }
+  }
+  return true;
+}

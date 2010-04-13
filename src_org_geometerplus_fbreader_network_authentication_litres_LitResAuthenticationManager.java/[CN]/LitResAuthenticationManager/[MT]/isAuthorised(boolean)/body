@@ -1,0 +1,13 @@
+{
+  boolean authState=mySidUserNameOption.getValue().length() != 0 && mySidOption.getValue().length() != 0;
+  if (mySidChecked || !useNetwork) {
+    return new AuthenticationStatus(authState);
+  }
+  if (!authState) {
+    mySidChecked=true;
+    mySidUserNameOption.setValue("");
+    mySidOption.setValue("");
+    return new AuthenticationStatus(false);
+  }
+  return new AuthenticationStatus(false);
+}

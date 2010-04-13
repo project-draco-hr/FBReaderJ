@@ -1,0 +1,7 @@
+{
+  String value=mySidUserNameOption.getValue();
+  if (value.length() == 0) {
+    return null;
+  }
+  return value;
+}

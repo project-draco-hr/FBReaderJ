@@ -1,0 +1,15 @@
+{
+  tag=tag.toLowerCase().intern();
+  if (TAG_AUTHORIZATION_FAILED == tag) {
+    setErrorCode(NetworkErrors.ERROR_AUTHENTICATION_FAILED);
+  }
+ else   if (TAG_AUTHORIZATION_OK == tag) {
+    FirstName=attributes.getValue("first-name");
+    LastName=attributes.getValue("first-name");
+    Sid=attributes.getValue("sid");
+  }
+ else {
+    setErrorCode(NetworkErrors.ERROR_SOMETHING_WRONG,HostName);
+  }
+  return true;
+}

@@ -1,0 +1,137 @@
+{
+  tag=tag.intern();
+  final char[] bufferContentArray=myBuffer.toString().trim().toCharArray();
+  final String bufferContent;
+  if (bufferContentArray.length == 0) {
+    bufferContent=null;
+  }
+ else {
+    bufferContent=new String(bufferContentArray);
+  }
+  myBuffer.delete(0,myBuffer.length());
+switch (myState) {
+case CATALOG:
+    if (TAG_CATALOG == tag) {
+      myState=START;
+    }
+  break;
+case BOOK:
+if (TAG_BOOK == tag) {
+  String summary=new String(mySummary.toString().trim().toCharArray());
+  mySummary.delete(0,mySummary.length());
+  if (summary.length() == 0) {
+    summary=null;
+  }
+  myBooks.add(new NetworkBookItem(myLink,myBookId,myIndex++,myTitle,summary,myAuthors,mySeriesTitle,myIndexInSeries,myCover,myReferences));
+  myBookId=null;
+  myTitle=null;
+  myLanguage=null;
+  myDate=null;
+  mySeriesTitle=null;
+  myIndexInSeries=0;
+  myCover=null;
+  myAuthors.clear();
+  myURLByType.clear();
+  myReferences.clear();
+  myState=CATALOG;
+}
+break;
+case BOOK_DESCRIPTION:
+if (TAG_TEXT_DESCRIPTION == tag) {
+myState=BOOK;
+}
+break;
+case HIDDEN:
+if (TAG_HIDDEN == tag) {
+myState=BOOK_DESCRIPTION;
+}
+break;
+case TITLE_INFO:
+if (TAG_TITLE_INFO == tag) {
+myState=HIDDEN;
+}
+break;
+case AUTHOR:
+if (TAG_AUTHOR == tag) {
+StringBuilder displayName=new StringBuilder();
+if (myAuthorFirstName != null) {
+displayName.append(myAuthorFirstName).append(" ");
+}
+if (myAuthorMiddleName != null) {
+displayName.append(myAuthorMiddleName).append(" ");
+}
+if (myAuthorLastName != null) {
+displayName.append(myAuthorLastName).append(" ");
+}
+myAuthors.add(new NetworkBookItem.AuthorData(displayName.toString().trim(),myAuthorLastName));
+myAuthorFirstName=null;
+myAuthorMiddleName=null;
+myAuthorLastName=null;
+myState=TITLE_INFO;
+}
+break;
+case FIRST_NAME:
+if (TAG_FIRST_NAME == tag) {
+myAuthorFirstName=bufferContent;
+myState=AUTHOR;
+}
+break;
+case MIDDLE_NAME:
+if (TAG_MIDDLE_NAME == tag) {
+myAuthorMiddleName=bufferContent;
+myState=AUTHOR;
+}
+break;
+case LAST_NAME:
+if (TAG_LAST_NAME == tag) {
+myAuthorLastName=bufferContent;
+myState=AUTHOR;
+}
+break;
+case GENRE:
+if (TAG_GENRE == tag) {
+myState=TITLE_INFO;
+}
+break;
+case BOOK_TITLE:
+if (TAG_BOOK_TITLE == tag) {
+myTitle=bufferContent;
+myState=TITLE_INFO;
+}
+break;
+case ANNOTATION:
+if (bufferContent != null) {
+mySummary.append(bufferContent);
+}
+if (mySummary.length() > 0) {
+final char lastChar=mySummary.charAt(mySummary.length() - 1);
+if ("p" == tag) {
+if (lastChar != '\n') {
+mySummary.append("\n");
+}
+}
+ else {
+if (bufferContent != null && lastChar != '\n') {
+mySummary.append(" ");
+}
+}
+}
+if (TAG_ANNOTATION == tag) {
+myState=TITLE_INFO;
+}
+break;
+case DATE:
+if (TAG_DATE == tag) {
+myDate=bufferContent;
+myState=TITLE_INFO;
+}
+break;
+case LANGUAGE:
+if (TAG_LANGUAGE == tag) {
+myLanguage=bufferContent;
+myState=TITLE_INFO;
+}
+break;
+}
+return false;
+}

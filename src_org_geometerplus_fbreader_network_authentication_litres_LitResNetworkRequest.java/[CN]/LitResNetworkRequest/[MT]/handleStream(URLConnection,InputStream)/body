@@ -1,0 +1,4 @@
+{
+  myReader.read(inputStream);
+  return myReader.getErrorMessage();
+}

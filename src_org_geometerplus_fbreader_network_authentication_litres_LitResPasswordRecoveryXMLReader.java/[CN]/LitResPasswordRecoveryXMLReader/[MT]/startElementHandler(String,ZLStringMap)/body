@@ -1,0 +1,21 @@
+{
+  tag=tag.toLowerCase().intern();
+  if (TAG_PASSWORD_RECOVERY_FAILED == tag) {
+    final String error=attributes.getValue("error");
+    if ("1".equals(error)) {
+      setErrorCode(NetworkErrors.ERROR_NO_USER_EMAIL);
+    }
+ else     if ("2".equals(error)) {
+      setErrorCode(NetworkErrors.ERROR_EMAIL_WAS_NOT_SPECIFIED);
+    }
+ else {
+      setErrorCode(NetworkErrors.ERROR_INTERNAL);
+    }
+  }
+ else   if (TAG_PASSWORD_RECOVERY_OK == tag) {
+  }
+ else {
+    setErrorCode(NetworkErrors.ERROR_SOMETHING_WRONG,HostName);
+  }
+  return true;
+}

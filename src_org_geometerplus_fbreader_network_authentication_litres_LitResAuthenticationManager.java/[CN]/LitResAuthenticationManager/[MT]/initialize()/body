@@ -1,0 +1,10 @@
+{
+  final String sid=mySidOption.getValue();
+  if (sid.length() == 0) {
+    return NetworkErrors.errorMessage(NetworkErrors.ERROR_AUTHENTICATION_FAILED);
+  }
+  if (sid.equals(myInitializedDataSid)) {
+    return null;
+  }
+  return null;
+}

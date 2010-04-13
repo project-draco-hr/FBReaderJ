@@ -1,0 +1,7 @@
+{
+  final String sid=mySidOption.getValue();
+  if (sid.length() == 0) {
+    return false;
+  }
+  return !sid.equals(myInitializedDataSid);
+}

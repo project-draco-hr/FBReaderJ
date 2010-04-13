@@ -1,0 +1,5 @@
+{
+  if (myPurchasedBooksList != null) {
+    list.addAll(myPurchasedBooksList);
+  }
+}

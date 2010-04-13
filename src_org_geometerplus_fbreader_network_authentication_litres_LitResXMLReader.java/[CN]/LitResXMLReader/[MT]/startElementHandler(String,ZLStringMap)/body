@@ -1,0 +1,97 @@
+{
+  tag=tag.intern();
+  final char[] bufferContentArray=myBuffer.toString().trim().toCharArray();
+  final String bufferContent;
+  if (bufferContentArray.length == 0) {
+    bufferContent=null;
+  }
+ else {
+    bufferContent=new String(bufferContentArray);
+  }
+  myBuffer.delete(0,myBuffer.length());
+switch (myState) {
+case START:
+    if (TAG_CATALOG == tag) {
+      myState=CATALOG;
+    }
+  break;
+case CATALOG:
+if (TAG_BOOK == tag) {
+  myBookId=attributes.getValue("hub_id");
+  myCover=attributes.getValue("cover_preview");
+  final String url=attributes.getValue("url");
+  if (url != null) {
+    myURLByType.put(NetworkCatalogItem.URL_HTML_PAGE,url);
+  }
+  myReferences.add(new BookReference("https://robot.litres.ru/pages/catalit_download_book/?art=" + myBookId,BookReference.Format.FB2_ZIP,BookReference.Type.DOWNLOAD_FULL_CONDITIONAL));
+  myState=BOOK;
+}
+break;
+case BOOK:
+if (TAG_TEXT_DESCRIPTION == tag) {
+myState=BOOK_DESCRIPTION;
+}
+break;
+case BOOK_DESCRIPTION:
+if (TAG_HIDDEN == tag) {
+myState=HIDDEN;
+}
+break;
+case HIDDEN:
+if (TAG_TITLE_INFO == tag) {
+myState=TITLE_INFO;
+}
+break;
+case TITLE_INFO:
+if (TAG_GENRE == tag) {
+myState=GENRE;
+}
+ else if (TAG_AUTHOR == tag) {
+myState=AUTHOR;
+}
+ else if (TAG_BOOK_TITLE == tag) {
+myState=BOOK_TITLE;
+}
+ else if (TAG_ANNOTATION == tag) {
+myState=ANNOTATION;
+}
+ else if (TAG_DATE == tag) {
+myState=DATE;
+}
+ else if (TAG_LANGUAGE == tag) {
+myState=LANGUAGE;
+}
+ else if (TAG_SEQUENCE == tag) {
+mySeriesTitle=attributes.getValue("name");
+if (mySeriesTitle != null) {
+myIndexInSeries=0;
+final String indexInSeries=attributes.getValue("number");
+if (indexInSeries != null) {
+try {
+myIndexInSeries=Integer.parseInt(indexInSeries);
+}
+ catch (NumberFormatException e) {
+}
+}
+}
+}
+break;
+case AUTHOR:
+if (TAG_FIRST_NAME == tag) {
+myState=FIRST_NAME;
+}
+ else if (TAG_MIDDLE_NAME == tag) {
+myState=MIDDLE_NAME;
+}
+ else if (TAG_LAST_NAME == tag) {
+myState=LAST_NAME;
+}
+break;
+case ANNOTATION:
+if (bufferContent != null) {
+mySummary.append(bufferContent).append(" ");
+}
+break;
+}
+return false;
+}

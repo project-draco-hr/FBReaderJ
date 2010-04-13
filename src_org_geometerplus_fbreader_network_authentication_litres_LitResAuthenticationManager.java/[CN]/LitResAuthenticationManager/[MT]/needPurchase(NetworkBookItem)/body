@@ -1,0 +1,6 @@
+{
+  if (myPurchasedBooksIds == null) {
+    return true;
+  }
+  return !myPurchasedBooksIds.contains(book.Id);
+}

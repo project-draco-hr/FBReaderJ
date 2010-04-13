@@ -1,0 +1,10 @@
+{
+  String url="://robot.litres.ru/" + path;
+  if (ZLNetworkUtil.hasParameter(url,"sid") || ZLNetworkUtil.hasParameter(url,"pwd")) {
+    url="https" + url;
+  }
+ else {
+    url="http" + url;
+  }
+  return url;
+}
