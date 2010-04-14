@@ -55,9 +55,8 @@ if (tagPrefix == myAtomNamespaceId) {
     mySummaryTagFound=false;
     myState=F_ENTRY;
     if (myFeed != null && myFeed.Id != null) {
-      myFeedReader.processFeedMetadata(myFeed);
+      myFeedReader.processFeedMetadata(myFeed,true);
     }
-    myFeed=null;
   }
 }
  else if (tagPrefix == myOpenSearchNamespaceId) {

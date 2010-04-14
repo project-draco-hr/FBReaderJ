@@ -1,4 +1,8 @@
 {
+  if (beforeEntries) {
+    myIndex=feed.OpensearchStartIndex - 1;
+    return;
+  }
   final OPDSLink opdsLink=(OPDSLink)myData.Link;
   for (  ATOMLink link : feed.Links) {
     String href=link.getHref();
@@ -8,5 +12,4 @@
       myData.ResumeURI=href;
     }
   }
-  myIndex=feed.OpensearchStartIndex - 1;
 }

@@ -24,7 +24,7 @@ case START:
 case FEED:
   if (tagPrefix == myAtomNamespaceId && tag == TAG_FEED) {
     if (myFeed != null && myFeed.Id != null) {
-      myFeedReader.processFeedMetadata(myFeed);
+      myFeedReader.processFeedMetadata(myFeed,false);
     }
     myFeed=null;
     myFeedReader.processFeedEnd();
