@@ -1,0 +1,10 @@
+{
+  String encoding=connection.getContentEncoding();
+  if (encoding != null) {
+    encoding=encoding.toLowerCase();
+    if (encoding.equals("gzip")) {
+      inputStream=new GZIPInputStream(inputStream);
+    }
+  }
+  return handleStream(connection,inputStream);
+}
