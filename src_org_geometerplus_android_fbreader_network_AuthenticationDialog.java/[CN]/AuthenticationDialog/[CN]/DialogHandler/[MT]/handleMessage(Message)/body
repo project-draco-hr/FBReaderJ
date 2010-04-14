@@ -1,5 +1,17 @@
 {
-  if (message.what < 0) {
+  if (message.what == -2) {
+    final NetworkLibrary library=NetworkLibrary.Instance();
+    library.invalidateAccountDependents();
+    library.synchronize();
+    ((NetworkLibraryActivity)myActivity).getAdapter().resetTree();
+    ((NetworkLibraryActivity)myActivity).getListView().invalidateViews();
+  }
+ else   if (message.what == -1) {
+    final NetworkLibrary library=NetworkLibrary.Instance();
+    library.invalidateAccountDependents();
+    library.synchronize();
+    ((NetworkLibraryActivity)myActivity).getAdapter().resetTree();
+    ((NetworkLibraryActivity)myActivity).getListView().invalidateViews();
     myErrorMessage=(String)message.obj;
     myActivity.showDialog(NetworkLibraryActivity.DIALOG_AUTHENTICATION);
   }
@@ -27,6 +39,7 @@
             return;
           }
         }
+        DialogHandler.this.sendEmptyMessage(-2);
       }
     }
 ;
@@ -38,6 +51,7 @@
       public void run(){
         if (mgr.isAuthorised(false).Status != ZLBoolean3.B3_FALSE) {
           mgr.logOut();
+          DialogHandler.this.sendEmptyMessage(-2);
         }
       }
     }

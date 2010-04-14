@@ -1,0 +1,25 @@
+{
+  final Handler handler=new Handler(){
+    public void handleMessage(    Message message){
+      final NetworkLibrary library=NetworkLibrary.Instance();
+      library.invalidateAccountDependents();
+      library.synchronize();
+      if (NetworkLibraryActivity.Instance != null) {
+        NetworkLibraryActivity.Instance.getAdapter().resetTree();
+        NetworkLibraryActivity.Instance.getListView().invalidateViews();
+      }
+    }
+  }
+;
+  final NetworkAuthenticationManager mgr=tree.Item.Link.authenticationManager();
+  final Runnable runnable=new Runnable(){
+    public void run(){
+      if (mgr.isAuthorised(false).Status != ZLBoolean3.B3_FALSE) {
+        mgr.logOut();
+        handler.sendEmptyMessage(-1);
+      }
+    }
+  }
+;
+  ((ZLAndroidDialogManager)ZLAndroidDialogManager.Instance()).wait("signOut",runnable,NetworkLibraryActivity.Instance);
+}

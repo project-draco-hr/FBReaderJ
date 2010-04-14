@@ -1,6 +1,6 @@
 {
   final LinkedList<FBTree> toRemove=new LinkedList<FBTree>();
-  Iterator<FBTree> nodeIterator=subTrees().iterator();
+  ListIterator<FBTree> nodeIterator=subTrees().listIterator();
   FBTree currentNode=null;
   int nodeCount=0;
   for (int i=0; i < ChildrenItems.size(); ++i) {
@@ -49,8 +49,10 @@
         }
       }
     }
+    final int nextIndex=nodeIterator.nextIndex();
     if (!processed && NetworkTreeFactory.createNetworkTree(this,currentItem,nodeCount) != null) {
       ++nodeCount;
+      nodeIterator=subTrees().listIterator(nextIndex + 1);
     }
   }
   while (currentNode != null || nodeIterator.hasNext()) {

@@ -14,6 +14,7 @@
     if (mgr != null) {
       final boolean maybeSignedIn=mgr.isAuthorised(false).Status != ZLBoolean3.B3_FALSE;
       if (maybeSignedIn) {
+        addMenuItem(menu,SIGNOUT_ITEM_ID,"signOut",mgr.currentUserName());
         if (mgr.refillAccountLink() != null) {
         }
       }

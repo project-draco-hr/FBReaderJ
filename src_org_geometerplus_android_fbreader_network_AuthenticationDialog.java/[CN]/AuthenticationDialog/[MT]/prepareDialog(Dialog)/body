@@ -13,4 +13,7 @@
     error.setVisibility(View.VISIBLE);
     error.setText(myErrorMessage);
   }
+  View dlgView=dialog.findViewById(R.id.network_authentication_dialog);
+  dlgView.invalidate();
+  dlgView.requestLayout();
 }
