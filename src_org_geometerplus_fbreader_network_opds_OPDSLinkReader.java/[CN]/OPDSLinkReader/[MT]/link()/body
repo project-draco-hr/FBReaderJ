@@ -6,11 +6,16 @@
   opdsLink.setRelationAliases(myRelationAliases);
   opdsLink.setUrlConditions(myUrlConditions);
   opdsLink.setUrlRewritingRules(myUrlRewritingRules);
+  if (mySSLCertificate != null && mySSLCertificate.startsWith("./")) {
+    final int parentIndex=myPath.lastIndexOf("/");
+    final String parent=myPath.substring(0,parentIndex);
+    mySSLCertificate=parent + mySSLCertificate.substring(1);
+  }
   NetworkAuthenticationManager authManager=null;
   if (myAuthenticationType == "basic") {
   }
  else   if (myAuthenticationType == "litres") {
-    authManager=new LitResAuthenticationManager(opdsLink);
+    authManager=new LitResAuthenticationManager(opdsLink,mySSLCertificate);
   }
   opdsLink.setAuthenticationManager(authManager);
   return opdsLink;

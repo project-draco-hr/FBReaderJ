@@ -3,5 +3,5 @@
   String query="pages/catalit_browser/";
   query=ZLNetworkUtil.appendParameter(query,"my","1");
   query=ZLNetworkUtil.appendParameter(query,"sid",sid);
-  return new LitResNetworkRequest(LitResUtil.url(Link,query),new LitResXMLReader(Link,new LinkedList<NetworkLibraryItem>()));
+  return new LitResNetworkRequest(LitResUtil.url(Link,query),SSLCertificate,new LitResXMLReader(Link,new LinkedList<NetworkLibraryItem>()));
 }

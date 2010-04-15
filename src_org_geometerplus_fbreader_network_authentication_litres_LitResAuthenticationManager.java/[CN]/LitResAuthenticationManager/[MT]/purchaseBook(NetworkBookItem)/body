@@ -10,7 +10,7 @@
   String query=reference.URL;
   query=ZLNetworkUtil.appendParameter(query,"sid",sid);
   final LitResPurchaseXMLReader xmlReader=new LitResPurchaseXMLReader(Link.SiteName);
-  final String error=ZLNetworkManager.Instance().perform(new LitResNetworkRequest(query,xmlReader));
+  final String error=ZLNetworkManager.Instance().perform(new LitResNetworkRequest(query,SSLCertificate,xmlReader));
   if (xmlReader.Account != null) {
     myAccount=BuyBookReference.price(xmlReader.Account,"RUB");
   }

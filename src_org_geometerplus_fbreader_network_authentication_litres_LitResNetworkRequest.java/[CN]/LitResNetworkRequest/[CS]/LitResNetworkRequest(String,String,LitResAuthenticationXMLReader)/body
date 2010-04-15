@@ -1,0 +1,4 @@
+{
+  super(url,sslCertificate);
+  Reader=reader;
+}

@@ -1,0 +1,11 @@
+{
+  for (  X509Certificate certificate : certs) {
+    certificate.checkValidity();
+    try {
+      certificate.verify(myCertificate.getPublicKey());
+    }
+ catch (    GeneralSecurityException e) {
+      throw new CertificateException(e);
+    }
+  }
+}

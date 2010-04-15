@@ -15,7 +15,7 @@
   }
   url=ZLNetworkUtil.appendParameter(url,"sid",mySidOption.getValue());
   final LitResLoginXMLReader xmlReader=new LitResLoginXMLReader(Link.SiteName);
-  final String error=ZLNetworkManager.Instance().perform(new LitResNetworkRequest(url,xmlReader));
+  final String error=ZLNetworkManager.Instance().perform(new LitResNetworkRequest(url,SSLCertificate,xmlReader));
   if (error != null) {
     if (!error.equals(NetworkErrors.errorMessage(NetworkErrors.ERROR_AUTHENTICATION_FAILED))) {
       return new AuthenticationStatus(error);

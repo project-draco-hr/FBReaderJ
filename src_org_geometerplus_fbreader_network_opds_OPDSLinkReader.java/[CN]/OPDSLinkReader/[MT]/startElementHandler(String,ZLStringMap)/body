@@ -51,6 +51,12 @@
       myAuthenticationType=authenticationType;
     }
   }
+ else   if (TAG_SSL_CERTIFICATE == tag) {
+    String path=attributes.getValue("path");
+    if (path != null) {
+      mySSLCertificate=path;
+    }
+  }
  else   if (TAG_URL_REWRITING_RULES == tag) {
     myState=READ_URL_REWRITING_RULES;
   }

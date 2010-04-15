@@ -18,11 +18,10 @@
         return ZLNetworkErrors.errorMessage(ZLNetworkErrors.ERROR_UNSUPPORTED_PROTOCOL);
       }
       httpConnection=(HttpURLConnection)connection;
-      httpConnection.setInstanceFollowRedirects(request.FollowRedirects);
-      httpConnection.setConnectTimeout(15000);
-      httpConnection.setReadTimeout(30000);
-      httpConnection.setRequestProperty("User-Agent",ZLNetworkUtil.getUserAgent());
-      httpConnection.setAllowUserInteraction(false);
+      String err=setCommonHTTPOptions(request,httpConnection);
+      if (err != null) {
+        return err;
+      }
       httpConnection.connect();
       response=httpConnection.getResponseCode();
     }
@@ -51,16 +50,16 @@
     }
   }
  catch (  SSLHandshakeException ex) {
-    return ZLNetworkErrors.errorMessage(ZLNetworkErrors.ERROR_SSL_CONNECT,ex.getMessage());
+    return ZLNetworkErrors.errorMessage(ZLNetworkErrors.ERROR_SSL_CONNECT,ZLNetworkUtil.hostFromUrl(request.URL));
   }
 catch (  SSLKeyException ex) {
-    return ZLNetworkErrors.errorMessage(ZLNetworkErrors.ERROR_SSL_BAD_KEY,ex.getMessage());
+    return ZLNetworkErrors.errorMessage(ZLNetworkErrors.ERROR_SSL_BAD_KEY,ZLNetworkUtil.hostFromUrl(request.URL));
   }
 catch (  SSLPeerUnverifiedException ex) {
-    return ZLNetworkErrors.errorMessage(ZLNetworkErrors.ERROR_SSL_PEER_UNVERIFIED,ex.getMessage());
+    return ZLNetworkErrors.errorMessage(ZLNetworkErrors.ERROR_SSL_PEER_UNVERIFIED,ZLNetworkUtil.hostFromUrl(request.URL));
   }
 catch (  SSLProtocolException ex) {
-    return ZLNetworkErrors.errorMessage(ZLNetworkErrors.ERROR_SSL_PROTOCOL_ERROR,ex.getMessage());
+    return ZLNetworkErrors.errorMessage(ZLNetworkErrors.ERROR_SSL_PROTOCOL_ERROR);
   }
 catch (  SSLException ex) {
     return ZLNetworkErrors.errorMessage(ZLNetworkErrors.ERROR_SSL_SUBSYSTEM);

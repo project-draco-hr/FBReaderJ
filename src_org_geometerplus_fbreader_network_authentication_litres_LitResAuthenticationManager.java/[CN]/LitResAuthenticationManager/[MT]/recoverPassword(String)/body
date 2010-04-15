@@ -5,5 +5,5 @@
   }
   url=ZLNetworkUtil.appendParameter(url,"mail",email);
   final LitResPasswordRecoveryXMLReader xmlReader=new LitResPasswordRecoveryXMLReader(Link.SiteName);
-  return ZLNetworkManager.Instance().perform(new LitResNetworkRequest(url,xmlReader));
+  return ZLNetworkManager.Instance().perform(new LitResNetworkRequest(url,SSLCertificate,xmlReader));
 }
