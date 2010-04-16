@@ -1,11 +1,17 @@
 {
-  myPath=file.getPath();
   mySiteName=myTitle=mySummary=myIcon=mySearchType=myAuthenticationType=mySSLCertificate=null;
   myLinks.clear();
   mySearchFields.clear();
   myUrlConditions.clear();
   myUrlRewritingRules.clear();
   myRelationAliases.clear();
+  String path=file.getPath();
+  if (path.endsWith(".xml")) {
+    path=path.substring(0,path.length() - 4) + ".crt";
+    if (ZLResourceFile.createResourceFile(path).exists()) {
+      mySSLCertificate=path;
+    }
+  }
   myState=READ_NOTHING;
   if (!ZLXMLProcessor.read(this,file)) {
     return null;
