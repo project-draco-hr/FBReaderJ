@@ -16,7 +16,7 @@
     myActivity.showDialog(NetworkLibraryActivity.DIALOG_AUTHENTICATION);
   }
  else   if (message.what == 1) {
-    final NetworkAuthenticationManager mgr=myTree.Item.Link.authenticationManager();
+    final NetworkAuthenticationManager mgr=myLink.authenticationManager();
     if (mgr.UserNameOption.getValue().length() == 0) {
       myErrorMessage=myResource.getResource("loginIsEmpty").getValue();
       myActivity.showDialog(NetworkLibraryActivity.DIALOG_AUTHENTICATION);
@@ -46,7 +46,7 @@
     ((ZLAndroidDialogManager)ZLAndroidDialogManager.Instance()).wait("authentication",runnable,myActivity);
   }
  else {
-    final NetworkAuthenticationManager mgr=myTree.Item.Link.authenticationManager();
+    final NetworkAuthenticationManager mgr=myLink.authenticationManager();
     final Runnable runnable=new Runnable(){
       public void run(){
         if (mgr.isAuthorised(false).Status != ZLBoolean3.B3_FALSE) {

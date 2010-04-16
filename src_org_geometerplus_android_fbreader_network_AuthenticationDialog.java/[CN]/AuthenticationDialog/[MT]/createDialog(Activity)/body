@@ -10,7 +10,7 @@
   final TextView passwordText=(TextView)layout.findViewById(R.id.network_authentication_password_text);
   passwordText.setText(myResource.getResource("password").getValue());
   passwordText.getLayoutParams().height=password.getMeasuredHeight();
-  final NetworkAuthenticationManager mgr=myTree.Item.Link.authenticationManager();
+  final NetworkAuthenticationManager mgr=myLink.authenticationManager();
   final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
   final Handler handler=new DialogHandler(activity);
   return new AlertDialog.Builder(activity).setView(layout).setTitle(myResource.getResource("title").getValue()).setPositiveButton(buttonResource.getResource("ok").getValue(),new DialogInterface.OnClickListener(){

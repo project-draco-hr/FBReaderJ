@@ -1,5 +1,5 @@
 {
-  final NetworkAuthenticationManager mgr=myTree.Item.Link.authenticationManager();
+  final NetworkAuthenticationManager mgr=myLink.authenticationManager();
   final TextView login=(TextView)dialog.findViewById(R.id.network_authentication_login);
   login.setText(mgr.UserNameOption.getValue());
   final TextView password=(TextView)dialog.findViewById(R.id.network_authentication_password);

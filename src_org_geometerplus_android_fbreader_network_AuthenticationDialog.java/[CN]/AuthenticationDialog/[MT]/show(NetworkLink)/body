@@ -1,5 +1,5 @@
 {
-  myTree=tree;
+  myLink=link;
   myErrorMessage=null;
   NetworkLibraryActivity.Instance.showDialog(NetworkLibraryActivity.DIALOG_AUTHENTICATION);
 }
