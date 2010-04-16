@@ -1,5 +1,6 @@
 {
   myLink=link;
   myErrorMessage=null;
+  myOnSucessRunnable=onSucessRunnable;
   NetworkLibraryActivity.Instance.showDialog(NetworkLibraryActivity.DIALOG_AUTHENTICATION);
 }
