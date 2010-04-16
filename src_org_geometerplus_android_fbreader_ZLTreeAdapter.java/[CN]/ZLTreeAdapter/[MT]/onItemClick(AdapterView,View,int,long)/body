@@ -1,3 +1,4 @@
 {
+  myClickedView=view;
   runTreeItem(getItem(position));
 }

@@ -12,24 +12,5 @@
       }
     }
   }
-  if (useDemoReferences(book)) {
-    BookReference reference=book.reference(BookReference.Type.DOWNLOAD_DEMO);
-    if (!NetworkLibraryActivity.Instance.isBeingDownloaded(reference.URL)) {
-      if (reference.localCopyFileName(BookReference.Type.DOWNLOAD_DEMO) != null) {
-        return READ_DEMO_ITEM_ID;
-      }
- else {
-        return DOWNLOAD_DEMO_ITEM_ID;
-      }
-    }
-  }
-  if (useBuyReferences(book)) {
-    if (book.reference(BookReference.Type.BUY) != null) {
-      return BUY_DIRECTLY_ITEM_ID;
-    }
- else     if (book.reference(BookReference.Type.BUY_IN_BROWSER) != null) {
-      return BUY_IN_BROWSER_ITEM_ID;
-    }
-  }
-  return -1;
+  return TREE_SHOW_CONTEXT_MENU;
 }
