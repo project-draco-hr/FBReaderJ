@@ -33,7 +33,7 @@
     }
   }
 ;
-  final ZLNetworkRequest request=new ZLNetworkRequest(urlString){
+  final ZLNetworkRequest request=new ZLNetworkRequest(urlString,sslCertificate){
     public String handleStream(    URLConnection connection,    InputStream inputStream) throws IOException {
       final int updateIntervalMillis=1000;
       final int fileLength=connection.getContentLength();

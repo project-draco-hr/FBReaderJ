@@ -57,5 +57,6 @@
   if ((notifications & Notifications.DOWNLOADING_STARTED) != 0) {
     Toast.makeText(getApplicationContext(),getResource().getResource("downloadingStarted").getValue(),Toast.LENGTH_SHORT).show();
   }
-  startFileDownload(url,fileFile,title);
+  final String sslCertificate=intent.getStringExtra(SSL_CERTIFICATE_KEY);
+  startFileDownload(url,sslCertificate,fileFile,title);
 }
