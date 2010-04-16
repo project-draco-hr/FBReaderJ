@@ -15,6 +15,9 @@ return true;
 case SIGNOUT_ITEM_ID:
 doSignOut((NetworkCatalogTree)tree);
 return true;
+case REFILL_ACCOUNT_ITEM_ID:
+NetworkLibraryActivity.Instance.openInBrowser(((NetworkCatalogTree)tree).Item.Link.authenticationManager().refillAccountLink());
+return true;
 }
 return false;
 }

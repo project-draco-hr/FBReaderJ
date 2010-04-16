@@ -16,6 +16,10 @@
       if (maybeSignedIn) {
         addMenuItem(menu,SIGNOUT_ITEM_ID,"signOut",mgr.currentUserName());
         if (mgr.refillAccountLink() != null) {
+          final String account=mgr.currentAccount();
+          if (account != null) {
+            addMenuItem(menu,REFILL_ACCOUNT_ITEM_ID,"refillAccount",account);
+          }
         }
       }
  else {
