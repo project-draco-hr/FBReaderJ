@@ -1,6 +1,5 @@
 {
   Link=link;
   UserNameOption=new ZLStringOption(link.SiteName,"userName","");
-  SkipIPOption=new ZLBooleanOption(link.SiteName,"skipIP",false);
   SSLCertificate=sslCertificate;
 }
