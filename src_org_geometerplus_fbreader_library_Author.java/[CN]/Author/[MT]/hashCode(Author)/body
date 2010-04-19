@@ -1,0 +1,3 @@
+{
+  return author == null ? 0 : author.hashCode();
+}
