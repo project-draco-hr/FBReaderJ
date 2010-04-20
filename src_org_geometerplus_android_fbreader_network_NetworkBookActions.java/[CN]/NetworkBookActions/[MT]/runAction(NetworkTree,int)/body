@@ -1,32 +1,5 @@
 {
-switch (actionCode) {
-case DOWNLOAD_BOOK_ITEM_ID:
-    doDownloadBook(tree,false);
-  return true;
-case DOWNLOAD_DEMO_ITEM_ID:
-doDownloadBook(tree,true);
-return true;
-case READ_BOOK_ITEM_ID:
-doReadBook(tree,false);
-return true;
-case READ_DEMO_ITEM_ID:
-doReadBook(tree,true);
-return true;
-case DELETE_BOOK_ITEM_ID:
-tryToDeleteBook(tree,false);
-return true;
-case DELETE_DEMO_ITEM_ID:
-tryToDeleteBook(tree,true);
-return true;
-case BUY_DIRECTLY_ITEM_ID:
-doBuyDirectly(tree);
-return true;
-case BUY_IN_BROWSER_ITEM_ID:
-doBuyInBrowser(tree);
-return true;
-case SHOW_BOOK_ACTIVITY_ITEM_ID:
-NetworkLibraryActivity.Instance.showBookInfoActivity(((NetworkBookTree)tree).Book);
-return true;
-}
-return false;
+  NetworkBookTree bookTree=(NetworkBookTree)tree;
+  NetworkBookItem book=bookTree.Book;
+  return runAction(book,actionCode);
 }

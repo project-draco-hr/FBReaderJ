@@ -1,6 +1,6 @@
 {
   if (!myCatalogRunnables.containsKey(uri)) {
     myCatalogRunnables.put(uri,loadCatalogRunnable);
-    startService(new Intent(Intent.ACTION_DEFAULT,uri,this,CatalogDownloaderService.class));
+    startService(new Intent(Intent.ACTION_DEFAULT,uri,getApplicationContext(),CatalogDownloaderService.class));
   }
 }

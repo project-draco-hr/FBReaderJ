@@ -1,0 +1,4 @@
+{
+  NetworkLibraryActivity.Instance.setTopLevelActivity(null);
+  super.onStop();
+}

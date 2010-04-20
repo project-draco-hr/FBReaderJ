@@ -1,0 +1,32 @@
+{
+switch (actionCode) {
+case DOWNLOAD_BOOK_ITEM_ID:
+    doDownloadBook(book,false);
+  return true;
+case DOWNLOAD_DEMO_ITEM_ID:
+doDownloadBook(book,true);
+return true;
+case READ_BOOK_ITEM_ID:
+doReadBook(book,false);
+return true;
+case READ_DEMO_ITEM_ID:
+doReadBook(book,true);
+return true;
+case DELETE_BOOK_ITEM_ID:
+tryToDeleteBook(book,false);
+return true;
+case DELETE_DEMO_ITEM_ID:
+tryToDeleteBook(book,true);
+return true;
+case BUY_DIRECTLY_ITEM_ID:
+doBuyDirectly(book);
+return true;
+case BUY_IN_BROWSER_ITEM_ID:
+doBuyInBrowser(book);
+return true;
+case SHOW_BOOK_ACTIVITY_ITEM_ID:
+NetworkLibraryActivity.Instance.showBookInfoActivity(book);
+return true;
+}
+return false;
+}

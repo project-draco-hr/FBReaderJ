@@ -1,0 +1,59 @@
+{
+  final int buttonCount=3;
+  int buttonNumber=0;
+  Set<NetworkBookActions.Action> actions=NetworkBookActions.getContextMenuActions(myBook);
+  for (  final NetworkBookActions.Action a : actions) {
+    if (buttonNumber >= buttonCount) {
+      break;
+    }
+    ZLResource resource=ZLResource.resource("networkView");
+    final String text;
+    if (a.Arg == null) {
+      text=resource.getResource(a.Key).getValue();
+    }
+ else {
+      text=resource.getResource(a.Key).getValue().replace("%s",a.Arg);
+    }
+    final String buttonName="network_book_button" + buttonNumber++;
+    try {
+      int buttonId=R.id.class.getDeclaredField(buttonName).getInt(null);
+      Button button=(Button)findViewById(buttonId);
+      button.setText(text);
+      button.setOnClickListener(new View.OnClickListener(){
+        public void onClick(        View v){
+          NetworkBookActions.runAction(myBook,a.Id);
+          NetworkBookInfoActivity.this.updateView();
+        }
+      }
+);
+    }
+ catch (    NoSuchFieldException ex) {
+    }
+catch (    SecurityException ex) {
+    }
+catch (    IllegalAccessException ex) {
+    }
+catch (    IllegalArgumentException ex) {
+    }
+  }
+  boolean showSpacers=buttonNumber == 1;
+  findViewById(R.id.network_book_left_spacer).setVisibility(showSpacers ? View.VISIBLE : View.GONE);
+  findViewById(R.id.network_book_right_spacer).setVisibility(showSpacers ? View.VISIBLE : View.GONE);
+  while (buttonNumber < buttonCount) {
+    final String buttonName="network_book_button" + buttonNumber++;
+    try {
+      int buttonId=R.id.class.getDeclaredField(buttonName).getInt(null);
+      View button=findViewById(buttonId);
+      button.setVisibility(View.GONE);
+      button.setOnClickListener(null);
+    }
+ catch (    NoSuchFieldException ex) {
+    }
+catch (    SecurityException ex) {
+    }
+catch (    IllegalAccessException ex) {
+    }
+catch (    IllegalArgumentException ex) {
+    }
+  }
+}

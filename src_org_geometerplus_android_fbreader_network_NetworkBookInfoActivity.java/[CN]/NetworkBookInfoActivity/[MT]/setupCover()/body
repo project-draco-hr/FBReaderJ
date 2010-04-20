@@ -1,0 +1,50 @@
+{
+  final View rootView=findViewById(R.id.network_book_root);
+  final ImageView coverView=(ImageView)findViewById(R.id.network_book_cover);
+  final int maxHeight=300;
+  final int maxWidth=maxHeight * 2 / 3;
+  Bitmap coverBitmap=null;
+  final ZLImage cover=NetworkTree.createCover(myBook);
+  if (cover != null) {
+    ZLAndroidImageData data=null;
+    final ZLAndroidImageManager mgr=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
+    if (cover instanceof NetworkImage) {
+      final NetworkImage img=(NetworkImage)cover;
+      if (NetworkLibraryActivity.Instance.isCoverLoading(img.Url)) {
+        NetworkLibraryActivity.Instance.setOnCoverSyncRunnable(img.Url,new Runnable(){
+          public void run(){
+            img.synchronizeFast();
+            final ZLAndroidImageData data=mgr.getImageData(img);
+            if (data != null) {
+              final Bitmap coverBitmap=data.getBitmap(maxWidth,maxHeight);
+              if (coverBitmap != null) {
+                coverView.setImageBitmap(coverBitmap);
+                coverView.setVisibility(View.VISIBLE);
+                rootView.invalidate();
+                rootView.requestLayout();
+              }
+            }
+          }
+        }
+);
+      }
+ else {
+        img.synchronizeFast();
+        data=mgr.getImageData(img);
+      }
+    }
+ else {
+      data=mgr.getImageData(cover);
+    }
+    if (data != null) {
+      coverBitmap=data.getBitmap(maxWidth,maxHeight);
+    }
+  }
+  if (coverBitmap != null) {
+    coverView.setImageBitmap(coverBitmap);
+    coverView.setVisibility(View.VISIBLE);
+  }
+ else {
+    coverView.setVisibility(View.GONE);
+  }
+}

@@ -1,6 +1,4 @@
 {
-  final NetworkBookTree bookTree=(NetworkBookTree)tree;
-  final NetworkBookItem book=bookTree.Book;
   final NetworkAuthenticationManager mgr=book.Link.authenticationManager();
   if (mgr == null) {
     return;
@@ -19,10 +17,10 @@
             String err=(String)message.obj;
             if (err != null) {
               final ZLResource boxResource=dialogResource.getResource("networkError");
-              new AlertDialog.Builder(NetworkLibraryActivity.Instance).setTitle(boxResource.getResource("title").getValue()).setMessage(err).setIcon(0).setPositiveButton(buttonResource.getResource("ok").getValue(),null).create().show();
+              new AlertDialog.Builder(NetworkLibraryActivity.Instance.getTopLevelActivity()).setTitle(boxResource.getResource("title").getValue()).setMessage(err).setIcon(0).setPositiveButton(buttonResource.getResource("ok").getValue(),null).create().show();
             }
  else             if (downloadBook) {
-              doDownloadBook(bookTree,false);
+              doDownloadBook(book,false);
             }
             if (mgr.isAuthorised(true).Status == ZLBoolean3.B3_FALSE) {
               final NetworkLibrary library=NetworkLibrary.Instance();
@@ -31,7 +29,6 @@
             }
             if (NetworkLibraryActivity.Instance != null) {
               NetworkLibraryActivity.Instance.getAdapter().resetTree();
-              NetworkLibraryActivity.Instance.getListView().invalidateViews();
             }
           }
         }
@@ -43,7 +40,7 @@
           }
         }
 ;
-        ((ZLAndroidDialogManager)ZLAndroidDialogManager.Instance()).wait("purchaseBook",runnable,NetworkLibraryActivity.Instance);
+        ((ZLAndroidDialogManager)ZLAndroidDialogManager.Instance()).wait("purchaseBook",runnable,NetworkLibraryActivity.Instance.getTopLevelActivity());
       }
     }
   }
@@ -54,7 +51,7 @@
         return;
       }
       final ZLResource boxResource=dialogResource.getResource("purchaseConfirmBox");
-      new AlertDialog.Builder(NetworkLibraryActivity.Instance).setTitle(boxResource.getResource("title").getValue()).setMessage(boxResource.getResource("message").getValue().replace("%s",book.Title)).setIcon(0).setPositiveButton(buttonResource.getResource("buy").getValue(),listener).setNeutralButton(buttonResource.getResource("buyAndDownload").getValue(),listener).setNegativeButton(buttonResource.getResource("cancel").getValue(),listener).create().show();
+      new AlertDialog.Builder(NetworkLibraryActivity.Instance.getTopLevelActivity()).setTitle(boxResource.getResource("title").getValue()).setMessage(boxResource.getResource("message").getValue().replace("%s",book.Title)).setIcon(0).setPositiveButton(buttonResource.getResource("buy").getValue(),listener).setNeutralButton(buttonResource.getResource("buyAndDownload").getValue(),listener).setNegativeButton(buttonResource.getResource("cancel").getValue(),listener).create().show();
     }
   }
 ;
