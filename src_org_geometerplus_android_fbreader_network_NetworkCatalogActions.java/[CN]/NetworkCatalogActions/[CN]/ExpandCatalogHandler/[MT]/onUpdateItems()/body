@@ -2,6 +2,9 @@
   boolean expand=!myTree.hasChildren();
   displayItems();
   if (expand && NetworkLibraryActivity.Instance != null) {
-    NetworkLibraryActivity.Instance.getAdapter().expandOrCollapseTree(myTree);
+    ZLTreeAdapter adapter=NetworkLibraryActivity.Instance.getAdapter();
+    if (adapter != null) {
+      adapter.expandOrCollapseTree(myTree);
+    }
   }
 }

@@ -20,7 +20,6 @@
   library.invalidateAccountDependents();
   library.synchronize();
   if (NetworkLibraryActivity.Instance != null) {
-    NetworkLibraryActivity.Instance.getAdapter().resetTree();
-    NetworkLibraryActivity.Instance.getListView().invalidateViews();
+    NetworkLibraryActivity.Instance.resetTree();
   }
 }
