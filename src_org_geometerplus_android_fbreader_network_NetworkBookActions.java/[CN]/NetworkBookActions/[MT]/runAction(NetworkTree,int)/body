@@ -24,6 +24,9 @@ return true;
 case BUY_IN_BROWSER_ITEM_ID:
 doBuyInBrowser(tree);
 return true;
+case SHOW_BOOK_ACTIVITY_ITEM_ID:
+NetworkLibraryActivity.Instance.showBookInfoActivity(((NetworkBookTree)tree).Book);
+return true;
 }
 return false;
 }

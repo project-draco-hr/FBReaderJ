@@ -1,0 +1,57 @@
+{
+  if (mySynchronized) {
+    return;
+  }
+  try {
+    final String fileName=getFileName();
+    if (fileName == null) {
+      return;
+    }
+    final int index=fileName.lastIndexOf(File.separator);
+    if (index != -1) {
+      final String dir=fileName.substring(0,index);
+      final File dirFile=new File(dir);
+      if (!dirFile.exists() && !dirFile.mkdirs()) {
+        return;
+      }
+      if (!dirFile.exists() || !dirFile.isDirectory()) {
+        return;
+      }
+    }
+    final File imageFile=new File(fileName);
+    if (imageFile.exists()) {
+      final long diff=System.currentTimeMillis() - imageFile.lastModified();
+      final long valid=7 * 24 * 60* 60* 1000;
+      if (diff >= 0 && diff <= valid) {
+        return;
+      }
+      imageFile.delete();
+    }
+    if (doFast) {
+      return;
+    }
+    ZLNetworkManager.Instance().perform(new ZLNetworkRequest(Url){
+      public String handleStream(      URLConnection connection,      InputStream inputStream) throws IOException {
+        OutputStream outStream=new FileOutputStream(imageFile);
+        try {
+          final byte[] buffer=new byte[8192];
+          while (true) {
+            final int size=inputStream.read(buffer);
+            if (size <= 0) {
+              break;
+            }
+            outStream.write(buffer,0,size);
+          }
+        }
+  finally {
+          outStream.close();
+        }
+        return null;
+      }
+    }
+);
+  }
+  finally {
+    mySynchronized=true;
+  }
+}

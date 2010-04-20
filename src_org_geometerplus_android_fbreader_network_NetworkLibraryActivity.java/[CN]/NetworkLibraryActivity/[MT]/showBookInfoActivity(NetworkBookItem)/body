@@ -1,0 +1,4 @@
+{
+  myBookInfoItem=book;
+  startActivity(new Intent(this,NetworkBookInfoActivity.class));
+}

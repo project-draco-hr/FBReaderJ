@@ -1,0 +1,3 @@
+{
+  myOnCoverSyncRunnables.put(invalidateOnUrl,runnable);
+}
