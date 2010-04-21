@@ -20,5 +20,5 @@
     first=false;
     buf.append(link.toString());
   }
-  return buf.append("]").append(",\nPublished=").append(Published).append(",\nRights=").append(Rights).append(",\nSummary=").append(Summary).append(",\nTitle=").append(Title).append(",\nUpdated=").append(Updated).append("]").toString();
+  return buf.append("]").append(",\nPublished=").append(Published).append(",\nSummary=").append(Summary).append(",\nTitle=").append(Title).append(",\nUpdated=").append(Updated).append("]").toString();
 }

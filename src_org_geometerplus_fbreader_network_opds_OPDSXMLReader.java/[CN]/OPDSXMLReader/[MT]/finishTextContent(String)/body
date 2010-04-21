@@ -1,0 +1,31 @@
+{
+  if (bufferContent != null) {
+    myTextContent.append(bufferContent);
+  }
+  char[] contentArray=myTextContent.toString().trim().toCharArray();
+  String result;
+  if (contentArray.length == 0) {
+    result=null;
+  }
+ else {
+    result=new String(contentArray);
+  }
+  if (result != null) {
+    if (myTextType == ATOMConstants.TYPE_HTML || myTextType == ATOMConstants.TYPE_XHTML || myTextType == "text/html" || myTextType == "text/xhtml") {
+      result=Html.fromHtml(result,null,new Html.TagHandler(){
+        public void handleTag(        boolean opening,        String tag,        Editable output,        XMLReader xmlReader){
+          tag=tag.intern();
+          if (tag == "html" || tag == "body") {
+            return;
+          }
+          System.err.println("FBREADER -- handle tag: " + tag);
+          output.append(" ");
+        }
+      }
+).toString();
+    }
+  }
+  myTextType=null;
+  myTextContent.delete(0,myTextContent.length());
+  return result;
+}

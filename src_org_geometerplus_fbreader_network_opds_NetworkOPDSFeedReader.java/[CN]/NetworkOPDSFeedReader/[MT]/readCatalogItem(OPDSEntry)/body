@@ -50,11 +50,14 @@
   }
   final boolean dependsOnAccount=opdsLink.getCondition(entry.Id.Uri) == OPDSLink.FeedCondition.SIGNED_IN;
   final String annotation;
-  if (entry.Summary == null) {
-    annotation=null;
+  if (entry.Summary != null) {
+    annotation=entry.Summary.replace("\n","");
+  }
+ else   if (entry.Content != null) {
+    annotation=entry.Content.replace("\n","");
   }
  else {
-    annotation=entry.Summary.replace("\n","");
+    annotation=null;
   }
   HashMap<Integer,String> urlMap=new HashMap<Integer,String>();
   if (url != null) {

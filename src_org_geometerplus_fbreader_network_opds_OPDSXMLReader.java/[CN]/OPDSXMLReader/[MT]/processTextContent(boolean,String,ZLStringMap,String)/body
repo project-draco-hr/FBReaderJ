@@ -1,0 +1,37 @@
+{
+  if (myTextType == ATOMConstants.TYPE_XHTML || myTextType == "text/xhtml") {
+    if (bufferContent != null) {
+      myTextContent.append(bufferContent);
+    }
+    if (closeTag) {
+      final int index=myTextContent.length() - 1;
+      if (tag == myLastOpenedTag && bufferContent == null && myTextContent.charAt(index) == '>') {
+        myTextContent.insert(index,'/');
+      }
+ else {
+        myTextContent.append("</").append(tag).append(">");
+      }
+      myLastOpenedTag=null;
+    }
+ else {
+      myLastOpenedTag=tag;
+      StringBuilder buffer=new StringBuilder("<").append(tag);
+      for (int i=0; i < attributes.getSize(); ++i) {
+        final String key=attributes.getKey(i);
+        final String value=attributes.getValue(key);
+        buffer.append(" ").append(key).append("=\"");
+        if (value != null) {
+          buffer.append(value);
+        }
+        buffer.append("\"");
+      }
+      buffer.append(" >");
+      myTextContent.append(buffer.toString());
+    }
+  }
+ else {
+    if (bufferContent != null) {
+      myTextContent.append(bufferContent);
+    }
+  }
+}

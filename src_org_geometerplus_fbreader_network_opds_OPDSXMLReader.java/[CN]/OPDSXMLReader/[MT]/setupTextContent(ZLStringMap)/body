@@ -1,0 +1,7 @@
+{
+  myTextType=attributes.getValue("type");
+  if (myTextType == null) {
+    myTextType=ATOMConstants.TYPE_DEFAULT;
+  }
+  myTextContent.delete(0,myTextContent.length());
+}

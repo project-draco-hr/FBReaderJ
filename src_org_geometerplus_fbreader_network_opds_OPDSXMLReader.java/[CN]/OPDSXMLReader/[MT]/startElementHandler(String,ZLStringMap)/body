@@ -9,7 +9,15 @@
     tagPrefix=null;
     tag=tag.intern();
   }
-  boolean preserveBuffer=false;
+  final char[] bufferContentArray=myBuffer.toString().trim().toCharArray();
+  final String bufferContent;
+  if (bufferContentArray.length == 0) {
+    bufferContent=null;
+  }
+ else {
+    bufferContent=new String(bufferContentArray);
+  }
+  myBuffer.delete(0,myBuffer.length());
 switch (myState) {
 case START:
     if (tagPrefix == myAtomNamespaceId && tag == TAG_FEED) {
@@ -42,6 +50,7 @@ if (tagPrefix == myAtomNamespaceId) {
     myState=F_CATEGORY;
   }
  else   if (tag == TAG_TITLE) {
+    setupTextContent(attributes);
     myState=F_TITLE;
   }
  else   if (tag == TAG_UPDATED) {
@@ -52,7 +61,6 @@ if (tagPrefix == myAtomNamespaceId) {
  else   if (tag == TAG_ENTRY) {
     myEntry=new OPDSEntry();
     myEntry.readAttributes(attributes);
-    mySummaryTagFound=false;
     myState=F_ENTRY;
     if (myFeed != null && myFeed.Id != null) {
       myFeedReader.processFeedMetadata(myFeed,true);
@@ -99,12 +107,15 @@ myPublished.readAttributes(attributes);
 myState=FE_PUBLISHED;
 }
  else if (tag == TAG_SUMMARY) {
+setupTextContent(attributes);
 myState=FE_SUMMARY;
 }
  else if (tag == TAG_CONTENT) {
+setupTextContent(attributes);
 myState=FE_CONTENT;
 }
  else if (tag == TAG_TITLE) {
+setupTextContent(attributes);
 myState=FE_TITLE;
 }
  else if (tag == TAG_UPDATED) {
@@ -161,9 +172,6 @@ myState=FEA_EMAIL;
 }
 }
 break;
-case FE_TITLE:
-preserveBuffer=true;
-break;
 case FE_LINK:
 if (tagPrefix == myOpdsNamespaceId && tag == TAG_PRICE) {
 myLink.addAttribute(KEY_CURRENCY,attributes.getValue("currencycode"));
@@ -174,15 +182,18 @@ myState=FEL_FORMAT;
 }
 break;
 case FE_CONTENT:
+processTextContent(false,tag,attributes,bufferContent);
 if (tag == TAG_HACK_SPAN || attributes.getValue("class") == "price") {
 myState=FEC_HACK_SPAN;
 }
 break;
+case FE_SUMMARY:
+case FE_TITLE:
+case F_TITLE:
+processTextContent(false,tag,attributes,bufferContent);
+break;
 default :
 break;
-}
-if (!preserveBuffer) {
-myBuffer.delete(0,myBuffer.length());
 }
 return false;
 }
