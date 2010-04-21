@@ -51,7 +51,7 @@
       path.delete(j,path.length());
     }
  else {
-      return null;
+      ext="";
     }
   }
  else   if (path.length() > ext.length() && path.substring(path.length() - ext.length()).equals(ext)) {
