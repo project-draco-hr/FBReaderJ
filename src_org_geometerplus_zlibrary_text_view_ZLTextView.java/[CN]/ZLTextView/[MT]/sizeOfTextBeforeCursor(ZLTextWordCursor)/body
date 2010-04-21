@@ -1,4 +1,7 @@
 {
+  if (myModel == null || myModel.getParagraphsNumber() == 0) {
+    return 0;
+  }
   final ZLTextWordCursor cursor=new ZLTextWordCursor(wordCursor);
   if (cursor.isEndOfParagraph() && !cursor.nextParagraph()) {
     return -1;
