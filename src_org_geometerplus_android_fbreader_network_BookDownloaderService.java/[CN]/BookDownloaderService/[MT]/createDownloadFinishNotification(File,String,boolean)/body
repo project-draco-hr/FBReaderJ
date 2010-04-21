@@ -4,7 +4,7 @@
   final String contentText=success ? resource.getResource("contentSuccess").getValue() : resource.getResource("contentError").getValue();
   final Notification notification=new Notification(android.R.drawable.stat_sys_download_done,tickerText,System.currentTimeMillis());
   notification.flags|=Notification.FLAG_AUTO_CANCEL;
-  final Intent intent=getFBReaderIntent(success ? file : null);
+  final Intent intent=success ? getFBReaderIntent(file) : new Intent();
   final PendingIntent contentIntent=PendingIntent.getActivity(this,0,intent,0);
   notification.setLatestEventInfo(getApplicationContext(),title,contentText,contentIntent);
   return notification;

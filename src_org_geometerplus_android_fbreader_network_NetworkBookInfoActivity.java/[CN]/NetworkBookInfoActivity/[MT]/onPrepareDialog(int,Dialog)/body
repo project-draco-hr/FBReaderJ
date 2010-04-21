@@ -1,0 +1,8 @@
+{
+  super.onPrepareDialog(id,dialog);
+switch (id) {
+case NetworkLibraryActivity.DIALOG_AUTHENTICATION:
+    AuthenticationDialog.Instance().prepareDialog(dialog);
+  break;
+}
+}

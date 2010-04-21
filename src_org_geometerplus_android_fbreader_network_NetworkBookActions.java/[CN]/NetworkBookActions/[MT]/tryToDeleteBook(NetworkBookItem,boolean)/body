@@ -16,6 +16,7 @@
           }
         }
       }
+      NetworkLibraryActivity.Instance.fireOnModelChanged();
     }
   }
 ).setNegativeButton(buttonResource.getResource("no").getValue(),null).create().show();

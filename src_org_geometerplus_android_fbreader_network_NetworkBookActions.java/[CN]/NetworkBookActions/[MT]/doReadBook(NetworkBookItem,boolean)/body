@@ -10,6 +10,6 @@
     }
   }
   if (local != null) {
-    NetworkLibraryActivity.Instance.startActivity(new Intent(Intent.ACTION_VIEW,Uri.fromFile(new File(local)),NetworkLibraryActivity.Instance.getApplicationContext(),org.geometerplus.android.fbreader.FBReader.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+    NetworkLibraryActivity.Instance.getTopLevelActivity().startActivity(new Intent(Intent.ACTION_VIEW,Uri.fromFile(new File(local)),NetworkLibraryActivity.Instance.getApplicationContext(),org.geometerplus.android.fbreader.FBReader.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
   }
 }

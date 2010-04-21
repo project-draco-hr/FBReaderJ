@@ -2,5 +2,5 @@
   myLink=link;
   myErrorMessage=null;
   myOnSuccessRunnable=onSuccessRunnable;
-  NetworkLibraryActivity.Instance.showDialog(NetworkLibraryActivity.DIALOG_AUTHENTICATION);
+  NetworkLibraryActivity.Instance.getTopLevelActivity().showDialog(NetworkLibraryActivity.DIALOG_AUTHENTICATION);
 }

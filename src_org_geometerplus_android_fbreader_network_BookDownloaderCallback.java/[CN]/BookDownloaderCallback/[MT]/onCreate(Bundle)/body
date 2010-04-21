@@ -1,0 +1,7 @@
+{
+  super.onCreate(icicle);
+  if (NetworkLibraryActivity.Instance != null) {
+    NetworkLibraryActivity.Instance.fireOnModelChanged();
+  }
+  finish();
+}

@@ -1,5 +1,6 @@
 {
   myDownloadingURLs.add(urlString);
+  startCallbackActivity();
   final int notificationId=(int)System.currentTimeMillis();
   final Notification progressNotification=createDownloadProgressNotification(title);
   final NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
@@ -29,6 +30,7 @@
       notificationManager.cancel(notificationId);
       myOngoingNotifications.remove(Integer.valueOf(notificationId));
       notificationManager.notify(notificationId,createDownloadFinishNotification(file,title,message.what != 0));
+      startCallbackActivity();
       doStop();
     }
   }
@@ -78,10 +80,10 @@
     public void run(){
       final String err=ZLNetworkManager.Instance().perform(request);
       final boolean success=(err == null);
-      downloadFinishHandler.sendEmptyMessage(success ? 1 : 0);
       if (!success) {
         file.delete();
       }
+      downloadFinishHandler.sendEmptyMessage(success ? 1 : 0);
     }
   }
 ).start();

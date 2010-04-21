@@ -1,5 +1,3 @@
 {
-  unbindService(myConnection);
-  myConnection=null;
   super.onStop();
 }

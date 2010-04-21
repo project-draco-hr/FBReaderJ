@@ -29,6 +29,7 @@
             }
             if (NetworkLibraryActivity.Instance != null) {
               NetworkLibraryActivity.Instance.getAdapter().resetTree();
+              NetworkLibraryActivity.Instance.fireOnModelChanged();
             }
           }
         }
