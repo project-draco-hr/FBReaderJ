@@ -70,14 +70,14 @@ myState=FEED;
 break;
 case F_TITLE:
 if (tagPrefix == myAtomNamespaceId && tag == TAG_TITLE) {
-final String title=finishTextContent(bufferContent);
+final String title=myHtmlToString.finishTextContent(bufferContent);
 if (myFeed != null) {
 myFeed.Title=title;
 }
 myState=FEED;
 }
  else {
-processTextContent(true,tag,null,bufferContent);
+myHtmlToString.processTextContent(true,tag,null,bufferContent);
 }
 break;
 case F_UPDATED:
@@ -194,29 +194,29 @@ myState=F_ENTRY;
 break;
 case FE_SUMMARY:
 if (tagPrefix == myAtomNamespaceId && tag == TAG_SUMMARY) {
-myEntry.Summary=finishTextContent(bufferContent);
+myEntry.Summary=myHtmlToString.finishTextContent(bufferContent);
 myState=F_ENTRY;
 }
  else {
-processTextContent(true,tag,null,bufferContent);
+myHtmlToString.processTextContent(true,tag,null,bufferContent);
 }
 break;
 case FE_CONTENT:
 if (tagPrefix == myAtomNamespaceId && tag == TAG_CONTENT) {
-myEntry.Content=finishTextContent(bufferContent);
+myEntry.Content=myHtmlToString.finishTextContent(bufferContent);
 myState=F_ENTRY;
 }
  else {
-processTextContent(true,tag,null,bufferContent);
+myHtmlToString.processTextContent(true,tag,null,bufferContent);
 }
 break;
 case FE_TITLE:
 if (tagPrefix == myAtomNamespaceId && tag == TAG_TITLE) {
-myEntry.Title=finishTextContent(bufferContent);
+myEntry.Title=myHtmlToString.finishTextContent(bufferContent);
 myState=F_ENTRY;
 }
  else {
-processTextContent(true,tag,null,bufferContent);
+myHtmlToString.processTextContent(true,tag,null,bufferContent);
 }
 break;
 case FE_UPDATED:
@@ -229,7 +229,7 @@ myState=F_ENTRY;
 }
 break;
 case FEC_HACK_SPAN:
-processTextContent(true,tag,null,bufferContent);
+myHtmlToString.processTextContent(true,tag,null,bufferContent);
 if (bufferContent != null) {
 myEntry.addAttribute(KEY_PRICE,bufferContent.intern());
 }

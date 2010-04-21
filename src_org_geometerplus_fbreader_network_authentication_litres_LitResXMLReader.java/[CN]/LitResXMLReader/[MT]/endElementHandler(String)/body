@@ -17,12 +17,7 @@ case CATALOG:
   break;
 case BOOK:
 if (TAG_BOOK == tag) {
-  String summary=new String(mySummary.toString().trim().toCharArray());
-  mySummary.delete(0,mySummary.length());
-  if (summary.length() == 0) {
-    summary=null;
-  }
-  Books.add(new NetworkBookItem(Link,myBookId,myIndex++,myTitle,summary,myAuthors,mySeriesTitle,myIndexInSeries,myCover,myReferences));
+  Books.add(new NetworkBookItem(Link,myBookId,myIndex++,myTitle,mySummary,myAuthors,mySeriesTitle,myIndexInSeries,myCover,myReferences));
   myBookId=null;
   myTitle=null;
   myLanguage=null;
@@ -100,24 +95,12 @@ myState=TITLE_INFO;
 }
 break;
 case ANNOTATION:
-if (bufferContent != null) {
-mySummary.append(bufferContent);
-}
-if (mySummary.length() > 0) {
-final char lastChar=mySummary.charAt(mySummary.length() - 1);
-if ("p" == tag) {
-if (lastChar != '\n') {
-mySummary.append("\n");
-}
+if (TAG_ANNOTATION == tag) {
+mySummary=myHtmlToString.finishTextContent(bufferContent);
+myState=TITLE_INFO;
 }
  else {
-if (bufferContent != null && lastChar != '\n') {
-mySummary.append(" ");
-}
-}
-}
-if (TAG_ANNOTATION == tag) {
-myState=TITLE_INFO;
+myHtmlToString.processTextContent(true,tag,null,bufferContent);
 }
 break;
 case DATE:

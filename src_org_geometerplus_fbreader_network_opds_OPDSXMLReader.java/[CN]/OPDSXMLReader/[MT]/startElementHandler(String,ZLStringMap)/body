@@ -50,7 +50,7 @@ if (tagPrefix == myAtomNamespaceId) {
     myState=F_CATEGORY;
   }
  else   if (tag == TAG_TITLE) {
-    setupTextContent(attributes);
+    myHtmlToString.setupTextContent(attributes.getValue("type"));
     myState=F_TITLE;
   }
  else   if (tag == TAG_UPDATED) {
@@ -107,15 +107,15 @@ myPublished.readAttributes(attributes);
 myState=FE_PUBLISHED;
 }
  else if (tag == TAG_SUMMARY) {
-setupTextContent(attributes);
+myHtmlToString.setupTextContent(attributes.getValue("type"));
 myState=FE_SUMMARY;
 }
  else if (tag == TAG_CONTENT) {
-setupTextContent(attributes);
+myHtmlToString.setupTextContent(attributes.getValue("type"));
 myState=FE_CONTENT;
 }
  else if (tag == TAG_TITLE) {
-setupTextContent(attributes);
+myHtmlToString.setupTextContent(attributes.getValue("type"));
 myState=FE_TITLE;
 }
  else if (tag == TAG_UPDATED) {
@@ -182,7 +182,7 @@ myState=FEL_FORMAT;
 }
 break;
 case FE_CONTENT:
-processTextContent(false,tag,attributes,bufferContent);
+myHtmlToString.processTextContent(false,tag,attributes,bufferContent);
 if (tag == TAG_HACK_SPAN || attributes.getValue("class") == "price") {
 myState=FEC_HACK_SPAN;
 }
@@ -190,7 +190,7 @@ break;
 case FE_SUMMARY:
 case FE_TITLE:
 case F_TITLE:
-processTextContent(false,tag,attributes,bufferContent);
+myHtmlToString.processTextContent(false,tag,attributes,bufferContent);
 break;
 default :
 break;

@@ -53,6 +53,7 @@ myState=AUTHOR;
 myState=BOOK_TITLE;
 }
  else if (TAG_ANNOTATION == tag) {
+myHtmlToString.setupTextContent("text/xhtml");
 myState=ANNOTATION;
 }
  else if (TAG_DATE == tag) {
@@ -88,9 +89,7 @@ myState=LAST_NAME;
 }
 break;
 case ANNOTATION:
-if (bufferContent != null) {
-mySummary.append(bufferContent).append(" ");
-}
+myHtmlToString.processTextContent(false,tag,attributes,bufferContent);
 break;
 }
 return false;
