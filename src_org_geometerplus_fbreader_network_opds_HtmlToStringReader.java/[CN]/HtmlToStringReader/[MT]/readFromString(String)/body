@@ -1,0 +1,12 @@
+{
+  final StringBuilder html=new StringBuilder();
+  html.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">").append("<html><head>").append("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />").append("<title></title>").append("</head><body>").append(htmlString).append("</body></html>");
+  final byte[] bytes;
+  try {
+    bytes=html.toString().getBytes("UTF-8");
+  }
+ catch (  UnsupportedEncodingException ex) {
+    throw new RuntimeException("It's impossible!!! UTF-8 charset is not supported!!!",ex);
+  }
+  ZLHtmlProcessor.read(this,new ByteArrayInputStream(bytes));
+}

@@ -1,0 +1,19 @@
+{
+  if (length <= 0) {
+    return;
+  }
+  if (myByteData == null) {
+    myByteData=new byte[length];
+    System.arraycopy(data,start,myByteData,0,length);
+    myByteDataLength=length;
+  }
+ else {
+    if (myByteData.length < myByteDataLength + length) {
+      final byte[] oldData=myByteData;
+      myByteData=new byte[myByteDataLength + length];
+      System.arraycopy(oldData,0,myByteData,0,myByteDataLength);
+    }
+    System.arraycopy(data,start,myByteData,myByteDataLength,length);
+    myByteDataLength+=length;
+  }
+}
