@@ -8,6 +8,7 @@
   setTitle(myBook.Title);
   setContentView(R.layout.network_book);
   setupDescription();
+  setupInfo();
   setupCover();
   setupButtons();
 }
