@@ -4,6 +4,7 @@ int index
 String title
 String summary
 List<AuthorData> authors
+List<String> tags
 String seriesTitle
 int indexInSeries
 String cover

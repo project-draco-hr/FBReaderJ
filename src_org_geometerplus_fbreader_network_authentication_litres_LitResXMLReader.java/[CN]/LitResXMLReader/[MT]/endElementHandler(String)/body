@@ -17,7 +17,7 @@ case CATALOG:
   break;
 case BOOK:
 if (TAG_BOOK == tag) {
-  Books.add(new NetworkBookItem(Link,myBookId,myIndex++,myTitle,mySummary,myAuthors,mySeriesTitle,myIndexInSeries,myCover,myReferences));
+  Books.add(new NetworkBookItem(Link,myBookId,myIndex++,myTitle,mySummary,myAuthors,myTags,mySeriesTitle,myIndexInSeries,myCover,myReferences));
   myBookId=null;
   myTitle=null;
   myLanguage=null;
@@ -26,6 +26,7 @@ if (TAG_BOOK == tag) {
   myIndexInSeries=0;
   myCover=null;
   myAuthors.clear();
+  myTags.clear();
   myURLByType.clear();
   myReferences.clear();
   myState=CATALOG;
