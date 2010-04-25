@@ -1,5 +1,9 @@
 {
   super.onCreate(savedInstanceState);
+  if (NetworkLibraryActivity.Instance == null) {
+    finish();
+    return;
+  }
   myBook=NetworkLibraryActivity.Instance.getBookItem();
   if (myBook == null) {
     finish();

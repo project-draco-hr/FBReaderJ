@@ -1,4 +1,7 @@
 {
+  if (NetworkLibraryActivity.Instance == null) {
+    return;
+  }
   String local=null;
   if (!demo) {
     local=book.localCopyFileName();

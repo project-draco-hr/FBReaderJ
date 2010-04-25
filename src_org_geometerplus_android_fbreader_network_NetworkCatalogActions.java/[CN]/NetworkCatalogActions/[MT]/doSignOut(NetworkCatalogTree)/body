@@ -1,4 +1,7 @@
 {
+  if (NetworkLibraryActivity.Instance == null) {
+    return;
+  }
   final Handler handler=new Handler(){
     public void handleMessage(    Message message){
       final NetworkLibrary library=NetworkLibrary.Instance();

@@ -1,4 +1,7 @@
 {
+  if (NetworkLibraryActivity.Instance == null) {
+    return;
+  }
   if (tree.hasChildren()) {
     NetworkLibraryActivity.Instance.getAdapter().expandOrCollapseTree(tree);
     return;

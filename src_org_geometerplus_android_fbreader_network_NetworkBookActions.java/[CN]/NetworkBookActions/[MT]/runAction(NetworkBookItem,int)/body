@@ -25,7 +25,9 @@ case BUY_IN_BROWSER_ITEM_ID:
 doBuyInBrowser(book);
 return true;
 case SHOW_BOOK_ACTIVITY_ITEM_ID:
+if (NetworkLibraryActivity.Instance != null) {
 NetworkLibraryActivity.Instance.showBookInfoActivity(book);
+}
 return true;
 }
 return false;

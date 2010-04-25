@@ -1,4 +1,7 @@
 {
+  if (NetworkLibraryActivity.Instance == null) {
+    return;
+  }
   final ZLResource dialogResource=ZLResource.resource("dialog");
   final ZLResource buttonResource=dialogResource.getResource("button");
   final ZLResource boxResource=dialogResource.getResource("deleteBookBox");
@@ -16,7 +19,9 @@
           }
         }
       }
-      NetworkLibraryActivity.Instance.fireOnModelChanged();
+      if (NetworkLibraryActivity.Instance != null) {
+        NetworkLibraryActivity.Instance.fireOnModelChanged();
+      }
     }
   }
 ).setNegativeButton(buttonResource.getResource("no").getValue(),null).create().show();

@@ -1,4 +1,7 @@
 {
+  if (NetworkLibraryActivity.Instance == null) {
+    return;
+  }
   int resolvedType=demo ? BookReference.Type.DOWNLOAD_DEMO : BookReference.Type.DOWNLOAD_FULL;
   BookReference ref=book.reference(resolvedType);
   if (ref != null) {

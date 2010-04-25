@@ -1,4 +1,7 @@
 {
+  if (NetworkLibraryActivity.Instance == null) {
+    return;
+  }
   if (!startProcessingTree(tree)) {
     return;
   }
