@@ -6,7 +6,6 @@
     startActivity(new Intent(this,this.getClass()));
     finish();
   }
-  setRequestedOrientation(application.AutoOrientationOption.getValue() ? ActivityInfo.SCREEN_ORIENTATION_SENSOR : ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
   if (myPanel.ControlPanel == null) {
     myPanel.ControlPanel=new ControlPanel(this);
     myPanel.ControlPanel.addButton(ActionCode.FIND_PREVIOUS,false,R.drawable.text_search_previous);

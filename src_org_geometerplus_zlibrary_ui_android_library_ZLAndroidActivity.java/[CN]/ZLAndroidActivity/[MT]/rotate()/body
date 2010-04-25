@@ -1,0 +1,22 @@
+{
+  View view=findViewById(R.id.main_view);
+  if (view != null) {
+switch (getRequestedOrientation()) {
+case ActivityInfo.SCREEN_ORIENTATION_PORTRAIT:
+      ourOrientation=ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
+    break;
+case ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE:
+  ourOrientation=ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
+break;
+default :
+if (view.getWidth() > view.getHeight()) {
+ourOrientation=ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
+}
+ else {
+ourOrientation=ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
+}
+}
+setRequestedOrientation(ourOrientation);
+myChangeCounter=0;
+}
+}

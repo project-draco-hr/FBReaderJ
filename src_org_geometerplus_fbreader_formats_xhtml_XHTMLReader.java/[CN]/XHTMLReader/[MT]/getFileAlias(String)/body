@@ -1,4 +1,5 @@
 {
+  fileName=MiscUtil.decodeHtmlReference(fileName);
   Integer num=myFileNumbers.get(fileName);
   if (num == null) {
     num=myFileNumbers.size();

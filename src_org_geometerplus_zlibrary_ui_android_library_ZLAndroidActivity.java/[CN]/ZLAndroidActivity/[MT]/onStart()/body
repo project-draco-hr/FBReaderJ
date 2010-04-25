@@ -1,0 +1,13 @@
+{
+  super.onStart();
+switch (ourOrientation) {
+case ActivityInfo.SCREEN_ORIENTATION_PORTRAIT:
+case ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE:
+    setRequestedOrientation(ourOrientation);
+  myChangeCounter=0;
+break;
+default :
+setAutoRotationMode();
+break;
+}
+}
