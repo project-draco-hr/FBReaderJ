@@ -1,6 +1,3 @@
 {
-  if (convertView == null) {
-    convertView=(View)getAndroidViews().get(position);
-  }
-  return convertView;
+  return (View)getAndroidViews().get(position);
 }

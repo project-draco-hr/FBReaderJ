@@ -1,6 +1,6 @@
 {
   EditText editor;
-  if (convertView == null) {
+  if (convertView instanceof EditText) {
     editor=(EditText)convertView;
   }
  else {
