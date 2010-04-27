@@ -10,7 +10,6 @@
   final TextView passwordText=(TextView)layout.findViewById(R.id.network_authentication_password_text);
   passwordText.setText(myResource.getResource("password").getValue());
   passwordText.getLayoutParams().height=password.getMeasuredHeight();
-  final NetworkAuthenticationManager mgr=myLink.authenticationManager();
   final Handler handler=new Handler(){
     public void handleMessage(    Message message){
       final NetworkLibrary library=NetworkLibrary.Instance();
