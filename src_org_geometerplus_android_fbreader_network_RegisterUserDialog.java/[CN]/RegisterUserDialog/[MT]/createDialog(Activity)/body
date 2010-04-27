@@ -23,6 +23,7 @@
  else {
           myErrorMessage=(String)message.obj;
           activity.showDialog(NetworkDialog.DIALOG_REGISTER_USER);
+          return;
         }
       }
  else       if (message.what > 0) {
@@ -30,6 +31,7 @@
           myOnSuccessRunnable.run();
         }
       }
+      clearUserInfo();
     }
   }
 ;
@@ -38,34 +40,37 @@
       final NetworkAuthenticationManager mgr=myLink.authenticationManager();
       if (which == DialogInterface.BUTTON_POSITIVE) {
         AlertDialog alert=(AlertDialog)dialog;
-        final String login=((TextView)alert.findViewById(R.id.network_register_login)).getText().toString().trim();
-        final String password=((TextView)alert.findViewById(R.id.network_register_password)).getText().toString();
+        myLogin=((TextView)alert.findViewById(R.id.network_register_login)).getText().toString().trim();
+        myPassword=((TextView)alert.findViewById(R.id.network_register_password)).getText().toString();
         final String confirmPassword=((TextView)alert.findViewById(R.id.network_register_confirm_password)).getText().toString();
-        final String email=((TextView)alert.findViewById(R.id.network_register_email)).getText().toString().trim();
-        if (login.length() == 0) {
+        myEmail=((TextView)alert.findViewById(R.id.network_register_email)).getText().toString().trim();
+        if (myLogin.length() == 0) {
+          myLogin=null;
           final String err=NetworkErrors.errorMessage(NetworkErrors.ERROR_LOGIN_WAS_NOT_SPECIFIED);
           handler.sendMessage(handler.obtainMessage(-1,err));
           return;
         }
-        if (!password.equals(confirmPassword)) {
+        if (!myPassword.equals(confirmPassword)) {
           final String err=myResource.getResource("differentPasswords").getValue();
+          myPassword=null;
           handler.sendMessage(handler.obtainMessage(-1,err));
           return;
         }
-        if (email.length() == 0) {
+        if (myEmail.length() == 0) {
+          myEmail=null;
           final String err=NetworkErrors.errorMessage(NetworkErrors.ERROR_EMAIL_WAS_NOT_SPECIFIED);
           handler.sendMessage(handler.obtainMessage(-1,err));
           return;
         }
-        final int atPos=email.indexOf("@");
-        if (atPos == -1 || email.indexOf(".",atPos) == -1) {
+        final int atPos=myEmail.indexOf("@");
+        if (atPos == -1 || myEmail.indexOf(".",atPos) == -1) {
           final String err=NetworkErrors.errorMessage(NetworkErrors.ERROR_INVALID_EMAIL);
           handler.sendMessage(handler.obtainMessage(-1,err));
           return;
         }
         final Runnable runnable=new Runnable(){
           public void run(){
-            String err=mgr.registerUser(login,password,email);
+            String err=mgr.registerUser(myLogin,myPassword,myEmail);
             if (err != null) {
               mgr.logOut();
               handler.sendMessage(handler.obtainMessage(-1,err));
