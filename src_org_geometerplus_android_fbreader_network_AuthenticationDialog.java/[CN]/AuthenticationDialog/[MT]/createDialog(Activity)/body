@@ -22,7 +22,7 @@
       }
       if (message.what < 0) {
         myErrorMessage=(String)message.obj;
-        activity.showDialog(NetworkLibraryActivity.DIALOG_AUTHENTICATION);
+        activity.showDialog(NetworkDialog.DIALOG_AUTHENTICATION);
       }
  else       if (message.what > 0) {
         if (myOnSuccessRunnable != null) {
@@ -82,6 +82,8 @@
     }
   }
 ;
+  final TextView registerText=(TextView)layout.findViewById(R.id.network_authentication_register);
+  registerText.setText(myResource.getResource("register").getValue());
   final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
   return new AlertDialog.Builder(activity).setView(layout).setTitle(myResource.getResource("title").getValue()).setPositiveButton(buttonResource.getResource("ok").getValue(),listener).setNegativeButton(buttonResource.getResource("cancel").getValue(),listener).create();
 }

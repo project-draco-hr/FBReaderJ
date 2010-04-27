@@ -1,8 +1,7 @@
 {
   super.onPrepareDialog(id,dialog);
-switch (id) {
-case DIALOG_AUTHENTICATION:
-    AuthenticationDialog.Instance().prepareDialog(dialog);
-  break;
-}
+  final NetworkDialog dlg=NetworkDialog.getDialog(id);
+  if (dlg != null) {
+    dlg.prepareDialog(dialog);
+  }
 }

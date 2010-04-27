@@ -1,0 +1,3 @@
+{
+  getDialog(id).showInternal(id,link,onSuccessRunnable);
+}

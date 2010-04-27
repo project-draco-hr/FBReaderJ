@@ -1,9 +1,7 @@
 {
-  Dialog dialog=null;
-switch (id) {
-case NetworkLibraryActivity.DIALOG_AUTHENTICATION:
-    dialog=AuthenticationDialog.Instance().createDialog(this);
-  break;
-}
-return dialog;
+  final NetworkDialog dlg=NetworkDialog.getDialog(id);
+  if (dlg != null) {
+    return dlg.createDialog(this);
+  }
+  return null;
 }

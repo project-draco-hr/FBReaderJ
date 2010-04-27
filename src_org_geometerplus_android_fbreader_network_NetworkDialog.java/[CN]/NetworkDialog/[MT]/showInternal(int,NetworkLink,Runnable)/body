@@ -3,6 +3,6 @@
   myErrorMessage=null;
   myOnSuccessRunnable=onSuccessRunnable;
   if (NetworkLibraryActivity.Instance != null) {
-    NetworkLibraryActivity.Instance.getTopLevelActivity().showDialog(NetworkLibraryActivity.DIALOG_AUTHENTICATION);
+    NetworkLibraryActivity.Instance.getTopLevelActivity().showDialog(id);
   }
 }
