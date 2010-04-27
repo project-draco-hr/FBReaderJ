@@ -1,15 +1,7 @@
 {
   final View layout=activity.getLayoutInflater().inflate(R.layout.network_authentication_dialog,null);
-  final TextView login=(TextView)layout.findViewById(R.id.network_authentication_login);
-  final TextView password=(TextView)layout.findViewById(R.id.network_authentication_password);
-  login.measure(ViewGroup.LayoutParams.FILL_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-  password.measure(ViewGroup.LayoutParams.FILL_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-  final TextView loginText=(TextView)layout.findViewById(R.id.network_authentication_login_text);
-  loginText.setText(myResource.getResource("login").getValue());
-  loginText.getLayoutParams().height=login.getMeasuredHeight();
-  final TextView passwordText=(TextView)layout.findViewById(R.id.network_authentication_password_text);
-  passwordText.setText(myResource.getResource("password").getValue());
-  passwordText.getLayoutParams().height=password.getMeasuredHeight();
+  setupLabel(layout,R.id.network_authentication_login_text,"login",R.id.network_authentication_login);
+  setupLabel(layout,R.id.network_authentication_password_text,"password",R.id.network_authentication_password);
   final Handler handler=new Handler(){
     public void handleMessage(    Message message){
       final NetworkLibrary library=NetworkLibrary.Instance();
@@ -39,7 +31,7 @@
         final String login=((TextView)alert.findViewById(R.id.network_authentication_login)).getText().toString().trim();
         final String password=((TextView)alert.findViewById(R.id.network_authentication_password)).getText().toString();
         if (login.length() == 0) {
-          String err=myResource.getResource("loginIsEmpty").getValue();
+          final String err=myResource.getResource("loginIsEmpty").getValue();
           handler.sendMessage(handler.obtainMessage(-1,err));
           return;
         }
@@ -83,6 +75,26 @@
 ;
   final TextView registerText=(TextView)layout.findViewById(R.id.network_authentication_register);
   registerText.setText(myResource.getResource("register").getValue());
+  registerText.setOnClickListener(new View.OnClickListener(){
+    public void onClick(    View view){
+      final NetworkAuthenticationManager mgr=myLink.authenticationManager();
+      if (mgr.registrationSupported()) {
+        activity.dismissDialog(NetworkDialog.DIALOG_AUTHENTICATION);
+        NetworkDialog.show(NetworkDialog.DIALOG_REGISTER_USER,myLink,new Runnable(){
+          public void run(){
+            if (mgr.isAuthorised(true).Status == ZLBoolean3.B3_TRUE) {
+              myOnSuccessRunnable.run();
+            }
+ else {
+              NetworkDialog.show(NetworkDialog.DIALOG_AUTHENTICATION,myLink,myOnSuccessRunnable);
+            }
+          }
+        }
+);
+      }
+    }
+  }
+);
   final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
   return new AlertDialog.Builder(activity).setView(layout).setTitle(myResource.getResource("title").getValue()).setPositiveButton(buttonResource.getResource("ok").getValue(),listener).setNegativeButton(buttonResource.getResource("cancel").getValue(),listener).create();
 }
