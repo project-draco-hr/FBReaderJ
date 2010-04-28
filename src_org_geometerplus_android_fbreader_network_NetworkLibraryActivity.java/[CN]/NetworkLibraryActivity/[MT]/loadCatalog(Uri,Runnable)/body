@@ -1,6 +1,12 @@
 {
-  if (!myCatalogRunnables.containsKey(uri)) {
-    myCatalogRunnables.put(uri,loadCatalogRunnable);
+  boolean doDownload=false;
+synchronized (myCatalogRunnables) {
+    if (!myCatalogRunnables.containsKey(uri)) {
+      myCatalogRunnables.put(uri,loadCatalogRunnable);
+      doDownload=true;
+    }
+  }
+  if (doDownload) {
     startService(new Intent(Intent.ACTION_DEFAULT,uri,getApplicationContext(),CatalogDownloaderService.class));
   }
 }

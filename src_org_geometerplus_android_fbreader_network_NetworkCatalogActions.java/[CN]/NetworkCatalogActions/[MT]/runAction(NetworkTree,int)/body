@@ -22,6 +22,9 @@ if (NetworkLibraryActivity.Instance != null) {
 NetworkLibraryActivity.Instance.openInBrowser(((NetworkCatalogTree)tree).Item.Link.authenticationManager().refillAccountLink());
 }
 return true;
+case STOP_LOADING_ITEM_ID:
+doStopLoading((NetworkCatalogTree)tree);
+return true;
 }
 return false;
 }

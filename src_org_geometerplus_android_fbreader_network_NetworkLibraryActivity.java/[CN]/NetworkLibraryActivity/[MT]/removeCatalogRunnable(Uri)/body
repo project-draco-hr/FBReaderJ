@@ -1,5 +1,5 @@
 {
 synchronized (myCatalogRunnables) {
-    return myCatalogRunnables.get(uri);
+    return myCatalogRunnables.remove(uri);
   }
 }

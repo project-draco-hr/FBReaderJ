@@ -1,0 +1,14 @@
+{
+  if (NetworkLibraryActivity.Instance == null) {
+    return;
+  }
+  final String url=tree.Item.URLByType.get(NetworkCatalogItem.URL_CATALOG);
+  if (url == null) {
+    throw new RuntimeException("That's impossible!!!");
+  }
+  final Uri uri=Uri.parse(url);
+  final Runnable runnable=NetworkLibraryActivity.Instance.getCatalogRunnable(uri);
+  if (runnable != null && runnable instanceof ExpandCatalogRunnable) {
+    ((ExpandCatalogRunnable)runnable).InterruptFlag.set(true);
+  }
+}

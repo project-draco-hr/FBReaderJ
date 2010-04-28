@@ -2,14 +2,28 @@
   final NetworkCatalogTree catalogTree=(NetworkCatalogTree)tree;
   final NetworkCatalogItem item=catalogTree.Item;
   menu.setHeaderTitle(tree.getName());
+  final String catalogUrl=item.URLByType.get(NetworkCatalogItem.URL_CATALOG);
   final boolean isOpened=tree.hasChildren() && NetworkLibraryActivity.Instance.getAdapter().isOpen(tree);
+  final boolean isLoading=(catalogUrl != null) ? (NetworkLibraryActivity.Instance.getCatalogRunnable(Uri.parse(catalogUrl)) != null) : false;
+  if (catalogUrl != null) {
+    if (isLoading) {
+      addMenuItem(menu,STOP_LOADING_ITEM_ID,"stopLoading");
+    }
+ else {
+      final String expandOrCollapseTitle;
+      if (tree instanceof NetworkCatalogRootTree) {
+        expandOrCollapseTitle=isOpened ? "closeCatalog" : "openCatalog";
+      }
+ else {
+        expandOrCollapseTitle=isOpened ? "collapseTree" : "expandTree";
+      }
+      addMenuItem(menu,EXPAND_OR_COLLAPSE_TREE_ITEM_ID,expandOrCollapseTitle);
+      if (isOpened) {
+        addMenuItem(menu,RELOAD_ITEM_ID,"reload");
+      }
+    }
+  }
   if (tree instanceof NetworkCatalogRootTree) {
-    if (item.URLByType.get(NetworkCatalogItem.URL_CATALOG) != null) {
-      addMenuItem(menu,EXPAND_OR_COLLAPSE_TREE_ITEM_ID,isOpened ? "closeCatalog" : "openCatalog");
-    }
-    if (isOpened) {
-      addMenuItem(menu,RELOAD_ITEM_ID,"reload");
-    }
     NetworkAuthenticationManager mgr=item.Link.authenticationManager();
     if (mgr != null) {
       final boolean maybeSignedIn=mgr.isAuthorised(false).Status != ZLBoolean3.B3_FALSE;
@@ -24,22 +38,12 @@
       }
  else {
         addMenuItem(menu,SIGNIN_ITEM_ID,"signIn");
-        if (mgr.registrationSupported()) {
-        }
-        if (mgr.passwordRecoverySupported()) {
-        }
       }
     }
   }
  else {
-    if (item.URLByType.get(NetworkCatalogItem.URL_CATALOG) != null) {
-      addMenuItem(menu,EXPAND_OR_COLLAPSE_TREE_ITEM_ID,isOpened ? "collapseTree" : "expandTree");
-    }
     if (item.URLByType.get(NetworkCatalogItem.URL_HTML_PAGE) != null) {
       addMenuItem(menu,OPEN_IN_BROWSER_ITEM_ID,"openInBrowser");
-    }
-    if (isOpened) {
-      addMenuItem(menu,RELOAD_ITEM_ID,"reload");
     }
   }
 }
