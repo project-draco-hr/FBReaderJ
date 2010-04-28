@@ -1,3 +1,4 @@
 NetworkTree parent
 String seriesTitle
+int position
 boolean showAuthors

@@ -3,7 +3,8 @@
     mySubTrees=new ArrayList<T>();
   }
   final int subTreeSize=subtree.getSize();
-  while (position >= 0 && position < mySubTrees.size()) {
+  final int thisSubTreesSize=mySubTrees.size();
+  while (position < thisSubTreesSize) {
     subtree=mySubTrees.set(position++,subtree);
   }
   mySubTrees.add(subtree);
