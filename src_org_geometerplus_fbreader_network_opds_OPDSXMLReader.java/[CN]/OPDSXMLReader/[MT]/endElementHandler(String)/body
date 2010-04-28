@@ -18,6 +18,7 @@
     bufferContent=new String(bufferContentArray);
   }
   myBuffer.delete(0,myBuffer.length());
+  boolean interruptReading=false;
 switch (myState) {
 case START:
     break;
@@ -34,7 +35,7 @@ break;
 case F_ENTRY:
 if (tagPrefix == myAtomNamespaceId && tag == TAG_ENTRY) {
 if (myEntry != null && myEntry.Id != null) {
-  myFeedReader.processFeedEntry(myEntry);
+  interruptReading=myFeedReader.processFeedEntry(myEntry);
 }
 myEntry=null;
 myState=FEED;
@@ -311,5 +312,5 @@ myState=FEED;
 }
 break;
 }
-return false;
+return interruptReading;
 }

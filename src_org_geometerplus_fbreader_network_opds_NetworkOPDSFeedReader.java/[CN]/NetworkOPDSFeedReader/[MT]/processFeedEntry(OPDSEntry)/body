@@ -1,7 +1,7 @@
 {
   final OPDSLink opdsLink=(OPDSLink)myData.Link;
   if (opdsLink.getCondition(entry.Id.Uri) == OPDSLink.FeedCondition.NEVER) {
-    return;
+    return false;
   }
   boolean hasBookLink=false;
   for (  ATOMLink link : entry.Links) {
@@ -20,6 +20,7 @@
     item=readCatalogItem(entry);
   }
   if (item != null) {
-    myData.Listener.onNewItem(item);
+    return myData.Listener.onNewItem(item);
   }
+  return false;
 }
