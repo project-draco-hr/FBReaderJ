@@ -1,0 +1,4 @@
+{
+  Summary=summary;
+  BooksMap=new LinkedHashMap<NetworkBookItem.AuthorData,LinkedList<NetworkBookItem>>();
+}

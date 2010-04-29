@@ -1,0 +1,4 @@
+{
+  ZLResourceFile file=ZLResourceFile.createResourceFile("data/searchresult.png");
+  return new ZLFileImage("image/png",file);
+}

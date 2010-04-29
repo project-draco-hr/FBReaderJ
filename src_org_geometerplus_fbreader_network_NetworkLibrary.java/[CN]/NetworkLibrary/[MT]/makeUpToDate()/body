@@ -48,6 +48,35 @@
       ptr.Item.onDisplayItem();
     }
   }
+  SearchResultTree srTree=null;
+  while (currentNode != null || nodeIterator.hasNext()) {
+    if (currentNode == null) {
+      currentNode=nodeIterator.next();
+    }
+    if (currentNode instanceof SearchResultTree) {
+      srTree=(SearchResultTree)currentNode;
+    }
+ else {
+      toRemove.add(currentNode);
+    }
+    currentNode=null;
+  }
+  if (mySearchResult == null || mySearchResult.empty()) {
+    if (srTree != null) {
+      toRemove.add(srTree);
+    }
+  }
+ else {
+    if (srTree.Result != mySearchResult) {
+      toRemove.add(srTree);
+      srTree=null;
+    }
+    if (srTree == null) {
+      srTree=new SearchResultTree(myRootTree,mySearchResult);
+    }
+ else {
+    }
+  }
   for (  FBTree tree : toRemove) {
     tree.removeSelf();
   }

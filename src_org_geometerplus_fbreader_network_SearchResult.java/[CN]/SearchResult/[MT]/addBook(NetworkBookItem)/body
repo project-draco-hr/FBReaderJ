@@ -1,0 +1,10 @@
+{
+  for (  NetworkBookItem.AuthorData author : book.Authors) {
+    LinkedList<NetworkBookItem> list=BooksMap.get(author);
+    if (list == null) {
+      list=new LinkedList<NetworkBookItem>();
+      BooksMap.put(author,list);
+    }
+    list.add(book);
+  }
+}
