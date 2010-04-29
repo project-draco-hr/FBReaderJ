@@ -1,0 +1,12 @@
+{
+  final NetworkOperationData data=new NetworkOperationData(Link,listener);
+  ZLNetworkRequest networkRequest=((OPDSLink)Link).createNetworkData(URLByType.get(URL_CATALOG),data);
+  while (networkRequest != null) {
+    final String errorMessage=ZLNetworkManager.Instance().perform(networkRequest);
+    if (errorMessage != null) {
+      return errorMessage;
+    }
+    networkRequest=data.resume();
+  }
+  return null;
+}

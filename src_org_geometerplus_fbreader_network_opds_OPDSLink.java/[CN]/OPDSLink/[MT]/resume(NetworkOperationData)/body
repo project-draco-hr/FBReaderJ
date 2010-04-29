@@ -1,0 +1,5 @@
+{
+  String url=data.ResumeURI;
+  data.clear();
+  return createNetworkData(url,data);
+}

@@ -1,0 +1,6 @@
+{
+  if (++myResumeCount >= 10) {
+    return null;
+  }
+  return Link.resume(this);
+}
