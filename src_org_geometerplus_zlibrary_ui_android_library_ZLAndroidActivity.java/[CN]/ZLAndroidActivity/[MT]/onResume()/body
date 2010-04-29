@@ -1,0 +1,4 @@
+{
+  System.err.println("onResume");
+  super.onResume();
+}

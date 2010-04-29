@@ -1,4 +1,5 @@
 {
   ZLApplication.Instance().onWindowClosing();
+  System.err.println("onPause");
   super.onPause();
 }

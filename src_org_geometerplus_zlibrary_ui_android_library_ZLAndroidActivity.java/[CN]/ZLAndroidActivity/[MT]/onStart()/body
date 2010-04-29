@@ -1,5 +1,6 @@
 {
   super.onStart();
+  System.err.println("onStart");
 switch (ourOrientation) {
 case ActivityInfo.SCREEN_ORIENTATION_PORTRAIT:
 case ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE:

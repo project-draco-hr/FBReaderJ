@@ -1,24 +1,32 @@
 {
-  while (true) {
+  loop:   while (true) {
     int signature=0;
     do {
       int nextByte=baseStream.read();
       if (nextByte < 0) {
         throw new ZipException("readFileHeaders. Unexpected end of file when looking for DataDescriptor");
       }
-      signature=((signature << 8) & (0x0FFFFFFFF)) + (byte)nextByte;
+      signature=((signature >> 8) & 0x0FFFFFF) | (nextByte << 24);
     }
- while (signature != LocalFileHeader.DATA_DESCRIPTOR_SIGNATURE);
-    baseStream.skip(4);
-    int compressedSize=baseStream.read4Bytes();
-    int uncompressedSize=baseStream.read4Bytes();
-    if ((baseStream.offset() - header.OffsetOfLocalData - 16) == compressedSize) {
-      header.setSizes(compressedSize,uncompressedSize);
-      break;
-    }
+ while (signature != LocalFileHeader.FILE_HEADER_SIGNATURE && signature != LocalFileHeader.FOLDER_HEADER_SIGNATURE && signature != LocalFileHeader.DATA_DESCRIPTOR_SIGNATURE);
+    System.err.println(PATH + " : " + Integer.toHexString(signature));
+switch (signature) {
+case LocalFileHeader.FILE_HEADER_SIGNATURE:
+      break loop;
+case LocalFileHeader.FOLDER_HEADER_SIGNATURE:
+    break loop;
+case LocalFileHeader.DATA_DESCRIPTOR_SIGNATURE:
+  baseStream.skip(4);
+int compressedSize=baseStream.read4Bytes();
+int uncompressedSize=baseStream.read4Bytes();
+if ((baseStream.offset() - header.OffsetOfLocalData - 16) == compressedSize) {
+header.setSizes(compressedSize,uncompressedSize);
+break loop;
+}
  else {
-      baseStream.backSkip(12);
-      continue;
-    }
-  }
+baseStream.backSkip(12);
+continue loop;
+}
+}
+}
 }

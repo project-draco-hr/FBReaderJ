@@ -1,6 +1,6 @@
 {
   if ((myState != ST_HEADER) || (myBytesRead >= myTotalLength)) {
-    throw new RuntimeException("unexpected case of readheader call");
+    throw new ZipException("unexpected case of readheader call");
   }
   myTheBlockIsFinal=(getBit() != 0);
 switch (readIntegerByBit(2)) {
