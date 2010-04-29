@@ -3,6 +3,6 @@
     return myCompressedSize;
   }
  else {
-    throw new RuntimeException("Error in getCompressedSize: file size is not known yet");
+    throw new ZipException("Error in getCompressedSize: file size is not known yet");
   }
 }
