@@ -1,0 +1,3 @@
+{
+  return Links.get(URL_SEARCH).replace("%s",query);
+}
