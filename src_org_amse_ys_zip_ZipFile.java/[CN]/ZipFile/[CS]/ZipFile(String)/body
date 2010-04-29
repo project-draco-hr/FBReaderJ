@@ -1,4 +1,3 @@
 {
   this(new FileInputStreamHolder(filePath));
-  PATH=filePath;
 }

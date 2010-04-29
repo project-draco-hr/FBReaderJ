@@ -1,8 +1,5 @@
 {
   super.onConfigurationChanged(config);
-  Configuration defaultConfig=new Configuration();
-  defaultConfig.setToDefaults();
-  System.err.println("config = " + config);
 switch (getRequestedOrientation()) {
 default :
     break;

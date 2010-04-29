@@ -80,7 +80,7 @@ previousCode+=(1 << extraBits);
 distance=previousCode + 1 + readIntegerByBit(extraBits);
 }
  else {
-throw new ZipException("distance code > 29 found");
+throw new RuntimeException("distance code > 29 found");
 }
 myOutputBuffer.repeat(length,distance);
 return length;

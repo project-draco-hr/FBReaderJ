@@ -33,7 +33,7 @@ repeatNumber=11 + readIntegerByBit(7);
 previous=false;
 break;
 default :
-throw new ZipException("error when reading dynamic Huffman codes");
+throw new RuntimeException("error when reading dynamic Huffman codes");
 }
 previousNumber=previous ? previousNumber : 0;
 for (int j=0; j < repeatNumber; j++) {
@@ -68,7 +68,7 @@ repeatNumber=11 + readIntegerByBit(7);
 previous=false;
 break;
 default :
-throw new ZipException("error when reading dynamic Huffman codes");
+throw new RuntimeException("error when reading dynamic Huffman codes");
 }
 previousNumber=(previous ? previousNumber : 0);
 for (int j=0; j < repeatNumber; j++) {

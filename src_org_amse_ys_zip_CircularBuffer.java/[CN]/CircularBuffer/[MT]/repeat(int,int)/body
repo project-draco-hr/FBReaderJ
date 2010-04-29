@@ -1,6 +1,6 @@
 {
   if (myBytesReady + length > DICTIONARY_LENGTH) {
-    throw new ZipException("circular buffer overflow");
+    throw new RuntimeException("circular buffer overflow");
   }
   int writePoint=(myCurrentPosition + myBytesReady) & DICTIONARY_MASK;
   int readPoint=(writePoint - distance) & DICTIONARY_MASK;

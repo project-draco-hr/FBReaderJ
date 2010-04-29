@@ -1,6 +1,6 @@
 {
   if (myBytesReady == 0) {
-    throw new ZipException("reading from empty buffer");
+    throw new RuntimeException("reading from empty buffer");
   }
   final byte result=myBuffer[myCurrentPosition++];
   myCurrentPosition&=DICTIONARY_MASK;
