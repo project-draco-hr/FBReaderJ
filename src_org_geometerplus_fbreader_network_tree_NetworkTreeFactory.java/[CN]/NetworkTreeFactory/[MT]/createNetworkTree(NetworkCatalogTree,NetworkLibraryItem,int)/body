@@ -16,7 +16,8 @@
     return tree;
   }
  else   if (item instanceof NetworkBookItem) {
-    return new NetworkBookTree(parent,(NetworkBookItem)item,position);
+    final boolean showAuthors=parent.Item.CatalogType != NetworkCatalogItem.CATALOG_BY_AUTHORS;
+    return new NetworkBookTree(parent,(NetworkBookItem)item,position,showAuthors);
   }
   return null;
 }

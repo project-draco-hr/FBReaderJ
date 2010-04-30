@@ -1,4 +1,5 @@
 {
   super(parent);
   Book=book;
+  myShowAuthors=showAuthors;
 }

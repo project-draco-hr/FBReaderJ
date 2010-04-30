@@ -1,3 +1,4 @@
 NetworkTree parent
 NetworkBookItem book
 int position
+boolean showAuthors

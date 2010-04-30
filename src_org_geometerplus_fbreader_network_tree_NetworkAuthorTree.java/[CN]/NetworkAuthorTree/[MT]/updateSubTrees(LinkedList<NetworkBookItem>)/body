@@ -5,7 +5,7 @@
   ListIterator<NetworkBookItem> booksIterator=books.listIterator(myBooksNumber);
   while (booksIterator.hasNext()) {
     NetworkBookItem book=booksIterator.next();
-    new NetworkBookTree(this,book);
+    new NetworkBookTree(this,book,false);
   }
   myBooksNumber=books.size();
 }
