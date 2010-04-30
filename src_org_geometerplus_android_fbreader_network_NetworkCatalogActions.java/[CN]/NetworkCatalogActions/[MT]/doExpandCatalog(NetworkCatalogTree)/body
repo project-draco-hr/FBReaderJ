@@ -14,5 +14,5 @@
     throw new RuntimeException("That's impossible!!!");
   }
   final ExpandCatalogHandler handler=new ExpandCatalogHandler(tree);
-  NetworkLibraryActivity.Instance.startItemsLoading(Uri.parse(url),new ExpandCatalogRunnable(handler,tree,true));
+  NetworkLibraryActivity.Instance.startItemsLoading(url,new ExpandCatalogRunnable(handler,tree,true));
 }

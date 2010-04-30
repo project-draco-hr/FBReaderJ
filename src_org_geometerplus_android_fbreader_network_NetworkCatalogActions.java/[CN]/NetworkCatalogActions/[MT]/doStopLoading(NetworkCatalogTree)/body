@@ -6,8 +6,7 @@
   if (url == null) {
     throw new RuntimeException("That's impossible!!!");
   }
-  final Uri uri=Uri.parse(url);
-  final ItemsLoadingRunnable runnable=NetworkLibraryActivity.Instance.getItemsLoadingRunnable(uri);
+  final ItemsLoadingRunnable runnable=NetworkLibraryActivity.Instance.getItemsLoadingRunnable(url);
   if (runnable != null) {
     runnable.InterruptFlag.set(true);
   }

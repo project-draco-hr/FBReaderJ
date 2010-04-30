@@ -4,7 +4,7 @@
   menu.setHeaderTitle(tree.getName());
   final String catalogUrl=item.URLByType.get(NetworkCatalogItem.URL_CATALOG);
   final boolean isOpened=tree.hasChildren() && NetworkLibraryActivity.Instance.getAdapter().isOpen(tree);
-  final ItemsLoadingRunnable catalogRunnable=(catalogUrl != null) ? NetworkLibraryActivity.Instance.getItemsLoadingRunnable(Uri.parse(catalogUrl)) : null;
+  final ItemsLoadingRunnable catalogRunnable=(catalogUrl != null) ? NetworkLibraryActivity.Instance.getItemsLoadingRunnable(catalogUrl) : null;
   final boolean isLoading=catalogRunnable != null;
   if (catalogUrl != null) {
     if (isLoading) {

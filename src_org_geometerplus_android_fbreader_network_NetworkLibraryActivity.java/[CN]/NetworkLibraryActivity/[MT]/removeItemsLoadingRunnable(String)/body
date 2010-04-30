@@ -1,5 +1,5 @@
 {
 synchronized (myItemsLoadingRunnables) {
-    return myItemsLoadingRunnables.remove(uri);
+    return myItemsLoadingRunnables.remove(key);
   }
 }

@@ -1,5 +1,5 @@
 {
 synchronized (myItemsLoadingRunnables) {
-    return myItemsLoadingRunnables.get(uri);
+    return myItemsLoadingRunnables.get(key);
   }
 }
