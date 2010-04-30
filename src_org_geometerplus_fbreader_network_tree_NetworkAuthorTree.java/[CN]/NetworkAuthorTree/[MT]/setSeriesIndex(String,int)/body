@@ -1,0 +1,6 @@
+{
+  if (mySeriesMap == null) {
+    mySeriesMap=new HashMap<String,Integer>();
+  }
+  mySeriesMap.put(seriesName,Integer.valueOf(index));
+}

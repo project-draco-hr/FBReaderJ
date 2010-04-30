@@ -1,0 +1,10 @@
+{
+  if (mySeriesMap == null) {
+    return -1;
+  }
+  Integer value=mySeriesMap.get(seriesName);
+  if (value == null) {
+    return -1;
+  }
+  return value.intValue();
+}
