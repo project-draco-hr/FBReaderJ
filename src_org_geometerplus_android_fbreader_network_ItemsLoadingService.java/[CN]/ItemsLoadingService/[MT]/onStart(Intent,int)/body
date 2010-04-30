@@ -11,7 +11,7 @@
     doStop();
     return;
   }
-  final Runnable runnable=NetworkLibraryActivity.Instance.getCatalogRunnable(uri);
+  final Runnable runnable=NetworkLibraryActivity.Instance.getItemsLoadingRunnable(uri);
   if (runnable == null) {
     doStop();
     return;
@@ -21,7 +21,7 @@
       doStop();
       endProgressNotification();
       if (NetworkLibraryActivity.Instance != null) {
-        NetworkLibraryActivity.Instance.removeCatalogRunnable(uri);
+        NetworkLibraryActivity.Instance.removeItemsLoadingRunnable(uri);
       }
     }
   }

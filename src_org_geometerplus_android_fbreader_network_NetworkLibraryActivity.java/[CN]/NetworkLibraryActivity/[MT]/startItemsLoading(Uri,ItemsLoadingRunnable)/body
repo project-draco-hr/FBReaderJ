@@ -1,0 +1,12 @@
+{
+  boolean doDownload=false;
+synchronized (myItemsLoadingRunnables) {
+    if (!myItemsLoadingRunnables.containsKey(uri)) {
+      myItemsLoadingRunnables.put(uri,runnable);
+      doDownload=true;
+    }
+  }
+  if (doDownload) {
+    startService(new Intent(Intent.ACTION_DEFAULT,uri,getApplicationContext(),ItemsLoadingService.class));
+  }
+}

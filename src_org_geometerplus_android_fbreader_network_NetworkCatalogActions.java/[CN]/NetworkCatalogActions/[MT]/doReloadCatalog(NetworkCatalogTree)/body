@@ -14,5 +14,5 @@
   tree.clear();
   NetworkLibraryActivity.Instance.getAdapter().resetTree();
   final ExpandCatalogHandler handler=new ExpandCatalogHandler(tree);
-  NetworkLibraryActivity.Instance.loadCatalog(Uri.parse(url),new ExpandCatalogRunnable(handler,tree,false));
+  NetworkLibraryActivity.Instance.startItemsLoading(Uri.parse(url),new ExpandCatalogRunnable(handler,tree,false));
 }

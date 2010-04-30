@@ -1,0 +1,5 @@
+{
+synchronized (myItemsLoadingRunnables) {
+    return myItemsLoadingRunnables.remove(uri);
+  }
+}

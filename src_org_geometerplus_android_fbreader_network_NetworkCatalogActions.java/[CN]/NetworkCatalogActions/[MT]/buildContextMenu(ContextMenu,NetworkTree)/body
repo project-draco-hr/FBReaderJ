@@ -4,11 +4,11 @@
   menu.setHeaderTitle(tree.getName());
   final String catalogUrl=item.URLByType.get(NetworkCatalogItem.URL_CATALOG);
   final boolean isOpened=tree.hasChildren() && NetworkLibraryActivity.Instance.getAdapter().isOpen(tree);
-  final Runnable catalogRunnable=(catalogUrl != null) ? NetworkLibraryActivity.Instance.getCatalogRunnable(Uri.parse(catalogUrl)) : null;
+  final ItemsLoadingRunnable catalogRunnable=(catalogUrl != null) ? NetworkLibraryActivity.Instance.getItemsLoadingRunnable(Uri.parse(catalogUrl)) : null;
   final boolean isLoading=catalogRunnable != null;
   if (catalogUrl != null) {
     if (isLoading) {
-      if (catalogRunnable instanceof ItemsLoadingRunnable && ((ItemsLoadingRunnable)catalogRunnable).InterruptFlag.get()) {
+      if (catalogRunnable.InterruptFlag.get()) {
         addMenuItem(menu,TREE_NO_ACTION,"stoppingCatalogLoading");
       }
  else {

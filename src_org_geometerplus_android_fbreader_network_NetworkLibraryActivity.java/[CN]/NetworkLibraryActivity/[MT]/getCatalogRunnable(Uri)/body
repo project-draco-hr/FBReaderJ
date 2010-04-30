@@ -1,5 +1,0 @@
-{
-synchronized (myCatalogRunnables) {
-    return myCatalogRunnables.get(uri);
-  }
-}
