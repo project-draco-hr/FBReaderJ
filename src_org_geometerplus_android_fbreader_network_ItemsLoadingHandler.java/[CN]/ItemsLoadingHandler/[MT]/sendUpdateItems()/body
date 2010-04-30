@@ -1,0 +1,3 @@
+{
+  sendEmptyMessage(WHAT_UPDATE_ITEMS);
+}

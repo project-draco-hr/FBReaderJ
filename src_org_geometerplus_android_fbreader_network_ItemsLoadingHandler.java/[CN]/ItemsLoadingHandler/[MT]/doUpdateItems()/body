@@ -1,0 +1,8 @@
+{
+synchronized (myItemsMonitor) {
+    onUpdateItems(myItems);
+    myItems.clear();
+    myItemsMonitor.notifyAll();
+  }
+  afterUpdateItems();
+}

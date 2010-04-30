@@ -1,3 +1,4 @@
 {
   myTree=tree;
+  doExpand=!myTree.hasChildren();
 }

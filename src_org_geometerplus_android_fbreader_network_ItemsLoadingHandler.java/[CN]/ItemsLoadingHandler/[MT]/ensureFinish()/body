@@ -1,8 +1,8 @@
 {
-synchronized (myItems) {
+synchronized (myItemsMonitor) {
     while (myItems.size() > 0) {
       try {
-        myItems.wait();
+        myItemsMonitor.wait();
       }
  catch (      InterruptedException e) {
       }
