@@ -11,7 +11,7 @@
     doStop();
     return;
   }
-  final Runnable runnable=NetworkLibraryActivity.Instance.getItemsLoadingRunnable(key);
+  final ItemsLoadingRunnable runnable=NetworkLibraryActivity.Instance.getItemsLoadingRunnable(key);
   if (runnable == null) {
     doStop();
     return;
@@ -19,14 +19,14 @@
   final Handler finishHandler=new Handler(){
     public void handleMessage(    Message message){
       doStop();
-      endProgressNotification();
+      endProgressNotification(runnable);
       if (NetworkLibraryActivity.Instance != null) {
         NetworkLibraryActivity.Instance.removeItemsLoadingRunnable(key);
       }
     }
   }
 ;
-  startProgressNotification();
+  startProgressNotification(runnable);
   final Thread loader=new Thread(new Runnable(){
     public void run(){
       try {

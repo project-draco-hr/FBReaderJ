@@ -1,6 +1,6 @@
 {
   final RemoteViews contentView=new RemoteViews(getPackageName(),R.layout.download_notification);
-  String title=ZLResource.resource("networkView").getResource("downloadingCatalogs").getValue();
+  String title=ZLResource.resource("networkView").getResource(runnable.getResourceKey()).getValue();
   contentView.setTextViewText(R.id.download_notification_title,title);
   contentView.setTextViewText(R.id.download_notification_progress_text,"");
   contentView.setProgressBar(R.id.download_notification_progress_bar,100,0,true);
@@ -10,7 +10,7 @@
   notification.flags|=Notification.FLAG_ONGOING_EVENT;
   notification.contentView=contentView;
   notification.contentIntent=contentIntent;
-  notification.number=myServiceCounter;
+  notification.number=getRunnablesNumber(runnable.Type);
   final NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-  notificationManager.notify(ourProcessingNotificationId,notification);
+  notificationManager.notify(runnable.getNotificationId(),notification);
 }

@@ -1,5 +1,7 @@
 {
   final NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-  notificationManager.cancel(ourProcessingNotificationId);
+  final NetworkNotifications notifications=NetworkNotifications.Instance();
+  notificationManager.cancel(notifications.getCatalogLoadingId());
+  notificationManager.cancel(notifications.getNetworkSearchId());
   super.onDestroy();
 }

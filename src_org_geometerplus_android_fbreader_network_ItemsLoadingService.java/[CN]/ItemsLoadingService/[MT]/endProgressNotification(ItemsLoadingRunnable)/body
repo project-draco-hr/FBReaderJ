@@ -1,0 +1,10 @@
+{
+  final int number=decreaseRunnablesNumber(runnable.Type);
+  if (number == 0) {
+    final NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+    notificationManager.cancel(runnable.getNotificationId());
+  }
+ else {
+    updateProgressNotification(runnable);
+  }
+}

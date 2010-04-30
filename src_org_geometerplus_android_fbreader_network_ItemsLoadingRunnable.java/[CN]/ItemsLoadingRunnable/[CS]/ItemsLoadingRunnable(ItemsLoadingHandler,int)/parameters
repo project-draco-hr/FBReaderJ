@@ -1,1 +1,2 @@
 ItemsLoadingHandler handler
+int type

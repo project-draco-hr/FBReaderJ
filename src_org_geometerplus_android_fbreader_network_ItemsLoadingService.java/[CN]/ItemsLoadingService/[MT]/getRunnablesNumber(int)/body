@@ -1,0 +1,7 @@
+{
+  Integer value=myRunnablesNumbers.get(runnableType);
+  if (value == null) {
+    return 0;
+  }
+  return value.intValue();
+}

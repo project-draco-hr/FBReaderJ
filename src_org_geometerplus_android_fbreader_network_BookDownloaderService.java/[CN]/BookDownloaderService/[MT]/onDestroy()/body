@@ -3,5 +3,6 @@
   for (  int notificationId : myOngoingNotifications) {
     notificationManager.cancel(notificationId);
   }
+  myOngoingNotifications.clear();
   super.onDestroy();
 }

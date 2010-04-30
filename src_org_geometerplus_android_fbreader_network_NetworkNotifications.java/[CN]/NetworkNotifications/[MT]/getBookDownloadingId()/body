@@ -1,0 +1,10 @@
+{
+  final int id=myBookDownloadingId;
+  if (myBookDownloadingId == BOOK_DOWNLOADING_END) {
+    myBookDownloadingId=BOOK_DOWNLOADING_START;
+  }
+ else {
+    ++myBookDownloadingId;
+  }
+  return id;
+}

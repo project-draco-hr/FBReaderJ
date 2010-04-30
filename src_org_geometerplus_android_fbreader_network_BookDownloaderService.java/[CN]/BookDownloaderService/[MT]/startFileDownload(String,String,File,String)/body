@@ -1,7 +1,7 @@
 {
   myDownloadingURLs.add(urlString);
   startCallbackActivity();
-  final int notificationId=(int)System.currentTimeMillis();
+  final int notificationId=NetworkNotifications.Instance().getBookDownloadingId();
   final Notification progressNotification=createDownloadProgressNotification(title);
   final NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
   myOngoingNotifications.add(Integer.valueOf(notificationId));
