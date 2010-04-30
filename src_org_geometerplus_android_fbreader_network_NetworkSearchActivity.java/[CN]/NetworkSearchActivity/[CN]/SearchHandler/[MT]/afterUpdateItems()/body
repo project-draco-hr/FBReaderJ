@@ -1,0 +1,8 @@
+{
+  final NetworkLibrary library=NetworkLibrary.Instance();
+  library.invalidate();
+  library.synchronize();
+  if (NetworkLibraryActivity.Instance != null) {
+    NetworkLibraryActivity.Instance.resetTree();
+  }
+}

@@ -1,5 +1,14 @@
 {
   final NetworkLibrary library=NetworkLibrary.Instance();
   library.NetworkSearchPatternOption.setValue(pattern);
-  return true;
+  if (NetworkLibraryActivity.Instance == null) {
+    return;
+  }
+  final String summary=ZLResource.resource("networkView").getResource("searchResults").getValue().replace("%s",pattern);
+  final SearchResult result=new SearchResult(summary);
+  library.setSearchResult(result);
+  library.invalidate();
+  library.synchronize();
+  final SearchHandler handler=new SearchHandler(result);
+  NetworkLibraryActivity.Instance.startItemsLoading("org.geometerplus.android.fbreader.network.NetworkSearchActivity",new SearchRunnable(handler,pattern));
 }

@@ -1,0 +1,3 @@
+{
+  afterUpdateCatalog(errorMessage,myResult.empty());
+}

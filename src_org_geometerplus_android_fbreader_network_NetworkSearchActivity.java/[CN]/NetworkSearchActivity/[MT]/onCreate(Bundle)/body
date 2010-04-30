@@ -4,6 +4,7 @@
   final Intent intent=getIntent();
   if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
     final String pattern=intent.getStringExtra(SearchManager.QUERY);
+    runSearch(pattern);
   }
   finish();
 }

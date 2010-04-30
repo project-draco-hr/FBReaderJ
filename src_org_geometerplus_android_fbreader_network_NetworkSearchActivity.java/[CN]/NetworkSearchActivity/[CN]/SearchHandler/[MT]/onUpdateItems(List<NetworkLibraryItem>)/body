@@ -1,0 +1,7 @@
+{
+  for (  NetworkLibraryItem item : items) {
+    if (item instanceof NetworkBookItem) {
+      myResult.addBook((NetworkBookItem)item);
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  final ZLResource dialogResource=ZLResource.resource("dialog");
+  ZLResource boxResource=null;
+  String msg=null;
+  if (errorMessage != null) {
+    boxResource=dialogResource.getResource("networkError");
+    msg=errorMessage;
+  }
+ else   if (childrenEmpty) {
+    boxResource=dialogResource.getResource("emptySearchResults");
+    msg=boxResource.getResource("message").getValue();
+  }
+  if (msg != null) {
+    if (NetworkLibraryActivity.Instance != null) {
+      final ZLResource buttonResource=dialogResource.getResource("button");
+      new AlertDialog.Builder(NetworkLibraryActivity.Instance).setTitle(boxResource.getResource("title").getValue()).setMessage(msg).setIcon(0).setPositiveButton(buttonResource.getResource("ok").getValue(),null).create().show();
+    }
+  }
+}
