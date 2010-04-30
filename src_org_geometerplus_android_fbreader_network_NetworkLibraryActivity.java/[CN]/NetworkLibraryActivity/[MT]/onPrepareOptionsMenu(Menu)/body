@@ -1,0 +1,6 @@
+{
+  final boolean searchInProgress=getItemsLoadingRunnable(NetworkSearchActivity.SEARCH_RUNNABLE_KEY) != null;
+  System.err.println("SEARCH IN PROGRESS == " + searchInProgress);
+  menu.findItem(1).setEnabled(!searchInProgress);
+  return true;
+}
