@@ -340,7 +340,7 @@ if (processNamespaces && aName.startsWith("xmlns:")) {
 if (currentNamespaceMap == null) {
 currentNamespaceMap=new HashMap<String,String>(oldNamespaceMap);
 }
-currentNamespaceMap.put(attributeValue.toString(),aName.substring(6));
+currentNamespaceMap.put(aName.substring(6),attributeValue.toString());
 attributeValue.clear();
 }
  else if (dontCacheAttributeValues) {

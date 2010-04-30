@@ -1,7 +1,0 @@
-{
-  myHrefAttribute=namespaces.get("http://www.w3.org/1999/xlink");
-  if (myHrefAttribute != null) {
-    myHrefAttribute+=":href";
-    myHrefAttribute=myHrefAttribute.intern();
-  }
-}

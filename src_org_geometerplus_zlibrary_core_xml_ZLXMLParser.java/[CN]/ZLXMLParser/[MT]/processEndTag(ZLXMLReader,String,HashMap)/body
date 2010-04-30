@@ -1,6 +1,6 @@
 {
   if (currentNamespaceMap != null) {
-    xmlReader.namespaceListChangedHandler(currentNamespaceMap);
+    xmlReader.namespaceMapChangedHandler(currentNamespaceMap);
   }
   return xmlReader.endElementHandler(tagName);
 }

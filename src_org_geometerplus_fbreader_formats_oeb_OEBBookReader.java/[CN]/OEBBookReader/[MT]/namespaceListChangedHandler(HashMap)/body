@@ -1,8 +1,0 @@
-{
-  myOPFSchemePrefix=null;
-  for (  Object o : namespaces.keySet()) {
-    if (OpenPackagingFormat.equals(o)) {
-      myOPFSchemePrefix=namespaces.get(o) + ":";
-    }
-  }
-}

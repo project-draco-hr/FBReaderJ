@@ -1,0 +1,9 @@
+{
+  myHrefAttribute=null;
+  for (  Map.Entry<String,String> entry : namespaceMap.entrySet()) {
+    if ("http://www.w3.org/1999/xlink".equals(entry.getValue())) {
+      myHrefAttribute=(entry.getKey() + ":href").intern();
+      break;
+    }
+  }
+}
