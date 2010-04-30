@@ -13,5 +13,5 @@
     NetworkLibraryActivity.Instance.resetTree();
   }
   final SearchHandler handler=new SearchHandler(result);
-  NetworkLibraryActivity.Instance.startItemsLoading("org.geometerplus.android.fbreader.network.NetworkSearchActivity",new SearchRunnable(handler,pattern));
+  NetworkLibraryActivity.Instance.startItemsLoading(SEARCH_RUNNABLE_KEY,new SearchRunnable(handler,pattern));
 }
