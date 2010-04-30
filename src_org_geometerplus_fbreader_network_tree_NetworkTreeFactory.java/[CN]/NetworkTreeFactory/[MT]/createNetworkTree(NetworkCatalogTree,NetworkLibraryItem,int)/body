@@ -16,32 +16,7 @@
     return tree;
   }
  else   if (item instanceof NetworkBookItem) {
-    NetworkBookItem book=(NetworkBookItem)item;
-    String seriesTitle=book.SeriesTitle;
-    if (seriesTitle == null) {
-      return new NetworkBookTree(parent,(NetworkBookItem)item,position);
-    }
-    if (position > 0) {
-      final NetworkTree previous=(NetworkTree)subtrees.get(position - 1);
-      if (previous instanceof NetworkSeriesTree) {
-        final NetworkSeriesTree seriesTree=(NetworkSeriesTree)previous;
-        if (seriesTree.SeriesTitle.equals(seriesTitle)) {
-          return new NetworkBookTree(seriesTree,book);
-        }
-      }
-    }
-    if (position < subtrees.size()) {
-      final NetworkTree next=(NetworkTree)subtrees.get(position);
-      if (next instanceof NetworkSeriesTree) {
-        final NetworkSeriesTree seriesTree=(NetworkSeriesTree)next;
-        if (seriesTree.SeriesTitle.equals(seriesTitle)) {
-          return new NetworkBookTree(seriesTree,book,0);
-        }
-      }
-    }
-    final boolean showAuthors=parent.Item.CatalogType != NetworkCatalogItem.CATALOG_BY_AUTHORS;
-    final NetworkSeriesTree seriesTree=new NetworkSeriesTree(parent,seriesTitle,position,showAuthors);
-    return new NetworkBookTree(seriesTree,book);
+    return new NetworkBookTree(parent,(NetworkBookItem)item,position);
   }
   return null;
 }
