@@ -1,13 +1,14 @@
 {
-  myCurrentPosition++;
-  while (myOutputBuffer.available() == 0) {
-    if (myState == ST_HEADER) {
-      readHeader();
-    }
-    pushNextSymbolToDictionary();
-    if (myState == ST_END_OF_FILE) {
-      return -1;
-    }
+  if (myAvailable <= 0) {
+    return -1;
   }
-  return myOutputBuffer.read() & 0xFF;
+  if (myOutBufferLength == 0) {
+    fillOutBuffer();
+  }
+  if (myOutBufferLength == 0) {
+    throw new IOException("cannot read from zip");
+  }
+  --myAvailable;
+  --myOutBufferLength;
+  return myOutBuffer[myOutBufferOffset++];
 }

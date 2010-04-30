@@ -1,14 +1,11 @@
 {
+  endInflating();
   myStream=inputStream;
-  myHeader=header;
-  myTotalLength=header.CompressedSize;
-  myBytesRead=0;
-  myCurrentPosition=0;
-  myTheBlockIsFinal=false;
-  myState=ST_HEADER;
-  myOutputBuffer.reset();
-  myBitsInBuffer=0;
-  myTempInt=0;
-  myCurrentBlockLength=0;
-  myReadInBlock=0;
+  myCompressedAvailable=header.CompressedSize;
+  myAvailable=header.UncompressedSize;
+  myInBufferOffset=IN_BUFFER_SIZE;
+  myInBufferLength=0;
+  myOutBufferOffset=OUT_BUFFER_SIZE;
+  myOutBufferLength=0;
+  startInflating();
 }

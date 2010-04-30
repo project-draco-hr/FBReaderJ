@@ -1,4 +1,0 @@
-{
-  myBuffer[(myCurrentPosition + myBytesReady) & DICTIONARY_MASK]=toWrite;
-  myBytesReady++;
-}
