@@ -5,4 +5,14 @@
   if (NetworkLibraryActivity.Instance != null) {
     NetworkLibraryActivity.Instance.resetTree();
   }
+  if (doExpand && NetworkLibraryActivity.Instance != null) {
+    final SearchResultTree tree=library.getSearchResultTree();
+    if (tree != null) {
+      ZLTreeAdapter adapter=NetworkLibraryActivity.Instance.getAdapter();
+      if (adapter != null) {
+        adapter.expandOrCollapseTree(tree);
+      }
+      doExpand=!tree.hasChildren();
+    }
+  }
 }
