@@ -8,7 +8,7 @@
   final boolean isLoading=catalogRunnable != null;
   if (catalogUrl != null) {
     if (isLoading) {
-      if (catalogRunnable instanceof ExpandCatalogRunnable && ((ExpandCatalogRunnable)catalogRunnable).InterruptFlag.get()) {
+      if (catalogRunnable instanceof ItemsLoadingRunnable && ((ItemsLoadingRunnable)catalogRunnable).InterruptFlag.get()) {
         addMenuItem(menu,TREE_NO_ACTION,"stoppingCatalogLoading");
       }
  else {

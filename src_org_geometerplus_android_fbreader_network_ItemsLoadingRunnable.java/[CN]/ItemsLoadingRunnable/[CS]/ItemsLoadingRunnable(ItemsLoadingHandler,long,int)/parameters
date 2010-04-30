@@ -1,0 +1,3 @@
+ItemsLoadingHandler handler
+long updateIntervalMillis
+int itemsLimit

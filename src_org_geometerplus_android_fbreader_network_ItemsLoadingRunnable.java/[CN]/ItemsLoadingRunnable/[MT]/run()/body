@@ -1,0 +1,27 @@
+{
+  String err=doBefore();
+  if (err != null) {
+    myHandler.sendFinish(err);
+    return;
+  }
+  err=doLoading(new NetworkOperationData.OnNewItemListener(){
+    private long myUpdateTime;
+    private int myItemsNumber;
+    public boolean onNewItem(    NetworkLibraryItem item){
+      myHandler.addItem(item);
+      if (InterruptFlag.get() || myItemsNumber++ >= myItemsLimit) {
+        return true;
+      }
+      final long now=System.currentTimeMillis();
+      if (now > myUpdateTime) {
+        myHandler.sendUpdateItems();
+        myUpdateTime=now + myUpdateInterval;
+      }
+      return false;
+    }
+  }
+);
+  myHandler.sendUpdateItems();
+  myHandler.ensureFinish();
+  myHandler.sendFinish(err);
+}

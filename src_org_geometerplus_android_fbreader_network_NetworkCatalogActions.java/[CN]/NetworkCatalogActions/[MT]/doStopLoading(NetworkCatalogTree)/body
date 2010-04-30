@@ -8,7 +8,7 @@
   }
   final Uri uri=Uri.parse(url);
   final Runnable runnable=NetworkLibraryActivity.Instance.getCatalogRunnable(uri);
-  if (runnable != null && runnable instanceof ExpandCatalogRunnable) {
-    ((ExpandCatalogRunnable)runnable).InterruptFlag.set(true);
+  if (runnable != null && runnable instanceof ItemsLoadingRunnable) {
+    ((ItemsLoadingRunnable)runnable).InterruptFlag.set(true);
   }
 }

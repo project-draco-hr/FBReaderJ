@@ -1,0 +1,5 @@
+{
+  myHandler=handler;
+  myUpdateInterval=updateIntervalMillis;
+  myItemsLimit=itemsLimit;
+}

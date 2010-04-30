@@ -1,0 +1,17 @@
+{
+  final NetworkLink link=myTree.Item.Link;
+  if (myCheckAuthentication && link.authenticationManager() != null) {
+    NetworkAuthenticationManager mgr=link.authenticationManager();
+    AuthenticationStatus auth=mgr.isAuthorised(true);
+    if (auth.Message != null) {
+      return auth.Message;
+    }
+    if (auth.Status == ZLBoolean3.B3_TRUE && mgr.needsInitialization()) {
+      final String err=mgr.initialize();
+      if (err != null) {
+        mgr.logOut();
+      }
+    }
+  }
+  return null;
+}
