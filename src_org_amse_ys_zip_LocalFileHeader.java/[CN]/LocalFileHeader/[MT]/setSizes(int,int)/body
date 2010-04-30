@@ -1,7 +1,0 @@
-{
-  if (!mySizeIsKnown) {
-    myCompressedSize=compressedSize;
-    myUncompressedSize=uncompressedSize;
-    mySizeIsKnown=true;
-  }
-}

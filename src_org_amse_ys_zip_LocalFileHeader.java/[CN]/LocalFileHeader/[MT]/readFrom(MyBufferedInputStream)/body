@@ -1,0 +1,30 @@
+{
+  Signature=stream.read4Bytes();
+switch (Signature) {
+default :
+    break;
+case FILE_HEADER_SIGNATURE:
+  Version=stream.read2Bytes();
+Flags=stream.read2Bytes();
+CompressionMethod=stream.read2Bytes();
+ModificationTime=stream.read2Bytes();
+ModificationDate=stream.read2Bytes();
+CRC32=stream.read4Bytes();
+CompressedSize=stream.read4Bytes();
+UncompressedSize=stream.read4Bytes();
+if (CompressionMethod == 0 && CompressedSize != UncompressedSize) {
+CompressedSize=UncompressedSize;
+}
+NameLength=stream.read2Bytes();
+ExtraLength=stream.read2Bytes();
+FileName=stream.readString(NameLength);
+stream.skip(ExtraLength);
+break;
+case DATA_DESCRIPTOR_SIGNATURE:
+CRC32=stream.read4Bytes();
+CompressedSize=stream.read4Bytes();
+UncompressedSize=stream.read4Bytes();
+break;
+}
+DataOffset=stream.offset();
+}

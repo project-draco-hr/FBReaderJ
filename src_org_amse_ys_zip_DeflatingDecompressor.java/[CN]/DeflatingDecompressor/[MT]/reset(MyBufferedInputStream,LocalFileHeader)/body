@@ -1,7 +1,7 @@
 {
   myStream=inputStream;
   myHeader=header;
-  myTotalLength=header.getCompressedSize();
+  myTotalLength=header.CompressedSize;
   myBytesRead=0;
   myCurrentPosition=0;
   myTheBlockIsFinal=false;

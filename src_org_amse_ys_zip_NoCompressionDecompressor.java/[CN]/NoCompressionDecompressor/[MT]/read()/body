@@ -1,5 +1,5 @@
 {
-  if (myCurrentPosition < myHeader.getCompressedSize()) {
+  if (myCurrentPosition < myHeader.CompressedSize) {
     myCurrentPosition++;
     return myStream.read();
   }

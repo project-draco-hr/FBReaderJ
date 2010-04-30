@@ -5,7 +5,9 @@
     if (value == -1) {
       break;
     }
-    b[off + i]=(byte)value;
+    if (b != null) {
+      b[off + i]=(byte)value;
+    }
   }
   return (i > 0) ? i : -1;
 }

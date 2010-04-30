@@ -3,10 +3,6 @@
     skip(position - myCurrentPosition);
   }
  else {
-    myFileInputStream.close();
-    myFileInputStream=myStreamHolder.getInputStream();
-    myBytesReady=0;
-    skip(position);
+    backSkip(myCurrentPosition - position);
   }
-  myCurrentPosition=position;
 }

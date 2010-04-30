@@ -1,21 +1,14 @@
 {
-  int version2extract=baseStream.read2Bytes();
-  int generalFlag=baseStream.read2Bytes();
-  int compressionMethod=baseStream.read2Bytes();
-  baseStream.skip(8);
-  int compressedSize=baseStream.read4Bytes();
-  int uncompressedSize=baseStream.read4Bytes();
-  int fileNameSize=baseStream.read2Bytes();
-  int extraField=baseStream.read2Bytes();
-  final String fileName=baseStream.readString(fileNameSize);
-  baseStream.skip(extraField);
-  LocalFileHeader header=new LocalFileHeader(version2extract,generalFlag,compressionMethod,compressedSize,uncompressedSize,baseStream.offset(),fileName);
-  myFileHeaders.put(fileName,header);
-  if (header.sizeIsKnown()) {
-    baseStream.skip(compressedSize);
+  LocalFileHeader header=new LocalFileHeader();
+  header.readFrom(baseStream);
+  if (header.FileName != null) {
+    myFileHeaders.put(header.FileName,header);
+  }
+  if ((header.Flags & 0x08) == 0) {
+    baseStream.skip(header.CompressedSize);
   }
  else {
     findAndReadDescriptor(baseStream,header);
   }
-  return fileName.equals(fileToFind);
+  return header.FileName != null && header.FileName.equals(fileToFind);
 }

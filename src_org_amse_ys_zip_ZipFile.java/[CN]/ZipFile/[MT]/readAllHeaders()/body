@@ -8,15 +8,6 @@
   myFileHeaders.clear();
   try {
     while (true) {
-      int header=baseStream.read4Bytes();
-      if (header != LocalFileHeader.FILE_HEADER_SIGNATURE) {
-        if (header == LocalFileHeader.FOLDER_HEADER_SIGNATURE) {
-          break;
-        }
- else {
-          throw new ZipException("readHeaders. Wrong signature found = " + header + " at position "+ baseStream.offset());
-        }
-      }
       readFileHeader(baseStream,null);
     }
   }

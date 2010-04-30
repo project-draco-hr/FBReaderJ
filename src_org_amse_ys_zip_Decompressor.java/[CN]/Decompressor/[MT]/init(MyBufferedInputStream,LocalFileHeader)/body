@@ -10,7 +10,7 @@ synchronized (ourDeflators) {
       return decompressor;
     }
   }
-return NativeDeflatingDecompressor.INITIALIZED ? new NativeDeflatingDecompressor(is,header) : new DeflatingDecompressor(is,header);
+return new NativeDeflatingDecompressor(is,header);
 default :
 throw new ZipException("Unsupported method of compression");
 }

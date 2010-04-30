@@ -1,3 +1,18 @@
 {
-  throw new IOException("Back skip is not implemented");
+  if (n > 0) {
+    if (myPositionInBuffer >= n) {
+      myPositionInBuffer-=n;
+      myBytesReady+=n;
+      myCurrentPosition-=n;
+    }
+ else {
+      myFileInputStream.close();
+      myFileInputStream=myStreamHolder.getInputStream();
+      myBytesReady=0;
+      myPositionInBuffer=0;
+      int position=myCurrentPosition - n;
+      myCurrentPosition=0;
+      skip(position);
+    }
+  }
 }

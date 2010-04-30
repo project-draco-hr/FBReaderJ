@@ -1,3 +1,3 @@
 {
-  return myHeader.getUncompressedSize() - myCurrentPosition;
+  return myHeader.UncompressedSize - myCurrentPosition;
 }

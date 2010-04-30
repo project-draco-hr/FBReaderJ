@@ -1,8 +1,0 @@
-{
-  if (mySizeIsKnown) {
-    return myUncompressedSize;
-  }
- else {
-    throw new ZipException("Error in getUncompressedSize: file size is not known yet");
-  }
-}

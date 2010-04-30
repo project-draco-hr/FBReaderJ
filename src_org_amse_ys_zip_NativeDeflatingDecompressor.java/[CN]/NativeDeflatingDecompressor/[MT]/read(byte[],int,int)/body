@@ -13,7 +13,9 @@
       throw new IOException("cannot read from zip");
     }
     final int ready=(toFill < myOutBufferLength) ? toFill : myOutBufferLength;
-    System.arraycopy(myOutBuffer,myOutBufferOffset,b,off,ready);
+    if (b != null) {
+      System.arraycopy(myOutBuffer,myOutBufferOffset,b,off,ready);
+    }
     off+=ready;
     myOutBufferOffset+=ready;
     toFill-=ready;

@@ -11,18 +11,8 @@
   MyBufferedInputStream baseStream=getBaseStream();
   baseStream.setPosition(0);
   try {
-    do {
-      int signature=baseStream.read4Bytes();
-      if (signature != LocalFileHeader.FILE_HEADER_SIGNATURE) {
-        if (signature == LocalFileHeader.FOLDER_HEADER_SIGNATURE) {
-          break;
-        }
- else {
-          throw new ZipException("Wrong signature " + signature + " found at position "+ baseStream.offset());
-        }
-      }
+    while (!readFileHeader(baseStream,entryName)) {
     }
- while (!readFileHeader(baseStream,entryName));
     LocalFileHeader header=myFileHeaders.get(entryName);
     if (header != null) {
       return header;

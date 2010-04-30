@@ -1,8 +1,8 @@
 {
   endInflating();
   myStream=inputStream;
-  myCompressedAvailable=header.getCompressedSize();
-  myAvailable=header.getUncompressedSize();
+  myCompressedAvailable=header.CompressedSize;
+  myAvailable=header.UncompressedSize;
   myInBufferOffset=IN_BUFFER_SIZE;
   myInBufferLength=0;
   myOutBufferOffset=OUT_BUFFER_SIZE;
