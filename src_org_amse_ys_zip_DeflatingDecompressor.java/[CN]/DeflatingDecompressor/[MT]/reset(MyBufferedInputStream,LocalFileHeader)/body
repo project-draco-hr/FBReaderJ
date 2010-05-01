@@ -1,11 +1,21 @@
 {
-  endInflating();
+  if (myInflatingInProgress) {
+    endInflating();
+    myInflatingInProgress=false;
+  }
   myStream=inputStream;
   myCompressedAvailable=header.CompressedSize;
+  if (myCompressedAvailable <= 0) {
+    myCompressedAvailable=Integer.MAX_VALUE;
+  }
   myAvailable=header.UncompressedSize;
+  if (myAvailable <= 0) {
+    myAvailable=Integer.MAX_VALUE;
+  }
   myInBufferOffset=IN_BUFFER_SIZE;
   myInBufferLength=0;
   myOutBufferOffset=OUT_BUFFER_SIZE;
   myOutBufferLength=0;
   startInflating();
+  myInflatingInProgress=true;
 }

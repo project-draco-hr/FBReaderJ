@@ -1,5 +1,4 @@
 {
-  clearTextCaches();
   if (book != null) {
     onViewChanged();
     if (Model != null) {
@@ -7,6 +6,7 @@
     }
     BookTextView.setModel(null);
     FootnoteView.setModel(null);
+    clearTextCaches();
     Model=null;
     System.gc();
     System.gc();

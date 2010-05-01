@@ -6,7 +6,13 @@
     fillOutBuffer();
   }
   if (myOutBufferLength == 0) {
-    throw new IOException("cannot read from zip");
+    if (myInflatingInProgress) {
+      throw new IOException("cannot read from zip");
+    }
+ else {
+      myAvailable=0;
+      return -1;
+    }
   }
   --myAvailable;
   --myOutBufferLength;
