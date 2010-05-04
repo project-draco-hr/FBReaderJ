@@ -12,9 +12,7 @@
   library.setSearchResult(result);
   library.invalidate();
   library.synchronize();
-  if (NetworkLibraryActivity.Instance != null) {
-    NetworkLibraryActivity.Instance.resetTree();
-  }
+  NetworkLibraryActivity.Instance.resetTree();
   final SearchHandler handler=new SearchHandler(result);
   NetworkLibraryActivity.Instance.startItemsLoading(SEARCH_RUNNABLE_KEY,new SearchRunnable(handler,pattern));
 }

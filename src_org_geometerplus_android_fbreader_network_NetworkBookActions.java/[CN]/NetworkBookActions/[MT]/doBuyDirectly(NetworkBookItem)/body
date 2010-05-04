@@ -24,8 +24,12 @@
         public void handleMessage(        Message message){
           String err=(String)message.obj;
           if (err != null) {
-            final ZLResource boxResource=dialogResource.getResource("networkError");
-            new AlertDialog.Builder(NetworkLibraryActivity.Instance.getTopLevelActivity()).setTitle(boxResource.getResource("title").getValue()).setMessage(err).setIcon(0).setPositiveButton(buttonResource.getResource("ok").getValue(),null).create().show();
+            if (NetworkLibraryActivity.Instance != null) {
+              final ZLResource boxResource=dialogResource.getResource("networkError");
+              new AlertDialog.Builder(NetworkLibraryActivity.Instance.getTopLevelActivity()).setTitle(boxResource.getResource("title").getValue()).setMessage(err).setIcon(0).setPositiveButton(buttonResource.getResource("ok").getValue(),null).create().show();
+            }
+ else {
+            }
           }
  else           if (downloadBook) {
             doDownloadBook(book,false);
