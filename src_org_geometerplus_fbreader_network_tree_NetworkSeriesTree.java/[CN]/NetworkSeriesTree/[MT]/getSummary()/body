@@ -5,11 +5,11 @@
   StringBuilder builder=new StringBuilder();
   int count=0;
   Set<NetworkBookItem.AuthorData> authorSet=new TreeSet<NetworkBookItem.AuthorData>();
-  for (  FBTree tree : this) {
+  for (  FBTree tree : subTrees()) {
     if (!(tree instanceof NetworkBookTree)) {
       continue;
     }
-    final NetworkBookItem book=(NetworkBookItem)((NetworkBookTree)tree).Book;
+    final NetworkBookItem book=((NetworkBookTree)tree).Book;
     for (    NetworkBookItem.AuthorData author : book.Authors) {
       if (!authorSet.contains(author)) {
         authorSet.add(author);
