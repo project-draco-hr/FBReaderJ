@@ -17,7 +17,31 @@
   }
  else   if (item instanceof NetworkBookItem) {
     final boolean showAuthors=parent.Item.CatalogType != NetworkCatalogItem.CATALOG_BY_AUTHORS;
-    return new NetworkBookTree(parent,(NetworkBookItem)item,position,showAuthors);
+    NetworkBookItem book=(NetworkBookItem)item;
+    String seriesTitle=book.SeriesTitle;
+    if (seriesTitle == null) {
+      return new NetworkBookTree(parent,(NetworkBookItem)item,position,showAuthors);
+    }
+    if (position > 0) {
+      final NetworkTree previous=(NetworkTree)subtrees.get(position - 1);
+      if (previous instanceof NetworkSeriesTree) {
+        final NetworkSeriesTree seriesTree=(NetworkSeriesTree)previous;
+        if (seriesTree.SeriesTitle.equals(seriesTitle)) {
+          return new NetworkBookTree(seriesTree,book,showAuthors);
+        }
+      }
+    }
+    if (position < subtrees.size()) {
+      final NetworkTree next=(NetworkTree)subtrees.get(position);
+      if (next instanceof NetworkSeriesTree) {
+        final NetworkSeriesTree seriesTree=(NetworkSeriesTree)next;
+        if (seriesTree.SeriesTitle.equals(seriesTitle)) {
+          return new NetworkBookTree(seriesTree,book,0,showAuthors);
+        }
+      }
+    }
+    final NetworkSeriesTree seriesTree=new NetworkSeriesTree(parent,seriesTitle,position,showAuthors);
+    return new NetworkBookTree(seriesTree,book,showAuthors);
   }
   return null;
 }
