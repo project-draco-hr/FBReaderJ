@@ -1,0 +1,8 @@
+{
+  NetworkLibrary.Instance().synchronize();
+  myActions.add(new NetworkBookActions());
+  myActions.add(new NetworkCatalogActions());
+  myActions.add(new NetworkSearchActions());
+  myActions.trimToSize();
+  myInitialized=true;
+}

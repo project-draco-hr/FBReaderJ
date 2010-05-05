@@ -1,11 +1,8 @@
 {
   super.onCreate(icicle);
   Thread.setDefaultUncaughtExceptionHandler(new org.geometerplus.zlibrary.ui.android.library.UncaughtExceptionHandler(this));
-  Instance=this;
-  myTopLevelActivity=this;
-  myEventListeners.clear();
   requestWindowFeature(Window.FEATURE_NO_TITLE);
   setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
-  myConnection=new BookDownloaderServiceConnection();
-  bindService(new Intent(getApplicationContext(),BookDownloaderService.class),myConnection,BIND_AUTO_CREATE);
+  Connection=new BookDownloaderServiceConnection();
+  bindService(new Intent(getApplicationContext(),BookDownloaderService.class),Connection,BIND_AUTO_CREATE);
 }

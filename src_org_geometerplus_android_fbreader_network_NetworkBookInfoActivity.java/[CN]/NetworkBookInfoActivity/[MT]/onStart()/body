@@ -1,7 +1,4 @@
 {
   super.onStart();
-  if (NetworkLibraryActivity.Instance != null) {
-    NetworkLibraryActivity.Instance.setTopLevelActivity(this);
-    NetworkLibraryActivity.Instance.addEventListener(this);
-  }
+  NetworkView.Instance().addEventListener(this);
 }

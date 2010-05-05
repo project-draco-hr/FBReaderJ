@@ -1,0 +1,6 @@
+{
+  myLink=link;
+  myErrorMessage=null;
+  myOnSuccessRunnable=onSuccessRunnable;
+  activity.showDialog(id);
+}

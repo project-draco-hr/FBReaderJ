@@ -3,7 +3,8 @@
     return true;
   }
   final NetworkTree networkTree=(NetworkTree)tree;
-  final NetworkTreeActions actions=chooseActions(networkTree);
+  final NetworkView networkView=NetworkView.Instance();
+  final NetworkTreeActions actions=networkView.getActions(networkTree);
   if (actions == null) {
     return false;
   }
@@ -21,13 +22,13 @@
     final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
     new AlertDialog.Builder(NetworkLibraryActivity.this).setTitle(networkTree.getName()).setMessage(confirm).setIcon(0).setPositiveButton(buttonResource.getResource("yes").getValue(),new DialogInterface.OnClickListener(){
       public void onClick(      DialogInterface dialog,      int which){
-        actions.runAction(networkTree,actionCode);
+        actions.runAction(NetworkLibraryActivity.this,networkTree,actionCode);
       }
     }
 ).setNegativeButton(buttonResource.getResource("no").getValue(),null).create().show();
   }
  else {
-    actions.runAction(networkTree,actionCode);
+    actions.runAction(NetworkLibraryActivity.this,networkTree,actionCode);
   }
   return true;
 }

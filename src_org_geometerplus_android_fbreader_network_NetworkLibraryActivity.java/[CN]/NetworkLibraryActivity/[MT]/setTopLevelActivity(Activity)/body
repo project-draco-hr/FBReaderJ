@@ -1,8 +1,0 @@
-{
-  if (activity == null) {
-    myTopLevelActivity=this;
-  }
- else {
-    myTopLevelActivity=activity;
-  }
-}

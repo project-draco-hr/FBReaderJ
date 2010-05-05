@@ -1,5 +1,0 @@
-{
-  if (NetworkLibraryActivity.Instance != null) {
-    NetworkLibraryActivity.Instance.getAdapter().expandOrCollapseTree(tree);
-  }
-}

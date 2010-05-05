@@ -1,5 +1,5 @@
 {
-  if (getItemsLoadingRunnable(NetworkSearchActivity.SEARCH_RUNNABLE_KEY) != null) {
+  if (NetworkView.Instance().containsItemsLoadingRunnable(NetworkSearchActivity.SEARCH_RUNNABLE_KEY)) {
     return false;
   }
   final NetworkLibrary library=NetworkLibrary.Instance();

@@ -1,5 +1,0 @@
-{
-  NetworkBookTree bookTree=(NetworkBookTree)tree;
-  NetworkBookItem book=bookTree.Book;
-  return runAction(book,actionCode);
-}

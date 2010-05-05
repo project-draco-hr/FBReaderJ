@@ -1,6 +1,5 @@
 {
-  unbindService(myConnection);
-  myConnection=null;
-  Instance=null;
+  unbindService(Connection);
+  Connection=null;
   super.onDestroy();
 }

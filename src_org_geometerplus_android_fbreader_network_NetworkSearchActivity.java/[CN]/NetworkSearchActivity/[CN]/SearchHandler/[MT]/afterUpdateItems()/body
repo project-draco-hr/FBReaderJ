@@ -2,16 +2,12 @@
   final NetworkLibrary library=NetworkLibrary.Instance();
   library.invalidate();
   library.synchronize();
-  if (NetworkLibraryActivity.Instance != null) {
-    NetworkLibraryActivity.Instance.resetTree();
+  if (NetworkView.Instance().isInitialized()) {
+    NetworkView.Instance().fireModelChanged();
   }
-  if (doExpand && NetworkLibraryActivity.Instance != null) {
+  if (doExpand) {
     final SearchResultTree tree=library.getSearchResultTree();
     if (tree != null) {
-      ZLTreeAdapter adapter=NetworkLibraryActivity.Instance.getAdapter();
-      if (adapter != null) {
-        adapter.expandOrCollapseTree(tree);
-      }
       doExpand=!tree.hasChildren();
     }
   }

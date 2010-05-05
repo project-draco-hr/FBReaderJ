@@ -1,8 +1,9 @@
 {
   final int position=((AdapterView.AdapterContextMenuInfo)menuInfo).position;
   final NetworkTree tree=(NetworkTree)getItem(position);
-  final NetworkTreeActions actions=chooseActions(tree);
+  final NetworkView networkView=NetworkView.Instance();
+  final NetworkTreeActions actions=networkView.getActions(tree);
   if (actions != null) {
-    actions.buildContextMenu(menu,tree);
+    actions.buildContextMenu(NetworkLibraryActivity.this,menu,tree);
   }
 }

@@ -1,0 +1,14 @@
+{
+  final NetworkBookTree bookTree=(NetworkBookTree)tree;
+  final NetworkBookItem book=bookTree.Book;
+  menu.setHeaderTitle(tree.getName());
+  Set<Action> actions=getContextMenuActions(book,activity.Connection);
+  for (  Action a : actions) {
+    if (a.Arg == null) {
+      addMenuItem(menu,a.Id,a.Key);
+    }
+ else {
+      addMenuItem(menu,a.Id,a.Key,a.Arg);
+    }
+  }
+}

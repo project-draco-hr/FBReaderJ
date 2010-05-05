@@ -1,4 +1,7 @@
 {
+  if (!NetworkView.Instance().isInitialized()) {
+    return null;
+  }
   final NetworkDialog dlg=NetworkDialog.getDialog(id);
   if (dlg != null) {
     return dlg.createDialog(this);

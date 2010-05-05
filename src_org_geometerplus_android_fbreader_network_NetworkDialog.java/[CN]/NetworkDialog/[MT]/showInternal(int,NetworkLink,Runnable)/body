@@ -1,8 +1,0 @@
-{
-  myLink=link;
-  myErrorMessage=null;
-  myOnSuccessRunnable=onSuccessRunnable;
-  if (NetworkLibraryActivity.Instance != null) {
-    NetworkLibraryActivity.Instance.getTopLevelActivity().showDialog(id);
-  }
-}

@@ -1,3 +1,0 @@
-{
-  return (myConnection == null) ? false : myConnection.isBeingDownloaded(url);
-}

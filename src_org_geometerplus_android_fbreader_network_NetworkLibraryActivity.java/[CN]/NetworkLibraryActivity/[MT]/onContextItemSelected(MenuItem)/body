@@ -1,9 +1,10 @@
 {
-  final LibraryAdapter adapter=(LibraryAdapter)getAdapter();
+  final ZLTreeAdapter adapter=getAdapter();
   final int position=((AdapterView.AdapterContextMenuInfo)item.getMenuInfo()).position;
   final NetworkTree tree=(NetworkTree)adapter.getItem(position);
-  final NetworkTreeActions actions=chooseActions(tree);
-  if (actions != null && actions.runAction(tree,item.getItemId())) {
+  final NetworkView networkView=NetworkView.Instance();
+  final NetworkTreeActions actions=networkView.getActions(tree);
+  if (actions != null && actions.runAction(this,tree,item.getItemId())) {
     return true;
   }
   return super.onContextItemSelected(item);

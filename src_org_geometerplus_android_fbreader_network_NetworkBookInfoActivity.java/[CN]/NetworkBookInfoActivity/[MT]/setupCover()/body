@@ -10,8 +10,9 @@
     final ZLAndroidImageManager mgr=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
     if (cover instanceof NetworkImage) {
       final NetworkImage img=(NetworkImage)cover;
-      if (NetworkLibraryActivity.Instance != null && NetworkLibraryActivity.Instance.isCoverLoading(img.Url)) {
-        NetworkLibraryActivity.Instance.setOnCoverSyncRunnable(img.Url,new Runnable(){
+      final NetworkView networkView=NetworkView.Instance();
+      if (networkView.isInitialized() && networkView.isCoverLoading(img.Url)) {
+        networkView.addCoverSynchronizationRunnable(img.Url,new Runnable(){
           public void run(){
             img.synchronizeFast();
             final ZLAndroidImageData data=mgr.getImageData(img);

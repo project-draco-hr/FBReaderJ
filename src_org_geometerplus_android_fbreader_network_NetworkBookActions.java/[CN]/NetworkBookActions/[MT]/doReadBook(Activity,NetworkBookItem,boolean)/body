@@ -1,0 +1,15 @@
+{
+  String local=null;
+  if (!demo) {
+    local=book.localCopyFileName();
+  }
+ else {
+    BookReference reference=book.reference(BookReference.Type.DOWNLOAD_DEMO);
+    if (reference != null) {
+      local=reference.localCopyFileName(BookReference.Type.DOWNLOAD_DEMO);
+    }
+  }
+  if (local != null) {
+    activity.startActivity(new Intent(Intent.ACTION_VIEW,Uri.fromFile(new File(local)),activity.getApplicationContext(),org.geometerplus.android.fbreader.FBReader.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+  }
+}

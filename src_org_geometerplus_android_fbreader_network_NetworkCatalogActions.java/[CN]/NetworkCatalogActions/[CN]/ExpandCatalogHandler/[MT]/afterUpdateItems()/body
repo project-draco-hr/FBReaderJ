@@ -1,12 +1,12 @@
 {
-  if (NetworkLibraryActivity.Instance != null) {
-    NetworkLibraryActivity.Instance.resetTree();
+  if (NetworkView.Instance().isInitialized()) {
+    NetworkView.Instance().fireModelChanged();
   }
-  if (doExpand && NetworkLibraryActivity.Instance != null) {
-    ZLTreeAdapter adapter=NetworkLibraryActivity.Instance.getAdapter();
+  if (myDoExpand) {
+    ZLTreeAdapter adapter=myActivity.getAdapter();
     if (adapter != null) {
       adapter.expandOrCollapseTree(myTree);
     }
   }
-  doExpand=!myTree.hasChildren();
+  myDoExpand=!myTree.hasChildren();
 }

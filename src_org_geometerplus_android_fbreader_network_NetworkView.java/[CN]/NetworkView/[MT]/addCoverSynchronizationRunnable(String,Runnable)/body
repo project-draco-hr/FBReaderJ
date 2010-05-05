@@ -1,0 +1,6 @@
+{
+  final LinkedList<Runnable> runnables=myOnCoverSyncRunnables.get(coverUrl);
+  if (runnables != null && finishRunnable != null) {
+    runnables.add(finishRunnable);
+  }
+}

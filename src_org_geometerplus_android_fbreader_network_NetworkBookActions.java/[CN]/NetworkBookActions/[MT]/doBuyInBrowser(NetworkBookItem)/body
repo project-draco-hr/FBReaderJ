@@ -1,9 +1,0 @@
-{
-  if (NetworkLibraryActivity.Instance == null) {
-    return;
-  }
-  BookReference reference=book.reference(BookReference.Type.BUY_IN_BROWSER);
-  if (reference != null) {
-    NetworkLibraryActivity.Instance.openInBrowser(reference.URL);
-  }
-}

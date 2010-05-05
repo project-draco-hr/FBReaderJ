@@ -1,0 +1,5 @@
+{
+  unbindService(myConnection);
+  myConnection=null;
+  super.onDestroy();
+}

@@ -1,7 +1,4 @@
 {
-  if (NetworkLibraryActivity.Instance != null) {
-    NetworkLibraryActivity.Instance.setTopLevelActivity(null);
-    NetworkLibraryActivity.Instance.removeEventListener(this);
-  }
+  NetworkView.Instance().removeEventListener(this);
   super.onStop();
 }
