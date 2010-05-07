@@ -1,0 +1,6 @@
+{
+  if (position >= 0 && position < myTree.subTrees().size()) {
+    return (NetworkTree)myTree.subTrees().get(position);
+  }
+  return null;
+}

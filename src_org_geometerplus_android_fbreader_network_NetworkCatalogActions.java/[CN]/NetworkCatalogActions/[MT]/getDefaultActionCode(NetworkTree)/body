@@ -2,7 +2,7 @@
   final NetworkCatalogTree catalogTree=(NetworkCatalogTree)tree;
   final NetworkCatalogItem item=catalogTree.Item;
   if (item.URLByType.get(NetworkCatalogItem.URL_CATALOG) != null) {
-    return EXPAND_OR_COLLAPSE_TREE_ITEM_ID;
+    return OPEN_CATALOG_ITEM_ID;
   }
   if (item.URLByType.get(NetworkCatalogItem.URL_HTML_PAGE) != null) {
     return OPEN_IN_BROWSER_ITEM_ID;

@@ -11,8 +11,13 @@
     msg=boxResource.getResource("message").getValue();
   }
   if (msg != null) {
-    final ZLResource buttonResource=dialogResource.getResource("button");
-    new AlertDialog.Builder(myActivity).setTitle(boxResource.getResource("title").getValue()).setMessage(msg).setIcon(0).setPositiveButton(buttonResource.getResource("ok").getValue(),null).create().show();
+    if (NetworkView.Instance().isInitialized()) {
+      final NetworkCatalogActivity activity=NetworkView.Instance().getOpenedActivity(myTree);
+      if (activity != null) {
+        final ZLResource buttonResource=dialogResource.getResource("button");
+        new AlertDialog.Builder(activity).setTitle(boxResource.getResource("title").getValue()).setMessage(msg).setIcon(0).setPositiveButton(buttonResource.getResource("ok").getValue(),null).create().show();
+      }
+    }
   }
   final NetworkLibrary library=NetworkLibrary.Instance();
   library.invalidateAccountDependents();

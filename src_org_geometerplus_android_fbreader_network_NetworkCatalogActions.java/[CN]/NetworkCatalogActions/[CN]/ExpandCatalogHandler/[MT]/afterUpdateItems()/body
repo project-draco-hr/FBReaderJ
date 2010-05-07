@@ -2,7 +2,4 @@
   if (NetworkView.Instance().isInitialized()) {
     NetworkView.Instance().fireModelChanged();
   }
-  if (myDoExpand) {
-  }
-  myDoExpand=!myTree.hasChildren();
 }

@@ -1,0 +1,22 @@
+{
+  super.onCreate(icicle);
+  final NetworkView networkView=NetworkView.Instance();
+  if (!networkView.isInitialized()) {
+    finish();
+    return;
+  }
+  final Intent intent=getIntent();
+  final int level=intent.getIntExtra(CATALOG_LEVEL_KEY,-1);
+  if (level == -1) {
+    throw new RuntimeException("Catalog's Level was not specified!!!");
+  }
+  myTree=(NetworkCatalogTree)networkView.getOpenedTree(level);
+  if (myTree == null) {
+    finish();
+    return;
+  }
+  networkView.setOpenedActivity(myTree,this);
+  requestWindowFeature(Window.FEATURE_NO_TITLE);
+  setListAdapter(new CatalogAdapter());
+  getListView().invalidateViews();
+}

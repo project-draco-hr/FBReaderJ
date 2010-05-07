@@ -1,5 +1,0 @@
-{
-  myActivity=activity;
-  myTree=tree;
-  myDoExpand=!myTree.hasChildren();
-}

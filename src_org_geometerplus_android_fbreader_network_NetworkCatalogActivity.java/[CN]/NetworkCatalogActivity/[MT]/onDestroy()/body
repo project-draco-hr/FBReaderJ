@@ -1,0 +1,6 @@
+{
+  if (myTree != null) {
+    NetworkView.Instance().setOpenedActivity(myTree,null);
+  }
+  super.onDestroy();
+}

@@ -1,25 +1,10 @@
 {
 switch (actionCode) {
-case EXPAND_OR_COLLAPSE_TREE_ITEM_ID:
+case OPEN_CATALOG_ITEM_ID:
     doExpandCatalog(activity,(NetworkCatalogTree)tree);
   return true;
 case OPEN_IN_BROWSER_ITEM_ID:
 NetworkView.Instance().openInBrowser(activity,((NetworkCatalogTree)tree).Item.URLByType.get(NetworkCatalogItem.URL_HTML_PAGE));
-return true;
-case RELOAD_ITEM_ID:
-doReloadCatalog(activity,(NetworkCatalogTree)tree);
-return true;
-case SIGNIN_ITEM_ID:
-NetworkDialog.show(activity,NetworkDialog.DIALOG_AUTHENTICATION,((NetworkCatalogTree)tree).Item.Link,null);
-return true;
-case SIGNOUT_ITEM_ID:
-doSignOut(activity,(NetworkCatalogTree)tree);
-return true;
-case REFILL_ACCOUNT_ITEM_ID:
-NetworkView.Instance().openInBrowser(activity,((NetworkCatalogTree)tree).Item.Link.authenticationManager().refillAccountLink());
-return true;
-case STOP_LOADING_ITEM_ID:
-doStopLoading((NetworkCatalogTree)tree);
 return true;
 }
 return false;

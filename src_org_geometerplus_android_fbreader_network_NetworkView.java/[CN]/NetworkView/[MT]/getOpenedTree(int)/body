@@ -1,0 +1,6 @@
+{
+  if (level < 0 || level >= myOpenedStack.size()) {
+    return null;
+  }
+  return myOpenedStack.get(level).Tree;
+}
