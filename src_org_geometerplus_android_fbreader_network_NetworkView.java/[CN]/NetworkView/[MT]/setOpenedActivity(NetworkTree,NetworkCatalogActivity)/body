@@ -1,7 +1,0 @@
-{
-  final int level=tree.Level - 1;
-  if (level < 0 || level >= myOpenedStack.size()) {
-    throw new RuntimeException("Unable to set opened activity with level = " + level + ", when opened level = "+ (myOpenedStack.size() - 1));
-  }
-  myOpenedStack.get(level).Activity=activity;
-}

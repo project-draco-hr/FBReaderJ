@@ -1,3 +1,7 @@
 {
-  return EXPAND_OR_COLLAPSE_TREE_ITEM_ID;
+  final boolean isLoading=NetworkView.Instance().containsItemsLoadingRunnable(NetworkSearchActivity.SEARCH_RUNNABLE_KEY);
+  if (!isLoading) {
+    return RUN_SEARCH_ITEM_ID;
+  }
+  return TREE_NO_ACTION;
 }

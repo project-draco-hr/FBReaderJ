@@ -1,0 +1,6 @@
+{
+  if (!NetworkView.Instance().isInitialized()) {
+    return;
+  }
+  NetworkView.Instance().openTree(activity,tree,NetworkSearchActivity.SEARCH_RUNNABLE_KEY);
+}

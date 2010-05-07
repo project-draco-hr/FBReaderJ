@@ -52,26 +52,8 @@
     if (currentNode == null) {
       currentNode=nodeIterator.next();
     }
-    if (currentNode != mySearchResultTree) {
-      toRemove.add(currentNode);
-    }
+    toRemove.add(currentNode);
     currentNode=null;
-  }
-  if (mySearchResult == null || mySearchResult.empty()) {
-    if (mySearchResultTree != null) {
-      toRemove.add(mySearchResultTree);
-      mySearchResultTree=null;
-    }
-  }
- else {
-    if (mySearchResultTree != null && mySearchResultTree.Result != mySearchResult) {
-      toRemove.add(mySearchResultTree);
-      mySearchResultTree=null;
-    }
-    if (mySearchResultTree == null) {
-      mySearchResultTree=new SearchResultTree(myRootTree,mySearchResult);
-    }
-    mySearchResultTree.updateSubTrees();
   }
   for (  FBTree tree : toRemove) {
     tree.removeSelf();

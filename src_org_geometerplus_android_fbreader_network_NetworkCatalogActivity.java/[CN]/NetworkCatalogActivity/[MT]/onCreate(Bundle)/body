@@ -10,13 +10,17 @@
   if (level == -1) {
     throw new RuntimeException("Catalog's Level was not specified!!!");
   }
-  myTree=(NetworkCatalogTree)networkView.getOpenedTree(level);
+  myCatalogKey=intent.getStringExtra(CATALOG_KEY_KEY);
+  if (myCatalogKey == null) {
+    throw new RuntimeException("Catalog's Key was not specified!!!");
+  }
+  myTree=networkView.getOpenedTree(level);
   if (myTree == null) {
     finish();
     return;
   }
-  networkView.setOpenedActivity(myTree,this);
+  networkView.setOpenedActivity(myCatalogKey,this);
   setListAdapter(new CatalogAdapter());
   getListView().invalidateViews();
-  setTitle(myTree.getName() + " - " + myTree.Item.Link.SiteName);
+  setupTitle();
 }

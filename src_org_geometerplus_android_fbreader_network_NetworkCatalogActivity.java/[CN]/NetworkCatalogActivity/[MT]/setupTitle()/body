@@ -1,0 +1,11 @@
+{
+  String title=null;
+  final NetworkTreeActions actions=NetworkView.Instance().getActions(myTree);
+  if (actions != null) {
+    title=actions.getTreeTitle(myTree);
+  }
+  if (title == null) {
+    title=myTree.getName();
+  }
+  setTitle(title);
+}

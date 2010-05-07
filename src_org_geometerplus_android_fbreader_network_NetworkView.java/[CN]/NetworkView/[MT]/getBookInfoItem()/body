@@ -1,5 +1,3 @@
 {
-  final NetworkBookItem book=myBookInfoItem;
-  myBookInfoItem=null;
-  return book;
+  return myBookInfoItem;
 }

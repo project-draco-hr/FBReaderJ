@@ -1,3 +1,11 @@
 {
-  return runAction(activity,((NetworkBookTree)tree).Book,actionCode);
+  if (tree instanceof NetworkAuthorTree || tree instanceof NetworkSeriesTree) {
+switch (actionCode) {
+case SHOW_BOOKS_ITEM_ID:
+      showBooks(activity,tree);
+    return true;
+}
+return false;
+}
+return runAction(activity,((NetworkBookTree)tree).Book,actionCode);
 }

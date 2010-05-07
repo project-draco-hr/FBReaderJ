@@ -1,0 +1,6 @@
+{
+  if (tree instanceof NetworkCatalogRootTree) {
+    return tree.getName();
+  }
+  return tree.getName() + " - " + ((NetworkCatalogTree)tree).Item.Link.SiteName;
+}

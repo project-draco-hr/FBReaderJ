@@ -1,3 +1,0 @@
-{
-  return ZLResource.resource("networkView").getResource("searchResultNode").getValue();
-}

@@ -12,17 +12,11 @@
   }
   if (msg != null) {
     if (NetworkView.Instance().isInitialized()) {
-      final NetworkCatalogActivity activity=NetworkView.Instance().getOpenedActivity(myTree);
+      final NetworkCatalogActivity activity=NetworkView.Instance().getOpenedActivity(myKey);
       if (activity != null) {
         final ZLResource buttonResource=dialogResource.getResource("button");
         new AlertDialog.Builder(activity).setTitle(boxResource.getResource("title").getValue()).setMessage(msg).setIcon(0).setPositiveButton(buttonResource.getResource("ok").getValue(),null).create().show();
       }
     }
-  }
-  final NetworkLibrary library=NetworkLibrary.Instance();
-  library.invalidateAccountDependents();
-  library.synchronize();
-  if (NetworkView.Instance().isInitialized()) {
-    NetworkView.Instance().fireModelChanged();
   }
 }

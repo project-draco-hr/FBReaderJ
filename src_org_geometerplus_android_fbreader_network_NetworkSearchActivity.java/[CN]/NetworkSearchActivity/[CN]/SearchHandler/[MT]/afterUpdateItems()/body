@@ -1,14 +1,6 @@
 {
-  final NetworkLibrary library=NetworkLibrary.Instance();
-  library.invalidate();
-  library.synchronize();
+  myTree.updateSubTrees();
   if (NetworkView.Instance().isInitialized()) {
     NetworkView.Instance().fireModelChanged();
-  }
-  if (doExpand) {
-    final SearchResultTree tree=library.getSearchResultTree();
-    if (tree != null) {
-      doExpand=!tree.hasChildren();
-    }
   }
 }

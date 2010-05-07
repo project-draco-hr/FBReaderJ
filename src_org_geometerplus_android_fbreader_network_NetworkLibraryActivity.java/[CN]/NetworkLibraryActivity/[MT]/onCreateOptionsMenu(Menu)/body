@@ -1,4 +1,5 @@
 {
   super.onCreateOptionsMenu(menu);
+  addMenuItem(menu,1,"networkSearch",R.drawable.ic_menu_networksearch);
   return true;
 }

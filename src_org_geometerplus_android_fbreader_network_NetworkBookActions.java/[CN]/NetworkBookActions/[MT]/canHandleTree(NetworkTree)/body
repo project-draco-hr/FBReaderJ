@@ -1,3 +1,3 @@
 {
-  return tree instanceof NetworkBookTree;
+  return tree instanceof NetworkBookTree || tree instanceof NetworkAuthorTree || tree instanceof NetworkSeriesTree;
 }

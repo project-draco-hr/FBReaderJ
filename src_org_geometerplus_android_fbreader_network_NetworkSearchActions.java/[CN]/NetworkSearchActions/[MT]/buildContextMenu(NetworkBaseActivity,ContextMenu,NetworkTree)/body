@@ -1,9 +1,15 @@
 {
-  final SearchResultTree searchTree=(SearchResultTree)tree;
+  final SearchItemTree searchTree=(SearchItemTree)tree;
+  final SearchResult result=searchTree.getSearchResult();
   menu.setHeaderTitle(tree.getName());
-  final boolean isOpened=tree.hasChildren() && false;
   final ItemsLoadingRunnable searchRunnable=NetworkView.Instance().getItemsLoadingRunnable(NetworkSearchActivity.SEARCH_RUNNABLE_KEY);
   final boolean isLoading=searchRunnable != null;
+  if (!isLoading) {
+    addMenuItem(menu,RUN_SEARCH_ITEM_ID,"search");
+  }
+  if (isLoading || tree.hasChildren()) {
+    addMenuItem(menu,OPEN_RESULTS_ITEM_ID,"showResults");
+  }
   if (isLoading) {
     if (searchRunnable.InterruptFlag.get()) {
       addMenuItem(menu,TREE_NO_ACTION,"stoppingNetworkSearch");
@@ -11,9 +17,5 @@
  else {
       addMenuItem(menu,STOP_LOADING_ITEM_ID,"stopSearching");
     }
-  }
- else {
-    final String expandOrCollapseTitle=isOpened ? "hideResults" : "showResults";
-    addMenuItem(menu,EXPAND_OR_COLLAPSE_TREE_ITEM_ID,expandOrCollapseTitle);
   }
 }
