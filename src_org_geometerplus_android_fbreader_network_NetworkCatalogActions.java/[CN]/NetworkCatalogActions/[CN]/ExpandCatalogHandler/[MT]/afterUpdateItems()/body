@@ -3,10 +3,6 @@
     NetworkView.Instance().fireModelChanged();
   }
   if (myDoExpand) {
-    ZLTreeAdapter adapter=myActivity.getAdapter();
-    if (adapter != null) {
-      adapter.expandOrCollapseTree(myTree);
-    }
   }
   myDoExpand=!myTree.hasChildren();
 }

@@ -1,3 +1,0 @@
-{
-  return (ZLTreeAdapter)getListView().getAdapter();
-}

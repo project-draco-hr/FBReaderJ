@@ -1,0 +1,4 @@
+{
+  setListAdapter(new LibraryAdapter(NetworkLibrary.Instance().getTree()));
+  getListView().invalidateViews();
+}

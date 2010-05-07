@@ -1,4 +1,0 @@
-{
-  imageView.setImageBitmap(image);
-  imageView.setPadding(25 * (tree.Level - 1),imageView.getPaddingTop(),0,imageView.getPaddingBottom());
-}

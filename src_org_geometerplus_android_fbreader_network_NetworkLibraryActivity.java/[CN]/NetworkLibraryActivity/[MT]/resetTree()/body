@@ -1,6 +1,0 @@
-{
-  ZLTreeAdapter adapter=getAdapter();
-  if (adapter != null) {
-    adapter.resetTree();
-  }
-}

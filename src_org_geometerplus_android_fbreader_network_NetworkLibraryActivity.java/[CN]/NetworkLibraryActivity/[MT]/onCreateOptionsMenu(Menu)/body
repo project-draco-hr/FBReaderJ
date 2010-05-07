@@ -1,7 +1,4 @@
 {
-  if (!super.onCreateOptionsMenu(menu)) {
-    return false;
-  }
-  addMenuItem(menu,1,"networkSearch",R.drawable.ic_menu_networksearch);
+  super.onCreateOptionsMenu(menu);
   return true;
 }

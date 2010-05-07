@@ -4,9 +4,7 @@
   if (!networkView.isInitialized()) {
     final Handler handler=new Handler(){
       public void handleMessage(      Message message){
-        ListView view=getListView();
-        new LibraryAdapter(view,NetworkLibrary.Instance().getTree());
-        view.invalidateViews();
+        prepareView();
       }
     }
 ;
@@ -17,5 +15,8 @@
       }
     }
 ,this);
+  }
+ else {
+    prepareView();
   }
 }

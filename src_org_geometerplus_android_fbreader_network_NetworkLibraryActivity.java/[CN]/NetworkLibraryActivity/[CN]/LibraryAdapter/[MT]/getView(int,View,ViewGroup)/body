@@ -1,53 +1,12 @@
 {
   final View view=(convertView != null) ? convertView : LayoutInflater.from(parent.getContext()).inflate(R.layout.network_tree_item,parent,false);
-  final NetworkTree tree=(NetworkTree)getItem(position);
+  final NetworkTree tree=getItem(position);
   ((TextView)view.findViewById(R.id.network_tree_item_name)).setText(tree.getName());
   ((TextView)view.findViewById(R.id.network_tree_item_childrenlist)).setText(tree.getSecondString());
   view.measure(ViewGroup.LayoutParams.FILL_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
   final int maxHeight=view.getMeasuredHeight();
   final int maxWidth=maxHeight * 2 / 3;
   final ImageView iconView=(ImageView)view.findViewById(R.id.network_tree_item_icon);
-  iconView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-  Bitmap coverBitmap=null;
-  final ZLImage cover=tree.getCover();
-  if (cover != null) {
-    ZLAndroidImageData data=null;
-    final ZLAndroidImageManager mgr=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
-    if (cover instanceof NetworkImage) {
-      final NetworkImage img=(NetworkImage)cover;
-      if (img.isSynchronized()) {
-        data=mgr.getImageData(img);
-      }
- else {
-        final Runnable runnable=new Runnable(){
-          public void run(){
-            final ListView view=NetworkLibraryActivity.this.getListView();
-            view.invalidateViews();
-            view.requestLayout();
-          }
-        }
-;
-        final NetworkView networkView=NetworkView.Instance();
-        if (!networkView.isCoverLoading(img.Url)) {
-          networkView.performCoverSynchronization(img,runnable);
-        }
- else {
-          networkView.addCoverSynchronizationRunnable(img.Url,runnable);
-        }
-      }
-    }
- else {
-      data=mgr.getImageData(cover);
-    }
-    if (data != null) {
-      coverBitmap=data.getBitmap(maxWidth,maxHeight);
-    }
-  }
-  if (coverBitmap != null) {
-    setIcon(iconView,tree,coverBitmap);
-  }
- else {
-    setIcon(iconView,tree);
-  }
+  setupCover(iconView,tree,maxWidth,maxHeight);
   return view;
 }
