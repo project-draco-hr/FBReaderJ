@@ -16,7 +16,7 @@
     return;
   }
   networkView.setOpenedActivity(myTree,this);
-  requestWindowFeature(Window.FEATURE_NO_TITLE);
   setListAdapter(new CatalogAdapter());
   getListView().invalidateViews();
+  setTitle(myTree.getName() + " - " + myTree.Item.Link.SiteName);
 }
