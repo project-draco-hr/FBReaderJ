@@ -1,17 +1,15 @@
 {
-  if (tree.hasChildren()) {
-    NetworkView.Instance().openTree(activity,tree);
-    return;
-  }
   final String url=tree.Item.URLByType.get(NetworkCatalogItem.URL_CATALOG);
   if (url == null) {
     throw new RuntimeException("That's impossible!!!");
   }
   if (NetworkView.Instance().containsItemsLoadingRunnable(url)) {
-    NetworkView.Instance().openTree(activity,tree);
     return;
   }
+  tree.ChildrenItems.clear();
+  tree.clear();
+  NetworkView.Instance().fireModelChanged();
   final ExpandCatalogHandler handler=new ExpandCatalogHandler(tree);
-  NetworkView.Instance().startItemsLoading(activity,url,new ExpandCatalogRunnable(handler,tree,true));
+  NetworkView.Instance().startItemsLoading(activity,url,new ExpandCatalogRunnable(handler,tree,false));
   NetworkView.Instance().openTree(activity,tree);
 }
