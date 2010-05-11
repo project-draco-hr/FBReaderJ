@@ -1,0 +1,4 @@
+Menu menu
+int id
+String key
+int iconId

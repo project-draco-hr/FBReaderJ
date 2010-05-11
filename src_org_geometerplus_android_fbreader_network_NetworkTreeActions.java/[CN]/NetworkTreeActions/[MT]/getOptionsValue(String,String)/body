@@ -1,0 +1,3 @@
+{
+  return myResource.getResource("menu").getResource(key).getValue().replace("%s",arg);
+}
