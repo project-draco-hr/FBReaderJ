@@ -3,11 +3,16 @@
   if (url == null) {
     throw new RuntimeException("That's impossible!!!");
   }
-  if (tree.hasChildren() || NetworkView.Instance().containsItemsLoadingRunnable(url)) {
-    NetworkView.Instance().openTree(activity,tree,url);
-    return;
+  NetworkView.Instance().tryResumeLoading(activity,tree,url,new Runnable(){
+    public void run(){
+      if (tree.hasChildren()) {
+        NetworkView.Instance().openTree(activity,tree,url);
+        return;
+      }
+      final ExpandCatalogHandler handler=new ExpandCatalogHandler(tree,url);
+      NetworkView.Instance().startItemsLoading(activity,url,new ExpandCatalogRunnable(handler,tree,true));
+      NetworkView.Instance().openTree(activity,tree,url);
+    }
   }
-  final ExpandCatalogHandler handler=new ExpandCatalogHandler(tree,url);
-  NetworkView.Instance().startItemsLoading(activity,url,new ExpandCatalogRunnable(handler,tree,true));
-  NetworkView.Instance().openTree(activity,tree,url);
+);
 }

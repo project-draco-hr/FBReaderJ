@@ -1,0 +1,15 @@
+{
+  if (interrupted) {
+    myTree.ChildrenItems.clear();
+    myTree.clear();
+  }
+ else {
+    afterUpdateCatalog(errorMessage,myTree.ChildrenItems.size() == 0);
+    final NetworkLibrary library=NetworkLibrary.Instance();
+    library.invalidateAccountDependents();
+    library.synchronize();
+  }
+  if (NetworkView.Instance().isInitialized()) {
+    NetworkView.Instance().fireModelChanged();
+  }
+}

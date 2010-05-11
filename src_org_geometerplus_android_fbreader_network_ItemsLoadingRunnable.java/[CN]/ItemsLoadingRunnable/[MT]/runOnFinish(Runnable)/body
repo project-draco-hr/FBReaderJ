@@ -1,0 +1,18 @@
+{
+  if (myFinishedHandler != null) {
+    return;
+  }
+synchronized (myFinishedLock) {
+    if (myFinished) {
+      runnable.run();
+    }
+ else {
+      myFinishedHandler=new Handler(){
+        public void handleMessage(        Message message){
+          runnable.run();
+        }
+      }
+;
+    }
+  }
+}

@@ -4,7 +4,7 @@ case WHAT_UPDATE_ITEMS:
     doUpdateItems();
   break;
 case WHAT_FINISHED:
-onFinish((String)message.obj);
+doProcessFinish((String)message.obj,message.arg1 != 0);
 break;
 }
 }

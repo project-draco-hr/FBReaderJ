@@ -3,9 +3,6 @@ switch (actionCode) {
 case OPEN_RESULTS_ITEM_ID:
     doExpandCatalog(activity,(SearchItemTree)tree);
   return true;
-case STOP_LOADING_ITEM_ID:
-doStopLoading((SearchItemTree)tree);
-return true;
 case RUN_SEARCH_ITEM_ID:
 activity.onSearchRequested();
 return true;

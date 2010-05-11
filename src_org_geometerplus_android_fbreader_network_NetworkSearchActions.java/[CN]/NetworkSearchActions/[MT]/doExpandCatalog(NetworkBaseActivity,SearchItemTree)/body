@@ -2,5 +2,12 @@
   if (!NetworkView.Instance().isInitialized()) {
     return;
   }
-  NetworkView.Instance().openTree(activity,tree,NetworkSearchActivity.SEARCH_RUNNABLE_KEY);
+  NetworkView.Instance().tryResumeLoading(activity,tree,NetworkSearchActivity.SEARCH_RUNNABLE_KEY,new Runnable(){
+    public void run(){
+      if (tree.hasChildren()) {
+        NetworkView.Instance().openTree(activity,tree,NetworkSearchActivity.SEARCH_RUNNABLE_KEY);
+      }
+    }
+  }
+);
 }

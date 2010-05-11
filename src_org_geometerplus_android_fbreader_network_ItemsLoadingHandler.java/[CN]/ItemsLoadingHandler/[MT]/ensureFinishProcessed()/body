@@ -1,0 +1,11 @@
+{
+synchronized (myFinishMonitor) {
+    while (!myFinishProcessed) {
+      try {
+        myFinishMonitor.wait();
+      }
+ catch (      InterruptedException e) {
+      }
+    }
+  }
+}

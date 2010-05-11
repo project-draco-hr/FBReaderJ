@@ -10,12 +10,4 @@
   if (isLoading || tree.hasChildren()) {
     addMenuItem(menu,OPEN_RESULTS_ITEM_ID,"showResults");
   }
-  if (isLoading) {
-    if (searchRunnable.InterruptFlag.get()) {
-      addMenuItem(menu,TREE_NO_ACTION,"stoppingNetworkSearch");
-    }
- else {
-      addMenuItem(menu,STOP_LOADING_ITEM_ID,"stopSearching");
-    }
-  }
 }

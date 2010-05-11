@@ -1,7 +1,7 @@
 {
   String err=doBefore();
   if (err != null) {
-    myHandler.sendFinish(err);
+    myHandler.sendFinish(err,false);
     return;
   }
   err=doLoading(new NetworkOperationData.OnNewItemListener(){
@@ -9,7 +9,8 @@
     private int myItemsNumber;
     public boolean onNewItem(    NetworkLibraryItem item){
       myHandler.addItem(item);
-      if (InterruptFlag.get() || myItemsNumber++ >= myItemsLimit) {
+      final boolean interrupted=confirmInterrupt();
+      if (interrupted || myItemsNumber++ >= myItemsLimit) {
         return true;
       }
       final long now=System.currentTimeMillis();
@@ -22,6 +23,13 @@
   }
 );
   myHandler.sendUpdateItems();
-  myHandler.ensureFinish();
-  myHandler.sendFinish(err);
+  myHandler.ensureItemsProcessed();
+  myHandler.sendFinish(err,isInterrupted());
+  myHandler.ensureFinishProcessed();
+synchronized (myFinishedLock) {
+    if (myFinishedHandler != null) {
+      myFinishedHandler.sendEmptyMessage(0);
+    }
+    myFinished=true;
+  }
 }

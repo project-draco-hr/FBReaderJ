@@ -1,7 +1,0 @@
-{
-  myTree.updateSubTrees();
-  if (NetworkView.Instance().isInitialized()) {
-    NetworkView.Instance().fireModelChanged();
-  }
-  afterUpdateCatalog(errorMessage,myTree.getSearchResult().empty());
-}

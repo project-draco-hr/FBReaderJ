@@ -1,0 +1,7 @@
+{
+synchronized (myFinishMonitor) {
+    onFinish(errorMessage,interrupted);
+    myFinishProcessed=true;
+    myFinishMonitor.notifyAll();
+  }
+}

@@ -7,19 +7,6 @@
   final boolean isLoading=catalogRunnable != null;
   if (catalogUrl != null) {
     addMenuItem(menu,OPEN_CATALOG_ITEM_ID,"openCatalog");
-    if (isLoading) {
-      if (catalogRunnable.InterruptFlag.get()) {
-        addMenuItem(menu,TREE_NO_ACTION,"stoppingCatalogLoading");
-      }
- else {
-        addMenuItem(menu,STOP_LOADING_ITEM_ID,"stopLoading");
-      }
-    }
- else {
-      if (catalogTree.hasChildren()) {
-        addMenuItem(menu,RELOAD_ITEM_ID,"reload");
-      }
-    }
   }
   if (tree instanceof NetworkCatalogRootTree) {
     NetworkAuthenticationManager mgr=item.Link.authenticationManager();
