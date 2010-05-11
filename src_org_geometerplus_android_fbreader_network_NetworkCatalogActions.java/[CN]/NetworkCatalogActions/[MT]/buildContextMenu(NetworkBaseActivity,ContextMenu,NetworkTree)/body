@@ -3,8 +3,6 @@
   final NetworkCatalogItem item=catalogTree.Item;
   menu.setHeaderTitle(tree.getName());
   final String catalogUrl=item.URLByType.get(NetworkCatalogItem.URL_CATALOG);
-  final ItemsLoadingRunnable catalogRunnable=(catalogUrl != null) ? NetworkView.Instance().getItemsLoadingRunnable(catalogUrl) : null;
-  final boolean isLoading=catalogRunnable != null;
   if (catalogUrl != null) {
     addMenuItem(menu,OPEN_CATALOG_ITEM_ID,"openCatalog");
   }

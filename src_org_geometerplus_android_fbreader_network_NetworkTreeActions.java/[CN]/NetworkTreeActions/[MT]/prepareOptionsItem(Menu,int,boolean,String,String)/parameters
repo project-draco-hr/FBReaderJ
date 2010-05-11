@@ -1,4 +1,5 @@
 Menu menu
 int id
+boolean state
 String key
-int iconId
+String arg
