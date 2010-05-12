@@ -20,7 +20,7 @@
       }
       NetworkCatalogTree child=(NetworkCatalogTree)currentNode;
       if (child.Item == currentItem) {
-        if (processAccountDependent(child.Item)) {
+        if (child.Item.isVisible()) {
           child.updateAccountDependents();
         }
  else {
