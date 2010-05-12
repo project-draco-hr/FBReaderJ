@@ -1,0 +1,8 @@
+{
+  myLoadedTime=System.currentTimeMillis();
+  FBTree tree=Parent;
+  while (tree instanceof NetworkCatalogTree) {
+    ((NetworkCatalogTree)tree).myLoadedTime=myLoadedTime;
+    tree=tree.Parent;
+  }
+}

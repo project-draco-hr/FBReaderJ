@@ -4,6 +4,7 @@
     myTree.clear();
   }
  else {
+    myTree.updateLoadedTime();
     afterUpdateCatalog(errorMessage,myTree.ChildrenItems.size() == 0);
     final NetworkLibrary library=NetworkLibrary.Instance();
     library.invalidateVisibility();

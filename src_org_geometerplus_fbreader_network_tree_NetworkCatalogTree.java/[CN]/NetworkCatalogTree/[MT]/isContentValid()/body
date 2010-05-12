@@ -1,0 +1,7 @@
+{
+  if (myLoadedTime < 0) {
+    return false;
+  }
+  final int reloadTime=15 * 60 * 1000;
+  return System.currentTimeMillis() - myLoadedTime < reloadTime;
+}

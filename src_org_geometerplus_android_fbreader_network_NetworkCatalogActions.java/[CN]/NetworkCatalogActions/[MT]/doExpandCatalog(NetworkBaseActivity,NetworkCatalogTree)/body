@@ -6,8 +6,15 @@
   NetworkView.Instance().tryResumeLoading(activity,tree,url,new Runnable(){
     public void run(){
       if (tree.hasChildren()) {
-        NetworkView.Instance().openTree(activity,tree,url);
-        return;
+        if (tree.isContentValid()) {
+          NetworkView.Instance().openTree(activity,tree,url);
+          return;
+        }
+ else {
+          tree.ChildrenItems.clear();
+          tree.clear();
+          NetworkView.Instance().fireModelChanged();
+        }
       }
       final ExpandCatalogHandler handler=new ExpandCatalogHandler(tree,url);
       NetworkView.Instance().startItemsLoading(activity,url,new ExpandCatalogRunnable(handler,tree,true));
