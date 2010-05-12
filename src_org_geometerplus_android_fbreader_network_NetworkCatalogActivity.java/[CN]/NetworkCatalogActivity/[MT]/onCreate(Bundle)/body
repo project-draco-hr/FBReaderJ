@@ -1,5 +1,6 @@
 {
   super.onCreate(icicle);
+  requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
   final NetworkView networkView=NetworkView.Instance();
   if (!networkView.isInitialized()) {
     finish();

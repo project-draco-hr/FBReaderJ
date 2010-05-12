@@ -1,0 +1,9 @@
+{
+  if (tree instanceof NetworkCatalogTree) {
+    return ((NetworkCatalogTree)tree).Item.URLByType.get(NetworkCatalogItem.URL_CATALOG);
+  }
+ else   if (tree instanceof SearchItemTree) {
+    return NetworkSearchActivity.SEARCH_RUNNABLE_KEY;
+  }
+  return null;
+}

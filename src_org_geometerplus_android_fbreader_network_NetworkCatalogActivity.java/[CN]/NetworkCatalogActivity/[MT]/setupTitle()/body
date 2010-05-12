@@ -1,11 +1,20 @@
 {
   String title=null;
-  final NetworkTreeActions actions=NetworkView.Instance().getActions(myTree);
-  if (actions != null) {
-    title=actions.getTreeTitle(myTree);
+  final NetworkView networkView=NetworkView.Instance();
+  if (networkView.isInitialized()) {
+    final NetworkTreeActions actions=networkView.getActions(myTree);
+    if (actions != null) {
+      title=actions.getTreeTitle(myTree);
+    }
   }
   if (title == null) {
     title=myTree.getName();
   }
   setTitle(title);
+  boolean inProgress=false;
+  final String key=getNetworkTreeKey(myTree);
+  if (key != null && networkView.isInitialized() && networkView.containsItemsLoadingRunnable(key)) {
+    inProgress=true;
+  }
+  setProgressBarIndeterminateVisibility(inProgress);
 }
