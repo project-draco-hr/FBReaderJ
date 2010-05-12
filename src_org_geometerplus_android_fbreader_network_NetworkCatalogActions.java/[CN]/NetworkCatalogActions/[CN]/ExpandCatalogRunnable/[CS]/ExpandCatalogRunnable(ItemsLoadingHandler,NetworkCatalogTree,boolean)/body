@@ -1,5 +1,5 @@
 {
-  super(handler,CATALOG_LOADING);
+  super(handler);
   myTree=tree;
   myCheckAuthentication=checkAuthentication;
 }

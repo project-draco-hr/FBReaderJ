@@ -1,4 +1,3 @@
 ItemsLoadingHandler handler
-int type
 long updateIntervalMillis
 int itemsLimit

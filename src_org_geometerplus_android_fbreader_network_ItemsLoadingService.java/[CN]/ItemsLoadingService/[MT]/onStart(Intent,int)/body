@@ -19,7 +19,6 @@
   final Handler finishHandler=new Handler(){
     public void handleMessage(    Message message){
       doStop();
-      endProgressNotification(runnable);
       if (NetworkView.Instance().isInitialized()) {
         NetworkView.Instance().removeItemsLoadingRunnable(key);
         NetworkView.Instance().fireModelChanged();
@@ -27,7 +26,6 @@
     }
   }
 ;
-  startProgressNotification(runnable);
   NetworkView.Instance().fireModelChanged();
   final Thread loader=new Thread(new Runnable(){
     public void run(){

@@ -1,4 +1,4 @@
 {
-  super(handler,NETWORK_SEARCH);
+  super(handler);
   myPattern=pattern;
 }

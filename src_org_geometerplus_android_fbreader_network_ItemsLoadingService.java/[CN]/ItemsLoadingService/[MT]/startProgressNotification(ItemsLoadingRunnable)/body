@@ -1,4 +1,0 @@
-{
-  increaseRunnablesNumber(runnable.Type);
-  updateProgressNotification(runnable);
-}

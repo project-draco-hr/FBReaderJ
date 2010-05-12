@@ -1,6 +1,0 @@
-{
-  final Integer value=myRunnablesNumbers.get(runnableType);
-  final int val=(value == null) ? 1 : (value.intValue() + 1);
-  myRunnablesNumbers.put(runnableType,Integer.valueOf(val));
-  return val;
-}

@@ -2,5 +2,4 @@
   myHandler=handler;
   myUpdateInterval=updateIntervalMillis;
   myItemsLimit=itemsLimit;
-  Type=type;
 }
