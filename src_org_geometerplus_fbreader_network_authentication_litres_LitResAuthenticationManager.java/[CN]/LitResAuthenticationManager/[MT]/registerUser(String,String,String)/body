@@ -8,13 +8,15 @@
   url=ZLNetworkUtil.appendParameter(url,"mail",email);
   final LitResRegisterUserXMLReader xmlReader=new LitResRegisterUserXMLReader(Link.SiteName);
   final String error=ZLNetworkManager.Instance().perform(new LitResNetworkRequest(url,SSLCertificate,xmlReader));
-  mySidChecked=true;
-  if (error != null) {
-    mySidUserNameOption.setValue("");
-    mySidOption.setValue("");
-    return error;
+synchronized (this) {
+    mySidChecked=true;
+    if (error != null) {
+      mySidUserNameOption.setValue("");
+      mySidOption.setValue("");
+      return error;
+    }
+    mySidOption.setValue(xmlReader.Sid);
+    mySidUserNameOption.setValue(login);
+    return null;
   }
-  mySidOption.setValue(xmlReader.Sid);
-  mySidUserNameOption.setValue(login);
-  return null;
 }

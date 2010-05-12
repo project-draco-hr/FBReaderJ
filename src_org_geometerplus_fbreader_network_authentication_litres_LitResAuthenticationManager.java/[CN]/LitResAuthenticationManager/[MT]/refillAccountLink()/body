@@ -1,5 +1,8 @@
 {
-  final String sid=mySidOption.getValue();
+  final String sid;
+synchronized (this) {
+    sid=mySidOption.getValue();
+  }
   if (sid.length() == 0) {
     return null;
   }

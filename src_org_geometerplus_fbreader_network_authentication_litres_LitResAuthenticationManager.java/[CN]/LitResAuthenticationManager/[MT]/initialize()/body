@@ -1,25 +1,32 @@
 {
-  final String sid=mySidOption.getValue();
-  if (sid.length() == 0) {
-    return NetworkErrors.errorMessage(NetworkErrors.ERROR_AUTHENTICATION_FAILED);
+  final String sid;
+  final LitResNetworkRequest purchasedBooksRequest;
+  final LitResNetworkRequest accountRequest;
+synchronized (this) {
+    sid=mySidOption.getValue();
+    if (sid.length() == 0) {
+      return NetworkErrors.errorMessage(NetworkErrors.ERROR_AUTHENTICATION_FAILED);
+    }
+    if (sid.equals(myInitializedDataSid)) {
+      return null;
+    }
+    purchasedBooksRequest=loadPurchasedBooks();
+    accountRequest=loadAccount();
   }
-  if (sid.equals(myInitializedDataSid)) {
-    return null;
-  }
-  LitResNetworkRequest purchasedBooksRequest=loadPurchasedBooks();
-  LitResNetworkRequest accountRequest=loadAccount();
   final LinkedList<ZLNetworkRequest> requests=new LinkedList<ZLNetworkRequest>();
   requests.add(purchasedBooksRequest);
   requests.add(accountRequest);
   final String error=ZLNetworkManager.Instance().perform(requests);
-  if (error != null) {
-    myInitializedDataSid=null;
-    loadPurchasedBooksOnError();
-    loadAccountOnError();
-    return error;
+synchronized (this) {
+    if (error != null) {
+      myInitializedDataSid=null;
+      loadPurchasedBooksOnError();
+      loadAccountOnError();
+      return error;
+    }
+    myInitializedDataSid=sid;
+    loadPurchasedBooksOnSuccess(purchasedBooksRequest);
+    loadAccountOnSuccess(accountRequest);
+    return null;
   }
-  myInitializedDataSid=sid;
-  loadPurchasedBooksOnSuccess(purchasedBooksRequest);
-  loadAccountOnSuccess(accountRequest);
-  return null;
 }

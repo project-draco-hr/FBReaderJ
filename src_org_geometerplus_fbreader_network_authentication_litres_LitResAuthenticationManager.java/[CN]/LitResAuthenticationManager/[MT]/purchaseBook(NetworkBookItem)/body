@@ -1,5 +1,8 @@
 {
-  final String sid=mySidOption.getValue();
+  final String sid;
+synchronized (this) {
+    sid=mySidOption.getValue();
+  }
   if (sid.length() == 0) {
     return NetworkErrors.errorMessage(NetworkErrors.ERROR_AUTHENTICATION_FAILED);
   }
@@ -11,24 +14,26 @@
   query=ZLNetworkUtil.appendParameter(query,"sid",sid);
   final LitResPurchaseXMLReader xmlReader=new LitResPurchaseXMLReader(Link.SiteName);
   final String error=ZLNetworkManager.Instance().perform(new LitResNetworkRequest(query,SSLCertificate,xmlReader));
-  if (xmlReader.Account != null) {
-    myAccount=BuyBookReference.price(xmlReader.Account,"RUB");
-  }
-  final String authenticationError=NetworkErrors.errorMessage(NetworkErrors.ERROR_AUTHENTICATION_FAILED);
-  if (authenticationError.equals(error)) {
-    mySidChecked=true;
-    mySidUserNameOption.setValue("");
-    mySidOption.setValue("");
-  }
-  final String alreadyPurchasedError=NetworkErrors.errorMessage(NetworkErrors.ERROR_PURCHASE_ALREADY_PURCHASED);
-  if (!alreadyPurchasedError.equals(error)) {
-    if (error != null) {
-      return error;
+synchronized (this) {
+    if (xmlReader.Account != null) {
+      myAccount=BuyBookReference.price(xmlReader.Account,"RUB");
     }
-    if (xmlReader.BookId == null || !xmlReader.BookId.equals(book.Id)) {
-      return NetworkErrors.errorMessage(NetworkErrors.ERROR_SOMETHING_WRONG,Link.SiteName);
+    final String authenticationError=NetworkErrors.errorMessage(NetworkErrors.ERROR_AUTHENTICATION_FAILED);
+    if (authenticationError.equals(error)) {
+      mySidChecked=true;
+      mySidUserNameOption.setValue("");
+      mySidOption.setValue("");
     }
+    final String alreadyPurchasedError=NetworkErrors.errorMessage(NetworkErrors.ERROR_PURCHASE_ALREADY_PURCHASED);
+    if (!alreadyPurchasedError.equals(error)) {
+      if (error != null) {
+        return error;
+      }
+      if (xmlReader.BookId == null || !xmlReader.BookId.equals(book.Id)) {
+        return NetworkErrors.errorMessage(NetworkErrors.ERROR_SOMETHING_WRONG,Link.SiteName);
+      }
+    }
+    myPurchasedBooks.put(book.Id,book);
+    return error;
   }
-  myPurchasedBooks.put(book.Id,book);
-  return error;
 }

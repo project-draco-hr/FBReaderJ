@@ -1,24 +1,29 @@
 {
-  final String sid=mySidOption.getValue();
-  if (sid.length() == 0) {
-    return NetworkErrors.errorMessage(NetworkErrors.ERROR_AUTHENTICATION_FAILED);
-  }
-  if (!sid.equals(myInitializedDataSid)) {
-    mySidChecked=true;
-    mySidUserNameOption.setValue("");
-    mySidOption.setValue("");
-    return NetworkErrors.errorMessage(NetworkErrors.ERROR_AUTHENTICATION_FAILED);
-  }
-  final LitResNetworkRequest networkRequest=loadPurchasedBooks();
-  final String error=ZLNetworkManager.Instance().perform(networkRequest);
-  if (error != null) {
-    if (error.equals(NetworkErrors.errorMessage(NetworkErrors.ERROR_AUTHENTICATION_FAILED))) {
+  final LitResNetworkRequest networkRequest;
+synchronized (this) {
+    final String sid=mySidOption.getValue();
+    if (sid.length() == 0) {
+      return NetworkErrors.errorMessage(NetworkErrors.ERROR_AUTHENTICATION_FAILED);
+    }
+    if (!sid.equals(myInitializedDataSid)) {
       mySidChecked=true;
       mySidUserNameOption.setValue("");
       mySidOption.setValue("");
+      return NetworkErrors.errorMessage(NetworkErrors.ERROR_AUTHENTICATION_FAILED);
     }
-    return error;
+    networkRequest=loadPurchasedBooks();
   }
-  loadPurchasedBooksOnSuccess(networkRequest);
-  return null;
+  final String error=ZLNetworkManager.Instance().perform(networkRequest);
+synchronized (this) {
+    if (error != null) {
+      if (error.equals(NetworkErrors.errorMessage(NetworkErrors.ERROR_AUTHENTICATION_FAILED))) {
+        mySidChecked=true;
+        mySidUserNameOption.setValue("");
+        mySidOption.setValue("");
+      }
+      return error;
+    }
+    loadPurchasedBooksOnSuccess(networkRequest);
+    return null;
+  }
 }

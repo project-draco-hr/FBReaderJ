@@ -1,31 +1,37 @@
 {
-  boolean authState=mySidUserNameOption.getValue().length() != 0 && mySidOption.getValue().length() != 0;
-  if (mySidChecked || !useNetwork) {
-    return new AuthenticationStatus(authState);
-  }
-  if (!authState) {
-    mySidChecked=true;
-    mySidUserNameOption.setValue("");
-    mySidOption.setValue("");
-    return new AuthenticationStatus(false);
+  final String sid;
+synchronized (this) {
+    boolean authState=mySidUserNameOption.getValue().length() != 0 && mySidOption.getValue().length() != 0;
+    if (mySidChecked || !useNetwork) {
+      return new AuthenticationStatus(authState);
+    }
+    if (!authState) {
+      mySidChecked=true;
+      mySidUserNameOption.setValue("");
+      mySidOption.setValue("");
+      return new AuthenticationStatus(false);
+    }
+    sid=mySidOption.getValue();
   }
   String url=Link.Links.get(NetworkLink.URL_SIGN_IN);
   if (url == null) {
     return new AuthenticationStatus(NetworkErrors.errorMessage(NetworkErrors.ERROR_UNSUPPORTED_OPERATION));
   }
-  url=ZLNetworkUtil.appendParameter(url,"sid",mySidOption.getValue());
+  url=ZLNetworkUtil.appendParameter(url,"sid",sid);
   final LitResLoginXMLReader xmlReader=new LitResLoginXMLReader(Link.SiteName);
   final String error=ZLNetworkManager.Instance().perform(new LitResNetworkRequest(url,SSLCertificate,xmlReader));
-  if (error != null) {
-    if (!error.equals(NetworkErrors.errorMessage(NetworkErrors.ERROR_AUTHENTICATION_FAILED))) {
-      return new AuthenticationStatus(error);
+synchronized (this) {
+    if (error != null) {
+      if (!error.equals(NetworkErrors.errorMessage(NetworkErrors.ERROR_AUTHENTICATION_FAILED))) {
+        return new AuthenticationStatus(error);
+      }
+      mySidChecked=true;
+      mySidUserNameOption.setValue("");
+      mySidOption.setValue("");
+      return new AuthenticationStatus(false);
     }
     mySidChecked=true;
-    mySidUserNameOption.setValue("");
-    mySidOption.setValue("");
-    return new AuthenticationStatus(false);
+    mySidOption.setValue(xmlReader.Sid);
+    return new AuthenticationStatus(true);
   }
-  mySidChecked=true;
-  mySidOption.setValue(xmlReader.Sid);
-  return new AuthenticationStatus(true);
 }
