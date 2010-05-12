@@ -4,7 +4,8 @@
   }
   NetworkView.Instance().tryResumeLoading(activity,tree,NetworkSearchActivity.SEARCH_RUNNABLE_KEY,new Runnable(){
     public void run(){
-      if (tree.hasChildren()) {
+      final boolean isLoading=NetworkView.Instance().containsItemsLoadingRunnable(NetworkSearchActivity.SEARCH_RUNNABLE_KEY);
+      if (isLoading || tree.hasChildren()) {
         NetworkView.Instance().openTree(activity,tree,NetworkSearchActivity.SEARCH_RUNNABLE_KEY);
       }
     }
