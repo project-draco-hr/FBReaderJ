@@ -1,0 +1,5 @@
+{
+  super(parentTree.Level + 1);
+  Link=parentTree.Item.Link;
+  Cover=parentTree.getCover();
+}

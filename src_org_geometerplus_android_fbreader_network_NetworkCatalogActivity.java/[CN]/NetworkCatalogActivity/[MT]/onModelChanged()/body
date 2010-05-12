@@ -1,3 +1,4 @@
 {
   getListView().invalidateViews();
+  setupTitle();
 }

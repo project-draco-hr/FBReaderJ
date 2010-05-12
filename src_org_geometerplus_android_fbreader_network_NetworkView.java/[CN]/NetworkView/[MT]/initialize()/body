@@ -2,7 +2,8 @@
   NetworkLibrary.Instance().synchronize();
   myActions.add(new NetworkBookActions());
   myActions.add(new NetworkCatalogActions());
-  myActions.add(new NetworkSearchActions());
+  myActions.add(new SearchItemActions());
+  myActions.add(new RefillAccountActions());
   myActions.trimToSize();
   myInitialized=true;
 }

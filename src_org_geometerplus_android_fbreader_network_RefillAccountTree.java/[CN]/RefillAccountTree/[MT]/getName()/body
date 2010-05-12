@@ -1,0 +1,10 @@
+{
+  final NetworkAuthenticationManager mgr=Link.authenticationManager();
+  if (mgr.isAuthorised(false).Status == ZLBoolean3.B3_TRUE) {
+    final String account=mgr.currentAccount();
+    if (account != null) {
+      return ZLResource.resource("networkView").getResource("refillAccount").getValue().replace("%s",account);
+    }
+  }
+  return ZLResource.resource("networkView").getResource("refillShort").getValue();
+}

@@ -1,0 +1,14 @@
+{
+  mySpecialItems=null;
+  if (myTree instanceof NetworkCatalogRootTree) {
+    NetworkCatalogTree tree=(NetworkCatalogTree)myTree;
+    NetworkAuthenticationManager mgr=tree.Item.Link.authenticationManager();
+    if (mgr != null) {
+      mySpecialItems=new ArrayList<NetworkTree>();
+      if (mgr.refillAccountSupported()) {
+        mySpecialItems.add(new RefillAccountTree(tree));
+      }
+      mySpecialItems.trimToSize();
+    }
+  }
+}

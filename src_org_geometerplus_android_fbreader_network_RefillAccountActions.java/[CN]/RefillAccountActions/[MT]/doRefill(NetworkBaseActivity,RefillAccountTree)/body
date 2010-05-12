@@ -1,0 +1,16 @@
+{
+  final NetworkAuthenticationManager mgr=tree.Link.authenticationManager();
+  if (mgr.isAuthorised(false).Status != ZLBoolean3.B3_FALSE) {
+    NetworkView.Instance().openInBrowser(activity,tree.Link.authenticationManager().refillAccountLink());
+  }
+ else {
+    NetworkDialog.show(activity,NetworkDialog.DIALOG_AUTHENTICATION,tree.Link,new Runnable(){
+      public void run(){
+        if (mgr.isAuthorised(false).Status != ZLBoolean3.B3_FALSE) {
+          NetworkView.Instance().openInBrowser(activity,tree.Link.authenticationManager().refillAccountLink());
+        }
+      }
+    }
+);
+  }
+}
