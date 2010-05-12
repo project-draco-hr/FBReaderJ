@@ -1,9 +1,10 @@
 {
   super(contentType);
-  new File(Constants.CACHE_DIRECTORY).mkdirs();
+  myDirName=Paths.cacheDirectory().intern();
+  new File(myDirName).mkdirs();
   myFileNumber=ourCounter++;
   try {
-    myStreamWriter=new OutputStreamWriter(new FileOutputStream(Constants.CACHE_DIRECTORY + "/image" + myFileNumber),"UTF-8");
+    myStreamWriter=new OutputStreamWriter(new FileOutputStream(myDirName + "/image" + myFileNumber),"UTF-8");
   }
  catch (  IOException e) {
   }

@@ -2,7 +2,7 @@
   final Queue<ZLFile> dirQueue=new LinkedList<ZLFile>();
   final HashSet<ZLFile> dirSet=new HashSet<ZLFile>();
   final LinkedList<ZLPhysicalFile> fileList=new LinkedList<ZLPhysicalFile>();
-  dirQueue.offer(new ZLPhysicalFile(new File(Constants.BOOKS_DIRECTORY)));
+  dirQueue.offer(new ZLPhysicalFile(new File(Paths.BooksDirectoryOption.getValue())));
   while (!dirQueue.isEmpty()) {
     for (    ZLFile file : dirQueue.poll().children()) {
       if (file.isDirectory()) {
