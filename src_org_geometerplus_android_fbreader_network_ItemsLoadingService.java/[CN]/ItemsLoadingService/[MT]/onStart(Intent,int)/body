@@ -28,6 +28,7 @@
   }
 ;
   startProgressNotification(runnable);
+  NetworkView.Instance().fireModelChanged();
   final Thread loader=new Thread(new Runnable(){
     public void run(){
       try {

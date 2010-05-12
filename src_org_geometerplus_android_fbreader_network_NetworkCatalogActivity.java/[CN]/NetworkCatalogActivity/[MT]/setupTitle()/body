@@ -12,7 +12,7 @@
   }
   setTitle(title);
   boolean inProgress=false;
-  final String key=getNetworkTreeKey(myTree);
+  final String key=getNetworkTreeKey(myTree,true);
   if (key != null && networkView.isInitialized() && networkView.containsItemsLoadingRunnable(key)) {
     inProgress=true;
   }

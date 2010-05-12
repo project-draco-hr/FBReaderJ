@@ -5,5 +5,10 @@
  else   if (tree instanceof SearchItemTree) {
     return NetworkSearchActivity.SEARCH_RUNNABLE_KEY;
   }
+ else   if (recursive && tree.Parent instanceof NetworkTree) {
+    if (tree instanceof NetworkAuthorTree || tree instanceof NetworkSeriesTree) {
+      return getNetworkTreeKey((NetworkTree)tree.Parent,true);
+    }
+  }
   return null;
 }
