@@ -6,7 +6,7 @@
  else {
     afterUpdateCatalog(errorMessage,myTree.ChildrenItems.size() == 0);
     final NetworkLibrary library=NetworkLibrary.Instance();
-    library.invalidateAccountDependents();
+    library.invalidateVisibility();
     library.synchronize();
   }
   if (NetworkView.Instance().isInitialized()) {

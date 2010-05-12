@@ -3,6 +3,6 @@
     if (!(tree instanceof NetworkCatalogTree)) {
       continue;
     }
-    ((NetworkCatalogTree)tree).updateAccountDependents();
+    ((NetworkCatalogTree)tree).updateVisibility();
   }
 }

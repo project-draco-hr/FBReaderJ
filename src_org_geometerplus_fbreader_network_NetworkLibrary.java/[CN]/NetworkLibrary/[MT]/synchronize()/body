@@ -3,8 +3,8 @@
     myUpdateChildren=false;
     makeUpToDate();
   }
-  if (myUpdateAccountDependents) {
-    myUpdateAccountDependents=false;
-    updateAccountDependents();
+  if (myUpdateVisibility) {
+    myUpdateVisibility=false;
+    updateVisibility();
   }
 }

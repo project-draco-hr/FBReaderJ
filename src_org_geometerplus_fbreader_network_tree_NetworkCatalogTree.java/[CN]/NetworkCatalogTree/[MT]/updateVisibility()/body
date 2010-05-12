@@ -21,7 +21,7 @@
       NetworkCatalogTree child=(NetworkCatalogTree)currentNode;
       if (child.Item == currentItem) {
         if (child.Item.isVisible()) {
-          child.updateAccountDependents();
+          child.updateVisibility();
         }
  else {
           toRemove.add(child);
