@@ -30,6 +30,7 @@
       if (previous instanceof NetworkSeriesTree) {
         final NetworkSeriesTree seriesTree=(NetworkSeriesTree)previous;
         if (seriesTitle.equals(seriesTree.SeriesTitle)) {
+          seriesTree.invalidateChildren();
           return new NetworkBookTree(seriesTree,book,showAuthors);
         }
       }
