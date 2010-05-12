@@ -1,0 +1,22 @@
+{
+  final NetworkCatalogTree catalogTree=(NetworkCatalogTree)tree;
+  if (catalogTree.Item.getVisibility() == ZLBoolean3.B3_TRUE) {
+    return false;
+  }
+switch (catalogTree.Item.Visibility) {
+case NetworkCatalogItem.VISIBLE_LOGGED_USER:
+    NetworkDialog.show(activity,NetworkDialog.DIALOG_AUTHENTICATION,((NetworkCatalogTree)tree).Item.Link,new Runnable(){
+      public void run(){
+        if (catalogTree.Item.getVisibility() != ZLBoolean3.B3_TRUE) {
+          return;
+        }
+        if (actionCode != SIGNIN_ITEM_ID) {
+          runAction(activity,tree,actionCode);
+        }
+      }
+    }
+);
+  break;
+}
+return true;
+}

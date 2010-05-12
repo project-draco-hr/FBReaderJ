@@ -2,31 +2,47 @@
   final NetworkCatalogTree catalogTree=(NetworkCatalogTree)tree;
   final NetworkCatalogItem item=catalogTree.Item;
   menu.setHeaderTitle(tree.getName());
+  final boolean isVisible=item.getVisibility() == ZLBoolean3.B3_TRUE;
+  boolean hasItems=false;
   final String catalogUrl=item.URLByType.get(NetworkCatalogItem.URL_CATALOG);
   if (catalogUrl != null) {
     addMenuItem(menu,OPEN_CATALOG_ITEM_ID,"openCatalog");
+    hasItems=true;
   }
   if (tree instanceof NetworkCatalogRootTree) {
-    NetworkAuthenticationManager mgr=item.Link.authenticationManager();
-    if (mgr != null) {
-      final boolean maybeSignedIn=mgr.isAuthorised(false).Status != ZLBoolean3.B3_FALSE;
-      if (maybeSignedIn) {
-        addMenuItem(menu,SIGNOUT_ITEM_ID,"signOut",mgr.currentUserName());
-        if (mgr.refillAccountLink() != null) {
-          final String account=mgr.currentAccount();
-          if (account != null) {
-            addMenuItem(menu,REFILL_ACCOUNT_ITEM_ID,"refillAccount",account);
+    if (isVisible) {
+      final NetworkAuthenticationManager mgr=item.Link.authenticationManager();
+      if (mgr != null) {
+        final boolean maybeSignedIn=mgr.isAuthorised(false).Status != ZLBoolean3.B3_FALSE;
+        if (maybeSignedIn) {
+          addMenuItem(menu,SIGNOUT_ITEM_ID,"signOut",mgr.currentUserName());
+          if (mgr.refillAccountLink() != null) {
+            final String account=mgr.currentAccount();
+            if (account != null) {
+              addMenuItem(menu,REFILL_ACCOUNT_ITEM_ID,"refillAccount",account);
+            }
           }
         }
-      }
  else {
-        addMenuItem(menu,SIGNIN_ITEM_ID,"signIn");
+          addMenuItem(menu,SIGNIN_ITEM_ID,"signIn");
+        }
       }
     }
   }
  else {
     if (item.URLByType.get(NetworkCatalogItem.URL_HTML_PAGE) != null) {
       addMenuItem(menu,OPEN_IN_BROWSER_ITEM_ID,"openInBrowser");
+      hasItems=true;
     }
   }
+  if (!isVisible && !hasItems) {
+switch (item.Visibility) {
+case NetworkCatalogItem.VISIBLE_LOGGED_USER:
+      if (item.Link.authenticationManager() != null) {
+        addMenuItem(menu,SIGNIN_ITEM_ID,"signIn");
+      }
+    break;
+}
+return;
+}
 }

@@ -1,0 +1,12 @@
+{
+  if (Visibility == VISIBLE_ALWAYS) {
+    return ZLBoolean3.B3_TRUE;
+  }
+  if (Visibility == VISIBLE_LOGGED_USER) {
+    if (Link.authenticationManager() == null) {
+      return ZLBoolean3.B3_FALSE;
+    }
+    return (Link.authenticationManager().isAuthorised(false).Status == ZLBoolean3.B3_TRUE) ? ZLBoolean3.B3_TRUE : ZLBoolean3.B3_UNDEFINED;
+  }
+  return ZLBoolean3.B3_FALSE;
+}

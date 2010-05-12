@@ -8,7 +8,7 @@
   }
   if (item instanceof NetworkCatalogItem) {
     NetworkCatalogItem catalogItem=(NetworkCatalogItem)item;
-    if (!catalogItem.isVisible()) {
+    if (catalogItem.getVisibility() == ZLBoolean3.B3_FALSE) {
       return null;
     }
     NetworkCatalogTree tree=new NetworkCatalogTree(parent,catalogItem,position);

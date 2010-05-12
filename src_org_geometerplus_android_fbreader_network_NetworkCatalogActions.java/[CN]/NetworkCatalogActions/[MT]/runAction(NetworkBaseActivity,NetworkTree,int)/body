@@ -1,4 +1,7 @@
 {
+  if (consumeByVisibility(activity,tree,actionCode)) {
+    return true;
+  }
 switch (actionCode) {
 case OPEN_CATALOG_ITEM_ID:
     doExpandCatalog(activity,(NetworkCatalogTree)tree);

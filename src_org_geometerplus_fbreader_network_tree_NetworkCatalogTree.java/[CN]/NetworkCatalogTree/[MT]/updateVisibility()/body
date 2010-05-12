@@ -20,11 +20,16 @@
       }
       NetworkCatalogTree child=(NetworkCatalogTree)currentNode;
       if (child.Item == currentItem) {
-        if (child.Item.isVisible()) {
+        final int visibility=child.Item.getVisibility();
+        if (visibility == ZLBoolean3.B3_TRUE) {
           child.updateVisibility();
         }
- else {
+ else         if (visibility == ZLBoolean3.B3_FALSE) {
           toRemove.add(child);
+        }
+ else {
+          child.clear();
+          child.ChildrenItems.clear();
         }
         currentNode=null;
         ++nodeCount;
