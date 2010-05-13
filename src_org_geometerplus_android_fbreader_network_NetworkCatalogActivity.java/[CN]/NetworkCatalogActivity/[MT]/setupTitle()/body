@@ -11,10 +11,5 @@
     title=myTree.getName();
   }
   setTitle(title);
-  boolean inProgress=false;
-  final String key=getNetworkTreeKey(myTree,true);
-  if (key != null && networkView.isInitialized() && networkView.containsItemsLoadingRunnable(key)) {
-    inProgress=true;
-  }
-  setProgressBarIndeterminateVisibility(inProgress);
+  setProgressBarIndeterminateVisibility(myInProgress);
 }

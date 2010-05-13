@@ -1,3 +1,3 @@
 {
-  return myTree.subTrees().size() + ((mySpecialItems == null) ? 0 : mySpecialItems.size());
+  return myTree.subTrees().size() + ((mySpecialItems != null && !myInProgress) ? mySpecialItems.size() : 0);
 }

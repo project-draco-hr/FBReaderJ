@@ -1,4 +1,7 @@
 {
+  final NetworkView networkView=NetworkView.Instance();
+  final String key=getNetworkTreeKey(myTree,true);
+  myInProgress=key != null && networkView.isInitialized() && networkView.containsItemsLoadingRunnable(key);
   getListView().invalidateViews();
   setupTitle();
 }
