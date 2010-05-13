@@ -19,7 +19,7 @@
       text=resource.getResource(a.Key).getValue().replace("%s",a.Arg);
     }
     final int buttonId=buttons[buttonNumber++];
-    Button button=(Button)findViewById(buttonId);
+    TextView button=(TextView)findViewById(buttonId);
     button.setText(text);
     button.setVisibility(View.VISIBLE);
     button.setOnClickListener(new View.OnClickListener(){

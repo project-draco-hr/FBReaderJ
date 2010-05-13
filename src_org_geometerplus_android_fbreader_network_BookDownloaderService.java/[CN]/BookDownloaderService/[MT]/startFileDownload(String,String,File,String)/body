@@ -3,7 +3,7 @@
   startCallbackActivity();
   final int notificationId=NetworkNotifications.Instance().getBookDownloadingId();
   final Notification progressNotification=createDownloadProgressNotification(title);
-  final NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+  final NotificationManager notificationManager=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
   myOngoingNotifications.add(Integer.valueOf(notificationId));
   notificationManager.notify(notificationId,progressNotification);
   final Handler progressHandler=new Handler(){
@@ -18,7 +18,7 @@
         contentView.setTextViewText(R.id.download_notification_progress_text,"" + progress + "%");
         contentView.setProgressBar(R.id.download_notification_progress_bar,100,progress,false);
       }
-      final NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+      final NotificationManager notificationManager=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
       notificationManager.notify(notificationId,progressNotification);
     }
   }
@@ -26,7 +26,7 @@
   final Handler downloadFinishHandler=new Handler(){
     public void handleMessage(    Message message){
       myDownloadingURLs.remove(urlString);
-      final NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+      final NotificationManager notificationManager=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
       notificationManager.cancel(notificationId);
       myOngoingNotifications.remove(Integer.valueOf(notificationId));
       notificationManager.notify(notificationId,createDownloadFinishNotification(file,title,message.what != 0));

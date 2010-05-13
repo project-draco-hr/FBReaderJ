@@ -8,7 +8,7 @@
   final int actionCode=actions.getDefaultActionCode(networkTree);
   final String confirm=actions.getConfirmText(networkTree,actionCode);
   if (actionCode == NetworkTreeActions.TREE_SHOW_CONTEXT_MENU) {
-    getListView().showContextMenuForChild(view);
+    listView.showContextMenuForChild(view);
     return;
   }
   if (actionCode < 0) {

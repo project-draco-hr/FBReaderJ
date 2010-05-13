@@ -1,5 +1,5 @@
 {
-  final NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+  final NotificationManager notificationManager=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
   for (  int notificationId : myOngoingNotifications) {
     notificationManager.cancel(notificationId);
   }
