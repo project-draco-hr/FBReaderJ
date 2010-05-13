@@ -1,9 +1,7 @@
 {
   String fileName=xmlattributes.getValue(myNameAttribute);
   if (fileName != null) {
-    if (fileName.startsWith("./")) {
-      fileName=fileName.substring(2);
-    }
+    fileName=MiscUtil.decodeHtmlReference(fileName);
     final ZLFile imageFile=ZLFile.createFileByPath(reader.myPathPrefix + fileName);
     if (imageFile != null) {
       final BookReader modelReader=reader.getModelReader();

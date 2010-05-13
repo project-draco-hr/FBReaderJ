@@ -2,6 +2,7 @@
   if (archive == null) {
     return null;
   }
+  entryName=normalizeEntryName(entryName);
 switch (archive.myArchiveType & ArchiveType.ARCHIVE) {
 case ArchiveType.ZIP:
     return new ZLZipEntryFile(archive,entryName);
