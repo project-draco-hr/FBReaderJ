@@ -1,0 +1,7 @@
+{
+  if (mySpecialItems != null) {
+    for (    NetworkTree tree : mySpecialItems) {
+      tree.invalidateChildren();
+    }
+  }
+}
