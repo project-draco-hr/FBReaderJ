@@ -2,7 +2,7 @@
   final NetworkView networkView=NetworkView.Instance();
   final String key=getNetworkTreeKey(myTree,true);
   myInProgress=key != null && networkView.isInitialized() && networkView.containsItemsLoadingRunnable(key);
-  updateSpecialItems();
   getListView().invalidateViews();
+  ((CatalogAdapter)getListAdapter()).onModelChanged();
   setupTitle();
 }

@@ -20,22 +20,6 @@
     finish();
     return;
   }
-  if (myTree instanceof NetworkCatalogRootTree) {
-    NetworkCatalogTree tree=(NetworkCatalogTree)myTree;
-    NetworkAuthenticationManager mgr=tree.Item.Link.authenticationManager();
-    if (mgr != null) {
-      mySpecialItems=new ArrayList<NetworkTree>();
-      if (mgr.refillAccountSupported()) {
-        mySpecialItems.add(new RefillAccountTree(tree));
-      }
-      if (mySpecialItems.size() > 0) {
-        mySpecialItems.trimToSize();
-      }
- else {
-        mySpecialItems=null;
-      }
-    }
-  }
   networkView.setOpenedActivity(myCatalogKey,this);
   setListAdapter(new CatalogAdapter());
   getListView().invalidateViews();
