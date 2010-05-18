@@ -1,13 +1,20 @@
 {
   super.onStart();
-switch (ourOrientation) {
+  if (ZLAndroidApplication.Instance().AutoOrientationOption.getValue()) {
+    setAutoRotationMode();
+  }
+ else {
+switch (myOrientation) {
 case ActivityInfo.SCREEN_ORIENTATION_PORTRAIT:
 case ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE:
-    setRequestedOrientation(ourOrientation);
-  myChangeCounter=0;
-break;
+      if (getRequestedOrientation() != myOrientation) {
+        setRequestedOrientation(myOrientation);
+        myChangeCounter=0;
+      }
+    break;
 default :
-setAutoRotationMode();
+  setAutoRotationMode();
 break;
+}
 }
 }

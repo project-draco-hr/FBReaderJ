@@ -1,6 +1,10 @@
 {
-  super.onCreate(icicle);
+  super.onCreate(state);
   Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler(this));
+  if (state != null) {
+    myOrientation=state.getInt(REQUESTED_ORIENTATION_KEY,ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+    myChangeCounter=state.getInt(ORIENTATION_CHANGE_COUNTER_KEY);
+  }
   requestWindowFeature(Window.FEATURE_NO_TITLE);
   setContentView(R.layout.main);
   setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
