@@ -1,0 +1,8 @@
+{
+  final int page=1;
+  final int pagesNumber=100;
+  final SeekBar slider=(SeekBar)myNavigateDialog.findViewById(R.id.book_position_slider);
+  slider.setMax(pagesNumber - 1);
+  slider.setProgress(page - 1);
+  myNavigateDialog.setTitle(makeNavigationTitle(page,pagesNumber));
+}

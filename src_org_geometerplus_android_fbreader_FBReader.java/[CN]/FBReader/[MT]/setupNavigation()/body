@@ -1,0 +1,28 @@
+{
+  final View layout=getLayoutInflater().inflate(R.layout.navigate,null);
+  final SeekBar slider=(SeekBar)layout.findViewById(R.id.book_position_slider);
+  slider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
+    private boolean myInTouch;
+    private void gotoPage(    int page){
+    }
+    public void onStopTrackingTouch(    SeekBar seekBar){
+      gotoPage(seekBar.getProgress() + 1);
+      myInTouch=false;
+    }
+    public void onStartTrackingTouch(    SeekBar seekBar){
+      myInTouch=true;
+    }
+    public void onProgressChanged(    SeekBar seekBar,    int progress,    boolean fromUser){
+      if (fromUser) {
+        final int page=progress + 1;
+        final int pagesNumber=seekBar.getMax() + 1;
+        myNavigateDialog.setTitle(makeNavigationTitle(page,pagesNumber));
+        if (!myInTouch) {
+          gotoPage(page);
+        }
+      }
+    }
+  }
+);
+  myNavigateDialog=new AlertDialog.Builder(this).setView(layout).setTitle("?????").setIcon(0).create();
+}
