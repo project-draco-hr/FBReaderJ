@@ -1,0 +1,16 @@
+{
+  setTextStyle(ZLTextStyleCollection.Instance().getBaseStyle());
+  final int textWidth=getTextAreaWidth();
+  final int textHeight=getTextAreaHeight();
+  final int num=myModel.getParagraphsNumber();
+  final int totalTextSize=myModel.getTextLength(num - 1);
+  final float charsPerParagraph=((float)totalTextSize) / num;
+  final float charWidth=computeCharWidth();
+  final int indentWidth=getElementWidth(ZLTextElement.IndentElement,0);
+  final float effectiveWidth=textWidth - (indentWidth + 0.5f * textWidth) / charsPerParagraph;
+  float charsPerLine=Math.min(effectiveWidth / charWidth,charsPerParagraph * 1.2f);
+  final int strHeight=getWordHeight() + Context.getDescent();
+  final int effectiveHeight=(int)(textHeight - (getTextStyle().getSpaceBefore() + getTextStyle().getSpaceAfter()) / charsPerParagraph);
+  final int linesPerPage=effectiveHeight / strHeight;
+  return charsPerLine * linesPerPage;
+}

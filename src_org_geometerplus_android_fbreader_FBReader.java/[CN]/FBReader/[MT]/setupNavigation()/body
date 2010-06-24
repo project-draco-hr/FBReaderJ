@@ -4,6 +4,12 @@
   slider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
     private boolean myInTouch;
     private void gotoPage(    int page){
+      final ZLView view=ZLApplication.Instance().getCurrentView();
+      if (view instanceof ZLTextView) {
+        ZLTextView textView=(ZLTextView)view;
+        textView.gotoPage(page);
+        ZLApplication.Instance().repaintView();
+      }
     }
     public void onStopTrackingTouch(    SeekBar seekBar){
       gotoPage(seekBar.getProgress() + 1);

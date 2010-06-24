@@ -1,0 +1,3 @@
+{
+  return computeTextPageNumber(getScrollbarThumbPosition(PAGE_CENTRAL) + getScrollbarThumbLength(PAGE_CENTRAL));
+}

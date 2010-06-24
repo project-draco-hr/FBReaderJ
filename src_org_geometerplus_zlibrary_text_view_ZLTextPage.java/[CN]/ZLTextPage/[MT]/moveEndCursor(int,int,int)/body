@@ -1,0 +1,16 @@
+{
+  if (EndCursor.isNull()) {
+    EndCursor.setCursor(StartCursor);
+  }
+  EndCursor.moveToParagraph(paragraphIndex);
+  if ((paragraphIndex > 0) && (wordIndex == 0) && (charIndex == 0)) {
+    EndCursor.previousParagraph();
+    EndCursor.moveToParagraphEnd();
+  }
+ else {
+    EndCursor.moveTo(wordIndex,charIndex);
+  }
+  StartCursor.reset();
+  LineInfos.clear();
+  PaintState=PaintStateEnum.END_IS_KNOWN;
+}

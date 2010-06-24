@@ -1,10 +1,6 @@
 {
   if (element instanceof ZLTextWord) {
-    if (myWordHeight == -1) {
-      final ZLTextStyle textStyle=myTextStyle;
-      myWordHeight=(int)(Context.getStringHeight() * textStyle.getLineSpacePercent() / 100) + textStyle.getVerticalShift();
-    }
-    return myWordHeight;
+    return getWordHeight();
   }
  else   if (element instanceof ZLTextImageElement) {
     final ZLPaintContext context=Context;

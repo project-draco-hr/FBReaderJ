@@ -1,0 +1,11 @@
+{
+  if (myModel != null && myModel.getParagraphsNumber() > 0) {
+    myCurrentPage.moveEndCursor(paragraphIndex,wordIndex,charIndex);
+    myPreviousPage.reset();
+    myNextPage.reset();
+    preparePaintInfo(myCurrentPage);
+    if (myCurrentPage.isEmptyPage()) {
+      scrollPage(false,ScrollingMode.NO_OVERLAPPING,0);
+    }
+  }
+}

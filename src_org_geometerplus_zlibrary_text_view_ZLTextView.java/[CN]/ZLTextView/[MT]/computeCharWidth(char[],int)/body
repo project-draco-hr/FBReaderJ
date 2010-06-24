@@ -1,0 +1,3 @@
+{
+  return Context.getStringWidth(pattern,0,length) / ((float)length);
+}

@@ -1,0 +1,29 @@
+{
+  if (myLettersModel != myModel) {
+    myLettersModel=myModel;
+    myLettersBufferLength=0;
+    int paragraph=0;
+    final int textSize=myModel.getTextLength(myModel.getParagraphsNumber() - 1);
+    if (textSize > myLettersBuffer.length) {
+      paragraph=myModel.findParagraphByTextLength((textSize - myLettersBuffer.length) / 2);
+    }
+    while (paragraph < myModel.getParagraphsNumber() && myLettersBufferLength < myLettersBuffer.length) {
+      ZLTextParagraph.EntryIterator it=myModel.getParagraph(paragraph++).iterator();
+      while (it.hasNext() && myLettersBufferLength < myLettersBuffer.length) {
+        it.next();
+        if (it.getType() == ZLTextParagraph.Entry.TEXT) {
+          final int len=Math.min(it.getTextLength(),myLettersBuffer.length - myLettersBufferLength);
+          System.arraycopy(it.getTextData(),it.getTextOffset(),myLettersBuffer,myLettersBufferLength,len);
+          myLettersBufferLength+=len;
+        }
+      }
+    }
+    if (myLettersBufferLength == 0) {
+      myLettersBufferLength=Math.min(myLettersBuffer.length,ourDefaultLetters.length);
+      System.arraycopy(ourDefaultLetters,0,myLettersBuffer,0,myLettersBufferLength);
+    }
+  }
+  final float charWidth=computeCharWidth(myLettersBuffer,myLettersBufferLength);
+  System.err.println("CHARWIDTH: charWidth = " + charWidth);
+  return charWidth;
+}

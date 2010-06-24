@@ -1,0 +1,31 @@
+{
+  if (myModel == null || myModel.getParagraphsNumber() == 0) {
+    return;
+  }
+  final float factor=computeCharsPerPage();
+  final float textSize=page * factor;
+  int intTextSize=(int)textSize;
+  int paragraphIndex=myModel.findParagraphByTextLength(intTextSize);
+  if (paragraphIndex > 0 && myModel.getTextLength(paragraphIndex) > intTextSize) {
+    --paragraphIndex;
+  }
+  intTextSize=myModel.getTextLength(paragraphIndex);
+  int sizeOfTextBefore=myModel.getTextLength(paragraphIndex - 1);
+  while (paragraphIndex > 0 && intTextSize == sizeOfTextBefore) {
+    --paragraphIndex;
+    intTextSize=sizeOfTextBefore;
+    sizeOfTextBefore=myModel.getTextLength(paragraphIndex - 1);
+  }
+  final int paragraphLength=intTextSize - sizeOfTextBefore;
+  final int wordIndex;
+  if (paragraphLength == 0) {
+    wordIndex=0;
+  }
+ else {
+    preparePaintInfo(myCurrentPage);
+    final ZLTextWordCursor cursor=new ZLTextWordCursor(myCurrentPage.EndCursor);
+    cursor.moveToParagraph(paragraphIndex);
+    wordIndex=cursor.getParagraphCursor().getParagraphLength();
+  }
+  gotoPositionByEnd(paragraphIndex,wordIndex,0);
+}

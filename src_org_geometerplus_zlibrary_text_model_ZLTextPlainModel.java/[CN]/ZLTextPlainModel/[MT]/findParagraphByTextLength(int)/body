@@ -1,0 +1,7 @@
+{
+  int index=binarySearch(myTextSizes,myParagraphsNumber,length);
+  if (index >= 0) {
+    return index;
+  }
+  return Math.min(-index - 1,myParagraphsNumber - 1);
+}
