@@ -1,7 +1,4 @@
 {
-  if (myNavigateDialog == null) {
-    setupNavigation();
-  }
+  setupNavigation();
   myNavigateDialog.show();
-  updateNavigation();
 }

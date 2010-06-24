@@ -5,5 +5,4 @@
   }
   gotoPosition(0,0,0);
   preparePaintInfo();
-  ZLApplication.Instance().repaintView();
 }
