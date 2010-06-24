@@ -1,6 +1,6 @@
 {
   if (relationAliases != null && relationAliases.size() > 0) {
-    myRelationAliases=new TreeMap(relationAliases);
+    myRelationAliases=new TreeMap<RelationAlias,String>(relationAliases);
   }
  else {
     myRelationAliases=null;

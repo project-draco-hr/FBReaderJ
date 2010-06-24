@@ -15,7 +15,6 @@
     return;
   }
   if (confirm != null) {
-    final ZLResource resource=myResource.getResource("confirmQuestions");
     final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
     new AlertDialog.Builder(this).setTitle(networkTree.getName()).setMessage(confirm).setIcon(0).setPositiveButton(buttonResource.getResource("yes").getValue(),new DialogInterface.OnClickListener(){
       public void onClick(      DialogInterface dialog,      int which){

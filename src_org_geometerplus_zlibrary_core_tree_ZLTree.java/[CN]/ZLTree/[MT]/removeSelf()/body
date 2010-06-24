@@ -1,6 +1,6 @@
 {
   final int subTreeSize=getSize();
-  ZLTree parent=Parent;
+  ZLTree<?> parent=Parent;
   if (parent != null) {
     parent.mySubTrees.remove(this);
     if (parent.mySubTrees.isEmpty()) {

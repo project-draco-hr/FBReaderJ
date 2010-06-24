@@ -1,3 +1,0 @@
-{
-  super.setVisible((myFirst.isVisible() && myFirst.myState) || (mySecond.isVisible() && mySecond.myState));
-}

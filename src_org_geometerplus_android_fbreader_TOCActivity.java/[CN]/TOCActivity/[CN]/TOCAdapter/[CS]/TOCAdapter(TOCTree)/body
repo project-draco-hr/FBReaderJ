@@ -1,4 +1,3 @@
 {
   super(getListView(),root);
-  myRoot=root;
 }

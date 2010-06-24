@@ -1,6 +1,6 @@
 {
   if (ourLanguageCodes.isEmpty()) {
-    TreeSet codes=new TreeSet();
+    TreeSet<String> codes=new TreeSet<String>();
     for (    ZLFile file : patternsFile().children()) {
       String name=file.getName(false);
       final int index=name.indexOf("_");

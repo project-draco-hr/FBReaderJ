@@ -1,4 +1,0 @@
-{
-  myState=state;
-  super.onStateChanged(state);
-}

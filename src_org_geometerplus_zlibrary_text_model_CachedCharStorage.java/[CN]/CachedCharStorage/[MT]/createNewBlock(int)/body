@@ -4,6 +4,6 @@
     blockSize=minimumLength;
   }
   char[] block=new char[blockSize];
-  myArray.add(new WeakReference(block));
+  myArray.add(new WeakReference<char[]>(block));
   return block;
 }

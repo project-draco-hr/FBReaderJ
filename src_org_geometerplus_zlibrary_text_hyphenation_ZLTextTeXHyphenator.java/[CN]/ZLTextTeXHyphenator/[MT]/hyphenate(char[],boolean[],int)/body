@@ -6,7 +6,7 @@
     return;
   }
   byte[] values=new byte[length + 1];
-  final HashMap table=myPatternTable;
+  final HashMap<ZLTextTeXHyphenationPattern,ZLTextTeXHyphenationPattern> table=myPatternTable;
   ZLTextTeXHyphenationPattern pattern=new ZLTextTeXHyphenationPattern(stringToHyphenate,0,length,false);
   for (int offset=0; offset < length - 1; offset++) {
     int len=length - offset + 1;

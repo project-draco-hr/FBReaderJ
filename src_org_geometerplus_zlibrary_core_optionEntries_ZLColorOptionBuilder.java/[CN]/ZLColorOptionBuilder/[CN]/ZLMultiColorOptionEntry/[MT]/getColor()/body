@@ -1,4 +1,4 @@
 {
-  Object color=myData.myCurrentColors.get(myData.myCurrentOptionName);
-  return (color != null) ? (ZLColor)color : initialColor();
+  ZLColor color=myData.myCurrentColors.get(myData.myCurrentOptionName);
+  return (color != null) ? color : initialColor();
 }

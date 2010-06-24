@@ -4,5 +4,5 @@
   Summary=summary;
   Icon=icon;
   OnOption=new ZLBooleanOption(SiteName,"on",true);
-  Links=new TreeMap(links);
+  Links=new TreeMap<String,String>(links);
 }

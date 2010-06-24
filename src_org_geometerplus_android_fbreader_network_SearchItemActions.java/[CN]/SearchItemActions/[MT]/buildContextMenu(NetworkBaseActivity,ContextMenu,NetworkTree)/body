@@ -1,6 +1,4 @@
 {
-  final SearchItemTree searchTree=(SearchItemTree)tree;
-  final SearchResult result=searchTree.getSearchResult();
   menu.setHeaderTitle(tree.getName());
   final boolean isLoading=NetworkView.Instance().containsItemsLoadingRunnable(NetworkSearchActivity.SEARCH_RUNNABLE_KEY);
   if (!isLoading) {

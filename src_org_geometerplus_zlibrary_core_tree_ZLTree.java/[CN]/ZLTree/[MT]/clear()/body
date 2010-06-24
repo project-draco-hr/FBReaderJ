@@ -3,7 +3,7 @@
   mySubTrees=null;
   mySize=1;
   if (subTreesSize > 0) {
-    for (ZLTree parent=Parent; parent != null; parent=parent.Parent) {
+    for (ZLTree<?> parent=Parent; parent != null; parent=parent.Parent) {
       parent.mySize-=subTreesSize;
     }
   }

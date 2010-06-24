@@ -4,7 +4,7 @@
     if (stream == null) {
       return new byte[0];
     }
-    final ArrayList data=new ArrayList();
+    final ArrayList<byte[]> data=new ArrayList<byte[]>();
     byte[] buffer;
     int sizeOfBufferData;
     stream.skip(myOffset);

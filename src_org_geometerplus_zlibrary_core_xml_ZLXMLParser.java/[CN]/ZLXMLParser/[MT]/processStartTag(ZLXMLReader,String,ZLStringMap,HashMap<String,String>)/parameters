@@ -1,0 +1,4 @@
+ZLXMLReader xmlReader
+String tagName
+ZLStringMap attributes
+HashMap<String,String> currentNamespaceMap

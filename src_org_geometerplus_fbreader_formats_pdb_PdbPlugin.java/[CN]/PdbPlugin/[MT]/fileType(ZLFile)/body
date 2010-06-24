@@ -1,5 +1,4 @@
 {
-  ZLFile baseFile=file.getPhysicalFile();
   ZLStringOption palmTypeOption=new ZLStringOption(file.getPath(),"PalmType","");
   String palmType=palmTypeOption.getValue();
   if (palmType.length() != 8) {

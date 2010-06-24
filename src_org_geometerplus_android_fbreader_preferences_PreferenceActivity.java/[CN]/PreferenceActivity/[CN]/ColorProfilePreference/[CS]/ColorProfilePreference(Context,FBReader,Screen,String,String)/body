@@ -1,7 +1,0 @@
-{
-  super(context);
-  myFBReader=fbreader;
-  myScreen=screen;
-  myKey=key;
-  setTitle(title);
-}

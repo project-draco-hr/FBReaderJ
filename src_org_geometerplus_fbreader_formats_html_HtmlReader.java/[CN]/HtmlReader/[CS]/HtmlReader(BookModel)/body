@@ -1,7 +1,6 @@
 {
   super(model);
   try {
-    String encoding=model.Book.getEncoding();
     myAttributeDecoder=createDecoder();
     setByteDecoder(createDecoder());
   }

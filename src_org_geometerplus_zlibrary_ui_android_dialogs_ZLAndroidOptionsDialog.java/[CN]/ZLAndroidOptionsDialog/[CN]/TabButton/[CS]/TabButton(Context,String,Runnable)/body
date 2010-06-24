@@ -1,6 +1,0 @@
-{
-  super(context);
-  setText(text);
-  setFocusable(false);
-  myAction=action;
-}

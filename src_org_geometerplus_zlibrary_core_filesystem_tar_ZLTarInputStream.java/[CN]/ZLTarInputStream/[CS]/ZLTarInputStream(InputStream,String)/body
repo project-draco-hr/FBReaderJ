@@ -1,6 +1,5 @@
 {
   myBase=base;
-  myFileName=fileName;
   ZLTarHeader header=new ZLTarHeader();
   while (header.read(myBase)) {
     if ((header.IsRegularFile) && fileName.equals(header.Name)) {

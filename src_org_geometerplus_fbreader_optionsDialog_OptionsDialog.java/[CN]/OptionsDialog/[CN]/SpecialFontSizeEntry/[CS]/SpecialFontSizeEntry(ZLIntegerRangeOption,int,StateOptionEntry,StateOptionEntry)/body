@@ -1,5 +1,0 @@
-{
-  super(option,step);
-  myFirst=first;
-  mySecond=second;
-}

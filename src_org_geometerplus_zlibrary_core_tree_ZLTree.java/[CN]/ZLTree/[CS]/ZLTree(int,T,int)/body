@@ -5,7 +5,7 @@
   Parent=parent;
   if (parent != null) {
     Level=parent.Level + 1;
-    parent.addSubTree(this,position);
+    parent.addSubTree((T)this,position);
   }
  else {
     Level=nullLevel;

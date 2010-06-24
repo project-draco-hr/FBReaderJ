@@ -1,5 +1,4 @@
 {
-  final RefillAccountTree refillTree=(RefillAccountTree)tree;
   menu.setHeaderTitle(getTitleValue("refillTitle"));
   addMenuItem(menu,REFILL_ITEM_ID,"refillTitle");
 }

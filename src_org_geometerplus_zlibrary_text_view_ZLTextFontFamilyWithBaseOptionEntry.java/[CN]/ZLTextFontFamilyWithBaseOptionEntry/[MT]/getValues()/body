@@ -1,6 +1,6 @@
 {
   if (ourAllFamilies.size() == 0) {
-    final ArrayList families=super.getValues();
+    final ArrayList<String> families=super.getValues();
     ourAllFamilies.add(myResource.getResource("unchanged").getValue());
     ourAllFamilies.addAll(families);
   }

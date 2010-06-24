@@ -1,6 +1,6 @@
 {
-  final HashMap tagByName=ourTagByName;
-  Byte num=(Byte)tagByName.get(name);
+  final HashMap<String,Byte> tagByName=ourTagByName;
+  Byte num=tagByName.get(name);
   if (num == null) {
     final String lowerCaseName=name.toLowerCase().intern();
     num=(Byte)tagByName.get(lowerCaseName);

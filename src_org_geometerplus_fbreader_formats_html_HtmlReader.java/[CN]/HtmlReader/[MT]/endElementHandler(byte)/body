@@ -40,7 +40,6 @@ myOrderedListIsStarted=false;
 myOLCounter=0;
 break;
 case HtmlTag.UL:
-myUnorderedListIsStarted=false;
 break;
 default :
 break;

@@ -1,4 +1,0 @@
-{
-  final ZLResource r=resource.getResource(resourceKey);
-  return r.hasValue() ? r.getValue() : resourceKey;
-}

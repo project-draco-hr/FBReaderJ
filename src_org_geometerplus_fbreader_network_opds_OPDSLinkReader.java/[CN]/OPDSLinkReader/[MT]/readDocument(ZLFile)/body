@@ -1,5 +1,5 @@
 {
-  mySiteName=myTitle=mySummary=myIcon=mySearchType=myAuthenticationType=mySSLCertificate=null;
+  mySiteName=myTitle=mySummary=myIcon=myAuthenticationType=mySSLCertificate=null;
   myLinks.clear();
   mySearchFields.clear();
   myUrlConditions.clear();

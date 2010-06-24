@@ -1,7 +1,7 @@
 {
   int count=1;
   if (isOpen(tree)) {
-    for (    ZLTree subtree : tree.subTrees()) {
+    for (    ZLTree<?> subtree : tree.subTrees()) {
       count+=getCount(subtree);
     }
   }

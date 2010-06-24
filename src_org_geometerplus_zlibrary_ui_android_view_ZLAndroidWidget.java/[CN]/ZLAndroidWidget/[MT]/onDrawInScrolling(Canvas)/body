@@ -1,7 +1,6 @@
 {
   final int w=getWidth();
   final int h=getHeight();
-  final ZLAndroidPaintContext context=ZLAndroidPaintContext.Instance();
   boolean stopScrolling=false;
   if (myScrollingInProgress) {
     myScrollingShift+=(int)myScrollingSpeed;

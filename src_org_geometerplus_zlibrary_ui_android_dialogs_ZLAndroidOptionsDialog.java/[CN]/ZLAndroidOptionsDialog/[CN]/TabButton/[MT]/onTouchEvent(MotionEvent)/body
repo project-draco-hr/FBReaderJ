@@ -1,4 +1,0 @@
-{
-  myAction.run();
-  return true;
-}

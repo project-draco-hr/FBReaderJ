@@ -1,8 +1,8 @@
 {
   final Object selectedValue=myValues.get(index);
-  final LinkedHashMap entries=myPage.getEntries();
-  for (Iterator it=entries.entrySet().iterator(); it.hasNext(); ) {
-    Entry entry=(Entry)it.next();
-    ((ZLOptionEntry)entry.getKey()).setVisible(selectedValue != null && selectedValue.equals(entry.getValue()));
+  final LinkedHashMap<ZLOptionEntry,String> entries=myPage.getEntries();
+  for (Iterator<Entry<ZLOptionEntry,String>> it=entries.entrySet().iterator(); it.hasNext(); ) {
+    Entry<ZLOptionEntry,String> entry=it.next();
+    entry.getKey().setVisible(selectedValue != null && selectedValue.equals(entry.getValue()));
   }
 }

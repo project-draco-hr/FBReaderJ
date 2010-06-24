@@ -1,7 +1,6 @@
 {
   myAllowUndefined=allowUndefined;
   myOption=option;
-  myResource=resource;
   if (ourValues5.isEmpty()) {
     ourValues5.add(resource.getResource(KEY_UNCHANGED).getValue());
     String value=resource.getResource(KEY_LEFT).getValue();

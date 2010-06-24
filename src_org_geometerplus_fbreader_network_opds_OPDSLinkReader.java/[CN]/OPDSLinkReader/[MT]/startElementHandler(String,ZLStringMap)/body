@@ -23,7 +23,6 @@
  else   if (TAG_SEARCH_DESCRIPTION == tag) {
     String searchType=attributes.getValue("style");
     if (searchType != null) {
-      mySearchType=searchType;
       myState=READ_SEARCH_DESCRIPTION;
     }
   }

@@ -1,6 +1,5 @@
 {
   final ArrayList<ZLTextHyperlinkArea> hyperlinkAreas=myCurrentPage.TextElementMap.HyperlinkAreas;
-  boolean hyperlinkIsChanged=false;
   if (!hyperlinkAreas.isEmpty()) {
     final int index=hyperlinkAreas.indexOf(myCurrentHyperlink);
     if (index == -1) {

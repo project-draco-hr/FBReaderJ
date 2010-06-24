@@ -18,7 +18,7 @@ case CATALOG:
 case BOOK:
 if (TAG_BOOK == tag) {
   Books.add(new NetworkBookItem(Link,myBookId,myIndex++,myTitle,mySummary,myAuthors,myTags,mySeriesTitle,myIndexInSeries,myCover,myReferences));
-  myBookId=myTitle=myLanguage=myDate=mySeriesTitle=mySummary=myCover=null;
+  myBookId=myTitle=mySeriesTitle=mySummary=myCover=null;
   myIndexInSeries=0;
   myAuthors.clear();
   myTags.clear();
@@ -101,13 +101,11 @@ myHtmlToString.processTextContent(true,tag,null,bufferContent);
 break;
 case DATE:
 if (TAG_DATE == tag) {
-myDate=bufferContent;
 myState=TITLE_INFO;
 }
 break;
 case LANGUAGE:
 if (TAG_LANGUAGE == tag) {
-myLanguage=bufferContent;
 myState=TITLE_INFO;
 }
 break;

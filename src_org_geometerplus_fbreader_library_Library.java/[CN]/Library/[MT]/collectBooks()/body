@@ -1,5 +1,4 @@
 {
-  final long start=System.currentTimeMillis();
   final List<ZLPhysicalFile> physicalFilesList=collectPhysicalFiles();
   FileInfoSet fileInfos=new FileInfoSet();
   final Map<Long,Book> savedBooks=BooksDatabase.Instance().listBooks(fileInfos);

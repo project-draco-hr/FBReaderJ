@@ -63,7 +63,6 @@ case HtmlTag.OL:
 myOrderedListIsStarted=true;
 break;
 case HtmlTag.UL:
-myUnorderedListIsStarted=true;
 break;
 case HtmlTag.LI:
 startNewParagraph();

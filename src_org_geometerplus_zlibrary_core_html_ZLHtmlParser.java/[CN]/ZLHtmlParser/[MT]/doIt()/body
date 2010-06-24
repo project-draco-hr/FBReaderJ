@@ -9,7 +9,6 @@
   final HashMap<ZLByteBuffer,ZLByteBuffer> strings=new HashMap<ZLByteBuffer,ZLByteBuffer>();
   final ZLHtmlAttributeMap attributes=new ZLHtmlAttributeMap();
   boolean scriptOpened=false;
-  boolean html=false;
   int bufferOffset=0;
   int offset=0;
   byte state=START_DOCUMENT;
@@ -120,9 +119,6 @@ if (stringTagName.equalsToLCString("script")) {
 scriptOpened=true;
 state=SCRIPT;
 break mainSwitchLabel;
-}
-if (stringTagName.equalsToLCString("html")) {
-html=true;
 }
 }
 startPosition=i + 1;
