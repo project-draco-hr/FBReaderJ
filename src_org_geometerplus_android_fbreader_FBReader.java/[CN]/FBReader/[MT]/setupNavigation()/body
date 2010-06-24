@@ -1,6 +1,7 @@
 {
   final View layout=getLayoutInflater().inflate(R.layout.navigate,null);
   final SeekBar slider=(SeekBar)layout.findViewById(R.id.book_position_slider);
+  final TextView text=(TextView)layout.findViewById(R.id.book_position_text);
   slider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
     private void gotoPage(    int page){
       final ZLView view=ZLApplication.Instance().getCurrentView();
@@ -23,7 +24,7 @@
       if (fromUser) {
         final int page=progress + 1;
         final int pagesNumber=seekBar.getMax() + 1;
-        myNavigateDialog.setTitle(makeNavigationTitle(page,pagesNumber));
+        text.setText(makeProgressText(page,pagesNumber));
         gotoPage(page);
       }
     }
@@ -35,5 +36,10 @@
   final int pagesNumber=textView.computePageNumber();
   slider.setMax(pagesNumber - 1);
   slider.setProgress(page - 1);
-  myNavigateDialog=new AlertDialog.Builder(this).setView(layout).setTitle(makeNavigationTitle(page,pagesNumber)).setIcon(0).create();
+  text.setText(makeProgressText(page,pagesNumber));
+  String title="";
+  if (fbreader.Model != null && fbreader.Model.Book != null) {
+    title=fbreader.Model.Book.getTitle();
+  }
+  myNavigateDialog=new AlertDialog.Builder(this).setView(layout).setTitle(title).setIcon(0).create();
 }

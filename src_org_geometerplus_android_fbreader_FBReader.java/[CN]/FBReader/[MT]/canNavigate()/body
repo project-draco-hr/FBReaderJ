@@ -1,5 +1,5 @@
 {
   final org.geometerplus.fbreader.fbreader.FBReader fbreader=(org.geometerplus.fbreader.fbreader.FBReader)ZLApplication.Instance();
   final ZLView view=fbreader.getCurrentView();
-  return view instanceof ZLTextView && ((ZLTextView)view).getModel() != null && ((ZLTextView)view).getModel().getParagraphsNumber() != 0;
+  return view instanceof ZLTextView && ((ZLTextView)view).getModel() != null && ((ZLTextView)view).getModel().getParagraphsNumber() != 0 && fbreader.Model != null && fbreader.Model.Book != null;
 }
