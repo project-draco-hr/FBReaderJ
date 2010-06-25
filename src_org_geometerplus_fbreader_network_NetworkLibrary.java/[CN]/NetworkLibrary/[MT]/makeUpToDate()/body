@@ -4,10 +4,7 @@
   FBTree currentNode=null;
   int nodeCount=0;
   for (int i=0; i < myLinks.size(); ++i) {
-    NetworkLink link=myLinks.get(i);
-    if (!link.OnOption.getValue()) {
-      continue;
-    }
+    INetworkLink link=myLinks.get(i);
     boolean processed=false;
     while (currentNode != null || nodeIterator.hasNext()) {
       if (currentNode == null) {
@@ -18,7 +15,7 @@
         ++nodeCount;
         continue;
       }
-      final NetworkLink nodeLink=((NetworkCatalogTree)currentNode).Item.Link;
+      final INetworkLink nodeLink=((NetworkCatalogTree)currentNode).Item.Link;
       if (nodeLink == link) {
         currentNode=null;
         ++nodeCount;

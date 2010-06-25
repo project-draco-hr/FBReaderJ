@@ -1,5 +1,0 @@
-{
-  Link=link;
-  UserNameOption=new ZLStringOption(link.SiteName,"userName","");
-  SSLCertificate=sslCertificate;
-}

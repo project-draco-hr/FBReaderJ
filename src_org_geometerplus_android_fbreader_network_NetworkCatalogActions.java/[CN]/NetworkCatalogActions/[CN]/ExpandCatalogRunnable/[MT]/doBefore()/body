@@ -1,5 +1,5 @@
 {
-  final NetworkLink link=myTree.Item.Link;
+  final INetworkLink link=myTree.Item.Link;
   if (myCheckAuthentication && link.authenticationManager() != null) {
     NetworkAuthenticationManager mgr=link.authenticationManager();
     AuthenticationStatus auth=mgr.isAuthorised(true);

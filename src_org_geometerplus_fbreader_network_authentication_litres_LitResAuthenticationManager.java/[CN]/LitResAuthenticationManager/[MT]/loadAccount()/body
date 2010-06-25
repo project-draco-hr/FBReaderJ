@@ -3,5 +3,5 @@
   String query="pages/purchase_book/";
   query=ZLNetworkUtil.appendParameter(query,"sid",sid);
   query=ZLNetworkUtil.appendParameter(query,"art","0");
-  return new LitResNetworkRequest(LitResUtil.url(Link,query),SSLCertificate,new LitResPurchaseXMLReader(Link.SiteName));
+  return new LitResNetworkRequest(LitResUtil.url(Link,query),SSLCertificate,new LitResPurchaseXMLReader(Link.getSiteName()));
 }

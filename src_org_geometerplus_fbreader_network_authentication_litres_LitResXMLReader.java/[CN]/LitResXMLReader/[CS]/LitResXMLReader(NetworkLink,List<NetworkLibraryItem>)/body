@@ -1,5 +1,0 @@
-{
-  super(link.SiteName);
-  Link=link;
-  Books=books;
-}

@@ -12,7 +12,7 @@ synchronized (this) {
   }
   String query=reference.URL;
   query=ZLNetworkUtil.appendParameter(query,"sid",sid);
-  final LitResPurchaseXMLReader xmlReader=new LitResPurchaseXMLReader(Link.SiteName);
+  final LitResPurchaseXMLReader xmlReader=new LitResPurchaseXMLReader(Link.getSiteName());
   final String error=ZLNetworkManager.Instance().perform(new LitResNetworkRequest(query,SSLCertificate,xmlReader));
 synchronized (this) {
     if (xmlReader.Account != null) {
@@ -30,7 +30,7 @@ synchronized (this) {
         return error;
       }
       if (xmlReader.BookId == null || !xmlReader.BookId.equals(book.Id)) {
-        return NetworkErrors.errorMessage(NetworkErrors.ERROR_SOMETHING_WRONG,Link.SiteName);
+        return NetworkErrors.errorMessage(NetworkErrors.ERROR_SOMETHING_WRONG,Link.getSiteName());
       }
     }
     myPurchasedBooks.put(book.Id,book);

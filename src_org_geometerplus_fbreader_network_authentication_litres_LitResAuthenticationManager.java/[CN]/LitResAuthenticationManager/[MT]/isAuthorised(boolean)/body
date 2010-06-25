@@ -13,12 +13,12 @@ synchronized (this) {
     }
     sid=mySidOption.getValue();
   }
-  String url=Link.Links.get(NetworkLink.URL_SIGN_IN);
+  String url=Link.getLink(INetworkLink.URL_SIGN_IN);
   if (url == null) {
     return new AuthenticationStatus(NetworkErrors.errorMessage(NetworkErrors.ERROR_UNSUPPORTED_OPERATION));
   }
   url=ZLNetworkUtil.appendParameter(url,"sid",sid);
-  final LitResLoginXMLReader xmlReader=new LitResLoginXMLReader(Link.SiteName);
+  final LitResLoginXMLReader xmlReader=new LitResLoginXMLReader(Link.getSiteName());
   final String error=ZLNetworkManager.Instance().perform(new LitResNetworkRequest(url,SSLCertificate,xmlReader));
 synchronized (this) {
     if (error != null) {

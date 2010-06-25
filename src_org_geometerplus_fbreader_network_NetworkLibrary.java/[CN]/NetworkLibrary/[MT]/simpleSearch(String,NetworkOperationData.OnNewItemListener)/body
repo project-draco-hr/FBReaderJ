@@ -7,14 +7,12 @@
     }
   }
 ;
-  for (  NetworkLink link : myLinks) {
-    if (link.OnOption.getValue()) {
-      NetworkOperationData data=new NetworkOperationData(link,synchronizedListener);
-      ZLNetworkRequest request=link.simpleSearchRequest(pattern,data);
-      if (request != null) {
-        dataList.add(data);
-        requestList.add(request);
-      }
+  for (  INetworkLink link : myLinks) {
+    NetworkOperationData data=new NetworkOperationData(link,synchronizedListener);
+    ZLNetworkRequest request=link.simpleSearchRequest(pattern,data);
+    if (request != null) {
+      dataList.add(data);
+      requestList.add(request);
     }
   }
   while (requestList.size() != 0) {

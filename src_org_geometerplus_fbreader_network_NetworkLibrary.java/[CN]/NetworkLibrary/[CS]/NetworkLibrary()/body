@@ -2,7 +2,7 @@
   LinkedList<String> catalogs=readCatalogFileNames();
   OPDSLinkReader reader=new OPDSLinkReader();
   for (  String fileName : catalogs) {
-    NetworkLink link=reader.readDocument(ZLResourceFile.createResourceFile("data/network/" + fileName));
+    INetworkLink link=reader.readDocument(ZLResourceFile.createResourceFile("data/network/" + fileName));
     if (link != null) {
       myLinks.add(link);
     }

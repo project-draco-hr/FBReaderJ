@@ -1,0 +1,4 @@
+Activity activity
+int id
+INetworkLink link
+Runnable onSuccessRunnable

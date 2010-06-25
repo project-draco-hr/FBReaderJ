@@ -1,0 +1,10 @@
+{
+  myDatabase.beginTransaction();
+  try {
+    actions.run();
+    myDatabase.setTransactionSuccessful();
+  }
+  finally {
+    myDatabase.endTransaction();
+  }
+}

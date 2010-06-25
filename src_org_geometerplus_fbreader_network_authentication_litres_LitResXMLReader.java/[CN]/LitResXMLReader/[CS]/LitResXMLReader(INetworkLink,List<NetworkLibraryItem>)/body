@@ -1,0 +1,5 @@
+{
+  super(link.getSiteName());
+  Link=link;
+  Books=books;
+}

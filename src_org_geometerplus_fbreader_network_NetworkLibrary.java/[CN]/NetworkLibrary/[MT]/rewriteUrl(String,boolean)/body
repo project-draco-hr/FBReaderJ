@@ -1,7 +1,7 @@
 {
   final String host=ZLNetworkUtil.hostFromUrl(url).toLowerCase();
-  for (  NetworkLink link : myLinks) {
-    if (host.contains(link.SiteName)) {
+  for (  INetworkLink link : myLinks) {
+    if (host.contains(link.getSiteName())) {
       url=link.rewriteUrl(url,externalUrl);
     }
   }
