@@ -1,10 +1,11 @@
 {
   final LinkedList<FBTree> toRemove=new LinkedList<FBTree>();
-  Iterator<FBTree> nodeIterator=myRootTree.subTrees().iterator();
+  ListIterator<FBTree> nodeIterator=myRootTree.subTrees().listIterator();
   FBTree currentNode=null;
   int nodeCount=0;
-  for (int i=0; i < myLinks.size(); ++i) {
-    INetworkLink link=myLinks.get(i);
+  ListIterator<INetworkLink> it=myLinks.listIterator();
+  while (it.hasNext()) {
+    INetworkLink link=it.next();
     boolean processed=false;
     while (currentNode != null || nodeIterator.hasNext()) {
       if (currentNode == null) {
@@ -24,8 +25,9 @@
       }
  else {
         boolean found=false;
-        for (int j=i + 1; j < myLinks.size(); ++j) {
-          if (nodeLink == myLinks.get(j)) {
+        ListIterator<INetworkLink> jt=myLinks.listIterator(it);
+        while (jt.hasNext()) {
+          if (nodeLink == jt.next()) {
             found=true;
             break;
           }
@@ -40,9 +42,10 @@
         }
       }
     }
+    final int nextIndex=nodeIterator.nextIndex();
     if (!processed) {
-      NetworkCatalogRootTree ptr=new NetworkCatalogRootTree(myRootTree,link,nodeCount++);
-      ptr.Item.onDisplayItem();
+      new NetworkCatalogRootTree(myRootTree,link,nodeCount++).Item.onDisplayItem();
+      nodeIterator=myRootTree.subTrees().listIterator(nextIndex + 1);
     }
   }
   while (currentNode != null || nodeIterator.hasNext()) {

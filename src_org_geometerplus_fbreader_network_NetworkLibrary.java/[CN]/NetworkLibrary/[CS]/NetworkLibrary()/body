@@ -4,8 +4,21 @@
   for (  String fileName : catalogs) {
     INetworkLink link=reader.readDocument(ZLResourceFile.createResourceFile("data/network/" + fileName));
     if (link != null) {
-      myLinks.add(link);
+      myLoadedLinks.add(link);
     }
   }
-  Collections.sort(myLinks,new LinksComparator());
+  Map<String,String> links;
+  links=new TreeMap<String,String>();
+  links.put(INetworkLink.URL_MAIN,"http://bookserver.archive.org/catalog/");
+  myCustomLinks.add(reader.createCustomLink("archive.org","Internet Archive Catalog",null,null,links));
+  links=new TreeMap<String,String>();
+  links.put(INetworkLink.URL_MAIN,"http://pragprog.com/magazines.opds");
+  myCustomLinks.add(reader.createCustomLink("pragprog.com","PragPub Magazine","The Pragmatic Bookshelf",null,links));
+  LinksComparator comparator=new LinksComparator();
+  Collections.sort(myLoadedLinks,comparator);
+  Collections.sort(myCustomLinks,comparator);
+  ArrayList<ArrayList<? extends INetworkLink>> linksList=new ArrayList<ArrayList<? extends INetworkLink>>();
+  linksList.add(myLoadedLinks);
+  linksList.add(myCustomLinks);
+  myLinks=new CompositeList(linksList,comparator);
 }

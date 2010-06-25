@@ -1,0 +1,3 @@
+{
+  myPositions=new ArrayList<Integer>(Collections.nCopies(myLists.size(),0));
+}

@@ -7,7 +7,7 @@
     }
   }
 ;
-  for (  INetworkLink link : myLinks) {
+  for (  INetworkLink link : myLoadedLinks) {
     NetworkOperationData data=new NetworkOperationData(link,synchronizedListener);
     ZLNetworkRequest request=link.simpleSearchRequest(pattern,data);
     if (request != null) {

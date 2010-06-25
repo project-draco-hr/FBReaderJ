@@ -1,0 +1,10 @@
+{
+  if (location < 0 || location > mySize) {
+    throw new IndexOutOfBoundsException();
+  }
+  Iterator it=new Iterator();
+  while (location-- > 0) {
+    it.next();
+  }
+  return it;
+}

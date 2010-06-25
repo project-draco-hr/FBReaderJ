@@ -1,0 +1,4 @@
+{
+  final int position=myPositions.get(index);
+  return (position < myLists.get(index).size()) ? myLists.get(index).get(position) : null;
+}
