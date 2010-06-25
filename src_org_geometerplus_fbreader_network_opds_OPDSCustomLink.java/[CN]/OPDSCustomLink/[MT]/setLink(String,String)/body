@@ -1,0 +1,8 @@
+{
+  if (url == null) {
+    removeLink(urlKey);
+  }
+ else {
+    myLinks.put(urlKey,url);
+  }
+}
