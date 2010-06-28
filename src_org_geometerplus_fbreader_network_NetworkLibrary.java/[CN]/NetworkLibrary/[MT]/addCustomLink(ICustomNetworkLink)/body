@@ -1,0 +1,11 @@
+{
+  final int index=Collections.binarySearch(myCustomLinks,link,new LinksComparator());
+  if (index >= 0) {
+    return false;
+  }
+  final int insertAt=-index - 1;
+  myCustomLinks.add(insertAt,link);
+  link.setSaveLinkListener(myChangesListener);
+  link.saveLink();
+  return true;
+}

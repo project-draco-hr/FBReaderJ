@@ -1,0 +1,22 @@
+{
+  final Cursor cursor=myDatabase.rawQuery("SELECT link_id,title,site_name,summary,icon FROM CustomLinks",null);
+  final HashMap<String,String> linksMap=new HashMap<String,String>();
+  while (cursor.moveToNext()) {
+    final int id=cursor.getInt(0);
+    final String title=cursor.getString(1);
+    final String siteName=cursor.getString(2);
+    final String summary=cursor.getString(3);
+    final String icon=cursor.getString(4);
+    linksMap.clear();
+    final Cursor linksCursor=myDatabase.rawQuery("SELECT key,url FROM CustomLinkUrls WHERE link_id = " + id,null);
+    while (linksCursor.moveToNext()) {
+      linksMap.put(linksCursor.getString(0),linksCursor.getString(1));
+    }
+    linksCursor.close();
+    final ICustomNetworkLink newLink=factory.createCustomLink(id,siteName,title,summary,icon,linksMap);
+    if (newLink != null) {
+      links.add(newLink);
+    }
+  }
+  cursor.close();
+}

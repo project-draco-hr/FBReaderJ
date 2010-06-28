@@ -1,0 +1,16 @@
+{
+  final int version=myDatabase.getVersion();
+  final int currentCodeVersion=1;
+  if (version >= currentCodeVersion) {
+    return;
+  }
+  myDatabase.beginTransaction();
+switch (version) {
+case 0:
+    createTables();
+}
+myDatabase.setTransactionSuccessful();
+myDatabase.endTransaction();
+myDatabase.execSQL("VACUUM");
+myDatabase.setVersion(currentCodeVersion);
+}

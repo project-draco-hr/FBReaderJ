@@ -1,0 +1,6 @@
+int id
+String siteName
+String title
+String summary
+String icon
+Map<String,String> links

@@ -1,4 +1,5 @@
 {
+  new SQLiteNetworkDatabase();
   NetworkLibrary.Instance().synchronize();
   myActions.add(new NetworkBookActions());
   myActions.add(new NetworkCatalogActions());

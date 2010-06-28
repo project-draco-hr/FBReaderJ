@@ -2,6 +2,6 @@
   if (siteName == null || title == null || links.get(INetworkLink.URL_MAIN) == null) {
     return null;
   }
-  OPDSCustomLink link=new OPDSCustomLink(siteName,title,summary,icon,links);
+  OPDSCustomLink link=new OPDSCustomLink(id,siteName,title,summary,icon,links);
   return link;
 }

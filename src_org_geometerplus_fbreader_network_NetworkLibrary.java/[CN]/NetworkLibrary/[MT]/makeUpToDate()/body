@@ -3,49 +3,51 @@
   ListIterator<FBTree> nodeIterator=myRootTree.subTrees().listIterator();
   FBTree currentNode=null;
   int nodeCount=0;
-  ListIterator<INetworkLink> it=myLinks.listIterator();
-  while (it.hasNext()) {
-    INetworkLink link=it.next();
-    boolean processed=false;
-    while (currentNode != null || nodeIterator.hasNext()) {
-      if (currentNode == null) {
-        currentNode=nodeIterator.next();
-      }
-      if (!(currentNode instanceof NetworkCatalogTree)) {
-        currentNode=null;
-        ++nodeCount;
-        continue;
-      }
-      final INetworkLink nodeLink=((NetworkCatalogTree)currentNode).Item.Link;
-      if (nodeLink == link) {
-        currentNode=null;
-        ++nodeCount;
-        processed=true;
-        break;
-      }
+synchronized (myLinks) {
+    ListIterator<INetworkLink> it=myLinks.listIterator();
+    while (it.hasNext()) {
+      INetworkLink link=it.next();
+      boolean processed=false;
+      while (currentNode != null || nodeIterator.hasNext()) {
+        if (currentNode == null) {
+          currentNode=nodeIterator.next();
+        }
+        if (!(currentNode instanceof NetworkCatalogTree)) {
+          currentNode=null;
+          ++nodeCount;
+          continue;
+        }
+        final INetworkLink nodeLink=((NetworkCatalogTree)currentNode).Item.Link;
+        if (nodeLink == link) {
+          currentNode=null;
+          ++nodeCount;
+          processed=true;
+          break;
+        }
  else {
-        boolean found=false;
-        ListIterator<INetworkLink> jt=myLinks.listIterator(it);
-        while (jt.hasNext()) {
-          if (nodeLink == jt.next()) {
-            found=true;
+          boolean found=false;
+          ListIterator<INetworkLink> jt=myLinks.listIterator(it);
+          while (jt.hasNext()) {
+            if (nodeLink == jt.next()) {
+              found=true;
+              break;
+            }
+          }
+          if (!found) {
+            toRemove.add(currentNode);
+            currentNode=null;
+            ++nodeCount;
+          }
+ else {
             break;
           }
         }
-        if (!found) {
-          toRemove.add(currentNode);
-          currentNode=null;
-          ++nodeCount;
-        }
- else {
-          break;
-        }
       }
-    }
-    final int nextIndex=nodeIterator.nextIndex();
-    if (!processed) {
-      new NetworkCatalogRootTree(myRootTree,link,nodeCount++).Item.onDisplayItem();
-      nodeIterator=myRootTree.subTrees().listIterator(nextIndex + 1);
+      final int nextIndex=nodeIterator.nextIndex();
+      if (!processed) {
+        new NetworkCatalogRootTree(myRootTree,link,nodeCount++).Item.onDisplayItem();
+        nodeIterator=myRootTree.subTrees().listIterator(nextIndex + 1);
+      }
     }
   }
   while (currentNode != null || nodeIterator.hasNext()) {

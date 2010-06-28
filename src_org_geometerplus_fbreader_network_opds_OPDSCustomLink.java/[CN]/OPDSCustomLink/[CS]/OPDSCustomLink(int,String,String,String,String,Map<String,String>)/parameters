@@ -1,3 +1,4 @@
+int id
 String siteName
 String title
 String summary
