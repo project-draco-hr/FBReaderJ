@@ -2,7 +2,9 @@
 switch (item.getItemId()) {
 case 1:
     return onSearchRequested();
-default :
-  return true;
+case 2:
+  startActivity(new Intent(getApplicationContext(),CustomCatalogsActivity.class));
+return true;
 }
+return true;
 }
