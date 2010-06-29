@@ -1,0 +1,3 @@
+{
+  NetworkDialog.show(activity,NetworkDialog.DIALOG_CUSTOM_CATALOG,null,null);
+}

@@ -2,7 +2,6 @@
   if (!myInitialized) {
     myInitialized=true;
     myTree=NetworkLibrary.Instance().getTree();
-    mySearchItem=NetworkView.Instance().getSearchItemTree();
     setListAdapter(new LibraryAdapter());
     getListView().invalidateViews();
   }
