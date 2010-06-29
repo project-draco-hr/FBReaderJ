@@ -1,5 +1,5 @@
 {
-  if (location < 0 || location > mySize) {
+  if (location < 0 || location > size()) {
     throw new IndexOutOfBoundsException();
   }
   Iterator it=new Iterator();

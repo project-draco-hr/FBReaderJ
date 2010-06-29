@@ -1,3 +1,7 @@
 {
-  return mySize;
+  int size=0;
+  for (  ArrayList<? extends INetworkLink> list : myLists) {
+    size+=list.size();
+  }
+  return size;
 }

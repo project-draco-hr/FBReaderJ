@@ -2,7 +2,10 @@
 switch (item.getItemId()) {
 case 1:
     return onSearchRequested();
+case 2:
+  NetworkDialog.show(this,NetworkDialog.DIALOG_CUSTOM_CATALOG,null,null);
+return true;
 default :
-  return true;
+return true;
 }
 }

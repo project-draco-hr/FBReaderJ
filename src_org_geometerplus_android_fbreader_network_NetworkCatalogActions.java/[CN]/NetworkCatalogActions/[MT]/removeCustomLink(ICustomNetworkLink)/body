@@ -1,0 +1,7 @@
+{
+  final NetworkLibrary library=NetworkLibrary.Instance();
+  library.removeCustomLink(link);
+  library.invalidate();
+  library.synchronize();
+  NetworkView.Instance().fireModelChanged();
+}

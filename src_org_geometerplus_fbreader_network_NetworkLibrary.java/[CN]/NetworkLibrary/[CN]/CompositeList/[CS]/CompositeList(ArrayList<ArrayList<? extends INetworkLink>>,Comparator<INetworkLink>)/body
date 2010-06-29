@@ -1,9 +1,4 @@
 {
-  int size=0;
-  for (  ArrayList<? extends INetworkLink> list : lists) {
-    size+=list.size();
-  }
   myLists=lists;
-  mySize=size;
   myComparator=comparator;
 }

@@ -19,9 +19,14 @@ synchronized (myLinks) {
         }
         final INetworkLink nodeLink=((NetworkCatalogTree)currentNode).Item.Link;
         if (nodeLink == link) {
+          if (link instanceof ICustomNetworkLink) {
+            toRemove.add(currentNode);
+          }
+ else {
+            processed=true;
+          }
           currentNode=null;
           ++nodeCount;
-          processed=true;
           break;
         }
  else {
@@ -43,8 +48,8 @@ synchronized (myLinks) {
           }
         }
       }
-      final int nextIndex=nodeIterator.nextIndex();
       if (!processed) {
+        final int nextIndex=nodeIterator.nextIndex();
         new NetworkCatalogRootTree(myRootTree,link,nodeCount++).Item.onDisplayItem();
         nodeIterator=myRootTree.subTrees().listIterator(nextIndex + 1);
       }

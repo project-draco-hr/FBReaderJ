@@ -8,6 +8,9 @@ case DIALOG_AUTHENTICATION:
 case DIALOG_REGISTER_USER:
   dlg=new RegisterUserDialog();
 break;
+case DIALOG_CUSTOM_CATALOG:
+dlg=new CustomCatalogDialog();
+break;
 }
 if (dlg != null) {
 ourInstances.put(Integer.valueOf(id),dlg);

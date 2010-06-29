@@ -1,0 +1,9 @@
+{
+  final int index=Collections.binarySearch(myCustomLinks,link,new LinksComparator());
+  if (index < 0) {
+    return;
+  }
+  myCustomLinks.remove(index);
+  NetworkDatabase.Instance().deleteCustomLink(link);
+  link.setSaveLinkListener(null);
+}

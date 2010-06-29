@@ -28,6 +28,11 @@
         }
       }
     }
+    INetworkLink link=catalogTree.Item.Link;
+    if (link instanceof ICustomNetworkLink) {
+      addMenuItem(menu,CUSTOM_CATALOG_EDIT,"editCustomCatalog");
+      addMenuItem(menu,CUSTOM_CATALOG_REMOVE,"removeCustomCatalog");
+    }
   }
  else {
     if (item.URLByType.get(NetworkCatalogItem.URL_HTML_PAGE) != null) {
@@ -43,6 +48,5 @@ case NetworkCatalogItem.VISIBLE_LOGGED_USER:
       }
     break;
 }
-return;
 }
 }

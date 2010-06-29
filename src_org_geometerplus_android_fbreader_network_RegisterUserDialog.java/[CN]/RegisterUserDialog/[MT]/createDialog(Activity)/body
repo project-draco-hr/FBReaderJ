@@ -6,12 +6,13 @@
   setupLabel(layout,R.id.network_register_email_text,"email",R.id.network_register_email);
   final Handler handler=new Handler(){
     public void handleMessage(    Message message){
+      if (!NetworkView.Instance().isInitialized()) {
+        return;
+      }
       final NetworkLibrary library=NetworkLibrary.Instance();
       library.invalidateVisibility();
       library.synchronize();
-      if (NetworkView.Instance().isInitialized()) {
-        NetworkView.Instance().fireModelChanged();
-      }
+      NetworkView.Instance().fireModelChanged();
       if (message.what < 0) {
         if (message.what == -2) {
           final ZLResource dialogResource=ZLResource.resource("dialog");
@@ -30,7 +31,7 @@
           myOnSuccessRunnable.run();
         }
       }
-      clearUserInfo();
+      clearData();
     }
   }
 ;
@@ -96,5 +97,10 @@
   }
 ;
   final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
-  return new AlertDialog.Builder(activity).setView(layout).setTitle(myResource.getResource("title").getValue()).setPositiveButton(buttonResource.getResource("ok").getValue(),listener).setNegativeButton(buttonResource.getResource("cancel").getValue(),listener).create();
+  return new AlertDialog.Builder(activity).setView(layout).setTitle(myResource.getResource("title").getValue()).setPositiveButton(buttonResource.getResource("ok").getValue(),listener).setNegativeButton(buttonResource.getResource("cancel").getValue(),listener).setOnCancelListener(new DialogInterface.OnCancelListener(){
+    public void onCancel(    DialogInterface dialog){
+      listener.onClick(dialog,DialogInterface.BUTTON_NEGATIVE);
+    }
+  }
+).create();
 }
