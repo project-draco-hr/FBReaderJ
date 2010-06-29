@@ -1,9 +1,0 @@
-{
-  super.onCreate(icicle);
-  if (!NetworkView.Instance().isInitialized()) {
-    finish();
-    return;
-  }
-  setTitle(myResource.getResource("title").getValue());
-  setListAdapter(new CatalogsAdapter());
-}

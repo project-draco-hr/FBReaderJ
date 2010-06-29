@@ -1,3 +1,0 @@
-{
-  return NetworkLibrary.Instance().getCustomLink(position);
-}

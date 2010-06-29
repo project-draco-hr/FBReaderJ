@@ -1,7 +1,0 @@
-{
-  final View view=(convertView != null) ? convertView : LayoutInflater.from(parent.getContext()).inflate(R.layout.network_tree_item,parent,false);
-  ICustomNetworkLink link=getItem(position);
-  ((TextView)view.findViewById(R.id.network_tree_item_name)).setText(link.getTitle());
-  ((TextView)view.findViewById(R.id.network_tree_item_childrenlist)).setText(link.getSummary());
-  return view;
-}
