@@ -5,7 +5,6 @@
   addAction(ActionCode.DECREASE_FONT,new ChangeFontSizeAction(this,-2));
   addAction(ActionCode.ROTATE,new RotateAction(this));
   addAction(ActionCode.SHOW_LIBRARY,new ShowLibraryAction(this));
-  addAction(ActionCode.SHOW_OPTIONS,new ShowOptionsDialogAction(this));
   addAction(ActionCode.SHOW_PREFERENCES,new PreferencesAction(this));
   addAction(ActionCode.SHOW_BOOK_INFO,new BookInfoAction(this));
   addAction(ActionCode.SHOW_CONTENTS,new ShowTOCAction(this));

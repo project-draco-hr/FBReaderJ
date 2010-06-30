@@ -1,0 +1,3 @@
+{
+  myScreen.setOnPreferenceClickListener(onPreferenceClickListener);
+}
