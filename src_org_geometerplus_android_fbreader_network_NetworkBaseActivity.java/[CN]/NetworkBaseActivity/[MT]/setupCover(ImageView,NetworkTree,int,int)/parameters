@@ -1,4 +1,4 @@
 ImageView coverView
 NetworkTree tree
-int maxWidth
-int maxHeight
+int width
+int height

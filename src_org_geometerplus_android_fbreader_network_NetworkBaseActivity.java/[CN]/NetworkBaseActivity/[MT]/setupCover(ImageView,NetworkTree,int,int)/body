@@ -1,5 +1,4 @@
 {
-  coverView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
   Bitmap coverBitmap=null;
   final ZLImage cover=tree.getCover();
   if (cover != null) {
@@ -34,7 +33,7 @@
       data=mgr.getImageData(cover);
     }
     if (data != null) {
-      coverBitmap=data.getBitmap(maxWidth,maxHeight);
+      coverBitmap=data.getBitmap(2 * width,2 * height);
     }
   }
   if (coverBitmap != null) {
