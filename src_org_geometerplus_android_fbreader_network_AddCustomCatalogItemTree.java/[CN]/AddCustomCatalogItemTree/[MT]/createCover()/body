@@ -1,4 +1,0 @@
-{
-  ZLResourceFile file=ZLResourceFile.createResourceFile("data/addCatalog.png");
-  return new ZLFileImage("image/png",file);
-}
