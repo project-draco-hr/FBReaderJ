@@ -6,7 +6,7 @@
   appearanceScreen.setSummary(appearanceScreen.Resource.getResource("summary").getValue());
   appearanceScreen.setOnPreferenceClickListener(new PreferenceScreen.OnPreferenceClickListener(){
     public boolean onPreferenceClick(    Preference preference){
-      ((FBReader)FBReader.Instance()).showOptionsDialogAction();
+      ((FBReader)FBReader.Instance()).showOptionsDialog();
       return true;
     }
   }
