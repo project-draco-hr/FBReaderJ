@@ -1,6 +1,6 @@
 {
   myDownloadingURLs.add(urlString);
-  startCallbackActivity();
+  sendDownloaderCallback();
   final int notificationId=NetworkNotifications.Instance().getBookDownloadingId();
   final Notification progressNotification=createDownloadProgressNotification(title);
   final NotificationManager notificationManager=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
@@ -30,7 +30,7 @@
       notificationManager.cancel(notificationId);
       myOngoingNotifications.remove(Integer.valueOf(notificationId));
       notificationManager.notify(notificationId,createDownloadFinishNotification(file,title,message.what != 0));
-      startCallbackActivity();
+      sendDownloaderCallback();
       doStop();
     }
   }

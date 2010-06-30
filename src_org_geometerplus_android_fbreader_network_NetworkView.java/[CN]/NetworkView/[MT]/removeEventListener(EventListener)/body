@@ -1,3 +1,5 @@
 {
-  myEventListeners.remove(listener);
+synchronized (myEventListeners) {
+    myEventListeners.remove(listener);
+  }
 }

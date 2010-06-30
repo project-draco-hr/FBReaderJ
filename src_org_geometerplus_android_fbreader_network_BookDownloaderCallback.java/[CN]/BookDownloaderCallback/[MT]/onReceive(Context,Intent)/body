@@ -1,7 +1,5 @@
 {
-  super.onCreate(icicle);
   if (NetworkView.Instance().isInitialized()) {
     NetworkView.Instance().fireModelChanged();
   }
-  finish();
 }
