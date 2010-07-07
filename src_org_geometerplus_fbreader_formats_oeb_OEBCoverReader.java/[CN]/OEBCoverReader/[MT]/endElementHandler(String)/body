@@ -1,0 +1,8 @@
+{
+  tag=tag.toLowerCase();
+  if (GUIDE == tag) {
+    myReadGuide=false;
+    return true;
+  }
+  return false;
+}

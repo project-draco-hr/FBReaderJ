@@ -1,0 +1,3 @@
+{
+  return new OEBCoverReader().readCover(book.File);
+}

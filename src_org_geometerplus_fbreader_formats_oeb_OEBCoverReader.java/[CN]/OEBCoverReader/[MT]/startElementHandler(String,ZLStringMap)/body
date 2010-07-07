@@ -1,0 +1,26 @@
+{
+  tag=tag.toLowerCase().intern();
+  if (GUIDE == tag) {
+    myReadGuide=true;
+  }
+ else   if (myReadGuide && REFERENCE == tag) {
+    final String type=attributes.getValue("type");
+    if (type != null) {
+      if (COVER == type) {
+        final String href=attributes.getValue("href");
+        if (href != null) {
+          myCoverXHTML=myPathPrefix + MiscUtil.decodeHtmlReference(href);
+          return true;
+        }
+      }
+ else       if (COVER_IMAGE == type) {
+        final String href=attributes.getValue("href");
+        if (href != null) {
+          myImage=new ZLFileImage("image/auto",ZLFile.createFileByPath(myPathPrefix + MiscUtil.decodeHtmlReference(href)));
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+}

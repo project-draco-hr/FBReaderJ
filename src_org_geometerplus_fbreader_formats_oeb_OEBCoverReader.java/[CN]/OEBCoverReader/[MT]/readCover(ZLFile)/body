@@ -1,0 +1,18 @@
+{
+  myPathPrefix=MiscUtil.htmlDirectoryPrefix(file);
+  myReadGuide=false;
+  myImage=null;
+  myCoverXHTML=null;
+  if (!read(file) || myCoverXHTML == null) {
+    return null;
+  }
+  ZLFile coverFile=ZLFile.createFileByPath(myCoverXHTML);
+  final String ext=coverFile.getExtension();
+  if (ext != null && (ext.equals("gif") || ext.equals("jpg") || ext.equals("jpeg"))) {
+    myImage=new ZLFileImage("image/auto",coverFile);
+  }
+ else {
+    new XHTMLImageFinder().read(coverFile);
+  }
+  return myImage;
+}
