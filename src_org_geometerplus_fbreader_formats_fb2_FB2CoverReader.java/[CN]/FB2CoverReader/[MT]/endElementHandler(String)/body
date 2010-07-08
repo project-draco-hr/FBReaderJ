@@ -1,0 +1,19 @@
+{
+switch (FB2Tag.getTagByName(tag)) {
+case FB2Tag.COVERPAGE:
+    myReadCoverPage=false;
+  break;
+case FB2Tag.DESCRIPTION:
+if (myImageReference == null) {
+  return true;
+}
+break;
+case FB2Tag.BINARY:
+if (myImage != null) {
+myImage.close();
+return true;
+}
+break;
+}
+return false;
+}
