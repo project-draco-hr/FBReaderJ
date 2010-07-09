@@ -9,7 +9,9 @@
   }
   NetworkDatabase.Instance().loadCustomLinks(myCustomLinks,new NetworkDatabase.ICustomLinksFactory(){
     public ICustomNetworkLink createCustomLink(    int id,    String siteName,    String title,    String summary,    String icon,    Map<String,String> links){
-      return reader.createCustomLink(id,siteName,title,summary,icon,links);
+      final ICustomNetworkLink link=reader.createCustomLink(id,siteName,title,summary,icon,links);
+      link.setSaveLinkListener(myChangesListener);
+      return link;
     }
   }
 );

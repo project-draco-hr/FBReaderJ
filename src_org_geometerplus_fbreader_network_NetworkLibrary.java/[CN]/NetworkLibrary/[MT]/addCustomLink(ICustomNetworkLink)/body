@@ -1,11 +1,10 @@
 {
   final int index=Collections.binarySearch(myCustomLinks,link,new LinksComparator());
   if (index >= 0) {
-    return false;
+    throw new RuntimeException("Unable to add link with duplicated title to the library");
   }
   final int insertAt=-index - 1;
   myCustomLinks.add(insertAt,link);
   link.setSaveLinkListener(myChangesListener);
   link.saveLink();
-  return true;
 }
