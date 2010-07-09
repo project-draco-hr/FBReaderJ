@@ -1,0 +1,33 @@
+{
+  AlertDialog alert=(AlertDialog)dialog;
+  final String login=((TextView)alert.findViewById(R.id.network_authentication_login)).getText().toString().trim();
+  final String password=((TextView)alert.findViewById(R.id.network_authentication_password)).getText().toString();
+  if (login.length() == 0) {
+    final String err=myResource.getResource("loginIsEmpty").getValue();
+    sendError(true,false,err);
+    return;
+  }
+  final NetworkAuthenticationManager mgr=myLink.authenticationManager();
+  mgr.UserNameOption.setValue(login);
+  final Runnable runnable=new Runnable(){
+    public void run(){
+      String err=mgr.authorise(password);
+      if (err != null) {
+        mgr.logOut();
+        sendError(true,false,err);
+        return;
+      }
+      if (mgr.needsInitialization()) {
+        err=mgr.initialize();
+        if (err != null) {
+          mgr.logOut();
+          sendError(true,false,err);
+          return;
+        }
+      }
+      sendSuccess(false);
+    }
+  }
+;
+  ((ZLAndroidDialogManager)ZLAndroidDialogManager.Instance()).wait("authentication",runnable,myActivity);
+}

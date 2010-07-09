@@ -1,0 +1,22 @@
+{
+  myActivity=activity;
+  final DialogInterface.OnClickListener listener=new DialogInterface.OnClickListener(){
+    public void onClick(    DialogInterface dialog,    int which){
+      if (which == DialogInterface.BUTTON_POSITIVE) {
+        onPositive(dialog);
+      }
+ else {
+        onNegative(dialog);
+      }
+    }
+  }
+;
+  final View layout=createLayout();
+  final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
+  return new AlertDialog.Builder(activity).setView(layout).setTitle(myResource.getResource("title").getValue()).setPositiveButton(buttonResource.getResource("ok").getValue(),listener).setNegativeButton(buttonResource.getResource("cancel").getValue(),listener).setOnCancelListener(new DialogInterface.OnCancelListener(){
+    public void onCancel(    DialogInterface dialog){
+      onNegative(dialog);
+    }
+  }
+).create();
+}

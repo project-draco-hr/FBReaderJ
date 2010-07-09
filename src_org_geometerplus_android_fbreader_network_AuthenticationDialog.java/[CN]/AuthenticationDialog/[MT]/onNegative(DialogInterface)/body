@@ -1,0 +1,13 @@
+{
+  final NetworkAuthenticationManager mgr=myLink.authenticationManager();
+  final Runnable runnable=new Runnable(){
+    public void run(){
+      if (mgr.isAuthorised(false).Status != ZLBoolean3.B3_FALSE) {
+        mgr.logOut();
+        sendCancel(false);
+      }
+    }
+  }
+;
+  ((ZLAndroidDialogManager)ZLAndroidDialogManager.Instance()).wait("signOut",runnable,myActivity);
+}

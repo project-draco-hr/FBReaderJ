@@ -1,0 +1,3 @@
+{
+  return obtainMessage(code,invalidateLibrary ? 1 : 0,0,message);
+}

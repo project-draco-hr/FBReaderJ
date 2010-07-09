@@ -1,0 +1,7 @@
+{
+  final View layout=myActivity.getLayoutInflater().inflate(R.layout.network_custom_catalog_dialog,null);
+  setupLabel(layout,R.id.network_catalog_title_text,"catalogTitle",R.id.network_catalog_title);
+  setupLabel(layout,R.id.network_catalog_url_text,"catalogUrl",R.id.network_catalog_url);
+  setupLabel(layout,R.id.network_catalog_summary_text,"catalogSummary",R.id.network_catalog_summary);
+  return layout;
+}

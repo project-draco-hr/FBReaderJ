@@ -1,0 +1,3 @@
+boolean restart
+boolean invalidateLibrary
+String message

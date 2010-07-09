@@ -13,6 +13,7 @@ dlg=new CustomCatalogDialog();
 break;
 }
 if (dlg != null) {
+dlg.myId=id;
 ourInstances.put(Integer.valueOf(id),dlg);
 }
 }
