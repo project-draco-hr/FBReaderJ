@@ -1,4 +1,12 @@
 {
-  setupNavigation();
-  myNavigateDialog.show();
+  if (myNavigatePanel.ControlPanel != null) {
+    final ZLTextView textView=(ZLTextView)ZLApplication.Instance().getCurrentView();
+    if (myTextSearchPanel.ControlPanel.getVisibility() == View.VISIBLE) {
+      textView.clearFindResults();
+    }
+    myPosition=new ZLTextFixedPosition(textView.getStartCursor());
+    ZLApplication.Instance().hideAllPanels();
+    setupNavigation();
+    myNavigatePanel.ControlPanel.show(true);
+  }
 }

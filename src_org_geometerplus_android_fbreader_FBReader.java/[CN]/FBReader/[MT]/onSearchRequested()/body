@@ -1,17 +1,16 @@
 {
-  if (myPanel.ControlPanel != null) {
-    final boolean visible=myPanel.ControlPanel.getVisibility() == View.VISIBLE;
-    myPanel.ControlPanel.hide(false);
-    SearchManager manager=(SearchManager)getSystemService(SEARCH_SERVICE);
-    manager.setOnCancelListener(new SearchManager.OnCancelListener(){
-      public void onCancel(){
-        if ((myPanel.ControlPanel != null) && visible) {
-          myPanel.ControlPanel.show(false);
-        }
-      }
+  final boolean textSearchVisible=myTextSearchPanel.getVisibility();
+  final boolean navigateVisible=myNavigatePanel.getVisibility();
+  ZLApplication.Instance().hideAllPanels();
+  final SearchManager manager=(SearchManager)getSystemService(SEARCH_SERVICE);
+  manager.setOnCancelListener(new SearchManager.OnCancelListener(){
+    public void onCancel(){
+      myTextSearchPanel.setVisibility(textSearchVisible);
+      myNavigatePanel.setVisibility(navigateVisible);
+      manager.setOnCancelListener(null);
     }
-);
   }
+);
   final org.geometerplus.fbreader.fbreader.FBReader fbreader=(org.geometerplus.fbreader.fbreader.FBReader)ZLApplication.Instance();
   startSearch(fbreader.TextSearchPatternOption.getValue(),true,null,false);
   return true;

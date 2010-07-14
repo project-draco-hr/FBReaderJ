@@ -1,7 +1,6 @@
 {
-  if (myPanel.ControlPanel != null) {
-    myPanel.ControlPanel.hide(false);
-    myPanel.ControlPanel=null;
-  }
+  final RelativeLayout root=(RelativeLayout)FBReader.this.findViewById(R.id.root_view);
+  myTextSearchPanel.destroyControlPanel(root);
+  myNavigatePanel.destroyControlPanel(root);
   super.onStop();
 }

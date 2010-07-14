@@ -1,0 +1,7 @@
+{
+  RelativeLayout.LayoutParams p=new RelativeLayout.LayoutParams(fillWidth ? ViewGroup.LayoutParams.FILL_PARENT : ViewGroup.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
+  p.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+  p.addRule(RelativeLayout.CENTER_HORIZONTAL);
+  root.addView(ControlPanel,p);
+  ControlPanel.requestLayout();
+}

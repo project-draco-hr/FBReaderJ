@@ -1,45 +1,11 @@
 {
-  final View layout=getLayoutInflater().inflate(R.layout.navigate,null);
-  final SeekBar slider=(SeekBar)layout.findViewById(R.id.book_position_slider);
-  final TextView text=(TextView)layout.findViewById(R.id.book_position_text);
-  slider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
-    private void gotoPage(    int page){
-      final ZLView view=ZLApplication.Instance().getCurrentView();
-      if (view instanceof ZLTextView) {
-        ZLTextView textView=(ZLTextView)view;
-        if (page == 1) {
-          textView.gotoHome();
-        }
- else {
-          textView.gotoPage(page);
-        }
-        ZLApplication.Instance().repaintView();
-      }
-    }
-    public void onStopTrackingTouch(    SeekBar seekBar){
-    }
-    public void onStartTrackingTouch(    SeekBar seekBar){
-    }
-    public void onProgressChanged(    SeekBar seekBar,    int progress,    boolean fromUser){
-      if (fromUser) {
-        final int page=progress + 1;
-        final int pagesNumber=seekBar.getMax() + 1;
-        text.setText(makeProgressText(page,pagesNumber));
-        gotoPage(page);
-      }
-    }
-  }
-);
-  final org.geometerplus.fbreader.fbreader.FBReader fbreader=(org.geometerplus.fbreader.fbreader.FBReader)ZLApplication.Instance();
-  final ZLTextView textView=(ZLTextView)fbreader.getCurrentView();
+  final ControlPanel panel=myNavigatePanel.ControlPanel;
+  final SeekBar slider=(SeekBar)panel.findViewById(R.id.book_position_slider);
+  final TextView text=(TextView)panel.findViewById(R.id.book_position_text);
+  final ZLTextView textView=(ZLTextView)ZLApplication.Instance().getCurrentView();
   final int page=textView.computeCurrentPage();
   final int pagesNumber=textView.computePageNumber();
   slider.setMax(pagesNumber - 1);
   slider.setProgress(page - 1);
   text.setText(makeProgressText(page,pagesNumber));
-  String title="";
-  if (fbreader.Model != null && fbreader.Model.Book != null) {
-    title=fbreader.Model.Book.getTitle();
-  }
-  myNavigateDialog=new AlertDialog.Builder(this).setView(layout).setTitle(title).setIcon(0).create();
 }

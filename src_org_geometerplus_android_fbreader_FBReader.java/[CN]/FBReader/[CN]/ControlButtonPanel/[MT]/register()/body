@@ -1,0 +1,3 @@
+{
+  ZLApplication.Instance().registerButtonPanel(this);
+}

@@ -1,8 +1,7 @@
 {
   super.onResume();
-  if (myPanel.ControlPanel != null) {
-    myPanel.ControlPanel.setVisibility(myPanel.Visible ? View.VISIBLE : View.GONE);
-  }
+  myTextSearchPanel.restoreVisibility();
+  myNavigatePanel.restoreVisibility();
   if (ZLAndroidApplication.Instance().DontTurnScreenOffOption.getValue()) {
     myWakeLock=((PowerManager)getSystemService(POWER_SERVICE)).newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK,"FBReader");
     myWakeLock.acquire();
