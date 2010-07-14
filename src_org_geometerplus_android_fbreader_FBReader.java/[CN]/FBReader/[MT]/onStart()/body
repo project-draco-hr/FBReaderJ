@@ -23,8 +23,9 @@
     public boolean onLongClick(    View v){
       if (!myNavigatePanel.getVisibility()) {
         navigate();
+        return true;
       }
-      return true;
+      return false;
     }
   }
 );
