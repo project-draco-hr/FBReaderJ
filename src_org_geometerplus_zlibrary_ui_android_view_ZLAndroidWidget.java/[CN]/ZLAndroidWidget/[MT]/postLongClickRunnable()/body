@@ -1,0 +1,7 @@
+{
+  myLongClickPerformed=false;
+  if (myPendingLongClickRunnable == null) {
+    myPendingLongClickRunnable=new LongClickRunnable();
+  }
+  postDelayed(myPendingLongClickRunnable,2 * ViewConfiguration.getLongPressTimeout());
+}

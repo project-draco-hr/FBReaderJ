@@ -1,0 +1,5 @@
+{
+  if (performLongClick()) {
+    myLongClickPerformed=true;
+  }
+}
