@@ -3,9 +3,7 @@
     return;
   }
   myIsDecoded=true;
-  final String encodedFileName=myFileName;
-  myFileName=myFileName.substring(0,myFileName.length() - ENCODED_SUFFIX.length());
-  final File outputFile=new File(myFileName);
+  final File outputFile=new File(decodedFileName());
   if (isCacheValid(outputFile)) {
     return;
   }
@@ -13,7 +11,7 @@
   try {
     int dataLength;
     byte[] encodedData;
-    final File file=new File(encodedFileName);
+    final File file=new File(encodedFileName());
     final FileInputStream inputStream=new FileInputStream(file);
     try {
       dataLength=(int)file.length();

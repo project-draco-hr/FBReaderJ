@@ -1,6 +1,6 @@
 {
   super(contentType);
-  myDirName=Paths.cacheDirectory().intern();
+  myDirName=Paths.cacheDirectory();
   new File(myDirName).mkdirs();
   myFileNumber=ourCounter++;
   try {

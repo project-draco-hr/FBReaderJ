@@ -1,0 +1,3 @@
+{
+  return myDecodedFileName + ENCODED_SUFFIX;
+}
