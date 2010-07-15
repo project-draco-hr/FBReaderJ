@@ -1,0 +1,5 @@
+{
+  if (FBReader.Instance != null) {
+    FBReader.Instance.setupNavigation(myControlPanel);
+  }
+}

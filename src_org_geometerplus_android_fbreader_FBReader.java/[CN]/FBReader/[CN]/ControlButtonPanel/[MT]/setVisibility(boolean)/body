@@ -1,5 +1,0 @@
-{
-  if (ControlPanel != null) {
-    ControlPanel.setVisibility(visibility ? View.VISIBLE : View.GONE);
-  }
-}

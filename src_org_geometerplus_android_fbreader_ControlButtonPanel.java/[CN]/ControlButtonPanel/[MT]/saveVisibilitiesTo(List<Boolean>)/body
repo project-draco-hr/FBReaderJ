@@ -1,0 +1,6 @@
+{
+  buffer.clear();
+  for (  ControlButtonPanel panel : ourPanels) {
+    buffer.add(panel.getVisibility());
+  }
+}

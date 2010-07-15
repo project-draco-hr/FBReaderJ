@@ -2,7 +2,6 @@
   if (myWakeLock != null) {
     myWakeLock.release();
   }
-  myTextSearchPanel.saveVisibility();
-  myNavigatePanel.saveVisibility();
+  ControlButtonPanel.saveVisibilities();
   super.onPause();
 }

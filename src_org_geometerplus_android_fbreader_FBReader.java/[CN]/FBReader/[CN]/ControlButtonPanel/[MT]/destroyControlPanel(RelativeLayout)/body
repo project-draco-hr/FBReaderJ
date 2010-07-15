@@ -1,7 +1,0 @@
-{
-  if (ControlPanel != null) {
-    ControlPanel.hide(false);
-    root.removeView(ControlPanel);
-    ControlPanel=null;
-  }
-}

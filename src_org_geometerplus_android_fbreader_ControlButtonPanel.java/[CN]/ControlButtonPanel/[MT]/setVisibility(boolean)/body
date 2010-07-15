@@ -1,0 +1,8 @@
+{
+  if (visible) {
+    show(false);
+  }
+ else {
+    hide(false);
+  }
+}

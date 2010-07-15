@@ -1,12 +1,11 @@
 {
-  final boolean textSearchVisible=myTextSearchPanel.getVisibility();
-  final boolean navigateVisible=myNavigatePanel.getVisibility();
-  ZLApplication.Instance().hideAllPanels();
+  final LinkedList<Boolean> visibilities=new LinkedList<Boolean>();
+  ControlButtonPanel.saveVisibilitiesTo(visibilities);
+  ControlButtonPanel.hideAllPendingNotify();
   final SearchManager manager=(SearchManager)getSystemService(SEARCH_SERVICE);
   manager.setOnCancelListener(new SearchManager.OnCancelListener(){
     public void onCancel(){
-      myTextSearchPanel.setVisibility(textSearchVisible);
-      myNavigatePanel.setVisibility(navigateVisible);
+      ControlButtonPanel.restoreVisibilitiesFrom(visibilities);
       manager.setOnCancelListener(null);
     }
   }

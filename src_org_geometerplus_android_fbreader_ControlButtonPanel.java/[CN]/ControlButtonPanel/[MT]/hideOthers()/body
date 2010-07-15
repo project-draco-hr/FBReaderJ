@@ -1,0 +1,7 @@
+{
+  for (  ControlButtonPanel panel : ourPanels) {
+    if (panel != this) {
+      panel.hide(false);
+    }
+  }
+}

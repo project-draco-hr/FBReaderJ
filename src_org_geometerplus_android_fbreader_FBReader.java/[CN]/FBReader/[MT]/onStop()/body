@@ -1,6 +1,4 @@
 {
-  final RelativeLayout root=(RelativeLayout)FBReader.this.findViewById(R.id.root_view);
-  myTextSearchPanel.destroyControlPanel(root);
-  myNavigatePanel.destroyControlPanel(root);
+  ControlButtonPanel.removeControlPanels();
   super.onStop();
 }

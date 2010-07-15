@@ -1,0 +1,4 @@
+{
+  final ZLTextView textView=(ZLTextView)ZLApplication.Instance().getCurrentView();
+  textView.clearFindResults();
+}

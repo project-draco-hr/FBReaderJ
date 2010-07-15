@@ -5,11 +5,11 @@
   myFullScreenFlag=application.ShowStatusBarOption.getValue() ? 0 : WindowManager.LayoutParams.FLAG_FULLSCREEN;
   getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,myFullScreenFlag);
   if (myTextSearchPanel == null) {
-    myTextSearchPanel=new ControlButtonPanel();
+    myTextSearchPanel=new TextSearchButtonPanel();
     myTextSearchPanel.register();
   }
   if (myNavigatePanel == null) {
-    myNavigatePanel=new ControlButtonPanel();
+    myNavigatePanel=new NavigationButtonPanel();
     myNavigatePanel.register();
   }
 }

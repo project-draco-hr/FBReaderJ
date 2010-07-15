@@ -1,0 +1,7 @@
+{
+  for (  ControlButtonPanel panel : ourPanels) {
+    if (panel.myControlPanel != null && panel.getVisibility()) {
+      panel.myControlPanel.hide(false);
+    }
+  }
+}

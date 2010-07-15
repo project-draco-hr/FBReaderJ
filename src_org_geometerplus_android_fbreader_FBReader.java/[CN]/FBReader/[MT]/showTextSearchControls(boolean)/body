@@ -1,11 +1,8 @@
 {
-  if (myTextSearchPanel.ControlPanel != null) {
-    if (show) {
-      ZLApplication.Instance().hideAllPanels();
-      myTextSearchPanel.ControlPanel.show(true);
-    }
+  if (show) {
+    myTextSearchPanel.show(true);
+  }
  else {
-      myTextSearchPanel.ControlPanel.hide(false);
-    }
+    myTextSearchPanel.hide(false);
   }
 }

@@ -1,6 +1,0 @@
-{
-  Visible=false;
-  if (ControlPanel != null) {
-    ControlPanel.hide(false);
-  }
-}

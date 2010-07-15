@@ -1,0 +1,5 @@
+{
+  for (  ControlButtonPanel panel : ourPanels) {
+    panel.removeControlPanel();
+  }
+}

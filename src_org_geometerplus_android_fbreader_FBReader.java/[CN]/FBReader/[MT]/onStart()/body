@@ -7,17 +7,19 @@
     startActivity(new Intent(this,this.getClass()));
   }
   final RelativeLayout root=(RelativeLayout)FBReader.this.findViewById(R.id.root_view);
-  if (myTextSearchPanel.ControlPanel == null) {
-    myTextSearchPanel.ControlPanel=new ControlPanel(this);
-    myTextSearchPanel.ControlPanel.addButton(ActionCode.FIND_PREVIOUS,false,R.drawable.text_search_previous);
-    myTextSearchPanel.ControlPanel.addButton(ActionCode.CLEAR_FIND_RESULTS,true,R.drawable.text_search_close);
-    myTextSearchPanel.ControlPanel.addButton(ActionCode.FIND_NEXT,false,R.drawable.text_search_next);
-    myTextSearchPanel.registerControlPanel(root,false);
+  if (!myTextSearchPanel.hasControlPanel()) {
+    final ControlPanel panel=new ControlPanel(this);
+    panel.addButton(ActionCode.FIND_PREVIOUS,false,R.drawable.text_search_previous);
+    panel.addButton(ActionCode.CLEAR_FIND_RESULTS,true,R.drawable.text_search_close);
+    panel.addButton(ActionCode.FIND_NEXT,false,R.drawable.text_search_next);
+    myTextSearchPanel.setControlPanel(panel,root,false);
   }
-  if (myNavigatePanel.ControlPanel == null) {
-    myNavigatePanel.ControlPanel=new NavigationControlPanel(this);
-    createNavigation();
-    myNavigatePanel.registerControlPanel(root,true);
+  if (!myNavigatePanel.hasControlPanel()) {
+    final ControlPanel panel=new ControlPanel(this);
+    final View layout=getLayoutInflater().inflate(R.layout.navigate,panel,false);
+    createNavigation(layout);
+    panel.setExtension(layout);
+    myNavigatePanel.setControlPanel(panel,root,true);
   }
   findViewById(R.id.main_view).setOnLongClickListener(new View.OnLongClickListener(){
     public boolean onLongClick(    View v){

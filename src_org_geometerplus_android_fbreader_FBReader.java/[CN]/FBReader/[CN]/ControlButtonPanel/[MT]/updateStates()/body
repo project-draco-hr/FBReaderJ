@@ -1,5 +1,0 @@
-{
-  if (ControlPanel != null) {
-    ControlPanel.updateStates();
-  }
-}
