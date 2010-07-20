@@ -1,2 +1,7 @@
 {
+  if (mySkipUntilTitle != null) {
+    myNextURL=null;
+  }
+  myData.ResumeURI=myNextURL;
+  myData.LastLoadedTitle=null;
 }

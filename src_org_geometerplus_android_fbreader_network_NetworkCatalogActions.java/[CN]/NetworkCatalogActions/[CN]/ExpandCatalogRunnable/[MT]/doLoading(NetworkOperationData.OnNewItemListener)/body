@@ -1,3 +1,6 @@
 {
+  if (myResumeNotLoad) {
+    return myTree.Item.resumeLoading(doWithListener);
+  }
   return myTree.Item.loadChildren(doWithListener);
 }

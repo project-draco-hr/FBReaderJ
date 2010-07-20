@@ -7,29 +7,25 @@
   err=doLoading(new NetworkOperationData.OnNewItemListener(){
     private long myUpdateTime;
     private int myItemsNumber;
-    public boolean onNewItem(    NetworkLibraryItem item){
+    public void onNewItem(    NetworkLibraryItem item){
       myHandler.addItem(item);
-      final boolean interrupted=confirmInterrupt();
-      if (interrupted || myItemsNumber++ >= myItemsLimit) {
-        return true;
-      }
+      ++myItemsNumber;
       final long now=System.currentTimeMillis();
       if (now > myUpdateTime) {
         myHandler.sendUpdateItems();
-        myUpdateTime=now + myUpdateInterval;
+        myUpdateTime=now + UpdateInterval;
       }
-      return false;
+    }
+    public boolean requestInterrupt(){
+      return isLoadingInterruptRequested() || myItemsNumber >= ItemsLimit;
+    }
+    public boolean confirmInterrupt(){
+      return confirmInterruptLoading() || myItemsNumber >= ItemsLimit;
     }
   }
 );
   myHandler.sendUpdateItems();
   myHandler.ensureItemsProcessed();
-  myHandler.sendFinish(err,isInterrupted());
+  myHandler.sendFinish(err,isLoadingInterrupted());
   myHandler.ensureFinishProcessed();
-synchronized (myFinishedLock) {
-    if (myFinishedHandler != null) {
-      myFinishedHandler.sendEmptyMessage(0);
-    }
-    myFinished=true;
-  }
 }

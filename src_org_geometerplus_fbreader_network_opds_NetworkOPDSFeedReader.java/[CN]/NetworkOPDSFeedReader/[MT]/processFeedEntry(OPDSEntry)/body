@@ -1,7 +1,17 @@
 {
+  if (myItemsToLoad >= 0) {
+    --myItemsToLoad;
+  }
+  if (mySkipUntilTitle != null) {
+    if (mySkipUntilTitle.equals(entry.Title)) {
+      mySkipUntilTitle=null;
+    }
+    return tryInterrupt();
+  }
+  myData.LastLoadedTitle=entry.Title;
   final OPDSLink opdsLink=(OPDSLink)myData.Link;
   if (opdsLink.getCondition(entry.Id.Uri) == OPDSLink.FeedCondition.NEVER) {
-    return false;
+    return tryInterrupt();
   }
   boolean hasBookLink=false;
   for (  ATOMLink link : entry.Links) {
@@ -20,7 +30,7 @@
     item=readCatalogItem(entry);
   }
   if (item != null) {
-    return myData.Listener.onNewItem(item);
+    myData.Listener.onNewItem(item);
   }
-  return false;
+  return tryInterrupt();
 }

@@ -1,0 +1,21 @@
+{
+  while (networkRequest != null) {
+    final String errorMessage=ZLNetworkManager.Instance().perform(networkRequest);
+    if (errorMessage != null) {
+      myLoadingState=null;
+      return errorMessage;
+    }
+    if (myLoadingState.Interrupt) {
+      if (myLoadingState.LastLoadedTitle == null) {
+        if (listener.confirmInterrupt()) {
+          return null;
+        }
+      }
+ else {
+        return null;
+      }
+    }
+    networkRequest=myLoadingState.resume();
+  }
+  return null;
+}

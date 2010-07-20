@@ -1,3 +1,4 @@
 ItemsLoadingHandler handler
 NetworkCatalogTree tree
 boolean checkAuthentication
+boolean resumeNotLoad

@@ -2,5 +2,5 @@
   if (getLink(URL_SEARCH) == null) {
     return null;
   }
-  return createNetworkData(searchURL(ZLNetworkUtil.htmlEncode(pattern)),data);
+  return createNetworkData(searchURL(ZLNetworkUtil.htmlEncode(pattern)),(OPDSCatalogItem.State)data);
 }

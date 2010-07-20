@@ -1,6 +1,6 @@
 {
-  final ItemsLoadingRunnable runnable=NetworkView.Instance().getItemsLoadingRunnable(key);
-  if (runnable != null && runnable.tryResume()) {
+  final ItemsLoadingRunnable runnable=getItemsLoadingRunnable(key);
+  if (runnable != null && runnable.tryResumeLoading()) {
     openTree(activity,tree,key);
     return;
   }

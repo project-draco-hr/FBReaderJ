@@ -5,10 +5,16 @@
   }
   NetworkView.Instance().tryResumeLoading(activity,tree,url,new Runnable(){
     public void run(){
+      boolean resumeNotLoad=false;
       if (tree.hasChildren()) {
         if (tree.isContentValid()) {
-          NetworkView.Instance().openTree(activity,tree,url);
-          return;
+          if (tree.Item.supportsResumeLoading()) {
+            resumeNotLoad=true;
+          }
+ else {
+            NetworkView.Instance().openTree(activity,tree,url);
+            return;
+          }
         }
  else {
           tree.ChildrenItems.clear();
@@ -17,7 +23,7 @@
         }
       }
       final ExpandCatalogHandler handler=new ExpandCatalogHandler(tree,url);
-      NetworkView.Instance().startItemsLoading(activity,url,new ExpandCatalogRunnable(handler,tree,true));
+      NetworkView.Instance().startItemsLoading(activity,url,new ExpandCatalogRunnable(handler,tree,true,resumeNotLoad));
       NetworkView.Instance().openTree(activity,tree,url);
     }
   }

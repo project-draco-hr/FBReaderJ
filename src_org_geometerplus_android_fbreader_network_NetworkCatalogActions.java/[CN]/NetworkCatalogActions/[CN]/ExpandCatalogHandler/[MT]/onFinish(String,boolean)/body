@@ -1,5 +1,5 @@
 {
-  if (interrupted) {
+  if (interrupted && (!myTree.Item.supportsResumeLoading() || errorMessage != null)) {
     myTree.ChildrenItems.clear();
     myTree.clear();
   }

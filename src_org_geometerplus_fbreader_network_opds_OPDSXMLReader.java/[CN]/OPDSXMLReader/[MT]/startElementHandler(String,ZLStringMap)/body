@@ -25,6 +25,7 @@ case START:
       myFeed=new OPDSFeedMetadata();
       myFeed.readAttributes(attributes);
       myState=FEED;
+      myFeedMetadataProcessed=false;
     }
   break;
 case FEED:
@@ -62,8 +63,9 @@ if (tagPrefix == myAtomNamespaceId) {
     myEntry=new OPDSEntry();
     myEntry.readAttributes(attributes);
     myState=F_ENTRY;
-    if (myFeed != null && myFeed.Id != null) {
+    if (myFeed != null && myFeed.Id != null && !myFeedMetadataProcessed) {
       myFeedReader.processFeedMetadata(myFeed,true);
+      myFeedMetadataProcessed=true;
     }
   }
 }

@@ -1,5 +1,8 @@
 {
 synchronized (myItemsLoadingRunnables) {
-    return myItemsLoadingRunnables.remove(key);
+    ItemsLoadingRunnable runnable=myItemsLoadingRunnables.remove(key);
+    if (runnable != null) {
+      runnable.runFinishHandler();
+    }
   }
 }

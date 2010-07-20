@@ -1,6 +1,13 @@
 {
   if (beforeEntries) {
     myIndex=feed.OpensearchStartIndex - 1;
+    if (feed.OpensearchItemsPerPage > 0) {
+      myItemsToLoad=feed.OpensearchItemsPerPage;
+      final int len=feed.OpensearchTotalResults - myIndex;
+      if (len > 0 && len < myItemsToLoad) {
+        myItemsToLoad=len;
+      }
+    }
     return;
   }
   final OPDSLink opdsLink=(OPDSLink)myData.Link;
@@ -9,7 +16,7 @@
     String type=link.getType();
     String rel=opdsLink.relation(filter(link.getRel()),type);
     if (type == OPDSConstants.MIME_APP_ATOM && rel == "next") {
-      myData.ResumeURI=href;
+      myNextURL=href;
     }
   }
 }
