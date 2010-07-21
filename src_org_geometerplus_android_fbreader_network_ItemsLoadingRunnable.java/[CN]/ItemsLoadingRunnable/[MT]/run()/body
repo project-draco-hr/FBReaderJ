@@ -16,9 +16,6 @@
         myUpdateTime=now + UpdateInterval;
       }
     }
-    public boolean requestInterrupt(){
-      return isLoadingInterruptRequested() || myItemsNumber >= ItemsLimit;
-    }
     public boolean confirmInterrupt(){
       return confirmInterruptLoading() || myItemsNumber >= ItemsLimit;
     }

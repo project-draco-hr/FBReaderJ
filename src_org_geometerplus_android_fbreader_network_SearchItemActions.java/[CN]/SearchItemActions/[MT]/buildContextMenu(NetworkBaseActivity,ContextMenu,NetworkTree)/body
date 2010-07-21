@@ -4,7 +4,7 @@
   if (!isLoading) {
     addMenuItem(menu,RUN_SEARCH_ITEM_ID,"search");
   }
-  if (isLoading || tree.hasChildren()) {
-    addMenuItem(menu,OPEN_RESULTS_ITEM_ID,"showResults");
+ else {
+    addMenuItem(menu,TREE_NO_ACTION,"stoppingNetworkSearch");
   }
 }
