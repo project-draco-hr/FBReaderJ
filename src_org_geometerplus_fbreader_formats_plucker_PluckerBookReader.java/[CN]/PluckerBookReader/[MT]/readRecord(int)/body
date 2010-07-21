@@ -45,7 +45,6 @@ case 1:
             myCharBuffer=new String(output,0,size).toCharArray();
           }
  catch (          DataFormatException e) {
-            System.out.println(e.getMessage());
           }
         }
         if (doProcess) {
@@ -64,15 +63,12 @@ case 3:
       final String mime="image/palm";
       ZLImage image=null;
       if (type == 2) {
-        System.out.println("non-compressed image");
         image=new PluckerFileImage(mime,myFile,myStream.offset(),recordSize - 8);
       }
  else       if (myCompressionVersion == 1) {
-        System.out.println("DocCompressedImage");
         image=new DocCompressedFileImage(mime,myFile,myStream.offset(),recordSize - 8);
       }
  else       if (myCompressionVersion == 2) {
-        System.out.println("ZCompressedImage");
         image=new ZCompressedFileImage(mime,myFile,myStream.offset() + 2,recordSize - 10);
       }
       if (image != null) {
@@ -96,7 +92,6 @@ case 15:
 {
 short columns=(short)PdbUtil.readShort(myStream);
 short rows=(short)PdbUtil.readShort(myStream);
-System.out.println("multiimage");
 break;
 }
 default :
