@@ -4,8 +4,11 @@
     myTree.clear();
   }
  else {
+    myTree.removeItems(uncommitedItems);
     myTree.updateLoadedTime();
-    afterUpdateCatalog(errorMessage,myTree.ChildrenItems.size() == 0);
+    if (!interrupted) {
+      afterUpdateCatalog(errorMessage,myTree.ChildrenItems.size() == 0);
+    }
     final NetworkLibrary library=NetworkLibrary.Instance();
     library.invalidateVisibility();
     library.synchronize();

@@ -1,0 +1,6 @@
+{
+  super.removeItems(items);
+  if (subTrees().isEmpty()) {
+    removeSelf();
+  }
+}

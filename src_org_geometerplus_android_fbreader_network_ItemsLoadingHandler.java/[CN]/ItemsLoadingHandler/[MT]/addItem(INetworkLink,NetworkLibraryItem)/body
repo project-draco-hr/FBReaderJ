@@ -1,0 +1,11 @@
+{
+synchronized (myItemsMonitor) {
+    myItems.add(item);
+    LinkedList<NetworkLibraryItem> uncommited=myUncommitedItems.get(link);
+    if (uncommited == null) {
+      uncommited=new LinkedList<NetworkLibraryItem>();
+      myUncommitedItems.put(link,uncommited);
+    }
+    uncommited.add(item);
+  }
+}

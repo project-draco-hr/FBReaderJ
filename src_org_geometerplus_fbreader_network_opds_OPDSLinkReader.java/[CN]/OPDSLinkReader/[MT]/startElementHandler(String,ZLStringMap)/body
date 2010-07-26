@@ -1,6 +1,10 @@
 {
   tag=tag.intern();
-  if (TAG_SITE == tag) {
+  if (TAG_CATALOG == tag) {
+    final String value=attributes.getValue("hasStableIdentifiers");
+    myHasStableIdentifiers=value != null && value.equals("true");
+  }
+ else   if (TAG_SITE == tag) {
     myState=READ_SITENAME;
   }
  else   if (TAG_TITLE == tag) {

@@ -1,0 +1,25 @@
+{
+  if (items.isEmpty() || subTrees().isEmpty()) {
+    return;
+  }
+  final LinkedList<FBTree> treesList=new LinkedList<FBTree>();
+  for (  FBTree tree : subTrees()) {
+    final NetworkLibraryItem treeItem=((NetworkTree)tree).getHoldedItem();
+    if (treeItem != null && items.contains(treeItem)) {
+      treesList.add(tree);
+      items.remove(treeItem);
+    }
+  }
+  for (  FBTree tree : treesList) {
+    tree.removeSelf();
+  }
+  if (items.isEmpty()) {
+    return;
+  }
+  treesList.clear();
+  treesList.addAll(subTrees());
+  while (!treesList.isEmpty()) {
+    final NetworkTree tree=(NetworkTree)treesList.remove(treesList.size() - 1);
+    tree.removeItems(items);
+  }
+}

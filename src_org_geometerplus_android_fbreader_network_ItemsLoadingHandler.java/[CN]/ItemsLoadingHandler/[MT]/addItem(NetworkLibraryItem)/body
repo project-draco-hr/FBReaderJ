@@ -1,5 +1,0 @@
-{
-synchronized (myItemsMonitor) {
-    myItems.add(item);
-  }
-}

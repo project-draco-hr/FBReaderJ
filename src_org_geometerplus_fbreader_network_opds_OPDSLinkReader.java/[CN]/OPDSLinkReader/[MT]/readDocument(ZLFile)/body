@@ -1,5 +1,6 @@
 {
   mySiteName=myTitle=mySummary=myIcon=myAuthenticationType=mySSLCertificate=null;
+  myHasStableIdentifiers=false;
   myLinks.clear();
   mySearchFields.clear();
   myUrlConditions.clear();

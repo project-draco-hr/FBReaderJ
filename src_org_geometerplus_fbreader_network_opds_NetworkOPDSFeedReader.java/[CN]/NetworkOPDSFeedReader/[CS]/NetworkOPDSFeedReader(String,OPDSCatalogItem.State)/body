@@ -1,7 +1,7 @@
 {
   myBaseURL=baseURL;
   myData=result;
-  mySkipUntilTitle=myData.LastLoadedTitle;
+  mySkipUntilId=myData.LastLoadedId;
   if (!(result.Link instanceof OPDSLink)) {
     throw new IllegalArgumentException("Parameter `result` has invalid `Link` field value: result.Link must be an instance of OPDSLink class.");
   }

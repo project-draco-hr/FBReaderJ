@@ -9,6 +9,17 @@
         return null;
       }
       new OPDSXMLReader(new NetworkOPDSFeedReader(URL,result)).read(inputStream);
+      if (result.Listener.confirmInterrupt()) {
+        if (!myHasStableIdentifiers && result.LastLoadedId != null) {
+          result.LastLoadedId=null;
+        }
+ else {
+          result.Listener.commitItems(OPDSLink.this);
+        }
+      }
+ else {
+        result.Listener.commitItems(OPDSLink.this);
+      }
       return null;
     }
   }

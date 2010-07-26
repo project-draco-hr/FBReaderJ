@@ -1,6 +1,12 @@
 {
+  HashSet<NetworkLibraryItem> uncommitedItems=new HashSet<NetworkLibraryItem>();
+synchronized (myUncommitedItems) {
+    for (    LinkedList<NetworkLibraryItem> items : myUncommitedItems.values()) {
+      uncommitedItems.addAll(items);
+    }
+  }
 synchronized (myFinishMonitor) {
-    onFinish(errorMessage,interrupted);
+    onFinish(errorMessage,interrupted,uncommitedItems);
     myFinishProcessed=true;
     myFinishMonitor.notifyAll();
   }
