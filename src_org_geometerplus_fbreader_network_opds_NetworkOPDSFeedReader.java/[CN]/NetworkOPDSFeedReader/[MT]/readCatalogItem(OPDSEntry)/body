@@ -9,7 +9,7 @@
   for (  ATOMLink link : entry.Links) {
     final String href=ZLNetworkUtil.url(myBaseURL,link.getHref());
     final String type=link.getType();
-    final String rel=opdsLink.relation(filter(link.getRel()),type);
+    final String rel=opdsLink.relation(link.getRel(),type);
     if (type == NetworkImage.MIME_PNG || type == NetworkImage.MIME_JPEG) {
       if (rel == OPDSConstants.REL_THUMBNAIL || (coverURL == null && rel == OPDSConstants.REL_COVER)) {
         coverURL=href;
