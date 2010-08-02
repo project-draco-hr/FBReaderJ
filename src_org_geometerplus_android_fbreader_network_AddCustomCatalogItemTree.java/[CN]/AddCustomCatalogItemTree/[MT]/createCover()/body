@@ -1,0 +1,4 @@
+{
+  ZLResourceFile file=ZLResourceFile.createResourceFile("R.drawable.ic_list_plus");
+  return new ZLFileImage("image/png",file);
+}
