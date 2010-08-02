@@ -7,6 +7,10 @@
   ((TextView)dialog.findViewById(R.id.network_catalog_title)).setText((myTitle != null) ? myTitle : "");
   ((TextView)dialog.findViewById(R.id.network_catalog_url)).setText((myUrl != null) ? myUrl : "");
   ((TextView)dialog.findViewById(R.id.network_catalog_summary)).setText((mySummary != null) ? mySummary : "");
+  final int examplesVisibility=(myLink == null) ? View.VISIBLE : View.GONE;
+  dialog.findViewById(R.id.network_catalog_title_example).setVisibility(examplesVisibility);
+  dialog.findViewById(R.id.network_catalog_url_example).setVisibility(examplesVisibility);
+  dialog.findViewById(R.id.network_catalog_summary_example).setVisibility(examplesVisibility);
   final TextView error=(TextView)dialog.findViewById(R.id.network_catalog_error);
   if (myErrorMessage == null) {
     error.setVisibility(View.GONE);

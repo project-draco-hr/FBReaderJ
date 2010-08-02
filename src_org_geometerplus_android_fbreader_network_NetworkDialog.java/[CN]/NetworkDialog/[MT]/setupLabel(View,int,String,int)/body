@@ -1,7 +1,0 @@
-{
-  final View viewFor=layout.findViewById(labelForId);
-  viewFor.measure(ViewGroup.LayoutParams.FILL_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-  final TextView label=(TextView)layout.findViewById(labelId);
-  label.setText(myResource.getResource(key).getValue());
-  label.getLayoutParams().height=viewFor.getMeasuredHeight();
-}
