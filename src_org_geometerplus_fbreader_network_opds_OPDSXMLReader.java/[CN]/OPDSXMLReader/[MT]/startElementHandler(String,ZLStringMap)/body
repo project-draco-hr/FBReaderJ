@@ -41,6 +41,11 @@ if (tagPrefix == myAtomNamespaceId) {
     myId.readAttributes(attributes);
     myState=F_ID;
   }
+ else   if (tag == TAG_ICON) {
+    myIcon=new ATOMIcon();
+    myIcon.readAttributes(attributes);
+    myState=F_ICON;
+  }
  else   if (tag == TAG_LINK) {
     myLink=new ATOMLink();
     myLink.readAttributes(attributes);

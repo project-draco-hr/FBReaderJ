@@ -51,6 +51,16 @@ myId=null;
 myState=FEED;
 }
 break;
+case F_ICON:
+if (tagPrefix == myAtomNamespaceId && tag == TAG_ICON) {
+if (bufferContent != null && myFeed != null) {
+myIcon.Uri=bufferContent;
+myFeed.Icon=myIcon;
+}
+myIcon=null;
+myState=FEED;
+}
+break;
 case F_LINK:
 if (tagPrefix == myAtomNamespaceId && tag == TAG_LINK) {
 if (myFeed != null) {
