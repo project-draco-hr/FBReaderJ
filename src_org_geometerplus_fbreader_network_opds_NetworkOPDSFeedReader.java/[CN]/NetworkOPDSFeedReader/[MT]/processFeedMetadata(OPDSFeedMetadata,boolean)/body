@@ -8,7 +8,7 @@
         myItemsToLoad=len;
       }
     }
-    return;
+    return false;
   }
   final OPDSLink opdsLink=(OPDSLink)myData.Link;
   for (  ATOMLink link : feed.Links) {
@@ -18,4 +18,5 @@
       myNextURL=ZLNetworkUtil.url(myBaseURL,link.getHref());
     }
   }
+  return false;
 }

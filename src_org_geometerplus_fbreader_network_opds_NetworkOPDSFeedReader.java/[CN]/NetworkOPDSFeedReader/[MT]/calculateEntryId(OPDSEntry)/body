@@ -1,0 +1,24 @@
+{
+  if (entry.Id != null) {
+    return entry.Id.Uri;
+  }
+  String id=null;
+  int idType=0;
+  final OPDSLink opdsLink=(OPDSLink)myData.Link;
+  for (  ATOMLink link : entry.Links) {
+    final String type=link.getType();
+    final String rel=opdsLink.relation(link.getRel(),type);
+    if (rel == null && type == OPDSConstants.MIME_APP_ATOM) {
+      return ZLNetworkUtil.url(myBaseURL,link.getHref());
+    }
+    int relType=BookReference.Format.NONE;
+    if (rel == null || rel.equals(OPDSConstants.REL_ACQUISITION_PREFIX)) {
+      relType=formatByMimeType(type);
+    }
+    if (relType != BookReference.Format.NONE && (id == null || idType < relType)) {
+      id=ZLNetworkUtil.url(myBaseURL,link.getHref());
+      idType=relType;
+    }
+  }
+  return id;
+}

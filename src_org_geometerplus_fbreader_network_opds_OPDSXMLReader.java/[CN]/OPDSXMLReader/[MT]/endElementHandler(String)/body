@@ -24,8 +24,8 @@ case START:
     break;
 case FEED:
   if (tagPrefix == myAtomNamespaceId && tag == TAG_FEED) {
-    if (myFeed != null && myFeed.Id != null) {
-      myFeedReader.processFeedMetadata(myFeed,false);
+    if (myFeed != null) {
+      interruptReading=myFeedReader.processFeedMetadata(myFeed,false);
     }
     myFeed=null;
     myFeedReader.processFeedEnd();
@@ -34,7 +34,7 @@ case FEED:
 break;
 case F_ENTRY:
 if (tagPrefix == myAtomNamespaceId && tag == TAG_ENTRY) {
-if (myEntry != null && myEntry.Id != null) {
+if (myEntry != null) {
   interruptReading=myFeedReader.processFeedEntry(myEntry);
 }
 myEntry=null;
@@ -74,6 +74,18 @@ if (tagPrefix == myAtomNamespaceId && tag == TAG_TITLE) {
 final String title=myHtmlToString.finishTextContent(bufferContent);
 if (myFeed != null) {
 myFeed.Title=title;
+}
+myState=FEED;
+}
+ else {
+myHtmlToString.processTextContent(true,tag,null,bufferContent);
+}
+break;
+case F_SUBTITLE:
+if (tagPrefix == myAtomNamespaceId && tag == TAG_SUBTITLE) {
+final String subtitle=myHtmlToString.finishTextContent(bufferContent);
+if (myFeed != null) {
+myFeed.Subtitle=subtitle;
 }
 myState=FEED;
 }

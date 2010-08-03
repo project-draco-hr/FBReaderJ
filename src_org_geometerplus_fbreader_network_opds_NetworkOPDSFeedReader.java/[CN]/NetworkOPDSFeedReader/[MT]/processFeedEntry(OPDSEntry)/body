@@ -2,6 +2,14 @@
   if (myItemsToLoad >= 0) {
     --myItemsToLoad;
   }
+  if (entry.Id == null) {
+    final String id=calculateEntryId(entry);
+    if (id == null) {
+      return tryInterrupt();
+    }
+    entry.Id=new ATOMId();
+    entry.Id.Uri=id;
+  }
   if (mySkipUntilId != null) {
     if (mySkipUntilId.equals(entry.Id.Uri)) {
       mySkipUntilId=null;

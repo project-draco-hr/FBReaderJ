@@ -5,9 +5,11 @@
   mySummary=((TextView)alert.findViewById(R.id.network_catalog_summary)).getText().toString().trim();
   if (myTitle.length() == 0) {
     myTitle=null;
-    final String err=myResource.getResource("titleIsEmpty").getValue();
-    sendError(true,false,err);
-    return;
+    if (myLink != null) {
+      final String err=myResource.getResource("titleIsEmpty").getValue();
+      sendError(true,false,err);
+      return;
+    }
   }
   if (myUrl.length() == 0) {
     myUrl=null;
@@ -33,7 +35,7 @@
     siteName=siteName.substring(4);
   }
   final NetworkLibrary library=NetworkLibrary.Instance();
-  if (library.hasCustomLinkTitle(myTitle,(ICustomNetworkLink)myLink)) {
+  if (myLink != null && library.hasCustomLinkTitle(myTitle,(ICustomNetworkLink)myLink)) {
     final String err=myResource.getResource("titleAlreadyExists").getValue();
     sendError(true,false,err);
     return;
@@ -43,26 +45,67 @@
     sendError(true,false,err);
     return;
   }
-  if (myLink == null) {
-    final OPDSLinkReader reader=new OPDSLinkReader();
-    final HashMap<String,String> links=new HashMap<String,String>();
-    links.put(INetworkLink.URL_MAIN,myUrl);
-    final ICustomNetworkLink link=reader.createCustomLink(ICustomNetworkLink.INVALID_ID,siteName,myTitle,mySummary,null,links);
-    if (link != null) {
-      NetworkLibrary.Instance().addCustomLink(link);
-    }
- else {
-      throw new RuntimeException("Unable to create link!!! Impossible!!!");
-    }
-    myLink=link;
-  }
- else {
+  if (myLink != null) {
     final ICustomNetworkLink link=(ICustomNetworkLink)myLink;
     link.setSiteName(siteName);
     link.setTitle(myTitle);
     link.setSummary(mySummary);
     link.setLink(INetworkLink.URL_MAIN,myUrl);
-    link.saveLink();
+    if (myLinkWithoutInfo) {
+      NetworkLibrary.Instance().addCustomLink(link);
+      myLinkWithoutInfo=false;
+    }
+ else {
+      link.saveLink();
+    }
+    sendSuccess(true);
+    return;
   }
-  sendSuccess(true);
+  final OPDSLinkReader reader=new OPDSLinkReader();
+  myLinkWithoutInfo=true;
+  myLink=reader.createCustomLinkWithoutInfo(siteName,myUrl);
+  final Handler handler=new Handler(){
+    public void handleMessage(    Message msg){
+      final String err=(String)msg.obj;
+      if (err != null) {
+        final DialogInterface.OnClickListener listener=new DialogInterface.OnClickListener(){
+          public void onClick(          DialogInterface dialog,          int which){
+            if (which == DialogInterface.BUTTON_NEGATIVE) {
+              sendSuccess(true);
+            }
+ else {
+              if (which == DialogInterface.BUTTON_NEUTRAL) {
+                myLinkWithoutInfo=false;
+                myLink=null;
+              }
+              sendError(true,false,null);
+            }
+          }
+        }
+;
+        final ZLResource dialogResource=ZLResource.resource("dialog");
+        final ZLResource boxResource=dialogResource.getResource("networkError");
+        final ZLResource buttonResource=dialogResource.getResource("button");
+        new AlertDialog.Builder(myActivity).setTitle(boxResource.getResource("title").getValue()).setMessage(err).setIcon(0).setPositiveButton(buttonResource.getResource("continue").getValue(),listener).setNeutralButton(buttonResource.getResource("editUrl").getValue(),listener).setNegativeButton(buttonResource.getResource("cancel").getValue(),listener).setOnCancelListener(new DialogInterface.OnCancelListener(){
+          public void onCancel(          DialogInterface dialog){
+            listener.onClick(dialog,DialogInterface.BUTTON_NEGATIVE);
+          }
+        }
+).create().show();
+      }
+ else {
+        sendError(true,false,null);
+      }
+    }
+  }
+;
+  final Runnable loadInfoRunnable=new Runnable(){
+    public void run(){
+      final ICustomNetworkLink link=(ICustomNetworkLink)myLink;
+      final String err=link.reloadInfo();
+      handler.sendMessage(handler.obtainMessage(0,err));
+    }
+  }
+;
+  ((ZLAndroidDialogManager)ZLAndroidDialogManager.Instance()).wait("loadingCatalogInfo",loadInfoRunnable,myActivity);
 }

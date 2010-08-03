@@ -18,6 +18,7 @@
     bufferContent=new String(bufferContentArray);
   }
   myBuffer.delete(0,myBuffer.length());
+  boolean interruptReading=false;
 switch (myState) {
 case START:
     if (tagPrefix == myAtomNamespaceId && tag == TAG_FEED) {
@@ -54,6 +55,10 @@ if (tagPrefix == myAtomNamespaceId) {
     myHtmlToString.setupTextContent(attributes.getValue("type"));
     myState=F_TITLE;
   }
+ else   if (tag == TAG_SUBTITLE) {
+    myHtmlToString.setupTextContent(attributes.getValue("type"));
+    myState=F_SUBTITLE;
+  }
  else   if (tag == TAG_UPDATED) {
     myUpdated=new ATOMUpdated();
     myUpdated.readAttributes(attributes);
@@ -63,8 +68,8 @@ if (tagPrefix == myAtomNamespaceId) {
     myEntry=new OPDSEntry();
     myEntry.readAttributes(attributes);
     myState=F_ENTRY;
-    if (myFeed != null && myFeed.Id != null && !myFeedMetadataProcessed) {
-      myFeedReader.processFeedMetadata(myFeed,true);
+    if (myFeed != null && !myFeedMetadataProcessed) {
+      interruptReading=myFeedReader.processFeedMetadata(myFeed,true);
       myFeedMetadataProcessed=true;
     }
   }
@@ -192,10 +197,11 @@ break;
 case FE_SUMMARY:
 case FE_TITLE:
 case F_TITLE:
+case F_SUBTITLE:
 myHtmlToString.processTextContent(false,tag,attributes,bufferContent);
 break;
 default :
 break;
 }
-return false;
+return interruptReading;
 }
