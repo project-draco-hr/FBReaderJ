@@ -1,5 +1,5 @@
 {
-  for (  ICustomNetworkLink link : myCustomLinks) {
+  for (  INetworkLink link : myLinks) {
     if (link != exeptFor && link.getTitle().equals(title)) {
       return true;
     }
