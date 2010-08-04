@@ -1,0 +1,5 @@
+{
+  myBaseURL=baseUrl;
+  myLink=link;
+  myOpensearchDescriptionURLs=opensearchDescriptionURLs;
+}

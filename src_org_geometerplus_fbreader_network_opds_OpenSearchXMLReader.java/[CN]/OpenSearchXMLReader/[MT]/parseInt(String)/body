@@ -1,0 +1,11 @@
+{
+  if (value == null || value.length() == 0) {
+    return -1;
+  }
+  try {
+    return Integer.valueOf(value);
+  }
+ catch (  NumberFormatException e) {
+    return -1;
+  }
+}

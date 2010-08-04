@@ -1,0 +1,20 @@
+{
+  final int index=tag.indexOf(':');
+  final String tagPrefix;
+  if (index != -1) {
+    tagPrefix=tag.substring(0,index).intern();
+    tag=tag.substring(index + 1).intern();
+  }
+ else {
+    tagPrefix=null;
+    tag=tag.intern();
+  }
+switch (myState) {
+case DESCRIPTION:
+    if (tagPrefix == myOpenSearchNamespaceId && tag == TAG_DESCRIPTION) {
+      myState=START;
+    }
+  break;
+}
+return false;
+}

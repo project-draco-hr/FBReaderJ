@@ -1,0 +1,9 @@
+{
+  myOpenSearchNamespaceId=null;
+  for (  Map.Entry<String,String> entry : namespaces.entrySet()) {
+    final String value=entry.getValue();
+    if (value == XMLNamespace.OpenSearch) {
+      myOpenSearchNamespaceId=intern(entry.getKey());
+    }
+  }
+}
