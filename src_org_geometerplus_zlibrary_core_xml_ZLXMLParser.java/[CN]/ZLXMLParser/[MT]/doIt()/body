@@ -21,7 +21,14 @@
   byte state=START_DOCUMENT;
   byte savedState=START_DOCUMENT;
   while (true) {
-    int count=streamReader.read(buffer);
+    int count;
+    if (myBufferDescriptionLength > 0) {
+      count=myBufferDescriptionLength;
+      myBufferDescriptionLength=0;
+    }
+ else {
+      count=streamReader.read(buffer);
+    }
     if (count <= 0) {
       streamReader.close();
       return;
