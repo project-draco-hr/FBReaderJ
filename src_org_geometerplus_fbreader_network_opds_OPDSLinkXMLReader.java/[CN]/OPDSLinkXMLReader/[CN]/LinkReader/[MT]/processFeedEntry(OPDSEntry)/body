@@ -30,7 +30,10 @@
     }
  else     if (rel == "search") {
       if (type == OPDSConstants.MIME_APP_ATOM) {
-        links.put(INetworkLink.URL_SEARCH,href);
+        final OpenSearchDescription descr=OpenSearchDescription.createDefault(href);
+        if (descr.isValid()) {
+          links.put(INetworkLink.URL_SEARCH,descr.makeQuery("%s"));
+        }
       }
     }
  else     if (rel == OPDSConstants.REL_LINK_SIGN_IN) {
