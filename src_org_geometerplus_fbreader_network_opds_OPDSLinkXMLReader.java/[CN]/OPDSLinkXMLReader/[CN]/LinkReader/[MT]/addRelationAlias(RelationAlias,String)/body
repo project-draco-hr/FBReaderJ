@@ -1,0 +1,3 @@
+{
+  myRelationAliases.put(alias,relation);
+}

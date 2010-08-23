@@ -1,0 +1,10 @@
+{
+  super.namespaceMapChangedHandler(namespaceMap);
+  myFBReaderNamespaceId=null;
+  for (  Map.Entry<String,String> entry : namespaceMap.entrySet()) {
+    final String value=entry.getValue();
+    if (value == XMLNamespace.FBReaderCatalogMetadata) {
+      myFBReaderNamespaceId=intern(entry.getKey());
+    }
+  }
+}

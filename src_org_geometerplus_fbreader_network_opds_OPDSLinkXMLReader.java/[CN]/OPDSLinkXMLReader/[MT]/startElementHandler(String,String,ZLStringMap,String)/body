@@ -1,0 +1,63 @@
+{
+switch (getState()) {
+case FEED:
+    if (tagPrefix == myAtomNamespaceId && tag == TAG_ENTRY) {
+      ((LinkReader)myFeedReader).clear();
+    }
+  break;
+case F_ENTRY:
+if (tagPrefix == myFBReaderNamespaceId) {
+  if (tag == FBREADER_ADVANCED_SEARCH) {
+    return false;
+  }
+ else   if (tag == FBREADER_AUTHENTICATION) {
+    final String type=attributes.getValue("type");
+    ((LinkReader)myFeedReader).setAuthenticationType(type);
+    return false;
+  }
+ else   if (tag == FBREADER_RELATION_ALIAS) {
+    final String name=attributes.getValue("name");
+    final String type=attributes.getValue("type");
+    String alias=attributes.getValue("alias");
+    if (alias != null && name != null) {
+      if (alias.length() == 0) {
+        alias=null;
+      }
+      ((LinkReader)myFeedReader).addRelationAlias(new RelationAlias(alias,type),name);
+    }
+    return false;
+  }
+ else   if (tag == FBREADER_REWRITING_RULE) {
+    final String type=attributes.getValue("type");
+    final String apply=attributes.getValue("apply");
+    final String name=attributes.getValue("name");
+    final String value=attributes.getValue("value");
+    final int typeValue;
+    if (type == "addUrlParameter") {
+      typeValue=URLRewritingRule.ADD_URL_PARAMETER;
+    }
+ else {
+      return false;
+    }
+    final int applyValue;
+    if (apply == "external") {
+      applyValue=URLRewritingRule.APPLY_EXTERNAL;
+    }
+ else     if (apply == "internal") {
+      applyValue=URLRewritingRule.APPLY_INTERNAL;
+    }
+ else {
+      applyValue=URLRewritingRule.APPLY_ALWAYS;
+    }
+    ((LinkReader)myFeedReader).addUrlRewritingRule(new URLRewritingRule(typeValue,applyValue,name,value));
+    return false;
+  }
+ else   if (tag == FBREADER_STABLE_IDENTIFIERS) {
+    ((LinkReader)myFeedReader).setHasStableIdentifiers(true);
+    return false;
+  }
+}
+break;
+}
+return super.startElementHandler(tagPrefix,tag,attributes,bufferContent);
+}

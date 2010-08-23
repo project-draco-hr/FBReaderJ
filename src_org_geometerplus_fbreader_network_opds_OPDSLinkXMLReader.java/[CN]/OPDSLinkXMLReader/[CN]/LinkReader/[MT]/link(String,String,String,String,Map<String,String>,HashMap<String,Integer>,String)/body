@@ -1,0 +1,17 @@
+{
+  if (siteName == null || title == null || links.get(INetworkLink.URL_MAIN) == null) {
+    return null;
+  }
+  OPDSLink opdsLink=new OPDSLink(siteName,title,summary,icon,links,myHasStableIdentifiers);
+  opdsLink.setRelationAliases(myRelationAliases);
+  opdsLink.setUrlConditions(urlConditions);
+  opdsLink.setUrlRewritingRules(myUrlRewritingRules);
+  NetworkAuthenticationManager authManager=null;
+  if (myAuthenticationType == "basic") {
+  }
+ else   if (myAuthenticationType == "litres") {
+    authManager=new LitResAuthenticationManager(opdsLink,sslCertificate);
+  }
+  opdsLink.setAuthenticationManager(authManager);
+  return opdsLink;
+}

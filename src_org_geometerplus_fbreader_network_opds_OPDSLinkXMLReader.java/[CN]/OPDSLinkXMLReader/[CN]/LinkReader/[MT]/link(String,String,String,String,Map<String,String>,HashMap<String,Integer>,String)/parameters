@@ -1,0 +1,7 @@
+String siteName
+String title
+String summary
+String icon
+Map<String,String> links
+HashMap<String,Integer> urlConditions
+String sslCertificate

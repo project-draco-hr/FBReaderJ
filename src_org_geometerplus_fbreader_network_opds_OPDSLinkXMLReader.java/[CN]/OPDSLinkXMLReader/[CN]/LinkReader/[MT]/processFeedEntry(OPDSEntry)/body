@@ -1,0 +1,71 @@
+{
+  final String id=entry.Id.Uri;
+  if (id == null || id.length() <= ENTRY_ID_PREFIX.length() || !id.startsWith(ENTRY_ID_PREFIX)) {
+    return false;
+  }
+  final String siteName=id.substring(ENTRY_ID_PREFIX.length());
+  final String title=entry.Title;
+  final String summary=entry.Content;
+  String icon=null;
+  final HashMap<String,String> links=new HashMap<String,String>();
+  final HashMap<String,Integer> urlConditions=new HashMap<String,Integer>();
+  for (  ATOMLink link : entry.Links) {
+    final String href=link.getHref();
+    final String type=link.getType();
+    final String rel=link.getRel();
+    if (rel == OPDSConstants.REL_COVER) {
+      if (icon == null && (type == NetworkImage.MIME_PNG || type == NetworkImage.MIME_JPEG)) {
+        icon=href;
+      }
+    }
+ else     if (rel == OPDSConstants.REL_THUMBNAIL) {
+      if (type == NetworkImage.MIME_PNG || type == NetworkImage.MIME_JPEG) {
+        icon=href;
+      }
+    }
+ else     if (rel == null) {
+      if (type == OPDSConstants.MIME_APP_ATOM) {
+        links.put(INetworkLink.URL_MAIN,href);
+      }
+    }
+ else     if (rel == "search") {
+      if (type == OPDSConstants.MIME_APP_ATOM) {
+        links.put(INetworkLink.URL_SEARCH,href);
+      }
+    }
+ else     if (rel == OPDSConstants.REL_LINK_SIGN_IN) {
+      links.put(INetworkLink.URL_SIGN_IN,href);
+    }
+ else     if (rel == OPDSConstants.REL_LINK_SIGN_OUT) {
+      links.put(INetworkLink.URL_SIGN_OUT,href);
+    }
+ else     if (rel == OPDSConstants.REL_LINK_SIGN_UP) {
+      links.put(INetworkLink.URL_SIGN_UP,href);
+    }
+ else     if (rel == OPDSConstants.REL_LINK_REFILL_ACCOUNT) {
+      links.put(INetworkLink.URL_REFILL_ACCOUNT,href);
+    }
+ else     if (rel == OPDSConstants.REL_LINK_RECOVER_PASSWORD) {
+      links.put(INetworkLink.URL_RECOVER_PASSWORD,href);
+    }
+ else     if (rel == OPDSConstants.REL_CONDITION_NEVER) {
+      urlConditions.put(href,OPDSLink.FeedCondition.NEVER);
+    }
+ else     if (rel == OPDSConstants.REL_CONDITION_SIGNED_IN) {
+      urlConditions.put(href,OPDSLink.FeedCondition.SIGNED_IN);
+    }
+  }
+  final String sslCertificate;
+  final String path="data/network/" + siteName + ".crt";
+  if (ZLResourceFile.createResourceFile(path).exists()) {
+    sslCertificate=path;
+  }
+ else {
+    sslCertificate=null;
+  }
+  INetworkLink result=link(siteName,title,summary,icon,links,urlConditions,sslCertificate);
+  if (result != null) {
+    myLinksBuffer.add(result);
+  }
+  return false;
+}
