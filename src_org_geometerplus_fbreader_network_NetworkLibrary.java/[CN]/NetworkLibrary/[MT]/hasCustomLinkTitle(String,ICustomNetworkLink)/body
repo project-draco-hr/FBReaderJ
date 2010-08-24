@@ -1,7 +1,9 @@
 {
-  for (  INetworkLink link : myLinks) {
-    if (link != exeptFor && link.getTitle().equals(title)) {
-      return true;
+synchronized (myLinks) {
+    for (    INetworkLink link : myLinks) {
+      if (link != exeptFor && link.getTitle().equals(title)) {
+        return true;
+      }
     }
   }
   return false;

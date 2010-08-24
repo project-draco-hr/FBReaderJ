@@ -13,10 +13,7 @@
       linksMap.put(linksCursor.getString(0),linksCursor.getString(1));
     }
     linksCursor.close();
-    final ICustomNetworkLink newLink=factory.createCustomLink(id,siteName,title,summary,icon,linksMap);
-    if (newLink != null) {
-      links.add(newLink);
-    }
+    handler.handleCustomLinkData(id,siteName,title,summary,icon,linksMap);
   }
   cursor.close();
 }

@@ -1,6 +1,5 @@
 {
-  if (!myInitialized) {
-    myInitialized=true;
+  if (myTree == null) {
     myTree=NetworkLibrary.Instance().getTree();
     setListAdapter(new LibraryAdapter());
     getListView().invalidateViews();

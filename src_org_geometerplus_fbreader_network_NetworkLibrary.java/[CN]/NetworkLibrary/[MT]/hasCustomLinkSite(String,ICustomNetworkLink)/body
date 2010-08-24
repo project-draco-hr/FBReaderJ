@@ -1,7 +1,9 @@
 {
-  for (  INetworkLink link : myLinks) {
-    if (link != exeptFor && link.getSiteName().equals(siteName)) {
-      return true;
+synchronized (myLinks) {
+    for (    INetworkLink link : myLinks) {
+      if (link != exeptFor && link.getSiteName().equals(siteName)) {
+        return true;
+      }
     }
   }
   return false;

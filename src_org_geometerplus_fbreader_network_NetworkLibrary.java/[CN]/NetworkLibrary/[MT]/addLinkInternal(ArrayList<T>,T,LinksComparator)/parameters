@@ -1,0 +1,3 @@
+ArrayList<T> list
+T link
+LinksComparator comparator

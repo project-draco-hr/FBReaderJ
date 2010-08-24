@@ -1,0 +1,8 @@
+{
+  if (!NetworkView.Instance().isInitialized()) {
+    new Initializator().start();
+  }
+ else {
+    prepareView();
+  }
+}

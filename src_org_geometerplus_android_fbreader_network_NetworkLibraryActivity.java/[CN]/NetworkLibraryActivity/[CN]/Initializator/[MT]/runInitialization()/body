@@ -1,0 +1,9 @@
+{
+  ((ZLAndroidDialogManager)ZLAndroidDialogManager.Instance()).wait("loadingNetworkLibrary",new Runnable(){
+    public void run(){
+      final String error=NetworkView.Instance().initialize();
+      Initializator.this.end(error);
+    }
+  }
+,NetworkLibraryActivity.this);
+}

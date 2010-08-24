@@ -1,22 +1,4 @@
 {
   super.onResume();
-  final NetworkView networkView=NetworkView.Instance();
-  if (!networkView.isInitialized()) {
-    final Handler handler=new Handler(){
-      public void handleMessage(      Message message){
-        prepareView();
-      }
-    }
-;
-    ((ZLAndroidDialogManager)ZLAndroidDialogManager.Instance()).wait("loadingNetworkLibrary",new Runnable(){
-      public void run(){
-        networkView.initialize();
-        handler.sendEmptyMessage(0);
-      }
-    }
-,this);
-  }
- else {
-    prepareView();
-  }
+  tryResume();
 }

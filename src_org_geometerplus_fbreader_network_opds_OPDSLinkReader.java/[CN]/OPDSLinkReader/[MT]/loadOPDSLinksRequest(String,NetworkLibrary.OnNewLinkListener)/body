@@ -1,0 +1,9 @@
+{
+  return new ZLNetworkRequest(url){
+    @Override public String handleStream(    URLConnection connection,    InputStream inputStream) throws IOException {
+      new OPDSLinkXMLReader(listener).read(inputStream);
+      return null;
+    }
+  }
+;
+}

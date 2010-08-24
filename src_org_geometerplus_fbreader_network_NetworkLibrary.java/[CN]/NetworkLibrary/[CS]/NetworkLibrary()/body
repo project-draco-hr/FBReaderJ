@@ -1,19 +1,6 @@
 {
-  final OPDSLinkXMLReader reader=new OPDSLinkXMLReader(myLoadedLinks);
-  reader.read(ZLResourceFile.createResourceFile("data/network/catalogs.xml"));
-  NetworkDatabase.Instance().loadCustomLinks(myCustomLinks,new NetworkDatabase.ICustomLinksFactory(){
-    public ICustomNetworkLink createCustomLink(    int id,    String siteName,    String title,    String summary,    String icon,    Map<String,String> links){
-      final ICustomNetworkLink link=OPDSLinkReader.createCustomLink(id,siteName,title,summary,icon,links);
-      link.setSaveLinkListener(myChangesListener);
-      return link;
-    }
-  }
-);
-  LinksComparator comparator=new LinksComparator();
-  Collections.sort(myLoadedLinks,comparator);
-  Collections.sort(myCustomLinks,comparator);
   ArrayList<ArrayList<? extends INetworkLink>> linksList=new ArrayList<ArrayList<? extends INetworkLink>>();
   linksList.add(myLoadedLinks);
   linksList.add(myCustomLinks);
-  myLinks=new CompositeList(linksList,comparator);
+  myLinks=new CompositeList(linksList,new LinksComparator());
 }

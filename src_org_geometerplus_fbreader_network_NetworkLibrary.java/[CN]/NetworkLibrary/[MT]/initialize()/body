@@ -1,0 +1,27 @@
+{
+  final LinksComparator comparator=new LinksComparator();
+  final String url="http://data.fbreader.org/catalogs/generic-1.0.xml";
+  final String error=ZLNetworkManager.Instance().perform(OPDSLinkReader.loadOPDSLinksRequest(url,new OnNewLinkListener(){
+    public void onNewLink(    INetworkLink link){
+      addLinkInternal(myLoadedLinks,link,comparator);
+    }
+  }
+));
+  if (error != null) {
+synchronized (myLinks) {
+      myLoadedLinks.clear();
+    }
+    return error;
+  }
+  NetworkDatabase.Instance().loadCustomLinks(new NetworkDatabase.ICustomLinksHandler(){
+    public void handleCustomLinkData(    int id,    String siteName,    String title,    String summary,    String icon,    Map<String,String> links){
+      final ICustomNetworkLink link=OPDSLinkReader.createCustomLink(id,siteName,title,summary,icon,links);
+      if (link != null) {
+        addLinkInternal(myCustomLinks,link,comparator);
+        link.setSaveLinkListener(myChangesListener);
+      }
+    }
+  }
+);
+  return null;
+}

@@ -1,0 +1,11 @@
+{
+  if (message.what == 0) {
+    runInitialization();
+  }
+ else   if (message.obj == null) {
+    prepareView();
+  }
+ else {
+    processResults((String)message.obj);
+  }
+}

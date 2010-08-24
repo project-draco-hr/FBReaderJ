@@ -68,7 +68,7 @@
   }
   INetworkLink result=link(siteName,title,summary,icon,links,urlConditions,sslCertificate);
   if (result != null) {
-    myLinksBuffer.add(result);
+    myListener.onNewLink(result);
   }
   return false;
 }
