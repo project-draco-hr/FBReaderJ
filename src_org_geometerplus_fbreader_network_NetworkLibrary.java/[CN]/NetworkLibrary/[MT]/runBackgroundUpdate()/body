@@ -1,0 +1,21 @@
+{
+synchronized (myBackgroundLock) {
+    myBackgroundLinks=new ArrayList<INetworkLink>();
+    final String error=OPDSLinkReader.loadOPDSLinks(true,new OnNewLinkListener(){
+      public void onNewLink(      INetworkLink link){
+        myBackgroundLinks.add(link);
+      }
+    }
+);
+    if (error != null || myBackgroundLinks.isEmpty()) {
+      myBackgroundLinks=null;
+    }
+    if (myBackgroundLinks == null) {
+      return false;
+    }
+ else {
+      Collections.sort(myBackgroundLinks,new LinksComparator());
+      return true;
+    }
+  }
+}

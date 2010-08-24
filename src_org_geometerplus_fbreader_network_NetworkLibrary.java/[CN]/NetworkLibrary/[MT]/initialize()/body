@@ -1,12 +1,11 @@
 {
   final LinksComparator comparator=new LinksComparator();
-  final String url="http://data.fbreader.org/catalogs/generic-1.0.xml";
-  final String error=ZLNetworkManager.Instance().perform(OPDSLinkReader.loadOPDSLinksRequest(url,new OnNewLinkListener(){
+  final String error=OPDSLinkReader.loadOPDSLinks(false,new OnNewLinkListener(){
     public void onNewLink(    INetworkLink link){
       addLinkInternal(myLoadedLinks,link,comparator);
     }
   }
-));
+);
   if (error != null) {
 synchronized (myLinks) {
       myLoadedLinks.clear();

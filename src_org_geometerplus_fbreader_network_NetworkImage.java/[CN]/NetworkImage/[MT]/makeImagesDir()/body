@@ -1,3 +1,0 @@
-{
-  return Paths.cacheDirectory() + File.separator + "cache";
-}

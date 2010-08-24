@@ -3,6 +3,7 @@
     runInitialization();
   }
  else   if (message.obj == null) {
+    startService(new Intent(getApplicationContext(),LibraryInitializationService.class));
     prepareView();
   }
  else {

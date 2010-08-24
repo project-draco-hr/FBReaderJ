@@ -1,0 +1,31 @@
+{
+  super.onStart(intent,startId);
+  final NetworkView view=NetworkView.Instance();
+  if (!view.isInitialized()) {
+    stopSelf();
+    return;
+  }
+  final Handler handler=new Handler(){
+    @Override public void handleMessage(    Message msg){
+      if (msg.what > 0) {
+        view.finishBackgroundUpdate();
+      }
+      stopSelf();
+    }
+  }
+;
+  final Thread thread=new Thread(new Runnable(){
+    public void run(){
+      boolean result=false;
+      try {
+        result=view.runBackgroundUpdate();
+      }
+  finally {
+        handler.sendEmptyMessage(result ? 1 : 0);
+      }
+    }
+  }
+);
+  thread.setPriority(Thread.MIN_PRIORITY);
+  thread.start();
+}

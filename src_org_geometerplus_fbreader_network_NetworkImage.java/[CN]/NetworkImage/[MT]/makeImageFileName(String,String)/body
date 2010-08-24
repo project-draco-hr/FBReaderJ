@@ -12,7 +12,7 @@
     path.delete(0,4);
   }
   path.insert(0,File.separator);
-  path.insert(0,makeImagesDir());
+  path.insert(0,Paths.networkCacheDirectory());
   int index=path.length();
   path.append(uri.getPath());
   int nameIndex=index;

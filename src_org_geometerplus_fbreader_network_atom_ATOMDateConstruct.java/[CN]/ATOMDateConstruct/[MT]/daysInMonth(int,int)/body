@@ -1,0 +1,9 @@
+{
+  --month;
+  while (month > 11)   month-=12;
+  while (month < 0)   month+=12;
+  if (month == 1 && ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)) {
+    return DAYS_IN_MONTHS[1] + 1;
+  }
+  return DAYS_IN_MONTHS[month];
+}

@@ -1,0 +1,6 @@
+{
+  if (!(obj instanceof ATOMDateConstruct)) {
+    return false;
+  }
+  return compareTo((ATOMDateConstruct)obj) == 0;
+}

@@ -1,1 +1,2 @@
+boolean updateNotLoad
 NetworkLibrary.OnNewLinkListener listener

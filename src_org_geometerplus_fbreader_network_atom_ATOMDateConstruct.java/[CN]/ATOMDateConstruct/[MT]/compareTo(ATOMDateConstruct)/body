@@ -1,0 +1,44 @@
+{
+  int dateYear=date.Year;
+  int dateMonth=date.Month;
+  int dateDay=date.Day;
+  int dateHour=date.Hour;
+  int dateMinutes=date.Minutes;
+  if (TZHour != date.TZHour || TZMinutes != date.TZMinutes) {
+    dateMinutes+=TZMinutes - date.TZMinutes;
+    while (dateMinutes < 0) {
+      dateMinutes+=60;
+      --dateHour;
+    }
+    while (dateMinutes > 59) {
+      dateMinutes-=60;
+      ++dateHour;
+    }
+    dateHour+=TZHour - date.TZHour;
+    while (dateHour < 0) {
+      dateHour+=24;
+      --dateDay;
+    }
+    while (dateHour > 23) {
+      dateHour-=24;
+      ++dateDay;
+    }
+    while (dateDay < 1)     dateDay+=daysInMonth(--dateMonth,dateYear);
+    while (dateDay > daysInMonth(dateMonth,dateYear))     dateDay-=daysInMonth(dateMonth++,dateYear);
+    while (dateMonth < 1) {
+      dateMonth+=12;
+      --dateYear;
+    }
+    while (dateMonth > 12) {
+      dateMonth-=12;
+      ++dateYear;
+    }
+  }
+  if (Year != dateYear)   return Year - dateYear;
+  if (Month != dateMonth)   return Month - dateMonth;
+  if (Day != dateDay)   return Day - dateDay;
+  if (Hour != dateHour)   return Hour - dateHour;
+  if (Minutes != dateMinutes)   return Minutes - dateMinutes;
+  if (Seconds != date.Seconds)   return Seconds - date.Seconds;
+  return Math.round(100 * SecondFraction) - Math.round(100 * date.SecondFraction);
+}
