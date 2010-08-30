@@ -1,0 +1,10 @@
+{
+  if (mime == null) {
+    return null;
+  }
+  final int index=mime.indexOf(';');
+  if (index != -1) {
+    return mime.substring(0,index).intern();
+  }
+  return mime.intern();
+}

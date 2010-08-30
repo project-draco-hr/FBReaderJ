@@ -6,7 +6,7 @@
   int idType=0;
   final OPDSLink opdsLink=(OPDSLink)myData.Link;
   for (  ATOMLink link : entry.Links) {
-    final String type=link.getType();
+    final String type=ZLNetworkUtil.filterMimeType(link.getType());
     final String rel=opdsLink.relation(link.getRel(),type);
     if (rel == null && type == OPDSConstants.MIME_APP_ATOM) {
       return ZLNetworkUtil.url(myBaseURL,link.getHref());

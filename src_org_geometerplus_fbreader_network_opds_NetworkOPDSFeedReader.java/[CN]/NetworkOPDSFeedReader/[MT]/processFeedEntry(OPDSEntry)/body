@@ -23,7 +23,7 @@
   }
   boolean hasBookLink=false;
   for (  ATOMLink link : entry.Links) {
-    final String type=link.getType();
+    final String type=ZLNetworkUtil.filterMimeType(link.getType());
     final String rel=opdsLink.relation(link.getRel(),type);
     if ((rel != null && rel.startsWith(OPDSConstants.REL_ACQUISITION_PREFIX)) || (rel == null && formatByMimeType(type) != BookReference.Format.NONE)) {
       hasBookLink=true;

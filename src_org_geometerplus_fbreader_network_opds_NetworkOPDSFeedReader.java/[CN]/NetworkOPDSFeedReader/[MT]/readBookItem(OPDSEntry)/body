@@ -11,7 +11,7 @@
   LinkedList<BookReference> references=new LinkedList<BookReference>();
   for (  ATOMLink link : entry.Links) {
     final String href=ZLNetworkUtil.url(myBaseURL,link.getHref());
-    final String type=link.getType();
+    final String type=ZLNetworkUtil.filterMimeType(link.getType());
     final String rel=opdsLink.relation(link.getRel(),type);
     final int referenceType=typeByRelation(rel);
     if (rel == OPDSConstants.REL_COVER) {

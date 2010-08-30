@@ -11,7 +11,7 @@
   final HashMap<String,Integer> urlConditions=new HashMap<String,Integer>();
   for (  ATOMLink link : entry.Links) {
     final String href=link.getHref();
-    final String type=link.getType();
+    final String type=ZLNetworkUtil.filterMimeType(link.getType());
     final String rel=link.getRel();
     if (rel == OPDSConstants.REL_COVER) {
       if (icon == null && (type == NetworkImage.MIME_PNG || type == NetworkImage.MIME_JPEG)) {
