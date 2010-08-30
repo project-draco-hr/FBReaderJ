@@ -14,13 +14,13 @@
     final String type=ZLNetworkUtil.filterMimeType(link.getType());
     final String rel=opdsLink.relation(link.getRel(),type);
     final int referenceType=typeByRelation(rel);
-    if (rel == OPDSConstants.REL_COVER) {
-      if (cover == null && (type == NetworkImage.MIME_PNG || type == NetworkImage.MIME_JPEG)) {
+    if (rel == OPDSConstants.REL_IMAGE_THUMBNAIL || rel == OPDSConstants.REL_THUMBNAIL) {
+      if (type == NetworkImage.MIME_PNG || type == NetworkImage.MIME_JPEG) {
         cover=href;
       }
     }
- else     if (rel == OPDSConstants.REL_THUMBNAIL) {
-      if (type == NetworkImage.MIME_PNG || type == NetworkImage.MIME_JPEG) {
+ else     if ((rel != null && rel.startsWith(OPDSConstants.REL_IMAGE_PREFIX)) || rel == OPDSConstants.REL_COVER) {
+      if (cover == null && (type == NetworkImage.MIME_PNG || type == NetworkImage.MIME_JPEG)) {
         cover=href;
       }
     }

@@ -11,7 +11,7 @@
     final String type=ZLNetworkUtil.filterMimeType(link.getType());
     final String rel=opdsLink.relation(link.getRel(),type);
     if (type == NetworkImage.MIME_PNG || type == NetworkImage.MIME_JPEG) {
-      if (rel == OPDSConstants.REL_THUMBNAIL || (coverURL == null && rel == OPDSConstants.REL_COVER)) {
+      if (rel == OPDSConstants.REL_IMAGE_THUMBNAIL || rel == OPDSConstants.REL_THUMBNAIL || (coverURL == null && (rel == OPDSConstants.REL_COVER || (rel != null && rel.startsWith(OPDSConstants.REL_IMAGE_PREFIX))))) {
         coverURL=href;
       }
     }
@@ -31,7 +31,7 @@
       }
     }
  else     if (type == OPDSConstants.MIME_TEXT_HTML) {
-      if (rel == OPDSConstants.REL_ACQUISITION || rel == ATOMConstants.REL_ALTERNATE || rel == null) {
+      if (rel == OPDSConstants.REL_ACQUISITION || rel == OPDSConstants.REL_ACQUISITION_OPEN || rel == ATOMConstants.REL_ALTERNATE || rel == null) {
         htmlURL=href;
       }
     }
