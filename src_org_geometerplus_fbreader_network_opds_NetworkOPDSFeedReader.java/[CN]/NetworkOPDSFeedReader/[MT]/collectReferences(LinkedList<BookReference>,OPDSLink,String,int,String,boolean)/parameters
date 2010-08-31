@@ -1,0 +1,6 @@
+LinkedList<BookReference> references
+OPDSLink opdsLink
+String href
+int type
+String price
+boolean addWithoutFormat

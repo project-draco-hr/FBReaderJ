@@ -28,7 +28,7 @@ if (tagPrefix == myAtomNamespaceId) {
     myState=F_ICON;
   }
  else   if (tag == TAG_LINK) {
-    myLink=new ATOMLink();
+    myLink=new OPDSLink();
     myLink.readAttributes(attributes);
     myState=F_LINK;
   }
@@ -90,7 +90,7 @@ myCategory.readAttributes(attributes);
 myState=FE_CATEGORY;
 }
  else if (tag == TAG_LINK) {
-myLink=new ATOMLink();
+myLink=new OPDSLink();
 myLink.readAttributes(attributes);
 myState=FE_LINK;
 }
@@ -167,7 +167,7 @@ myState=FEA_EMAIL;
 break;
 case FE_LINK:
 if (tagPrefix == myOpdsNamespaceId && tag == TAG_PRICE) {
-myLink.addAttribute(KEY_CURRENCY,attributes.getValue("currencycode"));
+myPriceCurrency=attributes.getValue("currencycode");
 myState=FEL_PRICE;
 }
 if (tagPrefix == myDublinCoreNamespaceId && tag == DC_TAG_FORMAT) {

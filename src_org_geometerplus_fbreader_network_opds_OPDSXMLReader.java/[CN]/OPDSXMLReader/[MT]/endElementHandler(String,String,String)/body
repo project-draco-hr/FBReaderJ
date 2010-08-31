@@ -140,8 +140,9 @@ myState=FE_AUTHOR;
 break;
 case FEL_PRICE:
 if (tagPrefix == myOpdsNamespaceId && tag == TAG_PRICE) {
-if (bufferContent != null) {
-myLink.addAttribute(KEY_PRICE,bufferContent.intern());
+if (bufferContent != null && myPriceCurrency != null) {
+myLink.Prices.add(new OPDSPrice(bufferContent.intern(),myPriceCurrency));
+myPriceCurrency=null;
 }
 myState=FE_LINK;
 }
@@ -149,7 +150,7 @@ break;
 case FEL_FORMAT:
 if (tagPrefix == myDublinCoreNamespaceId && tag == DC_TAG_FORMAT) {
 if (bufferContent != null) {
-myLink.addAttribute(KEY_FORMAT,bufferContent.intern());
+myLink.Formats.add(bufferContent.intern());
 }
 myState=FE_LINK;
 }

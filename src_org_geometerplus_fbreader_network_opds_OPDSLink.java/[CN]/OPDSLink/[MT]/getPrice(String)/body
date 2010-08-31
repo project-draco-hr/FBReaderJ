@@ -1,0 +1,8 @@
+{
+  for (  OPDSPrice p : Prices) {
+    if (currency.equals(p.Currency)) {
+      return p;
+    }
+  }
+  return null;
+}
