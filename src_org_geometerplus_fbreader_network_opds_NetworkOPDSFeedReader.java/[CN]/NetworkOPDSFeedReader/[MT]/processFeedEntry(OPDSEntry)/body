@@ -17,8 +17,8 @@
     return tryInterrupt();
   }
   myData.LastLoadedId=entry.Id.Uri;
-  final OPDSLink opdsLink=(OPDSLink)myData.Link;
-  if (opdsLink.getCondition(entry.Id.Uri) == OPDSLink.FeedCondition.NEVER) {
+  final OPDSNetworkLink opdsLink=(OPDSNetworkLink)myData.Link;
+  if (opdsLink.getCondition(entry.Id.Uri) == OPDSNetworkLink.FeedCondition.NEVER) {
     return tryInterrupt();
   }
   boolean hasBookLink=false;

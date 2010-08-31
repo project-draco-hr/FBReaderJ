@@ -4,7 +4,7 @@
   }
   String id=null;
   int idType=0;
-  final OPDSLink opdsLink=(OPDSLink)myData.Link;
+  final OPDSNetworkLink opdsLink=(OPDSNetworkLink)myData.Link;
   for (  ATOMLink link : entry.Links) {
     final String type=ZLNetworkUtil.filterMimeType(link.getType());
     final String rel=opdsLink.relation(link.getRel(),type);

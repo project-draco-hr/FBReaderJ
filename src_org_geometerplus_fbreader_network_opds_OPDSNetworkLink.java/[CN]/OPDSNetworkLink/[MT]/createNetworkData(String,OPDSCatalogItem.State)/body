@@ -14,11 +14,11 @@
           result.LastLoadedId=null;
         }
  else {
-          result.Listener.commitItems(OPDSLink.this);
+          result.Listener.commitItems(OPDSNetworkLink.this);
         }
       }
  else {
-        result.Listener.commitItems(OPDSLink.this);
+        result.Listener.commitItems(OPDSNetworkLink.this);
       }
       return null;
     }
