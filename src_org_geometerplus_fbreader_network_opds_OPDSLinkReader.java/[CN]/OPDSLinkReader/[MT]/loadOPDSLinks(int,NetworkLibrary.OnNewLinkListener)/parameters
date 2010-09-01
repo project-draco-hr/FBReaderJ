@@ -1,2 +1,2 @@
-boolean updateNotLoad
+int cacheMode
 NetworkLibrary.OnNewLinkListener listener

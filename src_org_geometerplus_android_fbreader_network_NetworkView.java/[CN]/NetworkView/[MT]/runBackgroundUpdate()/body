@@ -1,3 +1,0 @@
-{
-  return NetworkLibrary.Instance().runBackgroundUpdate();
-}

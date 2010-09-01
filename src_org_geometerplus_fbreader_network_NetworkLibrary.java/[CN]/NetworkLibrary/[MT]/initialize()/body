@@ -1,6 +1,6 @@
 {
   final LinksComparator comparator=new LinksComparator();
-  final String error=OPDSLinkReader.loadOPDSLinks(false,new OnNewLinkListener(){
+  final String error=OPDSLinkReader.loadOPDSLinks(OPDSLinkReader.CACHE_LOAD,new OnNewLinkListener(){
     public void onNewLink(    INetworkLink link){
       addLinkInternal(myLoadedLinks,link,comparator);
     }

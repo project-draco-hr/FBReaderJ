@@ -1,9 +1,12 @@
 {
 switch (item.getItemId()) {
-case 1:
+case MENU_SEARCH:
     return onSearchRequested();
-case 2:
+case MENU_ADD_CATALOG:
   AddCustomCatalogItemActions.addCustomCatalog(this);
+return true;
+case MENU_REFRESH:
+refreshCatalogsList();
 return true;
 default :
 return true;

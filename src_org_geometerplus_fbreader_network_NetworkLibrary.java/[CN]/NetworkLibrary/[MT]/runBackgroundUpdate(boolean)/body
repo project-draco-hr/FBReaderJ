@@ -1,7 +1,8 @@
 {
 synchronized (myBackgroundLock) {
     myBackgroundLinks=new ArrayList<INetworkLink>();
-    final String error=OPDSLinkReader.loadOPDSLinks(true,new OnNewLinkListener(){
+    final int cacheMode=clearCache ? OPDSLinkReader.CACHE_CLEAR : OPDSLinkReader.CACHE_UPDATE;
+    final String error=OPDSLinkReader.loadOPDSLinks(cacheMode,new OnNewLinkListener(){
       public void onNewLink(      INetworkLink link){
         myBackgroundLinks.add(link);
       }
@@ -10,12 +11,9 @@ synchronized (myBackgroundLock) {
     if (error != null || myBackgroundLinks.isEmpty()) {
       myBackgroundLinks=null;
     }
-    if (myBackgroundLinks == null) {
-      return false;
-    }
- else {
+    if (myBackgroundLinks != null) {
       Collections.sort(myBackgroundLinks,new LinksComparator());
-      return true;
     }
+    return error;
   }
 }

@@ -1,7 +1,7 @@
 {
 synchronized (myBackgroundLock) {
     if (myBackgroundLinks == null) {
-      throw new RuntimeException("Invalid state: that's impossible!!!");
+      return;
     }
 synchronized (myLinks) {
       myLoadedLinks.clear();
