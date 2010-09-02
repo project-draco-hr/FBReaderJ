@@ -1,6 +1,11 @@
 {
-  if (myUpdateChildren) {
+  if (myUpdateChildren || myInvalidateChildren) {
+    if (myInvalidateChildren) {
+      final LinksComparator cmp=new LinksComparator();
+      Collections.sort(myCustomLinks,cmp);
+    }
     myUpdateChildren=false;
+    myInvalidateChildren=false;
     makeUpToDate();
   }
   if (myUpdateVisibility) {

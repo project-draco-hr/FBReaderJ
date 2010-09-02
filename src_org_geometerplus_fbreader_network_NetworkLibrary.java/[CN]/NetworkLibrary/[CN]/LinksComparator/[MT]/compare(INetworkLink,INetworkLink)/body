@@ -1,19 +1,5 @@
 {
-  String title1=link1.getTitle();
-  for (int index=0; index < title1.length(); ++index) {
-    final char ch=title1.charAt(index);
-    if (ch < 128 && Character.isLetter(ch)) {
-      title1=title1.substring(index);
-      break;
-    }
-  }
-  String title2=link2.getTitle();
-  for (int index=0; index < title2.length(); ++index) {
-    final char ch=title2.charAt(index);
-    if (ch < 128 && Character.isLetter(ch)) {
-      title2=title2.substring(index);
-      break;
-    }
-  }
-  return title1.compareTo(title2);
+  final String title1=filterLinkTitle(link1.getTitle());
+  final String title2=filterLinkTitle(link2.getTitle());
+  return title1.compareToIgnoreCase(title2);
 }

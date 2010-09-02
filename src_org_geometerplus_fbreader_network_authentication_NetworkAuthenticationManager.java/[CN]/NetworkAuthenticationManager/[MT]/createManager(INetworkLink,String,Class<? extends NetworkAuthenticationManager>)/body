@@ -1,0 +1,12 @@
+{
+  NetworkAuthenticationManager mgr=ourManagers.get(link.getSiteName());
+  if (mgr == null) {
+    if (managerClass == LitResAuthenticationManager.class) {
+      mgr=new LitResAuthenticationManager(link,sslCertificate);
+    }
+    if (mgr != null) {
+      ourManagers.put(link.getSiteName(),mgr);
+    }
+  }
+  return mgr;
+}

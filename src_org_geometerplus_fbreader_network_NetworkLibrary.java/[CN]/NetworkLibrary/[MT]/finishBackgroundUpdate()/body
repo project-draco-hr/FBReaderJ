@@ -6,7 +6,7 @@ synchronized (myBackgroundLock) {
 synchronized (myLinks) {
       myLoadedLinks.clear();
       myLoadedLinks.addAll(myBackgroundLinks);
-      invalidate();
+      updateChildren();
     }
   }
 }

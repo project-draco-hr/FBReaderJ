@@ -1,3 +1,4 @@
 {
-  myLinks.remove(urlKey);
+  final String oldUrl=myLinks.remove(urlKey);
+  myHasChanges=myHasChanges || oldUrl != null;
 }

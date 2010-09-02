@@ -1,0 +1,9 @@
+{
+  if (link instanceof ICustomNetworkLink) {
+    if (link != nodeLink) {
+      throw new RuntimeException("Two equal custom links!!! That's impossible");
+    }
+    return ((ICustomNetworkLink)link).hasChanges();
+  }
+  return !link.equals(nodeLink);
+}

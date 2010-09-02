@@ -10,7 +10,7 @@
   if (myAuthenticationType == "basic") {
   }
  else   if (myAuthenticationType == "litres") {
-    authManager=new LitResAuthenticationManager(opdsLink,sslCertificate);
+    authManager=NetworkAuthenticationManager.createManager(opdsLink,sslCertificate,LitResAuthenticationManager.class);
   }
   opdsLink.setAuthenticationManager(authManager);
   return opdsLink;

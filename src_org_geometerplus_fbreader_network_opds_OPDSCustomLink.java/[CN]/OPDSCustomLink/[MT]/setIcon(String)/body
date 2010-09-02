@@ -1,3 +1,4 @@
 {
+  myHasChanges=myHasChanges || !ZLMiscUtil.equals(myIcon,icon);
   myIcon=icon;
 }

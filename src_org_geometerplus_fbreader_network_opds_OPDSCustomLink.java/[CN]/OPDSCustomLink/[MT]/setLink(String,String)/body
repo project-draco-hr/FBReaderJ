@@ -3,6 +3,7 @@
     removeLink(urlKey);
   }
  else {
-    myLinks.put(urlKey,url);
+    final String oldUrl=myLinks.put(urlKey,url);
+    myHasChanges=myHasChanges || !url.equals(oldUrl);
   }
 }

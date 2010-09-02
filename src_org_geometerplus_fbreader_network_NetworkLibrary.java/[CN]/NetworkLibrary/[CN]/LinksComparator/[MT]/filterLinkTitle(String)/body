@@ -1,0 +1,9 @@
+{
+  for (int index=0; index < title.length(); ++index) {
+    final char ch=title.charAt(index);
+    if (ch < 128 && Character.isLetter(ch)) {
+      return title.substring(index);
+    }
+  }
+  return title;
+}

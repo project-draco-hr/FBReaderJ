@@ -1,0 +1,5 @@
+{
+  if (link instanceof ICustomNetworkLink) {
+    ((ICustomNetworkLink)link).resetChanges();
+  }
+}
