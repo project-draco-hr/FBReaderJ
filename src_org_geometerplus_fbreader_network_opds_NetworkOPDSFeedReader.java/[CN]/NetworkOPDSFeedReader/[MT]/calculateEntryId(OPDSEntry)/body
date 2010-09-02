@@ -8,11 +8,11 @@
   for (  ATOMLink link : entry.Links) {
     final String type=ZLNetworkUtil.filterMimeType(link.getType());
     final String rel=opdsLink.relation(link.getRel(),type);
-    if (rel == null && type == OPDSConstants.MIME_APP_ATOM) {
+    if (rel == null && OPDSConstants.MIME_APP_ATOM.equals(type)) {
       return ZLNetworkUtil.url(myBaseURL,link.getHref());
     }
     int relType=BookReference.Format.NONE;
-    if (rel == null || rel.equals(OPDSConstants.REL_ACQUISITION_PREFIX)) {
+    if (rel == null || OPDSConstants.REL_ACQUISITION_PREFIX.equals(rel)) {
       relType=formatByMimeType(type);
     }
     if (relType != BookReference.Format.NONE && (id == null || idType < relType)) {

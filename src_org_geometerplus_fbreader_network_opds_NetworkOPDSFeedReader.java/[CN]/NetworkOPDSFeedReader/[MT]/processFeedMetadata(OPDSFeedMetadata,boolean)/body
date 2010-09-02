@@ -14,7 +14,7 @@
   for (  ATOMLink link : feed.Links) {
     final String type=ZLNetworkUtil.filterMimeType(link.getType());
     final String rel=opdsLink.relation(link.getRel(),type);
-    if (type == OPDSConstants.MIME_APP_ATOM && rel == "next") {
+    if (OPDSConstants.MIME_APP_ATOM.equals(type) && "next".equals(rel)) {
       myNextURL=ZLNetworkUtil.url(myBaseURL,link.getHref());
     }
   }

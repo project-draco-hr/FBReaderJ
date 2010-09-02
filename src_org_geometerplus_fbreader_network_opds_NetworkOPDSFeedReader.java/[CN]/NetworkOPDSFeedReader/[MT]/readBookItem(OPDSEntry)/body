@@ -14,17 +14,17 @@
     final String type=ZLNetworkUtil.filterMimeType(link.getType());
     final String rel=opdsNetworkLink.relation(link.getRel(),type);
     final int referenceType=typeByRelation(rel);
-    if (rel == OPDSConstants.REL_IMAGE_THUMBNAIL || rel == OPDSConstants.REL_THUMBNAIL) {
-      if (type == NetworkImage.MIME_PNG || type == NetworkImage.MIME_JPEG) {
+    if (OPDSConstants.REL_IMAGE_THUMBNAIL.equals(rel) || OPDSConstants.REL_THUMBNAIL.equals(rel)) {
+      if (NetworkImage.MIME_PNG.equals(type) || NetworkImage.MIME_JPEG.equals(type)) {
         cover=href;
       }
     }
- else     if ((rel != null && rel.startsWith(OPDSConstants.REL_IMAGE_PREFIX)) || rel == OPDSConstants.REL_COVER) {
-      if (cover == null && (type == NetworkImage.MIME_PNG || type == NetworkImage.MIME_JPEG)) {
+ else     if ((rel != null && rel.startsWith(OPDSConstants.REL_IMAGE_PREFIX)) || OPDSConstants.REL_COVER.equals(rel)) {
+      if (cover == null && (NetworkImage.MIME_PNG.equals(type) || NetworkImage.MIME_JPEG.equals(type))) {
         cover=href;
       }
     }
- else     if (referenceType == BookReference.Type.BUY) {
+ else     if (BookReference.Type.BUY == referenceType) {
       final OPDSLink opdsLink=(OPDSLink)link;
       String price=null;
       final OPDSPrice opdsPrice=opdsLink.selectBestPrice();
@@ -37,7 +37,7 @@
       if (price == null) {
         price="";
       }
-      if (type == OPDSConstants.MIME_TEXT_HTML) {
+      if (OPDSConstants.MIME_TEXT_HTML.equals(type)) {
         collectReferences(references,opdsLink,href,BookReference.Type.BUY_IN_BROWSER,price,true);
       }
  else {
