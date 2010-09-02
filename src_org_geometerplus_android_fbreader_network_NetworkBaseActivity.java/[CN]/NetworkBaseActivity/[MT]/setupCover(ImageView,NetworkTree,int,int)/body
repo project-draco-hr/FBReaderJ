@@ -1,6 +1,9 @@
 {
   Bitmap coverBitmap=null;
-  final ZLImage cover=tree.getCover();
+  ZLImage cover=tree.getCover();
+  if (cover == null) {
+    cover=myFBReaderIcon;
+  }
   if (cover != null) {
     ZLAndroidImageData data=null;
     final ZLAndroidImageManager mgr=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
