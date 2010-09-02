@@ -1,4 +1,7 @@
 {
+  if (map1 == null) {
+    return map2 == null || map2.isEmpty();
+  }
   if (map1.size() != map2.size() || !map1.keySet().containsAll(map2.keySet())) {
     return false;
   }
