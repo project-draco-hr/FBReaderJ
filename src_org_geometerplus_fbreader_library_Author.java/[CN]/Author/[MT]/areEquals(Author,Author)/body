@@ -1,3 +1,0 @@
-{
-  return author0 == null ? author1 == null : author0.equals(author1);
-}

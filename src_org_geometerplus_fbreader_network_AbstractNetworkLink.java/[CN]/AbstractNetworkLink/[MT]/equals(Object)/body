@@ -1,0 +1,13 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (!(o instanceof AbstractNetworkLink)) {
+    return false;
+  }
+  final AbstractNetworkLink lnk=(AbstractNetworkLink)o;
+  if (!mySiteName.equals(lnk.mySiteName) || !myTitle.equals(lnk.myTitle) || !ZLMiscUtil.equals(mySummary,lnk.mySummary)|| !ZLMiscUtil.equals(myIcon,lnk.myIcon)|| !ZLMiscUtil.mapsEquals(myLinks,lnk.myLinks)) {
+    return false;
+  }
+  return true;
+}
