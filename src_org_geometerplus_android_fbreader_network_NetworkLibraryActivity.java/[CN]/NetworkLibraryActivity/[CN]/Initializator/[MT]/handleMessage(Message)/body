@@ -3,8 +3,8 @@
     runInitialization();
   }
  else   if (message.obj == null) {
-    startService(new Intent(getApplicationContext(),LibraryInitializationService.class));
-    prepareView();
+    myActivity.startService(new Intent(myActivity.getApplicationContext(),LibraryInitializationService.class));
+    myActivity.prepareView();
   }
  else {
     processResults((String)message.obj);

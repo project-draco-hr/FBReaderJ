@@ -1,7 +1,13 @@
 {
   super.onResume();
   if (!NetworkView.Instance().isInitialized()) {
-    new Initializator().start();
+    if (myInitializator == null) {
+      myInitializator=new Initializator(this);
+      myInitializator.start();
+    }
+ else {
+      myInitializator.setActivity(this);
+    }
   }
  else {
     prepareView();

@@ -5,5 +5,5 @@
       Initializator.this.end(error);
     }
   }
-,NetworkLibraryActivity.this);
+,myActivity);
 }
