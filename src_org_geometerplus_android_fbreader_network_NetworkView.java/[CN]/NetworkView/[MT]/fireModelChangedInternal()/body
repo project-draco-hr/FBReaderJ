@@ -1,5 +1,0 @@
-{
-  for (  EventListener listener : myEventListeners) {
-    listener.onModelChanged();
-  }
-}

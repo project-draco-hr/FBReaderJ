@@ -3,5 +3,5 @@
   library.removeCustomLink(link);
   library.updateChildren();
   library.synchronize();
-  NetworkView.Instance().fireModelChanged();
+  NetworkView.Instance().fireModelChangedAsync();
 }

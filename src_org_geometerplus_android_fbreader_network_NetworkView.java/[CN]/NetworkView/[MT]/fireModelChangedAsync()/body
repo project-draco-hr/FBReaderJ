@@ -1,0 +1,7 @@
+{
+synchronized (myEventListeners) {
+    if (myEventHandler != null) {
+      myEventHandler.sendEmptyMessage(0);
+    }
+  }
+}

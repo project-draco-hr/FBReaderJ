@@ -21,12 +21,12 @@
       doStop();
       if (NetworkView.Instance().isInitialized()) {
         NetworkView.Instance().removeItemsLoadingRunnable(key);
-        NetworkView.Instance().fireModelChanged();
+        NetworkView.Instance().fireModelChangedAsync();
       }
     }
   }
 ;
-  NetworkView.Instance().fireModelChanged();
+  NetworkView.Instance().fireModelChangedAsync();
   final Thread loader=new Thread(new Runnable(){
     public void run(){
       try {

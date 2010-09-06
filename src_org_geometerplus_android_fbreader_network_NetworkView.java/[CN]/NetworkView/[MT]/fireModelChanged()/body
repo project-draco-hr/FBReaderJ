@@ -1,7 +1,5 @@
 {
-synchronized (myEventListeners) {
-    if (myEventHandler != null) {
-      myEventHandler.sendEmptyMessage(0);
-    }
+  for (  EventListener listener : myEventListeners) {
+    listener.onModelChanged();
   }
 }

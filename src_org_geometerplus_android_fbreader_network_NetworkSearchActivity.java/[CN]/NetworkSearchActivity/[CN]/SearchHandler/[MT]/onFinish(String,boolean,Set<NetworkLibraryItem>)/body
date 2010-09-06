@@ -7,6 +7,6 @@
     afterUpdateCatalog(errorMessage,myTree.getSearchResult().empty());
   }
   if (NetworkView.Instance().isInitialized()) {
-    NetworkView.Instance().fireModelChanged();
+    NetworkView.Instance().fireModelChangedAsync();
   }
 }

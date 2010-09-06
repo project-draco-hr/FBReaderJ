@@ -19,7 +19,7 @@
  else {
           tree.ChildrenItems.clear();
           tree.clear();
-          NetworkView.Instance().fireModelChanged();
+          NetworkView.Instance().fireModelChangedAsync();
         }
       }
       final ExpandCatalogHandler handler=new ExpandCatalogHandler(tree,url);

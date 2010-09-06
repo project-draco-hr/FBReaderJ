@@ -8,7 +8,7 @@
   final SearchResult result=new SearchResult(summary);
   final SearchItemTree tree=NetworkView.Instance().getSearchItemTree();
   tree.setSearchResult(result);
-  NetworkView.Instance().fireModelChanged();
+  NetworkView.Instance().fireModelChangedAsync();
   final SearchHandler handler=new SearchHandler(tree);
   NetworkView.Instance().startItemsLoading(this,SEARCH_RUNNABLE_KEY,new SearchRunnable(handler,pattern));
   NetworkView.Instance().openTree(this,tree,SEARCH_RUNNABLE_KEY);

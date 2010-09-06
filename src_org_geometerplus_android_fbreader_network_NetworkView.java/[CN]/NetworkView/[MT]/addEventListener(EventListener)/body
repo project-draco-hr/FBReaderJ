@@ -3,7 +3,7 @@ synchronized (myEventListeners) {
     if (myEventHandler == null) {
       myEventHandler=new Handler(){
         @Override public void handleMessage(        Message msg){
-          fireModelChangedInternal();
+          fireModelChanged();
         }
       }
 ;
