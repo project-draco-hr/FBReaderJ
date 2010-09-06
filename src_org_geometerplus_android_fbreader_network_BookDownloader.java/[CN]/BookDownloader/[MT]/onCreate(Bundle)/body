@@ -2,7 +2,7 @@
   super.onCreate(icicle);
   Thread.setDefaultUncaughtExceptionHandler(new org.geometerplus.zlibrary.ui.android.library.UncaughtExceptionHandler(this));
   final Intent intent=getIntent();
-  final Uri uri=intent.getData();
+  Uri uri=intent.getData();
   intent.setData(null);
   if (uri == null || !acceptsUri(uri)) {
     finish();
@@ -10,6 +10,10 @@
   }
   if (!intent.hasExtra(BookDownloaderService.SHOW_NOTIFICATIONS_KEY)) {
     intent.putExtra(BookDownloaderService.SHOW_NOTIFICATIONS_KEY,BookDownloaderService.Notifications.ALREADY_DOWNLOADING);
+  }
+  if ("epub".equals(uri.getScheme())) {
+    uri=uri.buildUpon().scheme("http").build();
+    intent.putExtra(BookDownloaderService.BOOK_FORMAT_KEY,BookReference.Format.EPUB);
   }
   startService(new Intent(Intent.ACTION_DEFAULT,uri,this,BookDownloaderService.class).putExtras(intent.getExtras()));
   finish();
