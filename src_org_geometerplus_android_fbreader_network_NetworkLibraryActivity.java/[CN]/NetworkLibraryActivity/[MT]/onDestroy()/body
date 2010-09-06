@@ -1,0 +1,6 @@
+{
+  if (!NetworkView.Instance().isInitialized() && myInitializator != null) {
+    myInitializator.setActivity(null);
+  }
+  super.onDestroy();
+}

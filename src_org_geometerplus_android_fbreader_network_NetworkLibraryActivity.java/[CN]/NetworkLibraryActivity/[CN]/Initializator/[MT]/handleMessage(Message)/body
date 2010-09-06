@@ -1,5 +1,8 @@
 {
-  if (message.what == 0) {
+  if (myActivity == null) {
+    return;
+  }
+ else   if (message.what == 0) {
     runInitialization();
   }
  else   if (message.obj == null) {
