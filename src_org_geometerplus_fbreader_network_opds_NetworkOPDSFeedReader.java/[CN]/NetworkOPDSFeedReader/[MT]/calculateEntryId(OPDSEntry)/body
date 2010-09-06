@@ -12,10 +12,10 @@
       return ZLNetworkUtil.url(myBaseURL,link.getHref());
     }
     int relType=BookReference.Format.NONE;
-    if (rel == null || OPDSConstants.REL_ACQUISITION_PREFIX.equals(rel)) {
+    if (rel == null || rel.startsWith(OPDSConstants.REL_ACQUISITION_PREFIX) || rel.startsWith(OPDSConstants.REL_FBREADER_ACQUISITION_PREFIX)) {
       relType=formatByMimeType(type);
     }
-    if (relType != BookReference.Format.NONE && (id == null || idType < relType)) {
+    if (relType != BookReference.Format.NONE && (id == null || idType < relType || (idType == relType && OPDSConstants.REL_ACQUISITION.equals(rel)))) {
       id=ZLNetworkUtil.url(myBaseURL,link.getHref());
       idType=relType;
     }
