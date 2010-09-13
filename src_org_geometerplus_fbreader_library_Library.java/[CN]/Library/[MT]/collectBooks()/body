@@ -7,5 +7,6 @@
     file.setCached(false);
   }
   myBooks.add(getBook(getHelpFile(),fileInfos,savedBooks,false));
+  collectExternalBooks(fileInfos,savedBooks);
   fileInfos.save();
 }

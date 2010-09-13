@@ -1,0 +1,27 @@
+{
+  final HashSet<ZLPhysicalFile> myUpdatedFiles=new HashSet<ZLPhysicalFile>();
+  final HashSet<Long> files=new HashSet<Long>(savedBooks.keySet());
+  for (  Long fileId : files) {
+    final ZLFile bookFile=fileInfos.getFile(fileId);
+    if (bookFile == null) {
+      continue;
+    }
+    final ZLPhysicalFile physicalFile=bookFile.getPhysicalFile();
+    if (!physicalFile.exists()) {
+      continue;
+    }
+    boolean reloadMetaInfo=false;
+    if (myUpdatedFiles.contains(physicalFile)) {
+      reloadMetaInfo=true;
+    }
+ else     if (!fileInfos.check(physicalFile)) {
+      reloadMetaInfo=true;
+      myUpdatedFiles.add(physicalFile);
+    }
+    final Book book=getBook(bookFile,fileInfos,savedBooks,reloadMetaInfo);
+    if (book != null) {
+      myBooks.add(book);
+      myExternalBooks.add(book);
+    }
+  }
+}

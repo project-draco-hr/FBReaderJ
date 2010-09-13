@@ -1,0 +1,3 @@
+{
+  myDatabase.execSQL("CREATE TABLE IF NOT EXISTS BookList ( " + "book_id INTEGER UNIQUE NOT NULL REFERENCES Books (book_id))");
+}

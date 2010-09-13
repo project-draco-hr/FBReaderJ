@@ -1,5 +1,5 @@
 {
-  Book book=saved.get(fileInfos.getId(bookFile));
+  Book book=saved.remove(fileInfos.getId(bookFile));
   if (book == null) {
     doReadMetaInfo=true;
     book=new Book(bookFile);

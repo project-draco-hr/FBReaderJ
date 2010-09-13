@@ -1,0 +1,8 @@
+{
+  if (myInsertIntoBookListStatement == null) {
+    myInsertIntoBookListStatement=myDatabase.compileStatement("INSERT OR IGNORE INTO BookList(book_id) VALUES (?)");
+  }
+  myInsertIntoBookListStatement.bindLong(1,bookId);
+  myInsertIntoBookListStatement.execute();
+  return true;
+}

@@ -1,0 +1,2 @@
+FileInfoSet fileInfos
+Map<Long,Book> savedBooks

@@ -1,6 +1,7 @@
 {
   myDoRebuild=true;
   myBooks.clear();
+  myExternalBooks.clear();
   myLibraryByAuthor.clear();
   myLibraryByTag.clear();
   myRecentBooks.clear();

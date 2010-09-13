@@ -1,0 +1,5 @@
+{
+  if (myId != -1) {
+    BooksDatabase.Instance().insertIntoBookList(myId);
+  }
+}

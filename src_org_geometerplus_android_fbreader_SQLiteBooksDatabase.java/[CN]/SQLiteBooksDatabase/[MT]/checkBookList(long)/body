@@ -1,0 +1,7 @@
+{
+  if (myCheckBookListStatement == null) {
+    myCheckBookListStatement=myDatabase.compileStatement("SELECT COUNT(*) FROM BookList WHERE book_id = ?");
+  }
+  myCheckBookListStatement.bindLong(1,bookId);
+  return myCheckBookListStatement.simpleQueryForLong() > 0;
+}

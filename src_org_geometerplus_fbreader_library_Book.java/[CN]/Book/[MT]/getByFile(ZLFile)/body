@@ -11,7 +11,7 @@
   if (book != null) {
     book.loadLists();
   }
-  if (fileInfos.check(physicalFile) && (book != null)) {
+  if (book != null && fileInfos.check(physicalFile)) {
     return book;
   }
   fileInfos.save();

@@ -5,7 +5,7 @@
     menu.setHeaderTitle(tree.getName());
     final ZLResource resource=ZLResource.resource("libraryView");
     menu.add(0,OPEN_BOOK_ITEM_ID,0,resource.getResource("openBook").getValue());
-    if (Library.Instance().canDeleteBook(((BookTree)tree).Book)) {
+    if ((Library.Instance().getRemoveBookMode(((BookTree)tree).Book) & Library.REMOVE_FROM_DISK) != 0) {
       menu.add(0,DELETE_BOOK_ITEM_ID,0,resource.getResource("deleteBook").getValue());
     }
   }
