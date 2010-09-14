@@ -1,0 +1,3 @@
+{
+  myDatabase.execSQL("CREATE INDEX BookList_BookIndex ON BookList (book_id)");
+}
