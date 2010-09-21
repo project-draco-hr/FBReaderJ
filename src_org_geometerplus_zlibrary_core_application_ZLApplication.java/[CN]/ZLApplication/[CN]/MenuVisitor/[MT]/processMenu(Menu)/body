@@ -11,8 +11,5 @@
       processMenu(submenu);
       processSubmenuAfterItems(submenu);
     }
- else     if (item instanceof Menubar.Separator) {
-      processSepartor((Menubar.Separator)item);
-    }
   }
 }

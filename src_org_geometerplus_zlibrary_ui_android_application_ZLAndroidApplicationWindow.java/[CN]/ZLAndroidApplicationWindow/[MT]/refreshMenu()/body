@@ -1,6 +1,6 @@
 {
   for (  Map.Entry<MenuItem,ZLApplication.Menubar.PlainItem> entry : myMenuItemMap.entrySet()) {
-    final String actionId=entry.getValue().ActionId;
+    final String actionId=entry.getValue().getActionId();
     final ZLApplication application=getApplication();
     entry.getKey().setVisible(application.isActionVisible(actionId) && application.isActionEnabled(actionId));
   }
