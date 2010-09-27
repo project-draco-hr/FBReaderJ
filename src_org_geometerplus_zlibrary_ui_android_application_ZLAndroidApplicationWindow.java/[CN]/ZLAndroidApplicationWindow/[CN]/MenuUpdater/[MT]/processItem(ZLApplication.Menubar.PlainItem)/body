@@ -1,4 +1,0 @@
-{
-  MenuItem menuItem=myRoot.findItem(myItemCount++);
-  menuItem.setTitle(item.getTitle());
-}
