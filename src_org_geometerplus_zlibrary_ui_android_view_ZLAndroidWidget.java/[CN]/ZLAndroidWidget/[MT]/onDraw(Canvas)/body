@@ -1,5 +1,6 @@
 {
   super.onDraw(canvas);
+  ensureChildrenSizes();
   final int w=getWidth();
   final int h=getHeight();
   if ((myMainBitmap != null) && ((myMainBitmap.getWidth() != w) || (myMainBitmap.getHeight() != h))) {

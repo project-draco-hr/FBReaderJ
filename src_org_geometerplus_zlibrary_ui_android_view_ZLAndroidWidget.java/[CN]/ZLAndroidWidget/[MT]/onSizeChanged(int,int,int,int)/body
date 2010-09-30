@@ -1,4 +1,5 @@
 {
+  super.onSizeChanged(w,h,oldw,oldh);
   if (myScreenIsTouched) {
     final ZLView view=ZLApplication.Instance().getCurrentView();
     myScrollingInProgress=false;
@@ -7,4 +8,5 @@
     view.onScrollingFinished(ZLView.PAGE_CENTRAL);
     setPageToScroll(ZLView.PAGE_CENTRAL);
   }
+  ensureChildrenSizes();
 }
