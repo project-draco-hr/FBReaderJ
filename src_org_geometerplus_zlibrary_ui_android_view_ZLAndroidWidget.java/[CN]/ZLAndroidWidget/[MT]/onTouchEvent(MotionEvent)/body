@@ -31,7 +31,7 @@ if (Math.abs(myPressedX - x) > slop || Math.abs(myPressedY - y) > slop) {
 if (myPendingLongClickRunnable != null) {
 removeCallbacks(myPendingLongClickRunnable);
 }
-view.onStylusPress(myPressedX,myPressedY);
+view.onStylusMovePressed(myPressedX,myPressedY);
 myPendingPress=false;
 }
 }

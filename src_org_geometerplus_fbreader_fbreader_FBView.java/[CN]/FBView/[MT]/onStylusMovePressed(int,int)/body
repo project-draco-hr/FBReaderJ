@@ -2,8 +2,18 @@
   if (super.onStylusMovePressed(x,y)) {
     return true;
   }
+  if (!myIsManualScrollingActive) {
+    final ScrollingPreferences preferences=ScrollingPreferences.Instance();
+    if (preferences.FlickOption.getValue()) {
+      myStartX=x;
+      myStartY=y;
+      myIsManualScrollingActive=true;
+    }
+    return true;
+  }
 synchronized (this) {
-    if (isScrollingActive() && myIsManualScrollingActive) {
+    if (myIsManualScrollingActive) {
+      setScrollingActive(true);
       final boolean horizontal=ScrollingPreferences.Instance().HorizontalOption.getValue();
       final int diff=horizontal ? x - myStartX : y - myStartY;
       if (diff > 0) {
