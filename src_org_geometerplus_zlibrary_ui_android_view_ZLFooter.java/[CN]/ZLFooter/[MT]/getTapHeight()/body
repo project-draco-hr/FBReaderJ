@@ -1,0 +1,7 @@
+{
+  final ZLView view=ZLApplication.Instance().getCurrentView();
+  if (view.scrollbarType() == ZLView.SCROLLBAR_SHOW_AS_FOOTER) {
+    return 30;
+  }
+  return 0;
+}

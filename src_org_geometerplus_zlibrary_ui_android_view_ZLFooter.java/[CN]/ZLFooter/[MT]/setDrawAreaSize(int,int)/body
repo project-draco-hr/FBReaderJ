@@ -1,0 +1,5 @@
+{
+  mySize.x=width;
+  myDrawAreaSize.x=width;
+  myDrawAreaSize.y=height;
+}
