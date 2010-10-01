@@ -1,0 +1,18 @@
+{
+  if ((myModel == null) || (myModel.getParagraphsNumber() == 0)) {
+    return 0;
+  }
+  float size=myModel.getTextLength(myModel.getParagraphsNumber() - 1);
+  preparePaintInfo(myCurrentPage);
+  float pos=sizeOfTextBeforeCursor(myCurrentPage.EndCursor);
+  if (offset != 0) {
+    if (offset > 0) {
+      pos-=(pos - sizeOfTextBeforeCursor(myCurrentPage.StartCursor)) * offset;
+    }
+ else {
+      preparePaintInfo(myNextPage);
+      pos+=(pos - sizeOfTextBeforeCursor(myNextPage.EndCursor)) * offset;
+    }
+  }
+  return pos / size;
+}
