@@ -1,6 +1,6 @@
 {
   final int w=getWidth();
-  final int h=getHeight();
+  final int h=getTextViewHeight();
   boolean stopScrolling=false;
   if (myScrollingInProgress) {
     myScrollingShift+=(int)myScrollingSpeed;
