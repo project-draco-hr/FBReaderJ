@@ -12,4 +12,5 @@
     myNavigatePanel=new NavigationButtonPanel();
     myNavigatePanel.register();
   }
+  this.registerReceiver(this.myBatInfoReceiver,new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
 }
