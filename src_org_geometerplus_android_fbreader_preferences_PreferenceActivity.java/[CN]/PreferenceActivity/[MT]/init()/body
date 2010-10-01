@@ -16,7 +16,8 @@
     lookNFeelCategory.addOption(ZLAndroidApplication.Instance().ShowStatusBarOption,"showStatusBar");
   }
   lookNFeelCategory.addOption(ZLAndroidApplication.Instance().DontTurnScreenOffOption,"dontTurnScreenOff");
-  lookNFeelCategory.addPreference(new ScrollbarTypePreference(this,lookNFeelCategory.Resource,"scrollbarType"));
+  String[] scrollBarTypes={"hide","show","showAsProgress"};
+  lookNFeelCategory.addPreference(new StringListPreference(this,lookNFeelCategory.Resource.getResource("scrollbarType"),null,scrollBarTypes,((FBReader)FBReader.Instance()).ScrollbarTypeOption));
   final Category scrollingCategory=createCategory("Scrolling");
   final ScrollingPreferences scrollingPreferences=ScrollingPreferences.Instance();
   scrollingCategory.addOption(scrollingPreferences.FlickOption,"flick");
