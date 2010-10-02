@@ -1,0 +1,6 @@
+{
+  Reader.onWindowClosing();
+  setState(INACTIVE);
+  mTts.shutdown();
+  super.onDestroy();
+}

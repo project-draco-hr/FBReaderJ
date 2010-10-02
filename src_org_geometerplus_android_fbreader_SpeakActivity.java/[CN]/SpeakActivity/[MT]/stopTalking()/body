@@ -1,0 +1,6 @@
+{
+  setState(INACTIVE);
+  if (mTts != null) {
+    if (mTts.isSpeaking())     mTts.stop();
+  }
+}

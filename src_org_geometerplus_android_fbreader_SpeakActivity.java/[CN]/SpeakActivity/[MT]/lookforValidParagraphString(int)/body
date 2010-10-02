@@ -1,0 +1,18 @@
+{
+  String s="";
+  while (s.equals("") & !(myParaCursor == null)) {
+switch (direction) {
+case SEARCHFORWARD:
+      myParaCursor=myParaCursor.next();
+    break;
+case SEARCHBACKWARD:
+  myParaCursor=myParaCursor.previous();
+break;
+case CURRENTORFORWARD:
+direction=SEARCHFORWARD;
+break;
+}
+s=getParagraphText(myParaCursor);
+}
+return s;
+}

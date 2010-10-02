@@ -1,0 +1,6 @@
+{
+  String s=lookforValidParagraphString(direction);
+  if (show)   showString(s);
+  if (speak)   speakString(s);
+  return s;
+}
