@@ -1,7 +1,4 @@
 {
-  if (++myResumeCount >= 10) {
-    return null;
-  }
   final ZLNetworkRequest request=Link.resume(this);
   clear();
   return request;

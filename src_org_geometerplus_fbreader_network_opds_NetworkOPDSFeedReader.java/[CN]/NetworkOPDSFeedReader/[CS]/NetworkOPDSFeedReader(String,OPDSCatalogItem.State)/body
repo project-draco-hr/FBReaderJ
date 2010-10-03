@@ -2,6 +2,7 @@
   myBaseURL=baseURL;
   myData=result;
   mySkipUntilId=myData.LastLoadedId;
+  myFoundNewIds=mySkipUntilId != null;
   if (!(result.Link instanceof OPDSNetworkLink)) {
     throw new IllegalArgumentException("Parameter `result` has invalid `Link` field value: result.Link must be an instance of OPDSNetworkLink class.");
   }

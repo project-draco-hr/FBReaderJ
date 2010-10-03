@@ -2,6 +2,6 @@
   if (mySkipUntilId != null) {
     myNextURL=null;
   }
-  myData.ResumeURI=myNextURL;
+  myData.ResumeURI=myFoundNewIds ? myNextURL : null;
   myData.LastLoadedId=null;
 }
