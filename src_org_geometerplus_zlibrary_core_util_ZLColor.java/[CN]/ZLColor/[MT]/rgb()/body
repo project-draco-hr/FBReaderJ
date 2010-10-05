@@ -1,3 +1,0 @@
-{
-  return Color.rgb(Red,Green,Blue);
-}

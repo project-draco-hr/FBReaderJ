@@ -2,8 +2,8 @@
   boolean gaugeChanged=false;
   boolean infoChanged=false;
   FBReader reader=(FBReader)FBReader.Instance();
-  int bgColor=reader.BookTextView.getBackgroundColor().rgb();
-  int fgColor=reader.BookTextView.getTextColor(FBHyperlinkType.NONE).rgb();
+  int bgColor=ZLAndroidColorUtil.rgb(reader.BookTextView.getBackgroundColor());
+  int fgColor=ZLAndroidColorUtil.rgb(reader.BookTextView.getTextColor(FBHyperlinkType.NONE));
   if (myLastFgColor != fgColor || myLastBgColor != bgColor) {
     gaugeChanged=true;
     infoChanged=true;
