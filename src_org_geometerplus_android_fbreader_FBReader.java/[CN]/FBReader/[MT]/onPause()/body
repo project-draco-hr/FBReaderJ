@@ -1,6 +1,7 @@
 {
   if (myWakeLock != null) {
     myWakeLock.release();
+    myWakeLock=null;
   }
   ControlButtonPanel.saveVisibilities();
   super.onPause();
