@@ -1,7 +1,7 @@
 {
   String url=Link.getLink(INetworkLink.URL_SIGN_UP);
   if (url == null) {
-    throw new ZLNetworkException(NetworkErrors.ERROR_UNSUPPORTED_OPERATION);
+    throw new ZLNetworkException(NetworkException.ERROR_UNSUPPORTED_OPERATION);
   }
   url=ZLNetworkUtil.appendParameter(url,"new_login",login);
   url=ZLNetworkUtil.appendParameter(url,"new_pwd1",password);

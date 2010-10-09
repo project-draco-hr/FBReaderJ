@@ -15,7 +15,7 @@ synchronized (this) {
   }
   String url=Link.getLink(INetworkLink.URL_SIGN_IN);
   if (url == null) {
-    return new AuthenticationStatus(NetworkErrors.errorMessage(NetworkErrors.ERROR_UNSUPPORTED_OPERATION));
+    return new AuthenticationStatus(new ZLNetworkException(NetworkException.ERROR_UNSUPPORTED_OPERATION));
   }
   url=ZLNetworkUtil.appendParameter(url,"sid",sid);
   final LitResLoginXMLReader xmlReader=new LitResLoginXMLReader(Link.getSiteName());
@@ -24,8 +24,8 @@ synchronized (this) {
       ZLNetworkManager.Instance().perform(new LitResNetworkRequest(url,SSLCertificate,xmlReader));
     }
  catch (    ZLNetworkException e) {
-      if (NetworkErrors.ERROR_AUTHENTICATION_FAILED.equals(e.getCode())) {
-        return new AuthenticationStatus(e.getMessage());
+      if (NetworkException.ERROR_AUTHENTICATION_FAILED.equals(e.getCode())) {
+        return new AuthenticationStatus(e);
       }
       mySidChecked=true;
       mySidUserNameOption.setValue("");

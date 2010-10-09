@@ -1,7 +1,7 @@
 {
   String url=Link.getLink(INetworkLink.URL_SIGN_IN);
   if (url == null) {
-    throw new ZLNetworkException(NetworkErrors.ERROR_UNSUPPORTED_OPERATION);
+    throw new ZLNetworkException(NetworkException.ERROR_UNSUPPORTED_OPERATION);
   }
   final String login;
 synchronized (this) {

@@ -1,4 +1,4 @@
 {
-  super(ZLNetworkErrors.errorMessage(code,arg));
+  super(errorMessage(code,arg));
   myCode=code;
 }
