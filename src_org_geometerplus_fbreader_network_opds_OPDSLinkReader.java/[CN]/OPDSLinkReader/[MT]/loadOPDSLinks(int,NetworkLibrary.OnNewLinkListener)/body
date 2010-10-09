@@ -1,7 +1,13 @@
 {
   final File dirFile=new File(Paths.networkCacheDirectory());
   if (!dirFile.exists() && !dirFile.mkdirs()) {
-    return NetworkErrors.errorMessage("cacheDirectoryError");
+    try {
+      new OPDSLinkXMLReader(listener,null).read(new URL(CATALOGS_URL).openStream());
+      return null;
+    }
+ catch (    Exception e) {
+      return NetworkErrors.errorMessage("cacheDirectoryError");
+    }
   }
   final String fileName="fbreader_catalogs-" + CATALOGS_URL.substring(CATALOGS_URL.lastIndexOf(File.separator) + 1);
   boolean goodCache=false;
