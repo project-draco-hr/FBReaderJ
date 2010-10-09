@@ -19,11 +19,13 @@ synchronized (this) {
   }
   url=ZLNetworkUtil.appendParameter(url,"sid",sid);
   final LitResLoginXMLReader xmlReader=new LitResLoginXMLReader(Link.getSiteName());
-  final String error=ZLNetworkManager.Instance().perform(new LitResNetworkRequest(url,SSLCertificate,xmlReader));
 synchronized (this) {
-    if (error != null) {
-      if (!error.equals(NetworkErrors.errorMessage(NetworkErrors.ERROR_AUTHENTICATION_FAILED))) {
-        return new AuthenticationStatus(error);
+    try {
+      ZLNetworkManager.Instance().perform(new LitResNetworkRequest(url,SSLCertificate,xmlReader));
+    }
+ catch (    ZLNetworkException e) {
+      if (NetworkErrors.ERROR_AUTHENTICATION_FAILED.equals(e.getCode())) {
+        return new AuthenticationStatus(e.getMessage());
       }
       mySidChecked=true;
       mySidUserNameOption.setValue("");

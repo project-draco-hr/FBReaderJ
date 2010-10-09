@@ -4,36 +4,38 @@ synchronized (this) {
     sid=mySidOption.getValue();
   }
   if (sid.length() == 0) {
-    return NetworkErrors.errorMessage(NetworkErrors.ERROR_AUTHENTICATION_FAILED);
+    throw new ZLNetworkException(NetworkErrors.ERROR_AUTHENTICATION_FAILED);
   }
   BookReference reference=book.reference(BookReference.Type.BUY);
   if (reference == null) {
-    return NetworkErrors.errorMessage(NetworkErrors.ERROR_BOOK_NOT_PURCHASED);
+    throw new ZLNetworkException(NetworkErrors.ERROR_BOOK_NOT_PURCHASED);
   }
   String query=reference.URL;
   query=ZLNetworkUtil.appendParameter(query,"sid",sid);
   final LitResPurchaseXMLReader xmlReader=new LitResPurchaseXMLReader(Link.getSiteName());
-  final String error=ZLNetworkManager.Instance().perform(new LitResNetworkRequest(query,SSLCertificate,xmlReader));
 synchronized (this) {
-    if (xmlReader.Account != null) {
-      myAccount=BuyBookReference.price(xmlReader.Account,"RUB");
+    try {
+      ZLNetworkManager.Instance().perform(new LitResNetworkRequest(query,SSLCertificate,xmlReader));
     }
-    final String authenticationError=NetworkErrors.errorMessage(NetworkErrors.ERROR_AUTHENTICATION_FAILED);
-    if (authenticationError.equals(error)) {
-      mySidChecked=true;
-      mySidUserNameOption.setValue("");
-      mySidOption.setValue("");
+ catch (    ZLNetworkException e) {
+      if (NetworkErrors.ERROR_AUTHENTICATION_FAILED.equals(e.getCode())) {
+        mySidChecked=true;
+        mySidUserNameOption.setValue("");
+        mySidOption.setValue("");
+      }
+ else       if (NetworkErrors.ERROR_PURCHASE_ALREADY_PURCHASED.equals(e.getCode())) {
+        myPurchasedBooks.put(book.Id,book);
+      }
+      throw e;
     }
-    final String alreadyPurchasedError=NetworkErrors.errorMessage(NetworkErrors.ERROR_PURCHASE_ALREADY_PURCHASED);
-    if (!alreadyPurchasedError.equals(error)) {
-      if (error != null) {
-        return error;
+ finally {
+      if (xmlReader.Account != null) {
+        myAccount=BuyBookReference.price(xmlReader.Account,"RUB");
       }
-      if (xmlReader.BookId == null || !xmlReader.BookId.equals(book.Id)) {
-        return NetworkErrors.errorMessage(NetworkErrors.ERROR_SOMETHING_WRONG,Link.getSiteName());
-      }
+    }
+    if (xmlReader.BookId == null || !xmlReader.BookId.equals(book.Id)) {
+      throw new ZLNetworkException(NetworkErrors.ERROR_SOMETHING_WRONG,Link.getSiteName());
     }
     myPurchasedBooks.put(book.Id,book);
-    return error;
   }
 }
