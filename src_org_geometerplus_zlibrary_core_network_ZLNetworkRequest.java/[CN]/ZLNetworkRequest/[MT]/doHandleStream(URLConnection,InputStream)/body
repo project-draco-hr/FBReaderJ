@@ -6,5 +6,5 @@
       inputStream=new GZIPInputStream(inputStream);
     }
   }
-  return handleStream(connection,inputStream);
+  handleStream(connection,inputStream);
 }

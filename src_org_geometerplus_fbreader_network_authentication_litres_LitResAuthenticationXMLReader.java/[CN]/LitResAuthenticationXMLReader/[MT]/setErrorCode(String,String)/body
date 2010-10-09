@@ -1,3 +1,0 @@
-{
-  myErrorMessage=NetworkErrors.errorMessage(code,arg);
-}

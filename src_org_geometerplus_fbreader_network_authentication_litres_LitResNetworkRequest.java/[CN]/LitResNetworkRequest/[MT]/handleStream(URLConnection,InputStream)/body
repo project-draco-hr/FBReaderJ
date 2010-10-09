@@ -1,4 +1,3 @@
 {
   Reader.read(inputStream);
-  return Reader.getErrorMessage();
 }

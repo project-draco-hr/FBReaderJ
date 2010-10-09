@@ -13,7 +13,7 @@
         stream=file.getInputStream();
       }
  catch (      IOException ex) {
-        return ZLNetworkErrors.errorMessage(ZLNetworkErrors.ERROR_SSL_BAD_FILE,request.SSLCertificate);
+        throw new ZLNetworkException(ZLNetworkErrors.ERROR_SSL_BAD_FILE,request.SSLCertificate);
       }
       try {
         TrustManager[] managers=new TrustManager[]{new ZLX509TrustManager(stream)};
@@ -22,16 +22,16 @@
         httpsConnection.setSSLSocketFactory(context.getSocketFactory());
       }
  catch (      CertificateExpiredException ex) {
-        return ZLNetworkErrors.errorMessage(ZLNetworkErrors.ERROR_SSL_EXPIRED,request.SSLCertificate);
+        throw new ZLNetworkException(ZLNetworkErrors.ERROR_SSL_EXPIRED,request.SSLCertificate);
       }
 catch (      CertificateNotYetValidException ex) {
-        return ZLNetworkErrors.errorMessage(ZLNetworkErrors.ERROR_SSL_NOT_YET_VALID,request.SSLCertificate);
+        throw new ZLNetworkException(ZLNetworkErrors.ERROR_SSL_NOT_YET_VALID,request.SSLCertificate);
       }
 catch (      CertificateException ex) {
-        return ZLNetworkErrors.errorMessage(ZLNetworkErrors.ERROR_SSL_BAD_FILE,request.SSLCertificate);
+        throw new ZLNetworkException(ZLNetworkErrors.ERROR_SSL_BAD_FILE,request.SSLCertificate);
       }
 catch (      GeneralSecurityException ex) {
-        return ZLNetworkErrors.errorMessage(ZLNetworkErrors.ERROR_SSL_SUBSYSTEM);
+        throw new ZLNetworkException(ZLNetworkErrors.ERROR_SSL_SUBSYSTEM);
       }
  finally {
         try {
@@ -42,5 +42,4 @@ catch (      GeneralSecurityException ex) {
       }
     }
   }
-  return null;
 }
