@@ -37,8 +37,14 @@
 ;
       final Runnable runnable=new Runnable(){
         public void run(){
-          String err=mgr.purchaseBook(book);
-          handler.sendMessage(handler.obtainMessage(0,err));
+          String error=null;
+          try {
+            mgr.purchaseBook(book);
+          }
+ catch (          ZLNetworkException e) {
+            error=e.getMessage();
+          }
+          handler.sendMessage(handler.obtainMessage(0,error));
         }
       }
 ;

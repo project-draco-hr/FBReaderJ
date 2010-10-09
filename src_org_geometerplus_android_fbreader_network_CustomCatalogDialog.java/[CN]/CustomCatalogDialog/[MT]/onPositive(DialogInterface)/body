@@ -100,9 +100,14 @@
 ;
   final Runnable loadInfoRunnable=new Runnable(){
     public void run(){
-      final ICustomNetworkLink link=(ICustomNetworkLink)myLink;
-      final String err=link.reloadInfo();
-      handler.sendMessage(handler.obtainMessage(0,err));
+      String error=null;
+      try {
+        ((ICustomNetworkLink)myLink).reloadInfo();
+      }
+ catch (      ZLNetworkException e) {
+        error=e.getMessage();
+      }
+      handler.sendMessage(handler.obtainMessage(0,error));
     }
   }
 ;

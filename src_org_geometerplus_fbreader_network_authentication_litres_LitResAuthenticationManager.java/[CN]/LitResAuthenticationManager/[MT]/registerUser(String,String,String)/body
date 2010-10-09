@@ -1,7 +1,7 @@
 {
   String url=Link.getLink(INetworkLink.URL_SIGN_UP);
   if (url == null) {
-    return NetworkErrors.errorMessage(NetworkErrors.ERROR_UNSUPPORTED_OPERATION);
+    throw new ZLNetworkException(NetworkErrors.ERROR_UNSUPPORTED_OPERATION);
   }
   url=ZLNetworkUtil.appendParameter(url,"new_login",login);
   url=ZLNetworkUtil.appendParameter(url,"new_pwd1",password);
@@ -17,6 +17,5 @@ synchronized (this) {
     }
     mySidOption.setValue(xmlReader.Sid);
     mySidUserNameOption.setValue(login);
-    return null;
   }
 }

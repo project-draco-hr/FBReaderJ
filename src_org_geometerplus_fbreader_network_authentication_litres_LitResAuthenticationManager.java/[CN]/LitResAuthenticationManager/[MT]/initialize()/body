@@ -5,10 +5,10 @@
 synchronized (this) {
     sid=mySidOption.getValue();
     if (sid.length() == 0) {
-      return NetworkErrors.errorMessage(NetworkErrors.ERROR_AUTHENTICATION_FAILED);
+      throw new ZLNetworkException(NetworkErrors.ERROR_AUTHENTICATION_FAILED);
     }
     if (sid.equals(myInitializedDataSid)) {
-      return null;
+      return;
     }
     purchasedBooksRequest=loadPurchasedBooks();
     accountRequest=loadAccount();
@@ -27,6 +27,5 @@ synchronized (this) {
     myInitializedDataSid=sid;
     loadPurchasedBooksOnSuccess(purchasedBooksRequest);
     loadAccountOnSuccess(accountRequest);
-    return null;
   }
 }
