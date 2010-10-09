@@ -1,5 +1,5 @@
 {
-  boolean sucess=false;
+  boolean success=false;
   try {
     final String error=doBeforeRequest(request);
     if (error != null) {
@@ -32,7 +32,7 @@
   finally {
         stream.close();
       }
-      sucess=true;
+      success=true;
     }
  else {
       if (response == HttpURLConnection.HTTP_UNAUTHORIZED) {
@@ -78,8 +78,8 @@ catch (  IOException ex) {
     return ZLNetworkErrors.errorMessage(ZLNetworkErrors.ERROR_SOMETHING_WRONG,ZLNetworkUtil.hostFromUrl(request.URL));
   }
  finally {
-    final String err=request.doAfter(sucess);
-    if (sucess && err != null) {
+    final String err=request.doAfter(success);
+    if (success && err != null) {
       return err;
     }
   }
