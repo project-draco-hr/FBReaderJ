@@ -1,16 +1,18 @@
 {
   final LinksComparator comparator=new LinksComparator();
-  final String error=OPDSLinkReader.loadOPDSLinks(OPDSLinkReader.CACHE_LOAD,new OnNewLinkListener(){
-    public void onNewLink(    INetworkLink link){
-      addLinkInternal(myLoadedLinks,link,comparator);
+  try {
+    OPDSLinkReader.loadOPDSLinks(OPDSLinkReader.CACHE_LOAD,new OnNewLinkListener(){
+      public void onNewLink(      INetworkLink link){
+        addLinkInternal(myLoadedLinks,link,comparator);
+      }
     }
-  }
 );
-  if (error != null) {
+  }
+ catch (  ZLNetworkException e) {
 synchronized (myLinks) {
       myLoadedLinks.clear();
     }
-    return error;
+    throw e;
   }
   NetworkDatabase.Instance().loadCustomLinks(new NetworkDatabase.ICustomLinksHandler(){
     public void handleCustomLinkData(    int id,    String siteName,    String title,    String summary,    String icon,    Map<String,String> links){
@@ -22,5 +24,4 @@ synchronized (myLinks) {
     }
   }
 );
-  return null;
 }

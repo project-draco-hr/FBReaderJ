@@ -3,27 +3,28 @@
 synchronized (this) {
     final String sid=mySidOption.getValue();
     if (sid.length() == 0) {
-      return NetworkErrors.errorMessage(NetworkErrors.ERROR_AUTHENTICATION_FAILED);
+      throw new ZLNetworkException(NetworkException.ERROR_AUTHENTICATION_FAILED);
     }
     if (!sid.equals(myInitializedDataSid)) {
       mySidChecked=true;
       mySidUserNameOption.setValue("");
       mySidOption.setValue("");
-      return NetworkErrors.errorMessage(NetworkErrors.ERROR_AUTHENTICATION_FAILED);
+      throw new ZLNetworkException(NetworkException.ERROR_AUTHENTICATION_FAILED);
     }
     networkRequest=loadPurchasedBooks();
   }
-  final String error=ZLNetworkManager.Instance().perform(networkRequest);
 synchronized (this) {
-    if (error != null) {
-      if (error.equals(NetworkErrors.errorMessage(NetworkErrors.ERROR_AUTHENTICATION_FAILED))) {
+    try {
+      ZLNetworkManager.Instance().perform(networkRequest);
+    }
+ catch (    ZLNetworkException e) {
+      if (NetworkException.ERROR_AUTHENTICATION_FAILED.equals(e.getCode())) {
         mySidChecked=true;
         mySidUserNameOption.setValue("");
         mySidOption.setValue("");
       }
-      return error;
+      throw e;
     }
     loadPurchasedBooksOnSuccess(networkRequest);
-    return null;
   }
 }

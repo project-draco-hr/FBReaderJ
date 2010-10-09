@@ -1,7 +1,7 @@
 {
   String url=Link.getLink(INetworkLink.URL_SIGN_IN);
   if (url == null) {
-    return NetworkErrors.errorMessage(NetworkErrors.ERROR_UNSUPPORTED_OPERATION);
+    throw new ZLNetworkException(NetworkException.ERROR_UNSUPPORTED_OPERATION);
   }
   final String login;
 synchronized (this) {
@@ -10,16 +10,19 @@ synchronized (this) {
   url=ZLNetworkUtil.appendParameter(url,"login",login);
   url=ZLNetworkUtil.appendParameter(url,"pwd",password);
   final LitResLoginXMLReader xmlReader=new LitResLoginXMLReader(Link.getSiteName());
-  final String error=ZLNetworkManager.Instance().perform(new LitResNetworkRequest(url,SSLCertificate,xmlReader));
 synchronized (this) {
-    mySidChecked=true;
-    if (error != null) {
+    try {
+      ZLNetworkManager.Instance().perform(new LitResNetworkRequest(url,SSLCertificate,xmlReader));
+    }
+ catch (    ZLNetworkException e) {
       mySidUserNameOption.setValue("");
       mySidOption.setValue("");
-      return error;
+      throw e;
+    }
+ finally {
+      mySidChecked=true;
     }
     mySidOption.setValue(xmlReader.Sid);
     mySidUserNameOption.setValue(UserNameOption.getValue());
-    return null;
   }
 }

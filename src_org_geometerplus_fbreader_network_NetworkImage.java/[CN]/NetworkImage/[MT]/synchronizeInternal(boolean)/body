@@ -30,7 +30,11 @@
     if (doFast) {
       return;
     }
-    ZLNetworkManager.Instance().downloadToFile(Url,imageFile);
+    try {
+      ZLNetworkManager.Instance().downloadToFile(Url,imageFile);
+    }
+ catch (    ZLNetworkException e) {
+    }
   }
   finally {
     mySynchronized=true;

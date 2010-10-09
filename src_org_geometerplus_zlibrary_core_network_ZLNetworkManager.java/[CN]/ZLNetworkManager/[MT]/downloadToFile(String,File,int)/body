@@ -1,6 +1,6 @@
 {
-  return perform(new ZLNetworkRequest(url){
-    public String handleStream(    URLConnection connection,    InputStream inputStream) throws IOException {
+  perform(new ZLNetworkRequest(url){
+    public void handleStream(    URLConnection connection,    InputStream inputStream) throws IOException, ZLNetworkException {
       OutputStream outStream=new FileOutputStream(outFile);
       try {
         final byte[] buffer=new byte[bufferSize];
@@ -15,7 +15,6 @@
   finally {
         outStream.close();
       }
-      return null;
     }
   }
 );

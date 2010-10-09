@@ -1,26 +1,27 @@
 {
   if (requests.size() == 0) {
-    return "";
+    throw new ZLNetworkException("");
   }
   if (requests.size() == 1) {
-    return perform(requests.get(0));
+    perform(requests.get(0));
   }
   HashSet<String> errors=new HashSet<String>();
   for (  ZLNetworkRequest r : requests) {
-    final String e=perform(r);
-    if (e != null && !errors.contains(e)) {
-      errors.add(e);
+    try {
+      perform(r);
+    }
+ catch (    ZLNetworkException e) {
+      errors.add(e.getMessage());
     }
   }
-  if (errors.size() == 0) {
-    return null;
-  }
-  StringBuilder message=new StringBuilder();
-  for (  String e : errors) {
-    if (message.length() != 0) {
-      message.append(", ");
+  if (errors.size() > 0) {
+    StringBuilder message=new StringBuilder();
+    for (    String e : errors) {
+      if (message.length() != 0) {
+        message.append(", ");
+      }
+      message.append(e);
     }
-    message.append(e);
+    throw new ZLNetworkException(true,message.toString());
   }
-  return message.toString();
 }

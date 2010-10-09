@@ -5,10 +5,10 @@
 synchronized (this) {
     sid=mySidOption.getValue();
     if (sid.length() == 0) {
-      return NetworkErrors.errorMessage(NetworkErrors.ERROR_AUTHENTICATION_FAILED);
+      throw new ZLNetworkException(NetworkException.ERROR_AUTHENTICATION_FAILED);
     }
     if (sid.equals(myInitializedDataSid)) {
-      return null;
+      return;
     }
     purchasedBooksRequest=loadPurchasedBooks();
     accountRequest=loadAccount();
@@ -16,17 +16,18 @@ synchronized (this) {
   final LinkedList<ZLNetworkRequest> requests=new LinkedList<ZLNetworkRequest>();
   requests.add(purchasedBooksRequest);
   requests.add(accountRequest);
-  final String error=ZLNetworkManager.Instance().perform(requests);
 synchronized (this) {
-    if (error != null) {
+    try {
+      ZLNetworkManager.Instance().perform(requests);
+    }
+ catch (    ZLNetworkException e) {
       myInitializedDataSid=null;
       loadPurchasedBooksOnError();
       loadAccountOnError();
-      return error;
+      throw e;
     }
     myInitializedDataSid=sid;
     loadPurchasedBooksOnSuccess(purchasedBooksRequest);
     loadAccountOnSuccess(accountRequest);
-    return null;
   }
 }

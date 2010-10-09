@@ -1,7 +1,0 @@
-{
-  final String err=request.doBefore();
-  if (err != null) {
-    return err;
-  }
-  return null;
-}

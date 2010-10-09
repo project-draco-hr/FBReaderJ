@@ -2,18 +2,27 @@
 synchronized (myBackgroundLock) {
     myBackgroundLinks=new ArrayList<INetworkLink>();
     final int cacheMode=clearCache ? OPDSLinkReader.CACHE_CLEAR : OPDSLinkReader.CACHE_UPDATE;
-    final String error=OPDSLinkReader.loadOPDSLinks(cacheMode,new OnNewLinkListener(){
-      public void onNewLink(      INetworkLink link){
-        myBackgroundLinks.add(link);
+    try {
+      OPDSLinkReader.loadOPDSLinks(cacheMode,new OnNewLinkListener(){
+        public void onNewLink(        INetworkLink link){
+          myBackgroundLinks.add(link);
+        }
+      }
+);
+    }
+ catch (    ZLNetworkException e) {
+      myBackgroundLinks=null;
+      throw e;
+    }
+ finally {
+      if (myBackgroundLinks != null) {
+        if (myBackgroundLinks.isEmpty()) {
+          myBackgroundLinks=null;
+        }
+ else {
+          Collections.sort(myBackgroundLinks,new LinksComparator());
+        }
       }
     }
-);
-    if (error != null || myBackgroundLinks.isEmpty()) {
-      myBackgroundLinks=null;
-    }
-    if (myBackgroundLinks != null) {
-      Collections.sort(myBackgroundLinks,new LinksComparator());
-    }
-    return error;
   }
 }

@@ -24,13 +24,10 @@ synchronized (myLinks) {
     }
   }
   while (requestList.size() != 0) {
-    final String errorMessage=ZLNetworkManager.Instance().perform(requestList);
-    if (errorMessage != null) {
-      return errorMessage;
-    }
+    ZLNetworkManager.Instance().perform(requestList);
     requestList.clear();
     if (listener.confirmInterrupt()) {
-      return null;
+      return;
     }
     for (    NetworkOperationData data : dataList) {
       ZLNetworkRequest request=data.resume();
@@ -39,5 +36,4 @@ synchronized (myLinks) {
       }
     }
   }
-  return null;
 }

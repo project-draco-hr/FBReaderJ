@@ -1,10 +1,7 @@
 {
   new SQLiteNetworkDatabase();
   final NetworkLibrary library=NetworkLibrary.Instance();
-  final String error=library.initialize();
-  if (error != null) {
-    return error;
-  }
+  library.initialize();
   library.synchronize();
   myActions.add(new NetworkBookActions());
   myActions.add(new NetworkCatalogActions());
@@ -13,5 +10,4 @@
   myActions.add(new AddCustomCatalogItemActions());
   myActions.trimToSize();
   myInitialized=true;
-  return null;
 }
