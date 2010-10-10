@@ -47,9 +47,9 @@ float progress=view.getProgress(scrollProgress);
 if (progress != myLastProgress) {
 gaugeChanged=true;
 }
-int bookLength=1 + view.getScrollbarFullSize() / 1500;
-bookLength=Math.max(1,bookLength);
-int pagesProgress=Math.max(1,(int)((float)bookLength * progress + 0.5));
+final ZLTextView textView=(ZLTextView)view;
+final int pagesProgress=textView.computeCurrentPage();
+final int bookLength=textView.computePageNumber();
 ZLAndroidApplication app=ZLAndroidApplication.Instance();
 Date date=new Date();
 if (infoChanged || myLastShowClock != app.FooterShowClock.getValue() || myLastShowBattery != app.FooterShowBattery.getValue() || myLastShowProgress != app.FooterShowProgress.getValue() || (app.FooterShowClock.getValue() && (myLastHours != date.getHours() || myLastMinutes != date.getMinutes())) || (app.FooterShowProgress.getValue() && (myLastPagesNum != bookLength || myLastPage != pagesProgress)) || (app.FooterShowBattery.getValue() && (myLastBattery != ZLApplication.Instance().myBatteryLevel))) {
