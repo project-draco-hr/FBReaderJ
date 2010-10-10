@@ -4,13 +4,13 @@
   ((TextView)layout.findViewById(R.id.network_register_password_text)).setText(myResource.getResource("password").getValue());
   ((TextView)layout.findViewById(R.id.network_register_confirm_password_text)).setText(myResource.getResource("confirmPassword").getValue());
   ((TextView)layout.findViewById(R.id.network_register_email_text)).setText(myResource.getResource("email").getValue());
-  mySystemEmails.clear();
-  collectEMails(myActivity.getApplicationContext(),mySystemEmails);
-  if (!mySystemEmails.isEmpty()) {
+  myRegistrationUtils=new RegistrationUtils(myActivity.getApplicationContext());
+  final List<String> emails=myRegistrationUtils.eMails();
+  if (!emails.isEmpty()) {
     final DialogInterface.OnClickListener listener=new DialogInterface.OnClickListener(){
       public void onClick(      DialogInterface dialog,      int which){
-        if (which >= 0 && which < mySystemEmails.size()) {
-          myEmail=mySystemEmails.get(which);
+        if (which >= 0 && which < emails.size()) {
+          myEmail=emails.get(which);
         }
         dialog.dismiss();
       }
@@ -22,9 +22,9 @@
         myPassword=((TextView)layout.findViewById(R.id.network_register_password)).getText().toString();
         myConfirmPassword=((TextView)layout.findViewById(R.id.network_register_confirm_password)).getText().toString();
         myEmail=((TextView)layout.findViewById(R.id.network_register_email)).getText().toString().trim();
-        final int selected=mySystemEmails.indexOf(myEmail);
+        final int selected=emails.indexOf(myEmail);
         final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
-        final AlertDialog dialog=new AlertDialog.Builder(myActivity).setSingleChoiceItems(mySystemEmails.toArray(new String[mySystemEmails.size()]),selected,listener).setTitle(myResource.getResource("email").getValue()).setNegativeButton(buttonResource.getResource("cancel").getValue(),null).create();
+        final AlertDialog dialog=new AlertDialog.Builder(myActivity).setSingleChoiceItems(emails.toArray(new String[emails.size()]),selected,listener).setTitle(myResource.getResource("email").getValue()).setNegativeButton(buttonResource.getResource("cancel").getValue(),null).create();
         dialog.setOnDismissListener(new DialogInterface.OnDismissListener(){
           public void onDismiss(          DialogInterface dialog){
             myActivity.showDialog(myId);

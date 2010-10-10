@@ -1,0 +1,5 @@
+{
+  final TelephonyManager manager=(TelephonyManager)myContext.getSystemService(Context.TELEPHONY_SERVICE);
+  final String id=manager.getDeviceId();
+  return (id.length() > 9) ? "XXX" + id.substring(3,id.length() - 3) : id;
+}
