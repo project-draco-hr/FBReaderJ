@@ -1,5 +1,5 @@
 {
-  Library.Instance().removeBook(myBook,myMode);
+  myLibrary.removeBook(myBook,myMode);
   invalidateView(findViewById(R.id.by_author));
   invalidateView(findViewById(R.id.by_tag));
   invalidateView(findViewById(R.id.recent));
