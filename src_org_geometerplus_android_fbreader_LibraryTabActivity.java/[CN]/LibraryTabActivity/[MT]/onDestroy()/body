@@ -1,4 +1,0 @@
-{
-  myLibrary.clear();
-  super.onDestroy();
-}
