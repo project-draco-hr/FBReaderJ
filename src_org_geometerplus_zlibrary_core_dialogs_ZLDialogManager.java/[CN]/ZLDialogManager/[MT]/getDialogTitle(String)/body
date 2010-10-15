@@ -1,3 +1,0 @@
-{
-  return getResource().getResource(key).getResource("title").getValue();
-}
