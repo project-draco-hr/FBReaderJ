@@ -111,5 +111,5 @@
     }
   }
 ;
-  ((ZLAndroidDialogManager)ZLAndroidDialogManager.Instance()).wait("loadingCatalogInfo",loadInfoRunnable,myActivity);
+  AndroidUtil.wait("loadingCatalogInfo",loadInfoRunnable,myActivity);
 }

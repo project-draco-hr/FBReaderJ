@@ -1,0 +1,30 @@
+{
+synchronized (ourMonitor) {
+    final String message=ZLDialogManager.getWaitMessageText(key);
+    ourTaskQueue.offer(new Pair(action,message));
+    if (ourProgress == null) {
+      ourProgress=ProgressDialog.show(activity,null,message,true,false);
+    }
+ else {
+      return;
+    }
+  }
+  final ProgressDialog currentProgress=ourProgress;
+  new Thread(new Runnable(){
+    public void run(){
+      while ((ourProgress == currentProgress) && !ourTaskQueue.isEmpty()) {
+        Pair p=ourTaskQueue.poll();
+        p.Action.run();
+synchronized (ourMonitor) {
+          ourProgressHandler.sendEmptyMessage(0);
+          try {
+            ourMonitor.wait();
+          }
+ catch (          InterruptedException e) {
+          }
+        }
+      }
+    }
+  }
+).start();
+}

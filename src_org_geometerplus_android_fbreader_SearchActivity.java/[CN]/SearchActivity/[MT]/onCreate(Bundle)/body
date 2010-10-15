@@ -29,7 +29,7 @@
       }
     }
 ;
-    ((ZLAndroidDialogManager)ZLAndroidDialogManager.Instance()).wait(getWaitMessageResourceKey(),runnable,getParentActivity());
+    AndroidUtil.wait(getWaitMessageResourceKey(),runnable,getParentActivity());
   }
   finish();
 }
