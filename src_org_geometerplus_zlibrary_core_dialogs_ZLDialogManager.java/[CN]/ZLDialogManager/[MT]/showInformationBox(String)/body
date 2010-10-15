@@ -1,3 +1,0 @@
-{
-  showInformationBox(key,getDialogMessage(key));
-}
