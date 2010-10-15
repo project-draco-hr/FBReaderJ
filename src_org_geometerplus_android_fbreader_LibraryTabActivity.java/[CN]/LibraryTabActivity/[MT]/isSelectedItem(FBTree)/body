@@ -1,0 +1,3 @@
+{
+  return (tree instanceof BookTree) && ((BookTree)tree).Book.File.getPath().equals(myCurrentBookPath);
+}

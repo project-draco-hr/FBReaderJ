@@ -4,7 +4,7 @@
   }
   finish();
   final Book book=((BookTree)tree).Book;
-  if (!book.equals(myCurrentBook)) {
+  if (!book.File.getPath().equals(myCurrentBookPath)) {
     ZLFile physicalFile=book.File.getPhysicalFile();
     startActivity(getFBReaderIntent(physicalFile != null ? new File(physicalFile.getPath()) : null));
   }
