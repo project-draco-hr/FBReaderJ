@@ -4,7 +4,7 @@
   if (Intent.ACTION_VIEW.equals(intent.getAction())) {
     final Uri uri=intent.getData();
     if (uri != null) {
-      fileToOpen=uri.getPath();
+      fileToOpen=fileNameFromUri(uri);
     }
     intent.setData(null);
   }

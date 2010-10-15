@@ -14,7 +14,7 @@
   if (Intent.ACTION_VIEW.equals(intent.getAction())) {
     final Uri uri=intent.getData();
     if (uri != null) {
-      fileToOpen=uri.getPath();
+      fileToOpen=fileNameFromUri(uri);
       final String scheme=uri.getScheme();
       if ("content".equals(scheme)) {
         final File file=new File(fileToOpen);
