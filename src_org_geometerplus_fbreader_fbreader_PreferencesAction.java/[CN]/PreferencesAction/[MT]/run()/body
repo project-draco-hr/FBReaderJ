@@ -1,4 +1,0 @@
-{
-  final ZLAndroidDialogManager dialogManager=(ZLAndroidDialogManager)ZLAndroidDialogManager.Instance();
-  dialogManager.runActivity(PreferenceActivity.class);
-}
