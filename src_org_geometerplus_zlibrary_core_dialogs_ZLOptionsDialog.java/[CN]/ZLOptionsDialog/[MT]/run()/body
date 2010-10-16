@@ -1,5 +1,0 @@
-{
-  selectTab(myTabOption.getValue());
-  runInternal();
-  myTabOption.setValue(getSelectedTabKey());
-}

@@ -1,5 +1,5 @@
 {
-  ((ZLAndroidDialogManager)ZLAndroidDialogManager.Instance()).wait("loadingNetworkLibrary",new Runnable(){
+  AndroidUtil.wait("loadingNetworkLibrary",new Runnable(){
     public void run(){
       String error=null;
       try {

@@ -21,7 +21,7 @@
  else {
         gotoBookmark(bookmark);
       }
-      Library.Instance().addBookToRecentList(book);
+      Library.addBookToRecentList(book);
     }
   }
   repaintView();

@@ -1,3 +1,0 @@
-{
-  ZLAndroidDialogManager.runDialog(myMainActivity,this);
-}

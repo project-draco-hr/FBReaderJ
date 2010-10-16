@@ -1,11 +1,13 @@
 {
   final ZLAndroidDialogManager dialogManager=(ZLAndroidDialogManager)ZLAndroidDialogManager.Instance();
+  final HashMap<String,String> data=new HashMap<String,String>();
+  final BookModel model=Reader.Model;
+  if (model != null) {
+    data.put(LibraryTabActivity.CURRENT_BOOK_PATH_KEY,model.Book.File.getPath());
+  }
   Runnable action=new Runnable(){
     public void run(){
-      Library library=Library.Instance();
-      library.clear();
-      library.synchronize();
-      dialogManager.runActivity(LibraryTabActivity.class);
+      dialogManager.runActivity(LibraryTabActivity.class,data);
     }
   }
 ;

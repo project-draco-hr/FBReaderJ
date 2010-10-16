@@ -33,5 +33,5 @@
     }
   }
 ;
-  ((ZLAndroidDialogManager)ZLAndroidDialogManager.Instance()).wait("authentication",runnable,myActivity);
+  AndroidUtil.wait("authentication",runnable,myActivity);
 }

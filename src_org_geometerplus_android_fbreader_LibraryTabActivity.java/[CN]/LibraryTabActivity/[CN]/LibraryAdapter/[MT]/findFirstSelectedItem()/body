@@ -1,9 +1,9 @@
 {
-  if (myCurrentBook == null) {
+  if (myCurrentBookPath == null) {
     return null;
   }
   for (  FBTree tree : myLibraryTree) {
-    if ((tree instanceof BookTree) && ((BookTree)tree).Book.equals(myCurrentBook)) {
+    if (isSelectedItem(tree)) {
       return tree;
     }
   }
