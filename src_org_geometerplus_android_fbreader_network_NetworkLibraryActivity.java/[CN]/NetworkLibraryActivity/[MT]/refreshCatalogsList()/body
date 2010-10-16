@@ -14,7 +14,7 @@
     }
   }
 ;
-  ((ZLAndroidDialogManager)ZLAndroidDialogManager.Instance()).wait("updatingCatalogsList",new Runnable(){
+  AndroidUtil.wait("updatingCatalogsList",new Runnable(){
     public void run(){
       String error=null;
       try {

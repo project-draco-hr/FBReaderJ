@@ -1,0 +1,8 @@
+{
+  if (Uri.EMPTY.equals(uri)) {
+    return fileNameForEmptyUri();
+  }
+ else {
+    return uri.getPath();
+  }
+}

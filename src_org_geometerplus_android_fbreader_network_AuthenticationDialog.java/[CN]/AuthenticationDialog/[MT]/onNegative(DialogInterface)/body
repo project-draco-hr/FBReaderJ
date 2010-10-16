@@ -9,5 +9,5 @@
     }
   }
 ;
-  ((ZLAndroidDialogManager)ZLAndroidDialogManager.Instance()).wait("signOut",runnable,myActivity);
+  AndroidUtil.wait("signOut",runnable,myActivity);
 }

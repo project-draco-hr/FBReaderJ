@@ -54,5 +54,5 @@
     }
   }
 ;
-  ((ZLAndroidDialogManager)ZLAndroidDialogManager.Instance()).wait("registerUser",runnable,myActivity);
+  AndroidUtil.wait("registerUser",runnable,myActivity);
 }

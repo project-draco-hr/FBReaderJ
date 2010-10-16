@@ -1,3 +1,3 @@
 {
-  myActivity.startActivity(new Intent(myActivity,activityClass));
+  runActivity(activityClass,Collections.<String,String>emptyMap());
 }

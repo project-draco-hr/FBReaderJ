@@ -8,7 +8,7 @@
     bookById.put(book.getId(),book);
     List<Author> authors=book.authors();
     if (authors.isEmpty()) {
-      authors=(List<Author>)ourNullList;
+      authors=(List<Author>)myNullList;
     }
     final SeriesInfo seriesInfo=book.getSeriesInfo();
     for (    Author a : authors) {
@@ -33,7 +33,7 @@
     }
     List<Tag> tags=book.tags();
     if (tags.isEmpty()) {
-      tags=(List<Tag>)ourNullList;
+      tags=(List<Tag>)myNullList;
     }
     for (    Tag t : tags) {
       getTagTree(t,tagTreeMap).createBookSubTree(book,true);

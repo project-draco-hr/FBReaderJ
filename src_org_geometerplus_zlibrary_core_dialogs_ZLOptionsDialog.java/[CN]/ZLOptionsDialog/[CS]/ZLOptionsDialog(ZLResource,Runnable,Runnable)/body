@@ -2,5 +2,4 @@
   myResource=resource;
   myExitAction=exitAction;
   myApplyAction=applyAction;
-  myTabOption=new ZLStringOption(resource.Name,"SelectedTab","");
 }

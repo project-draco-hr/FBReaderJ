@@ -48,7 +48,7 @@
         }
       }
 ;
-      ((ZLAndroidDialogManager)ZLAndroidDialogManager.Instance()).wait("purchaseBook",runnable,activity);
+      AndroidUtil.wait("purchaseBook",runnable,activity);
     }
   }
 ;

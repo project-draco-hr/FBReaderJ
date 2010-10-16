@@ -1,0 +1,4 @@
+{
+  super(fbreader);
+  myActivityClass=activityClass;
+}
