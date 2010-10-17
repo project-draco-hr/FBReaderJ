@@ -1,0 +1,9 @@
+{
+  if (extraData != null && !extraData.isEmpty()) {
+    for (    Map.Entry<String,String> entry : extraData.entrySet()) {
+      if ("androidActivity".equals(entry.getKey())) {
+        installPlugin(activity,entry.getValue());
+      }
+    }
+  }
+}

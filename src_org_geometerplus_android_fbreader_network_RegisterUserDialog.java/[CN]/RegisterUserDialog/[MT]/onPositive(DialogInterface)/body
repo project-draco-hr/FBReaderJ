@@ -54,5 +54,5 @@
     }
   }
 ;
-  AndroidUtil.wait("registerUser",runnable,myActivity);
+  UIUtil.wait("registerUser",runnable,myActivity);
 }

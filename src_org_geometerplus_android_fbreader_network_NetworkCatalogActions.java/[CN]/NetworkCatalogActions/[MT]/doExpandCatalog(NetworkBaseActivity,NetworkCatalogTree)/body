@@ -25,6 +25,7 @@
       final ExpandCatalogHandler handler=new ExpandCatalogHandler(tree,url);
       NetworkView.Instance().startItemsLoading(activity,url,new ExpandCatalogRunnable(handler,tree,true,resumeNotLoad));
       NetworkView.Instance().openTree(activity,tree,url);
+      processExtraData(activity,tree.Item.extraData());
     }
   }
 );

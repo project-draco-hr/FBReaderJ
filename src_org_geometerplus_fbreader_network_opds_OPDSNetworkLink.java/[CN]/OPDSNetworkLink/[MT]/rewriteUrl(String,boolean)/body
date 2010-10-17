@@ -1,7 +1,4 @@
 {
-  if (myUrlRewritingRules == null) {
-    return url;
-  }
   for (  URLRewritingRule rule : myUrlRewritingRules) {
     if (rule.Apply != URLRewritingRule.APPLY_ALWAYS) {
       if ((rule.Apply == URLRewritingRule.APPLY_EXTERNAL && !isUrlExternal) || (rule.Apply == URLRewritingRule.APPLY_INTERNAL && isUrlExternal)) {

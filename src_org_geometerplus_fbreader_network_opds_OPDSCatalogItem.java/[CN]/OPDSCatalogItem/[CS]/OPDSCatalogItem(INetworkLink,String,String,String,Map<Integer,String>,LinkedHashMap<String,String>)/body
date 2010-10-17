@@ -1,3 +1,4 @@
 {
   super(link,title,summary,cover,urlByType);
+  myExtraData=extraData;
 }

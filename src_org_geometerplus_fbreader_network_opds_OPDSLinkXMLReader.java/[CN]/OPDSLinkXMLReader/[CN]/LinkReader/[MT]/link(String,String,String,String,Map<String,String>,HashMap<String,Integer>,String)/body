@@ -6,6 +6,7 @@
   opdsLink.setRelationAliases(myRelationAliases);
   opdsLink.setUrlConditions(urlConditions);
   opdsLink.setUrlRewritingRules(myUrlRewritingRules);
+  opdsLink.setExtraData(myExtraData);
   NetworkAuthenticationManager authManager=null;
   if (myAuthenticationType == "basic") {
   }

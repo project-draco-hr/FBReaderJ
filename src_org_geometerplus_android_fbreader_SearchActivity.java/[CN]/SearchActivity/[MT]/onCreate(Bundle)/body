@@ -29,7 +29,7 @@
       }
     }
 ;
-    AndroidUtil.wait(getWaitMessageResourceKey(),runnable,getParentActivity());
+    UIUtil.wait(getWaitMessageResourceKey(),runnable,getParentActivity());
   }
   finish();
 }

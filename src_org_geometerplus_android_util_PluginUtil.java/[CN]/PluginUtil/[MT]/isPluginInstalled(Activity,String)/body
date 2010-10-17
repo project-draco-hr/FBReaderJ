@@ -1,0 +1,9 @@
+{
+  try {
+    activity.startActivity(new Intent("android.fbreader.action.TEST",homeUri(pkg)));
+    return true;
+  }
+ catch (  ActivityNotFoundException e) {
+    return false;
+  }
+}

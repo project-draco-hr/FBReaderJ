@@ -1,0 +1,9 @@
+{
+  try {
+    activity.startActivity(new Intent(Intent.ACTION_VIEW,marketUri(pkg)));
+    return true;
+  }
+ catch (  ActivityNotFoundException e) {
+    return false;
+  }
+}

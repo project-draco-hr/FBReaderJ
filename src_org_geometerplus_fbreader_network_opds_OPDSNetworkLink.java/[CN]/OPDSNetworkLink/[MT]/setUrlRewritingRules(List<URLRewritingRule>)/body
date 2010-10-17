@@ -1,8 +1,4 @@
 {
-  if (rules != null && rules.size() > 0) {
-    myUrlRewritingRules=new LinkedList<URLRewritingRule>(rules);
-  }
- else {
-    myUrlRewritingRules=null;
-  }
+  myUrlRewritingRules.clear();
+  myUrlRewritingRules.addAll(rules);
 }

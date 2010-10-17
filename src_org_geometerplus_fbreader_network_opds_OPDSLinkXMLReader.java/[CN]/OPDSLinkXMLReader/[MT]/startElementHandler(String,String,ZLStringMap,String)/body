@@ -56,6 +56,13 @@ if (tagPrefix == myFBReaderNamespaceId) {
     ((LinkReader)myFeedReader).setHasStableIdentifiers(true);
     return false;
   }
+ else   if (tag == FBREADER_EXTRA) {
+    final String name=attributes.getValue("name");
+    final String value=attributes.getValue("value");
+    if (name != null && value != null) {
+      ((LinkReader)myFeedReader).putExtraData(name,value);
+    }
+  }
 }
 break;
 }

@@ -1,0 +1,5 @@
+{
+  if (!PluginUtil.isPluginInstalled(activity,pkg)) {
+    PluginUtil.installPackageFromMarket(activity,pkg);
+  }
+}
