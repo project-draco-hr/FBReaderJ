@@ -1,0 +1,9 @@
+{
+  super.onCreate(bundle);
+  try {
+    System.err.println(getApplication().getPackageManager().getPackageInfo(getApplication().getPackageName(),0).versionCode);
+  }
+ catch (  PackageManager.NameNotFoundException e) {
+  }
+  finish();
+}
