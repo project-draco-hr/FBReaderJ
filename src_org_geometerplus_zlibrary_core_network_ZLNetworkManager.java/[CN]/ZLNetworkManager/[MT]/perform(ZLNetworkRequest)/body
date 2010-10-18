@@ -69,6 +69,11 @@ catch (  IOException ex) {
     throw new ZLNetworkException(ZLNetworkException.ERROR_SOMETHING_WRONG,ZLNetworkUtil.hostFromUrl(request.URL));
   }
  finally {
-    request.doAfter(success);
+    if (success) {
+      request.doAfterOnSuccess();
+    }
+ else {
+      request.doAfterOnError();
+    }
   }
 }
