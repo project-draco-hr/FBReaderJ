@@ -16,15 +16,19 @@ synchronized (this) {
   final LinkedList<ZLNetworkRequest> requests=new LinkedList<ZLNetworkRequest>();
   requests.add(purchasedBooksRequest);
   requests.add(accountRequest);
+  ZLNetworkException exception=null;
+  try {
+    ZLNetworkManager.Instance().perform(requests);
+  }
+ catch (  ZLNetworkException e) {
+    exception=e;
+  }
 synchronized (this) {
-    try {
-      ZLNetworkManager.Instance().perform(requests);
-    }
- catch (    ZLNetworkException e) {
+    if (exception != null) {
       myInitializedDataSid=null;
       loadPurchasedBooksOnError();
       loadAccountOnError();
-      throw e;
+      throw exception;
     }
     myInitializedDataSid=sid;
     loadPurchasedBooksOnSuccess(purchasedBooksRequest);

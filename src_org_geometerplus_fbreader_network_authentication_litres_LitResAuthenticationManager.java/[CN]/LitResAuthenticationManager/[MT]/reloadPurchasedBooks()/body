@@ -13,17 +13,21 @@ synchronized (this) {
     }
     networkRequest=loadPurchasedBooks();
   }
+  ZLNetworkException exception=null;
+  try {
+    ZLNetworkManager.Instance().perform(networkRequest);
+  }
+ catch (  ZLNetworkException e) {
+    exception=e;
+  }
 synchronized (this) {
-    try {
-      ZLNetworkManager.Instance().perform(networkRequest);
-    }
- catch (    ZLNetworkException e) {
-      if (NetworkException.ERROR_AUTHENTICATION_FAILED.equals(e.getCode())) {
+    if (exception != null) {
+      if (NetworkException.ERROR_AUTHENTICATION_FAILED.equals(exception.getCode())) {
         mySidChecked=true;
         mySidUserNameOption.setValue("");
         mySidOption.setValue("");
       }
-      throw e;
+      throw exception;
     }
     loadPurchasedBooksOnSuccess(networkRequest);
   }
