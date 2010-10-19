@@ -1,0 +1,3 @@
+{
+  myOption.setValue(myOption.MinValue + findIndexOfValue(getValue()));
+}
