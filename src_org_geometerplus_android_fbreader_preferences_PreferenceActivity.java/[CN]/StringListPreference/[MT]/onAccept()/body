@@ -1,8 +1,3 @@
 {
-  if (myOption instanceof ZLIntegerRangeOption) {
-    ((ZLIntegerRangeOption)myOption).setValue(findIndexOfValue(getValue()));
-  }
- else   if (myOption instanceof ZLStringOption) {
-    ((ZLStringOption)myOption).setValue(getValue);
-  }
+  myOption.setValue(findIndexOfValue(getValue()));
 }

@@ -1,0 +1,6 @@
+{
+  super(context,resource,resourceKey);
+  myOption=option;
+  setList(codes);
+  setInitialValue(codes[Math.max(0,Math.min(codes.length - 1,((ZLIntegerRangeOption)myOption).getValue()))]);
+}
