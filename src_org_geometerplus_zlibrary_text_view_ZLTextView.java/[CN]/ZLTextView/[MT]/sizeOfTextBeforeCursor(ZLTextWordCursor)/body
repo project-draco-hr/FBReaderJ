@@ -1,6 +1,5 @@
 {
-  final ZLTextWordCursor cursor=new ZLTextWordCursor(wordCursor);
-  final ZLTextParagraphCursor paragraphCursor=cursor.getParagraphCursor();
+  final ZLTextParagraphCursor paragraphCursor=wordCursor.getParagraphCursor();
   if (paragraphCursor == null) {
     return -1;
   }
@@ -8,7 +7,7 @@
   int sizeOfText=myModel.getTextLength(paragraphIndex - 1);
   final int paragraphLength=paragraphCursor.getParagraphLength();
   if (paragraphLength > 0) {
-    sizeOfText+=(myModel.getTextLength(paragraphIndex) - sizeOfText) * cursor.getElementIndex() / paragraphLength;
+    sizeOfText+=(myModel.getTextLength(paragraphIndex) - sizeOfText) * wordCursor.getElementIndex() / paragraphLength;
   }
   return sizeOfText;
 }
