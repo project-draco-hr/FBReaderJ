@@ -20,9 +20,9 @@
   statusLineCategory.addPreference(new ZLIntegerRangePreference(this,statusLineCategory.Resource.getResource("footerHeight"),fbReader.FooterHeightOption));
   String[] footerLongTaps={"longTapRevert","longTapNavigate"};
   statusLineCategory.addPreference(new StringListPreference(this,statusLineCategory.Resource,"footerLongTap",footerLongTaps,fbReader.FooterLongTap));
-  statusLineCategory.addOption(ZLAndroidApplication.Instance().FooterShowClock,"showClock");
-  statusLineCategory.addOption(ZLAndroidApplication.Instance().FooterShowBattery,"showBattery");
-  statusLineCategory.addOption(ZLAndroidApplication.Instance().FooterShowProgress,"showProgress");
+  statusLineCategory.addOption(fbReader.FooterShowClock,"showClock");
+  statusLineCategory.addOption(fbReader.FooterShowBattery,"showBattery");
+  statusLineCategory.addOption(fbReader.FooterShowProgress,"showProgress");
   lookNFeelCategory.addOption(ZLAndroidApplication.Instance().AutoOrientationOption,"autoOrientation");
   if (!ZLAndroidApplication.Instance().isAlwaysShowStatusBar()) {
     lookNFeelCategory.addOption(ZLAndroidApplication.Instance().ShowStatusBarOption,"showStatusBar");
