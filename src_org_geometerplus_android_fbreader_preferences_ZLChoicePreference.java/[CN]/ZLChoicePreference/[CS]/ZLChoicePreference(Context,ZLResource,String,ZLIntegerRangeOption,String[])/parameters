@@ -1,5 +1,5 @@
 Context context
 ZLResource resource
 String resourceKey
-String[] codes
 ZLIntegerRangeOption option
+String[] valueResourceKeys
