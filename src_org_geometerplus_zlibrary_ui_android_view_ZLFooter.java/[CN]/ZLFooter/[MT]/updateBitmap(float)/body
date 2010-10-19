@@ -1,108 +1,90 @@
 {
   boolean gaugeChanged=false;
   boolean infoChanged=false;
-  FBReader reader=(FBReader)FBReader.Instance();
-  int bgColor=ZLAndroidColorUtil.rgb(reader.BookTextView.getBackgroundColor());
-  int fgColor=ZLAndroidColorUtil.rgb(reader.BookTextView.getTextColor(FBHyperlinkType.NONE));
+  final ZLTextView view=(ZLTextView)ZLApplication.Instance().getCurrentView();
+  int bgColor=ZLAndroidColorUtil.rgb(view.getBackgroundColor());
+  int fgColor=ZLAndroidColorUtil.rgb(view.getFooterColor());
   if (myLastFgColor != fgColor || myLastBgColor != bgColor) {
     gaugeChanged=true;
     infoChanged=true;
   }
-  int size=reader.FooterSizeOption.getValue();
-  int delta=(size == SIZE_SMALL ? 0 : 1);
+  int size=view.getFooterHeight();
+  int delta=size <= 10 ? 0 : 1;
   if (size != myLastSize) {
-    int fontStyle=Typeface.NORMAL;
-switch (size) {
-case SIZE_SMALL:
-      mySize.y=9;
-    myTextPaint.setTextSize(12);
-  myFgPaint.setStrokeWidth(1);
-break;
-case SIZE_NORMAL:
-mySize.y=13;
-myTextPaint.setTextSize(14);
-myFgPaint.setStrokeWidth(2);
-fontStyle=Typeface.BOLD;
-break;
-case SIZE_LARGE:
-mySize.y=15;
-myTextPaint.setTextSize(16);
-myFgPaint.setStrokeWidth(2);
-fontStyle=Typeface.BOLD;
-break;
-}
-myTextPaint.setTypeface(Typeface.create(Typeface.SANS_SERIF,fontStyle));
-myTextPaint.setTextAlign(Paint.Align.RIGHT);
-myTextPaint.setStyle(Paint.Style.FILL);
-myTextPaint.setAntiAlias(true);
-}
-if (myBitmap == null || myBitmap.getWidth() != mySize.x || myBitmap.getHeight() != mySize.y) {
-myBitmap=Bitmap.createBitmap(mySize.x,mySize.y,Bitmap.Config.RGB_565);
-gaugeChanged=true;
-infoChanged=true;
-}
-Canvas canvas=new Canvas(myBitmap);
-final ZLView view=ZLApplication.Instance().getCurrentView();
-float progress=view.getProgress(scrollProgress);
-if (progress != myLastProgress) {
-gaugeChanged=true;
-}
-final ZLTextView textView=(ZLTextView)view;
-final int pagesProgress=textView.computeCurrentPage();
-final int bookLength=textView.computePageNumber();
-ZLAndroidApplication app=ZLAndroidApplication.Instance();
-Date date=new Date();
-if (infoChanged || myLastShowClock != app.FooterShowClock.getValue() || myLastShowBattery != app.FooterShowBattery.getValue() || myLastShowProgress != app.FooterShowProgress.getValue() || (app.FooterShowClock.getValue() && (myLastHours != date.getHours() || myLastMinutes != date.getMinutes())) || (app.FooterShowProgress.getValue() && (myLastPagesNum != bookLength || myLastPage != pagesProgress)) || (app.FooterShowBattery.getValue() && (myLastBattery != ZLApplication.Instance().myBatteryLevel))) {
-infoChanged=true;
-}
-if (infoChanged) {
-String info="";
-if (app.FooterShowClock.getValue()) {
-info+=String.format("%02d:%02d",date.getHours(),date.getMinutes());
-}
-if (app.FooterShowBattery.getValue()) {
-info=String.format("%d%%",ZLApplication.Instance().myBatteryLevel) + (info.equals("") ? "" : " ") + info;
-}
-if (app.FooterShowProgress.getValue()) {
-info=String.format("%d/%d",pagesProgress,bookLength) + (info.equals("") ? "" : " ") + info;
-}
-Rect infoRect=new Rect();
-myTextPaint.getTextBounds(info,0,info.length(),infoRect);
-int infoWidth=(info.equals("") ? 0 : infoRect.width() + 10);
-if (myInfoWidth != infoWidth) {
-gaugeChanged=true;
-myInfoWidth=infoWidth;
-}
-myBgPaint.setColor(bgColor);
-canvas.drawRect(mySize.x - myInfoWidth,0,mySize.x,mySize.y,myBgPaint);
-myTextPaint.setColor(fgColor);
-canvas.drawText(info,mySize.x - 1,mySize.y - delta,myTextPaint);
-}
-if (gaugeChanged) {
-myBgPaint.setColor(bgColor);
-myGaugeRect.set(0,0,mySize.x - myInfoWidth,mySize.y);
-canvas.drawRect(myGaugeRect,myBgPaint);
-myFgPaint.setColor(fgColor);
-myFgPaint.setStyle(Paint.Style.STROKE);
-myGaugeRect.right-=(1 - delta);
-myGaugeRect.inset(1 + delta,1 + delta);
-canvas.drawRect(myGaugeRect,myFgPaint);
-myGaugeStart=myGaugeRect.left;
-myGaugeEnd=myGaugeRect.right;
-myGaugeRect.inset(2 + delta,2 + delta);
-myGaugeRect.right=myGaugeRect.left + (int)((float)myGaugeRect.width() * progress);
-canvas.drawRect(myGaugeRect,myFgPaint);
-}
-myLastProgress=progress;
-myLastBattery=ZLApplication.Instance().myBatteryLevel;
-myLastHours=date.getHours();
-myLastMinutes=date.getMinutes();
-myLastFgColor=fgColor;
-myLastBgColor=bgColor;
-myLastShowClock=app.FooterShowClock.getValue();
-myLastShowBattery=app.FooterShowBattery.getValue();
-myLastShowProgress=app.FooterShowProgress.getValue();
-myLastPagesNum=bookLength;
-myLastPage=pagesProgress;
-myLastSize=size;
+    mySize.y=size;
+    myTextPaint.setTextSize(size <= 10 ? size + 3 : size + 1);
+    myFgPaint.setStrokeWidth(size <= 10 ? 1 : 2);
+    myTextPaint.setTypeface(Typeface.create(Typeface.SANS_SERIF,size <= 10 ? Typeface.NORMAL : Typeface.BOLD));
+    myTextPaint.setTextAlign(Paint.Align.RIGHT);
+    myTextPaint.setStyle(Paint.Style.FILL);
+    myTextPaint.setAntiAlias(true);
+  }
+  if (myBitmap == null || myBitmap.getWidth() != mySize.x || myBitmap.getHeight() != mySize.y) {
+    myBitmap=Bitmap.createBitmap(mySize.x,mySize.y,Bitmap.Config.RGB_565);
+    gaugeChanged=true;
+    infoChanged=true;
+  }
+  Canvas canvas=new Canvas(myBitmap);
+  float progress=view.getProgress(scrollProgress);
+  if (progress != myLastProgress) {
+    gaugeChanged=true;
+  }
+  final ZLTextView textView=(ZLTextView)view;
+  final int pagesProgress=textView.computeCurrentPage();
+  final int bookLength=textView.computePageNumber();
+  ZLAndroidApplication app=ZLAndroidApplication.Instance();
+  Date date=new Date();
+  if (infoChanged || myLastShowClock != app.FooterShowClock.getValue() || myLastShowBattery != app.FooterShowBattery.getValue() || myLastShowProgress != app.FooterShowProgress.getValue() || (app.FooterShowClock.getValue() && (myLastHours != date.getHours() || myLastMinutes != date.getMinutes())) || (app.FooterShowProgress.getValue() && (myLastPagesNum != bookLength || myLastPage != pagesProgress)) || (app.FooterShowBattery.getValue() && (myLastBattery != ZLApplication.Instance().myBatteryLevel))) {
+    infoChanged=true;
+  }
+  if (infoChanged) {
+    String info="";
+    if (app.FooterShowClock.getValue()) {
+      info+=String.format("%02d:%02d",date.getHours(),date.getMinutes());
+    }
+    if (app.FooterShowBattery.getValue()) {
+      info=String.format("%d%%",ZLApplication.Instance().myBatteryLevel) + (info.equals("") ? "" : " ") + info;
+    }
+    if (app.FooterShowProgress.getValue()) {
+      info=String.format("%d/%d",pagesProgress,bookLength) + (info.equals("") ? "" : " ") + info;
+    }
+    Rect infoRect=new Rect();
+    myTextPaint.getTextBounds(info,0,info.length(),infoRect);
+    int infoWidth=(info.equals("") ? 0 : infoRect.width() + 10);
+    if (myInfoWidth != infoWidth) {
+      gaugeChanged=true;
+      myInfoWidth=infoWidth;
+    }
+    myBgPaint.setColor(bgColor);
+    canvas.drawRect(mySize.x - myInfoWidth,0,mySize.x,mySize.y,myBgPaint);
+    myTextPaint.setColor(fgColor);
+    canvas.drawText(info,mySize.x - 1,mySize.y - delta,myTextPaint);
+  }
+  if (gaugeChanged) {
+    myBgPaint.setColor(bgColor);
+    myGaugeRect.set(0,0,mySize.x - myInfoWidth,mySize.y);
+    canvas.drawRect(myGaugeRect,myBgPaint);
+    myFgPaint.setColor(fgColor);
+    myFgPaint.setStyle(Paint.Style.STROKE);
+    myGaugeRect.right-=(1 - delta);
+    myGaugeRect.inset(1 + delta,1 + delta);
+    canvas.drawRect(myGaugeRect,myFgPaint);
+    myGaugeStart=myGaugeRect.left;
+    myGaugeEnd=myGaugeRect.right;
+    myGaugeRect.inset(2 + delta,2 + delta);
+    myGaugeRect.right=myGaugeRect.left + (int)((float)myGaugeRect.width() * progress);
+    canvas.drawRect(myGaugeRect,myFgPaint);
+  }
+  myLastProgress=progress;
+  myLastBattery=ZLApplication.Instance().myBatteryLevel;
+  myLastHours=date.getHours();
+  myLastMinutes=date.getMinutes();
+  myLastFgColor=fgColor;
+  myLastBgColor=bgColor;
+  myLastShowClock=app.FooterShowClock.getValue();
+  myLastShowBattery=app.FooterShowBattery.getValue();
+  myLastShowProgress=app.FooterShowProgress.getValue();
+  myLastPagesNum=bookLength;
+  myLastPage=pagesProgress;
+  myLastSize=size;
 }
