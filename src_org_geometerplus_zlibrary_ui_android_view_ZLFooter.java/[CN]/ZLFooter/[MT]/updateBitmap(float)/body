@@ -3,7 +3,7 @@
   boolean infoChanged=false;
   final ZLTextView view=(ZLTextView)ZLApplication.Instance().getCurrentView();
   int bgColor=ZLAndroidColorUtil.rgb(view.getBackgroundColor());
-  int fgColor=ZLAndroidColorUtil.rgb(view.getFooterColor());
+  int fgColor=ZLAndroidColorUtil.rgb(view.getTextColor(FBHyperlinkType.NONE));
   if (myLastFgColor != fgColor || myLastBgColor != bgColor) {
     gaugeChanged=true;
     infoChanged=true;
