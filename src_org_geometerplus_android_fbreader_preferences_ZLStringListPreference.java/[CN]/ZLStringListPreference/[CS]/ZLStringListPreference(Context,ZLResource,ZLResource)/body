@@ -1,6 +1,0 @@
-{
-  super(context);
-  myOptResource=optResource;
-  myValResource=(valResource == null ? myOptResource : valResource);
-  setTitle(myOptResource.getValue());
-}

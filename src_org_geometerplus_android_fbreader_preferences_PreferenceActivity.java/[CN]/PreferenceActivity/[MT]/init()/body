@@ -15,10 +15,10 @@
   statusLineScreen.setSummary(statusLineScreen.Resource.getResource("summary").getValue());
   final Category statusLineCategory=statusLineScreen.createCategory(null);
   String[] scrollBarTypes={"hide","show","showAsProgress","showAsFooter"};
-  statusLineCategory.addPreference(new StringListPreference(this,statusLineCategory.Resource.getResource("scrollbarType"),null,scrollBarTypes,((FBReader)FBReader.Instance()).ScrollbarTypeOption));
-  statusLineCategory.addPreference(new ZLIntegerRangePreference(this,statusLineCategory.Resource.getResource("footerSize"),((FBReader)FBReader.Instance()).FooterHeightOption));
+  statusLineCategory.addPreference(new StringListPreference(this,statusLineCategory.Resource,"scrollbarType",scrollBarTypes,((FBReader)FBReader.Instance()).ScrollbarTypeOption));
+  statusLineCategory.addPreference(new ZLIntegerRangePreference(this,statusLineCategory.Resource.getResource("footerHeight"),((FBReader)FBReader.Instance()).FooterHeightOption));
   String[] footerLongTaps={"longTapRevert","longTapNavigate"};
-  statusLineCategory.addPreference(new StringListPreference(this,statusLineCategory.Resource.getResource("footerLongTap"),null,footerLongTaps,((FBReader)FBReader.Instance()).FooterLongTap));
+  statusLineCategory.addPreference(new StringListPreference(this,statusLineCategory.Resource,"footerLongTap",footerLongTaps,((FBReader)FBReader.Instance()).FooterLongTap));
   statusLineCategory.addOption(ZLAndroidApplication.Instance().FooterShowClock,"showClock");
   statusLineCategory.addOption(ZLAndroidApplication.Instance().FooterShowBattery,"showBattery");
   statusLineCategory.addOption(ZLAndroidApplication.Instance().FooterShowProgress,"showProgress");

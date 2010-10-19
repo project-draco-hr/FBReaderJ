@@ -1,5 +1,5 @@
 Context context
-ZLResource optResource
-ZLResource valResource
+ZLResource resource
+String resourceKey
 String[] codes
 ZLOption option
