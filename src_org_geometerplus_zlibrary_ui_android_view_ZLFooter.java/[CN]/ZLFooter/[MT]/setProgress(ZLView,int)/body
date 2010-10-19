@@ -1,3 +1,3 @@
 {
-  view.setProgress(((float)Math.max(myGaugeStart,Math.min(x,myGaugeEnd)) - myGaugeStart) / (myGaugeEnd - myGaugeStart));
+  ((ZLTextView)view).setProgress(((float)Math.max(myGaugeStart,Math.min(x,myGaugeEnd)) - myGaugeStart) / (myGaugeEnd - myGaugeStart));
 }
