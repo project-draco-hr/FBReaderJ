@@ -1,0 +1,13 @@
+{
+  if (scrollbarType() == SCROLLBAR_SHOW_AS_FOOTER) {
+    if (myFooter == null) {
+      myFooter=new Footer();
+    }
+  }
+ else {
+    if (myFooter != null) {
+      myFooter=null;
+    }
+  }
+  return myFooter;
+}

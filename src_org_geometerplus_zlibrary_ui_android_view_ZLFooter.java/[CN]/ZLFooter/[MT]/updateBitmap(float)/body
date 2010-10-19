@@ -8,7 +8,7 @@
     gaugeChanged=true;
     infoChanged=true;
   }
-  int size=view.getFooterHeight();
+  int size=view.getFooterArea().getHeight();
   int delta=size <= 10 ? 0 : 1;
   if (size != myLastSize) {
     mySize.y=size;
