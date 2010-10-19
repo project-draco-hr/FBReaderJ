@@ -1,6 +1,6 @@
 {
   final ZLView view=ZLApplication.Instance().getCurrentView();
-  if (!view.showScrollbar()) {
+  if (!view.isScrollbarShown()) {
     return 0;
   }
   if (myScrollingInProgress || (myScrollingShift != 0)) {
