@@ -24,9 +24,6 @@
   int shift=(myScrollingShift < 0) ? (myScrollingShift + size) : (myScrollingShift - size);
   canvas.drawBitmap(mySecondaryBitmap,horizontal ? shift : 0,horizontal ? 0 : shift,myPaint);
   final ZLView view=ZLApplication.Instance().getCurrentView();
-  if (view.getFooterArea() != null) {
-    myFooter.onDraw(canvas,getScrollProgress());
-  }
   if (stopScrolling) {
     if (myScrollingBound != 0) {
       Bitmap swap=myMainBitmap;
@@ -57,5 +54,8 @@
     if (myScrollingInProgress) {
       postInvalidate();
     }
+  }
+  if (view.getFooterArea() != null) {
+    myFooter.onDraw(canvas,getScrollProgress());
   }
 }

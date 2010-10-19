@@ -1,5 +1,5 @@
 {
-  if (scrollbarType() == SCROLLBAR_SHOW_AS_FOOTER) {
+  if (myReader.ScrollbarTypeOption.getValue() == SCROLLBAR_SHOW_AS_FOOTER) {
     if (myFooter == null) {
       myFooter=new Footer();
     }

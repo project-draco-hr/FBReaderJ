@@ -1,3 +1,4 @@
 {
-  return myReader.ScrollbarTypeOption.getValue();
+  int type=myReader.ScrollbarTypeOption.getValue();
+  return (type <= 2) ? type : SCROLLBAR_HIDE;
 }
