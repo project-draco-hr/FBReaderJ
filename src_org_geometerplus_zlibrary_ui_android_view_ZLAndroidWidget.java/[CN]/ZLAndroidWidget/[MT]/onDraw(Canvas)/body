@@ -1,4 +1,11 @@
 {
+  final Context context=getContext();
+  if (context instanceof ZLAndroidActivity) {
+    ((ZLAndroidActivity)context).createWakeLock();
+  }
+ else {
+    System.err.println("A surprise: view's context is not a ZLAndroidActivity");
+  }
   super.onDraw(canvas);
   final int w=getWidth();
   final int h=getHeight();
