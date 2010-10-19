@@ -24,7 +24,7 @@
   int shift=(myScrollingShift < 0) ? (myScrollingShift + size) : (myScrollingShift - size);
   canvas.drawBitmap(mySecondaryBitmap,horizontal ? shift : 0,horizontal ? 0 : shift,myPaint);
   final ZLView view=ZLApplication.Instance().getCurrentView();
-  if (view.scrollbarType() == ZLView.SCROLLBAR_SHOW_AS_FOOTER) {
+  if (((ZLTextView)view).scrollbarType() == ZLTextView.SCROLLBAR_SHOW_AS_FOOTER) {
     myFooter.onDraw(canvas,getScrollProgress());
   }
   if (stopScrolling) {

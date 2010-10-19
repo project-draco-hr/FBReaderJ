@@ -1,7 +1,7 @@
 {
   drawOnBitmap(myMainBitmap);
   canvas.drawBitmap(myMainBitmap,0,0,myPaint);
-  if (ZLApplication.Instance().getCurrentView().scrollbarType() == ZLView.SCROLLBAR_SHOW_AS_FOOTER) {
+  if (((ZLTextView)ZLApplication.Instance().getCurrentView()).scrollbarType() == ZLTextView.SCROLLBAR_SHOW_AS_FOOTER) {
     myFooter.onDraw(canvas,getScrollProgress());
   }
 }

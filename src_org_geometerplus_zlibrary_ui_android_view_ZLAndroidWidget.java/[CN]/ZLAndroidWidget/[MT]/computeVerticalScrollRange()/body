@@ -1,6 +1,6 @@
 {
   final ZLView view=ZLApplication.Instance().getCurrentView();
-  if (view.scrollbarType() != ZLView.SCROLLBAR_SHOW && view.scrollbarType() != ZLView.SCROLLBAR_SHOW_AS_PROGRESS) {
+  if (!view.showScrollbar()) {
     return 0;
   }
   return view.getScrollbarFullSize();

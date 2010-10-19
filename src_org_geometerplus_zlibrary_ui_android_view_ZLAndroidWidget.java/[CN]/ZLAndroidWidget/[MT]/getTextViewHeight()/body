@@ -1,7 +1,7 @@
 {
   int height=getHeight();
   final ZLView view=ZLApplication.Instance().getCurrentView();
-  if (view.scrollbarType() == ZLView.SCROLLBAR_SHOW_AS_FOOTER) {
+  if (((ZLTextView)view).scrollbarType() == ZLTextView.SCROLLBAR_SHOW_AS_FOOTER) {
     height-=myFooter.getHeight();
   }
   return height;
