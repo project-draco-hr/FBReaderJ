@@ -11,7 +11,7 @@
   String account=null;
   NetworkAuthenticationManager mgr=item.Link.authenticationManager();
   if (mgr != null) {
-    if (mgr.isAuthorised(false).Status != ZLBoolean3.B3_FALSE) {
+    if (mgr.mayBeAuthorised(false)) {
       userName=mgr.currentUserName();
       signOut=true;
       account=mgr.currentAccount();

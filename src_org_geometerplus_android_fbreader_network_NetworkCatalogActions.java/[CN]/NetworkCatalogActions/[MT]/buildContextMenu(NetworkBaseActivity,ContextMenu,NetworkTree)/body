@@ -13,8 +13,7 @@
     if (isVisible) {
       final NetworkAuthenticationManager mgr=item.Link.authenticationManager();
       if (mgr != null) {
-        final boolean maybeSignedIn=mgr.isAuthorised(false).Status != ZLBoolean3.B3_FALSE;
-        if (maybeSignedIn) {
+        if (mgr.mayBeAuthorised(false)) {
           addMenuItem(menu,SIGNOUT_ITEM_ID,"signOut",mgr.currentUserName());
           if (mgr.refillAccountLink() != null) {
             final String account=mgr.currentAccount();

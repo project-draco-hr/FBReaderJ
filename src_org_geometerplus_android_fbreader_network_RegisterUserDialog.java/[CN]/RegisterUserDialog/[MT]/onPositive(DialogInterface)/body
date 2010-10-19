@@ -35,7 +35,7 @@
       boolean doRestart=true;
       try {
         mgr.registerUser(myLogin,myPassword,myEmail);
-        if (mgr.isAuthorised(true).Status != ZLBoolean3.B3_FALSE && mgr.needsInitialization()) {
+        if (mgr.mayBeAuthorised(true) && mgr.needsInitialization()) {
           doRestart=false;
           mgr.initialize();
         }
