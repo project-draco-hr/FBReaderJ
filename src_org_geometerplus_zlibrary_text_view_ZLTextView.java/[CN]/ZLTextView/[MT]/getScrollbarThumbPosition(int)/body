@@ -1,11 +1,3 @@
 {
-  if ((myModel == null) || (myModel.getParagraphsNumber() == 0)) {
-    return 0;
-  }
-  if (scrollbarType() == SCROLLBAR_SHOW_AS_PROGRESS) {
-    return 0;
-  }
-  ZLTextPage page=getPage(viewPage);
-  preparePaintInfo(page);
-  return Math.max(0,sizeOfTextBeforeCursor(page.StartCursor));
+  return scrollbarType() == SCROLLBAR_SHOW_AS_PROGRESS ? 0 : getCurrentCharNumber(viewPage,true);
 }
