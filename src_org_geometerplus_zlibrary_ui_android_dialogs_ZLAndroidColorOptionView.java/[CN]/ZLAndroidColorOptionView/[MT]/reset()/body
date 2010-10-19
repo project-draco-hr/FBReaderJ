@@ -6,6 +6,6 @@
     myRedView.setComponentValue(color.Red);
     myGreenView.setComponentValue(color.Green);
     myBlueView.setComponentValue(color.Blue);
-    myColorArea.setBackgroundColor(0xFF000000 + (color.Red << 16) + (color.Green << 8)+ color.Blue);
+    myColorArea.setBackgroundColor(ZLAndroidColorUtil.rgb(color));
   }
 }
