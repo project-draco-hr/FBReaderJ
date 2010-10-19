@@ -1,16 +1,8 @@
 {
-  final String strValue=getValue();
   if (myOption instanceof ZLIntegerRangeOption) {
-    int intValue=0;
-    for (int i=0; i < myCodes.length; ++i) {
-      if (strValue == myCodes[i]) {
-        intValue=i;
-        break;
-      }
-    }
-    ((ZLIntegerRangeOption)myOption).setValue(intValue);
+    ((ZLIntegerRangeOption)myOption).setValue(findIndexOfValue(getValue()));
   }
-  if (myOption instanceof ZLStringOption) {
-    ((ZLStringOption)myOption).setValue(strValue);
+ else   if (myOption instanceof ZLStringOption) {
+    ((ZLStringOption)myOption).setValue(getValue);
   }
 }

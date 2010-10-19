@@ -2,19 +2,15 @@
   super(context,resource,resourceKey);
   myCodes=codes;
   myOption=option;
-  final String[] texts=new String[myCodes.length];
-  for (int i=0; i < myCodes.length; ++i) {
-    texts[i]=resource.getResource(resourceKey).getResource(myCodes[i]).getValue();
-  }
-  setLists(myCodes,texts);
+  setList(codes);
   if (myOption instanceof ZLIntegerRangeOption) {
-    setInitialValue(myCodes[Math.max(0,Math.min(myCodes.length - 1,((ZLIntegerRangeOption)myOption).getValue()))]);
+    setInitialValue(codes[Math.max(0,Math.min(myCodes.length - 1,((ZLIntegerRangeOption)myOption).getValue()))]);
   }
   if (myOption instanceof ZLStringOption) {
     String initVal=((ZLStringOption)myOption).getValue();
-    for (int i=0; i < myCodes.length; ++i) {
-      if (myCodes[i].equals(initVal)) {
-        setInitialValue(myCodes[i]);
+    for (int i=0; i < codes.length; ++i) {
+      if (codes[i].equals(initVal)) {
+        setInitialValue(codes[i]);
         break;
       }
     }
