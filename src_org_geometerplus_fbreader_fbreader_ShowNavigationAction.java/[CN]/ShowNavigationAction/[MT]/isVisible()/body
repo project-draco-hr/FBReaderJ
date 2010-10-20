@@ -1,3 +1,5 @@
 {
-  return Reader.canNavigate();
+  final ZLTextView view=(ZLTextView)Reader.getCurrentView();
+  final ZLTextModel textModel=view.getModel();
+  return textModel != null && textModel.getParagraphsNumber() != 0;
 }
