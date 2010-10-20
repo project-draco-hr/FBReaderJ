@@ -34,4 +34,5 @@
     ZLApplication.Instance().openFile(ZLFile.createFileByPath(fileToOpen));
   }
   ZLApplication.Instance().repaintView();
+  registerReceiver(myBatteryInfoReceiver,new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
 }
