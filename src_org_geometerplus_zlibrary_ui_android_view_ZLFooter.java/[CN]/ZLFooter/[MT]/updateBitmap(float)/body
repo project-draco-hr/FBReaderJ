@@ -34,7 +34,7 @@
   }
   FBReader fbReader=(FBReader)FBReader.Instance();
   Date date=new Date();
-  if (infoChanged || myLastShowClock != fbReader.FooterShowClock.getValue() || myLastShowBattery != fbReader.FooterShowBattery.getValue() || myLastShowProgress != fbReader.FooterShowProgress.getValue() || (fbReader.FooterShowClock.getValue() && (myLastHours != date.getHours() || myLastMinutes != date.getMinutes())) || (fbReader.FooterShowProgress.getValue() && (myLastPagesNum != bookLength || myLastPage != pagesProgress)) || (fbReader.FooterShowBattery.getValue() && (myLastBattery != ZLApplication.Instance().myBatteryLevel))) {
+  if (infoChanged || myLastShowClock != fbReader.FooterShowClock.getValue() || myLastShowBattery != fbReader.FooterShowBattery.getValue() || myLastShowProgress != fbReader.FooterShowProgress.getValue() || (fbReader.FooterShowClock.getValue() && (myLastHours != date.getHours() || myLastMinutes != date.getMinutes())) || (fbReader.FooterShowProgress.getValue() && (myLastPagesNum != bookLength || myLastPage != pagesProgress)) || (fbReader.FooterShowBattery.getValue() && (myLastBattery != ZLApplication.Instance().getBatteryLevel()))) {
     infoChanged=true;
   }
   if (infoChanged) {
@@ -43,7 +43,7 @@
       info+=String.format("%02d:%02d",date.getHours(),date.getMinutes());
     }
     if (fbReader.FooterShowBattery.getValue()) {
-      info=String.format("%d%%",ZLApplication.Instance().myBatteryLevel) + (info.equals("") ? "" : " ") + info;
+      info=String.format("%d%%",ZLApplication.Instance().getBatteryLevel()) + (info.equals("") ? "" : " ") + info;
     }
     if (fbReader.FooterShowProgress.getValue()) {
       info=String.format("%d/%d",pagesProgress,bookLength) + (info.equals("") ? "" : " ") + info;
@@ -76,7 +76,7 @@
     canvas.drawRect(myGaugeRect,myFgPaint);
   }
   myLastProgress=progress;
-  myLastBattery=ZLApplication.Instance().myBatteryLevel;
+  myLastBattery=ZLApplication.Instance().getBatteryLevel();
   myLastHours=date.getHours();
   myLastMinutes=date.getMinutes();
   myLastFgColor=fgColor;
