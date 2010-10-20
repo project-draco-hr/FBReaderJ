@@ -1,6 +1,6 @@
 {
   LitResAuthenticationManager mgr=(LitResAuthenticationManager)Link.authenticationManager();
-  if (mgr.isAuthorised(true).Status == ZLBoolean3.B3_FALSE) {
+  if (!mgr.mayBeAuthorised(true)) {
     throw new ZLNetworkException(NetworkException.ERROR_AUTHENTICATION_FAILED);
   }
   try {

@@ -24,7 +24,7 @@
  else           if (downloadBook) {
             doDownloadBook(activity,book,false);
           }
-          if (mgr.isAuthorised(true).Status == ZLBoolean3.B3_FALSE) {
+          if (!mgr.mayBeAuthorised(true)) {
             final NetworkLibrary library=NetworkLibrary.Instance();
             library.invalidateVisibility();
             library.synchronize();
@@ -64,11 +64,13 @@
     }
   }
 ;
-  if (mgr.isAuthorised(true).Status != ZLBoolean3.B3_TRUE) {
-    NetworkDialog.show(activity,NetworkDialog.DIALOG_AUTHENTICATION,book.Link,buyRunnable);
-    return;
+  try {
+    if (mgr.isAuthorised(true)) {
+      buyRunnable.run();
+      return;
+    }
   }
- else {
-    buyRunnable.run();
+ catch (  ZLNetworkException e) {
   }
+  NetworkDialog.show(activity,NetworkDialog.DIALOG_AUTHENTICATION,book.Link,buyRunnable);
 }

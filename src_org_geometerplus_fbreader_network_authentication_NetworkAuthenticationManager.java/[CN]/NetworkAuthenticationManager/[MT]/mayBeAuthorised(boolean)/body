@@ -1,0 +1,8 @@
+{
+  try {
+    return isAuthorised(useNetwork);
+  }
+ catch (  ZLNetworkException e) {
+  }
+  return true;
+}

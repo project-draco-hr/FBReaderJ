@@ -1,13 +1,13 @@
 {
   final File dirFile=new File(Paths.networkCacheDirectory());
   if (!dirFile.exists() && !dirFile.mkdirs()) {
-    try {
-      new OPDSLinkXMLReader(listener,null).read(new URL(CATALOGS_URL).openStream());
-      return;
+    ZLNetworkManager.Instance().perform(new ZLNetworkRequest(CATALOGS_URL){
+      @Override public void handleStream(      URLConnection connection,      InputStream inputStream) throws IOException, ZLNetworkException {
+        new OPDSLinkXMLReader(listener,null).read(inputStream);
+      }
     }
- catch (    Exception e) {
-      throw new ZLNetworkException("cacheDirectoryError");
-    }
+);
+    return;
   }
   final String fileName="fbreader_catalogs-" + CATALOGS_URL.substring(CATALOGS_URL.lastIndexOf(File.separator) + 1);
   boolean cacheIsGood=false;
