@@ -1,11 +1,9 @@
 {
-  boolean gaugeChanged=false;
   boolean infoChanged=false;
   final ZLTextView view=(ZLTextView)ZLApplication.Instance().getCurrentView();
   int bgColor=ZLAndroidColorUtil.rgb(view.getBackgroundColor());
   int fgColor=ZLAndroidColorUtil.rgb(view.getTextColor(FBHyperlinkType.NONE));
   if (myLastFgColor != fgColor || myLastBgColor != bgColor) {
-    gaugeChanged=true;
     infoChanged=true;
   }
   int size=view.getFooterArea().getHeight();
@@ -21,7 +19,6 @@
   }
   if (myBitmap == null || myBitmap.getWidth() != mySize.x || myBitmap.getHeight() != mySize.y) {
     myBitmap=Bitmap.createBitmap(mySize.x,mySize.y,Bitmap.Config.RGB_565);
-    gaugeChanged=true;
     infoChanged=true;
   }
   Canvas canvas=new Canvas(myBitmap);
@@ -55,7 +52,6 @@
     infoChanged=true;
   }
   if (infoChanged) {
-    gaugeChanged=true;
     Rect infoRect=new Rect();
     myTextPaint.getTextBounds(infoString,0,infoString.length(),infoRect);
     myInfoWidth=(infoString.equals("") ? 0 : infoRect.width() + 10);
@@ -63,8 +59,6 @@
     canvas.drawRect(mySize.x - myInfoWidth,0,mySize.x,mySize.y,myBgPaint);
     myTextPaint.setColor(fgColor);
     canvas.drawText(infoString,mySize.x - 1,mySize.y - delta,myTextPaint);
-  }
-  if (gaugeChanged) {
     myBgPaint.setColor(bgColor);
     myGaugeRect.set(0,0,mySize.x - myInfoWidth,mySize.y);
     canvas.drawRect(myGaugeRect,myBgPaint);
@@ -81,8 +75,5 @@
   }
   myLastFgColor=fgColor;
   myLastBgColor=bgColor;
-  myLastShowClock=fbReader.FooterShowClock.getValue();
-  myLastShowBattery=fbReader.FooterShowBattery.getValue();
-  myLastShowProgress=fbReader.FooterShowProgress.getValue();
   myLastSize=size;
 }
