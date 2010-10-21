@@ -20,11 +20,12 @@
     myTextPaint.setStyle(Paint.Style.FILL);
     myTextPaint.setAntiAlias(true);
   }
-  if (myBitmap == null || myBitmap.getWidth() != mySize.x || myBitmap.getHeight() != mySize.y) {
-    myBitmap=Bitmap.createBitmap(mySize.x,mySize.y,Bitmap.Config.RGB_565);
+  if (bitmap.getWidth() != myOldSize.x || bitmap.getHeight() != myOldSize.y) {
+    myOldSize.x=bitmap.getWidth();
+    myOldSize.y=bitmap.getHeight();
     infoChanged=true;
   }
-  Canvas canvas=new Canvas(myBitmap);
+  Canvas canvas=new Canvas(bitmap);
   final ZLTextView textView=(ZLTextView)view;
   final int pagesProgress=textView.computeCurrentPage();
   final int bookLength=textView.computePageNumber();

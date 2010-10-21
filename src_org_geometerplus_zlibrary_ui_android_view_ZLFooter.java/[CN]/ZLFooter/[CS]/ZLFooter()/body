@@ -1,5 +1,6 @@
 {
   mySize=new Point(0,9);
+  myOldSize=new Point(0,0);
   myDrawAreaSize=new Point(0,0);
   myGaugeRect=new Rect();
   myLastHeight=-1;
