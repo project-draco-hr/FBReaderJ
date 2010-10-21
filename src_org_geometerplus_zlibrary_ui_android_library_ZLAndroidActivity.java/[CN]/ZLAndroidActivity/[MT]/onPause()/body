@@ -1,8 +1,5 @@
 {
-  if (myWakeLock != null) {
-    myWakeLock.release();
-    myWakeLock=null;
-  }
+  switchWakeLock(false);
   ZLApplication.Instance().onWindowClosing();
   super.onPause();
 }

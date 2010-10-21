@@ -1,0 +1,19 @@
+{
+  super(context,rootResource,resourceKey);
+  myOption=option;
+  String[] entries={"0","25","50","100"};
+  setList(entries);
+  int value=option.getValue();
+  if (value <= 0) {
+    setInitialValue("0");
+  }
+ else   if (value <= 25) {
+    setInitialValue("25");
+  }
+ else   if (value <= 50) {
+    setInitialValue("50");
+  }
+ else {
+    setInitialValue("100");
+  }
+}
