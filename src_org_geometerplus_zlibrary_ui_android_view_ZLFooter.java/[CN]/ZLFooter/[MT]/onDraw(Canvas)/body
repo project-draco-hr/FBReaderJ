@@ -1,4 +1,4 @@
 {
-  updateBitmap(scrollProgress);
+  updateBitmap();
   canvas.drawBitmap(myBitmap,0,myDrawAreaSize.y - mySize.y,myBgPaint);
 }
