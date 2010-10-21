@@ -1,5 +1,5 @@
 {
   super.onResume();
-  myWakeLockToCreate=ZLAndroidApplication.Instance().DontTurnScreenOffOption.getValue();
-  myWakeLock=null;
+  myWakeLockToCreate=ZLAndroidApplication.Instance().BatteryLevelToTurnScreenOffOption.getValue() < ZLApplication.Instance().getBatteryLevel();
+  switchWakeLock(true);
 }

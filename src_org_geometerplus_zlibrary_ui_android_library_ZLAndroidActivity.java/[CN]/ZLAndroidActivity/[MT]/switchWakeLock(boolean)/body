@@ -1,0 +1,17 @@
+{
+  if (on) {
+    if (myWakeLock == null) {
+      myWakeLockToCreate=true;
+    }
+  }
+ else {
+    if (myWakeLock != null) {
+synchronized (this) {
+        if (myWakeLock != null) {
+          myWakeLock.release();
+          myWakeLock=null;
+        }
+      }
+    }
+  }
+}

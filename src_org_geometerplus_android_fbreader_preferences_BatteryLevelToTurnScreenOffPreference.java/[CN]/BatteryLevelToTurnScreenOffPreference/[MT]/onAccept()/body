@@ -1,0 +1,7 @@
+{
+  try {
+    myOption.setValue(Integer.parseInt(getValue()));
+  }
+ catch (  NumberFormatException e) {
+  }
+}
