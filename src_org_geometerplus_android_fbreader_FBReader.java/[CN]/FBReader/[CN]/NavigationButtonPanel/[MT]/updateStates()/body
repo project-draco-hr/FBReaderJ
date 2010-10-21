@@ -1,6 +1,0 @@
-{
-  super.updateStates();
-  if (!NavigateDragging && FBReader.Instance != null && myControlPanel != null) {
-    FBReader.Instance.setupNavigation(myControlPanel);
-  }
-}
