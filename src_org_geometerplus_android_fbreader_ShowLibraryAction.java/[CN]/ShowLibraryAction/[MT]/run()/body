@@ -10,5 +10,5 @@
     }
   }
 ;
-  AnroidUtil.wait("loadingBookList",action,myBaseActivity);
+  AndroidUtil.wait("loadingBookList",action,myBaseActivity);
 }
