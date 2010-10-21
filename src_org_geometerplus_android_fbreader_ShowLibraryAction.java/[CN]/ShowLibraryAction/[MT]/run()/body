@@ -1,6 +1,4 @@
 {
-  final ZLAndroidDialogManager dialogManager=(ZLAndroidDialogManager)ZLAndroidDialogManager.Instance();
-  final HashMap<String,String> data=new HashMap<String,String>();
   final BookModel model=Reader.Model;
   Runnable action=new Runnable(){
     public void run(){
@@ -12,5 +10,5 @@
     }
   }
 ;
-  dialogManager.wait("loadingBookList",action);
+  AnroidUtil.wait("loadingBookList",action,myBaseActivity);
 }
