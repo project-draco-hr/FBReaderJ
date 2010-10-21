@@ -2,7 +2,6 @@
   int width=getWidth();
   int height=getHeight();
   if (myViewSize.x != width || myViewSize.y != height) {
-    myFooter.setDrawAreaSize(width,height);
     myViewSize.x=width;
     myViewSize.y=height;
   }
