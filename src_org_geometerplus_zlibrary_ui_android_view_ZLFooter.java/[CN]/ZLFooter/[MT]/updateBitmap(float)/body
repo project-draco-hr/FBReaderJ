@@ -28,7 +28,7 @@
   final ZLTextView textView=(ZLTextView)view;
   final int pagesProgress=textView.computeCurrentPage();
   final int bookLength=textView.computePageNumber();
-  final FBReader fbReader=(FBReader)FBReader.Instance();
+  final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
   final StringBuilder info=new StringBuilder();
   if (fbReader.FooterShowProgress.getValue()) {
     info.append(pagesProgress);
