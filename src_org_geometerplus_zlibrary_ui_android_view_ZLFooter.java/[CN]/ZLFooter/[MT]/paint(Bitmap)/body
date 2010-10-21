@@ -25,10 +25,8 @@
     myLastWidth=width;
     infoChanged=true;
   }
-  Canvas canvas=new Canvas(bitmap);
-  final ZLTextView textView=(ZLTextView)view;
-  final int pagesProgress=textView.computeCurrentPage();
-  final int bookLength=textView.computePageNumber();
+  final int pagesProgress=view.computeCurrentPage();
+  final int bookLength=view.computePageNumber();
   final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
   final StringBuilder info=new StringBuilder();
   if (fbReader.FooterShowProgress.getValue()) {
@@ -56,6 +54,7 @@
     infoChanged=true;
   }
   if (infoChanged) {
+    Canvas canvas=new Canvas(bitmap);
     Rect infoRect=new Rect();
     myTextPaint.getTextBounds(infoString,0,infoString.length(),infoRect);
     int infoWidth=infoString.equals("") ? 0 : infoRect.width() + 10;
