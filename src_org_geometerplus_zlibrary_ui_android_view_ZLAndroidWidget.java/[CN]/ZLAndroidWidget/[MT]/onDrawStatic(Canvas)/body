@@ -1,8 +1,5 @@
 {
   drawOnBitmap(myMainBitmap);
   canvas.drawBitmap(myMainBitmap,0,0,myPaint);
-  final ZLView view=ZLApplication.Instance().getCurrentView();
-  if (view.getFooterArea() != null) {
-    myFooter.onDraw(canvas);
-  }
+  drawFooter(canvas);
 }
