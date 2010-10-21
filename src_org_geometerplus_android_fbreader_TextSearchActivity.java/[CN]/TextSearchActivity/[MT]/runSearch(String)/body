@@ -1,5 +1,5 @@
 {
-  final FBReader fbReader=(FBReader)FBReader.Instance();
+  final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
   fbReader.TextSearchPatternOption.setValue(pattern);
   return fbReader.getTextView().search(pattern,true,false,false,false) != 0;
 }

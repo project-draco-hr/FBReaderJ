@@ -1,0 +1,16 @@
+{
+  final LinkedList<Boolean> visibilities=new LinkedList<Boolean>();
+  ControlButtonPanel.saveVisibilitiesTo(visibilities);
+  ControlButtonPanel.hideAllPendingNotify();
+  final SearchManager manager=(SearchManager)getSystemService(SEARCH_SERVICE);
+  manager.setOnCancelListener(new SearchManager.OnCancelListener(){
+    public void onCancel(){
+      ControlButtonPanel.restoreVisibilitiesFrom(visibilities);
+      manager.setOnCancelListener(null);
+    }
+  }
+);
+  final FBReaderApp fbreader=(FBReaderApp)ZLApplication.Instance();
+  startSearch(fbreader.TextSearchPatternOption.getValue(),true,null,false);
+  return true;
+}
