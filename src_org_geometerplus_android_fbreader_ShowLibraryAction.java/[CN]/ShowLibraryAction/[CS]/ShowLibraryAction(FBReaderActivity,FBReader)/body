@@ -1,0 +1,4 @@
+{
+  super(fbreader);
+  myBaseActivity=baseActivity;
+}

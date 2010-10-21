@@ -1,0 +1,13 @@
+{
+  new SQLiteBooksDatabase();
+  final String[] args=(fileName != null) ? new String[]{fileName} : new String[0];
+  final FBReader fbReader=new FBReader(args);
+  fbReader.addAction(ActionCode.SHOW_LIBRARY,new ShowLibraryAction(this,fbReader));
+  fbReader.addAction(ActionCode.SHOW_PREFERENCES,new PreferencesAction(this,fbReader));
+  fbReader.addAction(ActionCode.SHOW_BOOK_INFO,new BookInfoAction(this,fbReader));
+  fbReader.addAction(ActionCode.SHOW_CONTENTS,new ShowTOCAction(this,fbReader));
+  fbReader.addAction(ActionCode.SHOW_BOOKMARKS,new ShowBookmarksAction(this,fbReader));
+  fbReader.addAction(ActionCode.SHOW_NETWORK_LIBRARY,new ShowNetworkLibraryAction(this,fbReader));
+  fbReader.addAction(ActionCode.SHOW_NAVIGATION,new ShowNavigationAction(this,fbReader));
+  return fbReader;
+}
