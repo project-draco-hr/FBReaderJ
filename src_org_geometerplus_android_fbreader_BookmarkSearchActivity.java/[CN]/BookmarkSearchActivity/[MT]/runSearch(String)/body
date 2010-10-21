@@ -1,5 +1,5 @@
 {
-  final FBReader fbreader=(FBReader)FBReader.Instance();
+  final FBReaderApp fbreader=(FBReaderApp)FBReaderApp.Instance();
   fbreader.BookmarkSearchPatternOption.setValue(pattern);
   pattern=pattern.toLowerCase();
   myBookmarks.clear();

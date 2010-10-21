@@ -1,5 +1,5 @@
 {
-  final Intent intent=new Intent(getApplicationContext(),FBReaderActivity.class);
+  final Intent intent=new Intent(getApplicationContext(),FBReader.class);
   intent.setAction(Intent.ACTION_VIEW);
   if (file != null) {
     intent.setData(Uri.fromFile(file));

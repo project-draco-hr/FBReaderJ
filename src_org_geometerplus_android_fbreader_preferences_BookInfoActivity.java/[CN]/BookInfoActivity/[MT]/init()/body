@@ -1,6 +1,6 @@
 {
   final Category commonCategory=createCategory(null);
-  myBook=((FBReader)FBReader.Instance()).Model.Book;
+  myBook=((FBReaderApp)FBReaderApp.Instance()).Model.Book;
   if (myBook.File.getPhysicalFile() != null) {
     commonCategory.addPreference(new InfoPreference(this,commonCategory.Resource.getResource("fileName").getValue(),myBook.File.getPath()));
   }

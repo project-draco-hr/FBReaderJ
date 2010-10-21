@@ -2,7 +2,7 @@
   final Category libraryCategory=createCategory("Library");
   libraryCategory.addPreference(new ZLStringOptionPreference(this,Paths.BooksDirectoryOption,libraryCategory.Resource,"path"));
   final Category lookNFeelCategory=createCategory("LookNFeel");
-  final FBReader fbReader=(FBReader)FBReader.Instance();
+  final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
   final Screen appearanceScreen=lookNFeelCategory.createPreferenceScreen("appearanceSettings");
   appearanceScreen.setSummary(appearanceScreen.Resource.getResource("summary").getValue());
   appearanceScreen.setOnPreferenceClickListener(new PreferenceScreen.OnPreferenceClickListener(){
