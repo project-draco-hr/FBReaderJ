@@ -5,14 +5,17 @@
   int fgColor=ZLAndroidColorUtil.rgb(view.getTextColor(FBHyperlinkType.NONE));
   if (myLastFgColor != fgColor || myLastBgColor != bgColor) {
     infoChanged=true;
+    myLastFgColor=fgColor;
+    myLastBgColor=bgColor;
   }
-  int size=view.getFooterArea().getHeight();
-  int delta=size <= 10 ? 0 : 1;
-  if (size != myLastSize) {
-    mySize.y=size;
-    myTextPaint.setTextSize(size <= 10 ? size + 3 : size + 1);
-    myFgPaint.setStrokeWidth(size <= 10 ? 1 : 2);
-    myTextPaint.setTypeface(Typeface.create(Typeface.SANS_SERIF,size <= 10 ? Typeface.NORMAL : Typeface.BOLD));
+  int height=view.getFooterArea().getHeight();
+  int delta=height <= 10 ? 0 : 1;
+  if (height != myLastHeight) {
+    myLastHeight=height;
+    mySize.y=height;
+    myTextPaint.setTextSize(height <= 10 ? height + 3 : height + 1);
+    myFgPaint.setStrokeWidth(height <= 10 ? 1 : 2);
+    myTextPaint.setTypeface(Typeface.create(Typeface.SANS_SERIF,height <= 10 ? Typeface.NORMAL : Typeface.BOLD));
     myTextPaint.setTextAlign(Paint.Align.RIGHT);
     myTextPaint.setStyle(Paint.Style.FILL);
     myTextPaint.setAntiAlias(true);
@@ -54,13 +57,13 @@
   if (infoChanged) {
     Rect infoRect=new Rect();
     myTextPaint.getTextBounds(infoString,0,infoString.length(),infoRect);
-    myInfoWidth=(infoString.equals("") ? 0 : infoRect.width() + 10);
+    int infoWidth=infoString.equals("") ? 0 : infoRect.width() + 10;
     myBgPaint.setColor(bgColor);
-    canvas.drawRect(mySize.x - myInfoWidth,0,mySize.x,mySize.y,myBgPaint);
+    canvas.drawRect(mySize.x - infoWidth,0,mySize.x,mySize.y,myBgPaint);
     myTextPaint.setColor(fgColor);
     canvas.drawText(infoString,mySize.x - 1,mySize.y - delta,myTextPaint);
     myBgPaint.setColor(bgColor);
-    myGaugeRect.set(0,0,mySize.x - myInfoWidth,mySize.y);
+    myGaugeRect.set(0,0,mySize.x - infoWidth,mySize.y);
     canvas.drawRect(myGaugeRect,myBgPaint);
     myFgPaint.setColor(fgColor);
     myFgPaint.setStyle(Paint.Style.STROKE);
@@ -73,7 +76,4 @@
     myGaugeRect.right=myGaugeRect.left + (int)((float)myGaugeRect.width() * pagesProgress / bookLength);
     canvas.drawRect(myGaugeRect,myFgPaint);
   }
-  myLastFgColor=fgColor;
-  myLastBgColor=bgColor;
-  myLastSize=size;
 }

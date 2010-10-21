@@ -1,10 +1,6 @@
 {
   mySize=new Point(0,9);
   myDrawAreaSize=new Point(0,0);
-  myBgPaint=new Paint();
-  myFgPaint=new Paint();
   myGaugeRect=new Rect();
-  myInfoWidth=0;
-  myTextPaint=new Paint();
-  myLastSize=-1;
+  myLastHeight=-1;
 }
