@@ -1,6 +1,10 @@
 {
+  if (view.getFooterArea() == null) {
+    return;
+  }
   ZLTextView textView=(ZLTextView)view;
-  float progress=1.0f * Math.min(x,myGaugeEnd) / myGaugeEnd;
+  int gaugeWidth=view.getFooterArea().getGaugeWidth();
+  float progress=1.0f * Math.min(x,gaugeWidth) / gaugeWidth;
   int page=(int)(progress * textView.computePageNumber());
   if (page <= 1) {
     textView.gotoHome();
