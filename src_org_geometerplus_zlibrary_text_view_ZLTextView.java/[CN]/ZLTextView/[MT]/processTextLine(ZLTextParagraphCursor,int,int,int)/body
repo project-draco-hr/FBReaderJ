@@ -1,5 +1,5 @@
 {
-  final ZLPaintContext context=Context;
+  final ZLPaintContext context=myContext;
   final ZLTextLineInfo info=new ZLTextLineInfo(paragraphCursor,startIndex,startCharIndex,getTextStyle());
   final ZLTextLineInfo cachedInfo=myLineInfoCache.get(info);
   if (cachedInfo != null) {
@@ -112,7 +112,7 @@
       final ZLTextWord word=(ZLTextWord)element;
       newWidth-=getWordWidth(word,currentCharIndex);
       int spaceLeft=maxWidth - newWidth;
-      if ((word.Length > 3) && (spaceLeft > 2 * Context.getSpaceWidth())) {
+      if ((word.Length > 3) && (spaceLeft > 2 * context.getSpaceWidth())) {
         ZLTextHyphenationInfo hyphenationInfo=ZLTextHyphenator.Instance().getInfo(word);
         int hyphenationPosition=word.Length - 1;
         int subwordWidth=0;
