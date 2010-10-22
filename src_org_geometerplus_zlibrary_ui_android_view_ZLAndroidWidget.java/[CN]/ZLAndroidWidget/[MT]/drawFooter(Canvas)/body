@@ -11,7 +11,7 @@
     final ZLAndroidPaintContext context=new ZLAndroidPaintContext(new Canvas(myFooterBitmap),getWidth(),footer.getHeight(),view.isScrollbarShown() ? getVerticalScrollbarWidth() : 0);
     footer.paint(context);
     myFooter.paint(context);
-    canvas.drawBitmap(myFooterBitmap,0,getHeight() - footer.getHeight(),myPaint);
+    canvas.drawBitmap(myFooterBitmap,0,getMainAreaHeight(),myPaint);
   }
  else {
     myFooterBitmap=null;
