@@ -9,8 +9,9 @@ case MotionEvent.ACTION_UP:
         removeCallbacks(myPendingLongClickRunnable);
       }
       if (myPendingPress) {
-        if (y > getHeight() - myFooter.getTapHeight()) {
-          myFooter.setProgress(view,myPressedX);
+        FBView.Footer f=(FBView.Footer)view.getFooterArea();
+        if (f != null && y > getHeight() - f.getTapHeight()) {
+          f.setProgress(myPressedX);
         }
  else {
           view.onStylusPress(myPressedX,myPressedY);
