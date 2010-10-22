@@ -12,6 +12,6 @@
  else {
     mySecondaryBitmapIsUpToDate=true;
   }
-  final ZLAndroidPaintContext context=new ZLAndroidPaintContext(new Canvas(bitmap),getWidth(),getHeight(),getWidth() - getTextViewWidth());
+  final ZLAndroidPaintContext context=new ZLAndroidPaintContext(new Canvas(bitmap),getWidth(),getTextViewHeight(),view.isScrollbarShown() ? getVerticalScrollbarWidth() : 0);
   view.paint(context,(bitmap == myMainBitmap) ? ZLView.PAGE_CENTRAL : myViewPageToScroll);
 }

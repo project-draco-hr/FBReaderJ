@@ -1,8 +1,0 @@
-{
-  int width=getWidth();
-  ZLView view=ZLApplication.Instance().getCurrentView();
-  if (view != null && view.isScrollbarShown()) {
-    width-=getVerticalScrollbarWidth();
-  }
-  return width;
-}
