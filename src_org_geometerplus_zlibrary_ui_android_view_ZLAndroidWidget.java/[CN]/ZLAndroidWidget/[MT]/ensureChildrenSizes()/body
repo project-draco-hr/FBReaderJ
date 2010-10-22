@@ -1,8 +1,0 @@
-{
-  int width=getWidth();
-  int height=getHeight();
-  if (myViewSize.x != width || myViewSize.y != height) {
-    myViewSize.x=width;
-    myViewSize.y=height;
-  }
-}

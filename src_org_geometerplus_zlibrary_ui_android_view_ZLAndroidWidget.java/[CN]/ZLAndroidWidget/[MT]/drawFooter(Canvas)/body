@@ -1,16 +1,16 @@
 {
   final ZLView.FooterArea footer=ZLApplication.Instance().getCurrentView().getFooterArea();
   if (footer != null) {
-    if (myFooterBitmap != null && (myFooterBitmap.getWidth() != myViewSize.x || myFooterBitmap.getHeight() != footer.getHeight())) {
+    if (myFooterBitmap != null && (myFooterBitmap.getWidth() != getWidth() || myFooterBitmap.getHeight() != footer.getHeight())) {
       myFooterBitmap=null;
     }
     if (myFooterBitmap == null) {
-      myFooterBitmap=Bitmap.createBitmap(myViewSize.x,footer.getHeight(),Bitmap.Config.RGB_565);
+      myFooterBitmap=Bitmap.createBitmap(getWidth(),footer.getHeight(),Bitmap.Config.RGB_565);
     }
-    final ZLAndroidPaintContext context=new ZLAndroidPaintContext(new Canvas(myFooterBitmap),myViewSize.x,footer.getHeight(),getWidth() - getTextViewWidth());
+    final ZLAndroidPaintContext context=new ZLAndroidPaintContext(new Canvas(myFooterBitmap),getWidth(),footer.getHeight(),getWidth() - getTextViewWidth());
     footer.paint(context);
     myFooter.paint(context);
-    canvas.drawBitmap(myFooterBitmap,0,myViewSize.y - footer.getHeight(),myPaint);
+    canvas.drawBitmap(myFooterBitmap,0,getHeight() - footer.getHeight(),myPaint);
   }
  else {
     myFooterBitmap=null;

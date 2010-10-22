@@ -8,5 +8,4 @@
     view.onScrollingFinished(ZLView.PAGE_CENTRAL);
     setPageToScroll(ZLView.PAGE_CENTRAL);
   }
-  ensureChildrenSizes();
 }
