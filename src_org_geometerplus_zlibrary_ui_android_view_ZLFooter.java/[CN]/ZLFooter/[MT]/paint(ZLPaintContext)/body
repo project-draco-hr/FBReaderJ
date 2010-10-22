@@ -30,9 +30,6 @@
   }
   final String infoString=info.toString();
   final int infoWidth=context.getStringWidth(infoString);
-  myGaugeRect.set(0,0,width - ((infoWidth == 0) ? 0 : infoWidth + 10),height);
-  myGaugeRect.right-=(1 - delta);
-  myGaugeRect.inset(1 + delta,1 + delta);
-  myGaugeStart=myGaugeRect.left;
-  myGaugeEnd=myGaugeRect.right;
+  myGaugeStart=0;
+  myGaugeEnd=width - ((infoWidth == 0) ? 0 : infoWidth + 10);
 }
