@@ -1,5 +1,3 @@
 {
   myGaugeRect=new Rect();
-  myLastHeight=-1;
-  myLastWidth=-1;
 }
