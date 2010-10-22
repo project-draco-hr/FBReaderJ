@@ -1,6 +1,6 @@
 {
   y=Math.min(y + info.Height,getBottomLine());
-  final ZLPaintContext context=Context;
+  final ZLPaintContext context=myContext;
   final ZLTextParagraphCursor paragraphCursor=info.ParagraphCursor;
   setTextStyle(info.StartStyle);
   int spaceCounter=info.SpaceCounter;

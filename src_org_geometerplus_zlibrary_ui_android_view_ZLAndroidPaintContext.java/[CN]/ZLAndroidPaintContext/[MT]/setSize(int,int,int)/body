@@ -1,5 +1,0 @@
-{
-  myWidth=width - scrollbarWidth;
-  myHeight=height;
-  myScrollbarWidth=scrollbarWidth;
-}

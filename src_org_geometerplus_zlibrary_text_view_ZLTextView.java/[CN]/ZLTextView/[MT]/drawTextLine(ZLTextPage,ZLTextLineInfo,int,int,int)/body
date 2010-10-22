@@ -1,6 +1,6 @@
 {
   final ZLTextParagraphCursor paragraph=info.ParagraphCursor;
-  final ZLPaintContext context=Context;
+  final ZLPaintContext context=myContext;
   if ((page == myCurrentPage) && !mySelectionModel.isEmpty() && (from != to)) {
     final int paragraphIndex=paragraph.Index;
     final ZLTextSelectionModel.Range range=mySelectionModel.getRange();
