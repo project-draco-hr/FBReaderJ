@@ -8,7 +8,7 @@
     myLastFgColor=fgColor;
     myLastBgColor=bgColor;
   }
-  final int width=bitmap.getWidth();
+  final int width=context.getWidth();
   final int height=view.getFooterArea().getHeight();
   int delta=height <= 10 ? 0 : 1;
   if (height != myLastHeight) {
@@ -54,7 +54,6 @@
     infoChanged=true;
   }
   if (infoChanged) {
-    Canvas canvas=new Canvas(bitmap);
     Rect infoRect=new Rect();
     myTextPaint.getTextBounds(infoString,0,infoString.length(),infoRect);
     int infoWidth=infoString.equals("") ? 0 : infoRect.width() + 10;
