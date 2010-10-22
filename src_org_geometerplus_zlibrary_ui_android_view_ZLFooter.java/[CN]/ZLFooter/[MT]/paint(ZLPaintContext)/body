@@ -1,24 +1,20 @@
 {
   boolean infoChanged=false;
   final ZLTextView view=(ZLTextView)ZLApplication.Instance().getCurrentView();
-  int bgColor=ZLAndroidColorUtil.rgb(view.getBackgroundColor());
-  int fgColor=ZLAndroidColorUtil.rgb(view.getTextColor(FBHyperlinkType.NONE));
-  if (myLastFgColor != fgColor || myLastBgColor != bgColor) {
+  final ZLColor bgColor=view.getBackgroundColor();
+  final ZLColor fgColor=view.getTextColor(FBHyperlinkType.NONE);
+  if (!fgColor.equals(myLastFgColor) || !bgColor.equals(myLastBgColor)) {
     infoChanged=true;
     myLastFgColor=fgColor;
     myLastBgColor=bgColor;
   }
   final int width=context.getWidth();
   final int height=view.getFooterArea().getHeight();
-  int delta=height <= 10 ? 0 : 1;
+  final int lineWidth=height <= 10 ? 1 : 2;
+  final int delta=height <= 10 ? 0 : 1;
+  context.setFont("sans-serif",height <= 10 ? height + 3 : height + 1,height > 10,false,false);
   if (height != myLastHeight) {
     myLastHeight=height;
-    myTextPaint.setTextSize(height <= 10 ? height + 3 : height + 1);
-    myFgPaint.setStrokeWidth(height <= 10 ? 1 : 2);
-    myTextPaint.setTypeface(Typeface.create(Typeface.SANS_SERIF,height <= 10 ? Typeface.NORMAL : Typeface.BOLD));
-    myTextPaint.setTextAlign(Paint.Align.RIGHT);
-    myTextPaint.setStyle(Paint.Style.FILL);
-    myTextPaint.setAntiAlias(true);
     infoChanged=true;
   }
   if (width != myLastWidth) {
@@ -54,25 +50,28 @@
     infoChanged=true;
   }
   if (infoChanged) {
-    Rect infoRect=new Rect();
-    myTextPaint.getTextBounds(infoString,0,infoString.length(),infoRect);
-    int infoWidth=infoString.equals("") ? 0 : infoRect.width() + 10;
-    myBgPaint.setColor(bgColor);
-    canvas.drawRect(width - infoWidth,0,width,height,myBgPaint);
-    myTextPaint.setColor(fgColor);
-    canvas.drawText(infoString,width - 1,height - delta,myTextPaint);
-    myBgPaint.setColor(bgColor);
-    myGaugeRect.set(0,0,width - infoWidth,height);
-    canvas.drawRect(myGaugeRect,myBgPaint);
-    myFgPaint.setColor(fgColor);
-    myFgPaint.setStyle(Paint.Style.STROKE);
+    final int infoWidth=context.getStringWidth(infoString);
+    context.clear(bgColor);
+    context.setTextColor(fgColor);
+    context.drawString(width - infoWidth,height - delta,infoString);
+    myGaugeRect.set(0,0,width - ((infoWidth == 0) ? 0 : infoWidth + 10),height);
     myGaugeRect.right-=(1 - delta);
     myGaugeRect.inset(1 + delta,1 + delta);
-    canvas.drawRect(myGaugeRect,myFgPaint);
     myGaugeStart=myGaugeRect.left;
     myGaugeEnd=myGaugeRect.right;
     myGaugeRect.inset(2 + delta,2 + delta);
     myGaugeRect.right=myGaugeRect.left + (int)((float)myGaugeRect.width() * pagesProgress / bookLength);
-    canvas.drawRect(myGaugeRect,myFgPaint);
+    context.setLineColor(fgColor);
+    context.setLineWidth(lineWidth);
+    final int gaugeRight=width - ((infoWidth == 0) ? 0 : infoWidth + 10) - 2;
+    context.drawLine(lineWidth,lineWidth,lineWidth,height - lineWidth);
+    context.drawLine(lineWidth,height - lineWidth,gaugeRight,height - lineWidth);
+    context.drawLine(gaugeRight,height - lineWidth,gaugeRight,lineWidth);
+    context.drawLine(gaugeRight,lineWidth,lineWidth,lineWidth);
+    final int gaugeInternalRight=1 + 2 * lineWidth + (int)(1.0 * (gaugeRight - 2 - 3 * lineWidth) * pagesProgress / bookLength);
+    context.drawLine(1 + 2 * lineWidth,1 + 2 * lineWidth,1 + 2 * lineWidth,height - 1 - 2 * lineWidth);
+    context.drawLine(1 + 2 * lineWidth,height - 1 - 2 * lineWidth,gaugeInternalRight,height - 1 - 2 * lineWidth);
+    context.drawLine(gaugeInternalRight,height - 1 - 2 * lineWidth,gaugeInternalRight,1 + 2 * lineWidth);
+    context.drawLine(gaugeInternalRight,1 + 2 * lineWidth,1 + 2 * lineWidth,1 + 2 * lineWidth);
   }
 }

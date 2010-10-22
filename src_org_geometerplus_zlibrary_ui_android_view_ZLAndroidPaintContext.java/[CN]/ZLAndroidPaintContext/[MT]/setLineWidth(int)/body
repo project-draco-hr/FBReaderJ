@@ -1,0 +1,3 @@
+{
+  myLinePaint.setStrokeWidth(width);
+}
