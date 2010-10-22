@@ -1,6 +1,6 @@
 {
   ZLTextView textView=(ZLTextView)view;
-  float progress=1.0f * (Math.max(myGaugeStart,Math.min(x,myGaugeEnd)) - myGaugeStart) / (myGaugeEnd - myGaugeStart);
+  float progress=1.0f * Math.min(x,myGaugeEnd) / myGaugeEnd;
   int page=(int)(progress * textView.computePageNumber());
   if (page <= 1) {
     textView.gotoHome();

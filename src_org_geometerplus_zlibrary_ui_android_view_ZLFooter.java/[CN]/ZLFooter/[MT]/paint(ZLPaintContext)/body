@@ -30,6 +30,5 @@
   }
   final String infoString=info.toString();
   final int infoWidth=context.getStringWidth(infoString);
-  myGaugeStart=0;
   myGaugeEnd=width - ((infoWidth == 0) ? 0 : infoWidth + 10);
 }
