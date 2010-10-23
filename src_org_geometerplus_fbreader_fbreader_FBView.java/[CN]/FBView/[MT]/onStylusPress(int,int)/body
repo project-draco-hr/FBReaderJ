@@ -5,6 +5,11 @@
   if (isScrollingActive()) {
     return false;
   }
+  Footer footer=(Footer)getFooterArea();
+  if (footer != null && y > myContext.getHeight() - footer.getTapHeight()) {
+    footer.setProgress(x);
+    return true;
+  }
   final ZLTextHyperlink hyperlink=findHyperlink(x,y,10);
   if (hyperlink != null) {
     selectHyperlink(hyperlink);

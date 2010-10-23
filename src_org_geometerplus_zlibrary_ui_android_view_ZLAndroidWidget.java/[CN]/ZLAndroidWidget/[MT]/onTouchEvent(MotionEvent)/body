@@ -9,13 +9,7 @@ case MotionEvent.ACTION_UP:
         removeCallbacks(myPendingLongClickRunnable);
       }
       if (myPendingPress) {
-        FBView.Footer f=(FBView.Footer)view.getFooterArea();
-        if (f != null && y > getHeight() - f.getTapHeight()) {
-          f.setProgress(myPressedX);
-        }
- else {
-          view.onStylusPress(myPressedX,myPressedY);
-        }
+        view.onStylusPress(myPressedX,myPressedY);
       }
       view.onStylusRelease(x,y);
     }
@@ -37,7 +31,7 @@ if (Math.abs(myPressedX - x) > slop || Math.abs(myPressedY - y) > slop) {
 if (myPendingLongClickRunnable != null) {
 removeCallbacks(myPendingLongClickRunnable);
 }
-view.onStylusMovePressed(myPressedX,myPressedY);
+view.onStylusPress(myPressedX,myPressedY);
 myPendingPress=false;
 }
 }
