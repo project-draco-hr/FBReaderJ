@@ -18,8 +18,6 @@
   String[] scrollBarTypes={"hide","show","showAsProgress","showAsFooter"};
   statusLineCategory.addPreference(new ZLChoicePreference(this,statusLineCategory.Resource,"scrollbarType",fbReader.ScrollbarTypeOption,scrollBarTypes));
   statusLineCategory.addPreference(new ZLIntegerRangePreference(this,statusLineCategory.Resource.getResource("footerHeight"),fbReader.FooterHeightOption));
-  String[] footerLongTaps={"longTapRevert","longTapNavigate"};
-  statusLineCategory.addPreference(new ZLChoicePreference(this,statusLineCategory.Resource,"footerLongTap",fbReader.FooterLongTap,footerLongTaps));
   statusLineCategory.addOption(fbReader.FooterShowClock,"showClock");
   statusLineCategory.addOption(fbReader.FooterShowBattery,"showBattery");
   statusLineCategory.addOption(fbReader.FooterShowProgress,"showProgress");
