@@ -1,4 +1,5 @@
 {
+  unregisterReceiver(myBatteryInfoReceiver);
   switchWakeLock(false);
   ZLApplication.Instance().onWindowClosing();
   super.onPause();
