@@ -16,6 +16,6 @@
   }
  else {
     scrollPage(forward,ZLTextView.ScrollingMode.NO_OVERLAPPING,0);
-    ZLApplication.Instance().repaintView();
+    myReader.repaintView();
   }
 }

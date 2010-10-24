@@ -33,9 +33,9 @@ synchronized (this) {
           startAutoScrolling(viewPage);
         }
  else {
-          ZLApplication.Instance().scrollViewTo(PAGE_CENTRAL,0);
+          myReader.scrollViewTo(PAGE_CENTRAL,0);
           onScrollingFinished(viewPage);
-          ZLApplication.Instance().repaintView();
+          myReader.repaintView();
           setScrollingActive(false);
         }
       }

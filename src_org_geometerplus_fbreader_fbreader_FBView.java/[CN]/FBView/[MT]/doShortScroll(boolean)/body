@@ -2,5 +2,5 @@
   if (!moveHyperlinkPointer(forward)) {
     scrollPage(forward,ZLTextView.ScrollingMode.SCROLL_LINES,1);
   }
-  ZLApplication.Instance().repaintView();
+  myReader.repaintView();
 }

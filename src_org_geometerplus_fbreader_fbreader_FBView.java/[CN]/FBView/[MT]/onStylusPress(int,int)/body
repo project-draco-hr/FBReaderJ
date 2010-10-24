@@ -15,7 +15,7 @@
   final ZLTextHyperlink hyperlink=findHyperlink(x,y,10);
   if (hyperlink != null) {
     selectHyperlink(hyperlink);
-    ZLApplication.Instance().repaintView();
+    myReader.repaintView();
     followHyperlink(hyperlink);
     return true;
   }

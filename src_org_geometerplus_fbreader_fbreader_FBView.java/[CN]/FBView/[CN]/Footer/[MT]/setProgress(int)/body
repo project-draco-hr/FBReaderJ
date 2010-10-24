@@ -8,5 +8,5 @@
  else {
     gotoPage(page);
   }
-  ZLApplication.Instance().repaintView();
+  myReader.repaintView();
 }
