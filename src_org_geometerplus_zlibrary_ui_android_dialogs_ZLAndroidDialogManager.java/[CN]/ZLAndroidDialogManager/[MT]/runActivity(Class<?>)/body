@@ -1,3 +1,0 @@
-{
-  runActivity(activityClass,Collections.<String,String>emptyMap());
-}

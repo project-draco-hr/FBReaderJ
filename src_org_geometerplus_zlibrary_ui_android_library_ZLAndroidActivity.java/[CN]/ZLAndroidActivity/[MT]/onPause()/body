@@ -1,8 +1,6 @@
 {
-  if (myWakeLock != null) {
-    myWakeLock.release();
-    myWakeLock=null;
-  }
+  unregisterReceiver(myBatteryInfoReceiver);
+  switchWakeLock(false);
   ZLApplication.Instance().onWindowClosing();
   super.onPause();
 }

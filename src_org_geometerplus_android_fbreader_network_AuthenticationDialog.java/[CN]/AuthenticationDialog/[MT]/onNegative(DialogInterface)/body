@@ -2,7 +2,7 @@
   final NetworkAuthenticationManager mgr=myLink.authenticationManager();
   final Runnable runnable=new Runnable(){
     public void run(){
-      if (mgr.isAuthorised(false).Status != ZLBoolean3.B3_FALSE) {
+      if (mgr.mayBeAuthorised(false)) {
         mgr.logOut();
         sendCancel(false);
       }

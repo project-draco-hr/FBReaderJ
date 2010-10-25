@@ -6,7 +6,7 @@
     finish();
     startActivity(new Intent(this,this.getClass()));
   }
-  final RelativeLayout root=(RelativeLayout)FBReader.this.findViewById(R.id.root_view);
+  final RelativeLayout root=(RelativeLayout)findViewById(R.id.root_view);
   if (!myTextSearchPanel.hasControlPanel()) {
     final ControlPanel panel=new ControlPanel(this);
     panel.addButton(ActionCode.FIND_PREVIOUS,false,R.drawable.text_search_previous);

@@ -1,5 +1,5 @@
 {
-  final FBReader fbreader=(FBReader)FBReader.Instance();
+  final FBReaderApp fbreader=(FBReaderApp)FBReaderApp.Instance();
   final ZLTextView textView=fbreader.getTextView();
   final ZLTextWordCursor cursor=textView.getStartCursor();
   if (cursor.isNull()) {

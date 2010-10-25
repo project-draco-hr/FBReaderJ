@@ -1,3 +1,0 @@
-{
-  super(fbreader,NetworkLibraryActivity.class);
-}

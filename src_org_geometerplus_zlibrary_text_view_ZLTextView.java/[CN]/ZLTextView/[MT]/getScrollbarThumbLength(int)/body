@@ -1,16 +1,5 @@
 {
-  if (myModel == null || myModel.getParagraphsNumber() == 0) {
-    return 0;
-  }
-  ZLTextPage page=getPage(viewPage);
-  preparePaintInfo(page);
-  int start=(scrollbarType() == SCROLLBAR_SHOW_AS_PROGRESS) ? 0 : sizeOfTextBeforeCursor(page.StartCursor);
-  if (start == -1) {
-    start=0;
-  }
-  int end=sizeOfTextBeforeCursor(page.EndCursor);
-  if (end == -1) {
-    end=myModel.getTextLength(myModel.getParagraphsNumber() - 1) - 1;
-  }
+  int start=scrollbarType() == SCROLLBAR_SHOW_AS_PROGRESS ? 0 : getCurrentCharNumber(viewPage,true);
+  int end=getCurrentCharNumber(viewPage,false);
   return Math.max(1,end - start);
 }

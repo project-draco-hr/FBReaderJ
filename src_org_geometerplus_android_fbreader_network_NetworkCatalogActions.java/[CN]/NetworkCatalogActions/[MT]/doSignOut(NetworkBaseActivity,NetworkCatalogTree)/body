@@ -13,7 +13,7 @@
   final NetworkAuthenticationManager mgr=tree.Item.Link.authenticationManager();
   final Runnable runnable=new Runnable(){
     public void run(){
-      if (mgr.isAuthorised(false).Status != ZLBoolean3.B3_FALSE) {
+      if (mgr.mayBeAuthorised(false)) {
         mgr.logOut();
         handler.sendEmptyMessage(0);
       }

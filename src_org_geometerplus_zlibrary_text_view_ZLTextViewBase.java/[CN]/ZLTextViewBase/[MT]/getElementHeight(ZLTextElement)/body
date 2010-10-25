@@ -3,8 +3,7 @@
     return getWordHeight();
   }
  else   if (element instanceof ZLTextImageElement) {
-    final ZLPaintContext context=Context;
-    return context.imageHeight(((ZLTextImageElement)element).ImageData) + Math.max(context.getStringHeight() * (myTextStyle.getLineSpacePercent() - 100) / 100,3);
+    return myContext.imageHeight(((ZLTextImageElement)element).ImageData) + Math.max(myContext.getStringHeight() * (myTextStyle.getLineSpacePercent() - 100) / 100,3);
   }
   return 0;
 }

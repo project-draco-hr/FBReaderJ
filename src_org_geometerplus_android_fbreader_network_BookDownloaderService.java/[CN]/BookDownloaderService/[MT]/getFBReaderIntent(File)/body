@@ -1,5 +1,5 @@
 {
-  final Intent intent=new Intent(getApplicationContext(),org.geometerplus.android.fbreader.FBReader.class);
+  final Intent intent=new Intent(getApplicationContext(),FBReader.class);
   if (file != null) {
     intent.setAction(Intent.ACTION_VIEW).setData(Uri.fromFile(file));
   }

@@ -1,0 +1,3 @@
+{
+  return scrollbarType() == SCROLLBAR_SHOW || scrollbarType() == SCROLLBAR_SHOW_AS_PROGRESS;
+}

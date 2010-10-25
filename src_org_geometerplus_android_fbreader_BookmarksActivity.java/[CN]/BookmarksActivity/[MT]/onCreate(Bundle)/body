@@ -7,7 +7,7 @@
   LayoutInflater.from(this).inflate(R.layout.bookmarks,host.getTabContentView(),true);
   AllBooksBookmarks=Bookmark.bookmarks();
   Collections.sort(AllBooksBookmarks,new Bookmark.ByTimeComparator());
-  final FBReader fbreader=(FBReader)FBReader.Instance();
+  final FBReaderApp fbreader=(FBReaderApp)FBReaderApp.Instance();
   if (fbreader.Model != null) {
     final long bookId=fbreader.Model.Book.getId();
     for (    Bookmark bookmark : AllBooksBookmarks) {

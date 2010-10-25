@@ -1,5 +1,5 @@
 {
   new SQLiteBooksDatabase();
-  String[] args=(fileName != null) ? new String[]{fileName} : new String[0];
-  return new org.geometerplus.fbreader.fbreader.FBReader(args);
+  final String[] args=(fileName != null) ? new String[]{fileName} : new String[0];
+  return new FBReaderApp(args);
 }

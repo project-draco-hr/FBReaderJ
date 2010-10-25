@@ -10,7 +10,7 @@
     }
   }
 );
-  final org.geometerplus.fbreader.fbreader.FBReader fbreader=(org.geometerplus.fbreader.fbreader.FBReader)ZLApplication.Instance();
+  final FBReaderApp fbreader=(FBReaderApp)ZLApplication.Instance();
   startSearch(fbreader.TextSearchPatternOption.getValue(),true,null,false);
   return true;
 }

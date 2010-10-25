@@ -1,0 +1,3 @@
+{
+  drawString(x,y,string.toCharArray(),0,string.length());
+}

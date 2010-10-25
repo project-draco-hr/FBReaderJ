@@ -1,5 +1,5 @@
 {
-  final org.geometerplus.fbreader.fbreader.FBReader fbreader=(org.geometerplus.fbreader.fbreader.FBReader)org.geometerplus.fbreader.fbreader.FBReader.Instance();
-  fbreader.TextSearchPatternOption.setValue(pattern);
-  return fbreader.getTextView().search(pattern,true,false,false,false) != 0;
+  final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
+  fbReader.TextSearchPatternOption.setValue(pattern);
+  return fbReader.getTextView().search(pattern,true,false,false,false) != 0;
 }

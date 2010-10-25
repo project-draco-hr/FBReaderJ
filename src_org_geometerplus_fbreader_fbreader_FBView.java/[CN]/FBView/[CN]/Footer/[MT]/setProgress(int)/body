@@ -1,0 +1,12 @@
+{
+  int gaugeWidth=getGaugeWidth();
+  float progress=1.0f * Math.min(x,gaugeWidth) / gaugeWidth;
+  int page=(int)(progress * computePageNumber());
+  if (page <= 1) {
+    gotoHome();
+  }
+ else {
+    gotoPage(page);
+  }
+  myReader.repaintView();
+}

@@ -2,7 +2,7 @@
   final TOCTree.Reference reference=tree.getReference();
   if (reference != null) {
     finish();
-    final FBReader fbreader=(FBReader)ZLApplication.Instance();
+    final FBReaderApp fbreader=(FBReaderApp)ZLApplication.Instance();
     fbreader.BookTextView.gotoPosition(reference.ParagraphIndex,0,0);
     fbreader.showBookTextView();
   }

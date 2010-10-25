@@ -6,6 +6,13 @@
     intent.putExtra(BookDownloaderService.SHOW_NOTIFICATIONS_KEY,BookDownloaderService.Notifications.ALL);
     externalUrl=false;
   }
+  final NetworkLibrary nLibrary=NetworkLibrary.Instance();
+  try {
+    nLibrary.initialize();
+  }
+ catch (  ZLNetworkException e) {
+  }
+  reference=NetworkLibrary.Instance().rewriteUrl(reference,externalUrl);
   intent.setData(Uri.parse(reference));
   myActivity.startActivity(intent);
 }

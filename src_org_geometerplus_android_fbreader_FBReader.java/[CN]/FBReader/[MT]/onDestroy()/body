@@ -1,0 +1,12 @@
+{
+  final FBReaderApp fbReader=(FBReaderApp)ZLApplication.Instance();
+  fbReader.removeAction(ActionCode.SHOW_LIBRARY);
+  fbReader.removeAction(ActionCode.SHOW_PREFERENCES);
+  fbReader.removeAction(ActionCode.SHOW_BOOK_INFO);
+  fbReader.removeAction(ActionCode.SHOW_CONTENTS);
+  fbReader.removeAction(ActionCode.SHOW_BOOKMARKS);
+  fbReader.removeAction(ActionCode.SHOW_NETWORK_LIBRARY);
+  fbReader.removeAction(ActionCode.SHOW_NAVIGATION);
+  fbReader.removeAction(ActionCode.SEARCH);
+  super.onDestroy();
+}

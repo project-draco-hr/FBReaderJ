@@ -1,0 +1,4 @@
+{
+  final ZLView.FooterArea footer=ZLApplication.Instance().getCurrentView().getFooterArea();
+  return footer != null ? getHeight() - footer.getHeight() : getHeight();
+}

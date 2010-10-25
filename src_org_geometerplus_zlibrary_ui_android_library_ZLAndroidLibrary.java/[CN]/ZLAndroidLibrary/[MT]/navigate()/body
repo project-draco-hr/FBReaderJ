@@ -1,5 +1,0 @@
-{
-  if (myActivity != null) {
-    myActivity.navigate();
-  }
-}
