@@ -1,0 +1,5 @@
+int x
+int y
+char[] string
+int offset
+int length

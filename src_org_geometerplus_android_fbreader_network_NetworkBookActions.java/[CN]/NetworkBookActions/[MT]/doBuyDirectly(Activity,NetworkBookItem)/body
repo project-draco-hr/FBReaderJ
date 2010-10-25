@@ -24,7 +24,7 @@
  else           if (downloadBook) {
             doDownloadBook(activity,book,false);
           }
-          if (mgr.isAuthorised(true).Status == ZLBoolean3.B3_FALSE) {
+          if (!mgr.mayBeAuthorised(true)) {
             final NetworkLibrary library=NetworkLibrary.Instance();
             library.invalidateVisibility();
             library.synchronize();
@@ -37,12 +37,18 @@
 ;
       final Runnable runnable=new Runnable(){
         public void run(){
-          String err=mgr.purchaseBook(book);
-          handler.sendMessage(handler.obtainMessage(0,err));
+          String error=null;
+          try {
+            mgr.purchaseBook(book);
+          }
+ catch (          ZLNetworkException e) {
+            error=e.getMessage();
+          }
+          handler.sendMessage(handler.obtainMessage(0,error));
         }
       }
 ;
-      ((ZLAndroidDialogManager)ZLAndroidDialogManager.Instance()).wait("purchaseBook",runnable,activity);
+      AndroidUtil.wait("purchaseBook",runnable,activity);
     }
   }
 ;
@@ -58,11 +64,13 @@
     }
   }
 ;
-  if (mgr.isAuthorised(true).Status != ZLBoolean3.B3_TRUE) {
-    NetworkDialog.show(activity,NetworkDialog.DIALOG_AUTHENTICATION,book.Link,buyRunnable);
-    return;
+  try {
+    if (mgr.isAuthorised(true)) {
+      buyRunnable.run();
+      return;
+    }
   }
- else {
-    buyRunnable.run();
+ catch (  ZLNetworkException e) {
   }
+  NetworkDialog.show(activity,NetworkDialog.DIALOG_AUTHENTICATION,book.Link,buyRunnable);
 }

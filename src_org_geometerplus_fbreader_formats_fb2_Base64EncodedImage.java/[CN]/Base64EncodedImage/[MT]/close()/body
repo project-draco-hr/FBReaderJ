@@ -1,6 +1,8 @@
 {
   try {
-    myStreamWriter.close();
+    if (myStreamWriter != null) {
+      myStreamWriter.close();
+    }
   }
  catch (  IOException e) {
   }

@@ -1,4 +1,7 @@
 {
   Reader.read(inputStream);
-  return Reader.getErrorMessage();
+  ZLNetworkException e=Reader.getException();
+  if (e != null) {
+    throw e;
+  }
 }

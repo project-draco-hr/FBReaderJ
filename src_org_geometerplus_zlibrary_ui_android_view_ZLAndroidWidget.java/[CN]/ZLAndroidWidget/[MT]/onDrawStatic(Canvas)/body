@@ -1,4 +1,5 @@
 {
   drawOnBitmap(myMainBitmap);
   canvas.drawBitmap(myMainBitmap,0,0,myPaint);
+  drawFooter(canvas);
 }

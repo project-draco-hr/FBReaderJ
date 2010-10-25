@@ -1,6 +1,0 @@
-{
-  if (myActivity != null) {
-    return myActivity.canNavigate();
-  }
-  return false;
-}

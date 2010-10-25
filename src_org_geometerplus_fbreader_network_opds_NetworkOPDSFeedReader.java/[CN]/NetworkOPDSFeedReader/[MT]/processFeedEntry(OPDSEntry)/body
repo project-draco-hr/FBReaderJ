@@ -17,6 +17,10 @@
     return tryInterrupt();
   }
   myData.LastLoadedId=entry.Id.Uri;
+  if (!myFoundNewIds && !myData.LoadedIds.contains(entry.Id.Uri)) {
+    myFoundNewIds=true;
+  }
+  myData.LoadedIds.add(entry.Id.Uri);
   final OPDSNetworkLink opdsLink=(OPDSNetworkLink)myData.Link;
   if (opdsLink.getCondition(entry.Id.Uri) == OPDSNetworkLink.FeedCondition.NEVER) {
     return tryInterrupt();

@@ -11,23 +11,20 @@
   mgr.UserNameOption.setValue(login);
   final Runnable runnable=new Runnable(){
     public void run(){
-      String err=mgr.authorise(password);
-      if (err != null) {
-        mgr.logOut();
-        sendError(true,false,err);
-        return;
-      }
-      if (mgr.needsInitialization()) {
-        err=mgr.initialize();
-        if (err != null) {
-          mgr.logOut();
-          sendError(true,false,err);
-          return;
+      try {
+        mgr.authorise(password);
+        if (mgr.needsInitialization()) {
+          mgr.initialize();
         }
+      }
+ catch (      ZLNetworkException e) {
+        mgr.logOut();
+        sendError(true,false,e.getMessage());
+        return;
       }
       sendSuccess(false);
     }
   }
 ;
-  ((ZLAndroidDialogManager)ZLAndroidDialogManager.Instance()).wait("authentication",runnable,myActivity);
+  AndroidUtil.wait("authentication",runnable,myActivity);
 }

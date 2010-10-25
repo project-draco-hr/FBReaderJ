@@ -1,0 +1,3 @@
+{
+  super(baseActivity,fbreader,TOCActivity.class);
+}

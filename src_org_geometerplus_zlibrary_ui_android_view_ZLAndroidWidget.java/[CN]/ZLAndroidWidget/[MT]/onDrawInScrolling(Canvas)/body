@@ -1,6 +1,6 @@
 {
   final int w=getWidth();
-  final int h=getHeight();
+  final int h=getMainAreaHeight();
   boolean stopScrolling=false;
   if (myScrollingInProgress) {
     myScrollingShift+=(int)myScrollingSpeed;
@@ -55,4 +55,5 @@
       postInvalidate();
     }
   }
+  drawFooter(canvas);
 }

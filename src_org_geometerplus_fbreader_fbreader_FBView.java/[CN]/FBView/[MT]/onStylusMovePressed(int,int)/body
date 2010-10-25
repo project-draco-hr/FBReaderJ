@@ -12,7 +12,7 @@ synchronized (this) {
           return false;
         }
         if (!cursor.isStartOfParagraph() || !cursor.getParagraphCursor().isFirst()) {
-          ZLApplication.Instance().scrollViewTo(horizontal ? PAGE_LEFT : PAGE_TOP,diff);
+          myReader.scrollViewTo(horizontal ? PAGE_LEFT : PAGE_TOP,diff);
         }
       }
  else       if (diff < 0) {
@@ -21,11 +21,11 @@ synchronized (this) {
           return false;
         }
         if (!cursor.isEndOfParagraph() || !cursor.getParagraphCursor().isLast()) {
-          ZLApplication.Instance().scrollViewTo(horizontal ? PAGE_RIGHT : PAGE_BOTTOM,-diff);
+          myReader.scrollViewTo(horizontal ? PAGE_RIGHT : PAGE_BOTTOM,-diff);
         }
       }
  else {
-        ZLApplication.Instance().scrollViewTo(PAGE_CENTRAL,0);
+        myReader.scrollViewTo(PAGE_CENTRAL,0);
       }
       return true;
     }

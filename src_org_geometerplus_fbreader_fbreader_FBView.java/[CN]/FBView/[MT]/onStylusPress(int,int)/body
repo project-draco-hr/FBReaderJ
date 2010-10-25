@@ -5,10 +5,17 @@
   if (isScrollingActive()) {
     return false;
   }
+  if (myReader.FooterIsSensitive.getValue()) {
+    Footer footer=(Footer)getFooterArea();
+    if (footer != null && y > myContext.getHeight() - footer.getTapHeight()) {
+      footer.setProgress(x);
+      return true;
+    }
+  }
   final ZLTextHyperlink hyperlink=findHyperlink(x,y,10);
   if (hyperlink != null) {
     selectHyperlink(hyperlink);
-    ZLApplication.Instance().repaintView();
+    myReader.repaintView();
     followHyperlink(hyperlink);
     return true;
   }
@@ -21,18 +28,18 @@
   }
  else {
     if (preferences.HorizontalOption.getValue()) {
-      if (x <= Context.getWidth() / 3) {
+      if (x <= myContext.getWidth() / 3) {
         doScrollPage(false);
       }
- else       if (x >= Context.getWidth() * 2 / 3) {
+ else       if (x >= myContext.getWidth() * 2 / 3) {
         doScrollPage(true);
       }
     }
  else {
-      if (y <= Context.getHeight() / 3) {
+      if (y <= myContext.getHeight() / 3) {
         doScrollPage(false);
       }
- else       if (y >= Context.getHeight() * 2 / 3) {
+ else       if (y >= myContext.getHeight() * 2 / 3) {
         doScrollPage(true);
       }
     }

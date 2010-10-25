@@ -36,7 +36,7 @@
   }
 ;
   final ZLNetworkRequest request=new ZLNetworkRequest(urlString,sslCertificate){
-    public String handleStream(    URLConnection connection,    InputStream inputStream) throws IOException {
+    public void handleStream(    URLConnection connection,    InputStream inputStream) throws IOException, ZLNetworkException {
       final int updateIntervalMillis=1000;
       final int fileLength=connection.getContentLength();
       int downloadedPart=0;
@@ -49,7 +49,7 @@
         outStream=new FileOutputStream(file);
       }
  catch (      FileNotFoundException ex) {
-        return ZLNetworkErrors.errorMessage(ZLNetworkErrors.ERROR_CREATE_FILE,file.getPath());
+        throw new ZLNetworkException(ZLNetworkException.ERROR_CREATE_FILE,file.getPath());
       }
       try {
         final byte[] buffer=new byte[8192];
@@ -72,18 +72,22 @@
   finally {
         outStream.close();
       }
-      return null;
     }
   }
 ;
   final Thread downloader=new Thread(new Runnable(){
     public void run(){
-      final String err=ZLNetworkManager.Instance().perform(request);
-      final boolean success=(err == null);
-      if (!success) {
+      boolean success=false;
+      try {
+        ZLNetworkManager.Instance().perform(request);
+        success=true;
+      }
+ catch (      ZLNetworkException e) {
         file.delete();
       }
-      downloadFinishHandler.sendEmptyMessage(success ? 1 : 0);
+ finally {
+        downloadFinishHandler.sendEmptyMessage(success ? 1 : 0);
+      }
     }
   }
 );

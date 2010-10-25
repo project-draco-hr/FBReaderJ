@@ -4,9 +4,9 @@
   }
   url=rewriteUrl(url,false);
   return new ZLNetworkRequest(url){
-    @Override public String handleStream(    URLConnection connection,    InputStream inputStream) throws IOException {
+    @Override public void handleStream(    URLConnection connection,    InputStream inputStream) throws IOException, ZLNetworkException {
       if (result.Listener.confirmInterrupt()) {
-        return null;
+        return;
       }
       new OPDSXMLReader(new NetworkOPDSFeedReader(URL,result)).read(inputStream);
       if (result.Listener.confirmInterrupt()) {
@@ -20,7 +20,6 @@
  else {
         result.Listener.commitItems(OPDSNetworkLink.this);
       }
-      return null;
     }
   }
 ;

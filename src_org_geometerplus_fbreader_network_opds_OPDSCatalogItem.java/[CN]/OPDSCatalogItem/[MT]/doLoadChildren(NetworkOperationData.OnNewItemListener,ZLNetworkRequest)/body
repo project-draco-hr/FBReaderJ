@@ -1,14 +1,15 @@
 {
   while (networkRequest != null) {
-    final String errorMessage=ZLNetworkManager.Instance().perform(networkRequest);
-    if (errorMessage != null) {
+    try {
+      ZLNetworkManager.Instance().perform(networkRequest);
+    }
+ catch (    ZLNetworkException e) {
       myLoadingState=null;
-      return errorMessage;
+      throw e;
     }
     if (listener.confirmInterrupt()) {
-      return null;
+      return;
     }
     networkRequest=myLoadingState.resume();
   }
-  return null;
 }

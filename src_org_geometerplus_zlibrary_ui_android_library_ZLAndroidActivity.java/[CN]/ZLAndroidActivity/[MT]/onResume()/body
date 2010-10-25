@@ -1,0 +1,6 @@
+{
+  super.onResume();
+  myWakeLockToCreate=ZLAndroidApplication.Instance().BatteryLevelToTurnScreenOffOption.getValue() < ZLApplication.Instance().getBatteryLevel();
+  switchWakeLock(true);
+  registerReceiver(myBatteryInfoReceiver,new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+}

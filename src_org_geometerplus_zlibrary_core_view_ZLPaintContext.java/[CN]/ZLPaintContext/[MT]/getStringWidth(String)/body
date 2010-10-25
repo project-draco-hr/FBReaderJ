@@ -1,0 +1,3 @@
+{
+  return getStringWidth(string.toCharArray(),0,string.length());
+}

@@ -1,9 +1,9 @@
 {
   if (diffY > 0) {
-    ZLApplication.Instance().doAction(ActionCode.TRACKBALL_SCROLL_FORWARD);
+    myReader.doAction(ActionCode.TRACKBALL_SCROLL_FORWARD);
   }
  else   if (diffY < 0) {
-    ZLApplication.Instance().doAction(ActionCode.TRACKBALL_SCROLL_BACKWARD);
+    myReader.doAction(ActionCode.TRACKBALL_SCROLL_BACKWARD);
   }
   return true;
 }

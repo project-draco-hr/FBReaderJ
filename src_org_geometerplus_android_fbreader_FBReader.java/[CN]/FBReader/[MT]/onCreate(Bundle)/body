@@ -12,4 +12,13 @@
     myNavigatePanel=new NavigationButtonPanel();
     myNavigatePanel.register();
   }
+  final FBReaderApp fbReader=(FBReaderApp)ZLApplication.Instance();
+  fbReader.addAction(ActionCode.SHOW_LIBRARY,new ShowLibraryAction(this,fbReader));
+  fbReader.addAction(ActionCode.SHOW_PREFERENCES,new PreferencesAction(this,fbReader));
+  fbReader.addAction(ActionCode.SHOW_BOOK_INFO,new BookInfoAction(this,fbReader));
+  fbReader.addAction(ActionCode.SHOW_CONTENTS,new ShowTOCAction(this,fbReader));
+  fbReader.addAction(ActionCode.SHOW_BOOKMARKS,new ShowBookmarksAction(this,fbReader));
+  fbReader.addAction(ActionCode.SHOW_NETWORK_LIBRARY,new ShowNetworkLibraryAction(this,fbReader));
+  fbReader.addAction(ActionCode.SHOW_NAVIGATION,new ShowNavigationAction(this,fbReader));
+  fbReader.addAction(ActionCode.SEARCH,new SearchAction(this,fbReader));
 }

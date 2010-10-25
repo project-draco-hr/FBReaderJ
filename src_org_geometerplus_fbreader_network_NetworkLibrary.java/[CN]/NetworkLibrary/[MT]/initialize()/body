@@ -1,26 +1,34 @@
 {
-  final LinksComparator comparator=new LinksComparator();
-  final String error=OPDSLinkReader.loadOPDSLinks(OPDSLinkReader.CACHE_LOAD,new OnNewLinkListener(){
-    public void onNewLink(    INetworkLink link){
-      addLinkInternal(myLoadedLinks,link,comparator);
-    }
+  if (myIsAlreadyInitialized) {
+    return;
   }
+  final LinksComparator comparator=new LinksComparator();
+  try {
+    OPDSLinkReader.loadOPDSLinks(OPDSLinkReader.CACHE_LOAD,new OnNewLinkListener(){
+      public void onNewLink(      INetworkLink link){
+        addLinkInternal(myLoadedLinks,link,comparator);
+      }
+    }
 );
-  if (error != null) {
+  }
+ catch (  ZLNetworkException e) {
 synchronized (myLinks) {
       myLoadedLinks.clear();
     }
-    return error;
+    throw e;
   }
-  NetworkDatabase.Instance().loadCustomLinks(new NetworkDatabase.ICustomLinksHandler(){
-    public void handleCustomLinkData(    int id,    String siteName,    String title,    String summary,    String icon,    Map<String,String> links){
-      final ICustomNetworkLink link=OPDSLinkReader.createCustomLink(id,siteName,title,summary,icon,links);
-      if (link != null) {
-        addLinkInternal(myCustomLinks,link,comparator);
-        link.setSaveLinkListener(myChangesListener);
+  final NetworkDatabase db=NetworkDatabase.Instance();
+  if (db != null) {
+    db.loadCustomLinks(new NetworkDatabase.ICustomLinksHandler(){
+      public void handleCustomLinkData(      int id,      String siteName,      String title,      String summary,      String icon,      Map<String,String> links){
+        final ICustomNetworkLink link=OPDSLinkReader.createCustomLink(id,siteName,title,summary,icon,links);
+        if (link != null) {
+          addLinkInternal(myCustomLinks,link,comparator);
+          link.setSaveLinkListener(myChangesListener);
+        }
       }
     }
-  }
 );
-  return null;
+  }
+  myIsAlreadyInitialized=true;
 }

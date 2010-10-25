@@ -30,11 +30,11 @@ myScrollingBound=-getWidth();
 break;
 case ZLView.PAGE_TOP:
 myScrollingSpeed=3;
-myScrollingBound=getHeight();
+myScrollingBound=getMainAreaHeight();
 break;
 case ZLView.PAGE_BOTTOM:
 myScrollingSpeed=-3;
-myScrollingBound=-getHeight();
+myScrollingBound=-getMainAreaHeight();
 break;
 }
 if (viewPage != ZLView.PAGE_CENTRAL) {

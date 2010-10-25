@@ -1,6 +1,6 @@
 {
-  final FBReader fbreader=(FBReader)FBReader.Instance();
-  fbreader.BookSearchPatternOption.setValue(pattern);
-  myTree=Library.Instance().searchBooks(pattern);
+  final LibraryTabActivity parentActivity=LibraryTabActivity.Instance;
+  parentActivity.BookSearchPatternOption.setValue(pattern);
+  myTree=parentActivity.library().searchBooks(pattern);
   return myTree.hasChildren();
 }

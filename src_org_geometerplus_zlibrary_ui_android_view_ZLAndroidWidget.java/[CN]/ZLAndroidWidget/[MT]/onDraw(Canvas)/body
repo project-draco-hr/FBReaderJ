@@ -1,7 +1,14 @@
 {
+  final Context context=getContext();
+  if (context instanceof ZLAndroidActivity) {
+    ((ZLAndroidActivity)context).createWakeLock();
+  }
+ else {
+    System.err.println("A surprise: view's context is not a ZLAndroidActivity");
+  }
   super.onDraw(canvas);
   final int w=getWidth();
-  final int h=getHeight();
+  final int h=getMainAreaHeight();
   if ((myMainBitmap != null) && ((myMainBitmap.getWidth() != w) || (myMainBitmap.getHeight() != h))) {
     myMainBitmap=null;
     mySecondaryBitmap=null;

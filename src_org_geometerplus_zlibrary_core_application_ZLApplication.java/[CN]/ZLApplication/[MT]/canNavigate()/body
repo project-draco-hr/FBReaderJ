@@ -1,6 +1,0 @@
-{
-  if (myWindow != null) {
-    return myWindow.canNavigate();
-  }
-  return false;
-}

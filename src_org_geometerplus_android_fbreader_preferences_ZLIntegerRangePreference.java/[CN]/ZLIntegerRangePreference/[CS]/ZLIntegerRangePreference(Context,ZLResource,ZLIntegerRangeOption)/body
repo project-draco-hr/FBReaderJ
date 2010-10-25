@@ -1,0 +1,13 @@
+{
+  super(context);
+  myOption=option;
+  setTitle(resource.getValue());
+  String[] entries=new String[option.MaxValue - option.MinValue + 1];
+  for (int i=0; i < entries.length; ++i) {
+    entries[i]=((Integer)(i + option.MinValue)).toString();
+  }
+  setEntries(entries);
+  setEntryValues(entries);
+  setValueIndex(option.getValue() - option.MinValue);
+  setSummary(getValue());
+}

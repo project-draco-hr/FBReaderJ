@@ -1,0 +1,7 @@
+{
+  super(context,resource,resourceKey);
+  assert(option.MaxValue - option.MinValue + 1 == valueResourceKeys.length);
+  myOption=option;
+  setList(valueResourceKeys);
+  setInitialValue(valueResourceKeys[option.getValue() - option.MinValue]);
+}

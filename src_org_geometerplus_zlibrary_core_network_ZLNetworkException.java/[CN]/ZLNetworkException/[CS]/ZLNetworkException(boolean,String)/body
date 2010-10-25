@@ -1,0 +1,4 @@
+{
+  super(useAsMessage ? str : errorMessage(str));
+  myCode=useAsMessage ? null : str;
+}

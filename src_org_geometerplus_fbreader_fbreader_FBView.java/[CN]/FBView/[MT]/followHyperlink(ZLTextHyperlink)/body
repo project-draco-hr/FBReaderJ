@@ -4,7 +4,7 @@ case FBHyperlinkType.EXTERNAL:
     ZLibrary.Instance().openInBrowser(hyperlink.Id);
   break;
 case FBHyperlinkType.INTERNAL:
-((FBReader)ZLApplication.Instance()).tryOpenFootnote(hyperlink.Id);
+myReader.tryOpenFootnote(hyperlink.Id);
 break;
 }
 }
