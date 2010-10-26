@@ -6,7 +6,7 @@
     return false;
   }
   if (myReader.FooterIsSensitive.getValue()) {
-    Footer footer=(Footer)getFooterArea();
+    Footer footer=getFooterArea();
     if (footer != null && y > myContext.getHeight() - footer.getTapHeight()) {
       footer.setProgress(x);
       return true;

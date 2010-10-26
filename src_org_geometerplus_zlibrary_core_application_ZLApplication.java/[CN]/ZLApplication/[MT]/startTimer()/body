@@ -1,0 +1,8 @@
+{
+  if (myTimer == null) {
+    myTimer=new Timer();
+    for (    Map.Entry<Runnable,Long> entry : myTimerTaskPeriods.entrySet()) {
+      addTimerTaskInternal(entry.getKey(),entry.getValue());
+    }
+  }
+}

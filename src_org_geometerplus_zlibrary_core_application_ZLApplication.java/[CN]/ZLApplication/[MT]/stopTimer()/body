@@ -1,0 +1,7 @@
+{
+  if (myTimer != null) {
+    myTimer.cancel();
+    myTimer=null;
+    myTimerTasks.clear();
+  }
+}

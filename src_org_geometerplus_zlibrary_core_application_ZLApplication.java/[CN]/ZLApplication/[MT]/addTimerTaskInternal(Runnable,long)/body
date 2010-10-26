@@ -1,0 +1,5 @@
+{
+  final TimerTask task=new MyTimerTask(runnable);
+  myTimer.schedule(task,periodMilliseconds / 2,periodMilliseconds);
+  myTimerTasks.put(runnable,task);
+}
