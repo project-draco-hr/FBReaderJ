@@ -1,5 +1,6 @@
 {
-  families.add("sans-serif");
-  families.add("serif");
-  families.add("monospace");
+  families.add("Liberation Sans");
+  families.add("Monospace");
+  families.add("Sans Serif");
+  families.add("Serif");
 }

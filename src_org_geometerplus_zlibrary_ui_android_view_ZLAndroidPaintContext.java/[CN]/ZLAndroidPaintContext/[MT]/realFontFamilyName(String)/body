@@ -1,9 +1,15 @@
 {
-  if ("Serif".equals(fontFamily)) {
+  if ("serif".equalsIgnoreCase(fontFamily)) {
     return "serif";
   }
-  if ("sans-serif".equals(fontFamily) || "serif".equals(fontFamily) || "monospace".equals(fontFamily)) {
-    return fontFamily;
+  if ("sans-serif".equalsIgnoreCase(fontFamily) || "sans serif".equalsIgnoreCase(fontFamily)) {
+    return "sans-serif";
+  }
+  if ("monospace".equalsIgnoreCase(fontFamily)) {
+    return "monospace";
+  }
+  if ("liberation sans".equalsIgnoreCase(fontFamily)) {
+    return "liberation sans";
   }
   return "sans-serif";
 }

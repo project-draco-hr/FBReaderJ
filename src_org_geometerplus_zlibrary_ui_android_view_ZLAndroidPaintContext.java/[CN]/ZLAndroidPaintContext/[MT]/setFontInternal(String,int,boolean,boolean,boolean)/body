@@ -7,7 +7,7 @@
   }
   Typeface typeface=typefaces[style];
   if (typeface == null) {
-    typeface=Typeface.create(family,style);
+    typeface=createTypeface(family,style);
     typefaces[style]=typeface;
   }
   myTextPaint.setTypeface(typeface);
