@@ -1,0 +1,11 @@
+{
+  if (percent < 0) {
+    percent=0;
+  }
+ else   if (percent > 100) {
+    percent=100;
+  }
+  final WindowManager.LayoutParams attrs=getWindow().getAttributes();
+  attrs.screenBrightness=percent / 100.0f;
+  getWindow().setAttributes(attrs);
+}

@@ -3,6 +3,9 @@
     return true;
   }
 synchronized (this) {
+    if (myIsBrightnessAdjustmentInProgress) {
+      myIsBrightnessAdjustmentInProgress=false;
+    }
     if (isScrollingActive() && myIsManualScrollingActive) {
       setScrollingActive(false);
       myIsManualScrollingActive=false;
