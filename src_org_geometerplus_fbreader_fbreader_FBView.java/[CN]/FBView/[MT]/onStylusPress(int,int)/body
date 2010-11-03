@@ -19,7 +19,7 @@
     followHyperlink(hyperlink);
     return true;
   }
-  if (x < 20) {
+  if (myReader.AllowScreenBrightnessAdjustmentOption.getValue() && x < myContext.getWidth() / 10) {
     myIsBrightnessAdjustmentInProgress=true;
     myStartY=y;
     myStartBrightness=ZLibrary.Instance().getScreenBrightness();
