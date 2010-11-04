@@ -1,0 +1,8 @@
+{
+  TimerTask task=myTimerTasks.get(runnable);
+  if (task != null) {
+    task.cancel();
+    myTimerTasks.remove(runnable);
+  }
+  myTimerTaskPeriods.remove(runnable);
+}

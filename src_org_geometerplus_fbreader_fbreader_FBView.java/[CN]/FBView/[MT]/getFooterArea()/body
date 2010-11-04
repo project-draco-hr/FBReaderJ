@@ -2,10 +2,12 @@
   if (myReader.ScrollbarTypeOption.getValue() == SCROLLBAR_SHOW_AS_FOOTER) {
     if (myFooter == null) {
       myFooter=new Footer();
+      ZLApplication.Instance().addTimerTask(myFooter.UpdateTask,15000);
     }
   }
  else {
     if (myFooter != null) {
+      ZLApplication.Instance().removeTimerTask(myFooter.UpdateTask);
       myFooter=null;
     }
   }

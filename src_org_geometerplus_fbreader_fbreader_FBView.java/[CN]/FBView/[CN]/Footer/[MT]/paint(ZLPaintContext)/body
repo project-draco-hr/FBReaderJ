@@ -25,8 +25,7 @@
     if (info.length() > 0) {
       info.append(" ");
     }
-    Date date=new Date();
-    info.append(String.format("%02d:%02d",date.getHours(),date.getMinutes()));
+    info.append(ZLibrary.Instance().getCurrentTimeString());
   }
   final String infoString=info.toString();
   final int infoWidth=context.getStringWidth(infoString);
