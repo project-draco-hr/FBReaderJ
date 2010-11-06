@@ -1,0 +1,14 @@
+{
+  try {
+    AssetFileDescriptor descriptor=myApplication.getAssets().openFd(getPath());
+    if (descriptor == null) {
+      return 0;
+    }
+    long length=descriptor.getLength();
+    descriptor.close();
+    return length;
+  }
+ catch (  IOException e) {
+    return 0;
+  }
+}

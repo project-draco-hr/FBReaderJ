@@ -1,4 +1,4 @@
 {
-  ZLResourceFile file=ZLResourceFile.createResourceFile("R.drawable.ic_list_searchresult");
+  ZLResourceFile file=((ZLAndroidLibrary)ZLAndroidLibrary.Instance()).createDrawableFile(R.drawable.ic_list_searchresult);
   return new ZLFileImage("image/png",file);
 }
