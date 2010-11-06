@@ -11,7 +11,7 @@
       final BitmapFactory.Options options=new BitmapFactory.Options();
       if (myRealWidth <= 0) {
         options.inJustDecodeBounds=true;
-        BitmapFactory.decodeByteArray(myArray,0,myArray.length,options);
+        decodeWithOptions(options);
         myRealWidth=options.outWidth;
         myRealHeight=options.outHeight;
       }
@@ -21,7 +21,7 @@
         coefficient*=2;
       }
       options.inSampleSize=coefficient;
-      myBitmap=BitmapFactory.decodeByteArray(myArray,0,myArray.length,options);
+      myBitmap=decodeWithOptions(options);
       if (myBitmap != null) {
         myLastRequestedWidth=maxWidth;
         myLastRequestedHeight=maxHeight;
