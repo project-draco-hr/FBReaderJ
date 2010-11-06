@@ -1,3 +1,0 @@
-{
-  super(baseActivity,fbreader,BookInfoActivity.class);
-}

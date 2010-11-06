@@ -1,7 +1,6 @@
 {
   super.onPause();
   if (myBook.save()) {
-    ((FBReaderApp)FBReaderApp.Instance()).clearTextCaches();
     ZLTextHyphenator.Instance().load(myBook.getLanguage());
   }
 }
