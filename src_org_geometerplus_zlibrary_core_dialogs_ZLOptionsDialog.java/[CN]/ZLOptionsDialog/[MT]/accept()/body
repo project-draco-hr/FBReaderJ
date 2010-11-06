@@ -3,7 +3,4 @@
   for (int i=0; i < size; i++) {
     myTabs.get(i).accept();
   }
-  if (myApplyAction != null) {
-    myApplyAction.run();
-  }
 }

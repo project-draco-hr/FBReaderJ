@@ -1,5 +1,5 @@
 {
-  super(resource,exitAction,applyAction);
+  super(resource);
   myCaption=resource.getResource("title").getValue();
   myMainActivity=activity;
 }
