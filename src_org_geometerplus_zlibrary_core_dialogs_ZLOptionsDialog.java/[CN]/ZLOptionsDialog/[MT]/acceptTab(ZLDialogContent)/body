@@ -1,6 +1,3 @@
 {
   tab.accept();
-  if (myApplyAction != null) {
-    myApplyAction.run();
-  }
 }

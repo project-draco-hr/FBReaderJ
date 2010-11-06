@@ -1,4 +1,0 @@
-{
-  myFBReader.clearTextCaches();
-  myFBReader.repaintView();
-}
