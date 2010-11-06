@@ -1,6 +1,6 @@
 {
   try {
-    AssetFileDescriptor descriptor=myApplication.getResources().openRawResourceFd(myResourceId);
+    AssetFileDescriptor descriptor=myApplication.getResources().openRawResourceFd(myId);
     long length=descriptor.getLength();
     descriptor.close();
     return length;

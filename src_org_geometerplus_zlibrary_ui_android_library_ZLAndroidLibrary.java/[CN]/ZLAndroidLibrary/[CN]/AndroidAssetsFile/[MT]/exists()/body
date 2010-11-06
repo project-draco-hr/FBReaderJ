@@ -1,6 +1,9 @@
 {
   try {
-    AssetFileDescriptor descriptor=myActivity.getAssets().openFd(getPath());
+    AssetFileDescriptor descriptor=myApplication.getAssets().openFd(getPath());
+    if (descriptor == null) {
+      return false;
+    }
     descriptor.close();
     return true;
   }
