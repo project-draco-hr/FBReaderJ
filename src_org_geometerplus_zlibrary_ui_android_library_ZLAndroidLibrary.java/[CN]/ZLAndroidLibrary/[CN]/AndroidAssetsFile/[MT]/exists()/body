@@ -1,0 +1,10 @@
+{
+  try {
+    AssetFileDescriptor descriptor=myActivity.getAssets().openFd(getPath());
+    descriptor.close();
+    return true;
+  }
+ catch (  IOException e) {
+    return false;
+  }
+}

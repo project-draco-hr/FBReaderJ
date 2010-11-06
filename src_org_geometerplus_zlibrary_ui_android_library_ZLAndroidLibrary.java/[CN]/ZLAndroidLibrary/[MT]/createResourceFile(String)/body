@@ -1,3 +1,9 @@
 {
-  return new AndroidResourceFile(path);
+  final String drawablePrefix="R.drawable.";
+  if (path.startsWith(drawablePrefix)) {
+    return new AndroidResourceFile(path.substring(drawablePrefix.length()));
+  }
+ else {
+    return new AndroidAssetsFile(path);
+  }
 }

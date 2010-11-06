@@ -1,0 +1,3 @@
+{
+  return myActivity.getAssets().open(getPath());
+}
