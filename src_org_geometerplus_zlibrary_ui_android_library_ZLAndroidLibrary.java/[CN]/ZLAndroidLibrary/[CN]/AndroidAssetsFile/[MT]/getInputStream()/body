@@ -1,0 +1,4 @@
+{
+  System.err.println("open: " + getPath());
+  return myApplication.getAssets().open(getPath());
+}
