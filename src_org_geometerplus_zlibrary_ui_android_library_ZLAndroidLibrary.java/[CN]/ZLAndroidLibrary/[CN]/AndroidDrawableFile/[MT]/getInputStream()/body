@@ -1,8 +1,0 @@
-{
-  try {
-    return myApplication.getResources().openRawResource(myId);
-  }
- catch (  Resources.NotFoundException e) {
-    throw new IOException(e.getMessage());
-  }
-}

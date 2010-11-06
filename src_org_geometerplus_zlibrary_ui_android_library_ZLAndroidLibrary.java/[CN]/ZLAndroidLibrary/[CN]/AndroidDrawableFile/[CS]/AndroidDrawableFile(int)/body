@@ -1,4 +1,0 @@
-{
-  super("drawable/" + drawableId);
-  myId=drawableId;
-}

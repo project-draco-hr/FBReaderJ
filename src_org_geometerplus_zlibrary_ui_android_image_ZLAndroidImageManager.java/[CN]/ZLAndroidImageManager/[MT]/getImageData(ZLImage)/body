@@ -1,5 +1,8 @@
 {
-  if (image instanceof ZLSingleImage) {
+  if (image instanceof ZLAndroidImageData) {
+    return (ZLAndroidImageData)image;
+  }
+ else   if (image instanceof ZLSingleImage) {
     ZLSingleImage singleImage=(ZLSingleImage)image;
     if ("image/palm".equals(singleImage.mimeType())) {
       return null;
@@ -8,7 +11,7 @@
     if (array == null) {
       return null;
     }
-    return new ZLAndroidImageData(array);
+    return new ZLAndroidArrayBasedImageData(array);
   }
  else {
     return null;
