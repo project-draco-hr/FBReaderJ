@@ -1,5 +1,4 @@
 {
   new SQLiteBooksDatabase();
-  final String[] args=(fileName != null) ? new String[]{fileName} : new String[0];
-  return new FBReaderApp(args);
+  return new FBReaderApp(fileName);
 }

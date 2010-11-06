@@ -1,5 +1,5 @@
 {
-  myArg0=(args.length > 0) ? args[0] : null;
+  myArg0=arg;
   addAction(ActionCode.QUIT,new QuitAction(this));
   addAction(ActionCode.INCREASE_FONT,new ChangeFontSizeAction(this,+2));
   addAction(ActionCode.DECREASE_FONT,new ChangeFontSizeAction(this,-2));
