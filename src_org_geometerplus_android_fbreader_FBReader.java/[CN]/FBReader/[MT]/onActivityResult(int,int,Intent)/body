@@ -1,0 +1,11 @@
+{
+switch (requestCode) {
+case REPAINT_CODE:
+{
+      final FBReaderApp fbreader=(FBReaderApp)ZLApplication.Instance();
+      fbreader.clearTextCaches();
+      fbreader.repaintView();
+      break;
+    }
+}
+}

@@ -1,3 +1,0 @@
-{
-  super(baseActivity,fbreader,PreferenceActivity.class);
-}
