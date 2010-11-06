@@ -1,0 +1,3 @@
+{
+  myBaseActivity.startActivityForResult(new Intent(myBaseActivity.getApplicationContext(),BookInfoActivity.class),FBReader.REPAINT_CODE);
+}
