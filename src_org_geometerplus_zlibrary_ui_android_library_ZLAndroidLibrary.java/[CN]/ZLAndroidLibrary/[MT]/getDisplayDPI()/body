@@ -1,0 +1,8 @@
+{
+  if (myActivity == null) {
+    return 0;
+  }
+  DisplayMetrics metrics=new DisplayMetrics();
+  myActivity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+  return (int)(160 * metrics.density);
+}
