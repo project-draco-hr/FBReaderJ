@@ -1,6 +1,7 @@
 {
-  families.add("Liberation Sans");
-  families.add("Monospace");
-  families.add("Sans Serif");
-  families.add("Serif");
+  families.add("Droid Sans");
+  families.add("Droid Serif");
+  families.add("Droid Mono");
+  families.addAll(getFontMap().keySet());
+  Collections.sort(families);
 }

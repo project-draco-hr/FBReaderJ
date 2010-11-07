@@ -1,0 +1,13 @@
+{
+  System.err.println("getFontMap");
+  if (ourFontMap == null) {
+    System.err.println("getFontMap 1");
+    ourFontMap=new ZLTTFInfoDetector().collectFonts(new File("/sdcard/fonts").listFiles(new FilenameFilter(){
+      public boolean accept(      File dir,      String name){
+        return name.endsWith(".ttf") && !name.startsWith(".");
+      }
+    }
+));
+  }
+  return ourFontMap;
+}

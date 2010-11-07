@@ -7,7 +7,28 @@
   }
   Typeface typeface=typefaces[style];
   if (typeface == null) {
-    typeface=createTypeface(family,style);
+    File[] table=getFontMap().get(realFontFamilyName(family));
+    if (table != null) {
+      try {
+        if (table[style] != null) {
+          typeface=Typeface.createFromFile(table[style]);
+        }
+ else {
+          for (int i=0; i < 4; ++i) {
+            if (table[i] != null) {
+              typeface=Typeface.createFromFile(table[i]);
+              typefaces[i]=typeface;
+              break;
+            }
+          }
+        }
+      }
+ catch (      Throwable e) {
+      }
+    }
+    if (typeface == null) {
+      typeface=Typeface.create(family,style);
+    }
     typefaces[style]=typeface;
   }
   myTextPaint.setTypeface(typeface);

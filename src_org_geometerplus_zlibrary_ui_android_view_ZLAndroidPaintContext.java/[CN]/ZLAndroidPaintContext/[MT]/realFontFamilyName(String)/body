@@ -1,15 +1,17 @@
 {
-  if ("serif".equalsIgnoreCase(fontFamily)) {
+  if ("serif".equalsIgnoreCase(fontFamily) || "droid serif".equalsIgnoreCase(fontFamily)) {
     return "serif";
   }
-  if ("sans-serif".equalsIgnoreCase(fontFamily) || "sans serif".equalsIgnoreCase(fontFamily)) {
+  if ("sans-serif".equalsIgnoreCase(fontFamily) || "sans serif".equalsIgnoreCase(fontFamily) || "droid sans".equalsIgnoreCase(fontFamily)) {
     return "sans-serif";
   }
-  if ("monospace".equalsIgnoreCase(fontFamily)) {
+  if ("monospace".equalsIgnoreCase(fontFamily) || "droid mono".equalsIgnoreCase(fontFamily)) {
     return "monospace";
   }
-  if ("liberation sans".equalsIgnoreCase(fontFamily)) {
-    return "liberation sans";
+  for (  String name : getFontMap().keySet()) {
+    if (name.equalsIgnoreCase(fontFamily)) {
+      return name;
+    }
   }
   return "sans-serif";
 }

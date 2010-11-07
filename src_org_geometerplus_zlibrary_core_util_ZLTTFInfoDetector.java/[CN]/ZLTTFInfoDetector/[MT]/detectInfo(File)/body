@@ -1,0 +1,20 @@
+{
+  myStream=new FileInputStream(file);
+  myPosition=0;
+  final byte[] subtable=new byte[12];
+  myPosition+=myStream.read(subtable);
+  final int numTables=getInt16(subtable,4);
+  final byte[] tables=new byte[16 * numTables];
+  myPosition+=myStream.read(tables);
+  TableInfo nameInfo=null;
+  for (int i=0; i < numTables; ++i) {
+    if ("name".equals(new String(tables,i * 16,4,"ascii"))) {
+      nameInfo=new TableInfo(tables,i * 16);
+      break;
+    }
+  }
+  if (nameInfo == null) {
+    return null;
+  }
+  return readFontInfo(nameInfo);
+}
