@@ -5,19 +5,19 @@
     typefaces=new Typeface[4];
     myTypefaces.put(family,typefaces);
   }
-  Typeface typeface=typefaces[style];
-  if (typeface == null) {
-    File[] table=getFontMap().get(realFontFamilyName(family));
-    if (table != null) {
+  Typeface tf=typefaces[style];
+  if (tf == null) {
+    File[] files=getFontMap().get(realFontFamilyName(family));
+    if (files != null) {
       try {
-        if (table[style] != null) {
-          typeface=Typeface.createFromFile(table[style]);
+        if (files[style] != null) {
+          tf=createFontFromFile(files[style]);
         }
  else {
           for (int i=0; i < 4; ++i) {
-            if (table[i] != null) {
-              typeface=Typeface.createFromFile(table[i]);
-              typefaces[i]=typeface;
+            if (files[i] != null) {
+              tf=(typefaces[i] != null) ? typefaces[i] : createFontFromFile(files[i]);
+              typefaces[i]=tf;
               break;
             }
           }
@@ -26,12 +26,12 @@
  catch (      Throwable e) {
       }
     }
-    if (typeface == null) {
-      typeface=Typeface.create(family,style);
+    if (tf == null) {
+      tf=Typeface.create(family,style);
     }
-    typefaces[style]=typeface;
+    typefaces[style]=tf;
   }
-  myTextPaint.setTypeface(typeface);
+  myTextPaint.setTypeface(tf);
   myTextPaint.setTextSize(size);
   myTextPaint.setUnderlineText(underline);
 }
