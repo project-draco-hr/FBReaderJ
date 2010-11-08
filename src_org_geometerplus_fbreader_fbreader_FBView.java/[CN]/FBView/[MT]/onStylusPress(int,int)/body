@@ -5,7 +5,7 @@
   if (isScrollingActive()) {
     return false;
   }
-  if (myReader.FooterIsSensitive.getValue()) {
+  if (myReader.FooterIsSensitiveOption.getValue()) {
     Footer footer=getFooterArea();
     if (footer != null && y > myContext.getHeight() - footer.getTapHeight()) {
       footer.setProgress(x);
