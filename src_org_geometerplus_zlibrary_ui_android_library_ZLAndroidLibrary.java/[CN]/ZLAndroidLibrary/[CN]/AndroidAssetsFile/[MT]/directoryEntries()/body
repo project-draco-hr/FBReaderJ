@@ -4,7 +4,7 @@
     if (names != null && names.length != 0) {
       ArrayList<ZLFile> files=new ArrayList<ZLFile>(names.length);
       for (      String n : names) {
-        files.add(new AndroidAssetsFile(getPath() + "/" + n));
+        files.add(new AndroidAssetsFile(this,n));
       }
       return files;
     }
