@@ -1,0 +1,6 @@
+{
+  super(context,resource,resourceKey);
+  myOption=option;
+  setList(new String[]{"Droid Mono","Droid Sans","Droid Serif"});
+  setInitialValue(option.getValue());
+}

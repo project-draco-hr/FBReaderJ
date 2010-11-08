@@ -1,0 +1,15 @@
+{
+  try {
+    String[] names=myApplication.getAssets().list(getPath());
+    if (names != null && names.length != 0) {
+      ArrayList<ZLFile> files=new ArrayList<ZLFile>(names.length);
+      for (      String n : names) {
+        files.add(new AndroidAssetsFile(this,n));
+      }
+      return files;
+    }
+  }
+ catch (  IOException e) {
+  }
+  return Collections.emptyList();
+}
