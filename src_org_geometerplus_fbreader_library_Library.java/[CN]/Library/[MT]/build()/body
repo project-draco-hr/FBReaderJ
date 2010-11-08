@@ -5,6 +5,9 @@
   final HashMap<Long,Book> bookById=new HashMap<Long,Book>();
   collectBooks();
   for (  Book book : myBooks) {
+    if (book == null) {
+      continue;
+    }
     bookById.put(book.getId(),book);
     List<Author> authors=book.authors();
     if (authors.isEmpty()) {
