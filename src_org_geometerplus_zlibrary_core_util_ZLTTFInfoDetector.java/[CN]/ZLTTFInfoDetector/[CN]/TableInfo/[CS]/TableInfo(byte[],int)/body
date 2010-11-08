@@ -1,0 +1,6 @@
+{
+  Name=new String(buffer,off,4,"ascii");
+  CheckSum=getInt32(buffer,off + 4);
+  Offset=getInt32(buffer,off + 8);
+  Length=getInt32(buffer,off + 12);
+}

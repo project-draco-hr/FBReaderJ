@@ -5,12 +5,33 @@
     typefaces=new Typeface[4];
     myTypefaces.put(family,typefaces);
   }
-  Typeface typeface=typefaces[style];
-  if (typeface == null) {
-    typeface=Typeface.create(family,style);
-    typefaces[style]=typeface;
+  Typeface tf=typefaces[style];
+  if (tf == null) {
+    File[] files=getFontMap().get(realFontFamilyName(family));
+    if (files != null) {
+      try {
+        if (files[style] != null) {
+          tf=createFontFromFile(files[style]);
+        }
+ else {
+          for (int i=0; i < 4; ++i) {
+            if (files[i] != null) {
+              tf=(typefaces[i] != null) ? typefaces[i] : createFontFromFile(files[i]);
+              typefaces[i]=tf;
+              break;
+            }
+          }
+        }
+      }
+ catch (      Throwable e) {
+      }
+    }
+    if (tf == null) {
+      tf=Typeface.create(family,style);
+    }
+    typefaces[style]=tf;
   }
-  myTextPaint.setTypeface(typeface);
+  myTextPaint.setTypeface(tf);
   myTextPaint.setTextSize(size);
   myTextPaint.setUnderlineText(underline);
 }

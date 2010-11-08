@@ -1,0 +1,14 @@
+{
+  if (ourFontCreationMethod == null) {
+    return null;
+  }
+  try {
+    return (Typeface)ourFontCreationMethod.invoke(null,file);
+  }
+ catch (  IllegalAccessException e) {
+    return null;
+  }
+catch (  InvocationTargetException e) {
+    return null;
+  }
+}

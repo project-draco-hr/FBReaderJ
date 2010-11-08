@@ -1,0 +1,34 @@
+{
+  if (nameInfo == null || nameInfo.Offset < myPosition || nameInfo.Length <= 0) {
+    return null;
+  }
+  if (nameInfo.Length > 10240) {
+    throw new IOException("Name table size is too large: " + nameInfo.Length);
+  }
+  final byte[] buffer=readTable(nameInfo);
+  if (getInt16(buffer,0) != 0) {
+    throw new IOException("Name table format is invalid");
+  }
+  final int count=Math.min(getInt16(buffer,2),(buffer.length - 6) / 12);
+  final int stringOffset=getInt16(buffer,4);
+  final ZLTTFInfo fontInfo=new ZLTTFInfo();
+  for (int i=0; i < count; ++i) {
+    final int platformId=getInt16(buffer,12 * i + 6);
+    final int nameId=getInt16(buffer,12 * i + 12);
+    final int length=getInt16(buffer,12 * i + 14);
+    final int offset=getInt16(buffer,12 * i + 16);
+switch (nameId) {
+case 1:
+      if (fontInfo.FamilyName == null && stringOffset + offset + length <= buffer.length) {
+        fontInfo.FamilyName=new String(buffer,stringOffset + offset,length,platformId == 1 ? "windows-1252" : "UTF-16BE");
+      }
+    break;
+case 2:
+  if (fontInfo.SubFamilyName == null && stringOffset + offset + length <= buffer.length) {
+    fontInfo.SubFamilyName=new String(buffer,stringOffset + offset,length,platformId == 1 ? "windows-1252" : "UTF-16BE");
+  }
+break;
+}
+}
+return fontInfo;
+}
