@@ -8,16 +8,16 @@
   }
   Typeface tf=typefaces[style];
   if (tf == null) {
-    File[] files=getFontMap().get(family);
+    File[] files=AndroidFontUtil.getFontMap().get(family);
     if (files != null) {
       try {
         if (files[style] != null) {
-          tf=createFontFromFile(files[style]);
+          tf=AndroidFontUtil.createFontFromFile(files[style]);
         }
  else {
           for (int i=0; i < 4; ++i) {
             if (files[i] != null) {
-              tf=(typefaces[i] != null) ? typefaces[i] : createFontFromFile(files[i]);
+              tf=(typefaces[i] != null) ? typefaces[i] : AndroidFontUtil.createFontFromFile(files[i]);
               typefaces[i]=tf;
               break;
             }
