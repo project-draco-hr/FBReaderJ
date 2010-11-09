@@ -15,7 +15,6 @@
 {
     final String name=myComboEntry.initialValue();
     ZLTextBaseStyle baseStyle=collection.getBaseStyle();
-    registerEntry(dialogTab,KEY_FONTFAMILY,new ZLFontFamilyOptionEntry(baseStyle.FontFamilyOption,context),name);
     registerEntry(dialogTab,KEY_FONTSIZE,new ZLSimpleSpinOptionEntry(baseStyle.FontSizeOption,2),name);
     registerEntry(dialogTab,KEY_BOLD,new ZLSimpleBooleanOptionEntry(baseStyle.BoldOption),name);
     registerEntry(dialogTab,KEY_ITALIC,new ZLSimpleBooleanOptionEntry(baseStyle.ItalicOption),name);
