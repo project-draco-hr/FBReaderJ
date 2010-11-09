@@ -15,6 +15,10 @@
   final ZLTextStyleCollection collection=ZLTextStyleCollection.Instance();
   final ZLTextBaseStyle baseStyle=collection.getBaseStyle();
   appearanceCategory.addPreference(new FontOption(this,appearanceCategory.Resource,"font",baseStyle.FontFamilyOption));
+  appearanceCategory.addPreference(new ZLIntegerRangePreference(this,appearanceCategory.Resource.getResource("fontSize"),baseStyle.FontSizeOption));
+  appearanceCategory.addPreference(new ZLBooleanPreference(this,baseStyle.BoldOption,appearanceCategory.Resource,"bold"));
+  appearanceCategory.addPreference(new ZLBooleanPreference(this,baseStyle.ItalicOption,appearanceCategory.Resource,"italic"));
+  appearanceCategory.addPreference(new ZLBooleanPreference(this,baseStyle.AutoHyphenationOption,appearanceCategory.Resource,"autoHyphenations"));
   final ZLOptionsDialog dlg=new OptionsDialog(fbReader).getDialog();
   final Screen formatScreen=appearanceCategory.createPreferenceScreen("format");
   final Screen stylesScreen=appearanceCategory.createPreferenceScreen("styles");
