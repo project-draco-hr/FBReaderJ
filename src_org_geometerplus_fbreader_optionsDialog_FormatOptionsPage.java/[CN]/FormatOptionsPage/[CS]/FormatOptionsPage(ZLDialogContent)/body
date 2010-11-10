@@ -16,7 +16,6 @@
     final String name=myComboEntry.initialValue();
     ZLTextBaseStyle baseStyle=collection.getBaseStyle();
     registerEntries(dialogTab,KEY_LINESPACING,new ZLTextLineSpaceOptionEntry(baseStyle.LineSpacePercentOption,dialogTab.getResource(KEY_LINESPACING),false),KEY_DUMMY,null,name);
-    registerEntries(dialogTab,KEY_ALIGNMENT,new ZLTextAlignmentOptionEntry(baseStyle.AlignmentOption,dialogTab.getResource(KEY_ALIGNMENT),false),KEY_DUMMY,null,name);
   }
   for (int i=0; i < stylesNumber; ++i) {
     ZLTextStyleDecoration d=collection.getDecoration(styles[i]);

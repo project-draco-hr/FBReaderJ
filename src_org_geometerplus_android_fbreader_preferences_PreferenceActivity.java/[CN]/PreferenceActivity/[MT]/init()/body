@@ -18,6 +18,8 @@
   appearanceCategory.addPreference(new ZLIntegerRangePreference(this,appearanceCategory.Resource.getResource("fontSize"),baseStyle.FontSizeOption));
   appearanceCategory.addPreference(new ZLBooleanPreference(this,baseStyle.BoldOption,appearanceCategory.Resource,"bold"));
   appearanceCategory.addPreference(new ZLBooleanPreference(this,baseStyle.ItalicOption,appearanceCategory.Resource,"italic"));
+  String[] alignments={"left","right","center","justify"};
+  appearanceCategory.addPreference(new ZLChoicePreference(this,appearanceCategory.Resource,"alignment",baseStyle.AlignmentOption,alignments));
   appearanceCategory.addPreference(new ZLBooleanPreference(this,baseStyle.AutoHyphenationOption,appearanceCategory.Resource,"autoHyphenations"));
   final ZLOptionsDialog dlg=new OptionsDialog(fbReader).getDialog();
   final Screen formatScreen=appearanceCategory.createPreferenceScreen("format");
