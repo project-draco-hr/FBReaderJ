@@ -1,0 +1,10 @@
+{
+  myOption=option;
+  if (ourValues5.isEmpty()) {
+    ourValues5.add(resource.getResource("unchanged").getValue());
+    ourValues5.add(resource.getResource("left").getValue());
+    ourValues5.add(resource.getResource("rigth").getValue());
+    ourValues5.add(resource.getResource("center").getValue());
+    ourValues5.add(resource.getResource("justify").getValue());
+  }
+}

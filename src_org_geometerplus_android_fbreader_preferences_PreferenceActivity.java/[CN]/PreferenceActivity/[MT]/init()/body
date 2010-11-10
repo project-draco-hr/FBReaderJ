@@ -18,6 +18,13 @@
   appearanceCategory.addPreference(new ZLIntegerRangePreference(this,appearanceCategory.Resource.getResource("fontSize"),baseStyle.FontSizeOption));
   appearanceCategory.addPreference(new ZLBooleanPreference(this,baseStyle.BoldOption,appearanceCategory.Resource,"bold"));
   appearanceCategory.addPreference(new ZLBooleanPreference(this,baseStyle.ItalicOption,appearanceCategory.Resource,"italic"));
+  final ZLIntegerRangeOption spaceOption=baseStyle.LineSpaceOption;
+  final String[] spacings=new String[spaceOption.MaxValue - spaceOption.MinValue + 1];
+  for (int i=0; i < spacings.length; ++i) {
+    final int val=spaceOption.MinValue + i;
+    spacings[i]=(char)(val / 10 + '0') + "." + (char)(val % 10 + '0');
+  }
+  appearanceCategory.addPreference(new ZLChoicePreference(this,appearanceCategory.Resource,"lineSpacing",baseStyle.LineSpaceOption,spacings));
   String[] alignments={"left","right","center","justify"};
   appearanceCategory.addPreference(new ZLChoicePreference(this,appearanceCategory.Resource,"alignment",baseStyle.AlignmentOption,alignments));
   appearanceCategory.addPreference(new ZLBooleanPreference(this,baseStyle.AutoHyphenationOption,appearanceCategory.Resource,"autoHyphenations"));
