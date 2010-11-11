@@ -1,0 +1,8 @@
+{
+  super(context,resource,resourceKey);
+  myBoldOption=boldOption;
+  myItalicOption=italicOption;
+  setList(myValues);
+  final int intValue=(boldOption.getValue() ? 1 : 0) | (italicOption.getValue() ? 2 : 0);
+  setInitialValue(myValues[intValue]);
+}

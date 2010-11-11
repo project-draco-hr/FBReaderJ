@@ -1,7 +1,6 @@
 {
   final ZLResource styleResource=ZLResource.resource(KEY_STYLE);
-  myComboEntry=new ComboOptionEntry(this,styleResource.getResource(KEY_BASE).getValue());
-  myComboEntry.addValue(myComboEntry.initialValue());
+  myComboEntry=new ComboOptionEntry(this);
   ZLTextStyleCollection collection=ZLTextStyleCollection.Instance();
   byte styles[]={REGULAR,TITLE,SECTION_TITLE,SUBTITLE,H1,H2,H3,H4,H5,H6,ANNOTATION,EPIGRAPH,PREFORMATTED,AUTHOR,POEM_TITLE,STANZA,VERSE};
   final int stylesNumber=styles.length;
@@ -12,12 +11,6 @@
     }
   }
   dialogTab.addOption("optionsFor",myComboEntry);
-{
-    final String name=myComboEntry.initialValue();
-    ZLTextBaseStyle baseStyle=collection.getBaseStyle();
-    registerEntries(dialogTab,KEY_LINESPACING,new ZLTextLineSpaceOptionEntry(baseStyle.LineSpacePercentOption,dialogTab.getResource(KEY_LINESPACING),false),KEY_DUMMY,null,name);
-    registerEntries(dialogTab,KEY_ALIGNMENT,new ZLTextAlignmentOptionEntry(baseStyle.AlignmentOption,dialogTab.getResource(KEY_ALIGNMENT),false),KEY_DUMMY,null,name);
-  }
   for (int i=0; i < stylesNumber; ++i) {
     ZLTextStyleDecoration d=collection.getDecoration(styles[i]);
     if ((d != null) && (d.isFullDecoration())) {
@@ -25,8 +18,8 @@
       final String name=styleResource.getResource(decoration.getName()).getValue();
       registerEntries(dialogTab,KEY_SPACEBEFORE,new ZLSimpleSpinOptionEntry(decoration.SpaceBeforeOption,1),KEY_LEFTINDENT,new ZLSimpleSpinOptionEntry(decoration.LeftIndentOption,1),name);
       registerEntries(dialogTab,KEY_SPACEAFTER,new ZLSimpleSpinOptionEntry(decoration.SpaceAfterOption,1),KEY_RIGHTINDENT,new ZLSimpleSpinOptionEntry(decoration.RightIndentOption,1),name);
-      registerEntries(dialogTab,KEY_LINESPACING,new ZLTextLineSpaceOptionEntry(decoration.LineSpacePercentOption,dialogTab.getResource(KEY_LINESPACING),true),KEY_FIRSTLINEINDENT,new ZLSimpleSpinOptionEntry(decoration.FirstLineIndentDeltaOption,1),name);
-      registerEntries(dialogTab,KEY_ALIGNMENT,new ZLTextAlignmentOptionEntry(decoration.AlignmentOption,dialogTab.getResource(KEY_ALIGNMENT),true),KEY_DUMMY,null,name);
+      registerEntries(dialogTab,KEY_LINESPACING,new ZLTextLineSpaceOptionEntry(decoration.LineSpacePercentOption,dialogTab.getResource(KEY_LINESPACING)),KEY_FIRSTLINEINDENT,new ZLSimpleSpinOptionEntry(decoration.FirstLineIndentDeltaOption,1),name);
+      registerEntries(dialogTab,KEY_ALIGNMENT,new ZLTextAlignmentOptionEntry(decoration.AlignmentOption,dialogTab.getResource(KEY_ALIGNMENT)),KEY_DUMMY,null,name);
     }
   }
   myComboEntry.onValueSelected(0);

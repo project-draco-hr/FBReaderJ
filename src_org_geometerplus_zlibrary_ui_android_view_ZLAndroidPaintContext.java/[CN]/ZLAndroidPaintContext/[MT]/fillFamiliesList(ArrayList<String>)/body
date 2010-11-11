@@ -1,7 +1,3 @@
 {
-  families.add("Droid Sans");
-  families.add("Droid Serif");
-  families.add("Droid Mono");
-  families.addAll(getFontMap().keySet());
-  Collections.sort(families);
+  AndroidFontUtil.fillFamiliesList(families);
 }
