@@ -1,0 +1,37 @@
+{
+  final long timeStamp=System.currentTimeMillis();
+  if (forceReload && timeStamp < myTimeStamp + 1000) {
+    forceReload=false;
+  }
+  myTimeStamp=timeStamp;
+  if (ourFontMap == null || forceReload) {
+    boolean rebuildMap=ourFontMap == null;
+    if (ourFontCreationMethod == null) {
+      if (rebuildMap) {
+        ourFontMap=new HashMap<String,File[]>();
+      }
+    }
+ else {
+      final File[] fileList=new File(Paths.FontsDirectoryOption().getValue()).listFiles(new FilenameFilter(){
+        public boolean accept(        File dir,        String name){
+          return name.toLowerCase().endsWith(".ttf") && !name.startsWith(".");
+        }
+      }
+);
+      if (fileList == null) {
+        if (ourFileList != null) {
+          ourFileList=null;
+          rebuildMap=true;
+        }
+      }
+      if (fileList != null && !fileList.equals(ourFileList)) {
+        ourFileList=fileList;
+        rebuildMap=true;
+      }
+      if (rebuildMap) {
+        ourFontMap=new ZLTTFInfoDetector().collectFonts(fileList);
+      }
+    }
+  }
+  return ourFontMap;
+}
