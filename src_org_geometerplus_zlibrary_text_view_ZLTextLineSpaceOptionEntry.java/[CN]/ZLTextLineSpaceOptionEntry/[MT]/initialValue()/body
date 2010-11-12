@@ -4,5 +4,5 @@
     return ourAllValuesPlusBase.get(0);
   }
   final int index=Math.max(0,Math.min(15,(value + 5) / 10 - 5));
-  return ourAllValues.get(index);
+  return ourAllValuesPlusBase.get(index + 1);
 }

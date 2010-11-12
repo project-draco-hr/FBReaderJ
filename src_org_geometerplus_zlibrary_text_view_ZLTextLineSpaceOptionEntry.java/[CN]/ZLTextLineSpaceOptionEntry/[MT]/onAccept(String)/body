@@ -4,7 +4,7 @@
   }
  else {
     for (int i=5; i <= 20; ++i) {
-      if (ourAllValues.get(i - 5).equals(value)) {
+      if (ourAllValuesPlusBase.get(i - 5 + 1).equals(value)) {
         myOption.setValue(10 * i);
         break;
       }

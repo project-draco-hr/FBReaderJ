@@ -1,17 +1,3 @@
 {
-  if ("serif".equalsIgnoreCase(fontFamily) || "droid serif".equalsIgnoreCase(fontFamily)) {
-    return "serif";
-  }
-  if ("sans-serif".equalsIgnoreCase(fontFamily) || "sans serif".equalsIgnoreCase(fontFamily) || "droid sans".equalsIgnoreCase(fontFamily)) {
-    return "sans-serif";
-  }
-  if ("monospace".equalsIgnoreCase(fontFamily) || "droid mono".equalsIgnoreCase(fontFamily)) {
-    return "monospace";
-  }
-  for (  String name : getFontMap().keySet()) {
-    if (name.equalsIgnoreCase(fontFamily)) {
-      return name;
-    }
-  }
-  return "sans-serif";
+  return AndroidFontUtil.realFontFamilyName(fontFamily);
 }
