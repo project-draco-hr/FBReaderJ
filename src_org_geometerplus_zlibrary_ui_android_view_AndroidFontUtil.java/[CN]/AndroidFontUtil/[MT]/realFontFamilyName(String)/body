@@ -8,7 +8,7 @@
   if ("monospace".equalsIgnoreCase(fontFamily) || "droid mono".equalsIgnoreCase(fontFamily)) {
     return "monospace";
   }
-  for (  String name : getFontMap().keySet()) {
+  for (  String name : getFontMap(false).keySet()) {
     if (name.equalsIgnoreCase(fontFamily)) {
       return name;
     }

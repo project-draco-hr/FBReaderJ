@@ -8,7 +8,7 @@
   }
   Typeface tf=typefaces[style];
   if (tf == null) {
-    File[] files=AndroidFontUtil.getFontMap().get(family);
+    File[] files=AndroidFontUtil.getFontMap(false).get(family);
     if (files != null) {
       try {
         if (files[style] != null) {
