@@ -2,7 +2,7 @@
 synchronized (myLinks) {
     final int index=Collections.binarySearch(list,link,comparator);
     if (index >= 0) {
-      throw new RuntimeException("Unable to add link with duplicated title to the library");
+      return;
     }
     final int insertAt=-index - 1;
     list.add(insertAt,link);

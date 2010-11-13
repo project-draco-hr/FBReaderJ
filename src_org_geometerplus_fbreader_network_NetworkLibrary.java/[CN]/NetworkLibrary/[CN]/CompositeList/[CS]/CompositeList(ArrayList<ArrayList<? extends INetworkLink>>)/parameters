@@ -1,2 +1,1 @@
 ArrayList<ArrayList<? extends INetworkLink>> lists
-Comparator<INetworkLink> comparator

@@ -1,0 +1,7 @@
+{
+  final TreeSet<String> languageSet=new TreeSet<String>();
+  for (  INetworkLink link : myLoadedLinks) {
+    languageSet.add(link.getLanguage());
+  }
+  return new ArrayList(languageSet);
+}

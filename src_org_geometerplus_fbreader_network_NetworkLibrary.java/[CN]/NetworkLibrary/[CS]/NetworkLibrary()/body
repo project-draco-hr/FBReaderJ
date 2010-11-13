@@ -2,5 +2,5 @@
   ArrayList<ArrayList<? extends INetworkLink>> linksList=new ArrayList<ArrayList<? extends INetworkLink>>();
   linksList.add(myLoadedLinks);
   linksList.add(myCustomLinks);
-  myLinks=new CompositeList(linksList,new LinksComparator());
+  myLinks=new CompositeList(linksList);
 }
