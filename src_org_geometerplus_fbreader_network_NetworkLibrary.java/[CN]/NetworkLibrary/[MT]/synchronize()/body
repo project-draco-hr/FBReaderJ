@@ -1,8 +1,5 @@
 {
   if (myUpdateChildren || myInvalidateChildren) {
-    if (myInvalidateChildren) {
-      Collections.sort(myCustomLinks,new LinksComparator());
-    }
     myUpdateChildren=false;
     myInvalidateChildren=false;
     makeUpToDate();

@@ -19,9 +19,6 @@ synchronized (myBackgroundLock) {
         if (myBackgroundLinks.isEmpty()) {
           myBackgroundLinks=null;
         }
- else {
-          Collections.sort(myBackgroundLinks,new LinksComparator());
-        }
       }
     }
   }
