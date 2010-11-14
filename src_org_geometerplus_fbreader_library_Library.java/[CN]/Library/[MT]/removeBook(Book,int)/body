@@ -8,7 +8,7 @@
   myLibraryByTag.removeBook(book);
   if (myRecentBooks.removeBook(book)) {
     final BooksDatabase db=BooksDatabase.Instance();
-    final List<Long> ids=db.listRecentBookIds();
+    final List<Long> ids=db.loadRecentBookIds();
     ids.remove(book.getId());
     db.saveRecentBookIds(ids);
   }

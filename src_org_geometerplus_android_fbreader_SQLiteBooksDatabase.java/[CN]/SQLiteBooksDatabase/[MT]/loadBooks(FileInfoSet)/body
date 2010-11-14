@@ -1,4 +1,5 @@
 {
+  System.err.println("loading all books info for " + myInstanceId);
   Cursor cursor=myDatabase.rawQuery("SELECT book_id,file_id,title,encoding,language FROM Books",null);
   final int count=cursor.getCount();
   final HashMap<Long,Book> booksById=new HashMap<Long,Book>(count);
