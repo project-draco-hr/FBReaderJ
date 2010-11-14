@@ -1,0 +1,9 @@
+{
+  if (language == ZLLanguageUtil.MULTI_LANGUAGE_CODE) {
+    return 1;
+  }
+  if (language.equals(Locale.getDefault().getLanguage())) {
+    return 0;
+  }
+  return 2;
+}

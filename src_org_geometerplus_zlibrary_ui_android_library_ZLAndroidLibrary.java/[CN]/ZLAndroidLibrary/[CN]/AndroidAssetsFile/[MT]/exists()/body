@@ -1,12 +1,13 @@
 {
   try {
-    AssetFileDescriptor descriptor=myApplication.getAssets().openFd(getPath());
-    if (descriptor != null) {
-      descriptor.close();
+    InputStream stream=myApplication.getAssets().open(getPath());
+    if (stream != null) {
+      stream.close();
       return true;
     }
   }
  catch (  IOException e) {
+    e.printStackTrace();
   }
   try {
     String[] names=myApplication.getAssets().list(getPath());

@@ -1,4 +1,0 @@
-{
-  myIndex=it.myIndex;
-  myPositions=new ArrayList<Integer>(it.myPositions);
-}
