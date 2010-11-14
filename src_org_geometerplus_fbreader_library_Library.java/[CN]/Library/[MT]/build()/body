@@ -40,7 +40,7 @@
     }
   }
   final BooksDatabase db=BooksDatabase.Instance();
-  for (  long id : db.listRecentBookIds()) {
+  for (  long id : db.loadRecentBookIds()) {
     Book book=bookById.get(id);
     if (book != null) {
       myRecentBooks.createBookSubTree(book,true);

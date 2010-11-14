@@ -1,0 +1,5 @@
+{
+  myInstanceId=instanceId;
+  myDatabase=ZLAndroidApplication.Instance().openOrCreateDatabase("books.db",Context.MODE_PRIVATE,null);
+  migrate();
+}
