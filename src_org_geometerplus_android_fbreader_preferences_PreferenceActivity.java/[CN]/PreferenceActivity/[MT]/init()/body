@@ -26,7 +26,7 @@
     spacings[i]=(char)(val / 10 + '0') + "." + (char)(val % 10 + '0');
   }
   textCategory.addPreference(new ZLChoicePreference(this,textCategory.Resource,"lineSpacing",baseStyle.LineSpaceOption,spacings));
-  String[] alignments={"left","right","center","justify"};
+  final String[] alignments={"left","right","center","justify"};
   textCategory.addPreference(new ZLChoicePreference(this,textCategory.Resource,"alignment",baseStyle.AlignmentOption,alignments));
   textCategory.addPreference(new ZLBooleanPreference(this,baseStyle.AutoHyphenationOption,textCategory.Resource,"autoHyphenations"));
   final ZLOptionsDialog dlg=new OptionsDialog(fbReader).getDialog();
@@ -38,9 +38,17 @@
     if (decoration == null) {
       continue;
     }
+    ZLTextFullStyleDecoration fullDecoration=decoration instanceof ZLTextFullStyleDecoration ? (ZLTextFullStyleDecoration)decoration : null;
     final Screen formatScreen=moreStylesCategory.createPreferenceScreen(decoration.getName());
     final Category formatCategory=formatScreen.createCategory(null);
     formatCategory.addPreference(new FontOption(this,textCategory.Resource,"font",decoration.FontFamilyOption,true));
+    formatCategory.addPreference(new ZLBoolean3Preference(this,textCategory.Resource,"bold",decoration.BoldOption));
+    formatCategory.addPreference(new ZLBoolean3Preference(this,textCategory.Resource,"italic",decoration.ItalicOption));
+    if (fullDecoration != null) {
+      final String[] allAlignments={"unchanged","left","right","center","justify"};
+      formatCategory.addPreference(new ZLChoicePreference(this,textCategory.Resource,"alignment",fullDecoration.AlignmentOption,allAlignments));
+    }
+    formatCategory.addPreference(new ZLBoolean3Preference(this,textCategory.Resource,"allowHyphenations",decoration.AllowHyphenationsOption));
   }
   final Screen formatScreen=moreStylesCategory.createPreferenceScreen("format");
   final Screen stylesScreen=moreStylesCategory.createPreferenceScreen("styles");

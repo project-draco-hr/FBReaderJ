@@ -19,7 +19,6 @@
       registerEntries(dialogTab,KEY_SPACEBEFORE,new ZLSimpleSpinOptionEntry(decoration.SpaceBeforeOption,1),KEY_LEFTINDENT,new ZLSimpleSpinOptionEntry(decoration.LeftIndentOption,1),name);
       registerEntries(dialogTab,KEY_SPACEAFTER,new ZLSimpleSpinOptionEntry(decoration.SpaceAfterOption,1),KEY_RIGHTINDENT,new ZLSimpleSpinOptionEntry(decoration.RightIndentOption,1),name);
       registerEntries(dialogTab,KEY_LINESPACING,new ZLTextLineSpaceOptionEntry(decoration.LineSpacePercentOption,dialogTab.getResource(KEY_LINESPACING)),KEY_FIRSTLINEINDENT,new ZLSimpleSpinOptionEntry(decoration.FirstLineIndentDeltaOption,1),name);
-      registerEntries(dialogTab,KEY_ALIGNMENT,new ZLTextAlignmentOptionEntry(decoration.AlignmentOption,dialogTab.getResource(KEY_ALIGNMENT)),KEY_DUMMY,null,name);
     }
   }
   myComboEntry.onValueSelected(0);

@@ -15,9 +15,6 @@
     if (decoration != null) {
       final String name=styleResource.getResource(decoration.getName()).getValue();
       registerEntry(dialogTab,KEY_FONTSIZEDIFFERENCE,new ZLSimpleSpinOptionEntry(decoration.FontSizeDeltaOption,2),name);
-      registerEntry(dialogTab,KEY_BOLD,new ZLSimpleBoolean3OptionEntry(decoration.BoldOption),name);
-      registerEntry(dialogTab,KEY_ITALIC,new ZLSimpleBoolean3OptionEntry(decoration.ItalicOption),name);
-      registerEntry(dialogTab,KEY_ALLOWHYPHENATIONS,new ZLSimpleBoolean3OptionEntry(decoration.AllowHyphenationsOption),name);
     }
   }
   myComboEntry.onValueSelected(0);
