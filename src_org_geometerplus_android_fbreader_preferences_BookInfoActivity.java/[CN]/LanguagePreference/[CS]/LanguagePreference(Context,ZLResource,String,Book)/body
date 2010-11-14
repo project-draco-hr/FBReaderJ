@@ -9,7 +9,7 @@
   String[] codes=new String[size + 1];
   String[] names=new String[size + 1];
   int index=0;
-  for (  Map.Entry<String,String> entry : map.entrySet()) {
+  for (  TreeMap.Entry<String,String> entry : map.entrySet()) {
     codes[index]=entry.getValue();
     names[index]=entry.getKey();
     ++index;
