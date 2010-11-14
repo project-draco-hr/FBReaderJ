@@ -42,6 +42,7 @@
     final Screen formatScreen=moreStylesCategory.createPreferenceScreen(decoration.getName());
     final Category formatCategory=formatScreen.createCategory(null);
     formatCategory.addPreference(new FontOption(this,textCategory.Resource,"font",decoration.FontFamilyOption,true));
+    formatCategory.addPreference(new ZLIntegerRangePreference(this,textCategory.Resource.getResource("fontSizeDifference"),decoration.FontSizeDeltaOption));
     formatCategory.addPreference(new ZLBoolean3Preference(this,textCategory.Resource,"bold",decoration.BoldOption));
     formatCategory.addPreference(new ZLBoolean3Preference(this,textCategory.Resource,"italic",decoration.ItalicOption));
     if (fullDecoration != null) {
@@ -51,7 +52,6 @@
     formatCategory.addPreference(new ZLBoolean3Preference(this,textCategory.Resource,"allowHyphenations",decoration.AllowHyphenationsOption));
   }
   final Screen formatScreen=moreStylesCategory.createPreferenceScreen("format");
-  final Screen stylesScreen=moreStylesCategory.createPreferenceScreen("styles");
   final Screen colorsScreen=textCategory.createPreferenceScreen("colors");
   formatScreen.setOnPreferenceClickListener(new PreferenceScreen.OnPreferenceClickListener(){
     public boolean onPreferenceClick(    Preference preference){
@@ -60,16 +60,9 @@
     }
   }
 );
-  stylesScreen.setOnPreferenceClickListener(new PreferenceScreen.OnPreferenceClickListener(){
-    public boolean onPreferenceClick(    Preference preference){
-      dlg.run(1);
-      return true;
-    }
-  }
-);
   colorsScreen.setOnPreferenceClickListener(new PreferenceScreen.OnPreferenceClickListener(){
     public boolean onPreferenceClick(    Preference preference){
-      dlg.run(2);
+      dlg.run(1);
       return true;
     }
   }
