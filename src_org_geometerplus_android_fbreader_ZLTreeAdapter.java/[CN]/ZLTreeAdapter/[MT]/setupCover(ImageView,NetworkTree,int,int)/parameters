@@ -1,0 +1,4 @@
+ImageView coverView
+NetworkTree tree
+int width
+int height
