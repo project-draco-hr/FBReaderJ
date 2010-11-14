@@ -3,8 +3,12 @@
   myOption=option;
   final ArrayList<String> fonts=new ArrayList<String>();
   AndroidFontUtil.fillFamiliesList(fonts,true);
+  if (includeDummyValue) {
+    fonts.add(0,UNCHANGED);
+  }
   setList((String[])fonts.toArray(new String[fonts.size()]));
-  final String initialValue=AndroidFontUtil.realFontFamilyName(option.getValue());
+  final String optionValue=option.getValue();
+  final String initialValue=optionValue.length() > 0 ? AndroidFontUtil.realFontFamilyName(optionValue) : UNCHANGED;
   for (  String fontName : fonts) {
     if (initialValue.equals(fontName)) {
       setInitialValue(fontName);

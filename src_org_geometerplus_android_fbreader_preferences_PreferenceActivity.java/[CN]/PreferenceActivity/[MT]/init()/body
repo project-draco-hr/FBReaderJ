@@ -16,7 +16,7 @@
   final Category textCategory=textScreen.createCategory(null);
   final ZLTextStyleCollection collection=ZLTextStyleCollection.Instance();
   final ZLTextBaseStyle baseStyle=collection.getBaseStyle();
-  textCategory.addPreference(new FontOption(this,textCategory.Resource,"font",baseStyle.FontFamilyOption));
+  textCategory.addPreference(new FontOption(this,textCategory.Resource,"font",baseStyle.FontFamilyOption,false));
   textCategory.addPreference(new ZLIntegerRangePreference(this,textCategory.Resource.getResource("fontSize"),baseStyle.FontSizeOption));
   textCategory.addPreference(new FontStylePreference(this,textCategory.Resource,"fontStyle",baseStyle.BoldOption,baseStyle.ItalicOption));
   final ZLIntegerRangeOption spaceOption=baseStyle.LineSpaceOption;
@@ -35,9 +35,12 @@
   byte styles[]={FBTextKind.REGULAR,FBTextKind.TITLE,FBTextKind.SECTION_TITLE,FBTextKind.SUBTITLE,FBTextKind.H1,FBTextKind.H2,FBTextKind.H3,FBTextKind.H4,FBTextKind.H5,FBTextKind.H6,FBTextKind.ANNOTATION,FBTextKind.EPIGRAPH,FBTextKind.AUTHOR,FBTextKind.POEM_TITLE,FBTextKind.STANZA,FBTextKind.VERSE,FBTextKind.CITE,FBTextKind.INTERNAL_HYPERLINK,FBTextKind.EXTERNAL_HYPERLINK,FBTextKind.FOOTNOTE,FBTextKind.ITALIC,FBTextKind.EMPHASIS,FBTextKind.BOLD,FBTextKind.STRONG,FBTextKind.DEFINITION,FBTextKind.DEFINITION_DESCRIPTION,FBTextKind.PREFORMATTED,FBTextKind.CODE};
   for (int i=0; i < styles.length; ++i) {
     final ZLTextStyleDecoration decoration=collection.getDecoration(styles[i]);
-    if (decoration != null) {
-      final Screen formatScreen=moreStylesCategory.createPreferenceScreen(decoration.getName());
+    if (decoration == null) {
+      continue;
     }
+    final Screen formatScreen=moreStylesCategory.createPreferenceScreen(decoration.getName());
+    final Category formatCategory=formatScreen.createCategory(null);
+    formatCategory.addPreference(new FontOption(this,textCategory.Resource,"font",decoration.FontFamilyOption,true));
   }
   final Screen formatScreen=moreStylesCategory.createPreferenceScreen("format");
   final Screen stylesScreen=moreStylesCategory.createPreferenceScreen("styles");
@@ -78,7 +81,7 @@
   statusLineCategory.addOption(fbReader.FooterShowBatteryOption,"showBattery");
   statusLineCategory.addOption(fbReader.FooterShowProgressOption,"showProgress");
   statusLineCategory.addOption(fbReader.FooterIsSensitiveOption,"isSensitive");
-  statusLineCategory.addPreference(new FontOption(this,statusLineCategory.Resource,"font",fbReader.FooterFontOption));
+  statusLineCategory.addPreference(new FontOption(this,statusLineCategory.Resource,"font",fbReader.FooterFontOption,false));
   final Screen displayScreen=optionsCategory.createPreferenceScreen("display");
   final Category displayCategory=displayScreen.createCategory(null);
   displayCategory.addPreference(new ZLBooleanPreference(this,fbReader.AllowScreenBrightnessAdjustmentOption,displayCategory.Resource,"allowScreenBrightnessAdjustment"){
