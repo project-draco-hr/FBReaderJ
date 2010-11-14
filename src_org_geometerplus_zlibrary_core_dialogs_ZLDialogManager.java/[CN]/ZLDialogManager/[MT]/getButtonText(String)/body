@@ -1,3 +1,0 @@
-{
-  return getResource().getResource("button").getResource(key).getValue();
-}
