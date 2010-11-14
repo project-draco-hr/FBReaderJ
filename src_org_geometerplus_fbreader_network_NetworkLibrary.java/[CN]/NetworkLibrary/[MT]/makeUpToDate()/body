@@ -4,9 +4,9 @@
   FBTree currentNode=null;
   int nodeCount=0;
 synchronized (myLinks) {
-    ListIterator<INetworkLink> it=myLinks.listIterator();
-    while (it.hasNext()) {
-      INetworkLink link=it.next();
+    Collections.sort(myLinks,new LinksComparator());
+    for (int i=0; i < myLinks.size(); ++i) {
+      INetworkLink link=myLinks.get(i);
       boolean processed=false;
       while (currentNode != null || nodeIterator.hasNext()) {
         if (currentNode == null) {
@@ -31,9 +31,8 @@ synchronized (myLinks) {
         }
  else {
           INetworkLink newNodeLink=null;
-          ListIterator<INetworkLink> jt=myLinks.listIterator(it);
-          while (jt.hasNext()) {
-            final INetworkLink jlnk=jt.next();
+          for (int j=i; j < myLinks.size(); ++j) {
+            final INetworkLink jlnk=myLinks.get(j);
             if (linksEqual(nodeLink,jlnk)) {
               newNodeLink=jlnk;
               break;

@@ -6,15 +6,13 @@
   try {
     OPDSLinkReader.loadOPDSLinks(OPDSLinkReader.CACHE_LOAD,new OnNewLinkListener(){
       public void onNewLink(      INetworkLink link){
-        addLinkInternal(myLoadedLinks,link,comparator);
+        addLinkInternal(link);
       }
     }
 );
   }
  catch (  ZLNetworkException e) {
-synchronized (myLinks) {
-      myLoadedLinks.clear();
-    }
+    removeAllLoadedLinks();
     throw e;
   }
   final NetworkDatabase db=NetworkDatabase.Instance();
@@ -23,7 +21,7 @@ synchronized (myLinks) {
       public void handleCustomLinkData(      int id,      String siteName,      String title,      String summary,      String icon,      Map<String,String> links){
         final ICustomNetworkLink link=OPDSLinkReader.createCustomLink(id,siteName,title,summary,icon,links);
         if (link != null) {
-          addLinkInternal(myCustomLinks,link,comparator);
+          addLinkInternal(link);
           link.setSaveLinkListener(myChangesListener);
         }
       }

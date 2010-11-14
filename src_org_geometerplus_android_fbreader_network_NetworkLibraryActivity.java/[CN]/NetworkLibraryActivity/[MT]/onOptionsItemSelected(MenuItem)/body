@@ -8,6 +8,11 @@ return true;
 case MENU_REFRESH:
 refreshCatalogsList();
 return true;
+case MENU_LANGUAGES:
+for (String langCode : NetworkLibrary.Instance().languages()) {
+System.err.println("Language: " + ZLLanguageUtil.languageName(langCode));
+}
+return true;
 default :
 return true;
 }

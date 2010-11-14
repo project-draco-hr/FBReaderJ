@@ -1,7 +1,0 @@
-{
-  mySiteName=siteName;
-  myTitle=title;
-  mySummary=summary;
-  myIcon=icon;
-  myLinks=new TreeMap<String,String>(links);
-}
