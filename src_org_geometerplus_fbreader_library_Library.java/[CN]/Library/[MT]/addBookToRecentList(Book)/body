@@ -1,6 +1,6 @@
 {
   final BooksDatabase db=BooksDatabase.Instance();
-  final List<Long> ids=db.listRecentBookIds();
+  final List<Long> ids=db.loadRecentBookIds();
   final Long bookId=book.getId();
   ids.remove(bookId);
   ids.add(0,bookId);
