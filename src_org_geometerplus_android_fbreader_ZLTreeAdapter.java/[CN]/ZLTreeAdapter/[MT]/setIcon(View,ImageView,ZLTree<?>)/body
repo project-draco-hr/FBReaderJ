@@ -8,7 +8,7 @@
     }
   }
  else {
-    imageView.setImageResource(R.drawable.fbreader);
+    setupCover(parentView,imageView,tree);
   }
   imageView.setPadding(25 * (tree.Level - 1),imageView.getPaddingTop(),0,imageView.getPaddingBottom());
 }

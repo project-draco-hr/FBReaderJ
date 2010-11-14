@@ -13,7 +13,7 @@ case Type.FLAT:
     iconView.setVisibility(View.GONE);
   break;
 case Type.TREE:
-setIcon(iconView,tree);
+setIcon(view,iconView,tree);
 break;
 }
 ((TextView)view.findViewById(R.id.library_tree_item_name)).setText(tree.getName());

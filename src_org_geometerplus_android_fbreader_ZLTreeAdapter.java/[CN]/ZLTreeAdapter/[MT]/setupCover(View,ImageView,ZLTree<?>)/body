@@ -1,0 +1,31 @@
+{
+  System.err.println("setupCover 0");
+  final int height=parentView.getMeasuredHeight();
+  final int width=height * 15 / 32;
+  Bitmap coverBitmap=null;
+  ZLImage cover=null;
+  if (cover == null) {
+    System.err.println("setupCover 1");
+    if (myFBReaderIcon == null) {
+      myFBReaderIcon=ZLAndroidLibrary.createImage(parentView.getContext(),R.drawable.fbreader);
+    }
+    cover=myFBReaderIcon;
+  }
+  if (cover != null) {
+    System.err.println("setupCover 2");
+    final ZLAndroidImageManager mgr=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
+    final ZLAndroidImageData data=mgr.getImageData(cover);
+    if (data != null) {
+      System.err.println("setupCover 3");
+      coverBitmap=data.getBitmap(width,height);
+    }
+  }
+  if (coverBitmap != null) {
+    System.err.println("setupCover 4a");
+    imageView.setImageBitmap(coverBitmap);
+  }
+ else {
+    System.err.println("setupCover 4b");
+    imageView.setImageDrawable(null);
+  }
+}
