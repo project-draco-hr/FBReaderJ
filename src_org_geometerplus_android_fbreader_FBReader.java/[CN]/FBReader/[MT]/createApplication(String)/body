@@ -1,5 +1,6 @@
 {
-  new SQLiteBooksDatabase();
-  final String[] args=(fileName != null) ? new String[]{fileName} : new String[0];
-  return new FBReaderApp(args);
+  if (SQLiteBooksDatabase.Instance() == null) {
+    new SQLiteBooksDatabase("READER");
+  }
+  return new FBReaderApp(fileName);
 }

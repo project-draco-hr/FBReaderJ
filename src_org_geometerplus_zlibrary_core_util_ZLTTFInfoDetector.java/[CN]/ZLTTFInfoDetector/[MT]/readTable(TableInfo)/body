@@ -1,0 +1,13 @@
+{
+  myPosition+=(int)myStream.skip(info.Offset - myPosition);
+  byte[] buffer=new byte[info.Length];
+  while (myPosition < info.Offset) {
+    int len=myStream.read(buffer,0,Math.min(info.Offset - myPosition,info.Length));
+    if (len <= 0) {
+      throw new IOException("Table " + info.Name + " not found in TTF file");
+    }
+    myPosition+=len;
+  }
+  myPosition+=myStream.read(buffer);
+  return buffer;
+}

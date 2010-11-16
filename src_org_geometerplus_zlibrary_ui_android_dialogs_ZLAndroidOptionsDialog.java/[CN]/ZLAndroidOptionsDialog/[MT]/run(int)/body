@@ -1,0 +1,4 @@
+{
+  final ZLAndroidDialogContent tab=(ZLAndroidDialogContent)myTabs.get(index);
+  runDialog(myMainActivity,tab);
+}

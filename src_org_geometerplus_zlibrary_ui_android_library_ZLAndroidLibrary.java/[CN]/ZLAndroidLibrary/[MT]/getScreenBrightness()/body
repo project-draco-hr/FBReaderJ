@@ -1,0 +1,3 @@
+{
+  return (myActivity != null) ? myActivity.getScreenBrightness() : 0;
+}

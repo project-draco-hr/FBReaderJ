@@ -1,0 +1,10 @@
+{
+  super(path);
+  if (path.length() == 0) {
+    myParent=null;
+  }
+ else {
+    final int index=path.lastIndexOf('/');
+    myParent=new AndroidAssetsFile(index >= 0 ? path.substring(0,path.lastIndexOf('/')) : "");
+  }
+}

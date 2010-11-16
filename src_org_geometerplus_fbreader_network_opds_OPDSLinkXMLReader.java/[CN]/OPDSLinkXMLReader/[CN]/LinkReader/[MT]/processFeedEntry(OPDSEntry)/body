@@ -6,6 +6,7 @@
   final String siteName=id.substring(ENTRY_ID_PREFIX.length());
   final String title=entry.Title;
   final String summary=entry.Content;
+  final String language=entry.DCLanguage;
   String icon=null;
   final HashMap<String,String> links=new HashMap<String,String>();
   final HashMap<String,Integer> urlConditions=new HashMap<String,Integer>();
@@ -59,14 +60,14 @@
     }
   }
   final String sslCertificate;
-  final String path="data/network/" + siteName + ".crt";
+  final String path="network/" + siteName + ".crt";
   if (ZLResourceFile.createResourceFile(path).exists()) {
     sslCertificate=path;
   }
  else {
     sslCertificate=null;
   }
-  INetworkLink result=link(siteName,title,summary,icon,links,urlConditions,sslCertificate);
+  INetworkLink result=link(siteName,title,summary,icon,language,links,urlConditions,sslCertificate);
   if (result != null) {
     myListener.onNewLink(result);
   }

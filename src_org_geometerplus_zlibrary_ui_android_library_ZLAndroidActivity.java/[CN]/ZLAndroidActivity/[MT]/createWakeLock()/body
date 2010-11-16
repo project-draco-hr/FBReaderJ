@@ -8,4 +8,8 @@ synchronized (this) {
       }
     }
   }
+  if (myStartTimer) {
+    ZLApplication.Instance().startTimer();
+    myStartTimer=false;
+  }
 }

@@ -1,3 +1,0 @@
-{
-  addOption(key,createEntryByOption(option));
-}

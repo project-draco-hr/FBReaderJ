@@ -1,6 +1,0 @@
-{
-  myTabListView.setSelection(index);
-  final ZLAndroidDialogContent tab=(ZLAndroidDialogContent)myTabListView.getAdapter().getItem(index);
-  final Activity activity=(Activity)myTabListView.getContext();
-  runDialog(activity,tab);
-}

@@ -1,5 +1,3 @@
 {
-  families.add("sans-serif");
-  families.add("serif");
-  families.add("monospace");
+  AndroidFontUtil.fillFamiliesList(families,false);
 }

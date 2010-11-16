@@ -5,8 +5,8 @@
   if (isScrollingActive()) {
     return false;
   }
-  if (myReader.FooterIsSensitive.getValue()) {
-    Footer footer=(Footer)getFooterArea();
+  if (myReader.FooterIsSensitiveOption.getValue()) {
+    Footer footer=getFooterArea();
     if (footer != null && y > myContext.getHeight() - footer.getTapHeight()) {
       footer.setProgress(x);
       return true;
@@ -17,6 +17,13 @@
     selectHyperlink(hyperlink);
     myReader.repaintView();
     followHyperlink(hyperlink);
+    return true;
+  }
+  if (myReader.AllowScreenBrightnessAdjustmentOption.getValue() && x < myContext.getWidth() / 10) {
+    myIsBrightnessAdjustmentInProgress=true;
+    myStartY=y;
+    myStartBrightness=ZLibrary.Instance().getScreenBrightness();
+    System.err.println("starting on level: " + myStartBrightness);
     return true;
   }
   final ScrollingPreferences preferences=ScrollingPreferences.Instance();

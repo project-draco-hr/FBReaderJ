@@ -1,7 +1,0 @@
-{
-  super(resource,exitAction,applyAction);
-  myCaption=resource.getResource("title").getValue();
-  myMainActivity=activity;
-  myApplyAction=applyAction;
-  myExitAction=exitAction;
-}

@@ -1,0 +1,7 @@
+{
+  removeTimerTask(runnable);
+  myTimerTaskPeriods.put(runnable,periodMilliseconds);
+  if (myTimer != null) {
+    addTimerTaskInternal(runnable,periodMilliseconds);
+  }
+}

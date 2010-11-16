@@ -1,3 +1,0 @@
-{
-  new OptionsDialog(this).getDialog().run();
-}

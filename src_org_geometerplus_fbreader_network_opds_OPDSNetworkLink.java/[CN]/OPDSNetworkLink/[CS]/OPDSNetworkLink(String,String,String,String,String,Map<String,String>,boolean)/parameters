@@ -1,0 +1,7 @@
+String siteName
+String title
+String summary
+String icon
+String language
+Map<String,String> links
+boolean hasStableIdentifiers
