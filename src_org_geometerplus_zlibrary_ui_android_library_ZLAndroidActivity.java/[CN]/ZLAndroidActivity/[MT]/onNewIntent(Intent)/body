@@ -1,13 +1,6 @@
 {
   super.onNewIntent(intent);
-  String fileToOpen=null;
-  if (Intent.ACTION_VIEW.equals(intent.getAction())) {
-    final Uri uri=intent.getData();
-    if (uri != null) {
-      fileToOpen=fileNameFromUri(uri);
-    }
-    intent.setData(null);
-  }
+  final String fileToOpen=extractFileNameFromIntent(intent);
   if (fileToOpen != null) {
     ZLApplication.Instance().openFile(ZLFile.createFileByPath(fileToOpen));
   }
