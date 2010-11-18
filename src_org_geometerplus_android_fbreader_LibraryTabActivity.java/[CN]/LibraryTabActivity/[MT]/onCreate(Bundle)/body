@@ -1,11 +1,20 @@
 {
   super.onCreate(icicle);
   Thread.setDefaultUncaughtExceptionHandler(new org.geometerplus.zlibrary.ui.android.library.UncaughtExceptionHandler(this));
+  if (SQLiteBooksDatabase.Instance() == null) {
+    new SQLiteBooksDatabase("LIBRARY");
+  }
   if (myLibrary == null) {
     myLibrary=new Library();
   }
-  myLibrary.clear();
-  myLibrary.synchronize();
+  final Runnable action=new Runnable(){
+    public void run(){
+      myLibrary.clear();
+      myLibrary.synchronize();
+    }
+  }
+;
+  AndroidUtil.wait("loadingBookList",action,this);
   final Intent intent=getIntent();
   myCurrentBookPath=intent.getStringExtra(CURRENT_BOOK_PATH_KEY);
   requestWindowFeature(Window.FEATURE_NO_TITLE);

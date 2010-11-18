@@ -1,4 +1,0 @@
-{
-  super(siteName,title,summary,icon,links);
-  myHasStableIdentifiers=hasStableIdentifiers;
-}

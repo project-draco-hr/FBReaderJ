@@ -1,3 +1,20 @@
 {
-  return true;
+  try {
+    InputStream stream=myApplication.getAssets().open(getPath());
+    if (stream != null) {
+      stream.close();
+      return true;
+    }
+  }
+ catch (  IOException e) {
+  }
+  try {
+    String[] names=myApplication.getAssets().list(getPath());
+    if (names != null && names.length != 0) {
+      return true;
+    }
+  }
+ catch (  IOException e) {
+  }
+  return false;
 }

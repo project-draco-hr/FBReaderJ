@@ -1,10 +1,10 @@
 {
   try {
-    AssetFileDescriptor descriptor=myApplication.getAssets().openFd(getPath());
-    if (descriptor == null) {
+    InputStream stream=myApplication.getAssets().open(getPath());
+    if (stream == null) {
       return true;
     }
-    descriptor.close();
+    stream.close();
     return false;
   }
  catch (  IOException e) {

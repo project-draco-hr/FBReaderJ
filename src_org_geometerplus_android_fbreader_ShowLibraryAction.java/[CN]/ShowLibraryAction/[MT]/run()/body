@@ -1,14 +1,8 @@
 {
   final BookModel model=Reader.Model;
-  Runnable action=new Runnable(){
-    public void run(){
-      Intent intent=new Intent(myBaseActivity.getApplicationContext(),LibraryTabActivity.class);
-      if (model != null && model.Book != null) {
-        intent.putExtra(LibraryTabActivity.CURRENT_BOOK_PATH_KEY,model.Book.File.getPath());
-      }
-      myBaseActivity.startActivity(intent);
-    }
+  Intent intent=new Intent(myBaseActivity.getApplicationContext(),LibraryTabActivity.class);
+  if (model != null && model.Book != null) {
+    intent.putExtra(LibraryTabActivity.CURRENT_BOOK_PATH_KEY,model.Book.File.getPath());
   }
-;
-  AndroidUtil.wait("loadingBookList",action,myBaseActivity);
+  myBaseActivity.startActivity(intent);
 }

@@ -1,0 +1,18 @@
+{
+  if (SQLiteBooksDatabase.Instance() == null) {
+    new SQLiteBooksDatabase("LIBRARY");
+  }
+  final String path=intent.getStringExtra(CURRENT_BOOK_PATH_KEY);
+  final String archiveEntry=intent.getStringExtra(CURRENT_BOOK_ARCHIVE_ENTRY_KEY);
+  ZLFile file=ZLFile.createFile(null,path);
+  if (archiveEntry != null) {
+    file=ZLFile.createFile(file,archiveEntry);
+  }
+  myBook=Book.getByFile(file);
+  final Category commonCategory=createCategory(null);
+  if (myBook.File.getPhysicalFile() != null) {
+    commonCategory.addPreference(new InfoPreference(this,commonCategory.Resource.getResource("fileName").getValue(),myBook.File.getPath()));
+  }
+  commonCategory.addPreference(new BookTitlePreference(this,commonCategory.Resource,"title",myBook));
+  commonCategory.addPreference(new LanguagePreference(this,commonCategory.Resource,"language",myBook));
+}

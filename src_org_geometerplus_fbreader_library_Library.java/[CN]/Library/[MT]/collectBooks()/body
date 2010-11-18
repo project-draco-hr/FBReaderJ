@@ -1,7 +1,7 @@
 {
   final List<ZLPhysicalFile> physicalFilesList=collectPhysicalFiles();
   FileInfoSet fileInfos=new FileInfoSet();
-  final Map<Long,Book> savedBooks=BooksDatabase.Instance().listBooks(fileInfos);
+  final Map<Long,Book> savedBooks=BooksDatabase.Instance().loadBooks(fileInfos);
   for (  ZLPhysicalFile file : physicalFilesList) {
     collectBooks(file,fileInfos,savedBooks,!fileInfos.check(file));
     file.setCached(false);
