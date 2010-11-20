@@ -1,3 +1,3 @@
 {
-  return createImage(myApplication,drawableId);
+  return new ZLAndroidResourceBasedImageData(myApplication.getResources(),drawableId);
 }
