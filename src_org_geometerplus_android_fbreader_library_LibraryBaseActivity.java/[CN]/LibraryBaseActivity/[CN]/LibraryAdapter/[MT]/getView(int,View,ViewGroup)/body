@@ -1,0 +1,37 @@
+{
+  final FBTree tree=getItem(position);
+  final View view=(convertView != null) ? convertView : LayoutInflater.from(parent.getContext()).inflate(R.layout.library_ng_tree_item,parent,false);
+  ((TextView)view.findViewById(R.id.library_ng_tree_item_name)).setText(tree.getName());
+  ((TextView)view.findViewById(R.id.library_ng_tree_item_childrenlist)).setText(tree.getSecondString());
+  if (myCoverWidth == -1) {
+    view.measure(ViewGroup.LayoutParams.FILL_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+    myCoverHeight=view.getMeasuredHeight();
+    myCoverWidth=myCoverHeight * 15 / 32;
+    view.requestLayout();
+  }
+  final ImageView coverView=(ImageView)view.findViewById(R.id.library_ng_tree_item_icon);
+  coverView.getLayoutParams().width=myCoverWidth;
+  coverView.getLayoutParams().height=myCoverHeight;
+  coverView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+  coverView.requestLayout();
+  if (tree instanceof ZLAndroidTree) {
+    coverView.setImageResource(((ZLAndroidTree)tree).getCoverResourceId());
+  }
+ else {
+    Bitmap coverBitmap=null;
+    ZLImage cover=tree.getCover();
+    if (cover != null) {
+      final ZLAndroidImageData data=((ZLAndroidImageManager)ZLAndroidImageManager.Instance()).getImageData(cover);
+      if (data != null) {
+        coverBitmap=data.getBitmap(2 * myCoverWidth,2 * myCoverHeight);
+      }
+    }
+    if (coverBitmap != null) {
+      coverView.setImageBitmap(coverBitmap);
+    }
+ else {
+      coverView.setImageResource(R.drawable.fbreader);
+    }
+  }
+  return view;
+}
