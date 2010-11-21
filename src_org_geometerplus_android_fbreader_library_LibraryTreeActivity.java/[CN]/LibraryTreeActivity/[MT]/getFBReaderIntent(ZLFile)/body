@@ -1,0 +1,13 @@
+{
+  final Intent intent=new Intent(getApplicationContext(),FBReader.class);
+  intent.setAction(Intent.ACTION_VIEW);
+  final ZLFile physicalFile=file.getPhysicalFile();
+  if (physicalFile != null) {
+    intent.setData(Uri.fromFile(new File(physicalFile.getPath())));
+  }
+ else {
+    intent.setData(Uri.parse("file:///"));
+  }
+  intent.putExtra(FBReader.BOOK_PATH_KEY,file.getPath());
+  return intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+}

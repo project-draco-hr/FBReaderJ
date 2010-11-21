@@ -1,3 +1,4 @@
 {
   super.onCreate(icicle);
+  mySelectedBookPath=getIntent().getStringExtra(SELECTED_BOOK_PATH_KEY);
 }

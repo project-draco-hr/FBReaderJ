@@ -1,6 +1,6 @@
 {
   if (uri.equals(Uri.parse("file:///"))) {
-    return fileNameForEmptyUri();
+    return Library.getHelpFile().getPath();
   }
  else {
     return uri.getPath();

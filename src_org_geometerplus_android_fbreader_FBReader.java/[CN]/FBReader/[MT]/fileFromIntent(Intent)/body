@@ -1,6 +1,6 @@
 {
-  String fileToOpen=null;
-  if (Intent.ACTION_VIEW.equals(intent.getAction())) {
+  String fileToOpen=intent.getStringExtra(BOOK_PATH_KEY);
+  if (fileToOpen == null && Intent.ACTION_VIEW.equals(intent.getAction())) {
     final Uri uri=intent.getData();
     if (uri != null) {
       fileToOpen=fileNameFromUri(uri);
@@ -14,5 +14,5 @@
     }
     intent.setData(null);
   }
-  return fileToOpen;
+  return fileToOpen != null ? ZLFile.createFileByPath(fileToOpen) : null;
 }

@@ -1,0 +1,7 @@
+{
+  LibraryTree tree=(LibraryTree)((LibraryAdapter)getListAdapter()).getItem(position);
+  if (tree instanceof BookTree) {
+    final Book book=((BookTree)tree).Book;
+    startActivity(getFBReaderIntent(book.File));
+  }
+}

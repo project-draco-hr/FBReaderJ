@@ -2,5 +2,5 @@
   if (SQLiteBooksDatabase.Instance() == null) {
     new SQLiteBooksDatabase("READER");
   }
-  return new FBReaderApp(fileName);
+  return new FBReaderApp(file != null ? file.getPath() : null);
 }
