@@ -1,7 +1,0 @@
-{
-  myItems.add(new TopLevelTree(myResource.getResource("searchResults")));
-  myItems.add(new TopLevelTree(myResource.getResource("recent")));
-  myItems.add(new TopLevelTree(myResource.getResource("byAuthor")));
-  myItems.add(new TopLevelTree(myResource.getResource("byTag")));
-  myItems.add(new TopLevelTree(myResource.getResource("fileTree")));
-}

@@ -1,6 +1,6 @@
 {
   final BookModel model=Reader.Model;
-  Intent intent=new Intent(myBaseActivity.getApplicationContext(),LibraryBaseActivity.class);
+  Intent intent=new Intent(myBaseActivity.getApplicationContext(),LibraryTopLevelActivity.class);
   if (model != null && model.Book != null) {
   }
   myBaseActivity.startActivity(intent);

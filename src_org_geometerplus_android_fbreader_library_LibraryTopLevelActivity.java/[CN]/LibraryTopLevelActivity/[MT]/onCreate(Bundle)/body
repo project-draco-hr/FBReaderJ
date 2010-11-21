@@ -1,0 +1,10 @@
+{
+  super.onCreate(icicle);
+  final ArrayList<FBTree> items=new ArrayList<FBTree>();
+  items.add(new TopLevelTree(myResource.getResource("searchResults")));
+  items.add(new TopLevelTree(myResource.getResource("recent")));
+  items.add(new TopLevelTree(myResource.getResource("byAuthor")));
+  items.add(new TopLevelTree(myResource.getResource("byTag")));
+  items.add(new TopLevelTree(myResource.getResource("fileTree")));
+  setListAdapter(new LibraryAdapter(items));
+}
