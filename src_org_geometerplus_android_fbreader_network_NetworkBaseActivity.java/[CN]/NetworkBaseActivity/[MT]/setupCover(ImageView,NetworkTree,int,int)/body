@@ -1,4 +1,8 @@
 {
+  if (tree instanceof ZLAndroidTree) {
+    coverView.setImageResource(((ZLAndroidTree)tree).getCoverResourceId());
+    return;
+  }
   Bitmap coverBitmap=null;
   ZLImage cover=tree.getCover();
   if (cover != null) {

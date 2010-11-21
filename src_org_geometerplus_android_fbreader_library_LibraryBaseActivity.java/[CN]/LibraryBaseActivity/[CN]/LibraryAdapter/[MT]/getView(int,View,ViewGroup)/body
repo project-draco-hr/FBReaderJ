@@ -14,6 +14,24 @@
   coverView.getLayoutParams().height=myCoverHeight;
   coverView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
   coverView.requestLayout();
-  coverView.setImageResource(R.drawable.fbreader);
+  if (tree instanceof ZLAndroidTree) {
+    coverView.setImageResource(((ZLAndroidTree)tree).getCoverResourceId());
+  }
+ else {
+    Bitmap coverBitmap=null;
+    ZLImage cover=tree.getCover();
+    if (cover != null) {
+      final ZLAndroidImageData data=((ZLAndroidImageManager)ZLAndroidImageManager.Instance()).getImageData(cover);
+      if (data != null) {
+        coverBitmap=data.getBitmap(2 * myCoverWidth,2 * myCoverHeight);
+      }
+    }
+    if (coverBitmap != null) {
+      coverView.setImageBitmap(coverBitmap);
+    }
+ else {
+      coverView.setImageResource(R.drawable.fbreader);
+    }
+  }
   return view;
 }

@@ -1,10 +1,34 @@
 {
   super.onCreate(icicle);
+  if (SQLiteBooksDatabase.Instance() == null) {
+    new SQLiteBooksDatabase("LIBRARY_NG");
+  }
   final ArrayList<FBTree> items=new ArrayList<FBTree>();
-  items.add(new TopLevelTree(myResource.getResource("searchResults")));
-  items.add(new TopLevelTree(myResource.getResource("recent")));
-  items.add(new TopLevelTree(myResource.getResource("byAuthor")));
-  items.add(new TopLevelTree(myResource.getResource("byTag")));
-  items.add(new TopLevelTree(myResource.getResource("fileTree")));
+  items.add(new TopLevelTree(myResource.getResource("searchResults"),R.drawable.ic_tab_library_results,new Runnable(){
+    public void run(){
+    }
+  }
+));
+  items.add(new TopLevelTree(myResource.getResource("recent"),R.drawable.ic_tab_library_recent,new Runnable(){
+    public void run(){
+      startActivity(new Intent(LibraryTopLevelActivity.this,LibraryRecentActivity.class));
+    }
+  }
+));
+  items.add(new TopLevelTree(myResource.getResource("byAuthor"),R.drawable.ic_tab_library_author,new Runnable(){
+    public void run(){
+    }
+  }
+));
+  items.add(new TopLevelTree(myResource.getResource("byTag"),R.drawable.ic_tab_library_tag,new Runnable(){
+    public void run(){
+    }
+  }
+));
+  items.add(new TopLevelTree(myResource.getResource("fileTree"),R.drawable.fbreader,new Runnable(){
+    public void run(){
+    }
+  }
+));
   setListAdapter(new LibraryAdapter(items));
 }

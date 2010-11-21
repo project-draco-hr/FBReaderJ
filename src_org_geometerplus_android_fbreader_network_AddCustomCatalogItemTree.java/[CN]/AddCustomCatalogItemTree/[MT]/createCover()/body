@@ -1,3 +1,0 @@
-{
-  return ((ZLAndroidLibrary)ZLAndroidLibrary.Instance()).createImage(R.drawable.ic_list_plus);
-}
