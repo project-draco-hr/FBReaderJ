@@ -1,13 +1,3 @@
 {
-switch (position) {
-case 0:
-    return null;
-case 1:
-  return null;
-case 2:
-return null;
-case 3:
-return null;
-}
-return null;
+  return myItems.get(position);
 }

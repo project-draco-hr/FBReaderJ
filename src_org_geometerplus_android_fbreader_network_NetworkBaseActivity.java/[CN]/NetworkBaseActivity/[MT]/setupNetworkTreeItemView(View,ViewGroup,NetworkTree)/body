@@ -10,6 +10,7 @@
   }
   final ImageView coverView=(ImageView)view.findViewById(R.id.network_tree_item_icon);
   coverView.getLayoutParams().width=myCoverWidth;
+  coverView.getLayoutParams().height=myCoverHeight;
   coverView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
   coverView.requestLayout();
   setupCover(coverView,tree,myCoverWidth,myCoverWidth);
