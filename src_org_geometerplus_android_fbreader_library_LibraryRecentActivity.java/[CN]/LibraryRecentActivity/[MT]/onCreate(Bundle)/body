@@ -1,4 +1,0 @@
-{
-  super.onCreate(icicle);
-  setListAdapter(new LibraryAdapter(LibraryTopLevelActivity.Library.recentBooks().subTrees()));
-}
