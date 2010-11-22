@@ -1,7 +1,6 @@
 {
   LibraryTree tree=(LibraryTree)((LibraryAdapter)getListAdapter()).getItem(position);
   if (tree instanceof BookTree) {
-    final Book book=((BookTree)tree).Book;
-    startActivity(getFBReaderIntent(book.File));
+    startActivity(new Intent(getApplicationContext(),FBReader.class).setAction(Intent.ACTION_VIEW).putExtra(FBReader.BOOK_PATH_KEY,((BookTree)tree).Book.File.getPath()).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
   }
 }
