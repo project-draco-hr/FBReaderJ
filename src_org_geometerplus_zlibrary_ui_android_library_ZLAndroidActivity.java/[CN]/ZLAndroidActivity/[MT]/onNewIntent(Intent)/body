@@ -4,5 +4,4 @@
   if (fileToOpen != null) {
     ZLApplication.Instance().openFile(ZLFile.createFileByPath(fileToOpen));
   }
-  ZLApplication.Instance().repaintView();
 }
