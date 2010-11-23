@@ -10,22 +10,7 @@
   setContentView(R.layout.main);
   setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
   getLibrary().setActivity(this);
-  final Intent intent=getIntent();
-  String fileToOpen=null;
-  if (Intent.ACTION_VIEW.equals(intent.getAction())) {
-    final Uri uri=intent.getData();
-    if (uri != null) {
-      fileToOpen=fileNameFromUri(uri);
-      final String scheme=uri.getScheme();
-      if ("content".equals(scheme)) {
-        final File file=new File(fileToOpen);
-        if (!file.exists()) {
-          fileToOpen=file.getParent();
-        }
-      }
-    }
-    intent.setData(null);
-  }
+  final String fileToOpen=extractFileNameFromIntent(getIntent());
   if (((ZLAndroidApplication)getApplication()).myMainWindow == null) {
     ZLApplication application=createApplication(fileToOpen);
     ((ZLAndroidApplication)getApplication()).myMainWindow=new ZLAndroidApplicationWindow(application);
