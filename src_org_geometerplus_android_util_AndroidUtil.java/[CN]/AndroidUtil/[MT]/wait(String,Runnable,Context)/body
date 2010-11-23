@@ -3,7 +3,7 @@ synchronized (ourMonitor) {
     final String message=ZLDialogManager.getWaitMessageText(key);
     ourTaskQueue.offer(new Pair(action,message));
     if (ourProgress == null) {
-      ourProgress=ProgressDialog.show(activity,null,message,true,false);
+      ourProgress=ProgressDialog.show(context,null,message,true,false);
     }
  else {
       return;
