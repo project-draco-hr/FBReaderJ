@@ -1,0 +1,6 @@
+{
+  File file=new File(path);
+  myFilter.setPreferences(file,myFilterTypes);
+  myCurFilterThread=new Thread(null,myFilter,"MagentoBackground");
+  myCurFilterThread.start();
+}

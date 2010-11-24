@@ -1,0 +1,21 @@
+{
+  Log.v(TAG,"Activity State: onCreate()");
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.file_manager);
+  Button filterButton=(Button)findViewById(R.id.filterButton);
+  Button backButton=(Button)findViewById(R.id.backButton);
+  ListView fileList=(ListView)findViewById(R.id.fileList1);
+  myFileListView=new FileListView(this,fileList);
+  filterButton.setOnClickListener(new View.OnClickListener(){
+    public void onClick(    View v){
+      launchFilterView();
+    }
+  }
+);
+  backButton.setOnClickListener(new View.OnClickListener(){
+    public void onClick(    View v){
+      myFileListView.goAtBack();
+    }
+  }
+);
+}

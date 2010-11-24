@@ -1,0 +1,39 @@
+{
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.filter);
+  myListChBox.add((CheckBox)findViewById(R.id.checkboxTypeTXT));
+  myListChBox.add((CheckBox)findViewById(R.id.checkboxTypeFB2));
+  myListChBox.add((CheckBox)findViewById(R.id.checkboxTypePDF));
+  myListChBox.add((CheckBox)findViewById(R.id.checkboxTypeDOC));
+  myListChBox.add((CheckBox)findViewById(R.id.checkboxTypeDOCX));
+  myListChBox.add((CheckBox)findViewById(R.id.checkboxTypeODT));
+  setCurrentTypes();
+  CheckBox checkBoxAll=(CheckBox)findViewById(R.id.checkboxAll);
+  checkBoxAll.setOnCheckedChangeListener(new OnCheckedChangeListener(){
+    public void onCheckedChanged(    CompoundButton buttonView,    boolean isChecked){
+      for (      CheckBox ch : myListChBox) {
+        ch.setChecked(isChecked);
+      }
+    }
+  }
+);
+  Button cancelButton=(Button)findViewById(R.id.cancelButton);
+  Button okButton=(Button)findViewById(R.id.okButton);
+  cancelButton.setOnClickListener(new View.OnClickListener(){
+    public void onClick(    View v){
+      finish();
+    }
+  }
+);
+  okButton.setOnClickListener(new View.OnClickListener(){
+    public void onClick(    View v){
+      String filterStr="";
+      for (      CheckBox ch : myListChBox) {
+        if (ch.isChecked())         filterStr+=ch.getText().toString() + " ";
+      }
+      setResult(1,new Intent(filterStr));
+      finish();
+    }
+  }
+);
+}

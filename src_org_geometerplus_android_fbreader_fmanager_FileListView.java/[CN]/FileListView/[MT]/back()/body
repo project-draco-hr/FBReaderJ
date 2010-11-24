@@ -1,0 +1,4 @@
+{
+  String dir=myHistory.remove(myHistory.size() - 1);
+  myCurDir=myCurDir.substring(0,myCurDir.length() - dir.length() - 1);
+}

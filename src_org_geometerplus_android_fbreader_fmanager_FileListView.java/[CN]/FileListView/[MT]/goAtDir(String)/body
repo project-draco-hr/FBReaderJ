@@ -1,0 +1,9 @@
+{
+  myProgressDialog.show();
+  File file=new File(path);
+  myCurDir=path;
+  myCurFilterThread.interrupt();
+  myFilter.setPreferences(file,myFilterTypes);
+  myCurFilterThread=new Thread(null,myFilter,"MagentoBackground");
+  myCurFilterThread.start();
+}
