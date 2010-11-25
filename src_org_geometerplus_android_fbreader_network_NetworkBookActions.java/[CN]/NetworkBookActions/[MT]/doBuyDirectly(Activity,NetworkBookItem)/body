@@ -48,7 +48,7 @@
         }
       }
 ;
-      AndroidUtil.wait("purchaseBook",runnable,activity);
+      UIUtil.wait("purchaseBook",runnable,activity);
     }
   }
 ;

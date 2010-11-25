@@ -4,7 +4,7 @@
   if (version >= currentVersion) {
     return;
   }
-  AndroidUtil.wait((version == 0) ? "creatingBooksDatabase" : "updatingBooksDatabase",new Runnable(){
+  UIUtil.wait((version == 0) ? "creatingBooksDatabase" : "updatingBooksDatabase",new Runnable(){
     public void run(){
       myDatabase.beginTransaction();
 switch (version) {

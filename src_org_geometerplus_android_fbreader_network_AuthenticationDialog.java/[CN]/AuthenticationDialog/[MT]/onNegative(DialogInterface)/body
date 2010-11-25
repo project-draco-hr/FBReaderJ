@@ -9,5 +9,5 @@
     }
   }
 ;
-  AndroidUtil.wait("signOut",runnable,myActivity);
+  UIUtil.wait("signOut",runnable,myActivity);
 }
