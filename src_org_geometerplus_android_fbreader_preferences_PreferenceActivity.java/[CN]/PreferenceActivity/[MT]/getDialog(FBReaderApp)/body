@@ -1,6 +1,6 @@
 {
-  myDialog=ZLDialogManager.Instance().createOptionsDialog("OptionsDialog");
-  final ZLDialogContent colorsTab=myDialog.createTab("Colors");
+  ZLAndroidOptionsDialog dialog=new ZLAndroidOptionsDialog(this,ZLResource.resource("dialog").getResource("OptionsDialog"));
+  final ZLDialogContent colorsTab=dialog.createTab("Colors");
   final String colorKey="colorFor";
   final ZLResource resource=colorsTab.getResource(colorKey);
   final ZLColorOptionBuilder builder=new ZLColorOptionBuilder();
@@ -13,4 +13,5 @@
   builder.setInitial(BACKGROUND);
   colorsTab.addOption(colorKey,builder.comboEntry());
   colorsTab.addOption("",builder.colorEntry());
+  return dialog;
 }
