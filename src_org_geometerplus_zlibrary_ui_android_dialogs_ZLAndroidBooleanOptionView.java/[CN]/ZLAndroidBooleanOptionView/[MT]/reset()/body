@@ -1,7 +1,0 @@
-{
-  final ZLBooleanOptionEntry booleanEntry=(ZLBooleanOptionEntry)myOption;
-  booleanEntry.onReset();
-  if (myCheckBox != null) {
-    myCheckBox.setChecked(booleanEntry.initialState());
-  }
-}

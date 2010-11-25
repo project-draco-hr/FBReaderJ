@@ -1,0 +1,19 @@
+{
+  super(context,resource,resourceKey);
+  assert(values.length == valueResourceKeys.length);
+  myOption=option;
+  myValues=values;
+  setList(valueResourceKeys);
+  final int initialValue=option.getValue();
+  int index=0;
+  int minDiff=Math.abs(values[0] - initialValue);
+  for (int i=1; i < values.length; ++i) {
+    final int diff=Math.abs(values[i] - initialValue);
+    if (diff < minDiff) {
+      minDiff=diff;
+      index=i;
+      break;
+    }
+  }
+  setInitialValue(valueResourceKeys[index]);
+}
