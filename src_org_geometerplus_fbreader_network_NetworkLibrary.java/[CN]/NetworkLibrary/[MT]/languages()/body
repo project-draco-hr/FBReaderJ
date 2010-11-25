@@ -3,5 +3,5 @@
   for (  INetworkLink link : myLinks) {
     languageSet.add(link.getLanguage());
   }
-  return new ArrayList(languageSet);
+  return new ArrayList<String>(languageSet);
 }

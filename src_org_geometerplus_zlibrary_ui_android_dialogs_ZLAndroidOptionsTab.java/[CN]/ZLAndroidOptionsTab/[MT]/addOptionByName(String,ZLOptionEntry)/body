@@ -1,5 +1,0 @@
-{
-  if (option != null) {
-    myEntries.add(new OptionData(name,option));
-  }
-}

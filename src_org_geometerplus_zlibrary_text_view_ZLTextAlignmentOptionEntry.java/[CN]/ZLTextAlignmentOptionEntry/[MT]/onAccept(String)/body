@@ -1,8 +1,0 @@
-{
-  for (int i=0; i < 5; ++i) {
-    if (ourValues5.get(i).equals(value)) {
-      myOption.setValue(i);
-      break;
-    }
-  }
-}

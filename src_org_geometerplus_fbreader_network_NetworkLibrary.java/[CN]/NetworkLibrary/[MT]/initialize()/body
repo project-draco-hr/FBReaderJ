@@ -2,7 +2,6 @@
   if (myIsAlreadyInitialized) {
     return;
   }
-  final LinksComparator comparator=new LinksComparator();
   try {
     OPDSLinkReader.loadOPDSLinks(OPDSLinkReader.CACHE_LOAD,new OnNewLinkListener(){
       public void onNewLink(      INetworkLink link){

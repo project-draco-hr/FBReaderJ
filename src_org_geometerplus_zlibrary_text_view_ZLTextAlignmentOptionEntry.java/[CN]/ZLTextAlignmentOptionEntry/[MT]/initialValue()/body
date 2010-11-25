@@ -1,7 +1,0 @@
-{
-  int value=myOption.getValue();
-  if ((value < 0) || (value >= 5)) {
-    value=0;
-  }
-  return (String)ourValues5.get(value);
-}

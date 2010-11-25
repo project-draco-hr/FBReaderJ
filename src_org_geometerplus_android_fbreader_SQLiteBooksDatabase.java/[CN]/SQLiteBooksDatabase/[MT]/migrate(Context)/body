@@ -1,0 +1,39 @@
+{
+  final int version=myDatabase.getVersion();
+  final int currentVersion=10;
+  if (version >= currentVersion) {
+    return;
+  }
+  UIUtil.wait((version == 0) ? "creatingBooksDatabase" : "updatingBooksDatabase",new Runnable(){
+    public void run(){
+      myDatabase.beginTransaction();
+switch (version) {
+case 0:
+        createTables();
+case 1:
+      updateTables1();
+case 2:
+    updateTables2();
+case 3:
+  updateTables3();
+case 4:
+updateTables4();
+case 5:
+updateTables5();
+case 6:
+updateTables6();
+case 7:
+updateTables7();
+case 8:
+updateTables8();
+case 9:
+updateTables9();
+}
+myDatabase.setTransactionSuccessful();
+myDatabase.endTransaction();
+myDatabase.execSQL("VACUUM");
+myDatabase.setVersion(currentVersion);
+}
+}
+,context);
+}
