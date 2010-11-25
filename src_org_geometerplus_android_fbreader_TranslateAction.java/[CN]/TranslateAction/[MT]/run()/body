@@ -1,7 +1,7 @@
 {
   Intent intent=new Intent(Intent.ACTION_SEARCH);
   intent.setComponent(new ComponentName("com.socialnmobile.colordict","com.socialnmobile.colordict.activity.Main"));
-  intent.putExtra(SearchManager.QUERY,getWidget().myLongPressWord);
+  intent.putExtra(SearchManager.QUERY,"biology");
   try {
     myBaseActivity.startActivity(intent);
   }
