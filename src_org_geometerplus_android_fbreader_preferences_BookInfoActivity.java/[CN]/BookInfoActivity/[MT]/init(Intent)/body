@@ -1,6 +1,6 @@
 {
   if (SQLiteBooksDatabase.Instance() == null) {
-    new SQLiteBooksDatabase("LIBRARY");
+    new SQLiteBooksDatabase(this,"LIBRARY");
   }
   final String path=intent.getStringExtra(CURRENT_BOOK_PATH_KEY);
   final String archiveEntry=intent.getStringExtra(CURRENT_BOOK_ARCHIVE_ENTRY_KEY);

@@ -4,7 +4,7 @@
   if (version >= currentVersion) {
     return;
   }
-  ZLDialogManager.Instance().wait((version == 0) ? "creatingBooksDatabase" : "updatingBooksDatabase",new Runnable(){
+  UIUtil.wait((version == 0) ? "creatingBooksDatabase" : "updatingBooksDatabase",new Runnable(){
     public void run(){
       myDatabase.beginTransaction();
 switch (version) {
@@ -35,5 +35,5 @@ myDatabase.execSQL("VACUUM");
 myDatabase.setVersion(currentVersion);
 }
 }
-);
+,context);
 }
