@@ -1,0 +1,11 @@
+{
+  Intent intent=new Intent(Intent.ACTION_SEARCH);
+  intent.setComponent(new ComponentName("com.socialnmobile.colordict","com.socialnmobile.colordict.activity.Main"));
+  intent.putExtra(SearchManager.QUERY,getWidget().myLongPressWord);
+  try {
+    myBaseActivity.startActivity(intent);
+  }
+ catch (  ActivityNotFoundException e) {
+    Toast.makeText(myBaseActivity,ZLResource.resource("errorMessage").getResource("dictNotInstalled").getValue(),Toast.LENGTH_LONG).show();
+  }
+}
