@@ -26,5 +26,5 @@
     }
   }
 ;
-  AndroidUtil.wait("authentication",runnable,myActivity);
+  UIUtil.wait("authentication",runnable,myActivity);
 }

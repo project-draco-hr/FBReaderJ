@@ -14,7 +14,7 @@
     }
   }
 ;
-  AndroidUtil.wait("updatingCatalogsList",new Runnable(){
+  UIUtil.wait("updatingCatalogsList",new Runnable(){
     public void run(){
       String error=null;
       try {

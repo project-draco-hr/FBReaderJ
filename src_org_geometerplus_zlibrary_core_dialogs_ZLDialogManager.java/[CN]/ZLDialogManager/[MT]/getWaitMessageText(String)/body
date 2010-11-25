@@ -1,3 +1,0 @@
-{
-  return getResource().getResource("waitMessage").getResource(key).getValue();
-}

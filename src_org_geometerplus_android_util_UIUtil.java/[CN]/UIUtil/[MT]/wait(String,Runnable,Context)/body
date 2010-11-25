@@ -1,6 +1,6 @@
 {
 synchronized (ourMonitor) {
-    final String message=ZLDialogManager.getWaitMessageText(key);
+    final String message=ZLResource.resource("dialog").getResource("waitMessage").getResource(key).getValue();
     ourTaskQueue.offer(new Pair(action,message));
     if (ourProgress == null) {
       ourProgress=ProgressDialog.show(context,null,message,true,false);
