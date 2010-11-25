@@ -1,0 +1,17 @@
+{
+  ZLAndroidOptionsDialog dialog=new ZLAndroidOptionsDialog(this,ZLResource.resource("dialog").getResource("OptionsDialog"));
+  final ZLDialogContent colorsTab=dialog.createTab("Colors");
+  final String colorKey="colorFor";
+  final ZLResource resource=colorsTab.getResource(colorKey);
+  final ZLColorOptionBuilder builder=new ZLColorOptionBuilder();
+  final String BACKGROUND=resource.getResource("background").getValue();
+  final ColorProfile profile=fbreader.getColorProfile();
+  builder.addOption(BACKGROUND,profile.BackgroundOption);
+  builder.addOption(resource.getResource("highlighting").getValue(),profile.HighlightingOption);
+  builder.addOption(resource.getResource("text").getValue(),profile.RegularTextOption);
+  builder.addOption(resource.getResource("hyperlink").getValue(),profile.HyperlinkTextOption);
+  builder.setInitial(BACKGROUND);
+  colorsTab.addOption(colorKey,builder.comboEntry());
+  colorsTab.addOption("",builder.colorEntry());
+  return dialog;
+}

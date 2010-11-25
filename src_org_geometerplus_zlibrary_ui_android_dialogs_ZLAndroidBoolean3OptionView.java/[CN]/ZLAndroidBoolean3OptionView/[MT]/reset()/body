@@ -1,5 +1,0 @@
-{
-  if (mySpinner != null) {
-    mySpinner.setSelection(((ZLBoolean3OptionEntry)myOption).initialState());
-  }
-}

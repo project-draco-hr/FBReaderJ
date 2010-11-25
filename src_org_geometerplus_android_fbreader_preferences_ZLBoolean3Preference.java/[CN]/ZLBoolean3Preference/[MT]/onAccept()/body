@@ -1,0 +1,12 @@
+{
+  final String value=getValue();
+  if (ON.equals(value)) {
+    myOption.setValue(ZLBoolean3.B3_TRUE);
+  }
+ else   if (OFF.equals(value)) {
+    myOption.setValue(ZLBoolean3.B3_FALSE);
+  }
+ else {
+    myOption.setValue(ZLBoolean3.B3_UNDEFINED);
+  }
+}

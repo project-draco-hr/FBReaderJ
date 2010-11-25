@@ -1,8 +1,0 @@
-{
-  if (mySpinner != null) {
-    int index=mySpinner.getSelectedItemPosition();
-    if (index != -1) {
-      ((ZLBoolean3OptionEntry)myOption).onAccept(index);
-    }
-  }
-}
