@@ -10,7 +10,7 @@
     view=new ZLAndroidColorOptionView(this,name,(ZLColorOptionEntry)option);
   }
   if (view != null) {
-    view.setVisible(option.isVisible());
+    view.setVisible();
   }
   addView(view);
 }
