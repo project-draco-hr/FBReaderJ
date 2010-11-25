@@ -50,6 +50,11 @@
     if (fullDecoration != null) {
       final String[] allAlignments={"unchanged","left","right","center","justify"};
       formatCategory.addPreference(new ZLChoicePreference(this,textCategory.Resource,"alignment",fullDecoration.AlignmentOption,allAlignments));
+      formatCategory.addPreference(new ZLIntegerRangePreference(this,textCategory.Resource.getResource("spaceBefore"),fullDecoration.SpaceBeforeOption));
+      formatCategory.addPreference(new ZLIntegerRangePreference(this,textCategory.Resource.getResource("spaceAfter"),fullDecoration.SpaceAfterOption));
+      formatCategory.addPreference(new ZLIntegerRangePreference(this,textCategory.Resource.getResource("leftIndent"),fullDecoration.LeftIndentOption));
+      formatCategory.addPreference(new ZLIntegerRangePreference(this,textCategory.Resource.getResource("rightIndent"),fullDecoration.RightIndentOption));
+      formatCategory.addPreference(new ZLIntegerRangePreference(this,textCategory.Resource.getResource("firstLineIndent"),fullDecoration.FirstLineIndentDeltaOption));
     }
     formatCategory.addPreference(new ZLBoolean3Preference(this,textCategory.Resource,"allowHyphenations",decoration.AllowHyphenationsOption));
   }

@@ -13,12 +13,10 @@
   dialogTab.addOption("optionsFor",myComboEntry);
   for (int i=0; i < stylesNumber; ++i) {
     ZLTextStyleDecoration d=collection.getDecoration(styles[i]);
-    if ((d != null) && (d.isFullDecoration())) {
+    if (d instanceof ZLTextFullStyleDecoration) {
       ZLTextFullStyleDecoration decoration=(ZLTextFullStyleDecoration)d;
       final String name=styleResource.getResource(decoration.getName()).getValue();
-      registerEntries(dialogTab,KEY_SPACEBEFORE,new ZLSimpleSpinOptionEntry(decoration.SpaceBeforeOption,1),KEY_LEFTINDENT,new ZLSimpleSpinOptionEntry(decoration.LeftIndentOption,1),name);
-      registerEntries(dialogTab,KEY_SPACEAFTER,new ZLSimpleSpinOptionEntry(decoration.SpaceAfterOption,1),KEY_RIGHTINDENT,new ZLSimpleSpinOptionEntry(decoration.RightIndentOption,1),name);
-      registerEntries(dialogTab,KEY_LINESPACING,new ZLTextLineSpaceOptionEntry(decoration.LineSpacePercentOption,dialogTab.getResource(KEY_LINESPACING)),KEY_FIRSTLINEINDENT,new ZLSimpleSpinOptionEntry(decoration.FirstLineIndentDeltaOption,1),name);
+      registerEntry(dialogTab,KEY_LINESPACING,new ZLTextLineSpaceOptionEntry(decoration.LineSpacePercentOption,dialogTab.getResource(KEY_LINESPACING)),name);
     }
   }
   myComboEntry.onValueSelected(0);
