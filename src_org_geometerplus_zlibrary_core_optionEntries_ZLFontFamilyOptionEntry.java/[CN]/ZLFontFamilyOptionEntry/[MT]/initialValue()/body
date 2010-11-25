@@ -1,9 +1,0 @@
-{
-  final String value=myOption.getValue();
-  for (  String v : getValues()) {
-    if (value.equals(myContext.realFontFamilyName(v))) {
-      return v;
-    }
-  }
-  return value;
-}

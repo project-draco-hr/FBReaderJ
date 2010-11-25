@@ -1,0 +1,4 @@
+{
+  myInitialized=true;
+  show();
+}

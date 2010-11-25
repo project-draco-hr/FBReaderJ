@@ -1,7 +1,0 @@
-{
-  if (entry != null) {
-    entry.setVisible(false);
-    myEntries.put(entry,name);
-  }
-  tab.addOption(entryKey,entry);
-}
