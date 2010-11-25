@@ -1,5 +1,0 @@
-{
-  if (myInitialized) {
-    _setActive(active);
-  }
-}
