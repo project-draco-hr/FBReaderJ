@@ -1,0 +1,16 @@
+{
+  myCurPath=myFile.getPath();
+  for (  File file : myFile.listFiles()) {
+    if (!Thread.currentThread().isInterrupted()) {
+      String fileName=null;
+      if (file.isDirectory())       fileName=file.getName();
+ else       if (condition(file,myNewTypes))       fileName=file.getName();
+      if (!Thread.currentThread().isInterrupted() && fileName != null) {
+        myOrders.add(fileName);
+        myCurFiles.add(fileName);
+      }
+      myParent.runOnUiThread(myAction);
+    }
+  }
+  myParent.runOnUiThread(myAction);
+}

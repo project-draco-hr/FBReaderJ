@@ -1,0 +1,6 @@
+{
+  myCurIdx=0;
+  myOrders.clear();
+  myAdapter.clear();
+  myAdapter.notifyDataSetChanged();
+}

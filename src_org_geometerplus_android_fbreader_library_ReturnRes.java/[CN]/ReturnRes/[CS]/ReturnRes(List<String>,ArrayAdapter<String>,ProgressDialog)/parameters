@@ -1,0 +1,3 @@
+List<String> orders
+ArrayAdapter<String> adapter
+ProgressDialog pd

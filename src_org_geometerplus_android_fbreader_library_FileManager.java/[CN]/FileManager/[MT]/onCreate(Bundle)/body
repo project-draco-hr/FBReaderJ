@@ -1,0 +1,56 @@
+{
+  Log.v(FILE_MANAGER_LOG_TAG,"onCreate()");
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.file_manager);
+  ImageButton fbhomeButton=(ImageButton)findViewById(R.id.fmanagerFBHomeButton);
+  ImageButton cardButton=(ImageButton)findViewById(R.id.fmanagerCardButton);
+  ImageButton rootButton=(ImageButton)findViewById(R.id.fmanagerRootButton);
+  ImageButton filterButton=(ImageButton)findViewById(R.id.fmanagerFilterButton);
+  ImageButton backButton=(ImageButton)findViewById(R.id.fmanagerBackButton);
+  Button okButton=(Button)findViewById(R.id.fmanagerOkButton);
+  Button cancelButton=(Button)findViewById(R.id.fmanagerCancelButton);
+  ListView fileList=(ListView)findViewById(R.id.fileList1);
+  myFileListView=new FileListView(this,fileList);
+  fbhomeButton.setOnClickListener(new View.OnClickListener(){
+    public void onClick(    View v){
+      myFileListView.goAtDir(FB_HOME_DIR);
+    }
+  }
+);
+  cardButton.setOnClickListener(new View.OnClickListener(){
+    public void onClick(    View v){
+      myFileListView.goAtDir(SDCARD_DIR);
+    }
+  }
+);
+  rootButton.setOnClickListener(new View.OnClickListener(){
+    public void onClick(    View v){
+      myFileListView.goAtDir(ROOT_DIR);
+    }
+  }
+);
+  filterButton.setOnClickListener(new View.OnClickListener(){
+    public void onClick(    View v){
+      launchFilterView();
+    }
+  }
+);
+  backButton.setOnClickListener(new View.OnClickListener(){
+    public void onClick(    View v){
+      myFileListView.goAtBack();
+    }
+  }
+);
+  okButton.setOnClickListener(new View.OnClickListener(){
+    public void onClick(    View v){
+      finish();
+    }
+  }
+);
+  cancelButton.setOnClickListener(new View.OnClickListener(){
+    public void onClick(    View v){
+      finish();
+    }
+  }
+);
+}

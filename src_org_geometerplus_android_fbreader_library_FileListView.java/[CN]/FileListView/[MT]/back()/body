@@ -1,0 +1,10 @@
+{
+  if (myHistory.size() > 0) {
+    for (    String s : myHistory) {
+      Log.v(FileManager.FILE_MANAGER_LOG_TAG,"histiry : " + s);
+    }
+    String dir=myHistory.remove(myHistory.size() - 1);
+    myCurDir=myCurDir.substring(0,myCurDir.length() - dir.length() - 1);
+    goAtDir(myCurDir);
+  }
+}

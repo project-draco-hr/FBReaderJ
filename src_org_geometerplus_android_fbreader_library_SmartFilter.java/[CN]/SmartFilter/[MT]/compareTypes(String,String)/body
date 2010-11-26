@@ -1,0 +1,8 @@
+{
+  if (newTypes.equals(""))   return false;
+  if (newTypes.length() > curTypes.length())   return false;
+  for (  String newType : newTypes.split("[\\s]+")) {
+    if (curTypes.indexOf(newType.trim()) < 0)     return false;
+  }
+  return true;
+}
