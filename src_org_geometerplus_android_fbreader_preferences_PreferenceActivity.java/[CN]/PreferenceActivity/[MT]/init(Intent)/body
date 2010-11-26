@@ -31,7 +31,6 @@
   final String[] alignments={"left","right","center","justify"};
   textCategory.addPreference(new ZLChoicePreference(this,textCategory.Resource,"alignment",baseStyle.AlignmentOption,alignments));
   textCategory.addPreference(new ZLBooleanPreference(this,baseStyle.AutoHyphenationOption,textCategory.Resource,"autoHyphenations"));
-  final ZLAndroidOptionsDialog dlg=getDialog(fbReader);
   final Screen moreStylesScreen=textCategory.createPreferenceScreen("more");
   final Category moreStylesCategory=moreStylesScreen.createCategory(null);
   byte styles[]={FBTextKind.REGULAR,FBTextKind.TITLE,FBTextKind.SECTION_TITLE,FBTextKind.SUBTITLE,FBTextKind.H1,FBTextKind.H2,FBTextKind.H3,FBTextKind.H4,FBTextKind.H5,FBTextKind.H6,FBTextKind.ANNOTATION,FBTextKind.EPIGRAPH,FBTextKind.AUTHOR,FBTextKind.POEM_TITLE,FBTextKind.STANZA,FBTextKind.VERSE,FBTextKind.CITE,FBTextKind.INTERNAL_HYPERLINK,FBTextKind.EXTERNAL_HYPERLINK,FBTextKind.FOOTNOTE,FBTextKind.ITALIC,FBTextKind.EMPHASIS,FBTextKind.BOLD,FBTextKind.STRONG,FBTextKind.DEFINITION,FBTextKind.DEFINITION_DESCRIPTION,FBTextKind.PREFORMATTED,FBTextKind.CODE};
@@ -71,14 +70,6 @@
       formatCategory.addPreference(new ZLIntegerChoicePreference(this,textCategory.Resource,"lineSpacing",spacePercentOption,spacingValues,spacingKeys));
     }
   }
-  final Screen oldColorsScreen=textCategory.createPreferenceScreen("colors");
-  oldColorsScreen.setOnPreferenceClickListener(new PreferenceScreen.OnPreferenceClickListener(){
-    public boolean onPreferenceClick(    Preference preference){
-      dlg.run(0);
-      return true;
-    }
-  }
-);
   final Screen colorsScreen=optionsCategory.createPreferenceScreen("colors");
   final Category colorsCategory=colorsScreen.createCategory(null);
   final ColorProfile profile=fbReader.getColorProfile();
