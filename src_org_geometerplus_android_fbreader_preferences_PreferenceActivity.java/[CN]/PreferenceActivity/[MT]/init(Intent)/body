@@ -81,10 +81,11 @@
 );
   final Screen colorsScreen=optionsCategory.createPreferenceScreen("colors");
   final Category colorsCategory=colorsScreen.createCategory(null);
-  colorsCategory.addPreference(new ZLColorPreference(this,colorsCategory.Resource,"background"));
-  colorsCategory.addPreference(new ZLColorPreference(this,colorsCategory.Resource,"highlighting"));
-  colorsCategory.addPreference(new ZLColorPreference(this,colorsCategory.Resource,"text"));
-  colorsCategory.addPreference(new ZLColorPreference(this,colorsCategory.Resource,"hyperlink"));
+  final ColorProfile profile=fbReader.getColorProfile();
+  colorsCategory.addPreference(new ZLColorPreference(this,colorsCategory.Resource,"background",profile.BackgroundOption));
+  colorsCategory.addPreference(new ZLColorPreference(this,colorsCategory.Resource,"highlighting",profile.HighlightingOption));
+  colorsCategory.addPreference(new ZLColorPreference(this,colorsCategory.Resource,"text",profile.RegularTextOption));
+  colorsCategory.addPreference(new ZLColorPreference(this,colorsCategory.Resource,"hyperlink",profile.HyperlinkTextOption));
   final Screen marginsScreen=optionsCategory.createPreferenceScreen("margins");
   final Category marginsCategory=marginsScreen.createCategory(null);
   marginsCategory.addPreference(new ZLIntegerRangePreference(this,marginsCategory.Resource.getResource("left"),fbReader.LeftMarginOption));

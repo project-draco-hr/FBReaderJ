@@ -1,5 +1,0 @@
-{
-  final ImageView colorView=(ImageView)view.findViewById(R.id.color_preference_color);
-  colorView.setImageResource(R.drawable.fbreader);
-  super.onBindView(view);
-}

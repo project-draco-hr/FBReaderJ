@@ -1,0 +1,5 @@
+{
+  if (which == DialogInterface.BUTTON_POSITIVE) {
+    myOption.setValue(new ZLColor(myRedSlider.getProgress(),myGreenSlider.getProgress(),myBlueSlider.getProgress()));
+  }
+}

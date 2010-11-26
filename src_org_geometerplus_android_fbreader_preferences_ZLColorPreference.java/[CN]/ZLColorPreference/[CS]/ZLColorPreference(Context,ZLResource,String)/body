@@ -1,5 +1,0 @@
-{
-  super(context,null);
-  setWidgetLayoutResource(R.layout.color_preference_widget);
-  setTitle(resource.getResource(resourceKey).getValue());
-}

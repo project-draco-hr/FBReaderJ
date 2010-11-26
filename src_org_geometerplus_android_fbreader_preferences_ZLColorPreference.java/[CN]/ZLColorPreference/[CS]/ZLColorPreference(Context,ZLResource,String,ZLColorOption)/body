@@ -1,0 +1,8 @@
+{
+  super(context,null);
+  myOption=option;
+  final String title=resource.getResource(resourceKey).getValue();
+  setTitle(title);
+  setDialogTitle(title);
+  setDialogLayoutResource(R.layout.color_dialog);
+}
