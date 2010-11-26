@@ -1,6 +1,3 @@
 {
-  if (!myCurDir.equals(START_DIR)) {
-    back();
-    goAtDir(myCurDir);
-  }
+  back();
 }

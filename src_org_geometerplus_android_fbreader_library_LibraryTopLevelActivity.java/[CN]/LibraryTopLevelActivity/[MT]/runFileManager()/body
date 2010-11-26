@@ -1,0 +1,5 @@
+{
+  Log.v(FileManager.FILE_MANAGER_LOG_TAG,"runFileManager()");
+  Intent i=new Intent(this,FileManager.class);
+  startActivityForResult(i,1);
+}
