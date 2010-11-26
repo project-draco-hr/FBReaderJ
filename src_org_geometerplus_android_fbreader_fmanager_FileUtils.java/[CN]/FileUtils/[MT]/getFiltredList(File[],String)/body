@@ -1,8 +1,0 @@
-{
-  List<String> resultList=new ArrayList<String>();
-  for (  File file : files) {
-    if (file.isDirectory())     resultList.add(file.getName());
- else     if (condition(file,types))     resultList.add(file.getName());
-  }
-  return resultList;
-}

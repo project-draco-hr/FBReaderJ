@@ -1,7 +1,0 @@
-{
-  if (types.equals(""))   return true;
-  for (  String type : types.split("[\\s]+")) {
-    if (val.endsWith(type))     return true;
-  }
-  return false;
-}

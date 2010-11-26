@@ -1,4 +1,0 @@
-{
-  if (myCurDir.equals(myCurFile))   return null;
-  return myCurDir + "/" + myCurFile;
-}

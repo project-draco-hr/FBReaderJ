@@ -1,9 +1,0 @@
-{
-  try {
-    if (myCurPath.equals(myFile.getPath()) && compareTypes(myCurTypes,myNewTypes))     getOrderInCurrentDir();
- else     getOrderInNewDir();
-  }
- catch (  Exception e) {
-    Log.e("BACKGROUND_PROC",e.getMessage());
-  }
-}
