@@ -1,5 +1,0 @@
-{
-  if (myColorArea != null) {
-    myColorArea.setBackgroundColor(Color.rgb(myRedView.getComponentValue(),myGreenView.getComponentValue(),myBlueView.getComponentValue()));
-  }
-}

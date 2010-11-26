@@ -1,6 +1,0 @@
-{
-  ((ZLAndroidApplication)activity.getApplication()).putData(DialogActivity.DIALOG_KEY,dialog);
-  Intent intent=new Intent();
-  intent.setClass(activity,DialogActivity.class);
-  activity.startActivity(intent);
-}
