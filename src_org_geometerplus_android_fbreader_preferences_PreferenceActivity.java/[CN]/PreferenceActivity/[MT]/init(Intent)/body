@@ -71,14 +71,20 @@
       formatCategory.addPreference(new ZLIntegerChoicePreference(this,textCategory.Resource,"lineSpacing",spacePercentOption,spacingValues,spacingKeys));
     }
   }
-  final Screen colorsScreen=textCategory.createPreferenceScreen("colors");
-  colorsScreen.setOnPreferenceClickListener(new PreferenceScreen.OnPreferenceClickListener(){
+  final Screen oldColorsScreen=textCategory.createPreferenceScreen("colors");
+  oldColorsScreen.setOnPreferenceClickListener(new PreferenceScreen.OnPreferenceClickListener(){
     public boolean onPreferenceClick(    Preference preference){
       dlg.run(0);
       return true;
     }
   }
 );
+  final Screen colorsScreen=optionsCategory.createPreferenceScreen("colors");
+  final Category colorsCategory=colorsScreen.createCategory(null);
+  colorsCategory.addPreference(new ZLColorPreference(this,colorsCategory.Resource,"background"));
+  colorsCategory.addPreference(new ZLColorPreference(this,colorsCategory.Resource,"highlighting"));
+  colorsCategory.addPreference(new ZLColorPreference(this,colorsCategory.Resource,"text"));
+  colorsCategory.addPreference(new ZLColorPreference(this,colorsCategory.Resource,"hyperlink"));
   final Screen marginsScreen=optionsCategory.createPreferenceScreen("margins");
   final Category marginsCategory=marginsScreen.createCategory(null);
   marginsCategory.addPreference(new ZLIntegerRangePreference(this,marginsCategory.Resource.getResource("left"),fbReader.LeftMarginOption));
