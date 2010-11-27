@@ -1,3 +1,0 @@
-{
-  addOptionByName(myResource.getResource(key).getValue(),option);
-}

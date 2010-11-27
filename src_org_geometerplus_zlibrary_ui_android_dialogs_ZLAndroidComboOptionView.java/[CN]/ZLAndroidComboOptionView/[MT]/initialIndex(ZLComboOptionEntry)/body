@@ -1,4 +1,0 @@
-{
-  int index=comboEntry.getValues().indexOf(comboEntry.initialValue());
-  return (index >= 0) ? index : 0;
-}

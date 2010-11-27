@@ -1,6 +1,0 @@
-{
-  myName=name;
-  myOption=option;
-  myInitialized=false;
-  myOption.setView(this);
-}
