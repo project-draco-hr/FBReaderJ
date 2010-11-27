@@ -5,4 +5,5 @@
   HighlightingOption.setValue(base.HighlightingOption.getValue());
   RegularTextOption.setValue(base.RegularTextOption.getValue());
   HyperlinkTextOption.setValue(base.HyperlinkTextOption.getValue());
+  FooterFillOption.setValue(base.FooterFillOption.getValue());
 }

@@ -1,0 +1,3 @@
+{
+  return myModel.getTextLength(paragraphIndex - 1);
+}

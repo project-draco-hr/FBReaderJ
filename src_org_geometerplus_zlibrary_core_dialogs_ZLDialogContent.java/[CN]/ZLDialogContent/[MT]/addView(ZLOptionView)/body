@@ -1,5 +1,0 @@
-{
-  if (view != null) {
-    Views.add(view);
-  }
-}
