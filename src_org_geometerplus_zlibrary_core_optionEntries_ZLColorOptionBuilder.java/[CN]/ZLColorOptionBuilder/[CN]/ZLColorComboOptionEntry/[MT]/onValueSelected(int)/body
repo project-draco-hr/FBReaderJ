@@ -1,5 +1,0 @@
-{
-  myData.myCurrentOptionName=getValues().get(index);
-  myData.myColorEntry.resetView();
-  myData.myPreviousOptionName=myData.myCurrentOptionName;
-}

@@ -1,0 +1,13 @@
+{
+  myBase=base;
+  myText=text;
+  myPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
+  myPaint.setTypeface(Typeface.DEFAULT_BOLD);
+  myPaint.setColor(Color.BLACK);
+  myPaint.setAlpha(255);
+  myOutlinePaint=new Paint(myPaint);
+  myOutlinePaint.setStyle(Paint.Style.STROKE);
+  myOutlinePaint.setStrokeWidth(3);
+  myOutlinePaint.setColor(0xFFAAAAAA);
+  myLabelOnRight=labelOnRight;
+}

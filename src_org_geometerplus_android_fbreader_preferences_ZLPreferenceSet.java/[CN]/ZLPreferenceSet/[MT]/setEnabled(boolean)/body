@@ -1,0 +1,5 @@
+{
+  for (  ZLPreference preference : myPreferences) {
+    ((Preference)preference).setEnabled(enable);
+  }
+}
