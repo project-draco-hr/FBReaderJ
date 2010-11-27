@@ -1,6 +1,7 @@
 {
   final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
   final ZLAndroidApplication androidApp=ZLAndroidApplication.Instance();
+  final ColorProfile profile=fbReader.getColorProfile();
   final Screen directoriesScreen=createPreferenceScreen("directories");
   directoriesScreen.addPreference(new ZLStringOptionPreference(this,Paths.BooksDirectoryOption(),directoriesScreen.Resource,"books"));
   if (AndroidFontUtil.areExternalFontsSupported()) {
@@ -65,7 +66,6 @@
     }
   }
   final Screen colorsScreen=createPreferenceScreen("colors");
-  final ColorProfile profile=fbReader.getColorProfile();
   colorsScreen.addPreference(new ZLColorPreference(this,colorsScreen.Resource,"background",profile.BackgroundOption));
   colorsScreen.addPreference(new ZLColorPreference(this,colorsScreen.Resource,"highlighting",profile.HighlightingOption));
   colorsScreen.addPreference(new ZLColorPreference(this,colorsScreen.Resource,"text",profile.RegularTextOption));
@@ -86,6 +86,8 @@
   }
 );
   footerPreferences.add(statusLineScreen.addPreference(new ZLIntegerRangePreference(this,statusLineScreen.Resource.getResource("footerHeight"),fbReader.FooterHeightOption)));
+  footerPreferences.add(statusLineScreen.addPreference(new ZLColorPreference(this,statusLineScreen.Resource,"color",profile.FooterFillOption)));
+  footerPreferences.add(statusLineScreen.addOption(fbReader.FooterShowTOCMarksOption,"tocMarks"));
   footerPreferences.add(statusLineScreen.addOption(fbReader.FooterShowClockOption,"showClock"));
   footerPreferences.add(statusLineScreen.addOption(fbReader.FooterShowBatteryOption,"showBattery"));
   footerPreferences.add(statusLineScreen.addOption(fbReader.FooterShowProgressOption,"showProgress"));
