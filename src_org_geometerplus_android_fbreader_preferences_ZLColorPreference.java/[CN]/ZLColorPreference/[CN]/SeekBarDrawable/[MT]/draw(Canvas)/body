@@ -1,0 +1,14 @@
+{
+  myBase.draw(canvas);
+  final Rect bounds=getBounds();
+  final int textSize=bounds.height() * 2 / 3;
+  myPaint.setTextSize(textSize);
+  myOutlinePaint.setTextSize(textSize);
+  final Rect textBounds=new Rect();
+  myPaint.getTextBounds("a",0,1,textBounds);
+  final float textWidth=myOutlinePaint.measureText(myText);
+  final float x=myLabelOnRight ? bounds.width() - textWidth - 6 : 6;
+  final float y=bounds.height() / 2 + textBounds.height();
+  canvas.drawText(myText,x,y,myOutlinePaint);
+  canvas.drawText(myText,x,y,myPaint);
+}

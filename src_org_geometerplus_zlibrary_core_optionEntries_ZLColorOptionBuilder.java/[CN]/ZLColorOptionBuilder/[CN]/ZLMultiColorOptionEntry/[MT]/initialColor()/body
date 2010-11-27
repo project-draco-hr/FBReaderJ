@@ -1,3 +1,0 @@
-{
-  return myData.myOptions.get(myData.myCurrentOptionName).getValue();
-}

@@ -1,0 +1,5 @@
+{
+  Screen screen=new Screen(Resource,resourceKey);
+  myScreen.addPreference(screen.myScreen);
+  return screen;
+}

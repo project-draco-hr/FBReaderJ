@@ -1,0 +1,5 @@
+{
+  myScreen.addPreference((Preference)preference);
+  myPreferences.add(preference);
+  return preference;
+}

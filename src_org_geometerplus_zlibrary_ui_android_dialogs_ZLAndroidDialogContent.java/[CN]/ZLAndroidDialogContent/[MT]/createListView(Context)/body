@@ -1,5 +1,0 @@
-{
-  myContext=context;
-  myListView=new ListView(context);
-  myListView.setAdapter(new ViewAdapter());
-}

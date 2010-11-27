@@ -1,3 +1,0 @@
-{
-  return getAndroidViews().size();
-}

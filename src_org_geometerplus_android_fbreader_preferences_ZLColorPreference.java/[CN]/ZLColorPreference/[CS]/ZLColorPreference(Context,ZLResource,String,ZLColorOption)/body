@@ -1,0 +1,11 @@
+{
+  super(context,null);
+  myOption=option;
+  final String title=resource.getResource(resourceKey).getValue();
+  setTitle(title);
+  setDialogTitle(title);
+  setDialogLayoutResource(R.layout.color_dialog);
+  final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
+  setPositiveButtonText(buttonResource.getResource("ok").getValue());
+  setNegativeButtonText(buttonResource.getResource("cancel").getValue());
+}

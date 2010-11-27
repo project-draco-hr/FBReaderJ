@@ -1,5 +1,0 @@
-{
-  Screen screen=new Screen(Resource,resourceKey);
-  myGroup.addPreference(screen.myScreen);
-  return screen;
-}
