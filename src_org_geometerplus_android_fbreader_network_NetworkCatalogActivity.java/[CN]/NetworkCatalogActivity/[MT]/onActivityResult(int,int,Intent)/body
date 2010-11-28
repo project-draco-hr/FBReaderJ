@@ -1,0 +1,7 @@
+{
+  System.err.println("requestCode = " + requestCode);
+  System.err.println("resultCode = " + resultCode);
+  if (data != null) {
+    System.err.println("uri = " + data.getStringExtra("userName"));
+  }
+}
