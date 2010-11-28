@@ -1,0 +1,3 @@
+{
+  return findTextView(resourceId).getText().toString().trim();
+}

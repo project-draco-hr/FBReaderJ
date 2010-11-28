@@ -9,7 +9,8 @@
       final NetworkAuthenticationManager mgr=myLink.authenticationManager();
       if (mgr.registrationSupported()) {
         myActivity.dismissDialog(NetworkDialog.DIALOG_AUTHENTICATION);
-        final Intent intent=new Intent(myActivity.getApplicationContext(),UserRegistrationActivity.class);
+        System.err.println(myLink.getLink("main"));
+        final Intent intent=new Intent("android.fbreader.action.NETWORK_LIBRARY_REGISTER",Uri.parse(myLink.getLink(INetworkLink.URL_MAIN)));
         myActivity.startActivity(intent);
       }
     }
