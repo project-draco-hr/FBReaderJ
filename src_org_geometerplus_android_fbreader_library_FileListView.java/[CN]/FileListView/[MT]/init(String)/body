@@ -5,7 +5,7 @@
   myFilter.setPreferences(file,myFilterTypes);
   myCurFilterThread=new Thread(null,myFilter,"MagentoBackground");
   myCurFilterThread.start();
-  for (  String dir : START_DIR.split("[\\/]+")) {
+  for (  String dir : myCurDir.split("[\\/]+")) {
     myCurFile=dir;
     myCurDir+="/" + dir;
     Log.v(FileManager.FILE_MANAGER_LOG_TAG,"file: " + myCurFile + "\t dir: "+ myCurDir);

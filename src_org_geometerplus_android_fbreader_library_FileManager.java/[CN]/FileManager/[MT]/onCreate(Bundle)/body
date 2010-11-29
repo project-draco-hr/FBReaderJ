@@ -2,13 +2,13 @@
   Log.v(FILE_MANAGER_LOG_TAG,"onCreate()");
   super.onCreate(savedInstanceState);
   setContentView(R.layout.file_manager);
-  ImageButton fbhomeButton=(ImageButton)findViewById(R.id.fmanagerFBHomeButton);
-  ImageButton cardButton=(ImageButton)findViewById(R.id.fmanagerCardButton);
-  ImageButton rootButton=(ImageButton)findViewById(R.id.fmanagerRootButton);
-  ImageButton filterButton=(ImageButton)findViewById(R.id.fmanagerFilterButton);
-  ImageButton backButton=(ImageButton)findViewById(R.id.fmanagerBackButton);
-  Button okButton=(Button)findViewById(R.id.fmanagerOkButton);
-  Button cancelButton=(Button)findViewById(R.id.fmanagerCancelButton);
+  ImageButton fbhomeButton=FileUtils.getImgBtn(this,R.id.fmanagerFBHomeButton,R.drawable.home);
+  ImageButton cardButton=FileUtils.getImgBtn(this,R.id.fmanagerCardButton,R.drawable.sdcard);
+  ImageButton rootButton=FileUtils.getImgBtn(this,R.id.fmanagerRootButton,R.drawable.root);
+  ImageButton filterButton=FileUtils.getImgBtn(this,R.id.fmanagerFilterButton,R.drawable.filter);
+  ImageButton backButton=FileUtils.getImgBtn(this,R.id.fmanagerBackButton,R.drawable.back);
+  Button okButton=FileUtils.getOkBtn(this,R.id.fmanagerOkButton);
+  Button cancelButton=FileUtils.getCancelBtn(this,R.id.fmanagerCancelButton);
   ListView fileList=(ListView)findViewById(R.id.fileList1);
   myFileListView=new FileListView(this,fileList);
   fbhomeButton.setOnClickListener(new View.OnClickListener(){

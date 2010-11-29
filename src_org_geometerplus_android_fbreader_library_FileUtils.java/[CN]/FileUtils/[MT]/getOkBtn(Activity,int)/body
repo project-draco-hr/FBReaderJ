@@ -1,0 +1,3 @@
+{
+  return getBtn(parent,id,"ok");
+}

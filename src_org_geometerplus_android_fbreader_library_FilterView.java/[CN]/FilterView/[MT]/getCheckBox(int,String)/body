@@ -1,0 +1,6 @@
+{
+  ZLResource resource=ZLResource.resource("fmanagerView").getResource("types");
+  CheckBox chBox=(CheckBox)findViewById(id);
+  chBox.setText(resource.getResource(keyName).getValue());
+  return chBox;
+}

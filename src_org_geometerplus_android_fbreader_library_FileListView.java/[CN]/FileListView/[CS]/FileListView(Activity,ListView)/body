@@ -8,7 +8,7 @@
   myListView.setAdapter(myAdapter);
   myReturnRes=new ReturnRes(myOrders,myAdapter,myProgressDialog);
   myFilter=new SmartFilter(myParent,myOrders,myReturnRes);
-  init(myCurDir);
+  init(myParent.getIntent().getExtras().getString(FileManager.FILE_MANAGER_PATH));
   myListView.setTextFilterEnabled(true);
   myListView.setOnItemClickListener(new OnItemClickListener(){
     public void onItemClick(    AdapterView<?> parent,    View view,    int position,    long id){
