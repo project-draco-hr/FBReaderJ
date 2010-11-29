@@ -3,27 +3,30 @@
   if (TAG_REGISTRATION_FAILED == tag) {
     final String error=attributes.getValue("error");
     if ("1".equals(error)) {
-      setException(new ZLNetworkException(NetworkException.ERROR_LOGIN_ALREADY_TAKEN));
+      setErrorMessage(myResource.getResource("usernameAlreadyTaken").getValue());
     }
  else     if ("2".equals(error)) {
-      setException(new ZLNetworkException(NetworkException.ERROR_LOGIN_WAS_NOT_SPECIFIED));
+      setErrorMessage(myResource.getResource("usernameNotSpecified").getValue());
     }
  else     if ("3".equals(error)) {
-      setException(new ZLNetworkException(NetworkException.ERROR_PASSWORD_WAS_NOT_SPECIFIED));
+      setErrorMessage(myResource.getResource("passwordNotSpecified").getValue());
     }
  else     if ("4".equals(error)) {
-      setException(new ZLNetworkException(NetworkException.ERROR_INVALID_EMAIL));
+      setErrorMessage(myResource.getResource("invalidEMail").getValue());
     }
  else     if ("5".equals(error)) {
-      setException(new ZLNetworkException(NetworkException.ERROR_TOO_MANY_REGISTRATIONS));
+      setErrorMessage(myResource.getResource("tooManyRegistrations").getValue());
+    }
+ else     if ("6".equals(error)) {
+      setErrorMessage(myResource.getResource("emailAlreadyTaken").getValue());
     }
  else {
       final String comment=attributes.getValue("coment");
       if (comment != null) {
-        setException(new ZLNetworkException(true,comment));
+        setErrorMessage(comment);
       }
  else {
-        setException(new ZLNetworkException(NetworkException.ERROR_INTERNAL));
+        setErrorMessage(myResource.getResource("errorDuringRegistration").getValue().replace("%s",error));
       }
     }
   }
@@ -31,7 +34,7 @@
     Sid=attributes.getValue("sid");
   }
  else {
-    setException(new ZLNetworkException(NetworkException.ERROR_SOMETHING_WRONG,HostName));
+    setErrorMessage(myResource.getResource("somethingWrong").getValue().replace("%s",HostName));
   }
   return true;
 }
