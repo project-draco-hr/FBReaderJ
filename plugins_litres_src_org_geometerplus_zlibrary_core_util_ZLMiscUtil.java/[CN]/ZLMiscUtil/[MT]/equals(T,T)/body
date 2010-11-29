@@ -1,3 +1,0 @@
-{
-  return (o0 == null) ? (o1 == null) : o0.equals(o1);
-}

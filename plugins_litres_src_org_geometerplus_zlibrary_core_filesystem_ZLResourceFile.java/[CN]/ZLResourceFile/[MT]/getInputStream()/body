@@ -1,3 +1,4 @@
 {
-  return null;
+  System.err.println("InputStream requested, context = " + ourContext);
+  return ourContext.getAssets().open(myPath);
 }

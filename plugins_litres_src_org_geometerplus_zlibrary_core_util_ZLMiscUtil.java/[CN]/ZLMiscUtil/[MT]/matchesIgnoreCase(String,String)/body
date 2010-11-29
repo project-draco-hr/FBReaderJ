@@ -1,3 +1,0 @@
-{
-  return (text.length() >= lowerCasePattern.length()) && (text.toLowerCase().indexOf(lowerCasePattern) >= 0);
-}

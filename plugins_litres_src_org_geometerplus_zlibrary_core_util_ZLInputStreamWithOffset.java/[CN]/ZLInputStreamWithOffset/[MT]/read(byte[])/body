@@ -1,7 +1,0 @@
-{
-  final int shift=myDecoratedStream.read(b);
-  if (shift > 0) {
-    myOffset+=shift;
-  }
-  return shift;
-}

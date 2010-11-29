@@ -1,3 +1,0 @@
-{
-  return (Red << 16) + (Green << 8) + Blue;
-}

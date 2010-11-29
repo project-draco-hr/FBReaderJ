@@ -1,5 +1,7 @@
 {
   super.onCreate(icicle);
+  ZLResourceFile.init(getApplicationContext());
+  myResource=ZLResource.resource("userRegistration");
   setContentView(R.layout.user_registration);
   setTitle(myResource.getResource("title").getValue());
   setViewTextFromResource(R.id.user_registration_login_text,"login");

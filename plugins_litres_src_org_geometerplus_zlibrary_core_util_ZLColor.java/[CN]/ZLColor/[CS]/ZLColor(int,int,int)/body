@@ -1,5 +1,0 @@
-{
-  Red=(short)(r & 0xFF);
-  Green=(short)(g & 0xFF);
-  Blue=(short)(b & 0xFF);
-}

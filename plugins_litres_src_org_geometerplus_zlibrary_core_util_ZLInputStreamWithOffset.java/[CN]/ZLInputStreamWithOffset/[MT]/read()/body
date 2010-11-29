@@ -1,7 +1,0 @@
-{
-  int result=myDecoratedStream.read();
-  if (result != -1) {
-    ++myOffset;
-  }
-  return result;
-}

@@ -1,0 +1,4 @@
+{
+  System.err.println("init context = " + context);
+  ourContext=context;
+}

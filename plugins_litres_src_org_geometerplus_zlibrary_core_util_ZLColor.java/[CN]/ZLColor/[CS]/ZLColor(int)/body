@@ -1,5 +1,0 @@
-{
-  Red=(short)((intValue >> 16) & 0xFF);
-  Green=(short)((intValue >> 8) & 0xFF);
-  Blue=(short)(intValue & 0xFF);
-}

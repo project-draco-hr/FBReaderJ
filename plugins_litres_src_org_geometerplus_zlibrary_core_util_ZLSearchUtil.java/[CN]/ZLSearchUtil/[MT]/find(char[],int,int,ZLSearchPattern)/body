@@ -1,3 +1,0 @@
-{
-  return find(text,offset,length,pattern,0);
-}
