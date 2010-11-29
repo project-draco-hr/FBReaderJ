@@ -1,11 +1,10 @@
 {
   if (new File(path).isDirectory()) {
-    myProgressDialog.show();
-    File file=new File(path);
-    myCurDir=path;
     myCurFilterThread.interrupt();
-    myFilter.setPreferences(file,myFilterTypes);
-    myCurFilterThread=new Thread(null,myFilter,"MagentoBackground");
-    myCurFilterThread.start();
+    Intent i=new Intent(myParent,FileManager.class);
+    i.putExtra(FileManager.FILE_MANAGER_PATH,path);
+    i.putExtra(FileManager.FILE_MANAGER_TYPE,myFilterTypes);
+    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+    myParent.startActivity(i);
   }
 }

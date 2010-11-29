@@ -37,13 +37,17 @@
 );
   backButton.setOnClickListener(new View.OnClickListener(){
     public void onClick(    View v){
-      myFileListView.goAtBack();
+      myFileListView.back();
     }
   }
 );
   okButton.setOnClickListener(new View.OnClickListener(){
     public void onClick(    View v){
-      finish();
+      String path=myFileListView.getPathToFile();
+      if (path != null) {
+        Log.v(FILE_MANAGER_LOG_TAG,"paht to book : " + path);
+        launchFBReaderView(path);
+      }
     }
   }
 );

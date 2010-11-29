@@ -1,20 +1,21 @@
 {
   myParent=parent;
-  myListView=listView;
   myProgressDialog=new ProgressDialog(myParent);
   myProgressDialog.setTitle("Please wait...");
   myProgressDialog.setMessage("Retrieving data ...");
   myAdapter=new ArrayAdapter<String>(myParent,R.layout.list_item);
-  myListView.setAdapter(myAdapter);
+  listView.setAdapter(myAdapter);
   myReturnRes=new ReturnRes(myOrders,myAdapter,myProgressDialog);
   myFilter=new SmartFilter(myParent,myOrders,myReturnRes);
-  init(myParent.getIntent().getExtras().getString(FileManager.FILE_MANAGER_PATH));
-  myListView.setTextFilterEnabled(true);
-  myListView.setOnItemClickListener(new OnItemClickListener(){
+  final String startPath=myParent.getIntent().getExtras().getString(FileManager.FILE_MANAGER_PATH);
+  final String fileTypes=myParent.getIntent().getExtras().getString(FileManager.FILE_MANAGER_TYPE);
+  fill(startPath,fileTypes);
+  listView.setTextFilterEnabled(true);
+  listView.setOnItemClickListener(new OnItemClickListener(){
     public void onItemClick(    AdapterView<?> parent,    View view,    int position,    long id){
       view.setSelected(true);
+      myCurDir=startPath;
       myCurFile=((TextView)view).getText().toString();
-      if (new File(myCurDir + "/" + myCurFile).isDirectory())       myHistory.add(myCurFile);
       goAtDir(myCurDir + "/" + myCurFile);
     }
   }
