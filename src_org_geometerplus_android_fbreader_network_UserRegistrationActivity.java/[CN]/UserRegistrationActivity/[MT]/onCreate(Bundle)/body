@@ -7,10 +7,13 @@
   setViewTextFromResource(R.id.user_registration_password_text,"password");
   setViewTextFromResource(R.id.user_registration_confirm_password_text,"confirmPassword");
   setViewTextFromResource(R.id.user_registration_email_text,"email");
+  setViewText(R.id.user_registration_login,"q");
+  setViewText(R.id.user_registration_password,"q");
+  setViewText(R.id.user_registration_confirm_password,"q");
   final TextView errorLabel=findTextView(R.id.user_registration_error);
   errorLabel.setVisibility(View.GONE);
   errorLabel.setText("");
-  final String url=getIntent().getData().toString();
+  final String signUpURL=getIntent().getData().toString();
   final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
   final Button okButton=findButton(R.id.user_registration_ok_button);
   final Button cancelButton=findButton(R.id.user_registration_cancel_button);
@@ -45,6 +48,23 @@
       final Intent data=new Intent();
       final String[] result={null};
       result[0]="Registration is not implemented yet";
+      final Runnable runnable=new Runnable(){
+        public void run(){
+          try {
+            String url=signUpURL;
+            url=ZLNetworkUtil.appendParameter(url,"new_login",userName);
+            url=ZLNetworkUtil.appendParameter(url,"new_pwd1",password);
+            url=ZLNetworkUtil.appendParameter(url,"mail",email);
+            final LitResRegisterUserXMLReader xmlReader=new LitResRegisterUserXMLReader("litres.ru");
+            ZLNetworkManager.Instance().perform(new LitResNetworkRequest(url,null,xmlReader));
+          }
+ catch (          ZLNetworkException e) {
+            result[0]=e.getMessage();
+          }
+        }
+      }
+;
+      UIUtil.wait("registerUser",runnable,UserRegistrationActivity.this);
       if (result[0] == null) {
         data.putExtra(USER_REGISTRATION_USERNAME,userName);
         data.putExtra(USER_REGISTRATION_PASSWORD,password);
