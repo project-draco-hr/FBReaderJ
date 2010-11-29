@@ -1,5 +1,5 @@
 {
-  final String message=ZLResource.resource("dialog").getResource("waitMessage").getResource(key).getValue();
+  final String message=myResource.getResource("waitMessage").getResource(key).getValue();
   final ProgressDialog progress=ProgressDialog.show(this,null,message,true,false);
   final Handler handler=new Handler(){
     public void handleMessage(    Message message){

@@ -54,7 +54,7 @@
             url=ZLNetworkUtil.appendParameter(url,"new_login",userName);
             url=ZLNetworkUtil.appendParameter(url,"new_pwd1",password);
             url=ZLNetworkUtil.appendParameter(url,"mail",email);
-            final LitResRegisterUserXMLReader xmlReader=new LitResRegisterUserXMLReader("litres.ru");
+            final LitResRegisterUserXMLReader xmlReader=new LitResRegisterUserXMLReader("litres.ru",myResource.getResource("error"));
             ZLNetworkManager.Instance().perform(new LitResNetworkRequest(url,"network/litres.ru.crt",xmlReader));
           }
  catch (          ZLNetworkException e) {
