@@ -1,5 +1,3 @@
 {
-  final TextView errorLabel=findTextView(R.id.user_registration_error);
-  errorLabel.setVisibility(View.VISIBLE);
-  errorLabel.setText(myResource.getResource("error").getResource(resourceKey).getValue());
+  setErrorMessage(myResource.getResource("error").getResource(resourceKey).getValue());
 }

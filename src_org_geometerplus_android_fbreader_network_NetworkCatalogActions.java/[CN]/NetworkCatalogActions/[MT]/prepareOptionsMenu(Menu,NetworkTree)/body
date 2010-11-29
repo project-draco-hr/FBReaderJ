@@ -24,6 +24,7 @@
     }
   }
   prepareOptionsItem(menu,SIGNIN_ITEM_ID,signIn);
+  prepareOptionsItem(menu,SIGNUP_ITEM_ID,signIn);
   prepareOptionsItem(menu,SIGNOUT_ITEM_ID,signOut,"signOut",userName);
   prepareOptionsItem(menu,REFILL_ACCOUNT_ITEM_ID,refill);
   return true;

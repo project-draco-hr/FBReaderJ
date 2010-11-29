@@ -10,7 +10,7 @@
   final TextView errorLabel=findTextView(R.id.user_registration_error);
   errorLabel.setVisibility(View.GONE);
   errorLabel.setText("");
-  final Intent intent=getIntent();
+  final String url=getIntent().getData().toString();
   final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
   final Button okButton=findButton(R.id.user_registration_ok_button);
   final Button cancelButton=findButton(R.id.user_registration_cancel_button);
@@ -26,7 +26,7 @@
         return;
       }
       if (!password.equals(confirmPassword)) {
-        setErrorMessageFromResource("passwordDoesNotMatch");
+        setErrorMessageFromResource("passwordsDoNotMatch");
         return;
       }
       if (password.length() == 0) {
@@ -43,9 +43,18 @@
         return;
       }
       final Intent data=new Intent();
-      data.putExtra("userName",userName);
-      setResult(RESULT_OK,data);
-      finish();
+      final String[] result={null};
+      result[0]="Registration is not implemented yet";
+      if (result[0] == null) {
+        data.putExtra(USER_REGISTRATION_USERNAME,userName);
+        data.putExtra(USER_REGISTRATION_PASSWORD,password);
+        data.putExtra(USER_REGISTRATION_EMAIL,email);
+        setResult(RESULT_OK,data);
+        finish();
+      }
+ else {
+        setErrorMessage(result[0]);
+      }
     }
   }
 );

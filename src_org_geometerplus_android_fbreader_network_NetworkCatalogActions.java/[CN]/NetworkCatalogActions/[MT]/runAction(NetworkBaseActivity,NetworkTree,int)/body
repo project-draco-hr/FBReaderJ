@@ -15,6 +15,9 @@ return true;
 case SIGNIN_ITEM_ID:
 NetworkDialog.show(activity,NetworkDialog.DIALOG_AUTHENTICATION,((NetworkCatalogTree)tree).Item.Link,null);
 return true;
+case SIGNUP_ITEM_ID:
+Util.runRegistrationDialog(activity,((NetworkCatalogTree)tree).Item.Link);
+return true;
 case SIGNOUT_ITEM_ID:
 doSignOut(activity,(NetworkCatalogTree)tree);
 return true;
