@@ -1,0 +1,45 @@
+{
+  httpConnection.setInstanceFollowRedirects(request.FollowRedirects);
+  httpConnection.setConnectTimeout(15000);
+  httpConnection.setReadTimeout(30000);
+  httpConnection.setRequestProperty("User-Agent",ZLNetworkUtil.getUserAgent());
+  httpConnection.setAllowUserInteraction(false);
+  if (httpConnection instanceof HttpsURLConnection) {
+    HttpsURLConnection httpsConnection=(HttpsURLConnection)httpConnection;
+    if (request.SSLCertificate != null) {
+      InputStream stream;
+      try {
+        ZLResourceFile file=ZLResourceFile.createResourceFile(request.SSLCertificate);
+        stream=file.getInputStream();
+      }
+ catch (      IOException ex) {
+        throw new ZLNetworkException(ZLNetworkException.ERROR_SSL_BAD_FILE,request.SSLCertificate);
+      }
+      try {
+        TrustManager[] managers=new TrustManager[]{new ZLX509TrustManager(stream)};
+        SSLContext context=SSLContext.getInstance("TLS");
+        context.init(null,managers,null);
+        httpsConnection.setSSLSocketFactory(context.getSocketFactory());
+      }
+ catch (      CertificateExpiredException ex) {
+        throw new ZLNetworkException(ZLNetworkException.ERROR_SSL_EXPIRED,request.SSLCertificate);
+      }
+catch (      CertificateNotYetValidException ex) {
+        throw new ZLNetworkException(ZLNetworkException.ERROR_SSL_NOT_YET_VALID,request.SSLCertificate);
+      }
+catch (      CertificateException ex) {
+        throw new ZLNetworkException(ZLNetworkException.ERROR_SSL_BAD_FILE,request.SSLCertificate);
+      }
+catch (      GeneralSecurityException ex) {
+        throw new ZLNetworkException(ZLNetworkException.ERROR_SSL_SUBSYSTEM);
+      }
+ finally {
+        try {
+          stream.close();
+        }
+ catch (        IOException ex) {
+        }
+      }
+    }
+  }
+}

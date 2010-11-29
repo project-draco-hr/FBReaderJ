@@ -1,0 +1,15 @@
+{
+  final long timeStamp=System.currentTimeMillis();
+  if (timeStamp > ourTimeStamp + 1000) {
+synchronized (ourRoot) {
+      if (timeStamp > ourTimeStamp + 1000) {
+        ourTimeStamp=timeStamp;
+        final String language=Locale.getDefault().getLanguage();
+        if (language != null && !language.equals(ourLanguage)) {
+          ourLanguage=language;
+          loadData(ourLanguage);
+        }
+      }
+    }
+  }
+}

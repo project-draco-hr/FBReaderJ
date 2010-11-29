@@ -1,0 +1,10 @@
+{
+  if (ourRoot == null) {
+    ourRoot=new ZLTreeResource("",null);
+    loadData("en");
+    ourLanguage=Locale.getDefault().getLanguage();
+    if (!"en".equals(ourLanguage)) {
+      loadData(ourLanguage);
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  if (xmlReader.startElementHandler(tagName,attributes)) {
+    return true;
+  }
+  if (currentNamespaceMap != null) {
+    xmlReader.namespaceMapChangedHandler(currentNamespaceMap);
+  }
+  attributes.clear();
+  return false;
+}

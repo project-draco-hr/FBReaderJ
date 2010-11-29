@@ -1,0 +1,120 @@
+{
+  super.onCreate(icicle);
+  setContentView(R.layout.user_registration);
+  setTitle(myResource.getResource("title").getValue());
+  setViewTextFromResource(R.id.user_registration_login_text,"login");
+  setViewTextFromResource(R.id.user_registration_password_text,"password");
+  setViewTextFromResource(R.id.user_registration_confirm_password_text,"confirmPassword");
+  setViewTextFromResource(R.id.user_registration_email_text,"email");
+  setViewText(R.id.user_registration_login,"q");
+  setViewText(R.id.user_registration_password,"q");
+  setViewText(R.id.user_registration_confirm_password,"q");
+  final TextView errorLabel=findTextView(R.id.user_registration_error);
+  errorLabel.setVisibility(View.GONE);
+  errorLabel.setText("");
+  final String signUpURL=getIntent().getData().toString();
+  final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
+  final Button okButton=findButton(R.id.user_registration_ok_button);
+  final Button cancelButton=findButton(R.id.user_registration_cancel_button);
+  okButton.setText(buttonResource.getResource("ok").getValue());
+  okButton.setOnClickListener(new View.OnClickListener(){
+    public void onClick(    View v){
+      final String userName=getViewText(R.id.user_registration_login);
+      final String password=getViewText(R.id.user_registration_password);
+      final String confirmPassword=getViewText(R.id.user_registration_confirm_password);
+      final String email=getViewText(R.id.user_registration_email);
+      if (userName.length() == 0) {
+        setErrorMessageFromResource("usernameNotSpecified");
+        return;
+      }
+      if (!password.equals(confirmPassword)) {
+        setErrorMessageFromResource("passwordsDoNotMatch");
+        return;
+      }
+      if (password.length() == 0) {
+        setErrorMessageFromResource("passwordNotSpecified");
+        return;
+      }
+      if (email.length() == 0) {
+        setErrorMessageFromResource("emailNotSpecified");
+        return;
+      }
+      final int atPos=email.indexOf("@");
+      if (atPos == -1 || email.indexOf(".",atPos) == -1) {
+        setErrorMessageFromResource("invalidEMail");
+        return;
+      }
+      final String[] result={null};
+      final Runnable runnable=new Runnable(){
+        public void run(){
+          try {
+            String url=signUpURL;
+            url=ZLNetworkUtil.appendParameter(url,"new_login",userName);
+            url=ZLNetworkUtil.appendParameter(url,"new_pwd1",password);
+            url=ZLNetworkUtil.appendParameter(url,"mail",email);
+            final LitResRegisterUserXMLReader xmlReader=new LitResRegisterUserXMLReader("litres.ru");
+            ZLNetworkManager.Instance().perform(new LitResNetworkRequest(url,"network/litres.ru.crt",xmlReader));
+          }
+ catch (          ZLNetworkException e) {
+            result[0]=e.getMessage();
+          }
+        }
+      }
+;
+      final Runnable postRunnable=new Runnable(){
+        public void run(){
+          if (result[0] == null) {
+            final Intent data=new Intent();
+            data.putExtra(USER_REGISTRATION_USERNAME,userName);
+            data.putExtra(USER_REGISTRATION_PASSWORD,password);
+            data.putExtra(USER_REGISTRATION_EMAIL,email);
+            setResult(RESULT_OK,data);
+            finish();
+          }
+ else {
+            setErrorMessage(result[0]);
+          }
+        }
+      }
+;
+      runWithMessage("registerUser",runnable,postRunnable);
+    }
+  }
+);
+  cancelButton.setText(buttonResource.getResource("cancel").getValue());
+  cancelButton.setOnClickListener(new View.OnClickListener(){
+    public void onClick(    View v){
+      setResult(RESULT_CANCELED);
+      finish();
+    }
+  }
+);
+  final List<String> emails=new RegistrationUtils(getApplicationContext()).eMails();
+  final Button emailListButton=findButton(R.id.user_registration_email_button);
+  final TextView emailTextView=findTextView(R.id.user_registration_email);
+  emailListButton.setVisibility(emails.size() > 1 ? View.VISIBLE : View.GONE);
+  if (!emails.isEmpty()) {
+    emailTextView.setText(emails.get(0));
+  }
+  if (!emails.isEmpty()) {
+    final DialogInterface.OnClickListener listener=new DialogInterface.OnClickListener(){
+      public void onClick(      DialogInterface dialog,      int which){
+        if (which >= 0 && which < emails.size()) {
+          emailTextView.setText(emails.get(which));
+        }
+        dialog.dismiss();
+      }
+    }
+;
+    emailListButton.setOnClickListener(new View.OnClickListener(){
+      public void onClick(      View v){
+        final String selectedEmail=emailTextView.getText().toString().trim();
+        final int selected=emails.indexOf(selectedEmail);
+        final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
+        final AlertDialog dialog=new AlertDialog.Builder(UserRegistrationActivity.this).setSingleChoiceItems(emails.toArray(new String[emails.size()]),selected,listener).setTitle(myResource.getResource("email").getValue()).setNegativeButton(buttonResource.getResource("cancel").getValue(),null).create();
+        dialog.show();
+      }
+    }
+);
+  }
+}

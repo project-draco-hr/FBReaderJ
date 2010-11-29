@@ -1,0 +1,12 @@
+{
+  String host=url;
+  int index=host.indexOf("://");
+  if (index != -1) {
+    host=host.substring(index + 3);
+  }
+  index=host.indexOf("/");
+  if (index != -1) {
+    host=host.substring(0,index);
+  }
+  return host;
+}

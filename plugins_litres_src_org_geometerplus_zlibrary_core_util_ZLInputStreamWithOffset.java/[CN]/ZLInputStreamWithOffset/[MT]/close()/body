@@ -1,0 +1,4 @@
+{
+  myOffset=0;
+  myDecoratedStream.close();
+}

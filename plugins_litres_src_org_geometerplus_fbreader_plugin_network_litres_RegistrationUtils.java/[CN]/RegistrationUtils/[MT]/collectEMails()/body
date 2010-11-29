@@ -1,0 +1,37 @@
+{
+  if (myEMails != null) {
+    return;
+  }
+  try {
+    final Class<?> cls$AccountManager=Class.forName("android.accounts.AccountManager");
+    final Class<?> cls$Account=Class.forName("android.accounts.Account");
+    final Method meth$AccountManager$get=cls$AccountManager.getMethod("get",Context.class);
+    final Method meth$AccountManager$getAccountsByType=cls$AccountManager.getMethod("getAccountsByType",String.class);
+    final Field fld$Account$name=cls$Account.getField("name");
+    if (meth$AccountManager$get.getReturnType() == cls$AccountManager && meth$AccountManager$getAccountsByType.getReturnType().getComponentType() == cls$Account && fld$Account$name.getType() == String.class) {
+      final Object mgr=meth$AccountManager$get.invoke(null,myContext);
+      final Object[] accountsByType=(Object[])meth$AccountManager$getAccountsByType.invoke(mgr,"com.google");
+      myEMails=new ArrayList<String>(accountsByType.length);
+      for (      Object a : accountsByType) {
+        final String value=(String)fld$Account$name.get(a);
+        if (value != null && value.length() > 0) {
+          myEMails.add(value);
+        }
+      }
+      return;
+    }
+  }
+ catch (  ClassNotFoundException e) {
+  }
+catch (  NoSuchMethodException e) {
+  }
+catch (  NoSuchFieldException e) {
+  }
+catch (  IllegalAccessException e) {
+  }
+catch (  IllegalArgumentException e) {
+  }
+catch (  InvocationTargetException e) {
+  }
+  myEMails=Collections.<String>emptyList();
+}

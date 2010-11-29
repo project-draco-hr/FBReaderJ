@@ -1,0 +1,3 @@
+{
+  setErrorMessage(myResource.getResource("error").getResource(resourceKey).getValue());
+}

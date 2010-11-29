@@ -1,0 +1,4 @@
+{
+  ZLMutableString string=ourStringPool.poll();
+  return (string != null) ? string : new ZLMutableString();
+}

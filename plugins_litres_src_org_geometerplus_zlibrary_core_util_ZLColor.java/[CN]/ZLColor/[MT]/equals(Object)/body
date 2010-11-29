@@ -1,0 +1,10 @@
+{
+  if (o == this) {
+    return true;
+  }
+  if (!(o instanceof ZLColor)) {
+    return false;
+  }
+  ZLColor color=(ZLColor)o;
+  return (color.Red == Red) && (color.Green == Green) && (color.Blue == Blue);
+}

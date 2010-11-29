@@ -1,0 +1,15 @@
+{
+  final ZLMutableString container=(ZLMutableString)o;
+  final int len=myLength;
+  if (len != container.myLength) {
+    return false;
+  }
+  final char[] data0=myData;
+  final char[] data1=container.myData;
+  for (int i=len; --i >= 0; ) {
+    if (data0[i] != data1[i]) {
+      return false;
+    }
+  }
+  return true;
+}
