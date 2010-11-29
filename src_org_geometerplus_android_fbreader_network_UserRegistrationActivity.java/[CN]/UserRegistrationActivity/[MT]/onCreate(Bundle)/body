@@ -45,9 +45,7 @@
         setErrorMessageFromResource("invalidEMail");
         return;
       }
-      final Intent data=new Intent();
       final String[] result={null};
-      result[0]="Registration is not implemented yet";
       final Runnable runnable=new Runnable(){
         public void run(){
           try {
@@ -64,17 +62,23 @@
         }
       }
 ;
-      UIUtil.wait("registerUser",runnable,UserRegistrationActivity.this);
-      if (result[0] == null) {
-        data.putExtra(USER_REGISTRATION_USERNAME,userName);
-        data.putExtra(USER_REGISTRATION_PASSWORD,password);
-        data.putExtra(USER_REGISTRATION_EMAIL,email);
-        setResult(RESULT_OK,data);
-        finish();
-      }
+      final Runnable postRunnable=new Runnable(){
+        public void run(){
+          if (result[0] == null) {
+            final Intent data=new Intent();
+            data.putExtra(USER_REGISTRATION_USERNAME,userName);
+            data.putExtra(USER_REGISTRATION_PASSWORD,password);
+            data.putExtra(USER_REGISTRATION_EMAIL,email);
+            setResult(RESULT_OK,data);
+            finish();
+          }
  else {
-        setErrorMessage(result[0]);
+            setErrorMessage(result[0]);
+          }
+        }
       }
+;
+      runWithMessage("registerUser",runnable,postRunnable);
     }
   }
 );
