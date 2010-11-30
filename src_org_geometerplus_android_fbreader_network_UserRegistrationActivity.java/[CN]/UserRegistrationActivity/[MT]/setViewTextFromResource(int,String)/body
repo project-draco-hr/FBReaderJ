@@ -1,3 +1,0 @@
-{
-  setViewText(resourceId,myResource.getResource(fbResourceKey).getValue());
-}
