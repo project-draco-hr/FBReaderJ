@@ -9,11 +9,12 @@
   ImageButton backButton=FileUtils.getImgBtn(this,R.id.fmanagerBackButton,R.drawable.back);
   Button okButton=FileUtils.getOkBtn(this,R.id.fmanagerOkButton);
   Button cancelButton=FileUtils.getCancelBtn(this,R.id.fmanagerCancelButton);
+  Log.v(FILE_MANAGER_LOG_TAG,"paths : " + ROOT_DIR + ","+ SDCARD_DIR+ ","+ FB_HOME_DIR);
   ListView fileList=(ListView)findViewById(R.id.fileList1);
   myFileListView=new FileListView(this,fileList);
   setPathListener(fbhomeButton,FB_HOME_DIR);
-  setPathListener(cardButton,ROOT_DIR);
-  setPathListener(rootButton,SDCARD_DIR);
+  setPathListener(cardButton,SDCARD_DIR);
+  setPathListener(rootButton,ROOT_DIR);
   filterButton.setOnClickListener(new View.OnClickListener(){
     public void onClick(    View v){
       launchFilterView();

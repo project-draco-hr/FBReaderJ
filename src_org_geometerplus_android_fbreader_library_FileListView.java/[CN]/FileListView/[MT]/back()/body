@@ -1,8 +1,7 @@
 {
-  String[] dirs=myCurDir.split("[\\/]+");
-  if (dirs.length > 1) {
-    String dir=dirs[dirs.length - 1];
-    myCurDir=myCurDir.substring(0,myCurDir.length() - dir.length() - 1);
+  File file=new File(myCurDir);
+  if (file.getParent() != null) {
+    myCurDir=file.getParent();
     goAtDir(myCurDir);
   }
 }
