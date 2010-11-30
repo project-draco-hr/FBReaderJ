@@ -1,5 +1,5 @@
 {
   Intent i=new Intent(this,FilterView.class);
-  i.putExtra(FILE_MANAGER_TYPE,myFileListView.getFilterTypes());
+  i.putExtra(FILE_MANAGER_TYPE,myFileListView.getTypes());
   startActivityForResult(i,1);
 }

@@ -1,0 +1,13 @@
+{
+  String path=myFileListView.getPathToFile();
+  if (path != null) {
+    Log.v(FILE_MANAGER_LOG_TAG,"paht to book : " + path);
+    path=path.substring(1);
+    Intent i=new Intent(this,FBReader.class);
+    i.setAction(Intent.ACTION_VIEW);
+    i.putExtra(FBReader.BOOK_PATH_KEY,path);
+    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+    startActivity(i);
+  }
+ else   finish();
+}

@@ -1,5 +1,4 @@
 {
   myTreePath=treePath;
   mySelectedBookPath=selectedBookPath;
-  Log.v(FileManager.FILE_MANAGER_LOG_TAG,"===" + myTreePath + mySelectedBookPath);
 }

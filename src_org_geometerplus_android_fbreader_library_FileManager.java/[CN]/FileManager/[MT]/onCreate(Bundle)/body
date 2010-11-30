@@ -11,24 +11,9 @@
   Button cancelButton=FileUtils.getCancelBtn(this,R.id.fmanagerCancelButton);
   ListView fileList=(ListView)findViewById(R.id.fileList1);
   myFileListView=new FileListView(this,fileList);
-  fbhomeButton.setOnClickListener(new View.OnClickListener(){
-    public void onClick(    View v){
-      myFileListView.goAtDir(FB_HOME_DIR);
-    }
-  }
-);
-  cardButton.setOnClickListener(new View.OnClickListener(){
-    public void onClick(    View v){
-      myFileListView.goAtDir(SDCARD_DIR);
-    }
-  }
-);
-  rootButton.setOnClickListener(new View.OnClickListener(){
-    public void onClick(    View v){
-      myFileListView.goAtDir(ROOT_DIR);
-    }
-  }
-);
+  setPathListener(fbhomeButton,FB_HOME_DIR);
+  setPathListener(cardButton,ROOT_DIR);
+  setPathListener(rootButton,SDCARD_DIR);
   filterButton.setOnClickListener(new View.OnClickListener(){
     public void onClick(    View v){
       launchFilterView();
@@ -43,11 +28,7 @@
 );
   okButton.setOnClickListener(new View.OnClickListener(){
     public void onClick(    View v){
-      String path=myFileListView.getPathToFile();
-      if (path != null) {
-        Log.v(FILE_MANAGER_LOG_TAG,"paht to book : " + path);
-        launchFBReaderView(path);
-      }
+      launchFBReaderView();
     }
   }
 );

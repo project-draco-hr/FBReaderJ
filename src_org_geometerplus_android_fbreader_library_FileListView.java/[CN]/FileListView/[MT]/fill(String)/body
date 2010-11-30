@@ -2,7 +2,7 @@
   myProgressDialog.show();
   File file=new File(path);
   myCurDir=path;
-  myFilter.setPreferences(file,fileTypes);
+  myFilter.setPreferences(file,myTypes);
   myCurFilterThread=new Thread(null,myFilter,"MagentoBackground");
   myCurFilterThread.start();
 }

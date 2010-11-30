@@ -1,9 +1,10 @@
 {
   if (new File(path).isDirectory()) {
+    myCurFile=null;
     myCurFilterThread.interrupt();
     Intent i=new Intent(myParent,FileManager.class);
     i.putExtra(FileManager.FILE_MANAGER_PATH,path);
-    i.putExtra(FileManager.FILE_MANAGER_TYPE,myFilterTypes);
+    i.putExtra(FileManager.FILE_MANAGER_TYPE,myTypes);
     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
     myParent.startActivity(i);
   }
