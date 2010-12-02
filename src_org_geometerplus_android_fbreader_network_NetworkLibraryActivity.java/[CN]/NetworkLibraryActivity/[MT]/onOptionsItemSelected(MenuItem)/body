@@ -11,6 +11,7 @@ return true;
 case MENU_LANGUAGES:
 {
 final List<String> allLanguageCodes=NetworkLibrary.Instance().languageCodes();
+Collections.sort(allLanguageCodes,new ZLLanguageUtil.CodeComparator());
 final Collection<String> activeLanguageCodes=NetworkLibrary.Instance().activeLanguageCodes();
 final CharSequence[] languageNames=new CharSequence[allLanguageCodes.size()];
 final boolean[] checked=new boolean[allLanguageCodes.size()];
