@@ -6,6 +6,6 @@ synchronized (myLinks) {
         toRemove.add(link);
       }
     }
-    myLinks.removeAll(myLinks);
+    myLinks.removeAll(toRemove);
   }
 }

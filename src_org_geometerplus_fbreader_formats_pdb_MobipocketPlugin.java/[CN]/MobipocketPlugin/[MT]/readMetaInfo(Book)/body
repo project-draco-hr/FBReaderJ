@@ -19,7 +19,7 @@
     final int fullNameOffset=(int)PdbUtil.readInt(stream);
     final int fullNameLength=(int)PdbUtil.readInt(stream);
     final int languageCode=(int)PdbUtil.readInt(stream);
-    book.setLanguage(ZLLanguageUtil.languageByCode(languageCode & 0xFF,(languageCode >> 8) & 0xFF));
+    book.setLanguage(ZLLanguageUtil.languageByIntCode(languageCode & 0xFF,(languageCode >> 8) & 0xFF));
     PdbUtil.skip(stream,32);
     int offset=132;
     if ((PdbUtil.readInt(stream) & 0x40) != 0) {
