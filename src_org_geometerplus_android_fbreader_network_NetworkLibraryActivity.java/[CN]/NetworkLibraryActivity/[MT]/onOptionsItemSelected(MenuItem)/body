@@ -8,6 +8,9 @@ return true;
 case MENU_REFRESH:
 refreshCatalogsList();
 return true;
+case MENU_LANGUAGE_FILTER:
+runLanguageFilterDialog();
+return true;
 default :
 return true;
 }
