@@ -4,6 +4,5 @@
   }
   final float factor=1.0f / computeCharsPerPage();
   final float pages=textSize * factor;
-  int result=Math.max((int)(pages + 1.0f - 0.5f * factor),1);
-  return result;
+  return Math.max((int)(pages + 1.0f - 0.5f * factor),1);
 }
