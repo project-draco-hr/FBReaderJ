@@ -14,7 +14,7 @@
   }
 ;
 synchronized (myLinks) {
-    for (    INetworkLink link : myLinks) {
+    for (    INetworkLink link : activeLinks()) {
       final NetworkOperationData data=link.createOperationData(link,synchronizedListener);
       final ZLNetworkRequest request=link.simpleSearchRequest(pattern,data);
       if (request != null) {
