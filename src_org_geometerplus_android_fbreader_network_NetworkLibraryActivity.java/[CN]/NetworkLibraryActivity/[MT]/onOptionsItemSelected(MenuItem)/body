@@ -8,42 +8,9 @@ return true;
 case MENU_REFRESH:
 refreshCatalogsList();
 return true;
-case MENU_LANGUAGES:
-{
-final List<String> allLanguageCodes=NetworkLibrary.Instance().languageCodes();
-Collections.sort(allLanguageCodes,new ZLLanguageUtil.CodeComparator());
-final Collection<String> activeLanguageCodes=NetworkLibrary.Instance().activeLanguageCodes();
-final CharSequence[] languageNames=new CharSequence[allLanguageCodes.size()];
-final boolean[] checked=new boolean[allLanguageCodes.size()];
-for (int i=0; i < allLanguageCodes.size(); ++i) {
-final String code=allLanguageCodes.get(i);
-languageNames[i]=ZLLanguageUtil.languageName(code);
-checked[i]=activeLanguageCodes.contains(code);
-}
-final DialogInterface.OnMultiChoiceClickListener listener=new DialogInterface.OnMultiChoiceClickListener(){
-public void onClick(DialogInterface dialog,int which,boolean isChecked){
-checked[which]=isChecked;
-}
-}
-;
-final ZLResource dialogResource=ZLResource.resource("dialog");
-final AlertDialog dialog=new AlertDialog.Builder(this).setMultiChoiceItems(languageNames,checked,listener).setTitle(dialogResource.getResource("languageFilterDialog").getResource("title").getValue()).setPositiveButton(dialogResource.getResource("button").getResource("ok").getValue(),new DialogInterface.OnClickListener(){
-public void onClick(DialogInterface dialog,int which){
-final TreeSet<String> newActiveCodes=new TreeSet<String>(new ZLLanguageUtil.CodeComparator());
-for (int i=0; i < checked.length; ++i) {
-  if (checked[i]) {
-    newActiveCodes.add(allLanguageCodes.get(i));
-  }
-}
-NetworkLibrary.Instance().setActiveLanguageCodes(newActiveCodes);
-NetworkLibrary.Instance().invalidateChildren();
-((BaseAdapter)getListAdapter()).notifyDataSetInvalidated();
-}
-}
-).create();
-dialog.show();
+case MENU_LANGUAGE_FILTER:
+runLanguageFilterDialog();
 return true;
-}
 default :
 return true;
 }
