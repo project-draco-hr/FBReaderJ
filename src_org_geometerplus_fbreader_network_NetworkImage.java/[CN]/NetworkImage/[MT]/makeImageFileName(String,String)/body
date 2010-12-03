@@ -33,10 +33,10 @@
     ++index;
   }
   String ext=null;
-  if (mimeType == MIME_PNG) {
+  if (MIME_PNG.equals(mimeType)) {
     ext=".png";
   }
- else   if (mimeType == MIME_JPEG) {
+ else   if (MIME_JPEG.equals(mimeType)) {
     if (path.length() > 5 && path.substring(path.length() - 5).equals(".jpeg")) {
       ext=".jpeg";
     }
