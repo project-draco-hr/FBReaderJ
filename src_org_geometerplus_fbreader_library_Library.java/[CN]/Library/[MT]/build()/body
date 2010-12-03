@@ -40,7 +40,6 @@
     }
   }
   final BooksDatabase db=BooksDatabase.Instance();
-  myRecentBooks.clear();
   for (  long id : db.loadRecentBookIds()) {
     Book book=bookById.get(id);
     if (book != null) {

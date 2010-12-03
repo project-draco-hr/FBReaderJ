@@ -6,6 +6,7 @@
   }
   if (Library == null) {
     Library=new Library();
+    startService(new Intent(getApplicationContext(),InitializationService.class));
   }
   final ArrayList<FBTree> items=new ArrayList<FBTree>();
   items.add(new TopLevelTree(myResource.getResource("searchResults"),R.drawable.ic_list_library_books,new Runnable(){

@@ -1,0 +1,15 @@
+{
+  while (myState < state) {
+synchronized (this) {
+      if (myState < state) {
+        System.err.println("waiting for: " + state + " ("+ myState+ ")");
+        try {
+          wait();
+        }
+ catch (        InterruptedException e) {
+        }
+        System.err.println("found: " + state + " ("+ myState+ ")");
+      }
+    }
+  }
+}
