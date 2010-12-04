@@ -13,17 +13,8 @@
       if (img.isSynchronized()) {
         data=mgr.getImageData(img);
       }
- else       if (!myAwaitedCovers.contains(img.getId())) {
-        final Runnable runnable=new Runnable(){
-          public void run(){
-            myAwaitedCovers.remove(img.getId());
-            final ListView view=NetworkBaseActivity.this.getListView();
-            view.invalidateViews();
-          }
-        }
-;
-        ZLAndroidImageLoader.Instance().startImageLoading(img,runnable);
-        myAwaitedCovers.add(img.getId());
+ else {
+        ZLAndroidImageLoader.Instance().startImageLoading(img,myInvalidateViewsRunnable);
       }
     }
  else {

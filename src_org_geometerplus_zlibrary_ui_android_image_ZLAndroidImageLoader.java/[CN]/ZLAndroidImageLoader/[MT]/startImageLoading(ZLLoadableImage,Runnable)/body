@@ -1,7 +1,9 @@
 {
   LinkedList<Runnable> runnables=myOnImageSyncRunnables.get(image.getId());
   if (runnables != null) {
-    runnables.add(postLoadingRunnable);
+    if (!runnables.contains(postLoadingRunnable)) {
+      runnables.add(postLoadingRunnable);
+    }
     return;
   }
   runnables=new LinkedList<Runnable>();
