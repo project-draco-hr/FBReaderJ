@@ -1,0 +1,6 @@
+{
+  myReadCoverPage=false;
+  myImageReference=null;
+  read(file);
+  return myImage;
+}
