@@ -1,0 +1,4 @@
+{
+  startSearch(BookSearchPatternOption.getValue(),true,null,false);
+  return true;
+}
