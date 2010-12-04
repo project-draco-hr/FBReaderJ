@@ -8,8 +8,8 @@
   if (cover != null) {
     ZLAndroidImageData data=null;
     final ZLAndroidImageManager mgr=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
-    if (cover instanceof NetworkImage) {
-      final NetworkImage img=(NetworkImage)cover;
+    if (cover instanceof ZLLoadableImage) {
+      final ZLLoadableImage img=(ZLLoadableImage)cover;
       final NetworkView networkView=NetworkView.Instance();
       if (networkView.isInitialized()) {
         networkView.performCoverSynchronization(img,new Runnable(){

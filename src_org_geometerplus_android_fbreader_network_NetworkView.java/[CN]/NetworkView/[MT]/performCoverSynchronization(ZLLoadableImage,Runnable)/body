@@ -1,16 +1,16 @@
 {
-  LinkedList<Runnable> runnables=myOnCoverSyncRunnables.get(image.Url);
+  LinkedList<Runnable> runnables=myOnCoverSyncRunnables.get(image.getId());
   if (runnables != null) {
     runnables.add(finishRunnable);
     return;
   }
   runnables=new LinkedList<Runnable>();
   runnables.add(finishRunnable);
-  myOnCoverSyncRunnables.put(image.Url,runnables);
+  myOnCoverSyncRunnables.put(image.getId(),runnables);
   myPool.execute(new Runnable(){
     public void run(){
       image.synchronize();
-      myCoverSynchronizedHandler.fireMessage(image.Url);
+      myCoverSynchronizedHandler.fireMessage(image.getId());
     }
   }
 );
