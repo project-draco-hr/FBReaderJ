@@ -21,7 +21,20 @@
     Bitmap coverBitmap=null;
     ZLImage cover=tree.getCover();
     if (cover != null) {
-      final ZLAndroidImageData data=((ZLAndroidImageManager)ZLAndroidImageManager.Instance()).getImageData(cover);
+      ZLAndroidImageData data=null;
+      final ZLAndroidImageManager mgr=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
+      if (cover instanceof ZLLoadableImage) {
+        final ZLLoadableImage img=(ZLLoadableImage)cover;
+        if (img.isSynchronized()) {
+          data=mgr.getImageData(img);
+        }
+ else {
+          ZLAndroidImageLoader.Instance().startImageLoading(img,myInvalidateViewsRunnable);
+        }
+      }
+ else {
+        data=mgr.getImageData(cover);
+      }
       if (data != null) {
         coverBitmap=data.getBitmap(2 * myCoverWidth,2 * myCoverHeight);
       }
