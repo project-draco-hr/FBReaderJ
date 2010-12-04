@@ -1,8 +1,8 @@
 {
-  if (!LibraryTopLevelActivity.Library.hasState(Library.STATE_FULLY_INITIALIZED)) {
+  if (!Library.hasState(Library.STATE_FULLY_INITIALIZED)) {
     UIUtil.runWithMessage(LibraryBaseActivity.this,"loadingBookList",new Runnable(){
       public void run(){
-        LibraryTopLevelActivity.Library.waitForState(Library.STATE_FULLY_INITIALIZED);
+        Library.waitForState(Library.STATE_FULLY_INITIALIZED);
       }
     }
 ,new Runnable(){
