@@ -1,5 +1,5 @@
 {
-  if (mySynchronized) {
+  if (isSynchronized()) {
     return;
   }
   try {
@@ -37,6 +37,6 @@
     }
   }
   finally {
-    mySynchronized=true;
+    setSynchronized();
   }
 }

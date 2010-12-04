@@ -19,7 +19,7 @@ if (myImageReference != null) {
 final String id=attributes.getValue("id");
 final String contentType=attributes.getValue("content-type");
 if (id != null && contentType != null && myImageReference.equals(id)) {
-myImage=new Base64EncodedImage((contentType != null) ? contentType : "image/auto");
+myImage=new Base64EncodedImage((contentType != null) ? contentType : MimeTypes.MIME_IMAGE_AUTO);
 }
 }
 break;

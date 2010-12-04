@@ -60,16 +60,15 @@ case 1:
 case 2:
 case 3:
 {
-      final String mime="image/palm";
       ZLImage image=null;
       if (type == 2) {
-        image=new PluckerFileImage(mime,myFile,myStream.offset(),recordSize - 8);
+        image=new PluckerFileImage(MimeTypes.MIME_IMAGE_PALM,myFile,myStream.offset(),recordSize - 8);
       }
  else       if (myCompressionVersion == 1) {
-        image=new DocCompressedFileImage(mime,myFile,myStream.offset(),recordSize - 8);
+        image=new DocCompressedFileImage(MimeTypes.MIME_IMAGE_PALM,myFile,myStream.offset(),recordSize - 8);
       }
  else       if (myCompressionVersion == 2) {
-        image=new ZCompressedFileImage(mime,myFile,myStream.offset() + 2,recordSize - 10);
+        image=new ZCompressedFileImage(MimeTypes.MIME_IMAGE_PALM,myFile,myStream.offset() + 2,recordSize - 10);
       }
       if (image != null) {
         addImage(fromNumber(uid),image);

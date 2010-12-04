@@ -10,33 +10,33 @@
     final String href=ZLNetworkUtil.url(myBaseURL,link.getHref());
     final String type=ZLNetworkUtil.filterMimeType(link.getType());
     final String rel=opdsLink.relation(link.getRel(),type);
-    if (NetworkImage.MIME_PNG.equals(type) || NetworkImage.MIME_JPEG.equals(type)) {
-      if (OPDSConstants.REL_IMAGE_THUMBNAIL.equals(rel) || OPDSConstants.REL_THUMBNAIL.equals(rel) || (coverURL == null && (OPDSConstants.REL_COVER.equals(rel) || (rel != null && rel.startsWith(OPDSConstants.REL_IMAGE_PREFIX))))) {
+    if (MIME_IMAGE_PNG.equals(type) || MIME_IMAGE_JPEG.equals(type)) {
+      if (REL_IMAGE_THUMBNAIL.equals(rel) || REL_THUMBNAIL.equals(rel) || (coverURL == null && (REL_COVER.equals(rel) || (rel != null && rel.startsWith(REL_IMAGE_PREFIX))))) {
         coverURL=href;
       }
     }
- else     if (OPDSConstants.MIME_APP_ATOM.equals(type)) {
+ else     if (MIME_APP_ATOM.equals(type)) {
       if (ATOMConstants.REL_ALTERNATE.equals(rel)) {
         if (url == null) {
           url=href;
           urlIsAlternate=true;
         }
       }
- else       if (url == null || rel == null || rel.equals(OPDSConstants.REL_SUBSECTION)) {
+ else       if (url == null || rel == null || rel.equals(REL_SUBSECTION)) {
         url=href;
         urlIsAlternate=false;
-        if (OPDSConstants.REL_CATALOG_AUTHOR.equals(rel)) {
+        if (REL_CATALOG_AUTHOR.equals(rel)) {
           catalogType=NetworkCatalogItem.CATALOG_BY_AUTHORS;
         }
       }
     }
- else     if (OPDSConstants.MIME_TEXT_HTML.equals(type)) {
-      if (OPDSConstants.REL_ACQUISITION.equals(rel) || OPDSConstants.REL_ACQUISITION_OPEN.equals(rel) || ATOMConstants.REL_ALTERNATE.equals(rel)|| rel == null) {
+ else     if (MIME_TEXT_HTML.equals(type)) {
+      if (REL_ACQUISITION.equals(rel) || REL_ACQUISITION_OPEN.equals(rel) || ATOMConstants.REL_ALTERNATE.equals(rel)|| rel == null) {
         htmlURL=href;
       }
     }
- else     if (OPDSConstants.MIME_APP_LITRES.equals(type)) {
-      if (OPDSConstants.REL_BOOKSHELF.equals(rel)) {
+ else     if (MIME_APP_LITRES.equals(type)) {
+      if (REL_BOOKSHELF.equals(rel)) {
         litresCatalogue=true;
         url=href;
       }

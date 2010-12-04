@@ -9,7 +9,7 @@
     if (coverFile != null) {
       final String ext=coverFile.getExtension();
       if (ext != null && (ext.equals("gif") || ext.equals("jpg") || ext.equals("jpeg"))) {
-        myImage=new ZLFileImage("image/auto",coverFile);
+        myImage=new ZLFileImage(MIME_IMAGE_AUTO,coverFile);
       }
  else {
         new XHTMLImageFinder().read(coverFile);
