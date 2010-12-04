@@ -1,0 +1,17 @@
+{
+  LinkedList<Runnable> runnables=myOnImageSyncRunnables.get(image.getId());
+  if (runnables != null) {
+    runnables.add(postLoadingRunnable);
+    return;
+  }
+  runnables=new LinkedList<Runnable>();
+  runnables.add(postLoadingRunnable);
+  myOnImageSyncRunnables.put(image.getId(),runnables);
+  myPool.execute(new Runnable(){
+    public void run(){
+      image.synchronize();
+      myImageSynchronizedHandler.fireMessage(image.getId());
+    }
+  }
+);
+}

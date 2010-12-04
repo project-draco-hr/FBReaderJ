@@ -22,8 +22,7 @@
           }
         }
 ;
-        final NetworkView networkView=NetworkView.Instance();
-        networkView.performCoverSynchronization(img,runnable);
+        ZLAndroidImageLoader.Instance().startImageLoading(img,runnable);
         myAwaitedCovers.add(img.getId());
       }
     }

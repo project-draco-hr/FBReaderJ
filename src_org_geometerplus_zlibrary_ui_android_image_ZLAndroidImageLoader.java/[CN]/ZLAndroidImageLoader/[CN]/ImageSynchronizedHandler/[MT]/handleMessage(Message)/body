@@ -1,6 +1,6 @@
 {
   final String imageUrl=(String)message.obj;
-  final LinkedList<Runnable> runables=myOnCoverSyncRunnables.remove(imageUrl);
+  final LinkedList<Runnable> runables=myOnImageSyncRunnables.remove(imageUrl);
   for (  Runnable runnable : runables) {
     runnable.run();
   }
