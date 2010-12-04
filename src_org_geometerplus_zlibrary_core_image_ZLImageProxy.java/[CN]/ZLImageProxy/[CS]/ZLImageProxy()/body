@@ -1,3 +1,3 @@
 {
-  super(MimeTypes.MIME_IMAGE_AUTO);
+  this(MimeTypes.MIME_IMAGE_AUTO);
 }

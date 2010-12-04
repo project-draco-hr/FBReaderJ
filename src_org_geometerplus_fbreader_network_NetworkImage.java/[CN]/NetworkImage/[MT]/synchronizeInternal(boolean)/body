@@ -3,13 +3,13 @@
     return;
   }
   try {
-    final String fileName=getFileName();
-    if (fileName == null) {
+    final String path=getFilePath();
+    if (path == null) {
       return;
     }
-    final int index=fileName.lastIndexOf(File.separator);
+    final int index=path.lastIndexOf(File.separator);
     if (index != -1) {
-      final String dir=fileName.substring(0,index);
+      final String dir=path.substring(0,index);
       final File dirFile=new File(dir);
       if (!dirFile.exists() && !dirFile.mkdirs()) {
         return;
@@ -18,7 +18,7 @@
         return;
       }
     }
-    final File imageFile=new File(fileName);
+    final File imageFile=new File(path);
     if (imageFile.exists()) {
       final long diff=System.currentTimeMillis() - imageFile.lastModified();
       final long valid=7 * 24 * 60* 60* 1000;
