@@ -8,20 +8,15 @@
     Library=new Library();
     startService(new Intent(getApplicationContext(),InitializationService.class));
   }
-  final ArrayList<FBTree> items=new ArrayList<FBTree>();
-  items.add(new TopLevelTree(myResource.getResource("searchResults"),R.drawable.ic_list_library_books,new Runnable(){
+  myItems=new LinkedList<FBTree>();
+  myItems.add(new TopLevelTree(myResource.getResource("favorites"),R.drawable.ic_list_library_favorites,new OpenTreeRunnable(LibraryTreeActivity.PATH_FAVORITES,mySelectedBookPath)));
+  myItems.add(new TopLevelTree(myResource.getResource("recent"),R.drawable.ic_list_library_recent,new OpenTreeRunnable(LibraryTreeActivity.PATH_RECENT,mySelectedBookPath)));
+  myItems.add(new TopLevelTree(myResource.getResource("byAuthor"),R.drawable.ic_list_library_authors,new OpenTreeRunnable(LibraryTreeActivity.PATH_BY_AUTHOR,mySelectedBookPath)));
+  myItems.add(new TopLevelTree(myResource.getResource("byTag"),R.drawable.ic_list_library_tags,new OpenTreeRunnable(LibraryTreeActivity.PATH_BY_TAG,mySelectedBookPath)));
+  myItems.add(new TopLevelTree(myResource.getResource("fileTree"),R.drawable.ic_list_library_folder,new Runnable(){
     public void run(){
     }
   }
 ));
-  items.add(new TopLevelTree(myResource.getResource("favorites"),R.drawable.ic_list_library_favorites,new OpenTreeRunnable(LibraryTreeActivity.PATH_FAVORITES,mySelectedBookPath)));
-  items.add(new TopLevelTree(myResource.getResource("recent"),R.drawable.ic_list_library_recent,new OpenTreeRunnable(LibraryTreeActivity.PATH_RECENT,mySelectedBookPath)));
-  items.add(new TopLevelTree(myResource.getResource("byAuthor"),R.drawable.ic_list_library_authors,new OpenTreeRunnable(LibraryTreeActivity.PATH_BY_AUTHOR,mySelectedBookPath)));
-  items.add(new TopLevelTree(myResource.getResource("byTag"),R.drawable.ic_list_library_tags,new OpenTreeRunnable(LibraryTreeActivity.PATH_BY_TAG,mySelectedBookPath)));
-  items.add(new TopLevelTree(myResource.getResource("fileTree"),R.drawable.ic_list_library_folder,new Runnable(){
-    public void run(){
-    }
-  }
-));
-  setListAdapter(new LibraryAdapter(items));
+  setListAdapter(new LibraryAdapter(myItems));
 }

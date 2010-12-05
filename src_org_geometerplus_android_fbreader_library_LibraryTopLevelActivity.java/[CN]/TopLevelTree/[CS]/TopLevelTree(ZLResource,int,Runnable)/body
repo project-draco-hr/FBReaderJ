@@ -1,5 +1,3 @@
 {
-  myResource=resource;
-  myCoverResourceId=coverResourceId;
-  myAction=action;
+  this(resource,null,coverResourceId,action);
 }

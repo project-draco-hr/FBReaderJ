@@ -7,6 +7,9 @@
   if (PATH_RECENT.equals(path[0])) {
     tree=Library.recentBooks();
   }
+ else   if (PATH_SEARCH_RESULTS.equals(path[0])) {
+    tree=Library.searchResults();
+  }
  else   if (PATH_BY_AUTHOR.equals(path[0])) {
     tree=Library.byAuthor();
   }
