@@ -1,11 +1,9 @@
 {
   if (myState == STATE_NOT_INITIALIZED) {
-    System.err.println("building: start");
     build();
     myLibraryByAuthor.sortAllChildren();
     myLibraryByTag.sortAllChildren();
     myState=STATE_FULLY_INITIALIZED;
     notifyAll();
-    System.err.println("building: done");
   }
 }
