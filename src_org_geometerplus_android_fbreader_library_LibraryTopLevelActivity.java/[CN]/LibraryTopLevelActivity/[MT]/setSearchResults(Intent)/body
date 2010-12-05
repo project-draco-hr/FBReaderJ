@@ -1,0 +1,9 @@
+{
+  if (myItems.get(0) == mySearchResultsItem) {
+    myItems.remove(0);
+  }
+  mySearchResultsItem=new TopLevelTree(myResource.getResource("searchResults"),intent.getStringExtra(SearchManager.QUERY),R.drawable.ic_list_library_books,new OpenTreeRunnable(LibraryTreeActivity.PATH_SEARCH_RESULTS,mySelectedBookPath));
+  myItems.add(0,mySearchResultsItem);
+  getListView().invalidateViews();
+  mySearchResultsItem.run();
+}
