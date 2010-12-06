@@ -1,0 +1,15 @@
+{
+  if (mySaveFavoritesStatement == null) {
+    mySaveFavoritesStatement=myDatabase.compileStatement("INSERT INTO Favorites (book_id) VALUES (?)");
+  }
+  executeAsATransaction(new Runnable(){
+    public void run(){
+      myDatabase.delete("Favorites",null,null);
+      for (      long id : ids) {
+        mySaveFavoritesStatement.bindLong(1,id);
+        mySaveFavoritesStatement.execute();
+      }
+    }
+  }
+);
+}

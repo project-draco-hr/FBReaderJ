@@ -40,6 +40,7 @@
       tree=Library.byTag();
     }
  else     if (PATH_FAVORITES.equals(path[0])) {
+      tree=Library.favorites();
     }
     for (int i=1; i < path.length; ++i) {
       if (tree == null) {
