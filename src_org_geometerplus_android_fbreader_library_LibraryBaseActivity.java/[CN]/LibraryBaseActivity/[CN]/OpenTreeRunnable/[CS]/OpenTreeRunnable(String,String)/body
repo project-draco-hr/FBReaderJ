@@ -1,4 +1,3 @@
 {
-  myTreePath=treePath;
-  mySelectedBookPath=selectedBookPath;
+  this(treePath,null,selectedBookPath);
 }

@@ -1,0 +1,5 @@
+{
+  myTreePath=treePath;
+  myParameter=parameter;
+  mySelectedBookPath=selectedBookPath;
+}
