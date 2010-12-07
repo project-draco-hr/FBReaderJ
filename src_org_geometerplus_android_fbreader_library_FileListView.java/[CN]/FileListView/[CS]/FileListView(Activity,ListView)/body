@@ -3,25 +3,31 @@
   myProgressDialog=new ProgressDialog(myParent);
   myProgressDialog.setTitle("Please wait...");
   myProgressDialog.setMessage("Retrieving data ...");
-  myAdapter=myAdapter=new FManagerAdapter(myOrders,myParent,R.layout.library_ng_tree_item);
+  myAdapter=new FManagerAdapter(myParent,myOrders,R.layout.library_ng_tree_item);
   listView.setAdapter(myAdapter);
   myReturnRes=new ReturnRes(myOrders,myAdapter,myProgressDialog);
   myFilter=new SmartFilter(myParent,myOrders,myReturnRes);
   myCurDir=myParent.getIntent().getExtras().getString(FileManager.FILE_MANAGER_PATH);
   myTypes=myParent.getIntent().getExtras().getString(FileManager.FILE_MANAGER_TYPE);
-  if (myCurDir == null) {
+  if (myCurDir == null || myCurDir.equals("")) {
+    Log.v(FileManager.LOG,"FileListView - 2");
     myCurDir="";
     myOrders.add(new FileOrder(FileManager.FB_HOME_DIR,FileManager.FB_HOME_DIR,R.drawable.home));
     myOrders.add(new FileOrder(FileManager.SDCARD_DIR,FileManager.SDCARD_DIR,R.drawable.sdcard));
     myOrders.add(new FileOrder(FileManager.ROOT_DIR,FileManager.ROOT_DIR,R.drawable.root));
     initfill();
   }
- else   fill(myCurDir);
+ else {
+    Log.v(FileManager.LOG,"FileListView - 3");
+    fill(myCurDir);
+  }
+  Log.v(FileManager.LOG,"FileListView - 4");
   listView.setTextFilterEnabled(true);
   listView.setOnItemClickListener(new OnItemClickListener(){
     public void onItemClick(    AdapterView<?> parent,    View view,    int position,    long id){
       view.setSelected(true);
       myCurFile=((TextView)view.findViewById(R.id.library_ng_tree_item_name)).getText().toString();
+      if (myCurFile.substring(0,1).equals("/"))       myCurFile=myCurFile.substring(1);
       goAtDir(myCurDir + "/" + myCurFile);
     }
   }

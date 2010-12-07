@@ -1,5 +1,4 @@
 {
-  String path=myFileListView.getPathToFile();
   if (path != null) {
     Intent i=new Intent(this,FBReader.class);
     i.setAction(Intent.ACTION_VIEW);
@@ -7,5 +6,4 @@
     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
     startActivity(i);
   }
- else   finish();
 }

@@ -1,12 +1,13 @@
 {
   if (myFile == null)   myParent.runOnUiThread(myAction);
-  for (  File file : myFile.listFiles()) {
+  for (  ZLFile file : myFile.children()) {
     if (!Thread.currentThread().isInterrupted()) {
-      String fileName=null;
-      if (file.isDirectory())       fileName=file.getName();
- else       if (condition(file,myNewTypes))       fileName=file.getName();
-      if (!Thread.currentThread().isInterrupted() && fileName != null) {
-        myOrders.add(new FileOrder(fileName,fileName,R.drawable.ic_list_library_folder));
+      if (file.isDirectory()) {
+        String name=file.getName(false).substring(file.getName(false).lastIndexOf('/') + 1);
+        myOrders.add(new FileOrder(name,name,R.drawable.ic_list_library_folder));
+      }
+      if (PluginCollection.Instance().getPlugin(file) != null) {
+        myOrders.add(new FileOrder(file.getName(false),file.getName(false),R.drawable.ic_list_library_book));
       }
       myParent.runOnUiThread(myAction);
     }

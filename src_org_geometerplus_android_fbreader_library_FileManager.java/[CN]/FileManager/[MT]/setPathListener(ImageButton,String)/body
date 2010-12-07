@@ -1,8 +1,0 @@
-{
-  imgBtn.setOnClickListener(new View.OnClickListener(){
-    public void onClick(    View v){
-      myFileListView.goAtDir(path);
-    }
-  }
-);
-}

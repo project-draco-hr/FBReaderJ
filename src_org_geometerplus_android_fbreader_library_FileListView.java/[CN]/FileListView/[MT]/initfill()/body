@@ -1,5 +1,4 @@
 {
-  myOrders.add(0,new FileOrder(BACK_DIR,BACK_DIR,R.drawable.back));
   for (  FileOrder o : myOrders) {
     myAdapter.add(o);
   }
