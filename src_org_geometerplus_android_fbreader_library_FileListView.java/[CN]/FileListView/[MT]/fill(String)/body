@@ -3,6 +3,7 @@
   File file=new File(path);
   myCurDir=path;
   myFilter.setPreferences(file,myTypes);
+  myOrders.add(0,new FileOrder(BACK_DIR,BACK_DIR,R.drawable.back));
   myCurFilterThread=new Thread(null,myFilter,"MagentoBackground");
   myCurFilterThread.start();
 }

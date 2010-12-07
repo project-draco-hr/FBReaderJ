@@ -1,0 +1,3 @@
+List<FileOrder> orders
+Context context
+int textViewResourceId
