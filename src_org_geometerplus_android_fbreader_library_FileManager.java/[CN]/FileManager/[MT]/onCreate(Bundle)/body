@@ -12,8 +12,12 @@
   myFilter=new SmartFilter(this,myOrders,myReturnRes);
   myCurDir=getIntent().getExtras().getString(FileManager.FILE_MANAGER_PATH);
   myTypes=getIntent().getExtras().getString(FileManager.FILE_MANAGER_TYPE);
-  if (myCurDir.equals(""))   initfill();
- else   fill(myCurDir);
+  if (myCurDir.equals("")) {
+    initfill();
+  }
+ else {
+    fill(myCurDir);
+  }
   fileList.setTextFilterEnabled(true);
   fileList.setOnItemClickListener(new OnItemClickListener(){
     public void onItemClick(    AdapterView<?> parent,    View view,    int position,    long id){
