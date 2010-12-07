@@ -3,6 +3,6 @@
     getOrders();
   }
  catch (  Exception e) {
-    Log.e(FileManager.FILE_MANAGER_LOG_TAG,e.getMessage());
+    Log.e(FileManager.LOG,e.getMessage());
   }
 }

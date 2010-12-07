@@ -1,13 +1,13 @@
 {
   Log.v(FileManager.LOG,"gotAtDir :" + path);
-  File file=new File(path);
+  ZLFile file=ZLFile.createFileByPath(path);
   if (file.isDirectory()) {
     myCurFile=null;
     if (myCurFilterThread != null)     myCurFilterThread.interrupt();
-    Intent i=new Intent(myParent,FileManager.class);
+    Intent i=new Intent(this,FileManager.class);
     i.putExtra(FileManager.FILE_MANAGER_PATH,path);
     i.putExtra(FileManager.FILE_MANAGER_TYPE,myTypes);
-    myParent.startActivity(i);
+    startActivity(i);
   }
-  Log.v(FileManager.LOG,"gotAtDir");
+ else   launchFBReaderView(path);
 }

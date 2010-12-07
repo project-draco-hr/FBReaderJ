@@ -1,0 +1,6 @@
+{
+  if (!myTypes.equals(filterTypes)) {
+    myTypes=filterTypes;
+    goAtDir(myCurDir);
+  }
+}
