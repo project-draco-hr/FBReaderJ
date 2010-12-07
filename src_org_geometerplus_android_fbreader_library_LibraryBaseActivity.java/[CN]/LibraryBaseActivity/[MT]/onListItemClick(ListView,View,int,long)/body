@@ -1,3 +1,0 @@
-{
-  FBTree tree=((LibraryAdapter)getListAdapter()).getItem(position);
-}
