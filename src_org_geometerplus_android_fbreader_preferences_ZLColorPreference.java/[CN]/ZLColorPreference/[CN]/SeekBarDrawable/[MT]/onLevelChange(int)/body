@@ -1,0 +1,9 @@
+{
+  if (level < 4000) {
+    myLabelOnRight=true;
+  }
+ else   if (level > 6000) {
+    myLabelOnRight=false;
+  }
+  return myBase.setLevel(level);
+}

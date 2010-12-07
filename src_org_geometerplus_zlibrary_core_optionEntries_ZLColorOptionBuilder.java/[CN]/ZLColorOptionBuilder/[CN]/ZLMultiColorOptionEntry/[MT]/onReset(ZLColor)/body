@@ -1,3 +1,0 @@
-{
-  myData.myCurrentColors.put(myData.myPreviousOptionName,color);
-}

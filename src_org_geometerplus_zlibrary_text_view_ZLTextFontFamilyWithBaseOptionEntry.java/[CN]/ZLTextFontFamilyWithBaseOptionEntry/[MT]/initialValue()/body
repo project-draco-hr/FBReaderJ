@@ -1,4 +1,0 @@
-{
-  final String value=super.initialValue();
-  return ((value == null) || (value.length() == 0)) ? getValues().get(0) : value;
-}

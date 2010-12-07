@@ -1,6 +1,0 @@
-{
-  final ZLResource dialogResource=ZLResource.resource("dialog");
-  final ZLResource buttonResource=dialogResource.getResource("button");
-  final ZLResource boxResource=dialogResource.getResource("deleteBookBox");
-  new AlertDialog.Builder(this).setTitle(book.getTitle()).setMessage(boxResource.getResource("message").getValue()).setIcon(0).setPositiveButton(buttonResource.getResource("yes").getValue(),new BookDeleter(book,Library.REMOVE_FROM_DISK)).setNegativeButton(buttonResource.getResource("no").getValue(),null).create().show();
-}

@@ -1,6 +1,0 @@
-{
-  ZLTreeAdapter adapter=(ZLTreeAdapter)((ListView)v).getAdapter();
-  if (adapter != null) {
-    adapter.resetTree();
-  }
-}

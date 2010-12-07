@@ -23,7 +23,6 @@
     myIsBrightnessAdjustmentInProgress=true;
     myStartY=y;
     myStartBrightness=ZLibrary.Instance().getScreenBrightness();
-    System.err.println("starting on level: " + myStartBrightness);
     return true;
   }
   final ScrollingPreferences preferences=ScrollingPreferences.Instance();

@@ -1,12 +1,4 @@
 {
-  if (!myRecentBooks.hasChildren()) {
-    final BooksDatabase db=BooksDatabase.Instance();
-    for (    long id : db.loadRecentBookIds()) {
-      Book book=Book.getById(id);
-      if (book != null) {
-        myRecentBooks.createBookSubTree(book,true);
-      }
-    }
-  }
+  waitForState(STATE_FULLY_INITIALIZED);
   return myRecentBooks;
 }

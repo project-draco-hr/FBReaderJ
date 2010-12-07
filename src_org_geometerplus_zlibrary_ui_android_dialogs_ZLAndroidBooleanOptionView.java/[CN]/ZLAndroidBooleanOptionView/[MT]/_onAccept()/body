@@ -1,5 +1,0 @@
-{
-  if (myCheckBox != null) {
-    ((ZLBooleanOptionEntry)myOption).onAccept(myCheckBox.isChecked());
-  }
-}

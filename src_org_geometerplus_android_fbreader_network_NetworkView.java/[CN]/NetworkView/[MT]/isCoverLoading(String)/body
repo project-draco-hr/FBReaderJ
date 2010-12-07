@@ -1,3 +1,0 @@
-{
-  return myOnCoverSyncRunnables.containsKey(coverUrl);
-}

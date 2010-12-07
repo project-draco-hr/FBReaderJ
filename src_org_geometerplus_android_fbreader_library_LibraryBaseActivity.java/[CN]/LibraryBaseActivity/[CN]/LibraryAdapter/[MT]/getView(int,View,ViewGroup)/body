@@ -21,7 +21,20 @@
     Bitmap coverBitmap=null;
     ZLImage cover=tree.getCover();
     if (cover != null) {
-      final ZLAndroidImageData data=((ZLAndroidImageManager)ZLAndroidImageManager.Instance()).getImageData(cover);
+      ZLAndroidImageData data=null;
+      final ZLAndroidImageManager mgr=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
+      if (cover instanceof ZLLoadableImage) {
+        final ZLLoadableImage img=(ZLLoadableImage)cover;
+        if (img.isSynchronized()) {
+          data=mgr.getImageData(img);
+        }
+ else {
+          ZLAndroidImageLoader.Instance().startImageLoading(img,myInvalidateViewsRunnable);
+        }
+      }
+ else {
+        data=mgr.getImageData(cover);
+      }
       if (data != null) {
         coverBitmap=data.getBitmap(2 * myCoverWidth,2 * myCoverHeight);
       }
@@ -29,8 +42,17 @@
     if (coverBitmap != null) {
       coverView.setImageBitmap(coverBitmap);
     }
+ else     if (tree instanceof AuthorTree) {
+      coverView.setImageResource(R.drawable.ic_list_library_author);
+    }
+ else     if (tree instanceof TagTree) {
+      coverView.setImageResource(R.drawable.ic_list_library_tag);
+    }
+ else     if (tree instanceof BookTree) {
+      coverView.setImageResource(R.drawable.ic_list_library_book);
+    }
  else {
-      coverView.setImageResource(R.drawable.fbreader);
+      coverView.setImageResource(R.drawable.ic_list_library_books);
     }
   }
   return view;

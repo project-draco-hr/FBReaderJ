@@ -1,5 +1,0 @@
-{
-  if (myCheckBox != null) {
-    myCheckBox.setEnabled(active);
-  }
-}

@@ -1,0 +1,11 @@
+{
+  tag=tag.toLowerCase().intern();
+  if (tag == IMG) {
+    final String src=attributes.getValue("src");
+    if (src != null) {
+      myImage=new ZLFileImage(MIME_IMAGE_AUTO,ZLFile.createFileByPath(myPathPrefix + src));
+      return true;
+    }
+  }
+  return false;
+}

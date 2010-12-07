@@ -1,4 +1,0 @@
-{
-  myIsVisible=false;
-  myTab.invalidateView();
-}

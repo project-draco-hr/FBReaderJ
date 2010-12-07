@@ -111,5 +111,5 @@
     }
   }
 ;
-  AndroidUtil.wait("loadingCatalogInfo",loadInfoRunnable,myActivity);
+  UIUtil.wait("loadingCatalogInfo",loadInfoRunnable,myActivity);
 }

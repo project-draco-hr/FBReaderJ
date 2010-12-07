@@ -1,11 +1,11 @@
 {
-  if (OPDSConstants.MIME_APP_FB2ZIP.equals(mimeType)) {
+  if (MIME_APP_FB2ZIP.equals(mimeType)) {
     return BookReference.Format.FB2_ZIP;
   }
- else   if (OPDSConstants.MIME_APP_EPUB.equals(mimeType)) {
+ else   if (MIME_APP_EPUB.equals(mimeType)) {
     return BookReference.Format.EPUB;
   }
- else   if (OPDSConstants.MIME_APP_MOBI.equals(mimeType)) {
+ else   if (MIME_APP_MOBI.equals(mimeType)) {
     return BookReference.Format.MOBIPOCKET;
   }
   return BookReference.Format.NONE;

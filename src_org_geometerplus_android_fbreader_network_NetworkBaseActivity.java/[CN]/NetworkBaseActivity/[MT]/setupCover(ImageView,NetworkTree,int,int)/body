@@ -8,29 +8,13 @@
   if (cover != null) {
     ZLAndroidImageData data=null;
     final ZLAndroidImageManager mgr=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
-    if (cover instanceof NetworkImage) {
-      final NetworkImage img=(NetworkImage)cover;
+    if (cover instanceof ZLLoadableImage) {
+      final ZLLoadableImage img=(ZLLoadableImage)cover;
       if (img.isSynchronized()) {
         data=mgr.getImageData(img);
       }
  else {
-        final Runnable runnable=new Runnable(){
-          public void run(){
-            myAwaitedCovers.remove(img.Url);
-            final ListView view=NetworkBaseActivity.this.getListView();
-            view.invalidateViews();
-          }
-        }
-;
-        final NetworkView networkView=NetworkView.Instance();
-        if (!networkView.isCoverLoading(img.Url)) {
-          networkView.performCoverSynchronization(img,runnable);
-          myAwaitedCovers.add(img.Url);
-        }
- else         if (!myAwaitedCovers.contains(img.Url)) {
-          networkView.addCoverSynchronizationRunnable(img.Url,runnable);
-          myAwaitedCovers.add(img.Url);
-        }
+        ZLAndroidImageLoader.Instance().startImageLoading(img,myInvalidateViewsRunnable);
       }
     }
  else {
@@ -43,7 +27,10 @@
   if (coverBitmap != null) {
     coverView.setImageBitmap(coverBitmap);
   }
+ else   if (tree instanceof NetworkBookTree) {
+    coverView.setImageResource(R.drawable.ic_list_library_book);
+  }
  else {
-    coverView.setImageResource(R.drawable.fbreader);
+    coverView.setImageResource(R.drawable.ic_list_library_books);
   }
 }

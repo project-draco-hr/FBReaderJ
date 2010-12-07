@@ -1,8 +1,0 @@
-{
-  if (option0 != null) {
-    addOptionByName(name0,option0);
-  }
-  if (option1 != null) {
-    addOptionByName(name1,option1);
-  }
-}

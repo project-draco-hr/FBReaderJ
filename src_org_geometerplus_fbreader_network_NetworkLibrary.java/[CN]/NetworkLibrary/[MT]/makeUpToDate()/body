@@ -4,9 +4,10 @@
   FBTree currentNode=null;
   int nodeCount=0;
 synchronized (myLinks) {
-    Collections.sort(myLinks,new LinksComparator());
-    for (int i=0; i < myLinks.size(); ++i) {
-      INetworkLink link=myLinks.get(i);
+    final ArrayList<INetworkLink> links=new ArrayList<INetworkLink>(activeLinks());
+    Collections.sort(links,new LinksComparator());
+    for (int i=0; i < links.size(); ++i) {
+      INetworkLink link=links.get(i);
       boolean processed=false;
       while (currentNode != null || nodeIterator.hasNext()) {
         if (currentNode == null) {
@@ -31,8 +32,8 @@ synchronized (myLinks) {
         }
  else {
           INetworkLink newNodeLink=null;
-          for (int j=i; j < myLinks.size(); ++j) {
-            final INetworkLink jlnk=myLinks.get(j);
+          for (int j=i; j < links.size(); ++j) {
+            final INetworkLink jlnk=links.get(j);
             if (linksEqual(nodeLink,jlnk)) {
               newNodeLink=jlnk;
               break;

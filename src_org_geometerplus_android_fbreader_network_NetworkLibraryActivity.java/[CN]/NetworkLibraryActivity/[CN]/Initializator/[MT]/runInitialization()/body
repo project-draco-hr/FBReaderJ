@@ -1,5 +1,5 @@
 {
-  AndroidUtil.wait("loadingNetworkLibrary",new Runnable(){
+  UIUtil.wait("loadingNetworkLibrary",new Runnable(){
     public void run(){
       String error=null;
       try {

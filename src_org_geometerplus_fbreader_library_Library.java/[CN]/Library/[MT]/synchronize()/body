@@ -1,8 +1,9 @@
 {
-  if (myDoRebuild) {
+  if (myState == STATE_NOT_INITIALIZED) {
     build();
     myLibraryByAuthor.sortAllChildren();
     myLibraryByTag.sortAllChildren();
-    myDoRebuild=false;
+    myState=STATE_FULLY_INITIALIZED;
+    notifyAll();
   }
 }

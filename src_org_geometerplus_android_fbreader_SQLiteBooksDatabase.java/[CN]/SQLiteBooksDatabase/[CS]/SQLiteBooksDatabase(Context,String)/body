@@ -1,0 +1,5 @@
+{
+  myInstanceId=instanceId;
+  myDatabase=context.openOrCreateDatabase("books.db",Context.MODE_PRIVATE,null);
+  migrate(context);
+}
