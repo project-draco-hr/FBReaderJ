@@ -3,7 +3,7 @@
   myProgressDialog=new ProgressDialog(myParent);
   myProgressDialog.setTitle("Please wait...");
   myProgressDialog.setMessage("Retrieving data ...");
-  myAdapter=new FManagerAdapter(myParent,myOrders,R.layout.library_ng_tree_item);
+  myAdapter=new FManagerAdapter(myParent,myOrders,R.layout.library_tree_item);
   listView.setAdapter(myAdapter);
   myReturnRes=new ReturnRes(myOrders,myAdapter,myProgressDialog);
   myFilter=new SmartFilter(myParent,myOrders,myReturnRes);
@@ -26,7 +26,7 @@
   listView.setOnItemClickListener(new OnItemClickListener(){
     public void onItemClick(    AdapterView<?> parent,    View view,    int position,    long id){
       view.setSelected(true);
-      myCurFile=((TextView)view.findViewById(R.id.library_ng_tree_item_name)).getText().toString();
+      myCurFile=((TextView)view.findViewById(R.id.library_tree_item_name)).getText().toString();
       if (myCurFile.substring(0,1).equals("/"))       myCurFile=myCurFile.substring(1);
       goAtDir(myCurDir + "/" + myCurFile);
     }
