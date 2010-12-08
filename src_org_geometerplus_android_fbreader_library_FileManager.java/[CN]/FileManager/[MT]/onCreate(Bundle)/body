@@ -1,13 +1,12 @@
 {
   Log.v(LOG,"onCreate()");
   super.onCreate(savedInstanceState);
-  setContentView(R.layout.fmanager);
   myProgressDialog=new ProgressDialog(this);
   myProgressDialog.setTitle("Please wait...");
   myProgressDialog.setMessage("Retrieving data ...");
-  ListView fileList=(ListView)findViewById(R.id.fileList1);
+  final ListView fileList=getListView();
   myAdapter=new FManagerAdapter(this,myOrders,R.layout.library_tree_item);
-  fileList.setAdapter(myAdapter);
+  setListAdapter(myAdapter);
   myReturnRes=new ReturnRes(myOrders,myAdapter,myProgressDialog);
   myFilter=new SmartFilter(this,myOrders,myReturnRes);
   myCurDir=getIntent().getExtras().getString(FileManager.FILE_MANAGER_PATH);
