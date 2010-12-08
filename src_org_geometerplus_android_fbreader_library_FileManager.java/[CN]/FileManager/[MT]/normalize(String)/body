@@ -1,0 +1,11 @@
+{
+  Log.v(FileManager.LOG,"normalize 1: 	" + path);
+  if (ZLFile.createFileByPath(path).exists())   return path;
+ else   if (path.contains(".zip")) {
+    int idx=path.indexOf(".zip") + 5;
+    String str=path.substring(0,idx - 1) + ":" + path.substring(idx);
+    path=str;
+  }
+  Log.v(FileManager.LOG,"normalize 2: 	" + path);
+  return path;
+}

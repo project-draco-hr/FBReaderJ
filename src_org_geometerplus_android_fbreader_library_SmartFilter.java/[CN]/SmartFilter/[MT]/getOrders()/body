@@ -6,6 +6,10 @@
         String name=file.getName(false).substring(file.getName(false).lastIndexOf('/') + 1);
         myOrders.add(new FileOrder(name,name,R.drawable.ic_list_library_folder));
       }
+      if (file.isArchive()) {
+        String name=file.getName(false).substring(file.getName(false).lastIndexOf('/') + 1);
+        myOrders.add(new FileOrder(name,name,R.drawable.fbreader));
+      }
       if (PluginCollection.Instance().getPlugin(file) != null) {
         myOrders.add(new FileOrder(file.getName(false),file.getName(false),R.drawable.ic_list_library_book));
       }

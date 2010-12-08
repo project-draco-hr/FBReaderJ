@@ -1,7 +1,14 @@
 {
-  myOrders.add(new FileOrder(FileManager.ROOT_DIR,FileManager.ROOT_DIR,R.drawable.ic_list_library_folder));
-  myOrders.add(new FileOrder(FileManager.SDCARD_DIR,FileManager.SDCARD_DIR,R.drawable.ic_list_library_folder));
-  myOrders.add(new FileOrder(FileManager.FB_HOME_DIR,FileManager.FB_HOME_DIR,R.drawable.ic_list_library_folder));
+  ZLResource resource=ZLResource.resource("fmanagerView");
+  String nameRoot=resource.getResource("root").getValue();
+  String nameSdcard=resource.getResource("sdcard").getValue();
+  String nameBooks=resource.getResource("books").getValue();
+  String pathRoot="/";
+  String pathSdcard=Environment.getExternalStorageDirectory().getPath();
+  String pathBook=Paths.BooksDirectoryOption().getValue();
+  myOrders.add(new FileOrder(nameRoot,pathRoot,R.drawable.ic_list_library_folder));
+  myOrders.add(new FileOrder(nameSdcard,pathSdcard,R.drawable.ic_list_library_folder));
+  myOrders.add(new FileOrder(nameBooks,pathBook,R.drawable.ic_list_library_folder));
   for (  FileOrder o : myOrders) {
     myAdapter.add(o);
   }

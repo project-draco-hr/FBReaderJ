@@ -1,3 +1,0 @@
-{
-  return myCurFile != null ? myCurDir + "/" + myCurFile : null;
-}

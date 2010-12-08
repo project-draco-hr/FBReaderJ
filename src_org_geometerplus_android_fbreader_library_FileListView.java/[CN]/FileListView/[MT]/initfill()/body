@@ -1,5 +1,0 @@
-{
-  for (  FileOrder o : myOrders) {
-    myAdapter.add(o);
-  }
-}

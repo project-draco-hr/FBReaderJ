@@ -1,7 +1,8 @@
 {
-  Log.v(FileManager.LOG,"gotAtDir :" + path);
+  Log.v(FileManager.LOG,"gotAtDir: 	" + path);
+  path=normalize(path);
   ZLFile file=ZLFile.createFileByPath(path);
-  if (file.isDirectory()) {
+  if (file.isDirectory() || file.isArchive()) {
     myCurFile=null;
     if (myCurFilterThread != null)     myCurFilterThread.interrupt();
     Intent i=new Intent(this,FileManager.class);

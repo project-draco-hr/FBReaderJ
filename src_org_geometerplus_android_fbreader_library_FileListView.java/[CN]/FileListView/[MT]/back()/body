@@ -1,7 +1,0 @@
-{
-  File file=new File(myCurDir);
-  if (file.getParent() != null) {
-    myCurDir=file.getParent();
-    goAtDir(myCurDir);
-  }
-}
