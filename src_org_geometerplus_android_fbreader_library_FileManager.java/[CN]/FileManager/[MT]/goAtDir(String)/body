@@ -9,5 +9,7 @@
     i.putExtra(FileManager.FILE_MANAGER_TYPE,myTypes);
     startActivity(i);
   }
- else   launchFBReaderView(path);
+ else {
+    launchFBReaderView(path);
+  }
 }
