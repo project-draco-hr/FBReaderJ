@@ -1,7 +1,7 @@
 {
   FBTree tree=((LibraryAdapter)getListAdapter()).getItem(position);
   if (tree instanceof BookTree) {
-    startActivity(new Intent(getApplicationContext(),FBReader.class).setAction(Intent.ACTION_VIEW).putExtra(FBReader.BOOK_PATH_KEY,((BookTree)tree).Book.File.getPath()).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+    openBook(((BookTree)tree).Book);
   }
  else {
     new OpenTreeRunnable(myTreePathString + "\000" + tree.getName(),mySelectedBookPath).run();

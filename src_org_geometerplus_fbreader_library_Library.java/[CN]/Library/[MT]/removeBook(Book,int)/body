@@ -13,6 +13,7 @@
     db.saveRecentBookIds(ids);
   }
   mySearchResult.removeBook(book);
+  myFavorites.removeBook(book);
   BooksDatabase.Instance().deleteFromBookList(book.getId());
   if ((removeMode & REMOVE_FROM_DISK) != 0) {
     book.File.getPhysicalFile().delete();

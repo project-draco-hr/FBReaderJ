@@ -1,0 +1,9 @@
+{
+  final Cursor cursor=myDatabase.rawQuery("SELECT book_id FROM Favorites",null);
+  final LinkedList<Long> ids=new LinkedList<Long>();
+  while (cursor.moveToNext()) {
+    ids.add(cursor.getLong(0));
+  }
+  cursor.close();
+  return ids;
+}
