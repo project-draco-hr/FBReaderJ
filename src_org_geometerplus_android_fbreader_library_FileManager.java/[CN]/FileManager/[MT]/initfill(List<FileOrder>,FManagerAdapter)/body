@@ -6,10 +6,10 @@
   String pathRoot="/";
   String pathSdcard=Environment.getExternalStorageDirectory().getPath();
   String pathBook=Paths.BooksDirectoryOption().getValue();
-  myOrders.add(new FileOrder(nameRoot,pathRoot,R.drawable.ic_list_library_folder));
-  myOrders.add(new FileOrder(nameSdcard,pathSdcard,R.drawable.ic_list_library_folder));
-  myOrders.add(new FileOrder(nameBooks,pathBook,R.drawable.ic_list_library_folder));
-  for (  FileOrder o : myOrders) {
-    myAdapter.add(o);
+  orders.add(new FileOrder(nameRoot,pathRoot,R.drawable.ic_list_library_folder));
+  orders.add(new FileOrder(nameSdcard,pathSdcard,R.drawable.ic_list_library_folder));
+  orders.add(new FileOrder(nameBooks,pathBook,R.drawable.ic_list_library_folder));
+  for (  FileOrder o : orders) {
+    adapter.add(o);
   }
 }

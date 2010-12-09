@@ -1,28 +1,19 @@
 {
   Log.v(LOG,"onCreate()");
   super.onCreate(savedInstanceState);
-  myProgressDialog=new ProgressDialog(this);
-  myProgressDialog.setTitle("Please wait...");
-  myProgressDialog.setMessage("Retrieving data ...");
-  final ListView fileList=getListView();
-  myAdapter=new FManagerAdapter(this,myOrders,R.layout.library_tree_item);
-  setListAdapter(myAdapter);
-  myReturnRes=new ReturnRes(myOrders,myAdapter,myProgressDialog);
-  myFilter=new SmartFilter(this,myOrders,myReturnRes);
-  myCurDir=getIntent().getExtras().getString(FileManager.FILE_MANAGER_PATH);
-  myTypes=getIntent().getExtras().getString(FileManager.FILE_MANAGER_TYPE);
-  if (myCurDir.equals("")) {
-    initfill();
-  }
- else {
-    fill(myCurDir);
-  }
-  fileList.setTextFilterEnabled(true);
-  fileList.setOnItemClickListener(new OnItemClickListener(){
+  List<FileOrder> orders=Collections.synchronizedList(new ArrayList<FileOrder>());
+  FManagerAdapter adapter=new FManagerAdapter(this,orders,R.layout.library_tree_item);
+  setListAdapter(adapter);
+  ProgressDialog progressDialog=initProgressDialog();
+  ReturnRes returnRes=new ReturnRes(orders,adapter,progressDialog);
+  SmartFilter filter=new SmartFilter(this,returnRes);
+  String path=getIntent().getExtras().getString(FileManager.FILE_MANAGER_PATH);
+  if (path.equals(""))   initfill(orders,adapter);
+ else   fill(path,filter,progressDialog);
+  getListView().setTextFilterEnabled(true);
+  getListView().setOnItemClickListener(new OnItemClickListener(){
     public void onItemClick(    AdapterView<?> parent,    View view,    int position,    long id){
-      myCurFile=((TextView)view.findViewById(R.id.library_tree_item_childrenlist)).getText().toString();
-      if (myCurFile.substring(0,1).equals("/"))       myCurFile=myCurFile.substring(1);
-      goAtDir(myCurDir + "/" + myCurFile);
+      step(((TextView)view.findViewById(R.id.library_tree_item_childrenlist)).getText().toString());
     }
   }
 );

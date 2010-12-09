@@ -1,5 +1,0 @@
-{
-  myParent=parent;
-  myOrders=orders;
-  myAction=action;
-}

@@ -1,20 +1,14 @@
 {
-  if (myFile == null)   myParent.runOnUiThread(myAction);
+  if (myFile == null)   myParent.runOnUiThread(myReturnRes);
   for (  ZLFile file : myFile.children()) {
     if (!Thread.currentThread().isInterrupted()) {
-      if (file.isDirectory()) {
-        String name=file.getName(false).substring(file.getName(false).lastIndexOf('/') + 1);
-        myOrders.add(new FileOrder(name,name,R.drawable.ic_list_library_folder));
-      }
-      if (file.isArchive()) {
-        String name=file.getName(false).substring(file.getName(false).lastIndexOf('/') + 1);
-        myOrders.add(new FileOrder(name,name,R.drawable.fbreader));
-      }
-      if (PluginCollection.Instance().getPlugin(file) != null) {
-        myOrders.add(new FileOrder(file.getName(false),file.getName(false),R.drawable.ic_list_library_book));
-      }
-      myParent.runOnUiThread(myAction);
+      String path=file.getPath();
+      String name=file.getName(false).substring(file.getName(false).lastIndexOf('/') + 1);
+      if (file.isDirectory())       myOrders.add(new FileOrder(name,path,R.drawable.ic_list_library_folder));
+ else       if (file.isArchive())       myOrders.add(new FileOrder(name,path,R.drawable.fbreader));
+ else       if (PluginCollection.Instance().getPlugin(file) != null)       myOrders.add(new FileOrder(name,path,R.drawable.ic_list_library_book));
+      myParent.runOnUiThread(myReturnRes);
     }
   }
-  myParent.runOnUiThread(myAction);
+  myParent.runOnUiThread(myReturnRes);
 }
