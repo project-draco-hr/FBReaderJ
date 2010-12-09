@@ -1,0 +1,7 @@
+{
+  myName=file.getName(false).substring(file.getName(false).lastIndexOf('/') + 1);
+  ;
+  myPath=file.getPath();
+  if (file.isDirectory() || file.isArchive())   myIcon=R.drawable.ic_list_library_folder;
+ else   if (PluginCollection.Instance().getPlugin(file) != null)   myIcon=R.drawable.ic_list_library_book;
+}
