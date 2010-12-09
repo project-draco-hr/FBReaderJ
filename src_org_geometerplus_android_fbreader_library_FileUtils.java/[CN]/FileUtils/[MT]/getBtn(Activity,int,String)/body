@@ -1,5 +1,0 @@
-{
-  Button btn=(Button)parent.findViewById(id);
-  btn.setText(ZLResource.resource("dialog").getResource("button").getResource(keyName).getValue());
-  return btn;
-}

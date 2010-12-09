@@ -1,5 +1,0 @@
-{
-  ImageButton imgBtn=(ImageButton)parent.findViewById(id);
-  imgBtn.setImageResource(resId);
-  return imgBtn;
-}
