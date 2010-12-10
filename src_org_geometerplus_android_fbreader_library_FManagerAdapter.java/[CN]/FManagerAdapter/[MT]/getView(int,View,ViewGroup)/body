@@ -15,7 +15,42 @@
     coverView.getLayoutParams().height=myCoverHeight;
     coverView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
     coverView.requestLayout();
-    coverView.setImageResource(order.getIcon());
+    if (order.getBook() == null)     coverView.setImageResource(R.drawable.ic_list_library_folder);
+ else {
+      Log.v(FileManager.LOG,"isBook");
+      Book book=order.getBook();
+      FormatPlugin plugin=PluginCollection.Instance().getPlugin(book.File);
+      Bitmap coverBitmap=null;
+      ZLImage cover=plugin.readCover(book);
+      if (cover != null) {
+        Log.v(FileManager.LOG,"cover != null");
+        ZLAndroidImageData data=null;
+        final ZLAndroidImageManager mgr=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
+        if (cover instanceof ZLLoadableImage) {
+          Log.v(FileManager.LOG,"cover != null");
+          final ZLLoadableImage img=(ZLLoadableImage)cover;
+          if (img.isSynchronized()) {
+            data=mgr.getImageData(img);
+          }
+ else {
+            ZLAndroidImageLoader.Instance().startImageLoading(img,myInvalidateViewsRunnable);
+          }
+        }
+ else {
+          data=mgr.getImageData(cover);
+        }
+        if (data != null) {
+          Log.v(FileManager.LOG,"data != null");
+          coverBitmap=data.getBitmap(2 * myCoverWidth,2 * myCoverHeight);
+        }
+      }
+      if (coverBitmap != null) {
+        coverView.setImageBitmap(coverBitmap);
+      }
+ else {
+        coverView.setImageResource(R.drawable.ic_list_library_book);
+      }
+    }
   }
   return view;
 }
