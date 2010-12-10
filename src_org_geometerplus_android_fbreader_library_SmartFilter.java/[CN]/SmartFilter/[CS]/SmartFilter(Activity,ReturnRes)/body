@@ -1,0 +1,5 @@
+{
+  myParent=parent;
+  myOrders=returnRes.getOrders();
+  myReturnRes=returnRes;
+}

@@ -15,6 +15,7 @@
   myItems.add(new TopLevelTree(myResource.getResource(PATH_BY_TAG),R.drawable.ic_list_library_tags,new OpenTreeRunnable(PATH_BY_TAG,mySelectedBookPath)));
   myItems.add(new TopLevelTree(myResource.getResource("fileTree"),R.drawable.ic_list_library_folder,new Runnable(){
     public void run(){
+      runFileManager();
     }
   }
 ));

@@ -1,0 +1,20 @@
+{
+  Log.v(LOG,"onCreate()");
+  super.onCreate(savedInstanceState);
+  List<FileOrder> orders=Collections.synchronizedList(new ArrayList<FileOrder>());
+  FManagerAdapter adapter=new FManagerAdapter(this,orders,R.layout.library_tree_item);
+  setListAdapter(adapter);
+  ProgressDialog progressDialog=initProgressDialog();
+  ReturnRes returnRes=new ReturnRes(orders,adapter,progressDialog);
+  SmartFilter filter=new SmartFilter(this,returnRes);
+  String path=getIntent().getExtras().getString(FileManager.FILE_MANAGER_PATH);
+  if (path.equals(""))   initfill(orders,adapter);
+ else   fill(path,filter,progressDialog);
+  getListView().setTextFilterEnabled(true);
+  getListView().setOnItemClickListener(new OnItemClickListener(){
+    public void onItemClick(    AdapterView<?> parent,    View view,    int position,    long id){
+      step(((TextView)view.findViewById(R.id.library_tree_item_childrenlist)).getText().toString());
+    }
+  }
+);
+}

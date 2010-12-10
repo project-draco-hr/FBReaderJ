@@ -1,0 +1,3 @@
+List<FileOrder> orders
+ArrayAdapter<FileOrder> adapter
+ProgressDialog pd

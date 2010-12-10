@@ -1,0 +1,8 @@
+{
+  try {
+    getOrders();
+  }
+ catch (  Exception e) {
+    Log.e(FileManager.LOG,e.getMessage());
+  }
+}
