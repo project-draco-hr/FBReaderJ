@@ -1,8 +1,0 @@
-{
-  if (uri.equals(Uri.parse("file:///"))) {
-    return Library.getHelpFile().getPath();
-  }
- else {
-    return uri.getPath();
-  }
-}

@@ -4,5 +4,5 @@
     return false;
   }
   BookSearchPatternOption.setValue(pattern);
-  return Library.searchBooks(pattern).hasChildren();
+  return LibraryInstance.searchBooks(pattern).hasChildren();
 }

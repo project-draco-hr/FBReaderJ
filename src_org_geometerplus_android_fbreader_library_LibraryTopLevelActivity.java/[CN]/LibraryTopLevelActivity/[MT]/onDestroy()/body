@@ -1,4 +1,4 @@
 {
-  Library=null;
+  LibraryInstance=null;
   super.onDestroy();
 }
