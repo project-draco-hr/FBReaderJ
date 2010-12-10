@@ -5,10 +5,8 @@
     myIcon=R.drawable.ic_list_library_folder;
   }
  else   if (PluginCollection.Instance().getPlugin(file) != null) {
-    myIcon=R.drawable.ic_list_library_book;
-    Book book=Book.getByFile(file);
-    myName=book.getTitle();
-    FormatPlugin plugin=PluginCollection.Instance().getPlugin(file);
-    ZLImage image=plugin.readCover(book);
+    myBook=Book.getByFile(file);
+    myName=myBook.getTitle();
+    myIcon=-1;
   }
 }
