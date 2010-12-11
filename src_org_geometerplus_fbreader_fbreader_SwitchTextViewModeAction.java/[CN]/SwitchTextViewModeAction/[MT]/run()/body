@@ -1,0 +1,6 @@
+{
+  Reader.TextViewModeOption.setValue(myMode);
+  Reader.BookTextView.resetRegionPointer();
+  Reader.FootnoteView.resetRegionPointer();
+  Reader.repaintView();
+}
