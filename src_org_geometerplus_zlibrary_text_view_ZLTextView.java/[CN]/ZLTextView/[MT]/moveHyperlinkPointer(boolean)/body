@@ -1,21 +1,21 @@
 {
-  final ArrayList<ZLTextWordArea> wordAreas=myCurrentPage.TextElementMap.WordAreas;
-  if (!wordAreas.isEmpty()) {
-    final int index=wordAreas.indexOf(myCurrentSelectedElement);
+  final ArrayList<ZLTextElementRegion> elementRegions=myCurrentPage.TextElementMap.ElementRegions;
+  if (!elementRegions.isEmpty()) {
+    final int index=elementRegions.indexOf(myCurrentSelectedElement);
     if (index == -1) {
-      myCurrentSelectedElement=wordAreas.get(forward ? 0 : wordAreas.size() - 1);
+      myCurrentSelectedElement=elementRegions.get(forward ? 0 : elementRegions.size() - 1);
       return true;
     }
  else {
       if (forward) {
-        if (index + 1 < wordAreas.size()) {
-          myCurrentSelectedElement=wordAreas.get(index + 1);
+        if (index + 1 < elementRegions.size()) {
+          myCurrentSelectedElement=elementRegions.get(index + 1);
           return true;
         }
       }
  else {
         if (index > 0) {
-          myCurrentSelectedElement=wordAreas.get(index - 1);
+          myCurrentSelectedElement=elementRegions.get(index - 1);
           return true;
         }
       }

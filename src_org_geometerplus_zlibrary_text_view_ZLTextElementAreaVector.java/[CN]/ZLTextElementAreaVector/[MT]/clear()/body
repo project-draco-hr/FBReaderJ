@@ -1,5 +1,5 @@
 {
-  WordAreas.clear();
-  myCurrentWordArea=null;
+  ElementRegions.clear();
+  myCurrentElementRegion=null;
   super.clear();
 }

@@ -1,15 +1,15 @@
 {
   final ZLTextHyperlink hyperlink=area.Style.Hyperlink;
   if (hyperlink.Id == null) {
-    myCurrentWordArea=null;
+    myCurrentElementRegion=null;
   }
  else {
-    if ((myCurrentWordArea == null) || (((ZLTextHyperlinkArea)myCurrentWordArea).Hyperlink != hyperlink)) {
-      myCurrentWordArea=new ZLTextHyperlinkArea(hyperlink,this,size());
-      WordAreas.add(myCurrentWordArea);
+    if ((myCurrentElementRegion == null) || (((ZLTextHyperlinkRegion)myCurrentElementRegion).Hyperlink != hyperlink)) {
+      myCurrentElementRegion=new ZLTextHyperlinkRegion(hyperlink,this,size());
+      ElementRegions.add(myCurrentElementRegion);
     }
  else {
-      myCurrentWordArea.extend();
+      myCurrentElementRegion.extend();
     }
   }
   return super.add(area);

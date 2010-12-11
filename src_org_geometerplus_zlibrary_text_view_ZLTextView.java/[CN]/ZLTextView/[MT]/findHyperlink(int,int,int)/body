@@ -1,12 +1,12 @@
 {
-  ZLTextWordArea area=null;
+  ZLTextElementRegion area=null;
   int distance=Integer.MAX_VALUE;
-  for (  ZLTextWordArea a : myCurrentPage.TextElementMap.WordAreas) {
+  for (  ZLTextElementRegion a : myCurrentPage.TextElementMap.ElementRegions) {
     final int d=a.distanceTo(x,y);
     if ((d < distance) && (d <= maxDistance)) {
       area=a;
       distance=d;
     }
   }
-  return (area instanceof ZLTextHyperlinkArea) ? ((ZLTextHyperlinkArea)area).Hyperlink : null;
+  return (area instanceof ZLTextHyperlinkRegion) ? ((ZLTextHyperlinkRegion)area).Hyperlink : null;
 }
