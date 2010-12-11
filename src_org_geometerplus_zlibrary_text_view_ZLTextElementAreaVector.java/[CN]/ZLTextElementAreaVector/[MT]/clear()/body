@@ -1,5 +1,5 @@
 {
-  HyperlinkAreas.clear();
-  myCurrentHyperlinkArea=null;
+  WordAreas.clear();
+  myCurrentWordArea=null;
   super.clear();
 }

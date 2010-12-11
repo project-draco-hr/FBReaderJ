@@ -1,21 +1,21 @@
 {
-  final ArrayList<ZLTextHyperlinkArea> hyperlinkAreas=myCurrentPage.TextElementMap.HyperlinkAreas;
-  if (!hyperlinkAreas.isEmpty()) {
-    final int index=hyperlinkAreas.indexOf(myCurrentHyperlink);
+  final ArrayList<ZLTextWordArea> wordAreas=myCurrentPage.TextElementMap.WordAreas;
+  if (!wordAreas.isEmpty()) {
+    final int index=wordAreas.indexOf(myCurrentSelectedElement);
     if (index == -1) {
-      myCurrentHyperlink=hyperlinkAreas.get(forward ? 0 : hyperlinkAreas.size() - 1);
+      myCurrentSelectedElement=wordAreas.get(forward ? 0 : wordAreas.size() - 1);
       return true;
     }
  else {
       if (forward) {
-        if (index + 1 < hyperlinkAreas.size()) {
-          myCurrentHyperlink=hyperlinkAreas.get(index + 1);
+        if (index + 1 < wordAreas.size()) {
+          myCurrentSelectedElement=wordAreas.get(index + 1);
           return true;
         }
       }
  else {
         if (index > 0) {
-          myCurrentHyperlink=hyperlinkAreas.get(index - 1);
+          myCurrentSelectedElement=wordAreas.get(index - 1);
           return true;
         }
       }

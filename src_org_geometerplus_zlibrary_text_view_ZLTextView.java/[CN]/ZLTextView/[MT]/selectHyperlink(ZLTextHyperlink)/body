@@ -1,7 +1,7 @@
 {
-  for (  ZLTextHyperlinkArea area : myCurrentPage.TextElementMap.HyperlinkAreas) {
-    if (area.Hyperlink == hyperlink) {
-      myCurrentHyperlink=area;
+  for (  ZLTextWordArea area : myCurrentPage.TextElementMap.WordAreas) {
+    if (area instanceof ZLTextHyperlinkArea && ((ZLTextHyperlinkArea)area).Hyperlink == hyperlink) {
+      myCurrentSelectedElement=area;
       break;
     }
   }

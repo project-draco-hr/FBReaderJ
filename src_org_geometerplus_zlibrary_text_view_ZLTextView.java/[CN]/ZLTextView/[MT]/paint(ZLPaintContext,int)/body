@@ -52,8 +52,8 @@ drawTextLine(page,info,labels[index],labels[index + 1],y);
 y+=info.Height + info.Descent + info.VSpaceAfter;
 ++index;
 }
-final ZLTextHyperlinkArea hyperlinkArea=getCurrentHyperlinkArea(page);
-if (hyperlinkArea != null) {
-hyperlinkArea.draw(context);
+final ZLTextWordArea selectedWordArea=getCurrentWordArea(page);
+if (selectedWordArea != null) {
+selectedWordArea.draw(context);
 }
 }
