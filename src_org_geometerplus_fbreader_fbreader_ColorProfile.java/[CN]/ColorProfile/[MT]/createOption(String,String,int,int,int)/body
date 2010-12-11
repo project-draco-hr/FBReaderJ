@@ -1,0 +1,3 @@
+{
+  return new ZLColorOption("Colors",profileName + ':' + optionName,new ZLColor(r,g,b));
+}
