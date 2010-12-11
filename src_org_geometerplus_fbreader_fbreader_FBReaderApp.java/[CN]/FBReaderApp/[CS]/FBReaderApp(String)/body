@@ -1,6 +1,5 @@
 {
   myArg0=arg;
-  addAction(ActionCode.QUIT,new QuitAction(this));
   addAction(ActionCode.INCREASE_FONT,new ChangeFontSizeAction(this,+2));
   addAction(ActionCode.DECREASE_FONT,new ChangeFontSizeAction(this,-2));
   addAction(ActionCode.ROTATE,new RotateAction(this));

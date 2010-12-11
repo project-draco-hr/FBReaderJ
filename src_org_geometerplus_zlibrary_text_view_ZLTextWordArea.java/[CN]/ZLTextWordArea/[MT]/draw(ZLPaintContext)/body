@@ -1,6 +1,6 @@
 {
   if (myHull == null) {
-    myHull=new HorizontalConvexHull();
+    myHull=new ZLTextHorizontalConvexHull(textAreas());
   }
   myHull.draw(context);
 }
