@@ -1,9 +1,8 @@
 {
-  if (diffY > 0) {
-    myReader.doAction(ActionCode.TRACKBALL_SCROLL_FORWARD);
+  final boolean forward=diffY > 0;
+  if (!moveRegionPointer(forward)) {
+    scrollPage(forward,ZLTextView.ScrollingMode.SCROLL_LINES,1);
   }
- else   if (diffY < 0) {
-    myReader.doAction(ActionCode.TRACKBALL_SCROLL_BACKWARD);
-  }
+  myReader.repaintView();
   return true;
 }
