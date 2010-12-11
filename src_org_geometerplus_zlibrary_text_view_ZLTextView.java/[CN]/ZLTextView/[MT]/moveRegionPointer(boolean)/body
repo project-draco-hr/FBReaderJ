@@ -1,0 +1,48 @@
+{
+  final ArrayList<ZLTextElementRegion> elementRegions=myCurrentPage.TextElementMap.ElementRegions;
+  if (elementRegions.isEmpty()) {
+    return false;
+  }
+  int index=elementRegions.indexOf(myCurrentSelectedElement);
+  if (index == -1) {
+    index=forward ? 0 : elementRegions.size() - 1;
+  }
+ else {
+    if (forward) {
+      if (index == elementRegions.size() - 1) {
+        return false;
+      }
+      ++index;
+    }
+ else {
+      if (index == 0) {
+        return false;
+      }
+      --index;
+    }
+  }
+switch (getMode()) {
+case MODE_VISIT_ALL_WORDS:
+    myCurrentSelectedElement=elementRegions.get(index);
+  return true;
+case MODE_VISIT_HYPERLINKS:
+if (forward) {
+  for (; index < elementRegions.size(); ++index) {
+    if (elementRegions.get(index) instanceof ZLTextHyperlinkRegion) {
+      myCurrentSelectedElement=elementRegions.get(index);
+      return true;
+    }
+  }
+}
+ else {
+  for (; index >= 0; --index) {
+    if (elementRegions.get(index) instanceof ZLTextHyperlinkRegion) {
+      myCurrentSelectedElement=elementRegions.get(index);
+      return true;
+    }
+  }
+}
+return false;
+}
+return false;
+}
