@@ -16,7 +16,7 @@
   if (hyperlink != null) {
     selectHyperlink(hyperlink);
     myReader.repaintView();
-    followHyperlink(hyperlink);
+    myReader.doAction(ActionCode.PROCESS_HYPERLINK);
     return true;
   }
   if (myReader.AllowScreenBrightnessAdjustmentOption.getValue() && x < myContext.getWidth() / 10) {

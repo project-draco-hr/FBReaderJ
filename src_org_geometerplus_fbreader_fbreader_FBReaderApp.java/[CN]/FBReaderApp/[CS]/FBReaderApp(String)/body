@@ -11,7 +11,6 @@
   addAction(ActionCode.VOLUME_KEY_SCROLL_FORWARD,new VolumeKeyScrollingAction(this,true));
   addAction(ActionCode.VOLUME_KEY_SCROLL_BACKWARD,new VolumeKeyScrollingAction(this,false));
   addAction(ActionCode.CANCEL,new CancelAction(this));
-  addAction(ActionCode.FOLLOW_HYPERLINK,new FollowHyperlinkAction(this));
   addAction(ActionCode.SWITCH_TO_DAY_PROFILE,new SwitchProfileAction(this,ColorProfile.DAY));
   addAction(ActionCode.SWITCH_TO_NIGHT_PROFILE,new SwitchProfileAction(this,ColorProfile.NIGHT));
   BookTextView=new FBView(this);
