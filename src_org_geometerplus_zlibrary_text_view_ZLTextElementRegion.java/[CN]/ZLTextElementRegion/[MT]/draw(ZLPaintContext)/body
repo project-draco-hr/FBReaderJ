@@ -1,6 +1,3 @@
 {
-  if (myHull == null) {
-    myHull=new ZLTextHorizontalConvexHull(textAreas());
-  }
-  myHull.draw(context);
+  convexHull().draw(context);
 }

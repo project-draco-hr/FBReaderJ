@@ -1,0 +1,18 @@
+{
+  if (other == null) {
+    return true;
+  }
+  if (!isUnder(other)) {
+    return false;
+  }
+  final List<ZLTextElementArea> areas0=textAreas();
+  final List<ZLTextElementArea> areas1=other.textAreas();
+  for (  ZLTextElementArea i : areas0) {
+    for (    ZLTextElementArea j : areas1) {
+      if (i.XStart <= j.XEnd && j.XStart <= i.XEnd) {
+        return true;
+      }
+    }
+  }
+  return false;
+}

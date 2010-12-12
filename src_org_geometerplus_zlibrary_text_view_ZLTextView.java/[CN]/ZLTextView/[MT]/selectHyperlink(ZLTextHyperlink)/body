@@ -1,7 +1,7 @@
 {
   for (  ZLTextElementRegion area : myCurrentPage.TextElementMap.ElementRegions) {
     if (area instanceof ZLTextHyperlinkRegion && ((ZLTextHyperlinkRegion)area).Hyperlink == hyperlink) {
-      myCurrentSelectedElement=area;
+      mySelectedRegion=area;
       break;
     }
   }

@@ -1,6 +1,3 @@
 {
-  if (myHull == null) {
-    myHull=new ZLTextHorizontalConvexHull(textAreas());
-  }
-  return myHull.distanceTo(x,y);
+  return convexHull().distanceTo(x,y);
 }
