@@ -1,8 +1,8 @@
 {
   final Intent intent=new Intent(Intent.ACTION_VIEW);
   boolean externalUrl=true;
-  if (BookDownloader.acceptsUri(Uri.parse(reference))) {
-    intent.setClass(myActivity,BookDownloader.class);
+  if (BookDownloader.acceptsUri(Uri.parse(urlString))) {
+    intent.setClass(myBaseActivity,BookDownloader.class);
     intent.putExtra(BookDownloaderService.SHOW_NOTIFICATIONS_KEY,BookDownloaderService.Notifications.ALL);
     externalUrl=false;
   }
@@ -12,7 +12,6 @@
   }
  catch (  ZLNetworkException e) {
   }
-  reference=NetworkLibrary.Instance().rewriteUrl(reference,externalUrl);
-  intent.setData(Uri.parse(reference));
-  myActivity.startActivity(intent);
+  intent.setData(Uri.parse(NetworkLibrary.Instance().rewriteUrl(urlString,externalUrl)));
+  myBaseActivity.startActivity(intent);
 }

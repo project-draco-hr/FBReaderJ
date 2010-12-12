@@ -3,7 +3,7 @@
   if (hyperlink != null) {
 switch (hyperlink.Type) {
 case FBHyperlinkType.EXTERNAL:
-      ZLibrary.Instance().openInBrowser(hyperlink.Id);
+      openInBrowser(hyperlink.Id);
     break;
 case FBHyperlinkType.INTERNAL:
   Reader.tryOpenFootnote(hyperlink.Id);
