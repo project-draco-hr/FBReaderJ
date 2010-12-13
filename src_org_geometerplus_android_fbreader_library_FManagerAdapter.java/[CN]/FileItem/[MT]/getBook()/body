@@ -1,0 +1,7 @@
+{
+  if (myBook == null && !myBookIsSynchronized) {
+    myBook=Book.getByFile(myFile);
+    myBookIsSynchronized=true;
+  }
+  return myBook;
+}

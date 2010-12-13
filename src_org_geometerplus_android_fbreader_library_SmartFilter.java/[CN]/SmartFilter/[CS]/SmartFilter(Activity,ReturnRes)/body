@@ -1,5 +1,5 @@
 {
   myParent=parent;
-  myOrders=returnRes.getOrders();
+  myItems=returnRes.getItems();
   myReturnRes=returnRes;
 }

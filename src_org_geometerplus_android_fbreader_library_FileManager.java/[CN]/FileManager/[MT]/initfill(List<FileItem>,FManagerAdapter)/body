@@ -1,0 +1,15 @@
+{
+  ZLResource resource=ZLResource.resource("fmanagerView");
+  String nameRoot=resource.getResource("root").getValue();
+  String nameSdcard=resource.getResource("sdcard").getValue();
+  String nameBooks=resource.getResource("books").getValue();
+  final ZLFile root=ZLFile.createFileByPath("/");
+  final ZLFile sdCard=ZLFile.createFileByPath(Environment.getExternalStorageDirectory().getPath());
+  final ZLFile booksDirectory=ZLFile.createFileByPath(Paths.BooksDirectoryOption().getValue());
+  items.add(new FileItem(root,nameRoot));
+  items.add(new FileItem(sdCard,nameSdcard));
+  items.add(new FileItem(booksDirectory,nameBooks));
+  for (  FileItem o : items) {
+    adapter.add(o);
+  }
+}

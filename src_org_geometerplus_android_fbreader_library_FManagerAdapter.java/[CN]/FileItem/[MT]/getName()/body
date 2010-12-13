@@ -1,0 +1,18 @@
+{
+  if (myName != null) {
+    return myName;
+  }
+  if (myFile.isDirectory()) {
+    final String fileName=myFile.getName(false);
+    return fileName.substring(fileName.lastIndexOf('/') + 1);
+  }
+  final Book book=getBook();
+  if (book != null) {
+    return book.getTitle();
+  }
+  if (!myFile.isArchive()) {
+    System.err.println("File " + myFile.getPath() + " that is not a directory, not a book and not a archive "+ "has been found in getIcon()");
+  }
+  final String fileName=myFile.getName(false);
+  return fileName.substring(fileName.lastIndexOf('/') + 1);
+}

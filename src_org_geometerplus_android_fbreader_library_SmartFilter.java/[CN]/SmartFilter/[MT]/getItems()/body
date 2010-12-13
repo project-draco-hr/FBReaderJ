@@ -3,8 +3,8 @@
   try {
     for (    ZLFile file : myFile.children()) {
       if (!Thread.currentThread().isInterrupted()) {
-        if (file.isDirectory() || file.isArchive())         myOrders.add(new FileOrder(file));
- else         if (PluginCollection.Instance().getPlugin(file) != null)         myOrders.add(new FileOrder(file));
+        if (file.isDirectory() || file.isArchive())         myItems.add(new FileItem(file));
+ else         if (PluginCollection.Instance().getPlugin(file) != null)         myItems.add(new FileItem(file));
         myParent.runOnUiThread(myReturnRes);
       }
     }
