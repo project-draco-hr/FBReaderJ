@@ -1,0 +1,20 @@
+{
+  Log.v(FileManager.LOG,"onContextItemSelected");
+  final int position=((AdapterView.AdapterContextMenuInfo)item.getMenuInfo()).position;
+  FileItem fileItem=((FManagerAdapter)getListAdapter()).getItem(position);
+  if (fileItem.getCover() != null) {
+switch (item.getItemId()) {
+case OPEN_BOOK_ITEM_ID:
+      openBook(fileItem.myFile.getPath());
+    return true;
+case ADD_TO_FAVORITES_ITEM_ID:
+  return true;
+case REMOVE_FROM_FAVORITES_ITEM_ID:
+getListView().invalidateViews();
+return true;
+case DELETE_BOOK_ITEM_ID:
+return true;
+}
+}
+return super.onContextItemSelected(item);
+}

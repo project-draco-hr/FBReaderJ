@@ -1,0 +1,12 @@
+{
+  Log.v(FileManager.LOG,"onCreateContextMenu");
+  final int position=((AdapterView.AdapterContextMenuInfo)menuInfo).position;
+  final FileItem fileItem=getItem(position);
+  if (fileItem.getCover() != null) {
+    ZLResource resource=ZLResource.resource("libraryView");
+    menu.add(0,FileManager.OPEN_BOOK_ITEM_ID,0,resource.getResource("openBook").getValue());
+    menu.add(0,FileManager.REMOVE_FROM_FAVORITES_ITEM_ID,0,resource.getResource("removeFromFavorites").getValue());
+    menu.add(0,FileManager.ADD_TO_FAVORITES_ITEM_ID,0,resource.getResource("addToFavorites").getValue());
+    menu.add(0,FileManager.DELETE_BOOK_ITEM_ID,0,resource.getResource("deleteBook").getValue());
+  }
+}
