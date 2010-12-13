@@ -1,6 +1,0 @@
-{
-  myCurIdx=0;
-  myItems.clear();
-  myAdapter.clear();
-  myAdapter.notifyDataSetChanged();
-}
