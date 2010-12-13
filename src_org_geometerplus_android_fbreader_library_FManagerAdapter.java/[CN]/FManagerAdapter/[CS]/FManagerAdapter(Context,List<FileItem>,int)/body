@@ -1,5 +1,5 @@
 {
   super(context,textViewResourceId);
   myParent=context;
-  myOrders=orders;
+  myItems=items;
 }
