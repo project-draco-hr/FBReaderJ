@@ -1,11 +1,10 @@
 {
-  ZLFile file=ZLFile.createFileByPath(path);
   if (file.isDirectory() || file.isArchive()) {
     Intent i=new Intent(this,FileManager.class);
-    i.putExtra(FileManager.FILE_MANAGER_PATH,path);
+    i.putExtra(FileManager.FILE_MANAGER_PATH,file.getPath());
     startActivity(i);
   }
  else {
-    openBook(path);
+    openBook(file.getPath());
   }
 }
