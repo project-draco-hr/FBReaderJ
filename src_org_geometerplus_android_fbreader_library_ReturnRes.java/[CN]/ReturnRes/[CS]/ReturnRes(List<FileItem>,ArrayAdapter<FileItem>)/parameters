@@ -1,3 +1,2 @@
 List<FileItem> items
 ArrayAdapter<FileItem> adapter
-ProgressDialog pd

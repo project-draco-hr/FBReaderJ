@@ -1,5 +1,4 @@
 {
-  progressDialog.show();
   ZLFile file=ZLFile.createFileByPath(path);
   filter.setPreferences(file);
   myCurFilterThread=new Thread(null,filter,"MagentoBackground");

@@ -1,7 +1,0 @@
-{
-  ZLResource resource=ZLResource.resource("fmanagerView");
-  ProgressDialog pd=new ProgressDialog(this);
-  pd.setTitle(resource.getResource("progress_dialog").getResource("title").getValue());
-  pd.setMessage(resource.getResource("progress_dialog").getResource("message").getValue());
-  return pd;
-}

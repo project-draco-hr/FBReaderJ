@@ -1,7 +1,9 @@
 {
   ZLFile file=ZLFile.createFileByPath(path);
   if (file.isDirectory() || file.isArchive()) {
-    if (myCurFilterThread != null)     myCurFilterThread.interrupt();
+    if (myCurFilterThread != null) {
+      myCurFilterThread.interrupt();
+    }
     Intent i=new Intent(this,FileManager.class);
     i.putExtra(FileManager.FILE_MANAGER_PATH,path);
     startActivity(i);

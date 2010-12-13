@@ -8,5 +8,4 @@
     myCurIdx=i;
   }
   myAdapter.notifyDataSetChanged();
-  myProgressDialog.dismiss();
 }
