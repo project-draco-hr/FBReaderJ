@@ -1,8 +1,0 @@
-{
-  if (myItems != null) {
-    for (    FileItem item : myItems.subList(myAdapter.getCount(),myItems.size())) {
-      myAdapter.add(item);
-    }
-  }
-  myAdapter.notifyDataSetChanged();
-}
