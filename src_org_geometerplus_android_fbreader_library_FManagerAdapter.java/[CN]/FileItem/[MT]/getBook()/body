@@ -1,7 +1,7 @@
 {
-  if (myBook == null && !myBookIsSynchronized) {
+  if (!myBookIsInitialized) {
+    myBookIsInitialized=true;
     myBook=Book.getByFile(myFile);
-    myBookIsSynchronized=true;
   }
   return myBook;
 }
