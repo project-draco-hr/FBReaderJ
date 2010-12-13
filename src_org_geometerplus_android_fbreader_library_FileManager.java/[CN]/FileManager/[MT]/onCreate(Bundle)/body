@@ -1,19 +1,17 @@
 {
   Log.v(LOG,"onCreate()");
   super.onCreate(savedInstanceState);
-  List<FileItem> items=Collections.synchronizedList(new ArrayList<FileItem>());
-  FManagerAdapter adapter=new FManagerAdapter(this,items,R.layout.library_tree_item);
+  FManagerAdapter adapter=new FManagerAdapter(this);
   setListAdapter(adapter);
   final Bundle extras=getIntent().getExtras();
   final String path=extras != null ? extras.getString(FileManager.FILE_MANAGER_PATH) : null;
   if (path == null) {
     setTitle(ZLResource.resource("libraryView").getResource("fileTree").getValue());
-    initfill(items,adapter);
+    initfill(adapter);
   }
  else {
     setTitle(path);
-    final ReturnRes returnRes=new ReturnRes(items,adapter);
-    final SmartFilter filter=new SmartFilter(this,returnRes,ZLFile.createFileByPath(path));
+    final SmartFilter filter=new SmartFilter(this,adapter,ZLFile.createFileByPath(path));
     new Thread(filter).start();
   }
   getListView().setTextFilterEnabled(true);

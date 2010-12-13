@@ -1,0 +1,5 @@
+{
+  myParent=parent;
+  myAdapter=adapter;
+  myFile=file;
+}

@@ -3,8 +3,13 @@
     for (    ZLFile file : myFile.children()) {
       if (!Thread.currentThread().isInterrupted()) {
         if (file.isDirectory() || file.isArchive() || PluginCollection.Instance().getPlugin(file) != null) {
-          myItems.add(new FileItem(file));
-          myParent.runOnUiThread(myReturnRes);
+          myAdapter.add(new FileItem(file));
+          myParent.runOnUiThread(new Runnable(){
+            public void run(){
+              myAdapter.notifyDataSetChanged();
+            }
+          }
+);
         }
       }
     }

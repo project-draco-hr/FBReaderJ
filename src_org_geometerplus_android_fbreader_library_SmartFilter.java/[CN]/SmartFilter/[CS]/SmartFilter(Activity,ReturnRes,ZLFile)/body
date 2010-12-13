@@ -1,6 +1,0 @@
-{
-  myParent=parent;
-  myItems=returnRes.getItems();
-  myReturnRes=returnRes;
-  myFile=file;
-}
