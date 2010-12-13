@@ -15,7 +15,9 @@
     coverView.getLayoutParams().height=myCoverHeight;
     coverView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
     coverView.requestLayout();
-    if (order.getBook() == null)     coverView.setImageResource(R.drawable.ic_list_library_folder);
+    if (order.getBook() == null) {
+      coverView.setImageResource(R.drawable.ic_list_library_folder);
+    }
  else {
       Log.v(FileManager.LOG,"isBook");
       Book book=order.getBook();
