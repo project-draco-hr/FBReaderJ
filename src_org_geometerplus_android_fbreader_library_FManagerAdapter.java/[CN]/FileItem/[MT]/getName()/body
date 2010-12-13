@@ -8,7 +8,7 @@
   }
   final Book book=getBook();
   if (book != null) {
-    return book.getTitle();
+    return book.File.getName(false);
   }
   if (!myFile.isArchive()) {
     System.err.println("File " + myFile.getPath() + " that is not a directory, not a book and not a archive "+ "has been found in getIcon()");

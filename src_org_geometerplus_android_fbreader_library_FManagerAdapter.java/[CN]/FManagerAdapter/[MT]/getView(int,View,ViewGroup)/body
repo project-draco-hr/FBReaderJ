@@ -3,7 +3,7 @@
   FileItem item=myItems.get(position);
   if (item != null) {
     ((TextView)view.findViewById(R.id.library_tree_item_name)).setText(item.getName());
-    ((TextView)view.findViewById(R.id.library_tree_item_childrenlist)).setText(item.getPath());
+    ((TextView)view.findViewById(R.id.library_tree_item_childrenlist)).setText(item.getSummary());
     if (myCoverWidth == -1) {
       view.measure(ViewGroup.LayoutParams.FILL_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
       myCoverHeight=view.getMeasuredHeight();

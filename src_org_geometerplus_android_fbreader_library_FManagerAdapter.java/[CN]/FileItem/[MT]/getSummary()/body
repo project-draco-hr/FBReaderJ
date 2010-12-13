@@ -1,0 +1,7 @@
+{
+  final Book book=getBook();
+  if (book != null) {
+    return book.getTitle();
+  }
+  return null;
+}
