@@ -10,6 +10,7 @@
     initfill(items,adapter);
   }
  else {
+    setTitle(path);
     final ReturnRes returnRes=new ReturnRes(items,adapter);
     final SmartFilter filter=new SmartFilter(this,returnRes,ZLFile.createFileByPath(path));
     new Thread(filter).start();
