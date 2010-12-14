@@ -1,6 +1,7 @@
 {
   final int position=((AdapterView.AdapterContextMenuInfo)item.getMenuInfo()).position;
-  FileItem fileItem=((FManagerAdapter)getListAdapter()).getItem(position);
+  FManagerAdapter adapter=(FManagerAdapter)getListAdapter();
+  FileItem fileItem=adapter.getItem(position);
   if (fileItem.getBook() != null) {
     Book book=fileItem.getBook();
 switch (item.getItemId()) {
@@ -15,6 +16,9 @@ LibraryInstance.removeBookFromFavorites(book);
 getListView().invalidateViews();
 return true;
 case DELETE_BOOK_ITEM_ID:
+adapter.remove(fileItem);
+adapter.notifyDataSetChanged();
+fileItem.getBook().File.getPhysicalFile().delete();
 return true;
 }
 }
