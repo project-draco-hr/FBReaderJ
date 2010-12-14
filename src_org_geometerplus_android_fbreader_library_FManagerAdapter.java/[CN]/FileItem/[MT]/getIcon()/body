@@ -1,0 +1,15 @@
+{
+  if (myFile.isDirectory()) {
+    return R.drawable.ic_list_library_folder;
+  }
+ else   if (PluginCollection.Instance().getPlugin(myFile) != null) {
+    return R.drawable.ic_list_library_book;
+  }
+ else   if (myFile.isArchive()) {
+    return R.drawable.ic_list_library_folder;
+  }
+ else {
+    System.err.println("File " + myFile.getPath() + " that is not a directory, not a book and not a archive "+ "has been found in getIcon()");
+    return R.drawable.ic_list_library_book;
+  }
+}

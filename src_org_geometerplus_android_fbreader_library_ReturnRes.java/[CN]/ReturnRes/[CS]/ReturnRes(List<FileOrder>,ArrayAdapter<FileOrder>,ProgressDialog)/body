@@ -1,5 +1,0 @@
-{
-  myOrders=orders;
-  myAdapter=adapter;
-  myProgressDialog=pd;
-}

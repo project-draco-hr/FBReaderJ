@@ -1,0 +1,7 @@
+{
+  if (!myBookIsInitialized) {
+    myBookIsInitialized=true;
+    myBook=Book.getByFile(myFile);
+  }
+  return myBook;
+}

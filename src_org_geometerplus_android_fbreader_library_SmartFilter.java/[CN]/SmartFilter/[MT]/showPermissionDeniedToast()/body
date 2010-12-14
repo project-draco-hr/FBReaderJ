@@ -1,3 +1,0 @@
-{
-  Toast.makeText(myParent,ZLResource.resource("fmanagerView").getResource("permission_denied").getValue(),Toast.LENGTH_SHORT).show();
-}
