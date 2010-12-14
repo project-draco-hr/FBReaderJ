@@ -1,7 +1,8 @@
 {
+  final ZLFile file=item.getFile();
   if (file.isDirectory() || file.isArchive()) {
     Intent i=new Intent(this,FileManager.class);
-    i.putExtra(FileManager.FILE_MANAGER_PATH,file.getPath());
+    i.putExtra(FILE_MANAGER_PATH,file.getPath());
     startActivity(i);
   }
  else {
