@@ -1,0 +1,9 @@
+{
+  myXLinkPrefix=null;
+  for (  Map.Entry<String,String> entry : namespaceMap.entrySet()) {
+    if (XMLNamespaces.XLink.equals(entry.getValue())) {
+      myXLinkPrefix=entry.getKey() + ":";
+      break;
+    }
+  }
+}

@@ -46,6 +46,13 @@
       myRecentBooks.createBookSubTree(book,true);
     }
   }
+  for (  long id : db.loadFavoritesIds()) {
+    Book book=bookById.get(id);
+    if (book != null) {
+      myFavorites.createBookSubTree(book,true);
+    }
+  }
+  myFavorites.sortAllChildren();
   db.executeAsATransaction(new Runnable(){
     public void run(){
       for (      Book book : myBooks) {

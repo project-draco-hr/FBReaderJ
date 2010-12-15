@@ -1,0 +1,7 @@
+{
+  if (myRemoveFromFavoritesStatement == null) {
+    myRemoveFromFavoritesStatement=myDatabase.compileStatement("DELETE FROM Favorites WHERE book_id = ?");
+  }
+  myRemoveFromFavoritesStatement.bindLong(1,bookId);
+  myRemoveFromFavoritesStatement.execute();
+}

@@ -1,0 +1,7 @@
+{
+  final FormatPlugin plugin=PluginCollection.Instance().getPlugin(Book.File);
+  if (plugin != null) {
+    return plugin.readCover(Book);
+  }
+  return null;
+}

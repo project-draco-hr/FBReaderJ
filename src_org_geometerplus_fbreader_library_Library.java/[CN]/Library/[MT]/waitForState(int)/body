@@ -1,0 +1,13 @@
+{
+  while (myState < state) {
+synchronized (this) {
+      if (myState < state) {
+        try {
+          wait();
+        }
+ catch (        InterruptedException e) {
+        }
+      }
+    }
+  }
+}

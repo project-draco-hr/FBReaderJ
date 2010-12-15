@@ -1,0 +1,6 @@
+{
+  myResource=resource;
+  myParameter=parameter;
+  myCoverResourceId=coverResourceId;
+  myAction=action;
+}

@@ -1,0 +1,6 @@
+{
+  if (requestCode == CHILD_LIST_REQUEST && returnCode == RESULT_INVALIDATE_VIEWS) {
+    getListView().invalidateViews();
+    setResult(RESULT_INVALIDATE_VIEWS);
+  }
+}

@@ -53,7 +53,7 @@ myState=AUTHOR;
 myState=BOOK_TITLE;
 }
  else if (TAG_ANNOTATION == tag) {
-myHtmlToString.setupTextContent("text/xhtml");
+myHtmlToString.setupTextContent(MimeTypes.MIME_TEXT_XHTML);
 myState=ANNOTATION;
 }
  else if (TAG_DATE == tag) {
