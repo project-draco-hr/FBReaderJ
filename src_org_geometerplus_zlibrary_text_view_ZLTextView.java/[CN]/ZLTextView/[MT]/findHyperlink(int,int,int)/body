@@ -1,12 +1,14 @@
 {
-  ZLTextHyperlinkArea area=null;
-  int distance=Integer.MAX_VALUE;
-  for (  ZLTextHyperlinkArea a : myCurrentPage.TextElementMap.HyperlinkAreas) {
-    final int d=a.distanceTo(x,y);
-    if ((d < distance) && (d <= maxDistance)) {
-      area=a;
-      distance=d;
+  ZLTextHyperlinkRegion hyperlinkRegion=null;
+  int distance=maxDistance + 1;
+  for (  ZLTextElementRegion region : myCurrentPage.TextElementMap.ElementRegions) {
+    if (region instanceof ZLTextHyperlinkRegion) {
+      final int d=region.distanceTo(x,y);
+      if (d < distance) {
+        hyperlinkRegion=(ZLTextHyperlinkRegion)region;
+        distance=d;
+      }
     }
   }
-  return (area != null) ? area.Hyperlink : null;
+  return (hyperlinkRegion != null) ? hyperlinkRegion.Hyperlink : null;
 }

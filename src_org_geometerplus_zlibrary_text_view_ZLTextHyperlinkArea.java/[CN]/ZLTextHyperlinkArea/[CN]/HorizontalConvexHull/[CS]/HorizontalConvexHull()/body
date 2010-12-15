@@ -1,6 +1,0 @@
-{
-  for (  ZLTextElementArea area : textAreas()) {
-    addArea(area);
-  }
-  normalize();
-}

@@ -3,7 +3,7 @@
     myItems.remove(0);
   }
   final String pattern=intent.getStringExtra(SearchManager.QUERY);
-  mySearchResultsItem=new TopLevelTree(myResource.getResource(PATH_SEARCH_RESULTS),pattern,R.drawable.ic_list_library_books,new OpenTreeRunnable(PATH_SEARCH_RESULTS,pattern,mySelectedBookPath));
+  mySearchResultsItem=new TopLevelTree(myResource.getResource(PATH_SEARCH_RESULTS),pattern,R.drawable.ic_list_library_books,new OpenTreeRunnable(PATH_SEARCH_RESULTS,pattern));
   myItems.add(0,mySearchResultsItem);
   getListView().invalidateViews();
   mySearchResultsItem.run();

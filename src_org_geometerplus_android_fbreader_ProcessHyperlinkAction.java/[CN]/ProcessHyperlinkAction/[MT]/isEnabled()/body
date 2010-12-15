@@ -1,0 +1,4 @@
+{
+  final ZLTextView view=Reader.getTextView();
+  return view.getSelectedText() != null || view.getCurrentHyperlink() != null;
+}
