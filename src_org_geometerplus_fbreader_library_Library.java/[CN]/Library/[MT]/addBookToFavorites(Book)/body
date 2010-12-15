@@ -1,0 +1,8 @@
+{
+  waitForState(STATE_FULLY_INITIALIZED);
+  if (!myFavorites.containsBook(book)) {
+    myFavorites.createBookSubTree(book,true);
+    myFavorites.sortAllChildren();
+    BooksDatabase.Instance().addToFavorites(book.getId());
+  }
+}

@@ -1,6 +1,3 @@
 {
-  myReadCoverPage=false;
-  myImageReference=null;
-  read(file);
-  return myImage;
+  return new FB2CoverImage(file);
 }

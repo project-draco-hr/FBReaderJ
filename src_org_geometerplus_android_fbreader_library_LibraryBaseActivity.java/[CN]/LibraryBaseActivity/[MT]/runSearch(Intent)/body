@@ -1,0 +1,8 @@
+{
+  final String pattern=intent.getStringExtra(SearchManager.QUERY);
+  if (pattern == null || pattern.length() == 0) {
+    return false;
+  }
+  BookSearchPatternOption.setValue(pattern);
+  return Library.searchBooks(pattern).hasChildren();
+}

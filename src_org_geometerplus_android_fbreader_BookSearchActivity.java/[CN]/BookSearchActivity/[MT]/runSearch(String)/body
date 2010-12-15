@@ -1,6 +1,0 @@
-{
-  final LibraryTabActivity parentActivity=LibraryTabActivity.Instance;
-  parentActivity.BookSearchPatternOption.setValue(pattern);
-  myTree=parentActivity.library().searchBooks(pattern);
-  return myTree.hasChildren();
-}

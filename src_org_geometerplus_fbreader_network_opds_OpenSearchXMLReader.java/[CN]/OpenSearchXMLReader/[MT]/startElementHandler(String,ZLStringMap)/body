@@ -19,7 +19,7 @@ case DESCRIPTION:
 if (tagPrefix == myOpenSearchNamespaceId && tag == TAG_URL) {
   final String type=attributes.getValue("type");
   final String rel=attributes.getValue("rel");
-  if (type == OPDSConstants.MIME_APP_ATOM && (rel == null || rel == "results")) {
+  if (type == MimeTypes.MIME_APP_ATOM && (rel == null || rel == "results")) {
     final String template=ZLNetworkUtil.url(myBaseURL,attributes.getValue("template"));
     final int indexOffset=parseInt(attributes.getValue("indexOffset"));
     final int pageOffset=parseInt(attributes.getValue("pageOffset"));

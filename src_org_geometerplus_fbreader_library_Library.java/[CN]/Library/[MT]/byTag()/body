@@ -1,4 +1,4 @@
 {
-  synchronize();
+  waitForState(STATE_FULLY_INITIALIZED);
   return myLibraryByTag;
 }

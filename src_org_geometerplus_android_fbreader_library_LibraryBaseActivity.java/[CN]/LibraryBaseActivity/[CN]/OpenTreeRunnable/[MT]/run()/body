@@ -1,0 +1,19 @@
+{
+  final Runnable postRunnable=new Runnable(){
+    public void run(){
+      startActivityForResult(new Intent(LibraryBaseActivity.this,LibraryTreeActivity.class).putExtra(SELECTED_BOOK_PATH_KEY,mySelectedBookPath).putExtra(TREE_PATH_KEY,myTreePath).putExtra(PARAMETER_KEY,myParameter),CHILD_LIST_REQUEST);
+    }
+  }
+;
+  if (Library.hasState(Library.STATE_FULLY_INITIALIZED)) {
+    postRunnable.run();
+  }
+ else {
+    UIUtil.runWithMessage(LibraryBaseActivity.this,"loadingBookList",new Runnable(){
+      public void run(){
+        Library.waitForState(Library.STATE_FULLY_INITIALIZED);
+      }
+    }
+,postRunnable);
+  }
+}

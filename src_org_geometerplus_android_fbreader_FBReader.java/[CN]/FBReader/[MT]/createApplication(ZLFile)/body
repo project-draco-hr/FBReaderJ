@@ -1,0 +1,6 @@
+{
+  if (SQLiteBooksDatabase.Instance() == null) {
+    new SQLiteBooksDatabase(this,"READER");
+  }
+  return new FBReaderApp(file != null ? file.getPath() : null);
+}

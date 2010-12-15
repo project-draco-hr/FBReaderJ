@@ -29,7 +29,7 @@
   for (  ATOMLink link : entry.Links) {
     final String type=ZLNetworkUtil.filterMimeType(link.getType());
     final String rel=opdsLink.relation(link.getRel(),type);
-    if (rel == null ? (formatByMimeType(type) != BookReference.Format.NONE) : (rel.startsWith(OPDSConstants.REL_ACQUISITION_PREFIX) || rel.startsWith(OPDSConstants.REL_FBREADER_ACQUISITION_PREFIX))) {
+    if (rel == null ? (formatByMimeType(type) != BookReference.Format.NONE) : (rel.startsWith(REL_ACQUISITION_PREFIX) || rel.startsWith(REL_FBREADER_ACQUISITION_PREFIX))) {
       hasBookLink=true;
       break;
     }
