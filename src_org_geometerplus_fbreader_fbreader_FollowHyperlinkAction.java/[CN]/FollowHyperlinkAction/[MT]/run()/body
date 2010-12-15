@@ -1,4 +1,0 @@
-{
-  FBView view=Reader.getTextView();
-  view.followHyperlink(view.getCurrentHyperlink());
-}
