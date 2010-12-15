@@ -1,7 +1,7 @@
 {
   final Thread libraryInitializer=new Thread(new Runnable(){
     public void run(){
-      LibraryTopLevelActivity.Library.synchronize();
+      LibraryBaseActivity.LibraryInstance.synchronize();
     }
   }
 );
