@@ -1,6 +1,0 @@
-{
-  if (myHull == null) {
-    myHull=new HorizontalConvexHull();
-  }
-  return myHull.distanceTo(x,y);
-}

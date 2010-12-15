@@ -1,0 +1,17 @@
+{
+  final Intent intent=new Intent(Intent.ACTION_VIEW);
+  boolean externalUrl=true;
+  if (BookDownloader.acceptsUri(Uri.parse(urlString))) {
+    intent.setClass(myBaseActivity,BookDownloader.class);
+    intent.putExtra(BookDownloaderService.SHOW_NOTIFICATIONS_KEY,BookDownloaderService.Notifications.ALL);
+    externalUrl=false;
+  }
+  final NetworkLibrary nLibrary=NetworkLibrary.Instance();
+  try {
+    nLibrary.initialize();
+  }
+ catch (  ZLNetworkException e) {
+  }
+  intent.setData(Uri.parse(NetworkLibrary.Instance().rewriteUrl(urlString,externalUrl)));
+  myBaseActivity.startActivity(intent);
+}

@@ -4,6 +4,6 @@
     openBook(((BookTree)tree).Book);
   }
  else {
-    new OpenTreeRunnable(myTreePathString + "\000" + tree.getName(),mySelectedBookPath).run();
+    new OpenTreeRunnable(myTreePathString + "\000" + tree.getName()).run();
   }
 }

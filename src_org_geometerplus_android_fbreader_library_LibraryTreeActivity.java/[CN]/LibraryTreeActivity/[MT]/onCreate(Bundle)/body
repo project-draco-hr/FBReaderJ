@@ -12,7 +12,6 @@
     return;
   }
   myTreePathString=intent.getStringExtra(TREE_PATH_KEY);
-  mySelectedBookPath=intent.getStringExtra(SELECTED_BOOK_PATH_KEY);
   final String[] path=myTreePathString.split("\000");
   String title=null;
   if (path.length == 1) {
