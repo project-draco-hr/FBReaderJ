@@ -10,14 +10,14 @@
   setContentView(R.layout.main);
   setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
   getLibrary().setActivity(this);
-  final String fileToOpen=extractFileNameFromIntent(getIntent());
+  final ZLFile fileToOpen=fileFromIntent(getIntent());
   if (((ZLAndroidApplication)getApplication()).myMainWindow == null) {
     ZLApplication application=createApplication(fileToOpen);
     ((ZLAndroidApplication)getApplication()).myMainWindow=new ZLAndroidApplicationWindow(application);
     application.initWindow();
   }
- else   if (fileToOpen != null) {
-    ZLApplication.Instance().openFile(ZLFile.createFileByPath(fileToOpen));
+ else {
+    ZLApplication.Instance().openFile(fileToOpen);
   }
   ZLApplication.Instance().repaintView();
 }

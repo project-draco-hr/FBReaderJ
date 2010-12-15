@@ -1,0 +1,3 @@
+ZLResource resource
+int coverResourceId
+Runnable action

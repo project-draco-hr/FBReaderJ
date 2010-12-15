@@ -1,8 +1,0 @@
-{
-  if (uri.equals(Uri.parse("file:///"))) {
-    return fileNameForEmptyUri();
-  }
- else {
-    return uri.getPath();
-  }
-}

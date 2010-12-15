@@ -1,5 +1,5 @@
 {
-  FormatPlugin plugin=PluginCollection.instance().getPlugin(book.File);
+  FormatPlugin plugin=PluginCollection.Instance().getPlugin(book.File);
   if (plugin == null) {
     return null;
   }

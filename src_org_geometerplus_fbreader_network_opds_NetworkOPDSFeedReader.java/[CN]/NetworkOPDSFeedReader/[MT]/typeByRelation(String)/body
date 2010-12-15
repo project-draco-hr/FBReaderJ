@@ -1,17 +1,17 @@
 {
-  if (rel == null || OPDSConstants.REL_ACQUISITION.equals(rel) || OPDSConstants.REL_ACQUISITION_OPEN.equals(rel)) {
+  if (rel == null || REL_ACQUISITION.equals(rel) || REL_ACQUISITION_OPEN.equals(rel)) {
     return BookReference.Type.DOWNLOAD_FULL;
   }
- else   if (OPDSConstants.REL_ACQUISITION_SAMPLE.equals(rel)) {
+ else   if (REL_ACQUISITION_SAMPLE.equals(rel)) {
     return BookReference.Type.DOWNLOAD_DEMO;
   }
- else   if (OPDSConstants.REL_ACQUISITION_CONDITIONAL.equals(rel)) {
+ else   if (REL_ACQUISITION_CONDITIONAL.equals(rel)) {
     return BookReference.Type.DOWNLOAD_FULL_CONDITIONAL;
   }
- else   if (OPDSConstants.REL_ACQUISITION_SAMPLE_OR_FULL.equals(rel)) {
+ else   if (REL_ACQUISITION_SAMPLE_OR_FULL.equals(rel)) {
     return BookReference.Type.DOWNLOAD_FULL_OR_DEMO;
   }
- else   if (OPDSConstants.REL_ACQUISITION_BUY.equals(rel)) {
+ else   if (REL_ACQUISITION_BUY.equals(rel)) {
     return BookReference.Type.BUY;
   }
  else {

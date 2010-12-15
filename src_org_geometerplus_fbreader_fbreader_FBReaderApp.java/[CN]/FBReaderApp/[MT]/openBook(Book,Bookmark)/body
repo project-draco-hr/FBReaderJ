@@ -1,4 +1,7 @@
 {
+  if (bookmark == null & book.File.getPath().equals(Model.Book.File.getPath())) {
+    return;
+  }
   ZLDialogManager.Instance().wait("loadingBook",new Runnable(){
     public void run(){
       openBookInternal(book,bookmark);

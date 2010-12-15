@@ -1,7 +1,4 @@
 {
   super.onNewIntent(intent);
-  final String fileToOpen=extractFileNameFromIntent(intent);
-  if (fileToOpen != null) {
-    ZLApplication.Instance().openFile(ZLFile.createFileByPath(fileToOpen));
-  }
+  ZLApplication.Instance().openFile(fileFromIntent(intent));
 }

@@ -1,5 +1,5 @@
 {
-  synchronize();
+  waitForState(STATE_FULLY_INITIALIZED);
   mySearchResult.clear();
   if (pattern != null) {
     pattern=pattern.toLowerCase();

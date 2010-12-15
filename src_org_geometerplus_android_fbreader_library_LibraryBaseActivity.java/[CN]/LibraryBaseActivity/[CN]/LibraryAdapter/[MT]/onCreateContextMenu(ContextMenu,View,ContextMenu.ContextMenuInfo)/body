@@ -1,0 +1,17 @@
+{
+  final int position=((AdapterView.AdapterContextMenuInfo)menuInfo).position;
+  final LibraryTree tree=(LibraryTree)getItem(position);
+  if (tree instanceof BookTree) {
+    menu.setHeaderTitle(tree.getName());
+    menu.add(0,OPEN_BOOK_ITEM_ID,0,myResource.getResource("openBook").getValue());
+    if (Library.isBookInFavorites(((BookTree)tree).Book)) {
+      menu.add(0,REMOVE_FROM_FAVORITES_ITEM_ID,0,myResource.getResource("removeFromFavorites").getValue());
+    }
+ else {
+      menu.add(0,ADD_TO_FAVORITES_ITEM_ID,0,myResource.getResource("addToFavorites").getValue());
+    }
+    if ((Library.getRemoveBookMode(((BookTree)tree).Book) & Library.REMOVE_FROM_DISK) != 0) {
+      menu.add(0,DELETE_BOOK_ITEM_ID,0,myResource.getResource("deleteBook").getValue());
+    }
+  }
+}

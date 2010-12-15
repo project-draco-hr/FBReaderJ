@@ -3,7 +3,7 @@
   myFBReaderNamespaceId=null;
   for (  Map.Entry<String,String> entry : namespaceMap.entrySet()) {
     final String value=entry.getValue();
-    if (value == XMLNamespace.FBReaderCatalogMetadata) {
+    if (value == XMLNamespaces.FBReaderCatalogMetadata) {
       myFBReaderNamespaceId=intern(entry.getKey());
     }
   }
