@@ -1,22 +1,2 @@
 {
-  final int position=((AdapterView.AdapterContextMenuInfo)item.getMenuInfo()).position;
-  final FBTree tree=((LibraryAdapter)getListAdapter()).getItem(position);
-  if (tree instanceof BookTree) {
-    final BookTree bookTree=(BookTree)tree;
-switch (item.getItemId()) {
-case OPEN_BOOK_ITEM_ID:
-      openBook(bookTree.Book);
-    return true;
-case ADD_TO_FAVORITES_ITEM_ID:
-  LibraryInstance.addBookToFavorites(bookTree.Book);
-return true;
-case REMOVE_FROM_FAVORITES_ITEM_ID:
-LibraryInstance.removeBookFromFavorites(bookTree.Book);
-getListView().invalidateViews();
-return true;
-case DELETE_BOOK_ITEM_ID:
-return true;
-}
-}
-return super.onContextItemSelected(item);
 }
