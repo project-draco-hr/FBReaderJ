@@ -1,6 +1,4 @@
 {
   super.onCreate(icicle);
   setResult(RESULT_DONT_INVALIDATE_VIEWS);
-  Thread.setDefaultUncaughtExceptionHandler(new org.geometerplus.zlibrary.ui.android.library.UncaughtExceptionHandler(this));
-  mySelectedBookPath=getIntent().getStringExtra(SELECTED_BOOK_PATH_KEY);
 }

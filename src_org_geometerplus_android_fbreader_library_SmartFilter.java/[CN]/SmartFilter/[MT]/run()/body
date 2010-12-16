@@ -1,8 +1,3 @@
 {
-  try {
-    getItems();
-  }
- catch (  Exception e) {
-    Log.e(FileManager.LOG,e.getMessage());
-  }
+  getItems();
 }

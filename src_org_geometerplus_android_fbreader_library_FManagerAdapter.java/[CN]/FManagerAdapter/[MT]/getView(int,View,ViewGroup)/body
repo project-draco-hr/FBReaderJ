@@ -36,7 +36,6 @@
         data=mgr.getImageData(cover);
       }
       if (data != null) {
-        Log.v(FileManager.LOG,"data != null");
         coverBitmap=data.getBitmap(2 * myCoverWidth,2 * myCoverHeight);
       }
     }

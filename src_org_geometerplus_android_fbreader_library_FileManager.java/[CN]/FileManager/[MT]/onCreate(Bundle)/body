@@ -1,5 +1,4 @@
 {
-  Log.v(LOG,"onCreate()");
   super.onCreate(savedInstanceState);
   FManagerAdapter adapter=new FManagerAdapter(this);
   setListAdapter(adapter);
