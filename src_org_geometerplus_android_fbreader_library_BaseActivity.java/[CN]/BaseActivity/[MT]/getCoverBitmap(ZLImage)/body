@@ -16,5 +16,5 @@
  else {
     data=mgr.getImageData(cover);
   }
-  return data != null ? data.getBitmap(2 * width,2 * height) : null;
+  return data != null ? data.getBitmap(2 * myCoverWidth,2 * myCoverHeight) : null;
 }
