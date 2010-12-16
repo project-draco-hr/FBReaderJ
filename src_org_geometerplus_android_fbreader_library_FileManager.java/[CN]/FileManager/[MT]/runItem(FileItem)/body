@@ -1,14 +1,10 @@
 {
   final ZLFile file=item.getFile();
-  if (file.isArchive() && file.getPath().endsWith("epub")) {
-    openBook(file.getPath());
+  final Book book=item.getBook();
+  if (book != null) {
+    openBook(book);
   }
  else   if (file.isDirectory() || file.isArchive()) {
-    Intent i=new Intent(this,FileManager.class);
-    i.putExtra(FILE_MANAGER_PATH,file.getPath());
-    startActivity(i);
-  }
- else {
-    openBook(file.getPath());
+    startActivity(new Intent(this,FileManager.class).putExtra(SELECTED_BOOK_PATH_KEY,mySelectedBookPath).putExtra(FILE_MANAGER_PATH,file.getPath()));
   }
 }
