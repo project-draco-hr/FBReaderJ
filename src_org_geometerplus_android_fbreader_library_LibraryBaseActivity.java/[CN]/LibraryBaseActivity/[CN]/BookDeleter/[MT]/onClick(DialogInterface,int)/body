@@ -1,0 +1,5 @@
+{
+  LibraryInstance.removeBook(myBook,myMode);
+  getListView().invalidateViews();
+  setResult(RESULT_DO_INVALIDATE_VIEWS);
+}

@@ -1,6 +1,0 @@
-{
-  Hyperlink=hyperlink;
-  myList=list;
-  myFromIndex=fromIndex;
-  myToIndex=fromIndex + 1;
-}

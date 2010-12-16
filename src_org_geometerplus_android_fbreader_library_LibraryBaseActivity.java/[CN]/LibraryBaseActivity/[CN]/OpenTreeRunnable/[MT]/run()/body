@@ -1,7 +1,7 @@
 {
   final Runnable postRunnable=new Runnable(){
     public void run(){
-      startActivity(new Intent(LibraryBaseActivity.this,LibraryTreeActivity.class).putExtra(SELECTED_BOOK_PATH_KEY,mySelectedBookPath).putExtra(TREE_PATH_KEY,myTreePath).putExtra(PARAMETER_KEY,myParameter));
+      startActivityForResult(new Intent(LibraryBaseActivity.this,LibraryTreeActivity.class).putExtra(SELECTED_BOOK_PATH_KEY,mySelectedBookPath).putExtra(TREE_PATH_KEY,myTreePath).putExtra(PARAMETER_KEY,myParameter),CHILD_LIST_REQUEST);
     }
   }
 ;

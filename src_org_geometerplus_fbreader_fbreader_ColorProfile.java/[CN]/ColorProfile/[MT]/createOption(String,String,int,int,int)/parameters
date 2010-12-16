@@ -1,0 +1,5 @@
+String profileName
+String optionName
+int r
+int g
+int b

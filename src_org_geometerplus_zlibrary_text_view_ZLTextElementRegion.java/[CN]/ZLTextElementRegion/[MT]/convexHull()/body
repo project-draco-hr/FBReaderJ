@@ -1,0 +1,6 @@
+{
+  if (myHull == null) {
+    myHull=new ZLTextHorizontalConvexHull(textAreas());
+  }
+  return myHull;
+}

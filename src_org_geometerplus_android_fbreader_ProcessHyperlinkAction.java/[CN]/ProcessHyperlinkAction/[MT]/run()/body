@@ -1,0 +1,33 @@
+{
+  final ZLTextHyperlink hyperlink=Reader.getTextView().getCurrentHyperlink();
+  if (hyperlink != null) {
+switch (hyperlink.Type) {
+case FBHyperlinkType.EXTERNAL:
+      openInBrowser(hyperlink.Id);
+    break;
+case FBHyperlinkType.INTERNAL:
+  Reader.tryOpenFootnote(hyperlink.Id);
+break;
+}
+return;
+}
+final String text=Reader.getTextView().getSelectedText();
+if (text != null) {
+int start=0;
+int end=text.length();
+for (; start < end && !Character.isLetterOrDigit(text.charAt(start)); ++start) ;
+for (; start < end && !Character.isLetterOrDigit(text.charAt(end - 1)); --end) ;
+if (start == end) {
+return;
+}
+Intent intent=new Intent(Intent.ACTION_SEARCH);
+intent.setComponent(new ComponentName("com.socialnmobile.colordict","com.socialnmobile.colordict.activity.Main"));
+intent.putExtra(SearchManager.QUERY,text.substring(start,end));
+try {
+myBaseActivity.startActivity(intent);
+}
+ catch (ActivityNotFoundException e) {
+Toast.makeText(myBaseActivity,ZLResource.resource("errorMessage").getResource("dictNotInstalled").getValue(),Toast.LENGTH_LONG).show();
+}
+}
+}
