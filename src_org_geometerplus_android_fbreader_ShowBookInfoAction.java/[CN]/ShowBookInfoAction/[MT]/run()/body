@@ -1,4 +1,3 @@
 {
-  final Intent intent=new Intent(myBaseActivity.getApplicationContext(),BookStatusActivity.class);
-  myBaseActivity.startActivityForResult(intent,FBReader.REPAINT_CODE);
+  myBaseActivity.startActivityForResult(new Intent(myBaseActivity.getApplicationContext(),BookStatusActivity.class).putExtra(BookStatusActivity.CURRENT_BOOK_PATH_KEY,Reader.Model.Book.File.getPath()),FBReader.REPAINT_CODE);
 }

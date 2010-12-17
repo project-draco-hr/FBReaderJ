@@ -1,10 +1,12 @@
 {
   super.onCreate(savedInstanceState);
-  final FBReaderApp fbreader=(FBReaderApp)FBReaderApp.Instance();
-  if (fbreader == null || fbreader.Model == null || fbreader.Model.Book == null) {
-    finish();
-    return;
+  Thread.setDefaultUncaughtExceptionHandler(new org.geometerplus.zlibrary.ui.android.library.UncaughtExceptionHandler(this));
+  if (SQLiteBooksDatabase.Instance() == null) {
+    new SQLiteBooksDatabase(this,"LIBRARY");
   }
+  final String path=getIntent().getStringExtra(CURRENT_BOOK_PATH_KEY);
+  final ZLFile file=ZLFile.createFileByPath(path);
+  myBook=Book.getByFile(file);
   requestWindowFeature(Window.FEATURE_NO_TITLE);
   setContentView(R.layout.book_info);
 }

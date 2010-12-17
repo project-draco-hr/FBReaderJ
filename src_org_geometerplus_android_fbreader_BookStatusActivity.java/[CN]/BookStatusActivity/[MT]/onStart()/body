@@ -1,10 +1,8 @@
 {
   super.onStart();
-  final ZLFile bookFile=((FBReaderApp)FBReaderApp.Instance()).Model.Book.File;
-  final Book book=Book.getByFile(bookFile);
-  setupCover(book);
-  setupBookInfo(book);
-  setupFileInfo(book);
+  setupCover(myBook);
+  setupBookInfo(myBook);
+  setupFileInfo(myBook);
   final View root=findViewById(R.id.book_info_root);
   root.invalidate();
   root.requestLayout();

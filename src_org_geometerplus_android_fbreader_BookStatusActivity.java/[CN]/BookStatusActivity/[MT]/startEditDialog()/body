@@ -1,9 +1,5 @@
 {
   final Intent intent=new Intent(getApplicationContext(),BookInfoActivity.class);
-  final BookModel model=((FBReaderApp)FBReaderApp.Instance()).Model;
-  if (model != null && model.Book != null) {
-    final ZLFile file=model.Book.File;
-    intent.putExtra(BookInfoActivity.CURRENT_BOOK_PATH_KEY,file.getPath());
-  }
+  intent.putExtra(BookInfoActivity.CURRENT_BOOK_PATH_KEY,myBook.File.getPath());
   startActivity(intent);
 }
