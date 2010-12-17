@@ -5,6 +5,6 @@
     openBook(book);
   }
  else   if (file.isDirectory() || file.isArchive()) {
-    startActivity(new Intent(this,FileManager.class).putExtra(SELECTED_BOOK_PATH_KEY,mySelectedBookPath).putExtra(FILE_MANAGER_PATH,file.getPath()));
+    startActivityForResult(new Intent(this,FileManager.class).putExtra(SELECTED_BOOK_PATH_KEY,mySelectedBookPath).putExtra(FILE_MANAGER_PATH,file.getPath()),CHILD_LIST_REQUEST);
   }
 }

@@ -1,26 +1,9 @@
 {
   final int position=((AdapterView.AdapterContextMenuInfo)item.getMenuInfo()).position;
-  final FManagerAdapter adapter=(FManagerAdapter)getListAdapter();
-  final FileItem fileItem=adapter.getItem(position);
+  final FileItem fileItem=((FileListAdapter)getListAdapter()).getItem(position);
   final Book book=fileItem.getBook();
   if (book != null) {
-switch (item.getItemId()) {
-case OPEN_BOOK_ITEM_ID:
-      openBook(book);
-    return true;
-case ADD_TO_FAVORITES_ITEM_ID:
-  LibraryInstance.addBookToFavorites(book);
-return true;
-case REMOVE_FROM_FAVORITES_ITEM_ID:
-LibraryInstance.removeBookFromFavorites(book);
-getListView().invalidateViews();
-return true;
-case DELETE_BOOK_ITEM_ID:
-adapter.remove(fileItem);
-adapter.notifyDataSetChanged();
-book.File.getPhysicalFile().delete();
-return true;
-}
-}
-return super.onContextItemSelected(item);
+    return onContextItemSelected(item.getItemId(),book);
+  }
+  return super.onContextItemSelected(item);
 }

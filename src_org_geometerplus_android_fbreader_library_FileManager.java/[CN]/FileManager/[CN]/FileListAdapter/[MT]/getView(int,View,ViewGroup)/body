@@ -1,0 +1,19 @@
+{
+  final FileItem item=getItem(position);
+  final View view=createView(convertView,parent,item.getName(),item.getSummary());
+  if (mySelectedBookPath != null && mySelectedBookPath.equals(item.getFile().getPath())) {
+    view.setBackgroundColor(0xff808080);
+  }
+ else {
+    view.setBackgroundColor(0);
+  }
+  final ImageView coverView=getCoverView(view);
+  final Bitmap coverBitmap=getCoverBitmap(item.getCover());
+  if (coverBitmap != null) {
+    coverView.setImageBitmap(coverBitmap);
+  }
+ else {
+    coverView.setImageResource(item.getIcon());
+  }
+  return view;
+}

@@ -1,25 +1,24 @@
 {
   super.onCreate(savedInstanceState);
-  FManagerAdapter adapter=new FManagerAdapter();
+  FileListAdapter adapter=new FileListAdapter();
   setListAdapter(adapter);
   final Bundle extras=getIntent().getExtras();
-  final String path=extras != null ? extras.getString(FILE_MANAGER_PATH) : null;
-  if (path == null) {
+  myPath=extras != null ? extras.getString(FILE_MANAGER_PATH) : null;
+  if (myPath == null) {
     setTitle(myResource.getResource("fileTree").getValue());
     addItem(Paths.BooksDirectoryOption().getValue(),"fileTreeLibrary");
     addItem("/","fileTreeRoot");
     addItem(Environment.getExternalStorageDirectory().getPath(),"fileTreeCard");
   }
  else {
-    setTitle(path);
-    final SmartFilter filter=new SmartFilter(ZLFile.createFileByPath(path));
-    new Thread(filter).start();
+    setTitle(myPath);
+    startUpdate();
   }
   getListView().setOnCreateContextMenuListener(adapter);
   getListView().setTextFilterEnabled(true);
   getListView().setOnItemClickListener(new AdapterView.OnItemClickListener(){
     public void onItemClick(    AdapterView<?> parent,    View view,    int position,    long id){
-      runItem(((FManagerAdapter)getListAdapter()).getItem(position));
+      runItem(((FileListAdapter)getListAdapter()).getItem(position));
     }
   }
 );

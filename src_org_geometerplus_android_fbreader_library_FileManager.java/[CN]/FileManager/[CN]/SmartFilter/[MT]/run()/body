@@ -5,7 +5,7 @@
         break;
       }
       if (file.isDirectory() || file.isArchive() || PluginCollection.Instance().getPlugin(file) != null) {
-        final FManagerAdapter adapter=(FManagerAdapter)getListAdapter();
+        final FileListAdapter adapter=(FileListAdapter)getListAdapter();
         adapter.add(new FileItem(file));
         runOnUiThread(new Runnable(){
           public void run(){

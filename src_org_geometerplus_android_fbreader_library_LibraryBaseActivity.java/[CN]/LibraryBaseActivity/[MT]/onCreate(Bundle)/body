@@ -1,4 +1,0 @@
-{
-  super.onCreate(icicle);
-  setResult(RESULT_DONT_INVALIDATE_VIEWS);
-}
