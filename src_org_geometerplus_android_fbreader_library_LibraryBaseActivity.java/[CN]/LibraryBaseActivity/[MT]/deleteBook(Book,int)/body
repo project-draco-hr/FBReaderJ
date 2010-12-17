@@ -1,0 +1,4 @@
+{
+  super.deleteBook(book,mode);
+  getListView().invalidateViews();
+}

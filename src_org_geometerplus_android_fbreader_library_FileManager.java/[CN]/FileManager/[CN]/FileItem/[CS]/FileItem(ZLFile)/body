@@ -1,0 +1,18 @@
+{
+  if (file.isArchive() && file.getPath().endsWith(".fb2.zip")) {
+    final List<ZLFile> children=file.children();
+    if (children.size() == 1) {
+      final ZLFile child=children.get(0);
+      if (child.getPath().endsWith(".fb2")) {
+        final String fileName=file.getName(false);
+        myFile=child;
+        myName=fileName.substring(fileName.lastIndexOf('/') + 1);
+        mySummary=null;
+        return;
+      }
+    }
+  }
+  myFile=file;
+  myName=null;
+  mySummary=null;
+}

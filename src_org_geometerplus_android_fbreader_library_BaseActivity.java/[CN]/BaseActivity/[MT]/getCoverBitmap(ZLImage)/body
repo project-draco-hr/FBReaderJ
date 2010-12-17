@@ -1,0 +1,20 @@
+{
+  if (cover == null) {
+    return null;
+  }
+  ZLAndroidImageData data=null;
+  final ZLAndroidImageManager mgr=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
+  if (cover instanceof ZLLoadableImage) {
+    final ZLLoadableImage img=(ZLLoadableImage)cover;
+    if (img.isSynchronized()) {
+      data=mgr.getImageData(img);
+    }
+ else {
+      ZLAndroidImageLoader.Instance().startImageLoading(img,myInvalidateViewsRunnable);
+    }
+  }
+ else {
+    data=mgr.getImageData(cover);
+  }
+  return data != null ? data.getBitmap(2 * myCoverWidth,2 * myCoverHeight) : null;
+}

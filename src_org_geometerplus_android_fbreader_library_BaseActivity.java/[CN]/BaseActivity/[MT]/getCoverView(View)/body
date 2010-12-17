@@ -1,0 +1,14 @@
+{
+  if (myCoverWidth == -1) {
+    parent.measure(ViewGroup.LayoutParams.FILL_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+    myCoverHeight=parent.getMeasuredHeight();
+    myCoverWidth=myCoverHeight * 15 / 32;
+    parent.requestLayout();
+  }
+  final ImageView coverView=(ImageView)parent.findViewById(R.id.library_tree_item_icon);
+  coverView.getLayoutParams().width=myCoverWidth;
+  coverView.getLayoutParams().height=myCoverHeight;
+  coverView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+  coverView.requestLayout();
+  return coverView;
+}

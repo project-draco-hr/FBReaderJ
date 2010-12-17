@@ -1,0 +1,5 @@
+{
+  myFile=file;
+  myName=name;
+  mySummary=summary;
+}

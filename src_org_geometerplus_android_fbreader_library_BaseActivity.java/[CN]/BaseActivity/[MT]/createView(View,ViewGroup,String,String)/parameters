@@ -1,0 +1,4 @@
+View convertView
+ViewGroup parent
+String name
+String summary

@@ -1,0 +1,5 @@
+{
+  super.deleteBook(book,mode);
+  ((FileListAdapter)getListAdapter()).deleteFile(book.File);
+  getListView().invalidateViews();
+}
