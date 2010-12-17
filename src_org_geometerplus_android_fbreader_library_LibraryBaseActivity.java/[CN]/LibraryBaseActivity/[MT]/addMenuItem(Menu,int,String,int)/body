@@ -1,0 +1,7 @@
+{
+  final String label=myResource.getResource("menu").getResource(resourceKey).getValue();
+  final MenuItem item=menu.add(0,index,Menu.NONE,label);
+  item.setOnMenuItemClickListener(this);
+  item.setIcon(iconId);
+  return item;
+}

@@ -1,0 +1,8 @@
+{
+switch (item.getItemId()) {
+case 1:
+    return onSearchRequested();
+default :
+  return true;
+}
+}
