@@ -1,0 +1,4 @@
+{
+  final String label=myResource.getResource("menu").getResource(resourceKey).getValue();
+  return menu.add(0,index,Menu.NONE,label).setIcon(iconId);
+}

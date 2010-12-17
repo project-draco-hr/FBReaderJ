@@ -1,0 +1,17 @@
+{
+  if (size <= 0) {
+    return null;
+  }
+  final int kilo=1024;
+  if (size < kilo) {
+    return myResource.getResource("sizeInBytes").getValue().replaceAll("%s",String.valueOf(size));
+  }
+  final String value;
+  if (size < kilo * kilo) {
+    value=String.format("%.2f",((float)size) / kilo);
+  }
+ else {
+    value=String.valueOf(size / kilo);
+  }
+  return myResource.getResource("sizeInKiloBytes").getValue().replaceAll("%s",value);
+}
