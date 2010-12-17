@@ -10,7 +10,7 @@
     final ZLAndroidImageManager mgr=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
     if (cover instanceof ZLLoadableImage) {
       final ZLLoadableImage img=(ZLLoadableImage)cover;
-      ZLAndroidImageLoader.Instance().startImageLoading(img,new Runnable(){
+      img.startSynchronization(new Runnable(){
         public void run(){
           img.synchronizeFast();
           final ZLAndroidImageData data=mgr.getImageData(img);
