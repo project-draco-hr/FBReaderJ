@@ -7,7 +7,7 @@
   final String[] parameters={null};
   FileInfo current=null;
   for (  ZLFile f : fileStack) {
-    parameters[0]=f.getName(false);
+    parameters[0]=f.getLongName();
     final Cursor cursor=myDatabase.rawQuery((current == null) ? "SELECT file_id,size FROM Files WHERE name = ?" : "SELECT file_id,size FROM Files WHERE parent_id = " + current.Id + " AND name = ?",parameters);
     if (cursor.moveToNext()) {
       current=createFileInfo(cursor.getLong(0),parameters[0],current);

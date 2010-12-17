@@ -1,8 +1,8 @@
 {
-  final String name=getNameWithExtension();
+  final String name=getLongName();
   final int index=name.lastIndexOf('.');
-  myNameWithoutExtension=(index != -1) ? name.substring(0,index) : name;
-  myExtension=(index != -1) ? name.substring(index + 1).toLowerCase().intern() : "";
+  myExtension=(index > 0) ? name.substring(index + 1).toLowerCase().intern() : "";
+  myShortName=name.substring(name.lastIndexOf('/') + 1);
   int archiveType=ArchiveType.NONE;
   if (myExtension == "zip") {
     archiveType|=ArchiveType.ZIP;
