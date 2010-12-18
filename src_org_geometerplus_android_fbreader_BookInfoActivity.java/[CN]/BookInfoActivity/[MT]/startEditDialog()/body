@@ -1,0 +1,5 @@
+{
+  final Intent intent=new Intent(getApplicationContext(),EditBookInfoActivity.class);
+  intent.putExtra(CURRENT_BOOK_PATH_KEY,myBook.File.getPath());
+  startActivity(intent);
+}
