@@ -7,20 +7,20 @@
     findButton(R.id.book_info_button_open).setVisibility(View.GONE);
   }
  else {
-    setupButton(R.id.book_info_button_open,"open",new View.OnClickListener(){
+    setupButton(R.id.book_info_button_open,"openBook",new View.OnClickListener(){
       @Override public void onClick(      View view){
         startActivity(new Intent(getApplicationContext(),FBReader.class).setAction(Intent.ACTION_VIEW).putExtra(FBReader.BOOK_PATH_KEY,myBook.File.getPath()).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
       }
     }
 );
   }
-  setupButton(R.id.book_info_button_edit,"edit",new View.OnClickListener(){
+  setupButton(R.id.book_info_button_edit,"editInfo",new View.OnClickListener(){
     @Override public void onClick(    View view){
       startActivity(new Intent(getApplicationContext(),EditBookInfoActivity.class).putExtra(CURRENT_BOOK_PATH_KEY,myBook.File.getPath()));
     }
   }
 );
-  setupButton(R.id.book_info_button_reload,"reload",new View.OnClickListener(){
+  setupButton(R.id.book_info_button_reload,"reloadInfo",new View.OnClickListener(){
     @Override public void onClick(    View view){
     }
   }
