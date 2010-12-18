@@ -1,3 +1,0 @@
-{
-  return new FB2CoverReader().readCover(book.File);
-}

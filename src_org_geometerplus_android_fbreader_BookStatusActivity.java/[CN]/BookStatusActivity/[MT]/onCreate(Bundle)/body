@@ -1,11 +1,12 @@
 {
   super.onCreate(savedInstanceState);
   Thread.setDefaultUncaughtExceptionHandler(new org.geometerplus.zlibrary.ui.android.library.UncaughtExceptionHandler(this));
+  final String path=getIntent().getStringExtra(CURRENT_BOOK_PATH_KEY);
+  final ZLFile file=ZLFile.createFileByPath(path);
+  myImage=Library.getCover(file);
   if (SQLiteBooksDatabase.Instance() == null) {
     new SQLiteBooksDatabase(this,"LIBRARY");
   }
-  final String path=getIntent().getStringExtra(CURRENT_BOOK_PATH_KEY);
-  final ZLFile file=ZLFile.createFileByPath(path);
   myBook=Book.getByFile(file);
   requestWindowFeature(Window.FEATURE_NO_TITLE);
   setContentView(R.layout.book_info);
