@@ -9,7 +9,8 @@
   runnables=new LinkedList<Runnable>();
   runnables.add(postLoadingRunnable);
   myOnImageSyncRunnables.put(image.getId(),runnables);
-  myPool.execute(new Runnable(){
+  final ExecutorService pool=image.sourceType() == ZLLoadableImage.SourceType.DISK ? mySinglePool : myPool;
+  pool.execute(new Runnable(){
     public void run(){
       image.synchronize();
       myImageSynchronizedHandler.fireMessage(image.getId());
