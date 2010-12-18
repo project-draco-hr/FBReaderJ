@@ -3,6 +3,9 @@
   setupCover(myBook);
   setupBookInfo(myBook);
   setupFileInfo(myBook);
+  setButtonText(R.id.book_info_button_open,"open");
+  setButtonText(R.id.book_info_button_edit,"edit");
+  setButtonText(R.id.book_info_button_reload,"reload");
   final View root=findViewById(R.id.book_info_root);
   root.invalidate();
   root.requestLayout();

@@ -8,7 +8,10 @@
     return;
   }
   if (myImage instanceof ZLLoadableImage) {
-    ((ZLLoadableImage)myImage).synchronize();
+    final ZLLoadableImage loadableImage=(ZLLoadableImage)myImage;
+    if (!loadableImage.isSynchronized()) {
+      loadableImage.synchronize();
+    }
   }
   final ZLAndroidImageData data=((ZLAndroidImageManager)ZLAndroidImageManager.Instance()).getImageData(myImage);
   if (data == null) {
