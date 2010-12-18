@@ -4,18 +4,13 @@
   final int maxWidth=maxHeight * 3 / 4;
   coverView.setVisibility(View.GONE);
   coverView.setImageDrawable(null);
-  final FormatPlugin plugin=PluginCollection.Instance().getPlugin(book.File);
-  if (plugin == null) {
+  if (myImage == null) {
     return;
   }
-  final ZLImage image=plugin.readCover(book);
-  if (image == null) {
-    return;
+  if (myImage instanceof ZLLoadableImage) {
+    ((ZLLoadableImage)myImage).synchronize();
   }
-  if (image instanceof ZLLoadableImage) {
-    ((ZLLoadableImage)image).synchronize();
-  }
-  final ZLAndroidImageData data=((ZLAndroidImageManager)ZLAndroidImageManager.Instance()).getImageData(image);
+  final ZLAndroidImageData data=((ZLAndroidImageManager)ZLAndroidImageManager.Instance()).getImageData(myImage);
   if (data == null) {
     return;
   }
