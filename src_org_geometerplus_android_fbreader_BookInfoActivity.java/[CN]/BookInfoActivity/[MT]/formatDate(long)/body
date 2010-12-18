@@ -1,0 +1,6 @@
+{
+  if (date == 0) {
+    return null;
+  }
+  return DateFormat.getDateTimeInstance().format(new Date(date));
+}

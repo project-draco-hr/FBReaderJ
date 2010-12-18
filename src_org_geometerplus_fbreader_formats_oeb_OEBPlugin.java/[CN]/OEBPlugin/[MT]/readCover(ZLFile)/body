@@ -1,0 +1,4 @@
+{
+  final ZLFile opfFile=getOpfFile(file);
+  return (opfFile != null) ? new OEBCoverReader().readCover(opfFile) : null;
+}

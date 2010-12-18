@@ -1,0 +1,28 @@
+{
+  final ImageView coverView=(ImageView)findViewById(R.id.book_cover);
+  final int maxHeight=250;
+  final int maxWidth=maxHeight * 3 / 4;
+  coverView.setVisibility(View.GONE);
+  coverView.setImageDrawable(null);
+  if (myImage == null) {
+    return;
+  }
+  if (myImage instanceof ZLLoadableImage) {
+    final ZLLoadableImage loadableImage=(ZLLoadableImage)myImage;
+    if (!loadableImage.isSynchronized()) {
+      loadableImage.synchronize();
+    }
+  }
+  final ZLAndroidImageData data=((ZLAndroidImageManager)ZLAndroidImageManager.Instance()).getImageData(myImage);
+  if (data == null) {
+    return;
+  }
+  final Bitmap coverBitmap=data.getBitmap(2 * maxWidth,2 * maxHeight);
+  if (coverBitmap == null) {
+    return;
+  }
+  coverView.setVisibility(View.VISIBLE);
+  coverView.getLayoutParams().width=maxWidth;
+  coverView.getLayoutParams().height=maxHeight;
+  coverView.setImageBitmap(coverBitmap);
+}

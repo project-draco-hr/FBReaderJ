@@ -1,0 +1,10 @@
+{
+  if (SQLiteBooksDatabase.Instance() == null) {
+    new SQLiteBooksDatabase(this,"LIBRARY");
+  }
+  final String path=intent.getStringExtra(BookInfoActivity.CURRENT_BOOK_PATH_KEY);
+  final ZLFile file=ZLFile.createFileByPath(path);
+  myBook=Book.getByFile(file);
+  addPreference(new BookTitlePreference(this,Resource,"title",myBook));
+  addPreference(new LanguagePreference(this,Resource,"language",myBook));
+}

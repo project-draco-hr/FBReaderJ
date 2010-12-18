@@ -1,0 +1,15 @@
+{
+  ((TextView)findViewById(R.id.file_info_title)).setText(myResource.getResource("fileInfo").getValue());
+  setupInfoPair(R.id.file_name,"name",book.File.getPath());
+  setupInfoPair(R.id.file_type,"type",book.File.getExtension());
+  final ZLFile physFile=book.File.getPhysicalFile();
+  final File file=physFile == null ? null : new File(physFile.getPath());
+  if (file != null && file.exists() && file.isFile()) {
+    setupInfoPair(R.id.file_size,"size",formatSize(file.length()));
+    setupInfoPair(R.id.file_time,"time",formatDate(file.lastModified()));
+  }
+ else {
+    setupInfoPair(R.id.file_size,"size",null);
+    setupInfoPair(R.id.file_time,"time",null);
+  }
+}

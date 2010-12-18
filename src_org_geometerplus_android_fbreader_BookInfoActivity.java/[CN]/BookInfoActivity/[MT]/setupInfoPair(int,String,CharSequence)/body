@@ -1,0 +1,10 @@
+{
+  LinearLayout layout=(LinearLayout)findViewById(id);
+  if (value == null || value.length() == 0) {
+    layout.setVisibility(View.GONE);
+    return;
+  }
+  layout.setVisibility(View.VISIBLE);
+  ((TextView)layout.findViewById(R.id.book_info_key)).setText(myResource.getResource(key).getValue());
+  ((TextView)layout.findViewById(R.id.book_info_value)).setText(value);
+}
