@@ -1,0 +1,6 @@
+{
+  final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
+  final Button button=findButton(buttonId);
+  button.setText(buttonResource.getResource(resourceKey).getValue());
+  button.setOnClickListener(listener);
+}

@@ -1,5 +1,0 @@
-{
-  super.onCreateOptionsMenu(menu);
-  addMenuItem(menu,MENU_EDIT,"edit",android.R.drawable.ic_menu_edit);
-  return true;
-}

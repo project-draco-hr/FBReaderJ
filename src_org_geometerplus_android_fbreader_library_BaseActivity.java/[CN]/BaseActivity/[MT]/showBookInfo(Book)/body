@@ -1,0 +1,3 @@
+{
+  startActivity(new Intent(getApplicationContext(),BookInfoActivity.class).putExtra(BookInfoActivity.CURRENT_BOOK_PATH_KEY,book.File.getPath()));
+}

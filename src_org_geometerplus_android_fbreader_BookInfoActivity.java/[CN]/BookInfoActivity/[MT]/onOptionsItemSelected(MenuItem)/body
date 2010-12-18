@@ -1,9 +1,0 @@
-{
-switch (item.getItemId()) {
-case MENU_EDIT:
-    startEditDialog();
-  return true;
-default :
-return true;
-}
-}
