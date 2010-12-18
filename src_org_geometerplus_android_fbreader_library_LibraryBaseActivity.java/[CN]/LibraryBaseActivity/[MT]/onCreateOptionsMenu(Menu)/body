@@ -1,0 +1,5 @@
+{
+  super.onCreateOptionsMenu(menu);
+  addMenuItem(menu,1,"localSearch",R.drawable.ic_menu_search);
+  return true;
+}

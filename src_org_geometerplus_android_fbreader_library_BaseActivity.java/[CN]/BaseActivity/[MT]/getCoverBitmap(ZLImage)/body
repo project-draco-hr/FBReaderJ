@@ -10,7 +10,7 @@
       data=mgr.getImageData(img);
     }
  else {
-      ZLAndroidImageLoader.Instance().startImageLoading(img,myInvalidateViewsRunnable);
+      img.startSynchronization(myInvalidateViewsRunnable);
     }
   }
  else {

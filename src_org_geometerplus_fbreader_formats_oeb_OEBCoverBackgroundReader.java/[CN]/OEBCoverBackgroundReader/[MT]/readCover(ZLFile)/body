@@ -12,6 +12,7 @@
         myImage=new ZLFileImage(MIME_IMAGE_AUTO,coverFile);
       }
  else {
+        myXHTMLPathPrefix=MiscUtil.htmlDirectoryPrefix(coverFile);
         new XHTMLImageFinder().read(coverFile);
       }
     }

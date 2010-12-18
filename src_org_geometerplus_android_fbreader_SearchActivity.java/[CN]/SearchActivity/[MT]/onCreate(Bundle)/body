@@ -14,7 +14,7 @@
 ;
     final Handler failureHandler=new Handler(){
       public void handleMessage(      Message message){
-        Toast.makeText(getParentActivity(),ZLResource.resource("errorMessage").getResource(getFailureMessageResourceKey()).getValue(),Toast.LENGTH_SHORT).show();
+        UIUtil.showErrorMessage(getParentActivity(),getFailureMessageResourceKey());
       }
     }
 ;

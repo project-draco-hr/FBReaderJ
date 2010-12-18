@@ -1,7 +1,3 @@
 {
-  if (myName != null) {
-    return myName;
-  }
-  final String fileName=myFile.getName(false);
-  return fileName.substring(fileName.lastIndexOf('/') + 1);
+  return myName != null ? myName : myFile.getShortName();
 }

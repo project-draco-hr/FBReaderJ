@@ -1,0 +1,3 @@
+{
+  myDatabase.execSQL("UPDATE Files SET size = size + 1");
+}
