@@ -1,0 +1,9 @@
+{
+  myDescriptionTag=null;
+  for (  Map.Entry<String,String> entry : namespaceMap.entrySet()) {
+    final String id=entry.getValue();
+    if (id.startsWith(DublinCorePrefix) || id.startsWith(DublinCoreLegacyPrefix)) {
+      myDescriptionTag=entry.getKey() + ":description";
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  if (tag.equalsIgnoreCase(myDescriptionTag)) {
+    myReadState=READ_DESCRIPTION;
+  }
+ else   if (myReadState == READ_DESCRIPTION) {
+    myBuffer.append(" ");
+  }
+  return false;
+}

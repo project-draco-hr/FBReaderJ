@@ -1,4 +1,4 @@
 {
   final ZLFile opfFile=getOpfFile(file);
-  return null;
+  return (opfFile != null) ? new OEBAnnotationReader().readAnnotation(opfFile) : null;
 }

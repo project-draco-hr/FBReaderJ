@@ -1,0 +1,11 @@
+{
+  if (myReadState != READ_DESCRIPTION) {
+    return false;
+  }
+  tag=tag.toLowerCase();
+  if (tag.equalsIgnoreCase(myDescriptionTag)) {
+    return true;
+  }
+  myBuffer.append(" ");
+  return false;
+}

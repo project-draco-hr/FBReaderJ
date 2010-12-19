@@ -1,0 +1,5 @@
+{
+  if (myReadState == READ_DESCRIPTION) {
+    myBuffer.append(new String(data,start,len).trim());
+  }
+}
