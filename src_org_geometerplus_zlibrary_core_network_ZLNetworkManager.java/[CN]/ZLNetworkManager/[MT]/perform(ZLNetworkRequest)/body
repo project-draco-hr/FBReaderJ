@@ -18,7 +18,7 @@
     if (response == HttpURLConnection.HTTP_OK) {
       InputStream stream=httpConnection.getInputStream();
       try {
-        request.doHandleStream(httpConnection,stream);
+        doHandleStream(request,httpConnection,stream);
       }
   finally {
         stream.close();
