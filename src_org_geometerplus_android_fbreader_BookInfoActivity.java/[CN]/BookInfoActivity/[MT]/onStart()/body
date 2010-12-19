@@ -2,6 +2,7 @@
   super.onStart();
   setupCover(myBook);
   setupBookInfo(myBook);
+  setupAnnotation(myBook);
   setupFileInfo(myBook);
   if (myHideOpenButton) {
     findButton(R.id.book_info_button_open).setVisibility(View.GONE);

@@ -1,0 +1,5 @@
+{
+  if (myReadState == READ_ANNOTATION) {
+    myBuffer.append(new String(data,start,length).trim());
+  }
+}

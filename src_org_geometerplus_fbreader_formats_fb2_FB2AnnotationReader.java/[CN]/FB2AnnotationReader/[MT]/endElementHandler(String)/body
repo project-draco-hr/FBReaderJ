@@ -1,0 +1,16 @@
+{
+  if (myReadState != READ_ANNOTATION) {
+    return false;
+  }
+switch (FB2Tag.getTagByName(tag)) {
+case FB2Tag.ANNOTATION:
+    return true;
+case FB2Tag.P:
+  myBuffer.append("\n");
+break;
+default :
+myBuffer.append(" ");
+break;
+}
+return false;
+}

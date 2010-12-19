@@ -1,0 +1,3 @@
+{
+  return ZLXMLProcessor.read(this,file,512);
+}
