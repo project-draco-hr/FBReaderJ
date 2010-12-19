@@ -1,0 +1,4 @@
+{
+  final Book book=Book.getByFile(myFile);
+  setupBookInfo(book);
+}

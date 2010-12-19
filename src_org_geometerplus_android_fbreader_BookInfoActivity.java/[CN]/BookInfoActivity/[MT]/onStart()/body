@@ -1,23 +1,24 @@
 {
   super.onStart();
-  setupCover(myBook);
-  setupBookInfo(myBook);
-  setupAnnotation(myBook);
-  setupFileInfo(myBook);
+  final Book book=Book.getByFile(myFile);
+  setupCover(book);
+  setupBookInfo(book);
+  setupAnnotation(book);
+  setupFileInfo(book);
   if (myHideOpenButton) {
     findButton(R.id.book_info_button_open).setVisibility(View.GONE);
   }
  else {
     setupButton(R.id.book_info_button_open,"openBook",new View.OnClickListener(){
       @Override public void onClick(      View view){
-        startActivity(new Intent(getApplicationContext(),FBReader.class).setAction(Intent.ACTION_VIEW).putExtra(FBReader.BOOK_PATH_KEY,myBook.File.getPath()).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+        startActivity(new Intent(getApplicationContext(),FBReader.class).setAction(Intent.ACTION_VIEW).putExtra(FBReader.BOOK_PATH_KEY,myFile.getPath()).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
       }
     }
 );
   }
   setupButton(R.id.book_info_button_edit,"editInfo",new View.OnClickListener(){
     @Override public void onClick(    View view){
-      startActivity(new Intent(getApplicationContext(),EditBookInfoActivity.class).putExtra(CURRENT_BOOK_PATH_KEY,myBook.File.getPath()));
+      startActivityForResult(new Intent(getApplicationContext(),EditBookInfoActivity.class).putExtra(CURRENT_BOOK_PATH_KEY,myFile.getPath()),1);
     }
   }
 );
