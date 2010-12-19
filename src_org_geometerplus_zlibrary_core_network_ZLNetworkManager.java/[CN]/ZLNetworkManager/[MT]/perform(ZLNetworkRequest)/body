@@ -18,7 +18,10 @@
     if (response == HttpURLConnection.HTTP_OK) {
       InputStream stream=httpConnection.getInputStream();
       try {
-        doHandleStream(request,httpConnection,stream);
+        if ("gzip".equalsIgnoreCase(httpConnection.getContentEncoding())) {
+          stream=new GZIPInputStream(stream);
+        }
+        request.handleStream(httpConnection,stream);
       }
   finally {
         stream.close();
