@@ -1,4 +1,5 @@
 {
   URL=url;
   SSLCertificate=sslCertificate;
+  PostData=postData;
 }
