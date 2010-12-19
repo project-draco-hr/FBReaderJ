@@ -9,7 +9,9 @@
     finish();
     return;
   }
-  for (  ZLFile file : myFile.children()) {
+  final ArrayList<ZLFile> children=new ArrayList<ZLFile>(myFile.children());
+  Collections.sort(children,new FileComparator());
+  for (  ZLFile file : children) {
     if (Thread.currentThread().isInterrupted()) {
       break;
     }
