@@ -7,4 +7,7 @@
     getListView().invalidateViews();
     setResult(RESULT_DO_INVALIDATE_VIEWS);
   }
+ else   if (requestCode == BOOK_INFO_REQUEST) {
+    getListView().invalidateViews();
+  }
 }
