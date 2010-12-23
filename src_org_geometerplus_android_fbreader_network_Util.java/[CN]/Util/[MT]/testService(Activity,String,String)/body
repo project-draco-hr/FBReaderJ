@@ -1,0 +1,12 @@
+{
+  if (url == null) {
+    return false;
+  }
+  try {
+    activity.startActivity(new Intent(action + "_TEST",Uri.parse(url)));
+    return true;
+  }
+ catch (  ActivityNotFoundException e) {
+    return false;
+  }
+}

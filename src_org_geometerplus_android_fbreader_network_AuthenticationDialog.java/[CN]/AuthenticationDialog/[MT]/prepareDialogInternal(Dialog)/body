@@ -11,7 +11,7 @@
     error.setVisibility(View.VISIBLE);
     error.setText(myErrorMessage);
   }
-  dialog.findViewById(R.id.network_authentication_register).setVisibility(mgr.registrationSupported() ? View.VISIBLE : View.GONE);
+  dialog.findViewById(R.id.network_authentication_register).setVisibility(Util.isRegistrationSupported(myActivity,myLink) ? View.VISIBLE : View.GONE);
   View dlgView=dialog.findViewById(R.id.network_authentication_dialog);
   dlgView.invalidate();
   dlgView.requestLayout();

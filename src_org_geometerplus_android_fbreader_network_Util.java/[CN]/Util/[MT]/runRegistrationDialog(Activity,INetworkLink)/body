@@ -1,6 +1,6 @@
 {
   try {
-    activity.startActivityForResult(new Intent("android.fbreader.action.NETWORK_LIBRARY_REGISTER",Uri.parse(link.getLink(INetworkLink.URL_SIGN_UP))),USER_REGISTRATION_REQUEST_CODE);
+    activity.startActivityForResult(new Intent(REGISTRATION_ACTION,Uri.parse(link.getLink(INetworkLink.URL_SIGN_UP))),USER_REGISTRATION_REQUEST_CODE);
   }
  catch (  ActivityNotFoundException e) {
   }

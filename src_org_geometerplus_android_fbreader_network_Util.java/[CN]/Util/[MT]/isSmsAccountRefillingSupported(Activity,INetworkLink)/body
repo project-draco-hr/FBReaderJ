@@ -1,0 +1,3 @@
+{
+  return testService(activity,SMS_REFILLING_ACTION,link.getLink(INetworkLink.URL_MAIN));
+}
