@@ -1,0 +1,3 @@
+{
+  return new Intent(Intent.ACTION_SEARCH).setComponent(new ComponentName("com.socialnmobile.colordict","com.socialnmobile.colordict.activity.Main")).putExtra(SearchManager.QUERY,text);
+}
