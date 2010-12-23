@@ -1,0 +1,8 @@
+{
+  if (!extraData.isEmpty()) {
+    runInstallPluginDialog(activity,extraData,postRunnable);
+  }
+ else {
+    postRunnable.run();
+  }
+}

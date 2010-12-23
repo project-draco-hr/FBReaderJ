@@ -3,4 +3,4 @@ String title
 String summary
 String cover
 Map<Integer,String> urlByType
-LinkedHashMap<String,String> extraData
+Map<String,String> extraData
