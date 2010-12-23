@@ -7,4 +7,7 @@
  else   if (file.isDirectory() || file.isArchive()) {
     startActivityForResult(new Intent(this,FileManager.class).putExtra(SELECTED_BOOK_PATH_KEY,mySelectedBookPath).putExtra(FILE_MANAGER_PATH,file.getPath()),CHILD_LIST_REQUEST);
   }
+ else {
+    UIUtil.showErrorMessage(FileManager.this,"permissionDenied");
+  }
 }

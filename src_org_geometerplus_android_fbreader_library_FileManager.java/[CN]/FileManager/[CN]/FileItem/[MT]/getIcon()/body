@@ -15,6 +15,6 @@
   }
  else {
     System.err.println("File " + myFile.getPath() + " that is not a directory, not a book and not an archive "+ "has been found in getIcon()");
-    return R.drawable.ic_list_library_book;
+    return R.drawable.ic_list_library_permission_denied;
   }
 }
