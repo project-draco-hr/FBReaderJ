@@ -1,8 +1,10 @@
 {
 switch (actionCode) {
-case REFILL_ITEM_ID:
-    doRefill(activity,(RefillAccountTree)tree);
-  return true;
+case REFILL_VIA_SMS_ITEM_ID:
+    return true;
+case REFILL_VIA_BROWSER_ITEM_ID:
+  doRefill(activity,(RefillAccountTree)tree);
+return true;
 }
 return false;
 }

@@ -1,4 +1,5 @@
 {
   menu.setHeaderTitle(getTitleValue("refillTitle"));
-  addMenuItem(menu,REFILL_ITEM_ID,"refillTitle");
+  addMenuItem(menu,REFILL_VIA_SMS_ITEM_ID,"refillViaSms");
+  addMenuItem(menu,REFILL_VIA_BROWSER_ITEM_ID,"refillViaBrowser");
 }
