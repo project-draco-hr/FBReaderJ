@@ -7,7 +7,7 @@ case OPEN_CATALOG_ITEM_ID:
     doExpandCatalog(activity,(NetworkCatalogTree)tree);
   return true;
 case OPEN_IN_BROWSER_ITEM_ID:
-NetworkView.Instance().openInBrowser(activity,((NetworkCatalogTree)tree).Item.URLByType.get(NetworkCatalogItem.URL_HTML_PAGE));
+Util.openInBrowser(activity,((NetworkCatalogTree)tree).Item.URLByType.get(NetworkCatalogItem.URL_HTML_PAGE));
 return true;
 case RELOAD_ITEM_ID:
 doReloadCatalog(activity,(NetworkCatalogTree)tree);
@@ -22,7 +22,7 @@ case SIGNOUT_ITEM_ID:
 doSignOut(activity,(NetworkCatalogTree)tree);
 return true;
 case REFILL_ACCOUNT_ITEM_ID:
-NetworkView.Instance().openInBrowser(activity,((NetworkCatalogTree)tree).Item.Link.authenticationManager().refillAccountLink());
+Util.openInBrowser(activity,((NetworkCatalogTree)tree).Item.Link.authenticationManager().refillAccountLink());
 return true;
 case CUSTOM_CATALOG_EDIT:
 NetworkDialog.show(activity,NetworkDialog.DIALOG_CUSTOM_CATALOG,((NetworkCatalogTree)tree).Item.Link,null);

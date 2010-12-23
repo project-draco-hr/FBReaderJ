@@ -1,0 +1,16 @@
+{
+  final NetworkAuthenticationManager mgr=link.authenticationManager();
+  if (mgr.mayBeAuthorised(false)) {
+    refiller.run();
+  }
+ else {
+    NetworkDialog.show(activity,NetworkDialog.DIALOG_AUTHENTICATION,link,new Runnable(){
+      public void run(){
+        if (mgr.mayBeAuthorised(false)) {
+          refiller.run();
+        }
+      }
+    }
+);
+  }
+}

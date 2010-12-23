@@ -1,6 +1,6 @@
 {
   BookReference reference=book.reference(BookReference.Type.BUY_IN_BROWSER);
   if (reference != null) {
-    NetworkView.Instance().openInBrowser(activity,reference.URL);
+    Util.openInBrowser(activity,reference.URL);
   }
 }
