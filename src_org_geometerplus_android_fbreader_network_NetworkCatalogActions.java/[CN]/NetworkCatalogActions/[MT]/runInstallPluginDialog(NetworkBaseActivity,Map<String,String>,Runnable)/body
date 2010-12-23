@@ -5,12 +5,12 @@
     String dialogKey=null;
     String message=null;
     String positiveButtonKey=null;
-    if (!PluginUtil.isPluginInstalled(activity,plugin)) {
+    if (!PackageUtil.isPluginInstalled(activity,plugin)) {
       dialogKey="installPlugin";
       message=pluginData.get("androidPluginInstallMessage");
       positiveButtonKey="install";
     }
- else     if (!PluginUtil.isPluginInstalled(activity,plugin,pluginVersion)) {
+ else     if (!PackageUtil.isPluginInstalled(activity,plugin,pluginVersion)) {
       dialogKey="updatePlugin";
       message=pluginData.get("androidPluginUpdateMessage");
       positiveButtonKey="update";
@@ -20,7 +20,7 @@
       final ZLResource buttonResource=dialogResource.getResource("button");
       new AlertDialog.Builder(activity).setTitle(dialogResource.getResource(dialogKey).getResource("title").getValue()).setMessage(message).setIcon(0).setPositiveButton(buttonResource.getResource(positiveButtonKey).getValue(),new DialogInterface.OnClickListener(){
         @Override public void onClick(        DialogInterface dialog,        int which){
-          PluginUtil.installPackageFromMarket(activity,plugin);
+          PackageUtil.installFromMarket(activity,plugin);
         }
       }
 ).setNegativeButton(buttonResource.getResource("skip").getValue(),new DialogInterface.OnClickListener(){

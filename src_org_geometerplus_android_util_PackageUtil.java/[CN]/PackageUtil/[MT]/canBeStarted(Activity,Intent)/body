@@ -1,0 +1,3 @@
+{
+  return activity.getApplicationContext().getPackageManager().resolveActivity(intent,PackageManager.MATCH_DEFAULT_ONLY) != null;
+}

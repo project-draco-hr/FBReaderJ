@@ -1,4 +1,5 @@
 {
   super(fbreader);
+  myBaseActivity=baseActivity;
   myMode=mode;
 }

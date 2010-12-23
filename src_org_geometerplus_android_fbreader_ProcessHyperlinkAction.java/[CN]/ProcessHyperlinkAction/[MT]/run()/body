@@ -20,14 +20,12 @@ for (; start < end && !Character.isLetterOrDigit(text.charAt(end - 1)); --end) ;
 if (start == end) {
 return;
 }
-Intent intent=new Intent(Intent.ACTION_SEARCH);
-intent.setComponent(new ComponentName("com.socialnmobile.colordict","com.socialnmobile.colordict.activity.Main"));
-intent.putExtra(SearchManager.QUERY,text.substring(start,end));
+final Intent intent=DictionaryUtil.getDictionaryIntent(text.substring(start,end));
 try {
 myBaseActivity.startActivity(intent);
 }
  catch (ActivityNotFoundException e) {
-Toast.makeText(myBaseActivity,ZLResource.resource("errorMessage").getResource("dictNotInstalled").getValue(),Toast.LENGTH_LONG).show();
+Toast.makeText(myBaseActivity,ZLResource.resource("errorMessage").getResource("dictionaryIsNotInstalled").getValue(),Toast.LENGTH_LONG).show();
 }
 }
 }
