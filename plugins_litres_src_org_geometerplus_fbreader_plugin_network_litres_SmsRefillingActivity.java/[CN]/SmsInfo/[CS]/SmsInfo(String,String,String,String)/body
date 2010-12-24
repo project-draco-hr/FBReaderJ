@@ -1,0 +1,6 @@
+{
+  PhoneNumber=phoneNumber;
+  Text=text;
+  Sum=sum;
+  Cost=cost;
+}
