@@ -1,0 +1,9 @@
+{
+  if ("info".equals(tag)) {
+    System.err.println("INFO");
+  }
+ else   if ("error".equals(tag)) {
+    System.err.println("ERROR: " + attributes.getValue("text"));
+  }
+  return false;
+}

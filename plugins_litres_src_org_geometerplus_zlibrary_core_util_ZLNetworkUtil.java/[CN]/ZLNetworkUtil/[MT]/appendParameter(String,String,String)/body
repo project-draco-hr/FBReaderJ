@@ -6,7 +6,11 @@
   if (value.length() == 0) {
     return url;
   }
-  value=htmlEncode(value);
+  try {
+    value=URLEncoder.encode(value,"utf-8");
+  }
+ catch (  UnsupportedEncodingException e) {
+  }
   int index=url.indexOf('?',url.lastIndexOf('/') + 1);
   char delimiter=(index == -1) ? '?' : '&';
   while (index != -1) {

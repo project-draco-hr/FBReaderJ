@@ -1,3 +1,0 @@
-{
-  return getLink(URL_SEARCH).replace("%s",query);
-}

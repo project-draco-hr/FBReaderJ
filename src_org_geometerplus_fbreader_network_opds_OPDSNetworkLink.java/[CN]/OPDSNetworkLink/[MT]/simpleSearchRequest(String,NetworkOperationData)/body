@@ -1,6 +1,12 @@
 {
-  if (getLink(URL_SEARCH) == null) {
+  final String url=getLink(URL_SEARCH);
+  if (url == null) {
     return null;
   }
-  return createNetworkData(searchURL(ZLNetworkUtil.htmlEncode(pattern)),(OPDSCatalogItem.State)data);
+  try {
+    pattern=URLEncoder.encode(pattern,"utf-8");
+  }
+ catch (  UnsupportedEncodingException e) {
+  }
+  return createNetworkData(url.replace("%s",pattern),(OPDSCatalogItem.State)data);
 }

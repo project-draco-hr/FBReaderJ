@@ -1,0 +1,7 @@
+{
+  try {
+    activity.startActivity(new Intent(SMS_REFILLING_ACTION,Uri.parse(link.getLink(INetworkLink.URL_MAIN))));
+  }
+ catch (  ActivityNotFoundException e) {
+  }
+}

@@ -1,6 +1,7 @@
 {
   return new Runnable(){
     public void run(){
+      Util.runSmsDialog(activity,link);
     }
   }
 ;
