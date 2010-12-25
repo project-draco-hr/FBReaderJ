@@ -6,6 +6,7 @@
  else   if (TAG_AUTHORIZATION_OK == tag) {
     FirstName=attributes.getValue("first-name");
     LastName=attributes.getValue("first-name");
+    UserId=attributes.getValue("user-id");
     Sid=attributes.getValue("sid");
   }
  else {

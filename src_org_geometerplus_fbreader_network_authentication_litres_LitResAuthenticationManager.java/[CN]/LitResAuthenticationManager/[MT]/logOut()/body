@@ -1,5 +1,3 @@
 {
-  mySidChecked=true;
-  mySidUserNameOption.setValue("");
-  mySidOption.setValue("");
+  initUser("","","");
 }

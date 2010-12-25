@@ -26,9 +26,7 @@ synchronized (this) {
     }
     if (exception != null) {
       if (NetworkException.ERROR_AUTHENTICATION_FAILED.equals(exception.getCode())) {
-        mySidChecked=true;
-        mySidUserNameOption.setValue("");
-        mySidOption.setValue("");
+        logOut();
       }
  else       if (NetworkException.ERROR_PURCHASE_ALREADY_PURCHASED.equals(exception.getCode())) {
         myPurchasedBooks.put(book.Id,book);

@@ -20,11 +20,9 @@ synchronized (this) {
 synchronized (this) {
     mySidChecked=true;
     if (exception != null) {
-      mySidUserNameOption.setValue("");
-      mySidOption.setValue("");
+      logOut();
       throw exception;
     }
-    mySidOption.setValue(xmlReader.Sid);
-    mySidUserNameOption.setValue(UserNameOption.getValue());
+    initUser(UserNameOption.getValue(),xmlReader.Sid,xmlReader.UserId);
   }
 }

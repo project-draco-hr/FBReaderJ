@@ -1,0 +1,6 @@
+{
+  mySidChecked=true;
+  mySidUserNameOption.setValue(userName);
+  mySidOption.setValue(sid);
+  myUserIdOption.setValue(userId);
+}

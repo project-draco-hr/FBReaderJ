@@ -2,4 +2,7 @@
   mySidChecked=true;
   mySidUserNameOption.setValue(userName);
   mySidOption.setValue(sid);
+  if (!isAuthorised(true)) {
+    throw new ZLNetworkException(NetworkException.ERROR_AUTHENTICATION_FAILED);
+  }
 }

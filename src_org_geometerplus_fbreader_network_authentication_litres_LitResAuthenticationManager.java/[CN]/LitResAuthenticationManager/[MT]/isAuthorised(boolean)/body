@@ -6,9 +6,7 @@ synchronized (this) {
       return authState;
     }
     if (!authState) {
-      mySidChecked=true;
-      mySidUserNameOption.setValue("");
-      mySidOption.setValue("");
+      logOut();
       return false;
     }
     sid=mySidOption.getValue();
@@ -31,13 +29,10 @@ synchronized (this) {
       if (NetworkException.ERROR_AUTHENTICATION_FAILED.equals(exception.getCode())) {
         throw exception;
       }
-      mySidChecked=true;
-      mySidUserNameOption.setValue("");
-      mySidOption.setValue("");
+      logOut();
       return false;
     }
-    mySidChecked=true;
-    mySidOption.setValue(xmlReader.Sid);
+    initUser(UserNameOption.getValue(),xmlReader.Sid,xmlReader.UserId);
     return true;
   }
 }
