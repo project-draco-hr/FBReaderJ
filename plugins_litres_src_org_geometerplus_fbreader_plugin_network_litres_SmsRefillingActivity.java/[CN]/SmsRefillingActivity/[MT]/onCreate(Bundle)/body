@@ -13,7 +13,7 @@
       final ZLResource dialogResource=ZLResource.resource("dialog");
       final ZLResource resource=dialogResource.getResource("sendSmsDialog");
       final ZLResource buttonResource=dialogResource.getResource("button");
-      new AlertDialog.Builder(SmsRefillingActivity.this).setTitle(resource.getResource("title").getValue()).setMessage(resource.getResource("message").getValue().replace("%s0",mySelectedInfo.Cost).replace("%s1",mySelectedInfo.Sum)).setPositiveButton(buttonResource.getResource("ok").getValue(),new DialogInterface.OnClickListener(){
+      new AlertDialog.Builder(SmsRefillingActivity.this).setTitle(resource.getResource("title").getValue()).setMessage(resource.getResource("message").getValue().replace("%s0",mySelectedInfo.Cost).replace("%s1",mySelectedInfo.Sum).replace("..",".")).setPositiveButton(buttonResource.getResource("sendSms").getValue(),new DialogInterface.OnClickListener(){
         public void onClick(        DialogInterface dialog,        int which){
           finish();
         }
