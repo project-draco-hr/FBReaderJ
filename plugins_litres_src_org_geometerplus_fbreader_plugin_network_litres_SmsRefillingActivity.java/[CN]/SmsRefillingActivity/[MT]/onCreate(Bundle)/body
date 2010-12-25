@@ -6,9 +6,9 @@
   setContentView(R.layout.sms_dialog);
   setTitle(myResource.getResource("title").getValue());
   final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
-  myOkButton=findButton(R.id.sms_ok_button);
-  myOkButton.setText(buttonResource.getResource("sendSms").getValue());
-  myOkButton.setOnClickListener(new View.OnClickListener(){
+  final Button okButton=findButton(R.id.sms_ok_button);
+  okButton.setText(buttonResource.getResource("sendSms").getValue());
+  okButton.setOnClickListener(new View.OnClickListener(){
     public void onClick(    View v){
       final ZLResource dialogResource=ZLResource.resource("dialog");
       final ZLResource resource=dialogResource.getResource("sendSmsDialog");
@@ -22,7 +22,7 @@
     }
   }
 );
-  myOkButton.setEnabled(false);
+  okButton.setEnabled(false);
   final Button cancelButton=findButton(R.id.sms_cancel_button);
   cancelButton.setText(buttonResource.getResource("cancel").getValue());
   cancelButton.setOnClickListener(new View.OnClickListener(){

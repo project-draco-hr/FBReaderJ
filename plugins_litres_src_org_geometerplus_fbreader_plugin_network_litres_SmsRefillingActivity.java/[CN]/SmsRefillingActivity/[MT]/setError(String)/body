@@ -1,0 +1,5 @@
+{
+  ((TextView)findViewById(R.id.sms_error)).setText(text);
+  findViewById(R.id.sms_list).setVisibility(View.GONE);
+  findViewById(R.id.sms_ok_button).setVisibility(View.GONE);
+}

@@ -6,6 +6,6 @@
       }
     }
     mySelectedInfo=myButtons.get((RadioButton)button);
-    myOkButton.setEnabled(true);
+    findButton(R.id.sms_ok_button).setEnabled(true);
   }
 }
