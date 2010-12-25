@@ -1,0 +1,31 @@
+{
+  final ListView listView=(ListView)findViewById(R.id.sms_list);
+  final TelephonyManager manager=(TelephonyManager)getSystemService(Activity.TELEPHONY_SERVICE);
+  if (manager != null) {
+    final String operator=manager.getNetworkOperator();
+    if (operator != null && operator.length() > 3) {
+      String url="http://data.fbreader.org/catalogs/litres/sms/smsinfo.php";
+      url=ZLNetworkUtil.appendParameter(url,"mcc",operator.substring(0,3));
+      url=ZLNetworkUtil.appendParameter(url,"mnc",operator.substring(3));
+      final String name=manager.getNetworkOperatorName();
+      if (name != null) {
+        url=ZLNetworkUtil.appendParameter(url,"name",name);
+      }
+      try {
+        ZLNetworkManager.Instance().perform(new ZLNetworkRequest(url){
+          public void handleStream(          URLConnection connection,          InputStream inputStream) throws IOException, ZLNetworkException {
+            final SmsInfoXMLReader reader=new SmsInfoXMLReader();
+            reader.read(inputStream);
+            listView.setAdapter(new SmsListAdapter(reader.Infos));
+            listView.invalidateViews();
+          }
+        }
+);
+      }
+ catch (      ZLNetworkException e) {
+      }
+      System.err.println(manager.getSimOperator());
+      System.err.println(manager.getSimOperatorName());
+    }
+  }
+}

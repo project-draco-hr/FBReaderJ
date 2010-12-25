@@ -1,0 +1,11 @@
+{
+  if (isChecked) {
+    for (    RadioButton b : myButtons.keySet()) {
+      if (b != button) {
+        b.setChecked(false);
+      }
+    }
+    mySelectedInfo=myButtons.get((RadioButton)button);
+    myOkButton.setEnabled(true);
+  }
+}
