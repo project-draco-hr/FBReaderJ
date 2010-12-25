@@ -1,4 +1,0 @@
-{
-  super(hostName);
-  myResource=resource;
-}

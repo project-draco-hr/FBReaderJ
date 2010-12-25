@@ -1,3 +1,0 @@
-{
-  downloadToFile(url,outFile,8192);
-}

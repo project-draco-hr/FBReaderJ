@@ -1,7 +1,0 @@
-{
-  Reader.read(inputStream);
-  ZLNetworkException e=Reader.getException();
-  if (e != null) {
-    throw e;
-  }
-}

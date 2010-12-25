@@ -1,5 +1,0 @@
-{
-  final TextView errorLabel=findTextView(R.id.user_registration_error);
-  errorLabel.setVisibility(View.VISIBLE);
-  errorLabel.setText(errorMessage);
-}

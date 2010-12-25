@@ -1,6 +1,0 @@
-{
-  if (ourManager == null) {
-    ourManager=new ZLNetworkManager();
-  }
-  return ourManager;
-}

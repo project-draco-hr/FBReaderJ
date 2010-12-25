@@ -1,7 +1,0 @@
-{
-  int[] newArray=new int[newLength];
-  if (dataSize > 0) {
-    System.arraycopy(array,0,newArray,0,dataSize);
-  }
-  return newArray;
-}

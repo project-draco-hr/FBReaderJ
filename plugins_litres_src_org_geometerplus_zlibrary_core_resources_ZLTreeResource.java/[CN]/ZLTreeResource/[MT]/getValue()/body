@@ -1,4 +1,0 @@
-{
-  updateLanguage();
-  return myHasValue ? myValue : ZLMissingResource.Value;
-}

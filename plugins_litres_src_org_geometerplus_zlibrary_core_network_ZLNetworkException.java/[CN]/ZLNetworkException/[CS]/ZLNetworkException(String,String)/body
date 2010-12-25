@@ -1,4 +1,0 @@
-{
-  super(errorMessage(code,arg));
-  myCode=code;
-}

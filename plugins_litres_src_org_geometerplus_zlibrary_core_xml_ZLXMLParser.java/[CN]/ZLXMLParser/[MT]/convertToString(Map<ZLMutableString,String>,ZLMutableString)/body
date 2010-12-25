@@ -1,9 +1,0 @@
-{
-  String s=strings.get(container);
-  if (s == null) {
-    s=container.toString();
-    strings.put(new ZLMutableString(container),s);
-  }
-  container.clear();
-  return s;
-}

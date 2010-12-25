@@ -1,4 +1,0 @@
-{
-  collectEMails();
-  return myEMails;
-}

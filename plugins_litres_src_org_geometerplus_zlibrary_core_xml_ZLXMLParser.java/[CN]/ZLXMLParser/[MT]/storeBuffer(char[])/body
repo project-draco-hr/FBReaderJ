@@ -1,8 +1,0 @@
-{
-  Queue<char[]> queue=ourBufferPool.get(buffer.length);
-  if (queue == null) {
-    queue=new LinkedList<char[]>();
-    ourBufferPool.put(buffer.length,queue);
-  }
-  queue.add(buffer);
-}

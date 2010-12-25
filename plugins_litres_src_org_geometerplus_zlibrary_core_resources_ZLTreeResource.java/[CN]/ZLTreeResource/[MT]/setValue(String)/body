@@ -1,4 +1,0 @@
-{
-  myHasValue=value != null;
-  myValue=value;
-}

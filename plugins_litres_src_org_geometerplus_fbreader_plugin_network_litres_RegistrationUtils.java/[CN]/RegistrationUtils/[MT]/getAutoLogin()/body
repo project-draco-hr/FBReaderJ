@@ -1,7 +1,0 @@
-{
-  collectEMails();
-  if (myEMails.isEmpty()) {
-    return null;
-  }
-  return "fbreader-auto-" + myEMails.get(0).replace(".","-").replace("@","-at-");
-}

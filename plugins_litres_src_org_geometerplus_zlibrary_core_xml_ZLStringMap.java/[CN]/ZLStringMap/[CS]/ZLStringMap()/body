@@ -1,4 +1,0 @@
-{
-  myKeys=new String[8];
-  myValues=new String[8];
-}

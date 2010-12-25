@@ -1,8 +1,0 @@
-{
-  try {
-    return ZLXMLParser.getDTDMap(dtdList);
-  }
- catch (  IOException e) {
-    return Collections.emptyMap();
-  }
-}
