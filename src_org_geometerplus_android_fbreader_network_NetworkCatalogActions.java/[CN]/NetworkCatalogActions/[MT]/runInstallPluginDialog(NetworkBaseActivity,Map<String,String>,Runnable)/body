@@ -19,12 +19,12 @@
       final ZLResource dialogResource=ZLResource.resource("dialog");
       final ZLResource buttonResource=dialogResource.getResource("button");
       new AlertDialog.Builder(activity).setTitle(dialogResource.getResource(dialogKey).getResource("title").getValue()).setMessage(message).setIcon(0).setPositiveButton(buttonResource.getResource(positiveButtonKey).getValue(),new DialogInterface.OnClickListener(){
-        @Override public void onClick(        DialogInterface dialog,        int which){
+        public void onClick(        DialogInterface dialog,        int which){
           PackageUtil.installFromMarket(activity,plugin);
         }
       }
 ).setNegativeButton(buttonResource.getResource("skip").getValue(),new DialogInterface.OnClickListener(){
-        @Override public void onClick(        DialogInterface dialog,        int which){
+        public void onClick(        DialogInterface dialog,        int which){
           postRunnable.run();
         }
       }
