@@ -1,4 +1,8 @@
 {
+  if (myUserId == null || myUserId.length() == 0) {
+    setError(myResource.getResource("noUserId").getValue());
+    return;
+  }
   final TelephonyManager manager=(TelephonyManager)getSystemService(Activity.TELEPHONY_SERVICE);
   if (manager == null) {
     setError(myResource.getResource("noPhoneInfo").getValue());
@@ -9,8 +13,10 @@
     setError(myResource.getResource("noCellularNetwork").getValue());
     return;
   }
-  System.err.println(manager.getSimOperator());
-  System.err.println(manager.getSimOperatorName());
+  if (!operator.equals(manager.getSimOperator())) {
+    setError(myResource.getResource("youAreInRoaming").getValue());
+    return;
+  }
   String url="http://data.fbreader.org/catalogs/litres/sms/smsinfo.php";
   url=ZLNetworkUtil.appendParameter(url,"mcc",operator.substring(0,3));
   url=ZLNetworkUtil.appendParameter(url,"mnc",operator.substring(3));

@@ -1,8 +1,8 @@
 {
   super.onCreate(icicle);
-  System.err.println("smsDialog");
   ZLResourceFile.init(getApplicationContext());
   myResource=ZLResource.resource("smsDialog");
+  myUserId=getIntent().getStringExtra("litres:userId");
   setContentView(R.layout.sms_dialog);
   setTitle(myResource.getResource("title").getValue());
   final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
@@ -15,6 +15,7 @@
       final ZLResource buttonResource=dialogResource.getResource("button");
       new AlertDialog.Builder(SmsRefillingActivity.this).setTitle(resource.getResource("title").getValue()).setMessage(resource.getResource("message").getValue().replace("%s0",mySelectedInfo.Cost).replace("%s1",mySelectedInfo.Sum).replace("..",".")).setPositiveButton(buttonResource.getResource("sendSms").getValue(),new DialogInterface.OnClickListener(){
         public void onClick(        DialogInterface dialog,        int which){
+          System.err.println("Sending message " + mySelectedInfo.Text + " to number "+ mySelectedInfo.PhoneNumber);
           finish();
         }
       }

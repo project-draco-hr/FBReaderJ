@@ -1,9 +1,0 @@
-{
-  if ("info".equals(tag)) {
-    Infos.add(new SmsInfo(attributes.getValue("phoneNumber"),attributes.getValue("smsPrefix") + " " + myUserId,attributes.getValue("sum"),attributes.getValue("cost")));
-  }
- else   if ("error".equals(tag)) {
-    ErrorMessage=attributes.getValue("text");
-  }
-  return false;
-}
