@@ -3,7 +3,7 @@ switch (requestCode) {
 case USER_REGISTRATION_REQUEST_CODE:
     if (resultCode == RESULT_OK && data != null) {
       try {
-        Util.runAfterRegistration(((NetworkCatalogTree)myTree).Item.Link.authenticationManager(),data);
+        Util.runAfterRegistration(myTree.Item.Link.authenticationManager(),data);
       }
  catch (      ZLNetworkException e) {
       }

@@ -15,13 +15,17 @@
   if (myCatalogKey == null) {
     throw new RuntimeException("Catalog's Key was not specified!!!");
   }
-  myTree=networkView.getOpenedTree(level);
-  if (myTree == null) {
+  final NetworkTree tree=networkView.getOpenedTree(level);
+  if (!(tree instanceof NetworkCatalogTree)) {
     finish();
     return;
   }
+  myTree=(NetworkCatalogTree)tree;
   networkView.setOpenedActivity(myCatalogKey,this);
   setListAdapter(new CatalogAdapter());
   getListView().invalidateViews();
   setupTitle();
+  if (Util.isAccountRefillingSupported(this,myTree.Item.Link)) {
+    setDefaultTree(new RefillAccountTree(myTree));
+  }
 }

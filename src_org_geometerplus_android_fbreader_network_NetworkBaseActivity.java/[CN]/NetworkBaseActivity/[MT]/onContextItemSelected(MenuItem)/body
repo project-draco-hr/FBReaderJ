@@ -1,9 +1,17 @@
 {
-  final int position=((AdapterView.AdapterContextMenuInfo)item.getMenuInfo()).position;
-  final NetworkTree tree=(NetworkTree)getListAdapter().getItem(position);
-  final NetworkTreeActions actions=NetworkView.Instance().getActions(tree);
-  if (actions != null && actions.runAction(this,tree,item.getItemId())) {
-    return true;
+  NetworkTree tree=null;
+  if (item != null && item.getMenuInfo() != null) {
+    final int position=((AdapterView.AdapterContextMenuInfo)item.getMenuInfo()).position;
+    tree=(NetworkTree)getListAdapter().getItem(position);
+  }
+ else {
+    tree=getDefaultTree();
+  }
+  if (tree != null) {
+    final NetworkTreeActions actions=NetworkView.Instance().getActions(tree);
+    if (actions != null && actions.runAction(this,tree,item.getItemId())) {
+      return true;
+    }
   }
   return super.onContextItemSelected(item);
 }
