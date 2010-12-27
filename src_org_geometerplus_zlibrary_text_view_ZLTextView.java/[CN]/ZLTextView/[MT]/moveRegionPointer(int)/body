@@ -28,16 +28,7 @@ if (index == elementRegions.size() - 1) {
 }
 break;
 }
-ZLTextElementRegion.Filter filter;
-switch (getMode()) {
-default :
-case MODE_VISIT_ALL_WORDS:
-filter=ZLTextElementRegion.Filter;
-break;
-case MODE_VISIT_HYPERLINKS:
-filter=ZLTextHyperlinkRegion.Filter;
-break;
-}
+final ZLTextElementRegion.Filter filter=getCurrentFilter();
 switch (direction) {
 case Direction.LEFT:
 for (; index >= 0; --index) {

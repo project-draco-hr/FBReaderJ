@@ -1,14 +1,15 @@
 {
-  ZLTextHyperlinkRegion hyperlinkRegion=null;
+  final ZLTextElementRegion.Filter filter=getCurrentFilter();
+  ZLTextElementRegion bestRegion=null;
   int distance=maxDistance + 1;
   for (  ZLTextElementRegion region : myCurrentPage.TextElementMap.ElementRegions) {
-    if (region instanceof ZLTextHyperlinkRegion) {
+    if (filter.accepts(region)) {
       final int d=region.distanceTo(x,y);
       if (d < distance) {
-        hyperlinkRegion=(ZLTextHyperlinkRegion)region;
+        bestRegion=region;
         distance=d;
       }
     }
   }
-  return (hyperlinkRegion != null) ? hyperlinkRegion.Hyperlink : null;
+  return bestRegion;
 }

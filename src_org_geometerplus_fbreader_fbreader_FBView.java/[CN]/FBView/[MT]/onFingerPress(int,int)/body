@@ -1,5 +1,5 @@
 {
-  if (super.onStylusPress(x,y)) {
+  if (super.onFingerPress(x,y)) {
     return true;
   }
   if (isScrollingActive()) {
@@ -12,11 +12,13 @@
       return true;
     }
   }
-  final ZLTextHyperlink hyperlink=findHyperlink(x,y,10);
-  if (hyperlink != null) {
-    selectHyperlink(hyperlink);
+  final ZLTextElementRegion region=findRegion(x,y,10);
+  if (region != null) {
+    selectRegion(region);
     myReader.repaintView();
-    myReader.doAction(ActionCode.PROCESS_HYPERLINK);
+    if (region instanceof ZLTextHyperlinkRegion) {
+      myReader.doAction(ActionCode.PROCESS_HYPERLINK);
+    }
     return true;
   }
   if (myReader.AllowScreenBrightnessAdjustmentOption.getValue() && x < myContext.getWidth() / 10) {

@@ -1,5 +1,5 @@
 {
-  if (super.onStylusRelease(x,y)) {
+  if (super.onFingerRelease(x,y)) {
     return true;
   }
 synchronized (this) {
