@@ -1,10 +1,23 @@
 {
-  final Thread libraryInitializer=new Thread(new Runnable(){
-    public void run(){
-      LibraryBaseActivity.LibraryInstance.synchronize();
+  System.err.println("onStart");
+  final Handler handler=new Handler(){
+    @Override public void handleMessage(    Message msg){
+      stopSelf();
     }
   }
-);
-  libraryInitializer.setPriority(Thread.MIN_PRIORITY);
-  libraryInitializer.start();
+;
+  myLibraryInitializer=new HandlerThread("LibraryInitializer"){
+    public void run(){
+      try {
+        LibraryBaseActivity.LibraryInstance.synchronize();
+      }
+  finally {
+        myLibraryInitializer=null;
+        handler.sendMessage(handler.obtainMessage(0));
+      }
+    }
+  }
+;
+  myLibraryInitializer.setPriority(Thread.MIN_PRIORITY);
+  myLibraryInitializer.start();
 }

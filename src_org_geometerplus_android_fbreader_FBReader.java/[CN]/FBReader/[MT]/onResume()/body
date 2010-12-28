@@ -1,4 +1,5 @@
 {
   super.onResume();
+  stopService(new Intent(getApplicationContext(),InitializationService.class));
   ControlButtonPanel.restoreVisibilities();
 }
