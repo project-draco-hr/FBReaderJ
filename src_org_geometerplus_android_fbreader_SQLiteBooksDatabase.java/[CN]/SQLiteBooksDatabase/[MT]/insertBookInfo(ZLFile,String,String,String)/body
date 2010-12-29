@@ -1,6 +1,6 @@
 {
   if (myInsertBookInfoStatement == null) {
-    myInsertBookInfoStatement=myDatabase.compileStatement("INSERT INTO Books (encoding,language,title,file_id) VALUES (?,?,?,?)");
+    myInsertBookInfoStatement=myDatabase.compileStatement("INSERT OR IGNORE INTO Books (encoding,language,title,file_id) VALUES (?,?,?,?)");
   }
   bindString(myInsertBookInfoStatement,1,encoding);
   bindString(myInsertBookInfoStatement,2,language);

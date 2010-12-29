@@ -1,7 +1,7 @@
 {
   if (myGetSeriesIdStatement == null) {
     myGetSeriesIdStatement=myDatabase.compileStatement("SELECT series_id FROM Series WHERE name = ?");
-    myInsertSeriesStatement=myDatabase.compileStatement("INSERT INTO Series (name) VALUES (?)");
+    myInsertSeriesStatement=myDatabase.compileStatement("INSERT OR IGNORE INTO Series (name) VALUES (?)");
     myInsertBookSeriesStatement=myDatabase.compileStatement("INSERT OR REPLACE INTO BookSeries (book_id,series_id,book_index) VALUES (?,?,?)");
     myDeleteBookSeriesStatement=myDatabase.compileStatement("DELETE FROM BookSeries WHERE book_id = ?");
   }

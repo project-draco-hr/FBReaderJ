@@ -1,6 +1,6 @@
 {
   if (myInsertBookTagStatement == null) {
-    myInsertBookTagStatement=myDatabase.compileStatement("INSERT INTO BookTag (book_id,tag_id) VALUES (?,?)");
+    myInsertBookTagStatement=myDatabase.compileStatement("INSERT OR IGNORE INTO BookTag (book_id,tag_id) VALUES (?,?)");
   }
   myInsertBookTagStatement.bindLong(1,bookId);
   myInsertBookTagStatement.bindLong(2,getTagId(tag));

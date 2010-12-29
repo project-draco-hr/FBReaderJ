@@ -3,7 +3,7 @@
   if (!cursor.moveToNext()) {
     return null;
   }
-  ArrayList<Tag> list=new ArrayList<Tag>(cursor.getCount());
+  ArrayList<Tag> list=new ArrayList<Tag>();
   do {
     list.add(getTagById(cursor.getLong(0)));
   }

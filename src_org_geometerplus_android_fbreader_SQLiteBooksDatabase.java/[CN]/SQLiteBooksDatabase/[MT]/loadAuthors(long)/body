@@ -3,7 +3,7 @@
   if (!cursor.moveToNext()) {
     return null;
   }
-  final ArrayList<Author> list=new ArrayList<Author>(cursor.getCount());
+  final ArrayList<Author> list=new ArrayList<Author>();
   do {
     list.add(new Author(cursor.getString(0),cursor.getString(1)));
   }

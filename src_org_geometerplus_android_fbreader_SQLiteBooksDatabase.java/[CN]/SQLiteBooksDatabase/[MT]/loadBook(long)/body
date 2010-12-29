@@ -1,5 +1,4 @@
 {
-  System.err.println("loading book info for " + bookId + " ("+ myInstanceId+ ")");
   Book book=null;
   final Cursor cursor=myDatabase.rawQuery("SELECT file_id,title,encoding,language FROM Books WHERE book_id = " + bookId,null);
   if (cursor.moveToNext()) {

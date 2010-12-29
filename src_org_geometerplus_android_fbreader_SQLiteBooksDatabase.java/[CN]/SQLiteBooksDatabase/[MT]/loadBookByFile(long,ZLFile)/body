@@ -1,5 +1,4 @@
 {
-  System.err.println("loading book info for " + file.getPath() + " ("+ myInstanceId+ ")");
   if (fileId == -1) {
     return null;
   }

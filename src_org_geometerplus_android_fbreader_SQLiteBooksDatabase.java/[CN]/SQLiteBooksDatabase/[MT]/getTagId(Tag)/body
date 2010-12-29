@@ -1,7 +1,7 @@
 {
   if (myGetTagIdStatement == null) {
     myGetTagIdStatement=myDatabase.compileStatement("SELECT tag_id FROM Tags WHERE parent_id = ? AND name = ?");
-    myCreateTagIdStatement=myDatabase.compileStatement("INSERT INTO Tags (parent_id,name) VALUES (?,?)");
+    myCreateTagIdStatement=myDatabase.compileStatement("INSERT OR IGNORE INTO Tags (parent_id,name) VALUES (?,?)");
   }
 {
     final Long id=myIdByTag.get(tag);

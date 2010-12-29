@@ -1,9 +1,7 @@
 {
-  System.err.println("loading all books info for " + myInstanceId);
   Cursor cursor=myDatabase.rawQuery("SELECT book_id,file_id,title,encoding,language FROM Books",null);
-  final int count=cursor.getCount();
-  final HashMap<Long,Book> booksById=new HashMap<Long,Book>(count);
-  final HashMap<Long,Book> booksByFileId=new HashMap<Long,Book>(count);
+  final HashMap<Long,Book> booksById=new HashMap<Long,Book>();
+  final HashMap<Long,Book> booksByFileId=new HashMap<Long,Book>();
   while (cursor.moveToNext()) {
     final long id=cursor.getLong(0);
     final long fileId=cursor.getLong(1);
@@ -16,7 +14,7 @@
   cursor.close();
   initTagCache();
   cursor=myDatabase.rawQuery("SELECT author_id,name,sort_key FROM Authors",null);
-  final HashMap<Long,Author> authorById=new HashMap<Long,Author>(cursor.getCount());
+  final HashMap<Long,Author> authorById=new HashMap<Long,Author>();
   while (cursor.moveToNext()) {
     authorById.put(cursor.getLong(0),new Author(cursor.getString(1),cursor.getString(2)));
   }
@@ -41,7 +39,7 @@
   }
   cursor.close();
   cursor=myDatabase.rawQuery("SELECT series_id,name FROM Series",null);
-  final HashMap<Long,String> seriesById=new HashMap<Long,String>(cursor.getCount());
+  final HashMap<Long,String> seriesById=new HashMap<Long,String>();
   while (cursor.moveToNext()) {
     seriesById.put(cursor.getLong(0),cursor.getString(1));
   }

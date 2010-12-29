@@ -2,7 +2,7 @@
   SQLiteStatement statement;
   if (bookmark.getId() == -1) {
     if (myInsertBookmarkStatement == null) {
-      myInsertBookmarkStatement=myDatabase.compileStatement("INSERT INTO Bookmarks (book_id,bookmark_text,creation_time,modification_time,access_time,access_counter,model_id,paragraph,word,char) VALUES (?,?,?,?,?,?,?,?,?,?)");
+      myInsertBookmarkStatement=myDatabase.compileStatement("INSERT OR IGNORE INTO Bookmarks (book_id,bookmark_text,creation_time,modification_time,access_time,access_counter,model_id,paragraph,word,char) VALUES (?,?,?,?,?,?,?,?,?,?)");
     }
     statement=myInsertBookmarkStatement;
   }

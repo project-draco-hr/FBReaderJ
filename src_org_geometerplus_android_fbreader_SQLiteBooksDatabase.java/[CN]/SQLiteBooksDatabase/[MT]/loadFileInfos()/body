@@ -1,7 +1,6 @@
 {
-  System.err.println("loading all files info for " + myInstanceId);
   Cursor cursor=myDatabase.rawQuery("SELECT file_id,name,parent_id,size FROM Files",null);
-  HashMap<Long,FileInfo> infosById=new HashMap<Long,FileInfo>(cursor.getCount());
+  HashMap<Long,FileInfo> infosById=new HashMap<Long,FileInfo>();
   while (cursor.moveToNext()) {
     final long id=cursor.getLong(0);
     final FileInfo info=createFileInfo(id,cursor.getString(1),cursor.isNull(2) ? null : infosById.get(cursor.getLong(2)));
