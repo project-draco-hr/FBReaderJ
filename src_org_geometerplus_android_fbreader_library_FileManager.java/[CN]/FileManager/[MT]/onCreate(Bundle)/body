@@ -1,5 +1,9 @@
 {
   super.onCreate(savedInstanceState);
+  if (DatabaseInstance == null || LibraryInstance == null) {
+    finish();
+    return;
+  }
   FileListAdapter adapter=new FileListAdapter();
   setListAdapter(adapter);
   myPath=getIntent().getStringExtra(FILE_MANAGER_PATH);
