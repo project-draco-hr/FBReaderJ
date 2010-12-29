@@ -53,6 +53,8 @@
     }
   }
   myFavorites.sortAllChildren();
+  myLibraryByAuthor.sortAllChildren();
+  myLibraryByTag.sortAllChildren();
   db.executeAsATransaction(new Runnable(){
     public void run(){
       for (      Book book : myBooks) {
@@ -61,4 +63,5 @@
     }
   }
 );
+  myState=STATE_FULLY_INITIALIZED;
 }

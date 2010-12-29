@@ -9,9 +9,14 @@
   }
  else {
     info.FileSize=fileSize;
-    removeChildren(info);
-    myInfosToSave.add(info);
-    addChildren(file);
+    if (processChildren) {
+      removeChildren(info);
+      myInfosToSave.add(info);
+      addChildren(file);
+    }
+ else {
+      myInfosToSave.add(info);
+    }
     return false;
   }
 }

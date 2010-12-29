@@ -1,7 +1,7 @@
 {
-  while (myState < state) {
+  while (myState < state && !myInterrupted) {
 synchronized (this) {
-      if (myState < state) {
+      if (myState < state && !myInterrupted) {
         try {
           wait();
         }

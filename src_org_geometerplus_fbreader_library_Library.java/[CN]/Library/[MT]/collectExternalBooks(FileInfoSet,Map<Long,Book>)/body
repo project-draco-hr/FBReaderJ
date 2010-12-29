@@ -14,7 +14,7 @@
     if (myUpdatedFiles.contains(physicalFile)) {
       reloadMetaInfo=true;
     }
- else     if (!fileInfos.check(physicalFile)) {
+ else     if (!fileInfos.check(physicalFile,physicalFile != bookFile)) {
       reloadMetaInfo=true;
       myUpdatedFiles.add(physicalFile);
     }

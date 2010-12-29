@@ -1,9 +1,12 @@
 {
   if (myState == STATE_NOT_INITIALIZED) {
-    build();
-    myLibraryByAuthor.sortAllChildren();
-    myLibraryByTag.sortAllChildren();
-    myState=STATE_FULLY_INITIALIZED;
+    try {
+      myInterrupted=false;
+      build();
+    }
+ catch (    Throwable t) {
+      myInterrupted=true;
+    }
     notifyAll();
   }
 }

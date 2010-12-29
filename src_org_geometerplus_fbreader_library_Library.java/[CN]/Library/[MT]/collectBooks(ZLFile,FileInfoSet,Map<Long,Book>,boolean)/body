@@ -1,6 +1,4 @@
 {
-  System.gc();
-  System.gc();
   Book book=getBook(file,fileInfos,savedBooks,doReadMetaInfo);
   if (book != null) {
     myBooks.add(book);

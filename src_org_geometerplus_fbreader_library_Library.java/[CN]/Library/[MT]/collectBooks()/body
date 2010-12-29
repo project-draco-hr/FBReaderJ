@@ -3,7 +3,8 @@
   FileInfoSet fileInfos=new FileInfoSet();
   final Map<Long,Book> savedBooks=BooksDatabase.Instance().loadBooks(fileInfos);
   for (  ZLPhysicalFile file : physicalFilesList) {
-    collectBooks(file,fileInfos,savedBooks,!fileInfos.check(file));
+    final boolean flag=!"epub".equals(file.getExtension());
+    collectBooks(file,fileInfos,savedBooks,!fileInfos.check(file,flag));
     file.setCached(false);
   }
   final Book helpBook=getBook(getHelpFile(),fileInfos,savedBooks,false);
