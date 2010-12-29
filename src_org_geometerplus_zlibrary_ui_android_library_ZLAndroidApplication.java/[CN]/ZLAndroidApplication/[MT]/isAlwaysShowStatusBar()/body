@@ -1,3 +1,3 @@
 {
-  return Build.DISPLAY != null && Build.DISPLAY.contains("simenxie");
+  return (Build.DISPLAY != null && Build.DISPLAY.contains("simenxie")) || "PD_Novel".equals(Build.MODEL);
 }
