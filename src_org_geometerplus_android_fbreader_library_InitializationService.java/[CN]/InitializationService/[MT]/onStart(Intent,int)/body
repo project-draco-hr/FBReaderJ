@@ -6,18 +6,17 @@
     }
   }
 ;
-  myLibraryInitializer=new HandlerThread("LibraryInitializer"){
+  final Thread libraryInitializer=new Thread("LibraryInitializer"){
     public void run(){
       try {
         LibraryBaseActivity.LibraryInstance.synchronize();
       }
   finally {
-        myLibraryInitializer=null;
         handler.sendMessage(handler.obtainMessage(0));
       }
     }
   }
 ;
-  myLibraryInitializer.setPriority(Thread.MIN_PRIORITY);
-  myLibraryInitializer.start();
+  libraryInitializer.setPriority(Thread.MIN_PRIORITY);
+  libraryInitializer.start();
 }
