@@ -1,5 +1,5 @@
 {
   super.onResume();
-  startService(new Intent(getApplicationContext(),KillerService.class));
+  sendBroadcast(new Intent(getApplicationContext(),KillerCallback.class));
   ControlButtonPanel.restoreVisibilities();
 }

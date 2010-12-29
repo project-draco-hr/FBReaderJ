@@ -1,4 +1,0 @@
-{
-  onStart(intent,startId);
-  return 0;
-}
