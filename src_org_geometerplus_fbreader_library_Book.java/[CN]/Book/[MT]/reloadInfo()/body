@@ -1,0 +1,5 @@
+{
+  if (readMetaInfo()) {
+    save();
+  }
+}
