@@ -12,18 +12,6 @@
       return true;
     }
   }
-  final ZLTextElementRegion region=findRegion(x,y,10);
-  if (region != null) {
-    final int action=myReader.DictionaryModeTappingActionOption.getValue();
-    if (region instanceof ZLTextHyperlinkRegion || action == FBReaderApp.DictionaryModeTappingAction.SELECT_WORD || action == FBReaderApp.DictionaryModeTappingAction.OPEN_DICTIONARY) {
-      selectRegion(region);
-      myReader.repaintView();
-    }
-    if (region instanceof ZLTextHyperlinkRegion || action == FBReaderApp.DictionaryModeTappingAction.OPEN_DICTIONARY) {
-      myReader.doAction(ActionCode.PROCESS_HYPERLINK);
-    }
-    return true;
-  }
   if (myReader.AllowScreenBrightnessAdjustmentOption.getValue() && x < myContext.getWidth() / 10) {
     myIsBrightnessAdjustmentInProgress=true;
     myStartY=y;

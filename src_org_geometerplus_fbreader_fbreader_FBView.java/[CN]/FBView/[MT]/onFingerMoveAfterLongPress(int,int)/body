@@ -1,12 +1,11 @@
 {
-  if (super.onFingerLongPress(x,y)) {
+  if (super.onFingerMoveAfterLongPress(x,y)) {
     return true;
   }
   final ZLTextElementRegion region=findRegion(x,y,10);
   if (region != null) {
     selectRegion(region);
     myReader.repaintView();
-    return true;
   }
-  return false;
+  return true;
 }
