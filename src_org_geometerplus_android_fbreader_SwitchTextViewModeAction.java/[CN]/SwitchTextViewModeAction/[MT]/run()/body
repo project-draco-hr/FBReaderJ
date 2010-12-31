@@ -1,7 +1,4 @@
 {
-  if (myMode == ZLTextViewMode.MODE_VISIT_ALL_WORDS) {
-    DictionaryUtil.installDictionaryIfNotInstalled(myBaseActivity);
-  }
   Reader.TextViewModeOption.setValue(myMode);
   Reader.BookTextView.resetRegionPointer();
   Reader.FootnoteView.resetRegionPointer();

@@ -3,7 +3,7 @@
     return true;
   }
   final int direction=(diffY != 0) ? (diffY > 0 ? Direction.DOWN : Direction.UP) : (diffX > 0 ? Direction.RIGHT : Direction.LEFT);
-  if (!moveRegionPointer(direction)) {
+  if (!moveRegionPointer(direction,getRegionFilter())) {
     if (direction == Direction.DOWN) {
       scrollPage(true,ZLTextView.ScrollingMode.SCROLL_LINES,1);
     }

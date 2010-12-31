@@ -1,5 +1,4 @@
 {
-  final ZLTextElementRegion.Filter filter=getCurrentFilter();
   ZLTextElementRegion bestRegion=null;
   int distance=maxDistance + 1;
   for (  ZLTextElementRegion region : myCurrentPage.TextElementMap.ElementRegions) {

@@ -28,7 +28,6 @@ if (index == elementRegions.size() - 1) {
 }
 break;
 }
-final ZLTextElementRegion.Filter filter=getCurrentFilter();
 switch (direction) {
 case Direction.LEFT:
 for (; index >= 0; --index) {

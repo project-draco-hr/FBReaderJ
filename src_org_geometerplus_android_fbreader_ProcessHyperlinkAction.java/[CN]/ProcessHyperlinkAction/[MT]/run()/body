@@ -25,7 +25,7 @@ try {
 myBaseActivity.startActivity(intent);
 }
  catch (ActivityNotFoundException e) {
-Toast.makeText(myBaseActivity,ZLResource.resource("errorMessage").getResource("dictionaryIsNotInstalled").getValue(),Toast.LENGTH_LONG).show();
+DictionaryUtil.installDictionaryIfNotInstalled(myBaseActivity);
 }
 }
 }
