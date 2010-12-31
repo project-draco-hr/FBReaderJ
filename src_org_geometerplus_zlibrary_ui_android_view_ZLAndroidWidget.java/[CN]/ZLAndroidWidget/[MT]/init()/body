@@ -1,0 +1,4 @@
+{
+  setDrawingCacheEnabled(false);
+  setOnLongClickListener(this);
+}

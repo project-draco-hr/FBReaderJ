@@ -21,14 +21,4 @@
     panel.setExtension(layout);
     myNavigatePanel.setControlPanel(panel,root,true);
   }
-  findViewById(R.id.main_view).setOnLongClickListener(new View.OnLongClickListener(){
-    public boolean onLongClick(    View v){
-      if (!myNavigatePanel.getVisibility()) {
-        navigate();
-        return true;
-      }
-      return false;
-    }
-  }
-);
 }

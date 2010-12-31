@@ -1,0 +1,4 @@
+{
+  final ZLView view=ZLApplication.Instance().getCurrentView();
+  return view.onFingerLongPress(myPressedX,myPressedY);
+}
