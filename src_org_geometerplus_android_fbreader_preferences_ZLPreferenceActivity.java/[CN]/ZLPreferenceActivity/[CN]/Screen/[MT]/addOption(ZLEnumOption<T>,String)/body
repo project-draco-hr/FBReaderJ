@@ -1,0 +1,6 @@
+{
+  ZLEnumPreference<T> preference=new ZLEnumPreference<T>(ZLPreferenceActivity.this,Resource,resourceKey,option);
+  myScreen.addPreference(preference);
+  myPreferences.add(preference);
+  return preference;
+}

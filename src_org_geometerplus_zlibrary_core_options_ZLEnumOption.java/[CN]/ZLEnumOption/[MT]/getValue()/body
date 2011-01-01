@@ -1,0 +1,10 @@
+{
+  if (!myIsSynchronized) {
+    final String value=getConfigValue(null);
+    if (value != null) {
+      myValue=(T)T.valueOf(myDefaultValue.getClass(),value);
+    }
+    myIsSynchronized=true;
+  }
+  return myValue;
+}
