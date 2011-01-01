@@ -1,3 +1,0 @@
-{
-  return Reader.TextViewModeOption.getValue() != myMode;
-}

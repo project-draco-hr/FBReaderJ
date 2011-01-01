@@ -2,7 +2,7 @@
   if (super.onFingerLongPress(x,y)) {
     return true;
   }
-  final ZLTextElementRegion region=findRegion(x,y,10,getRegionFilter());
+  final ZLTextElementRegion region=findRegion(x,y,10,ZLTextElementRegion.Filter);
   if (region != null) {
     selectRegion(region);
     myReader.repaintView();

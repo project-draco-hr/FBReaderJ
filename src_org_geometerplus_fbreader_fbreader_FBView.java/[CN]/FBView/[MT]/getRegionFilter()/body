@@ -1,9 +1,0 @@
-{
-switch (myReader.TextViewModeOption.getValue()) {
-default :
-case MODE_VISIT_ALL_WORDS:
-    return ZLTextElementRegion.Filter;
-case MODE_VISIT_HYPERLINKS:
-  return ZLTextHyperlinkRegion.Filter;
-}
-}
