@@ -1,0 +1,6 @@
+{
+  final ZLView view=ZLApplication.Instance().getCurrentView();
+  view.onFingerSingleTap(myPressedX,myPressedY);
+  myPendingPress=false;
+  myPendingShortClickRunnable=null;
+}

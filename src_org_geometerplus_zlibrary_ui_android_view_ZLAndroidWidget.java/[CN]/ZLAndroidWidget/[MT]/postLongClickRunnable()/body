@@ -1,5 +1,6 @@
 {
   myLongClickPerformed=false;
+  myPendingPress=false;
   if (myPendingLongClickRunnable == null) {
     myPendingLongClickRunnable=new LongClickRunnable();
   }

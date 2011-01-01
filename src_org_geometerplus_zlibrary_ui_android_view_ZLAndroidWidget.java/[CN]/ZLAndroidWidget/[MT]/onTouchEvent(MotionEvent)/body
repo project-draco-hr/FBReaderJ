@@ -10,17 +10,35 @@ case MotionEvent.ACTION_UP:
  else {
       if (myPendingLongClickRunnable != null) {
         removeCallbacks(myPendingLongClickRunnable);
+        myPendingLongClickRunnable=null;
       }
       if (myPendingPress) {
-        view.onFingerPress(myPressedX,myPressedY);
+        if (view.isDoubleTapSupported()) {
+          if (myPendingShortClickRunnable == null) {
+            myPendingShortClickRunnable=new ShortClickRunnable();
+          }
+          postDelayed(myPendingShortClickRunnable,ViewConfiguration.getDoubleTapTimeout());
+        }
+ else {
+          view.onFingerSingleTap(x,y);
+        }
       }
-      view.onFingerRelease(x,y);
+ else {
+        view.onFingerRelease(x,y);
+      }
     }
   myPendingPress=false;
 myScreenIsTouched=false;
 break;
 case MotionEvent.ACTION_DOWN:
+if (myPendingShortClickRunnable != null) {
+removeCallbacks(myPendingShortClickRunnable);
+myPendingShortClickRunnable=null;
+view.onFingerDoubleTap();
+}
+ else {
 postLongClickRunnable();
+}
 myScreenIsTouched=true;
 myPendingPress=true;
 myPressedX=x;
@@ -32,6 +50,10 @@ view.onFingerMoveAfterLongPress(x,y);
 }
  else {
 if (myPendingPress) {
+if (myPendingShortClickRunnable != null) {
+removeCallbacks(myPendingShortClickRunnable);
+myPendingShortClickRunnable=null;
+}
 final int slop=ViewConfiguration.get(getContext()).getScaledTouchSlop();
 if (Math.abs(myPressedX - x) > slop || Math.abs(myPressedY - y) > slop) {
 if (myPendingLongClickRunnable != null) {
