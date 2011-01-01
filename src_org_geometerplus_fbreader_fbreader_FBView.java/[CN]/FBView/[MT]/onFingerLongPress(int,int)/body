@@ -2,11 +2,13 @@
   if (super.onFingerLongPress(x,y)) {
     return true;
   }
-  final ZLTextElementRegion region=findRegion(x,y,10,ZLTextElementRegion.Filter);
-  if (region != null) {
-    selectRegion(region);
-    myReader.repaintView();
-    return true;
+  if (myReader.DictionaryModeTappingActionOption.getValue() != FBReaderApp.DictionaryModeTappingAction.DO_NOTHING) {
+    final ZLTextElementRegion region=findRegion(x,y,10,ZLTextElementRegion.Filter);
+    if (region != null) {
+      selectRegion(region);
+      myReader.repaintView();
+      return true;
+    }
   }
   return false;
 }

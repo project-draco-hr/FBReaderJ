@@ -1,0 +1,13 @@
+{
+  if (super.onFingerReleaseAfterLongPress(x,y)) {
+    return true;
+  }
+  if (myReader.DictionaryModeTappingActionOption.getValue() == FBReaderApp.DictionaryModeTappingAction.OPEN_DICTIONARY) {
+    final ZLTextElementRegion region=currentRegion();
+    if (region instanceof ZLTextWordRegion) {
+      myReader.doAction(ActionCode.PROCESS_HYPERLINK);
+    }
+    return true;
+  }
+  return false;
+}
