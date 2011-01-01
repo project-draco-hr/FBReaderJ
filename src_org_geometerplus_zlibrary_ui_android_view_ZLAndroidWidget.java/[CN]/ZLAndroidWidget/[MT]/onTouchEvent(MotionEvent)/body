@@ -49,6 +49,7 @@ myPressedX=x;
 myPressedY=y;
 break;
 case MotionEvent.ACTION_MOVE:
+{
 final int slop=ViewConfiguration.get(getContext()).getScaledTouchSlop();
 final boolean isAMove=Math.abs(myPressedX - x) > slop || Math.abs(myPressedY - y) > slop;
 if (isAMove) {
@@ -76,6 +77,7 @@ view.onFingerMove(x,y);
 }
 }
 break;
+}
 }
 return true;
 }
