@@ -4,37 +4,41 @@
   final ZLView view=ZLApplication.Instance().getCurrentView();
 switch (event.getAction()) {
 case MotionEvent.ACTION_UP:
-    if (myLongClickPerformed) {
-      view.onFingerReleaseAfterLongPress(x,y);
+    if (myPendingDoubleTap) {
+      view.onFingerDoubleTap();
+    }
+  if (myLongClickPerformed) {
+    view.onFingerReleaseAfterLongPress(x,y);
+  }
+ else {
+    if (myPendingLongClickRunnable != null) {
+      removeCallbacks(myPendingLongClickRunnable);
+      myPendingLongClickRunnable=null;
+    }
+    if (myPendingPress) {
+      if (view.isDoubleTapSupported()) {
+        if (myPendingShortClickRunnable == null) {
+          myPendingShortClickRunnable=new ShortClickRunnable();
+        }
+        postDelayed(myPendingShortClickRunnable,ViewConfiguration.getDoubleTapTimeout());
+      }
+ else {
+        view.onFingerSingleTap(x,y);
+      }
     }
  else {
-      if (myPendingLongClickRunnable != null) {
-        removeCallbacks(myPendingLongClickRunnable);
-        myPendingLongClickRunnable=null;
-      }
-      if (myPendingPress) {
-        if (view.isDoubleTapSupported()) {
-          if (myPendingShortClickRunnable == null) {
-            myPendingShortClickRunnable=new ShortClickRunnable();
-          }
-          postDelayed(myPendingShortClickRunnable,ViewConfiguration.getDoubleTapTimeout());
-        }
- else {
-          view.onFingerSingleTap(x,y);
-        }
-      }
- else {
-        view.onFingerRelease(x,y);
-      }
+      view.onFingerRelease(x,y);
     }
-  myPendingPress=false;
+  }
+myPendingDoubleTap=false;
+myPendingPress=false;
 myScreenIsTouched=false;
 break;
 case MotionEvent.ACTION_DOWN:
 if (myPendingShortClickRunnable != null) {
 removeCallbacks(myPendingShortClickRunnable);
 myPendingShortClickRunnable=null;
-view.onFingerDoubleTap();
+myPendingDoubleTap=true;
 }
  else {
 postLongClickRunnable();
@@ -45,17 +49,21 @@ myPressedX=x;
 myPressedY=y;
 break;
 case MotionEvent.ACTION_MOVE:
+final int slop=ViewConfiguration.get(getContext()).getScaledTouchSlop();
+final boolean isAMove=Math.abs(myPressedX - x) > slop || Math.abs(myPressedY - y) > slop;
+if (isAMove) {
+myPendingDoubleTap=false;
+}
 if (myLongClickPerformed) {
 view.onFingerMoveAfterLongPress(x,y);
 }
  else {
 if (myPendingPress) {
+if (isAMove) {
 if (myPendingShortClickRunnable != null) {
 removeCallbacks(myPendingShortClickRunnable);
 myPendingShortClickRunnable=null;
 }
-final int slop=ViewConfiguration.get(getContext()).getScaledTouchSlop();
-if (Math.abs(myPressedX - x) > slop || Math.abs(myPressedY - y) > slop) {
 if (myPendingLongClickRunnable != null) {
 removeCallbacks(myPendingLongClickRunnable);
 }
