@@ -1,4 +1,5 @@
 {
+  setFocusableInTouchMode(true);
   setDrawingCacheEnabled(false);
   setOnLongClickListener(this);
 }
