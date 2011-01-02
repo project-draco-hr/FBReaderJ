@@ -1,8 +1,9 @@
 {
   if (myTree instanceof NetworkCatalogRootTree) {
+    final NetworkCatalogRootTree rootTree=(NetworkCatalogRootTree)myTree;
     mySpecialItems=new ArrayList<NetworkTree>();
-    if (Util.isAccountRefillingSupported(NetworkCatalogActivity.this,myTree.Item.Link)) {
-      mySpecialItems.add(new RefillAccountTree(myTree));
+    if (Util.isAccountRefillingSupported(NetworkCatalogActivity.this,rootTree.Item.Link)) {
+      mySpecialItems.add(new RefillAccountTree(rootTree));
     }
     if (mySpecialItems.size() > 0) {
       mySpecialItems.trimToSize();
