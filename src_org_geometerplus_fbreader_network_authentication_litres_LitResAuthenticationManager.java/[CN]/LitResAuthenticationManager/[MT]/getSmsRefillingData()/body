@@ -1,5 +1,6 @@
 {
   final HashMap<String,String> map=new HashMap<String,String>();
   map.put("litres:userId",myUserIdOption.getValue());
+  map.put("litres:sid",mySidOption.getValue());
   return map;
 }
