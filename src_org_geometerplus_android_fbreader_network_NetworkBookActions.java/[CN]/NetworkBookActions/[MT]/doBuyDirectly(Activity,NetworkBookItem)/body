@@ -16,10 +16,24 @@
       final boolean downloadBook=which == DialogInterface.BUTTON_NEUTRAL;
       final Handler handler=new Handler(){
         public void handleMessage(        Message message){
-          String err=(String)message.obj;
-          if (err != null) {
+          final ZLNetworkException exception=(ZLNetworkException)message.obj;
+          if (exception != null) {
+            String buttonKey;
+            DialogInterface.OnClickListener action=null;
+            if (NetworkException.ERROR_PURCHASE_NOT_ENOUGH_MONEY.equals(exception.getCode())) {
+              buttonKey="refillAccount";
+              action=new DialogInterface.OnClickListener(){
+                public void onClick(                DialogInterface dialog,                int which){
+                  new RefillAccountActions().runStandalone(activity,book.Link);
+                }
+              }
+;
+            }
+ else {
+              buttonKey="ok";
+            }
             final ZLResource boxResource=dialogResource.getResource("networkError");
-            new AlertDialog.Builder(activity).setTitle(boxResource.getResource("title").getValue()).setMessage(err).setIcon(0).setPositiveButton(buttonResource.getResource("ok").getValue(),null).create().show();
+            new AlertDialog.Builder(activity).setTitle(boxResource.getResource("title").getValue()).setMessage(exception.getMessage()).setIcon(0).setPositiveButton(buttonResource.getResource(buttonKey).getValue(),action).create().show();
           }
  else           if (downloadBook) {
             doDownloadBook(activity,book,false);
@@ -37,14 +51,14 @@
 ;
       final Runnable runnable=new Runnable(){
         public void run(){
-          String error=null;
+          ZLNetworkException exception=null;
           try {
             mgr.purchaseBook(book);
           }
  catch (          ZLNetworkException e) {
-            error=e.getMessage();
+            exception=e;
           }
-          handler.sendMessage(handler.obtainMessage(0,error));
+          handler.sendMessage(handler.obtainMessage(0,exception));
         }
       }
 ;
