@@ -27,7 +27,9 @@
         checkBox.setText(pluginDialogResource.getResource("dontAskAgain").getValue());
         final AlertDialog dialog=new AlertDialog.Builder(activity).setTitle(pluginDialogResource.getResource(titleResourceKey).getValue()).setView(view).setIcon(0).setPositiveButton(buttonResource.getResource(positiveButtonKey).getValue(),new DialogInterface.OnClickListener(){
           public void onClick(          DialogInterface dialog,          int which){
-            PackageUtil.installFromMarket(activity,plugin);
+            if (!PackageUtil.installFromMarket(activity,plugin)) {
+              UIUtil.showErrorMessage(activity,"cannotRunAndroidMarket","plugin");
+            }
           }
         }
 ).setNegativeButton(buttonResource.getResource("skip").getValue(),new DialogInterface.OnClickListener(){
