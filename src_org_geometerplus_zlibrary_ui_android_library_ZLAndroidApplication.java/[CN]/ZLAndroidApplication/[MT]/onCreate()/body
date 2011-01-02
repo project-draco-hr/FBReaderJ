@@ -1,8 +1,5 @@
 {
   super.onCreate();
-  if (isAlwaysShowStatusBar()) {
-    ShowStatusBarOption.setValue(true);
-  }
   new ZLSQLiteConfig(this);
   new ZLAndroidImageManager();
   new ZLAndroidDialogManager();

@@ -1,7 +1,0 @@
-{
-  if (super.onFingerDoubleTap()) {
-    return true;
-  }
-  myReader.doAction(ActionCode.SHOW_NAVIGATION);
-  return true;
-}
