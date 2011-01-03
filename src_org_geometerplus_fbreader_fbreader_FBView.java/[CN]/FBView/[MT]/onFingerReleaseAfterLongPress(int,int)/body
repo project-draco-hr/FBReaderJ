@@ -2,7 +2,7 @@
   if (super.onFingerReleaseAfterLongPress(x,y)) {
     return true;
   }
-  if (myReader.DictionaryModeTappingActionOption.getValue() == FBReaderApp.DictionaryModeTappingAction.OPEN_DICTIONARY) {
+  if (myReader.DictionaryTappingActionOption.getValue() == FBReaderApp.DictionaryTappingAction.openDictionary) {
     final ZLTextElementRegion region=currentRegion();
     if (region instanceof ZLTextWordRegion) {
       myReader.doAction(ActionCode.PROCESS_HYPERLINK);
