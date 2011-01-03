@@ -18,13 +18,14 @@
     myStartBrightness=ZLibrary.Instance().getScreenBrightness();
     return true;
   }
-  final ScrollingPreferences preferences=ScrollingPreferences.Instance();
-  final ScrollingPreferences.FingerScrolling fingerScrolling=preferences.FingerScrollingOption.getValue();
-  if (fingerScrolling == ScrollingPreferences.FingerScrolling.byFlick || fingerScrolling == ScrollingPreferences.FingerScrolling.byTapAndFlick) {
-    myStartX=x;
-    myStartY=y;
-    setScrollingActive(true);
-    myIsManualScrollingActive=true;
+  if (getAnimationType() != Animation.none) {
+    final ScrollingPreferences.FingerScrolling fingerScrolling=ScrollingPreferences.Instance().FingerScrollingOption.getValue();
+    if (fingerScrolling == ScrollingPreferences.FingerScrolling.byFlick || fingerScrolling == ScrollingPreferences.FingerScrolling.byTapAndFlick) {
+      myStartX=x;
+      myStartY=y;
+      setScrollingActive(true);
+      myIsManualScrollingActive=true;
+    }
   }
   return true;
 }

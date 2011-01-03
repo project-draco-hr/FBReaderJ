@@ -30,7 +30,7 @@ synchronized (this) {
         if (Math.abs(diff) > minDiff) {
           viewPage=horizontal ? ((diff < 0) ? PAGE_RIGHT : PAGE_LEFT) : ((diff < 0) ? PAGE_BOTTOM : PAGE_TOP);
         }
-        if (ScrollingPreferences.Instance().AnimateOption.getValue()) {
+        if (getAnimationType() != Animation.none) {
           startAutoScrolling(viewPage);
         }
  else {

@@ -1,4 +1,5 @@
 {
+  final ZLView view=ZLApplication.Instance().getCurrentView();
   final int w=getWidth();
   final int h=getMainAreaHeight();
   boolean stopScrolling=false;
@@ -21,39 +22,45 @@
   final boolean horizontal=(myViewPageToScroll == ZLView.PAGE_RIGHT) || (myViewPageToScroll == ZLView.PAGE_LEFT);
   final int size=horizontal ? w : h;
   int shift=(myScrollingShift < 0) ? (myScrollingShift + size) : (myScrollingShift - size);
-  canvas.drawBitmap(mySecondaryBitmap,0,0,myPaint);
-  canvas.drawBitmap(myMainBitmap,horizontal ? myScrollingShift : 0,horizontal ? 0 : myScrollingShift,myPaint);
-  if (stopScrolling) {
-    final ZLView view=ZLApplication.Instance().getCurrentView();
-    if (myScrollingBound != 0) {
-      Bitmap swap=myMainBitmap;
-      myMainBitmap=mySecondaryBitmap;
-      mySecondaryBitmap=swap;
-      mySecondaryBitmapIsUpToDate=false;
-      view.onScrollingFinished(myViewPageToScroll);
-      ZLApplication.Instance().onRepaintFinished();
-    }
+switch (view.getAnimationType()) {
+case shift:
+    canvas.drawBitmap(mySecondaryBitmap,horizontal ? shift : 0,horizontal ? 0 : shift,myPaint);
+  break;
+case slide:
+canvas.drawBitmap(mySecondaryBitmap,0,0,myPaint);
+break;
+}
+canvas.drawBitmap(myMainBitmap,horizontal ? myScrollingShift : 0,horizontal ? 0 : myScrollingShift,myPaint);
+if (stopScrolling) {
+if (myScrollingBound != 0) {
+Bitmap swap=myMainBitmap;
+myMainBitmap=mySecondaryBitmap;
+mySecondaryBitmap=swap;
+mySecondaryBitmapIsUpToDate=false;
+view.onScrollingFinished(myViewPageToScroll);
+ZLApplication.Instance().onRepaintFinished();
+}
  else {
-      view.onScrollingFinished(ZLView.PAGE_CENTRAL);
-    }
-    setPageToScroll(ZLView.PAGE_CENTRAL);
-    myScrollingInProgress=false;
-    myScrollingShift=0;
-  }
+view.onScrollingFinished(ZLView.PAGE_CENTRAL);
+}
+setPageToScroll(ZLView.PAGE_CENTRAL);
+myScrollingInProgress=false;
+myScrollingShift=0;
+}
  else {
-    if (shift < 0) {
-      shift+=size;
-    }
-    myPaint.setColor(Color.rgb(127,127,127));
-    if (horizontal) {
-      canvas.drawLine(shift,0,shift,h + 1,myPaint);
-    }
+if (shift < 0) {
+shift+=size;
+}
+myPaint.setColor(Color.rgb(127,127,127));
+if (horizontal) {
+canvas.drawLine(shift,0,shift,h + 1,myPaint);
+}
  else {
-      canvas.drawLine(0,shift,w + 1,shift,myPaint);
-    }
-    if (myScrollingInProgress) {
-      postInvalidate();
-    }
-  }
-  drawFooter(canvas);
+canvas.drawLine(0,shift,w + 1,shift,myPaint);
+}
+if (myScrollingInProgress) {
+postInvalidate();
+}
+}
+drawFooter(canvas);
 }
