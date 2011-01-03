@@ -1,11 +1,11 @@
 {
-  if (LibraryInstance.hasState(Library.STATE_FULLY_INITIALIZED)) {
+  if (myLibrary.hasState(Library.STATE_FULLY_INITIALIZED)) {
     myPostRunnable.run();
   }
  else {
     UIUtil.runWithMessage(LibraryBaseActivity.this,"loadingBookList",new Runnable(){
       public void run(){
-        LibraryInstance.waitForState(Library.STATE_FULLY_INITIALIZED);
+        myLibrary.waitForState(Library.STATE_FULLY_INITIALIZED);
       }
     }
 ,myPostRunnable);

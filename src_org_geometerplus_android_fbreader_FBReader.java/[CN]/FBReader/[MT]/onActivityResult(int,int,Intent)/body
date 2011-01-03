@@ -3,6 +3,14 @@ switch (requestCode) {
 case REPAINT_CODE:
 {
       final FBReaderApp fbreader=(FBReaderApp)ZLApplication.Instance();
+      final BookModel model=fbreader.Model;
+      if (model != null) {
+        final Book book=model.Book;
+        if (book != null) {
+          book.reloadInfoFromDatabase();
+          ZLTextHyphenator.Instance().load(book.getLanguage());
+        }
+      }
       fbreader.clearTextCaches();
       fbreader.repaintView();
       break;

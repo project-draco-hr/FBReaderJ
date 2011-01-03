@@ -1,6 +1,4 @@
 {
   super.onPause();
-  if (myBook.save()) {
-    ZLTextHyphenator.Instance().load(myBook.getLanguage());
-  }
+  myBook.save();
 }

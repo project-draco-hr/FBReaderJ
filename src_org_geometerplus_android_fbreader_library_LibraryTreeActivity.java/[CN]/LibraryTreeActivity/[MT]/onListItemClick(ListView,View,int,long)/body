@@ -4,6 +4,6 @@
     showBookInfo(((BookTree)tree).Book);
   }
  else {
-    new OpenTreeRunnable(myTreePathString + "\000" + tree.getName()).run();
+    new OpenTreeRunnable(LibraryInstance,myTreePathString + "\000" + tree.getName()).run();
   }
 }
