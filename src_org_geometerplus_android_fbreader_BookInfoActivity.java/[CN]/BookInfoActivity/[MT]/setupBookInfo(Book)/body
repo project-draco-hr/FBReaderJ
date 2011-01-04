@@ -24,4 +24,5 @@
     }
   }
   setupInfoPair(R.id.book_tags,"tags",buffer);
+  setupInfoPair(R.id.book_language,"language",ZLLanguageUtil.languageName(book.getLanguage()));
 }
