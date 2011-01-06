@@ -1,3 +1,5 @@
 String packageName
 String className
 String title
+String argument
+boolean useSearchIntend

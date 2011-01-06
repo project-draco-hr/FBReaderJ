@@ -2,4 +2,6 @@
   PackageName=packageName;
   ClassName=className;
   Title=title;
+  Argument=argument;
+  UseSearchIntend=useSearchIntend;
 }
