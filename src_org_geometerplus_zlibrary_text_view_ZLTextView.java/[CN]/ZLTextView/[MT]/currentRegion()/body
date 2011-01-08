@@ -1,3 +1,11 @@
 {
-  return mySelectedRegion;
+  if (mySelectedRegion == null) {
+    return null;
+  }
+  final ArrayList<ZLTextElementRegion> elementRegions=myCurrentPage.TextElementMap.ElementRegions;
+  if (elementRegions.isEmpty()) {
+    return null;
+  }
+  final int index=elementRegions.indexOf(mySelectedRegion);
+  return index >= 0 ? elementRegions.get(index) : null;
 }
