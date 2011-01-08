@@ -1,0 +1,15 @@
+{
+  super(context,resource,resourceKey);
+  myOption=DictionaryUtil.dictionaryOption();
+  final List<PackageInfo> infos=DictionaryUtil.dictionaryInfos();
+  final String[] values=new String[infos.size()];
+  final String[] texts=new String[infos.size()];
+  int index=0;
+  for (  PackageInfo i : infos) {
+    values[index]=i.ClassName;
+    texts[index]=i.Title;
+    ++index;
+  }
+  setLists(values,texts);
+  setInitialValue(myOption.getValue());
+}
