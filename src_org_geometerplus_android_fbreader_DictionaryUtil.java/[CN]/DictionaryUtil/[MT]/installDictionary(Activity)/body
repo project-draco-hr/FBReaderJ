@@ -1,5 +1,0 @@
-{
-  if (!PackageUtil.installFromMarket(activity,"com.socialnmobile.colordict")) {
-    UIUtil.showErrorMessage(activity,"cannotRunAndroidMarket","ColorDict");
-  }
-}

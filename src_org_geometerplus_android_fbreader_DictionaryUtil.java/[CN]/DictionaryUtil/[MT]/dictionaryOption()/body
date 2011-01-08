@@ -1,0 +1,6 @@
+{
+  if (ourDictionaryOption == null) {
+    ourDictionaryOption=new ZLStringOption("Dictionary","Class",dictionaryInfos().get(0).ClassName);
+  }
+  return ourDictionaryOption;
+}

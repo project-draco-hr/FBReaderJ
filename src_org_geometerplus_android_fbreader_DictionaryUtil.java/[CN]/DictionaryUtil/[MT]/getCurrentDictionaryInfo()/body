@@ -1,0 +1,9 @@
+{
+  final String className=dictionaryOption().getValue();
+  for (  PackageInfo info : dictionaryInfos()) {
+    if (info.ClassName.equals(className)) {
+      return info;
+    }
+  }
+  return dictionaryInfos().get(0);
+}

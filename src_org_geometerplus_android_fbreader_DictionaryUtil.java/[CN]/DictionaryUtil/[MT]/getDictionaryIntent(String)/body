@@ -1,3 +1,4 @@
 {
-  return new Intent(Intent.ACTION_SEARCH).setComponent(new ComponentName("com.socialnmobile.colordict","com.socialnmobile.colordict.activity.Main")).putExtra(SearchManager.QUERY,text);
+  final PackageInfo dictionaryInfo=getCurrentDictionaryInfo();
+  return new Intent(Intent.ACTION_SEARCH).setComponent(new ComponentName(dictionaryInfo.PackageName,dictionaryInfo.ClassName)).putExtra(SearchManager.QUERY,text);
 }
