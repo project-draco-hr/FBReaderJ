@@ -1,5 +1,5 @@
 {
-  if (state == ACTIVE & uttId.equals(this.PARAGRAPHUTTERANCE)) {
+  if (state == ACTIVE && uttId.equals(this.PARAGRAPHUTTERANCE)) {
     nextParagraphString(true,true,SEARCHFORWARD);
   }
  else {

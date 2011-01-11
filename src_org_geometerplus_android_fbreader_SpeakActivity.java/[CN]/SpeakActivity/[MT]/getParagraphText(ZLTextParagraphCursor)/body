@@ -3,7 +3,9 @@
   ZLTextWordCursor cursor=new ZLTextWordCursor(paraCursor);
   while (!cursor.isEndOfParagraph()) {
     ZLTextElement element=cursor.getElement();
-    if (element instanceof ZLTextWord)     sb.append(element.toString() + " ");
+    if (element instanceof ZLTextWord) {
+      sb.append(element.toString() + " ");
+    }
     cursor.nextWord();
   }
   return (sb.toString());

@@ -1,7 +1,7 @@
 {
   super.onCreate(savedInstanceState);
   Thread.setDefaultUncaughtExceptionHandler(new org.geometerplus.zlibrary.ui.android.library.UncaughtExceptionHandler(this));
-  Reader=(FBReader)ZLApplication.Instance();
+  Reader=(FBReaderApp)ZLApplication.Instance();
   requestWindowFeature(Window.FEATURE_NO_TITLE);
   setContentView(R.layout.view_spokentext);
   backbutton=(ImageButton)findViewById(R.id.spokentextback);
@@ -15,7 +15,7 @@
   setState(INACTIVE);
   TelephonyManager tm=(TelephonyManager)getSystemService(TELEPHONY_SERVICE);
   tm.listen(mPhoneListener,PhoneStateListener.LISTEN_CALL_STATE);
-  theView=((FBReader)FBReader.Instance()).getTextView();
+  theView=((FBReaderApp)FBReaderApp.Instance()).getTextView();
   ZLTextWordCursor cursor=theView.getStartCursor();
   myParaCursor=cursor.getParagraphCursor();
   Intent checkIntent=new Intent();
