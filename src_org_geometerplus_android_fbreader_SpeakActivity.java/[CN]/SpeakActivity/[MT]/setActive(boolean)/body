@@ -1,9 +1,9 @@
 {
-  state=value;
-  if (state == ACTIVE) {
+  myIsActive=active;
+  if (myIsActive) {
     myPauseButton.post(new UpdateControls(R.drawable.speak_pause));
   }
- else   if (state == INACTIVE) {
+ else {
     myPauseButton.post(new UpdateControls(R.drawable.speak_play));
   }
 }
