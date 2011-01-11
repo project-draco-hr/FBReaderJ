@@ -1,0 +1,4 @@
+{
+  stopTalking();
+  super.onBackPressed();
+}

@@ -1,0 +1,5 @@
+{
+  theView.gotoPosition(myParaCursor.Index,0,0);
+  Reader.repaintView();
+  Reader.showBookTextView();
+}

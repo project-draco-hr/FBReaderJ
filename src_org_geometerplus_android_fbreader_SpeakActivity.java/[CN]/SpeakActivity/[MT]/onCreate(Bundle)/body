@@ -1,0 +1,24 @@
+{
+  super.onCreate(savedInstanceState);
+  Thread.setDefaultUncaughtExceptionHandler(new org.geometerplus.zlibrary.ui.android.library.UncaughtExceptionHandler(this));
+  Reader=(FBReader)ZLApplication.Instance();
+  requestWindowFeature(Window.FEATURE_NO_TITLE);
+  setContentView(R.layout.view_spokentext);
+  backbutton=(ImageButton)findViewById(R.id.spokentextback);
+  backbutton.setOnClickListener(backListener);
+  forwardbutton=(ImageButton)findViewById(R.id.spokentextforward);
+  forwardbutton.setOnClickListener(forwardListener);
+  pausebutton=(ImageButton)findViewById(R.id.spokentextpause);
+  pausebutton.setOnClickListener(pauseListener);
+  stopbutton=(ImageButton)findViewById(R.id.spokentextstop);
+  stopbutton.setOnClickListener(stopListener);
+  setState(INACTIVE);
+  TelephonyManager tm=(TelephonyManager)getSystemService(TELEPHONY_SERVICE);
+  tm.listen(mPhoneListener,PhoneStateListener.LISTEN_CALL_STATE);
+  theView=((FBReader)FBReader.Instance()).getTextView();
+  ZLTextWordCursor cursor=theView.getStartCursor();
+  myParaCursor=cursor.getParagraphCursor();
+  Intent checkIntent=new Intent();
+  checkIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
+  startActivityForResult(checkIntent,CHECK_TTS_INSTALLED);
+}

@@ -1,0 +1,4 @@
+{
+  final ZLAndroidDialogManager dialogManager=(ZLAndroidDialogManager)ZLAndroidDialogManager.Instance();
+  dialogManager.runActivity(SpeakActivity.class);
+}

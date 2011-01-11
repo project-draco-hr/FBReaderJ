@@ -1,0 +1,5 @@
+{
+  mTts.setOnUtteranceCompletedListener(this);
+  setState(ACTIVE);
+  nextParagraphString(true,true,CURRENTORFORWARD);
+}
