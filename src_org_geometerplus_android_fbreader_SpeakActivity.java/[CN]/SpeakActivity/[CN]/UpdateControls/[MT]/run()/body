@@ -1,8 +1,8 @@
 {
   if (state == PLAY) {
-    pausebutton.setImageResource(R.drawable.speak_play);
+    myPauseButton.setImageResource(R.drawable.speak_play);
   }
  else   if (state == PAUSE) {
-    pausebutton.setImageResource(R.drawable.speak_pause);
+    myPauseButton.setImageResource(R.drawable.speak_pause);
   }
 }

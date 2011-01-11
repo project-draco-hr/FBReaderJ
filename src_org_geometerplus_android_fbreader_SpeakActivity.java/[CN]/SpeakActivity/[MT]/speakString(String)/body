@@ -2,5 +2,5 @@
   setState(ACTIVE);
   HashMap<String,String> callbackMap=new HashMap<String,String>();
   callbackMap.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID,PARAGRAPHUTTERANCE);
-  mTts.speak(s,TextToSpeech.QUEUE_FLUSH,callbackMap);
+  myTTS.speak(s,TextToSpeech.QUEUE_FLUSH,callbackMap);
 }

@@ -1,9 +1,9 @@
 {
   state=value;
   if (state == ACTIVE) {
-    pausebutton.post(new UpdateControls(UpdateControls.PAUSE));
+    myPauseButton.post(new UpdateControls(UpdateControls.PAUSE));
   }
  else   if (state == INACTIVE) {
-    pausebutton.post(new UpdateControls(UpdateControls.PLAY));
+    myPauseButton.post(new UpdateControls(UpdateControls.PLAY));
   }
 }

@@ -1,4 +1,4 @@
 {
-  Reader.onWindowClosing();
+  myReader.onWindowClosing();
   super.onPause();
 }
