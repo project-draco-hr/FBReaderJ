@@ -1,0 +1,23 @@
+{
+  if (mySelectedBookPath == null || !item.isSelectable()) {
+    return false;
+  }
+  final ZLFile file=item.getFile();
+  final String path=file.getPath();
+  if (mySelectedBookPath.equals(path)) {
+    return true;
+  }
+  String prefix=path;
+  if (file.isDirectory()) {
+    if (!prefix.endsWith("/")) {
+      prefix+='/';
+    }
+  }
+ else   if (file.isArchive()) {
+    prefix+=':';
+  }
+ else {
+    return false;
+  }
+  return mySelectedBookPath.startsWith(prefix);
+}
