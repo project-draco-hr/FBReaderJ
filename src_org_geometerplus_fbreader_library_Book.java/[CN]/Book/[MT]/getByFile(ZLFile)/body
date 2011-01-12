@@ -3,7 +3,7 @@
     return null;
   }
   final ZLPhysicalFile physicalFile=bookFile.getPhysicalFile();
-  if ((physicalFile != null) && !physicalFile.exists()) {
+  if (physicalFile != null && !physicalFile.exists()) {
     return null;
   }
   final FileInfoSet fileInfos=new FileInfoSet(bookFile);

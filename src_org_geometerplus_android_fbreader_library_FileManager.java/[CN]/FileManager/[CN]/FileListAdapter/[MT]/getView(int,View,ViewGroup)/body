@@ -1,8 +1,8 @@
 {
   final FileItem item=getItem(position);
   final View view=createView(convertView,parent,item.getName(),item.getSummary());
-  if (mySelectedBookPath != null && mySelectedBookPath.equals(item.getFile().getPath())) {
-    view.setBackgroundColor(0xff808080);
+  if (isItemSelected(item)) {
+    view.setBackgroundColor(0xff555555);
   }
  else {
     view.setBackgroundColor(0);
