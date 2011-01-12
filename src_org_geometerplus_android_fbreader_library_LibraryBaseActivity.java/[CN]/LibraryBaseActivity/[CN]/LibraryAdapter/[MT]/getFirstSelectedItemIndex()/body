@@ -1,0 +1,10 @@
+{
+  int index=0;
+  for (  FBTree t : myItems) {
+    if (isTreeSelected(t)) {
+      return index;
+    }
+    ++index;
+  }
+  return -1;
+}
