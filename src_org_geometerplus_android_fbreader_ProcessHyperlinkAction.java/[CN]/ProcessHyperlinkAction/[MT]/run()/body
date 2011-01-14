@@ -11,21 +11,5 @@ break;
 }
 return;
 }
-final String text=Reader.getTextView().getSelectedText();
-if (text != null) {
-int start=0;
-int end=text.length();
-for (; start < end && !Character.isLetterOrDigit(text.charAt(start)); ++start) ;
-for (; start < end && !Character.isLetterOrDigit(text.charAt(end - 1)); --end) ;
-if (start == end) {
-return;
-}
-final Intent intent=DictionaryUtil.getDictionaryIntent(text.substring(start,end));
-try {
-myBaseActivity.startActivity(intent);
-}
- catch (ActivityNotFoundException e) {
-DictionaryUtil.installDictionaryIfNotInstalled(myBaseActivity);
-}
-}
+DictionaryUtil.openWordInDictionary(myBaseActivity,Reader.getTextView().getSelectedText());
 }
