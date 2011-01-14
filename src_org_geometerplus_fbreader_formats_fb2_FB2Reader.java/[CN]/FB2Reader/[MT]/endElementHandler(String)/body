@@ -2,82 +2,82 @@
   final byte tag=myTagStack[--myTagStackSize];
 switch (tag) {
 case FB2Tag.P:
-    endParagraph();
+    myBookReader.endParagraph();
   break;
 case FB2Tag.SUB:
-addControl(FBTextKind.SUB,false);
+myBookReader.addControl(FBTextKind.SUB,false);
 break;
 case FB2Tag.SUP:
-addControl(FBTextKind.SUP,false);
+myBookReader.addControl(FBTextKind.SUP,false);
 break;
 case FB2Tag.CODE:
-addControl(FBTextKind.CODE,false);
+myBookReader.addControl(FBTextKind.CODE,false);
 break;
 case FB2Tag.EMPHASIS:
-addControl(FBTextKind.EMPHASIS,false);
+myBookReader.addControl(FBTextKind.EMPHASIS,false);
 break;
 case FB2Tag.STRONG:
-addControl(FBTextKind.STRONG,false);
+myBookReader.addControl(FBTextKind.STRONG,false);
 break;
 case FB2Tag.STRIKETHROUGH:
-addControl(FBTextKind.STRIKETHROUGH,false);
+myBookReader.addControl(FBTextKind.STRIKETHROUGH,false);
 break;
 case FB2Tag.V:
 case FB2Tag.SUBTITLE:
 case FB2Tag.TEXT_AUTHOR:
 case FB2Tag.DATE:
-popKind();
-endParagraph();
+myBookReader.popKind();
+myBookReader.endParagraph();
 break;
 case FB2Tag.CITE:
 case FB2Tag.EPIGRAPH:
-popKind();
+myBookReader.popKind();
 break;
 case FB2Tag.POEM:
 myInsidePoem=false;
 break;
 case FB2Tag.STANZA:
-beginParagraph(ZLTextParagraph.Kind.AFTER_SKIP_PARAGRAPH);
-endParagraph();
-beginParagraph(ZLTextParagraph.Kind.EMPTY_LINE_PARAGRAPH);
-endParagraph();
-popKind();
+myBookReader.beginParagraph(ZLTextParagraph.Kind.AFTER_SKIP_PARAGRAPH);
+myBookReader.endParagraph();
+myBookReader.beginParagraph(ZLTextParagraph.Kind.EMPTY_LINE_PARAGRAPH);
+myBookReader.endParagraph();
+myBookReader.popKind();
 break;
 case FB2Tag.SECTION:
 if (myReadMainText) {
-endContentsParagraph();
+myBookReader.endContentsParagraph();
 --mySectionDepth;
 mySectionStarted=false;
 }
  else {
-unsetCurrentTextModel();
+myBookReader.unsetCurrentTextModel();
 }
 break;
 case FB2Tag.ANNOTATION:
-popKind();
+myBookReader.popKind();
 if (myBodyCounter == 0) {
-insertEndOfSectionParagraph();
-unsetCurrentTextModel();
+myBookReader.insertEndOfSectionParagraph();
+myBookReader.unsetCurrentTextModel();
 }
 break;
 case FB2Tag.TITLE:
-popKind();
-exitTitle();
+myBookReader.popKind();
+myBookReader.exitTitle();
 myInsideTitle=false;
 break;
 case FB2Tag.BODY:
-popKind();
+myBookReader.popKind();
 myReadMainText=false;
-unsetCurrentTextModel();
+myBookReader.unsetCurrentTextModel();
 break;
 case FB2Tag.A:
-addControl(myHyperlinkType,false);
+myBookReader.addControl(myHyperlinkType,false);
 break;
 case FB2Tag.COVERPAGE:
 if (myBodyCounter == 0) {
 myInsideCoverpage=false;
-insertEndOfSectionParagraph();
-unsetCurrentTextModel();
+myBookReader.insertEndOfSectionParagraph();
+myBookReader.unsetCurrentTextModel();
 }
 break;
 case FB2Tag.BINARY:
