@@ -7,6 +7,6 @@
     image.addData(ch,start,length);
   }
  else {
-    addData(ch,start,length,false);
+    myBookReader.addData(ch,start,length,false);
   }
 }

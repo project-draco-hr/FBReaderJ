@@ -1,2 +1,3 @@
 {
+  myNamespaceMap=namespaces != null ? namespaces : Collections.<String,String>emptyMap();
 }
