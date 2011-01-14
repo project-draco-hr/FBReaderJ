@@ -5,10 +5,7 @@ case FB2Tag.COVERPAGE:
   break;
 case FB2Tag.IMAGE:
 if (myReadCoverPage) {
-  if (myXLinkPrefix == null) {
-    break;
-  }
-  final String href=attributes.getValue((myXLinkPrefix + "href").intern());
+  final String href=getAttributeValue(attributes,XMLNamespaces.XLink,"href");
   if (href != null && href.length() > 1 && href.charAt(0) == '#') {
     myImageReference=href.substring(1);
   }
