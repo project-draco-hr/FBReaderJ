@@ -1,9 +1,3 @@
 {
-  final PackageInfo dictionaryInfo=getCurrentDictionaryInfo();
-  if (dictionaryInfo.UseSearchIntend) {
-    return new Intent(Intent.ACTION_SEARCH).setComponent(new ComponentName(dictionaryInfo.PackageName,dictionaryInfo.ClassName)).putExtra(SearchManager.QUERY,text);
-  }
- else {
-    return new Intent(Intent.ACTION_VIEW).setComponent(new ComponentName(dictionaryInfo.PackageName,dictionaryInfo.ClassName)).setData(Uri.parse(text + dictionaryInfo.Argument)).addFlags(0x14000000);
-  }
+  return getDictionaryIntent(getCurrentDictionaryInfo(),text);
 }
