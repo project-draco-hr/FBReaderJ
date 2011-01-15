@@ -4,6 +4,7 @@
     ourDictionaryInfos.add(new PackageInfo("com.ngc.fora","com.ngc.fora.ForaDictionary","Fora Dictionary",null,true));
     ourDictionaryInfos.add(new PackageInfo("com.slovoed.noreg.english_german.deluxe","com.slovoed.noreg.english_german.deluxe.Start","SlovoEd Deluxe German->English","/808464950",false));
     ourDictionaryInfos.add(new PackageInfo("com.slovoed.noreg.english_german.deluxe","com.slovoed.noreg.english_german.deluxe.Start","SlovoEd Deluxe English->German","/808464949",false));
+    ourDictionaryInfos.add(new PackageInfo("org.freedictionary","org.freedictionary.MainActivity","Free Dictionary . org","",false));
   }
   return ourDictionaryInfos;
 }
