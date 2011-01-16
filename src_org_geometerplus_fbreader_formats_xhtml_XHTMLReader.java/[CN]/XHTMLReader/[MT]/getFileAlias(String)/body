@@ -1,5 +1,6 @@
 {
   fileName=MiscUtil.decodeHtmlReference(fileName);
+  fileName=ZLArchiveEntryFile.normalizeEntryName(fileName);
   Integer num=myFileNumbers.get(fileName);
   if (num == null) {
     num=myFileNumbers.size();
