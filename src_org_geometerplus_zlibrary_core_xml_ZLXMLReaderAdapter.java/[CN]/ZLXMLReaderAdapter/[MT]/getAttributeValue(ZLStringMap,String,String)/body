@@ -1,4 +1,7 @@
 {
+  if (namespace == null) {
+    return attributes.getValue(name);
+  }
   final int size=attributes.getSize();
   if (size == 0) {
     return null;

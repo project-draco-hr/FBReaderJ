@@ -1,3 +1,4 @@
 {
+  myNamespace=namespace;
   myNameAttribute=nameAttribute;
 }
