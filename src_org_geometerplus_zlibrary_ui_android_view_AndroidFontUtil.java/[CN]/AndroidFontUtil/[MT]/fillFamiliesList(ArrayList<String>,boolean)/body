@@ -1,7 +1,7 @@
 {
-  families.add("Droid Sans");
-  families.add("Droid Serif");
-  families.add("Droid Mono");
-  families.addAll(getFontMap(forceReload).keySet());
-  Collections.sort(families);
+  final TreeSet<String> familySet=new TreeSet(getFontMap(forceReload).keySet());
+  familySet.add("Droid Sans");
+  familySet.add("Droid Serif");
+  familySet.add("Droid Mono");
+  families.addAll(familySet);
 }
