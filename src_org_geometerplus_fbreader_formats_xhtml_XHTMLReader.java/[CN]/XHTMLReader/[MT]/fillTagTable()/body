@@ -28,8 +28,9 @@
   addAction("dfn",new XHTMLTagControlAction(FBTextKind.DEFINITION));
   addAction("strike",new XHTMLTagControlAction(FBTextKind.STRIKETHROUGH));
   addAction("a",new XHTMLTagHyperlinkAction());
-  addAction("img",new XHTMLTagImageAction("src"));
-  addAction("object",new XHTMLTagImageAction("data"));
+  addAction("img",new XHTMLTagImageAction(null,"src"));
+  addAction("image",new XHTMLTagImageAction(XMLNamespaces.XLink,"href"));
+  addAction("object",new XHTMLTagImageAction(null,"data"));
   addAction("br",new XHTMLTagRestartParagraphAction());
   addAction("div",new XHTMLTagParagraphAction());
   addAction("dt",new XHTMLTagParagraphAction());

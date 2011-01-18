@@ -1,4 +1,4 @@
 {
   Base64EncodedImage.resetCounter();
-  return ZLXMLProcessor.read(this,Model.Book.File);
+  return ZLXMLProcessor.read(this,myBookReader.Model.Book.File);
 }

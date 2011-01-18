@@ -1,7 +1,0 @@
-{
-  if (ourDictionaryInfos.isEmpty()) {
-    ourDictionaryInfos.add(new PackageInfo("com.socialnmobile.colordict","com.socialnmobile.colordict.activity.Main","ColorDict"));
-    ourDictionaryInfos.add(new PackageInfo("com.ngc.fora","com.ngc.fora.ForaDictionary","Fora Dictionary"));
-  }
-  return ourDictionaryInfos;
-}
