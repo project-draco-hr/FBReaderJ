@@ -1,0 +1,4 @@
+View view
+int id
+int value
+String resourceKey
