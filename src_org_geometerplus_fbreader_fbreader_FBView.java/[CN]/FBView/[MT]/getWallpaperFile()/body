@@ -1,0 +1,3 @@
+{
+  return ZLFile.createFileByPath("/sdcard/Wallpapers/FonSepiaSandstone.jpg");
+}
