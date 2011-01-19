@@ -1,0 +1,11 @@
+{
+  final String filePath=myReader.getColorProfile().WallpaperOption.getValue();
+  if ("".equals(filePath)) {
+    return null;
+  }
+  final ZLFile file=ZLFile.createFileByPath(filePath);
+  if (file == null || !file.exists()) {
+    return null;
+  }
+  return file;
+}

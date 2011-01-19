@@ -1,6 +1,12 @@
 {
   myContext=context;
-  context.clear(getBackgroundColor());
+  final ZLFile wallpaper=getWallpaperFile();
+  if (wallpaper != null) {
+    context.clear(wallpaper);
+  }
+ else {
+    context.clear(getBackgroundColor());
+  }
   if ((myModel == null) || (myModel.getParagraphsNumber() == 0)) {
     return;
   }

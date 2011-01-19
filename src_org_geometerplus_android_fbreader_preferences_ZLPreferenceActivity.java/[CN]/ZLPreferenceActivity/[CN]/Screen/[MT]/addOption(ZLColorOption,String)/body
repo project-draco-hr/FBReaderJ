@@ -1,0 +1,3 @@
+{
+  return addPreference(new ZLColorPreference(ZLPreferenceActivity.this,Resource,resourceKey,option));
+}
