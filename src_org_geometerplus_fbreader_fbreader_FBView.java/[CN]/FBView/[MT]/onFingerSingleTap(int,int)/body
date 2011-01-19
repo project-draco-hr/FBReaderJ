@@ -21,23 +21,32 @@
   }
   final ScrollingPreferences preferences=ScrollingPreferences.Instance();
   final ScrollingPreferences.FingerScrolling fingerScrolling=preferences.FingerScrollingOption.getValue();
-  if (fingerScrolling == ScrollingPreferences.FingerScrolling.byTap || fingerScrolling == ScrollingPreferences.FingerScrolling.byTapAndFlick) {
-    if (preferences.HorizontalOption.getValue()) {
-      if (x <= myContext.getWidth() / 3) {
-        doScrollPage(false);
-      }
- else       if (x >= myContext.getWidth() * 2 / 3) {
-        doScrollPage(true);
-      }
-    }
- else {
-      if (y <= myContext.getHeight() / 3) {
-        doScrollPage(false);
-      }
- else       if (y >= myContext.getHeight() * 2 / 3) {
-        doScrollPage(true);
-      }
-    }
+  final TapZone tapZone=getZoneByCoordinates(x,y,3);
+  if (!preferences.HorizontalOption.getValue()) {
+    tapZone.mirror45();
   }
-  return true;
+  final boolean doTapScrolling=fingerScrolling == ScrollingPreferences.FingerScrolling.byTap || fingerScrolling == ScrollingPreferences.FingerScrolling.byTapAndFlick;
+switch (tapZone.HIndex) {
+case 0:
+    if (doTapScrolling) {
+      doScrollPage(false);
+    }
+  break;
+case 1:
+switch (tapZone.VIndex) {
+case 0:
+  myReader.doAction(ActionCode.SHOW_NAVIGATION);
+break;
+case 2:
+myReader.doAction(ActionCode.SHOW_MENU);
+break;
+}
+break;
+case 2:
+if (doTapScrolling) {
+doScrollPage(true);
+}
+break;
+}
+return true;
 }
