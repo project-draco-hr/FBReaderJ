@@ -9,7 +9,7 @@
     FooterFillOption=createOption(name,"FooterFillOption",85,85,85);
   }
  else {
-    WallpaperOption=new ZLStringOption("Colors",name + ":Wallpaper","/sdcard/Wallpapers/FonLeather.jpg");
+    WallpaperOption=new ZLStringOption("Colors",name + ":Wallpaper","wallpapers/sepia.jpg");
     BackgroundOption=createOption(name,"Background",255,255,255);
     SelectionBackgroundOption=createOption(name,"SelectionBackground",82,131,194);
     HighlightingOption=createOption(name,"Highlighting",255,192,128);
