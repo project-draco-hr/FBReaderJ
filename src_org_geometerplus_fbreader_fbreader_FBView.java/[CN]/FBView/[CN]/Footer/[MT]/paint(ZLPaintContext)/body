@@ -39,7 +39,13 @@
   }
   final String infoString=info.toString();
   final int infoWidth=context.getStringWidth(infoString);
-  context.clear(bgColor);
+  final ZLFile wallpaper=getWallpaperFile();
+  if (wallpaper != null) {
+    context.clear(wallpaper);
+  }
+ else {
+    context.clear(getBackgroundColor());
+  }
   context.setTextColor(fgColor);
   context.drawString(right - infoWidth,height - delta,infoString);
   final int gaugeRight=right - (infoWidth == 0 ? 0 : infoWidth + 10);

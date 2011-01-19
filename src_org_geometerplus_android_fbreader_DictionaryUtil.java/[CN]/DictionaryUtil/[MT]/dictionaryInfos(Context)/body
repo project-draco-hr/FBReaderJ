@@ -1,0 +1,10 @@
+{
+  final LinkedList<PackageInfo> list=new LinkedList<PackageInfo>();
+  for (  Map.Entry<PackageInfo,Boolean> entry : infos().entrySet()) {
+    final PackageInfo info=entry.getKey();
+    if (!entry.getValue() || PackageUtil.canBeStarted(context,getDictionaryIntent(info,"test"))) {
+      list.add(info);
+    }
+  }
+  return list;
+}

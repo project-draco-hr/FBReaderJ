@@ -1,5 +1,5 @@
 {
-  String fileName=xmlattributes.getValue(myNameAttribute);
+  String fileName=reader.getAttributeValue(xmlattributes,myNamespace,myNameAttribute);
   if (fileName != null) {
     fileName=MiscUtil.decodeHtmlReference(fileName);
     final ZLFile imageFile=ZLFile.createFileByPath(reader.myPathPrefix + fileName);

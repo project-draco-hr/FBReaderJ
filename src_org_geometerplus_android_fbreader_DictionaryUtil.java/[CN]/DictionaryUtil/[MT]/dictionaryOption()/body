@@ -1,6 +1,6 @@
 {
   if (ourDictionaryOption == null) {
-    ourDictionaryOption=new ZLStringOption("Dictionary","Class",dictionaryInfos().get(0).ClassName);
+    ourDictionaryOption=new ZLStringOption("Dictionary","Id",firstInfo().Id);
   }
   return ourDictionaryOption;
 }

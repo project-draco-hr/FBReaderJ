@@ -1,0 +1,8 @@
+{
+  for (  Map.Entry<PackageInfo,Boolean> entry : infos().entrySet()) {
+    if (!entry.getValue()) {
+      return entry.getKey();
+    }
+  }
+  throw new RuntimeException("There are no available dictionary infos");
+}

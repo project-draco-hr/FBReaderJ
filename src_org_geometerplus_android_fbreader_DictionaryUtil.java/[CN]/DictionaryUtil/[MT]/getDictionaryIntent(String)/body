@@ -1,4 +1,3 @@
 {
-  final PackageInfo dictionaryInfo=getCurrentDictionaryInfo();
-  return new Intent(Intent.ACTION_SEARCH).setComponent(new ComponentName(dictionaryInfo.PackageName,dictionaryInfo.ClassName)).putExtra(SearchManager.QUERY,text);
+  return getDictionaryIntent(getCurrentDictionaryInfo(),text);
 }

@@ -1,4 +1,9 @@
 {
+  for (  String name : getFontMap(false).keySet()) {
+    if (name.equalsIgnoreCase(fontFamily)) {
+      return name;
+    }
+  }
   if ("serif".equalsIgnoreCase(fontFamily) || "droid serif".equalsIgnoreCase(fontFamily)) {
     return "serif";
   }
@@ -7,11 +12,6 @@
   }
   if ("monospace".equalsIgnoreCase(fontFamily) || "droid mono".equalsIgnoreCase(fontFamily)) {
     return "monospace";
-  }
-  for (  String name : getFontMap(false).keySet()) {
-    if (name.equalsIgnoreCase(fontFamily)) {
-      return name;
-    }
   }
   return "sans-serif";
 }
