@@ -1,0 +1,9 @@
+{
+  final ScrollingPreferences.FingerScrolling fingerScrolling=ScrollingPreferences.Instance().FingerScrollingOption.getValue();
+  if (fingerScrolling == ScrollingPreferences.FingerScrolling.byFlick || fingerScrolling == ScrollingPreferences.FingerScrolling.byTapAndFlick) {
+    myStartX=x;
+    myStartY=y;
+    setScrollingActive(true);
+    myIsManualScrollingActive=true;
+  }
+}
