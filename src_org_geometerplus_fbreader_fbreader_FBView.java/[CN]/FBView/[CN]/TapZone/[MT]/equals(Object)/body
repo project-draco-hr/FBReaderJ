@@ -1,0 +1,10 @@
+{
+  if (o == this) {
+    return true;
+  }
+  if (!(o instanceof TapZone)) {
+    return false;
+  }
+  final TapZone tz=(TapZone)o;
+  return HIndex == tz.HIndex && VIndex == tz.VIndex;
+}

@@ -19,30 +19,6 @@
     myReader.doAction(ActionCode.PROCESS_HYPERLINK);
     return true;
   }
-  final ScrollingPreferences preferences=ScrollingPreferences.Instance();
-  final TapZone tapZone=getZoneByCoordinates(x,y,3);
-  if (!preferences.HorizontalOption.getValue()) {
-    tapZone.mirror45();
-  }
-  String actionCode=null;
-switch (tapZone.HIndex) {
-case 0:
-    actionCode=ActionCode.TURN_PAGE_BACK;
-  break;
-case 1:
-switch (tapZone.VIndex) {
-case 0:
-  actionCode=ActionCode.SHOW_NAVIGATION;
-break;
-case 2:
-actionCode=ActionCode.SHOW_MENU;
-break;
-}
-break;
-case 2:
-actionCode=ActionCode.TURN_PAGE_FORWARD;
-break;
-}
-myReader.doAction(actionCode);
-return true;
+  myReader.doAction(getZoneMap().get(getZoneByCoordinates(x,y,3)));
+  return true;
 }

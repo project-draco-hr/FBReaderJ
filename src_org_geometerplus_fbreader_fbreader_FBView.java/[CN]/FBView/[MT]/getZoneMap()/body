@@ -1,0 +1,3 @@
+{
+  return ScrollingPreferences.Instance().HorizontalOption.getValue() ? myHorizontalZoneMap : myVerticalZoneMap;
+}

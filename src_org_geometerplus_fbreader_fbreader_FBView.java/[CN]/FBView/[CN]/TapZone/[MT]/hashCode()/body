@@ -1,0 +1,3 @@
+{
+  return (HIndex << 3) + VIndex;
+}
