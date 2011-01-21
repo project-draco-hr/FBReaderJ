@@ -1,2 +1,3 @@
 FBReaderApp fbreader
 boolean forward
+boolean isVolumeKeyAction
