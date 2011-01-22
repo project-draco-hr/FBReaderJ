@@ -1,0 +1,25 @@
+{
+  try {
+    if ("zone".equals(tag)) {
+      final String x=attributes.getValue("x");
+      final String y=attributes.getValue("y");
+      final String action=attributes.getValue("action");
+      if (x != null && y != null && action != null) {
+        myZoneMap.put(new Zone(Integer.parseInt(x),Integer.parseInt(y)),action);
+      }
+    }
+ else     if ("tapZones".equals(tag)) {
+      final String v=attributes.getValue("v");
+      if (v != null) {
+        myVerticalSize=Integer.parseInt(v);
+      }
+      final String h=attributes.getValue("h");
+      if (h != null) {
+        myHorizontalSize=Integer.parseInt(h);
+      }
+    }
+  }
+ catch (  NumberFormatException e) {
+  }
+  return false;
+}

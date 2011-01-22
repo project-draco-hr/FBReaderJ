@@ -1,3 +1,0 @@
-{
-  return new TapZone(x * grid / myContext.getWidth(),y * grid / myContext.getHeight());
-}

@@ -2,9 +2,9 @@
   if (o == this) {
     return true;
   }
-  if (!(o instanceof TapZone)) {
+  if (!(o instanceof Zone)) {
     return false;
   }
-  final TapZone tz=(TapZone)o;
+  final Zone tz=(Zone)o;
   return HIndex == tz.HIndex && VIndex == tz.VIndex;
 }
