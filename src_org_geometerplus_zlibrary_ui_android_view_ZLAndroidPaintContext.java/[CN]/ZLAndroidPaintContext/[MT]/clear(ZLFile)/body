@@ -1,0 +1,24 @@
+{
+  if (!wallpaperFile.equals(myWallpaperFile)) {
+    myWallpaperFile=wallpaperFile;
+    myWallpaper=null;
+    try {
+      myWallpaper=new BitmapFactory().decodeStream(wallpaperFile.getInputStream());
+    }
+ catch (    Throwable t) {
+      t.printStackTrace();
+    }
+  }
+  if (myWallpaper != null) {
+    final int w=myWallpaper.getWidth();
+    final int h=myWallpaper.getHeight();
+    for (int cw=0, iw=1; cw < myWidth; cw+=w, ++iw) {
+      for (int ch=0, ih=1; ch < myHeight; ch+=h, ++ih) {
+        myCanvas.drawBitmap(myWallpaper,cw,ch,myFillPaint);
+      }
+    }
+  }
+ else {
+    clear(new ZLColor(128,128,128));
+  }
+}
