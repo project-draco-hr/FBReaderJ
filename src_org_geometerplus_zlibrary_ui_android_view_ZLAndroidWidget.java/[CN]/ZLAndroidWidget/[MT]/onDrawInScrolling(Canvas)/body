@@ -41,12 +41,14 @@ canvas.drawBitmap(myMainBitmap,horizontal ? myScrollingShift : 0,horizontal ? 0 
 if (shift < 0) {
 shift+=size;
 }
+if (shift > 0 && shift < size) {
 myPaint.setColor(Color.rgb(127,127,127));
 if (horizontal) {
 canvas.drawLine(shift,0,shift,h + 1,myPaint);
 }
  else {
 canvas.drawLine(0,shift,w + 1,shift,myPaint);
+}
 }
 break;
 case paper3d:
