@@ -27,6 +27,7 @@ case shift:
     canvas.drawBitmap(mySecondaryBitmap,horizontal ? shift : 0,horizontal ? 0 : shift,myPaint);
   break;
 case slide:
+case paper3d:
 canvas.drawBitmap(mySecondaryBitmap,0,0,myPaint);
 break;
 }
@@ -48,6 +49,15 @@ canvas.drawLine(shift,0,shift,h + 1,myPaint);
 canvas.drawLine(0,shift,w + 1,shift,myPaint);
 }
 break;
+case paper3d:
+{
+myPaint.setColor(Color.rgb(127,127,127));
+final int x=100;
+final int y=100;
+canvas.drawLine(0,h,w - x,h - y,myPaint);
+canvas.drawLine(w,0,w - x,h - y,myPaint);
+break;
+}
 }
 if (stopScrolling) {
 if (myScrollingBound != 0) {
