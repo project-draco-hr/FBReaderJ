@@ -19,34 +19,6 @@
     myReader.doAction(ActionCode.PROCESS_HYPERLINK);
     return true;
   }
-  final ScrollingPreferences preferences=ScrollingPreferences.Instance();
-  final ScrollingPreferences.FingerScrolling fingerScrolling=preferences.FingerScrollingOption.getValue();
-  final TapZone tapZone=getZoneByCoordinates(x,y,3);
-  if (!preferences.HorizontalOption.getValue()) {
-    tapZone.mirror45();
-  }
-  final boolean doTapScrolling=fingerScrolling == ScrollingPreferences.FingerScrolling.byTap || fingerScrolling == ScrollingPreferences.FingerScrolling.byTapAndFlick;
-switch (tapZone.HIndex) {
-case 0:
-    if (doTapScrolling) {
-      doScrollPage(false);
-    }
-  break;
-case 1:
-switch (tapZone.VIndex) {
-case 0:
-  myReader.doAction(ActionCode.SHOW_NAVIGATION);
-break;
-case 2:
-myReader.doAction(ActionCode.SHOW_MENU);
-break;
-}
-break;
-case 2:
-if (doTapScrolling) {
-doScrollPage(true);
-}
-break;
-}
-return true;
+  myReader.doAction(getZoneMap().get(getZoneByCoordinates(x,y,3)));
+  return true;
 }

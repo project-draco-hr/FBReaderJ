@@ -1,4 +1,0 @@
-{
-  boolean isInverted=ScrollingPreferences.Instance().InvertVolumeKeysOption.getValue();
-  Reader.getTextView().doScrollPage(isInverted ? !myForward : myForward);
-}

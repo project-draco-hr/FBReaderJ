@@ -6,6 +6,7 @@ synchronized (this) {
     if (myIsBrightnessAdjustmentInProgress) {
       if (x >= myContext.getWidth() / 5) {
         myIsBrightnessAdjustmentInProgress=false;
+        startManualScrolling(x,y);
       }
  else {
         final int delta=(myStartBrightness + 30) * (myStartY - y) / myContext.getHeight();
