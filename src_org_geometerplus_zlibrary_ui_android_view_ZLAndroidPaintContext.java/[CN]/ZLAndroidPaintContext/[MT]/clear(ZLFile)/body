@@ -1,20 +1,20 @@
 {
-  if (!wallpaperFile.equals(myWallpaperFile)) {
-    myWallpaperFile=wallpaperFile;
-    myWallpaper=null;
+  if (!wallpaperFile.equals(ourWallpaperFile)) {
+    ourWallpaperFile=wallpaperFile;
+    ourWallpaper=null;
     try {
-      myWallpaper=new BitmapFactory().decodeStream(wallpaperFile.getInputStream());
+      ourWallpaper=new BitmapFactory().decodeStream(wallpaperFile.getInputStream());
     }
  catch (    Throwable t) {
       t.printStackTrace();
     }
   }
-  if (myWallpaper != null) {
-    final int w=myWallpaper.getWidth();
-    final int h=myWallpaper.getHeight();
+  if (ourWallpaper != null) {
+    final int w=ourWallpaper.getWidth();
+    final int h=ourWallpaper.getHeight();
     for (int cw=0, iw=1; cw < myWidth; cw+=w, ++iw) {
       for (int ch=0, ih=1; ch < myHeight; ch+=h, ++ih) {
-        myCanvas.drawBitmap(myWallpaper,cw,ch,myFillPaint);
+        myCanvas.drawBitmap(ourWallpaper,cw,ch,myFillPaint);
       }
     }
   }
