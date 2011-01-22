@@ -1,13 +1,9 @@
 {
   final ScrollingPreferences preferences=ScrollingPreferences.Instance();
-  boolean forward=myForward;
-  if (myIsVolumeKeyAction && preferences.InvertVolumeKeysOption.getValue()) {
-    forward=!forward;
-  }
   final FBView view=Reader.getTextView();
   if (view.getAnimationType() != FBView.Animation.none) {
     final boolean horizontal=preferences.HorizontalOption.getValue();
-    if (forward) {
+    if (myForward) {
       view.startAutoScrolling(horizontal ? FBView.PAGE_RIGHT : FBView.PAGE_BOTTOM);
     }
  else {
@@ -15,7 +11,7 @@
     }
   }
  else {
-    view.scrollPage(forward,FBView.ScrollingMode.NO_OVERLAPPING,0);
+    view.scrollPage(myForward,FBView.ScrollingMode.NO_OVERLAPPING,0);
     Reader.repaintView();
   }
 }

@@ -1,17 +1,10 @@
 {
   final ScrollingPreferences preferences=ScrollingPreferences.Instance();
-  if (myIsVolumeKeyAction && !preferences.VolumeKeysOption.getValue()) {
-    return false;
-  }
   final ScrollingPreferences.FingerScrolling fingerScrolling=preferences.FingerScrollingOption.getValue();
   if (fingerScrolling != ScrollingPreferences.FingerScrolling.byTap && fingerScrolling != ScrollingPreferences.FingerScrolling.byTapAndFlick) {
     return false;
   }
-  boolean forward=myForward;
-  if (myIsVolumeKeyAction && preferences.InvertVolumeKeysOption.getValue()) {
-    forward=!forward;
-  }
-  if (forward) {
+  if (myForward) {
     ZLTextWordCursor cursor=Reader.getTextView().getEndCursor();
     return cursor != null && !cursor.isNull() && (!cursor.isEndOfParagraph() || !cursor.getParagraphCursor().isLast());
   }
