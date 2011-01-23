@@ -3,8 +3,7 @@
     return;
   }
   String pattern=intent.getStringExtra(SearchManager.QUERY);
-  final FBReaderApp fbreader=(FBReaderApp)FBReaderApp.Instance();
-  fbreader.BookmarkSearchPatternOption.setValue(pattern);
+  myBookmarkSearchPatternOption.setValue(pattern);
   final LinkedList<Bookmark> bookmarks=new LinkedList<Bookmark>();
   pattern=pattern.toLowerCase();
   for (  Bookmark b : AllBooksBookmarks) {

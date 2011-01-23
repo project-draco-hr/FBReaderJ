@@ -1,5 +1,4 @@
 {
-  final FBReaderApp fbreader=(FBReaderApp)FBReaderApp.Instance();
-  startSearch(fbreader.BookmarkSearchPatternOption.getValue(),true,null,false);
+  startSearch(myBookmarkSearchPatternOption.getValue(),true,null,false);
   return true;
 }
