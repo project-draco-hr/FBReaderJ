@@ -8,7 +8,7 @@ case ZLView.PAGE_RIGHT:
 if (myMainBitmap == null) {
 return;
 }
-if (((shift > 0) && (myScrollingShift <= 0)) || ((shift < 0) && (myScrollingShift >= 0))) {
+if ((shift > 0 && myScrollingShift <= 0) || (shift < 0 && myScrollingShift >= 0)) {
 mySecondaryBitmapIsUpToDate=false;
 }
 myScrollingShift=shift;
