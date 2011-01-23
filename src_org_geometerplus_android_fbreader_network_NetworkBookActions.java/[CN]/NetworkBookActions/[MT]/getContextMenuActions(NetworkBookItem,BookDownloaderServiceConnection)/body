@@ -41,6 +41,7 @@
       final String price=((BuyBookReference)reference).Price;
       actions.add(new Action(id,"buy",price));
     }
+    actions.add(new Action(ADD_BOOK_TO_BASKET,"addToBasket"));
   }
   return actions;
 }
