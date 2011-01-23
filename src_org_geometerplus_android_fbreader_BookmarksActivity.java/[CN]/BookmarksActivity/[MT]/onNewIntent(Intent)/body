@@ -7,7 +7,7 @@
   fbreader.BookmarkSearchPatternOption.setValue(pattern);
   final LinkedList<Bookmark> bookmarks=new LinkedList<Bookmark>();
   pattern=pattern.toLowerCase();
-  for (  Bookmark b : BookmarksActivity.Instance.AllBooksBookmarks) {
+  for (  Bookmark b : AllBooksBookmarks) {
     if (ZLMiscUtil.matchesIgnoreCase(b.getText(),pattern)) {
       bookmarks.add(b);
     }
