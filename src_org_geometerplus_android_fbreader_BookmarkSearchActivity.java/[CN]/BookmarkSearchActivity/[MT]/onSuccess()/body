@@ -1,3 +1,0 @@
-{
-  BookmarksActivity.Instance.showSearchResultsTab(myBookmarks);
-}
