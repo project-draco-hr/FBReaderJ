@@ -5,7 +5,7 @@
   if (cursor.isNull()) {
     return;
   }
-  final Bookmark bookmark=new Bookmark(fbreader.Model.Book,createBookmarkText(cursor),textView.getModel().getId(),cursor);
+  final Bookmark bookmark=new Bookmark(fbreader.Model.Book,textView.getModel().getId(),cursor);
   myThisBookBookmarks.add(0,bookmark);
   AllBooksBookmarks.add(0,bookmark);
   invalidateAllViews();

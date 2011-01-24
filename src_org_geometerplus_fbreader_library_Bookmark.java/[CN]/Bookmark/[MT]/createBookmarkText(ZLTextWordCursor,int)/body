@@ -8,7 +8,7 @@
   int storedWordCounter=0;
   boolean lineIsNonEmpty=false;
   boolean appendLineBreak=false;
-  mainLoop:   while ((wordCounter < 20) && (sentenceCounter < 3)) {
+  mainLoop:   while (wordCounter < maxWords && sentenceCounter < 3) {
     while (cursor.isEndOfParagraph()) {
       if (!cursor.nextParagraph()) {
         break mainLoop;

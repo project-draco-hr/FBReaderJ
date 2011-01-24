@@ -3,7 +3,7 @@
   myId=-1;
   myBookId=book.getId();
   myBookTitle=book.getTitle();
-  myText=text;
+  myText=createBookmarkText(cursor,20);
   myCreationDate=new Date();
   myModelId=modelId;
   myIsChanged=true;

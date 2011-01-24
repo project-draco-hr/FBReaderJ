@@ -1,1 +1,2 @@
 ZLTextWordCursor cursor
+int maxWords
