@@ -1,7 +1,9 @@
 {
   final ImageView coverView=(ImageView)findViewById(R.id.book_cover);
-  final int maxHeight=250;
-  final int maxWidth=maxHeight * 3 / 4;
+  final DisplayMetrics metrics=new DisplayMetrics();
+  getWindowManager().getDefaultDisplay().getMetrics(metrics);
+  final int maxHeight=metrics.heightPixels * 2 / 3;
+  final int maxWidth=maxHeight * 2 / 3;
   coverView.setVisibility(View.GONE);
   coverView.setImageDrawable(null);
   if (myImage == null) {
