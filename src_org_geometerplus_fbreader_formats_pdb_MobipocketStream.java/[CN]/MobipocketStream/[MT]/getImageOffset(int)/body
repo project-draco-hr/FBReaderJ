@@ -1,6 +1,6 @@
 {
   try {
-    return myHeader.Offsets[index + myMaxRecordIndex + 1];
+    return myHeader.Offsets[index + myImageStartIndex];
   }
  catch (  ArrayIndexOutOfBoundsException e) {
     return -1;

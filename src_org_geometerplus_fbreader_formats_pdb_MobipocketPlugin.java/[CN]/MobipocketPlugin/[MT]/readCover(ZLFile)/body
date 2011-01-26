@@ -65,6 +65,14 @@ return null;
 }
 coverIndex=thumbIndex;
 }
+MobipocketStream myMobipocketStream=new MobipocketStream(file);
+int start=myMobipocketStream.getImageOffset(coverIndex);
+if (start >= 0) {
+int len=myMobipocketStream.getImageLength(coverIndex);
+if (len > 0) {
+return new ZLFileImage(MimeTypes.MIME_IMAGE_AUTO,file,start,len);
+}
+}
 return null;
 }
  catch (IOException e) {
