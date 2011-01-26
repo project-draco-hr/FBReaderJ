@@ -1,0 +1,3 @@
+{
+  return "org.geometerplus.fbreader.network.tree.Authors:" + Author.DisplayName;
+}

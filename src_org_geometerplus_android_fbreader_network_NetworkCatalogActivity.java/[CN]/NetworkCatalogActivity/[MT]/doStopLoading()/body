@@ -1,5 +1,5 @@
 {
-  final String key=getNetworkTreeKey(myTree,false);
+  final String key=myCatalogKey;
   if (key != null && NetworkView.Instance().isInitialized()) {
     final ItemsLoadingRunnable runnable=NetworkView.Instance().getItemsLoadingRunnable(key);
     if (runnable != null) {

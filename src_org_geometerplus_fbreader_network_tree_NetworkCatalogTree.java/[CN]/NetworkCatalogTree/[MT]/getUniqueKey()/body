@@ -1,0 +1,3 @@
+{
+  return Item.URLByType.get(NetworkCatalogItem.URL_CATALOG);
+}

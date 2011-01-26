@@ -1,14 +1,14 @@
 {
-  final String url=tree.Item.URLByType.get(NetworkCatalogItem.URL_CATALOG);
-  if (url == null) {
-    throw new RuntimeException("That's impossible!!!");
+  final String key=tree.getUniqueKey();
+  if (key == null) {
+    throw new RuntimeException("Catalog tree has null unique key. That's impossible!!!");
   }
-  if (NetworkView.Instance().containsItemsLoadingRunnable(url)) {
+  if (NetworkView.Instance().containsItemsLoadingRunnable(key)) {
     return;
   }
   tree.ChildrenItems.clear();
   tree.clear();
   NetworkView.Instance().fireModelChangedAsync();
-  final ExpandCatalogHandler handler=new ExpandCatalogHandler(tree,url);
-  NetworkView.Instance().startItemsLoading(activity,url,new ExpandCatalogRunnable(handler,tree,false,false));
+  final ExpandCatalogHandler handler=new ExpandCatalogHandler(tree,key);
+  NetworkView.Instance().startItemsLoading(activity,key,new ExpandCatalogRunnable(handler,tree,false,false));
 }

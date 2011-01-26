@@ -1,4 +1,4 @@
 NetworkBaseActivity activity
-NetworkTree tree
+NetworkCatalogTree tree
 String key
 Runnable expandRunnable

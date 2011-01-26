@@ -1,0 +1,3 @@
+{
+  return NetworkView.Instance().containsItemsLoadingRunnable(NetworkSearchActivity.SEARCH_RUNNABLE_KEY);
+}
