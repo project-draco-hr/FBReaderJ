@@ -4,5 +4,6 @@
   ClassName=className;
   Title=title;
   IntentAction=intentAction;
+  IntentKey=intentKey;
   IntentDataPattern=intentDataPattern;
 }

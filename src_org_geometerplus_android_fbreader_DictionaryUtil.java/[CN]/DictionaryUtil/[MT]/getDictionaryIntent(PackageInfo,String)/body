@@ -1,8 +1,14 @@
 {
-  final Intent intent=new Intent(dictionaryInfo.IntentAction).setComponent(new ComponentName(dictionaryInfo.PackageName,dictionaryInfo.ClassName)).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+  final Intent intent=new Intent(dictionaryInfo.IntentAction);
+  if (dictionaryInfo.PackageName != null) {
+    intent.setComponent(new ComponentName(dictionaryInfo.PackageName,dictionaryInfo.ClassName));
+  }
+  intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
   text=dictionaryInfo.IntentDataPattern.replace("%s",text);
-  if (Intent.ACTION_SEARCH.equals(dictionaryInfo.IntentAction)) {
-    return intent.putExtra(SearchManager.QUERY,text);
+  if (dictionaryInfo.IntentKey != null) {
+    intent.putExtra(ColorDict3.HEIGHT,300);
+    intent.putExtra(ColorDict3.GRAVITY,android.view.Gravity.BOTTOM);
+    return intent.putExtra(dictionaryInfo.IntentKey,text);
   }
  else {
     return intent.setData(Uri.parse(text));

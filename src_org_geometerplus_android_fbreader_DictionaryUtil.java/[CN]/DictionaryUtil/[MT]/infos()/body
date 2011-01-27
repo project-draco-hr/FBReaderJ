@@ -1,10 +1,11 @@
 {
   if (ourDictionaryInfos.isEmpty()) {
-    ourDictionaryInfos.put(new PackageInfo("ColorDict","com.socialnmobile.colordict","com.socialnmobile.colordict.activity.Main","ColorDict",Intent.ACTION_SEARCH,"%s"),false);
-    ourDictionaryInfos.put(new PackageInfo("Fora Dictionary","com.ngc.fora","com.ngc.fora.ForaDictionary","Fora Dictionary",Intent.ACTION_SEARCH,"%s"),false);
-    ourDictionaryInfos.put(new PackageInfo("Free Dictionary . org","org.freedictionary","org.freedictionary.MainActivity","Free Dictionary . org",Intent.ACTION_VIEW,"%s"),false);
-    ourDictionaryInfos.put(new PackageInfo("SlovoEd Deluxe German->English","com.slovoed.noreg.english_german.deluxe","com.slovoed.noreg.english_german.deluxe.Start","SlovoEd Deluxe German->English",Intent.ACTION_VIEW,"%s/808464950"),true);
-    ourDictionaryInfos.put(new PackageInfo("SlovoEd Deluxe English->German","com.slovoed.noreg.english_german.deluxe","com.slovoed.noreg.english_german.deluxe.Start","SlovoEd Deluxe English->German",Intent.ACTION_VIEW,"%s/808464949"),true);
+    ourDictionaryInfos.put(new PackageInfo("ColorDict",null,null,"ColorDict",ColorDict3.ACTION,ColorDict3.QUERY,"%s"),false);
+    ourDictionaryInfos.put(new PackageInfo("ColorDict2","com.socialnmobile.colordict","com.socialnmobile.colordict.activity.Main","ColorDict Old Style",Intent.ACTION_SEARCH,SearchManager.QUERY,"%s"),false);
+    ourDictionaryInfos.put(new PackageInfo("Fora Dictionary","com.ngc.fora","com.ngc.fora.ForaDictionary","Fora Dictionary",Intent.ACTION_SEARCH,SearchManager.QUERY,"%s"),false);
+    ourDictionaryInfos.put(new PackageInfo("Free Dictionary . org","org.freedictionary","org.freedictionary.MainActivity","Free Dictionary . org",Intent.ACTION_VIEW,null,"%s"),false);
+    ourDictionaryInfos.put(new PackageInfo("SlovoEd Deluxe German->English","com.slovoed.noreg.english_german.deluxe","com.slovoed.noreg.english_german.deluxe.Start","SlovoEd Deluxe German->English",Intent.ACTION_VIEW,null,"%s/808464950"),true);
+    ourDictionaryInfos.put(new PackageInfo("SlovoEd Deluxe English->German","com.slovoed.noreg.english_german.deluxe","com.slovoed.noreg.english_german.deluxe.Start","SlovoEd Deluxe English->German",Intent.ACTION_VIEW,null,"%s/808464949"),true);
   }
   return ourDictionaryInfos;
 }
