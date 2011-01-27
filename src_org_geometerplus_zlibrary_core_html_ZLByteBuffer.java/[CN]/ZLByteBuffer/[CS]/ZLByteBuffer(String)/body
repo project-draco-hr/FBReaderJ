@@ -1,0 +1,4 @@
+{
+  myLength=value.length();
+  myData=value.getBytes();
+}

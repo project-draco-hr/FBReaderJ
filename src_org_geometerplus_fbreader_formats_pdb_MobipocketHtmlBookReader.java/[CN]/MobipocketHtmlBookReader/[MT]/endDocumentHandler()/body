@@ -1,4 +1,11 @@
 {
+  for (  Integer entry : myFileposReferences) {
+    final SortedMap<Integer,Integer> subMap=myPositionToParagraph.tailMap(entry);
+    if (subMap.isEmpty()) {
+      break;
+    }
+    addHyperlinkLabel("filepos" + entry,subMap.get(subMap.firstKey()));
+  }
   for (  Map.Entry<Integer,String> entry : myTocEntries.entrySet()) {
     final SortedMap<Integer,Integer> subMap=myPositionToParagraph.tailMap(entry.getKey());
     if (subMap.isEmpty()) {
