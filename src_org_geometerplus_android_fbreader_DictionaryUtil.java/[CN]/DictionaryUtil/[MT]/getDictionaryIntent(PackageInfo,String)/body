@@ -8,6 +8,8 @@
   if (dictionaryInfo.IntentKey != null) {
     intent.putExtra(ColorDict3.HEIGHT,300);
     intent.putExtra(ColorDict3.GRAVITY,android.view.Gravity.BOTTOM);
+    final ZLAndroidApplication application=ZLAndroidApplication.Instance();
+    intent.putExtra(ColorDict3.FULLSCREEN,!application.ShowStatusBarOption.getValue());
     return intent.putExtra(dictionaryInfo.IntentKey,text);
   }
  else {
