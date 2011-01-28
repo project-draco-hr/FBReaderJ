@@ -1,6 +1,7 @@
 {
-  final ZLTextHyperlink hyperlink=Reader.getTextView().getCurrentHyperlink();
-  if (hyperlink != null) {
+  final ZLTextElementRegion region=Reader.getTextView().getSelectedRegion();
+  if (region instanceof ZLTextHyperlinkRegion) {
+    final ZLTextHyperlink hyperlink=((ZLTextHyperlinkRegion)region).Hyperlink;
 switch (hyperlink.Type) {
 case FBHyperlinkType.EXTERNAL:
       openInBrowser(hyperlink.Id);
@@ -11,5 +12,7 @@ break;
 }
 return;
 }
-DictionaryUtil.openWordInDictionary(myBaseActivity,Reader.getTextView().getSelectedText());
+ else if (region instanceof ZLTextWordRegion) {
+DictionaryUtil.openWordInDictionary(myBaseActivity,(ZLTextWordRegion)region);
+}
 }
