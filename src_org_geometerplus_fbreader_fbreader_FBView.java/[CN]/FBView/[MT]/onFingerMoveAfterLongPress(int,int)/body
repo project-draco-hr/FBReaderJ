@@ -3,7 +3,7 @@
     return true;
   }
   if (myReader.DictionaryTappingActionOption.getValue() != FBReaderApp.DictionaryTappingAction.doNothing) {
-    final ZLTextElementRegion region=findRegion(x,y,10,ZLTextElementRegion.Filter);
+    final ZLTextElementRegion region=findRegion(x,y,10,ZLTextElementRegion.AnyRegionFilter);
     if (region != null) {
       selectRegion(region);
       myReader.repaintView();

@@ -12,7 +12,7 @@
       return true;
     }
   }
-  final ZLTextElementRegion region=findRegion(x,y,10,ZLTextHyperlinkRegion.Filter);
+  final ZLTextElementRegion region=findRegion(x,y,10,ZLTextElementRegion.ImageOrHyperlinkFilter);
   if (region != null) {
     selectRegion(region);
     myReader.repaintView();
