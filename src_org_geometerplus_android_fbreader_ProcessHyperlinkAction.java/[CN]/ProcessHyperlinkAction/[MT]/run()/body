@@ -13,6 +13,6 @@ break;
 return;
 }
  else if (region instanceof ZLTextWordRegion) {
-DictionaryUtil.openWordInDictionary(myBaseActivity,((ZLTextWordRegion)region).Word.toString());
+DictionaryUtil.openWordInDictionary(myBaseActivity,(ZLTextWordRegion)region);
 }
 }
