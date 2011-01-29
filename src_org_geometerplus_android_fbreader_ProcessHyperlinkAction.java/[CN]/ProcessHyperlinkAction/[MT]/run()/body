@@ -12,6 +12,20 @@ break;
 }
 return;
 }
+ else if (region instanceof ZLTextImageRegion) {
+final String uriString=((ZLTextImageRegion)region).ImageElement.URI;
+if (uriString != null) {
+try {
+final Intent intent=new Intent(Intent.ACTION_VIEW);
+intent.setClass(myBaseActivity,ImageViewActivity.class);
+intent.setData(Uri.parse(uriString));
+myBaseActivity.startActivity(intent);
+}
+ catch (Exception e) {
+e.printStackTrace();
+}
+}
+}
  else if (region instanceof ZLTextWordRegion) {
 DictionaryUtil.openWordInDictionary(myBaseActivity,(ZLTextWordRegion)region);
 }
