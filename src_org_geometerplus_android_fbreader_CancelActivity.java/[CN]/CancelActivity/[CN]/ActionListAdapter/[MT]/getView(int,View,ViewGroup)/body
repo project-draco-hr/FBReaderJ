@@ -1,0 +1,15 @@
+{
+  final View view=convertView != null ? convertView : LayoutInflater.from(parent.getContext()).inflate(R.layout.cancel_item,parent,false);
+  final TextView titleView=(TextView)view.findViewById(R.id.cancel_item_title);
+  final TextView summaryView=(TextView)view.findViewById(R.id.cancel_item_summary);
+  if (position == 0) {
+    titleView.setText("Open previous book");
+  }
+ else   if (position == getCount() - 1) {
+    titleView.setText("Close FBReader");
+  }
+ else {
+    titleView.setText("Go to page");
+  }
+  return view;
+}
