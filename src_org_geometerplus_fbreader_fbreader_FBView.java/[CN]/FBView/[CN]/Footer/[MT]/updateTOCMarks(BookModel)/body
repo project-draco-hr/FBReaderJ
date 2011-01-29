@@ -1,0 +1,27 @@
+{
+  myTOCMarks=new ArrayList<TOCTree>();
+  TOCTree toc=model.TOCTree;
+  if (toc == null) {
+    return;
+  }
+  int maxLevel=Integer.MAX_VALUE;
+  if (toc.getSize() >= MAX_TOC_MARKS_NUMBER) {
+    final int[] sizes=new int[10];
+    for (    TOCTree tocItem : toc) {
+      if (tocItem.Level < 10) {
+        ++sizes[tocItem.Level];
+      }
+    }
+    for (int i=1; i < sizes.length; ++i) {
+      sizes[i]+=sizes[i - 1];
+    }
+    for (maxLevel=sizes.length - 1; maxLevel >= 0; --maxLevel) {
+      if (sizes[maxLevel] < MAX_TOC_MARKS_NUMBER) {
+        break;
+      }
+    }
+  }
+  for (  TOCTree tocItem : toc.allSubTrees(maxLevel)) {
+    myTOCMarks.add(tocItem);
+  }
+}
