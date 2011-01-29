@@ -15,5 +15,13 @@ case REPAINT_CODE:
       fbreader.repaintView();
       break;
     }
+case CANCEL_CODE:
+  if (resultCode >= 0 && resultCode < CancelActionsList.size()) {
+    final CancelAction.Description description=CancelActionsList.get(resultCode);
+    if (description.Type == CancelAction.Type.CLOSE) {
+      finish();
+    }
+  }
+break;
 }
 }

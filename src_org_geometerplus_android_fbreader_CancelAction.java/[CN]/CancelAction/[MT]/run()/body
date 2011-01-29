@@ -3,8 +3,21 @@
     Reader.showBookTextView();
   }
  else {
-    final Intent intent=new Intent();
-    intent.setClass(myBaseActivity,CancelActivity.class);
-    myBaseActivity.startActivity(intent);
+    fillDescriptionList();
+    if (myBaseActivity.CancelActionsList.size() == 1) {
+      Reader.closeWindow();
+    }
+ else {
+      final Intent intent=new Intent();
+      intent.setClass(myBaseActivity,CancelActivity.class);
+      intent.putExtra(CancelActivity.LIST_SIZE,myBaseActivity.CancelActionsList.size());
+      int index=0;
+      for (      Description description : myBaseActivity.CancelActionsList) {
+        intent.putExtra(CancelActivity.ITEM_TITLE + index,description.Title);
+        intent.putExtra(CancelActivity.ITEM_SUMMARY + index,description.Summary);
+        ++index;
+      }
+      myBaseActivity.startActivityForResult(intent,FBReader.CANCEL_CODE);
+    }
   }
 }
