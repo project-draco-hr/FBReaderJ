@@ -1,0 +1,7 @@
+{
+  super.onDestroy();
+  if (myBitmap != null) {
+    myBitmap.recycle();
+  }
+  myBitmap=null;
+}

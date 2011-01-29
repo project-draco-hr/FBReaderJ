@@ -1,0 +1,25 @@
+{
+  myPaint.setColor(Color.rgb(128,128,128));
+  final int w=getWidth();
+  final int h=getHeight();
+  canvas.drawRect(0,0,w,h,myPaint);
+  if (myBitmap == null || myBitmap.isRecycled()) {
+    return;
+  }
+  final int bw=myBitmap.getWidth();
+  final int bh=myBitmap.getHeight();
+  final int left, top;
+  if (bw <= w) {
+    left=(w - bw) / 2;
+  }
+ else {
+    left=Math.max(w - bw,Math.min(0,(w - bw) / 2 + myDx));
+  }
+  if (bh <= h) {
+    top=(h - bh) / 2;
+  }
+ else {
+    top=Math.max(h - bh,Math.min(0,(h - bh) / 2 + myDy));
+  }
+  canvas.drawBitmap(myBitmap,left,top,myPaint);
+}
