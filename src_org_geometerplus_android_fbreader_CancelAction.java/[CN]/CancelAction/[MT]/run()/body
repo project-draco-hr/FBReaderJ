@@ -3,6 +3,8 @@
     Reader.showBookTextView();
   }
  else {
-    Reader.closeWindow();
+    final Intent intent=new Intent();
+    intent.setClass(myBaseActivity,CancelActivity.class);
+    myBaseActivity.startActivity(intent);
   }
 }
