@@ -1,6 +1,7 @@
 {
-  final ZLTextHyperlink hyperlink=Reader.getTextView().getCurrentHyperlink();
-  if (hyperlink != null) {
+  final ZLTextElementRegion region=Reader.getTextView().getSelectedRegion();
+  if (region instanceof ZLTextHyperlinkRegion) {
+    final ZLTextHyperlink hyperlink=((ZLTextHyperlinkRegion)region).Hyperlink;
 switch (hyperlink.Type) {
 case FBHyperlinkType.EXTERNAL:
       openInBrowser(hyperlink.Id);
@@ -11,5 +12,21 @@ break;
 }
 return;
 }
-DictionaryUtil.openWordInDictionary(myBaseActivity,Reader.getTextView().getSelectedText());
+ else if (region instanceof ZLTextImageRegion) {
+final String uriString=((ZLTextImageRegion)region).ImageElement.URI;
+if (uriString != null) {
+try {
+final Intent intent=new Intent();
+intent.setClass(myBaseActivity,ImageViewActivity.class);
+intent.setData(Uri.parse(uriString));
+myBaseActivity.startActivity(intent);
+}
+ catch (Exception e) {
+e.printStackTrace();
+}
+}
+}
+ else if (region instanceof ZLTextWordRegion) {
+DictionaryUtil.openWordInDictionary(myBaseActivity,(ZLTextWordRegion)region);
+}
 }

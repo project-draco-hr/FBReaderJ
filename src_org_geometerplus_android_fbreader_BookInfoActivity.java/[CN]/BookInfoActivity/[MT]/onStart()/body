@@ -1,10 +1,12 @@
 {
   super.onStart();
   final Book book=Book.getByFile(myFile);
-  setupCover(book);
-  setupBookInfo(book);
-  setupAnnotation(book);
-  setupFileInfo(book);
+  if (book != null) {
+    setupCover(book);
+    setupBookInfo(book);
+    setupAnnotation(book);
+    setupFileInfo(book);
+  }
   if (myHideOpenButton) {
     findButton(R.id.book_info_button_open).setVisibility(View.GONE);
   }
@@ -24,8 +26,10 @@
 );
   setupButton(R.id.book_info_button_reload,"reloadInfo",new View.OnClickListener(){
     public void onClick(    View view){
-      book.reloadInfoFromFile();
-      setupBookInfo(book);
+      if (book != null) {
+        book.reloadInfoFromFile();
+        setupBookInfo(book);
+      }
     }
   }
 );

@@ -4,7 +4,7 @@
   }
   final int direction=(diffY != 0) ? (diffY > 0 ? Direction.DOWN : Direction.UP) : (diffX > 0 ? Direction.RIGHT : Direction.LEFT);
   ZLTextElementRegion region=currentRegion();
-  final ZLTextElementRegion.Filter filter=region instanceof ZLTextWordRegion || myReader.NavigateAllWordsOption.getValue() ? ZLTextElementRegion.Filter : ZLTextHyperlinkRegion.Filter;
+  final ZLTextElementRegion.Filter filter=region instanceof ZLTextWordRegion || myReader.NavigateAllWordsOption.getValue() ? ZLTextElementRegion.AnyRegionFilter : ZLTextElementRegion.ImageOrHyperlinkFilter;
   region=nextRegion(direction,filter);
   if (region != null) {
     selectRegion(region);

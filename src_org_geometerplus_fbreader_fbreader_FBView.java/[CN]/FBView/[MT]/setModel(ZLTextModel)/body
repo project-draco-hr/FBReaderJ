@@ -1,4 +1,7 @@
 {
   myIsManualScrollingActive=false;
   super.setModel(model);
+  if (myFooter != null) {
+    myFooter.resetTOCMarks();
+  }
 }

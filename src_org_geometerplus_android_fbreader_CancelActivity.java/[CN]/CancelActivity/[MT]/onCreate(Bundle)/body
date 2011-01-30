@@ -1,0 +1,8 @@
+{
+  super.onCreate(savedInstanceState);
+  requestWindowFeature(Window.FEATURE_NO_TITLE);
+  final ActionListAdapter adapter=new ActionListAdapter(getIntent());
+  setListAdapter(adapter);
+  getListView().setOnItemClickListener(adapter);
+  setResult(-1);
+}

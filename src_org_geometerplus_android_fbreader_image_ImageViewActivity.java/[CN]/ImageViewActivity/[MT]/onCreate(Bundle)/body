@@ -1,0 +1,24 @@
+{
+  super.onCreate(savedInstanceState);
+  requestWindowFeature(Window.FEATURE_NO_TITLE);
+  final ZLAndroidApplication application=ZLAndroidApplication.Instance();
+  final boolean showStatusBar=application.ShowStatusBarOption.getValue();
+  getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,showStatusBar ? 0 : WindowManager.LayoutParams.FLAG_FULLSCREEN);
+  Thread.setDefaultUncaughtExceptionHandler(new org.geometerplus.zlibrary.ui.android.library.UncaughtExceptionHandler(this));
+  setContentView(new ImageView());
+  final Uri uri=getIntent().getData();
+  if ("imagefile".equals(uri.getScheme())) {
+    try {
+      final String[] data=uri.getPath().split("\000");
+      final ZLFileImage image=new ZLFileImage("image/auto",ZLFile.createFileByPath(data[0]),Integer.parseInt(data[1]),Integer.parseInt(data[2]));
+      final ZLImageData imageData=ZLImageManager.Instance().getImageData(image);
+      myBitmap=((ZLAndroidImageData)imageData).getFullSizeBitmap();
+    }
+ catch (    Exception e) {
+      finish();
+    }
+  }
+ else {
+    finish();
+  }
+}

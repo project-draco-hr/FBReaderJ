@@ -1,0 +1,6 @@
+{
+  final ZLResource resource=ZLResource.resource("cancelMenu");
+  Type=type;
+  Title=resource.getResource(type.toString()).getValue();
+  Summary=summary;
+}

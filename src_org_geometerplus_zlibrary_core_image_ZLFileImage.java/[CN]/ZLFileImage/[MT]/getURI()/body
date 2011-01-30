@@ -1,0 +1,3 @@
+{
+  return "imagefile://" + myFile.getPath() + "\000"+ myOffset+ "\000"+ myLength;
+}

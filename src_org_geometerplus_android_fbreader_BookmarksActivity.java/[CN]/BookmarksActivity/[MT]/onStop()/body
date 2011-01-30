@@ -1,4 +1,0 @@
-{
-  Instance=null;
-  super.onStop();
-}

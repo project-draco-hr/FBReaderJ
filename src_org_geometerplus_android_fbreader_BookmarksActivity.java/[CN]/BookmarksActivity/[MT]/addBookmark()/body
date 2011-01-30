@@ -1,12 +1,9 @@
 {
   final FBReaderApp fbreader=(FBReaderApp)FBReaderApp.Instance();
-  final ZLTextView textView=fbreader.getTextView();
-  final ZLTextWordCursor cursor=textView.getStartCursor();
-  if (cursor.isNull()) {
-    return;
+  final Bookmark bookmark=fbreader.addBookmark(20,true);
+  if (bookmark != null) {
+    myThisBookBookmarks.add(0,bookmark);
+    AllBooksBookmarks.add(0,bookmark);
+    invalidateAllViews();
   }
-  final Bookmark bookmark=new Bookmark(fbreader.Model.Book,createBookmarkText(cursor),textView.getModel().getId(),cursor);
-  myThisBookBookmarks.add(0,bookmark);
-  AllBooksBookmarks.add(0,bookmark);
-  invalidateAllViews();
 }

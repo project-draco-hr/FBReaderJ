@@ -1,0 +1,5 @@
+{
+  if (Model.Book != null && getTextView() == BookTextView) {
+    updateInvisibleBookmarksList(addBookmark(6,false));
+  }
+}
