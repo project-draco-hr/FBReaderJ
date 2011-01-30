@@ -1,19 +1,17 @@
 {
+  final FBReaderApp fbreader=(FBReaderApp)ZLApplication.Instance();
   final SeekBar slider=(SeekBar)layout.findViewById(R.id.book_position_slider);
   final TextView text=(TextView)layout.findViewById(R.id.book_position_text);
   slider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
     private void gotoPage(    int page){
-      final ZLView view=ZLApplication.Instance().getCurrentView();
-      if (view instanceof ZLTextView) {
-        ZLTextView textView=(ZLTextView)view;
-        if (page == 1) {
-          textView.gotoHome();
-        }
- else {
-          textView.gotoPage(page);
-        }
-        ZLApplication.Instance().repaintView();
+      final ZLTextView view=fbreader.getTextView();
+      if (page == 1) {
+        view.gotoHome();
       }
+ else {
+        view.gotoPage(page);
+      }
+      fbreader.repaintView();
     }
     public void onStopTrackingTouch(    SeekBar seekBar){
       myNavigatePanel.NavigateDragging=false;
@@ -35,10 +33,13 @@
   final Button btnCancel=(Button)layout.findViewById(android.R.id.button3);
   View.OnClickListener listener=new View.OnClickListener(){
     public void onClick(    View v){
-      final ZLTextPosition position=myNavigatePanel.StartPosition;
+      final ZLTextWordCursor position=myNavigatePanel.StartPosition;
       myNavigatePanel.StartPosition=null;
       if (v == btnCancel && position != null) {
-        ((ZLTextView)ZLApplication.Instance().getCurrentView()).gotoPosition(position);
+        fbreader.getTextView().gotoPosition(position);
+      }
+ else       if (v == btnOk) {
+        fbreader.addInvisibleBookmark(position);
       }
       myNavigatePanel.hide(true);
     }

@@ -1,0 +1,9 @@
+{
+  if (Model.Book != null && b != null) {
+    b.save();
+    final List<Bookmark> bookmarks=Bookmark.invisibleBookmarks(Model.Book);
+    for (int i=3; i < bookmarks.size(); ++i) {
+      bookmarks.get(i).delete();
+    }
+  }
+}

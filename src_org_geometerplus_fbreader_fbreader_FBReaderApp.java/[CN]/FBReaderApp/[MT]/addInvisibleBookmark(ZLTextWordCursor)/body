@@ -1,0 +1,5 @@
+{
+  if (Model.Book != null && getTextView() == BookTextView) {
+    updateInvisibleBookmarksList(new Bookmark(Model.Book,getTextView().getModel().getId(),cursor,6,false));
+  }
+}
