@@ -4,4 +4,5 @@
   final ActionListAdapter adapter=new ActionListAdapter(getIntent());
   setListAdapter(adapter);
   getListView().setOnItemClickListener(adapter);
+  setResult(-1);
 }

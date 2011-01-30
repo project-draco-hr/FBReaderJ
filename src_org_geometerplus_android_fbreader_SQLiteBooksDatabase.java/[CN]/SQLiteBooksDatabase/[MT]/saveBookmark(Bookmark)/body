@@ -2,13 +2,13 @@
   SQLiteStatement statement;
   if (bookmark.getId() == -1) {
     if (myInsertBookmarkStatement == null) {
-      myInsertBookmarkStatement=myDatabase.compileStatement("INSERT OR IGNORE INTO Bookmarks (book_id,bookmark_text,creation_time,modification_time,access_time,access_counter,model_id,paragraph,word,char) VALUES (?,?,?,?,?,?,?,?,?,?)");
+      myInsertBookmarkStatement=myDatabase.compileStatement("INSERT OR IGNORE INTO Bookmarks (book_id,bookmark_text,creation_time,modification_time,access_time,access_counter,model_id,paragraph,word,char,visible) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
     }
     statement=myInsertBookmarkStatement;
   }
  else {
     if (myUpdateBookmarkStatement == null) {
-      myUpdateBookmarkStatement=myDatabase.compileStatement("UPDATE Bookmarks SET book_id = ?, bookmark_text = ?, creation_time =?, modification_time = ?,access_time = ?, access_counter = ?, model_id = ?, paragraph = ?, word = ?, char = ? WHERE bookmark_id = ?");
+      myUpdateBookmarkStatement=myDatabase.compileStatement("UPDATE Bookmarks SET book_id = ?, bookmark_text = ?, creation_time =?, modification_time = ?,access_time = ?, access_counter = ?, model_id = ?, paragraph = ?, word = ?, char = ?, visible = ? WHERE bookmark_id = ?");
     }
     statement=myUpdateBookmarkStatement;
   }
@@ -18,16 +18,17 @@
   bindDate(statement,4,bookmark.getTime(Bookmark.MODIFICATION));
   bindDate(statement,5,bookmark.getTime(Bookmark.ACCESS));
   statement.bindLong(6,bookmark.getAccessCount());
-  bindString(statement,7,bookmark.getModelId());
+  bindString(statement,7,bookmark.ModelId);
   statement.bindLong(8,bookmark.ParagraphIndex);
   statement.bindLong(9,bookmark.ElementIndex);
   statement.bindLong(10,bookmark.CharIndex);
+  statement.bindLong(11,bookmark.IsVisible ? 1 : 0);
   if (statement == myInsertBookmarkStatement) {
     return statement.executeInsert();
   }
  else {
     final long id=bookmark.getId();
-    statement.bindLong(11,id);
+    statement.bindLong(12,id);
     statement.execute();
     return id;
   }

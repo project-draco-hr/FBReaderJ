@@ -1,0 +1,3 @@
+{
+  myDatabase.execSQL("ALTER TABLE Bookmarks ADD COLUMN visible INTEGER DEFAULT 1");
+}

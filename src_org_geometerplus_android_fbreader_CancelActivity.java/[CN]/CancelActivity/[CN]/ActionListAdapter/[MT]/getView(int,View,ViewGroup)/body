@@ -8,10 +8,11 @@
   if (summary != null) {
     summaryView.setVisibility(View.VISIBLE);
     summaryView.setText(summary);
+    titleView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
   }
  else {
     summaryView.setVisibility(View.GONE);
-    titleView.setGravity(Gravity.CENTER_VERTICAL);
+    titleView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT,LinearLayout.LayoutParams.FILL_PARENT));
   }
   return view;
 }

@@ -10,3 +10,4 @@ String modelId
 int paragraphIndex
 int wordIndex
 int charIndex
+boolean isVisible

@@ -1,4 +1,7 @@
 {
+  if (book == null) {
+    return;
+  }
   if (Model != null) {
     if (bookmark == null & book.File.getPath().equals(Model.Book.File.getPath())) {
       return;

@@ -5,6 +5,7 @@
   myBookTitle=book.getTitle();
   myText=createBookmarkText(cursor,20);
   myCreationDate=new Date();
-  myModelId=modelId;
+  ModelId=modelId;
+  IsVisible=isVisible;
   myIsChanged=true;
 }
