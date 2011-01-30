@@ -1,0 +1,15 @@
+{
+  if (index < 0 || index >= myCancelActionsList.size()) {
+    return;
+  }
+  final CancelActionDescription description=myCancelActionsList.get(index);
+switch (description.Type) {
+case previousBook:
+    break;
+case gotoPosition:
+  break;
+case close:
+closeWindow();
+break;
+}
+}

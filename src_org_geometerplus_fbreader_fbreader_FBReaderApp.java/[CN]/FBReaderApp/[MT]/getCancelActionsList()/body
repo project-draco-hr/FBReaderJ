@@ -1,0 +1,9 @@
+{
+  myCancelActionsList.clear();
+  myCancelActionsList.add(new CancelActionDescription(CancelActionType.previousBook,"this is a summary"));
+  myCancelActionsList.add(new CancelActionDescription(CancelActionType.gotoPosition,"this is a summary"));
+  myCancelActionsList.add(new CancelActionDescription(CancelActionType.gotoPosition,"this is a summary"));
+  myCancelActionsList.add(new CancelActionDescription(CancelActionType.gotoPosition,"this is a summary"));
+  myCancelActionsList.add(new CancelActionDescription(CancelActionType.close,null));
+  return myCancelActionsList;
+}

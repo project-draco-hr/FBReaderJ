@@ -1,9 +1,0 @@
-{
-  final ZLResource resource=ZLResource.resource("cancelMenu");
-  myBaseActivity.CancelActionsList.clear();
-  myBaseActivity.CancelActionsList.add(new Description(Type.OPEN_BOOK,resource.getResource("previousBook").getValue(),"this is a summary"));
-  myBaseActivity.CancelActionsList.add(new Description(Type.GOTO,resource.getResource("goto").getValue(),"this is a summary"));
-  myBaseActivity.CancelActionsList.add(new Description(Type.GOTO,resource.getResource("goto").getValue(),"this is a summary"));
-  myBaseActivity.CancelActionsList.add(new Description(Type.GOTO,resource.getResource("goto").getValue(),"this is a summary"));
-  myBaseActivity.CancelActionsList.add(new Description(Type.CLOSE,resource.getResource("close").getValue(),null));
-}

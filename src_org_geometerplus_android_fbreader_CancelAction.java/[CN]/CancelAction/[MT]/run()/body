@@ -3,16 +3,16 @@
     Reader.showBookTextView();
   }
  else {
-    fillDescriptionList();
-    if (myBaseActivity.CancelActionsList.size() == 1) {
+    final List<FBReaderApp.CancelActionDescription> descriptionList=Reader.getCancelActionsList();
+    if (descriptionList.size() == 1) {
       Reader.closeWindow();
     }
  else {
       final Intent intent=new Intent();
       intent.setClass(myBaseActivity,CancelActivity.class);
-      intent.putExtra(CancelActivity.LIST_SIZE,myBaseActivity.CancelActionsList.size());
+      intent.putExtra(CancelActivity.LIST_SIZE,descriptionList.size());
       int index=0;
-      for (      Description description : myBaseActivity.CancelActionsList) {
+      for (      FBReaderApp.CancelActionDescription description : descriptionList) {
         intent.putExtra(CancelActivity.ITEM_TITLE + index,description.Title);
         intent.putExtra(CancelActivity.ITEM_SUMMARY + index,description.Summary);
         ++index;
