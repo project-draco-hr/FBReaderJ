@@ -1,0 +1,7 @@
+String id
+String packageName
+String className
+String title
+String intentAction
+String intentKey
+String intentDataPattern

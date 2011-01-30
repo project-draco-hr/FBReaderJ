@@ -1,6 +1,0 @@
-String id
-String packageName
-String className
-String title
-String intentAction
-String intentDataPattern

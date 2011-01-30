@@ -1,0 +1,14 @@
+{
+  myCancelActionsList.clear();
+  final Book previousBook=Library.getPreviousBook();
+  if (previousBook != null) {
+    myCancelActionsList.add(new CancelActionDescription(CancelActionType.previousBook,previousBook.getTitle()));
+  }
+  if (Model != null && Model.Book != null) {
+    for (    Bookmark bookmark : Bookmark.invisibleBookmarks(Model.Book)) {
+      myCancelActionsList.add(new BookmarkDescription(bookmark));
+    }
+  }
+  myCancelActionsList.add(new CancelActionDescription(CancelActionType.close,null));
+  return myCancelActionsList;
+}
