@@ -3,7 +3,7 @@
   myId=-1;
   myBookId=book.getId();
   myBookTitle=book.getTitle();
-  myText=createBookmarkText(cursor,20);
+  myText=createBookmarkText(cursor,maxLength);
   myCreationDate=new Date();
   ModelId=modelId;
   IsVisible=isVisible;

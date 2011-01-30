@@ -1,0 +1,8 @@
+{
+  final FBView view=getTextView();
+  final ZLTextWordCursor cursor=view.getStartCursor();
+  if (cursor.isNull()) {
+    return null;
+  }
+  return new Bookmark(Model.Book,view.getModel().getId(),cursor,maxLength,visible);
+}

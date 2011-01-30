@@ -1,4 +1,5 @@
 Book book
 String modelId
 ZLTextWordCursor cursor
+int maxLength
 boolean isVisible
