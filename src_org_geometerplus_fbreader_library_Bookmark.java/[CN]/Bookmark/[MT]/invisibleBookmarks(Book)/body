@@ -1,0 +1,5 @@
+{
+  final List<Bookmark> list=BooksDatabase.Instance().loadBookmarks(book.getId(),false);
+  Collections.sort(list,new ByTimeComparator());
+  return list;
+}

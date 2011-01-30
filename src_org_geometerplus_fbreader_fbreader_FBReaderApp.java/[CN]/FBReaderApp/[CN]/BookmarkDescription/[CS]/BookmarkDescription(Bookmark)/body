@@ -1,0 +1,4 @@
+{
+  super(CancelActionType.returnTo,b.getText());
+  Bookmark=b;
+}

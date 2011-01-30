@@ -60,16 +60,16 @@
   context.setFillColor(fillColor);
   context.fillRectangle(left + lineWidth,height - 2 * lineWidth,gaugeInternalRight,2 * lineWidth);
   if (reader.FooterShowTOCMarksOption.getValue()) {
-    TOCTree toc=model.TOCTree;
-    if (toc != null) {
-      final int fullLength=sizeOfFullText();
-      for (      TOCTree tocItem : toc) {
-        TOCTree.Reference reference=tocItem.getReference();
-        if (reference != null) {
-          final int refCoord=sizeOfTextBeforeParagraph(reference.ParagraphIndex);
-          final int xCoord=left + 2 * lineWidth + (int)(1.0 * myGaugeWidth * refCoord / fullLength);
-          context.drawLine(xCoord,height - lineWidth,xCoord,lineWidth);
-        }
+    if (myTOCMarks == null) {
+      updateTOCMarks(model);
+    }
+    final int fullLength=sizeOfFullText();
+    for (    TOCTree tocItem : myTOCMarks) {
+      TOCTree.Reference reference=tocItem.getReference();
+      if (reference != null) {
+        final int refCoord=sizeOfTextBeforeParagraph(reference.ParagraphIndex);
+        final int xCoord=left + 2 * lineWidth + (int)(1.0 * myGaugeWidth * refCoord / fullLength);
+        context.drawLine(xCoord,height - lineWidth,xCoord,lineWidth);
       }
     }
   }

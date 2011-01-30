@@ -1,0 +1,3 @@
+{
+  return new Bookmark(id,bookId,bookTitle,text,creationDate,modificationDate,accessDate,accessCounter,modelId,paragraphIndex,wordIndex,charIndex,isVisible);
+}

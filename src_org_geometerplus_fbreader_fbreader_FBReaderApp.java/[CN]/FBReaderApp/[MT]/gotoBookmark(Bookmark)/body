@@ -1,5 +1,5 @@
 {
-  final String modelId=bookmark.getModelId();
+  final String modelId=bookmark.ModelId;
   if (modelId == null) {
     BookTextView.gotoPosition(bookmark);
     setView(BookTextView);

@@ -1,8 +1,0 @@
-{
-  Id=id;
-  PackageName=packageName;
-  ClassName=className;
-  Title=title;
-  IntentAction=intentAction;
-  IntentDataPattern=intentDataPattern;
-}

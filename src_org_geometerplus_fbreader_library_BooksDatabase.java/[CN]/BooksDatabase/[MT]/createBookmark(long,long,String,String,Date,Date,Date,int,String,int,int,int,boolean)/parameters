@@ -1,0 +1,13 @@
+long id
+long bookId
+String bookTitle
+String text
+Date creationDate
+Date modificationDate
+Date accessDate
+int accessCounter
+String modelId
+int paragraphIndex
+int wordIndex
+int charIndex
+boolean isVisible
