@@ -2,6 +2,7 @@
   if (Model != null) {
     BookModel.Label label=Model.getLabel(id);
     if (label != null) {
+      addInvisibleBookmark();
       if (label.ModelId == null) {
         BookTextView.gotoPosition(label.ParagraphIndex,0,0);
       }

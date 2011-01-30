@@ -1,4 +1,0 @@
-{
-  final ZLTextElementRegion area=getCurrentElementRegion(myCurrentPage);
-  return (area instanceof ZLTextHyperlinkRegion) ? ((ZLTextHyperlinkRegion)area).Hyperlink : null;
-}

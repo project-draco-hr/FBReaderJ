@@ -1,7 +1,0 @@
-{
-  final ZLTextElementRegion area=getCurrentElementRegion(myCurrentPage);
-  if (area instanceof ZLTextWordRegion) {
-    return ((ZLTextWordRegion)area).Word.toString();
-  }
-  return null;
-}

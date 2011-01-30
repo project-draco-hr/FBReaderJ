@@ -1,6 +1,6 @@
 {
   final T element=myCurrentElement;
-  if (element.hasChildren()) {
+  if (element.hasChildren() && element.Level < myMaxLevel) {
     myCurrentElement=(T)element.mySubTrees.get(0);
     myIndexStack.add(0);
   }

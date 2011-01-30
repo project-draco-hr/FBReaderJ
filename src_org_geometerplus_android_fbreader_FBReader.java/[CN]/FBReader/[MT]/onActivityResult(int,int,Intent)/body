@@ -1,8 +1,8 @@
 {
+  final FBReaderApp fbreader=(FBReaderApp)ZLApplication.Instance();
 switch (requestCode) {
 case REPAINT_CODE:
 {
-      final FBReaderApp fbreader=(FBReaderApp)ZLApplication.Instance();
       final BookModel model=fbreader.Model;
       if (model != null) {
         final Book book=model.Book;
@@ -15,5 +15,8 @@ case REPAINT_CODE:
       fbreader.repaintView();
       break;
     }
+case CANCEL_CODE:
+  fbreader.runCancelAction(resultCode);
+break;
 }
 }

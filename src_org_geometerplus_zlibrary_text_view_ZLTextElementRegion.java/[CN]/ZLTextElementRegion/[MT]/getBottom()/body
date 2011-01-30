@@ -1,0 +1,3 @@
+{
+  return myList.get(myToIndex - 1).YEnd;
+}

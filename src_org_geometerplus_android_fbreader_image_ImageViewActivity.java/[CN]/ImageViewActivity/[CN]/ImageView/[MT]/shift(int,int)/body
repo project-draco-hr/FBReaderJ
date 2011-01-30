@@ -1,0 +1,29 @@
+{
+  if (myBitmap == null || myBitmap.isRecycled()) {
+    return;
+  }
+  final int w=getWidth();
+  final int h=getHeight();
+  final int bw=myBitmap.getWidth();
+  final int bh=myBitmap.getHeight();
+  final int newDx, newDy;
+  if (w < bw) {
+    final int delta=bw - w;
+    newDx=Math.max(-delta,Math.min(delta,myDx + dx));
+  }
+ else {
+    newDx=myDx;
+  }
+  if (h < bh) {
+    final int delta=bh - h;
+    newDy=Math.max(-delta,Math.min(delta,myDy + dy));
+  }
+ else {
+    newDy=myDy;
+  }
+  if (newDx != myDx || newDy != myDy) {
+    myDx=newDx;
+    myDy=newDy;
+    postInvalidate();
+  }
+}

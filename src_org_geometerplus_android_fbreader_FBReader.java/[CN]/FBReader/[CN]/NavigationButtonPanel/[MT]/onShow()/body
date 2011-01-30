@@ -1,5 +1,5 @@
 {
-  if (Instance != null && myControlPanel != null) {
-    Instance.setupNavigation(myControlPanel);
+  if (myControlPanel != null) {
+    setupNavigation(myControlPanel);
   }
 }

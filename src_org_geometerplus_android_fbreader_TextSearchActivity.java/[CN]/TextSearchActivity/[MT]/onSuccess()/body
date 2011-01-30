@@ -1,3 +1,0 @@
-{
-  FBReader.Instance.showTextSearchControls(true);
-}

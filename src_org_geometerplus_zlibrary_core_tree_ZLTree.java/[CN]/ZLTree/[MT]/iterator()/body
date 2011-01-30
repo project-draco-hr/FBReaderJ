@@ -1,3 +1,3 @@
 {
-  return new TreeIterator();
+  return new TreeIterator(Integer.MAX_VALUE);
 }
