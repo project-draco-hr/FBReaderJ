@@ -7,8 +7,14 @@ switch (description.Type) {
 case previousBook:
     openBook(Library.getPreviousBook(),null);
   break;
-case gotoPosition:
-break;
+case returnTo:
+{
+  final Bookmark b=((BookmarkDescription)description).Bookmark;
+  b.delete();
+  addInvisibleBookmark();
+  gotoBookmark(b);
+  break;
+}
 case close:
 closeWindow();
 break;

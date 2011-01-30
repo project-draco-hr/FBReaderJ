@@ -4,9 +4,11 @@
   if (previousBook != null) {
     myCancelActionsList.add(new CancelActionDescription(CancelActionType.previousBook,previousBook.getTitle()));
   }
-  myCancelActionsList.add(new CancelActionDescription(CancelActionType.gotoPosition,"this is a summary"));
-  myCancelActionsList.add(new CancelActionDescription(CancelActionType.gotoPosition,"this is a summary"));
-  myCancelActionsList.add(new CancelActionDescription(CancelActionType.gotoPosition,"this is a summary"));
+  if (Model.Book != null) {
+    for (    Bookmark bookmark : Bookmark.invisibleBookmarks(Model.Book)) {
+      myCancelActionsList.add(new BookmarkDescription(bookmark));
+    }
+  }
   myCancelActionsList.add(new CancelActionDescription(CancelActionType.close,null));
   return myCancelActionsList;
 }
