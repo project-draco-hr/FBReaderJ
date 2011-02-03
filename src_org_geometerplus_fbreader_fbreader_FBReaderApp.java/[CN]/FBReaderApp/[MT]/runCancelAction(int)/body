@@ -11,7 +11,6 @@ case returnTo:
 {
   final Bookmark b=((BookmarkDescription)description).Bookmark;
   b.delete();
-  addInvisibleBookmark();
   gotoBookmark(b);
   break;
 }
