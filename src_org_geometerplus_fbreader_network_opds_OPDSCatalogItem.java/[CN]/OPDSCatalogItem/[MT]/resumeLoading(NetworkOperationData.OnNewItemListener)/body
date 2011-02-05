@@ -2,6 +2,6 @@
   if (myLoadingState != null) {
     myLoadingState.Listener=listener;
     ZLNetworkRequest networkRequest=myLoadingState.resume();
-    doLoadChildren(listener,networkRequest);
+    doLoadChildren(networkRequest);
   }
 }
