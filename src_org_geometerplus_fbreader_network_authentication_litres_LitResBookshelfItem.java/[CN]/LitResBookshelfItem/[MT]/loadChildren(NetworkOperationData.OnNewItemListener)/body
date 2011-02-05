@@ -19,9 +19,9 @@
       }
     }
  else {
-      listener.onNewItem(Link,new SortedCatalogItem(this,children));
-      listener.onNewItem(Link,new SortedCatalogItem(this,children));
-      listener.onNewItem(Link,new SortedCatalogItem(this,children));
+      listener.onNewItem(Link,new SortedCatalogItem(this,"byAuthor",children));
+      listener.onNewItem(Link,new SortedCatalogItem(this,"byTitle",children));
+      listener.onNewItem(Link,new SortedCatalogItem(this,"byDate",children));
     }
     listener.commitItems(Link);
   }

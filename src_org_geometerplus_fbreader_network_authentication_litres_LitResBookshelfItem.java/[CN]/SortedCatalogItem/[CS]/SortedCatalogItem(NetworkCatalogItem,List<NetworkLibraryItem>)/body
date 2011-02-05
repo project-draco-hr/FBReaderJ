@@ -1,4 +1,0 @@
-{
-  super(parent.Link,"by author","books by author","",parent.URLByType);
-  myChildren.addAll(children);
-}

@@ -1,0 +1,3 @@
+NetworkCatalogItem parent
+ZLResource resource
+List<NetworkLibraryItem> children

@@ -1,0 +1,4 @@
+{
+  super(parent.Link,resource.getValue(),resource.getResource("summary").getValue(),"",parent.URLByType);
+  myChildren.addAll(children);
+}
