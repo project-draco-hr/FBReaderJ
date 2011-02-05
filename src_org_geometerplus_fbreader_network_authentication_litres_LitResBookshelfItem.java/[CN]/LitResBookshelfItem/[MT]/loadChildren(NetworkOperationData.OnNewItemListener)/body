@@ -1,5 +1,5 @@
 {
-  LitResAuthenticationManager mgr=(LitResAuthenticationManager)Link.authenticationManager();
+  final LitResAuthenticationManager mgr=(LitResAuthenticationManager)Link.authenticationManager();
   if (!mgr.mayBeAuthorised(true)) {
     throw new ZLNetworkException(NetworkException.ERROR_AUTHENTICATION_FAILED);
   }
@@ -12,9 +12,16 @@
     myForceReload=true;
     LinkedList<NetworkLibraryItem> children=new LinkedList<NetworkLibraryItem>();
     mgr.collectPurchasedBooks(children);
-    Collections.sort(children,new NetworkBookItemComparator());
-    for (    NetworkLibraryItem item : children) {
-      listener.onNewItem(Link,item);
+    if (children.size() <= 5) {
+      Collections.sort(children,new NetworkBookItemComparator());
+      for (      NetworkLibraryItem item : children) {
+        listener.onNewItem(Link,item);
+      }
+    }
+ else {
+      listener.onNewItem(Link,new SortedCatalogItem(this,children));
+      listener.onNewItem(Link,new SortedCatalogItem(this,children));
+      listener.onNewItem(Link,new SortedCatalogItem(this,children));
     }
     listener.commitItems(Link);
   }

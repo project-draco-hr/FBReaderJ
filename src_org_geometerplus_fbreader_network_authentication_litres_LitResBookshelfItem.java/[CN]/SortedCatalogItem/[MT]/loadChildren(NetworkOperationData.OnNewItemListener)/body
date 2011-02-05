@@ -1,0 +1,5 @@
+{
+  for (  NetworkLibraryItem child : myChildren) {
+    listener.onNewItem(Link,child);
+  }
+}
