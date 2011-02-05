@@ -1,6 +1,0 @@
-{
-  if (view != null) {
-    myPlateLayout.removeAllViews();
-    myPlateLayout.addView(view);
-  }
-}

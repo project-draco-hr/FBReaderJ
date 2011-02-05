@@ -1,8 +1,0 @@
-{
-  if (show) {
-    myTextSearchPanel.show(true);
-  }
- else {
-    myTextSearchPanel.hide(false);
-  }
-}

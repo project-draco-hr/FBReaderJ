@@ -1,4 +1,4 @@
 {
-  ControlButtonPanel.removeControlPanels();
+  ControlButtonPanel.removeControlPanels(FBReaderApp.Instance());
   super.onStop();
 }

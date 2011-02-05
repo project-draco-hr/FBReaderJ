@@ -1,6 +1,0 @@
-{
-  super.updateStates();
-  if (!NavigateDragging && myControlPanel != null) {
-    setupNavigation(myControlPanel);
-  }
-}

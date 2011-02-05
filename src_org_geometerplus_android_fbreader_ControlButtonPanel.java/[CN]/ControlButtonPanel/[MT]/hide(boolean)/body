@@ -1,5 +1,4 @@
 {
-  myVisible=false;
   if (myControlPanel != null && getVisibility()) {
     onHide();
     myControlPanel.hide(animate);

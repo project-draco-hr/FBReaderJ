@@ -1,5 +1,5 @@
 {
-  super.onCreate(savedInstanceState);
+  super.onCreate(icicle);
   if (DatabaseInstance == null || LibraryInstance == null) {
     finish();
     return;

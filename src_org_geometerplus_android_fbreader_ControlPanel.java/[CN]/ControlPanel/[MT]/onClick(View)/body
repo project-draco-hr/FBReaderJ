@@ -1,7 +1,0 @@
-{
-  final ActionButton button=(ActionButton)view;
-  ZLApplication.Instance().doAction(button.ActionId);
-  if (button.IsCloseButton) {
-    hide(true);
-  }
-}
