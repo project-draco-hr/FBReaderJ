@@ -1,5 +1,5 @@
 {
-  super.onCreate(savedInstanceState);
+  super.onCreate(icicle);
   requestWindowFeature(Window.FEATURE_NO_TITLE);
   final ZLAndroidApplication application=ZLAndroidApplication.Instance();
   final boolean showStatusBar=application.ShowStatusBarOption.getValue();

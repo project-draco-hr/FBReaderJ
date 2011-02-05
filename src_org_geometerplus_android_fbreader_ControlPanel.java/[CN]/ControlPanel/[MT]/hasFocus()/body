@@ -1,8 +1,0 @@
-{
-  for (  ActionButton button : myButtons) {
-    if (button.hasFocus()) {
-      return true;
-    }
-  }
-  return false;
-}

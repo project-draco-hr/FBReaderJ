@@ -1,6 +1,0 @@
-{
-  Iterator<Boolean> it=buffer.iterator();
-  for (  ControlButtonPanel panel : ourPanels) {
-    panel.setVisibility(it.next());
-  }
-}

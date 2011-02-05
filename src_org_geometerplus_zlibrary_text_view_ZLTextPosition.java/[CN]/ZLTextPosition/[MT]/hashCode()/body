@@ -1,0 +1,3 @@
+{
+  return (getParagraphIndex() << 16) + (getElementIndex() << 8) + getCharIndex();
+}

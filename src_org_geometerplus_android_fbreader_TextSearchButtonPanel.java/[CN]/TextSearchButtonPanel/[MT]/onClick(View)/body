@@ -1,0 +1,9 @@
+{
+  final ActionButton button=(ActionButton)view;
+  Reader.doAction(button.ActionId);
+  if (button.IsCloseButton && myControlPanel != null) {
+    storePosition();
+    StartPosition=null;
+    myControlPanel.hide(true);
+  }
+}
