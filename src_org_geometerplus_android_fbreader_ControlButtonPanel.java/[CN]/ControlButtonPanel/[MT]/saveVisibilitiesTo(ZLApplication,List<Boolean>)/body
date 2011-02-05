@@ -1,6 +1,0 @@
-{
-  buffer.clear();
-  for (  ZLApplication.ButtonPanel panel : application.buttonPanels()) {
-    buffer.add(((ControlButtonPanel)panel).getVisibility());
-  }
-}

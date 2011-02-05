@@ -1,6 +1,0 @@
-{
-  Iterator<Boolean> it=buffer.iterator();
-  for (  ZLApplication.ButtonPanel panel : application.buttonPanels()) {
-    ((ControlButtonPanel)panel).setVisibility(it.next());
-  }
-}
