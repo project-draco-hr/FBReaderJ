@@ -1,23 +1,24 @@
 {
-  final FBReaderApp fbreader=(FBReaderApp)ZLApplication.Instance();
+  final ControlPanel panel=new ControlPanel(activity);
+  final View layout=activity.getLayoutInflater().inflate(R.layout.navigate,panel,false);
   final SeekBar slider=(SeekBar)layout.findViewById(R.id.book_position_slider);
   final TextView text=(TextView)layout.findViewById(R.id.book_position_text);
   slider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
     private void gotoPage(    int page){
-      final ZLTextView view=fbreader.getTextView();
+      final ZLTextView view=Reader.getTextView();
       if (page == 1) {
         view.gotoHome();
       }
  else {
         view.gotoPage(page);
       }
-      fbreader.repaintView();
+      Reader.repaintView();
     }
     public void onStopTrackingTouch(    SeekBar seekBar){
-      myNavigatePanel.NavigateDragging=false;
+      NavigateDragging=false;
     }
     public void onStartTrackingTouch(    SeekBar seekBar){
-      myNavigatePanel.NavigateDragging=true;
+      NavigateDragging=true;
     }
     public void onProgressChanged(    SeekBar seekBar,    int progress,    boolean fromUser){
       if (fromUser) {
@@ -33,15 +34,15 @@
   final Button btnCancel=(Button)layout.findViewById(android.R.id.button3);
   View.OnClickListener listener=new View.OnClickListener(){
     public void onClick(    View v){
-      final ZLTextWordCursor position=myNavigatePanel.StartPosition;
+      final ZLTextWordCursor position=StartPosition;
       if (v == btnCancel && position != null) {
-        fbreader.getTextView().gotoPosition(position);
+        Reader.getTextView().gotoPosition(position);
       }
  else       if (v == btnOk) {
-        myNavigatePanel.storePosition();
+        storePosition();
       }
-      myNavigatePanel.StartPosition=null;
-      myNavigatePanel.hide(true);
+      StartPosition=null;
+      hide(true);
     }
   }
 ;
@@ -50,4 +51,6 @@
   final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
   btnOk.setText(buttonResource.getResource("ok").getValue());
   btnCancel.setText(buttonResource.getResource("cancel").getValue());
+  panel.addView(layout);
+  setControlPanel(panel,root,true);
 }

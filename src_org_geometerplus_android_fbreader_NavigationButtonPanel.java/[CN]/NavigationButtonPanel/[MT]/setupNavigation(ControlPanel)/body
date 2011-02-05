@@ -1,7 +1,7 @@
 {
   final SeekBar slider=(SeekBar)panel.findViewById(R.id.book_position_slider);
   final TextView text=(TextView)panel.findViewById(R.id.book_position_text);
-  final ZLTextView textView=(ZLTextView)ZLApplication.Instance().getCurrentView();
+  final ZLTextView textView=Reader.getTextView();
   final int page=textView.computeCurrentPage();
   final int pagesNumber=textView.computePageNumber();
   if (slider.getMax() != pagesNumber - 1 || slider.getProgress() != page - 1) {

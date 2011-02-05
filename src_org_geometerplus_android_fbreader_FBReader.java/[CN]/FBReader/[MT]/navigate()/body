@@ -1,9 +1,9 @@
 {
-  if (myNavigatePanel.getVisibility()) {
+  if (ourNavigatePanel.getVisibility()) {
     return false;
   }
-  myNavigatePanel.NavigateDragging=false;
-  myNavigatePanel.initPosition();
-  myNavigatePanel.show(true);
+  ourNavigatePanel.NavigateDragging=false;
+  ourNavigatePanel.initPosition();
+  ourNavigatePanel.show(true);
   return true;
 }

@@ -7,14 +7,10 @@
     startActivity(new Intent(this,this.getClass()));
   }
   final RelativeLayout root=(RelativeLayout)findViewById(R.id.root_view);
-  if (!myTextSearchPanel.hasControlPanel()) {
-    myTextSearchPanel.createControlPanel(this,root);
+  if (!ourTextSearchPanel.hasControlPanel()) {
+    ourTextSearchPanel.createControlPanel(this,root);
   }
-  if (!myNavigatePanel.hasControlPanel()) {
-    final ControlPanel panel=new ControlPanel(this);
-    final View layout=getLayoutInflater().inflate(R.layout.navigate,panel,false);
-    createNavigation(layout);
-    panel.addView(layout);
-    myNavigatePanel.setControlPanel(panel,root,true);
+  if (!ourNavigatePanel.hasControlPanel()) {
+    ourNavigatePanel.createControlPanel(this,root);
   }
 }
