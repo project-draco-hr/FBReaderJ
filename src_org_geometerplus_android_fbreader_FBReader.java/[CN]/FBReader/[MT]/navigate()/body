@@ -2,8 +2,8 @@
   if (myNavigatePanel.getVisibility()) {
     return false;
   }
-  final ZLTextView textView=(ZLTextView)ZLApplication.Instance().getCurrentView();
   myNavigatePanel.NavigateDragging=false;
+  final ZLTextView textView=(ZLTextView)ZLApplication.Instance().getCurrentView();
   myNavigatePanel.StartPosition=new ZLTextWordCursor(textView.getStartCursor());
   myNavigatePanel.show(true);
   return true;

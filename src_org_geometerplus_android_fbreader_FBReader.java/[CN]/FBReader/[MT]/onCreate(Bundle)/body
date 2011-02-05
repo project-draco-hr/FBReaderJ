@@ -3,15 +3,13 @@
   final ZLAndroidApplication application=ZLAndroidApplication.Instance();
   myFullScreenFlag=application.ShowStatusBarOption.getValue() ? 0 : WindowManager.LayoutParams.FLAG_FULLSCREEN;
   getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,myFullScreenFlag);
+  final FBReaderApp fbReader=(FBReaderApp)ZLApplication.Instance();
   if (myTextSearchPanel == null) {
-    myTextSearchPanel=new TextSearchButtonPanel();
-    myTextSearchPanel.register();
+    myTextSearchPanel=new TextSearchButtonPanel(fbReader);
   }
   if (myNavigatePanel == null) {
-    myNavigatePanel=new NavigationButtonPanel();
-    myNavigatePanel.register();
+    myNavigatePanel=new NavigationButtonPanel(fbReader);
   }
-  final FBReaderApp fbReader=(FBReaderApp)ZLApplication.Instance();
   fbReader.addAction(ActionCode.SHOW_LIBRARY,new ShowLibraryAction(this,fbReader));
   fbReader.addAction(ActionCode.SHOW_PREFERENCES,new ShowPreferencesAction(this,fbReader));
   fbReader.addAction(ActionCode.SHOW_BOOK_INFO,new ShowBookInfoAction(this,fbReader));

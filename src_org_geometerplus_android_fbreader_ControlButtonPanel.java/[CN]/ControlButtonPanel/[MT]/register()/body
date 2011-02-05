@@ -1,4 +1,0 @@
-{
-  ZLApplication.Instance().registerButtonPanel(this);
-  ourPanels.add(this);
-}
