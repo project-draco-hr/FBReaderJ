@@ -1,0 +1,6 @@
+{
+  for (  ZLApplication.ButtonPanel panel : application.buttonPanels()) {
+    final ControlButtonPanel p=(ControlButtonPanel)panel;
+    p.myVisible=p.getVisibility();
+  }
+}

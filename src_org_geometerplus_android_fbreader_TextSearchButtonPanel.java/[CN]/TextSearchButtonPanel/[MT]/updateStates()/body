@@ -1,0 +1,5 @@
+{
+  for (  ActionButton button : myButtons) {
+    button.setEnabled(Reader.isActionEnabled(button.ActionId));
+  }
+}

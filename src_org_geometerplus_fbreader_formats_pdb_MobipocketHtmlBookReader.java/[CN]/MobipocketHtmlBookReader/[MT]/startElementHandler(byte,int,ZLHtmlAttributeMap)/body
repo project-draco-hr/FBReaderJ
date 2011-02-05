@@ -62,6 +62,7 @@ if (tocRangeContainsPosition(offset)) {
   }
 }
 myFileposReferences.add(filePosition);
+attributes.put(new ZLByteBuffer("href"),new ZLByteBuffer("&filepos" + filePosition));
 }
  catch (NumberFormatException e) {
 }

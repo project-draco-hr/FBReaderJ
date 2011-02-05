@@ -1,5 +1,9 @@
 {
   super.onResume();
-  sendBroadcast(new Intent(getApplicationContext(),KillerCallback.class));
-  ControlButtonPanel.restoreVisibilities();
+  try {
+    sendBroadcast(new Intent(getApplicationContext(),KillerCallback.class));
+  }
+ catch (  Throwable t) {
+  }
+  ControlButtonPanel.restoreVisibilities(FBReaderApp.Instance());
 }
