@@ -34,13 +34,13 @@
   View.OnClickListener listener=new View.OnClickListener(){
     public void onClick(    View v){
       final ZLTextWordCursor position=myNavigatePanel.StartPosition;
-      myNavigatePanel.StartPosition=null;
       if (v == btnCancel && position != null) {
         fbreader.getTextView().gotoPosition(position);
       }
  else       if (v == btnOk) {
-        fbreader.addInvisibleBookmark(position);
+        myNavigatePanel.storePosition();
       }
+      myNavigatePanel.StartPosition=null;
       myNavigatePanel.hide(true);
     }
   }

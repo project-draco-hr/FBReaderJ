@@ -1,0 +1,7 @@
+{
+  final ControlPanel panel=new ControlPanel(activity);
+  setControlPanel(panel,root,false);
+  addButton(ActionCode.FIND_PREVIOUS,false,R.drawable.text_search_previous);
+  addButton(ActionCode.CLEAR_FIND_RESULTS,true,R.drawable.text_search_close);
+  addButton(ActionCode.FIND_NEXT,false,R.drawable.text_search_next);
+}

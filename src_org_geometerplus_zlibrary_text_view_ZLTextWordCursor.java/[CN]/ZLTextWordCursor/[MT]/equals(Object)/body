@@ -1,0 +1,10 @@
+{
+  if (object == this) {
+    return true;
+  }
+  if (!(object instanceof ZLTextWordCursor)) {
+    return false;
+  }
+  final ZLTextWordCursor cursor=(ZLTextWordCursor)object;
+  return myParagraphCursor == cursor.myParagraphCursor && myElementIndex == cursor.myElementIndex && myCharIndex == cursor.myCharIndex;
+}

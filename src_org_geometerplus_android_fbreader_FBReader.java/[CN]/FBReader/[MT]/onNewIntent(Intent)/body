@@ -1,11 +1,9 @@
 {
   if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-    final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
-    final ZLTextView textView=fbReader.getTextView();
     final String pattern=intent.getStringExtra(SearchManager.QUERY);
     final Handler successHandler=new Handler(){
       public void handleMessage(      Message message){
-        myTextSearchPanel.StartPosition=new ZLTextWordCursor(textView.getStartCursor());
+        myTextSearchPanel.initPosition();
         myTextSearchPanel.show(true);
       }
     }
@@ -18,8 +16,9 @@
 ;
     final Runnable runnable=new Runnable(){
       public void run(){
+        final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
         fbReader.TextSearchPatternOption.setValue(pattern);
-        if (textView.search(pattern,true,false,false,false) != 0) {
+        if (fbReader.getTextView().search(pattern,true,false,false,false) != 0) {
           successHandler.sendEmptyMessage(0);
         }
  else {

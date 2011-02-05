@@ -1,4 +1,4 @@
 {
-  ControlButtonPanel.saveVisibilities();
+  ControlButtonPanel.saveVisibilities(ZLApplication.Instance());
   super.onPause();
 }

@@ -1,7 +1,0 @@
-{
-  final ActionButton button=new ActionButton(getContext(),actionId,isCloseButton);
-  button.setImageResource(imageId);
-  button.setOnClickListener(this);
-  myPlateLayout.addView(button);
-  myButtons.add(button);
-}

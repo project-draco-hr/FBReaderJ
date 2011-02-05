@@ -3,8 +3,7 @@
     return false;
   }
   myNavigatePanel.NavigateDragging=false;
-  final ZLTextView textView=(ZLTextView)ZLApplication.Instance().getCurrentView();
-  myNavigatePanel.StartPosition=new ZLTextWordCursor(textView.getStartCursor());
+  myNavigatePanel.initPosition();
   myNavigatePanel.show(true);
   return true;
 }

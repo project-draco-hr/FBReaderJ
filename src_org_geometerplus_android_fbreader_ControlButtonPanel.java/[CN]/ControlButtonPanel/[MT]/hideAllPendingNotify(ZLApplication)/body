@@ -1,0 +1,8 @@
+{
+  for (  ZLApplication.ButtonPanel panel : application.buttonPanels()) {
+    final ControlButtonPanel p=(ControlButtonPanel)panel;
+    if (p.myControlPanel != null && p.getVisibility()) {
+      p.myControlPanel.hide(false);
+    }
+  }
+}

@@ -1,8 +1,9 @@
 {
   super.onResume();
-  final Context context=getApplicationContext();
-  if (context != null) {
-    sendBroadcast(new Intent(context,KillerCallback.class));
+  try {
+    sendBroadcast(new Intent(getApplicationContext(),KillerCallback.class));
   }
-  ControlButtonPanel.restoreVisibilities();
+ catch (  Throwable t) {
+  }
+  ControlButtonPanel.restoreVisibilities(ZLApplication.Instance());
 }

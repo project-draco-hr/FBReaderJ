@@ -1,4 +1,4 @@
 {
-  ControlButtonPanel.removeControlPanels();
+  ControlButtonPanel.removeControlPanels(ZLApplication.Instance());
   super.onStop();
 }
