@@ -1,3 +1,3 @@
-ControlPanel panel
+Context context
 RelativeLayout root
 boolean fillWidth
