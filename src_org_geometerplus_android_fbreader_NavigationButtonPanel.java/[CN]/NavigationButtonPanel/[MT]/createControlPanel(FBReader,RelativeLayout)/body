@@ -15,10 +15,10 @@
       Reader.repaintView();
     }
     public void onStopTrackingTouch(    SeekBar seekBar){
-      NavigateDragging=false;
+      myIsInProgress=false;
     }
     public void onStartTrackingTouch(    SeekBar seekBar){
-      NavigateDragging=true;
+      myIsInProgress=true;
     }
     public void onProgressChanged(    SeekBar seekBar,    int progress,    boolean fromUser){
       if (fromUser) {
