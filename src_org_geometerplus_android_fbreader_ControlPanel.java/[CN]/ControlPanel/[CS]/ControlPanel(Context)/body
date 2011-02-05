@@ -1,7 +1,0 @@
-{
-  super(context);
-  setFocusable(false);
-  final LayoutInflater inflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-  inflater.inflate(R.layout.control_panel,this,true);
-  myPlateLayout=(LinearLayout)findViewById(R.id.tools_plate);
-}

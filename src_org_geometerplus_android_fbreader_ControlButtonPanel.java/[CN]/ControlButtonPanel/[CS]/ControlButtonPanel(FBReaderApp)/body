@@ -1,0 +1,4 @@
+{
+  Reader=fbReader;
+  fbReader.registerButtonPanel(this);
+}

@@ -1,0 +1,7 @@
+{
+  if (!getVisibility()) {
+    myIsInProgress=false;
+    initPosition();
+    show(true);
+  }
+}

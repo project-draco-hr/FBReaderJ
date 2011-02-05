@@ -1,6 +1,0 @@
-{
-  final ZLApplication application=ZLApplication.Instance();
-  for (  ActionButton button : myButtons) {
-    button.setEnabled(application.isActionEnabled(button.ActionId));
-  }
-}
