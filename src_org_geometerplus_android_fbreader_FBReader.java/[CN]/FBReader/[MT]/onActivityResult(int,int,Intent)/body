@@ -1,5 +1,5 @@
 {
-  final FBReaderApp fbreader=(FBReaderApp)ZLApplication.Instance();
+  final FBReaderApp fbreader=(FBReaderApp)FBReaderApp.Instance();
 switch (requestCode) {
 case REPAINT_CODE:
 {

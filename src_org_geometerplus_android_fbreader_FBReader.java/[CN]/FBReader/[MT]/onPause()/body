@@ -1,4 +1,4 @@
 {
-  ControlButtonPanel.saveVisibilities(ZLApplication.Instance());
+  ControlButtonPanel.saveVisibilities(FBReaderApp.Instance());
   super.onPause();
 }

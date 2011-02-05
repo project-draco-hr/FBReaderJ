@@ -3,7 +3,7 @@
   final ZLAndroidApplication application=ZLAndroidApplication.Instance();
   myFullScreenFlag=application.ShowStatusBarOption.getValue() ? 0 : WindowManager.LayoutParams.FLAG_FULLSCREEN;
   getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,myFullScreenFlag);
-  final FBReaderApp fbReader=(FBReaderApp)ZLApplication.Instance();
+  final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
   if (ourTextSearchPanel == null) {
     ourTextSearchPanel=new TextSearchButtonPanel(fbReader);
   }

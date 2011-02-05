@@ -1,4 +1,4 @@
 {
-  ControlButtonPanel.removeControlPanels(ZLApplication.Instance());
+  ControlButtonPanel.removeControlPanels(FBReaderApp.Instance());
   super.onStop();
 }

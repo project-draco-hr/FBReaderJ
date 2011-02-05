@@ -1,6 +1,6 @@
 {
   final LinkedList<Boolean> visibilities=new LinkedList<Boolean>();
-  final FBReaderApp fbreader=(FBReaderApp)ZLApplication.Instance();
+  final FBReaderApp fbreader=(FBReaderApp)FBReaderApp.Instance();
   ControlButtonPanel.saveVisibilitiesTo(fbreader,visibilities);
   ControlButtonPanel.hideAllPendingNotify(fbreader);
   final SearchManager manager=(SearchManager)getSystemService(SEARCH_SERVICE);
