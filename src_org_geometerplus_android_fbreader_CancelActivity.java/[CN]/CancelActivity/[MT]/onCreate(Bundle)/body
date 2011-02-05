@@ -1,5 +1,5 @@
 {
-  super.onCreate(savedInstanceState);
+  super.onCreate(icicle);
   requestWindowFeature(Window.FEATURE_NO_TITLE);
   final ActionListAdapter adapter=new ActionListAdapter(getIntent());
   setListAdapter(adapter);
