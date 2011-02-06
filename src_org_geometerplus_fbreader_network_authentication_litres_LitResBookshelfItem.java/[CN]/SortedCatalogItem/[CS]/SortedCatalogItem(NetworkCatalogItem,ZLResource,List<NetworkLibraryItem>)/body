@@ -1,4 +1,12 @@
 {
   super(parent.Link,resource.getValue(),resource.getResource("summary").getValue(),"",parent.URLByType);
-  myChildren.addAll(children);
+  for (  NetworkLibraryItem child : children) {
+    if (accepts(child)) {
+      myChildren.add(child);
+    }
+  }
+  final Comparator<NetworkLibraryItem> comparator=getComparator();
+  if (comparator != null) {
+    Collections.sort(myChildren,comparator);
+  }
 }

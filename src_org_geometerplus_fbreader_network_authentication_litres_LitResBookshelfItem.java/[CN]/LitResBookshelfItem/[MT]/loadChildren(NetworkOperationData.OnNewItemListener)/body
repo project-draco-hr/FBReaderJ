@@ -19,9 +19,13 @@
       }
     }
  else {
-      listener.onNewItem(Link,new SortedCatalogItem(this,"byDate",children));
-      listener.onNewItem(Link,new SortedCatalogItem(this,"byAuthor",children));
-      listener.onNewItem(Link,new SortedCatalogItem(this,"byTitle",children));
+      listener.onNewItem(Link,new ByDateCatalogItem(this,children));
+      listener.onNewItem(Link,new ByAuthorCatalogItem(this,children));
+      listener.onNewItem(Link,new ByTitleCatalogItem(this,children));
+      final BySeriesCatalogItem bySeries=new BySeriesCatalogItem(this,children);
+      if (!bySeries.isEmpty()) {
+        listener.onNewItem(Link,bySeries);
+      }
     }
     listener.commitItems(Link);
   }
