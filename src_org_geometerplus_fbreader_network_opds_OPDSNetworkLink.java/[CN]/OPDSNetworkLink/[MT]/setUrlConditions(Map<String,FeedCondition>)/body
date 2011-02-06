@@ -1,6 +1,6 @@
 {
   if (conditions != null && conditions.size() > 0) {
-    myUrlConditions=new TreeMap<String,Integer>(conditions);
+    myUrlConditions=new TreeMap<String,FeedCondition>(conditions);
   }
  else {
     myUrlConditions=null;
