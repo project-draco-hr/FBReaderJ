@@ -1,22 +1,21 @@
 {
   final NetworkCatalogTree catalogTree=(NetworkCatalogTree)tree;
-  if (catalogTree.Item.getVisibility() == ZLBoolean3.B3_TRUE) {
+switch (catalogTree.Item.getVisibility()) {
+case B3_TRUE:
     return false;
-  }
-switch (catalogTree.Item.getAccessibility()) {
-case SIGNED_IN:
-    NetworkDialog.show(activity,NetworkDialog.DIALOG_AUTHENTICATION,((NetworkCatalogTree)tree).Item.Link,new Runnable(){
-      public void run(){
-        if (catalogTree.Item.getVisibility() != ZLBoolean3.B3_TRUE) {
-          return;
-        }
-        if (actionCode != SIGNIN_ITEM_ID) {
-          runAction(activity,tree,actionCode);
-        }
+case B3_UNDEFINED:
+  NetworkDialog.show(activity,NetworkDialog.DIALOG_AUTHENTICATION,((NetworkCatalogTree)tree).Item.Link,new Runnable(){
+    public void run(){
+      if (catalogTree.Item.getVisibility() != ZLBoolean3.B3_TRUE) {
+        return;
+      }
+      if (actionCode != SIGNIN_ITEM_ID) {
+        runAction(activity,tree,actionCode);
       }
     }
+  }
 );
-  break;
+break;
 }
 return true;
 }
