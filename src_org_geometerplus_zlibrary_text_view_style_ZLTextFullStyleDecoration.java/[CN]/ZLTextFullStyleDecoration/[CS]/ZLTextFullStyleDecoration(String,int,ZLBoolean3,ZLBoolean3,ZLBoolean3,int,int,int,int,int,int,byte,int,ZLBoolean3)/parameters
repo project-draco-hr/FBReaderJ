@@ -1,8 +1,8 @@
 String name
 int fontSizeDelta
-int bold
-int italic
-int underline
+ZLBoolean3 bold
+ZLBoolean3 italic
+ZLBoolean3 underline
 int spaceBefore
 int spaceAfter
 int leftIndent
@@ -11,4 +11,4 @@ int firstLineIndentDelta
 int verticalShift
 byte alignment
 int lineSpace
-int allowHyphenations
+ZLBoolean3 allowHyphenations

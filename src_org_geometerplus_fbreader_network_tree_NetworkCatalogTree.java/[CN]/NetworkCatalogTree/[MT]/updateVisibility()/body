@@ -20,56 +20,57 @@
       }
       NetworkCatalogTree child=(NetworkCatalogTree)currentNode;
       if (child.Item == currentItem) {
-        final int visibility=child.Item.getVisibility();
-        if (visibility == ZLBoolean3.B3_TRUE) {
+switch (child.Item.getVisibility()) {
+case B3_TRUE:
           child.updateVisibility();
-        }
- else         if (visibility == ZLBoolean3.B3_FALSE) {
-          toRemove.add(child);
-        }
- else {
-          child.clear();
-          child.ChildrenItems.clear();
-        }
-        currentNode=null;
-        ++nodeCount;
-        processed=true;
         break;
-      }
+case B3_FALSE:
+      toRemove.add(child);
+    break;
+case B3_UNDEFINED:
+  child.clear();
+child.ChildrenItems.clear();
+break;
+}
+currentNode=null;
+++nodeCount;
+processed=true;
+break;
+}
  else {
-        boolean found=false;
-        for (int j=i + 1; j < ChildrenItems.size(); ++j) {
-          if (child.Item == ChildrenItems.get(j)) {
-            found=true;
-            break;
-          }
-        }
-        if (!found) {
-          toRemove.add(currentNode);
-          currentNode=null;
-          ++nodeCount;
-        }
+boolean found=false;
+for (int j=i + 1; j < ChildrenItems.size(); ++j) {
+if (child.Item == ChildrenItems.get(j)) {
+found=true;
+break;
+}
+}
+if (!found) {
+toRemove.add(currentNode);
+currentNode=null;
+++nodeCount;
+}
  else {
-          break;
-        }
-      }
-    }
-    final int nextIndex=nodeIterator.nextIndex();
-    if (!processed && NetworkTreeFactory.createNetworkTree(this,currentItem,nodeCount) != null) {
-      ++nodeCount;
-      nodeIterator=subTrees().listIterator(nextIndex + 1);
-    }
-  }
-  while (currentNode != null || nodeIterator.hasNext()) {
-    if (currentNode == null) {
-      currentNode=nodeIterator.next();
-    }
-    if (currentNode instanceof NetworkCatalogTree) {
-      toRemove.add(currentNode);
-    }
-    currentNode=null;
-  }
-  for (  FBTree tree : toRemove) {
-    tree.removeSelf();
-  }
+break;
+}
+}
+}
+final int nextIndex=nodeIterator.nextIndex();
+if (!processed && NetworkTreeFactory.createNetworkTree(this,currentItem,nodeCount) != null) {
+++nodeCount;
+nodeIterator=subTrees().listIterator(nextIndex + 1);
+}
+}
+while (currentNode != null || nodeIterator.hasNext()) {
+if (currentNode == null) {
+currentNode=nodeIterator.next();
+}
+if (currentNode instanceof NetworkCatalogTree) {
+toRemove.add(currentNode);
+}
+currentNode=null;
+}
+for (FBTree tree : toRemove) {
+tree.removeSelf();
+}
 }

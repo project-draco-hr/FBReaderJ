@@ -8,6 +8,6 @@
     unsetConfigValue();
   }
  else {
-    setConfigValue(ZLBoolean3.getName(myValue));
+    setConfigValue(myValue.Name);
   }
 }
