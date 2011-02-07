@@ -1,5 +1,5 @@
 {
-switch (Accessibility) {
+switch (myAccessibility) {
 case NEVER:
     return ZLBoolean3.B3_FALSE;
 case ALWAYS:

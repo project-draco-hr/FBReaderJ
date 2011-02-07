@@ -4,5 +4,5 @@ String summary
 String icon
 String language
 Map<String,String> links
-HashMap<String,NetworkCatalogItem.AccessibilityType> urlConditions
+HashMap<String,NetworkCatalogItem.Accessibility> urlConditions
 String sslCertificate

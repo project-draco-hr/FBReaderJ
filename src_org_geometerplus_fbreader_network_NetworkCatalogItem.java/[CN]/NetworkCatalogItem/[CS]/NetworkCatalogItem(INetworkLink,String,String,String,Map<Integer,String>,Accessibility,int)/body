@@ -1,6 +1,6 @@
 {
   super(link,title,summary,cover);
-  Accessibility=accessibility;
+  myAccessibility=accessibility;
   CatalogType=catalogType;
   URLByType=new TreeMap<Integer,String>(urlByType);
 }

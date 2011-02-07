@@ -40,7 +40,7 @@
     }
   }
   if (!isVisible && !hasItems) {
-switch (item.Accessibility) {
+switch (item.getAccessibility()) {
 case SIGNED_IN:
       if (item.Link.authenticationManager() != null) {
         addMenuItem(menu,SIGNIN_ITEM_ID,"signIn");

@@ -1,7 +1,7 @@
 {
   if (myUrlConditions == null) {
-    return NetworkCatalogItem.AccessibilityType.ALWAYS;
+    return NetworkCatalogItem.Accessibility.ALWAYS;
   }
-  NetworkCatalogItem.AccessibilityType cond=myUrlConditions.get(url);
-  return cond != null ? cond : NetworkCatalogItem.AccessibilityType.ALWAYS;
+  NetworkCatalogItem.Accessibility cond=myUrlConditions.get(url);
+  return cond != null ? cond : NetworkCatalogItem.Accessibility.ALWAYS;
 }

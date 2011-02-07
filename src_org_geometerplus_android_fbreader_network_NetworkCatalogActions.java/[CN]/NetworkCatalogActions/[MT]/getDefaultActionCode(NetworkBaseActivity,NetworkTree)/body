@@ -8,7 +8,7 @@
     return OPEN_IN_BROWSER_ITEM_ID;
   }
   if (item.getVisibility() != ZLBoolean3.B3_TRUE) {
-switch (item.Accessibility) {
+switch (item.getAccessibility()) {
 case SIGNED_IN:
       if (item.Link.authenticationManager() != null) {
         return SIGNIN_ITEM_ID;
