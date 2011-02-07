@@ -1,17 +1,21 @@
 {
-  if (Visibility == VISIBLE_ALWAYS) {
-    return ZLBoolean3.B3_TRUE;
-  }
-  if (Visibility == VISIBLE_LOGGED_USER) {
-    if (Link.authenticationManager() == null) {
-      return ZLBoolean3.B3_FALSE;
-    }
-    try {
-      return Link.authenticationManager().isAuthorised(false) ? ZLBoolean3.B3_TRUE : ZLBoolean3.B3_UNDEFINED;
-    }
- catch (    ZLNetworkException e) {
-      return ZLBoolean3.B3_UNDEFINED;
-    }
-  }
+switch (Accessibility) {
+case NEVER:
+    return ZLBoolean3.B3_FALSE;
+case ALWAYS:
+  return ZLBoolean3.B3_TRUE;
+case SIGNED_IN:
+if (Link.authenticationManager() == null) {
   return ZLBoolean3.B3_FALSE;
+}
+try {
+return Link.authenticationManager().isAuthorised(false) ? ZLBoolean3.B3_TRUE : ZLBoolean3.B3_UNDEFINED;
+}
+ catch (ZLNetworkException e) {
+return ZLBoolean3.B3_UNDEFINED;
+}
+case HAS_BOOKS:
+return ZLBoolean3.B3_FALSE;
+}
+return ZLBoolean3.B3_FALSE;
 }

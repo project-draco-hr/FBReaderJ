@@ -67,9 +67,9 @@
     urlMap.put(NetworkCatalogItem.URL_HTML_PAGE,htmlURL);
   }
   if (litresCatalogue) {
-    return new LitResBookshelfItem(opdsLink,entry.Title,annotation,coverURL,urlMap,dependsOnAccount ? NetworkCatalogItem.VISIBLE_LOGGED_USER : NetworkCatalogItem.VISIBLE_ALWAYS);
+    return new LitResBookshelfItem(opdsLink,entry.Title,annotation,coverURL,urlMap,dependsOnAccount ? NetworkCatalogItem.AccessibilityType.SIGNED_IN : NetworkCatalogItem.AccessibilityType.ALWAYS);
   }
  else {
-    return new OPDSCatalogItem(opdsLink,entry.Title,annotation,coverURL,urlMap,dependsOnAccount ? NetworkCatalogItem.VISIBLE_LOGGED_USER : NetworkCatalogItem.VISIBLE_ALWAYS,catalogType);
+    return new OPDSCatalogItem(opdsLink,entry.Title,annotation,coverURL,urlMap,dependsOnAccount ? NetworkCatalogItem.AccessibilityType.SIGNED_IN : NetworkCatalogItem.AccessibilityType.ALWAYS,catalogType);
   }
 }

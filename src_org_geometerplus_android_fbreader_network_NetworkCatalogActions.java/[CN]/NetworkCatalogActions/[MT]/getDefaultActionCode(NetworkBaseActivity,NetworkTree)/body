@@ -8,8 +8,8 @@
     return OPEN_IN_BROWSER_ITEM_ID;
   }
   if (item.getVisibility() != ZLBoolean3.B3_TRUE) {
-switch (item.Visibility) {
-case NetworkCatalogItem.VISIBLE_LOGGED_USER:
+switch (item.Accessibility) {
+case SIGNED_IN:
       if (item.Link.authenticationManager() != null) {
         return SIGNIN_ITEM_ID;
       }

@@ -40,8 +40,8 @@
     }
   }
   if (!isVisible && !hasItems) {
-switch (item.Visibility) {
-case NetworkCatalogItem.VISIBLE_LOGGED_USER:
+switch (item.Accessibility) {
+case SIGNED_IN:
       if (item.Link.authenticationManager() != null) {
         addMenuItem(menu,SIGNIN_ITEM_ID,"signIn");
       }

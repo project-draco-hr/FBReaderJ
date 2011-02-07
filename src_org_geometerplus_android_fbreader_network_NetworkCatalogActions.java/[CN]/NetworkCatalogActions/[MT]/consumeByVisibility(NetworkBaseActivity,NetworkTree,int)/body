@@ -3,8 +3,8 @@
   if (catalogTree.Item.getVisibility() == ZLBoolean3.B3_TRUE) {
     return false;
   }
-switch (catalogTree.Item.Visibility) {
-case NetworkCatalogItem.VISIBLE_LOGGED_USER:
+switch (catalogTree.Item.Accessibility) {
+case SIGNED_IN:
     NetworkDialog.show(activity,NetworkDialog.DIALOG_AUTHENTICATION,((NetworkCatalogTree)tree).Item.Link,new Runnable(){
       public void run(){
         if (catalogTree.Item.getVisibility() != ZLBoolean3.B3_TRUE) {

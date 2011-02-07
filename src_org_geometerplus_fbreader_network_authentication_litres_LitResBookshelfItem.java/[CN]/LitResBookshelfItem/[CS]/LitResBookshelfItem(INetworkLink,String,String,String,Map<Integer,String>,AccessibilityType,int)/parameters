@@ -3,5 +3,5 @@ String title
 String summary
 String cover
 Map<Integer,String> urlByType
-int visibility
+AccessibilityType accessibility
 int catalogType
