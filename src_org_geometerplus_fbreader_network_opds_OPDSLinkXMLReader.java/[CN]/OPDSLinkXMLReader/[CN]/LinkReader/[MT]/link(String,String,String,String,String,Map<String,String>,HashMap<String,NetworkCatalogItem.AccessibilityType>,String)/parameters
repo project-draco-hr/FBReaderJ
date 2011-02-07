@@ -4,5 +4,5 @@ String summary
 String icon
 String language
 Map<String,String> links
-HashMap<String,OPDSNetworkLink.FeedCondition> urlConditions
+HashMap<String,NetworkCatalogItem.AccessibilityType> urlConditions
 String sslCertificate

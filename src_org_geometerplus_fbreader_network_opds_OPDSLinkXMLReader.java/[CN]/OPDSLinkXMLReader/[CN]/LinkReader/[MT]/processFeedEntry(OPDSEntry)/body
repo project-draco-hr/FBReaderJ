@@ -9,7 +9,7 @@
   final String language=entry.DCLanguage;
   String icon=null;
   final HashMap<String,String> links=new HashMap<String,String>();
-  final HashMap<String,OPDSNetworkLink.FeedCondition> urlConditions=new HashMap<String,OPDSNetworkLink.FeedCondition>();
+  final HashMap<String,NetworkCatalogItem.AccessibilityType> urlConditions=new HashMap<String,NetworkCatalogItem.AccessibilityType>();
   for (  ATOMLink link : entry.Links) {
     final String href=link.getHref();
     final String type=ZLNetworkUtil.filterMimeType(link.getType());
@@ -53,13 +53,13 @@
       links.put(INetworkLink.URL_RECOVER_PASSWORD,href);
     }
  else     if (rel == REL_CONDITION_NEVER) {
-      urlConditions.put(href,OPDSNetworkLink.FeedCondition.NEVER);
+      urlConditions.put(href,NetworkCatalogItem.AccessibilityType.NEVER);
     }
  else     if (rel == REL_CONDITION_SIGNED_IN) {
-      urlConditions.put(href,OPDSNetworkLink.FeedCondition.SIGNED_IN);
+      urlConditions.put(href,NetworkCatalogItem.AccessibilityType.SIGNED_IN);
     }
  else     if (rel == REL_CONDITION_HAS_BOOKS) {
-      urlConditions.put(href,OPDSNetworkLink.FeedCondition.HAS_BOOKS);
+      urlConditions.put(href,NetworkCatalogItem.AccessibilityType.HAS_BOOKS);
     }
   }
   final String sslCertificate;

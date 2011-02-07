@@ -1,7 +1,7 @@
 {
   if (myUrlConditions == null) {
-    return FeedCondition.REGULAR;
+    return NetworkCatalogItem.AccessibilityType.ALWAYS;
   }
-  FeedCondition cond=myUrlConditions.get(url);
-  return cond != null ? cond : FeedCondition.REGULAR;
+  NetworkCatalogItem.AccessibilityType cond=myUrlConditions.get(url);
+  return cond != null ? cond : NetworkCatalogItem.AccessibilityType.ALWAYS;
 }

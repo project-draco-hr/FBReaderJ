@@ -1,6 +1,6 @@
 {
   if (conditions != null && conditions.size() > 0) {
-    myUrlConditions=new TreeMap<String,FeedCondition>(conditions);
+    myUrlConditions=new TreeMap<String,NetworkCatalogItem.AccessibilityType>(conditions);
   }
  else {
     myUrlConditions=null;
