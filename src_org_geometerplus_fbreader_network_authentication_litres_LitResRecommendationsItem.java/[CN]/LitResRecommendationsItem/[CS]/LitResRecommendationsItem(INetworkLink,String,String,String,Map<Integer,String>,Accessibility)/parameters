@@ -4,4 +4,3 @@ String summary
 String cover
 Map<Integer,String> urlByType
 Accessibility accessibility
-int catalogType
