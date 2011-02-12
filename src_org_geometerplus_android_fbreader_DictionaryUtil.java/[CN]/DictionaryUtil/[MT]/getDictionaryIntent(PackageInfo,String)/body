@@ -1,7 +1,11 @@
 {
   final Intent intent=new Intent(dictionaryInfo.IntentAction);
   if (dictionaryInfo.PackageName != null) {
-    intent.setComponent(new ComponentName(dictionaryInfo.PackageName,dictionaryInfo.ClassName));
+    String cls=dictionaryInfo.ClassName;
+    if (cls != null && cls.startsWith(".")) {
+      cls=dictionaryInfo.PackageName + cls;
+    }
+    intent.setComponent(new ComponentName(dictionaryInfo.PackageName,cls));
   }
   intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
   text=dictionaryInfo.IntentDataPattern.replace("%s",text);

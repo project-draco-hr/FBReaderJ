@@ -1,3 +1,0 @@
-{
-  list.addAll(myPurchasedBooks.values());
-}
