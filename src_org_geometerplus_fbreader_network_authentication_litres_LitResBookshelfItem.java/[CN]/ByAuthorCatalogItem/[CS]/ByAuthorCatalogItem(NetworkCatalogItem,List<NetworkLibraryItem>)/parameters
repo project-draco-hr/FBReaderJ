@@ -1,0 +1,2 @@
+NetworkCatalogItem parent
+List<NetworkLibraryItem> children

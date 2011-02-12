@@ -1,0 +1,3 @@
+{
+  this(parent,ZLResource.resource("networkView").getResource(resourceKey),children);
+}
