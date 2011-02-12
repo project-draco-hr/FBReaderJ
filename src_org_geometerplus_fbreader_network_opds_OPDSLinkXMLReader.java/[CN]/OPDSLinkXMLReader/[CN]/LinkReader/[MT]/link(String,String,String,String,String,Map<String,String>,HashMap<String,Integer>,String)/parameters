@@ -1,8 +1,0 @@
-String siteName
-String title
-String summary
-String icon
-String language
-Map<String,String> links
-HashMap<String,Integer> urlConditions
-String sslCertificate

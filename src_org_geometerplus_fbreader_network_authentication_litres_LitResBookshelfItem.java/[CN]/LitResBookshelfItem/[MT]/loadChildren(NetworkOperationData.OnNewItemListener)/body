@@ -10,8 +10,7 @@
   }
   finally {
     myForceReload=true;
-    LinkedList<NetworkLibraryItem> children=new LinkedList<NetworkLibraryItem>();
-    mgr.collectPurchasedBooks(children);
+    ArrayList<NetworkLibraryItem> children=new ArrayList<NetworkLibraryItem>(mgr.purchasedBooks());
     if (children.size() <= 5) {
       Collections.sort(children,new NetworkBookItemComparator());
       for (      NetworkLibraryItem item : children) {

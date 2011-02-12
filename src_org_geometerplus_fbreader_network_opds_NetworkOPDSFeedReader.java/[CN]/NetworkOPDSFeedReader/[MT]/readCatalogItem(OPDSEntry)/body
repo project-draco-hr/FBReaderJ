@@ -4,8 +4,8 @@
   String url=null;
   boolean urlIsAlternate=false;
   String htmlURL=null;
-  boolean litresCatalogue=false;
-  int catalogType=NetworkCatalogItem.CATALOG_OTHER;
+  String litresRel=null;
+  NetworkCatalogItem.CatalogType catalogType=NetworkCatalogItem.CatalogType.OTHER;
   for (  ATOMLink link : entry.Links) {
     final String href=ZLNetworkUtil.url(myBaseURL,link.getHref());
     final String type=ZLNetworkUtil.filterMimeType(link.getType());
@@ -26,7 +26,10 @@
         url=href;
         urlIsAlternate=false;
         if (REL_CATALOG_AUTHOR.equals(rel)) {
-          catalogType=NetworkCatalogItem.CATALOG_BY_AUTHORS;
+          catalogType=NetworkCatalogItem.CatalogType.BY_AUTHOR;
+        }
+ else         if (REL_CATALOG_SERIES.equals(rel)) {
+          catalogType=NetworkCatalogItem.CatalogType.BY_SERIES;
         }
       }
     }
@@ -36,10 +39,8 @@
       }
     }
  else     if (MIME_APP_LITRES.equals(type)) {
-      if (REL_BOOKSHELF.equals(rel)) {
-        litresCatalogue=true;
-        url=href;
-      }
+      litresRel=rel;
+      url=href;
     }
   }
   if (url == null && htmlURL == null) {
@@ -48,7 +49,6 @@
   if (url != null && !urlIsAlternate) {
     htmlURL=null;
   }
-  final boolean dependsOnAccount=OPDSNetworkLink.FeedCondition.SIGNED_IN == opdsLink.getCondition(entry.Id.Uri);
   final String annotation;
   if (entry.Summary != null) {
     annotation=entry.Summary.replace("\n","");
@@ -66,10 +66,18 @@
   if (htmlURL != null) {
     urlMap.put(NetworkCatalogItem.URL_HTML_PAGE,htmlURL);
   }
-  if (litresCatalogue) {
-    return new LitResBookshelfItem(opdsLink,entry.Title,annotation,coverURL,urlMap,dependsOnAccount ? NetworkCatalogItem.VISIBLE_LOGGED_USER : NetworkCatalogItem.VISIBLE_ALWAYS);
+  if (litresRel != null) {
+    if (REL_BOOKSHELF.equals(litresRel)) {
+      return new LitResBookshelfItem(opdsLink,entry.Title,annotation,coverURL,urlMap,opdsLink.getCondition(entry.Id.Uri));
+    }
+ else     if (REL_RECOMMENDATIONS.equals(litresRel)) {
+      return new LitResRecommendationsItem(opdsLink,entry.Title,annotation,coverURL,urlMap,opdsLink.getCondition(entry.Id.Uri));
+    }
+ else {
+      return null;
+    }
   }
  else {
-    return new OPDSCatalogItem(opdsLink,entry.Title,annotation,coverURL,urlMap,dependsOnAccount ? NetworkCatalogItem.VISIBLE_LOGGED_USER : NetworkCatalogItem.VISIBLE_ALWAYS,catalogType);
+    return new OPDSCatalogItem(opdsLink,entry.Title,annotation,coverURL,urlMap,opdsLink.getCondition(entry.Id.Uri),catalogType);
   }
 }

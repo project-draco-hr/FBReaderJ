@@ -1,0 +1,15 @@
+{
+  final LitResAuthenticationManager mgr=(LitResAuthenticationManager)Link.authenticationManager();
+  final StringBuilder builder=new StringBuilder();
+  boolean flag=false;
+  for (  NetworkBookItem book : mgr.purchasedBooks()) {
+    if (flag) {
+      builder.append(',');
+    }
+ else {
+      flag=true;
+    }
+    builder.append(book.Id);
+  }
+  return ZLNetworkUtil.appendParameter(URLByType.get(URL_CATALOG),"ids",builder.toString());
+}

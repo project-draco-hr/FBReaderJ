@@ -2,7 +2,7 @@
   if (!myIsSynchronized) {
     String value=getConfigValue(null);
     if (value != null) {
-      myValue=ZLBoolean3.getByString(value);
+      myValue=ZLBoolean3.getByName(value);
     }
     myIsSynchronized=true;
   }
