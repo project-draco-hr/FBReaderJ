@@ -1,4 +1,5 @@
 {
+  mySlider=slider;
   myBase=base;
   myText=text;
   myPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -9,5 +10,5 @@
   myOutlinePaint.setStyle(Paint.Style.STROKE);
   myOutlinePaint.setStrokeWidth(3);
   myOutlinePaint.setColor(0xFFAAAAAA);
-  myLabelOnRight=labelOnRight;
+  myLabelOnRight=mySlider.getProgress() < 128;
 }
