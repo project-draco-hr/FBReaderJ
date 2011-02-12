@@ -22,9 +22,6 @@
   }
   myData.LoadedIds.add(entry.Id.Uri);
   final OPDSNetworkLink opdsLink=(OPDSNetworkLink)myData.Link;
-  if (opdsLink.getCondition(entry.Id.Uri) == OPDSNetworkLink.FeedCondition.NEVER) {
-    return tryInterrupt();
-  }
   boolean hasBookLink=false;
   for (  ATOMLink link : entry.Links) {
     final String type=ZLNetworkUtil.filterMimeType(link.getType());

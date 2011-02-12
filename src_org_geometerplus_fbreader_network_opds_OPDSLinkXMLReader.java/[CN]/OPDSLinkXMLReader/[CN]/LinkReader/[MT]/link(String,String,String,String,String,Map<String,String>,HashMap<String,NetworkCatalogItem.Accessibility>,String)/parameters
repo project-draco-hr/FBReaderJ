@@ -1,0 +1,8 @@
+String siteName
+String title
+String summary
+String icon
+String language
+Map<String,String> links
+HashMap<String,NetworkCatalogItem.Accessibility> urlConditions
+String sslCertificate

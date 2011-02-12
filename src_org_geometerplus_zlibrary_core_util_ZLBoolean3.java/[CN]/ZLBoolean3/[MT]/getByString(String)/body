@@ -1,9 +1,0 @@
-{
-  if (STRING_TRUE.equals(name)) {
-    return B3_TRUE;
-  }
-  if (STRING_FALSE.equals(name)) {
-    return B3_FALSE;
-  }
-  return B3_UNDEFINED;
-}

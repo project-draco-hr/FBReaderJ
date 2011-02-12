@@ -1,17 +1,26 @@
 {
-  if (Visibility == VISIBLE_ALWAYS) {
-    return ZLBoolean3.B3_TRUE;
-  }
-  if (Visibility == VISIBLE_LOGGED_USER) {
-    if (Link.authenticationManager() == null) {
-      return ZLBoolean3.B3_FALSE;
-    }
-    try {
-      return Link.authenticationManager().isAuthorised(false) ? ZLBoolean3.B3_TRUE : ZLBoolean3.B3_UNDEFINED;
-    }
- catch (    ZLNetworkException e) {
-      return ZLBoolean3.B3_UNDEFINED;
-    }
-  }
+  final NetworkAuthenticationManager mgr=Link.authenticationManager();
+switch (myAccessibility) {
+default :
+    return ZLBoolean3.B3_FALSE;
+case ALWAYS:
+  return ZLBoolean3.B3_TRUE;
+case SIGNED_IN:
+if (mgr == null) {
   return ZLBoolean3.B3_FALSE;
+}
+try {
+return mgr.isAuthorised(false) ? ZLBoolean3.B3_TRUE : ZLBoolean3.B3_UNDEFINED;
+}
+ catch (ZLNetworkException e) {
+return ZLBoolean3.B3_UNDEFINED;
+}
+case HAS_BOOKS:
+if (mgr != null && mgr.purchasedBooks().size() > 0) {
+return ZLBoolean3.B3_TRUE;
+}
+ else {
+return ZLBoolean3.B3_FALSE;
+}
+}
 }

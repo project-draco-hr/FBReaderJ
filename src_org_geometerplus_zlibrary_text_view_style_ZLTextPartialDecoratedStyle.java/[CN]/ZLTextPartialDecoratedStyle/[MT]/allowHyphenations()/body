@@ -1,4 +1,10 @@
 {
-  int a=myDecoration.AllowHyphenationsOption.getValue();
-  return (a == ZLBoolean3.B3_UNDEFINED) ? Base.allowHyphenations() : (a == ZLBoolean3.B3_TRUE);
+switch (myDecoration.AllowHyphenationsOption.getValue()) {
+case B3_FALSE:
+    return false;
+case B3_TRUE:
+  return true;
+default :
+return Base.allowHyphenations();
+}
 }

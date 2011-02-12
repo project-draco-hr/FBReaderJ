@@ -1,8 +1,8 @@
 {
 switch (myDecoration.BoldOption.getValue()) {
-case ZLBoolean3.B3_TRUE:
+case B3_TRUE:
     return true;
-case ZLBoolean3.B3_FALSE:
+case B3_FALSE:
   return false;
 default :
 return Base.isBold();
