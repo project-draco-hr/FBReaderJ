@@ -1,8 +1,5 @@
 {
   final String key=tree.getUniqueKey();
-  if (key == null) {
-    throw new RuntimeException("Catalog tree has null unique key. That's impossible!!!");
-  }
   if (NetworkView.Instance().containsItemsLoadingRunnable(key)) {
     return;
   }

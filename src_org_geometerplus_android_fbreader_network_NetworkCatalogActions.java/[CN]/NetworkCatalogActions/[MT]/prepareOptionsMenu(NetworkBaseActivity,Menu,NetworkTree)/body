@@ -1,8 +1,7 @@
 {
   final NetworkCatalogTree catalogTree=(NetworkCatalogTree)tree;
   final NetworkCatalogItem item=catalogTree.Item;
-  final String key=tree.getUniqueKey();
-  final boolean isLoading=(key != null) ? NetworkView.Instance().containsItemsLoadingRunnable(key) : false;
+  final boolean isLoading=NetworkView.Instance().containsItemsLoadingRunnable(tree.getUniqueKey());
   prepareOptionsItem(menu,RELOAD_ITEM_ID,item.URLByType.get(NetworkCatalogItem.URL_CATALOG) != null && !isLoading);
   boolean signIn=false;
   boolean signOut=false;

@@ -1,6 +1,0 @@
-{
-  final String key=tree.getUniqueKey();
-  if (key != null) {
-    NetworkView.Instance().openTree(activity,tree,key);
-  }
-}

@@ -1,8 +1,5 @@
 {
   final String key=tree.getUniqueKey();
-  if (key == null) {
-    throw new RuntimeException("Catalog tree has null unique key. That's impossible!!!");
-  }
   NetworkView.Instance().tryResumeLoading(activity,tree,key,new Runnable(){
     public void run(){
       boolean resumeNotLoad=false;
