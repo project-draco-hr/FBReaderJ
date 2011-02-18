@@ -73,6 +73,9 @@
  else     if (REL_RECOMMENDATIONS.equals(litresRel)) {
       return new LitResRecommendationsItem(opdsLink,entry.Title,annotation,coverURL,urlMap,opdsLink.getCondition(entry.Id.Uri));
     }
+ else     if (REL_BASKET.equals(litresRel)) {
+      return new LitResRecommendationsItem(opdsLink,entry.Title,annotation,coverURL,urlMap,opdsLink.getCondition(entry.Id.Uri));
+    }
  else {
       return null;
     }
