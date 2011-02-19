@@ -1,5 +1,10 @@
 {
   if (supportsBasket()) {
-    myBooksInBasket.remove(book.Id);
+    List<String> ids=myBooksInBasketOption.getValue();
+    if (ids.contains(book.Id)) {
+      ids=new ArrayList(ids);
+      ids.remove(book.Id);
+      myBooksInBasketOption.setValue(ids);
+    }
   }
 }

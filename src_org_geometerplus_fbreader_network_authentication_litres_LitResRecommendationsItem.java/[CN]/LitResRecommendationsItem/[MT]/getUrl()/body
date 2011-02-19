@@ -11,5 +11,14 @@
     }
     builder.append(book.Id);
   }
+  for (  String bookId : ((OPDSNetworkLink)Link).booksInBasket()) {
+    if (flag) {
+      builder.append(',');
+    }
+ else {
+      flag=true;
+    }
+    builder.append(bookId);
+  }
   return ZLNetworkUtil.appendParameter(URLByType.get(URL_CATALOG),"ids",builder.toString());
 }

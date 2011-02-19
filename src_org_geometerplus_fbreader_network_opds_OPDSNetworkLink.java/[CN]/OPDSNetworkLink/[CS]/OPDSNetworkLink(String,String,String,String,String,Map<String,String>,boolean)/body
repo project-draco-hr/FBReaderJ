@@ -1,4 +1,5 @@
 {
   super(siteName,title,summary,icon,language,links);
   myHasStableIdentifiers=hasStableIdentifiers;
+  myBooksInBasketOption=new ZLStringListOption(siteName,"Basket",null);
 }
