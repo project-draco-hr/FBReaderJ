@@ -1,5 +1,5 @@
 {
-  if (supportsBasket()) {
+  if (supportsBasket() && book.Id != null && !"".equals(book.Id)) {
     List<String> ids=myBooksInBasketOption.getValue();
     if (!ids.contains(book.Id)) {
       ids=new ArrayList(ids);
