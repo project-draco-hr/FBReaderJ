@@ -1,0 +1,5 @@
+{
+  if (supportsBasket()) {
+    myBooksInBasket.add(book.Id);
+  }
+}

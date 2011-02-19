@@ -1,0 +1,3 @@
+{
+  return myBooksInBasket.contains(book.Id);
+}
