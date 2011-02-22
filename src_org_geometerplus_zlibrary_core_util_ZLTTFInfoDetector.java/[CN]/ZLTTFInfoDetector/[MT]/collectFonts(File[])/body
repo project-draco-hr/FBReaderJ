@@ -15,10 +15,10 @@
         if ("bold".equalsIgnoreCase(info.SubFamilyName)) {
           table[1]=f;
         }
- else         if ("italic".equalsIgnoreCase(info.SubFamilyName)) {
+ else         if ("italic".equalsIgnoreCase(info.SubFamilyName) || "oblique".equalsIgnoreCase(info.SubFamilyName)) {
           table[2]=f;
         }
- else         if ("bold italic".equalsIgnoreCase(info.SubFamilyName)) {
+ else         if ("bold italic".equalsIgnoreCase(info.SubFamilyName) || "bold oblique".equalsIgnoreCase(info.SubFamilyName)) {
           table[3]=f;
         }
  else {

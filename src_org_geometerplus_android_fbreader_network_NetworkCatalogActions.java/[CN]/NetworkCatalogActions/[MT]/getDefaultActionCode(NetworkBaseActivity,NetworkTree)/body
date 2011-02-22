@@ -7,15 +7,8 @@
   if (item.URLByType.get(NetworkCatalogItem.URL_HTML_PAGE) != null) {
     return OPEN_IN_BROWSER_ITEM_ID;
   }
-  if (item.getVisibility() != ZLBoolean3.B3_TRUE) {
-switch (item.Visibility) {
-case NetworkCatalogItem.VISIBLE_LOGGED_USER:
-      if (item.Link.authenticationManager() != null) {
-        return SIGNIN_ITEM_ID;
-      }
-    break;
-}
-return TREE_NO_ACTION;
-}
-return TREE_NO_ACTION;
+  if (item.getVisibility() == ZLBoolean3.B3_UNDEFINED && item.Link.authenticationManager() != null) {
+    return SIGNIN_ITEM_ID;
+  }
+  return TREE_NO_ACTION;
 }

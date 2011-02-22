@@ -1,3 +1,12 @@
 {
-  return context.getApplicationContext().getPackageManager().resolveActivity(intent,PackageManager.MATCH_DEFAULT_ONLY) != null;
+  final PackageManager manager=context.getApplicationContext().getPackageManager();
+  final ResolveInfo info=manager.resolveActivity(intent,PackageManager.MATCH_DEFAULT_ONLY);
+  if (info == null) {
+    return false;
+  }
+  final ActivityInfo activityInfo=info.activityInfo;
+  if (activityInfo == null) {
+    return false;
+  }
+  return PackageManager.SIGNATURE_MATCH == manager.checkSignatures(context.getPackageName(),activityInfo.packageName);
 }
