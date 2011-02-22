@@ -1,6 +1,9 @@
 {
   try {
-    activity.startActivityForResult(new Intent(REGISTRATION_ACTION,Uri.parse(link.getLink(INetworkLink.URL_SIGN_UP))),USER_REGISTRATION_REQUEST_CODE);
+    final Intent intent=new Intent(REGISTRATION_ACTION,Uri.parse(link.getLink(INetworkLink.URL_SIGN_UP)));
+    if (PackageUtil.canBeStarted(activity,intent)) {
+      activity.startActivityForResult(new Intent(REGISTRATION_ACTION,Uri.parse(link.getLink(INetworkLink.URL_SIGN_UP))),USER_REGISTRATION_REQUEST_CODE);
+    }
   }
  catch (  ActivityNotFoundException e) {
   }

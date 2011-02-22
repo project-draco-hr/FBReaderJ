@@ -6,9 +6,10 @@
   myOutlinePaint.setTextSize(textSize);
   final Rect textBounds=new Rect();
   myPaint.getTextBounds("a",0,1,textBounds);
-  final float textWidth=myOutlinePaint.measureText(myText);
+  final String text=myText + ": " + mySlider.getProgress();
+  final float textWidth=myOutlinePaint.measureText(text);
   final float x=myLabelOnRight ? bounds.width() - textWidth - 6 : 6;
   final float y=bounds.height() / 2 + textBounds.height();
-  canvas.drawText(myText,x,y,myOutlinePaint);
-  canvas.drawText(myText,x,y,myPaint);
+  canvas.drawText(text,x,y,myOutlinePaint);
+  canvas.drawText(text,x,y,myPaint);
 }

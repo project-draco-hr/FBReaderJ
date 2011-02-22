@@ -1,4 +1,0 @@
-{
-  super(link,title,summary,cover,urlByType,visibility,catalogType);
-  myExtraData=null;
-}
