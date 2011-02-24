@@ -1,0 +1,3 @@
+{
+  setText(id,myResource.getResource(resourceKey).getValue());
+}

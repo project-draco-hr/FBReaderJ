@@ -1,0 +1,41 @@
+{
+  String httpUrl=uri.toString();
+  if (uri.getScheme() == null) {
+    httpUrl="http://" + httpUrl;
+    uri=Uri.parse(httpUrl);
+  }
+ else   if ("opds".equals(uri.getScheme())) {
+    httpUrl="http" + uri.toString().substring(4);
+  }
+  setText(R.id.add_custom_catalog_url,httpUrl);
+  String siteName=uri.getHost();
+  if (siteName == null) {
+    setTextFromResource(R.id.add_custom_catalog_error,"invalidUrl");
+    return;
+  }
+  if (siteName.startsWith("www.")) {
+    siteName=siteName.substring(4);
+  }
+  final ICustomNetworkLink link=OPDSLinkReader.createCustomLinkWithoutInfo(siteName,httpUrl);
+  final Runnable loadInfoRunnable=new Runnable(){
+    private String myError;
+    public void run(){
+      try {
+        link.reloadInfo();
+      }
+ catch (      ZLNetworkException e) {
+        myError=e.getMessage();
+      }
+      runOnUiThread(new Runnable(){
+        public void run(){
+          setText(R.id.add_custom_catalog_title,link.getTitle());
+          setText(R.id.add_custom_catalog_summary,link.getSummary());
+          setText(R.id.add_custom_catalog_error,myError);
+        }
+      }
+);
+    }
+  }
+;
+  UIUtil.wait("loadingCatalogInfo",loadInfoRunnable,this);
+}
