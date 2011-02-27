@@ -2,8 +2,7 @@
   super.onCreate(icicle);
   Thread.setDefaultUncaughtExceptionHandler(new org.geometerplus.zlibrary.ui.android.library.UncaughtExceptionHandler(this));
   setContentView(R.layout.add_custom_catalog);
-  final ZLResource dialogResource=ZLResource.resource("dialog");
-  myResource=dialogResource.getResource("CustomCatalogDialog");
+  myResource=ZLResource.resource("dialog").getResource("CustomCatalogDialog");
   setTitle(myResource.getResource("title").getValue());
   setTextFromResource(R.id.add_custom_catalog_title_label,"catalogTitle");
   setTextFromResource(R.id.add_custom_catalog_url_label,"catalogUrl");
@@ -11,11 +10,25 @@
   setTextFromResource(R.id.add_custom_catalog_title_example,"catalogTitleExample");
   setTextFromResource(R.id.add_custom_catalog_url_example,"catalogUrlExample");
   setTextFromResource(R.id.add_custom_catalog_summary_example,"catalogSummaryExample");
-  final ZLResource buttonResource=dialogResource.getResource("button");
-  setText(R.id.add_custom_catalog_ok_button,buttonResource.getResource("ok").getValue());
-  setText(R.id.add_custom_catalog_cancel_button,buttonResource.getResource("cancel").getValue());
+  setupButton(R.id.add_custom_catalog_ok_button,"ok",new View.OnClickListener(){
+    public void onClick(    View view){
+      startActivity(new Intent(AddCustomCatalogActivity.this,NetworkLibraryActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP));
+      finish();
+    }
+  }
+);
+  setupButton(R.id.add_custom_catalog_cancel_button,"cancel",new View.OnClickListener(){
+    public void onClick(    View view){
+      finish();
+    }
+  }
+);
   final Uri uri=getIntent().getData();
   if (uri != null) {
     loadInfoByUri(uri);
+  }
+ else {
+    findViewById(R.id.add_custom_catalog_title_group).setVisibility(View.GONE);
+    findViewById(R.id.add_custom_catalog_summary_group).setVisibility(View.GONE);
   }
 }
