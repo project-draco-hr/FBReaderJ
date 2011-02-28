@@ -2,4 +2,5 @@
   super.onCreate(icicle);
   requestWindowFeature(Window.FEATURE_NO_TITLE);
   setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
+  myIntent=getIntent();
 }

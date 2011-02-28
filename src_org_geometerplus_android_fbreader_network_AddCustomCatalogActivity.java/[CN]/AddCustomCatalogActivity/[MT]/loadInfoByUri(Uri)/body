@@ -1,13 +1,13 @@
 {
-  myURL=uri.toString();
+  String textUrl=uri.toString();
   if (isEmptyString(uri.getScheme())) {
-    myURL="http://" + myURL;
-    uri=Uri.parse(myURL);
+    textUrl="http://" + textUrl;
+    uri=Uri.parse(textUrl);
   }
  else   if ("opds".equals(uri.getScheme())) {
-    myURL="http" + uri.toString().substring(4);
+    textUrl="http" + uri.toString().substring(4);
   }
-  setTextById(R.id.add_custom_catalog_url,myURL);
+  setTextById(R.id.add_custom_catalog_url,textUrl);
   String siteName=uri.getHost();
   if (isEmptyString(siteName)) {
     setErrorByKey("invalidUrl");
@@ -16,13 +16,13 @@
   if (siteName.startsWith("www.")) {
     siteName=siteName.substring(4);
   }
-  final ICustomNetworkLink link=OPDSLinkReader.createCustomLinkWithoutInfo(siteName,myURL);
+  myLink=OPDSLinkReader.createCustomLink(siteName,null,null,textUrl);
   final Runnable loadInfoRunnable=new Runnable(){
     private String myError;
     public void run(){
       try {
         myError=null;
-        link.reloadInfo();
+        myLink.reloadInfo();
       }
  catch (      ZLNetworkException e) {
         myError=e.getMessage();
@@ -30,8 +30,8 @@
       runOnUiThread(new Runnable(){
         public void run(){
           if (myError == null) {
-            setTextById(R.id.add_custom_catalog_title,link.getTitle());
-            setTextById(R.id.add_custom_catalog_summary,link.getSummary());
+            setTextById(R.id.add_custom_catalog_title,myLink.getTitle());
+            setTextById(R.id.add_custom_catalog_summary,myLink.getSummary());
             setExtraFieldsVisibility(true);
           }
  else {

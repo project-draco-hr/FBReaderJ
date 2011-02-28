@@ -1,6 +1,6 @@
 {
   final int version=myDatabase.getVersion();
-  final int currentCodeVersion=1;
+  final int currentCodeVersion=2;
   if (version >= currentCodeVersion) {
     return;
   }
@@ -8,9 +8,10 @@
 switch (version) {
 case 0:
     createTables();
+case 1:
+  updateTables1();
 }
 myDatabase.setTransactionSuccessful();
 myDatabase.endTransaction();
 myDatabase.execSQL("VACUUM");
-myDatabase.setVersion(currentCodeVersion);
 }

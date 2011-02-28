@@ -12,32 +12,7 @@
   setTextFromResource(R.id.add_custom_catalog_summary_example,"catalogSummaryExample");
   setupButton(R.id.add_custom_catalog_ok_button,"ok",new View.OnClickListener(){
     public void onClick(    View view){
-      if (isEmptyString(myURL)) {
-        final String url=getTextById(R.id.add_custom_catalog_url);
-        if (isEmptyString(url)) {
-          setErrorByKey("urlIsEmpty");
-        }
- else {
-          try {
-            Uri uri=Uri.parse(url);
-            if (isEmptyString(uri.getScheme())) {
-              uri=Uri.parse("http://" + url);
-            }
-            if (isEmptyString(uri.getHost())) {
-              setErrorByKey("invalidUrl");
-            }
- else {
-              loadInfoByUri(uri);
-            }
-          }
- catch (          Throwable t) {
-            setErrorByKey("invalidUrl");
-          }
-        }
-      }
- else {
-        gotoNetworkLibrary();
-      }
+      onOkButton();
     }
   }
 );
@@ -53,7 +28,7 @@
     setExtraFieldsVisibility(true);
   }
  else {
-    myURL=null;
+    myLink=null;
     setExtraFieldsVisibility(false);
   }
 }

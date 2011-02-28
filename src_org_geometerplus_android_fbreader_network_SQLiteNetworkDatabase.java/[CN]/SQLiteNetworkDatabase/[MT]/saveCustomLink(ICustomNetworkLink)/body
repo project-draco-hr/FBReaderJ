@@ -40,7 +40,7 @@
         final SQLiteStatement urlStatement;
         if (dbValue == null) {
           if (myInsertCustomLinkUrlStatement == null) {
-            myInsertCustomLinkUrlStatement=myDatabase.compileStatement("INSERT INTO CustomLinkUrls(url,link_id,key) VALUES (?,?,?)");
+            myInsertCustomLinkUrlStatement=myDatabase.compileStatement("INSERT OR REPLACE INTO CustomLinkUrls(url,link_id,key) VALUES (?,?,?)");
           }
           urlStatement=myInsertCustomLinkUrlStatement;
         }

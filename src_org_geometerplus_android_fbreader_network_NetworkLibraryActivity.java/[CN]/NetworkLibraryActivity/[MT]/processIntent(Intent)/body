@@ -1,0 +1,23 @@
+{
+  if (ADD_CATALOG.equals(intent.getAction())) {
+    final Uri uri=intent.getData();
+    final String title=intent.getStringExtra(ADD_CATALOG_TITLE_KEY);
+    final String summary=intent.getStringExtra(ADD_CATALOG_SUMMARY_KEY);
+    if (uri != null && title != null) {
+      final ICustomNetworkLink link=OPDSLinkReader.createCustomLink(uri.getHost(),title,summary,uri.toString());
+      if (link != null) {
+        runOnUiThread(new Runnable(){
+          public void run(){
+            final NetworkLibrary library=NetworkLibrary.Instance();
+            library.addCustomLink(link);
+            library.updateChildren();
+            library.synchronize();
+            NetworkView.Instance().fireModelChangedAsync();
+            getListView().invalidateViews();
+          }
+        }
+);
+      }
+    }
+  }
+}
