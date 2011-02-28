@@ -11,5 +11,9 @@
   }
  else {
     prepareView();
+    if (myIntent != null) {
+      processIntent(myIntent);
+      myIntent=null;
+    }
   }
 }

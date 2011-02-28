@@ -5,13 +5,10 @@ switch (id) {
 case DIALOG_AUTHENTICATION:
       dlg=new AuthenticationDialog();
     break;
-case DIALOG_CUSTOM_CATALOG:
-  dlg=new CustomCatalogDialog();
-break;
 }
 if (dlg != null) {
-dlg.myId=id;
-ourInstances.put(Integer.valueOf(id),dlg);
+  dlg.myId=id;
+  ourInstances.put(Integer.valueOf(id),dlg);
 }
 }
 return dlg;

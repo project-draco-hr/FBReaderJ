@@ -21,7 +21,6 @@
         final ICustomNetworkLink link=OPDSLinkReader.createCustomLink(id,siteName,title,summary,icon,links);
         if (link != null) {
           addLinkInternal(link);
-          link.setSaveLinkListener(myChangesListener);
         }
       }
     }
