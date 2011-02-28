@@ -3,5 +3,4 @@ synchronized (myLinks) {
     myLinks.remove(link);
   }
   NetworkDatabase.Instance().deleteCustomLink(link);
-  link.setSaveLinkListener(null);
 }

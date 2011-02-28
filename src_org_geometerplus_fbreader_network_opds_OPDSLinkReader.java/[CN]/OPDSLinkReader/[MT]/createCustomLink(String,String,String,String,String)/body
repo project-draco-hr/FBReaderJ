@@ -1,0 +1,3 @@
+{
+  return createCustomLink(ICustomNetworkLink.INVALID_ID,siteName,title,summary,icon,url);
+}

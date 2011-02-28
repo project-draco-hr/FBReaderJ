@@ -24,13 +24,14 @@
 );
   final Intent intent=getIntent();
   final Uri uri=intent.getData();
-  myCatalogId=null;
+  myCatalogId=ICustomNetworkLink.INVALID_ID;
   if (uri != null) {
-    if (intent.hasExtra(NetworkLibraryActivity.EDIT_CATALOG_ID_KEY)) {
-      myCatalogId=intent.getIntExtra(NetworkLibraryActivity.EDIT_CATALOG_ID_KEY,0);
+    myCatalogId=intent.getIntExtra(NetworkLibraryActivity.ADD_CATALOG_ID_KEY,myCatalogId);
+    if (myCatalogId != ICustomNetworkLink.INVALID_ID) {
       setTextById(R.id.add_custom_catalog_url,uri.toString());
       setTextById(R.id.add_custom_catalog_title,intent.getStringExtra(NetworkLibraryActivity.ADD_CATALOG_TITLE_KEY));
       setTextById(R.id.add_custom_catalog_summary,intent.getStringExtra(NetworkLibraryActivity.ADD_CATALOG_SUMMARY_KEY));
+      myIcon=intent.getStringExtra(NetworkLibraryActivity.ADD_CATALOG_ICON_KEY);
     }
  else {
       loadInfoByUri(uri);

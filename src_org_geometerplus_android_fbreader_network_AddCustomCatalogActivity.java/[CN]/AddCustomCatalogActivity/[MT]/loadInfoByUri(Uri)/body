@@ -16,7 +16,7 @@
   if (siteName.startsWith("www.")) {
     siteName=siteName.substring(4);
   }
-  final ICustomNetworkLink link=OPDSLinkReader.createCustomLink(siteName,null,null,textUrl);
+  final ICustomNetworkLink link=OPDSLinkReader.createCustomLink(siteName,null,null,null,textUrl);
   final Runnable loadInfoRunnable=new Runnable(){
     private String myError;
     public void run(){
@@ -32,10 +32,12 @@
           if (myError == null) {
             setTextById(R.id.add_custom_catalog_title,link.getTitle());
             setTextById(R.id.add_custom_catalog_summary,link.getSummary());
+            myIcon=link.getIcon();
             setExtraFieldsVisibility(true);
           }
  else {
             runErrorDialog(myError);
+            myIcon=null;
           }
         }
       }
