@@ -1,0 +1,15 @@
+{
+  runOnUiThread(new Runnable(){
+    public void run(){
+      final TextView errorView=(TextView)findViewById(R.id.add_custom_catalog_error);
+      if (errorText != null) {
+        errorView.setText(errorText);
+        errorView.setVisibility(View.VISIBLE);
+      }
+ else {
+        errorView.setVisibility(View.GONE);
+      }
+    }
+  }
+);
+}

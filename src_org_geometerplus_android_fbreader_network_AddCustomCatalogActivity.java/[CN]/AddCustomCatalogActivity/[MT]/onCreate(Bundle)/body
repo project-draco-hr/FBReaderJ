@@ -1,0 +1,48 @@
+{
+  super.onCreate(icicle);
+  Thread.setDefaultUncaughtExceptionHandler(new org.geometerplus.zlibrary.ui.android.library.UncaughtExceptionHandler(this));
+  setContentView(R.layout.add_custom_catalog);
+  myResource=ZLResource.resource("dialog").getResource("CustomCatalogDialog");
+  setTitle(myResource.getResource("title").getValue());
+  setTextFromResource(R.id.add_custom_catalog_title_label,"catalogTitle");
+  setTextFromResource(R.id.add_custom_catalog_url_label,"catalogUrl");
+  setTextFromResource(R.id.add_custom_catalog_summary_label,"catalogSummary");
+  setTextFromResource(R.id.add_custom_catalog_title_example,"catalogTitleExample");
+  setTextFromResource(R.id.add_custom_catalog_url_example,"catalogUrlExample");
+  setTextFromResource(R.id.add_custom_catalog_summary_example,"catalogSummaryExample");
+  setupButton(R.id.add_custom_catalog_ok_button,"ok",new View.OnClickListener(){
+    public void onClick(    View view){
+      final InputMethodManager imm=(InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+      imm.hideSoftInputFromWindow(findViewById(R.id.add_custom_catalog_url).getWindowToken(),0);
+      imm.hideSoftInputFromWindow(findViewById(R.id.add_custom_catalog_title).getWindowToken(),0);
+      imm.hideSoftInputFromWindow(findViewById(R.id.add_custom_catalog_summary).getWindowToken(),0);
+      onOkButton();
+    }
+  }
+);
+  setupButton(R.id.add_custom_catalog_cancel_button,"cancel",new View.OnClickListener(){
+    public void onClick(    View view){
+      finish();
+    }
+  }
+);
+  final Intent intent=getIntent();
+  final Uri uri=intent.getData();
+  myCatalogId=ICustomNetworkLink.INVALID_ID;
+  if (uri != null) {
+    myCatalogId=intent.getIntExtra(NetworkLibraryActivity.ADD_CATALOG_ID_KEY,myCatalogId);
+    if (myCatalogId != ICustomNetworkLink.INVALID_ID) {
+      setTextById(R.id.add_custom_catalog_url,uri.toString());
+      setTextById(R.id.add_custom_catalog_title,intent.getStringExtra(NetworkLibraryActivity.ADD_CATALOG_TITLE_KEY));
+      setTextById(R.id.add_custom_catalog_summary,intent.getStringExtra(NetworkLibraryActivity.ADD_CATALOG_SUMMARY_KEY));
+      myIcon=intent.getStringExtra(NetworkLibraryActivity.ADD_CATALOG_ICON_KEY);
+    }
+ else {
+      loadInfoByUri(uri);
+    }
+    setExtraFieldsVisibility(true);
+  }
+ else {
+    setExtraFieldsVisibility(false);
+  }
+}

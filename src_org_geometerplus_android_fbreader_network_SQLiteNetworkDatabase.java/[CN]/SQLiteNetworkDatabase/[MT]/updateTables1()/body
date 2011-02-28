@@ -1,0 +1,6 @@
+{
+  myDatabase.execSQL("ALTER TABLE CustomLinks RENAME TO CustomLinks_Obsolete");
+  myDatabase.execSQL("CREATE TABLE CustomLinks(" + "link_id INTEGER PRIMARY KEY," + "title TEXT NOT NULL,"+ "site_name TEXT NOT NULL,"+ "summary TEXT,"+ "icon TEXT)");
+  myDatabase.execSQL("INSERT INTO CustomLinks (link_id,title,site_name,summary,icon) SELECT link_id,title,site_name,summary,icon FROM CustomLinks_Obsolete");
+  myDatabase.execSQL("DROP TABLE CustomLinks_Obsolete");
+}

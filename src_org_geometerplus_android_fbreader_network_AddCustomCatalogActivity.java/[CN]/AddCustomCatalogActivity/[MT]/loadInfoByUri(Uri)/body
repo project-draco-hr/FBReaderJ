@@ -1,0 +1,50 @@
+{
+  String textUrl=uri.toString();
+  if (isEmptyString(uri.getScheme())) {
+    textUrl="http://" + textUrl;
+    uri=Uri.parse(textUrl);
+  }
+ else   if ("opds".equals(uri.getScheme())) {
+    textUrl="http" + uri.toString().substring(4);
+  }
+  setTextById(R.id.add_custom_catalog_url,textUrl);
+  String siteName=uri.getHost();
+  if (isEmptyString(siteName)) {
+    setErrorByKey("invalidUrl");
+    return;
+  }
+  if (siteName.startsWith("www.")) {
+    siteName=siteName.substring(4);
+  }
+  final ICustomNetworkLink link=OPDSLinkReader.createCustomLink(siteName,null,null,null,textUrl);
+  final Runnable loadInfoRunnable=new Runnable(){
+    private String myError;
+    public void run(){
+      try {
+        myError=null;
+        link.reloadInfo();
+      }
+ catch (      ZLNetworkException e) {
+        myError=e.getMessage();
+      }
+      runOnUiThread(new Runnable(){
+        public void run(){
+          if (myError == null) {
+            setTextById(R.id.add_custom_catalog_title,link.getTitle());
+            setTextById(R.id.add_custom_catalog_summary,link.getSummary());
+            myIcon=link.getIcon();
+            setExtraFieldsVisibility(true);
+          }
+ else {
+            runErrorDialog(myError);
+            myIcon=null;
+          }
+        }
+      }
+);
+      setErrorText(myError);
+    }
+  }
+;
+  UIUtil.wait("loadingCatalogInfo",loadInfoRunnable,this);
+}
