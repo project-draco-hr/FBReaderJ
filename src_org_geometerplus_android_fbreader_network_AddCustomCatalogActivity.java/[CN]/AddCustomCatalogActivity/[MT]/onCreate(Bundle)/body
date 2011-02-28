@@ -12,6 +12,10 @@
   setTextFromResource(R.id.add_custom_catalog_summary_example,"catalogSummaryExample");
   setupButton(R.id.add_custom_catalog_ok_button,"ok",new View.OnClickListener(){
     public void onClick(    View view){
+      final InputMethodManager imm=(InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+      imm.hideSoftInputFromWindow(findViewById(R.id.add_custom_catalog_url).getWindowToken(),0);
+      imm.hideSoftInputFromWindow(findViewById(R.id.add_custom_catalog_title).getWindowToken(),0);
+      imm.hideSoftInputFromWindow(findViewById(R.id.add_custom_catalog_summary).getWindowToken(),0);
       onOkButton();
     }
   }
