@@ -1,0 +1,4 @@
+{
+  startActivity(new Intent(AddCustomCatalogActivity.this,NetworkLibraryActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP));
+  finish();
+}

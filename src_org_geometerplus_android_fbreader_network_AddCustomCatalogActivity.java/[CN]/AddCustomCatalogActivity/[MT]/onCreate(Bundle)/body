@@ -12,8 +12,32 @@
   setTextFromResource(R.id.add_custom_catalog_summary_example,"catalogSummaryExample");
   setupButton(R.id.add_custom_catalog_ok_button,"ok",new View.OnClickListener(){
     public void onClick(    View view){
-      startActivity(new Intent(AddCustomCatalogActivity.this,NetworkLibraryActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP));
-      finish();
+      if (isEmptyString(myURL)) {
+        final String url=getTextById(R.id.add_custom_catalog_url);
+        if (isEmptyString(url)) {
+          setErrorByKey("urlIsEmpty");
+        }
+ else {
+          try {
+            Uri uri=Uri.parse(url);
+            if (isEmptyString(uri.getScheme())) {
+              uri=Uri.parse("http://" + url);
+            }
+            if (isEmptyString(uri.getHost())) {
+              setErrorByKey("invalidUrl");
+            }
+ else {
+              loadInfoByUri(uri);
+            }
+          }
+ catch (          Throwable t) {
+            setErrorByKey("invalidUrl");
+          }
+        }
+      }
+ else {
+        gotoNetworkLibrary();
+      }
     }
   }
 );
@@ -26,9 +50,10 @@
   final Uri uri=getIntent().getData();
   if (uri != null) {
     loadInfoByUri(uri);
+    setExtraFieldsVisibility(true);
   }
  else {
-    findViewById(R.id.add_custom_catalog_title_group).setVisibility(View.GONE);
-    findViewById(R.id.add_custom_catalog_summary_group).setVisibility(View.GONE);
+    myURL=null;
+    setExtraFieldsVisibility(false);
   }
 }
