@@ -1,0 +1,4 @@
+{
+  final String text=((TextView)findViewById(id)).getText().toString();
+  return text != null ? text.trim() : null;
+}

@@ -19,7 +19,7 @@ synchronized (myLinks) {
           continue;
         }
         final INetworkLink nodeLink=((NetworkCatalogTree)currentNode).Item.Link;
-        if (linksEqual(link,nodeLink)) {
+        if (link == nodeLink) {
           if (linkIsInvalid(link,nodeLink)) {
             toRemove.add(currentNode);
           }
@@ -34,7 +34,7 @@ synchronized (myLinks) {
           INetworkLink newNodeLink=null;
           for (int j=i; j < links.size(); ++j) {
             final INetworkLink jlnk=links.get(j);
-            if (linksEqual(nodeLink,jlnk)) {
+            if (nodeLink == jlnk) {
               newNodeLink=jlnk;
               break;
             }
