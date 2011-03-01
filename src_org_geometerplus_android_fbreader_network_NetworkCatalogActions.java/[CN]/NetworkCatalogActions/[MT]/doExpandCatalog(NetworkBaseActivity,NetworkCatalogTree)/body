@@ -1,6 +1,6 @@
 {
   final NetworkTree.Key key=tree.getUniqueKey();
-  NetworkView.Instance().tryResumeLoading(activity,tree,key,new Runnable(){
+  NetworkView.Instance().tryResumeLoading(activity,tree,new Runnable(){
     public void run(){
       boolean resumeNotLoad=false;
       if (tree.hasChildren()) {
@@ -9,7 +9,7 @@
             resumeNotLoad=true;
           }
  else {
-            NetworkView.Instance().openTree(activity,tree,key);
+            NetworkView.Instance().openTree(activity,tree);
             return;
           }
         }
@@ -23,7 +23,7 @@
       NetworkView.Instance().startItemsLoading(activity,key,new ExpandCatalogRunnable(handler,tree,true,resumeNotLoad));
       processExtraData(activity,tree.Item.extraData(),new Runnable(){
         public void run(){
-          NetworkView.Instance().openTree(activity,tree,key);
+          NetworkView.Instance().openTree(activity,tree);
         }
       }
 );

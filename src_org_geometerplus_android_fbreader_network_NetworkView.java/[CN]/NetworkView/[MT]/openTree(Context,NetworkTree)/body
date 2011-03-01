@@ -7,5 +7,5 @@
     myOpenedStack.removeLast();
   }
   myOpenedStack.add(tree);
-  context.startActivity(new Intent(context.getApplicationContext(),NetworkCatalogActivity.class).putExtra(NetworkCatalogActivity.CATALOG_LEVEL_KEY,level).putExtra(NetworkCatalogActivity.CATALOG_KEY_KEY,key));
+  context.startActivity(new Intent(context.getApplicationContext(),NetworkCatalogActivity.class).putExtra(NetworkCatalogActivity.CATALOG_LEVEL_KEY,level).putExtra(NetworkCatalogActivity.CATALOG_KEY_KEY,tree.getUniqueKey()));
 }
