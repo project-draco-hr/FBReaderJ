@@ -1,4 +1,4 @@
 {
-  super(parentTree.Level + 1);
+  super(parentTree);
   Link=parentTree.Item.Link;
 }
