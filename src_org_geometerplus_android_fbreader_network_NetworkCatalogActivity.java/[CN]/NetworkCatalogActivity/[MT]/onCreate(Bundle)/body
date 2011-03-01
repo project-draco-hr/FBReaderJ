@@ -7,10 +7,6 @@
     return;
   }
   final Intent intent=getIntent();
-  final int level=intent.getIntExtra(CATALOG_LEVEL_KEY,-1);
-  if (level == -1) {
-    throw new RuntimeException("Catalog Level was not specified!!!");
-  }
   final NetworkLibrary library=NetworkLibrary.Instance();
   final NetworkTree.Key key=(NetworkTree.Key)intent.getSerializableExtra(CATALOG_KEY_KEY);
   myTree=library.getTreeByKey(key);

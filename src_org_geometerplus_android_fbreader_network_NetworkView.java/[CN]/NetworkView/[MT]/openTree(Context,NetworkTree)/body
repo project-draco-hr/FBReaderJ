@@ -1,11 +1,3 @@
 {
-  final int level=tree.Level - 1;
-  if (level > myOpenedStack.size()) {
-    throw new RuntimeException("Unable to open catalog with Level greater than the number of opened catalogs.\n" + "Catalog: " + tree.getName() + "\n"+ "Level: "+ level+ "\n"+ "Opened catalogs: "+ myOpenedStack.size());
-  }
-  while (level < myOpenedStack.size()) {
-    myOpenedStack.removeLast();
-  }
-  myOpenedStack.add(tree);
-  context.startActivity(new Intent(context.getApplicationContext(),NetworkCatalogActivity.class).putExtra(NetworkCatalogActivity.CATALOG_LEVEL_KEY,level).putExtra(NetworkCatalogActivity.CATALOG_KEY_KEY,tree.getUniqueKey()));
+  context.startActivity(new Intent(context.getApplicationContext(),NetworkCatalogActivity.class).putExtra(NetworkCatalogActivity.CATALOG_KEY_KEY,tree.getUniqueKey()));
 }
