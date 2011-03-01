@@ -1,3 +1,0 @@
-{
-  return NetworkSearchActivity.SEARCH_RUNNABLE_KEY;
-}

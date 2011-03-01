@@ -1,6 +1,6 @@
 {
   menu.setHeaderTitle(tree.getName());
-  final boolean isLoading=NetworkView.Instance().containsItemsLoadingRunnable(NetworkSearchActivity.SEARCH_RUNNABLE_KEY);
+  final boolean isLoading=NetworkView.Instance().containsItemsLoadingRunnable(NetworkTree.SearchKey);
   if (!isLoading) {
     addMenuItem(menu,RUN_SEARCH_ITEM_ID,"search");
   }

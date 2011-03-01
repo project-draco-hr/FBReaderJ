@@ -1,5 +1,5 @@
 {
-  final String key=tree.getUniqueKey();
+  final NetworkTree.Key key=tree.getUniqueKey();
   if (NetworkView.Instance().containsItemsLoadingRunnable(key)) {
     return;
   }

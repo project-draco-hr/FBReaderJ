@@ -1,0 +1,10 @@
+{
+  if (other == this) {
+    return true;
+  }
+  if (!(other instanceof NetworkTree.Key)) {
+    return false;
+  }
+  final NetworkTree.Key key=(NetworkTree.Key)other;
+  return myParent == key.myParent && myId.equals(key.myId);
+}

@@ -1,7 +1,7 @@
 {
   final NetworkLibrary library=NetworkLibrary.Instance();
   library.NetworkSearchPatternOption.setValue(pattern);
-  if (NetworkView.Instance().containsItemsLoadingRunnable(SEARCH_RUNNABLE_KEY)) {
+  if (NetworkView.Instance().containsItemsLoadingRunnable(NetworkTree.SearchKey)) {
     return;
   }
   final String summary=ZLResource.resource("networkView").getResource("searchResults").getValue().replace("%s",pattern);
@@ -10,6 +10,6 @@
   tree.setSearchResult(result);
   NetworkView.Instance().fireModelChangedAsync();
   final SearchHandler handler=new SearchHandler(tree);
-  NetworkView.Instance().startItemsLoading(this,SEARCH_RUNNABLE_KEY,new SearchRunnable(handler,pattern));
-  NetworkView.Instance().openTree(this,tree,SEARCH_RUNNABLE_KEY);
+  NetworkView.Instance().startItemsLoading(this,NetworkTree.SearchKey,new SearchRunnable(handler,pattern));
+  NetworkView.Instance().openTree(this,tree,NetworkTree.SearchKey);
 }

@@ -12,7 +12,7 @@
   }
   if (msg != null) {
     if (NetworkView.Instance().isInitialized()) {
-      final NetworkCatalogActivity activity=NetworkView.Instance().getOpenedActivity(SEARCH_RUNNABLE_KEY);
+      final NetworkCatalogActivity activity=NetworkView.Instance().getOpenedActivity(NetworkTree.SearchKey);
       if (activity != null) {
         final ZLResource buttonResource=dialogResource.getResource("button");
         new AlertDialog.Builder(activity).setTitle(boxResource.getResource("title").getValue()).setMessage(msg).setIcon(0).setPositiveButton(buttonResource.getResource("ok").getValue(),null).create().show();

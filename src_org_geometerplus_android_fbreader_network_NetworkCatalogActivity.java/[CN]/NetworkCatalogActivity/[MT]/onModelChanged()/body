@@ -1,6 +1,6 @@
 {
   final NetworkView networkView=NetworkView.Instance();
-  final String key=getLoadableNetworkTreeKey(myTree);
+  final NetworkTree.Key key=getLoadableNetworkTreeKey(myTree);
   myInProgress=key != null && networkView.isInitialized() && networkView.containsItemsLoadingRunnable(key);
   getListView().invalidateViews();
   ((CatalogAdapter)getListAdapter()).onModelChanged();

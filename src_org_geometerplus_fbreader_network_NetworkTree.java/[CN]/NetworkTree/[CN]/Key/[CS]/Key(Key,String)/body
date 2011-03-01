@@ -1,0 +1,7 @@
+{
+  if (id == null) {
+    throw new IllegalArgumentException("NetworkTree string id must be non-null");
+  }
+  myParent=parent;
+  myId=id;
+}

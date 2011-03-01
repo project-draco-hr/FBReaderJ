@@ -1,5 +1,5 @@
 {
-  final String key=tree.getUniqueKey();
+  final NetworkTree.Key key=tree.getUniqueKey();
   NetworkView.Instance().tryResumeLoading(activity,tree,key,new Runnable(){
     public void run(){
       boolean resumeNotLoad=false;

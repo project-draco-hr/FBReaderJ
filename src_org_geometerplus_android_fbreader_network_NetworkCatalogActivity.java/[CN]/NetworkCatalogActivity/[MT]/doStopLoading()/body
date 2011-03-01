@@ -1,7 +1,6 @@
 {
-  final String key=myCatalogKey;
-  if (key != null && NetworkView.Instance().isInitialized()) {
-    final ItemsLoadingRunnable runnable=NetworkView.Instance().getItemsLoadingRunnable(key);
+  if (NetworkView.Instance().isInitialized()) {
+    final ItemsLoadingRunnable runnable=NetworkView.Instance().getItemsLoadingRunnable(myCatalogKey);
     if (runnable != null) {
       runnable.interruptLoading();
     }

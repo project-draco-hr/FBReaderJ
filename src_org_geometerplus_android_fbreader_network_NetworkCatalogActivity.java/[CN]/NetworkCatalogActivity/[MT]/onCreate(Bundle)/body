@@ -11,7 +11,7 @@
   if (level == -1) {
     throw new RuntimeException("Catalog's Level was not specified!!!");
   }
-  myCatalogKey=intent.getStringExtra(CATALOG_KEY_KEY);
+  myCatalogKey=(NetworkTree.Key)intent.getSerializableExtra(CATALOG_KEY_KEY);
   if (myCatalogKey == null) {
     throw new RuntimeException("Catalog's Key was not specified!!!");
   }
