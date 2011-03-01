@@ -1,7 +1,0 @@
-{
-  if (myParent != null) {
-    myParent.writeObject(os);
-  }
-  os.writeBytes(myId);
-  os.writeBytes("\000");
-}

@@ -6,5 +6,8 @@
     return false;
   }
   final NetworkTree.Key key=(NetworkTree.Key)other;
-  return myParent == key.myParent && myId.equals(key.myId);
+  if (Parent == null) {
+    return key.Parent == null && Id.equals(key.Id);
+  }
+  return Id.equals(key.Id) && Parent.equals(key.Parent);
 }

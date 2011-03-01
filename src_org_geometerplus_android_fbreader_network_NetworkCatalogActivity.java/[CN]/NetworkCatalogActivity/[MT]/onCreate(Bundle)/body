@@ -11,12 +11,14 @@
   if (level == -1) {
     throw new RuntimeException("Catalog Level was not specified!!!");
   }
-  myCatalogKey=(NetworkTree.Key)intent.getSerializableExtra(CATALOG_KEY_KEY);
-  if (myCatalogKey == null) {
-    throw new RuntimeException("Catalog Key was not specified!!!");
+  final NetworkLibrary library=NetworkLibrary.Instance();
+  final NetworkTree.Key key=(NetworkTree.Key)intent.getSerializableExtra(CATALOG_KEY_KEY);
+  myTree=library.getTreeByKey(key);
+  System.err.println("KEY = " + key);
+  if (myTree == null) {
+    throw new RuntimeException("Tree not found for key " + key);
   }
-  myTree=networkView.getOpenedTree(level);
-  networkView.setOpenedActivity(myCatalogKey,this);
+  networkView.setOpenedActivity(key,this);
   setListAdapter(new CatalogAdapter());
   getListView().invalidateViews();
   setupTitle();

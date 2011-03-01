@@ -1,6 +1,6 @@
 {
   if (NetworkView.Instance().isInitialized()) {
-    final ItemsLoadingRunnable runnable=NetworkView.Instance().getItemsLoadingRunnable(myCatalogKey);
+    final ItemsLoadingRunnable runnable=NetworkView.Instance().getItemsLoadingRunnable(myTree.getUniqueKey());
     if (runnable != null) {
       runnable.interruptLoading();
     }
