@@ -1,7 +1,7 @@
 {
   final ZLResource dialogResource=ZLResource.resource("dialog");
   ZLResource boxResource=null;
-  String msg=null;
+  String msg;
   if (errorMessage != null) {
     boxResource=dialogResource.getResource("networkError");
     msg=errorMessage;
