@@ -4,7 +4,7 @@
     public void run(){
       if (mgr.mayBeAuthorised(false)) {
         mgr.logOut();
-        sendCancel(false);
+        sendCancel();
       }
     }
   }
