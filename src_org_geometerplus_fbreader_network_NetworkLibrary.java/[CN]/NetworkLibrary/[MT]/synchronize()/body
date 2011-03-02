@@ -1,7 +1,6 @@
 {
-  if (myUpdateChildren || myInvalidateChildren) {
-    myUpdateChildren=false;
-    myInvalidateChildren=false;
+  if (myChildrenAreInvalid) {
+    myChildrenAreInvalid=false;
     makeUpToDate();
   }
   if (myUpdateVisibility) {

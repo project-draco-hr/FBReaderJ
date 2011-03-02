@@ -15,7 +15,6 @@
         public void run(){
           final NetworkLibrary library=NetworkLibrary.Instance();
           library.addCustomLink(link);
-          library.updateChildren();
           library.synchronize();
           NetworkView.Instance().fireModelChangedAsync();
           getListView().invalidateViews();

@@ -6,8 +6,5 @@
  else   if (position > 0 && position <= size) {
     return (NetworkTree)myTree.subTrees().get(position - 1);
   }
- else   if (position == size + 1) {
-    return NetworkView.Instance().getAddCustomCatalogItemTree();
-  }
   return null;
 }

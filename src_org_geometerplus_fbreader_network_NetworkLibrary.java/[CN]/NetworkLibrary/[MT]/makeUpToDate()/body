@@ -20,7 +20,7 @@ synchronized (myLinks) {
         }
         final INetworkLink nodeLink=((NetworkCatalogTree)currentNode).Item.Link;
         if (link == nodeLink) {
-          if (linkIsInvalid(link,nodeLink)) {
+          if (linkIsChanged(link)) {
             toRemove.add(currentNode);
           }
  else {
@@ -39,7 +39,7 @@ synchronized (myLinks) {
               break;
             }
           }
-          if (newNodeLink == null || linkIsInvalid(newNodeLink,nodeLink)) {
+          if (newNodeLink == null || linkIsChanged(nodeLink)) {
             toRemove.add(currentNode);
             currentNode=null;
             ++nodeCount;
@@ -69,4 +69,5 @@ synchronized (myLinks) {
   for (  FBTree tree : toRemove) {
     tree.removeSelf();
   }
+  new AddCustomCatalogItemTree(myRootTree);
 }

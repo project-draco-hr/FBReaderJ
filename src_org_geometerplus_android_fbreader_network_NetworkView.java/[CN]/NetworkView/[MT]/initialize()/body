@@ -11,6 +11,5 @@
   myActions.trimToSize();
   final NetworkTree root=library.getRootTree();
   mySearchItem=new SearchItemTree(root);
-  myAddCustomCatalogItem=new AddCustomCatalogItemTree(root);
   myInitialized=true;
 }

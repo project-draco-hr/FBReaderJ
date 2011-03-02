@@ -2,5 +2,5 @@
   if (!NetworkView.Instance().isInitialized()) {
     return 0;
   }
-  return myTree.subTrees().size() + 2;
+  return myTree.subTrees().size() + 1;
 }
