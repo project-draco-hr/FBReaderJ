@@ -2,5 +2,5 @@
   myLink=link;
   myErrorMessage=null;
   myOnSuccessRunnable=onSuccessRunnable;
-  activity.showDialog(myId);
+  activity.showDialog(0);
 }

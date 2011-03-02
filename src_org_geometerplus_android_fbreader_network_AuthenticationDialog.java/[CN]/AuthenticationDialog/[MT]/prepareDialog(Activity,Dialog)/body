@@ -1,4 +1,5 @@
 {
+  myActivity=activity;
   final NetworkAuthenticationManager mgr=myLink.authenticationManager();
   ((TextView)dialog.findViewById(R.id.network_authentication_login)).setText(mgr.UserNameOption.getValue());
   ((TextView)dialog.findViewById(R.id.network_authentication_password)).setText("");

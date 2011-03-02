@@ -8,7 +8,7 @@
   NetworkView.Instance().fireModelChanged();
   if (message.what < 0) {
     myErrorMessage=(String)message.obj;
-    myActivity.showDialog(myId);
+    myActivity.showDialog(0);
     return;
   }
  else   if (message.what > 0) {
@@ -16,5 +16,4 @@
       myOnSuccessRunnable.run();
     }
   }
-  clearData();
 }

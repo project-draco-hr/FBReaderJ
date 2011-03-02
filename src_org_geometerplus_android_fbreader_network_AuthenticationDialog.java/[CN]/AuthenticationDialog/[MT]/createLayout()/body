@@ -7,7 +7,7 @@
   registerText.setOnClickListener(new View.OnClickListener(){
     public void onClick(    View view){
       if (Util.isRegistrationSupported(myActivity,myLink)) {
-        myActivity.dismissDialog(NetworkDialog.DIALOG_AUTHENTICATION);
+        myActivity.dismissDialog(0);
         Util.runRegistrationDialog(myActivity,myLink);
       }
     }

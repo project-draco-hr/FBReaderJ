@@ -86,5 +86,5 @@
   }
  catch (  ZLNetworkException e) {
   }
-  NetworkDialog.show(activity,NetworkDialog.DIALOG_AUTHENTICATION,book.Link,buyRunnable);
+  AuthenticationDialog.show(activity,book.Link,buyRunnable);
 }

@@ -1,3 +1,0 @@
-{
-  myResource=ZLResource.resource("dialog").getResource(key);
-}
