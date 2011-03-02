@@ -6,10 +6,4 @@
   }
   final String summary=ZLResource.resource("networkView").getResource("searchResults").getValue().replace("%s",pattern);
   final SearchResult result=new SearchResult(summary);
-  final SearchItemTree tree=NetworkView.Instance().getSearchItemTree();
-  tree.setSearchResult(result);
-  NetworkView.Instance().fireModelChangedAsync();
-  final SearchHandler handler=new SearchHandler(tree);
-  NetworkView.Instance().startItemsLoading(this,NetworkTree.SearchKey,new SearchRunnable(handler,pattern));
-  NetworkView.Instance().openTree(this,tree);
 }

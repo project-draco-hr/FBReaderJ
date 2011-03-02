@@ -3,8 +3,8 @@
     coverView.setImageResource(R.drawable.ic_list_plus);
     return;
   }
-  if (tree instanceof ZLAndroidTree) {
-    coverView.setImageResource(((ZLAndroidTree)tree).getCoverResourceId());
+  if (tree instanceof SearchItemTree) {
+    coverView.setImageResource(R.drawable.ic_list_searchresult);
     return;
   }
   Bitmap coverBitmap=null;
