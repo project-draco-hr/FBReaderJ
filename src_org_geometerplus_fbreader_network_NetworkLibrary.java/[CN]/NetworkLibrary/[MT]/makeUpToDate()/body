@@ -69,5 +69,5 @@ synchronized (myLinks) {
     tree.removeSelf();
   }
   new AddCustomCatalogItemTree(myRootTree);
-  new SearchItemTree(myRootTree,0);
+  mySearchItemTree=new SearchItemTree(myRootTree,0);
 }

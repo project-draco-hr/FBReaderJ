@@ -1,5 +1,5 @@
 {
-  final boolean isLoading=NetworkView.Instance().containsItemsLoadingRunnable(NetworkTree.SearchKey);
+  final boolean isLoading=NetworkView.Instance().containsItemsLoadingRunnable(tree.getUniqueKey());
   if (!isLoading) {
     return RUN_SEARCH_ITEM_ID;
   }

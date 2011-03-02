@@ -4,7 +4,7 @@
   }
  else {
     myTree.updateSubTrees();
-    afterUpdateCatalog(errorMessage,myTree.getSearchResult().empty());
+    afterUpdateCatalog(errorMessage,myTree.getSearchResult().isEmpty());
   }
   if (NetworkView.Instance().isInitialized()) {
     NetworkView.Instance().fireModelChangedAsync();
