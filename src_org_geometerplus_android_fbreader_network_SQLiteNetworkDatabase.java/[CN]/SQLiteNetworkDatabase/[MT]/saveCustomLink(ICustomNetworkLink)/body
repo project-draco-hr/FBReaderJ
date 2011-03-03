@@ -16,8 +16,8 @@
       }
       statement.bindString(1,link.getTitle());
       statement.bindString(2,link.getSiteName());
-      bindString(statement,3,link.getSummary());
-      bindString(statement,4,link.getIcon());
+      SQLiteUtil.bindString(statement,3,link.getSummary());
+      SQLiteUtil.bindString(statement,4,link.getIcon());
       final long id;
       final HashMap<String,String> linksMap=new HashMap<String,String>();
       if (statement == myInsertCustomLinkStatement) {
@@ -28,7 +28,7 @@
         id=link.getId();
         statement.bindLong(5,id);
         statement.execute();
-        final Cursor linksCursor=myDatabase.rawQuery("SELECT key,url FROM CustomLinkUrls WHERE link_id = " + link.getId(),null);
+        final Cursor linksCursor=myDatabase.rawQuery("SELECT key,url FROM LinkUrls WHERE url NOT NULL AND link_id = " + link.getId(),null);
         while (linksCursor.moveToNext()) {
           linksMap.put(linksCursor.getString(0),linksCursor.getString(1));
         }
@@ -40,13 +40,13 @@
         final SQLiteStatement urlStatement;
         if (dbValue == null) {
           if (myInsertCustomLinkUrlStatement == null) {
-            myInsertCustomLinkUrlStatement=myDatabase.compileStatement("INSERT OR REPLACE INTO CustomLinkUrls(url,link_id,key) VALUES (?,?,?)");
+            myInsertCustomLinkUrlStatement=myDatabase.compileStatement("INSERT OR REPLACE INTO LinkUrls(url,link_id,key) VALUES (?,?,?)");
           }
           urlStatement=myInsertCustomLinkUrlStatement;
         }
  else         if (!value.equals(dbValue)) {
           if (myUpdateCustomLinkUrlStatement == null) {
-            myUpdateCustomLinkUrlStatement=myDatabase.compileStatement("UPDATE CustomLinkUrls SET url = ? WHERE link_id = ? AND key = ?");
+            myUpdateCustomLinkUrlStatement=myDatabase.compileStatement("UPDATE LinkUrls SET url = ? WHERE link_id = ? AND key = ?");
           }
           urlStatement=myUpdateCustomLinkUrlStatement;
         }
@@ -60,7 +60,7 @@
       }
       for (      String key : linksMap.keySet()) {
         if (myDeleteCustomLinkUrlStatement == null) {
-          myDeleteCustomLinkUrlStatement=myDatabase.compileStatement("DELETE FROM CustomLinkUrls WHERE link_id = ? AND key = ?");
+          myDeleteCustomLinkUrlStatement=myDatabase.compileStatement("DELETE FROM LinkUrls WHERE link_id = ? AND key = ?");
         }
         myDeleteCustomLinkUrlStatement.bindLong(1,id);
         myDeleteCustomLinkUrlStatement.bindString(2,key);

@@ -14,11 +14,11 @@
   }
   statement.bindLong(1,bookmark.getBookId());
   statement.bindString(2,bookmark.getText());
-  bindDate(statement,3,bookmark.getTime(Bookmark.CREATION));
-  bindDate(statement,4,bookmark.getTime(Bookmark.MODIFICATION));
-  bindDate(statement,5,bookmark.getTime(Bookmark.ACCESS));
+  SQLiteUtil.bindDate(statement,3,bookmark.getTime(Bookmark.CREATION));
+  SQLiteUtil.bindDate(statement,4,bookmark.getTime(Bookmark.MODIFICATION));
+  SQLiteUtil.bindDate(statement,5,bookmark.getTime(Bookmark.ACCESS));
   statement.bindLong(6,bookmark.getAccessCount());
-  bindString(statement,7,bookmark.ModelId);
+  SQLiteUtil.bindString(statement,7,bookmark.ModelId);
   statement.bindLong(8,bookmark.ParagraphIndex);
   statement.bindLong(9,bookmark.ElementIndex);
   statement.bindLong(10,bookmark.CharIndex);

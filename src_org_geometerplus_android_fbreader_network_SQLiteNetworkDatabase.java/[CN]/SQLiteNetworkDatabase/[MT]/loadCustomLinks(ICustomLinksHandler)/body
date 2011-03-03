@@ -8,7 +8,7 @@
     final String summary=cursor.getString(3);
     final String icon=cursor.getString(4);
     linksMap.clear();
-    final Cursor linksCursor=myDatabase.rawQuery("SELECT key,url FROM CustomLinkUrls WHERE link_id = " + id,null);
+    final Cursor linksCursor=myDatabase.rawQuery("SELECT key,url FROM LinkUrls WHERE url NOT NULL AND link_id = " + id,null);
     while (linksCursor.moveToNext()) {
       linksMap.put(linksCursor.getString(0),linksCursor.getString(1));
     }
