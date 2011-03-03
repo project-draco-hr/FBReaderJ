@@ -6,8 +6,5 @@
     return false;
   }
   final NetworkTree.Key key=(NetworkTree.Key)other;
-  if (Parent == null) {
-    return key.Parent == null && Id.equals(key.Id);
-  }
-  return Id.equals(key.Id) && Parent.equals(key.Parent);
+  return Id.equals(key.Id) && ZLMiscUtil.equals(Parent,key.Parent);
 }

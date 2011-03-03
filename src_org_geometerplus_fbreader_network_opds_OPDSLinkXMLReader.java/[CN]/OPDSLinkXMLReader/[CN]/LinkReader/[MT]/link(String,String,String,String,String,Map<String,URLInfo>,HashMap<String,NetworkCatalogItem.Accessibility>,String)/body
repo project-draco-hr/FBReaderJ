@@ -1,8 +1,8 @@
 {
-  if (siteName == null || title == null || links.get(INetworkLink.URL_MAIN) == null) {
+  if (siteName == null || title == null || infos.get(INetworkLink.URL_MAIN) == null) {
     return null;
   }
-  OPDSNetworkLink opdsLink=new OPDSNetworkLink(siteName,title,summary,icon,language,links,myHasStableIdentifiers);
+  OPDSNetworkLink opdsLink=new OPDSNetworkLink(siteName,title,summary,icon,language,infos,myHasStableIdentifiers);
   opdsLink.setRelationAliases(myRelationAliases);
   opdsLink.setUrlConditions(urlConditions);
   opdsLink.setUrlRewritingRules(myUrlRewritingRules);

@@ -8,7 +8,7 @@
   final String summary=entry.Content;
   final String language=entry.DCLanguage;
   String icon=null;
-  final HashMap<String,String> links=new HashMap<String,String>();
+  final HashMap<String,URLInfo> infos=new HashMap<String,URLInfo>();
   final HashMap<String,NetworkCatalogItem.Accessibility> urlConditions=new HashMap<String,NetworkCatalogItem.Accessibility>();
   for (  ATOMLink link : entry.Links) {
     final String href=link.getHref();
@@ -26,31 +26,31 @@
     }
  else     if (rel == null) {
       if (type == MIME_APP_ATOM) {
-        links.put(INetworkLink.URL_MAIN,href);
+        infos.put(INetworkLink.URL_MAIN,new URLInfo(href));
       }
     }
  else     if (rel == "search") {
       if (type == MIME_APP_ATOM) {
         final OpenSearchDescription descr=OpenSearchDescription.createDefault(href);
         if (descr.isValid()) {
-          links.put(INetworkLink.URL_SEARCH,descr.makeQuery("%s"));
+          infos.put(INetworkLink.URL_SEARCH,new URLInfo(descr.makeQuery("%s")));
         }
       }
     }
  else     if (rel == REL_LINK_SIGN_IN) {
-      links.put(INetworkLink.URL_SIGN_IN,href);
+      infos.put(INetworkLink.URL_SIGN_IN,new URLInfo(href));
     }
  else     if (rel == REL_LINK_SIGN_OUT) {
-      links.put(INetworkLink.URL_SIGN_OUT,href);
+      infos.put(INetworkLink.URL_SIGN_OUT,new URLInfo(href));
     }
  else     if (rel == REL_LINK_SIGN_UP) {
-      links.put(INetworkLink.URL_SIGN_UP,href);
+      infos.put(INetworkLink.URL_SIGN_UP,new URLInfo(href));
     }
  else     if (rel == REL_LINK_REFILL_ACCOUNT) {
-      links.put(INetworkLink.URL_REFILL_ACCOUNT,href);
+      infos.put(INetworkLink.URL_REFILL_ACCOUNT,new URLInfo(href));
     }
  else     if (rel == REL_LINK_RECOVER_PASSWORD) {
-      links.put(INetworkLink.URL_RECOVER_PASSWORD,href);
+      infos.put(INetworkLink.URL_RECOVER_PASSWORD,new URLInfo(href));
     }
  else     if (rel == REL_CONDITION_NEVER) {
       urlConditions.put(href,NetworkCatalogItem.Accessibility.NEVER);
@@ -70,7 +70,7 @@
  else {
     sslCertificate=null;
   }
-  INetworkLink result=link(siteName,title,summary,icon,language,links,urlConditions,sslCertificate);
+  INetworkLink result=link(siteName,title,summary,icon,language,infos,urlConditions,sslCertificate);
   if (result != null) {
     myListener.onNewLink(result);
   }

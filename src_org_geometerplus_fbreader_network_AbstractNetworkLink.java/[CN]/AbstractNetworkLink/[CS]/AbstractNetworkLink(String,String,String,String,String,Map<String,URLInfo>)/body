@@ -4,5 +4,5 @@
   mySummary=summary;
   myIcon=icon;
   myLanguage=language != null ? language : "multi";
-  myLinks=new TreeMap<String,String>(links);
+  myInfos=new TreeMap<String,URLInfo>(infos);
 }

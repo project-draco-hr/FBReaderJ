@@ -6,7 +6,7 @@
     return false;
   }
   final AbstractNetworkLink lnk=(AbstractNetworkLink)o;
-  if (!mySiteName.equals(lnk.mySiteName) || !myTitle.equals(lnk.myTitle) || !ZLMiscUtil.equals(mySummary,lnk.mySummary)|| !ZLMiscUtil.equals(myIcon,lnk.myIcon)|| !ZLMiscUtil.mapsEquals(myLinks,lnk.myLinks)) {
+  if (!mySiteName.equals(lnk.mySiteName) || !myTitle.equals(lnk.myTitle) || !ZLMiscUtil.equals(mySummary,lnk.mySummary)|| !ZLMiscUtil.equals(myIcon,lnk.myIcon)|| !ZLMiscUtil.mapsEquals(myInfos,lnk.myInfos)) {
     return false;
   }
   return true;

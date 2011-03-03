@@ -1,0 +1,4 @@
+{
+  final URLInfo info=myInfos.get(urlKey);
+  return info != null ? info : URLInfo.NULL;
+}

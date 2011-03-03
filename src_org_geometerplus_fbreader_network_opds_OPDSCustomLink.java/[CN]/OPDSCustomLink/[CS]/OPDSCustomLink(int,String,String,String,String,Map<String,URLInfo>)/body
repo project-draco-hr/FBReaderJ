@@ -1,0 +1,4 @@
+{
+  super(siteName,title,summary,icon,null,infos,false);
+  myId=id;
+}

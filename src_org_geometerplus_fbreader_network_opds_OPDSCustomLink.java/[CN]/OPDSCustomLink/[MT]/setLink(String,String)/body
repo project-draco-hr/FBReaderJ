@@ -1,9 +1,0 @@
-{
-  if (url == null) {
-    removeLink(urlKey);
-  }
- else {
-    final String oldUrl=myLinks.put(urlKey,url);
-    myHasChanges=myHasChanges || !url.equals(oldUrl);
-  }
-}

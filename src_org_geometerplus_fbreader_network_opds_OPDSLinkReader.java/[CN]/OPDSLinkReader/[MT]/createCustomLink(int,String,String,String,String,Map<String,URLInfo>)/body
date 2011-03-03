@@ -1,0 +1,6 @@
+{
+  if (siteName == null || title == null || infos.get(INetworkLink.URL_MAIN) == null) {
+    return null;
+  }
+  return new OPDSCustomLink(id,siteName,title,summary,icon,infos);
+}
