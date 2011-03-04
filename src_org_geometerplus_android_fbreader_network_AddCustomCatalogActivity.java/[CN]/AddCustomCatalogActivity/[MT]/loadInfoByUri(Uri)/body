@@ -16,13 +16,15 @@
   if (siteName.startsWith("www.")) {
     siteName=siteName.substring(4);
   }
-  final ICustomNetworkLink link=OPDSLinkReader.createCustomLink(siteName,null,null,null,textUrl);
+  final HashMap<String,UrlInfo> infos=new HashMap<String,UrlInfo>();
+  infos.put(INetworkLink.URL_MAIN,new UrlInfo(textUrl));
+  myLink=OPDSLinkReader.createCustomLink(ICustomNetworkLink.INVALID_ID,siteName,null,null,null,infos);
   final Runnable loadInfoRunnable=new Runnable(){
     private String myError;
     public void run(){
       try {
         myError=null;
-        link.reloadInfo();
+        myLink.reloadInfo();
       }
  catch (      ZLNetworkException e) {
         myError=e.getMessage();
@@ -30,14 +32,13 @@
       runOnUiThread(new Runnable(){
         public void run(){
           if (myError == null) {
-            setTextById(R.id.add_custom_catalog_title,link.getTitle());
-            setTextById(R.id.add_custom_catalog_summary,link.getSummary());
-            myIcon=link.getIcon();
+            setTextById(R.id.add_custom_catalog_title,myLink.getTitle());
+            setTextById(R.id.add_custom_catalog_summary,myLink.getSummary());
             setExtraFieldsVisibility(true);
           }
  else {
             runErrorDialog(myError);
-            myIcon=null;
+            myLink=null;
           }
         }
       }

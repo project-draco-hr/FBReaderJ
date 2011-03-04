@@ -1,5 +1,0 @@
-{
-  final HashMap<String,UrlInfo> infos=new HashMap<String,UrlInfo>();
-  infos.put(INetworkLink.URL_MAIN,new UrlInfo(url));
-  return new OPDSCustomLink(id,siteName,title,summary,icon,infos);
-}

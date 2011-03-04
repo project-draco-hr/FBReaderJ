@@ -1,3 +1,0 @@
-{
-  return findViewById(R.id.add_custom_catalog_title_group).getVisibility() == View.VISIBLE;
-}
