@@ -1,3 +1,0 @@
-{
-  return getUrlInfo(URL_ICON).URL;
-}
