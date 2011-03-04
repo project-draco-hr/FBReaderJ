@@ -11,7 +11,7 @@
       myDeleteAllCustomLinksStatement.bindLong(1,id);
       myDeleteAllCustomLinksStatement.execute();
       if (myDeleteCustomLinkStatement == null) {
-        myDeleteCustomLinkStatement=myDatabase.compileStatement("DELETE FROM CustomLinks WHERE link_id = ?");
+        myDeleteCustomLinkStatement=myDatabase.compileStatement("DELETE FROM Links WHERE link_id = ?");
       }
       myDeleteCustomLinkStatement.bindLong(1,id);
       myDeleteCustomLinkStatement.execute();

@@ -1,7 +1,6 @@
 String siteName
 String title
 String summary
-String icon
 String language
 Map<String,UrlInfo> infos
 boolean hasStableIdentifiers

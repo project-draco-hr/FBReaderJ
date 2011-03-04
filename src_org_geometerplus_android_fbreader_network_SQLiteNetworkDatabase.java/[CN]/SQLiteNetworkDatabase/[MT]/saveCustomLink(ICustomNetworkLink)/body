@@ -4,20 +4,19 @@
       final SQLiteStatement statement;
       if (link.getId() == ICustomNetworkLink.INVALID_ID) {
         if (myInsertCustomLinkStatement == null) {
-          myInsertCustomLinkStatement=myDatabase.compileStatement("INSERT INTO CustomLinks (title,site_name,summary,icon) VALUES (?,?,?,?)");
+          myInsertCustomLinkStatement=myDatabase.compileStatement("INSERT INTO Links (title,site_name,summary) VALUES (?,?,?)");
         }
         statement=myInsertCustomLinkStatement;
       }
  else {
         if (myUpdateCustomLinkStatement == null) {
-          myUpdateCustomLinkStatement=myDatabase.compileStatement("UPDATE CustomLinks SET title = ?, site_name = ?, summary =?, icon = ? " + "WHERE link_id = ?");
+          myUpdateCustomLinkStatement=myDatabase.compileStatement("UPDATE Links SET title = ?, site_name = ?, summary =? " + "WHERE link_id = ?");
         }
         statement=myUpdateCustomLinkStatement;
       }
       statement.bindString(1,link.getTitle());
       statement.bindString(2,link.getSiteName());
       SQLiteUtil.bindString(statement,3,link.getSummary());
-      SQLiteUtil.bindString(statement,4,link.getIcon());
       final long id;
       final HashMap<String,UrlInfo> linksMap=new HashMap<String,UrlInfo>();
       if (statement == myInsertCustomLinkStatement) {

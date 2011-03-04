@@ -18,13 +18,13 @@
   }
   final HashMap<String,UrlInfo> infos=new HashMap<String,UrlInfo>();
   infos.put(INetworkLink.URL_MAIN,new UrlInfo(textUrl));
-  myLink=OPDSLinkReader.createCustomLink(ICustomNetworkLink.INVALID_ID,siteName,null,null,null,infos);
+  myLink=new OPDSCustomLink(ICustomNetworkLink.INVALID_ID,siteName,null,null,infos);
   final Runnable loadInfoRunnable=new Runnable(){
     private String myError;
     public void run(){
       try {
         myError=null;
-        myLink.reloadInfo();
+        myLink.reloadInfo(false);
       }
  catch (      ZLNetworkException e) {
         myError=e.getMessage();

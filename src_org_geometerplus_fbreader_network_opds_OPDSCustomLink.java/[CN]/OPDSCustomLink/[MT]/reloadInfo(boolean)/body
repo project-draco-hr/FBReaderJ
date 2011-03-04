@@ -14,12 +14,8 @@
           throw new ZLNetworkException(NetworkException.ERROR_NO_REQUIRED_INFORMATION);
         }
         myTitle=info.Title;
-        if (info.Icon != null) {
-          myIcon=info.Icon;
-        }
-        if (info.Summary != null) {
-          mySummary=info.Summary;
-        }
+        setUrl(URL_ICON,info.Icon);
+        mySummary=info.Summary;
         if (info.DirectOpenSearchDescription != null) {
           descriptions.add(info.DirectOpenSearchDescription);
         }
@@ -51,7 +47,9 @@
   }
   if (!descriptions.isEmpty()) {
     setUrl(URL_SEARCH,descriptions.get(0).makeQuery("%s"));
-    System.err.println(descriptions.get(0).makeQuery("%s"));
+  }
+ else {
+    setUrl(URL_SEARCH,null);
   }
   if (error != null) {
     throw error;
