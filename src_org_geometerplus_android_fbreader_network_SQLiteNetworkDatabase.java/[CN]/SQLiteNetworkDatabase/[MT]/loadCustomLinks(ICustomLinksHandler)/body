@@ -7,7 +7,7 @@
     final String siteName=cursor.getString(2);
     final String summary=cursor.getString(3);
     linksMap.clear();
-    final Cursor linksCursor=myDatabase.rawQuery("SELECT key,url,update_time FROM LinkUrls WHERE url NOT NULL AND link_id = " + id,null);
+    final Cursor linksCursor=myDatabase.rawQuery("SELECT key,url,update_time FROM LinkUrls WHERE link_id = " + id,null);
     while (linksCursor.moveToNext()) {
       linksMap.put(linksCursor.getString(0),new UrlInfo(linksCursor.getString(1),SQLiteUtil.getDate(linksCursor,2)));
     }
