@@ -35,7 +35,7 @@
     for (    String url : opensearchDescriptionURLs) {
       requests.add(new ZLNetworkRequest(url){
         @Override public void handleStream(        URLConnection connection,        InputStream inputStream) throws IOException, ZLNetworkException {
-          new OpenSearchXMLReader(URL,descriptions,20).read(inputStream);
+          new OpenSearchXMLReader(URL,descriptions).read(inputStream);
         }
       }
 );
@@ -51,6 +51,7 @@
   }
   if (!descriptions.isEmpty()) {
     setUrl(URL_SEARCH,descriptions.get(0).makeQuery("%s"));
+    System.err.println(descriptions.get(0).makeQuery("%s"));
   }
   if (error != null) {
     throw error;

@@ -1,3 +1,2 @@
 String baseUrl
 List<OpenSearchDescription> descriptions
-int itemsPerPage
