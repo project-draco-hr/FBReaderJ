@@ -3,6 +3,6 @@ String title
 String summary
 String icon
 String language
-Map<String,URLInfo> infos
+Map<String,UrlInfo> infos
 HashMap<String,NetworkCatalogItem.Accessibility> urlConditions
 String sslCertificate

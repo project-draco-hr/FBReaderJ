@@ -3,4 +3,4 @@ String siteName
 String title
 String summary
 String icon
-Map<String,URLInfo> infos
+Map<String,UrlInfo> infos

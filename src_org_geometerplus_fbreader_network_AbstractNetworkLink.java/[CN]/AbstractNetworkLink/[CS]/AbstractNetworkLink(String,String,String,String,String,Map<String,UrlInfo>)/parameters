@@ -3,5 +3,4 @@ String title
 String summary
 String icon
 String language
-Map<String,URLInfo> infos
-boolean hasStableIdentifiers
+Map<String,UrlInfo> infos
