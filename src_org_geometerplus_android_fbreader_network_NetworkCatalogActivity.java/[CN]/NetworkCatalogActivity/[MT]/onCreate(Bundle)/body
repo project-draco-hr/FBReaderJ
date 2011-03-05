@@ -17,6 +17,4 @@
   setListAdapter(new CatalogAdapter());
   getListView().invalidateViews();
   setupTitle();
-  if (myTree instanceof NetworkCatalogTree && Util.isAccountRefillingSupported(this,((NetworkCatalogTree)myTree).Item.Link)) {
-  }
 }
