@@ -1,16 +1,6 @@
 {
-  if (position < 0) {
+  if (position < 0 || position >= myTree.subTrees().size()) {
     return null;
   }
-  if (position < myTree.subTrees().size()) {
-    return (NetworkTree)myTree.subTrees().get(position);
-  }
-  if (myInProgress) {
-    return null;
-  }
-  position-=myTree.subTrees().size();
-  if (mySpecialItems != null && position < mySpecialItems.size()) {
-    return mySpecialItems.get(position);
-  }
-  return null;
+  return (NetworkTree)myTree.subTrees().get(position);
 }

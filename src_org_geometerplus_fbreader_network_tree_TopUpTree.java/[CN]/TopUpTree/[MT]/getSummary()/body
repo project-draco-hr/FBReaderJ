@@ -1,10 +1,10 @@
 {
-  final NetworkAuthenticationManager mgr=Link.authenticationManager();
+  final NetworkAuthenticationManager mgr=Item.Link.authenticationManager();
   try {
     if (mgr.isAuthorised(false)) {
       final String account=mgr.currentAccount();
       if (account != null) {
-        return ZLResource.resource("networkView").getResource("refillSummary").getValue().replace("%s",account);
+        return Item.Summary.replace("%s",account);
       }
     }
   }

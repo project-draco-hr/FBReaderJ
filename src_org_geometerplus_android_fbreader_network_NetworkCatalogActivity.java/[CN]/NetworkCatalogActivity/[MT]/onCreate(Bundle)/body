@@ -18,6 +18,5 @@
   getListView().invalidateViews();
   setupTitle();
   if (myTree instanceof NetworkCatalogTree && Util.isAccountRefillingSupported(this,((NetworkCatalogTree)myTree).Item.Link)) {
-    setDefaultTree(new RefillAccountTree((NetworkCatalogTree)myTree));
   }
 }

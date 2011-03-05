@@ -1,4 +1,0 @@
-{
-  super(parentTree);
-  Link=parentTree.Item.Link;
-}
