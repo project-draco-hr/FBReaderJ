@@ -1,4 +1,4 @@
-INetworkLink link
+OPDSNetworkLink link
 String title
 String summary
 String cover

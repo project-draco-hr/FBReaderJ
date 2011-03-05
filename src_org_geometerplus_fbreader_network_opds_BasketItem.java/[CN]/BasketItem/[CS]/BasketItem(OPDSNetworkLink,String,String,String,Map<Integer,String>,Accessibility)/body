@@ -1,4 +1,4 @@
 {
   super(link,title,summary,cover,urlByType,accessibility,CatalogType.BY_SERIES);
-  ((OPDSNetworkLink)link).setSupportsBasket();
+  link.setSupportsBasket();
 }
