@@ -7,10 +7,6 @@
     coverView.setImageResource(R.drawable.ic_list_searchresult);
     return;
   }
-  if (tree instanceof TopUpTree) {
-    coverView.setImageResource(R.drawable.ic_list_library_wallet);
-    return;
-  }
   if (tree instanceof ZLAndroidTree) {
     coverView.setImageResource(((ZLAndroidTree)tree).getCoverResourceId());
     return;
