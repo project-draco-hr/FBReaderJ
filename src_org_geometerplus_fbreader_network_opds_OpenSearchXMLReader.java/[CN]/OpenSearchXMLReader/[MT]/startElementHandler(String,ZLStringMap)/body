@@ -23,7 +23,7 @@ if (tagPrefix == myOpenSearchNamespaceId && tag == TAG_URL) {
     final String template=ZLNetworkUtil.url(myBaseURL,attributes.getValue("template"));
     final int indexOffset=parseInt(attributes.getValue("indexOffset"));
     final int pageOffset=parseInt(attributes.getValue("pageOffset"));
-    final OpenSearchDescription descr=new OpenSearchDescription(template,myItemsPerPage,indexOffset,pageOffset);
+    final OpenSearchDescription descr=new OpenSearchDescription(template,indexOffset,pageOffset);
     if (descr.isValid()) {
       myDescriptions.add(descr);
     }

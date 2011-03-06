@@ -41,6 +41,15 @@
       final String price=((BuyBookReference)reference).Price;
       actions.add(new Action(id,"buy",price));
     }
+    final Basket basket=book.Link.basket();
+    if (basket != null) {
+      if (basket.contains(book)) {
+        actions.add(new Action(REMOVE_BOOK_FROM_BASKET,"removeFromBasket"));
+      }
+ else {
+        actions.add(new Action(ADD_BOOK_TO_BASKET,"addToBasket"));
+      }
+    }
   }
   return actions;
 }

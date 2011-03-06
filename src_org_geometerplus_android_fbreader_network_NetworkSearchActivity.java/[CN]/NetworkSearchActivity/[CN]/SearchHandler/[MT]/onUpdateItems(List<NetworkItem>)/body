@@ -1,0 +1,8 @@
+{
+  SearchResult result=myTree.getSearchResult();
+  for (  NetworkItem item : items) {
+    if (item instanceof NetworkBookItem) {
+      result.addBook((NetworkBookItem)item);
+    }
+  }
+}

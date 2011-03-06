@@ -1,6 +1,5 @@
 {
-  ((TextView)findViewById(R.id.network_book_description_title)).setText(myResource.getResource("description").getValue());
-  final TextView descriptionView=(TextView)findViewById(R.id.network_book_description);
+  setTextFromResource(R.id.network_book_description_title,"description");
   final String description;
   if (myBook.Summary != null) {
     description=myBook.Summary;
@@ -8,5 +7,5 @@
  else {
     description=myResource.getResource("noDescription").getValue();
   }
-  descriptionView.setText(description);
+  setTextById(R.id.network_book_description,description);
 }

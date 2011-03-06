@@ -1,5 +1,5 @@
 {
-  if (NetworkView.Instance().containsItemsLoadingRunnable(NetworkSearchActivity.SEARCH_RUNNABLE_KEY)) {
+  if (searchIsInProgress()) {
     return false;
   }
   final NetworkLibrary library=NetworkLibrary.Instance();

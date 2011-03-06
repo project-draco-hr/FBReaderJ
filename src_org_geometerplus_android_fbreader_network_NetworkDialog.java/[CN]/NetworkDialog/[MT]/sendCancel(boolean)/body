@@ -1,3 +1,0 @@
-{
-  myHandler.sendMessage(myHandler.obtainMessage(0,invalidateLibrary,null));
-}

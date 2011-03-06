@@ -21,14 +21,18 @@
     setErrorByKey("invalidUrl");
     return;
   }
-  if (!getExtraFieldsVisibility()) {
+  if (myLink == null) {
     loadInfoByUri(uri);
   }
  else   if (isEmptyString(title)) {
     setErrorByKey("titleIsEmpty");
   }
  else {
-    startActivity(new Intent(NetworkLibraryActivity.ADD_CATALOG,uri,AddCustomCatalogActivity.this,NetworkLibraryActivity.class).putExtra(NetworkLibraryActivity.ADD_CATALOG_TITLE_KEY,title).putExtra(NetworkLibraryActivity.ADD_CATALOG_SUMMARY_KEY,summary).putExtra(NetworkLibraryActivity.ADD_CATALOG_ICON_KEY,myIcon).putExtra(NetworkLibraryActivity.ADD_CATALOG_ID_KEY,myCatalogId).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP));
+    myLink.setTitle(title);
+    myLink.setSummary(summary);
+    Intent intent=new Intent(NetworkLibraryActivity.ADD_CATALOG,uri,AddCustomCatalogActivity.this,NetworkLibraryActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+    NetworkLibraryActivity.addLinkToIntent(intent,myLink);
+    startActivity(intent);
     finish();
   }
 }

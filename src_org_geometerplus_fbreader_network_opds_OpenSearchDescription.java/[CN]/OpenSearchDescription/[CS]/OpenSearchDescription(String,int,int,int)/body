@@ -1,6 +1,0 @@
-{
-  Template=template;
-  IndexOffset=indexOffset;
-  PageOffset=pageOffset;
-  ItemsPerPage=itemsPerPage;
-}

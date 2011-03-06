@@ -1,6 +1,5 @@
 {
   super.onPrepareOptionsMenu(menu);
-  final boolean searchInProgress=NetworkView.Instance().containsItemsLoadingRunnable(NetworkSearchActivity.SEARCH_RUNNABLE_KEY);
-  menu.findItem(MENU_SEARCH).setEnabled(!searchInProgress);
+  menu.findItem(MENU_SEARCH).setEnabled(!searchIsInProgress());
   return true;
 }

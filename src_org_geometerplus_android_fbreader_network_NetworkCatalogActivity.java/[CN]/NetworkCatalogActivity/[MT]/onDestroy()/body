@@ -1,6 +1,6 @@
 {
-  if (myTree != null && myCatalogKey != null && NetworkView.Instance().isInitialized()) {
-    NetworkView.Instance().setOpenedActivity(myCatalogKey,null);
+  if (myTree != null && NetworkView.Instance().isInitialized()) {
+    NetworkView.Instance().setOpenedActivity(myTree.getUniqueKey(),null);
   }
   super.onDestroy();
 }

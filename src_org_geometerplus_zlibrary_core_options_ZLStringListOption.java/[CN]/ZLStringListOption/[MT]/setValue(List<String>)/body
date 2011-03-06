@@ -1,0 +1,16 @@
+{
+  if (value == null) {
+    value=Collections.emptyList();
+  }
+  if (myIsSynchronized && (myValue.equals(value))) {
+    return;
+  }
+  myValue=new ArrayList<String>(value);
+  if (value.equals(myDefaultValue)) {
+    unsetConfigValue();
+  }
+ else {
+    setConfigValue(listToString(value));
+  }
+  myIsSynchronized=true;
+}

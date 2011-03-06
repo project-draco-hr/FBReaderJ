@@ -1,8 +1,8 @@
 {
   notifyDataSetChanged();
-  if (mySpecialItems != null) {
-    for (    NetworkTree tree : mySpecialItems) {
-      tree.invalidateChildren();
+  for (  FBTree child : myTree.subTrees()) {
+    if (child instanceof TopUpTree) {
+      child.invalidateChildren();
     }
   }
 }

@@ -21,5 +21,14 @@ synchronized (myBackgroundLock) {
         }
       }
     }
+    for (    INetworkLink link : myLinks) {
+      if (link instanceof ICustomNetworkLink) {
+        final ICustomNetworkLink customLink=(ICustomNetworkLink)link;
+        if (customLink.isObsolete(12 * 60 * 60* 1000)) {
+          customLink.reloadInfo(true);
+          NetworkDatabase.Instance().saveCustomLink(customLink);
+        }
+      }
+    }
   }
 }

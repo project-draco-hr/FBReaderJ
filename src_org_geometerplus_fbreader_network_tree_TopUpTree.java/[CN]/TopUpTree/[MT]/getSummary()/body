@@ -1,0 +1,14 @@
+{
+  final NetworkAuthenticationManager mgr=Item.Link.authenticationManager();
+  try {
+    if (mgr.isAuthorised(false)) {
+      final String account=mgr.currentAccount();
+      if (account != null) {
+        return Item.Summary.replace("%s",account);
+      }
+    }
+  }
+ catch (  ZLNetworkException e) {
+  }
+  return null;
+}

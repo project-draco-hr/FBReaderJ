@@ -8,21 +8,20 @@
     textUrl="http" + uri.toString().substring(4);
   }
   setTextById(R.id.add_custom_catalog_url,textUrl);
-  String siteName=uri.getHost();
+  final String siteName=uri.getHost();
   if (isEmptyString(siteName)) {
     setErrorByKey("invalidUrl");
     return;
   }
-  if (siteName.startsWith("www.")) {
-    siteName=siteName.substring(4);
-  }
-  final ICustomNetworkLink link=OPDSLinkReader.createCustomLink(siteName,null,null,null,textUrl);
+  final HashMap<String,UrlInfo> infos=new HashMap<String,UrlInfo>();
+  infos.put(INetworkLink.URL_MAIN,new UrlInfo(textUrl));
+  myLink=new OPDSCustomLink(ICustomNetworkLink.INVALID_ID,siteName,null,null,infos);
   final Runnable loadInfoRunnable=new Runnable(){
     private String myError;
     public void run(){
       try {
         myError=null;
-        link.reloadInfo();
+        myLink.reloadInfo(false);
       }
  catch (      ZLNetworkException e) {
         myError=e.getMessage();
@@ -30,14 +29,13 @@
       runOnUiThread(new Runnable(){
         public void run(){
           if (myError == null) {
-            setTextById(R.id.add_custom_catalog_title,link.getTitle());
-            setTextById(R.id.add_custom_catalog_summary,link.getSummary());
-            myIcon=link.getIcon();
+            setTextById(R.id.add_custom_catalog_title,myLink.getTitle());
+            setTextById(R.id.add_custom_catalog_summary,myLink.getSummary());
             setExtraFieldsVisibility(true);
           }
  else {
             runErrorDialog(myError);
-            myIcon=null;
+            myLink=null;
           }
         }
       }

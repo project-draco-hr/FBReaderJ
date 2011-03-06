@@ -27,20 +27,16 @@
   }
 );
   final Intent intent=getIntent();
+  myLink=NetworkLibraryActivity.getLinkFromIntent(intent);
   final Uri uri=intent.getData();
-  myCatalogId=ICustomNetworkLink.INVALID_ID;
-  if (uri != null) {
-    myCatalogId=intent.getIntExtra(NetworkLibraryActivity.ADD_CATALOG_ID_KEY,myCatalogId);
-    if (myCatalogId != ICustomNetworkLink.INVALID_ID) {
-      setTextById(R.id.add_custom_catalog_url,uri.toString());
-      setTextById(R.id.add_custom_catalog_title,intent.getStringExtra(NetworkLibraryActivity.ADD_CATALOG_TITLE_KEY));
-      setTextById(R.id.add_custom_catalog_summary,intent.getStringExtra(NetworkLibraryActivity.ADD_CATALOG_SUMMARY_KEY));
-      myIcon=intent.getStringExtra(NetworkLibraryActivity.ADD_CATALOG_ICON_KEY);
-    }
- else {
-      loadInfoByUri(uri);
-    }
+  if (myLink != null) {
+    setTextById(R.id.add_custom_catalog_url,myLink.getUrlInfo(INetworkLink.URL_MAIN).URL);
+    setTextById(R.id.add_custom_catalog_title,myLink.getTitle());
+    setTextById(R.id.add_custom_catalog_summary,myLink.getSummary());
     setExtraFieldsVisibility(true);
+  }
+ else   if (uri != null) {
+    loadInfoByUri(uri);
   }
  else {
     setExtraFieldsVisibility(false);

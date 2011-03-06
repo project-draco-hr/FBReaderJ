@@ -1,0 +1,9 @@
+{
+  menu.setHeaderTitle(getTitleValue("refillTitle"));
+  if (Util.isSmsAccountRefillingSupported(activity,link)) {
+    addMenuItem(menu,REFILL_VIA_SMS_ITEM_ID,"refillViaSms");
+  }
+  if (Util.isBrowserAccountRefillingSupported(activity,link)) {
+    addMenuItem(menu,REFILL_VIA_BROWSER_ITEM_ID,"refillViaBrowser");
+  }
+}

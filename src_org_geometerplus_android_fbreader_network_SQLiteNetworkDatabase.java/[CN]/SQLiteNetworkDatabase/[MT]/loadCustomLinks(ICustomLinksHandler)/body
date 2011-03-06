@@ -1,19 +1,18 @@
 {
-  final Cursor cursor=myDatabase.rawQuery("SELECT link_id,title,site_name,summary,icon FROM CustomLinks",null);
-  final HashMap<String,String> linksMap=new HashMap<String,String>();
+  final Cursor cursor=myDatabase.rawQuery("SELECT link_id,title,site_name,summary FROM Links",null);
+  final HashMap<String,UrlInfo> linksMap=new HashMap<String,UrlInfo>();
   while (cursor.moveToNext()) {
     final int id=cursor.getInt(0);
     final String title=cursor.getString(1);
     final String siteName=cursor.getString(2);
     final String summary=cursor.getString(3);
-    final String icon=cursor.getString(4);
     linksMap.clear();
-    final Cursor linksCursor=myDatabase.rawQuery("SELECT key,url FROM CustomLinkUrls WHERE link_id = " + id,null);
+    final Cursor linksCursor=myDatabase.rawQuery("SELECT key,url,update_time FROM LinkUrls WHERE link_id = " + id,null);
     while (linksCursor.moveToNext()) {
-      linksMap.put(linksCursor.getString(0),linksCursor.getString(1));
+      linksMap.put(linksCursor.getString(0),new UrlInfo(linksCursor.getString(1),SQLiteUtil.getDate(linksCursor,2)));
     }
     linksCursor.close();
-    handler.handleCustomLinkData(id,siteName,title,summary,icon,linksMap);
+    handler.handleCustomLinkData(id,siteName,title,summary,linksMap);
   }
   cursor.close();
 }

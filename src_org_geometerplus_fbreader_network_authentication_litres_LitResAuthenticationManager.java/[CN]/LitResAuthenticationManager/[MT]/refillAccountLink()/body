@@ -6,7 +6,7 @@ synchronized (this) {
   if (sid.length() == 0) {
     return null;
   }
-  final String url=Link.getLink(INetworkLink.URL_REFILL_ACCOUNT);
+  final String url=Link.getUrlInfo(INetworkLink.URL_REFILL_ACCOUNT).URL;
   if (url == null) {
     return null;
   }

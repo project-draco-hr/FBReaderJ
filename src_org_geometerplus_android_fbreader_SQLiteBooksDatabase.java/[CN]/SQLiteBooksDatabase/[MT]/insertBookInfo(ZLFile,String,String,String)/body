@@ -2,8 +2,8 @@
   if (myInsertBookInfoStatement == null) {
     myInsertBookInfoStatement=myDatabase.compileStatement("INSERT OR IGNORE INTO Books (encoding,language,title,file_id) VALUES (?,?,?,?)");
   }
-  bindString(myInsertBookInfoStatement,1,encoding);
-  bindString(myInsertBookInfoStatement,2,language);
+  SQLiteUtil.bindString(myInsertBookInfoStatement,1,encoding);
+  SQLiteUtil.bindString(myInsertBookInfoStatement,2,language);
   myInsertBookInfoStatement.bindString(3,title);
   final FileInfoSet infoSet=new FileInfoSet(file);
   myInsertBookInfoStatement.bindLong(4,infoSet.getId(file));
