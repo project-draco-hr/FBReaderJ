@@ -2,39 +2,51 @@
   if (consumeByVisibility(activity,tree,actionCode)) {
     return true;
   }
+  final NetworkCatalogTree catalogTree=(NetworkCatalogTree)tree;
 switch (actionCode) {
 case OPEN_CATALOG_ITEM_ID:
-    doExpandCatalog(activity,(NetworkCatalogTree)tree);
-  return true;
+{
+      final NetworkCatalogItem item=catalogTree.Item;
+      if (item instanceof BasketItem && item.Link.basket().bookIds().size() == 0) {
+        UIUtil.showErrorMessage(activity,"emptyBasket");
+      }
+ else {
+        doExpandCatalog(activity,catalogTree);
+      }
+      return true;
+    }
 case OPEN_IN_BROWSER_ITEM_ID:
-Util.openInBrowser(activity,((NetworkCatalogTree)tree).Item.URLByType.get(NetworkCatalogItem.URL_HTML_PAGE));
+  Util.openInBrowser(activity,catalogTree.Item.URLByType.get(NetworkCatalogItem.URL_HTML_PAGE));
 return true;
 case RELOAD_ITEM_ID:
-doReloadCatalog(activity,(NetworkCatalogTree)tree);
+doReloadCatalog(activity,catalogTree);
 return true;
 case SIGNIN_ITEM_ID:
-NetworkDialog.show(activity,NetworkDialog.DIALOG_AUTHENTICATION,((NetworkCatalogTree)tree).Item.Link,null);
+AuthenticationDialog.show(activity,catalogTree.Item.Link,null);
 return true;
 case SIGNUP_ITEM_ID:
-Util.runRegistrationDialog(activity,((NetworkCatalogTree)tree).Item.Link);
+Util.runRegistrationDialog(activity,catalogTree.Item.Link);
 return true;
 case SIGNOUT_ITEM_ID:
-doSignOut(activity,(NetworkCatalogTree)tree);
+doSignOut(activity,catalogTree);
 return true;
 case REFILL_ACCOUNT_ITEM_ID:
-new RefillAccountActions().runStandalone(activity,((RefillAccountTree)activity.getDefaultTree()).Link);
+new RefillAccountActions().runStandalone(activity,catalogTree.Item.Link);
 return true;
 case CUSTOM_CATALOG_EDIT:
 {
-final ICustomNetworkLink link=(ICustomNetworkLink)((NetworkCatalogTree)tree).Item.Link;
-final String textUrl=link.getLink(INetworkLink.URL_MAIN);
-if (textUrl != null) {
-activity.startActivity(new Intent(activity,AddCustomCatalogActivity.class).setData(Uri.parse(textUrl)).putExtra(NetworkLibraryActivity.ADD_CATALOG_TITLE_KEY,link.getTitle()).putExtra(NetworkLibraryActivity.ADD_CATALOG_SUMMARY_KEY,link.getSummary()).putExtra(NetworkLibraryActivity.ADD_CATALOG_ICON_KEY,link.getIcon()).putExtra(NetworkLibraryActivity.ADD_CATALOG_ID_KEY,link.getId()));
-}
+final Intent intent=new Intent(activity,AddCustomCatalogActivity.class);
+NetworkLibraryActivity.addLinkToIntent(intent,(ICustomNetworkLink)catalogTree.Item.Link);
+activity.startActivity(intent);
 return true;
 }
 case CUSTOM_CATALOG_REMOVE:
-removeCustomLink((ICustomNetworkLink)((NetworkCatalogTree)tree).Item.Link);
+removeCustomLink((ICustomNetworkLink)catalogTree.Item.Link);
+return true;
+case BASKET_CLEAR:
+catalogTree.Item.Link.basket().clear();
+return true;
+case BASKET_BUY_ALL_BOOKS:
 return true;
 }
 return false;

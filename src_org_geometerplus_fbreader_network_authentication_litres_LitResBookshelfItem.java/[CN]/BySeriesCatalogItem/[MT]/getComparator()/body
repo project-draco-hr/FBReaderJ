@@ -1,0 +1,14 @@
+{
+  return new Comparator<NetworkItem>(){
+    public int compare(    NetworkItem item0,    NetworkItem item1){
+      final NetworkBookItem book0=(NetworkBookItem)item0;
+      final NetworkBookItem book1=(NetworkBookItem)item1;
+      int diff=book0.SeriesTitle.compareTo(book1.SeriesTitle);
+      if (diff == 0) {
+        diff=book0.IndexInSeries - book1.IndexInSeries;
+      }
+      return diff != 0 ? diff : book0.Title.compareTo(book1.Title);
+    }
+  }
+;
+}

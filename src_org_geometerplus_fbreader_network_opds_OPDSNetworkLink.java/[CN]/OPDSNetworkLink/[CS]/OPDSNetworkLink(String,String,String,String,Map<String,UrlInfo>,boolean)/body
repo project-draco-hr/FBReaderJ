@@ -1,0 +1,4 @@
+{
+  super(siteName,title,summary,language,infos);
+  myHasStableIdentifiers=hasStableIdentifiers;
+}

@@ -4,7 +4,7 @@
   final String password=((TextView)alert.findViewById(R.id.network_authentication_password)).getText().toString();
   if (login.length() == 0) {
     final String err=myResource.getResource("loginIsEmpty").getValue();
-    sendError(true,false,err);
+    sendError(err);
     return;
   }
   final NetworkAuthenticationManager mgr=myLink.authenticationManager();
@@ -19,10 +19,10 @@
       }
  catch (      ZLNetworkException e) {
         mgr.logOut();
-        sendError(true,false,e.getMessage());
+        sendError(e.getMessage());
         return;
       }
-      sendSuccess(false);
+      sendSuccess();
     }
   }
 ;

@@ -7,7 +7,7 @@
   Thread.setDefaultUncaughtExceptionHandler(new org.geometerplus.zlibrary.ui.android.library.UncaughtExceptionHandler(this));
   setContentView(new ImageView());
   final Uri uri=getIntent().getData();
-  if ("imagefile".equals(uri.getScheme())) {
+  if (ZLFileImage.SCHEME.equals(uri.getScheme())) {
     try {
       final String[] data=uri.getPath().split("\000");
       final ZLFileImage image=new ZLFileImage("image/auto",ZLFile.createFileByPath(data[0]),Integer.parseInt(data[1]),Integer.parseInt(data[2]));

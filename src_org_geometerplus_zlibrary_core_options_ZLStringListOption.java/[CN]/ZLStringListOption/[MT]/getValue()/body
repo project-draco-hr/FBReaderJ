@@ -1,0 +1,10 @@
+{
+  if (!myIsSynchronized) {
+    final String value=getConfigValue(listToString(myDefaultValue));
+    if (value != null) {
+      myValue=stringToList(value);
+    }
+    myIsSynchronized=true;
+  }
+  return Collections.unmodifiableList(myValue);
+}

@@ -11,7 +11,7 @@
     doLoading(new NetworkOperationData.OnNewItemListener(){
       private long myUpdateTime;
       private int myItemsNumber;
-      public void onNewItem(      INetworkLink link,      NetworkLibraryItem item){
+      public void onNewItem(      INetworkLink link,      NetworkItem item){
         myHandler.addItem(link,item);
         ++myItemsNumber;
         final long now=System.currentTimeMillis();

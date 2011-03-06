@@ -1,6 +1,6 @@
 {
   super.onPrepareDialog(id,dialog);
-  final NetworkDialog dlg=NetworkDialog.getDialog(id);
+  final AuthenticationDialog dlg=AuthenticationDialog.getDialog();
   if (dlg != null) {
     dlg.prepareDialog(this,dialog);
   }

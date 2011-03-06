@@ -1,4 +1,4 @@
 {
-  final INetworkLink link=((RefillAccountTree)tree).Link;
+  final INetworkLink link=((TopUpTree)tree).Item.Link;
   return runAction(activity,link,actionCode);
 }

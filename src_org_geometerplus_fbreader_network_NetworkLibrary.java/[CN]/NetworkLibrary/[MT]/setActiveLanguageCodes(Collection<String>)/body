@@ -4,4 +4,5 @@
   allCodes.removeAll(languageCodes());
   allCodes.addAll(codes);
   activeLanguageCodesOption().setValue(commaSeparatedString(allCodes));
+  invalidateChildren();
 }

@@ -4,7 +4,7 @@
   FBTree currentNode=null;
   int nodeCount=0;
   for (int i=0; i < ChildrenItems.size(); ++i) {
-    NetworkLibraryItem currentItem=ChildrenItems.get(i);
+    NetworkItem currentItem=ChildrenItems.get(i);
     if (!(currentItem instanceof NetworkCatalogItem)) {
       continue;
     }

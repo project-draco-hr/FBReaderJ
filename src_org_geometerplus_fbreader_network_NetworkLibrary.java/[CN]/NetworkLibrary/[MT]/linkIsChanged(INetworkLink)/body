@@ -1,0 +1,3 @@
+{
+  return link instanceof ICustomNetworkLink && ((ICustomNetworkLink)link).hasChanges();
+}

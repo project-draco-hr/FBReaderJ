@@ -1,0 +1,3 @@
+NetworkCatalogItem parent
+String resourceKey
+List<NetworkItem> children

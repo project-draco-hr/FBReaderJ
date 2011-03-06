@@ -3,4 +3,7 @@
   myDatabase.execSQL("CREATE TABLE CustomLinks(" + "link_id INTEGER PRIMARY KEY," + "title TEXT NOT NULL,"+ "site_name TEXT NOT NULL,"+ "summary TEXT,"+ "icon TEXT)");
   myDatabase.execSQL("INSERT INTO CustomLinks (link_id,title,site_name,summary,icon) SELECT link_id,title,site_name,summary,icon FROM CustomLinks_Obsolete");
   myDatabase.execSQL("DROP TABLE CustomLinks_Obsolete");
+  myDatabase.execSQL("CREATE TABLE LinkUrls(" + "key TEXT NOT NULL," + "link_id INTEGER NOT NULL REFERENCES CustomLinks(link_id),"+ "url TEXT,"+ "update_time INTEGER,"+ "CONSTRAINT LinkUrls_PK PRIMARY KEY (key, link_id))");
+  myDatabase.execSQL("INSERT INTO LinkUrls (key,link_id,url) SELECT key,link_id,url FROM CustomLinkUrls");
+  myDatabase.execSQL("DROP TABLE CustomLinkUrls");
 }

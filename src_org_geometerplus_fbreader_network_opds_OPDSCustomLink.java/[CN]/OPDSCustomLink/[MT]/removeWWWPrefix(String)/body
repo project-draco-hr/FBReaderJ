@@ -1,0 +1,6 @@
+{
+  if (siteName != null && siteName.startsWith("www.")) {
+    return siteName.substring(4);
+  }
+  return siteName;
+}

@@ -4,7 +4,7 @@
   menu.setHeaderTitle(tree.getName());
   boolean hasItems=false;
   final String catalogUrl=item.URLByType.get(NetworkCatalogItem.URL_CATALOG);
-  if (catalogUrl != null) {
+  if (catalogUrl != null && (!(item instanceof BasketItem) || item.Link.basket().bookIds().size() > 0)) {
     addMenuItem(menu,OPEN_CATALOG_ITEM_ID,"openCatalog");
     hasItems=true;
   }

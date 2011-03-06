@@ -13,4 +13,5 @@
     }
   }
   NetworkDatabase.Instance().saveCustomLink(link);
+  invalidateChildren();
 }

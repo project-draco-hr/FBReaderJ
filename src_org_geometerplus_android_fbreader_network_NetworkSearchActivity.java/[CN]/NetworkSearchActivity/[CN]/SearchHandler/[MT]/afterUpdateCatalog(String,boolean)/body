@@ -1,7 +1,7 @@
 {
   final ZLResource dialogResource=ZLResource.resource("dialog");
   ZLResource boxResource=null;
-  String msg=null;
+  String msg;
   if (errorMessage != null) {
     boxResource=dialogResource.getResource("networkError");
     msg=errorMessage;
@@ -10,13 +10,19 @@
     boxResource=dialogResource.getResource("emptySearchResults");
     msg=boxResource.getResource("message").getValue();
   }
-  if (msg != null) {
-    if (NetworkView.Instance().isInitialized()) {
-      final NetworkCatalogActivity activity=NetworkView.Instance().getOpenedActivity(SEARCH_RUNNABLE_KEY);
-      if (activity != null) {
-        final ZLResource buttonResource=dialogResource.getResource("button");
-        new AlertDialog.Builder(activity).setTitle(boxResource.getResource("title").getValue()).setMessage(msg).setIcon(0).setPositiveButton(buttonResource.getResource("ok").getValue(),null).create().show();
-      }
-    }
+ else {
+    return;
+  }
+  if (!NetworkView.Instance().isInitialized()) {
+    return;
+  }
+  final SearchItemTree tree=NetworkLibrary.Instance().getSearchItemTree();
+  if (tree == null) {
+    return;
+  }
+  final NetworkCatalogActivity activity=NetworkView.Instance().getOpenedActivity(tree.getUniqueKey());
+  if (activity != null) {
+    final ZLResource buttonResource=dialogResource.getResource("button");
+    new AlertDialog.Builder(activity).setTitle(boxResource.getResource("title").getValue()).setMessage(msg).setIcon(0).setPositiveButton(buttonResource.getResource("ok").getValue(),null).create().show();
   }
 }
