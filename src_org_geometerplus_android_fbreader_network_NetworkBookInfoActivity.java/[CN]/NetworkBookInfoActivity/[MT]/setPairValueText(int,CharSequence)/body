@@ -1,0 +1,4 @@
+{
+  final LinearLayout layout=(LinearLayout)findViewById(id);
+  ((TextView)layout.findViewById(R.id.book_info_value)).setText(text);
+}

@@ -1,0 +1,38 @@
+{
+  final String textUrl=getTextById(R.id.add_custom_catalog_url);
+  if (isEmptyString(textUrl)) {
+    setErrorByKey("urlIsEmpty");
+    return;
+  }
+  final String title=getTextById(R.id.add_custom_catalog_title);
+  final String summary=getTextById(R.id.add_custom_catalog_summary);
+  Uri uri=null;
+  try {
+    uri=Uri.parse(textUrl);
+    if (isEmptyString(uri.getScheme())) {
+      uri=Uri.parse("http://" + textUrl);
+    }
+    if (isEmptyString(uri.getHost())) {
+      setErrorByKey("invalidUrl");
+      return;
+    }
+  }
+ catch (  Throwable t) {
+    setErrorByKey("invalidUrl");
+    return;
+  }
+  if (myLink == null) {
+    loadInfoByUri(uri);
+  }
+ else   if (isEmptyString(title)) {
+    setErrorByKey("titleIsEmpty");
+  }
+ else {
+    myLink.setTitle(title);
+    myLink.setSummary(summary);
+    Intent intent=new Intent(NetworkLibraryActivity.ADD_CATALOG,uri,AddCustomCatalogActivity.this,NetworkLibraryActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+    NetworkLibraryActivity.addLinkToIntent(intent,myLink);
+    startActivity(intent);
+    finish();
+  }
+}

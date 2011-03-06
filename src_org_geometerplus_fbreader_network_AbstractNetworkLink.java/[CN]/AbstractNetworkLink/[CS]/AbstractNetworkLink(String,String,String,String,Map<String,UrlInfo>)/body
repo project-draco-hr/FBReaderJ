@@ -1,0 +1,7 @@
+{
+  mySiteName=siteName;
+  myTitle=title;
+  mySummary=summary;
+  myLanguage=language != null ? language : "multi";
+  myInfos=new TreeMap<String,UrlInfo>(infos);
+}

@@ -10,6 +10,6 @@
     }
   }
   if (local != null) {
-    activity.startActivity(new Intent(Intent.ACTION_VIEW,Uri.fromFile(new File(local)),activity.getApplicationContext(),FBReader.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+    activity.startActivity(new Intent(Intent.ACTION_VIEW,Uri.fromFile(new File(local)),activity.getApplicationContext(),FBReader.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
   }
 }

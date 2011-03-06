@@ -1,0 +1,5 @@
+{
+  final String textUrl=link.getUrlInfo(INetworkLink.URL_MAIN).URL;
+  intent.setData(Uri.parse(textUrl));
+  intent.putExtra(ADD_CATALOG_TITLE_KEY,link.getTitle()).putExtra(ADD_CATALOG_SUMMARY_KEY,link.getSummary()).putExtra(ADD_CATALOG_ID_KEY,link.getId()).putExtra(ADD_CATALOG_URLS_MAP_KEY,link.urlInfoMap());
+}

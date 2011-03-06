@@ -15,15 +15,7 @@
       m.appendReplacement(query,searchTerms);
     }
  else     if (name == "count") {
-      if (ItemsPerPage > 0) {
-        m.appendReplacement(query,String.valueOf(ItemsPerPage));
-      }
- else       if (optional) {
-        m.appendReplacement(query,"");
-      }
- else {
-        return null;
-      }
+      m.appendReplacement(query,String.valueOf(ItemsPerPage));
     }
  else     if (optional) {
       m.appendReplacement(query,"");

@@ -31,7 +31,7 @@
       break;
     }
   }
-  NetworkLibraryItem item;
+  NetworkItem item;
   if (hasBookLink) {
     item=readBookItem(entry);
   }

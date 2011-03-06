@@ -1,0 +1,10 @@
+{
+  final int visibility=show ? View.VISIBLE : View.GONE;
+  runOnUiThread(new Runnable(){
+    public void run(){
+      findViewById(R.id.add_custom_catalog_title_group).setVisibility(visibility);
+      findViewById(R.id.add_custom_catalog_summary_group).setVisibility(visibility);
+    }
+  }
+);
+}

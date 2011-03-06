@@ -1,0 +1,3 @@
+{
+  super(link,ZLResource.resource("networkView").getResource("refillTitle").getValue(),ZLResource.resource("networkView").getResource("refillSummary").getValue(),cover);
+}

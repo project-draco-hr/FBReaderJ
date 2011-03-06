@@ -14,13 +14,14 @@ synchronized (myLinks) {
           currentNode=nodeIterator.next();
         }
         if (!(currentNode instanceof NetworkCatalogTree)) {
+          toRemove.add(currentNode);
           currentNode=null;
           ++nodeCount;
           continue;
         }
         final INetworkLink nodeLink=((NetworkCatalogTree)currentNode).Item.Link;
-        if (linksEqual(link,nodeLink)) {
-          if (linkIsInvalid(link,nodeLink)) {
+        if (link == nodeLink) {
+          if (linkIsChanged(link)) {
             toRemove.add(currentNode);
           }
  else {
@@ -34,12 +35,12 @@ synchronized (myLinks) {
           INetworkLink newNodeLink=null;
           for (int j=i; j < links.size(); ++j) {
             final INetworkLink jlnk=links.get(j);
-            if (linksEqual(nodeLink,jlnk)) {
+            if (nodeLink == jlnk) {
               newNodeLink=jlnk;
               break;
             }
           }
-          if (newNodeLink == null || linkIsInvalid(newNodeLink,nodeLink)) {
+          if (newNodeLink == null || linkIsChanged(nodeLink)) {
             toRemove.add(currentNode);
             currentNode=null;
             ++nodeCount;
@@ -61,12 +62,12 @@ synchronized (myLinks) {
     if (currentNode == null) {
       currentNode=nodeIterator.next();
     }
-    if (currentNode instanceof NetworkCatalogTree) {
-      toRemove.add(currentNode);
-    }
+    toRemove.add(currentNode);
     currentNode=null;
   }
   for (  FBTree tree : toRemove) {
     tree.removeSelf();
   }
+  new AddCustomCatalogItemTree(myRootTree);
+  mySearchItemTree=new SearchItemTree(myRootTree,0);
 }

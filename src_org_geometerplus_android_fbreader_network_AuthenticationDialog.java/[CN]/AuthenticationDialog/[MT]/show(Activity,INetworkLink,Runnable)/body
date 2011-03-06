@@ -1,0 +1,3 @@
+{
+  getDialog().showInternal(activity,link,onSuccessRunnable);
+}

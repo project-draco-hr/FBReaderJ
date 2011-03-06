@@ -1,0 +1,12 @@
+{
+  myDatabase.execSQL("CREATE TABLE Links(" + "link_id INTEGER PRIMARY KEY," + "title TEXT NOT NULL,"+ "site_name TEXT NOT NULL,"+ "summary TEXT)");
+  myDatabase.execSQL("INSERT INTO Links (link_id,title,site_name,summary) SELECT link_id,title,site_name,summary FROM CustomLinks");
+  final Cursor cursor=myDatabase.rawQuery("SELECT link_id,icon FROM CustomLinks",null);
+  while (cursor.moveToNext()) {
+    final int id=cursor.getInt(0);
+    final String url=cursor.getString(1);
+    myDatabase.execSQL("INSERT INTO LinkUrls (key,link_id,url) VALUES " + "('icon'," + id + ",'"+ url+ "')");
+  }
+  cursor.close();
+  myDatabase.execSQL("DROP TABLE CustomLinks");
+}

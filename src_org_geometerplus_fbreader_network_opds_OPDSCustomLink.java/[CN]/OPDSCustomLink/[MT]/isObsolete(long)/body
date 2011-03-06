@@ -1,0 +1,12 @@
+{
+  final long old=System.currentTimeMillis() - milliSeconds;
+  final Date searchUpdateDate=getUrlInfo(URL_SEARCH).Updated;
+  if (searchUpdateDate == null || searchUpdateDate.getTime() < old) {
+    return true;
+  }
+  final Date iconUpdateDate=getUrlInfo(URL_ICON).Updated;
+  if (iconUpdateDate == null || iconUpdateDate.getTime() < old) {
+    return true;
+  }
+  return false;
+}

@@ -1,0 +1,8 @@
+{
+  return new Comparator<NetworkItem>(){
+    public int compare(    NetworkItem item0,    NetworkItem item1){
+      return item0.Title.compareTo(item1.Title);
+    }
+  }
+;
+}
