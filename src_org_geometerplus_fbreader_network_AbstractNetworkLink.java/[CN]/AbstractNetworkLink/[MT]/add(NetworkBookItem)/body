@@ -1,9 +1,9 @@
 {
-  if (supportsBasket() && book.Id != null && !"".equals(book.Id)) {
+  if (book.Id != null && !"".equals(book.Id)) {
     List<String> ids=myBooksInBasketOption.getValue();
-    if (ids.contains(book.Id)) {
+    if (!ids.contains(book.Id)) {
       ids=new ArrayList(ids);
-      ids.remove(book.Id);
+      ids.add(book.Id);
       myBooksInBasketOption.setValue(ids);
     }
   }

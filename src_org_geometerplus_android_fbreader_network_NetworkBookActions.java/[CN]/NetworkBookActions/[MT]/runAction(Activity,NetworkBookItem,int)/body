@@ -28,10 +28,10 @@ case SHOW_BOOK_ACTIVITY_ITEM_ID:
 NetworkView.Instance().showBookInfoActivity(activity,book);
 return true;
 case ADD_BOOK_TO_BASKET:
-book.Link.addToBasket(book);
+book.Link.basket().add(book);
 return true;
 case REMOVE_BOOK_FROM_BASKET:
-book.Link.removeFromBasket(book);
+book.Link.basket().remove(book);
 return true;
 }
 return false;

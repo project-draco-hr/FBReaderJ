@@ -11,14 +11,17 @@
     }
     builder.append(book.Id);
   }
-  for (  String bookId : Link.booksInBasket()) {
-    if (flag) {
-      builder.append(',');
-    }
+  final Basket basket=Link.basket();
+  if (basket != null) {
+    for (    String bookId : basket.bookIds()) {
+      if (flag) {
+        builder.append(',');
+      }
  else {
-      flag=true;
+        flag=true;
+      }
+      builder.append(bookId);
     }
-    builder.append(bookId);
   }
   return ZLNetworkUtil.appendParameter(URLByType.get(URL_CATALOG),"ids",builder.toString());
 }
