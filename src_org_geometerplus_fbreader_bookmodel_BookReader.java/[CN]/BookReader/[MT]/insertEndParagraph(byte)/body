@@ -1,8 +1,8 @@
 {
   final ZLTextWritableModel textModel=myCurrentTextModel;
-  if ((textModel != null) && mySectionContainsRegularContents) {
+  if (textModel != null && mySectionContainsRegularContents) {
     int size=textModel.getParagraphsNumber();
-    if ((size > 0) && (textModel.getParagraph(size - 1).getKind() != kind)) {
+    if (size > 0 && textModel.getParagraph(size - 1).getKind() != kind) {
       textModel.createParagraph(kind);
       mySectionContainsRegularContents=false;
     }
