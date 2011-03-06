@@ -10,10 +10,10 @@
   }
   finally {
     myForceReload=true;
-    ArrayList<NetworkLibraryItem> children=new ArrayList<NetworkLibraryItem>(mgr.purchasedBooks());
+    ArrayList<NetworkItem> children=new ArrayList<NetworkItem>(mgr.purchasedBooks());
     if (children.size() <= 5) {
       Collections.sort(children,new NetworkBookItemComparator());
-      for (      NetworkLibraryItem item : children) {
+      for (      NetworkItem item : children) {
         listener.onNewItem(Link,item);
       }
     }

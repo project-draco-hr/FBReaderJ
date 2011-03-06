@@ -1,6 +1,6 @@
 {
-  return new Comparator<NetworkLibraryItem>(){
-    public int compare(    NetworkLibraryItem item0,    NetworkLibraryItem item1){
+  return new Comparator<NetworkItem>(){
+    public int compare(    NetworkItem item0,    NetworkItem item1){
       final NetworkBookItem book0=(NetworkBookItem)item0;
       final NetworkBookItem book1=(NetworkBookItem)item1;
       int diff=book0.SeriesTitle.compareTo(book1.SeriesTitle);

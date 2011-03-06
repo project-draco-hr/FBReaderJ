@@ -1,0 +1,3 @@
+String errorMessage
+boolean interrupted
+Set<NetworkItem> uncommitedItems

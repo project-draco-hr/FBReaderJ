@@ -1,5 +1,5 @@
 {
-  for (  NetworkLibraryItem child : myChildren) {
+  for (  NetworkItem child : myChildren) {
     listener.onNewItem(Link,child);
   }
   listener.commitItems(Link);

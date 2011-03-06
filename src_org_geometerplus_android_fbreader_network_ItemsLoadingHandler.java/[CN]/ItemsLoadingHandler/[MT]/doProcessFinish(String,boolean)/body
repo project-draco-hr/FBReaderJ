@@ -1,7 +1,7 @@
 {
-  HashSet<NetworkLibraryItem> uncommitedItems=new HashSet<NetworkLibraryItem>();
+  HashSet<NetworkItem> uncommitedItems=new HashSet<NetworkItem>();
 synchronized (myUncommitedItems) {
-    for (    LinkedList<NetworkLibraryItem> items : myUncommitedItems.values()) {
+    for (    LinkedList<NetworkItem> items : myUncommitedItems.values()) {
       uncommitedItems.addAll(items);
     }
   }
