@@ -5,10 +5,18 @@
   final NetworkCatalogTree catalogTree=(NetworkCatalogTree)tree;
 switch (actionCode) {
 case OPEN_CATALOG_ITEM_ID:
-    doExpandCatalog(activity,catalogTree);
-  return true;
+{
+      final NetworkCatalogItem item=catalogTree.Item;
+      if (item instanceof BasketItem && item.Link.basket().bookIds().size() == 0) {
+        UIUtil.showErrorMessage(activity,"emptyBasket");
+      }
+ else {
+        doExpandCatalog(activity,catalogTree);
+      }
+      return true;
+    }
 case OPEN_IN_BROWSER_ITEM_ID:
-Util.openInBrowser(activity,catalogTree.Item.URLByType.get(NetworkCatalogItem.URL_HTML_PAGE));
+  Util.openInBrowser(activity,catalogTree.Item.URLByType.get(NetworkCatalogItem.URL_HTML_PAGE));
 return true;
 case RELOAD_ITEM_ID:
 doReloadCatalog(activity,catalogTree);
