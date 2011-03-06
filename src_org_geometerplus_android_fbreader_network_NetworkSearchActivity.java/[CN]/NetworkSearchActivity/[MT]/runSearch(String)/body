@@ -11,5 +11,5 @@
   NetworkView.Instance().fireModelChangedAsync();
   final SearchHandler handler=new SearchHandler(tree);
   NetworkView.Instance().startItemsLoading(this,tree.getUniqueKey(),new SearchRunnable(handler,pattern));
-  NetworkView.Instance().openTree(this,tree);
+  Util.openTree(this,tree);
 }

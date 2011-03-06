@@ -4,14 +4,15 @@
     finish();
     return;
   }
-  myBook=NetworkView.Instance().getBookInfoItem();
-  if (myBook == null) {
+  final NetworkTree tree=Util.getTreeFromIntent(getIntent());
+  if (!(tree instanceof NetworkBookTree)) {
     finish();
     return;
   }
+  myTree=(NetworkBookTree)tree;
   myConnection=new BookDownloaderServiceConnection();
   bindService(new Intent(getApplicationContext(),BookDownloaderService.class),myConnection,BIND_AUTO_CREATE);
-  setTitle(myBook.Title);
+  setTitle(myTree.Book.Title);
   myMainView=getLayoutInflater().inflate(R.layout.network_book,null,false);
   setContentView(myMainView);
   myMainView.setOnCreateContextMenuListener(this);
