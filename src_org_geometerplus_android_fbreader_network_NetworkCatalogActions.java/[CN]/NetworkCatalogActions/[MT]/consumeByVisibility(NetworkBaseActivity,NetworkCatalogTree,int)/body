@@ -1,0 +1,20 @@
+{
+switch (tree.Item.getVisibility()) {
+case B3_TRUE:
+    return false;
+case B3_UNDEFINED:
+  AuthenticationDialog.show(activity,tree.Item.Link,new Runnable(){
+    public void run(){
+      if (tree.Item.getVisibility() != ZLBoolean3.B3_TRUE) {
+        return;
+      }
+      if (actionCode != SIGNIN_ITEM_ID) {
+        runAction(activity,tree,actionCode);
+      }
+    }
+  }
+);
+break;
+}
+return true;
+}

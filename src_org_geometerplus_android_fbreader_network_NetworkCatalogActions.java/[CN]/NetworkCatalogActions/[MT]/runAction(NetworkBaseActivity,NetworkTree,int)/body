@@ -1,8 +1,8 @@
 {
-  if (consumeByVisibility(activity,tree,actionCode)) {
+  final NetworkCatalogTree catalogTree=(NetworkCatalogTree)tree;
+  if (consumeByVisibility(activity,catalogTree,actionCode)) {
     return true;
   }
-  final NetworkCatalogTree catalogTree=(NetworkCatalogTree)tree;
 switch (actionCode) {
 case OPEN_CATALOG_ITEM_ID:
 {
