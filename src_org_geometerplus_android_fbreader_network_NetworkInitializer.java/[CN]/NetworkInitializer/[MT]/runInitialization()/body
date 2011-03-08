@@ -4,15 +4,14 @@
       String error=null;
       try {
         NetworkView.Instance().initialize();
-        if (myActivity.myIntent != null) {
-          myActivity.processIntent(myActivity.myIntent);
-          myActivity.myIntent=null;
+        if (myActivity instanceof NetworkLibraryActivity) {
+          ((NetworkLibraryActivity)myActivity).processSavedIntent();
         }
       }
  catch (      ZLNetworkException e) {
         error=e.getMessage();
       }
-      Initializator.this.end(error);
+      NetworkInitializer.this.end(error);
     }
   }
 ,myActivity);
