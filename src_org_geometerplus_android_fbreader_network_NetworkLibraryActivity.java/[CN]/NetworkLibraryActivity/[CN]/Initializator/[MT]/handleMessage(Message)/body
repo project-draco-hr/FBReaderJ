@@ -10,6 +10,6 @@
     myActivity.prepareView();
   }
  else {
-    processResults((String)message.obj);
+    showTryAgainDialog(myActivity,(String)message.obj);
   }
 }

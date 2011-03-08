@@ -1,12 +1,12 @@
 {
   super.onResume();
   if (!NetworkView.Instance().isInitialized()) {
-    if (myInitializator == null) {
-      myInitializator=new Initializator(this);
-      myInitializator.start();
+    if (ourInitializator == null) {
+      ourInitializator=new Initializator(this);
+      ourInitializator.start();
     }
  else {
-      myInitializator.setActivity(this);
+      ourInitializator.setActivity(this);
     }
   }
  else {
