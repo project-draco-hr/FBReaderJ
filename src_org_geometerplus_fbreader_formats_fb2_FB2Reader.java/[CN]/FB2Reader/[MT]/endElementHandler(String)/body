@@ -68,6 +68,13 @@ break;
 case FB2Tag.BODY:
 myBookReader.popKind();
 myReadMainText=false;
+if (myReadMainText) {
+myBookReader.insertEndOfSectionParagraph();
+}
+if (mySectionDepth > 0) {
+myBookReader.endContentsParagraph();
+mySectionDepth=0;
+}
 myBookReader.unsetCurrentTextModel();
 break;
 case FB2Tag.A:
