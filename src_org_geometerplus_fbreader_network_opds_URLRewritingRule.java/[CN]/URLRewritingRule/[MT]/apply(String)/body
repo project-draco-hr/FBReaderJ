@@ -1,0 +1,25 @@
+{
+switch (myType) {
+default :
+    return url;
+case ADD_URL_PARAMETER:
+{
+    final String name=myParameters.get("name");
+    final String value=myParameters.get("value");
+    if (name == null || value == null) {
+      return url;
+    }
+    return ZLNetworkUtil.appendParameter(url,name,value);
+  }
+case REWRITE:
+{
+  final String pattern=myParameters.get("pattern");
+  final String replacement=myParameters.get("replacement");
+  if (pattern == null || replacement == null) {
+    return url;
+  }
+  final Matcher matcher=Pattern.compile(pattern).matcher(url);
+  return matcher.matches() ? replacement.replace("%s",matcher.group(1)) : url;
+}
+}
+}
