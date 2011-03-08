@@ -1,12 +1,12 @@
 {
   super.onCreate(icicle);
   if (!NetworkView.Instance().isInitialized()) {
-    if (NetworkLibraryActivity.ourInitializer == null) {
-      NetworkLibraryActivity.ourInitializer=new NetworkInitializer(this);
-      NetworkLibraryActivity.ourInitializer.start();
+    if (NetworkInitializer.Instance == null) {
+      new NetworkInitializer(this);
+      NetworkInitializer.Instance.start();
     }
  else {
-      NetworkLibraryActivity.ourInitializer.setActivity(this);
+      NetworkInitializer.Instance.setActivity(this);
     }
     return;
   }

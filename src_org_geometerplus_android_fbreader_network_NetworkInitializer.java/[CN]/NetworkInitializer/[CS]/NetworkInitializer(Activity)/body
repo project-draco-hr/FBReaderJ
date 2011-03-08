@@ -1,3 +1,4 @@
 {
-  myActivity=activity;
+  Instance=this;
+  setActivity(activity);
 }
