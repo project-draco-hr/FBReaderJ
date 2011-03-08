@@ -1,7 +1,13 @@
 {
   super.onCreate(icicle);
   if (!NetworkView.Instance().isInitialized()) {
-    finish();
+    if (NetworkLibraryActivity.ourInitializer == null) {
+      NetworkLibraryActivity.ourInitializer=new NetworkInitializer(this);
+      NetworkLibraryActivity.ourInitializer.start();
+    }
+ else {
+      NetworkLibraryActivity.ourInitializer.setActivity(this);
+    }
     return;
   }
   final NetworkTree tree=Util.getTreeFromIntent(getIntent());

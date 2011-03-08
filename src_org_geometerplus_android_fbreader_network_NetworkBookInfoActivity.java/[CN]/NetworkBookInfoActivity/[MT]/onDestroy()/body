@@ -1,4 +1,7 @@
 {
+  if (!NetworkView.Instance().isInitialized() && NetworkLibraryActivity.ourInitializer != null) {
+    NetworkLibraryActivity.ourInitializer.setActivity(null);
+  }
   if (myConnection != null) {
     unbindService(myConnection);
     myConnection=null;
