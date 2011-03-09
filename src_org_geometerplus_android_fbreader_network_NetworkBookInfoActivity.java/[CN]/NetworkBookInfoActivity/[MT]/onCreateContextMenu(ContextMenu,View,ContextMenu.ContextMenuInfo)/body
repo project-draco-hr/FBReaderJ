@@ -1,3 +1,3 @@
 {
-  NetworkView.Instance().getTopUpActions().buildContextMenu(this,menu,myTree.Book.Link);
+  NetworkView.Instance().getTopUpActions().buildContextMenu(this,menu,myBook.Link);
 }

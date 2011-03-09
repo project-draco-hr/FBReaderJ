@@ -1,0 +1,35 @@
+{
+switch (actionCode) {
+case DOWNLOAD_BOOK_ITEM_ID:
+    doDownloadBook(activity,book,false);
+  return true;
+case DOWNLOAD_DEMO_ITEM_ID:
+doDownloadBook(activity,book,true);
+return true;
+case READ_BOOK_ITEM_ID:
+doReadBook(activity,book,false);
+return true;
+case READ_DEMO_ITEM_ID:
+doReadBook(activity,book,true);
+return true;
+case DELETE_BOOK_ITEM_ID:
+tryToDeleteBook(activity,book,false);
+return true;
+case DELETE_DEMO_ITEM_ID:
+tryToDeleteBook(activity,book,true);
+return true;
+case BUY_DIRECTLY_ITEM_ID:
+doBuyDirectly(activity,book);
+return true;
+case BUY_IN_BROWSER_ITEM_ID:
+doBuyInBrowser(activity,book);
+return true;
+case ADD_BOOK_TO_BASKET:
+book.Link.basket().add(book);
+return true;
+case REMOVE_BOOK_FROM_BASKET:
+book.Link.basket().remove(book);
+return true;
+}
+return false;
+}

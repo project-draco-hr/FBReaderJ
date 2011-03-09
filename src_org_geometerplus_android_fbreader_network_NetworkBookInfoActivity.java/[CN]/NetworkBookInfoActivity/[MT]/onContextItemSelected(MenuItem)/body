@@ -1,4 +1,4 @@
 {
-  RefillAccountActions.runAction(this,myTree.Book.Link,item.getItemId());
+  RefillAccountActions.runAction(this,myBook.Link,item.getItemId());
   return true;
 }

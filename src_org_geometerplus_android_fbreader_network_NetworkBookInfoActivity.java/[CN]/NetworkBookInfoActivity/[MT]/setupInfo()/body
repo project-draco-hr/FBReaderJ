@@ -1,5 +1,4 @@
 {
-  final NetworkBookItem book=myTree.Book;
   setTextFromResource(R.id.network_book_info_title,"bookInfo");
   setPairLabelTextFromResource(R.id.network_book_title,"title");
   setPairLabelTextFromResource(R.id.network_book_authors,"authors");
@@ -7,11 +6,11 @@
   setPairLabelTextFromResource(R.id.network_book_series_index,"indexInSeries");
   setPairLabelTextFromResource(R.id.network_book_tags,"tags");
   setPairLabelTextFromResource(R.id.network_book_catalog,"catalog");
-  setPairValueText(R.id.network_book_title,book.Title);
-  if (book.Authors.size() > 0) {
+  setPairValueText(R.id.network_book_title,myBook.Title);
+  if (myBook.Authors.size() > 0) {
     findViewById(R.id.network_book_authors).setVisibility(View.VISIBLE);
     final StringBuilder authorsText=new StringBuilder();
-    for (    NetworkBookItem.AuthorData author : book.Authors) {
+    for (    NetworkBookItem.AuthorData author : myBook.Authors) {
       if (authorsText.length() > 0) {
         authorsText.append(", ");
       }
@@ -22,11 +21,11 @@
  else {
     findViewById(R.id.network_book_authors).setVisibility(View.GONE);
   }
-  if (book.SeriesTitle != null) {
+  if (myBook.SeriesTitle != null) {
     findViewById(R.id.network_book_series_title).setVisibility(View.VISIBLE);
-    setPairValueText(R.id.network_book_series_title,book.SeriesTitle);
-    if (book.IndexInSeries > 0) {
-      setPairValueText(R.id.network_book_series_index,String.valueOf(book.IndexInSeries));
+    setPairValueText(R.id.network_book_series_title,myBook.SeriesTitle);
+    if (myBook.IndexInSeries > 0) {
+      setPairValueText(R.id.network_book_series_index,String.valueOf(myBook.IndexInSeries));
       findViewById(R.id.network_book_series_index).setVisibility(View.VISIBLE);
     }
  else {
@@ -37,10 +36,10 @@
     findViewById(R.id.network_book_series_title).setVisibility(View.GONE);
     findViewById(R.id.network_book_series_index).setVisibility(View.GONE);
   }
-  if (book.Tags.size() > 0) {
+  if (myBook.Tags.size() > 0) {
     findViewById(R.id.network_book_tags).setVisibility(View.VISIBLE);
     final StringBuilder tagsText=new StringBuilder();
-    for (    String tag : book.Tags) {
+    for (    String tag : myBook.Tags) {
       if (tagsText.length() > 0) {
         tagsText.append(", ");
       }
@@ -51,5 +50,5 @@
  else {
     findViewById(R.id.network_book_tags).setVisibility(View.GONE);
   }
-  setPairValueText(R.id.network_book_catalog,book.Link.getTitle());
+  setPairValueText(R.id.network_book_catalog,myBook.Link.getTitle());
 }

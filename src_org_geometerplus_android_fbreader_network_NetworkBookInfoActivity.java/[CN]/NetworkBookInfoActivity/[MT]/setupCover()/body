@@ -6,7 +6,7 @@
   final int maxHeight=metrics.heightPixels * 2 / 3;
   final int maxWidth=maxHeight * 2 / 3;
   Bitmap coverBitmap=null;
-  final ZLImage cover=NetworkTree.createCover(myTree.Book);
+  final ZLImage cover=NetworkTree.createCover(myBook);
   if (cover != null) {
     ZLAndroidImageData data=null;
     final ZLAndroidImageManager mgr=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
