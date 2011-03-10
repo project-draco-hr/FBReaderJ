@@ -1,5 +1,4 @@
 {
-  System.err.println("onCreateContextMenu -1");
   if (menuInfo != null) {
     final int position=((AdapterView.AdapterContextMenuInfo)menuInfo).position;
     final NetworkTree tree=(NetworkTree)getListAdapter().getItem(position);
