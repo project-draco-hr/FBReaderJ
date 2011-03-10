@@ -1,5 +1,5 @@
 {
-  super(parent.Link,resource.getValue(),resource.getResource("summary").getValue(),"",parent.URLByType);
+  super(parent.Link,resource.getValue(),resource.getResource("summary").getValue(),"",Accessibility.ALWAYS,flags);
   for (  NetworkItem child : children) {
     if (accepts(child)) {
       myChildren.add(child);

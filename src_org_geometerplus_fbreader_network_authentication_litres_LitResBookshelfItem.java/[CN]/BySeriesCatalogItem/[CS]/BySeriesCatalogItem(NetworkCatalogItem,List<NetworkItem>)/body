@@ -1,3 +1,3 @@
 {
-  super(parent,"bySeries",children);
+  super(parent,"bySeries",children,FLAG_SHOW_AUTHOR | FLAG_GROUP_BY_SERIES);
 }

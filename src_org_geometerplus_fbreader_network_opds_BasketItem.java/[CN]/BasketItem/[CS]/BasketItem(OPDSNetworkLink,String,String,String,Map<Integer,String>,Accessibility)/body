@@ -1,4 +1,4 @@
 {
-  super(link,title,summary,cover,urlByType,accessibility,CatalogType.BY_SERIES);
+  super(link,title,summary,cover,urlByType,accessibility,FLAGS_DEFAULT & ~FLAGS_GROUP);
   link.setSupportsBasket();
 }

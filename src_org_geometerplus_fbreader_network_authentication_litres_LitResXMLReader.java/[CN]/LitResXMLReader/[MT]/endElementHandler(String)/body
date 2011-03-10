@@ -22,7 +22,6 @@ if (TAG_BOOK == tag) {
   myIndexInSeries=0;
   myAuthors.clear();
   myTags.clear();
-  myURLByType.clear();
   myReferences.clear();
   myState=CATALOG;
 }
