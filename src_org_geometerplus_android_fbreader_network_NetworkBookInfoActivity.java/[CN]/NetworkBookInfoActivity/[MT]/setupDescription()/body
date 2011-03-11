@@ -1,10 +1,7 @@
 {
   setTextFromResource(R.id.network_book_description_title,"description");
-  final String description;
-  if (myBook.Summary != null) {
-    description=myBook.Summary;
-  }
- else {
+  String description=myBook.Summary;
+  if (description == null) {
     description=myResource.getResource("noDescription").getValue();
   }
   setTextById(R.id.network_book_description,description);

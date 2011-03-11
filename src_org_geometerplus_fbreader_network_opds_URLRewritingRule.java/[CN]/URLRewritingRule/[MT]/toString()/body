@@ -1,3 +1,0 @@
-{
-  return "Rule: {type=" + Type + "; apply="+ Apply+ "; name="+ Name+ "; value="+ Value+ "}";
-}

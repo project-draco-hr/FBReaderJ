@@ -1,4 +1,5 @@
 {
+  endParagraph();
   final ZLTextWritableModel textModel=myCurrentTextModel;
   if (textModel != null) {
     textModel.createParagraph(kind);

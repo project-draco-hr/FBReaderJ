@@ -1,12 +1,12 @@
 {
-  final NetworkCatalogTree catalogTree=(NetworkCatalogTree)tree;
-switch (catalogTree.Item.getVisibility()) {
+  final NetworkCatalogItem item=((NetworkCatalogTree)tree).Item;
+switch (item.getVisibility()) {
 case B3_TRUE:
     return false;
 case B3_UNDEFINED:
   AuthenticationDialog.show(activity,((NetworkCatalogTree)tree).Item.Link,new Runnable(){
     public void run(){
-      if (catalogTree.Item.getVisibility() != ZLBoolean3.B3_TRUE) {
+      if (item.getVisibility() != ZLBoolean3.B3_TRUE) {
         return;
       }
       if (actionCode != SIGNIN_ITEM_ID) {

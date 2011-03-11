@@ -1,0 +1,18 @@
+{
+  if (myActivity == null) {
+    return;
+  }
+ else   if (message.what == 0) {
+    runInitialization();
+  }
+ else   if (message.obj == null) {
+    if (myActivity instanceof NetworkLibraryActivity) {
+      final NetworkLibraryActivity a=(NetworkLibraryActivity)myActivity;
+      a.startService(new Intent(a.getApplicationContext(),LibraryInitializationService.class));
+      a.prepareView();
+    }
+  }
+ else {
+    showTryAgainDialog(myActivity,(String)message.obj);
+  }
+}
