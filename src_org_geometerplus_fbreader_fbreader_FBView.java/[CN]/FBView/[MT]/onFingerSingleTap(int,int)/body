@@ -20,6 +20,6 @@
     myReader.doAction(ActionCode.PROCESS_HYPERLINK);
     return true;
   }
-  myReader.doAction(getZoneMap().getActionByCoordinates(x,y,myContext.getWidth(),myContext.getHeight()));
+  myReader.doAction(getZoneMap().getActionByCoordinates(x,y,myContext.getWidth(),myContext.getHeight(),isDoubleTapSupported() ? TapZoneMap.Tap.singleNotDoubleTap : TapZoneMap.Tap.singleTap));
   return true;
 }

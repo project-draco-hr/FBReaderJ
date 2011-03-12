@@ -1,6 +1,0 @@
-{
-  if (width == 0 || height == 0) {
-    return null;
-  }
-  return myZoneMap.get(new Zone(myHorizontalSize * x / width,myVerticalSize * y / height));
-}

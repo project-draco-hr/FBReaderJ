@@ -2,11 +2,6 @@
   if (super.onFingerDoubleTap(x,y)) {
     return true;
   }
-  if (y <= myContext.getHeight() / 2) {
-    myReader.doAction(ActionCode.SHOW_NAVIGATION);
-  }
- else {
-    myReader.doAction(ActionCode.SHOW_MENU);
-  }
+  myReader.doAction(getZoneMap().getActionByCoordinates(x,y,myContext.getWidth(),myContext.getHeight(),TapZoneMap.Tap.doubleTap));
   return true;
 }

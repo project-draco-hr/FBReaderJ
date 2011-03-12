@@ -1,11 +1,15 @@
 {
   try {
     if ("zone".equals(tag)) {
-      final String x=attributes.getValue("x");
-      final String y=attributes.getValue("y");
+      final int x=Integer.parseInt(attributes.getValue("x"));
+      final int y=Integer.parseInt(attributes.getValue("y"));
       final String action=attributes.getValue("action");
-      if (x != null && y != null && action != null) {
-        myZoneMap.put(new Zone(Integer.parseInt(x),Integer.parseInt(y)),action);
+      final String action2=attributes.getValue("action2");
+      if (action != null) {
+        myZoneMap.put(new Zone(x,y),action);
+      }
+      if (action2 != null) {
+        myZoneMap2.put(new Zone(x,y),action2);
       }
     }
  else     if ("tapZones".equals(tag)) {
@@ -19,7 +23,7 @@
       }
     }
   }
- catch (  NumberFormatException e) {
+ catch (  Throwable e) {
   }
   return false;
 }
