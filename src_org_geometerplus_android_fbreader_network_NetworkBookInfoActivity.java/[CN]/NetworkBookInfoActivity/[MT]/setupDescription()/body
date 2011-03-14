@@ -1,6 +1,6 @@
 {
   setTextFromResource(R.id.network_book_description_title,"description");
-  String description=myTree.Book.Summary;
+  String description=myBook.Summary;
   if (description == null) {
     description=myResource.getResource("noDescription").getValue();
   }

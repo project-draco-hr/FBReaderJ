@@ -1,7 +1,6 @@
 {
   if (ADD_CATALOG.equals(intent.getAction())) {
     final ICustomNetworkLink link=getLinkFromIntent(intent);
-    System.err.println("LINK = " + link);
     if (link != null) {
       runOnUiThread(new Runnable(){
         public void run(){

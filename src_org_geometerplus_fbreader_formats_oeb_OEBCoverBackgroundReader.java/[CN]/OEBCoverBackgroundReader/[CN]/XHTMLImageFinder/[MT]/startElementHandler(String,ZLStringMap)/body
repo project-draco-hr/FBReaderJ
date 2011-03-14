@@ -8,7 +8,7 @@
     href=getAttributeValue(attributes,XLink,"href");
   }
   if (href != null) {
-    myImage=new ZLFileImage(MIME_IMAGE_AUTO,ZLFile.createFileByPath(myXHTMLPathPrefix + href));
+    myImage=new ZLFileImage(MIME_IMAGE_AUTO,ZLFile.createFileByPath(myXHTMLPathPrefix + MiscUtil.decodeHtmlReference(href)));
     return true;
   }
   return false;

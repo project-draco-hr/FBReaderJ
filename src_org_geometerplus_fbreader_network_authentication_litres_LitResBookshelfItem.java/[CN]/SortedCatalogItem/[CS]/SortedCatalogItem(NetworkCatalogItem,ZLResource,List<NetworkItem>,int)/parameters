@@ -1,0 +1,4 @@
+NetworkCatalogItem parent
+ZLResource resource
+List<NetworkItem> children
+int flags

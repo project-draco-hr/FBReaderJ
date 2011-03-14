@@ -3,10 +3,10 @@
   if (consumeByVisibility(activity,catalogTree,actionCode)) {
     return true;
   }
+  final NetworkCatalogItem item=catalogTree.Item;
 switch (actionCode) {
 case OPEN_CATALOG_ITEM_ID:
 {
-      final NetworkCatalogItem item=catalogTree.Item;
       if (item instanceof BasketItem && item.Link.basket().bookIds().size() == 0) {
         UIUtil.showErrorMessage(activity,"emptyBasket");
       }
@@ -16,35 +16,37 @@ case OPEN_CATALOG_ITEM_ID:
       return true;
     }
 case OPEN_IN_BROWSER_ITEM_ID:
-  Util.openInBrowser(activity,catalogTree.Item.URLByType.get(NetworkCatalogItem.URL_HTML_PAGE));
+  if (item instanceof NetworkURLCatalogItem) {
+    Util.openInBrowser(activity,((NetworkURLCatalogItem)item).URLByType.get(NetworkURLCatalogItem.URL_HTML_PAGE));
+  }
 return true;
 case RELOAD_ITEM_ID:
 doReloadCatalog(activity,catalogTree);
 return true;
 case SIGNIN_ITEM_ID:
-AuthenticationDialog.show(activity,catalogTree.Item.Link,null);
+AuthenticationDialog.show(activity,item.Link,null);
 return true;
 case SIGNUP_ITEM_ID:
-Util.runRegistrationDialog(activity,catalogTree.Item.Link);
+Util.runRegistrationDialog(activity,item.Link);
 return true;
 case SIGNOUT_ITEM_ID:
 doSignOut(activity,catalogTree);
 return true;
 case REFILL_ACCOUNT_ITEM_ID:
-new RefillAccountActions().runStandalone(activity,catalogTree.Item.Link);
+new RefillAccountActions().runStandalone(activity,item.Link);
 return true;
 case CUSTOM_CATALOG_EDIT:
 {
 final Intent intent=new Intent(activity,AddCustomCatalogActivity.class);
-NetworkLibraryActivity.addLinkToIntent(intent,(ICustomNetworkLink)catalogTree.Item.Link);
+NetworkLibraryActivity.addLinkToIntent(intent,(ICustomNetworkLink)item.Link);
 activity.startActivity(intent);
 return true;
 }
 case CUSTOM_CATALOG_REMOVE:
-removeCustomLink((ICustomNetworkLink)catalogTree.Item.Link);
+removeCustomLink((ICustomNetworkLink)item.Link);
 return true;
 case BASKET_CLEAR:
-catalogTree.Item.Link.basket().clear();
+item.Link.basket().clear();
 return true;
 case BASKET_BUY_ALL_BOOKS:
 return true;

@@ -1,0 +1,21 @@
+{
+  final NetworkCatalogItem item=((NetworkCatalogTree)tree).Item;
+switch (item.getVisibility()) {
+case B3_TRUE:
+    return false;
+case B3_UNDEFINED:
+  AuthenticationDialog.show(activity,item.Link,new Runnable(){
+    public void run(){
+      if (item.getVisibility() != ZLBoolean3.B3_TRUE) {
+        return;
+      }
+      if (actionCode != SIGNIN_ITEM_ID) {
+        runAction(activity,tree,actionCode);
+      }
+    }
+  }
+);
+break;
+}
+return true;
+}

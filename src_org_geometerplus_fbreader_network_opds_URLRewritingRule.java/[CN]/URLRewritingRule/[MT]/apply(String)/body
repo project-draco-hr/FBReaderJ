@@ -1,0 +1,19 @@
+{
+switch (myType) {
+default :
+    return url;
+case ADD_URL_PARAMETER:
+{
+    final String name=myParameters.get("name");
+    final String value=myParameters.get("value");
+    if (name == null || value == null) {
+      return url;
+    }
+    return ZLNetworkUtil.appendParameter(url,name,value);
+  }
+case REWRITE:
+{
+  return url;
+}
+}
+}

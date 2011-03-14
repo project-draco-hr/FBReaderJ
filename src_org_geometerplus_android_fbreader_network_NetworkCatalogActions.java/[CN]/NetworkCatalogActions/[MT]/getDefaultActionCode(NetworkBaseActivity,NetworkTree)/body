@@ -1,13 +1,16 @@
 {
-  final NetworkCatalogTree catalogTree=(NetworkCatalogTree)tree;
-  final NetworkCatalogItem item=catalogTree.Item;
-  if (item.URLByType.get(NetworkCatalogItem.URL_CATALOG) != null) {
+  final NetworkCatalogItem item=((NetworkCatalogTree)tree).Item;
+  if (!(item instanceof NetworkURLCatalogItem)) {
     return OPEN_CATALOG_ITEM_ID;
   }
-  if (item.URLByType.get(NetworkCatalogItem.URL_HTML_PAGE) != null) {
+  final NetworkURLCatalogItem urlItem=(NetworkURLCatalogItem)item;
+  if (urlItem.URLByType.get(NetworkURLCatalogItem.URL_CATALOG) != null) {
+    return OPEN_CATALOG_ITEM_ID;
+  }
+  if (urlItem.URLByType.get(NetworkURLCatalogItem.URL_HTML_PAGE) != null) {
     return OPEN_IN_BROWSER_ITEM_ID;
   }
-  if (item.getVisibility() == ZLBoolean3.B3_UNDEFINED && item.Link.authenticationManager() != null) {
+  if (urlItem.getVisibility() == ZLBoolean3.B3_UNDEFINED && urlItem.Link.authenticationManager() != null) {
     return SIGNIN_ITEM_ID;
   }
   return TREE_NO_ACTION;

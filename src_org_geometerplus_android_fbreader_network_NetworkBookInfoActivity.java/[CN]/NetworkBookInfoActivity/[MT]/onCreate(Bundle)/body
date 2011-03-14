@@ -1,23 +1,6 @@
 {
   super.onCreate(icicle);
-  if (!NetworkView.Instance().isInitialized()) {
-    finish();
-    return;
-  }
-  final NetworkTree tree=Util.getTreeFromIntent(getIntent());
-  if (!(tree instanceof NetworkBookTree)) {
-    finish();
-    return;
-  }
-  myTree=(NetworkBookTree)tree;
-  myConnection=new BookDownloaderServiceConnection();
-  bindService(new Intent(getApplicationContext(),BookDownloaderService.class),myConnection,BIND_AUTO_CREATE);
-  setTitle(myTree.Book.Title);
   myMainView=getLayoutInflater().inflate(R.layout.network_book,null,false);
   setContentView(myMainView);
   myMainView.setOnCreateContextMenuListener(this);
-  setupDescription();
-  setupInfo();
-  setupCover();
-  setupButtons();
 }

@@ -1,7 +1,7 @@
 {
   final ZLResource resource=ZLResource.resource("networkView");
   final int buttons[]=new int[]{R.id.network_book_button0,R.id.network_book_button1,R.id.network_book_button2,R.id.network_book_button3};
-  final Set<NetworkBookActions.Action> actions=NetworkBookActions.getContextMenuActions(myTree.Book,myConnection);
+  final Set<NetworkBookActions.Action> actions=NetworkBookActions.getContextMenuActions(myBook,myConnection);
   final boolean skipSecondButton=actions.size() < buttons.length && actions.size() % 2 == 1;
   int buttonNumber=0;
   for (  final NetworkBookActions.Action a : actions) {
@@ -24,7 +24,7 @@
     button.setVisibility(View.VISIBLE);
     button.setOnClickListener(new View.OnClickListener(){
       public void onClick(      View v){
-        NetworkBookActions.runActionStatic(NetworkBookInfoActivity.this,myTree,a.Id);
+        NetworkBookActions.runActionStatic(NetworkBookInfoActivity.this,myBook,a.Id);
         NetworkBookInfoActivity.this.updateView();
       }
     }
