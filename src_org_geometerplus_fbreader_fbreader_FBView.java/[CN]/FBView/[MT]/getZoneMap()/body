@@ -1,5 +1,5 @@
 {
-  final String id=ScrollingPreferences.Instance().TapZonesSchemeOption.getValue().toString();
+  final String id=ScrollingPreferences.Instance().HorizontalOption.getValue() ? "right_to_left" : "up";
   if (!id.equals(myZoneMapId)) {
     myZoneMap=new TapZoneMap(id);
     myZoneMapId=id;
