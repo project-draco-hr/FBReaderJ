@@ -1,0 +1,27 @@
+{
+  super.onResume();
+  if (!NetworkView.Instance().isInitialized()) {
+    if (NetworkInitializer.Instance == null) {
+      new NetworkInitializer(null);
+      NetworkInitializer.Instance.start();
+    }
+ else {
+      NetworkInitializer.Instance.setActivity(null);
+    }
+  }
+  if (myBook == null) {
+    final NetworkTree tree=Util.getTreeFromIntent(getIntent());
+    if (!(tree instanceof NetworkBookTree)) {
+      finish();
+      return;
+    }
+    myBook=((NetworkBookTree)tree).Book;
+    myConnection=new BookDownloaderServiceConnection();
+    bindService(new Intent(getApplicationContext(),BookDownloaderService.class),myConnection,BIND_AUTO_CREATE);
+    setTitle(myBook.Title);
+    setupDescription();
+    setupInfo();
+    setupCover();
+    setupButtons();
+  }
+}

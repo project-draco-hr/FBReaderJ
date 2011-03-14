@@ -1,0 +1,6 @@
+INetworkLink link
+String title
+String summary
+String cover
+Accessibility accessibility
+int flags

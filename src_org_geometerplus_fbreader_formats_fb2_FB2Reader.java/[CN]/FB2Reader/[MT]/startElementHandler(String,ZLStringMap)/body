@@ -99,15 +99,23 @@ myBookReader.pushKind(FBTextKind.TITLE);
 }
  else {
 myBookReader.pushKind(FBTextKind.SECTION_TITLE);
+if (!myBookReader.hasContentsData()) {
 myInsideTitle=true;
 myBookReader.enterTitle();
+}
 }
 break;
 case FB2Tag.BODY:
 ++myBodyCounter;
 myParagraphsBeforeBodyNumber=myBookReader.Model.BookTextModel.getParagraphsNumber();
-if ((myBodyCounter == 1) || (attributes.getValue("name") == null)) {
+final String name=attributes.getValue("name");
+if (myBodyCounter == 1 || !"notes".equals(name)) {
 myBookReader.setMainTextModel();
+if (name != null) {
+myBookReader.beginContentsParagraph();
+myBookReader.addContentsData(name.toCharArray());
+++mySectionDepth;
+}
 myReadMainText=true;
 }
 myBookReader.pushKind(FBTextKind.REGULAR);

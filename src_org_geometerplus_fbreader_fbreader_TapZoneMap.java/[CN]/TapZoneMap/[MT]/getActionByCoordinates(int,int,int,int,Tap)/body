@@ -1,0 +1,18 @@
+{
+  if (width == 0 || height == 0) {
+    return null;
+  }
+  final Zone zone=new Zone(myHorizontalSize * x / width,myVerticalSize * y / height);
+switch (tap) {
+case singleTap:
+{
+      final String action=myZoneMap.get(zone);
+      return action != null ? action : myZoneMap2.get(zone);
+    }
+case singleNotDoubleTap:
+  return myZoneMap.get(zone);
+case doubleTap:
+return myZoneMap2.get(zone);
+}
+return null;
+}

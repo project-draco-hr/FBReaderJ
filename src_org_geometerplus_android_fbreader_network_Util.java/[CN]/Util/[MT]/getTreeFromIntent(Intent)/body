@@ -1,0 +1,5 @@
+{
+  final NetworkLibrary library=NetworkLibrary.Instance();
+  final NetworkTree.Key key=(NetworkTree.Key)intent.getSerializableExtra(TREE_KEY_KEY);
+  return library.getTreeByKey(key);
+}

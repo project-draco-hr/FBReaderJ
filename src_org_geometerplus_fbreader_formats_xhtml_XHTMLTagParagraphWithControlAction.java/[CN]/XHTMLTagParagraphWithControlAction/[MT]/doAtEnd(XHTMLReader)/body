@@ -2,4 +2,11 @@
   final BookReader modelReader=reader.getModelReader();
   modelReader.endParagraph();
   modelReader.popKind();
+switch (myControl) {
+case FBTextKind.TITLE:
+case FBTextKind.H1:
+case FBTextKind.H2:
+    modelReader.exitTitle();
+  break;
+}
 }
