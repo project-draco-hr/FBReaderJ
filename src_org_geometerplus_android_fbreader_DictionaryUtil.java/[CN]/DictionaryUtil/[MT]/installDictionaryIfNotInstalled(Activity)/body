@@ -1,5 +1,5 @@
 {
-  if (PackageUtil.canBeStarted(activity,getDictionaryIntent("test"))) {
+  if (PackageUtil.canBeStarted(activity,getDictionaryIntent("test"),false)) {
     return;
   }
   final PackageInfo dictionaryInfo=getCurrentDictionaryInfo();

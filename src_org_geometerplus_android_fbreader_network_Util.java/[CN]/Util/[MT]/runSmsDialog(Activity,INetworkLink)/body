@@ -7,7 +7,7 @@
         intent.putExtra(entry.getKey(),entry.getValue());
       }
     }
-    if (PackageUtil.canBeStarted(activity,intent)) {
+    if (PackageUtil.canBeStarted(activity,intent,true)) {
       activity.startActivity(intent);
     }
   }
