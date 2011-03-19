@@ -4,7 +4,7 @@ switch (item.getVisibility()) {
 case B3_TRUE:
     return false;
 case B3_UNDEFINED:
-  AuthenticationDialog.show(activity,((NetworkCatalogTree)tree).Item.Link,new Runnable(){
+  AuthenticationDialog.show(activity,item.Link,new Runnable(){
     public void run(){
       if (item.getVisibility() != ZLBoolean3.B3_TRUE) {
         return;
