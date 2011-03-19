@@ -1,3 +1,0 @@
-{
-  return isBrowserAccountRefillingSupported(activity,link) || isSmsAccountRefillingSupported(activity,link);
-}

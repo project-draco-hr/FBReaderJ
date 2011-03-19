@@ -14,10 +14,10 @@
       if (mgr != null) {
         if (mgr.mayBeAuthorised(false)) {
           addMenuItem(menu,SIGNOUT_ITEM_ID,"signOut",mgr.currentUserName());
-          if (mgr.refillAccountLink() != null) {
+          if (Util.isTopupSupported(activity,item.Link)) {
             final String account=mgr.currentAccount();
             if (account != null) {
-              addMenuItem(menu,REFILL_ACCOUNT_ITEM_ID,"refillAccount",account);
+              addMenuItem(menu,TOPUP_ITEM_ID,"refillAccount",account);
             }
           }
         }

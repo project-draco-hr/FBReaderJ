@@ -1,0 +1,12 @@
+{
+  menu.setHeaderTitle(getTitleValue("refillTitle"));
+  if (Util.isSmsTopupSupported(activity,link)) {
+    addMenuItem(menu,TOPUP_VIA_CREDIT_CARD_ITEM_ID,"refillViaCreditCard");
+  }
+  if (Util.isSmsTopupSupported(activity,link)) {
+    addMenuItem(menu,TOPUP_VIA_SMS_ITEM_ID,"refillViaSms");
+  }
+  if (Util.isBrowserTopupSupported(activity,link)) {
+    addMenuItem(menu,TOPUP_VIA_BROWSER_ITEM_ID,"refillViaBrowser");
+  }
+}
