@@ -8,5 +8,8 @@
   if (activityInfo == null) {
     return false;
   }
+  if (!checkSignature) {
+    return true;
+  }
   return PackageManager.SIGNATURE_MATCH == manager.checkSignatures(context.getPackageName(),activityInfo.packageName);
 }
