@@ -2,7 +2,7 @@
   try {
     final InputStream stream=myFile.getInputStream();
     if (stream == null) {
-      return new byte[0];
+      return null;
     }
     final ArrayList<byte[]> data=new ArrayList<byte[]>();
     byte[] buffer;
@@ -25,11 +25,12 @@
       System.arraycopy(data.get(i),0,buffer,i * 4096,4096);
     }
     System.arraycopy(data.get(dataSizeMinus1),0,buffer,dataSizeMinus1 * 4096,sizeOfBufferData);
-    return buffer;
+    return new ByteArrayInputStream(buffer);
   }
  catch (  IOException e) {
+    return null;
   }
 catch (  DataFormatException e) {
+    return null;
   }
-  return new byte[0];
 }
