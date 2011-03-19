@@ -1,0 +1,5 @@
+{
+  final byte[] array=byteData();
+  System.err.println("returning ByteArrayInputStream from " + getClass().getName());
+  return array != null ? new ByteArrayInputStream(array) : null;
+}

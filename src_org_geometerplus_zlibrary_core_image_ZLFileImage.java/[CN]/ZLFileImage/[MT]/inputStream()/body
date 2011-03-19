@@ -1,0 +1,9 @@
+{
+  System.err.println("return SliceInputStream from " + getClass().getName());
+  try {
+    return new SliceInputStream(myFile.getInputStream(),myOffset,myLength);
+  }
+ catch (  IOException e) {
+    return null;
+  }
+}

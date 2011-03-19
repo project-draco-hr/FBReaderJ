@@ -1,0 +1,10 @@
+{
+  try {
+    decode();
+    System.err.println("returning FileInputStream");
+    return new FileInputStream(new File(decodedFileName()));
+  }
+ catch (  IOException e) {
+    return null;
+  }
+}
