@@ -1,0 +1,19 @@
+{
+  Runnable topupRunnable=null;
+switch (actionCode) {
+case TOPUP_VIA_SMS_ITEM_ID:
+    topupRunnable=smsTopupRunnable(activity,link);
+  break;
+case TOPUP_VIA_BROWSER_ITEM_ID:
+topupRunnable=browserTopupRunnable(activity,link);
+break;
+case TOPUP_VIA_CREDIT_CARD_ITEM_ID:
+topupRunnable=creditCardTopupRunnable(activity,link);
+break;
+}
+if (topupRunnable == null) {
+return false;
+}
+doTopup(activity,link,topupRunnable);
+return true;
+}

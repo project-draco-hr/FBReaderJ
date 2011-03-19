@@ -3,7 +3,7 @@
   addOptionsItem(menu,SIGNIN_ITEM_ID,"signIn");
   addOptionsItem(menu,SIGNUP_ITEM_ID,"signUp");
   addOptionsItem(menu,SIGNOUT_ITEM_ID,"signOut","");
-  addOptionsItem(menu,REFILL_ACCOUNT_ITEM_ID,"refillAccount");
+  addOptionsItem(menu,TOPUP_ITEM_ID,"topup");
   if (((NetworkCatalogTree)tree).Item instanceof BasketItem) {
     addOptionsItem(menu,BASKET_CLEAR,"clearBasket");
     addOptionsItem(menu,BASKET_BUY_ALL_BOOKS,"buyAllBooks");

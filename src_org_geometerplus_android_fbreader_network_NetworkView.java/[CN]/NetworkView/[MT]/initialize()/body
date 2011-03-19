@@ -6,8 +6,8 @@
   myActions.add(new NetworkBookActions());
   myActions.add(new NetworkCatalogActions());
   myActions.add(new SearchItemActions());
-  myTopUpActions=new RefillAccountActions();
-  myActions.add(myTopUpActions);
+  myTopupActions=new TopupActions();
+  myActions.add(myTopupActions);
   myActions.add(new AddCustomCatalogItemActions());
   myActions.trimToSize();
   myInitialized=true;
