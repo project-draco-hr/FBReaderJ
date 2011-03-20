@@ -1,3 +1,0 @@
-{
-  runTopupDialog(activity,link,CREDIT_CARD_TOPUP_ACTION);
-}

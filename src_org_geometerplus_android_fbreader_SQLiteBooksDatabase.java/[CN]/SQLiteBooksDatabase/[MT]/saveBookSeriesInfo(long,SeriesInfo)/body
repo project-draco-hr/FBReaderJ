@@ -21,7 +21,7 @@
     }
     myInsertBookSeriesStatement.bindLong(1,bookId);
     myInsertBookSeriesStatement.bindLong(2,seriesId);
-    myInsertBookSeriesStatement.bindLong(3,seriesInfo.Index);
+    myInsertBookSeriesStatement.bindDouble(3,seriesInfo.Index);
     myInsertBookSeriesStatement.execute();
   }
 }

@@ -1,3 +1,0 @@
-{
-  return testService(activity,SMS_TOPUP_ACTION,link.getUrlInfo(INetworkLink.URL_MAIN).URL);
-}

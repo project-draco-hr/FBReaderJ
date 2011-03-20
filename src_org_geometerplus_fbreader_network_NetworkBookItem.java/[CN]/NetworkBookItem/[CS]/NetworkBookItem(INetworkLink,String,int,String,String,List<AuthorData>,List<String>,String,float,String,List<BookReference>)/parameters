@@ -6,6 +6,6 @@ String summary
 List<AuthorData> authors
 List<String> tags
 String seriesTitle
-int indexInSeries
+float indexInSeries
 String cover
 List<BookReference> references
