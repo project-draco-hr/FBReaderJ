@@ -30,7 +30,7 @@
  else       if (attributes.getValue("name").equals("calibre:series_index")) {
         final String strIndex=attributes.getValue("content");
         try {
-          mySeriesIndex=Integer.parseInt(strIndex);
+          mySeriesIndex=Float.parseFloat(strIndex);
         }
  catch (        NumberFormatException e) {
         }

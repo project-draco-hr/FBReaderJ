@@ -1,0 +1,6 @@
+{
+  myDatabase.execSQL("ALTER TABLE BookSeries RENAME TO BookSeries_Obsolete");
+  myDatabase.execSQL("CREATE TABLE BookSeries(" + "series_id INTEGER NOT NULL REFERENCES Series(series_id)," + "book_id INTEGER NOT NULL UNIQUE REFERENCES Books(book_id),"+ "book_index REAL)");
+  myDatabase.execSQL("INSERT INTO BookSeries (series_id,book_id,book_index) SELECT series_id,book_id,book_index FROM BookSeries_Obsolete");
+  myDatabase.execSQL("DROP TABLE BookSeries_Obsolete");
+}
