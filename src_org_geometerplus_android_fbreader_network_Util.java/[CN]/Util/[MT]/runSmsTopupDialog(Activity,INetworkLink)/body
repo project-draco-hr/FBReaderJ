@@ -1,3 +1,0 @@
-{
-  runTopupDialog(activity,link,SMS_TOPUP_ACTION);
-}

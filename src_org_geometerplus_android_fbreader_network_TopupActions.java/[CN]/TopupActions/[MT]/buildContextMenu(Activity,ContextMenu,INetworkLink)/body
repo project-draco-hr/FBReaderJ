@@ -1,10 +1,13 @@
 {
   menu.setHeaderTitle(getTitleValue("topupTitle"));
-  if (Util.isCreditCardTopupSupported(activity,link)) {
+  if (Util.isTopupSupported(activity,link,Util.CREDIT_CARD_TOPUP_ACTION)) {
     addMenuItem(menu,TOPUP_VIA_CREDIT_CARD_ITEM_ID,"topupViaCreditCard");
   }
-  if (Util.isSmsTopupSupported(activity,link)) {
+  if (Util.isTopupSupported(activity,link,Util.SMS_TOPUP_ACTION)) {
     addMenuItem(menu,TOPUP_VIA_SMS_ITEM_ID,"topupViaSms");
+  }
+  if (Util.isTopupSupported(activity,link,Util.SELF_SERVICE_KIOSK_TOPUP_ACTION)) {
+    addMenuItem(menu,TOPUP_VIA_SELF_SERVICE_ITEM_ID,"topupViaSelfServiceKiosk");
   }
   if (Util.isBrowserTopupSupported(activity,link)) {
     addMenuItem(menu,TOPUP_VIA_BROWSER_ITEM_ID,"topupViaBrowser");
