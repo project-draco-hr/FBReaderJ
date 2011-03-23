@@ -1,0 +1,8 @@
+{
+  if (ZLMiscUtil.isEmptyString(key) || ZLMiscUtil.isEmptyString(actionId)) {
+    return;
+  }
+  final TreeMap<String,String> map=longPress ? myLongPressActionMap : myActionMap;
+  map.put(key,actionId);
+  myIsChanged=true;
+}

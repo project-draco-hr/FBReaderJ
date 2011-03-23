@@ -2,16 +2,20 @@
   if (!myIsChanged) {
     return;
   }
-  final HashMap<String,String> keymap=new HashMap<String,String>();
+  final TreeMap<String,String> keymap=new TreeMap<String,String>();
   new ZLKeyBindingsReader(keymap).readBindings();
+  final TreeSet<String> allKeys=new TreeSet(keymap.keySet());
+  allKeys.addAll(myActionMap.keySet());
+  allKeys.addAll(myLongPressActionMap.keySet());
   int counter=0;
-  for (Iterator<String> it=myBindingsMap.keySet().iterator(); it.hasNext(); ) {
-    final String key=it.next();
-    final String originalValue=keymap.get(key);
-    final String value=myBindingsMap.get(key);
-    if (!value.equals(originalValue)) {
-      new ZLStringOption(myName,BINDED_KEY + counter,"").setValue(key);
-      new ZLStringOption(myName,BINDED_ACTION + counter,"").setValue(value);
+  for (  final String key : allKeys) {
+    final String originalAction=keymap.get(key);
+    final String action=myActionMap.get(key);
+    final String longPressAction=myLongPressActionMap.get(key);
+    if (!ZLMiscUtil.equals(originalAction,action) || !ZLMiscUtil.isEmptyString(longPressAction)) {
+      new ZLStringOption(myName,KEY + counter,"").setValue(key);
+      new ZLStringOption(myName,ACTION + counter,"").setValue(action);
+      new ZLStringOption(myName,LONG_PRESS_ACTION + counter,"").setValue(longPressAction);
       ++counter;
     }
   }

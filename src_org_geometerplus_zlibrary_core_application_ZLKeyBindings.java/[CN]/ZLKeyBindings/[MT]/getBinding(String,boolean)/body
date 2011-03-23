@@ -1,0 +1,4 @@
+{
+  final TreeMap<String,String> map=longPress ? myLongPressActionMap : myActionMap;
+  return map.get(key);
+}

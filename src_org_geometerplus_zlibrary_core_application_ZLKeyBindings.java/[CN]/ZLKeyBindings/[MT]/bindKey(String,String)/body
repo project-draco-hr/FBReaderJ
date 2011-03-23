@@ -1,4 +1,0 @@
-{
-  myBindingsMap.put(key,actionId);
-  myIsChanged=true;
-}
