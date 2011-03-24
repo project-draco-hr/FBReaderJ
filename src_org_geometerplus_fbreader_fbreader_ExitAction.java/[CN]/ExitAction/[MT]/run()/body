@@ -1,0 +1,8 @@
+{
+  if (Reader.getCurrentView() != Reader.BookTextView) {
+    Reader.showBookTextView();
+  }
+ else {
+    Reader.closeWindow();
+  }
+}
