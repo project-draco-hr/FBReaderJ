@@ -2,8 +2,9 @@
   if ("binding".equals(tag)) {
     final String key=attributes.getValue("key");
     final String actionId=attributes.getValue("action");
-    if ((key != null) && (actionId != null)) {
-      myKeymap.put(key,actionId);
+    if (key != null && actionId != null) {
+      myKeyList.add(key);
+      myActionMap.put(key,createOption(key,false,actionId));
     }
   }
   return false;

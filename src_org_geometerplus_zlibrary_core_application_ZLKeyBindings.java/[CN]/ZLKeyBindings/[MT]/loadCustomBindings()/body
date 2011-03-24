@@ -1,8 +1,0 @@
-{
-  final int size=new ZLIntegerRangeOption(myName,BINDINGS_NUMBER,0,256,0).getValue();
-  for (int i=0; i < size; ++i) {
-    final String key=new ZLStringOption(myName,KEY + i,"").getValue();
-    bindKey(key,new ZLStringOption(myName,ACTION + i,"").getValue(),false);
-    bindKey(key,new ZLStringOption(myName,LONG_PRESS_ACTION + i,"").getValue(),true);
-  }
-}
