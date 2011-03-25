@@ -1,0 +1,6 @@
+{
+  super(context,rootResource,resourceKey);
+  setList(values);
+  setInitialValue(option.getValue());
+  myOption=option;
+}
