@@ -12,7 +12,8 @@ case FBHyperlinkType.EXTERNAL:
       }
     break;
 case FBHyperlinkType.INTERNAL:
-  Reader.tryOpenFootnote(hyperlink.Id);
+  Reader.Model.Book.markHyperlinkAsVisited(hyperlink.Id);
+Reader.tryOpenFootnote(hyperlink.Id);
 break;
 }
 return;

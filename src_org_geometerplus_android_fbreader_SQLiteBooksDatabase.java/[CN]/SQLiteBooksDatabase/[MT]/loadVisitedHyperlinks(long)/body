@@ -1,0 +1,9 @@
+{
+  final TreeSet<String> links=new TreeSet<String>();
+  final Cursor cursor=myDatabase.rawQuery("SELECT hyperlink_id FROM VisitedHyperlinks WHERE book_id = ?",new String[]{"" + bookId});
+  while (cursor.moveToNext()) {
+    links.add(cursor.getString(0));
+  }
+  cursor.close();
+  return links;
+}

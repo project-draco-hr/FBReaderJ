@@ -1,0 +1,12 @@
+{
+  final ColorProfile profile=myReader.getColorProfile();
+switch (hyperlink.Type) {
+default :
+case FBHyperlinkType.NONE:
+    return profile.RegularTextOption.getValue();
+case FBHyperlinkType.INTERNAL:
+  return myReader.Model.Book.isHyperlinkVisited(hyperlink.Id) ? profile.VisitedHyperlinkTextOption.getValue() : profile.HyperlinkTextOption.getValue();
+case FBHyperlinkType.EXTERNAL:
+return profile.HyperlinkTextOption.getValue();
+}
+}
