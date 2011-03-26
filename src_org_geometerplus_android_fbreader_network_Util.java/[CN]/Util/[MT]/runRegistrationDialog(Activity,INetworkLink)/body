@@ -1,7 +1,7 @@
 {
   try {
     final Intent intent=new Intent(REGISTRATION_ACTION,Uri.parse(link.getUrlInfo(INetworkLink.URL_SIGN_UP).URL));
-    if (PackageUtil.canBeStarted(activity,intent)) {
+    if (PackageUtil.canBeStarted(activity,intent,true)) {
       activity.startActivityForResult(new Intent(REGISTRATION_ACTION,Uri.parse(link.getUrlInfo(INetworkLink.URL_SIGN_UP).URL)),USER_REGISTRATION_REQUEST_CODE);
     }
   }

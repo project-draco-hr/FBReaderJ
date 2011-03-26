@@ -1,0 +1,8 @@
+{
+  final String actionId=keyBindings().getBinding(key,longPress);
+  if (actionId != null) {
+    final ZLAction action=myIdToActionMap.get(actionId);
+    return action != null && action.checkAndRun();
+  }
+  return false;
+}

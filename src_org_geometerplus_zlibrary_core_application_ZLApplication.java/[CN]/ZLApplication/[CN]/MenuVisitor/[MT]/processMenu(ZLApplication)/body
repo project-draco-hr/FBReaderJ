@@ -1,5 +1,0 @@
-{
-  if (application.myMenubar != null) {
-    processMenu(application.myMenubar);
-  }
-}

@@ -6,6 +6,7 @@
     HighlightingOption=createOption(name,"Highlighting",96,96,128);
     RegularTextOption=createOption(name,"Text",192,192,192);
     HyperlinkTextOption=createOption(name,"Hyperlink",60,142,224);
+    VisitedHyperlinkTextOption=createOption(name,"VisitedHyperlink",200,139,255);
     FooterFillOption=createOption(name,"FooterFillOption",85,85,85);
   }
  else {
@@ -15,6 +16,7 @@
     HighlightingOption=createOption(name,"Highlighting",255,192,128);
     RegularTextOption=createOption(name,"Text",0,0,0);
     HyperlinkTextOption=createOption(name,"Hyperlink",60,139,255);
+    VisitedHyperlinkTextOption=createOption(name,"VisitedHyperlink",200,139,255);
     FooterFillOption=createOption(name,"FooterFillOption",170,170,170);
   }
 }

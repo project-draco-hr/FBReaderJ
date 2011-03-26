@@ -1,0 +1,11 @@
+INetworkLink link
+String id
+int index
+String title
+String summary
+List<AuthorData> authors
+List<String> tags
+String seriesTitle
+float indexInSeries
+String cover
+List<BookReference> references

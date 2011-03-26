@@ -1,4 +1,3 @@
 {
   ourInstance=this;
-  new MenubarCreator().read(ZLResourceFile.createResourceFile("default/menubar.xml"));
 }

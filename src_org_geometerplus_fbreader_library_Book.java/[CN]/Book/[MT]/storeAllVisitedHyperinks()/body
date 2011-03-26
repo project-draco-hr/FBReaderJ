@@ -1,0 +1,7 @@
+{
+  if (myId != -1 && myVisitedHyperlinks != null) {
+    for (    String linkId : myVisitedHyperlinks) {
+      BooksDatabase.Instance().addVisitedHyperlink(myId,linkId);
+    }
+  }
+}
