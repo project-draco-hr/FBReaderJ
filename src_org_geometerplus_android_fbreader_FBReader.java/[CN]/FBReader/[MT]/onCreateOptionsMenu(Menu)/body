@@ -1,0 +1,18 @@
+{
+  super.onCreateOptionsMenu(menu);
+  final ZLAndroidApplication application=(ZLAndroidApplication)getApplication();
+  addMenuItem(menu,ActionCode.SHOW_LIBRARY,R.drawable.ic_menu_library);
+  addMenuItem(menu,ActionCode.SHOW_NETWORK_LIBRARY,R.drawable.ic_menu_networklibrary);
+  addMenuItem(menu,ActionCode.SHOW_TOC,R.drawable.ic_menu_toc);
+  addMenuItem(menu,ActionCode.SHOW_BOOKMARKS,R.drawable.ic_menu_bookmarks);
+  addMenuItem(menu,ActionCode.SWITCH_TO_NIGHT_PROFILE,R.drawable.ic_menu_night);
+  addMenuItem(menu,ActionCode.SWITCH_TO_DAY_PROFILE,R.drawable.ic_menu_day);
+  addMenuItem(menu,ActionCode.SEARCH,R.drawable.ic_menu_search);
+  addMenuItem(menu,ActionCode.SHOW_PREFERENCES);
+  addMenuItem(menu,ActionCode.SHOW_BOOK_INFO);
+  addMenuItem(menu,ActionCode.ROTATE);
+  addMenuItem(menu,ActionCode.INCREASE_FONT);
+  addMenuItem(menu,ActionCode.DECREASE_FONT);
+  addMenuItem(menu,ActionCode.SHOW_NAVIGATION);
+  return true;
+}
