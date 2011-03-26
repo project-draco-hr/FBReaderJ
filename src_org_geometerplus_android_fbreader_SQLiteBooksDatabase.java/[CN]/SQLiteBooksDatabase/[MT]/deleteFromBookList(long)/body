@@ -4,5 +4,6 @@
   }
   myDeleteFromBookListStatement.bindLong(1,bookId);
   myDeleteFromBookListStatement.execute();
+  deleteVisitedHyperlinks(bookId);
   return true;
 }

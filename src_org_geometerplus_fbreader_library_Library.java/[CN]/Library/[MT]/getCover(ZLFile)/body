@@ -1,4 +1,7 @@
 {
+  if (file == null) {
+    return null;
+  }
 synchronized (ourCoverMap) {
     final String path=file.getPath();
     final WeakReference<ZLImage> ref=ourCoverMap.get(path);

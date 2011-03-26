@@ -1,0 +1,4 @@
+{
+  final String actionId=keyBindings().getBinding(key,longPress);
+  return actionId != null && !NoAction.equals(actionId);
+}

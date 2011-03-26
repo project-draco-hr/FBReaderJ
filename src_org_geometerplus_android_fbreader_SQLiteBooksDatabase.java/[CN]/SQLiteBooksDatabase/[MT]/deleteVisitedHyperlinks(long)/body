@@ -1,0 +1,7 @@
+{
+  if (myDeleteVisitedHyperlinksStatement == null) {
+    myDeleteVisitedHyperlinksStatement=myDatabase.compileStatement("DELETE FROM VisitedHyperlinks WHERE book_id = ?");
+  }
+  myDeleteVisitedHyperlinksStatement.bindLong(1,bookId);
+  myDeleteVisitedHyperlinksStatement.execute();
+}
