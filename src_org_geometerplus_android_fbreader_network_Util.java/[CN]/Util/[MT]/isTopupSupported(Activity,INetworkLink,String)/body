@@ -1,0 +1,3 @@
+{
+  return testService(activity,action,link.getUrlInfo(INetworkLink.URL_MAIN).URL);
+}

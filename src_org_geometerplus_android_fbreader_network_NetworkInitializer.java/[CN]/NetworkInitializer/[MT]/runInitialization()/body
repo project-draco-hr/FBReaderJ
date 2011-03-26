@@ -1,0 +1,18 @@
+{
+  UIUtil.wait("loadingNetworkLibrary",new Runnable(){
+    public void run(){
+      String error=null;
+      try {
+        NetworkView.Instance().initialize();
+        if (myActivity instanceof NetworkLibraryActivity) {
+          ((NetworkLibraryActivity)myActivity).processSavedIntent();
+        }
+      }
+ catch (      ZLNetworkException e) {
+        error=e.getMessage();
+      }
+      NetworkInitializer.this.end(error);
+    }
+  }
+,myActivity);
+}

@@ -1,4 +1,4 @@
 {
   DisplayName=displayName.intern();
-  SortKey=sortKey.intern();
+  SortKey=sortKey != null ? sortKey.intern() : DisplayName.toLowerCase().intern();
 }

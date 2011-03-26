@@ -1,0 +1,4 @@
+{
+  initHyperlinkSet();
+  return myVisitedHyperlinks.contains(linkId);
+}

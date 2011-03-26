@@ -1,0 +1,9 @@
+{
+  final ZLResource resource=ZLResource.resource("menu");
+  final MenuItem menuItem=menu.add(resource.getResource(actionId).getValue());
+  if (iconId != null) {
+    menuItem.setIcon(iconId);
+  }
+  menuItem.setOnMenuItemClickListener(myMenuListener);
+  myMenuItemMap.put(menuItem,actionId);
+}

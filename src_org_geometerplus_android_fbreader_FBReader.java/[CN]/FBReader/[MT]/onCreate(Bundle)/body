@@ -1,6 +1,6 @@
 {
   super.onCreate(icicle);
-  final ZLAndroidApplication application=ZLAndroidApplication.Instance();
+  final ZLAndroidApplication application=(ZLAndroidApplication)getApplication();
   myFullScreenFlag=application.ShowStatusBarOption.getValue() ? 0 : WindowManager.LayoutParams.FLAG_FULLSCREEN;
   getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,myFullScreenFlag);
   final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
@@ -13,12 +13,12 @@
   fbReader.addAction(ActionCode.SHOW_LIBRARY,new ShowLibraryAction(this,fbReader));
   fbReader.addAction(ActionCode.SHOW_PREFERENCES,new ShowPreferencesAction(this,fbReader));
   fbReader.addAction(ActionCode.SHOW_BOOK_INFO,new ShowBookInfoAction(this,fbReader));
-  fbReader.addAction(ActionCode.SHOW_CONTENTS,new ShowTOCAction(this,fbReader));
+  fbReader.addAction(ActionCode.SHOW_TOC,new ShowTOCAction(this,fbReader));
   fbReader.addAction(ActionCode.SHOW_BOOKMARKS,new ShowBookmarksAction(this,fbReader));
   fbReader.addAction(ActionCode.SHOW_NETWORK_LIBRARY,new ShowNetworkLibraryAction(this,fbReader));
   fbReader.addAction(ActionCode.SHOW_MENU,new ShowMenuAction(this,fbReader));
   fbReader.addAction(ActionCode.SHOW_NAVIGATION,new ShowNavigationAction(this,fbReader));
   fbReader.addAction(ActionCode.SEARCH,new SearchAction(this,fbReader));
   fbReader.addAction(ActionCode.PROCESS_HYPERLINK,new ProcessHyperlinkAction(this,fbReader));
-  fbReader.addAction(ActionCode.CANCEL,new CancelAction(this,fbReader));
+  fbReader.addAction(ActionCode.SHOW_CANCEL_MENU,new ShowCancelMenuAction(this,fbReader));
 }

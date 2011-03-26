@@ -1,6 +1,6 @@
 {
   myName=name;
-  new ZLKeyBindingsReader(myBindingsMap).readBindings();
-  loadCustomBindings();
-  myIsChanged=false;
+  final List<String> keys=new LinkedList<String>();
+  new Reader(keys).readBindings();
+  myKeysOption=new ZLStringListOption(name,"KeyList",keys);
 }

@@ -1,0 +1,4 @@
+{
+  super(link,title,summary,cover,accessibility,flags);
+  URLByType=new TreeMap<Integer,String>(urlByType);
+}

@@ -1,0 +1,3 @@
+{
+  return link.getUrlInfo(INetworkLink.URL_TOPUP).URL != null;
+}

@@ -1,0 +1,4 @@
+{
+  myBase.reset();
+  myBase.skip(myStart);
+}

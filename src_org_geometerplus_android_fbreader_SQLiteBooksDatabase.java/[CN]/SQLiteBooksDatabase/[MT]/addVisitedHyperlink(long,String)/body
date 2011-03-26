@@ -1,0 +1,8 @@
+{
+  if (myStoreVisitedHyperlinksStatement == null) {
+    myStoreVisitedHyperlinksStatement=myDatabase.compileStatement("INSERT OR IGNORE INTO VisitedHyperlinks(book_id,hyperlink_id) VALUES (?,?)");
+  }
+  myStoreVisitedHyperlinksStatement.bindLong(1,bookId);
+  myStoreVisitedHyperlinksStatement.bindString(2,hyperlinkId);
+  myStoreVisitedHyperlinksStatement.execute();
+}

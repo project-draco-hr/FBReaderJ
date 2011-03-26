@@ -1,0 +1,4 @@
+{
+  final InputStream stream=myImage.inputStream();
+  return stream != null ? BitmapFactory.decodeStream(stream) : null;
+}

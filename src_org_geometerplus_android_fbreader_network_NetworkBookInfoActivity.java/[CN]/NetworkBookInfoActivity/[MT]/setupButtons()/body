@@ -24,7 +24,7 @@
     button.setVisibility(View.VISIBLE);
     button.setOnClickListener(new View.OnClickListener(){
       public void onClick(      View v){
-        NetworkBookActions.runAction(NetworkBookInfoActivity.this,myBook,a.Id);
+        NetworkBookActions.runActionStatic(NetworkBookInfoActivity.this,myBook,a.Id);
         NetworkBookInfoActivity.this.updateView();
       }
     }

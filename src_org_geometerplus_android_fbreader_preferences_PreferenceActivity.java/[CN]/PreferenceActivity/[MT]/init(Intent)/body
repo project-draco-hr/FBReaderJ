@@ -88,6 +88,7 @@
   colorsScreen.addOption(profile.HighlightingOption,"highlighting");
   colorsScreen.addOption(profile.RegularTextOption,"text");
   colorsScreen.addOption(profile.HyperlinkTextOption,"hyperlink");
+  colorsScreen.addOption(profile.VisitedHyperlinkTextOption,"hyperlinkVisited");
   colorsScreen.addOption(profile.FooterFillOption,"footer");
   final Screen marginsScreen=createPreferenceScreen("margins");
   marginsScreen.addPreference(new ZLIntegerRangePreference(this,marginsScreen.Resource.getResource("left"),fbReader.LeftMarginOption));
@@ -123,8 +124,8 @@
   }
 );
   displayScreen.addPreference(new BatteryLevelToTurnScreenOffPreference(this,androidApp.BatteryLevelToTurnScreenOffOption,displayScreen.Resource,"dontTurnScreenOff"));
-  final Screen scrollingScreen=createPreferenceScreen("scrolling");
   final ScrollingPreferences scrollingPreferences=ScrollingPreferences.Instance();
+  final Screen scrollingScreen=createPreferenceScreen("scrolling");
   scrollingScreen.addOption(scrollingPreferences.FingerScrollingOption,"fingerScrolling");
   scrollingScreen.addOption(fbReader.EnableDoubleTapOption,"enableDoubleTapDetection");
   final ZLPreferenceSet volumeKeysPreferences=new ZLPreferenceSet();
@@ -143,4 +144,12 @@
   dictionaryScreen.addPreference(new DictionaryPreference(this,dictionaryScreen.Resource,"dictionary"));
   dictionaryScreen.addPreference(new ZLBooleanPreference(this,fbReader.NavigateAllWordsOption,dictionaryScreen.Resource,"navigateOverAllWords"));
   dictionaryScreen.addOption(fbReader.DictionaryTappingActionOption,"tappingAction");
+  final Screen cancelMenuScreen=createPreferenceScreen("cancelMenu");
+  cancelMenuScreen.addOption(fbReader.ShowPreviousBookInCancelMenuOption,"previousBook");
+  cancelMenuScreen.addOption(fbReader.ShowPositionsInCancelMenuOption,"positions");
+  final ZLKeyBindings bindings=fbReader.keyBindings();
+  final String[] backKeyActions={ActionCode.EXIT,ActionCode.SHOW_CANCEL_MENU};
+  cancelMenuScreen.addPreference(new ZLStringChoicePreference(this,cancelMenuScreen.Resource,"backKeyAction",bindings.getOption("<Back>",false),backKeyActions));
+  final String[] backKeyLongPressActions={ActionCode.EXIT,ActionCode.SHOW_CANCEL_MENU,FBReaderApp.NoAction};
+  cancelMenuScreen.addPreference(new ZLStringChoicePreference(this,cancelMenuScreen.Resource,"backKeyLongPressAction",bindings.getOption("<Back>",true),backKeyLongPressActions));
 }

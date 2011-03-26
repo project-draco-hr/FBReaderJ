@@ -1,0 +1,3 @@
+{
+  return Math.min(myBase.available(),Math.max(myStart + myLength - myBase.offset(),0));
+}

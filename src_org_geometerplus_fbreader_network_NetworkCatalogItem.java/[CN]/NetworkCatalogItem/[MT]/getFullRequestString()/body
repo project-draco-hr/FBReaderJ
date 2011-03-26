@@ -1,3 +1,0 @@
-{
-  return URLByType.get(URL_CATALOG);
-}

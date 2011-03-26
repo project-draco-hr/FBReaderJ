@@ -1,4 +1,7 @@
 {
+  if (value == null || "".equals(value)) {
+    return false;
+  }
   final int index=findIndexOfValue(value);
   if (index >= 0) {
     setValueIndex(index);

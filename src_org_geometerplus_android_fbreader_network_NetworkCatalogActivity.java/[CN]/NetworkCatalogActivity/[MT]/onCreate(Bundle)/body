@@ -6,14 +6,12 @@
     finish();
     return;
   }
-  final Intent intent=getIntent();
-  final NetworkLibrary library=NetworkLibrary.Instance();
-  final NetworkTree.Key key=(NetworkTree.Key)intent.getSerializableExtra(CATALOG_KEY_KEY);
-  myTree=library.getTreeByKey(key);
+  myTree=Util.getTreeFromIntent(getIntent());
   if (myTree == null) {
-    throw new RuntimeException("Tree not found for key " + key);
+    finish();
+    return;
   }
-  networkView.setOpenedActivity(key,this);
+  networkView.setOpenedActivity(myTree.getUniqueKey(),this);
   setListAdapter(new CatalogAdapter());
   getListView().invalidateViews();
   setupTitle();

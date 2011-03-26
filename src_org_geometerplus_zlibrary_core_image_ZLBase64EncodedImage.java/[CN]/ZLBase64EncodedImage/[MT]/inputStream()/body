@@ -1,0 +1,9 @@
+{
+  try {
+    decode();
+    return new FileInputStream(new File(decodedFileName()));
+  }
+ catch (  IOException e) {
+    return null;
+  }
+}

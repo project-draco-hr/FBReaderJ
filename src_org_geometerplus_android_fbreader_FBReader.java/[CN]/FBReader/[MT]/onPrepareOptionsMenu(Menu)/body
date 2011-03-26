@@ -1,5 +1,5 @@
 {
-  final ZLAndroidApplication application=ZLAndroidApplication.Instance();
+  final ZLAndroidApplication application=(ZLAndroidApplication)getApplication();
   if (!application.ShowStatusBarOption.getValue() && application.ShowStatusBarWhenMenuIsActiveOption.getValue()) {
     getWindow().addFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
   }

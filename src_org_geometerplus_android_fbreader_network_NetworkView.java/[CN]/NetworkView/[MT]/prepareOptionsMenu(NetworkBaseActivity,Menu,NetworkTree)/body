@@ -1,7 +1,4 @@
 {
-  if (!isInitialized()) {
-    return false;
-  }
   final NetworkTreeActions actions=getActions(tree);
   if (actions != null) {
     return actions.prepareOptionsMenu(activity,menu,tree);

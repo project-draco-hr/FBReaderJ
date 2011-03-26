@@ -35,7 +35,7 @@ break;
 }
  else {
 if (tag.equals(myMetaTag)) {
-if (!mySeriesTitle.equals("") && mySeriesIndex > 0) {
+if (!"".equals(mySeriesTitle) && mySeriesIndex > 0) {
 myBook.setSeriesInfo(mySeriesTitle,mySeriesIndex);
 }
 }

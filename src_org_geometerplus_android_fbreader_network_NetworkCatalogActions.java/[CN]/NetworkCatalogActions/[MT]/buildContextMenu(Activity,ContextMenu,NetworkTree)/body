@@ -1,9 +1,9 @@
 {
-  final NetworkCatalogTree catalogTree=(NetworkCatalogTree)tree;
-  final NetworkCatalogItem item=catalogTree.Item;
+  final NetworkCatalogItem item=((NetworkCatalogTree)tree).Item;
+  final NetworkURLCatalogItem urlItem=item instanceof NetworkURLCatalogItem ? (NetworkURLCatalogItem)item : null;
   menu.setHeaderTitle(tree.getName());
   boolean hasItems=false;
-  final String catalogUrl=item.URLByType.get(NetworkCatalogItem.URL_CATALOG);
+  final String catalogUrl=urlItem != null ? urlItem.URLByType.get(NetworkURLCatalogItem.URL_CATALOG) : null;
   if (catalogUrl != null && (!(item instanceof BasketItem) || item.Link.basket().bookIds().size() > 0)) {
     addMenuItem(menu,OPEN_CATALOG_ITEM_ID,"openCatalog");
     hasItems=true;
@@ -14,10 +14,10 @@
       if (mgr != null) {
         if (mgr.mayBeAuthorised(false)) {
           addMenuItem(menu,SIGNOUT_ITEM_ID,"signOut",mgr.currentUserName());
-          if (mgr.refillAccountLink() != null) {
+          if (Util.isTopupSupported(activity,item.Link)) {
             final String account=mgr.currentAccount();
             if (account != null) {
-              addMenuItem(menu,REFILL_ACCOUNT_ITEM_ID,"refillAccount",account);
+              addMenuItem(menu,TOPUP_ITEM_ID,"topup",account);
             }
           }
         }
@@ -26,14 +26,14 @@
         }
       }
     }
-    INetworkLink link=catalogTree.Item.Link;
+    INetworkLink link=item.Link;
     if (link instanceof ICustomNetworkLink) {
       addMenuItem(menu,CUSTOM_CATALOG_EDIT,"editCustomCatalog");
       addMenuItem(menu,CUSTOM_CATALOG_REMOVE,"removeCustomCatalog");
     }
   }
  else {
-    if (item.URLByType.get(NetworkCatalogItem.URL_HTML_PAGE) != null) {
+    if (urlItem != null && urlItem.URLByType.get(NetworkURLCatalogItem.URL_HTML_PAGE) != null) {
       addMenuItem(menu,OPEN_IN_BROWSER_ITEM_ID,"openInBrowser");
       hasItems=true;
     }

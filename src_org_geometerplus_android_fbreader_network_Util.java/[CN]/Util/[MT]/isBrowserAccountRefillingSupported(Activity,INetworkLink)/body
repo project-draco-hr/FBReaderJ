@@ -1,3 +1,0 @@
-{
-  return link.getUrlInfo(INetworkLink.URL_REFILL_ACCOUNT).URL != null;
-}

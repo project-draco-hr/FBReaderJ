@@ -11,6 +11,7 @@
       }
  else {
         myId=database.insertBookInfo(File,myEncoding,myLanguage,myTitle);
+        storeAllVisitedHyperinks();
       }
       long index=0;
       database.deleteAllBookAuthors(myId);

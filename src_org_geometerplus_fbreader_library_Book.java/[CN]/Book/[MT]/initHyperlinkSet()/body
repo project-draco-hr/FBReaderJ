@@ -1,0 +1,8 @@
+{
+  if (myVisitedHyperlinks == null) {
+    myVisitedHyperlinks=new TreeSet<String>();
+    if (myId != -1) {
+      myVisitedHyperlinks.addAll(BooksDatabase.Instance().loadVisitedHyperlinks(myId));
+    }
+  }
+}

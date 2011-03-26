@@ -1,3 +1,3 @@
 {
-  return text.startsWith("http://") || text.startsWith("https://") || text.startsWith("mailto:")|| text.startsWith("ftp://");
+  return text.startsWith("fbreader-action://") || text.startsWith("http://") || text.startsWith("https://")|| text.startsWith("mailto:")|| text.startsWith("ftp://");
 }
