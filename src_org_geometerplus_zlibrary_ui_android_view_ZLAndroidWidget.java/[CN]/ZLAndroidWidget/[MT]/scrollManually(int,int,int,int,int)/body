@@ -1,0 +1,14 @@
+{
+  final boolean horizontal=(viewPage == ZLView.PAGE_RIGHT) || (viewPage == ZLView.PAGE_LEFT);
+  final int shift=horizontal ? endX - startX : endY - startY;
+  if (myMainBitmap == null) {
+    return;
+  }
+  if ((shift > 0 && myScrollingShift <= 0) || (shift < 0 && myScrollingShift >= 0)) {
+    mySecondaryBitmapIsUpToDate=false;
+  }
+  myScrollingShift=shift;
+  setPageToScroll(viewPage);
+  drawOnBitmap(mySecondaryBitmap);
+  postInvalidate();
+}

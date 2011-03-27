@@ -23,7 +23,7 @@ synchronized (this) {
           return false;
         }
         if (!cursor.isStartOfParagraph() || !cursor.getParagraphCursor().isFirst()) {
-          myReader.scrollViewTo(horizontal ? PAGE_LEFT : PAGE_TOP,diff);
+          myReader.scrollViewManually(horizontal ? PAGE_LEFT : PAGE_TOP,myStartX,myStartY,x,y);
         }
       }
  else       if (diff < 0) {
@@ -32,11 +32,11 @@ synchronized (this) {
           return false;
         }
         if (!cursor.isEndOfParagraph() || !cursor.getParagraphCursor().isLast()) {
-          myReader.scrollViewTo(horizontal ? PAGE_RIGHT : PAGE_BOTTOM,-diff);
+          myReader.scrollViewManually(horizontal ? PAGE_RIGHT : PAGE_BOTTOM,myStartX,myStartY,x,y);
         }
       }
  else {
-        myReader.scrollViewTo(PAGE_CENTRAL,0);
+        myReader.scrollViewToCenter();
       }
       return true;
     }
