@@ -1,5 +1,5 @@
 {
-  final boolean horizontal=(viewPage == ZLView.PAGE_RIGHT) || (viewPage == ZLView.PAGE_LEFT);
+  final boolean horizontal=viewPage == ZLView.PAGE_RIGHT || viewPage == ZLView.PAGE_LEFT;
   final int shift=horizontal ? endX - startX : endY - startY;
   if (myMainBitmap == null) {
     return;
