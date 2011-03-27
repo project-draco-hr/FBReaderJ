@@ -1,0 +1,6 @@
+{
+  if (myViewPageToScrollTo != viewPage) {
+    myViewPageToScrollTo=viewPage;
+    mySecondaryBitmapIsUpToDate=false;
+  }
+}

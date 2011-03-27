@@ -5,7 +5,7 @@
   myScrollingInProgress=true;
 switch (viewPage) {
 case ZLView.PAGE_CENTRAL:
-switch (myViewPageToScroll) {
+switch (myViewPageToScrollTo) {
 case ZLView.PAGE_CENTRAL:
       myScrollingSpeed=0;
     break;
@@ -23,22 +23,26 @@ break;
 case ZLView.PAGE_LEFT:
 myScrollingSpeed=3;
 myScrollingBound=getWidth();
+myScrollHorizontally=true;
 break;
 case ZLView.PAGE_RIGHT:
 myScrollingSpeed=-3;
 myScrollingBound=-getWidth();
+myScrollHorizontally=true;
 break;
 case ZLView.PAGE_TOP:
 myScrollingSpeed=3;
 myScrollingBound=getMainAreaHeight();
+myScrollHorizontally=false;
 break;
 case ZLView.PAGE_BOTTOM:
 myScrollingSpeed=-3;
 myScrollingBound=-getMainAreaHeight();
+myScrollHorizontally=false;
 break;
 }
 if (viewPage != ZLView.PAGE_CENTRAL) {
-setPageToScroll(viewPage);
+setPageToScrollTo(viewPage);
 }
 drawOnBitmap(mySecondaryBitmap);
 postInvalidate();

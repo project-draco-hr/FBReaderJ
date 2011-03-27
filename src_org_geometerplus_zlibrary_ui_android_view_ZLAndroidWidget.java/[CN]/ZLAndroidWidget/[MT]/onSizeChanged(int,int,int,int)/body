@@ -6,6 +6,6 @@
     myScrollingShift=0;
     myScreenIsTouched=false;
     view.onScrollingFinished(ZLView.PAGE_CENTRAL);
-    setPageToScroll(ZLView.PAGE_CENTRAL);
+    setPageToScrollTo(ZLView.PAGE_CENTRAL);
   }
 }

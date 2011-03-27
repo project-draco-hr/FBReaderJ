@@ -19,14 +19,13 @@
     }
     myScrollingSpeed*=1.5;
   }
-  final boolean horizontal=myViewPageToScroll == ZLView.PAGE_RIGHT || myViewPageToScroll == ZLView.PAGE_LEFT;
-  final int size=horizontal ? w : h;
+  final int size=myScrollHorizontally ? w : h;
   int shift=myScrollingShift < 0 ? myScrollingShift + size : myScrollingShift - size;
 switch (view.getAnimationType()) {
 case none:
     break;
 case shift:
-  canvas.drawBitmap(mySecondaryBitmap,horizontal ? shift : 0,horizontal ? 0 : shift,myPaint);
+  canvas.drawBitmap(mySecondaryBitmap,myScrollHorizontally ? shift : 0,myScrollHorizontally ? 0 : shift,myPaint);
 break;
 case slide:
 case curl:
@@ -39,13 +38,13 @@ canvas.drawBitmap(myMainBitmap,0,0,myPaint);
 break;
 case shift:
 case slide:
-canvas.drawBitmap(myMainBitmap,horizontal ? myScrollingShift : 0,horizontal ? 0 : myScrollingShift,myPaint);
+canvas.drawBitmap(myMainBitmap,myScrollHorizontally ? myScrollingShift : 0,myScrollHorizontally ? 0 : myScrollingShift,myPaint);
 if (shift < 0) {
 shift+=size;
 }
 if (shift > 0 && shift < size) {
 myPaint.setColor(Color.rgb(127,127,127));
-if (horizontal) {
+if (myScrollHorizontally) {
 canvas.drawLine(shift,0,shift,h + 1,myPaint);
 }
  else {
@@ -56,7 +55,7 @@ break;
 case curl:
 {
 final int x, y;
-if (horizontal) {
+if (myScrollHorizontally) {
 x=-myScrollingShift;
 y=x * h / w;
 }
@@ -94,13 +93,13 @@ Bitmap swap=myMainBitmap;
 myMainBitmap=mySecondaryBitmap;
 mySecondaryBitmap=swap;
 mySecondaryBitmapIsUpToDate=false;
-view.onScrollingFinished(myViewPageToScroll);
+view.onScrollingFinished(myViewPageToScrollTo);
 ZLApplication.Instance().onRepaintFinished();
 }
  else {
 view.onScrollingFinished(ZLView.PAGE_CENTRAL);
 }
-setPageToScroll(ZLView.PAGE_CENTRAL);
+setPageToScrollTo(ZLView.PAGE_CENTRAL);
 myScrollingInProgress=false;
 myScrollingShift=0;
 }
