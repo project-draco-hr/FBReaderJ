@@ -1,5 +1,5 @@
 {
   if (myWindow != null) {
-    myWindow.startViewAutoScrolling(viewPage,horizontally);
+    myWindow.startViewAutoScrolling(pageIndex,horizontally);
   }
 }

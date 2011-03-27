@@ -2,7 +2,7 @@
   if (myModel == null || myModel.getParagraphsNumber() == 0) {
     return 0;
   }
-  ZLTextPage page=getPage(viewPage);
+  ZLTextPage page=getPage(pageIndex);
   preparePaintInfo(page);
   if (startNotEndOfPage) {
     return Math.max(0,sizeOfTextBeforeCursor(page.StartCursor));

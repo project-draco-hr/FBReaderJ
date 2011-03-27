@@ -1,5 +1,5 @@
 {
-switch (viewPage) {
+switch (pageIndex) {
 default :
 case current:
     return myCurrentPage;

@@ -1,6 +1,6 @@
 {
   setScrollingActive(false);
-switch (viewPage) {
+switch (pageIndex) {
 case current:
     break;
 case previous:

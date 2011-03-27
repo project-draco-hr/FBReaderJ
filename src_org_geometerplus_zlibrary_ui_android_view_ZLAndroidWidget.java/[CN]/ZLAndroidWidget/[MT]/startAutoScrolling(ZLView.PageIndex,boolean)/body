@@ -4,9 +4,9 @@
   }
   myScrollingInProgress=true;
   myScrollHorizontally=horizontally;
-switch (viewPage) {
+switch (pageIndex) {
 case current:
-switch (myViewPageToScrollTo) {
+switch (myPageToScrollTo) {
 case current:
       myScrollingSpeed=0;
     break;
@@ -22,12 +22,12 @@ break;
 case previous:
 myScrollingSpeed=3;
 myScrollingBound=horizontally ? getWidth() : getMainAreaHeight();
-setPageToScrollTo(viewPage);
+setPageToScrollTo(pageIndex);
 break;
 case next:
 myScrollingSpeed=-3;
 myScrollingBound=horizontally ? -getWidth() : -getMainAreaHeight();
-setPageToScrollTo(viewPage);
+setPageToScrollTo(pageIndex);
 break;
 }
 drawOnBitmap(mySecondaryBitmap);

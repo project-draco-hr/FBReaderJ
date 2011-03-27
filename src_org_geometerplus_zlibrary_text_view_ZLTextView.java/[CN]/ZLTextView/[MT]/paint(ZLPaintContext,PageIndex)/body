@@ -11,7 +11,7 @@
     return;
   }
   ZLTextPage page;
-switch (viewPage) {
+switch (pageIndex) {
 default :
 case current:
     page=myCurrentPage;
