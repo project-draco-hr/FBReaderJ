@@ -1,5 +1,0 @@
-{
-  if (myWindow != null) {
-    myWindow.scrollViewManually(viewPage,startX,startY,endX,endY);
-  }
-}

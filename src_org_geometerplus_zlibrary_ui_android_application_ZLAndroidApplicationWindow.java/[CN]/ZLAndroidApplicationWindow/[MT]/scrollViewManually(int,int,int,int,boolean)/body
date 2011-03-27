@@ -1,4 +1,4 @@
 {
   final ZLAndroidWidget widget=((ZLAndroidLibrary)ZLAndroidLibrary.Instance()).getWidget();
-  widget.scrollManually(viewPage,startX,startY,endX,endY);
+  widget.scrollManually(startX,startY,endX,endY,horizontally);
 }
