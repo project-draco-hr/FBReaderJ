@@ -1,0 +1,17 @@
+{
+  if (myModel == null || myModel.getParagraphsNumber() == 0) {
+    return 0;
+  }
+  ZLTextPage page=getPage(viewPage);
+  preparePaintInfo(page);
+  if (startNotEndOfPage) {
+    return Math.max(0,sizeOfTextBeforeCursor(page.StartCursor));
+  }
+ else {
+    int end=sizeOfTextBeforeCursor(page.EndCursor);
+    if (end == -1) {
+      end=myModel.getTextLength(myModel.getParagraphsNumber() - 1) - 1;
+    }
+    return Math.max(1,end);
+  }
+}

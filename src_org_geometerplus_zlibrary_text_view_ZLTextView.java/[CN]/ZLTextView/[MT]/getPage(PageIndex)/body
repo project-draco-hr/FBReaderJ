@@ -1,0 +1,11 @@
+{
+switch (viewPage) {
+default :
+case current:
+    return myCurrentPage;
+case previous:
+  return myPreviousPage;
+case next:
+return myNextPage;
+}
+}

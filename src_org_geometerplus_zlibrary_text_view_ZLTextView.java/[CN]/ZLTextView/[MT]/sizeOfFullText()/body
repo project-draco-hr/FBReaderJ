@@ -1,5 +1,5 @@
 {
-  if ((myModel == null) || (myModel.getParagraphsNumber() == 0)) {
+  if (myModel == null || myModel.getParagraphsNumber() == 0) {
     return 1;
   }
   return myModel.getTextLength(myModel.getParagraphsNumber() - 1);

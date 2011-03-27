@@ -3,7 +3,7 @@
     return;
   }
   myScrollingShift=0;
-  setPageToScrollTo(ZLView.PAGE_CENTRAL);
+  setPageToScrollTo(ZLView.PageIndex.current);
   drawOnBitmap(mySecondaryBitmap);
   postInvalidate();
 }

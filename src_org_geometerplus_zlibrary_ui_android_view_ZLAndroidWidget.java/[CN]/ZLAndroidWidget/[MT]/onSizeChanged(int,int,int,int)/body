@@ -5,7 +5,7 @@
     myScrollingInProgress=false;
     myScrollingShift=0;
     myScreenIsTouched=false;
-    view.onScrollingFinished(ZLView.PAGE_CENTRAL);
-    setPageToScrollTo(ZLView.PAGE_CENTRAL);
+    view.onScrollingFinished(ZLView.PageIndex.current);
+    setPageToScrollTo(ZLView.PageIndex.current);
   }
 }

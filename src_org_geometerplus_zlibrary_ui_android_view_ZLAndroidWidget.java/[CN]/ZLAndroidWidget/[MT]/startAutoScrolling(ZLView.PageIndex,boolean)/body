@@ -1,0 +1,35 @@
+{
+  if (myMainBitmap == null) {
+    return;
+  }
+  myScrollingInProgress=true;
+  myScrollHorizontally=horizontally;
+switch (viewPage) {
+case current:
+switch (myViewPageToScrollTo) {
+case current:
+      myScrollingSpeed=0;
+    break;
+case previous:
+  myScrollingSpeed=-3;
+break;
+case next:
+myScrollingSpeed=3;
+break;
+}
+myScrollingBound=0;
+break;
+case previous:
+myScrollingSpeed=3;
+myScrollingBound=horizontally ? getWidth() : getMainAreaHeight();
+setPageToScrollTo(viewPage);
+break;
+case next:
+myScrollingSpeed=-3;
+myScrollingBound=horizontally ? -getWidth() : -getMainAreaHeight();
+setPageToScrollTo(viewPage);
+break;
+}
+drawOnBitmap(mySecondaryBitmap);
+postInvalidate();
+}
