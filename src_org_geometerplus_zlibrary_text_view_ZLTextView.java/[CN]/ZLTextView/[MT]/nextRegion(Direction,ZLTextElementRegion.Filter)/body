@@ -6,8 +6,8 @@
   int index=elementRegions.indexOf(mySelectedRegion);
   mySelectedRegion=index >= 0 ? elementRegions.get(index) : null;
 switch (direction) {
-case Direction.LEFT:
-case Direction.UP:
+case rightToLeft:
+case up:
     if (index == -1) {
       index=elementRegions.size() - 1;
     }
@@ -18,8 +18,8 @@ case Direction.UP:
       --index;
     }
   break;
-case Direction.RIGHT:
-case Direction.DOWN:
+case leftToRight:
+case down:
 if (index == elementRegions.size() - 1) {
   return null;
 }
@@ -29,7 +29,7 @@ if (index == elementRegions.size() - 1) {
 break;
 }
 switch (direction) {
-case Direction.LEFT:
+case rightToLeft:
 for (; index >= 0; --index) {
 final ZLTextElementRegion candidate=elementRegions.get(index);
 if (filter.accepts(candidate) && candidate.isAtLeftOf(mySelectedRegion)) {
@@ -37,7 +37,7 @@ return candidate;
 }
 }
 break;
-case Direction.RIGHT:
+case leftToRight:
 for (; index < elementRegions.size(); ++index) {
 final ZLTextElementRegion candidate=elementRegions.get(index);
 if (filter.accepts(candidate) && candidate.isAtRightOf(mySelectedRegion)) {
@@ -45,7 +45,7 @@ return candidate;
 }
 }
 break;
-case Direction.DOWN:
+case down:
 {
 ZLTextElementRegion firstCandidate=null;
 for (; index < elementRegions.size(); ++index) {
@@ -65,7 +65,7 @@ return firstCandidate;
 }
 break;
 }
-case Direction.UP:
+case up:
 ZLTextElementRegion firstCandidate=null;
 for (; index >= 0; --index) {
 final ZLTextElementRegion candidate=elementRegions.get(index);
