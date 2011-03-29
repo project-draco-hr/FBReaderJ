@@ -22,11 +22,11 @@
     mySecondaryBitmapIsUpToDate=false;
     drawOnBitmap(myMainBitmap);
   }
-  if (myScrollingInProgress || myScrollingShift != 0) {
-    onDrawInScrolling(canvas);
-  }
- else {
+  if (myScrollingState == ScrollingState.NoScrolling) {
     onDrawStatic(canvas);
     ZLApplication.Instance().onRepaintFinished();
+  }
+ else {
+    onDrawInScrolling(canvas);
   }
 }

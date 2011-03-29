@@ -1,4 +1,5 @@
 {
+  myScrollingState=ScrollingState.NoScrolling;
   if (myMainBitmap == null) {
     return;
   }

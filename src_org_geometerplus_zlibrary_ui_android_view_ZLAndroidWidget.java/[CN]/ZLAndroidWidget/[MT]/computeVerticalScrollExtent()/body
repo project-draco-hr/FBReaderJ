@@ -3,14 +3,14 @@
   if (!view.isScrollbarShown()) {
     return 0;
   }
-  if (myScrollingInProgress || (myScrollingShift != 0)) {
+  if (myScrollingState == ScrollingState.NoScrolling) {
+    return view.getScrollbarThumbLength(ZLView.PageIndex.current);
+  }
+ else {
     final int from=view.getScrollbarThumbLength(ZLView.PageIndex.current);
     final int to=view.getScrollbarThumbLength(myPageToScrollTo);
     final int size=myScrollHorizontally ? getWidth() : getMainAreaHeight();
     final int shift=Math.abs(myScrollingShift);
     return (from * (size - shift) + to * shift) / size;
-  }
- else {
-    return view.getScrollbarThumbLength(ZLView.PageIndex.current);
   }
 }

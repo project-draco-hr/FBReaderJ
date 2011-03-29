@@ -1,4 +1,5 @@
 {
+  myScrollingState=ScrollingState.ManualScrolling;
   myScrollHorizontally=horizontally;
   final int shift=horizontally ? endX - startX : endY - startY;
   if (myMainBitmap == null) {

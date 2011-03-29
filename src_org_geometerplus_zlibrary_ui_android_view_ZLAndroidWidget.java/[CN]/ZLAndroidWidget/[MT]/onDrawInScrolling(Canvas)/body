@@ -3,7 +3,7 @@
   final int w=getWidth();
   final int h=getMainAreaHeight();
   boolean stopScrolling=false;
-  if (myScrollingInProgress) {
+  if (myScrollingState == ScrollingState.AutoScrollingForward || myScrollingState == ScrollingState.AutoScrollingBackward) {
     myScrollingShift+=(int)myScrollingSpeed;
     if (myScrollingSpeed > 0) {
       if (myScrollingShift >= myScrollingBound) {
@@ -105,11 +105,11 @@ ZLApplication.Instance().onRepaintFinished();
 view.onScrollingFinished(ZLView.PageIndex.current);
 }
 setPageToScrollTo(ZLView.PageIndex.current);
-myScrollingInProgress=false;
+myScrollingState=ScrollingState.NoScrolling;
 myScrollingShift=0;
 }
  else {
-if (myScrollingInProgress) {
+if (myScrollingState == ScrollingState.AutoScrollingForward || myScrollingState == ScrollingState.AutoScrollingBackward) {
 postInvalidate();
 }
 }
