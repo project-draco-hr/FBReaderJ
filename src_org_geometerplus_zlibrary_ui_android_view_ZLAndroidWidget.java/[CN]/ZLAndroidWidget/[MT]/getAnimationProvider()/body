@@ -1,0 +1,21 @@
+{
+  final ZLView.Animation type=ZLApplication.Instance().getCurrentView().getAnimationType();
+  if (myAnimationProvider == null || myAnimationType != type) {
+    myAnimationType=type;
+switch (type) {
+case none:
+      myAnimationProvider=new NoneAnimationProvider(myPaint);
+    break;
+case curl:
+  myAnimationProvider=new CurlAnimationProvider(myPaint);
+break;
+case slide:
+myAnimationProvider=new SlideAnimationProvider(myPaint);
+break;
+case shift:
+myAnimationProvider=new ShiftAnimationProvider(myPaint);
+break;
+}
+}
+return myAnimationProvider;
+}
