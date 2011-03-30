@@ -1,6 +1,6 @@
 {
   myStartX=startX;
-  myStartX=startY;
+  myStartY=startY;
   myEndX=endX;
   myEndY=endY;
   myHorizontal=horizontal;
