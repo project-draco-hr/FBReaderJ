@@ -34,7 +34,8 @@
     }
     myScrollingSpeed*=1.5;
   }
-  getAnimationProvider().draw(canvas,mySecondaryBitmap,myMainBitmap,myStartX,myStartY,myEndX,myEndY,myScrollHorizontally);
+  getAnimationProvider().setup(myStartX,myStartY,myEndX,myEndY,myScrollHorizontally);
+  getAnimationProvider().draw(canvas,mySecondaryBitmap,myMainBitmap);
 switch (view.getAnimationType()) {
 case curl:
 {

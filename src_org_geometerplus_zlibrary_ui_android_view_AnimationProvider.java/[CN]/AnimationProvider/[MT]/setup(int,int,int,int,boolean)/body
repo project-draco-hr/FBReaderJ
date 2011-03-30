@@ -1,0 +1,7 @@
+{
+  myStartX=startX;
+  myStartX=startY;
+  myEndX=endX;
+  myEndY=endY;
+  myHorizontal=horizontal;
+}

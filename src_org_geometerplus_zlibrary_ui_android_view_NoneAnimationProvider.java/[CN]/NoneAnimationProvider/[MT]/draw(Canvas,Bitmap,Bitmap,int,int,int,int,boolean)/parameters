@@ -1,8 +1,0 @@
-Canvas canvas
-Bitmap bgBitmap
-Bitmap fgBitmap
-int startX
-int startY
-int endX
-int endY
-boolean horizontal
