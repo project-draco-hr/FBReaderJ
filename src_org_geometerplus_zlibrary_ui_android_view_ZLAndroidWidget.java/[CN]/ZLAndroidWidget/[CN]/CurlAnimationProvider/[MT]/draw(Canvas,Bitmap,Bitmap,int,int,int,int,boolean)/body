@@ -1,0 +1,3 @@
+{
+  canvas.drawBitmap(bgBitmap,0,0,myPaint);
+}

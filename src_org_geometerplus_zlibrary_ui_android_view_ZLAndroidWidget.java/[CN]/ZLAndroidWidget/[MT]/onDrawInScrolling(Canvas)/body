@@ -2,115 +2,104 @@
   final ZLView view=ZLApplication.Instance().getCurrentView();
   final int w=getWidth();
   final int h=getMainAreaHeight();
-  boolean stopScrolling=false;
+  boolean doStopScrolling=false;
   if (myScrollingState == ScrollingState.AutoScrollingForward || myScrollingState == ScrollingState.AutoScrollingBackward) {
-    myScrollingShift+=(int)myScrollingSpeed;
+    if (myScrollHorizontally) {
+      myEndX+=(int)myScrollingSpeed;
+    }
+ else {
+      myEndY+=(int)myScrollingSpeed;
+    }
     if (myScrollingSpeed > 0) {
-      if (myScrollingShift >= myScrollingBound) {
-        myScrollingShift=myScrollingBound;
-        stopScrolling=true;
+      if (getScrollingShift() >= myScrollingBound) {
+        if (myScrollHorizontally) {
+          myEndX=myStartX + myScrollingBound;
+        }
+ else {
+          myEndY=myStartY + myScrollingBound;
+        }
+        doStopScrolling=true;
       }
     }
  else {
-      if (myScrollingShift <= myScrollingBound) {
-        myScrollingShift=myScrollingBound;
-        stopScrolling=true;
+      if (getScrollingShift() <= myScrollingBound) {
+        if (myScrollHorizontally) {
+          myEndX=myStartX + myScrollingBound;
+        }
+ else {
+          myEndY=myStartY + myScrollingBound;
+        }
+        doStopScrolling=true;
       }
     }
     myScrollingSpeed*=1.5;
   }
   final int size=myScrollHorizontally ? w : h;
-  int shift=myScrollingShift < 0 ? myScrollingShift + size : myScrollingShift - size;
+  int shift=getScrollingShift() < 0 ? getScrollingShift() + size : getScrollingShift() - size;
+  getAnimationProvider().draw(canvas,mySecondaryBitmap,myMainBitmap,myStartX,myStartY,myEndX,myEndY,myScrollHorizontally);
 switch (view.getAnimationType()) {
 case none:
+case slide:
+case shift:
     break;
-case shift:
-  canvas.drawBitmap(mySecondaryBitmap,myScrollHorizontally ? shift : 0,myScrollHorizontally ? 0 : shift,myPaint);
-break;
-case slide:
-case curl:
-canvas.drawBitmap(mySecondaryBitmap,0,0,myPaint);
-break;
-}
-switch (view.getAnimationType()) {
-case none:
-canvas.drawBitmap(myMainBitmap,0,0,myPaint);
-break;
-case shift:
-case slide:
-canvas.drawBitmap(myMainBitmap,myScrollHorizontally ? myScrollingShift : 0,myScrollHorizontally ? 0 : myScrollingShift,myPaint);
-if (shift < 0) {
-shift+=size;
-}
-if (shift > 0 && shift < size) {
-myPaint.setColor(Color.rgb(127,127,127));
-if (myScrollHorizontally) {
-canvas.drawLine(shift,0,shift,h + 1,myPaint);
-}
- else {
-canvas.drawLine(0,shift,w + 1,shift,myPaint);
-}
-}
-break;
 case curl:
 {
-if (stopScrolling && myScrollingBound != 0) {
-break;
-}
-final int x, y;
-if (myScrollHorizontally) {
-x=-myScrollingShift;
-y=x * h / w;
-}
+    if (doStopScrolling && myScrollingBound != 0) {
+      break;
+    }
+    final int x, y;
+    if (myScrollHorizontally) {
+      x=-getScrollingShift();
+      y=x * h / w;
+    }
  else {
-y=-myScrollingShift;
-x=y * w / h;
+      y=-getScrollingShift();
+      x=y * w / h;
+    }
+    final int x1=x > 0 ? w - (y * y / x + x) / 2 : w;
+    final int y1=y > 0 ? h - (x * x / y + y) / 2 : h;
+    final Path fgPath=new Path();
+    fgPath.moveTo(x1,h);
+    fgPath.lineTo(w - x,h - y);
+    fgPath.lineTo(w,y1);
+    fgPath.lineTo(w,0);
+    fgPath.lineTo(0,0);
+    fgPath.lineTo(0,h);
+    canvas.clipPath(fgPath);
+    canvas.drawBitmap(myMainBitmap,0,0,myPaint);
+    canvas.restore();
+    if (shift > 0 && shift < size) {
+      myEdgePaint.setColor(ZLAndroidPaintContext.getFillColor());
+      myEdgePaint.setAntiAlias(true);
+      myEdgePaint.setStyle(Paint.Style.FILL);
+      myEdgePaint.setShadowLayer(25,5,5,0x99000000);
+      final Path path=new Path();
+      path.moveTo(x1,h);
+      path.lineTo(w - x,h - y);
+      path.lineTo(w,y1);
+      canvas.drawPath(path,myEdgePaint);
+    }
+    break;
+  }
 }
-final int x1=x > 0 ? w - (y * y / x + x) / 2 : w;
-final int y1=y > 0 ? h - (x * x / y + y) / 2 : h;
-final Path fgPath=new Path();
-fgPath.moveTo(x1,h);
-fgPath.lineTo(w - x,h - y);
-fgPath.lineTo(w,y1);
-fgPath.lineTo(w,0);
-fgPath.lineTo(0,0);
-fgPath.lineTo(0,h);
-canvas.clipPath(fgPath);
-canvas.drawBitmap(myMainBitmap,0,0,myPaint);
-canvas.restore();
-if (shift > 0 && shift < size) {
-myEdgePaint.setColor(ZLAndroidPaintContext.getFillColor());
-myEdgePaint.setAntiAlias(true);
-myEdgePaint.setStyle(Paint.Style.FILL);
-myEdgePaint.setShadowLayer(25,5,5,0x99000000);
-final Path path=new Path();
-path.moveTo(x1,h);
-path.lineTo(w - x,h - y);
-path.lineTo(w,y1);
-canvas.drawPath(path,myEdgePaint);
-}
-break;
-}
-}
-if (stopScrolling) {
+if (doStopScrolling) {
 if (myScrollingBound != 0) {
-Bitmap swap=myMainBitmap;
-myMainBitmap=mySecondaryBitmap;
-mySecondaryBitmap=swap;
-mySecondaryBitmapIsUpToDate=false;
-view.onScrollingFinished(myPageToScrollTo);
-ZLApplication.Instance().onRepaintFinished();
+  Bitmap swap=myMainBitmap;
+  myMainBitmap=mySecondaryBitmap;
+  mySecondaryBitmap=swap;
+  mySecondaryBitmapIsUpToDate=false;
+  view.onScrollingFinished(myPageToScrollTo);
+  ZLApplication.Instance().onRepaintFinished();
 }
  else {
-view.onScrollingFinished(ZLView.PageIndex.current);
+  view.onScrollingFinished(ZLView.PageIndex.current);
 }
 setPageToScrollTo(ZLView.PageIndex.current);
-myScrollingState=ScrollingState.NoScrolling;
-myScrollingShift=0;
+stopScrolling();
 }
  else {
 if (myScrollingState == ScrollingState.AutoScrollingForward || myScrollingState == ScrollingState.AutoScrollingBackward) {
-postInvalidate();
+  postInvalidate();
 }
 }
 drawFooter(canvas);

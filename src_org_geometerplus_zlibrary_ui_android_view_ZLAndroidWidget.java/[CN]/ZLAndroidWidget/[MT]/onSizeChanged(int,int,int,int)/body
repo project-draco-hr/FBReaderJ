@@ -2,8 +2,7 @@
   super.onSizeChanged(w,h,oldw,oldh);
   if (myScreenIsTouched) {
     final ZLView view=ZLApplication.Instance().getCurrentView();
-    myScrollingState=ScrollingState.NoScrolling;
-    myScrollingShift=0;
+    stopScrolling();
     myScreenIsTouched=false;
     view.onScrollingFinished(ZLView.PageIndex.current);
     setPageToScrollTo(ZLView.PageIndex.current);

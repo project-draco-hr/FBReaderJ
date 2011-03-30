@@ -1,3 +1,4 @@
+Canvas canvas
 Bitmap bgBitmap
 Bitmap fgBitmap
 int startX

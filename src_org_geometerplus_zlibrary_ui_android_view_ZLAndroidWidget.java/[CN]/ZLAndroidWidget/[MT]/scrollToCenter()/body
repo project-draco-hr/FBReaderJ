@@ -1,9 +1,8 @@
 {
-  myScrollingState=ScrollingState.NoScrolling;
+  stopScrolling();
   if (myMainBitmap == null) {
     return;
   }
-  myScrollingShift=0;
   setPageToScrollTo(ZLView.PageIndex.current);
   drawOnBitmap(mySecondaryBitmap);
   postInvalidate();
