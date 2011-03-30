@@ -7,7 +7,6 @@
   if (model == null) {
     return;
   }
-  final ZLColor bgColor=getBackgroundColor();
   final ZLColor fgColor=getTextColor(ZLTextHyperlink.NO_LINK);
   final ZLColor fillColor=reader.getColorProfile().FooterFillOption.getValue();
   final int left=getLeftMargin();
