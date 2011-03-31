@@ -1,18 +1,15 @@
 {
-  myScrollingState=ScrollingState.ManualScrolling;
-  myScrollHorizontally=horizontally;
-  final int shift=horizontally ? endX - startX : endY - startY;
   if (myMainBitmap == null) {
     return;
   }
-  if ((shift > 0 && getAnimationProvider().getScrollingShift() <= 0) || (shift < 0 && getAnimationProvider().getScrollingShift() >= 0)) {
-    mySecondaryBitmapIsUpToDate=false;
-  }
+  myScrollingState=ScrollingState.ManualScrolling;
+  myScrollHorizontally=horizontally;
   myStartX=startX;
   myStartY=startY;
   myEndX=endX;
   myEndY=endY;
-  setPageToScrollTo(shift < 0 ? ZLView.PageIndex.next : ZLView.PageIndex.previous);
+  getAnimationProvider().setup(startX,startY,endX,endY,horizontally,getHeight(),getMainAreaHeight());
+  setPageToScrollTo(getAnimationProvider().getPageToScrollTo());
   drawOnBitmap(mySecondaryBitmap);
   postInvalidate();
 }

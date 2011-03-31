@@ -1,0 +1,3 @@
+{
+  return myHorizontal ? (myStartX < myWidth / 2 ? ZLView.PageIndex.previous : ZLView.PageIndex.next) : (myStartY < myHeight / 2 ? ZLView.PageIndex.previous : ZLView.PageIndex.next);
+}

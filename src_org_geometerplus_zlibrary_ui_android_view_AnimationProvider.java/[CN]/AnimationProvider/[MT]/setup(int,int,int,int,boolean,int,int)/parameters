@@ -3,3 +3,5 @@ int startY
 int endX
 int endY
 boolean horizontal
+int width
+int height

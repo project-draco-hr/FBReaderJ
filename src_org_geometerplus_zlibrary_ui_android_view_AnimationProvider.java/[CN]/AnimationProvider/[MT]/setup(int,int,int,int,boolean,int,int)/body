@@ -4,4 +4,6 @@
   myEndX=endX;
   myEndY=endY;
   myHorizontal=horizontal;
+  myWidth=width;
+  myHeight=height;
 }

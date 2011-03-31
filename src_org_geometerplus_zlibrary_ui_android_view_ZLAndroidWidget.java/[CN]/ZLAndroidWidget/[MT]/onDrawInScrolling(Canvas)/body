@@ -51,7 +51,7 @@
     onDrawStatic(canvas);
     return;
   }
-  getAnimationProvider().setup(myStartX,myStartY,myEndX,myEndY,myScrollHorizontally);
+  getAnimationProvider().setup(myStartX,myStartY,myEndX,myEndY,myScrollHorizontally,getWidth(),getMainAreaHeight());
   getAnimationProvider().draw(canvas,mySecondaryBitmap,myMainBitmap);
   if (myScrollingState == ScrollingState.AutoScrollingForward || myScrollingState == ScrollingState.AutoScrollingBackward) {
     postInvalidate();
