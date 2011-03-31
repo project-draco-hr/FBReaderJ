@@ -6,7 +6,6 @@
   if (activity == null) {
     return;
   }
-  String msg=null;
   if (errorMessage != null) {
     UIUtil.showErrorMessageText(activity,errorMessage);
   }
