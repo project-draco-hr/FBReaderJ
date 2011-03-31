@@ -11,7 +11,7 @@
       myEndY+=(int)myScrollingSpeed;
     }
     if (myScrollingSpeed > 0) {
-      if (getScrollingShift() >= myScrollingBound) {
+      if (getAnimationProvider().getScrollingShift() >= myScrollingBound) {
         if (myScrollHorizontally) {
           myEndX=myStartX + myScrollingBound;
         }
@@ -22,7 +22,7 @@
       }
     }
  else {
-      if (getScrollingShift() <= myScrollingBound) {
+      if (getAnimationProvider().getScrollingShift() <= myScrollingBound) {
         if (myScrollHorizontally) {
           myEndX=myStartX + myScrollingBound;
         }
@@ -80,7 +80,7 @@ case curl:
       canvas.drawBitmap(myMainBitmap,0,0,myPaint);
       canvas.restore();
       final int size=myScrollHorizontally ? w : h;
-      int shift=getScrollingShift() < 0 ? getScrollingShift() + size : getScrollingShift() - size;
+      int shift=getAnimationProvider().getScrollingShift() < 0 ? getAnimationProvider().getScrollingShift() + size : getAnimationProvider().getScrollingShift() - size;
       myEdgePaint.setColor(ZLAndroidPaintContext.getFillColor());
       myEdgePaint.setAntiAlias(true);
       myEdgePaint.setStyle(Paint.Style.FILL);
@@ -106,7 +106,7 @@ if (doStopScrolling) {
     view.onScrollingFinished(ZLView.PageIndex.current);
   }
   setPageToScrollTo(ZLView.PageIndex.current);
-  stopScrolling();
+  myScrollingState=ScrollingState.NoScrolling;
 }
  else {
   if (myScrollingState == ScrollingState.AutoScrollingForward || myScrollingState == ScrollingState.AutoScrollingBackward) {

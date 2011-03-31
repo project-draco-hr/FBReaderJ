@@ -5,7 +5,7 @@
   if (myMainBitmap == null) {
     return;
   }
-  if ((shift > 0 && getScrollingShift() <= 0) || (shift < 0 && getScrollingShift() >= 0)) {
+  if ((shift > 0 && getAnimationProvider().getScrollingShift() <= 0) || (shift < 0 && getAnimationProvider().getScrollingShift() >= 0)) {
     mySecondaryBitmapIsUpToDate=false;
   }
   myStartX=startX;

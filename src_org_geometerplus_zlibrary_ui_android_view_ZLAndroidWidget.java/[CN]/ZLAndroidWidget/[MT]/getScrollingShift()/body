@@ -1,3 +1,0 @@
-{
-  return myScrollHorizontally ? myEndX - myStartX : myEndY - myStartY;
-}

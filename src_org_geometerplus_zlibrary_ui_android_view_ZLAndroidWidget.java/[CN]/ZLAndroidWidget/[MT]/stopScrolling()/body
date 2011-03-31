@@ -1,5 +1,0 @@
-{
-  myScrollingState=ScrollingState.NoScrolling;
-  myEndX=myStartX;
-  myEndY=myStartY;
-}
