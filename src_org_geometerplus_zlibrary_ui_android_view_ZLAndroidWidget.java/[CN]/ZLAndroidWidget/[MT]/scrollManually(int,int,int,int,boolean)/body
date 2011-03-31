@@ -8,7 +8,7 @@
   myStartY=startY;
   myEndX=endX;
   myEndY=endY;
-  getAnimationProvider().setup(startX,startY,endX,endY,horizontally,getHeight(),getMainAreaHeight());
+  getAnimationProvider().setup(startX,startY,endX,endY,horizontally,getWidth(),getMainAreaHeight());
   setPageToScrollTo(getAnimationProvider().getPageToScrollTo());
   drawOnBitmap(mySecondaryBitmap);
   postInvalidate();

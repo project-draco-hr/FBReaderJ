@@ -39,7 +39,6 @@
       Bitmap swap=myMainBitmap;
       myMainBitmap=mySecondaryBitmap;
       mySecondaryBitmap=swap;
-      mySecondaryBitmapIsUpToDate=false;
       view.onScrollingFinished(myPageToScrollTo);
       ZLApplication.Instance().onRepaintFinished();
     }
