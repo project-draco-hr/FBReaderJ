@@ -3,7 +3,7 @@
     ourWallpaperFile=wallpaperFile;
     ourWallpaper=null;
     try {
-      final Bitmap fileBitmap=new BitmapFactory().decodeStream(wallpaperFile.getInputStream());
+      final Bitmap fileBitmap=BitmapFactory.decodeStream(wallpaperFile.getInputStream());
       final int w=fileBitmap.getWidth();
       final int h=fileBitmap.getHeight();
       if (doMirror) {
