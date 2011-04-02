@@ -1,0 +1,16 @@
+{
+  if (!inProgress()) {
+    final int x, y;
+    if (direction.IsHorizontal) {
+      x=speed < 0 ? w : 0;
+      y=0;
+    }
+ else {
+      x=0;
+      y=speed < 0 ? h : 0;
+    }
+    setup(x,y,x,y,direction,w,h);
+  }
+  myMode=forward ? ScrollingMode.AutoScrollingForward : ScrollingMode.AutoScrollingBackward;
+  mySpeed=speed;
+}

@@ -1,3 +1,4 @@
 {
-  myScrollingMode=ScrollingMode.NoScrolling;
+  myMode=ScrollingMode.NoScrolling;
+  mySpeed=0;
 }

@@ -10,41 +10,23 @@ case current:
 switch (myPageToScrollTo) {
 case current:
       animator.terminate();
-    myScrollingSpeed=0;
-  break;
+    break;
 case previous:
-animator.setScrollingMode(AnimationProvider.ScrollingMode.AutoScrollingBackward);
-myScrollingSpeed=-3;
+  animator.startAutoScrolling(false,-3,direction,getWidth(),getMainAreaHeight());
 break;
 case next:
-animator.setScrollingMode(AnimationProvider.ScrollingMode.AutoScrollingBackward);
-myScrollingSpeed=3;
+animator.startAutoScrolling(false,3,direction,getWidth(),getMainAreaHeight());
 break;
 }
 break;
 case previous:
-animator.setScrollingMode(AnimationProvider.ScrollingMode.AutoScrollingForward);
-myScrollingSpeed=3;
+animator.startAutoScrolling(true,3,direction,getWidth(),getMainAreaHeight());
 setPageToScrollTo(pageIndex);
 break;
 case next:
-animator.setScrollingMode(AnimationProvider.ScrollingMode.AutoScrollingForward);
-myScrollingSpeed=-3;
+animator.startAutoScrolling(true,-3,direction,getWidth(),getMainAreaHeight());
 setPageToScrollTo(pageIndex);
 break;
-}
-if (doSetup && animator.inProgress()) {
-if (myScrollingDirection.IsHorizontal) {
-myStartX=myScrollingSpeed < 0 ? getWidth() : 0;
-myStartY=0;
-}
- else {
-myStartX=0;
-myStartY=myScrollingSpeed < 0 ? getMainAreaHeight() : 0;
-}
-myEndX=myStartX;
-myEndY=myStartY;
-getAnimationProvider().setup(myStartX,myStartY,myEndX,myEndY,myScrollingDirection,getWidth(),getMainAreaHeight());
 }
 drawOnBitmap(mySecondaryBitmap);
 postInvalidate();

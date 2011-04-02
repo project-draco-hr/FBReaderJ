@@ -3,12 +3,9 @@
   final int w=getWidth();
   final int h=getMainAreaHeight();
   final AnimationProvider animator=getAnimationProvider();
-  final AnimationProvider.ScrollingMode mode=animator.getScrollingMode();
-  if (mode.Auto) {
-    doStep();
-  }
+  final AnimationProvider.ScrollingMode oldMode=animator.getScrollingMode();
+  animator.doStep();
   if (animator.inProgress()) {
-    animator.setup(myStartX,myStartY,myEndX,myEndY,myScrollingDirection,getWidth(),getMainAreaHeight());
     animator.draw(canvas,mySecondaryBitmap,myMainBitmap);
     if (animator.getScrollingMode().Auto) {
       postInvalidate();
@@ -16,17 +13,21 @@
     drawFooter(canvas);
   }
  else {
-    if (mode == AnimationProvider.ScrollingMode.AutoScrollingForward) {
-      Bitmap swap=myMainBitmap;
-      myMainBitmap=mySecondaryBitmap;
-      mySecondaryBitmap=swap;
-      view.onScrollingFinished(myPageToScrollTo);
-      ZLApplication.Instance().onRepaintFinished();
-    }
- else {
-      view.onScrollingFinished(ZLView.PageIndex.current);
-    }
-    setPageToScrollTo(ZLView.PageIndex.current);
-    onDrawStatic(canvas);
-  }
+switch (oldMode) {
+case AutoScrollingForward:
+{
+        final Bitmap swap=myMainBitmap;
+        myMainBitmap=mySecondaryBitmap;
+        mySecondaryBitmap=swap;
+        view.onScrollingFinished(myPageToScrollTo);
+        ZLApplication.Instance().onRepaintFinished();
+        break;
+      }
+case AutoScrollingBackward:
+    view.onScrollingFinished(ZLView.PageIndex.current);
+  break;
+}
+setPageToScrollTo(ZLView.PageIndex.current);
+onDrawStatic(canvas);
+}
 }
