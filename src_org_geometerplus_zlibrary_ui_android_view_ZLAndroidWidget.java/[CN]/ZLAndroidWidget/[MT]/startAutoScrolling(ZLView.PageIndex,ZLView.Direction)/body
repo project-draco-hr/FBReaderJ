@@ -2,9 +2,9 @@
   if (myMainBitmap == null) {
     return;
   }
-  myScrollingDirection=direction;
   final AnimationProvider animator=getAnimationProvider();
-  final boolean doSetup=!animator.inProgress();
+  final int w=getWidth();
+  final int h=getHeight();
 switch (pageIndex) {
 case current:
 switch (myPageToScrollTo) {
@@ -12,19 +12,19 @@ case current:
       animator.terminate();
     break;
 case previous:
-  animator.startAutoScrolling(false,-3,direction,getWidth(),getMainAreaHeight());
+  animator.startAutoScrolling(false,-3,direction,w,h);
 break;
 case next:
-animator.startAutoScrolling(false,3,direction,getWidth(),getMainAreaHeight());
+animator.startAutoScrolling(false,3,direction,w,h);
 break;
 }
 break;
 case previous:
-animator.startAutoScrolling(true,3,direction,getWidth(),getMainAreaHeight());
+animator.startAutoScrolling(true,3,direction,w,h);
 setPageToScrollTo(pageIndex);
 break;
 case next:
-animator.startAutoScrolling(true,-3,direction,getWidth(),getMainAreaHeight());
+animator.startAutoScrolling(true,-3,direction,w,h);
 setPageToScrollTo(pageIndex);
 break;
 }

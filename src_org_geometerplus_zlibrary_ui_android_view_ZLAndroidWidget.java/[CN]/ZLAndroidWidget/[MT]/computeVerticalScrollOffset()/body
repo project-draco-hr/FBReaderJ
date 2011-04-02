@@ -7,9 +7,8 @@
   if (animator.inProgress()) {
     final int from=view.getScrollbarThumbPosition(ZLView.PageIndex.current);
     final int to=view.getScrollbarThumbPosition(myPageToScrollTo);
-    final int size=myScrollingDirection.IsHorizontal ? getWidth() : getMainAreaHeight();
-    final int shift=Math.abs(animator.getScrollingShift());
-    return (from * (size - shift) + to * shift) / size;
+    final int percent=animator.getScrolledPercent();
+    return (from * (100 - percent) + to * percent) / 100;
   }
  else {
     return view.getScrollbarThumbPosition(ZLView.PageIndex.current);

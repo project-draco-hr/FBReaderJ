@@ -3,7 +3,6 @@
     return;
   }
   getAnimationProvider().setScrollingMode(AnimationProvider.ScrollingMode.ManualScrolling);
-  myScrollingDirection=direction;
   getAnimationProvider().setup(startX,startY,endX,endY,direction,getWidth(),getMainAreaHeight());
   setPageToScrollTo(getAnimationProvider().getPageToScrollTo());
   drawOnBitmap(mySecondaryBitmap);
