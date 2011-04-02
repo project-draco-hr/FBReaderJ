@@ -10,24 +10,31 @@
  else {
       myEndY+=(int)myScrollingSpeed;
     }
+    final int bound;
+    if (myScrollingState == ScrollingState.AutoScrollingForward) {
+      bound=myScrollHorizontally ? getWidth() : getMainAreaHeight();
+    }
+ else {
+      bound=0;
+    }
     if (myScrollingSpeed > 0) {
-      if (getAnimationProvider().getScrollingShift() >= myScrollingBound) {
+      if (getAnimationProvider().getScrollingShift() >= bound) {
         if (myScrollHorizontally) {
-          myEndX=myStartX + myScrollingBound;
+          myEndX=myStartX + bound;
         }
  else {
-          myEndY=myStartY + myScrollingBound;
+          myEndY=myStartY + bound;
         }
         doStopScrolling=true;
       }
     }
  else {
-      if (getAnimationProvider().getScrollingShift() <= myScrollingBound) {
+      if (getAnimationProvider().getScrollingShift() <= -bound) {
         if (myScrollHorizontally) {
-          myEndX=myStartX + myScrollingBound;
+          myEndX=myStartX - bound;
         }
  else {
-          myEndY=myStartY + myScrollingBound;
+          myEndY=myStartY - bound;
         }
         doStopScrolling=true;
       }
@@ -35,7 +42,7 @@
     myScrollingSpeed*=1.5;
   }
   if (doStopScrolling) {
-    if (myScrollingBound != 0) {
+    if (myScrollingState != ScrollingState.AutoScrollingBackward) {
       Bitmap swap=myMainBitmap;
       myMainBitmap=mySecondaryBitmap;
       mySecondaryBitmap=swap;

@@ -20,18 +20,15 @@ myScrollingState=ScrollingState.AutoScrollingBackward;
 myScrollingSpeed=3;
 break;
 }
-myScrollingBound=0;
 break;
 case previous:
 myScrollingState=ScrollingState.AutoScrollingForward;
 myScrollingSpeed=3;
-myScrollingBound=horizontally ? getWidth() : getMainAreaHeight();
 setPageToScrollTo(pageIndex);
 break;
 case next:
 myScrollingState=ScrollingState.AutoScrollingForward;
 myScrollingSpeed=-3;
-myScrollingBound=horizontally ? -getWidth() : -getMainAreaHeight();
 setPageToScrollTo(pageIndex);
 break;
 }
