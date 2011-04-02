@@ -1,5 +1,4 @@
 {
   mySelectedRegion=null;
-  System.err.println("set to true 2");
   myHighlightSelectedRegion=true;
 }

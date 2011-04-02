@@ -1,6 +1,5 @@
 {
   if (region == null || !region.equals(mySelectedRegion)) {
-    System.err.println("set to true 1");
     myHighlightSelectedRegion=true;
   }
   mySelectedRegion=region;
