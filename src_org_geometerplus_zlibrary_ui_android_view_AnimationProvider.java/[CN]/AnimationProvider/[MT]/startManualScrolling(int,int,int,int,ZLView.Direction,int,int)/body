@@ -1,0 +1,4 @@
+{
+  myMode=Mode.ManualScrolling;
+  setup(startX,startY,endX,endY,direction,w,h);
+}

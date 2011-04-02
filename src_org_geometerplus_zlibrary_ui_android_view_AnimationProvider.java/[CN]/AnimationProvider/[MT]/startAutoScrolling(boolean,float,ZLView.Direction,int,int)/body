@@ -11,6 +11,6 @@
     }
     setup(x,y,x,y,direction,w,h);
   }
-  myMode=forward ? ScrollingMode.AutoScrollingForward : ScrollingMode.AutoScrollingBackward;
+  myMode=forward ? Mode.AutoScrollingForward : Mode.AutoScrollingBackward;
   mySpeed=speed;
 }
