@@ -3,37 +3,38 @@
     return;
   }
   myScrollingDirection=direction;
-  boolean doSetup=myScrollingState == ScrollingState.NoScrolling;
+  final AnimationProvider animator=getAnimationProvider();
+  final boolean doSetup=!animator.inProgress();
 switch (pageIndex) {
 case current:
 switch (myPageToScrollTo) {
 case current:
-      myScrollingState=ScrollingState.NoScrolling;
+      animator.terminate();
     myScrollingSpeed=0;
   break;
 case previous:
-myScrollingState=ScrollingState.AutoScrollingBackward;
+animator.setScrollingMode(AnimationProvider.ScrollingMode.AutoScrollingBackward);
 myScrollingSpeed=-3;
 break;
 case next:
-myScrollingState=ScrollingState.AutoScrollingBackward;
+animator.setScrollingMode(AnimationProvider.ScrollingMode.AutoScrollingBackward);
 myScrollingSpeed=3;
 break;
 }
 break;
 case previous:
-myScrollingState=ScrollingState.AutoScrollingForward;
+animator.setScrollingMode(AnimationProvider.ScrollingMode.AutoScrollingForward);
 myScrollingSpeed=3;
 setPageToScrollTo(pageIndex);
 break;
 case next:
-myScrollingState=ScrollingState.AutoScrollingForward;
+animator.setScrollingMode(AnimationProvider.ScrollingMode.AutoScrollingForward);
 myScrollingSpeed=-3;
 setPageToScrollTo(pageIndex);
 break;
 }
-if (doSetup && myScrollingState != ScrollingState.NoScrolling) {
-if (myScrollingDirection.isHorizontal()) {
+if (doSetup && animator.inProgress()) {
+if (myScrollingDirection.IsHorizontal) {
 myStartX=myScrollingSpeed < 0 ? getWidth() : 0;
 myStartY=0;
 }

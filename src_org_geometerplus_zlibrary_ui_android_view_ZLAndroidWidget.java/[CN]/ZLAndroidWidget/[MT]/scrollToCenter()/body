@@ -1,5 +1,5 @@
 {
-  myScrollingState=ScrollingState.NoScrolling;
+  getAnimationProvider().terminate();
   if (myMainBitmap == null) {
     return;
   }

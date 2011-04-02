@@ -2,7 +2,7 @@
   if (myMainBitmap == null) {
     return;
   }
-  myScrollingState=ScrollingState.ManualScrolling;
+  getAnimationProvider().setScrollingMode(AnimationProvider.ScrollingMode.ManualScrolling);
   myScrollingDirection=direction;
   myStartX=startX;
   myStartY=startY;
