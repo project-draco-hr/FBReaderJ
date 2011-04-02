@@ -2,6 +2,6 @@ int startX
 int startY
 int endX
 int endY
-boolean horizontal
+ZLView.Direction direction
 int width
 int height

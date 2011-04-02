@@ -2,7 +2,7 @@
   if (myMainBitmap == null) {
     return;
   }
-  myScrollHorizontally=horizontally;
+  myScrollingDirection=direction;
   boolean doSetup=myScrollingState == ScrollingState.NoScrolling;
 switch (pageIndex) {
 case current:
@@ -32,9 +32,8 @@ myScrollingSpeed=-3;
 setPageToScrollTo(pageIndex);
 break;
 }
-System.err.println(doSetup + ":" + myScrollingState);
 if (doSetup && myScrollingState != ScrollingState.NoScrolling) {
-if (myScrollHorizontally) {
+if (myScrollingDirection.isHorizontal()) {
 myStartX=myScrollingSpeed < 0 ? getWidth() : 0;
 myStartY=0;
 }
@@ -44,7 +43,7 @@ myStartY=myScrollingSpeed < 0 ? getMainAreaHeight() : 0;
 }
 myEndX=myStartX;
 myEndY=myStartY;
-getAnimationProvider().setup(myStartX,myStartY,myEndX,myEndY,myScrollHorizontally,getWidth(),getMainAreaHeight());
+getAnimationProvider().setup(myStartX,myStartY,myEndX,myEndY,myScrollingDirection,getWidth(),getMainAreaHeight());
 }
 drawOnBitmap(mySecondaryBitmap);
 postInvalidate();

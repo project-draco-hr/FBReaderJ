@@ -3,5 +3,5 @@
     return;
   }
   setScrollingActive(true);
-  ZLApplication.Instance().startViewAutoScrolling(pageIndex,horizontally);
+  ZLApplication.Instance().startViewAutoScrolling(pageIndex,direction);
 }

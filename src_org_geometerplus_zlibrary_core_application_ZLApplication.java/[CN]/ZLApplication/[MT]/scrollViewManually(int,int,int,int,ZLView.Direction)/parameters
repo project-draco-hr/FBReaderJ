@@ -2,4 +2,4 @@ int startX
 int startY
 int endX
 int endY
-boolean horizontally
+ZLView.Direction direction

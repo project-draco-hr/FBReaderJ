@@ -1,2 +1,2 @@
 ZLView.PageIndex pageIndex
-boolean horizontally
+ZLView.Direction direction

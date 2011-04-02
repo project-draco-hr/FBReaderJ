@@ -23,7 +23,7 @@ synchronized (this) {
           return false;
         }
         if (!cursor.isStartOfParagraph() || !cursor.getParagraphCursor().isFirst()) {
-          myReader.scrollViewManually(myStartX,myStartY,x,y,horizontal);
+          myReader.scrollViewManually(myStartX,myStartY,x,y,Direction.rightToLeft);
         }
       }
  else       if (diff < 0) {
@@ -32,7 +32,7 @@ synchronized (this) {
           return false;
         }
         if (!cursor.isEndOfParagraph() || !cursor.getParagraphCursor().isLast()) {
-          myReader.scrollViewManually(myStartX,myStartY,x,y,horizontal);
+          myReader.scrollViewManually(myStartX,myStartY,x,y,Direction.up);
         }
       }
  else {

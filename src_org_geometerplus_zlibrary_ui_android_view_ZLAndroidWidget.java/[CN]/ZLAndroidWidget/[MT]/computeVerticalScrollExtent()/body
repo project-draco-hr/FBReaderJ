@@ -9,7 +9,7 @@
  else {
     final int from=view.getScrollbarThumbLength(ZLView.PageIndex.current);
     final int to=view.getScrollbarThumbLength(myPageToScrollTo);
-    final int size=myScrollHorizontally ? getWidth() : getMainAreaHeight();
+    final int size=myScrollingDirection.isHorizontal() ? getWidth() : getMainAreaHeight();
     final int shift=Math.abs(getAnimationProvider().getScrollingShift());
     return (from * (size - shift) + to * shift) / size;
   }

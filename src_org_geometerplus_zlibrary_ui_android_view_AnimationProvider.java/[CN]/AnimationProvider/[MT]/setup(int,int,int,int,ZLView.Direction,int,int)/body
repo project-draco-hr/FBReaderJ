@@ -3,7 +3,7 @@
   myStartY=startY;
   myEndX=endX;
   myEndY=endY;
-  myHorizontal=horizontal;
+  myDirection=direction;
   myWidth=width;
   myHeight=height;
 }

@@ -4,63 +4,71 @@
   final int h=getMainAreaHeight();
   boolean doStopScrolling=false;
   if (myScrollingState == ScrollingState.AutoScrollingForward || myScrollingState == ScrollingState.AutoScrollingBackward) {
-    if (myScrollHorizontally) {
-      myEndX+=(int)myScrollingSpeed;
-    }
+switch (myScrollingDirection) {
+case leftToRight:
+      myEndX-=(int)myScrollingSpeed;
+    break;
+case rightToLeft:
+  myEndX+=(int)myScrollingSpeed;
+break;
+case up:
+myEndY+=(int)myScrollingSpeed;
+break;
+case down:
+myEndY-=(int)myScrollingSpeed;
+break;
+}
+final int bound;
+if (myScrollingState == ScrollingState.AutoScrollingForward) {
+bound=myScrollingDirection.isHorizontal() ? getWidth() : getMainAreaHeight();
+}
  else {
-      myEndY+=(int)myScrollingSpeed;
-    }
-    final int bound;
-    if (myScrollingState == ScrollingState.AutoScrollingForward) {
-      bound=myScrollHorizontally ? getWidth() : getMainAreaHeight();
-    }
+bound=0;
+}
+if (myScrollingSpeed > 0) {
+if (getAnimationProvider().getScrollingShift() >= bound) {
+if (myScrollingDirection.isHorizontal()) {
+myEndX=myStartX + bound;
+}
  else {
-      bound=0;
-    }
-    if (myScrollingSpeed > 0) {
-      if (getAnimationProvider().getScrollingShift() >= bound) {
-        if (myScrollHorizontally) {
-          myEndX=myStartX + bound;
-        }
+myEndY=myStartY + bound;
+}
+doStopScrolling=true;
+}
+}
  else {
-          myEndY=myStartY + bound;
-        }
-        doStopScrolling=true;
-      }
-    }
+if (getAnimationProvider().getScrollingShift() <= -bound) {
+if (myScrollingDirection.isHorizontal()) {
+myEndX=myStartX - bound;
+}
  else {
-      if (getAnimationProvider().getScrollingShift() <= -bound) {
-        if (myScrollHorizontally) {
-          myEndX=myStartX - bound;
-        }
+myEndY=myStartY - bound;
+}
+doStopScrolling=true;
+}
+}
+myScrollingSpeed*=1.5;
+}
+if (doStopScrolling) {
+if (myScrollingState != ScrollingState.AutoScrollingBackward) {
+Bitmap swap=myMainBitmap;
+myMainBitmap=mySecondaryBitmap;
+mySecondaryBitmap=swap;
+view.onScrollingFinished(myPageToScrollTo);
+ZLApplication.Instance().onRepaintFinished();
+}
  else {
-          myEndY=myStartY - bound;
-        }
-        doStopScrolling=true;
-      }
-    }
-    myScrollingSpeed*=1.5;
-  }
-  if (doStopScrolling) {
-    if (myScrollingState != ScrollingState.AutoScrollingBackward) {
-      Bitmap swap=myMainBitmap;
-      myMainBitmap=mySecondaryBitmap;
-      mySecondaryBitmap=swap;
-      view.onScrollingFinished(myPageToScrollTo);
-      ZLApplication.Instance().onRepaintFinished();
-    }
- else {
-      view.onScrollingFinished(ZLView.PageIndex.current);
-    }
-    setPageToScrollTo(ZLView.PageIndex.current);
-    myScrollingState=ScrollingState.NoScrolling;
-    onDrawStatic(canvas);
-    return;
-  }
-  getAnimationProvider().setup(myStartX,myStartY,myEndX,myEndY,myScrollHorizontally,getWidth(),getMainAreaHeight());
-  getAnimationProvider().draw(canvas,mySecondaryBitmap,myMainBitmap);
-  if (myScrollingState == ScrollingState.AutoScrollingForward || myScrollingState == ScrollingState.AutoScrollingBackward) {
-    postInvalidate();
-  }
-  drawFooter(canvas);
+view.onScrollingFinished(ZLView.PageIndex.current);
+}
+setPageToScrollTo(ZLView.PageIndex.current);
+myScrollingState=ScrollingState.NoScrolling;
+onDrawStatic(canvas);
+return;
+}
+getAnimationProvider().setup(myStartX,myStartY,myEndX,myEndY,myScrollingDirection,getWidth(),getMainAreaHeight());
+getAnimationProvider().draw(canvas,mySecondaryBitmap,myMainBitmap);
+if (myScrollingState == ScrollingState.AutoScrollingForward || myScrollingState == ScrollingState.AutoScrollingBackward) {
+postInvalidate();
+}
+drawFooter(canvas);
 }
