@@ -1,0 +1,75 @@
+{
+  if (!getMode().Auto) {
+    return;
+  }
+switch (myDirection) {
+case leftToRight:
+    myEndX-=(int)mySpeed;
+  if (myStartY < myHeight / 2) {
+    myEndY+=(int)Math.abs(mySpeed / 2);
+  }
+ else {
+    myEndY-=(int)Math.abs(mySpeed / 2);
+  }
+break;
+case rightToLeft:
+myEndX+=(int)mySpeed;
+if (myStartY < myHeight / 2) {
+myEndY+=(int)Math.abs(mySpeed / 2);
+}
+ else {
+myEndY-=(int)Math.abs(mySpeed / 2);
+}
+break;
+case up:
+myEndY+=(int)mySpeed;
+if (myStartX < myWidth / 2) {
+myEndX+=(int)Math.abs(mySpeed / 2);
+}
+ else {
+myEndX-=(int)Math.abs(mySpeed / 2);
+}
+break;
+case down:
+myEndY-=(int)mySpeed;
+if (myStartX < myWidth / 2) {
+myEndX+=(int)Math.abs(mySpeed / 2);
+}
+ else {
+myEndX-=(int)Math.abs(mySpeed / 2);
+}
+break;
+}
+final int bound;
+if (getMode() == Mode.AutoScrollingForward) {
+bound=myDirection.IsHorizontal ? myWidth : myHeight;
+}
+ else {
+bound=0;
+}
+if (mySpeed > 0) {
+if (getScrollingShift() >= 2 * bound) {
+if (myDirection.IsHorizontal) {
+myEndX=myStartX + 2 * bound;
+}
+ else {
+myEndY=myStartY + 2 * bound;
+}
+terminate();
+return;
+}
+}
+ else {
+if (getScrollingShift() <= -2 * bound) {
+if (myDirection.IsHorizontal) {
+myEndX=myStartX - 2 * bound;
+}
+ else {
+myEndY=myStartY - 2 * bound;
+}
+terminate();
+return;
+}
+}
+mySpeed*=1.5;
+}
