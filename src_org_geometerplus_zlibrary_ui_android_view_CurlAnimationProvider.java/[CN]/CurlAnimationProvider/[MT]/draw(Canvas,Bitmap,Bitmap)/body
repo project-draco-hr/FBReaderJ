@@ -7,20 +7,30 @@
   final int x, y;
   if (myDirection.IsHorizontal) {
     x=myEndX;
-    if (cornerY == 0) {
-      y=Math.max(1,Math.min(myHeight / 2,myEndY));
+    if (getMode().Auto) {
+      y=myEndY;
     }
  else {
-      y=Math.max(myHeight / 2,Math.min(myHeight - 1,myEndY));
+      if (cornerY == 0) {
+        y=Math.max(1,Math.min(myHeight / 2,myEndY));
+      }
+ else {
+        y=Math.max(myHeight / 2,Math.min(myHeight - 1,myEndY));
+      }
     }
   }
  else {
     y=myEndY;
-    if (cornerX == 0) {
-      x=Math.max(1,Math.min(myWidth / 2,myEndX));
+    if (getMode().Auto) {
+      x=myEndX;
     }
  else {
-      x=Math.max(myWidth / 2,Math.min(myWidth - 1,myEndX));
+      if (cornerX == 0) {
+        x=Math.max(1,Math.min(myWidth / 2,myEndX));
+      }
+ else {
+        x=Math.max(myWidth / 2,Math.min(myWidth - 1,myEndX));
+      }
     }
   }
   final int dX=Math.max(1,Math.abs(x - cornerX));

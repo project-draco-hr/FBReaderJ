@@ -1,0 +1,19 @@
+{
+  if (x != null) {
+    if (x < w / 2) {
+      x=Math.min(x,w / 5);
+    }
+ else {
+      x=Math.max(x,4 * w / 5);
+    }
+  }
+  if (y != null) {
+    if (y < h / 2) {
+      y=Math.min(y,h / 5);
+    }
+ else {
+      y=Math.max(y,4 * h / 5);
+    }
+  }
+  super.startAutoScrolling(forward,Math.abs(speed),direction,w,h,x,y);
+}

@@ -12,19 +12,19 @@ case current:
       animator.terminate();
     break;
 case previous:
-  animator.startAutoScrolling(false,-3,direction,w,h);
+  animator.startAutoScrolling(false,-3,direction,w,h,x,y);
 break;
 case next:
-animator.startAutoScrolling(false,3,direction,w,h);
+animator.startAutoScrolling(false,3,direction,w,h,x,y);
 break;
 }
 break;
 case previous:
-animator.startAutoScrolling(true,3,direction,w,h);
+animator.startAutoScrolling(true,3,direction,w,h,x,y);
 setPageToScrollTo(pageIndex);
 break;
 case next:
-animator.startAutoScrolling(true,-3,direction,w,h);
+animator.startAutoScrolling(true,-3,direction,w,h,x,y);
 setPageToScrollTo(pageIndex);
 break;
 }
