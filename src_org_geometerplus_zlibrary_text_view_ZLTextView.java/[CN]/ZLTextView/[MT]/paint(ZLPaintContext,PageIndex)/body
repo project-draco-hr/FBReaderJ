@@ -57,7 +57,7 @@ y+=info.Height + info.Descent + info.VSpaceAfter;
 ++index;
 }
 final ZLTextElementRegion selectedElementRegion=getCurrentElementRegion(page);
-if (selectedElementRegion != null) {
+if (selectedElementRegion != null && myHighlightSelectedRegion) {
 selectedElementRegion.draw(context);
 }
 }

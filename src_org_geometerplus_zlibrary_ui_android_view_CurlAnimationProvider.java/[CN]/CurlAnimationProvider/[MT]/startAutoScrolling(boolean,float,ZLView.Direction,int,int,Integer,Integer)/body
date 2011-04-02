@@ -15,5 +15,15 @@
       y=Math.max(y,4 * h / 5);
     }
   }
-  super.startAutoScrolling(forward,Math.abs(speed),direction,w,h,x,y);
+  if (x == null && y == null) {
+    if (direction.IsHorizontal) {
+      x=speed < 0 ? w - 3 : 3;
+      y=1;
+    }
+ else {
+      x=1;
+      y=speed < 0 ? h - 3 : 3;
+    }
+  }
+  super.startAutoScrolling(forward,speed,direction,w,h,x,y);
 }
