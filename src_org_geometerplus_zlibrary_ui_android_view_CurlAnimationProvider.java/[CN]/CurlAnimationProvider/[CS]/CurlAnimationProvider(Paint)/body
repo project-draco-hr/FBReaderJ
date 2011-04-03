@@ -3,4 +3,6 @@
   myEdgePaint.setAntiAlias(true);
   myEdgePaint.setStyle(Paint.Style.FILL);
   myEdgePaint.setShadowLayer(25,5,5,0x99000000);
+  myBackPaint.setAntiAlias(true);
+  myBackPaint.setAlpha(0x40);
 }
