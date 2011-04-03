@@ -1,6 +1,5 @@
 {
   super.onCreateOptionsMenu(menu);
-  final ZLAndroidApplication application=(ZLAndroidApplication)getApplication();
   addMenuItem(menu,ActionCode.SHOW_LIBRARY,R.drawable.ic_menu_library);
   addMenuItem(menu,ActionCode.SHOW_NETWORK_LIBRARY,R.drawable.ic_menu_networklibrary);
   addMenuItem(menu,ActionCode.SHOW_TOC,R.drawable.ic_menu_toc);

@@ -1,3 +1,4 @@
 {
   mySelectedRegion=null;
+  myHighlightSelectedRegion=true;
 }

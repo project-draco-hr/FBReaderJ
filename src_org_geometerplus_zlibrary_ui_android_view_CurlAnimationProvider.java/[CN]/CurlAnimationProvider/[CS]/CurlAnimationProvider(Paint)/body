@@ -1,0 +1,8 @@
+{
+  super(paint);
+  myBackPaint.setAntiAlias(true);
+  myBackPaint.setAlpha(0x40);
+  myEdgePaint.setAntiAlias(true);
+  myEdgePaint.setStyle(Paint.Style.FILL);
+  myEdgePaint.setShadowLayer(35,0,0,0xC0000000);
+}

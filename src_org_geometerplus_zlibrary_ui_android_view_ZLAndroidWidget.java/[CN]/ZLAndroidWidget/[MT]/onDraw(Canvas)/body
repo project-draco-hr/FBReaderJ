@@ -22,7 +22,7 @@
     mySecondaryBitmapIsUpToDate=false;
     drawOnBitmap(myMainBitmap);
   }
-  if (myScrollingInProgress || myScrollingShift != 0) {
+  if (getAnimationProvider().inProgress()) {
     onDrawInScrolling(canvas);
   }
  else {

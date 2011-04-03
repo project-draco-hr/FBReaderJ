@@ -1,0 +1,5 @@
+{
+  final int full=myDirection.IsHorizontal ? myWidth : myHeight;
+  final int shift=Math.abs(getScrollingShift());
+  return 100 * shift / full;
+}

@@ -1,5 +1,0 @@
-{
-  int start=scrollbarType() == SCROLLBAR_SHOW_AS_PROGRESS ? 0 : getCurrentCharNumber(viewPage,true);
-  int end=getCurrentCharNumber(viewPage,false);
-  return Math.max(1,end - start);
-}

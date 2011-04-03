@@ -1,0 +1,7 @@
+boolean forward
+float speed
+ZLView.Direction direction
+int w
+int h
+Integer x
+Integer y

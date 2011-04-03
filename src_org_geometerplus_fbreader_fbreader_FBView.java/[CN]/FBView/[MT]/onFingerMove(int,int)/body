@@ -17,26 +17,27 @@ synchronized (this) {
     if (isScrollingActive() && myIsManualScrollingActive) {
       final boolean horizontal=ScrollingPreferences.Instance().HorizontalOption.getValue();
       final int diff=horizontal ? x - myStartX : y - myStartY;
+      final Direction direction=horizontal ? Direction.rightToLeft : Direction.up;
       if (diff > 0) {
-        ZLTextWordCursor cursor=getStartCursor();
+        final ZLTextWordCursor cursor=getStartCursor();
         if (cursor == null || cursor.isNull()) {
           return false;
         }
         if (!cursor.isStartOfParagraph() || !cursor.getParagraphCursor().isFirst()) {
-          myReader.scrollViewTo(horizontal ? PAGE_LEFT : PAGE_TOP,diff);
+          myReader.scrollViewManually(myStartX,myStartY,x,y,direction);
         }
       }
  else       if (diff < 0) {
-        ZLTextWordCursor cursor=getEndCursor();
+        final ZLTextWordCursor cursor=getEndCursor();
         if (cursor == null || cursor.isNull()) {
           return false;
         }
         if (!cursor.isEndOfParagraph() || !cursor.getParagraphCursor().isLast()) {
-          myReader.scrollViewTo(horizontal ? PAGE_RIGHT : PAGE_BOTTOM,-diff);
+          myReader.scrollViewManually(myStartX,myStartY,x,y,direction);
         }
       }
  else {
-        myReader.scrollViewTo(PAGE_CENTRAL,0);
+        myReader.scrollViewToCenter();
       }
       return true;
     }

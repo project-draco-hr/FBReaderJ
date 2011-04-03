@@ -3,15 +3,14 @@
   if (!view.isScrollbarShown()) {
     return 0;
   }
-  if (myScrollingInProgress || (myScrollingShift != 0)) {
-    final int from=view.getScrollbarThumbLength(ZLView.PAGE_CENTRAL);
-    final int to=view.getScrollbarThumbLength(myViewPageToScroll);
-    final boolean horizontal=(myViewPageToScroll == ZLView.PAGE_RIGHT) || (myViewPageToScroll == ZLView.PAGE_LEFT);
-    final int size=horizontal ? getWidth() : getMainAreaHeight();
-    final int shift=Math.abs(myScrollingShift);
-    return (from * (size - shift) + to * shift) / size;
+  final AnimationProvider animator=getAnimationProvider();
+  if (animator.inProgress()) {
+    final int from=view.getScrollbarThumbLength(ZLView.PageIndex.current);
+    final int to=view.getScrollbarThumbLength(myPageToScrollTo);
+    final int percent=animator.getScrolledPercent();
+    return (from * (100 - percent) + to * percent) / 100;
   }
  else {
-    return view.getScrollbarThumbLength(ZLView.PAGE_CENTRAL);
+    return view.getScrollbarThumbLength(ZLView.PageIndex.current);
   }
 }

@@ -1,0 +1,4 @@
+{
+  final ZLAndroidWidget widget=((ZLAndroidLibrary)ZLAndroidLibrary.Instance()).getWidget();
+  widget.startAutoScrolling(pageIndex,direction,null,null);
+}

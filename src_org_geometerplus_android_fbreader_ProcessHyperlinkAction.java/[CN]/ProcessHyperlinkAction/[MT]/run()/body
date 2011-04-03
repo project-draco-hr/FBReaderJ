@@ -1,6 +1,8 @@
 {
   final ZLTextElementRegion region=Reader.getTextView().getSelectedRegion();
   if (region instanceof ZLTextHyperlinkRegion) {
+    Reader.getTextView().hideSelectedRegionBorder();
+    Reader.repaintView();
     final ZLTextHyperlink hyperlink=((ZLTextHyperlinkRegion)region).Hyperlink;
 switch (hyperlink.Type) {
 case FBHyperlinkType.EXTERNAL:
@@ -16,9 +18,10 @@ case FBHyperlinkType.INTERNAL:
 Reader.tryOpenFootnote(hyperlink.Id);
 break;
 }
-return;
 }
  else if (region instanceof ZLTextImageRegion) {
+Reader.getTextView().hideSelectedRegionBorder();
+Reader.repaintView();
 final String uriString=((ZLTextImageRegion)region).ImageElement.URI;
 if (uriString != null) {
 try {
