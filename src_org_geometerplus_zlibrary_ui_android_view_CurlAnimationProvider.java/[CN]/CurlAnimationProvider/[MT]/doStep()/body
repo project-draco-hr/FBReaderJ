@@ -3,7 +3,7 @@
     return;
   }
   final int speed=(int)Math.abs(mySpeed);
-  mySpeed*=1.5;
+  mySpeed*=2;
   final int cornerX=myStartX > myWidth / 2 ? myWidth : 0;
   final int cornerY=myStartY > myHeight / 2 ? myHeight : 0;
   final int boundX, boundY;
