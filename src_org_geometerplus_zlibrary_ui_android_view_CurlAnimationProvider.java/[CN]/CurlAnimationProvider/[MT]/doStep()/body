@@ -1,0 +1,66 @@
+{
+  if (!getMode().Auto) {
+    return;
+  }
+  final int speed=(int)Math.abs(mySpeed);
+  mySpeed*=2;
+  final int cornerX=myStartX > myWidth / 2 ? myWidth : 0;
+  final int cornerY=myStartY > myHeight / 2 ? myHeight : 0;
+  final int boundX, boundY;
+  if (getMode() == Mode.AutoScrollingForward) {
+    boundX=cornerX == 0 ? 2 * myWidth : -myWidth;
+    boundY=cornerY == 0 ? 2 * myHeight : -myHeight;
+  }
+ else {
+    boundX=cornerX;
+    boundY=cornerY;
+  }
+  final int deltaX=Math.abs(myEndX - cornerX);
+  final int deltaY=Math.abs(myEndY - cornerY);
+  final int speedX, speedY;
+  if (deltaX == 0 || deltaY == 0) {
+    speedX=speed;
+    speedY=speed;
+  }
+ else   if (deltaX < deltaY) {
+    speedX=speed;
+    speedY=speed * deltaY / deltaX;
+  }
+ else {
+    speedX=speed * deltaX / deltaY;
+    speedY=speed;
+  }
+  final boolean xSpeedIsPositive, ySpeedIsPositive;
+  if (getMode() == Mode.AutoScrollingForward) {
+    xSpeedIsPositive=cornerX == 0;
+    ySpeedIsPositive=cornerY == 0;
+  }
+ else {
+    xSpeedIsPositive=cornerX != 0;
+    ySpeedIsPositive=cornerY != 0;
+  }
+  if (xSpeedIsPositive) {
+    myEndX+=speedX;
+    if (myEndX >= boundX) {
+      terminate();
+    }
+  }
+ else {
+    myEndX-=speedX;
+    if (myEndX <= boundX) {
+      terminate();
+    }
+  }
+  if (ySpeedIsPositive) {
+    myEndY+=speedY;
+    if (myEndY >= boundY) {
+      terminate();
+    }
+  }
+ else {
+    myEndY-=speedY;
+    if (myEndY <= boundY) {
+      terminate();
+    }
+  }
+}

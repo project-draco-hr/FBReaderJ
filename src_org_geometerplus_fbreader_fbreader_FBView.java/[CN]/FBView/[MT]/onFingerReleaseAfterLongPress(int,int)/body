@@ -3,7 +3,6 @@
     return true;
   }
   if (myReader.DictionaryTappingActionOption.getValue() == FBReaderApp.DictionaryTappingAction.openDictionary) {
-    final ZLTextElementRegion region=currentRegion();
     myReader.doAction(ActionCode.PROCESS_HYPERLINK);
     return true;
   }

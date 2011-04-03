@@ -1,3 +1,0 @@
-{
-  return scrollbarType() == SCROLLBAR_SHOW_AS_PROGRESS ? 0 : getCurrentCharNumber(viewPage,true);
-}

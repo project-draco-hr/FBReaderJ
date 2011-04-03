@@ -2,10 +2,9 @@
   super.onSizeChanged(w,h,oldw,oldh);
   if (myScreenIsTouched) {
     final ZLView view=ZLApplication.Instance().getCurrentView();
-    myScrollingInProgress=false;
-    myScrollingShift=0;
+    getAnimationProvider().terminate();
     myScreenIsTouched=false;
-    view.onScrollingFinished(ZLView.PAGE_CENTRAL);
-    setPageToScroll(ZLView.PAGE_CENTRAL);
+    view.onScrollingFinished(ZLView.PageIndex.current);
+    setPageToScrollTo(ZLView.PageIndex.current);
   }
 }

@@ -1,0 +1,63 @@
+{
+  myContext=context;
+  final ZLFile wallpaper=getWallpaperFile();
+  if (wallpaper != null) {
+    context.clear(wallpaper,wallpaper instanceof ZLResourceFile);
+  }
+ else {
+    context.clear(getBackgroundColor());
+  }
+  if ((myModel == null) || (myModel.getParagraphsNumber() == 0)) {
+    return;
+  }
+  ZLTextPage page;
+switch (pageIndex) {
+default :
+case current:
+    page=myCurrentPage;
+  break;
+case previous:
+page=myPreviousPage;
+if (myPreviousPage.PaintState == PaintStateEnum.NOTHING_TO_PAINT) {
+preparePaintInfo(myCurrentPage);
+myPreviousPage.EndCursor.setCursor(myCurrentPage.StartCursor);
+myPreviousPage.PaintState=PaintStateEnum.END_IS_KNOWN;
+}
+break;
+case next:
+page=myNextPage;
+if (myNextPage.PaintState == PaintStateEnum.NOTHING_TO_PAINT) {
+preparePaintInfo(myCurrentPage);
+myNextPage.StartCursor.setCursor(myCurrentPage.EndCursor);
+myNextPage.PaintState=PaintStateEnum.START_IS_KNOWN;
+}
+}
+page.TextElementMap.clear();
+preparePaintInfo(page);
+if (page.StartCursor.isNull() || page.EndCursor.isNull()) {
+return;
+}
+final ArrayList<ZLTextLineInfo> lineInfos=page.LineInfos;
+final int[] labels=new int[lineInfos.size() + 1];
+int y=getTopMargin();
+int index=0;
+for (ZLTextLineInfo info : lineInfos) {
+prepareTextLine(page,info,y);
+y+=info.Height + info.Descent + info.VSpaceAfter;
+labels[++index]=page.TextElementMap.size();
+}
+if (page == myCurrentPage) {
+mySelectionModel.update();
+}
+y=getTopMargin();
+index=0;
+for (ZLTextLineInfo info : lineInfos) {
+drawTextLine(page,info,labels[index],labels[index + 1],y);
+y+=info.Height + info.Descent + info.VSpaceAfter;
+++index;
+}
+final ZLTextElementRegion selectedElementRegion=getCurrentElementRegion(page);
+if (selectedElementRegion != null && myHighlightSelectedRegion) {
+selectedElementRegion.draw(context);
+}
+}

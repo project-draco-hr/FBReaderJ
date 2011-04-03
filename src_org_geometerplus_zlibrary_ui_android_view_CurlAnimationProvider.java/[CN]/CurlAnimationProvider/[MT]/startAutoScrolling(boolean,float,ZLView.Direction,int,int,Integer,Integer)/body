@@ -1,0 +1,27 @@
+{
+  if (x == null || y == null) {
+    if (direction.IsHorizontal) {
+      x=speed < 0 ? w - 3 : 3;
+      y=1;
+    }
+ else {
+      x=1;
+      y=speed < 0 ? h - 3 : 3;
+    }
+  }
+ else {
+    final int cornerX=x > myWidth / 2 ? myWidth : 0;
+    final int cornerY=y > myHeight / 2 ? myHeight : 0;
+    int deltaX=Math.min(Math.abs(x - cornerX),w / 5);
+    int deltaY=Math.min(Math.abs(y - cornerY),h / 5);
+    if (direction.IsHorizontal) {
+      deltaY=Math.min(deltaY,deltaX / 3);
+    }
+ else {
+      deltaX=Math.min(deltaX,deltaY / 3);
+    }
+    x=Math.abs(cornerX - deltaX);
+    y=Math.abs(cornerY - deltaY);
+  }
+  super.startAutoScrolling(forward,speed,direction,w,h,x,y);
+}

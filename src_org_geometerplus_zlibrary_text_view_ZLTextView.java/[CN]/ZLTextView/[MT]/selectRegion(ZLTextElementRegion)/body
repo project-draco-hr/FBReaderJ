@@ -1,3 +1,6 @@
 {
+  if (region == null || !region.equals(mySelectedRegion)) {
+    myHighlightSelectedRegion=true;
+  }
   mySelectedRegion=region;
 }
