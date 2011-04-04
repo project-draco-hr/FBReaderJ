@@ -1,0 +1,18 @@
+{
+  System.err.println("starting: " + forward + " "+ startSpeed+ " "+ direction+ " "+ w+ " "+ h+ " "+ x+ " "+ y+ " "+ speed);
+  if (!inProgress()) {
+    if (x == null || y == null) {
+      if (direction.IsHorizontal) {
+        x=speed < 0 ? w : 0;
+        y=0;
+      }
+ else {
+        x=0;
+        y=speed < 0 ? h : 0;
+      }
+    }
+    setup(x,y,x,y,direction,w,h);
+  }
+  myMode=forward ? Mode.AutoScrollingForward : Mode.AutoScrollingBackward;
+  mySpeed=startSpeed;
+}

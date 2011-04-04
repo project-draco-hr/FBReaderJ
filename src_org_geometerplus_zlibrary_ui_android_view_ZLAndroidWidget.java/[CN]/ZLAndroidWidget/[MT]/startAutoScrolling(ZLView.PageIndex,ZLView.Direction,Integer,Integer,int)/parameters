@@ -1,0 +1,5 @@
+ZLView.PageIndex pageIndex
+ZLView.Direction direction
+Integer x
+Integer y
+int speed

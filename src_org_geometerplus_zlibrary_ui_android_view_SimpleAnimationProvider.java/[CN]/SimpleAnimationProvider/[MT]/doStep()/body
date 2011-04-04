@@ -23,6 +23,7 @@ bound=myDirection.IsHorizontal ? myWidth : myHeight;
  else {
 bound=0;
 }
+System.err.println("before check: " + mySpeed + " "+ getScrollingShift()+ " "+ bound);
 if (mySpeed > 0) {
 if (getScrollingShift() >= bound) {
 if (myDirection.IsHorizontal) {
@@ -47,5 +48,5 @@ terminate();
 return;
 }
 }
-mySpeed*=1.5;
+mySpeed*=mySpeedFactor;
 }
