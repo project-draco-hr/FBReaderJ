@@ -1,7 +1,5 @@
-int startX
-int startY
-int endX
-int endY
+int x
+int y
 ZLView.Direction direction
 int width
 int height

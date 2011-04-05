@@ -1,0 +1,6 @@
+{
+  if (myMode == Mode.ManualScrolling) {
+    myEndX=x;
+    myEndY=y;
+  }
+}
