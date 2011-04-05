@@ -68,6 +68,7 @@
   myFgPath.lineTo(x1 - sX,cornerY);
   myFgPath.quadTo(x1,cornerY,(x + x1) / 2,(y + cornerY) / 2);
   canvas.drawPath(myFgPath,myEdgePaint);
+  canvas.save();
   canvas.clipPath(myFgPath);
   canvas.drawBitmap(fgBitmap,0,0,myPaint);
   canvas.restore();
@@ -97,6 +98,7 @@
   myEdgePath.lineTo((x + 7 * x1 - 2 * sX) / 8,(y + 7 * cornerY) / 8);
   myEdgePath.quadTo((x + 3 * x1) / 4,(y + 3 * cornerY) / 4,(x + x1) / 2,(y + cornerY) / 2);
   canvas.drawPath(myEdgePath,myEdgePaint);
+  canvas.save();
   canvas.clipPath(myEdgePath);
   final Matrix m=new Matrix();
   m.postScale(1,-1);
