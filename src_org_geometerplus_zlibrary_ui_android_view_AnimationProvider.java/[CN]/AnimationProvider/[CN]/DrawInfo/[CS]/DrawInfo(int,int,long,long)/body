@@ -1,0 +1,6 @@
+{
+  X=x;
+  Y=y;
+  Start=start;
+  Duration=(int)(finish - start);
+}

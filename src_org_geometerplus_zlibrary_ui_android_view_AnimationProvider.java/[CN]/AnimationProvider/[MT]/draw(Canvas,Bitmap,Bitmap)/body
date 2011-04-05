@@ -1,3 +1,8 @@
 {
+  final long start=System.currentTimeMillis();
   drawInternal(canvas,bgBitmap,fgBitmap);
+  myDrawInfos.add(new DrawInfo(myEndX,myEndY,start,System.currentTimeMillis()));
+  if (myDrawInfos.size() > 3) {
+    myDrawInfos.remove(0);
+  }
 }
