@@ -2,7 +2,7 @@
   super(context,rootResource,resourceKey);
   myBook=book;
   final TreeSet<String> set=new TreeSet<String>(new ZLLanguageUtil.CodeComparator());
-  set.addAll(ZLLanguageUtil.languageCodes());
+  set.addAll(ZLTextHyphenator.Instance().languageCodes());
   set.add(ZLLanguageUtil.OTHER_LANGUAGE_CODE);
   final int size=set.size();
   String[] codes=new String[size];
