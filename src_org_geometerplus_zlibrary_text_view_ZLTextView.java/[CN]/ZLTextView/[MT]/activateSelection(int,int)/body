@@ -1,6 +1,0 @@
-{
-  if (isSelectionEnabled()) {
-    mySelectionModel.activate(x,y);
-    ZLApplication.Instance().repaintView();
-  }
-}

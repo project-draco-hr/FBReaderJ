@@ -1,7 +1,4 @@
 {
-  if (myMainBitmap == null) {
-    return;
-  }
   final AnimationProvider animator=getAnimationProvider();
   final int w=getWidth();
   final int h=getMainAreaHeight();
@@ -28,6 +25,5 @@ animator.startAutoScrolling(true,-3,direction,w,h,x,y,speed);
 setPageToScrollTo(pageIndex);
 break;
 }
-drawOnBitmap(mySecondaryBitmap);
 postInvalidate();
 }

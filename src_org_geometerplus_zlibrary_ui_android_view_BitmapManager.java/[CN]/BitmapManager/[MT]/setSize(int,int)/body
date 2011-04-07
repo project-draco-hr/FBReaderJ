@@ -1,0 +1,13 @@
+{
+  if (myWidth != w || myHeight != h) {
+    myWidth=w;
+    myHeight=h;
+    for (int i=0; i < SIZE; ++i) {
+      myBitmaps[i]=null;
+      myIndexes[i]=null;
+    }
+    System.gc();
+    System.gc();
+    System.gc();
+  }
+}

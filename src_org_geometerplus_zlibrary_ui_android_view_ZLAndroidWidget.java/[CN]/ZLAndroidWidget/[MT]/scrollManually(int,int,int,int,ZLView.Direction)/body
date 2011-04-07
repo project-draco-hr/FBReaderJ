@@ -1,13 +1,9 @@
 {
-  if (myMainBitmap == null) {
-    return;
-  }
   final AnimationProvider animator=getAnimationProvider();
   if (!animator.inProgress()) {
-    getAnimationProvider().startManualScrolling(startX,startY,direction,getWidth(),getMainAreaHeight());
+    animator.startManualScrolling(startX,startY,direction,getWidth(),getMainAreaHeight());
   }
-  getAnimationProvider().scrollTo(endX,endY);
-  setPageToScrollTo(getAnimationProvider().getPageToScrollTo());
-  drawOnBitmap(mySecondaryBitmap);
+  animator.scrollTo(endX,endY);
+  setPageToScrollTo(animator.getPageToScrollTo());
   postInvalidate();
 }

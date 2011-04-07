@@ -1,3 +1,0 @@
-{
-  canvas.drawBitmap(fgBitmap,0,0,myPaint);
-}

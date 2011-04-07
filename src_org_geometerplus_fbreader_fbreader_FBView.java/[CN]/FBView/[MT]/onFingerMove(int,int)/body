@@ -18,7 +18,7 @@ synchronized (this) {
       final boolean horizontal=ScrollingPreferences.Instance().HorizontalOption.getValue();
       final int diff=horizontal ? x - myStartX : y - myStartY;
       final Direction direction=horizontal ? Direction.rightToLeft : Direction.up;
-      if (diff > 0) {
+      if (diff >= 0) {
         final ZLTextWordCursor cursor=getStartCursor();
         if (cursor == null || cursor.isNull()) {
           return false;
@@ -27,7 +27,7 @@ synchronized (this) {
           myReader.scrollViewManually(myStartX,myStartY,x,y,direction);
         }
       }
- else       if (diff < 0) {
+ else {
         final ZLTextWordCursor cursor=getEndCursor();
         if (cursor == null || cursor.isNull()) {
           return false;
@@ -35,9 +35,6 @@ synchronized (this) {
         if (!cursor.isEndOfParagraph() || !cursor.getParagraphCursor().isLast()) {
           myReader.scrollViewManually(myStartX,myStartY,x,y,direction);
         }
-      }
- else {
-        myReader.scrollViewToCenter();
       }
       return true;
     }
