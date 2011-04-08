@@ -1,3 +1,4 @@
 {
   rebuildPaintInfo();
+  ZLApplication.Instance().resetView();
 }

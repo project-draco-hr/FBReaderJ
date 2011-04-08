@@ -16,8 +16,9 @@
 switch (oldMode) {
 case AutoScrollingForward:
 {
-        myBitmapManager.shift(animator.getPageToScrollTo() == ZLView.PageIndex.next);
-        view.onScrollingFinished(myPageToScrollTo);
+        final ZLView.PageIndex index=animator.getPageToScrollTo();
+        myBitmapManager.shift(index == ZLView.PageIndex.next);
+        view.onScrollingFinished(index);
         ZLApplication.Instance().onRepaintFinished();
         break;
       }
@@ -25,7 +26,6 @@ case AutoScrollingBackward:
     view.onScrollingFinished(ZLView.PageIndex.current);
   break;
 }
-setPageToScrollTo(ZLView.PageIndex.current);
 onDrawStatic(canvas);
 }
 }

@@ -4,6 +4,5 @@
     animator.startManualScrolling(startX,startY,direction,getWidth(),getMainAreaHeight());
   }
   animator.scrollTo(endX,endY);
-  setPageToScrollTo(animator.getPageToScrollTo());
   postInvalidate();
 }

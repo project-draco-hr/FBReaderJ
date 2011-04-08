@@ -4,7 +4,7 @@
   final int h=getMainAreaHeight();
 switch (pageIndex) {
 case current:
-switch (myPageToScrollTo) {
+switch (animator.getPageToScrollTo()) {
 case current:
       animator.terminate();
     break;
@@ -18,11 +18,9 @@ break;
 break;
 case previous:
 animator.startAutoScrolling(true,3,direction,w,h,x,y,speed);
-setPageToScrollTo(pageIndex);
 break;
 case next:
 animator.startAutoScrolling(true,-3,direction,w,h,x,y,speed);
-setPageToScrollTo(pageIndex);
 break;
 }
 postInvalidate();
