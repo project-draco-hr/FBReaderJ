@@ -1,7 +1,3 @@
 {
-  if (isScrollingActive()) {
-    return;
-  }
-  setScrollingActive(true);
   ZLApplication.Instance().startViewAutoScrolling(pageIndex,direction,x,y,speed);
 }
