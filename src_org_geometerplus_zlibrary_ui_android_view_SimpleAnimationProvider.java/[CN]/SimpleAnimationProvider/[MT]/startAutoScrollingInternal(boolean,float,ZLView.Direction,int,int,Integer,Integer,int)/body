@@ -1,4 +1,5 @@
 {
   super.startAutoScrollingInternal(forward,startSpeed,direction,w,h,x,y,speed);
   mySpeedFactor=(float)Math.pow(1.5,0.25 * speed);
+  doStep();
 }

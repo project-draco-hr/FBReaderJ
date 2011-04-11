@@ -23,6 +23,5 @@ case next:
 animator.startAutoScrolling(true,-3,direction,w,h,x,y,speed);
 break;
 }
-animator.doStep();
 postInvalidate();
 }

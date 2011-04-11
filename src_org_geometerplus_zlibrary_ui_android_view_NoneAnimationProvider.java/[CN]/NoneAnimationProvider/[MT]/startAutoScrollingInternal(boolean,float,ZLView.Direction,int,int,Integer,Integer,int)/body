@@ -1,0 +1,13 @@
+{
+  super.startAutoScrollingInternal(forward,startSpeed,direction,w,h,x,y,speed);
+switch (direction) {
+case rightToLeft:
+case up:
+    myPageToScrollTo=startSpeed > 0 ? ZLView.PageIndex.previous : ZLView.PageIndex.next;
+  break;
+case leftToRight:
+case down:
+myPageToScrollTo=startSpeed > 0 ? ZLView.PageIndex.next : ZLView.PageIndex.previous;
+break;
+}
+}
