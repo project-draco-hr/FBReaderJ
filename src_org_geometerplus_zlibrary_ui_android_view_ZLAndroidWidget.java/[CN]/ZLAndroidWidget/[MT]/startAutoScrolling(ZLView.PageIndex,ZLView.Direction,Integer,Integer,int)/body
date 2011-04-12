@@ -1,0 +1,27 @@
+{
+  final AnimationProvider animator=getAnimationProvider();
+  final int w=getWidth();
+  final int h=getMainAreaHeight();
+switch (pageIndex) {
+case current:
+switch (animator.getPageToScrollTo()) {
+case current:
+      animator.terminate();
+    break;
+case previous:
+  animator.startAutoScrolling(false,-3,direction,w,h,x,y,speed);
+break;
+case next:
+animator.startAutoScrolling(false,3,direction,w,h,x,y,speed);
+break;
+}
+break;
+case previous:
+animator.startAutoScrolling(true,3,direction,w,h,x,y,speed);
+break;
+case next:
+animator.startAutoScrolling(true,-3,direction,w,h,x,y,speed);
+break;
+}
+postInvalidate();
+}

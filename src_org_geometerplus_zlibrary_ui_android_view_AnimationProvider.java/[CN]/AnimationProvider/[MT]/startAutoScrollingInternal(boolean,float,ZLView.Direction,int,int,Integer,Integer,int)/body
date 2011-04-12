@@ -1,0 +1,17 @@
+{
+  if (!inProgress()) {
+    if (x == null || y == null) {
+      if (direction.IsHorizontal) {
+        x=speed < 0 ? w : 0;
+        y=0;
+      }
+ else {
+        x=0;
+        y=speed < 0 ? h : 0;
+      }
+    }
+    setup(x,y,direction,w,h);
+  }
+  myMode=forward ? Mode.AutoScrollingForward : Mode.AutoScrollingBackward;
+  mySpeed=startSpeed;
+}

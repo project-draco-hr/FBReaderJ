@@ -1,6 +1,7 @@
 {
   if (view != null) {
     myView=view;
+    resetView();
     repaintView();
     onViewChanged();
   }

@@ -15,6 +15,7 @@
       ZLTextMark mark=myCurrentPage.StartCursor.getMark();
       gotoMark(wholeText ? (backward ? myModel.getLastMark() : myModel.getFirstMark()) : (backward ? myModel.getPreviousMark(mark) : myModel.getNextMark(mark)));
     }
+    ZLApplication.Instance().resetView();
     ZLApplication.Instance().repaintView();
   }
   return count;

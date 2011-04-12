@@ -1,4 +1,14 @@
 {
   final InputStream stream=myImage.inputStream();
-  return stream != null ? BitmapFactory.decodeStream(stream) : null;
+  if (stream == null) {
+    return null;
+  }
+  final Bitmap bmp=BitmapFactory.decodeStream(stream,new Rect(),options);
+  try {
+    System.err.println(stream);
+    stream.close();
+  }
+ catch (  IOException e) {
+  }
+  return bmp;
 }

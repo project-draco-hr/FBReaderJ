@@ -6,7 +6,7 @@
   final AnimationProvider animator=getAnimationProvider();
   if (animator.inProgress()) {
     final int from=view.getScrollbarThumbPosition(ZLView.PageIndex.current);
-    final int to=view.getScrollbarThumbPosition(myPageToScrollTo);
+    final int to=view.getScrollbarThumbPosition(animator.getPageToScrollTo());
     final int percent=animator.getScrolledPercent();
     return (from * (100 - percent) + to * percent) / 100;
   }

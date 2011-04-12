@@ -5,6 +5,6 @@
     getAnimationProvider().terminate();
     myScreenIsTouched=false;
     view.onScrollingFinished(ZLView.PageIndex.current);
-    setPageToScrollTo(ZLView.PageIndex.current);
   }
+  myBitmapManager.setSize(w,h);
 }

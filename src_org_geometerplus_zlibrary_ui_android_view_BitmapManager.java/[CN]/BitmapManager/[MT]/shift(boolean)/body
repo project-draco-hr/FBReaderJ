@@ -1,0 +1,8 @@
+{
+  for (int i=0; i < SIZE; ++i) {
+    if (myIndexes[i] == null) {
+      continue;
+    }
+    myIndexes[i]=forward ? myIndexes[i].getPrevious() : myIndexes[i].getNext();
+  }
+}

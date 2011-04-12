@@ -4,16 +4,16 @@
     myAnimationType=type;
 switch (type) {
 case none:
-      myAnimationProvider=new NoneAnimationProvider(myPaint);
+      myAnimationProvider=new NoneAnimationProvider(myBitmapManager);
     break;
 case curl:
-  myAnimationProvider=new CurlAnimationProvider(myPaint);
+  myAnimationProvider=new CurlAnimationProvider(myBitmapManager);
 break;
 case slide:
-myAnimationProvider=new SlideAnimationProvider(myPaint);
+myAnimationProvider=new SlideAnimationProvider(myBitmapManager);
 break;
 case shift:
-myAnimationProvider=new ShiftAnimationProvider(myPaint);
+myAnimationProvider=new ShiftAnimationProvider(myBitmapManager);
 break;
 }
 }

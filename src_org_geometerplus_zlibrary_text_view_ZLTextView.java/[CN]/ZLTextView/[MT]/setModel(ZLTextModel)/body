@@ -5,11 +5,11 @@
   myCurrentPage.reset();
   myPreviousPage.reset();
   myNextPage.reset();
-  setScrollingActive(false);
   if (myModel != null) {
     final int paragraphsNumber=myModel.getParagraphsNumber();
     if (paragraphsNumber > 0) {
       myCurrentPage.moveStartCursor(ZLTextParagraphCursor.cursor(myModel,0));
     }
   }
+  ZLApplication.Instance().resetView();
 }

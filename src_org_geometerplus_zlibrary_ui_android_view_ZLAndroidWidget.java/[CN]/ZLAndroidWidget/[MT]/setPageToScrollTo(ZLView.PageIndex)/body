@@ -1,6 +1,0 @@
-{
-  if (myPageToScrollTo != pageIndex) {
-    myPageToScrollTo=pageIndex;
-    mySecondaryBitmapIsUpToDate=false;
-  }
-}

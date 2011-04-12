@@ -6,7 +6,7 @@
   final AnimationProvider.Mode oldMode=animator.getMode();
   animator.doStep();
   if (animator.inProgress()) {
-    animator.draw(canvas,mySecondaryBitmap,myMainBitmap);
+    animator.draw(canvas);
     if (animator.getMode().Auto) {
       postInvalidate();
     }
@@ -16,10 +16,9 @@
 switch (oldMode) {
 case AutoScrollingForward:
 {
-        final Bitmap swap=myMainBitmap;
-        myMainBitmap=mySecondaryBitmap;
-        mySecondaryBitmap=swap;
-        view.onScrollingFinished(myPageToScrollTo);
+        final ZLView.PageIndex index=animator.getPageToScrollTo();
+        myBitmapManager.shift(index == ZLView.PageIndex.next);
+        view.onScrollingFinished(index);
         ZLApplication.Instance().onRepaintFinished();
         break;
       }
@@ -27,7 +26,6 @@ case AutoScrollingBackward:
     view.onScrollingFinished(ZLView.PageIndex.current);
   break;
 }
-setPageToScrollTo(ZLView.PageIndex.current);
 onDrawStatic(canvas);
 }
 }

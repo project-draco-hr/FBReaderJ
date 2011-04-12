@@ -1,0 +1,15 @@
+{
+  if (myLanguageCodes == null) {
+    final TreeSet<String> codes=new TreeSet<String>();
+    final ZLFile patternsFile=ZLResourceFile.createResourceFile("hyphenationPatterns");
+    for (    ZLFile file : patternsFile.children()) {
+      final String name=file.getShortName();
+      if (name.endsWith(".pattern")) {
+        codes.add(name.substring(0,name.length() - ".pattern".length()));
+      }
+    }
+    codes.add("zh");
+    myLanguageCodes=new ArrayList<String>(codes);
+  }
+  return Collections.unmodifiableList(myLanguageCodes);
+}

@@ -1,9 +1,0 @@
-{
-  getAnimationProvider().terminate();
-  if (myMainBitmap == null) {
-    return;
-  }
-  setPageToScrollTo(ZLView.PageIndex.current);
-  drawOnBitmap(mySecondaryBitmap);
-  postInvalidate();
-}
