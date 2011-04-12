@@ -1,0 +1,9 @@
+{
+  if ("rootfile".equalsIgnoreCase(tag)) {
+    myRootPath=xmlattributes.getValue("full-path");
+    if (myRootPath != null) {
+      return true;
+    }
+  }
+  return false;
+}
