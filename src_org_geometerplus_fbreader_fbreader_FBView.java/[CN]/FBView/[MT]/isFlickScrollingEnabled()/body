@@ -1,0 +1,4 @@
+{
+  final ScrollingPreferences.FingerScrolling fingerScrolling=ScrollingPreferences.Instance().FingerScrollingOption.getValue();
+  return fingerScrolling == ScrollingPreferences.FingerScrolling.byFlick || fingerScrolling == ScrollingPreferences.FingerScrolling.byTapAndFlick;
+}

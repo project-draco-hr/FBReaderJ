@@ -1,6 +1,5 @@
 {
-  final ScrollingPreferences.FingerScrolling fingerScrolling=ScrollingPreferences.Instance().FingerScrollingOption.getValue();
-  if (fingerScrolling == ScrollingPreferences.FingerScrolling.byFlick || fingerScrolling == ScrollingPreferences.FingerScrolling.byTapAndFlick) {
+  if (isFlickScrollingEnabled()) {
     myStartX=x;
     myStartY=y;
   }
