@@ -1,0 +1,4 @@
+{
+  final ZLTextWordCursor cursor=getStartCursor();
+  return cursor != null && !cursor.isNull() && (!cursor.isStartOfParagraph() || !cursor.getParagraphCursor().isFirst());
+}

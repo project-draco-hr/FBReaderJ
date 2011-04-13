@@ -19,20 +19,12 @@ synchronized (this) {
       final int diff=horizontal ? x - myStartX : y - myStartY;
       final Direction direction=horizontal ? Direction.rightToLeft : Direction.up;
       if (diff >= 0) {
-        final ZLTextWordCursor cursor=getStartCursor();
-        if (cursor == null || cursor.isNull()) {
-          return false;
-        }
-        if (!cursor.isStartOfParagraph() || !cursor.getParagraphCursor().isFirst()) {
+        if (canScrollBackward()) {
           myReader.scrollViewManually(myStartX,myStartY,x,y,direction);
         }
       }
  else {
-        final ZLTextWordCursor cursor=getEndCursor();
-        if (cursor == null || cursor.isNull()) {
-          return false;
-        }
-        if (!cursor.isEndOfParagraph() || !cursor.getParagraphCursor().isLast()) {
+        if (canScrollForward()) {
           myReader.scrollViewManually(myStartX,myStartY,x,y,direction);
         }
       }

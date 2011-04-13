@@ -3,16 +3,10 @@
   final int diff=horizontal ? x - myStartX : y - myStartY;
   boolean doScroll=false;
   if (diff > 0) {
-    ZLTextWordCursor cursor=getStartCursor();
-    if (cursor != null && !cursor.isNull()) {
-      doScroll=!cursor.isStartOfParagraph() || !cursor.getParagraphCursor().isFirst();
-    }
+    doScroll=canScrollBackward();
   }
  else   if (diff < 0) {
-    ZLTextWordCursor cursor=getEndCursor();
-    if (cursor != null && !cursor.isNull()) {
-      doScroll=!cursor.isEndOfParagraph() || !cursor.getParagraphCursor().isLast();
-    }
+    doScroll=canScrollForward();
   }
   if (doScroll) {
     final int h=myContext.getHeight();
