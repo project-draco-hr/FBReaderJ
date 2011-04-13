@@ -1,5 +1,8 @@
 {
-  myIsBrightnessAdjustmentInProgress=false;
+  if (myIsBrightnessAdjustmentInProgress) {
+    myIsBrightnessAdjustmentInProgress=false;
+    return true;
+  }
   if (super.onFingerRelease(x,y)) {
     return true;
   }
