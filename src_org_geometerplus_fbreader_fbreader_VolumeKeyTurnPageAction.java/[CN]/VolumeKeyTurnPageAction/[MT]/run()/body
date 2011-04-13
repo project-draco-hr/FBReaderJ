@@ -4,15 +4,5 @@
   if (preferences.InvertVolumeKeysOption.getValue()) {
     forward=!forward;
   }
-  if (forward) {
-    if (!Reader.getTextView().canScrollForward()) {
-      return;
-    }
-  }
- else {
-    if (!Reader.getTextView().canScrollBackward()) {
-      return;
-    }
-  }
   Reader.startViewAutoScrolling(forward ? FBView.PageIndex.next : FBView.PageIndex.previous,preferences.HorizontalOption.getValue() ? FBView.Direction.rightToLeft : FBView.Direction.up,preferences.AnimationSpeedOption.getValue());
 }
