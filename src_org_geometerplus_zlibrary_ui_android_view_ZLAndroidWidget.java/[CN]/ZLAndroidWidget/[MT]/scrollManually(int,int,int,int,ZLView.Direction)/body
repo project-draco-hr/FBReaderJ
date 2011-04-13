@@ -1,15 +1,8 @@
 {
   final ZLView view=ZLApplication.Instance().getCurrentView();
   final int diff=direction.IsHorizontal ? endX - startX : endY - startY;
-  if (diff >= 0) {
-    if (!view.canScrollBackward()) {
-      return;
-    }
-  }
- else {
-    if (!view.canScrollForward()) {
-      return;
-    }
+  if (!view.canScroll(diff >= 0 ? ZLView.PageIndex.previous : ZLView.PageIndex.next)) {
+    return;
   }
   final AnimationProvider animator=getAnimationProvider();
   if (!animator.inProgress()) {

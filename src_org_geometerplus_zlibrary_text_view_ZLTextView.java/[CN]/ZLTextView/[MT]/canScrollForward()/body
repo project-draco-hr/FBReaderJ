@@ -1,4 +1,0 @@
-{
-  final ZLTextWordCursor cursor=getEndCursor();
-  return cursor != null && !cursor.isNull() && (!cursor.isEndOfParagraph() || !cursor.getParagraphCursor().isLast());
-}
