@@ -1,0 +1,5 @@
+{
+  myDirection=direction;
+  myWidth=width;
+  myHeight=height;
+}

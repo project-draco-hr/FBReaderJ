@@ -1,0 +1,16 @@
+{
+  if (myDirection == null) {
+    return ZLView.PageIndex.current;
+  }
+switch (myDirection) {
+case rightToLeft:
+    return myStartX < x ? ZLView.PageIndex.previous : ZLView.PageIndex.next;
+case leftToRight:
+  return myStartX < x ? ZLView.PageIndex.next : ZLView.PageIndex.previous;
+case up:
+return myStartY < y ? ZLView.PageIndex.previous : ZLView.PageIndex.next;
+case down:
+return myStartY < y ? ZLView.PageIndex.next : ZLView.PageIndex.previous;
+}
+return ZLView.PageIndex.current;
+}

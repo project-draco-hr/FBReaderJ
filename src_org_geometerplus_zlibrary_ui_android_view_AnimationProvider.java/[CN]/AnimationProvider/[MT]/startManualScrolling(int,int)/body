@@ -1,0 +1,7 @@
+{
+  if (!myMode.Auto) {
+    myMode=Mode.ManualScrolling;
+    myEndX=myStartX=x;
+    myEndY=myStartY=y;
+  }
+}

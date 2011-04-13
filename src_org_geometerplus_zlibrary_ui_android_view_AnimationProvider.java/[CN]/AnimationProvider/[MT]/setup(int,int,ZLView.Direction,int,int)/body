@@ -1,9 +1,0 @@
-{
-  myStartX=x;
-  myStartY=y;
-  myEndX=x;
-  myEndY=y;
-  myDirection=direction;
-  myWidth=width;
-  myHeight=height;
-}

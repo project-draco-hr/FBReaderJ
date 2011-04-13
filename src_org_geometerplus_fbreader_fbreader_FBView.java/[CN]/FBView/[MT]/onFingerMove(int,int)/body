@@ -15,9 +15,7 @@ synchronized (this) {
       }
     }
     if (isFlickScrollingEnabled()) {
-      final boolean horizontal=ScrollingPreferences.Instance().HorizontalOption.getValue();
-      final Direction direction=horizontal ? Direction.rightToLeft : Direction.up;
-      myReader.getViewWidget().scrollManually(myStartX,myStartY,x,y,direction);
+      myReader.getViewWidget().scrollManuallyTo(x,y);
     }
   }
   return true;
