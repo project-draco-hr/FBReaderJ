@@ -4,8 +4,8 @@
     final ZLViewWidget widget=getViewWidget();
     if (widget != null) {
       widget.reset();
+      widget.repaint();
     }
-    repaintView();
     onViewChanged();
   }
 }

@@ -1,5 +1,5 @@
 {
   Reader.setColorProfileName(myProfileName);
   Reader.getViewWidget().reset();
-  Reader.repaintView();
+  Reader.getViewWidget().repaint();
 }

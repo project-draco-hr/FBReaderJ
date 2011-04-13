@@ -12,7 +12,7 @@ case REPAINT_CODE:
         }
       }
       fbreader.clearTextCaches();
-      fbreader.repaintView();
+      fbreader.getViewWidget().repaint();
       break;
     }
 case CANCEL_CODE:

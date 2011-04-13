@@ -1,7 +1,7 @@
 {
   if (mySelectionModel.extendTo(x,y)) {
     Application.getViewWidget().reset();
-    Application.repaintView();
+    Application.getViewWidget().repaint();
     return true;
   }
   return false;

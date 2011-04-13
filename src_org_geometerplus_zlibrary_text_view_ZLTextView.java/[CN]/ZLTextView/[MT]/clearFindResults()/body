@@ -3,6 +3,6 @@
     myModel.removeAllMarks();
     rebuildPaintInfo();
     Application.getViewWidget().reset();
-    Application.repaintView();
+    Application.getViewWidget().repaint();
   }
 }

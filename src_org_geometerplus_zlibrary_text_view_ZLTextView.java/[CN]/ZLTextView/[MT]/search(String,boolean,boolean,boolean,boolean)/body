@@ -16,7 +16,7 @@
       gotoMark(wholeText ? (backward ? myModel.getLastMark() : myModel.getFirstMark()) : (backward ? myModel.getPreviousMark(mark) : myModel.getNextMark(mark)));
     }
     Application.getViewWidget().reset();
-    Application.repaintView();
+    Application.getViewWidget().repaint();
   }
   return count;
 }

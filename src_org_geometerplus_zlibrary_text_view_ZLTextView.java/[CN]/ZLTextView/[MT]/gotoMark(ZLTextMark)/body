@@ -30,6 +30,6 @@
       preparePaintInfo(myCurrentPage);
     }
     Application.getViewWidget().reset();
-    Application.repaintView();
+    Application.getViewWidget().repaint();
   }
 }

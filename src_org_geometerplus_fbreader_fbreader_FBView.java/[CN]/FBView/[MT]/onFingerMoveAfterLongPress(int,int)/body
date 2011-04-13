@@ -7,7 +7,7 @@
     if (region != null) {
       selectRegion(region);
       myReader.getViewWidget().reset();
-      myReader.repaintView();
+      myReader.getViewWidget().repaint();
     }
   }
   return true;

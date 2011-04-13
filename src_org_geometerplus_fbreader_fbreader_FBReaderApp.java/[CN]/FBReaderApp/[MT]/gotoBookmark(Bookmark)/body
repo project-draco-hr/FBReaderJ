@@ -10,5 +10,5 @@
     FootnoteView.gotoPosition(bookmark);
     setView(FootnoteView);
   }
-  repaintView();
+  getViewWidget().repaint();
 }

@@ -14,7 +14,7 @@
   if (region != null) {
     selectRegion(region);
     myReader.getViewWidget().reset();
-    myReader.repaintView();
+    myReader.getViewWidget().repaint();
     myReader.doAction(ActionCode.PROCESS_HYPERLINK);
     return true;
   }
