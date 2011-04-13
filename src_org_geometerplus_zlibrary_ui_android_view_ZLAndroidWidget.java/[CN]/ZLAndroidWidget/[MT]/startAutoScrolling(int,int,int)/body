@@ -5,7 +5,7 @@
     animator.terminate();
     return;
   }
-  animator.startAutoScrolling(x,y,forward,speed);
+  animator.startAutoScrolling(x,y,speed);
   if (animator.getMode().Auto) {
     postInvalidate();
   }

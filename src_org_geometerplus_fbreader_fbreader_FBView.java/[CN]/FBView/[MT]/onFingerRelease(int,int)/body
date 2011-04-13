@@ -7,7 +7,7 @@
     return true;
   }
   if (isFlickScrollingEnabled()) {
-    runAutoScrolling(x,y);
+    myReader.getViewWidget().startAutoScrolling(x,y,ScrollingPreferences.Instance().AnimationSpeedOption.getValue());
     return true;
   }
   return true;
