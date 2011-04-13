@@ -6,7 +6,7 @@
     final ZLTextElementRegion region=findRegion(x,y,10,ZLTextElementRegion.AnyRegionFilter);
     if (region != null) {
       selectRegion(region);
-      myReader.resetView();
+      myReader.getViewWidget().reset();
       myReader.repaintView();
     }
   }

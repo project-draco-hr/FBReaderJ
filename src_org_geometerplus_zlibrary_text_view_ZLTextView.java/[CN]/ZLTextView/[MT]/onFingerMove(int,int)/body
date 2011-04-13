@@ -1,7 +1,7 @@
 {
   if (mySelectionModel.extendTo(x,y)) {
-    ZLApplication.Instance().resetView();
-    ZLApplication.Instance().repaintView();
+    Application.getViewWidget().reset();
+    Application.repaintView();
     return true;
   }
   return false;

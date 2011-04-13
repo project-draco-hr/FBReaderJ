@@ -1,6 +1,6 @@
 {
   if (myModel != null && myModel.getParagraphsNumber() > 0) {
-    ZLApplication.Instance().resetView();
+    Application.getViewWidget().reset();
     myCurrentPage.moveStartCursor(paragraphIndex,wordIndex,charIndex);
     myPreviousPage.reset();
     myNextPage.reset();

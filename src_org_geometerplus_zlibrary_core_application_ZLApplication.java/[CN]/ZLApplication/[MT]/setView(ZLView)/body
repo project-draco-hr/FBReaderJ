@@ -1,7 +1,10 @@
 {
   if (view != null) {
     myView=view;
-    resetView();
+    final ZLViewWidget widget=getViewWidget();
+    if (widget != null) {
+      widget.reset();
+    }
     repaintView();
     onViewChanged();
   }

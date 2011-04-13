@@ -12,7 +12,7 @@
  else {
         view.gotoPage(page);
       }
-      Reader.resetView();
+      Reader.getViewWidget().reset();
       Reader.repaintView();
     }
     public void onStopTrackingTouch(    SeekBar seekBar){
