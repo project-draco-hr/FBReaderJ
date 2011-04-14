@@ -1,4 +1,7 @@
 {
+  if (myMode.Auto) {
+    return;
+  }
   terminate();
   myMode=Mode.AutoScrollingForward;
 switch (myDirection) {
