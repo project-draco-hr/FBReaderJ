@@ -1,4 +1,4 @@
 {
   LitResPurchaseXMLReader reader=(LitResPurchaseXMLReader)accountRequest.Reader;
-  myAccount=BuyBookReference.price(reader.Account,"RUB");
+  myAccount=BookBuyUrlInfo.price(reader.Account,"RUB");
 }

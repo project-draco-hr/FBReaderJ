@@ -9,8 +9,8 @@
   intent.setData(null);
   final int notifications=intent.getIntExtra(SHOW_NOTIFICATIONS_KEY,0);
   final String url=uri.toString();
-  final int bookFormat=intent.getIntExtra(BOOK_FORMAT_KEY,BookReference.Format.NONE);
-  final BookReference.Type referenceType=(BookReference.Type)intent.getSerializableExtra(REFERENCE_TYPE_KEY);
+  final int bookFormat=intent.getIntExtra(BOOK_FORMAT_KEY,BookUrlInfo.Format.NONE);
+  final UrlInfo.Type referenceType=(UrlInfo.Type)intent.getSerializableExtra(REFERENCE_TYPE_KEY);
   if (referenceType == null) {
     doStop();
     return;
@@ -26,7 +26,7 @@
     doStop();
     return;
   }
-  String fileName=BookReference.makeBookFileName(cleanURL,bookFormat,referenceType);
+  String fileName=BookUrlInfo.makeBookFileName(cleanURL,bookFormat,referenceType);
   if (fileName == null) {
     doStop();
     return;

@@ -6,11 +6,10 @@ synchronized (this) {
   if (sid.length() == 0) {
     return null;
   }
-  BookReference reference=book.reference(BookReference.Type.BookConditional);
+  BookUrlInfo reference=book.reference(UrlInfo.Type.BookConditional);
   if (reference == null) {
     return null;
   }
-  String url=reference.URL;
-  url=ZLNetworkUtil.appendParameter(url,"sid",sid);
-  return new DecoratedBookReference(reference,url);
+  final String url=ZLNetworkUtil.appendParameter(reference.Url,"sid",sid);
+  return new DecoratedBookUrlInfo(reference,url);
 }

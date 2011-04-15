@@ -11,11 +11,11 @@
     if (rel == null && MIME_APP_ATOM.equals(type)) {
       return ZLNetworkUtil.url(myBaseURL,link.getHref());
     }
-    int relType=BookReference.Format.NONE;
+    int relType=BookUrlInfo.Format.NONE;
     if (rel == null || rel.startsWith(REL_ACQUISITION_PREFIX) || rel.startsWith(REL_FBREADER_ACQUISITION_PREFIX)) {
       relType=formatByMimeType(type);
     }
-    if (relType != BookReference.Format.NONE && (id == null || idType < relType || (idType == relType && REL_ACQUISITION.equals(rel)))) {
+    if (relType != BookUrlInfo.Format.NONE && (id == null || idType < relType || (idType == relType && REL_ACQUISITION.equals(rel)))) {
       id=ZLNetworkUtil.url(myBaseURL,link.getHref());
       idType=relType;
     }

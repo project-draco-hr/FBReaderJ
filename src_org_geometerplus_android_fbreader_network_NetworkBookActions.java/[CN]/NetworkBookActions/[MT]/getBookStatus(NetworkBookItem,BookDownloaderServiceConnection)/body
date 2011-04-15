@@ -1,7 +1,7 @@
 {
   if (useFullReferences(book)) {
-    BookReference reference=book.reference(BookReference.Type.Book);
-    if (reference != null && connection != null && connection.isBeingDownloaded(reference.URL)) {
+    final BookUrlInfo reference=book.reference(UrlInfo.Type.Book);
+    if (reference != null && connection != null && connection.isBeingDownloaded(reference.Url)) {
       return R.drawable.ic_list_download;
     }
  else     if (book.localCopyFileName() != null) {
@@ -11,7 +11,7 @@
       return R.drawable.ic_list_download;
     }
   }
-  if (useBuyReferences(book) && book.reference(BookReference.Type.BookBuy) != null || book.reference(BookReference.Type.BookBuyInBrowser) != null) {
+  if (useBuyReferences(book) && book.reference(UrlInfo.Type.BookBuy) != null || book.reference(UrlInfo.Type.BookBuyInBrowser) != null) {
     return R.drawable.ic_list_buy;
   }
   return 0;

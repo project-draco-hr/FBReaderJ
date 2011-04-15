@@ -1,18 +1,18 @@
 {
   if (rel == null || REL_ACQUISITION.equals(rel) || REL_ACQUISITION_OPEN.equals(rel)) {
-    return BookReference.Type.Book;
+    return UrlInfo.Type.Book;
   }
  else   if (REL_ACQUISITION_SAMPLE.equals(rel)) {
-    return BookReference.Type.BookDemo;
+    return UrlInfo.Type.BookDemo;
   }
  else   if (REL_ACQUISITION_CONDITIONAL.equals(rel)) {
-    return BookReference.Type.BookConditional;
+    return UrlInfo.Type.BookConditional;
   }
  else   if (REL_ACQUISITION_SAMPLE_OR_FULL.equals(rel)) {
-    return BookReference.Type.BookFullOrDemo;
+    return UrlInfo.Type.BookFullOrDemo;
   }
  else   if (REL_ACQUISITION_BUY.equals(rel)) {
-    return BookReference.Type.BookBuy;
+    return UrlInfo.Type.BookBuy;
   }
  else {
     return null;
