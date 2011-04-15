@@ -18,7 +18,7 @@
       statement.bindString(2,link.getSiteName());
       SQLiteUtil.bindString(statement,3,link.getSummary());
       final long id;
-      final HashMap<String,UrlInfo> linksMap=new HashMap<String,UrlInfo>();
+      final HashMap<String,UrlInfoWithDate> linksMap=new HashMap<String,UrlInfoWithDate>();
       if (statement == myInsertCustomLinkStatement) {
         id=statement.executeInsert();
         link.setId((int)id);
@@ -29,13 +29,13 @@
         statement.execute();
         final Cursor linksCursor=myDatabase.rawQuery("SELECT key,url,update_time FROM LinkUrls WHERE link_id = " + link.getId(),null);
         while (linksCursor.moveToNext()) {
-          linksMap.put(linksCursor.getString(0),new UrlInfo(linksCursor.getString(1),SQLiteUtil.getDate(linksCursor,2)));
+          linksMap.put(linksCursor.getString(0),new UrlInfoWithDate(linksCursor.getString(1),SQLiteUtil.getDate(linksCursor,2)));
         }
         linksCursor.close();
       }
       for (      String key : link.getUrlKeys()) {
-        final UrlInfo info=link.getUrlInfo(key);
-        final UrlInfo dbInfo=linksMap.remove(key);
+        final UrlInfoWithDate info=link.getUrlInfo(key);
+        final UrlInfoWithDate dbInfo=linksMap.remove(key);
         final SQLiteStatement urlStatement;
         if (dbInfo == null) {
           if (myInsertCustomLinkUrlStatement == null) {

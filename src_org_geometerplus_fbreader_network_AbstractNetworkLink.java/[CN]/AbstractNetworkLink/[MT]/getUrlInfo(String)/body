@@ -1,4 +1,4 @@
 {
-  final UrlInfo info=myInfos.get(urlKey);
-  return info != null ? info : UrlInfo.NULL;
+  final UrlInfoWithDate info=myInfos.get(urlKey);
+  return info != null ? info : UrlInfoWithDate.NULL;
 }

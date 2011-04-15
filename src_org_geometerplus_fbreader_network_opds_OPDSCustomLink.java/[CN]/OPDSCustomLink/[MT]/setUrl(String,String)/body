@@ -1,4 +1,4 @@
 {
-  myInfos.put(urlKey,new UrlInfo(url,new Date()));
+  myInfos.put(urlKey,new UrlInfoWithDate(url,new Date()));
   myHasChanges=true;
 }

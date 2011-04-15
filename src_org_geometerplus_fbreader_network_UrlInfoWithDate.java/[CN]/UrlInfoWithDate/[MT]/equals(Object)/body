@@ -2,9 +2,9 @@
   if (o == this) {
     return true;
   }
-  if (!(o instanceof UrlInfo)) {
+  if (!(o instanceof UrlInfoWithDate)) {
     return false;
   }
-  final UrlInfo info=(UrlInfo)o;
+  final UrlInfoWithDate info=(UrlInfoWithDate)o;
   return ZLMiscUtil.equals(URL,info.URL) && ZLMiscUtil.equals(Updated,info.Updated);
 }
