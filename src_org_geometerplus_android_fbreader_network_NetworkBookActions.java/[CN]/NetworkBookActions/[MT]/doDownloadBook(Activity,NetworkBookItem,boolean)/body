@@ -1,6 +1,6 @@
 {
-  int resolvedType=demo ? BookReference.Type.DOWNLOAD_DEMO : BookReference.Type.DOWNLOAD_FULL;
-  BookReference ref=book.reference(resolvedType);
+  final BookReference.Type resolvedType=demo ? BookReference.Type.BookDemo : BookReference.Type.Book;
+  final BookReference ref=book.reference(resolvedType);
   if (ref != null) {
     final String sslCertificate;
     if (book.Link.authenticationManager() != null) {

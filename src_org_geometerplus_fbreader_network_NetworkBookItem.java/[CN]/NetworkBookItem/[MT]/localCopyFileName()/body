@@ -1,11 +1,11 @@
 {
-  final boolean hasBuyReference=this.reference(BookReference.Type.BUY) != null || this.reference(BookReference.Type.BUY_IN_BROWSER) != null;
+  final boolean hasBuyReference=this.reference(BookReference.Type.BookBuy) != null || this.reference(BookReference.Type.BookBuyInBrowser) != null;
   BookReference reference=null;
   String fileName=null;
   for (  BookReference ref : myReferences) {
-    final int type=ref.ReferenceType;
-    if ((type == BookReference.Type.DOWNLOAD_FULL || type == BookReference.Type.DOWNLOAD_FULL_CONDITIONAL || (!hasBuyReference && type == BookReference.Type.DOWNLOAD_FULL_OR_DEMO)) && (reference == null || ref.BookFormat > reference.BookFormat)) {
-      String name=ref.localCopyFileName(BookReference.Type.DOWNLOAD_FULL);
+    final BookReference.Type type=ref.ReferenceType;
+    if ((type == BookReference.Type.Book || type == BookReference.Type.BookConditional || (!hasBuyReference && type == BookReference.Type.BookFullOrDemo)) && (reference == null || ref.BookFormat > reference.BookFormat)) {
+      String name=ref.localCopyFileName(BookReference.Type.Book);
       if (name != null) {
         reference=ref;
         fileName=name;

@@ -1,6 +1,6 @@
 LinkedList<BookReference> references
 OPDSLink opdsLink
 String href
-int type
+BookReference.Type type
 String price
 boolean addWithoutFormat

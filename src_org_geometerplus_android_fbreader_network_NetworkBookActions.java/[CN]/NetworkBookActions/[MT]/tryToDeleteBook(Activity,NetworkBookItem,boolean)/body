@@ -8,9 +8,9 @@
         book.removeLocalFiles();
       }
  else {
-        final BookReference reference=book.reference(BookReference.Type.DOWNLOAD_DEMO);
+        final BookReference reference=book.reference(BookReference.Type.BookDemo);
         if (reference != null) {
-          final String fileName=reference.localCopyFileName(BookReference.Type.DOWNLOAD_DEMO);
+          final String fileName=reference.localCopyFileName(BookReference.Type.BookDemo);
           if (fileName != null) {
             new File(fileName).delete();
           }

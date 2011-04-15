@@ -6,7 +6,7 @@ synchronized (this) {
   if (sid.length() == 0) {
     return null;
   }
-  BookReference reference=book.reference(BookReference.Type.DOWNLOAD_FULL_CONDITIONAL);
+  BookReference reference=book.reference(BookReference.Type.BookConditional);
   if (reference == null) {
     return null;
   }

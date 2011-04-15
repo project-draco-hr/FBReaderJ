@@ -4,9 +4,9 @@
     local=book.localCopyFileName();
   }
  else {
-    BookReference reference=book.reference(BookReference.Type.DOWNLOAD_DEMO);
+    BookReference reference=book.reference(BookReference.Type.BookDemo);
     if (reference != null) {
-      local=reference.localCopyFileName(BookReference.Type.DOWNLOAD_DEMO);
+      local=reference.localCopyFileName(BookReference.Type.BookDemo);
     }
   }
   if (local != null) {

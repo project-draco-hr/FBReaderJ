@@ -1,7 +1,7 @@
 {
   LinkedHashSet<Action> actions=new LinkedHashSet<Action>();
   if (useFullReferences(book)) {
-    BookReference reference=book.reference(BookReference.Type.DOWNLOAD_FULL);
+    BookReference reference=book.reference(BookReference.Type.Book);
     if (reference != null && connection != null && connection.isBeingDownloaded(reference.URL)) {
       actions.add(new Action(TREE_NO_ACTION,"alreadyDownloading"));
     }
@@ -14,11 +14,11 @@
     }
   }
   if (useDemoReferences(book)) {
-    BookReference reference=book.reference(BookReference.Type.DOWNLOAD_DEMO);
+    BookReference reference=book.reference(BookReference.Type.BookDemo);
     if (connection != null && connection.isBeingDownloaded(reference.URL)) {
       actions.add(new Action(TREE_NO_ACTION,"alreadyDownloadingDemo"));
     }
- else     if (reference.localCopyFileName(BookReference.Type.DOWNLOAD_DEMO) != null) {
+ else     if (reference.localCopyFileName(BookReference.Type.BookDemo) != null) {
       actions.add(new Action(READ_DEMO_ITEM_ID,"readDemo"));
       actions.add(new Action(DELETE_DEMO_ITEM_ID,"deleteDemo"));
     }
@@ -29,12 +29,12 @@
   if (useBuyReferences(book)) {
     int id=TREE_NO_ACTION;
     BookReference reference=null;
-    if (book.reference(BookReference.Type.BUY) != null) {
-      reference=book.reference(BookReference.Type.BUY);
+    if (book.reference(BookReference.Type.BookBuy) != null) {
+      reference=book.reference(BookReference.Type.BookBuy);
       id=BUY_DIRECTLY_ITEM_ID;
     }
- else     if (book.reference(BookReference.Type.BUY_IN_BROWSER) != null) {
-      reference=book.reference(BookReference.Type.BUY_IN_BROWSER);
+ else     if (book.reference(BookReference.Type.BookBuyInBrowser) != null) {
+      reference=book.reference(BookReference.Type.BookBuyInBrowser);
       id=BUY_IN_BROWSER_ITEM_ID;
     }
     if (reference != null) {

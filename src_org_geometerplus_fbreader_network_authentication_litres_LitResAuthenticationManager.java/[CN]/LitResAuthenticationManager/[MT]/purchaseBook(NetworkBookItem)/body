@@ -6,7 +6,7 @@ synchronized (this) {
   if (sid.length() == 0) {
     throw new ZLNetworkException(NetworkException.ERROR_AUTHENTICATION_FAILED);
   }
-  BookReference reference=book.reference(BookReference.Type.BUY);
+  BookReference reference=book.reference(BookReference.Type.BookBuy);
   if (reference == null) {
     throw new ZLNetworkException(NetworkException.ERROR_BOOK_NOT_PURCHASED);
   }

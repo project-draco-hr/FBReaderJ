@@ -1,5 +1,5 @@
 {
-  BookReference reference=book.reference(BookReference.Type.BUY_IN_BROWSER);
+  BookReference reference=book.reference(BookReference.Type.BookBuyInBrowser);
   if (reference != null) {
     Util.openInBrowser(activity,reference.URL);
   }

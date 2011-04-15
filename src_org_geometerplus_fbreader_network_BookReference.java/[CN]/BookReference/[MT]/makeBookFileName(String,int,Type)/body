@@ -12,7 +12,7 @@
     path.delete(0,4);
   }
   path.insert(0,File.separator);
-  if (resolvedReferenceType == Type.DOWNLOAD_DEMO) {
+  if (resolvedReferenceType == Type.BookDemo) {
     path.insert(0,"Demos");
     path.insert(0,File.separator);
   }
