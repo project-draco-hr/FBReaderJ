@@ -1,4 +1,4 @@
-LinkedList<BookUrlInfo> references
+UrlInfoCollection urls
 OPDSLink opdsLink
 String href
 UrlInfo.Type type

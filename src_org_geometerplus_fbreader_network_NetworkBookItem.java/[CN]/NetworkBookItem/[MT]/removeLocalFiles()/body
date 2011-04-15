@@ -1,9 +1,13 @@
 {
   final boolean hasBuyReference=this.reference(UrlInfo.Type.BookBuy) != null || this.reference(UrlInfo.Type.BookBuyInBrowser) != null;
-  for (  BookUrlInfo ref : myReferences) {
-    final UrlInfo.Type type=ref.InfoType;
+  for (  UrlInfo r : getAllInfos()) {
+    if (!(r instanceof BookUrlInfo)) {
+      continue;
+    }
+    final BookUrlInfo br=(BookUrlInfo)r;
+    final UrlInfo.Type type=br.InfoType;
     if (type == UrlInfo.Type.Book || type == UrlInfo.Type.BookConditional || (!hasBuyReference && type == UrlInfo.Type.BookFullOrDemo)) {
-      String fileName=ref.localCopyFileName(UrlInfo.Type.Book);
+      String fileName=br.localCopyFileName(UrlInfo.Type.Book);
       if (fileName != null) {
         new File(fileName).delete();
       }

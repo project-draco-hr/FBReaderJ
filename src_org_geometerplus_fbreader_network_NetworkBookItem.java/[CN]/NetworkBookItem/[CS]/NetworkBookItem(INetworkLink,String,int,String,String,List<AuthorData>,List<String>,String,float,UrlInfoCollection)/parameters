@@ -8,4 +8,3 @@ List<String> tags
 String seriesTitle
 float indexInSeries
 UrlInfoCollection urls
-List<BookUrlInfo> references

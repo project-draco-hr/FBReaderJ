@@ -17,12 +17,11 @@ case CATALOG:
   break;
 case BOOK:
 if (TAG_BOOK == tag) {
-  Books.add(new NetworkBookItem(Link,myBookId,myIndex++,myTitle,mySummary,myAuthors,myTags,mySeriesTitle,myIndexInSeries,myUrls,myReferences));
+  Books.add(new NetworkBookItem(Link,myBookId,myIndex++,myTitle,mySummary,myAuthors,myTags,mySeriesTitle,myIndexInSeries,myUrls));
   myBookId=myTitle=mySeriesTitle=mySummary=null;
   myIndexInSeries=0;
   myAuthors.clear();
   myTags.clear();
-  myReferences.clear();
   myUrls.clear();
   myState=CATALOG;
 }
