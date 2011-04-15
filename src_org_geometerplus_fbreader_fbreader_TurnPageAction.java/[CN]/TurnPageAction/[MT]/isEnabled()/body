@@ -1,15 +1,5 @@
 {
   final ScrollingPreferences preferences=ScrollingPreferences.Instance();
   final ScrollingPreferences.FingerScrolling fingerScrolling=preferences.FingerScrollingOption.getValue();
-  if (fingerScrolling != ScrollingPreferences.FingerScrolling.byTap && fingerScrolling != ScrollingPreferences.FingerScrolling.byTapAndFlick) {
-    return false;
-  }
-  if (myForward) {
-    ZLTextWordCursor cursor=Reader.getTextView().getEndCursor();
-    return cursor != null && !cursor.isNull() && (!cursor.isEndOfParagraph() || !cursor.getParagraphCursor().isLast());
-  }
- else {
-    ZLTextWordCursor cursor=Reader.getTextView().getStartCursor();
-    return cursor != null && !cursor.isNull() && (!cursor.isStartOfParagraph() || !cursor.getParagraphCursor().isFirst());
-  }
+  return fingerScrolling == ScrollingPreferences.FingerScrolling.byTap || fingerScrolling == ScrollingPreferences.FingerScrolling.byTapAndFlick;
 }

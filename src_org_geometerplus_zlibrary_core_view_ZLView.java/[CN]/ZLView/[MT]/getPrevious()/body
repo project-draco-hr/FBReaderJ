@@ -1,0 +1,10 @@
+{
+switch (this) {
+case next:
+    return current;
+case current:
+  return previous;
+default :
+return null;
+}
+}

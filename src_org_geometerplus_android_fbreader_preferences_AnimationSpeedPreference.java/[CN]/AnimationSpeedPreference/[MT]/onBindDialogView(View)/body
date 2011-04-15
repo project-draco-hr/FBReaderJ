@@ -1,0 +1,7 @@
+{
+  mySlider=(SeekBar)view.findViewById(R.id.animation_speed_slider);
+  mySlider.setMax(myOption.MaxValue - myOption.MinValue);
+  mySlider.setProgress(myOption.getValue() - myOption.MinValue);
+  mySlider.setProgressDrawable(new SeekBarDrawable());
+  super.onBindDialogView(view);
+}

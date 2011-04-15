@@ -1,0 +1,8 @@
+{
+  final ZLView view=ZLApplication.Instance().getCurrentView();
+  if (view == null) {
+    return;
+  }
+  final ZLAndroidPaintContext context=new ZLAndroidPaintContext(new Canvas(bitmap),getWidth(),getMainAreaHeight(),view.isScrollbarShown() ? getVerticalScrollbarWidth() : 0);
+  view.paint(context,index);
+}

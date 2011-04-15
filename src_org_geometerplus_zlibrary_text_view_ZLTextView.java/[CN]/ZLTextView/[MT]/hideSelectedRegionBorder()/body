@@ -1,3 +1,4 @@
 {
   myHighlightSelectedRegion=false;
+  Application.getViewWidget().reset();
 }

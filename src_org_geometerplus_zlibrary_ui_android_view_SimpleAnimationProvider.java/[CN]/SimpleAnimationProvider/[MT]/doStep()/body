@@ -47,5 +47,5 @@ terminate();
 return;
 }
 }
-mySpeed*=1.5;
+mySpeed*=mySpeedFactor;
 }

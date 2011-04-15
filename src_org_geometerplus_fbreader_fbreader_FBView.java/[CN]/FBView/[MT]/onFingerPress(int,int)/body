@@ -2,9 +2,6 @@
   if (super.onFingerPress(x,y)) {
     return true;
   }
-  if (isScrollingActive()) {
-    return false;
-  }
   if (myReader.FooterIsSensitiveOption.getValue()) {
     Footer footer=getFooterArea();
     if (footer != null && y > myContext.getHeight() - footer.getTapHeight()) {

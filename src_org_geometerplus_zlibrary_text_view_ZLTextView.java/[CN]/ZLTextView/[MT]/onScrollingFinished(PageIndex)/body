@@ -1,5 +1,4 @@
 {
-  setScrollingActive(false);
 switch (pageIndex) {
 case current:
     break;

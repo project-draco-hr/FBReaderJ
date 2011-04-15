@@ -14,5 +14,7 @@
   addMenuItem(menu,ActionCode.DECREASE_FONT);
   addMenuItem(menu,ActionCode.SHOW_NAVIGATION);
   addMenuItem(menu,ActionCode.SPEAK);
+  final ZLAndroidApplication application=(ZLAndroidApplication)getApplication();
+  application.myMainWindow.refreshMenu();
   return true;
 }

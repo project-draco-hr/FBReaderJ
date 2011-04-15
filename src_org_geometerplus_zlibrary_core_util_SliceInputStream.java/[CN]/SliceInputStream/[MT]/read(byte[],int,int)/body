@@ -1,3 +1,0 @@
-{
-  return myBase.read(b,off,len);
-}

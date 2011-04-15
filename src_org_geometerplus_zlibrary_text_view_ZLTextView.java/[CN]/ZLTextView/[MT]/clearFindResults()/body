@@ -2,6 +2,7 @@
   if (!findResultsAreEmpty()) {
     myModel.removeAllMarks();
     rebuildPaintInfo();
-    ZLApplication.Instance().repaintView();
+    Application.getViewWidget().reset();
+    Application.getViewWidget().repaint();
   }
 }

@@ -2,9 +2,6 @@
   if (super.onFingerSingleTap(x,y)) {
     return true;
   }
-  if (isScrollingActive()) {
-    return false;
-  }
   if (myReader.FooterIsSensitiveOption.getValue()) {
     Footer footer=getFooterArea();
     if (footer != null && y > myContext.getHeight() - footer.getTapHeight()) {
@@ -16,7 +13,8 @@
   final ZLTextElementRegion region=findRegion(x,y,10,ZLTextElementRegion.HyperlinkFilter);
   if (region != null) {
     selectRegion(region);
-    myReader.repaintView();
+    myReader.getViewWidget().reset();
+    myReader.getViewWidget().repaint();
     myReader.doAction(ActionCode.PROCESS_HYPERLINK);
     return true;
   }

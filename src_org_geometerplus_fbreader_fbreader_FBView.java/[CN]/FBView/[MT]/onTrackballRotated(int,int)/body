@@ -17,6 +17,7 @@
       scrollPage(false,ZLTextView.ScrollingMode.SCROLL_LINES,1);
     }
   }
-  myReader.repaintView();
+  myReader.getViewWidget().reset();
+  myReader.getViewWidget().repaint();
   return true;
 }

@@ -1,3 +1,4 @@
 {
   rebuildPaintInfo();
+  Application.getViewWidget().reset();
 }

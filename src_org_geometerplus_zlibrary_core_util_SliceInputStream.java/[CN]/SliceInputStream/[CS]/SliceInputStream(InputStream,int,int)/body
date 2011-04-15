@@ -1,6 +1,6 @@
 {
-  myBase=new ZLInputStreamWithOffset(base);
-  myBase.skip(start);
+  super(base);
+  super.skip(start);
   myStart=start;
   myLength=length;
 }
