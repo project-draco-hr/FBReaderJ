@@ -1,6 +1,7 @@
 {
-  if (item.Cover == null) {
+  final String imageUrl=item.getImageUrl();
+  if (imageUrl == null) {
     return null;
   }
-  return createCover(item.Cover,null);
+  return createCover(imageUrl,null);
 }

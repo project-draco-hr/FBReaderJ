@@ -1,0 +1,4 @@
+INetworkLink link
+String title
+String summary
+Map<UrlType,String> urls

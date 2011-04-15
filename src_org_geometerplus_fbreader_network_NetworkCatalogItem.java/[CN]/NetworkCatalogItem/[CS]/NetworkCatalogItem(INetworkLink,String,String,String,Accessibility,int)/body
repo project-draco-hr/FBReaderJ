@@ -1,5 +1,0 @@
-{
-  super(link,title,summary,cover);
-  myAccessibility=accessibility;
-  Flags=flags;
-}

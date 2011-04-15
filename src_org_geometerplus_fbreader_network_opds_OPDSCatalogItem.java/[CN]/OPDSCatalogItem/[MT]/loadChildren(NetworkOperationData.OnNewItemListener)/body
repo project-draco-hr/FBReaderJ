@@ -1,6 +1,6 @@
 {
   OPDSNetworkLink opdsLink=(OPDSNetworkLink)Link;
   myLoadingState=opdsLink.createOperationData(listener);
-  ZLNetworkRequest networkRequest=opdsLink.createNetworkData(getUrl(),myLoadingState);
+  ZLNetworkRequest networkRequest=opdsLink.createNetworkData(getCatalogUrl(),myLoadingState);
   doLoadChildren(networkRequest);
 }

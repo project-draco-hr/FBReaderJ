@@ -1,0 +1,5 @@
+{
+  super(link,title,summary,urls);
+  myAccessibility=accessibility;
+  Flags=flags;
+}

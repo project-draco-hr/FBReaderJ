@@ -1,7 +1,7 @@
 {
-  String id=URLByType.get(URL_CATALOG);
+  String id=getUrl(UrlType.Catalog);
   if (id == null) {
-    id=URLByType.get(URL_HTML_PAGE);
+    id=getUrl(UrlType.HtmlPage);
   }
   return id != null ? id : String.valueOf(hashCode());
 }

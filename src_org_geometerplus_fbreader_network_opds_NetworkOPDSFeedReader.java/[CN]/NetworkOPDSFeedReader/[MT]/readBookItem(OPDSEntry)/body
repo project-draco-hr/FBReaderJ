@@ -10,7 +10,7 @@
       tags.add(label);
     }
   }
-  String cover=null;
+  final Map<NetworkItem.UrlType,String> urls=new HashMap<NetworkItem.UrlType,String>();
   LinkedList<BookReference> references=new LinkedList<BookReference>();
   for (  ATOMLink link : entry.Links) {
     final String href=ZLNetworkUtil.url(myBaseURL,link.getHref());
@@ -19,12 +19,12 @@
     final int referenceType=typeByRelation(rel);
     if (REL_IMAGE_THUMBNAIL.equals(rel) || REL_THUMBNAIL.equals(rel)) {
       if (MIME_IMAGE_PNG.equals(type) || MIME_IMAGE_JPEG.equals(type)) {
-        cover=href;
+        urls.put(NetworkItem.UrlType.Thumbnail,href);
       }
     }
  else     if ((rel != null && rel.startsWith(REL_IMAGE_PREFIX)) || REL_COVER.equals(rel)) {
-      if (cover == null && (MIME_IMAGE_PNG.equals(type) || MIME_IMAGE_JPEG.equals(type))) {
-        cover=href;
+      if (MIME_IMAGE_PNG.equals(type) || MIME_IMAGE_JPEG.equals(type)) {
+        urls.put(NetworkItem.UrlType.Image,href);
       }
     }
  else     if (BookReference.Type.BUY == referenceType) {
@@ -92,5 +92,5 @@
  else {
     annotation=null;
   }
-  return new NetworkBookItem(opdsNetworkLink,entry.Id.Uri,myIndex++,entry.Title,annotation,authors,tags,entry.SeriesTitle,entry.SeriesIndex,cover,references);
+  return new NetworkBookItem(opdsNetworkLink,entry.Id.Uri,myIndex++,entry.Title,annotation,authors,tags,entry.SeriesTitle,entry.SeriesIndex,urls,references);
 }

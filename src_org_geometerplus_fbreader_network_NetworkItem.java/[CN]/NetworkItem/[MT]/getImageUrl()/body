@@ -1,0 +1,7 @@
+{
+  if (myURLs == null) {
+    return null;
+  }
+  final String cover=myURLs.get(UrlType.Image);
+  return cover != null ? cover : myURLs.get(UrlType.Thumbnail);
+}
