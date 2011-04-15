@@ -10,7 +10,7 @@
       tags.add(label);
     }
   }
-  final Map<NetworkItem.UrlType,String> urls=new HashMap<NetworkItem.UrlType,String>();
+  final UrlInfoCollection urls=new UrlInfoCollection();
   LinkedList<BookReference> references=new LinkedList<BookReference>();
   for (  ATOMLink link : entry.Links) {
     final String href=ZLNetworkUtil.url(myBaseURL,link.getHref());
@@ -19,12 +19,12 @@
     final BookReference.Type referenceType=typeByRelation(rel);
     if (REL_IMAGE_THUMBNAIL.equals(rel) || REL_THUMBNAIL.equals(rel)) {
       if (MIME_IMAGE_PNG.equals(type) || MIME_IMAGE_JPEG.equals(type)) {
-        urls.put(NetworkItem.UrlType.Thumbnail,href);
+        urls.addInfo(new UrlInfo(UrlInfo.Type.Thumbnail,href));
       }
     }
  else     if ((rel != null && rel.startsWith(REL_IMAGE_PREFIX)) || REL_COVER.equals(rel)) {
       if (MIME_IMAGE_PNG.equals(type) || MIME_IMAGE_JPEG.equals(type)) {
-        urls.put(NetworkItem.UrlType.Image,href);
+        urls.addInfo(new UrlInfo(UrlInfo.Type.Image,href));
       }
     }
  else     if (BookReference.Type.BookBuy == referenceType) {

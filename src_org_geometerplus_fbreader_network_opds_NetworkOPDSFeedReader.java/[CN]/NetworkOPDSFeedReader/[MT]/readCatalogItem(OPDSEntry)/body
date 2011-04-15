@@ -1,6 +1,6 @@
 {
   final OPDSNetworkLink opdsLink=(OPDSNetworkLink)myData.Link;
-  final Map<NetworkItem.UrlType,String> urlMap=new HashMap<NetworkItem.UrlType,String>();
+  final UrlInfoCollection urlMap=new UrlInfoCollection();
   boolean urlIsAlternate=false;
   String litresRel=null;
   int catalogType=NetworkCatalogItem.FLAGS_DEFAULT;
@@ -10,24 +10,24 @@
     final String rel=opdsLink.relation(link.getRel(),type);
     if (MIME_IMAGE_PNG.equals(type) || MIME_IMAGE_JPEG.equals(type)) {
       if (REL_IMAGE_THUMBNAIL.equals(rel) || REL_THUMBNAIL.equals(rel)) {
-        urlMap.put(NetworkItem.UrlType.Thumbnail,href);
+        urlMap.addInfo(new UrlInfo(UrlInfo.Type.Thumbnail,href));
       }
     }
  else     if (MIME_IMAGE_PNG.equals(type) || MIME_IMAGE_JPEG.equals(type)) {
       if (REL_COVER.equals(rel) || (rel != null && rel.startsWith(REL_IMAGE_PREFIX))) {
-        urlMap.put(NetworkItem.UrlType.Image,href);
+        urlMap.addInfo(new UrlInfo(UrlInfo.Type.Image,href));
       }
     }
  else     if (MIME_APP_ATOM.equals(type)) {
-      final boolean hasCatalogUrl=urlMap.get(NetworkItem.UrlType.Catalog) != null;
+      final boolean hasCatalogUrl=urlMap.getInfo(UrlInfo.Type.Catalog) != null;
       if (REL_ALTERNATE.equals(rel)) {
         if (!hasCatalogUrl) {
-          urlMap.put(NetworkItem.UrlType.Catalog,href);
+          urlMap.addInfo(new UrlInfo(UrlInfo.Type.Catalog,href));
           urlIsAlternate=true;
         }
       }
  else       if (!hasCatalogUrl || rel == null || REL_SUBSECTION.equals(rel)) {
-        urlMap.put(NetworkItem.UrlType.Catalog,href);
+        urlMap.addInfo(new UrlInfo(UrlInfo.Type.Catalog,href));
         urlIsAlternate=false;
         if (REL_CATALOG_AUTHOR.equals(rel)) {
           catalogType&=~NetworkCatalogItem.FLAG_SHOW_AUTHOR;
@@ -39,19 +39,19 @@
     }
  else     if (MIME_TEXT_HTML.equals(type)) {
       if (REL_ACQUISITION.equals(rel) || REL_ACQUISITION_OPEN.equals(rel) || REL_ALTERNATE.equals(rel)|| rel == null) {
-        urlMap.put(NetworkItem.UrlType.HtmlPage,href);
+        urlMap.addInfo(new UrlInfo(UrlInfo.Type.HtmlPage,href));
       }
     }
  else     if (MIME_APP_LITRES.equals(type)) {
-      urlMap.put(NetworkItem.UrlType.Catalog,href);
+      urlMap.addInfo(new UrlInfo(UrlInfo.Type.Catalog,href));
       litresRel=rel;
     }
   }
-  if (urlMap.get(NetworkItem.UrlType.Catalog) == null && urlMap.get(NetworkItem.UrlType.HtmlPage) == null) {
+  if (urlMap.getInfo(UrlInfo.Type.Catalog) == null && urlMap.getInfo(UrlInfo.Type.HtmlPage) == null) {
     return null;
   }
-  if (urlMap.get(NetworkItem.UrlType.Catalog) != null && !urlIsAlternate) {
-    urlMap.remove(NetworkItem.UrlType.HtmlPage);
+  if (urlMap.getInfo(UrlInfo.Type.Catalog) != null && !urlIsAlternate) {
+    urlMap.removeAllInfos(UrlInfo.Type.HtmlPage);
   }
   final String annotation;
   if (entry.Summary != null) {

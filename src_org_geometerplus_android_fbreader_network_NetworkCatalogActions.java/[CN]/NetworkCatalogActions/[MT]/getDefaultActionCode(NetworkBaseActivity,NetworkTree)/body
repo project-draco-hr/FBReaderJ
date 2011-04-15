@@ -4,10 +4,10 @@
     return OPEN_CATALOG_ITEM_ID;
   }
   final NetworkURLCatalogItem urlItem=(NetworkURLCatalogItem)item;
-  if (urlItem.getUrl(NetworkItem.UrlType.Catalog) != null) {
+  if (urlItem.getUrl(UrlInfo.Type.Catalog) != null) {
     return OPEN_CATALOG_ITEM_ID;
   }
-  if (urlItem.getUrl(NetworkItem.UrlType.HtmlPage) != null) {
+  if (urlItem.getUrl(UrlInfo.Type.HtmlPage) != null) {
     return OPEN_IN_BROWSER_ITEM_ID;
   }
   if (urlItem.getVisibility() == ZLBoolean3.B3_UNDEFINED && urlItem.Link.authenticationManager() != null) {

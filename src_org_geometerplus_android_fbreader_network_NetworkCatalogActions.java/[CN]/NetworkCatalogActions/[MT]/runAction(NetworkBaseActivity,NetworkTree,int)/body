@@ -17,7 +17,7 @@ case OPEN_CATALOG_ITEM_ID:
     }
 case OPEN_IN_BROWSER_ITEM_ID:
   if (item instanceof NetworkURLCatalogItem) {
-    Util.openInBrowser(activity,item.getUrl(NetworkItem.UrlType.HtmlPage));
+    Util.openInBrowser(activity,item.getUrl(UrlInfo.Type.HtmlPage));
   }
 return true;
 case RELOAD_ITEM_ID:

@@ -23,5 +23,5 @@
       builder.append(bookId);
     }
   }
-  return ZLNetworkUtil.appendParameter(getUrl(UrlType.Catalog),"ids",builder.toString());
+  return ZLNetworkUtil.appendParameter(getUrl(UrlInfo.Type.Catalog),"ids",builder.toString());
 }

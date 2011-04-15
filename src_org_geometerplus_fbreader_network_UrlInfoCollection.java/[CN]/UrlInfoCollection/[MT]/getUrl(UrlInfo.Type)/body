@@ -1,0 +1,4 @@
+{
+  final T info=getInfo(type);
+  return info != null ? info.Url : null;
+}

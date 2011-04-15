@@ -1,6 +1,0 @@
-{
-  if (myURLs == null) {
-    return null;
-  }
-  return myURLs.get(type);
-}

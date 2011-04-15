@@ -18,7 +18,7 @@ case START:
 case CATALOG:
 if (TAG_BOOK == tag) {
   myBookId=attributes.getValue("hub_id");
-  myUrls.put(NetworkItem.UrlType.Image,attributes.getValue("cover_preview"));
+  myUrls.addInfo(new UrlInfo(UrlInfo.Type.Image,attributes.getValue("cover_preview")));
   myReferences.add(new BookReference("https://robot.litres.ru/pages/catalit_download_book/?art=" + myBookId,BookReference.Format.FB2_ZIP,BookReference.Type.BookConditional));
   myState=BOOK;
 }
