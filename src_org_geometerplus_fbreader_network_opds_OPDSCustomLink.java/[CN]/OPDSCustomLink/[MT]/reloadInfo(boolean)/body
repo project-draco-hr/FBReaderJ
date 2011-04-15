@@ -3,7 +3,7 @@
   final List<OpenSearchDescription> descriptions=Collections.synchronizedList(new LinkedList<OpenSearchDescription>());
   ZLNetworkException error=null;
   try {
-    ZLNetworkManager.Instance().perform(new ZLNetworkRequest(getUrlInfo(URL_MAIN).URL){
+    ZLNetworkManager.Instance().perform(new ZLNetworkRequest(getUrlInfo(UrlInfo.Type.Catalog).URL){
       @Override public void handleStream(      URLConnection connection,      InputStream inputStream) throws IOException, ZLNetworkException {
         final CatalogInfoReader info=new CatalogInfoReader(URL,OPDSCustomLink.this,opensearchDescriptionURLs);
         new OPDSXMLReader(info).read(inputStream);
@@ -13,7 +13,7 @@
         if (info.Title == null) {
           throw new ZLNetworkException(NetworkException.ERROR_NO_REQUIRED_INFORMATION);
         }
-        setUrl(URL_ICON,info.Icon);
+        setUrl(UrlInfo.Type.Image,info.Icon);
         if (info.DirectOpenSearchDescription != null) {
           descriptions.add(info.DirectOpenSearchDescription);
         }
@@ -48,10 +48,10 @@
     }
   }
   if (!descriptions.isEmpty()) {
-    setUrl(URL_SEARCH,descriptions.get(0).makeQuery("%s"));
+    setUrl(UrlInfo.Type.Search,descriptions.get(0).makeQuery("%s"));
   }
  else {
-    setUrl(URL_SEARCH,null);
+    setUrl(UrlInfo.Type.Search,null);
   }
   if (error != null) {
     throw error;

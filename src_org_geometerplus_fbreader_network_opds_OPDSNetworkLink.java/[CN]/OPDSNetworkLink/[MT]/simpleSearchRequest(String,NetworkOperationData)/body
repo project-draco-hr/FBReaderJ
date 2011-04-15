@@ -1,5 +1,5 @@
 {
-  final String url=getUrlInfo(URL_SEARCH).URL;
+  final String url=getUrlInfo(UrlInfo.Type.Search).URL;
   if (url == null) {
     return null;
   }

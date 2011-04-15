@@ -1,3 +1,3 @@
 {
-  return testService(activity,action,link.getUrlInfo(INetworkLink.URL_MAIN).URL);
+  return testService(activity,action,link.getUrlInfo(UrlInfo.Type.Catalog).URL);
 }

@@ -1,6 +1,6 @@
 {
   final UrlInfoCollection urlMap=new UrlInfoCollection();
-  urlMap.addInfo(new UrlInfo(UrlInfo.Type.Catalog,getUrlInfo(URL_MAIN).URL));
-  urlMap.addInfo(new UrlInfo(UrlInfo.Type.Image,getUrlInfo(URL_ICON).URL));
+  urlMap.addInfo(new UrlInfo(UrlInfo.Type.Catalog,getUrlInfo(UrlInfo.Type.Catalog).URL));
+  urlMap.addInfo(new UrlInfo(UrlInfo.Type.Image,getUrlInfo(UrlInfo.Type.Image).URL));
   return new OPDSCatalogItem(this,getTitle(),getSummary(),urlMap,myExtraData);
 }

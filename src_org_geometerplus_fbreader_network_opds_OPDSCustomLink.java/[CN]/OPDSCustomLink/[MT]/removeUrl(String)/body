@@ -1,4 +1,0 @@
-{
-  final UrlInfoWithDate oldUrl=myInfos.remove(urlKey);
-  myHasChanges=myHasChanges || oldUrl != null;
-}

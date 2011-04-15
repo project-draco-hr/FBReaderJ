@@ -2,4 +2,4 @@ String siteName
 String title
 String summary
 String language
-Map<String,UrlInfoWithDate> infos
+Map<UrlInfo.Type,UrlInfoWithDate> infos

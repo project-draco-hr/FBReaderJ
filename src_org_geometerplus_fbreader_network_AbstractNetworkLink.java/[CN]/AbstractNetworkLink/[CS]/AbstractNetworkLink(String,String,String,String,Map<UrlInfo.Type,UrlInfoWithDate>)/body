@@ -3,5 +3,5 @@
   myTitle=title;
   mySummary=summary;
   myLanguage=language != null ? language : "multi";
-  myInfos=new TreeMap<String,UrlInfoWithDate>(infos);
+  myInfos=new TreeMap<UrlInfo.Type,UrlInfoWithDate>(infos);
 }
