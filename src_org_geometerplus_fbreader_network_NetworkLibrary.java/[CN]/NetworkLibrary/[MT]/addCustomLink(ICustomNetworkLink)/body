@@ -1,16 +1,14 @@
 {
   final int id=link.getId();
   if (id == ICustomNetworkLink.INVALID_ID) {
-    addLinkInternal(link);
+    myLinks.add(link);
   }
  else {
-synchronized (myLinks) {
-      for (int i=myLinks.size() - 1; i >= 0; --i) {
-        final INetworkLink l=myLinks.get(i);
-        if (l instanceof ICustomNetworkLink && ((ICustomNetworkLink)l).getId() == id) {
-          myLinks.set(i,link);
-          break;
-        }
+    for (int i=myLinks.size() - 1; i >= 0; --i) {
+      final INetworkLink l=myLinks.get(i);
+      if (l instanceof ICustomNetworkLink && ((ICustomNetworkLink)l).getId() == id) {
+        myLinks.set(i,link);
+        break;
       }
     }
   }

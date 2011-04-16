@@ -1,7 +1,5 @@
 {
-synchronized (myLinks) {
-    myLinks.remove(link);
-  }
+  myLinks.remove(link);
   NetworkDatabase.Instance().deleteCustomLink(link);
   invalidateChildren();
 }

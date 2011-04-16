@@ -21,10 +21,7 @@ synchronized (myBackgroundLock) {
         }
       }
     }
-    final List<INetworkLink> linksCopy;
-synchronized (myLinks) {
-      linksCopy=new ArrayList<INetworkLink>(myLinks);
-    }
+    final List<INetworkLink> linksCopy=new ArrayList<INetworkLink>(myLinks);
     for (    INetworkLink link : linksCopy) {
       if (link instanceof ICustomNetworkLink) {
         final ICustomNetworkLink customLink=(ICustomNetworkLink)link;

@@ -5,7 +5,7 @@
   try {
     OPDSLinkReader.loadOPDSLinks(OPDSLinkReader.CACHE_LOAD,new OnNewLinkListener(){
       public void onNewLink(      INetworkLink link){
-        addLinkInternal(link);
+        myLinks.add(link);
       }
     }
 );
@@ -20,7 +20,7 @@
       public void handleCustomLinkData(      int id,      String siteName,      String title,      String summary,      UrlInfoCollection<UrlInfoWithDate> infos){
         if (title != null && siteName != null && infos.getInfo(UrlInfo.Type.Catalog) != null) {
           final ICustomNetworkLink link=new OPDSCustomLink(id,siteName,title,summary,infos);
-          addLinkInternal(link);
+          myLinks.add(link);
         }
       }
     }
