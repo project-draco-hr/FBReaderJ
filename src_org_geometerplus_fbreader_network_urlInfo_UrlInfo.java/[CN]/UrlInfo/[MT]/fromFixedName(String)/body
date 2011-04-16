@@ -1,8 +1,0 @@
-{
-  for (  Type t : values()) {
-    if (t.getFixedName().equals(fixedName)) {
-      return t;
-    }
-  }
-  return null;
-}

@@ -26,6 +26,9 @@
         urls.addInfo(new UrlInfo(UrlInfo.Type.Image,href));
       }
     }
+ else     if (MIME_APP_ATOM_ENTRY.equals(type)) {
+      urls.addInfo(new UrlInfo(UrlInfo.Type.SingleEntry,href));
+    }
  else     if (UrlInfo.Type.BookBuy == referenceType) {
       final OPDSLink opdsLink=(OPDSLink)link;
       String price=null;

@@ -9,7 +9,11 @@
     linksMap.clear();
     final Cursor linksCursor=myDatabase.rawQuery("SELECT key,url,update_time FROM LinkUrls WHERE link_id = " + id,null);
     while (linksCursor.moveToNext()) {
-      linksMap.addInfo(new UrlInfoWithDate(UrlInfo.Type.fromFixedName(linksCursor.getString(0)),linksCursor.getString(1),SQLiteUtil.getDate(linksCursor,2)));
+      try {
+        linksMap.addInfo(new UrlInfoWithDate(UrlInfo.Type.valueOf(linksCursor.getString(0)),linksCursor.getString(1),SQLiteUtil.getDate(linksCursor,2)));
+      }
+ catch (      IllegalArgumentException e) {
+      }
     }
     linksCursor.close();
     handler.handleCustomLinkData(id,siteName,title,summary,linksMap);

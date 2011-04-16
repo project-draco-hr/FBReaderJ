@@ -29,7 +29,11 @@
         statement.execute();
         final Cursor linksCursor=myDatabase.rawQuery("SELECT key,url,update_time FROM LinkUrls WHERE link_id = " + link.getId(),null);
         while (linksCursor.moveToNext()) {
-          linksMap.addInfo(new UrlInfoWithDate(UrlInfo.Type.fromFixedName(linksCursor.getString(0)),linksCursor.getString(1),SQLiteUtil.getDate(linksCursor,2)));
+          try {
+            linksMap.addInfo(new UrlInfoWithDate(UrlInfo.Type.valueOf(linksCursor.getString(0)),linksCursor.getString(1),SQLiteUtil.getDate(linksCursor,2)));
+          }
+ catch (          IllegalArgumentException e) {
+          }
         }
         linksCursor.close();
       }
@@ -56,7 +60,7 @@
         SQLiteUtil.bindString(urlStatement,1,info.Url);
         SQLiteUtil.bindDate(urlStatement,2,info.Updated);
         urlStatement.bindLong(3,id);
-        urlStatement.bindString(4,key.getFixedName());
+        urlStatement.bindString(4,key.toString());
         urlStatement.execute();
       }
       for (      UrlInfo info : linksMap.getAllInfos()) {
@@ -64,7 +68,7 @@
           myDeleteCustomLinkUrlStatement=myDatabase.compileStatement("DELETE FROM LinkUrls WHERE link_id = ? AND key = ?");
         }
         myDeleteCustomLinkUrlStatement.bindLong(1,id);
-        myDeleteCustomLinkUrlStatement.bindString(2,info.InfoType.getFixedName());
+        myDeleteCustomLinkUrlStatement.bindString(2,info.InfoType.toString());
         myDeleteCustomLinkUrlStatement.execute();
       }
     }

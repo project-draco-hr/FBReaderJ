@@ -12,9 +12,7 @@
       if (REL_IMAGE_THUMBNAIL.equals(rel) || REL_THUMBNAIL.equals(rel)) {
         urlMap.addInfo(new UrlInfo(UrlInfo.Type.Thumbnail,href));
       }
-    }
- else     if (MIME_IMAGE_PNG.equals(type) || MIME_IMAGE_JPEG.equals(type)) {
-      if (REL_COVER.equals(rel) || (rel != null && rel.startsWith(REL_IMAGE_PREFIX))) {
+ else       if (REL_COVER.equals(rel) || (rel != null && rel.startsWith(REL_IMAGE_PREFIX))) {
         urlMap.addInfo(new UrlInfo(UrlInfo.Type.Image,href));
       }
     }
