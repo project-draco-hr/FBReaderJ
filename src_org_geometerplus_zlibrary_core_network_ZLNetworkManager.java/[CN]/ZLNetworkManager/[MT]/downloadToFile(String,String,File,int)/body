@@ -1,5 +1,5 @@
 {
-  perform(new ZLNetworkRequest(url){
+  perform(new ZLNetworkRequest(url,sslCertificate,null){
     public void handleStream(    URLConnection connection,    InputStream inputStream) throws IOException, ZLNetworkException {
       OutputStream outStream=new FileOutputStream(outFile);
       try {

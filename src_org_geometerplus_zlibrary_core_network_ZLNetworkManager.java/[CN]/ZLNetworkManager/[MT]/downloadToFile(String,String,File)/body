@@ -1,0 +1,3 @@
+{
+  downloadToFile(url,sslCertificate,outFile,8192);
+}

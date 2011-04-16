@@ -1,0 +1,3 @@
+boolean useAsMessage
+String str
+Throwable cause
