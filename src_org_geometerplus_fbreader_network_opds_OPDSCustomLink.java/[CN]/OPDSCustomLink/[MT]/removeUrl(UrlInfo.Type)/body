@@ -1,4 +1,4 @@
 {
-  final UrlInfoWithDate oldUrl=myInfos.remove(type);
-  myHasChanges=myHasChanges || oldUrl != null;
+  myHasChanges=myHasChanges || myInfos.getInfo(type) != null;
+  myInfos.removeAllInfos(type);
 }

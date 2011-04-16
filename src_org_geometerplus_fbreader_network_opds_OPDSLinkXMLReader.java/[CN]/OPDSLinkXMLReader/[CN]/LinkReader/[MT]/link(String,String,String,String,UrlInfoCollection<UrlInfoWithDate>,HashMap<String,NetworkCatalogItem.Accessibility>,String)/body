@@ -1,5 +1,5 @@
 {
-  if (siteName == null || title == null || infos.get(UrlInfo.Type.Catalog) == null) {
+  if (siteName == null || title == null || infos.getInfo(UrlInfo.Type.Catalog) == null) {
     return null;
   }
   OPDSNetworkLink opdsLink=new OPDSNetworkLink(siteName,title,summary,language,infos,myHasStableIdentifiers);

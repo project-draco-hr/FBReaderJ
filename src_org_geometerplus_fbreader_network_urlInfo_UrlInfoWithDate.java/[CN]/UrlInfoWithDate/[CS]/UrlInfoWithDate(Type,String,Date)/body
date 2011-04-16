@@ -1,4 +1,4 @@
 {
-  URL=url;
+  super(type,url);
   Updated=updated;
 }

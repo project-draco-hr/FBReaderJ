@@ -2,4 +2,4 @@ int id
 String siteName
 String title
 String summary
-Map<UrlInfo.Type,UrlInfoWithDate> infos
+UrlInfoCollection<UrlInfoWithDate> infos

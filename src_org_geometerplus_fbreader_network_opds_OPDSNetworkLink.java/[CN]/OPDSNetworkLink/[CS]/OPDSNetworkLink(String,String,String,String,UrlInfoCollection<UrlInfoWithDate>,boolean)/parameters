@@ -2,5 +2,5 @@ String siteName
 String title
 String summary
 String language
-Map<UrlInfo.Type,UrlInfoWithDate> infos
+UrlInfoCollection<UrlInfoWithDate> infos
 boolean hasStableIdentifiers

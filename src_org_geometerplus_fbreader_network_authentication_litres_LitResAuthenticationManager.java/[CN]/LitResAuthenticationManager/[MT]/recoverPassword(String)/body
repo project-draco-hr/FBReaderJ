@@ -1,5 +1,5 @@
 {
-  String url=Link.getUrlInfo(UrlInfo.Type.RecoverPassword).URL;
+  String url=Link.getUrl(UrlInfo.Type.RecoverPassword);
   if (url == null) {
     throw new ZLNetworkException(NetworkException.ERROR_UNSUPPORTED_OPERATION);
   }

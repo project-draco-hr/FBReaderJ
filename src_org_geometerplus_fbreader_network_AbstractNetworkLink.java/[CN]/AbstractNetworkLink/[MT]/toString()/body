@@ -1,5 +1,5 @@
 {
-  String icon=getUrlInfo(UrlInfo.Type.Catalog).URL;
+  String icon=getUrl(UrlInfo.Type.Catalog);
   if (icon != null) {
     if (icon.length() > 64) {
       icon=icon.substring(0,61) + "...";

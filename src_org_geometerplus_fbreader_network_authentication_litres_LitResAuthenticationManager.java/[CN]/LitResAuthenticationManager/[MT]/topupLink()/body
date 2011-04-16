@@ -6,7 +6,7 @@ synchronized (this) {
   if (sid.length() == 0) {
     return null;
   }
-  final String url=Link.getUrlInfo(UrlInfo.Type.TopUp).URL;
+  final String url=Link.getUrl(UrlInfo.Type.TopUp);
   if (url == null) {
     return null;
   }

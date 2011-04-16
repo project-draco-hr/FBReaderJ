@@ -1,4 +1,4 @@
 {
-  final UrlInfoWithDate info=myInfos.get(type);
+  final UrlInfoWithDate info=myInfos.getInfo(type);
   return info != null ? info : UrlInfoWithDate.NULL;
 }

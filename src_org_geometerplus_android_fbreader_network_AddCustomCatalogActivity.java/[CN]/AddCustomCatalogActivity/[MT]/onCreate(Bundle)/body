@@ -30,7 +30,7 @@
   myLink=NetworkLibraryActivity.getLinkFromIntent(intent);
   final Uri uri=intent.getData();
   if (myLink != null) {
-    setTextById(R.id.add_custom_catalog_url,myLink.getUrlInfo(UrlInfo.Type.Catalog).URL);
+    setTextById(R.id.add_custom_catalog_url,myLink.getUrl(UrlInfo.Type.Catalog));
     setTextById(R.id.add_custom_catalog_title,myLink.getTitle());
     setTextById(R.id.add_custom_catalog_summary,myLink.getSummary());
     setExtraFieldsVisibility(true);
