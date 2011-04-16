@@ -1,4 +1,5 @@
 {
+  myInfos.removeAllInfos(type);
   myInfos.addInfo(new UrlInfoWithDate(type,url));
   myHasChanges=true;
 }
