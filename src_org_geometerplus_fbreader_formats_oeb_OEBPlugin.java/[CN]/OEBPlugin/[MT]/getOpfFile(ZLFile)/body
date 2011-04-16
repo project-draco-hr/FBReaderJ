@@ -1,5 +1,5 @@
 {
-  if (oebFile.getExtension().equals("opf")) {
+  if ("opf".equals(oebFile.getExtension())) {
     return oebFile;
   }
   final ZLFile containerInfoFile=ZLFile.createFile(oebFile,"META-INF/container.xml");
