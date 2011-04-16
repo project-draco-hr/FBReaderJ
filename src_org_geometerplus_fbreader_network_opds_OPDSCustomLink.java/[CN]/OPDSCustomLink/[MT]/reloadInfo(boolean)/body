@@ -28,7 +28,7 @@
  catch (  ZLNetworkException e) {
     error=e;
   }
-  if (descriptions.isEmpty() && !opensearchDescriptionURLs.isEmpty()) {
+  if (!opensearchDescriptionURLs.isEmpty()) {
     LinkedList<ZLNetworkRequest> requests=new LinkedList<ZLNetworkRequest>();
     for (    String url : opensearchDescriptionURLs) {
       requests.add(new ZLNetworkRequest(url){
