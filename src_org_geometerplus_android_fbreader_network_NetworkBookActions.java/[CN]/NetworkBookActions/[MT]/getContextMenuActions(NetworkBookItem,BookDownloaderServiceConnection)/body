@@ -1,8 +1,8 @@
 {
   LinkedHashSet<Action> actions=new LinkedHashSet<Action>();
   if (useFullReferences(book)) {
-    BookReference reference=book.reference(BookReference.Type.DOWNLOAD_FULL);
-    if (reference != null && connection != null && connection.isBeingDownloaded(reference.URL)) {
+    final BookUrlInfo reference=book.reference(UrlInfo.Type.Book);
+    if (reference != null && connection != null && connection.isBeingDownloaded(reference.Url)) {
       actions.add(new Action(TREE_NO_ACTION,"alreadyDownloading"));
     }
  else     if (book.localCopyFileName() != null) {
@@ -14,11 +14,11 @@
     }
   }
   if (useDemoReferences(book)) {
-    BookReference reference=book.reference(BookReference.Type.DOWNLOAD_DEMO);
-    if (connection != null && connection.isBeingDownloaded(reference.URL)) {
+    final BookUrlInfo reference=book.reference(UrlInfo.Type.BookDemo);
+    if (connection != null && connection.isBeingDownloaded(reference.Url)) {
       actions.add(new Action(TREE_NO_ACTION,"alreadyDownloadingDemo"));
     }
- else     if (reference.localCopyFileName(BookReference.Type.DOWNLOAD_DEMO) != null) {
+ else     if (reference.localCopyFileName(UrlInfo.Type.BookDemo) != null) {
       actions.add(new Action(READ_DEMO_ITEM_ID,"readDemo"));
       actions.add(new Action(DELETE_DEMO_ITEM_ID,"deleteDemo"));
     }
@@ -28,17 +28,17 @@
   }
   if (useBuyReferences(book)) {
     int id=TREE_NO_ACTION;
-    BookReference reference=null;
-    if (book.reference(BookReference.Type.BUY) != null) {
-      reference=book.reference(BookReference.Type.BUY);
+    BookUrlInfo reference=null;
+    if (book.reference(UrlInfo.Type.BookBuy) != null) {
+      reference=book.reference(UrlInfo.Type.BookBuy);
       id=BUY_DIRECTLY_ITEM_ID;
     }
- else     if (book.reference(BookReference.Type.BUY_IN_BROWSER) != null) {
-      reference=book.reference(BookReference.Type.BUY_IN_BROWSER);
+ else     if (book.reference(UrlInfo.Type.BookBuyInBrowser) != null) {
+      reference=book.reference(UrlInfo.Type.BookBuyInBrowser);
       id=BUY_IN_BROWSER_ITEM_ID;
     }
     if (reference != null) {
-      final String price=((BuyBookReference)reference).Price;
+      final String price=((BookBuyUrlInfo)reference).Price;
       actions.add(new Action(id,"buy",price));
     }
     final Basket basket=book.Link.basket();

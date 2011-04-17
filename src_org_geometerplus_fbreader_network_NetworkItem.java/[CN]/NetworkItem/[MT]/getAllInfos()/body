@@ -1,0 +1,6 @@
+{
+  if (myURLs == null) {
+    return Collections.emptyList();
+  }
+  return myURLs.getAllInfos();
+}

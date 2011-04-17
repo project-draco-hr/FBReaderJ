@@ -13,14 +13,12 @@
     }
   }
 ;
-synchronized (myLinks) {
-    for (    INetworkLink link : activeLinks()) {
-      final NetworkOperationData data=link.createOperationData(synchronizedListener);
-      final ZLNetworkRequest request=link.simpleSearchRequest(pattern,data);
-      if (request != null) {
-        dataList.add(data);
-        requestList.add(request);
-      }
+  for (  INetworkLink link : activeLinks()) {
+    final NetworkOperationData data=link.createOperationData(synchronizedListener);
+    final ZLNetworkRequest request=link.simpleSearchRequest(pattern,data);
+    if (request != null) {
+      dataList.add(data);
+      requestList.add(request);
     }
   }
   while (requestList.size() != 0) {

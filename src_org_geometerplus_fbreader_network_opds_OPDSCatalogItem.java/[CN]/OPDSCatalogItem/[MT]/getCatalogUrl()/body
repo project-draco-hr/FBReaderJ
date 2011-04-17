@@ -1,0 +1,3 @@
+{
+  return getUrl(UrlInfo.Type.Catalog);
+}

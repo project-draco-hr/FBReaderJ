@@ -1,0 +1,13 @@
+{
+  boolean added=false;
+  for (  String mime : opdsLink.Formats) {
+    final int format=formatByMimeType(mime);
+    if (format != BookUrlInfo.Format.NONE) {
+      urls.addInfo(new BookBuyUrlInfo(type,format,href,price));
+      added=true;
+    }
+  }
+  if (!added && addWithoutFormat) {
+    urls.addInfo(new BookBuyUrlInfo(type,BookUrlInfo.Format.NONE,href,price));
+  }
+}

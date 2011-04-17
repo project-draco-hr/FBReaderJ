@@ -1,6 +1,0 @@
-INetworkLink link
-String title
-String summary
-String cover
-Map<Integer,String> urlByType
-Map<String,String> extraData

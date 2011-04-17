@@ -21,7 +21,8 @@ synchronized (myBackgroundLock) {
         }
       }
     }
-    for (    INetworkLink link : myLinks) {
+    final List<INetworkLink> linksCopy=new ArrayList<INetworkLink>(myLinks);
+    for (    INetworkLink link : linksCopy) {
       if (link instanceof ICustomNetworkLink) {
         final ICustomNetworkLink customLink=(ICustomNetworkLink)link;
         if (customLink.isObsolete(12 * 60 * 60* 1000)) {

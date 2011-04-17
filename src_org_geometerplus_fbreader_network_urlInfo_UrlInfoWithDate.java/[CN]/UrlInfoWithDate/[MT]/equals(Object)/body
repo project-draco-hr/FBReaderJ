@@ -1,0 +1,10 @@
+{
+  if (o == this) {
+    return true;
+  }
+  if (!(o instanceof UrlInfoWithDate)) {
+    return false;
+  }
+  final UrlInfoWithDate info=(UrlInfoWithDate)o;
+  return InfoType == info.InfoType && ZLMiscUtil.equals(Url,info.Url) && ZLMiscUtil.equals(Updated,info.Updated);
+}

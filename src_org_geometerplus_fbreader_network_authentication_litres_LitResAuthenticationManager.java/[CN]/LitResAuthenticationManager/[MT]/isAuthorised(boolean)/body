@@ -11,7 +11,7 @@ synchronized (this) {
     }
     sid=mySidOption.getValue();
   }
-  String url=Link.getUrlInfo(INetworkLink.URL_SIGN_IN).URL;
+  String url=Link.getUrl(UrlInfo.Type.SignIn);
   if (url == null) {
     throw new ZLNetworkException(NetworkException.ERROR_UNSUPPORTED_OPERATION);
   }

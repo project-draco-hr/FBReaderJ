@@ -1,3 +1,0 @@
-{
-  return ZLMiscUtil.hashCode(URL) + ZLMiscUtil.hashCode(Updated);
-}

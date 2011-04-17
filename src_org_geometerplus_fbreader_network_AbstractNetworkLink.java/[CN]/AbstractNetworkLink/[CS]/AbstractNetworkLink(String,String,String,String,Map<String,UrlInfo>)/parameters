@@ -1,5 +1,0 @@
-String siteName
-String title
-String summary
-String language
-Map<String,UrlInfo> infos

@@ -1,0 +1,27 @@
+{
+  final LitResAuthenticationManager mgr=(LitResAuthenticationManager)Link.authenticationManager();
+  final StringBuilder builder=new StringBuilder();
+  boolean flag=false;
+  for (  NetworkBookItem book : mgr.purchasedBooks()) {
+    if (flag) {
+      builder.append(',');
+    }
+ else {
+      flag=true;
+    }
+    builder.append(book.Id);
+  }
+  final Basket basket=Link.basket();
+  if (basket != null) {
+    for (    String bookId : basket.bookIds()) {
+      if (flag) {
+        builder.append(',');
+      }
+ else {
+        flag=true;
+      }
+      builder.append(bookId);
+    }
+  }
+  return ZLNetworkUtil.appendParameter(getUrl(UrlInfo.Type.Catalog),"ids",builder.toString());
+}

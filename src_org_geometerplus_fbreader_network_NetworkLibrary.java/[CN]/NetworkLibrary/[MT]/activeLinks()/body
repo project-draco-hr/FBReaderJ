@@ -1,11 +1,9 @@
 {
   final LinkedList<INetworkLink> filteredList=new LinkedList<INetworkLink>();
   final Collection<String> codes=activeLanguageCodes();
-synchronized (myLinks) {
-    for (    INetworkLink link : myLinks) {
-      if (link instanceof ICustomNetworkLink || codes.contains(link.getLanguage())) {
-        filteredList.add(link);
-      }
+  for (  INetworkLink link : myLinks) {
+    if (link instanceof ICustomNetworkLink || codes.contains(link.getLanguage())) {
+      filteredList.add(link);
     }
   }
   return filteredList;

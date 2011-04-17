@@ -2,4 +2,6 @@
   super.onResume();
   getListView().setOnCreateContextMenuListener(this);
   onModelChanged();
+  System.err.println("UI thread: " + Thread.currentThread());
+  Authenticator.setDefault(myAuthenticator);
 }

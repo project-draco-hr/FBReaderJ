@@ -1,0 +1,3 @@
+{
+  this(link,title,summary,urls,Accessibility.ALWAYS,FLAGS_DEFAULT);
+}

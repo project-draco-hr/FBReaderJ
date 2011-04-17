@@ -1,0 +1,12 @@
+{
+  List<T> list=null;
+  for (  T info : myInfos) {
+    if (info.InfoType == type) {
+      if (list == null) {
+        list=new LinkedList<T>();
+      }
+      list.add(info);
+    }
+  }
+  return list != null ? list : Collections.<T>emptyList();
+}

@@ -1,0 +1,3 @@
+{
+  super(link,ZLResource.resource("networkView").getResource("topupTitle").getValue(),ZLResource.resource("networkView").getResource("topupSummary").getValue(),urls);
+}

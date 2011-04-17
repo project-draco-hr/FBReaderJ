@@ -1,5 +1,7 @@
 {
-  TreeMap<Integer,String> urlMap=new TreeMap<Integer,String>();
-  urlMap.put(NetworkURLCatalogItem.URL_CATALOG,getUrlInfo(URL_MAIN).URL);
-  return new OPDSCatalogItem(this,getTitle(),getSummary(),getUrlInfo(URL_ICON).URL,urlMap,myExtraData);
+  final UrlInfoCollection urlMap=new UrlInfoCollection();
+  urlMap.addInfo(getUrlInfo(UrlInfo.Type.Catalog));
+  urlMap.addInfo(getUrlInfo(UrlInfo.Type.Image));
+  urlMap.addInfo(getUrlInfo(UrlInfo.Type.Thumbnail));
+  return new OPDSCatalogItem(this,getTitle(),getSummary(),urlMap,myExtraData);
 }

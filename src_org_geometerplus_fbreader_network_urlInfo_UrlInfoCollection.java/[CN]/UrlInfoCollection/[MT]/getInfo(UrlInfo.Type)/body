@@ -1,0 +1,8 @@
+{
+  for (  T info : myInfos) {
+    if (info.InfoType == type) {
+      return info;
+    }
+  }
+  return null;
+}
