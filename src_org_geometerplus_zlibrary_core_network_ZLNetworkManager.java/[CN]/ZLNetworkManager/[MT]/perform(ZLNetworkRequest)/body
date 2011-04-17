@@ -5,7 +5,7 @@
     HttpURLConnection httpConnection=null;
     int response=-1;
     final int retryLimit=3;
-    for (int retryCounter=0; retryCounter < retryLimit && response == -1; ++retryCounter) {
+    for (int retryCounter=0; retryCounter < retryLimit && (response == -1 || response == 302); ++retryCounter) {
       final URLConnection connection=new URL(request.URL).openConnection();
       if (!(connection instanceof HttpURLConnection)) {
         throw new ZLNetworkException(ZLNetworkException.ERROR_UNSUPPORTED_PROTOCOL);
@@ -32,6 +32,9 @@
         httpConnection.connect();
       }
       response=httpConnection.getResponseCode();
+      if (response == 302) {
+        request.URL=httpConnection.getHeaderField("Location");
+      }
     }
     InputStream stream=null;
     if (response == HttpURLConnection.HTTP_OK) {
@@ -56,7 +59,7 @@
       if (response == HttpURLConnection.HTTP_UNAUTHORIZED) {
         throw new ZLNetworkException(ZLNetworkException.ERROR_AUTHENTICATION_FAILED);
       }
- else       if (response != HttpURLConnection.HTTP_OK) {
+ else       if (response >= 400) {
         throw new ZLNetworkException(true,httpConnection.getResponseMessage());
       }
  else {

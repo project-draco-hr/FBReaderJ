@@ -4,14 +4,14 @@
   httpConnection.setReadTimeout(30000);
   httpConnection.setRequestProperty("User-Agent",ZLNetworkUtil.getUserAgent());
   httpConnection.setRequestProperty("Accept-Language",Locale.getDefault().getLanguage());
-  httpConnection.setAllowUserInteraction(false);
+  httpConnection.setAllowUserInteraction(true);
   if (httpConnection instanceof HttpsURLConnection) {
     HttpsURLConnection httpsConnection=(HttpsURLConnection)httpConnection;
     final ArrayList<TrustManager> managers=new ArrayList<TrustManager>();
-    collectStandardTrustManagers(managers);
     if (request.SSLCertificate != null) {
       managers.add(createZLTrustManager(request.SSLCertificate));
     }
+    collectStandardTrustManagers(managers);
     try {
       SSLContext context=SSLContext.getInstance("TLS");
       context.init(null,managers.toArray(new TrustManager[]{}),null);
