@@ -1,6 +1,7 @@
 {
+  final boolean result=xmlReader.endElementHandler(tagName);
   if (currentNamespaceMap != null) {
     xmlReader.namespaceMapChangedHandler(currentNamespaceMap);
   }
-  return xmlReader.endElementHandler(tagName);
+  return result;
 }
