@@ -1,9 +1,13 @@
 {
   final Intent intent=new Intent();
+  final String host=getRequestingSite().getHostName();
+  final String area=getRequestingPrompt();
+  final ZLStringOption option=new ZLStringOption("username",host + ":" + area,"");
   intent.setClass(NetworkBaseActivity.this,AuthenticationActivity.class);
-  intent.putExtra(AuthenticationActivity.AREA_KEY,getRequestingPrompt());
-  intent.putExtra(AuthenticationActivity.HOST_KEY,getRequestingSite().getHostName());
+  intent.putExtra(AuthenticationActivity.HOST_KEY,host);
+  intent.putExtra(AuthenticationActivity.AREA_KEY,area);
   intent.putExtra(AuthenticationActivity.SCHEME_KEY,getRequestingProtocol());
+  intent.putExtra(AuthenticationActivity.USERNAME_KEY,option.getValue());
   startActivityForResult(intent,AUTHENTICATION_CODE);
 synchronized (this) {
     try {
@@ -15,6 +19,7 @@ synchronized (this) {
   System.err.println("auth thread: " + Thread.currentThread());
   PasswordAuthentication result=null;
   if (myUsername != null && myPassword != null) {
+    option.setValue(myUsername);
     result=new PasswordAuthentication(myUsername,myPassword.toCharArray());
   }
   myUsername=null;
