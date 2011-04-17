@@ -1,0 +1,46 @@
+{
+  super.onCreate(icicle);
+  Thread.setDefaultUncaughtExceptionHandler(new org.geometerplus.zlibrary.ui.android.library.UncaughtExceptionHandler(this));
+  setContentView(R.layout.authentication);
+  final Intent intent=getIntent();
+  final String host=intent.getStringExtra(HOST_KEY);
+  final String area=intent.getStringExtra(AREA_KEY);
+  setTitle(area);
+  myResource=ZLResource.resource("dialog").getResource("AuthenticationDialog");
+  final ZLStringOption option=new ZLStringOption("username",host + ":" + area,"");
+  findTextView(R.id.authentication_subtitle).setText(host);
+  final TextView warningView=findTextView(R.id.authentication_unencrypted_warning);
+  if ("https".equalsIgnoreCase(intent.getStringExtra(SCHEME_KEY))) {
+    warningView.setVisibility(View.GONE);
+  }
+ else {
+    warningView.setText(myResource.getResource("unencryptedWarning").getValue());
+  }
+  findTextView(R.id.authentication_username_label).setText(myResource.getResource("login").getValue());
+  findTextView(R.id.authentication_password_label).setText(myResource.getResource("password").getValue());
+  final TextView username=findTextView(R.id.authentication_username);
+  username.setText(option.getValue());
+  final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
+  final Button okButton=findButton(R.id.authentication_ok_button);
+  okButton.setText(buttonResource.getResource("ok").getValue());
+  okButton.setOnClickListener(new Button.OnClickListener(){
+    public void onClick(    View v){
+      final Intent data=new Intent();
+      final String usernameString=username.getText().toString();
+      option.setValue(usernameString);
+      data.putExtra(USERNAME_KEY,usernameString);
+      data.putExtra(PASSWORD_KEY,findTextView(R.id.authentication_password).getText().toString());
+      setResult(0,data);
+      finish();
+    }
+  }
+);
+  final Button cancelButton=findButton(R.id.authentication_cancel_button);
+  cancelButton.setText(buttonResource.getResource("cancel").getValue());
+  cancelButton.setOnClickListener(new Button.OnClickListener(){
+    public void onClick(    View v){
+      finish();
+    }
+  }
+);
+}
