@@ -1,0 +1,4 @@
+{
+  super(type,format,url);
+  Price=price;
+}

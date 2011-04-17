@@ -1,3 +1,0 @@
-{
-  return makeBookFileName(cleanURL(),BookFormat,resolvedReferenceType);
-}

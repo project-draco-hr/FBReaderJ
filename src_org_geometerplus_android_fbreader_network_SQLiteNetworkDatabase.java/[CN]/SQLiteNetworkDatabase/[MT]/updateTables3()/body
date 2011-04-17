@@ -1,0 +1,5 @@
+{
+  myDatabase.execSQL("UPDATE LinkUrls SET key='Catalog' WHERE key='main'");
+  myDatabase.execSQL("UPDATE LinkUrls SET key='Search' WHERE key='search'");
+  myDatabase.execSQL("UPDATE LinkUrls SET key='Image' WHERE key='icon'");
+}

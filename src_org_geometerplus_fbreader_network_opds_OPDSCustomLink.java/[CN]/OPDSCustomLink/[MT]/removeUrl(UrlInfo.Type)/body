@@ -1,0 +1,4 @@
+{
+  myHasChanges=myHasChanges || myInfos.getInfo(type) != null;
+  myInfos.removeAllInfos(type);
+}

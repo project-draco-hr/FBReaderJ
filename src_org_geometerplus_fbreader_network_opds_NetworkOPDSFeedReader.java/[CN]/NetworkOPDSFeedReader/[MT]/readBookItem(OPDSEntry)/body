@@ -10,47 +10,49 @@
       tags.add(label);
     }
   }
-  String cover=null;
-  LinkedList<BookReference> references=new LinkedList<BookReference>();
+  final UrlInfoCollection urls=new UrlInfoCollection();
   for (  ATOMLink link : entry.Links) {
     final String href=ZLNetworkUtil.url(myBaseURL,link.getHref());
     final String type=ZLNetworkUtil.filterMimeType(link.getType());
     final String rel=opdsNetworkLink.relation(link.getRel(),type);
-    final int referenceType=typeByRelation(rel);
+    final UrlInfo.Type referenceType=typeByRelation(rel);
     if (REL_IMAGE_THUMBNAIL.equals(rel) || REL_THUMBNAIL.equals(rel)) {
       if (MIME_IMAGE_PNG.equals(type) || MIME_IMAGE_JPEG.equals(type)) {
-        cover=href;
+        urls.addInfo(new UrlInfo(UrlInfo.Type.Thumbnail,href));
       }
     }
  else     if ((rel != null && rel.startsWith(REL_IMAGE_PREFIX)) || REL_COVER.equals(rel)) {
-      if (cover == null && (MIME_IMAGE_PNG.equals(type) || MIME_IMAGE_JPEG.equals(type))) {
-        cover=href;
+      if (MIME_IMAGE_PNG.equals(type) || MIME_IMAGE_JPEG.equals(type)) {
+        urls.addInfo(new UrlInfo(UrlInfo.Type.Image,href));
       }
     }
- else     if (BookReference.Type.BUY == referenceType) {
+ else     if (MIME_APP_ATOM_ENTRY.equals(type)) {
+      urls.addInfo(new UrlInfo(UrlInfo.Type.SingleEntry,href));
+    }
+ else     if (UrlInfo.Type.BookBuy == referenceType) {
       final OPDSLink opdsLink=(OPDSLink)link;
       String price=null;
       final OPDSPrice opdsPrice=opdsLink.selectBestPrice();
       if (opdsPrice != null) {
-        price=BuyBookReference.price(opdsPrice.Price,opdsPrice.Currency);
+        price=BookBuyUrlInfo.price(opdsPrice.Price,opdsPrice.Currency);
       }
       if (price == null) {
-        price=BuyBookReference.price(entry.getAttribute(OPDSXMLReader.KEY_PRICE),null);
+        price=BookBuyUrlInfo.price(entry.getAttribute(OPDSXMLReader.KEY_PRICE),null);
       }
       if (price == null) {
         price="";
       }
       if (MIME_TEXT_HTML.equals(type)) {
-        collectReferences(references,opdsLink,href,BookReference.Type.BUY_IN_BROWSER,price,true);
+        collectReferences(urls,opdsLink,href,UrlInfo.Type.BookBuyInBrowser,price,true);
       }
  else {
-        collectReferences(references,opdsLink,href,BookReference.Type.BUY,price,false);
+        collectReferences(urls,opdsLink,href,UrlInfo.Type.BookBuy,price,false);
       }
     }
- else     if (referenceType != BookReference.Type.UNKNOWN) {
+ else     if (referenceType != null) {
       final int format=formatByMimeType(type);
-      if (format != BookReference.Format.NONE) {
-        references.add(new BookReference(href,format,referenceType));
+      if (format != BookUrlInfo.Format.NONE) {
+        urls.addInfo(new BookUrlInfo(referenceType,format,href));
       }
     }
   }
@@ -92,5 +94,5 @@
  else {
     annotation=null;
   }
-  return new NetworkBookItem(opdsNetworkLink,entry.Id.Uri,myIndex++,entry.Title,annotation,authors,tags,entry.SeriesTitle,entry.SeriesIndex,cover,references);
+  return new NetworkBookItem(opdsNetworkLink,entry.Id.Uri,myIndex++,entry.Title,annotation,authors,tags,entry.SeriesTitle,entry.SeriesIndex,urls);
 }

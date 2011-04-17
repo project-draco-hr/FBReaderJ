@@ -1,7 +1,7 @@
 {
   final NetworkCatalogItem item=((NetworkCatalogTree)tree).Item;
   final NetworkURLCatalogItem urlItem=item instanceof NetworkURLCatalogItem ? (NetworkURLCatalogItem)item : null;
-  prepareOptionsItem(menu,RELOAD_ITEM_ID,urlItem != null && urlItem.URLByType.get(NetworkURLCatalogItem.URL_CATALOG) != null && !NetworkView.Instance().containsItemsLoadingRunnable(tree.getUniqueKey()));
+  prepareOptionsItem(menu,RELOAD_ITEM_ID,urlItem != null && urlItem.getUrl(UrlInfo.Type.Catalog) != null && !NetworkView.Instance().containsItemsLoadingRunnable(tree.getUniqueKey()));
   boolean signIn=false;
   boolean signOut=false;
   boolean topup=false;

@@ -1,0 +1,3 @@
+{
+  return InfoType.hashCode() + ZLMiscUtil.hashCode(Url) + ZLMiscUtil.hashCode(Updated);
+}

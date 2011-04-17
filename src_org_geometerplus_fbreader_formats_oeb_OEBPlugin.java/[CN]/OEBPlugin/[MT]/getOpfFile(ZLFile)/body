@@ -1,6 +1,15 @@
 {
-  if (oebFile.getExtension().equals("opf")) {
+  if ("opf".equals(oebFile.getExtension())) {
     return oebFile;
+  }
+  final ZLFile containerInfoFile=ZLFile.createFile(oebFile,"META-INF/container.xml");
+  if (containerInfoFile.exists()) {
+    final ContainerFileReader reader=new ContainerFileReader();
+    reader.read(containerInfoFile);
+    final String opfPath=reader.getRootPath();
+    if (opfPath != null) {
+      return ZLFile.createFile(oebFile,opfPath);
+    }
   }
   for (  ZLFile child : oebFile.children()) {
     if (child.getExtension().equals("opf")) {

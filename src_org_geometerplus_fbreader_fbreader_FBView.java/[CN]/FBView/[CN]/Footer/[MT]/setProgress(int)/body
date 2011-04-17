@@ -8,6 +8,6 @@
  else {
     gotoPage(page);
   }
-  myReader.resetView();
-  myReader.repaintView();
+  myReader.getViewWidget().reset();
+  myReader.getViewWidget().repaint();
 }

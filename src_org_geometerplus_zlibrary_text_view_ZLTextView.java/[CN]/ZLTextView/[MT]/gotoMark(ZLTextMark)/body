@@ -29,7 +29,7 @@
     if (myCurrentPage.StartCursor.isNull()) {
       preparePaintInfo(myCurrentPage);
     }
-    ZLApplication.Instance().resetView();
-    ZLApplication.Instance().repaintView();
+    Application.getViewWidget().reset();
+    Application.getViewWidget().repaint();
   }
 }

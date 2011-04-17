@@ -1,3 +1,0 @@
-{
-  mySelectionModel=new ZLTextSelectionModel(this);
-}

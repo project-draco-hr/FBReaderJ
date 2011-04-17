@@ -1,0 +1,8 @@
+{
+  final ZLView view=ZLApplication.Instance().getCurrentView();
+  final AnimationProvider animator=getAnimationProvider();
+  if (view.canScroll(animator.getPageToScrollTo(x,y))) {
+    animator.scrollTo(x,y);
+    postInvalidate();
+  }
+}

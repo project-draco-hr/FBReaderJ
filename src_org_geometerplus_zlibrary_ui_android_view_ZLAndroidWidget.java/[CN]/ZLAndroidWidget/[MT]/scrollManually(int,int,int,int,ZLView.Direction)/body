@@ -1,8 +1,0 @@
-{
-  final AnimationProvider animator=getAnimationProvider();
-  if (!animator.inProgress()) {
-    animator.startManualScrolling(startX,startY,direction,getWidth(),getMainAreaHeight());
-  }
-  animator.scrollTo(endX,endY);
-  postInvalidate();
-}

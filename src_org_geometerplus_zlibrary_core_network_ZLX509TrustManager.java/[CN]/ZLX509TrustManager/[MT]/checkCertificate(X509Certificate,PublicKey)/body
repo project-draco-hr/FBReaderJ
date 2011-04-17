@@ -1,0 +1,9 @@
+{
+  certificate.checkValidity();
+  try {
+    certificate.verify(publicKey);
+  }
+ catch (  GeneralSecurityException e) {
+    throw new CertificateException(e);
+  }
+}

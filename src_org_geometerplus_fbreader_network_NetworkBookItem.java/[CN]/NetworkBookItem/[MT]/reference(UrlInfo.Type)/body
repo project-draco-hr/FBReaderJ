@@ -1,0 +1,29 @@
+{
+  BookUrlInfo reference=null;
+  for (  UrlInfo r : getAllInfos(type)) {
+    if (!(r instanceof BookUrlInfo)) {
+      continue;
+    }
+    final BookUrlInfo br=(BookUrlInfo)r;
+    if (reference == null || br.BookFormat > reference.BookFormat) {
+      reference=br;
+    }
+  }
+  if (reference == null && type == UrlInfo.Type.Book) {
+    reference=this.reference(UrlInfo.Type.BookConditional);
+    if (reference != null) {
+      NetworkAuthenticationManager authManager=Link.authenticationManager();
+      if (authManager == null || authManager.needPurchase(this)) {
+        return null;
+      }
+      reference=authManager.downloadReference(this);
+    }
+  }
+  if (reference == null && type == UrlInfo.Type.Book && this.reference(UrlInfo.Type.BookBuy) == null && this.reference(UrlInfo.Type.BookBuyInBrowser) == null) {
+    reference=this.reference(UrlInfo.Type.BookFullOrDemo);
+  }
+  if (reference == null && type == UrlInfo.Type.BookDemo && (this.reference(UrlInfo.Type.BookBuy) != null || this.reference(UrlInfo.Type.BookBuyInBrowser) != null)) {
+    reference=this.reference(UrlInfo.Type.BookFullOrDemo);
+  }
+  return reference;
+}

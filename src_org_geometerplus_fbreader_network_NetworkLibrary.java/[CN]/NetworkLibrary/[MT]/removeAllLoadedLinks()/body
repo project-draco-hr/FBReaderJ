@@ -1,11 +1,9 @@
 {
-synchronized (myLinks) {
-    final LinkedList<INetworkLink> toRemove=new LinkedList<INetworkLink>();
-    for (    INetworkLink link : myLinks) {
-      if (!(link instanceof ICustomNetworkLink)) {
-        toRemove.add(link);
-      }
+  final LinkedList<INetworkLink> toRemove=new LinkedList<INetworkLink>();
+  for (  INetworkLink link : myLinks) {
+    if (!(link instanceof ICustomNetworkLink)) {
+      toRemove.add(link);
     }
-    myLinks.removeAll(toRemove);
   }
+  myLinks.removeAll(toRemove);
 }

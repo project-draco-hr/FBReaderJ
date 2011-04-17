@@ -13,7 +13,7 @@
   }
   if ("epub".equals(uri.getScheme())) {
     uri=uri.buildUpon().scheme("http").build();
-    intent.putExtra(BookDownloaderService.BOOK_FORMAT_KEY,BookReference.Format.EPUB);
+    intent.putExtra(BookDownloaderService.BOOK_FORMAT_KEY,BookUrlInfo.Format.EPUB);
   }
   startService(new Intent(Intent.ACTION_DEFAULT,uri,this,BookDownloaderService.class).putExtras(intent.getExtras()));
   finish();

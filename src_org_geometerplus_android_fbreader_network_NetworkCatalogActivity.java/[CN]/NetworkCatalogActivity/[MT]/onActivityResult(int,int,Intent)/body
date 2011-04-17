@@ -1,13 +1,16 @@
 {
 switch (requestCode) {
-case USER_REGISTRATION_REQUEST_CODE:
-    if (myTree instanceof NetworkCatalogTree && resultCode == RESULT_OK && data != null) {
-      try {
-        Util.runAfterRegistration(((NetworkCatalogTree)myTree).Item.Link.authenticationManager(),data);
-      }
- catch (      ZLNetworkException e) {
-      }
-    }
+default :
+    super.onActivityResult(requestCode,resultCode,data);
   break;
+case USER_REGISTRATION_REQUEST_CODE:
+if (myTree instanceof NetworkCatalogTree && resultCode == RESULT_OK && data != null) {
+  try {
+    Util.runAfterRegistration(((NetworkCatalogTree)myTree).Item.Link.authenticationManager(),data);
+  }
+ catch (  ZLNetworkException e) {
+  }
+}
+break;
 }
 }

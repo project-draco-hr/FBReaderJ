@@ -13,8 +13,8 @@
     setErrorByKey("invalidUrl");
     return;
   }
-  final HashMap<String,UrlInfo> infos=new HashMap<String,UrlInfo>();
-  infos.put(INetworkLink.URL_MAIN,new UrlInfo(textUrl));
+  final UrlInfoCollection<UrlInfoWithDate> infos=new UrlInfoCollection<UrlInfoWithDate>();
+  infos.addInfo(new UrlInfoWithDate(UrlInfo.Type.Catalog,textUrl));
   myLink=new OPDSCustomLink(ICustomNetworkLink.INVALID_ID,siteName,null,null,infos);
   final Runnable loadInfoRunnable=new Runnable(){
     private String myError;

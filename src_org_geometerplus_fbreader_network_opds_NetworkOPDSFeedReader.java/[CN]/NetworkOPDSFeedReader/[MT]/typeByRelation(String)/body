@@ -1,20 +1,20 @@
 {
   if (rel == null || REL_ACQUISITION.equals(rel) || REL_ACQUISITION_OPEN.equals(rel)) {
-    return BookReference.Type.DOWNLOAD_FULL;
+    return UrlInfo.Type.Book;
   }
  else   if (REL_ACQUISITION_SAMPLE.equals(rel)) {
-    return BookReference.Type.DOWNLOAD_DEMO;
+    return UrlInfo.Type.BookDemo;
   }
  else   if (REL_ACQUISITION_CONDITIONAL.equals(rel)) {
-    return BookReference.Type.DOWNLOAD_FULL_CONDITIONAL;
+    return UrlInfo.Type.BookConditional;
   }
  else   if (REL_ACQUISITION_SAMPLE_OR_FULL.equals(rel)) {
-    return BookReference.Type.DOWNLOAD_FULL_OR_DEMO;
+    return UrlInfo.Type.BookFullOrDemo;
   }
  else   if (REL_ACQUISITION_BUY.equals(rel)) {
-    return BookReference.Type.BUY;
+    return UrlInfo.Type.BookBuy;
   }
  else {
-    return BookReference.Type.UNKNOWN;
+    return null;
   }
 }

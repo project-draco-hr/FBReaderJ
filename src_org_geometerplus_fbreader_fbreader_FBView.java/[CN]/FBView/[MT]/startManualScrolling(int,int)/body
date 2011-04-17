@@ -1,7 +1,8 @@
 {
-  final ScrollingPreferences.FingerScrolling fingerScrolling=ScrollingPreferences.Instance().FingerScrollingOption.getValue();
-  if (fingerScrolling == ScrollingPreferences.FingerScrolling.byFlick || fingerScrolling == ScrollingPreferences.FingerScrolling.byTapAndFlick) {
-    myStartX=x;
-    myStartY=y;
+  if (!isFlickScrollingEnabled()) {
+    return;
   }
+  final boolean horizontal=ScrollingPreferences.Instance().HorizontalOption.getValue();
+  final Direction direction=horizontal ? Direction.rightToLeft : Direction.up;
+  myReader.getViewWidget().startManualScrolling(x,y,direction);
 }

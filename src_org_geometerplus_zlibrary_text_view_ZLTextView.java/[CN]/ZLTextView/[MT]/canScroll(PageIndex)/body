@@ -1,0 +1,16 @@
+{
+switch (index) {
+default :
+    return true;
+case next:
+{
+    final ZLTextWordCursor cursor=getEndCursor();
+    return cursor != null && !cursor.isNull() && (!cursor.isEndOfParagraph() || !cursor.getParagraphCursor().isLast());
+  }
+case previous:
+{
+  final ZLTextWordCursor cursor=getStartCursor();
+  return cursor != null && !cursor.isNull() && (!cursor.isStartOfParagraph() || !cursor.getParagraphCursor().isFirst());
+}
+}
+}

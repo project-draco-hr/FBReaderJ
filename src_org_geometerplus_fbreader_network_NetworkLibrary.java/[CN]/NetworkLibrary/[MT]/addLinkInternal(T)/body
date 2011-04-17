@@ -1,5 +1,0 @@
-{
-synchronized (myLinks) {
-    myLinks.add(link);
-  }
-}

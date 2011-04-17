@@ -1,3 +1,7 @@
 {
-  return myInfos.keySet();
+  final HashSet<UrlInfo.Type> set=new HashSet<UrlInfo.Type>();
+  for (  UrlInfo info : myInfos.getAllInfos()) {
+    set.add(info.InfoType);
+  }
+  return set;
 }

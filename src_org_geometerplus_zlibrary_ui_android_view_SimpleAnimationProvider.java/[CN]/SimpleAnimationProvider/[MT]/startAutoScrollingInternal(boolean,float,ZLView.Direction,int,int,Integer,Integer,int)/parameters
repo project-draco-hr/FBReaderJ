@@ -1,8 +1,0 @@
-boolean forward
-float startSpeed
-ZLView.Direction direction
-int w
-int h
-Integer x
-Integer y
-int speed

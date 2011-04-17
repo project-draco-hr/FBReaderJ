@@ -1,3 +1,0 @@
-{
-  ZLApplication.Instance().startViewAutoScrolling(pageIndex,direction,speed);
-}

@@ -1,4 +1,4 @@
 {
   myHighlightSelectedRegion=false;
-  ZLApplication.Instance().resetView();
+  Application.getViewWidget().reset();
 }

@@ -1,0 +1,11 @@
+{
+  if (requestCode == AUTHENTICATION_CODE) {
+synchronized (myAuthenticator) {
+      if (data != null) {
+        myAuthenticator.myUsername=data.getStringExtra(AuthenticationActivity.USERNAME_KEY);
+        myAuthenticator.myPassword=data.getStringExtra(AuthenticationActivity.PASSWORD_KEY);
+      }
+      myAuthenticator.notify();
+    }
+  }
+}

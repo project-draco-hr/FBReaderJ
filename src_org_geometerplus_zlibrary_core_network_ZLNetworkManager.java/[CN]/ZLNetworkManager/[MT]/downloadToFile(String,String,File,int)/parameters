@@ -1,0 +1,4 @@
+String url
+String sslCertificate
+File outFile
+int bufferSize

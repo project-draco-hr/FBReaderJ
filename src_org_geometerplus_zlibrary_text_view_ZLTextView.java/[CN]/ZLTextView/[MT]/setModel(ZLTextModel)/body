@@ -11,5 +11,5 @@
       myCurrentPage.moveStartCursor(ZLTextParagraphCursor.cursor(myModel,0));
     }
   }
-  ZLApplication.Instance().resetView();
+  Application.getViewWidget().reset();
 }

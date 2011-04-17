@@ -1,0 +1,23 @@
+{
+  final Intent intent=new Intent();
+  intent.setClass(NetworkBaseActivity.this,AuthenticationActivity.class);
+  intent.putExtra(AuthenticationActivity.AREA_KEY,getRequestingPrompt());
+  intent.putExtra(AuthenticationActivity.HOST_KEY,getRequestingSite().getHostName());
+  intent.putExtra(AuthenticationActivity.SCHEME_KEY,getRequestingProtocol());
+  startActivityForResult(intent,AUTHENTICATION_CODE);
+synchronized (this) {
+    try {
+      wait();
+    }
+ catch (    InterruptedException e) {
+    }
+  }
+  System.err.println("auth thread: " + Thread.currentThread());
+  PasswordAuthentication result=null;
+  if (myUsername != null && myPassword != null) {
+    result=new PasswordAuthentication(myUsername,myPassword.toCharArray());
+  }
+  myUsername=null;
+  myPassword=null;
+  return result;
+}

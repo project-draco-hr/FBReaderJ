@@ -1,0 +1,12 @@
+{
+  if (myDirection.IsHorizontal) {
+    myStartX=mySpeed < 0 ? myWidth : 0;
+    myEndX=myWidth - myStartX;
+    myEndY=myStartY=0;
+  }
+ else {
+    myEndX=myStartX=0;
+    myStartY=mySpeed < 0 ? myHeight : 0;
+    myEndY=myHeight - myStartY;
+  }
+}

@@ -3,7 +3,7 @@
   final NetworkURLCatalogItem urlItem=item instanceof NetworkURLCatalogItem ? (NetworkURLCatalogItem)item : null;
   menu.setHeaderTitle(tree.getName());
   boolean hasItems=false;
-  final String catalogUrl=urlItem != null ? urlItem.URLByType.get(NetworkURLCatalogItem.URL_CATALOG) : null;
+  final String catalogUrl=urlItem != null ? urlItem.getUrl(UrlInfo.Type.Catalog) : null;
   if (catalogUrl != null && (!(item instanceof BasketItem) || item.Link.basket().bookIds().size() > 0)) {
     addMenuItem(menu,OPEN_CATALOG_ITEM_ID,"openCatalog");
     hasItems=true;
@@ -33,7 +33,7 @@
     }
   }
  else {
-    if (urlItem != null && urlItem.URLByType.get(NetworkURLCatalogItem.URL_HTML_PAGE) != null) {
+    if (urlItem != null && urlItem.getUrl(UrlInfo.Type.HtmlPage) != null) {
       addMenuItem(menu,OPEN_IN_BROWSER_ITEM_ID,"openInBrowser");
       hasItems=true;
     }

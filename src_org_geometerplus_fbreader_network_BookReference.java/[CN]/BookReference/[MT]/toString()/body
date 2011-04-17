@@ -1,3 +1,0 @@
-{
-  return "BookReference[type=" + ReferenceType + ";format="+ BookFormat+ ";URL="+ URL+ "]";
-}

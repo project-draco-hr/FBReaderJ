@@ -1,4 +1,4 @@
 {
   rebuildPaintInfo();
-  ZLApplication.Instance().resetView();
+  Application.getViewWidget().reset();
 }

@@ -13,8 +13,8 @@
   final ZLTextElementRegion region=findRegion(x,y,10,ZLTextElementRegion.HyperlinkFilter);
   if (region != null) {
     selectRegion(region);
-    myReader.resetView();
-    myReader.repaintView();
+    myReader.getViewWidget().reset();
+    myReader.getViewWidget().repaint();
     myReader.doAction(ActionCode.PROCESS_HYPERLINK);
     return true;
   }
