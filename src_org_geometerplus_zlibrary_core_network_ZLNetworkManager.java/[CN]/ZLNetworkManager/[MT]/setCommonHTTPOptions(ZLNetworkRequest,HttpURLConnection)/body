@@ -6,15 +6,10 @@
   httpConnection.setRequestProperty("Accept-Language",Locale.getDefault().getLanguage());
   httpConnection.setAllowUserInteraction(true);
   if (httpConnection instanceof HttpsURLConnection) {
-    HttpsURLConnection httpsConnection=(HttpsURLConnection)httpConnection;
-    final ArrayList<TrustManager> managers=new ArrayList<TrustManager>();
-    if (request.SSLCertificate != null) {
-      managers.add(createZLTrustManager(request.SSLCertificate));
-    }
-    collectStandardTrustManagers(managers);
+    final HttpsURLConnection httpsConnection=(HttpsURLConnection)httpConnection;
     try {
       SSLContext context=SSLContext.getInstance("TLS");
-      context.init(null,managers.toArray(new TrustManager[]{}),null);
+      context.init(null,getTrustManagers(request.SSLCertificate),null);
       httpsConnection.setSSLSocketFactory(context.getSocketFactory());
     }
  catch (    GeneralSecurityException ex) {

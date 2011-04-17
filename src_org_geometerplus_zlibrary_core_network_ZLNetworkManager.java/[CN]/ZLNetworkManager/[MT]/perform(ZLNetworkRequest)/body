@@ -4,7 +4,7 @@
     request.doBefore();
     HttpURLConnection httpConnection=null;
     int response=-1;
-    final int retryLimit=3;
+    final int retryLimit=6;
     for (int retryCounter=0; retryCounter < retryLimit && (response == -1 || response == 302); ++retryCounter) {
       final URLConnection connection=new URL(request.URL).openConnection();
       if (!(connection instanceof HttpURLConnection)) {
@@ -35,7 +35,9 @@
       if (response == 302) {
         request.URL=httpConnection.getHeaderField("Location");
       }
+      System.err.println("RESPONSE: " + response);
     }
+    System.err.println("RRRESPONSE: " + response);
     InputStream stream=null;
     if (response == HttpURLConnection.HTTP_OK) {
       stream=httpConnection.getInputStream();

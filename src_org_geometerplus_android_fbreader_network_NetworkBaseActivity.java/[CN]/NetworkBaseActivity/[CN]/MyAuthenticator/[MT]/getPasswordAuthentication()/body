@@ -16,7 +16,6 @@ synchronized (this) {
  catch (    InterruptedException e) {
     }
   }
-  System.err.println("auth thread: " + Thread.currentThread());
   PasswordAuthentication result=null;
   if (myUsername != null && myPassword != null) {
     option.setValue(myUsername);

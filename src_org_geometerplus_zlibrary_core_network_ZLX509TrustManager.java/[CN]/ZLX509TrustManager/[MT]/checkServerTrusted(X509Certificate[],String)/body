@@ -1,7 +1,22 @@
 {
-  final int lastCertificate=certs.length - 1;
-  for (int i=0; i < lastCertificate; ++i) {
-    checkCertificate(certs[i],certs[i + 1].getPublicKey());
+  try {
+    if (myCertificate != null) {
+      final int lastCertificate=certs.length - 1;
+      for (int i=0; i < lastCertificate; ++i) {
+        checkCertificate(certs[i],certs[i + 1].getPublicKey());
+      }
+      checkCertificate(certs[lastCertificate],myCertificate.getPublicKey());
+    }
+ else {
+      throw new CertificateException("No certificate found");
+    }
   }
-  checkCertificate(certs[lastCertificate],myCertificate.getPublicKey());
+ catch (  CertificateException e) {
+    if (myBase != null) {
+      myBase.checkServerTrusted(certs,authType);
+    }
+ else {
+      throw e;
+    }
+  }
 }
