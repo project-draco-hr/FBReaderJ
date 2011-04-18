@@ -24,5 +24,8 @@
   if (path == null || !path.startsWith(Path)) {
     return false;
   }
+  if (DateOfExpiration != null && DateOfExpiration.before(new Date())) {
+    return false;
+  }
   return true;
 }

@@ -24,7 +24,7 @@
   boolean discard=false;
   String path="/";
   Date dateOfExpiration=null;
-  List<Integer> ports=null;
+  Set<Integer> ports=null;
   for (int i=1; i < parts.length; ++i) {
     final String p=parts[i].trim();
     if ("secure".equalsIgnoreCase(p)) {
@@ -40,13 +40,13 @@
       continue;
     }
     final String pName=p.substring(0,index).trim();
-    final String pValue=p.substring(index + 1).trim();
-    System.err.println("NAME " + pName);
+    String pValue=p.substring(index + 1).trim();
+    if (pValue.length() > 1 && pValue.charAt(0) == '"' && pValue.charAt(pValue.length() - 1) == '"') {
+      pValue=pValue.substring(1,pValue.length() - 2);
+    }
     if ("expires".equalsIgnoreCase(pName)) {
       try {
-        System.err.println("VALUE " + pValue);
         dateOfExpiration=ourDateFormat.parse(pValue);
-        System.err.println("DATE = " + dateOfExpiration);
       }
  catch (      ParseException e) {
       }
@@ -55,7 +55,6 @@
       try {
         final int seconds=Integer.parseInt(pValue);
         dateOfExpiration=new Date(System.currentTimeMillis() + seconds * 1000);
-        System.err.println("DATE = " + dateOfExpiration);
       }
  catch (      NumberFormatException e) {
       }
@@ -69,6 +68,14 @@
       path=pValue;
     }
  else     if ("port".equalsIgnoreCase(pName)) {
+      ports=new HashSet<Integer>();
+      for (      String s : pValue.split(" ")) {
+        try {
+          ports.add(Integer.parseInt(s));
+        }
+ catch (        NumberFormatException e) {
+        }
+      }
     }
   }
   return new Cookie(name,value,host,path,ports,dateOfExpiration,secure,discard);

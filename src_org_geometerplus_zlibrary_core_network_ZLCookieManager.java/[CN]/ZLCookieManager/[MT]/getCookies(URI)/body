@@ -1,0 +1,12 @@
+{
+  List<Cookie> list=null;
+  for (  Cookie c : myAllCookies) {
+    if (c.isApplicable(uri)) {
+      if (list == null) {
+        list=new LinkedList<Cookie>();
+      }
+      list.add(c);
+    }
+  }
+  return list != null ? list : Collections.<Cookie>emptyList();
+}
