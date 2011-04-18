@@ -1,0 +1,4 @@
+{
+  addCookies(uri,responseHeaders.get("Set-Cookie"));
+  addCookies(uri,responseHeaders.get("Set-Cookie2"));
+}

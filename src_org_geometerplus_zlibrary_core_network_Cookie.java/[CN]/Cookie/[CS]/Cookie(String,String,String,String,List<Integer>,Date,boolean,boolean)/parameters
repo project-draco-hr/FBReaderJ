@@ -1,0 +1,8 @@
+String name
+String value
+String host
+String path
+List<Integer> ports
+Date dateOfExpiration
+boolean secure
+boolean discard

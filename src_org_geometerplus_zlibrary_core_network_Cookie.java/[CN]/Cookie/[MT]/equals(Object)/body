@@ -1,0 +1,10 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (!(o instanceof Cookie)) {
+    return false;
+  }
+  final Cookie c=(Cookie)o;
+  return Host.equals(c.Host) && Name.equals(c.Name);
+}

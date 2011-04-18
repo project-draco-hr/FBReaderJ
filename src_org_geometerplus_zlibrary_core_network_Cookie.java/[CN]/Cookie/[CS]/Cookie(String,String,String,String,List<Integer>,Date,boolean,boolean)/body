@@ -1,0 +1,10 @@
+{
+  Name=name;
+  Value=value;
+  Host=host;
+  Path=path;
+  Ports=ports;
+  DateOfExpiration=dateOfExpiration;
+  Secure=secure;
+  Discard=discard;
+}

@@ -1,0 +1,10 @@
+{
+  if (setCookiesList != null) {
+    for (    String s : setCookiesList) {
+      final Cookie c=Cookie.create(uri,s);
+      if (c != null) {
+        myAllCookies.add(c);
+      }
+    }
+  }
+}

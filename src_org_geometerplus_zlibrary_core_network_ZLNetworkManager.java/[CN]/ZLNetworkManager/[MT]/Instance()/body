@@ -1,6 +1,7 @@
 {
   if (ourManager == null) {
     ourManager=new ZLNetworkManager();
+    CookieHandler.setDefault(new ZLCookieManager());
   }
   return ourManager;
 }

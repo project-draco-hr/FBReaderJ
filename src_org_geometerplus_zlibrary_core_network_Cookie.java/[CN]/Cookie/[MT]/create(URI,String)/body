@@ -1,0 +1,51 @@
+{
+  if (uri == null || uri.getHost() == null || cookieString == null) {
+    return null;
+  }
+  final String[] parts=cookieString.split(";");
+  if (parts.length == 0) {
+    return null;
+  }
+  final String mainPart=parts[0].trim();
+  int index=mainPart.indexOf('=');
+  if (index == -1) {
+    return null;
+  }
+  final String name=mainPart.substring(0,index).trim();
+  final String value=mainPart.substring(index + 1).trim();
+  if ("".equals(name) || "".equals(value)) {
+    return null;
+  }
+  boolean secure=false;
+  boolean discard=false;
+  String path="/";
+  for (int i=1; i < parts.length; ++i) {
+    final String p=parts[i].trim();
+    if ("secure".equalsIgnoreCase(p)) {
+      secure=true;
+      continue;
+    }
+    if ("discard".equalsIgnoreCase(p)) {
+      discard=true;
+      continue;
+    }
+    index=p.indexOf('=');
+    if (index == -1) {
+      continue;
+    }
+    final String pName=p.substring(0,index).trim();
+    final String pValue=p.substring(index + 1).trim();
+    if ("expires".equalsIgnoreCase(pName)) {
+    }
+ else     if ("max-age".equalsIgnoreCase(pName)) {
+    }
+ else     if ("domain".equalsIgnoreCase(pName)) {
+    }
+ else     if ("path".equalsIgnoreCase(pName)) {
+      path=pValue;
+    }
+ else     if ("port".equalsIgnoreCase(pName)) {
+    }
+  }
+  return new Cookie(name,value,uri.getHost(),path,null,null,secure,discard);
+}

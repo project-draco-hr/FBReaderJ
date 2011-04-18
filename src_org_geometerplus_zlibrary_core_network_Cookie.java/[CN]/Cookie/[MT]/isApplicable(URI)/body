@@ -1,0 +1,28 @@
+{
+  final String scheme=uri.getScheme();
+  if (Secure && !"https".equalsIgnoreCase(scheme)) {
+    return false;
+  }
+  if (!Host.equalsIgnoreCase(uri.getHost())) {
+    return false;
+  }
+  if (Ports != null) {
+    int port=uri.getPort();
+    if (port == -1) {
+      if ("http".equalsIgnoreCase(scheme)) {
+        port=80;
+      }
+ else       if ("https".equalsIgnoreCase(scheme)) {
+        port=443;
+      }
+    }
+    if (!Ports.contains(port)) {
+      return false;
+    }
+  }
+  final String path=uri.getPath();
+  if (path == null || !path.startsWith(Path)) {
+    return false;
+  }
+  return true;
+}

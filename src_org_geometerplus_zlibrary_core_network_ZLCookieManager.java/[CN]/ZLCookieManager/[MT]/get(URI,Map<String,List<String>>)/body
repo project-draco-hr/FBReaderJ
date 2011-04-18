@@ -1,0 +1,18 @@
+{
+  final StringBuilder builder=new StringBuilder();
+  for (  Cookie c : myAllCookies) {
+    if (c.isApplicable(uri)) {
+      if (builder.length() > 0) {
+        builder.append("; ");
+      }
+      builder.append(c.Name);
+      builder.append("=");
+      builder.append(c.Value);
+    }
+  }
+  if (builder.length() == 0) {
+    return Collections.emptyMap();
+  }
+  System.err.println("Cookie = " + builder.toString());
+  return Collections.singletonMap("Cookie",Collections.singletonList(builder.toString()));
+}
