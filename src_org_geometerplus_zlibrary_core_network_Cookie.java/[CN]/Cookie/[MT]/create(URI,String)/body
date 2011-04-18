@@ -1,5 +1,9 @@
 {
-  if (uri == null || uri.getHost() == null || cookieString == null) {
+  if (uri == null || cookieString == null) {
+    return null;
+  }
+  final String host=uri.getHost();
+  if (host == null) {
     return null;
   }
   final String[] parts=cookieString.split(";");
@@ -19,6 +23,8 @@
   boolean secure=false;
   boolean discard=false;
   String path="/";
+  Date dateOfExpiration=null;
+  List<Integer> ports=null;
   for (int i=1; i < parts.length; ++i) {
     final String p=parts[i].trim();
     if ("secure".equalsIgnoreCase(p)) {
@@ -35,11 +41,29 @@
     }
     final String pName=p.substring(0,index).trim();
     final String pValue=p.substring(index + 1).trim();
+    System.err.println("NAME " + pName);
     if ("expires".equalsIgnoreCase(pName)) {
+      try {
+        System.err.println("VALUE " + pValue);
+        dateOfExpiration=ourDateFormat.parse(pValue);
+        System.err.println("DATE = " + dateOfExpiration);
+      }
+ catch (      ParseException e) {
+      }
     }
  else     if ("max-age".equalsIgnoreCase(pName)) {
+      try {
+        final int seconds=Integer.parseInt(pValue);
+        dateOfExpiration=new Date(System.currentTimeMillis() + seconds * 1000);
+        System.err.println("DATE = " + dateOfExpiration);
+      }
+ catch (      NumberFormatException e) {
+      }
     }
  else     if ("domain".equalsIgnoreCase(pName)) {
+      if (!pValue.startsWith(".") || !host.endsWith(pValue)) {
+        return null;
+      }
     }
  else     if ("path".equalsIgnoreCase(pName)) {
       path=pValue;
@@ -47,5 +71,5 @@
  else     if ("port".equalsIgnoreCase(pName)) {
     }
   }
-  return new Cookie(name,value,uri.getHost(),path,null,null,secure,discard);
+  return new Cookie(name,value,host,path,ports,dateOfExpiration,secure,discard);
 }

@@ -6,5 +6,5 @@
     return false;
   }
   final Cookie c=(Cookie)o;
-  return Host.equals(c.Host) && Name.equals(c.Name);
+  return Host.equals(c.Host) && Path.equals(c.Path) && Name.equals(c.Name);
 }
