@@ -1,12 +1,13 @@
 {
-  List<Cookie> list=null;
-  for (  Cookie c : myAllCookies) {
+  final Set<Cookie> allCookiesForHost=myCookiesByHost.get(uri.getHost());
+  if (allCookiesForHost == null) {
+    return Collections.emptyList();
+  }
+  final List<Cookie> filteredCookies=new LinkedList<Cookie>();
+  for (  Cookie c : allCookiesForHost) {
     if (c.isApplicable(uri)) {
-      if (list == null) {
-        list=new LinkedList<Cookie>();
-      }
-      list.add(c);
+      filteredCookies.add(c);
     }
   }
-  return list != null ? list : Collections.<Cookie>emptyList();
+  return filteredCookies;
 }

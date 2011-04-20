@@ -11,6 +11,5 @@
   if (builder.length() == 0) {
     return Collections.emptyMap();
   }
-  System.err.println("Cookie = " + builder.toString());
   return Collections.singletonMap("Cookie",Collections.singletonList(builder.toString()));
 }
