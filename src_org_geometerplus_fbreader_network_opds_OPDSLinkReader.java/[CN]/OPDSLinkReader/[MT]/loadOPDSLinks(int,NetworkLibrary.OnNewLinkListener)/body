@@ -2,7 +2,7 @@
   final File dirFile=new File(Paths.networkCacheDirectory());
   if (!dirFile.exists() && !dirFile.mkdirs()) {
     ZLNetworkManager.Instance().perform(new ZLNetworkRequest(CATALOGS_URL){
-      @Override public void handleStream(      URLConnection connection,      InputStream inputStream) throws IOException, ZLNetworkException {
+      @Override public void handleStream(      InputStream inputStream,      int length) throws IOException, ZLNetworkException {
         new OPDSLinkXMLReader(listener,null).read(inputStream);
       }
     }

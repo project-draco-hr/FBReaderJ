@@ -48,7 +48,7 @@
         if ("gzip".equalsIgnoreCase(httpConnection.getContentEncoding())) {
           stream=new GZIPInputStream(stream);
         }
-        request.handleStream(httpConnection,stream);
+        request.handleStream(stream,httpConnection.getContentLength());
       }
   finally {
         stream.close();
