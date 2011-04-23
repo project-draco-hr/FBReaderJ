@@ -1,8 +1,0 @@
-String name
-String value
-String host
-String path
-Set<Integer> ports
-Date dateOfExpiration
-boolean secure
-boolean discard

@@ -1,5 +1,4 @@
 {
-  System.err.println("onActivityResult " + requestCode + " "+ resultCode);
   if (requestCode == AUTHENTICATION_CODE) {
 synchronized (myCredentialsProvider) {
       if (data != null) {
@@ -7,7 +6,6 @@ synchronized (myCredentialsProvider) {
         myCredentialsProvider.myPassword=data.getStringExtra(AuthenticationActivity.PASSWORD_KEY);
       }
       myCredentialsProvider.notify();
-      System.err.println("notify");
     }
   }
 }

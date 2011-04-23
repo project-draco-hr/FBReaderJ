@@ -1,7 +1,6 @@
 {
   Credentials creds=super.getCredentials(scope);
   if (creds == null) {
-    new Exception().printStackTrace();
     final Intent intent=new Intent();
     final String host=scope.getHost();
     final String area=scope.getRealm();
@@ -14,13 +13,11 @@
     startActivityForResult(intent,AUTHENTICATION_CODE);
 synchronized (this) {
       try {
-        System.err.println("waiting in " + Thread.currentThread());
         wait();
       }
  catch (      InterruptedException e) {
       }
     }
-    System.err.println("OK");
     if (myUsername != null && myPassword != null) {
       option.setValue(myUsername);
       creds=new UsernamePasswordCredentials(myUsername,myPassword);

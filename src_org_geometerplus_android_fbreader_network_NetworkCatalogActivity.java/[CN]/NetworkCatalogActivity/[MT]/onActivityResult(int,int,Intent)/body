@@ -1,5 +1,4 @@
 {
-  System.err.println("onActivityResult " + requestCode + " "+ resultCode);
 switch (requestCode) {
 default :
     super.onActivityResult(requestCode,resultCode,data);

@@ -5,12 +5,12 @@
   try {
     request.doBefore();
     httpClient=new DefaultHttpClient();
-    httpClient.setCredentialsProvider(myCredentialsProvider);
+    httpClient.setCredentialsProvider(myCredentialsProviderDecorator);
     final HttpGet getRequest=new HttpGet(request.URL);
     setCommonHTTPOptions(getRequest);
     HttpResponse response=null;
     for (int retryCounter=0; retryCounter < 3 && entity == null; ++retryCounter) {
-      response=httpClient.execute(getRequest);
+      response=httpClient.execute(getRequest,myHttpContext);
       entity=response.getEntity();
     }
     final int responseCode=response.getStatusLine().getStatusCode();
@@ -18,8 +18,6 @@
     if (entity != null && responseCode == HttpURLConnection.HTTP_OK) {
       stream=entity.getContent();
     }
-    System.err.println(request.URL);
-    System.err.println("RESPONSE: " + response.getStatusLine());
     if (stream != null) {
       try {
         final Header encoding=entity.getContentEncoding();
