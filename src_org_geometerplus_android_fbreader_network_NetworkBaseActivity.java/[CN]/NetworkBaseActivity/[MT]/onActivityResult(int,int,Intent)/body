@@ -1,11 +1,13 @@
 {
+  System.err.println("onActivityResult " + requestCode + " "+ resultCode);
   if (requestCode == AUTHENTICATION_CODE) {
-synchronized (myAuthenticator) {
+synchronized (myCredentialsProvider) {
       if (data != null) {
-        myAuthenticator.myUsername=data.getStringExtra(AuthenticationActivity.USERNAME_KEY);
-        myAuthenticator.myPassword=data.getStringExtra(AuthenticationActivity.PASSWORD_KEY);
+        myCredentialsProvider.myUsername=data.getStringExtra(AuthenticationActivity.USERNAME_KEY);
+        myCredentialsProvider.myPassword=data.getStringExtra(AuthenticationActivity.PASSWORD_KEY);
       }
-      myAuthenticator.notify();
+      myCredentialsProvider.notify();
+      System.err.println("notify");
     }
   }
 }

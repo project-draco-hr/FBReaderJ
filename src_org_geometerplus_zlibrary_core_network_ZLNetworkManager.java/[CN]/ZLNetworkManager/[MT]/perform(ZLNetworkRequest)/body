@@ -1,54 +1,32 @@
 {
   boolean success=false;
+  DefaultHttpClient httpClient=null;
+  HttpEntity entity=null;
   try {
     request.doBefore();
-    HttpURLConnection httpConnection=null;
-    int response=-1;
-    final int retryLimit=6;
-    for (int retryCounter=0; retryCounter < retryLimit && (response == -1 || response == 301 || response == 302); ++retryCounter) {
-      final URLConnection connection=new URL(request.URL).openConnection();
-      if (!(connection instanceof HttpURLConnection)) {
-        throw new ZLNetworkException(ZLNetworkException.ERROR_UNSUPPORTED_PROTOCOL);
-      }
-      httpConnection=(HttpURLConnection)connection;
-      setCommonHTTPOptions(request,httpConnection);
-      if (request.PostData != null) {
-        httpConnection.setRequestMethod("POST");
-        httpConnection.setRequestProperty("Content-Length",Integer.toString(request.PostData.getBytes().length));
-        httpConnection.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
-        httpConnection.setUseCaches(false);
-        httpConnection.setDoInput(true);
-        httpConnection.setDoOutput(true);
-        final OutputStreamWriter writer=new OutputStreamWriter(httpConnection.getOutputStream());
-        try {
-          writer.write(request.PostData);
-          writer.flush();
-        }
-  finally {
-          writer.close();
-        }
-      }
- else {
-        httpConnection.connect();
-      }
-      response=httpConnection.getResponseCode();
-      if (response == 301 || response == 302) {
-        request.URL=httpConnection.getHeaderField("Location");
-      }
+    httpClient=new DefaultHttpClient();
+    httpClient.setCredentialsProvider(myCredentialsProvider);
+    final HttpGet getRequest=new HttpGet(request.URL);
+    setCommonHTTPOptions(getRequest);
+    HttpResponse response=null;
+    for (int retryCounter=0; retryCounter < 3 && entity == null; ++retryCounter) {
+      response=httpClient.execute(getRequest);
+      entity=response.getEntity();
     }
+    final int responseCode=response.getStatusLine().getStatusCode();
     InputStream stream=null;
-    if (response == HttpURLConnection.HTTP_OK) {
-      stream=httpConnection.getInputStream();
+    if (entity != null && responseCode == HttpURLConnection.HTTP_OK) {
+      stream=entity.getContent();
     }
- else     if (500 <= response && response < 600) {
-      stream=httpConnection.getErrorStream();
-    }
+    System.err.println(request.URL);
+    System.err.println("RESPONSE: " + response.getStatusLine());
     if (stream != null) {
       try {
-        if ("gzip".equalsIgnoreCase(httpConnection.getContentEncoding())) {
+        final Header encoding=entity.getContentEncoding();
+        if (encoding != null && "gzip".equalsIgnoreCase(encoding.getValue())) {
           stream=new GZIPInputStream(stream);
         }
-        request.handleStream(stream,httpConnection.getContentLength());
+        request.handleStream(stream,(int)entity.getContentLength());
       }
   finally {
         stream.close();
@@ -56,16 +34,11 @@
       success=true;
     }
  else {
-      System.err.println(request.URL);
-      System.err.println("RESPONSE: " + response);
-      if (response == HttpURLConnection.HTTP_UNAUTHORIZED) {
+      if (responseCode == HttpURLConnection.HTTP_UNAUTHORIZED) {
         throw new ZLNetworkException(ZLNetworkException.ERROR_AUTHENTICATION_FAILED);
       }
- else       if (response >= 400) {
-        throw new ZLNetworkException(true,httpConnection.getResponseMessage());
-      }
  else {
-        throw new ZLNetworkException(ZLNetworkException.ERROR_SOMETHING_WRONG,ZLNetworkUtil.hostFromUrl(request.URL));
+        throw new ZLNetworkException(true,response.getStatusLine().toString());
       }
     }
   }
@@ -93,9 +66,6 @@ catch (  NoRouteToHostException ex) {
 catch (  UnknownHostException ex) {
     throw new ZLNetworkException(ZLNetworkException.ERROR_RESOLVE_HOST,ZLNetworkUtil.hostFromUrl(request.URL),ex);
   }
-catch (  MalformedURLException ex) {
-    throw new ZLNetworkException(ZLNetworkException.ERROR_INVALID_URL,ex);
-  }
 catch (  SocketTimeoutException ex) {
     throw new ZLNetworkException(ZLNetworkException.ERROR_TIMEOUT,ex);
   }
@@ -105,5 +75,15 @@ catch (  IOException ex) {
   }
  finally {
     request.doAfter(success);
+    if (httpClient != null) {
+      httpClient.getConnectionManager().shutdown();
+    }
+    if (entity != null) {
+      try {
+        entity.consumeContent();
+      }
+ catch (      IOException e) {
+      }
+    }
   }
 }

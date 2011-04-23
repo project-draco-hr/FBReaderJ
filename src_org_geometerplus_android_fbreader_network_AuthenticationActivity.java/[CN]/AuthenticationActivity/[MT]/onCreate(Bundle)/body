@@ -17,12 +17,7 @@
     findTextView(R.id.authentication_subtitle).setVisibility(View.GONE);
   }
   final TextView warningView=findTextView(R.id.authentication_unencrypted_warning);
-  if ("https".equalsIgnoreCase(intent.getStringExtra(SCHEME_KEY))) {
-    warningView.setVisibility(View.GONE);
-  }
- else {
-    warningView.setText(myResource.getResource("unencryptedWarning").getValue());
-  }
+  warningView.setVisibility(View.GONE);
   findTextView(R.id.authentication_username_label).setText(myResource.getResource("login").getValue());
   findTextView(R.id.authentication_password_label).setText(myResource.getResource("password").getValue());
   final TextView usernameView=findTextView(R.id.authentication_username);
