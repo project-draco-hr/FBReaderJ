@@ -5,9 +5,9 @@
   try {
     request.doBefore();
     httpClient=new DefaultHttpClient();
-    httpClient.setCredentialsProvider(myCredentialsProvider);
     final HttpGet getRequest=new HttpGet(request.URL);
     setCommonHTTPOptions(getRequest);
+    httpClient.setCredentialsProvider(new MyCredentialsProvider(getRequest));
     HttpResponse response=null;
     for (int retryCounter=0; retryCounter < 3 && entity == null; ++retryCounter) {
       response=httpClient.execute(getRequest,myHttpContext);
