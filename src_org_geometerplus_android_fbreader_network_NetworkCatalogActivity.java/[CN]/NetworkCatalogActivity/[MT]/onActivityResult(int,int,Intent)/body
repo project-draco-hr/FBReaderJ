@@ -1,16 +1,19 @@
 {
 switch (requestCode) {
-default :
-    super.onActivityResult(requestCode,resultCode,data);
+case BASIC_AUTHENTICATION_CODE:
+synchronized (myCredentialsCreator) {
+      if (resultCode == AuthenticationActivity.OK_RESULT_CODE && data != null) {
+        myCredentialsCreator.myUsername=data.getStringExtra(AuthenticationActivity.USERNAME_KEY);
+        myCredentialsCreator.myPassword=data.getStringExtra(AuthenticationActivity.PASSWORD_KEY);
+      }
+      myCredentialsCreator.notify();
+    }
   break;
-case USER_REGISTRATION_REQUEST_CODE:
-if (myTree instanceof NetworkCatalogTree && resultCode == RESULT_OK && data != null) {
-  try {
-    Util.runAfterRegistration(((NetworkCatalogTree)myTree).Item.Link.authenticationManager(),data);
-  }
- catch (  ZLNetworkException e) {
-  }
-}
+case CUSTOM_AUTHENTICATION_CODE:
+processCustomAuthentication(this,((NetworkCatalogTree)myTree).Item.Link,resultCode,data);
+break;
+case SIGNUP_CODE:
+processSignup(((NetworkCatalogTree)myTree).Item.Link,resultCode,data);
 break;
 }
 }

@@ -1,0 +1,9 @@
+{
+  if (resultCode == RESULT_OK && data != null) {
+    try {
+      Util.runAfterRegistration(link.authenticationManager(),data);
+    }
+ catch (    ZLNetworkException e) {
+    }
+  }
+}
