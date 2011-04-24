@@ -3,7 +3,7 @@
   try {
     uri=new URI(url);
   }
- catch (  java.net.URISyntaxException ex) {
+ catch (  URISyntaxException ex) {
     return null;
   }
   String host=uri.getHost();

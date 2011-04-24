@@ -78,6 +78,12 @@
     }
   }
 ;
+  final Runnable buyOnUiRunnable=new Runnable(){
+    public void run(){
+      activity.runOnUiThread(buyRunnable);
+    }
+  }
+;
   try {
     if (mgr.isAuthorised(true)) {
       buyRunnable.run();
@@ -86,5 +92,5 @@
   }
  catch (  ZLNetworkException e) {
   }
-  AuthenticationDialog.show(activity,book.Link,buyRunnable);
+  Util.runAuthenticationDialog(activity,book.Link,null,buyOnUiRunnable);
 }

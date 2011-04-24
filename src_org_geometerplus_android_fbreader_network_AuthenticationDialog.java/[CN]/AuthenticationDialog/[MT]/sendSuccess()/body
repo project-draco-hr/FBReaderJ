@@ -1,3 +1,0 @@
-{
-  myHandler.sendMessage(myHandler.obtainMessage(1,null));
-}

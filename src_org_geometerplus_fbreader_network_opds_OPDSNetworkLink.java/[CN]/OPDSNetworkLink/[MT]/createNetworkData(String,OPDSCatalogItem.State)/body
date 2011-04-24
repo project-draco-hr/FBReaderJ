@@ -4,7 +4,7 @@
   }
   url=rewriteUrl(url,false);
   return new ZLNetworkRequest(url){
-    @Override public void handleStream(    URLConnection connection,    InputStream inputStream) throws IOException, ZLNetworkException {
+    @Override public void handleStream(    InputStream inputStream,    int length) throws IOException, ZLNetworkException {
       if (result.Listener.confirmInterrupt()) {
         return;
       }

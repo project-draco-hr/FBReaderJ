@@ -1,7 +1,0 @@
-{
-  final int lastCertificate=certs.length - 1;
-  for (int i=0; i < lastCertificate; ++i) {
-    checkCertificate(certs[i],certs[i + 1].getPublicKey());
-  }
-  checkCertificate(certs[lastCertificate],myCertificate.getPublicKey());
-}

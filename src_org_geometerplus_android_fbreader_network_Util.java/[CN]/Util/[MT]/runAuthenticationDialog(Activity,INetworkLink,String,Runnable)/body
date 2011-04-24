@@ -1,0 +1,13 @@
+{
+  final NetworkAuthenticationManager mgr=link.authenticationManager();
+  final Intent intent=new Intent(activity,AuthenticationActivity.class);
+  intent.putExtra(AuthenticationActivity.USERNAME_KEY,mgr.UserNameOption.getValue());
+  if (isRegistrationSupported(activity,link)) {
+    intent.putExtra(AuthenticationActivity.SHOW_SIGNUP_LINK_KEY,true);
+  }
+  intent.putExtra(AuthenticationActivity.ERROR_KEY,error);
+  if (onSuccess != null) {
+    myAfterRegisrationMap.put(activity,onSuccess);
+  }
+  activity.startActivityForResult(intent,NetworkBaseActivity.CUSTOM_AUTHENTICATION_CODE);
+}

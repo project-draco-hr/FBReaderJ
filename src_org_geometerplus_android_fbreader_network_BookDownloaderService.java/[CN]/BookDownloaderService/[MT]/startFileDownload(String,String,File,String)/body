@@ -36,12 +36,11 @@
   }
 ;
   final ZLNetworkRequest request=new ZLNetworkRequest(urlString,sslCertificate,null){
-    public void handleStream(    URLConnection connection,    InputStream inputStream) throws IOException, ZLNetworkException {
+    public void handleStream(    InputStream inputStream,    int length) throws IOException, ZLNetworkException {
       final int updateIntervalMillis=1000;
-      final int fileLength=connection.getContentLength();
       int downloadedPart=0;
       long progressTime=System.currentTimeMillis() + updateIntervalMillis;
-      if (fileLength <= 0) {
+      if (length <= 0) {
         progressHandler.sendEmptyMessage(-1);
       }
       OutputStream outStream;
@@ -59,11 +58,11 @@
             break;
           }
           downloadedPart+=size;
-          if (fileLength > 0) {
+          if (length > 0) {
             final long currentTime=System.currentTimeMillis();
             if (currentTime > progressTime) {
               progressTime=currentTime + updateIntervalMillis;
-              progressHandler.sendEmptyMessage(downloadedPart * 100 / fileLength);
+              progressHandler.sendEmptyMessage(downloadedPart * 100 / length);
             }
           }
           outStream.write(buffer,0,size);

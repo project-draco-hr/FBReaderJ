@@ -1,0 +1,10 @@
+{
+switch (requestCode) {
+case NetworkBaseActivity.CUSTOM_AUTHENTICATION_CODE:
+    Util.processCustomAuthentication(this,myBook.Link,resultCode,data);
+  break;
+case NetworkBaseActivity.SIGNUP_CODE:
+Util.processSignup(myBook.Link,resultCode,data);
+break;
+}
+}
