@@ -5,7 +5,7 @@
   try {
     request.doBefore();
     httpClient=new DefaultHttpClient();
-    httpClient.setCredentialsProvider(myCredentialsProviderDecorator);
+    httpClient.setCredentialsProvider(myCredentialsProvider);
     final HttpGet getRequest=new HttpGet(request.URL);
     setCommonHTTPOptions(getRequest);
     HttpResponse response=null;

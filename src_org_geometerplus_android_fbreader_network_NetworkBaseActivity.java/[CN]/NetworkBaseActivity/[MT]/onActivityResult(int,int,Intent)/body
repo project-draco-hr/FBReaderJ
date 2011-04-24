@@ -1,11 +1,11 @@
 {
   if (requestCode == AUTHENTICATION_CODE) {
-synchronized (myCredentialsProvider) {
+synchronized (myCredentialsCreator) {
       if (data != null) {
-        myCredentialsProvider.myUsername=data.getStringExtra(AuthenticationActivity.USERNAME_KEY);
-        myCredentialsProvider.myPassword=data.getStringExtra(AuthenticationActivity.PASSWORD_KEY);
+        myCredentialsCreator.myUsername=data.getStringExtra(AuthenticationActivity.USERNAME_KEY);
+        myCredentialsCreator.myPassword=data.getStringExtra(AuthenticationActivity.PASSWORD_KEY);
       }
-      myCredentialsProvider.notify();
+      myCredentialsCreator.notify();
     }
   }
 }
