@@ -1,5 +1,4 @@
 {
-  System.err.println("canBeStarted " + intent.getData());
   final PackageManager manager=context.getApplicationContext().getPackageManager();
   final ResolveInfo info=manager.resolveActivity(intent,PackageManager.MATCH_DEFAULT_ONLY);
   if (info == null) {
