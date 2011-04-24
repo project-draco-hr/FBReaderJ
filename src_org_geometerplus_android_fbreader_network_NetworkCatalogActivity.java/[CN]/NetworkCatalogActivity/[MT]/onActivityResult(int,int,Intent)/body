@@ -2,7 +2,7 @@
 switch (requestCode) {
 case BASIC_AUTHENTICATION_CODE:
 synchronized (myCredentialsCreator) {
-      if (resultCode == AuthenticationActivity.OK_RESULT_CODE && data != null) {
+      if (resultCode == AuthenticationActivity.RESULT_OK && data != null) {
         myCredentialsCreator.myUsername=data.getStringExtra(AuthenticationActivity.USERNAME_KEY);
         myCredentialsCreator.myPassword=data.getStringExtra(AuthenticationActivity.PASSWORD_KEY);
       }
@@ -10,10 +10,10 @@ synchronized (myCredentialsCreator) {
     }
   break;
 case CUSTOM_AUTHENTICATION_CODE:
-processCustomAuthentication(this,((NetworkCatalogTree)myTree).Item.Link,resultCode,data);
+Util.processCustomAuthentication(this,((NetworkCatalogTree)myTree).Item.Link,resultCode,data);
 break;
 case SIGNUP_CODE:
-processSignup(((NetworkCatalogTree)myTree).Item.Link,resultCode,data);
+Util.processSignup(((NetworkCatalogTree)myTree).Item.Link,resultCode,data);
 break;
 }
 }

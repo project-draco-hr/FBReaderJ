@@ -1,0 +1,21 @@
+{
+  if (resultCode == Activity.RESULT_OK && data != null) {
+    try {
+      final NetworkAuthenticationManager mgr=link.authenticationManager();
+      final String userName=data.getStringExtra(USER_REGISTRATION_USERNAME);
+      final String litresSid=data.getStringExtra(USER_REGISTRATION_LITRES_SID);
+      mgr.initUser(userName,litresSid);
+      if (userName.length() > 0 && litresSid.length() > 0) {
+        try {
+          mgr.initialize();
+        }
+ catch (        ZLNetworkException e) {
+          mgr.logOut();
+          throw e;
+        }
+      }
+    }
+ catch (    ZLNetworkException e) {
+    }
+  }
+}

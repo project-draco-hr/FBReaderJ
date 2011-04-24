@@ -1,7 +1,7 @@
 {
   super.onCreate(icicle);
   Thread.setDefaultUncaughtExceptionHandler(new org.geometerplus.zlibrary.ui.android.library.UncaughtExceptionHandler(this));
-  setResult(CANCEL_RESULT_CODE);
+  setResult(RESULT_CANCELED);
   setContentView(R.layout.authentication);
   final Intent intent=getIntent();
   final String host=intent.getStringExtra(HOST_KEY);
@@ -37,7 +37,7 @@
     signupView.setText(myResource.getResource("register").getValue());
     signupView.setOnClickListener(new View.OnClickListener(){
       public void onClick(      View view){
-        setResult(SIGNUP_RESULT_CODE);
+        setResult(RESULT_SIGNUP);
         finish();
       }
     }
@@ -54,7 +54,7 @@
       final Intent data=new Intent();
       data.putExtra(USERNAME_KEY,usernameView.getText().toString());
       data.putExtra(PASSWORD_KEY,findTextView(R.id.authentication_password).getText().toString());
-      setResult(OK_RESULT_CODE,data);
+      setResult(RESULT_OK,data);
       finish();
     }
   }

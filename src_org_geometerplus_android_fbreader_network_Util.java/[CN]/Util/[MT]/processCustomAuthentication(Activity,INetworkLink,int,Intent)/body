@@ -1,6 +1,8 @@
 {
+  final Runnable onSuccess=myAfterRegisrationMap.get(activity);
+  myAfterRegisrationMap.remove(activity);
 switch (resultCode) {
-case AuthenticationActivity.CANCEL_RESULT_CODE:
+case AuthenticationActivity.RESULT_CANCELED:
     UIUtil.wait("signOut",new Runnable(){
       public void run(){
         final NetworkAuthenticationManager mgr=link.authenticationManager();
@@ -15,13 +17,13 @@ case AuthenticationActivity.CANCEL_RESULT_CODE:
     }
 ,activity);
   break;
-case AuthenticationActivity.OK_RESULT_CODE:
+case AuthenticationActivity.RESULT_OK:
 {
   final ZLResource resource=ZLResource.resource("dialog").getResource("AuthenticationDialog");
   final String username=data.getStringExtra(AuthenticationActivity.USERNAME_KEY);
   final String password=data.getStringExtra(AuthenticationActivity.PASSWORD_KEY);
   if (username.length() == 0) {
-    runAuthenticationDialog(activity,link,resource.getResource("loginIsEmpty").getValue());
+    runAuthenticationDialog(activity,link,resource.getResource("loginIsEmpty").getValue(),onSuccess);
   }
   final NetworkAuthenticationManager mgr=link.authenticationManager();
   mgr.UserNameOption.setValue(username);
@@ -32,10 +34,11 @@ case AuthenticationActivity.OK_RESULT_CODE:
         if (mgr.needsInitialization()) {
           mgr.initialize();
         }
+        onSuccess.run();
       }
  catch (      ZLNetworkException e) {
         mgr.logOut();
-        runAuthenticationDialog(activity,link,e.getMessage());
+        runAuthenticationDialog(activity,link,e.getMessage(),onSuccess);
         return;
       }
       final NetworkLibrary library=NetworkLibrary.Instance();
@@ -48,7 +51,7 @@ case AuthenticationActivity.OK_RESULT_CODE:
   UIUtil.wait("authentication",runnable,activity);
   break;
 }
-case AuthenticationActivity.SIGNUP_RESULT_CODE:
+case AuthenticationActivity.RESULT_SIGNUP:
 Util.runRegistrationDialog(activity,link);
 break;
 }

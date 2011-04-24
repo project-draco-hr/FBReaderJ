@@ -24,7 +24,7 @@ case RELOAD_ITEM_ID:
 doReloadCatalog(activity,catalogTree);
 return true;
 case SIGNIN_ITEM_ID:
-AuthenticationDialog.show(activity,item.Link,null);
+Util.runAuthenticationDialog(activity,item.Link,null,null);
 return true;
 case SIGNUP_ITEM_ID:
 Util.runRegistrationDialog(activity,item.Link);
