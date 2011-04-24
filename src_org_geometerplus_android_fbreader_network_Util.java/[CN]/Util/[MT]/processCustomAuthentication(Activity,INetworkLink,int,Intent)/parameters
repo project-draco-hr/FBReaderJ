@@ -1,0 +1,4 @@
+Activity activity
+INetworkLink link
+int resultCode
+Intent data

@@ -1,0 +1,40 @@
+{
+  final List<Cookie> list=new LinkedList<Cookie>();
+  final Cursor cursor=myDatabase.rawQuery("SELECT cookie_id,host,path,name,value,date_of_expiration,secure FROM Cookie",null);
+  while (cursor.moveToNext()) {
+    final long id=cursor.getLong(0);
+    final String host=cursor.getString(1);
+    final String path=cursor.getString(2);
+    final String name=cursor.getString(3);
+    final String value=cursor.getString(4);
+    final Date date=SQLiteUtil.getDate(cursor,5);
+    final boolean secure=cursor.getLong(6) == 1;
+    Set<Integer> portSet=null;
+    final Cursor portsCursor=myDatabase.rawQuery("SELECT port FROM CookiePort WHERE cookie_id = " + id,null);
+    while (portsCursor.moveToNext()) {
+      if (portSet == null) {
+        portSet=new HashSet<Integer>();
+      }
+      portSet.add((int)portsCursor.getLong(1));
+    }
+    portsCursor.close();
+    final BasicClientCookie2 c=new BasicClientCookie2(name,value);
+    c.setDomain(host);
+    c.setPath(path);
+    if (portSet != null) {
+      final int ports[]=new int[portSet.size()];
+      int index=0;
+      for (      int p : portSet) {
+        ports[index]=p;
+        ++index;
+      }
+      c.setPorts(ports);
+    }
+    c.setExpiryDate(date);
+    c.setSecure(secure);
+    c.setDiscard(false);
+    list.add(c);
+  }
+  cursor.close();
+  return list;
+}

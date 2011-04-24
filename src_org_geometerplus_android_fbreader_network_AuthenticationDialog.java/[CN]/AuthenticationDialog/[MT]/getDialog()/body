@@ -1,6 +1,0 @@
-{
-  if (ourDialog == null) {
-    ourDialog=new AuthenticationDialog();
-  }
-  return ourDialog;
-}

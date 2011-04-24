@@ -1,6 +1,0 @@
-{
-  myLink=link;
-  myErrorMessage=null;
-  myOnSuccessRunnable=onSuccessRunnable;
-  activity.showDialog(0);
-}

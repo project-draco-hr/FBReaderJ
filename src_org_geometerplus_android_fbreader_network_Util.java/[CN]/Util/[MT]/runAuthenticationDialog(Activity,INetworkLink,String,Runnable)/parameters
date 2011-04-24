@@ -1,0 +1,4 @@
+Activity activity
+INetworkLink link
+String error
+Runnable onSuccess

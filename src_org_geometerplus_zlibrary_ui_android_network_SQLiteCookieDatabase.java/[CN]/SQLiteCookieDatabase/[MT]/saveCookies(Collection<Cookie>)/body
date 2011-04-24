@@ -1,0 +1,23 @@
+{
+  for (  Cookie c : cookies) {
+    if (!c.isPersistent()) {
+      continue;
+    }
+    SQLiteUtil.bindString(myInsertStatement,1,c.getDomain());
+    SQLiteUtil.bindString(myInsertStatement,2,c.getPath());
+    SQLiteUtil.bindString(myInsertStatement,3,c.getName());
+    SQLiteUtil.bindString(myInsertStatement,4,c.getValue());
+    SQLiteUtil.bindDate(myInsertStatement,5,c.getExpiryDate());
+    myInsertStatement.bindLong(6,c.isSecure() ? 1 : 0);
+    final long id=myInsertStatement.executeInsert();
+    myDeletePortsStatement.bindLong(1,id);
+    myDeletePortsStatement.execute();
+    if (c.getPorts() != null) {
+      myInsertPortsStatement.bindLong(1,id);
+      for (      int port : c.getPorts()) {
+        myInsertPortsStatement.bindLong(2,port);
+        myInsertPortsStatement.execute();
+      }
+    }
+  }
+}

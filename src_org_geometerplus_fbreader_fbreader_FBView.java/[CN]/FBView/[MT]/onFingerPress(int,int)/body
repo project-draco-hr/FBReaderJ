@@ -2,13 +2,6 @@
   if (super.onFingerPress(x,y)) {
     return true;
   }
-  if (myReader.FooterIsSensitiveOption.getValue()) {
-    Footer footer=getFooterArea();
-    if (footer != null && y > myContext.getHeight() - footer.getTapHeight()) {
-      footer.setProgress(x);
-      return true;
-    }
-  }
   if (myReader.AllowScreenBrightnessAdjustmentOption.getValue() && x < myContext.getWidth() / 10) {
     myIsBrightnessAdjustmentInProgress=true;
     myStartY=y;
