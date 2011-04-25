@@ -241,42 +241,6 @@ myDCIssued=null;
 myState=F_ENTRY;
 }
 break;
-case OPENSEARCH_TOTALRESULTS:
-if (tagPrefix == myOpenSearchNamespaceId && tag == OPENSEARCH_TAG_TOTALRESULTS) {
-if (myFeed != null && bufferContent != null) {
-try {
-myFeed.OpensearchTotalResults=Integer.parseInt(bufferContent);
-}
- catch (NumberFormatException ex) {
-}
-}
-myState=FEED;
-}
-break;
-case OPENSEARCH_ITEMSPERPAGE:
-if (tagPrefix == myOpenSearchNamespaceId && tag == OPENSEARCH_TAG_ITEMSPERPAGE) {
-if (myFeed != null && bufferContent != null) {
-try {
-myFeed.OpensearchItemsPerPage=Integer.parseInt(bufferContent);
-}
- catch (NumberFormatException ex) {
-}
-}
-myState=FEED;
-}
-break;
-case OPENSEARCH_STARTINDEX:
-if (tagPrefix == myOpenSearchNamespaceId && tag == OPENSEARCH_TAG_STARTINDEX) {
-if (myFeed != null && bufferContent != null) {
-try {
-myFeed.OpensearchStartIndex=Integer.parseInt(bufferContent);
-}
- catch (NumberFormatException ex) {
-}
-}
-myState=FEED;
-}
-break;
 }
 return interruptReading;
 }
