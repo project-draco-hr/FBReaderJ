@@ -8,6 +8,7 @@
     final HttpRequestBase httpRequest;
     if (request.PostData != null) {
       httpRequest=new HttpPost(request.URL);
+      ((HttpPost)httpRequest).setEntity(new StringEntity(request.PostData,"utf-8"));
     }
  else     if (!request.PostParameters.isEmpty()) {
       httpRequest=new HttpPost(request.URL);
