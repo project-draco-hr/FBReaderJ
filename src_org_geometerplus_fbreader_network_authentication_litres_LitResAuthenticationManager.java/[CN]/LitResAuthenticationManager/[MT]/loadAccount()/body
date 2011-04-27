@@ -1,7 +1,8 @@
 {
   final String sid=mySidOption.getValue();
-  String query="pages/purchase_book/";
-  query=ZLNetworkUtil.appendParameter(query,"sid",sid);
-  query=ZLNetworkUtil.appendParameter(query,"art","0");
-  return new LitResNetworkRequest(LitResUtil.url(Link,query),SSLCertificate,new LitResPurchaseXMLReader(Link.getSiteName()));
+  final String query="pages/purchase_book/";
+  final LitResNetworkRequest request=new LitResNetworkRequest(LitResUtil.url(Link,query),new LitResPurchaseXMLReader(Link.getSiteName()));
+  request.addPostParameter("sid",sid);
+  request.addPostParameter("art","0");
+  return request;
 }

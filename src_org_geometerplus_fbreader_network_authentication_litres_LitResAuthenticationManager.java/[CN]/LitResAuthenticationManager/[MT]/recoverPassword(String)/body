@@ -1,9 +1,10 @@
 {
-  String url=Link.getUrl(UrlInfo.Type.RecoverPassword);
+  final String url=Link.getUrl(UrlInfo.Type.RecoverPassword);
   if (url == null) {
     throw new ZLNetworkException(NetworkException.ERROR_UNSUPPORTED_OPERATION);
   }
-  url=ZLNetworkUtil.appendParameter(url,"mail",email);
   final LitResPasswordRecoveryXMLReader xmlReader=new LitResPasswordRecoveryXMLReader(Link.getSiteName());
-  ZLNetworkManager.Instance().perform(new LitResNetworkRequest(url,SSLCertificate,xmlReader));
+  final LitResNetworkRequest request=new LitResNetworkRequest(url,xmlReader);
+  request.addPostParameter("mail",email);
+  ZLNetworkManager.Instance().perform(request);
 }

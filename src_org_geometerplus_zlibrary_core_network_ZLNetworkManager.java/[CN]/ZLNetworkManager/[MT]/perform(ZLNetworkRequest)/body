@@ -5,12 +5,23 @@
   try {
     request.doBefore();
     httpClient=new DefaultHttpClient();
-    final HttpGet getRequest=new HttpGet(request.URL);
-    setCommonHTTPOptions(getRequest);
-    httpClient.setCredentialsProvider(new MyCredentialsProvider(getRequest));
+    final HttpRequestBase httpRequest;
+    if (request.PostData != null) {
+      httpRequest=new HttpPost(request.URL);
+    }
+ else     if (!request.PostParameters.isEmpty()) {
+      httpRequest=new HttpPost(request.URL);
+      final List<BasicNameValuePair> list=new ArrayList<BasicNameValuePair>(request.PostParameters.size());
+      ((HttpPost)httpRequest).setEntity(new UrlEncodedFormEntity(list,"utf-8"));
+    }
+ else {
+      httpRequest=new HttpGet(request.URL);
+    }
+    setCommonHTTPOptions(httpRequest);
+    httpClient.setCredentialsProvider(new MyCredentialsProvider(httpRequest));
     HttpResponse response=null;
     for (int retryCounter=0; retryCounter < 3 && entity == null; ++retryCounter) {
-      response=httpClient.execute(getRequest,myHttpContext);
+      response=httpClient.execute(httpRequest,myHttpContext);
       entity=response.getEntity();
     }
     final int responseCode=response.getStatusLine().getStatusCode();

@@ -1,5 +1,5 @@
 {
-  super(link,sslCertificate);
+  super(link,null);
   mySidUserNameOption=new ZLStringOption(link.getSiteName(),"sidUserName","");
   mySidOption=new ZLStringOption(link.getSiteName(),"sid","");
   myUserIdOption=new ZLStringOption(link.getSiteName(),"userId","");

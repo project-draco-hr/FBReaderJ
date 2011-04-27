@@ -6,15 +6,16 @@ synchronized (this) {
   if (sid.length() == 0) {
     throw new ZLNetworkException(NetworkException.ERROR_AUTHENTICATION_FAILED);
   }
-  BookUrlInfo reference=book.reference(UrlInfo.Type.BookBuy);
+  final BookUrlInfo reference=book.reference(UrlInfo.Type.BookBuy);
   if (reference == null) {
     throw new ZLNetworkException(NetworkException.ERROR_BOOK_NOT_PURCHASED);
   }
-  final String query=ZLNetworkUtil.appendParameter(reference.Url,"sid",sid);
   final LitResPurchaseXMLReader xmlReader=new LitResPurchaseXMLReader(Link.getSiteName());
   ZLNetworkException exception=null;
   try {
-    ZLNetworkManager.Instance().perform(new LitResNetworkRequest(query,SSLCertificate,xmlReader));
+    final LitResNetworkRequest request=new LitResNetworkRequest(reference.Url,xmlReader);
+    request.addPostParameter("sid",sid);
+    ZLNetworkManager.Instance().perform(request);
   }
  catch (  ZLNetworkException e) {
     exception=e;
