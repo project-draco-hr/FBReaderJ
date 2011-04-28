@@ -1,0 +1,13 @@
+{
+  final int index=tag.indexOf(':');
+  final String tagPrefix;
+  if (index != -1) {
+    tagPrefix=tag.substring(0,index).intern();
+    tag=tag.substring(index + 1).intern();
+  }
+ else {
+    tagPrefix=null;
+    tag=tag.intern();
+  }
+  return startElementHandler(tagPrefix,tag,attributes,extractBufferContent());
+}
