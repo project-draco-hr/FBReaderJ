@@ -1,5 +1,4 @@
 {
-  super.startElementHandler(tagPrefix,tag,attributes,bufferContent);
   boolean interruptReading=false;
 switch (myState) {
 case START:
