@@ -6,7 +6,12 @@ case START:
 case FEED:
   if (tagPrefix == myAtomNamespaceId && tag == TAG_FEED) {
     if (myFeed != null) {
-      interruptReading=myFeedReader.processFeedMetadata(myFeed,false);
+      if (myFeed instanceof OPDSFeedMetadata) {
+        interruptReading=myFeedReader.processFeedMetadata((OPDSFeedMetadata)myFeed,false);
+      }
+ else {
+        Log.v(OPDS_LOG,"! (myFeed instanceof OPDSFeedMetadata)");
+      }
     }
     myFeed=null;
     myFeedReader.processFeedEnd();
@@ -16,7 +21,13 @@ break;
 case F_ENTRY:
 if (tagPrefix == myAtomNamespaceId && tag == TAG_ENTRY) {
 if (myEntry != null) {
-  interruptReading=myFeedReader.processFeedEntry(myEntry);
+  if (myEntry instanceof OPDSEntry) {
+    OPDSEntry entry=(OPDSEntry)myEntry;
+    interruptReading=myFeedReader.processFeedEntry(entry);
+  }
+ else {
+    Log.v(OPDS_LOG,"! (myEntry instanceof OPDSEntry)");
+  }
 }
 myEntry=null;
 myState=FEED;
@@ -141,8 +152,13 @@ break;
 case FEL_PRICE:
 if (tagPrefix == myOpdsNamespaceId && tag == TAG_PRICE) {
 if (bufferContent != null && myPriceCurrency != null) {
-myLink.Prices.add(new OPDSPrice(bufferContent.intern(),myPriceCurrency));
+if (myLink instanceof OPDSLink) {
+((OPDSLink)myLink).Prices.add(new OPDSPrice(bufferContent.intern(),myPriceCurrency));
 myPriceCurrency=null;
+}
+ else {
+Log.v(OPDS_LOG,"! (myLink instanceof OPDSLink)");
+}
 }
 myState=FE_LINK;
 }
@@ -150,7 +166,12 @@ break;
 case FEL_FORMAT:
 if (tagPrefix == myDublinCoreNamespaceId && tag == DC_TAG_FORMAT) {
 if (bufferContent != null) {
-myLink.Formats.add(bufferContent.intern());
+if (myLink instanceof OPDSLink) {
+((OPDSLink)myLink).Formats.add(bufferContent.intern());
+}
+ else {
+Log.v(OPDS_LOG,"! (myLink instanceof OPDSLink)");
+}
 }
 myState=FE_LINK;
 }
@@ -242,14 +263,24 @@ myState=FE_CONTENT;
 break;
 case FE_DC_LANGUAGE:
 if (tagPrefix == myDublinCoreNamespaceId && tag == DC_TAG_LANGUAGE) {
-myEntry.DCLanguage=bufferContent;
+if (myEntry instanceof OPDSEntry) {
+((OPDSEntry)myEntry).DCLanguage=bufferContent;
 myState=F_ENTRY;
+}
+ else {
+Log.v(OPDS_LOG,"! (myEntry instanceof OPDSEntry)");
+}
 }
 break;
 case FE_DC_ISSUED:
 if (tagPrefix == myDublinCoreNamespaceId && tag == DC_TAG_ISSUED) {
 if (ATOMDateConstruct.parse(bufferContent,myDCIssued)) {
-myEntry.DCIssued=myDCIssued;
+if (myEntry instanceof OPDSEntry) {
+((OPDSEntry)myEntry).DCIssued=myDCIssued;
+}
+ else {
+Log.v(OPDS_LOG,"! (myEntry instanceof OPDSEntry)");
+}
 }
 myDCIssued=null;
 myState=F_ENTRY;
@@ -257,21 +288,36 @@ myState=F_ENTRY;
 break;
 case FE_DC_PUBLISHER:
 if (tagPrefix == myDublinCoreNamespaceId && tag == DC_TAG_PUBLISHER) {
-myEntry.DCPublisher=bufferContent;
+if (myEntry instanceof OPDSEntry) {
+((OPDSEntry)myEntry).DCPublisher=bufferContent;
 myState=F_ENTRY;
+}
+ else {
+Log.v(OPDS_LOG,"! (myEntry instanceof OPDSEntry)");
+}
 }
 break;
 case FE_CALIBRE_SERIES:
 if (tagPrefix == myCalibreNamespaceId && tag == CALIBRE_TAG_SERIES) {
-myEntry.SeriesTitle=bufferContent;
+if (myEntry instanceof OPDSEntry) {
+((OPDSEntry)myEntry).SeriesTitle=bufferContent;
 myState=F_ENTRY;
+}
+ else {
+Log.v(OPDS_LOG,"! (myEntry instanceof OPDSEntry)");
+}
 }
 break;
 case FE_CALIBRE_SERIES_INDEX:
 if (tagPrefix == myCalibreNamespaceId && tag == CALIBRE_TAG_SERIES_INDEX) {
 if (bufferContent != null) {
 try {
-myEntry.SeriesIndex=Float.parseFloat(bufferContent);
+if (myEntry instanceof OPDSEntry) {
+((OPDSEntry)myEntry).SeriesIndex=Float.parseFloat(bufferContent);
+}
+ else {
+Log.v(OPDS_LOG,"! (myEntry instanceof OPDSEntry)");
+}
 }
  catch (NumberFormatException ex) {
 }
@@ -283,7 +329,12 @@ case OPENSEARCH_TOTALRESULTS:
 if (tagPrefix == myOpenSearchNamespaceId && tag == OPENSEARCH_TAG_TOTALRESULTS) {
 if (myFeed != null && bufferContent != null) {
 try {
-myFeed.OpensearchTotalResults=Integer.parseInt(bufferContent);
+if (myFeed instanceof OPDSFeedMetadata) {
+((OPDSFeedMetadata)myFeed).OpensearchTotalResults=Integer.parseInt(bufferContent);
+}
+ else {
+Log.v(OPDS_LOG,"! (myFeed instanceof OPDSFeedMetadata)");
+}
 }
  catch (NumberFormatException ex) {
 }
@@ -295,7 +346,12 @@ case OPENSEARCH_ITEMSPERPAGE:
 if (tagPrefix == myOpenSearchNamespaceId && tag == OPENSEARCH_TAG_ITEMSPERPAGE) {
 if (myFeed != null && bufferContent != null) {
 try {
-myFeed.OpensearchItemsPerPage=Integer.parseInt(bufferContent);
+if (myFeed instanceof OPDSFeedMetadata) {
+((OPDSFeedMetadata)myFeed).OpensearchItemsPerPage=Integer.parseInt(bufferContent);
+}
+ else {
+Log.v(OPDS_LOG,"! (myFeed instanceof OPDSFeedMetadata)");
+}
 }
  catch (NumberFormatException ex) {
 }
@@ -307,7 +363,12 @@ case OPENSEARCH_STARTINDEX:
 if (tagPrefix == myOpenSearchNamespaceId && tag == OPENSEARCH_TAG_STARTINDEX) {
 if (myFeed != null && bufferContent != null) {
 try {
-myFeed.OpensearchStartIndex=Integer.parseInt(bufferContent);
+if (myFeed instanceof OPDSFeedMetadata) {
+((OPDSFeedMetadata)myFeed).OpensearchStartIndex=Integer.parseInt(bufferContent);
+}
+ else {
+Log.v(OPDS_LOG,"! (myFeed instanceof OPDSFeedMetadata)");
+}
 }
  catch (NumberFormatException ex) {
 }

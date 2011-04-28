@@ -1,4 +1,5 @@
 {
+  super.startElementHandler(tagPrefix,tag,attributes,bufferContent);
   boolean interruptReading=false;
 switch (myState) {
 case START:
@@ -55,8 +56,14 @@ if (tagPrefix == myAtomNamespaceId) {
     myEntry.readAttributes(attributes);
     myState=F_ENTRY;
     if (myFeed != null && !myFeedMetadataProcessed) {
-      interruptReading=myFeedReader.processFeedMetadata(myFeed,true);
-      myFeedMetadataProcessed=true;
+      if (myFeed instanceof OPDSFeedMetadata) {
+        OPDSFeedMetadata feed=(OPDSFeedMetadata)myFeed;
+        interruptReading=myFeedReader.processFeedMetadata(feed,true);
+        myFeedMetadataProcessed=true;
+      }
+ else {
+        Log.v(OPDS_LOG,"! (myFeed instanceof OPDSFeedMetadata)");
+      }
     }
   }
 }

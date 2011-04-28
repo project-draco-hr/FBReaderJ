@@ -1,3 +1,16 @@
 {
+  super(new ATOMFeedReader(){
+    @Override public void processFeedStart(){
+    }
+    @Override public boolean processFeedMetadata(    ATOMFeedMetadata feed,    boolean beforeEntries){
+      return false;
+    }
+    @Override public boolean processFeedEntry(    ATOMEntry entry){
+      return false;
+    }
+    @Override public void processFeedEnd(){
+    }
+  }
+);
   myFeedReader=feedReader;
 }

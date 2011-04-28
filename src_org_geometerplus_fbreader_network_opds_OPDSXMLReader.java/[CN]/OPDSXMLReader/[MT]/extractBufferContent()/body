@@ -1,8 +1,0 @@
-{
-  final char[] bufferContentArray=myBuffer.toString().trim().toCharArray();
-  myBuffer.delete(0,myBuffer.length());
-  if (bufferContentArray.length == 0) {
-    return null;
-  }
-  return new String(bufferContentArray);
-}
