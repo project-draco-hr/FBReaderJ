@@ -1,3 +1,4 @@
 {
-  myPurchasedBooks.clear();
+  myPurchasedBookMap.clear();
+  myPurchasedBookList.clear();
 }
