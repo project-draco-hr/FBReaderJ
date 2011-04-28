@@ -138,17 +138,6 @@ myAuthor.Email=bufferContent;
 myState=FE_AUTHOR;
 }
 break;
-case FEL_PRICE:
-if (tagPrefix == myOpdsNamespaceId && tag == TAG_PRICE) {
-}
-break;
-case FEL_FORMAT:
-if (tagPrefix == myDublinCoreNamespaceId && tag == DC_TAG_FORMAT) {
-if (bufferContent != null) {
-}
-myState=FE_LINK;
-}
-break;
 case FE_AUTHOR:
 if (tagPrefix == myAtomNamespaceId && tag == TAG_AUTHOR) {
 if (myAuthor.Name != null) {
@@ -224,20 +213,6 @@ if (ATOMDateConstruct.parse(bufferContent,myUpdated)) {
 myEntry.Updated=myUpdated;
 }
 myUpdated=null;
-myState=F_ENTRY;
-}
-break;
-case FEC_HACK_SPAN:
-myHtmlToString.processTextContent(true,tag,null,bufferContent);
-if (bufferContent != null) {
-}
-myState=FE_CONTENT;
-break;
-case FE_DC_ISSUED:
-if (tagPrefix == myDublinCoreNamespaceId && tag == DC_TAG_ISSUED) {
-if (ATOMDateConstruct.parse(bufferContent,myDCIssued)) {
-}
-myDCIssued=null;
 myState=F_ENTRY;
 }
 break;

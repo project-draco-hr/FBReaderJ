@@ -1,25 +1,9 @@
 {
-  myDublinCoreNamespaceId=null;
   myAtomNamespaceId=null;
-  myOpenSearchNamespaceId=null;
-  myCalibreNamespaceId=null;
-  myOpdsNamespaceId=null;
   for (  Map.Entry<String,String> entry : namespaceMap.entrySet()) {
     final String value=entry.getValue();
-    if (value == XMLNamespaces.DublinCoreTerms) {
-      myDublinCoreNamespaceId=intern(entry.getKey());
-    }
- else     if (value == XMLNamespaces.Atom) {
+    if (value == XMLNamespaces.Atom) {
       myAtomNamespaceId=intern(entry.getKey());
-    }
- else     if (value == XMLNamespaces.OpenSearch) {
-      myOpenSearchNamespaceId=intern(entry.getKey());
-    }
- else     if (value == XMLNamespaces.CalibreMetadata) {
-      myCalibreNamespaceId=intern(entry.getKey());
-    }
- else     if (value == XMLNamespaces.Opds) {
-      myOpdsNamespaceId=intern(entry.getKey());
     }
   }
 }
