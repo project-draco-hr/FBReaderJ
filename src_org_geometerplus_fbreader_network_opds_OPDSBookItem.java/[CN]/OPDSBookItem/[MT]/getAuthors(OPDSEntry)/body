@@ -1,0 +1,33 @@
+{
+  final String AuthorPrefix="author:";
+  final String AuthorsPrefix="authors:";
+  final LinkedList<AuthorData> authors=new LinkedList<AuthorData>();
+  for (  ATOMAuthor author : entry.Authors) {
+    String name=author.Name;
+    final String lowerCased=name.toLowerCase();
+    int index=lowerCased.indexOf(AuthorPrefix);
+    if (index != -1) {
+      name=name.substring(index + AuthorPrefix.length());
+    }
+ else {
+      index=lowerCased.indexOf(AuthorsPrefix);
+      if (index != -1) {
+        name=name.substring(index + AuthorsPrefix.length());
+      }
+    }
+    index=name.indexOf(',');
+    final AuthorData authorData;
+    if (index != -1) {
+      final String before=name.substring(0,index).trim();
+      final String after=name.substring(index + 1).trim();
+      authorData=new AuthorData(after + ' ' + before,before);
+    }
+ else {
+      name=name.trim();
+      index=name.lastIndexOf(' ');
+      authorData=new AuthorData(name,name.substring(index + 1));
+    }
+    authors.add(authorData);
+  }
+  return authors;
+}

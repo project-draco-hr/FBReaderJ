@@ -1,0 +1,4 @@
+OPDSNetworkLink networkLink
+OPDSEntry entry
+String baseUrl
+int itemIndex

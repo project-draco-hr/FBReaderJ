@@ -1,3 +1,0 @@
-{
-  super(link,id,index,title,summary,authors,tags,seriesTitle,indexInSeries,urls);
-}
