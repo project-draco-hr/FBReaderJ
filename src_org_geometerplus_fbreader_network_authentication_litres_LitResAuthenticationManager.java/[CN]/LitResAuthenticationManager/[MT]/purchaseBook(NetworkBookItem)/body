@@ -30,13 +30,15 @@ synchronized (this) {
         logOut();
       }
  else       if (NetworkException.ERROR_PURCHASE_ALREADY_PURCHASED.equals(code)) {
-        myPurchasedBooks.put(book.Id,book);
+        myPurchasedBookMap.put(book.Id,book);
+        myPurchasedBookList.add(0,book);
       }
       throw exception;
     }
     if (xmlReader.BookId == null || !xmlReader.BookId.equals(book.Id)) {
       throw new ZLNetworkException(NetworkException.ERROR_SOMETHING_WRONG,Link.getSiteName());
     }
-    myPurchasedBooks.put(book.Id,book);
+    myPurchasedBookMap.put(book.Id,book);
+    myPurchasedBookList.add(0,book);
   }
 }

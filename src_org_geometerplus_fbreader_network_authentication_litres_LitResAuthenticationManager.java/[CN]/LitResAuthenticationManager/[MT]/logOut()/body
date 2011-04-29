@@ -1,3 +1,5 @@
 {
   initUser("","","");
+  myPurchasedBookMap.clear();
+  myPurchasedBookList.clear();
 }
