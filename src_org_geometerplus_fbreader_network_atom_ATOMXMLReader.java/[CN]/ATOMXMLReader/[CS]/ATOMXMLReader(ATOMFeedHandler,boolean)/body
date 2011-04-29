@@ -1,0 +1,4 @@
+{
+  myFeedHandler=handler;
+  myState=readEntryNotFeed ? FEED : START;
+}
