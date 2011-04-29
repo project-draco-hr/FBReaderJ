@@ -1,0 +1,7 @@
+{
+  if (myNamespaceMap == null) {
+    return null;
+  }
+  final String ns=myNamespaceMap.get(prefix);
+  return ns != null ? ns.intern() : null;
+}

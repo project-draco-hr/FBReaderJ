@@ -6,8 +6,8 @@
     tag=tag.substring(index + 1).intern();
   }
  else {
-    tagPrefix=null;
+    tagPrefix="";
     tag=tag.intern();
   }
-  return endElementHandler(tagPrefix,tag,extractBufferContent());
+  return endElementHandler(getNamespace(tagPrefix),tag,extractBufferContent());
 }
