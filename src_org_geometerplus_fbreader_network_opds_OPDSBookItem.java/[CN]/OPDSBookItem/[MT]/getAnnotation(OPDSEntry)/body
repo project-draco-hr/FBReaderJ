@@ -1,0 +1,9 @@
+{
+  if (entry.Summary != null) {
+    return entry.Summary;
+  }
+  if (entry.Content != null) {
+    return entry.Content;
+  }
+  return null;
+}

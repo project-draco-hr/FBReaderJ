@@ -1,4 +1,4 @@
-String tagPrefix
+String ns
 String tag
 ZLStringMap attributes
 String bufferContent

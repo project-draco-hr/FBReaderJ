@@ -1,0 +1,13 @@
+{
+  super(clean(url),null,null);
+  final int index=url.indexOf('?');
+  if (index != -1) {
+    for (    String param : url.substring(index + 1).split("&")) {
+      String[] pp=param.split("=");
+      if (pp.length == 2) {
+        addPostParameter(pp[0],pp[1]);
+      }
+    }
+  }
+  Reader=reader;
+}

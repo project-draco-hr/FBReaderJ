@@ -1,0 +1,13 @@
+{
+  final LinkedList<String> tags=new LinkedList<String>();
+  for (  ATOMCategory category : entry.Categories) {
+    String label=category.getLabel();
+    if (label == null) {
+      label=category.getTerm();
+    }
+    if (label != null) {
+      tags.add(label);
+    }
+  }
+  return tags;
+}

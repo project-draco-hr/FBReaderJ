@@ -15,11 +15,12 @@ synchronized (this) {
   if (url == null) {
     throw new ZLNetworkException(NetworkException.ERROR_UNSUPPORTED_OPERATION);
   }
-  url=ZLNetworkUtil.appendParameter(url,"sid",sid);
   final LitResLoginXMLReader xmlReader=new LitResLoginXMLReader(Link.getSiteName());
   ZLNetworkException exception=null;
   try {
-    ZLNetworkManager.Instance().perform(new LitResNetworkRequest(url,SSLCertificate,xmlReader));
+    final LitResNetworkRequest request=new LitResNetworkRequest(url,xmlReader);
+    request.addPostParameter("sid",sid);
+    ZLNetworkManager.Instance().perform(request);
   }
  catch (  ZLNetworkException e) {
     exception=e;

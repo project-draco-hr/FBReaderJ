@@ -1,0 +1,45 @@
+{
+  if (myItemsToLoad >= 0) {
+    --myItemsToLoad;
+  }
+  if (entry.Id == null) {
+    final String id=calculateEntryId(entry);
+    if (id == null) {
+      return tryInterrupt();
+    }
+    entry.Id=new ATOMId();
+    entry.Id.Uri=id;
+  }
+  if (mySkipUntilId != null) {
+    if (mySkipUntilId.equals(entry.Id.Uri)) {
+      mySkipUntilId=null;
+    }
+    return tryInterrupt();
+  }
+  myData.LastLoadedId=entry.Id.Uri;
+  if (!myFoundNewIds && !myData.LoadedIds.contains(entry.Id.Uri)) {
+    myFoundNewIds=true;
+  }
+  myData.LoadedIds.add(entry.Id.Uri);
+  final OPDSNetworkLink opdsLink=(OPDSNetworkLink)myData.Link;
+  boolean hasBookLink=false;
+  for (  ATOMLink link : entry.Links) {
+    final String type=ZLNetworkUtil.filterMimeType(link.getType());
+    final String rel=opdsLink.relation(link.getRel(),type);
+    if (rel == null ? (OPDSBookItem.formatByMimeType(type) != BookUrlInfo.Format.NONE) : (rel.startsWith(REL_ACQUISITION_PREFIX) || rel.startsWith(REL_FBREADER_ACQUISITION_PREFIX))) {
+      hasBookLink=true;
+      break;
+    }
+  }
+  NetworkItem item;
+  if (hasBookLink) {
+    item=new OPDSBookItem((OPDSNetworkLink)myData.Link,entry,myBaseURL,myIndex++);
+  }
+ else {
+    item=readCatalogItem(entry);
+  }
+  if (item != null) {
+    myData.Listener.onNewItem(myData.Link,item);
+  }
+  return tryInterrupt();
+}
