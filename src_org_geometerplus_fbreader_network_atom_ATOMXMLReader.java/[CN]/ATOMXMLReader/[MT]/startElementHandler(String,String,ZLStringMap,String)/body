@@ -3,7 +3,7 @@
 switch (myState) {
 case START:
     if (ns == XMLNamespaces.Atom && tag == TAG_FEED) {
-      myFeedReader.processFeedStart();
+      myFeedHandler.processFeedStart();
       myFeed=createFeed();
       myFeed.readAttributes(attributes);
       myState=FEED;
@@ -55,7 +55,7 @@ if (ns == XMLNamespaces.Atom) {
     myEntry.readAttributes(attributes);
     myState=F_ENTRY;
     if (myFeed != null && !myFeedMetadataProcessed) {
-      interruptReading=myFeedReader.processFeedMetadata(myFeed,true);
+      interruptReading=myFeedHandler.processFeedMetadata(myFeed,true);
       myFeedMetadataProcessed=true;
     }
   }
