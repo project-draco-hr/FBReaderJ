@@ -1,6 +1,6 @@
 {
+  super.namespaceMapChangedHandler(namespaceMap);
   myDublinCoreNamespaceId=null;
-  myAtomNamespaceId=null;
   myOpenSearchNamespaceId=null;
   myCalibreNamespaceId=null;
   myOpdsNamespaceId=null;
@@ -8,9 +8,6 @@
     final String value=entry.getValue();
     if (value == XMLNamespaces.DublinCoreTerms) {
       myDublinCoreNamespaceId=intern(entry.getKey());
-    }
- else     if (value == XMLNamespaces.Atom) {
-      myAtomNamespaceId=intern(entry.getKey());
     }
  else     if (value == XMLNamespaces.OpenSearch) {
       myOpenSearchNamespaceId=intern(entry.getKey());

@@ -4,7 +4,7 @@ switch (myState) {
 case START:
     if (tagPrefix == myAtomNamespaceId && tag == TAG_FEED) {
       myFeedReader.processFeedStart();
-      myFeed=new ATOMFeedMetadata();
+      myFeed=createFeed();
       myFeed.readAttributes(attributes);
       myState=FEED;
       myFeedMetadataProcessed=false;
@@ -28,7 +28,7 @@ if (tagPrefix == myAtomNamespaceId) {
     myState=F_ICON;
   }
  else   if (tag == TAG_LINK) {
-    myLink=new ATOMLink();
+    myLink=createLink();
     myLink.readAttributes(attributes);
     myState=F_LINK;
   }
@@ -51,7 +51,7 @@ if (tagPrefix == myAtomNamespaceId) {
     myState=F_UPDATED;
   }
  else   if (tag == TAG_ENTRY) {
-    myEntry=new ATOMEntry();
+    myEntry=createEntry();
     myEntry.readAttributes(attributes);
     myState=F_ENTRY;
     if (myFeed != null && !myFeedMetadataProcessed) {
@@ -79,7 +79,7 @@ myCategory.readAttributes(attributes);
 myState=FE_CATEGORY;
 }
  else if (tag == TAG_LINK) {
-myLink=new ATOMLink();
+myLink=createLink();
 myLink.readAttributes(attributes);
 myState=FE_LINK;
 }

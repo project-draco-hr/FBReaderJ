@@ -1,5 +1,5 @@
 {
-switch (getState()) {
+switch (myState) {
 case FEED:
     if (tagPrefix == myAtomNamespaceId && tag == TAG_ENTRY) {
       ((LinkReader)myFeedReader).clear();
