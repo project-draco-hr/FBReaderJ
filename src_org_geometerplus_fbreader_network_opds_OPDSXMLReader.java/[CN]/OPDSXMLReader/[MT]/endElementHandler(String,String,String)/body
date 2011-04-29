@@ -1,5 +1,5 @@
 {
-  boolean interruptReading=super.endElementHandler(ns,tag,bufferContent);
+  final boolean interruptReading=super.endElementHandler(ns,tag,bufferContent);
 switch (myState) {
 case FEL_PRICE:
     if (ns == XMLNamespaces.Opds && tag == TAG_PRICE) {

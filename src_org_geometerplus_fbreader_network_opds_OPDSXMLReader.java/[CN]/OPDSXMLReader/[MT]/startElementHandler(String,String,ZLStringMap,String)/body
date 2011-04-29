@@ -1,6 +1,6 @@
 {
   final int state=myState;
-  boolean interruptReading=super.startElementHandler(ns,tag,attributes,bufferContent);
+  final boolean interruptReading=super.startElementHandler(ns,tag,attributes,bufferContent);
 switch (state) {
 case FEED:
     if (ns == XMLNamespaces.OpenSearch) {
