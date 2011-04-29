@@ -1,4 +1,2 @@
 {
-  request.setHeader("User-Agent",ZLNetworkUtil.getUserAgent());
-  request.setHeader("Accept-Language",Locale.getDefault().getLanguage());
 }

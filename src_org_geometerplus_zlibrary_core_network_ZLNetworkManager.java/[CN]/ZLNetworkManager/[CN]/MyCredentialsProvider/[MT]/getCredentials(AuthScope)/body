@@ -1,0 +1,10 @@
+{
+  final Credentials c=super.getCredentials(authscope);
+  if (c != null) {
+    return c;
+  }
+  if (myCredentialsCreator != null) {
+    return myCredentialsCreator.createCredentials(myRequest.getURI().getScheme(),authscope);
+  }
+  return null;
+}

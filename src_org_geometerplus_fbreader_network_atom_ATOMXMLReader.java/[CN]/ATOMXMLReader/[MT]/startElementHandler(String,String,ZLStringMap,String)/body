@@ -1,0 +1,146 @@
+{
+  boolean interruptReading=false;
+switch (myState) {
+case START:
+    if (ns == XMLNamespaces.Atom && tag == TAG_FEED) {
+      myFeedHandler.processFeedStart();
+      myFeed=createFeed();
+      myFeed.readAttributes(attributes);
+      myState=FEED;
+      myFeedMetadataProcessed=false;
+    }
+  break;
+case FEED:
+if (ns == XMLNamespaces.Atom) {
+  if (tag == TAG_AUTHOR) {
+    myAuthor=new ATOMAuthor();
+    myAuthor.readAttributes(attributes);
+    myState=F_AUTHOR;
+  }
+ else   if (tag == TAG_ID) {
+    myId=new ATOMId();
+    myId.readAttributes(attributes);
+    myState=F_ID;
+  }
+ else   if (tag == TAG_ICON) {
+    myIcon=new ATOMIcon();
+    myIcon.readAttributes(attributes);
+    myState=F_ICON;
+  }
+ else   if (tag == TAG_LINK) {
+    myLink=createLink();
+    myLink.readAttributes(attributes);
+    myState=F_LINK;
+  }
+ else   if (tag == TAG_CATEGORY) {
+    myCategory=new ATOMCategory();
+    myCategory.readAttributes(attributes);
+    myState=F_CATEGORY;
+  }
+ else   if (tag == TAG_TITLE) {
+    myHtmlToString.setupTextContent(attributes.getValue("type"));
+    myState=F_TITLE;
+  }
+ else   if (tag == TAG_SUBTITLE) {
+    myHtmlToString.setupTextContent(attributes.getValue("type"));
+    myState=F_SUBTITLE;
+  }
+ else   if (tag == TAG_UPDATED) {
+    myUpdated=new ATOMUpdated();
+    myUpdated.readAttributes(attributes);
+    myState=F_UPDATED;
+  }
+ else   if (tag == TAG_ENTRY) {
+    myEntry=createEntry();
+    myEntry.readAttributes(attributes);
+    myState=F_ENTRY;
+    if (myFeed != null && !myFeedMetadataProcessed) {
+      interruptReading=myFeedHandler.processFeedMetadata(myFeed,true);
+      myFeedMetadataProcessed=true;
+    }
+  }
+}
+break;
+case F_ENTRY:
+if (ns == XMLNamespaces.Atom) {
+if (tag == TAG_AUTHOR) {
+myAuthor=new ATOMAuthor();
+myAuthor.readAttributes(attributes);
+myState=FE_AUTHOR;
+}
+ else if (tag == TAG_ID) {
+myId=new ATOMId();
+myId.readAttributes(attributes);
+myState=FE_ID;
+}
+ else if (tag == TAG_CATEGORY) {
+myCategory=new ATOMCategory();
+myCategory.readAttributes(attributes);
+myState=FE_CATEGORY;
+}
+ else if (tag == TAG_LINK) {
+myLink=createLink();
+myLink.readAttributes(attributes);
+myState=FE_LINK;
+}
+ else if (tag == TAG_PUBLISHED) {
+myPublished=new ATOMPublished();
+myPublished.readAttributes(attributes);
+myState=FE_PUBLISHED;
+}
+ else if (tag == TAG_SUMMARY) {
+myHtmlToString.setupTextContent(attributes.getValue("type"));
+myState=FE_SUMMARY;
+}
+ else if (tag == TAG_CONTENT) {
+myHtmlToString.setupTextContent(attributes.getValue("type"));
+myState=FE_CONTENT;
+}
+ else if (tag == TAG_TITLE) {
+myHtmlToString.setupTextContent(attributes.getValue("type"));
+myState=FE_TITLE;
+}
+ else if (tag == TAG_UPDATED) {
+myUpdated=new ATOMUpdated();
+myUpdated.readAttributes(attributes);
+myState=FE_UPDATED;
+}
+}
+break;
+case F_AUTHOR:
+if (ns == XMLNamespaces.Atom) {
+if (tag == TAG_NAME) {
+myState=FA_NAME;
+}
+ else if (tag == TAG_URI) {
+myState=FA_URI;
+}
+ else if (tag == TAG_EMAIL) {
+myState=FA_EMAIL;
+}
+}
+break;
+case FE_AUTHOR:
+if (ns == XMLNamespaces.Atom) {
+if (tag == TAG_NAME) {
+myState=FEA_NAME;
+}
+ else if (tag == TAG_URI) {
+myState=FEA_URI;
+}
+ else if (tag == TAG_EMAIL) {
+myState=FEA_EMAIL;
+}
+}
+break;
+case FE_SUMMARY:
+case FE_TITLE:
+case F_TITLE:
+case F_SUBTITLE:
+myHtmlToString.processTextContent(false,tag,attributes,bufferContent);
+break;
+default :
+break;
+}
+return interruptReading;
+}
