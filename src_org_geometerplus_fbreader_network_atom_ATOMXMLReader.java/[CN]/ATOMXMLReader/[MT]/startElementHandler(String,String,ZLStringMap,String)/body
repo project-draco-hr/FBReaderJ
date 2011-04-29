@@ -2,7 +2,7 @@
   boolean interruptReading=false;
 switch (myState) {
 case START:
-    if (tagPrefix == myAtomNamespaceId && tag == TAG_FEED) {
+    if (ns == XMLNamespaces.Atom && tag == TAG_FEED) {
       myFeedReader.processFeedStart();
       myFeed=createFeed();
       myFeed.readAttributes(attributes);
@@ -11,7 +11,7 @@ case START:
     }
   break;
 case FEED:
-if (tagPrefix == myAtomNamespaceId) {
+if (ns == XMLNamespaces.Atom) {
   if (tag == TAG_AUTHOR) {
     myAuthor=new ATOMAuthor();
     myAuthor.readAttributes(attributes);
@@ -62,7 +62,7 @@ if (tagPrefix == myAtomNamespaceId) {
 }
 break;
 case F_ENTRY:
-if (tagPrefix == myAtomNamespaceId) {
+if (ns == XMLNamespaces.Atom) {
 if (tag == TAG_AUTHOR) {
 myAuthor=new ATOMAuthor();
 myAuthor.readAttributes(attributes);
@@ -108,7 +108,7 @@ myState=FE_UPDATED;
 }
 break;
 case F_AUTHOR:
-if (tagPrefix == myAtomNamespaceId) {
+if (ns == XMLNamespaces.Atom) {
 if (tag == TAG_NAME) {
 myState=FA_NAME;
 }
@@ -121,7 +121,7 @@ myState=FA_EMAIL;
 }
 break;
 case FE_AUTHOR:
-if (tagPrefix == myAtomNamespaceId) {
+if (ns == XMLNamespaces.Atom) {
 if (tag == TAG_NAME) {
 myState=FEA_NAME;
 }

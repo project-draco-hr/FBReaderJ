@@ -1,9 +1,9 @@
 {
-  int state=myState;
-  boolean interruptReading=super.startElementHandler(tagPrefix,tag,attributes,bufferContent);
+  final int state=myState;
+  boolean interruptReading=super.startElementHandler(ns,tag,attributes,bufferContent);
 switch (state) {
 case FEED:
-    if (tagPrefix == myOpenSearchNamespaceId) {
+    if (ns == XMLNamespaces.OpenSearch) {
       if (tag == OPENSEARCH_TAG_TOTALRESULTS) {
         myState=OPENSEARCH_TOTALRESULTS;
       }
@@ -16,7 +16,7 @@ case FEED:
     }
   break;
 case F_ENTRY:
-if (tagPrefix == myDublinCoreNamespaceId) {
+if (ns == XMLNamespaces.DublinCoreTerms) {
   if (tag == DC_TAG_LANGUAGE) {
     myState=FE_DC_LANGUAGE;
   }
@@ -29,7 +29,7 @@ if (tagPrefix == myDublinCoreNamespaceId) {
     myState=FE_DC_PUBLISHER;
   }
 }
- else if (tagPrefix == myCalibreNamespaceId) {
+ else if (ns == XMLNamespaces.CalibreMetadata) {
   if (tag == CALIBRE_TAG_SERIES) {
     myState=FE_CALIBRE_SERIES;
   }
@@ -39,11 +39,11 @@ if (tagPrefix == myDublinCoreNamespaceId) {
 }
 break;
 case FE_LINK:
-if (tagPrefix == myOpdsNamespaceId && tag == TAG_PRICE) {
+if (ns == XMLNamespaces.Opds && tag == TAG_PRICE) {
 myPriceCurrency=attributes.getValue("currencycode");
 myState=FEL_PRICE;
 }
-if (tagPrefix == myDublinCoreNamespaceId && tag == DC_TAG_FORMAT) {
+if (ns == XMLNamespaces.DublinCoreTerms && tag == DC_TAG_FORMAT) {
 myState=FEL_FORMAT;
 }
 break;

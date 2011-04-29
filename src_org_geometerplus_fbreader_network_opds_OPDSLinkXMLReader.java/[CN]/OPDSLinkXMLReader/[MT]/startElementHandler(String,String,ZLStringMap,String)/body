@@ -1,12 +1,12 @@
 {
 switch (myState) {
 case FEED:
-    if (tagPrefix == myAtomNamespaceId && tag == TAG_ENTRY) {
+    if (ns == XMLNamespaces.Atom && tag == TAG_ENTRY) {
       ((LinkReader)myFeedReader).clear();
     }
   break;
 case F_ENTRY:
-if (tagPrefix == myFBReaderNamespaceId) {
+if (ns == XMLNamespaces.FBReaderCatalogMetadata) {
   if (tag == FBREADER_ADVANCED_SEARCH) {
     return false;
   }
@@ -45,5 +45,5 @@ if (tagPrefix == myFBReaderNamespaceId) {
 }
 break;
 }
-return super.startElementHandler(tagPrefix,tag,attributes,bufferContent);
+return super.startElementHandler(ns,tag,attributes,bufferContent);
 }

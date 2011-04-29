@@ -1,9 +1,3 @@
 {
-  myAtomNamespaceId=null;
-  for (  Map.Entry<String,String> entry : namespaceMap.entrySet()) {
-    final String value=entry.getValue();
-    if (value == XMLNamespaces.Atom) {
-      myAtomNamespaceId=intern(entry.getKey());
-    }
-  }
+  myNamespaceMap=new HashMap<String,String>(namespaceMap);
 }

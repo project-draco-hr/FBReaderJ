@@ -1,8 +1,8 @@
 {
-  boolean interruptReading=super.endElementHandler(tagPrefix,tag,bufferContent);
+  boolean interruptReading=super.endElementHandler(ns,tag,bufferContent);
 switch (myState) {
 case FEL_PRICE:
-    if (tagPrefix == myOpdsNamespaceId && tag == TAG_PRICE) {
+    if (ns == XMLNamespaces.Opds && tag == TAG_PRICE) {
       if (bufferContent != null && myPriceCurrency != null) {
         getOPDSLink().Prices.add(new OPDSPrice(bufferContent.intern(),myPriceCurrency));
         myPriceCurrency=null;
@@ -11,7 +11,7 @@ case FEL_PRICE:
     }
   break;
 case FEL_FORMAT:
-if (tagPrefix == myDublinCoreNamespaceId && tag == DC_TAG_FORMAT) {
+if (ns == XMLNamespaces.DublinCoreTerms && tag == DC_TAG_FORMAT) {
   if (bufferContent != null) {
     getOPDSLink().Formats.add(bufferContent.intern());
   }
@@ -26,13 +26,13 @@ getOPDSEntry().addAttribute(KEY_PRICE,bufferContent.intern());
 myState=FE_CONTENT;
 break;
 case FE_DC_LANGUAGE:
-if (tagPrefix == myDublinCoreNamespaceId && tag == DC_TAG_LANGUAGE) {
+if (ns == XMLNamespaces.DublinCoreTerms && tag == DC_TAG_LANGUAGE) {
 getOPDSEntry().DCLanguage=bufferContent;
 myState=F_ENTRY;
 }
 break;
 case FE_DC_ISSUED:
-if (tagPrefix == myDublinCoreNamespaceId && tag == DC_TAG_ISSUED) {
+if (ns == XMLNamespaces.DublinCoreTerms && tag == DC_TAG_ISSUED) {
 if (ATOMDateConstruct.parse(bufferContent,myDCIssued)) {
 getOPDSEntry().DCIssued=myDCIssued;
 }
@@ -41,19 +41,19 @@ myState=F_ENTRY;
 }
 break;
 case FE_DC_PUBLISHER:
-if (tagPrefix == myDublinCoreNamespaceId && tag == DC_TAG_PUBLISHER) {
+if (ns == XMLNamespaces.DublinCoreTerms && tag == DC_TAG_PUBLISHER) {
 getOPDSEntry().DCPublisher=bufferContent;
 myState=F_ENTRY;
 }
 break;
 case FE_CALIBRE_SERIES:
-if (tagPrefix == myCalibreNamespaceId && tag == CALIBRE_TAG_SERIES) {
+if (ns == XMLNamespaces.CalibreMetadata && tag == CALIBRE_TAG_SERIES) {
 getOPDSEntry().SeriesTitle=bufferContent;
 myState=F_ENTRY;
 }
 break;
 case FE_CALIBRE_SERIES_INDEX:
-if (tagPrefix == myCalibreNamespaceId && tag == CALIBRE_TAG_SERIES_INDEX) {
+if (ns == XMLNamespaces.CalibreMetadata && tag == CALIBRE_TAG_SERIES_INDEX) {
 if (bufferContent != null) {
 try {
 getOPDSEntry().SeriesIndex=Float.parseFloat(bufferContent);
@@ -65,7 +65,7 @@ myState=F_ENTRY;
 }
 break;
 case OPENSEARCH_TOTALRESULTS:
-if (tagPrefix == myOpenSearchNamespaceId && tag == OPENSEARCH_TAG_TOTALRESULTS) {
+if (ns == XMLNamespaces.OpenSearch && tag == OPENSEARCH_TAG_TOTALRESULTS) {
 if (getOPDSFeed() != null && bufferContent != null) {
 try {
 getOPDSFeed().OpensearchTotalResults=Integer.parseInt(bufferContent);
@@ -77,7 +77,7 @@ myState=FEED;
 }
 break;
 case OPENSEARCH_ITEMSPERPAGE:
-if (tagPrefix == myOpenSearchNamespaceId && tag == OPENSEARCH_TAG_ITEMSPERPAGE) {
+if (ns == XMLNamespaces.OpenSearch && tag == OPENSEARCH_TAG_ITEMSPERPAGE) {
 if (getOPDSFeed() != null && bufferContent != null) {
 try {
 getOPDSFeed().OpensearchItemsPerPage=Integer.parseInt(bufferContent);
@@ -89,7 +89,7 @@ myState=FEED;
 }
 break;
 case OPENSEARCH_STARTINDEX:
-if (tagPrefix == myOpenSearchNamespaceId && tag == OPENSEARCH_TAG_STARTINDEX) {
+if (ns == XMLNamespaces.OpenSearch && tag == OPENSEARCH_TAG_STARTINDEX) {
 if (getOPDSFeed() != null && bufferContent != null) {
 try {
 getOPDSFeed().OpensearchStartIndex=Integer.parseInt(bufferContent);
