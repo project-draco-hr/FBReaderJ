@@ -6,17 +6,17 @@ case START:
 case FEED:
   if (ns == XMLNamespaces.Atom && tag == TAG_FEED) {
     if (myFeed != null) {
-      interruptReading=myFeedReader.processFeedMetadata(myFeed,false);
+      interruptReading=myFeedHandler.processFeedMetadata(myFeed,false);
     }
     myFeed=null;
-    myFeedReader.processFeedEnd();
+    myFeedHandler.processFeedEnd();
     myState=START;
   }
 break;
 case F_ENTRY:
 if (ns == XMLNamespaces.Atom && tag == TAG_ENTRY) {
 if (myEntry != null) {
-  interruptReading=myFeedReader.processFeedEntry(myEntry);
+  interruptReading=myFeedHandler.processFeedEntry(myEntry);
 }
 myEntry=null;
 myState=FEED;
