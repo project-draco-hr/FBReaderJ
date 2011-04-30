@@ -1,3 +1,3 @@
 Context context
-NetworkTree.Key key
+NetworkTree tree
 ItemsLoadingRunnable runnable

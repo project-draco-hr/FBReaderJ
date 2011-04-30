@@ -1,0 +1,11 @@
+{
+  if (myUserData == null) {
+    myUserData=new HashMap<String,Object>();
+  }
+  if (data != null) {
+    myUserData.put(key,data);
+  }
+ else {
+    myUserData.remove(key);
+  }
+}

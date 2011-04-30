@@ -20,7 +20,7 @@
         }
       }
       final ExpandCatalogHandler handler=new ExpandCatalogHandler(tree,key);
-      NetworkView.Instance().startItemsLoading(activity,key,new ExpandCatalogRunnable(handler,tree,true,resumeNotLoad));
+      ItemsLoadingService.start(activity,tree,new ExpandCatalogRunnable(handler,tree,true,resumeNotLoad));
       processExtraData(activity,tree.Item.extraData(),new Runnable(){
         public void run(){
           Util.openTree(activity,tree);

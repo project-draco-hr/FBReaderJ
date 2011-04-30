@@ -1,17 +1,17 @@
 {
   super.onStart(intent,startId);
   doStart();
-  final NetworkTree.Key key=(NetworkTree.Key)intent.getSerializableExtra(ITEMS_LOADING_RUNNABLE_KEY);
-  if (key == null) {
+  final NetworkTree tree=Util.getTreeFromIntent(intent);
+  if (tree == null) {
     doStop();
     return;
   }
-  intent.removeExtra(ITEMS_LOADING_RUNNABLE_KEY);
+  intent.removeExtra(Util.TREE_KEY_KEY);
   if (!NetworkView.Instance().isInitialized()) {
     doStop();
     return;
   }
-  final ItemsLoadingRunnable runnable=NetworkView.Instance().getItemsLoadingRunnable(key);
+  final ItemsLoadingRunnable runnable=getRunnable(tree);
   if (runnable == null) {
     doStop();
     return;
@@ -19,8 +19,8 @@
   final Handler finishHandler=new Handler(){
     public void handleMessage(    Message message){
       doStop();
+      removeRunnable(tree);
       if (NetworkView.Instance().isInitialized()) {
-        NetworkView.Instance().removeItemsLoadingRunnable(key);
         NetworkView.Instance().fireModelChangedAsync();
       }
     }

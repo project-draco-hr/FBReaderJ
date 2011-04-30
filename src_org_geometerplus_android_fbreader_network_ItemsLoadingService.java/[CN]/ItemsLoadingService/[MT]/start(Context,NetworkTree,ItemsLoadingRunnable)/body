@@ -1,0 +1,12 @@
+{
+  boolean doDownload=false;
+synchronized (tree) {
+    if (tree.getUserData(KEY) == null) {
+      tree.setUserData(KEY,runnable);
+      doDownload=true;
+    }
+  }
+  if (doDownload) {
+    context.startService(new Intent(context.getApplicationContext(),ItemsLoadingService.class).putExtra(Util.TREE_KEY_KEY,tree.getUniqueKey()));
+  }
+}

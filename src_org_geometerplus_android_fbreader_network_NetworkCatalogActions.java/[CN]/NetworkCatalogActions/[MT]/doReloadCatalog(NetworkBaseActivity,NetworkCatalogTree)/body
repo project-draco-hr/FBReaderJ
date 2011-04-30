@@ -1,11 +1,10 @@
 {
-  final NetworkTree.Key key=tree.getUniqueKey();
-  if (NetworkView.Instance().containsItemsLoadingRunnable(key)) {
+  if (ItemsLoadingService.getRunnable(tree) != null) {
     return;
   }
   tree.ChildrenItems.clear();
   tree.clear();
   NetworkView.Instance().fireModelChangedAsync();
-  final ExpandCatalogHandler handler=new ExpandCatalogHandler(tree,key);
-  NetworkView.Instance().startItemsLoading(activity,key,new ExpandCatalogRunnable(handler,tree,false,false));
+  final ExpandCatalogHandler handler=new ExpandCatalogHandler(tree,tree.getUniqueKey());
+  ItemsLoadingService.start(activity,tree,new ExpandCatalogRunnable(handler,tree,false,false));
 }

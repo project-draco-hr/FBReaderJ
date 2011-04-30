@@ -1,5 +1,5 @@
 {
-  final ItemsLoadingRunnable runnable=getItemsLoadingRunnable(tree.getUniqueKey());
+  final ItemsLoadingRunnable runnable=ItemsLoadingService.getRunnable(tree);
   if (runnable != null && runnable.tryResumeLoading()) {
     Util.openTree(activity,tree);
     return;
