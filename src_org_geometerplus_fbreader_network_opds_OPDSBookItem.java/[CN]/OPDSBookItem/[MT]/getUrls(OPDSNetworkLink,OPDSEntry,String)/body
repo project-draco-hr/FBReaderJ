@@ -38,6 +38,15 @@
         collectReferences(urls,opdsLink,href,UrlInfo.Type.BookBuy,price,false);
       }
     }
+ else     if (referenceType == UrlInfo.Type.Related) {
+      urls.addInfo(new TitledUrlInfo(referenceType,link.getTitle(),href));
+    }
+ else     if (referenceType == UrlInfo.Type.Comments) {
+      urls.addInfo(new TitledUrlInfo(referenceType,link.getTitle(),href));
+    }
+ else     if (referenceType == UrlInfo.Type.TOC) {
+      urls.addInfo(new UrlInfo(referenceType,href));
+    }
  else     if (referenceType != null) {
       final int format=formatByMimeType(type);
       if (format != BookUrlInfo.Format.NONE) {

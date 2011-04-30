@@ -1,4 +1,4 @@
 {
-  System.err.println("ENTRY:" + entry.Title);
+  addUrls(getUrls((OPDSNetworkLink)Link,entry,myUrl));
   return false;
 }
