@@ -1,0 +1,3 @@
+{
+  myURLs.upgrade(urls);
+}

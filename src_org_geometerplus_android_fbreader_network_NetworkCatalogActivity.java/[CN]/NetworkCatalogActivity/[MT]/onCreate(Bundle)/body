@@ -1,17 +1,12 @@
 {
   super.onCreate(icicle);
   requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
-  final NetworkView networkView=NetworkView.Instance();
-  if (!networkView.isInitialized()) {
-    finish();
-    return;
-  }
   myTree=Util.getTreeFromIntent(getIntent());
   if (myTree == null) {
     finish();
     return;
   }
-  networkView.setOpenedActivity(myTree.getUniqueKey(),this);
+  setForTree(myTree,this);
   setListAdapter(new CatalogAdapter());
   getListView().invalidateViews();
   setupTitle();

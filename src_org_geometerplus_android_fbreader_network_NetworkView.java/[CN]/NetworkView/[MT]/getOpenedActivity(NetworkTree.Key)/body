@@ -1,3 +1,0 @@
-{
-  return myOpenedActivities.get(key);
-}

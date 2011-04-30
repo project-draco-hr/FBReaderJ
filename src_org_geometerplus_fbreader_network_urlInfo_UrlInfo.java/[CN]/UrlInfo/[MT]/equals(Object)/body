@@ -1,0 +1,10 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (!(o instanceof UrlInfo)) {
+    return false;
+  }
+  final UrlInfo info=(UrlInfo)o;
+  return InfoType == info.InfoType && ZLMiscUtil.equals(Url,info.Url);
+}

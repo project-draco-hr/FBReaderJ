@@ -1,9 +1,8 @@
 {
   runOnUiThread(new Runnable(){
     public void run(){
-      final NetworkView networkView=NetworkView.Instance();
-      final NetworkTree.Key key=getLoadableNetworkTreeKey(myTree);
-      myInProgress=key != null && networkView.isInitialized() && networkView.containsItemsLoadingRunnable(key);
+      final NetworkTree tree=getLoadableNetworkTree(myTree);
+      myInProgress=tree != null && ItemsLoadingService.getRunnable(tree) != null;
       getListView().invalidateViews();
       ((CatalogAdapter)getListAdapter()).onModelChanged();
       setupTitle();

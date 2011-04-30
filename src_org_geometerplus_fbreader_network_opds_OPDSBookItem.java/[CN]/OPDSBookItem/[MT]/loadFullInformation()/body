@@ -1,0 +1,17 @@
+{
+  if (myInformationIsFull) {
+    return;
+  }
+  final String url=getUrl(UrlInfo.Type.SingleEntry);
+  if (url == null) {
+    myInformationIsFull=true;
+    return;
+  }
+  ZLNetworkManager.Instance().perform(new ZLNetworkRequest(url){
+    @Override public void handleStream(    InputStream inputStream,    int length) throws IOException, ZLNetworkException {
+      new OPDSXMLReader(new SingleEntryFeedHandler(url),true).read(inputStream);
+      myInformationIsFull=true;
+    }
+  }
+);
+}

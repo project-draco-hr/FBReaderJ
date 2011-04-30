@@ -6,9 +6,9 @@
   int idType=0;
   final OPDSNetworkLink opdsLink=(OPDSNetworkLink)myData.Link;
   for (  ATOMLink link : entry.Links) {
-    final String type=ZLNetworkUtil.filterMimeType(link.getType());
+    final MimeType type=MimeType.get(link.getType());
     final String rel=opdsLink.relation(link.getRel(),type);
-    if (rel == null && MIME_APP_ATOM.equals(type)) {
+    if (rel == null && MimeType.APP_ATOM.equals(type)) {
       return ZLNetworkUtil.url(myBaseURL,link.getHref());
     }
     int relType=BookUrlInfo.Format.NONE;

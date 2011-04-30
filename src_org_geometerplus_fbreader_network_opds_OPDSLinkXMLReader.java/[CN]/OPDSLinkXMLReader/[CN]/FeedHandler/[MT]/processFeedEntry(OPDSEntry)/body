@@ -11,25 +11,25 @@
   final HashMap<String,NetworkCatalogItem.Accessibility> urlConditions=new HashMap<String,NetworkCatalogItem.Accessibility>();
   for (  ATOMLink link : entry.Links) {
     final String href=link.getHref();
-    final String type=ZLNetworkUtil.filterMimeType(link.getType());
+    final MimeType type=MimeType.get(link.getType());
     final String rel=link.getRel();
     if (rel == REL_IMAGE_THUMBNAIL || rel == REL_THUMBNAIL) {
-      if (type == MIME_IMAGE_PNG || type == MIME_IMAGE_JPEG) {
+      if (MimeType.IMAGE_PNG.equals(type) || MimeType.IMAGE_JPEG.equals(type)) {
         infos.addInfo(new UrlInfoWithDate(UrlInfo.Type.Thumbnail,href));
       }
     }
  else     if ((rel != null && rel.startsWith(REL_IMAGE_PREFIX)) || rel == REL_COVER) {
-      if (type == MIME_IMAGE_PNG || type == MIME_IMAGE_JPEG) {
+      if (MimeType.IMAGE_PNG.equals(type) || MimeType.IMAGE_JPEG.equals(type)) {
         infos.addInfo(new UrlInfoWithDate(UrlInfo.Type.Image,href));
       }
     }
  else     if (rel == null) {
-      if (type == MIME_APP_ATOM) {
+      if (MimeType.APP_ATOM.equals(type)) {
         infos.addInfo(new UrlInfoWithDate(UrlInfo.Type.Catalog,href));
       }
     }
  else     if (rel == "search") {
-      if (type == MIME_APP_ATOM) {
+      if (MimeType.APP_ATOM.equals(type)) {
         final OpenSearchDescription descr=OpenSearchDescription.createDefault(href);
         if (descr.isValid()) {
           infos.addInfo(new UrlInfoWithDate(UrlInfo.Type.Search,descr.makeQuery("%s")));

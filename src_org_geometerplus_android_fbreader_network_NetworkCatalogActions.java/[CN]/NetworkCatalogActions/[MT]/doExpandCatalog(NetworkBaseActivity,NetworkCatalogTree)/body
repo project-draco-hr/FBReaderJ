@@ -1,5 +1,4 @@
 {
-  final NetworkTree.Key key=tree.getUniqueKey();
   NetworkView.Instance().tryResumeLoading(activity,tree,new Runnable(){
     public void run(){
       boolean resumeNotLoad=false;
@@ -19,8 +18,8 @@
           NetworkView.Instance().fireModelChangedAsync();
         }
       }
-      final ExpandCatalogHandler handler=new ExpandCatalogHandler(tree,key);
-      NetworkView.Instance().startItemsLoading(activity,key,new ExpandCatalogRunnable(handler,tree,true,resumeNotLoad));
+      final ExpandCatalogHandler handler=new ExpandCatalogHandler(tree);
+      ItemsLoadingService.start(activity,tree,new ExpandCatalogRunnable(handler,tree,true,resumeNotLoad));
       processExtraData(activity,tree.Item.extraData(),new Runnable(){
         public void run(){
           Util.openTree(activity,tree);

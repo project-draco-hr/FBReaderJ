@@ -1,7 +1,7 @@
 {
   boolean added=false;
   for (  String mime : opdsLink.Formats) {
-    final int format=formatByMimeType(mime);
+    final int format=formatByMimeType(MimeType.get(mime));
     if (format != BookUrlInfo.Format.NONE) {
       urls.addInfo(new BookBuyUrlInfo(type,format,href,price));
       added=true;
