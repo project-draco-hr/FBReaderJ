@@ -1,8 +1,0 @@
-{
-  if (activity == null) {
-    myOpenedActivities.remove(key);
-  }
- else {
-    myOpenedActivities.put(key,activity);
-  }
-}
