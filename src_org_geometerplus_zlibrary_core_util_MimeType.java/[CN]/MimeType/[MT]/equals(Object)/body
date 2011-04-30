@@ -1,0 +1,10 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (!(o instanceof MimeType)) {
+    return false;
+  }
+  final MimeType type=(MimeType)o;
+  return Name.equals(type.Name) && ZLMiscUtil.mapsEquals(myParameters,type.myParameters);
+}

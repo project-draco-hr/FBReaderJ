@@ -2,20 +2,20 @@
   final UrlInfoCollection urls=new UrlInfoCollection();
   for (  ATOMLink link : entry.Links) {
     final String href=ZLNetworkUtil.url(baseUrl,link.getHref());
-    final String type=ZLNetworkUtil.filterMimeType(link.getType());
+    final MimeType type=MimeType.get(link.getType());
     final String rel=networkLink.relation(link.getRel(),type);
     final UrlInfo.Type referenceType=typeByRelation(rel);
     if (REL_IMAGE_THUMBNAIL.equals(rel) || REL_THUMBNAIL.equals(rel)) {
-      if (MIME_IMAGE_PNG.equals(type) || MIME_IMAGE_JPEG.equals(type)) {
+      if (MimeType.IMAGE_PNG.equals(type) || MimeType.IMAGE_JPEG.equals(type)) {
         urls.addInfo(new UrlInfo(UrlInfo.Type.Thumbnail,href));
       }
     }
  else     if ((rel != null && rel.startsWith(REL_IMAGE_PREFIX)) || REL_COVER.equals(rel)) {
-      if (MIME_IMAGE_PNG.equals(type) || MIME_IMAGE_JPEG.equals(type)) {
+      if (MimeType.IMAGE_PNG.equals(type) || MimeType.IMAGE_JPEG.equals(type)) {
         urls.addInfo(new UrlInfo(UrlInfo.Type.Image,href));
       }
     }
- else     if (MIME_APP_ATOM_ENTRY.equals(type)) {
+ else     if (MimeType.APP_ATOM.Name.equals(type.Name) && "entry".equals(type.getParameter("type"))) {
       urls.addInfo(new UrlInfo(UrlInfo.Type.SingleEntry,href));
     }
  else     if (UrlInfo.Type.BookBuy == referenceType) {
@@ -31,7 +31,7 @@
       if (price == null) {
         price="";
       }
-      if (MIME_TEXT_HTML.equals(type)) {
+      if (MimeType.TEXT_HTML.equals(type)) {
         collectReferences(urls,opdsLink,href,UrlInfo.Type.BookBuyInBrowser,price,true);
       }
  else {
