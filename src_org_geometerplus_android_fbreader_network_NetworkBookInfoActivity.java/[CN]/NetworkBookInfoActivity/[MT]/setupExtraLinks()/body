@@ -17,10 +17,13 @@
       linkView=inflater.inflate(R.layout.extra_link_item,extraLinkSection,false);
       linkView.setOnClickListener(new View.OnClickListener(){
         public void onClick(        View view){
-          if (MimeType.TEXT_HTML.equals(relatedInfo.Mime)) {
+          final NetworkCatalogItem catalogItem=myBook.createRelatedCatalogItem(relatedInfo);
+          if (catalogItem != null) {
+            NetworkCatalogActions.doExpandCatalog(NetworkBookInfoActivity.this,NetworkLibrary.Instance().getFakeCatalogTree(catalogItem));
+          }
+ else           if (MimeType.TEXT_HTML.equals(relatedInfo.Mime)) {
             Util.openInBrowser(NetworkBookInfoActivity.this,relatedInfo.Url);
           }
-          System.err.println(relatedInfo.Url);
         }
       }
 );

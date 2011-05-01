@@ -3,7 +3,13 @@
     return null;
   }
   if (key.Parent == null) {
-    return key.equals(myRootTree.getUniqueKey()) ? myRootTree : null;
+    if (key.equals(myRootTree.getUniqueKey())) {
+      return myRootTree;
+    }
+    if (key.equals(myFakeRootTree.getUniqueKey())) {
+      return myFakeRootTree;
+    }
+    return null;
   }
   final NetworkTree parentTree=getTreeByKey(key.Parent);
   if (parentTree == null) {
