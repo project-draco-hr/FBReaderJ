@@ -1,0 +1,35 @@
+{
+  final List<UrlInfo> extraLinks=myBook.getAllInfos(UrlInfo.Type.Related);
+  if (extraLinks.isEmpty()) {
+    findViewById(R.id.network_book_extra_links_title).setVisibility(View.GONE);
+    findViewById(R.id.network_book_extra_links).setVisibility(View.GONE);
+  }
+ else {
+    setTextFromResource(R.id.network_book_extra_links_title,"extraLinks");
+    final LinearLayout extraLinkSection=(LinearLayout)findViewById(R.id.network_book_extra_links);
+    final LayoutInflater inflater=getLayoutInflater();
+    View linkView=null;
+    for (    UrlInfo info : extraLinks) {
+      if (!(info instanceof RelatedUrlInfo)) {
+        continue;
+      }
+      final RelatedUrlInfo relatedInfo=(RelatedUrlInfo)info;
+      linkView=inflater.inflate(R.layout.extra_link_item,extraLinkSection,false);
+      linkView.setOnClickListener(new View.OnClickListener(){
+        public void onClick(        View view){
+          final NetworkCatalogItem catalogItem=myBook.createRelatedCatalogItem(relatedInfo);
+          if (catalogItem != null) {
+            NetworkCatalogActions.doExpandCatalog(NetworkBookInfoActivity.this,NetworkLibrary.Instance().getFakeCatalogTree(catalogItem));
+          }
+ else           if (MimeType.TEXT_HTML.equals(relatedInfo.Mime)) {
+            Util.openInBrowser(NetworkBookInfoActivity.this,relatedInfo.Url);
+          }
+        }
+      }
+);
+      ((TextView)linkView.findViewById(R.id.extra_link_title)).setText(relatedInfo.Title);
+      extraLinkSection.addView(linkView);
+    }
+    linkView.findViewById(R.id.extra_link_divider).setVisibility(View.GONE);
+  }
+}

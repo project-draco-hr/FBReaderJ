@@ -1,0 +1,5 @@
+{
+  super(type,url);
+  Title=title;
+  Mime=mime;
+}

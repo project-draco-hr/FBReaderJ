@@ -1,0 +1,11 @@
+{
+  while (tree instanceof NetworkAuthorTree || tree instanceof NetworkSeriesTree) {
+    if (tree.Parent instanceof NetworkTree) {
+      tree=(NetworkTree)tree.Parent;
+    }
+ else {
+      return null;
+    }
+  }
+  return tree;
+}

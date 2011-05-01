@@ -24,7 +24,7 @@
   final OPDSNetworkLink opdsLink=(OPDSNetworkLink)myData.Link;
   boolean hasBookLink=false;
   for (  ATOMLink link : entry.Links) {
-    final String type=ZLNetworkUtil.filterMimeType(link.getType());
+    final MimeType type=MimeType.get(link.getType());
     final String rel=opdsLink.relation(link.getRel(),type);
     if (rel == null ? (OPDSBookItem.formatByMimeType(type) != BookUrlInfo.Format.NONE) : (rel.startsWith(REL_ACQUISITION_PREFIX) || rel.startsWith(REL_FBREADER_ACQUISITION_PREFIX))) {
       hasBookLink=true;

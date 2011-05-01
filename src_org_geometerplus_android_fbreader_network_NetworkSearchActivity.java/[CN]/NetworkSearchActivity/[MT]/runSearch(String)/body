@@ -2,7 +2,7 @@
   final NetworkLibrary library=NetworkLibrary.Instance();
   library.NetworkSearchPatternOption.setValue(pattern);
   final SearchItemTree tree=library.getSearchItemTree();
-  if (tree == null || NetworkView.Instance().containsItemsLoadingRunnable(tree.getUniqueKey())) {
+  if (tree == null || ItemsLoadingService.getRunnable(tree) != null) {
     return;
   }
   final String summary=ZLResource.resource("networkView").getResource("searchResults").getValue().replace("%s",pattern);
@@ -10,6 +10,6 @@
   tree.setSearchResult(result);
   NetworkView.Instance().fireModelChangedAsync();
   final SearchHandler handler=new SearchHandler(tree);
-  NetworkView.Instance().startItemsLoading(this,tree.getUniqueKey(),new SearchRunnable(handler,pattern));
+  ItemsLoadingService.start(this,tree,new SearchRunnable(handler,pattern));
   Util.openTree(this,tree);
 }

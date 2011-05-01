@@ -1,5 +1,5 @@
 {
-  if (myTextType == ATOMConstants.TYPE_XHTML || myTextType == MimeTypes.MIME_TEXT_XHTML) {
+  if (ATOMConstants.TYPE_XHTML.equals(myTextType) || MimeType.TEXT_XHTML.Name.equals(myTextType)) {
     if (bufferContent != null) {
       myTextContent.append(bufferContent);
     }

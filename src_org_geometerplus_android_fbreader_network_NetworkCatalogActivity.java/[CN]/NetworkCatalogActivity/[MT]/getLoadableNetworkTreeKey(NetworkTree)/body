@@ -1,6 +1,0 @@
-{
-  if ((tree instanceof NetworkAuthorTree || tree instanceof NetworkSeriesTree) && tree.Parent instanceof NetworkTree) {
-    return getLoadableNetworkTreeKey((NetworkTree)tree.Parent);
-  }
-  return tree.getUniqueKey();
-}

@@ -11,7 +11,7 @@
       }
       final String imageName=imageFile.getLongName();
       modelReader.addImageReference(imageName,(short)0);
-      modelReader.addImage(imageName,new ZLFileImage(MimeTypes.MIME_IMAGE_AUTO,imageFile));
+      modelReader.addImage(imageName,new ZLFileImage(MimeType.IMAGE_AUTO,imageFile));
       if (flag) {
         modelReader.beginParagraph();
       }

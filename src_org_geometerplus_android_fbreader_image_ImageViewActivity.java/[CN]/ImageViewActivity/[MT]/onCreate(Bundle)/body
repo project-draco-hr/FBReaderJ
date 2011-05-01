@@ -10,7 +10,7 @@
   if (ZLFileImage.SCHEME.equals(uri.getScheme())) {
     try {
       final String[] data=uri.getPath().split("\000");
-      final ZLFileImage image=new ZLFileImage("image/auto",ZLFile.createFileByPath(data[0]),Integer.parseInt(data[1]),Integer.parseInt(data[2]));
+      final ZLFileImage image=new ZLFileImage(MimeType.IMAGE_AUTO,ZLFile.createFileByPath(data[0]),Integer.parseInt(data[1]),Integer.parseInt(data[2]));
       final ZLImageData imageData=ZLImageManager.Instance().getImageData(image);
       myBitmap=((ZLAndroidImageData)imageData).getFullSizeBitmap();
     }
