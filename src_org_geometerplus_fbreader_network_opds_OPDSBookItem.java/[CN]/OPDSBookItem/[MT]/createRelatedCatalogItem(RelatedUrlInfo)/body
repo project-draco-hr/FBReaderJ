@@ -1,0 +1,6 @@
+{
+  if (MimeType.APP_ATOM.equals(info.Mime)) {
+    return new OPDSCatalogItem((OPDSNetworkLink)Link,info);
+  }
+  return null;
+}
