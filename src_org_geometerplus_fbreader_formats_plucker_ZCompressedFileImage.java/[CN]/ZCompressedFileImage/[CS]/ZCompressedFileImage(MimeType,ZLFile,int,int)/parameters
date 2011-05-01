@@ -1,0 +1,4 @@
+MimeType mimeType
+ZLFile file
+int offset
+int compressedSize

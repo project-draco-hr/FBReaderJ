@@ -1,0 +1,5 @@
+{
+  final UrlInfoCollection collection=new UrlInfoCollection();
+  collection.addInfo(new UrlInfo(UrlInfo.Type.Catalog,url));
+  return collection;
+}

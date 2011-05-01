@@ -21,8 +21,7 @@ if (ns == XMLNamespaces.DublinCoreTerms) {
     myState=FE_DC_LANGUAGE;
   }
  else   if (tag == DC_TAG_ISSUED) {
-    myDCIssued=new DCDate();
-    myDCIssued.readAttributes(attributes);
+    myDCIssued=new DCDate(attributes);
     myState=FE_DC_ISSUED;
   }
  else   if (tag == DC_TAG_PUBLISHER) {

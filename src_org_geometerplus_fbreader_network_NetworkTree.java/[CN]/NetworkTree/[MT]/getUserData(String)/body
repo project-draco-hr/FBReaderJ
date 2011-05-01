@@ -1,0 +1,3 @@
+{
+  return myUserData != null ? myUserData.get(key) : null;
+}

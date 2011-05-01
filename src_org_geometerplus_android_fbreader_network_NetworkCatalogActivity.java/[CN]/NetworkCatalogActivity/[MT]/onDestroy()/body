@@ -1,6 +1,4 @@
 {
-  if (myTree != null && NetworkView.Instance().isInitialized()) {
-    NetworkView.Instance().setOpenedActivity(myTree.getUniqueKey(),null);
-  }
+  setForTree(myTree,null);
   super.onDestroy();
 }

@@ -12,9 +12,9 @@
   }
   final OPDSNetworkLink opdsLink=(OPDSNetworkLink)myData.Link;
   for (  ATOMLink link : feed.Links) {
-    final String type=ZLNetworkUtil.filterMimeType(link.getType());
+    final MimeType type=MimeType.get(link.getType());
     final String rel=opdsLink.relation(link.getRel(),type);
-    if (MIME_APP_ATOM.equals(type) && "next".equals(rel)) {
+    if (MimeType.APP_ATOM.equals(type) && "next".equals(rel)) {
       myNextURL=ZLNetworkUtil.url(myBaseURL,link.getHref());
     }
   }

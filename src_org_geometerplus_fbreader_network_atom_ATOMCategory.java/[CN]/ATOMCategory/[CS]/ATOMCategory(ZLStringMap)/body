@@ -1,0 +1,6 @@
+{
+  super(source);
+  readAttribute(TERM,source);
+  readAttribute(SCHEME,source);
+  readAttribute(LABEL,source);
+}

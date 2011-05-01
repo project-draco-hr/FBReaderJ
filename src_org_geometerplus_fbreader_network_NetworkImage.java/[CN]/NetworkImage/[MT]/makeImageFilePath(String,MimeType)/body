@@ -1,0 +1,84 @@
+{
+  URI uri;
+  try {
+    uri=new URI(url);
+  }
+ catch (  URISyntaxException ex) {
+    return null;
+  }
+  String host=uri.getHost();
+  StringBuilder path=new StringBuilder(host);
+  if (host.startsWith("www.")) {
+    path.delete(0,4);
+  }
+  path.insert(0,File.separator);
+  path.insert(0,Paths.networkCacheDirectory());
+  int index=path.length();
+  path.append(uri.getPath());
+  int nameIndex=index;
+  while (index < path.length()) {
+    char ch=path.charAt(index);
+    if (TOESCAPE.indexOf(ch) != -1) {
+      path.setCharAt(index,'_');
+    }
+    if (ch == '/') {
+      if (index + 1 == path.length()) {
+        path.deleteCharAt(index);
+      }
+ else {
+        path.setCharAt(index,'_');
+        nameIndex=index + 1;
+      }
+    }
+    ++index;
+  }
+  String ext=null;
+  if (MimeType.IMAGE_PNG.equals(mimeType)) {
+    ext=".png";
+  }
+ else   if (MimeType.IMAGE_JPEG.equals(mimeType)) {
+    if (path.length() > 5 && path.substring(path.length() - 5).equals(".jpeg")) {
+      ext=".jpeg";
+    }
+ else {
+      ext=".jpg";
+    }
+  }
+  if (ext == null) {
+    int j=path.lastIndexOf(".");
+    if (j > nameIndex) {
+      ext=path.substring(j);
+      path.delete(j,path.length());
+    }
+ else {
+      ext="";
+    }
+  }
+ else   if (path.length() > ext.length() && path.substring(path.length() - ext.length()).equals(ext)) {
+    path.delete(path.length() - ext.length(),path.length());
+  }
+  String query=uri.getQuery();
+  if (query != null) {
+    index=0;
+    while (index < query.length()) {
+      int j=query.indexOf("&",index);
+      if (j == -1) {
+        j=query.length();
+      }
+      String param=query.substring(index,j);
+      if (!param.startsWith("username=") && !param.startsWith("password=") && !param.endsWith("=")) {
+        int k=path.length();
+        path.append("_").append(param);
+        while (k < path.length()) {
+          char ch=path.charAt(k);
+          if (TOESCAPE.indexOf(ch) != -1 || ch == '/') {
+            path.setCharAt(k,'_');
+          }
+          ++k;
+        }
+      }
+      index=j + 1;
+    }
+  }
+  return path.append(ext).toString();
+}

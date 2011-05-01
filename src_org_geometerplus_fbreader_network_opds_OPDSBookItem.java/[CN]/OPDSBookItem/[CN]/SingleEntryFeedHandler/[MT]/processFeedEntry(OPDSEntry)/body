@@ -1,0 +1,4 @@
+{
+  addUrls(getUrls((OPDSNetworkLink)Link,entry,myUrl));
+  return false;
+}
