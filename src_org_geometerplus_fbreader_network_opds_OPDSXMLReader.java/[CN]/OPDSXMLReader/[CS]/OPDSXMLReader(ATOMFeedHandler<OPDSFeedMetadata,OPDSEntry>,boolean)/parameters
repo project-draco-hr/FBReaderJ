@@ -1,0 +1,2 @@
+ATOMFeedHandler<OPDSFeedMetadata,OPDSEntry> handler
+boolean readEntryNotFeed

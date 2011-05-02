@@ -1,0 +1,12 @@
+{
+  if (MimeType.APP_FB2ZIP.equals(type)) {
+    return BookUrlInfo.Format.FB2_ZIP;
+  }
+ else   if (MimeType.APP_EPUB.equals(type)) {
+    return BookUrlInfo.Format.EPUB;
+  }
+ else   if (MimeType.APP_MOBI.equals(type)) {
+    return BookUrlInfo.Format.MOBIPOCKET;
+  }
+  return BookUrlInfo.Format.NONE;
+}

@@ -15,7 +15,7 @@
  else     if (COVER_IMAGE == type) {
       final String href=attributes.getValue("href");
       if (href != null) {
-        myImage=new ZLFileImage(MIME_IMAGE_AUTO,ZLFile.createFileByPath(myPathPrefix + MiscUtil.decodeHtmlReference(href)));
+        myImage=new ZLFileImage(MimeType.IMAGE_AUTO,ZLFile.createFileByPath(myPathPrefix + MiscUtil.decodeHtmlReference(href)));
         return true;
       }
     }

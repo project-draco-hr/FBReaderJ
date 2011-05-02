@@ -9,7 +9,7 @@
     if (coverFile != null) {
       final String ext=coverFile.getExtension();
       if ("gif".equals(ext) || "jpg".equals(ext) || "jpeg".equals(ext)) {
-        myImage=new ZLFileImage(MIME_IMAGE_AUTO,coverFile);
+        myImage=new ZLFileImage(MimeType.IMAGE_AUTO,coverFile);
       }
  else {
         myXHTMLPathPrefix=MiscUtil.htmlDirectoryPrefix(coverFile);

@@ -1,0 +1,4 @@
+{
+  myInfos.removeAll(other.myInfos);
+  myInfos.addAll(other.myInfos);
+}

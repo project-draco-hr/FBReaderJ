@@ -1,0 +1,11 @@
+{
+  super(mimeType);
+  myDirName=Paths.cacheDirectory();
+  new File(myDirName).mkdirs();
+  myFileNumber=ourCounter++;
+  try {
+    myStreamWriter=new OutputStreamWriter(new FileOutputStream(encodedFileName()),"UTF-8");
+  }
+ catch (  IOException e) {
+  }
+}

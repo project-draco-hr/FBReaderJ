@@ -1,0 +1,13 @@
+{
+  final ItemsLoadingRunnable runnable=ItemsLoadingService.getRunnable(tree);
+  if (runnable != null && runnable.tryResumeLoading()) {
+    Util.openTree(activity,tree);
+    return;
+  }
+  if (runnable == null) {
+    expandRunnable.run();
+  }
+ else {
+    runnable.runOnFinish(expandRunnable);
+  }
+}

@@ -1,0 +1,9 @@
+{
+  super(source);
+  readAttribute(HREF,source);
+  readAttribute(REL,source);
+  readAttribute(TYPE,source);
+  readAttribute(HREFLANG,source);
+  readAttribute(TITLE,source);
+  readAttribute(LENGTH,source);
+}

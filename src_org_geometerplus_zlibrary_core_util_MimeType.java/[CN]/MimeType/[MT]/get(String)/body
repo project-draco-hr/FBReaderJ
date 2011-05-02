@@ -1,0 +1,29 @@
+{
+  if (text == null) {
+    return NULL;
+  }
+  final String[] items=text.split(";");
+  if (items.length == 0) {
+    return NULL;
+  }
+  final String name=items[0].intern();
+  Map<String,String> parameters=null;
+  for (int i=1; i < items.length; ++i) {
+    final String[] pair=items[i].split("=");
+    if (pair.length == 2) {
+      if (parameters == null) {
+        parameters=new TreeMap<String,String>();
+      }
+      parameters.put(pair[0].trim(),pair[1].trim());
+    }
+  }
+  if (parameters == null) {
+    MimeType type=ourSimpleTypesMap.get(name);
+    if (type == null) {
+      type=new MimeType(name,null);
+      ourSimpleTypesMap.put(name,type);
+    }
+    return type;
+  }
+  return new MimeType(name,parameters);
+}

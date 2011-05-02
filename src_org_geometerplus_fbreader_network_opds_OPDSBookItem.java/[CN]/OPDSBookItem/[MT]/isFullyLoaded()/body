@@ -1,0 +1,3 @@
+{
+  return myInformationIsFull || getUrl(UrlInfo.Type.SingleEntry) == null;
+}

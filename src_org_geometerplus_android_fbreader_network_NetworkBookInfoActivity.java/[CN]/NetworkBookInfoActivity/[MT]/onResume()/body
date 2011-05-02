@@ -20,6 +20,7 @@
     bindService(new Intent(getApplicationContext(),BookDownloaderService.class),myConnection,BIND_AUTO_CREATE);
     setTitle(myBook.Title);
     setupDescription();
+    setupExtraLinks();
     setupInfo();
     setupCover();
     setupButtons();

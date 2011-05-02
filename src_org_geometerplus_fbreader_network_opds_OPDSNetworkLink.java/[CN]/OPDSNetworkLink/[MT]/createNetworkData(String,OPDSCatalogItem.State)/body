@@ -8,7 +8,7 @@
       if (result.Listener.confirmInterrupt()) {
         return;
       }
-      new OPDSXMLReader(new OPDSFeedHandler(getURL(),result)).read(inputStream);
+      new OPDSXMLReader(new OPDSFeedHandler(getURL(),result),false).read(inputStream);
       if (result.Listener.confirmInterrupt()) {
         if (!myHasStableIdentifiers && result.LastLoadedId != null) {
           result.LastLoadedId=null;
