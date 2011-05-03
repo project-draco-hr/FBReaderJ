@@ -1,5 +1,0 @@
-{
-  if (NetworkView.Instance().isInitialized()) {
-    NetworkView.Instance().fireModelChangedAsync();
-  }
-}

@@ -1,6 +1,0 @@
-{
-  myTree.updateSubTrees();
-  if (NetworkView.Instance().isInitialized()) {
-    NetworkView.Instance().fireModelChangedAsync();
-  }
-}

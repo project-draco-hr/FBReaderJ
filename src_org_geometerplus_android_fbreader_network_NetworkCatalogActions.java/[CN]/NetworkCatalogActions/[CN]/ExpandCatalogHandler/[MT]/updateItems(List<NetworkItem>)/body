@@ -3,4 +3,5 @@
     myTree.ChildrenItems.add(item);
     NetworkTreeFactory.createNetworkTree(myTree,item);
   }
+  NetworkView.Instance().fireModelChanged();
 }
