@@ -10,6 +10,6 @@
   tree.setSearchResult(result);
   NetworkView.Instance().fireModelChangedAsync();
   final SearchHandler handler=new SearchHandler(tree);
-  ItemsLoadingService.start(this,tree,new SearchRunnable(handler,pattern));
+  ItemsLoadingService.start(this,tree,new SearchRunnable(this,handler,pattern));
   Util.openTree(this,tree);
 }

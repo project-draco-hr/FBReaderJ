@@ -19,7 +19,7 @@
         }
       }
       final ExpandCatalogHandler handler=new ExpandCatalogHandler(activity,tree);
-      ItemsLoadingService.start(activity,tree,new ExpandCatalogRunnable(handler,tree,true,resumeNotLoad));
+      ItemsLoadingService.start(activity,tree,new ExpandCatalogRunnable(activity,handler,tree,true,resumeNotLoad));
       processExtraData(activity,tree.Item.extraData(),new Runnable(){
         public void run(){
           Util.openTree(activity,tree);
