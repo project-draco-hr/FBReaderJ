@@ -7,11 +7,11 @@
     myTree.removeItems(uncommitedItems);
     myTree.updateLoadedTime();
     if (!interrupted) {
-      afterUpdateCatalog(errorMessage,myTree.ChildrenItems.size() == 0);
+      NetworkView.Instance().fireModelChanged();
     }
     final NetworkLibrary library=NetworkLibrary.Instance();
     library.invalidateVisibility();
     library.synchronize();
   }
-  NetworkView.Instance().fireModelChangedAsync();
+  NetworkView.Instance().fireModelChanged();
 }

@@ -1,8 +1,8 @@
 {
 synchronized (myItemsMonitor) {
-    onUpdateItems(myItems);
+    System.err.println("doUpdateItems in " + Thread.currentThread());
+    updateItems(myItems);
     myItems.clear();
     myItemsMonitor.notifyAll();
   }
-  afterUpdateItems();
 }

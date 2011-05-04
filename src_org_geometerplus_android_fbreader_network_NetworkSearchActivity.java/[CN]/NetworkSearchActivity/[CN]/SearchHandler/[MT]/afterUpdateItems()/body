@@ -1,4 +1,0 @@
-{
-  myTree.updateSubTrees();
-  NetworkView.Instance().fireModelChangedAsync();
-}
