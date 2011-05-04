@@ -1,4 +1,5 @@
 {
+  myBitmapManager.setSize(myWidth,myHeight);
   final long start=System.currentTimeMillis();
   drawInternal(canvas);
   myDrawInfos.add(new DrawInfo(myEndX,myEndY,start,System.currentTimeMillis()));
