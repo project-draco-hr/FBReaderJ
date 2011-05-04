@@ -1,7 +1,4 @@
 {
-  if (!NetworkView.Instance().isInitialized()) {
-    return;
-  }
   final NetworkCatalogActivity activity=NetworkCatalogActivity.getByTree(myTree);
   if (activity == null) {
     return;
