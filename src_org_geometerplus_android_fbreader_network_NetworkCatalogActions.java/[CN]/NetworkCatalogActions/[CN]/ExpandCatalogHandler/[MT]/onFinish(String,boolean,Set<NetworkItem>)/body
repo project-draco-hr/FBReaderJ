@@ -13,7 +13,5 @@
     library.invalidateVisibility();
     library.synchronize();
   }
-  if (NetworkView.Instance().isInitialized()) {
-    NetworkView.Instance().fireModelChangedAsync();
-  }
+  NetworkView.Instance().fireModelChangedAsync();
 }

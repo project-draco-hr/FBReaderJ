@@ -1,6 +1,6 @@
 {
-  final Runnable onSuccess=myAfterRegisrationMap.get(activity);
-  myAfterRegisrationMap.remove(activity);
+  final Runnable onSuccess=ourAfterRegisrationMap.get(activity);
+  ourAfterRegisrationMap.remove(activity);
 switch (resultCode) {
 case AuthenticationActivity.RESULT_CANCELED:
     UIUtil.wait("signOut",new Runnable(){
