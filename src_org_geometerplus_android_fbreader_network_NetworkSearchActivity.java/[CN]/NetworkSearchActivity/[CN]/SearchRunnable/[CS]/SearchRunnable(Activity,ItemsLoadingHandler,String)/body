@@ -1,4 +1,0 @@
-{
-  super(activity,handler);
-  myPattern=pattern;
-}

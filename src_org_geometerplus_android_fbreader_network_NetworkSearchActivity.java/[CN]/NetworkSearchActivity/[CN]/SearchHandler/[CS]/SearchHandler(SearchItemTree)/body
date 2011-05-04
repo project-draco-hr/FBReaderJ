@@ -1,4 +1,0 @@
-{
-  super(NetworkSearchActivity.this);
-  myTree=tree;
-}

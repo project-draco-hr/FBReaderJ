@@ -1,5 +1,5 @@
 {
-  super(activity,handler);
+  super(activity);
   myTree=tree;
   myCheckAuthentication=checkAuthentication;
   myResumeNotLoad=resumeNotLoad;

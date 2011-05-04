@@ -3,7 +3,7 @@
     doBefore();
   }
  catch (  ZLNetworkException e) {
-    myHandler.sendFinish(e.getMessage(),false);
+    sendFinish(e.getMessage(),false);
     return;
   }
   String error=null;
@@ -12,7 +12,7 @@
       private long myUpdateTime;
       private int myItemsNumber;
       public void onNewItem(      INetworkLink link,      NetworkItem item){
-        myHandler.addItem(link,item);
+        addItem(link,item);
         ++myItemsNumber;
         final long now=System.currentTimeMillis();
         if (now > myUpdateTime) {
@@ -24,7 +24,7 @@
         return confirmInterruptLoading();
       }
       public void commitItems(      INetworkLink link){
-        myHandler.commitItems(link);
+        commitItems(link);
       }
     }
 );
@@ -33,7 +33,7 @@
     error=e.getMessage();
   }
   updateItemsOnUiThread();
-  myHandler.ensureItemsProcessed();
-  myHandler.sendFinish(error,isLoadingInterrupted());
-  myHandler.ensureFinishProcessed();
+  ensureItemsProcessed();
+  sendFinish(error,isLoadingInterrupted());
+  ensureFinishProcessed();
 }

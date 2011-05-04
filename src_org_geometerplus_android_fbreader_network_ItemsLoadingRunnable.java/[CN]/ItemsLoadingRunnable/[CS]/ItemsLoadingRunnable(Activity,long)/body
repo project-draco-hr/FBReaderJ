@@ -1,5 +1,4 @@
 {
   myActivity=activity;
-  myHandler=handler;
   myUpdateInterval=updateIntervalMillis;
 }
