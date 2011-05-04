@@ -3,7 +3,7 @@
     doBefore();
   }
  catch (  ZLNetworkException e) {
-    sendFinish(e.getMessage(),false);
+    finishOnUiThread(e.getMessage(),false);
     return;
   }
   String error=null;
@@ -24,7 +24,7 @@
         return confirmInterruptLoading();
       }
       public void commitItems(      INetworkLink link){
-        commitItems(link);
+        ItemsLoader.this.commitItems(link);
       }
     }
 );
@@ -34,6 +34,6 @@
   }
   updateItemsOnUiThread();
   ensureItemsProcessed();
-  sendFinish(error,isLoadingInterrupted());
+  finishOnUiThread(error,isLoadingInterrupted());
   ensureFinishProcessed();
 }

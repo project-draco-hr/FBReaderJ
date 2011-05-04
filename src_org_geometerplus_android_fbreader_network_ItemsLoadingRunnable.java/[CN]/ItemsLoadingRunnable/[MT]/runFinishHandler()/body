@@ -1,8 +1,0 @@
-{
-synchronized (myFinishedLock) {
-    if (myFinishedHandler != null) {
-      myFinishedHandler.sendEmptyMessage(0);
-    }
-    myFinished=true;
-  }
-}
