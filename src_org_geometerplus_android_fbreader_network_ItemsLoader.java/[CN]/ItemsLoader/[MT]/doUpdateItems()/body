@@ -1,7 +1,0 @@
-{
-synchronized (myItemsMonitor) {
-    updateItems(myItems);
-    myItems.clear();
-    myItemsMonitor.notifyAll();
-  }
-}

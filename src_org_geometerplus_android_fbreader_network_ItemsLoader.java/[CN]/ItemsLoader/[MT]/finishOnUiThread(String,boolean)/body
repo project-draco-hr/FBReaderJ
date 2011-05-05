@@ -1,7 +1,17 @@
 {
   myActivity.runOnUiThread(new Runnable(){
     public void run(){
-      doProcessFinish(errorMessage,interrupted);
+      HashSet<NetworkItem> uncommitedItems=new HashSet<NetworkItem>();
+synchronized (myUncommitedItems) {
+        for (        LinkedList<NetworkItem> items : myUncommitedItems.values()) {
+          uncommitedItems.addAll(items);
+        }
+      }
+synchronized (myFinishMonitor) {
+        onFinish(errorMessage,interrupted,uncommitedItems);
+        myFinishProcessed=true;
+        myFinishMonitor.notifyAll();
+      }
     }
   }
 );
