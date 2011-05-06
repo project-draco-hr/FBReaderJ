@@ -1,21 +1,18 @@
 {
-  final Handler handler=new Handler(){
-    public void handleMessage(    Message message){
-      final NetworkLibrary library=NetworkLibrary.Instance();
-      library.invalidateVisibility();
-      library.synchronize();
-      if (NetworkView.Instance().isInitialized()) {
-        NetworkView.Instance().fireModelChanged();
-      }
-    }
-  }
-;
   final NetworkAuthenticationManager mgr=tree.Item.Link.authenticationManager();
   final Runnable runnable=new Runnable(){
     public void run(){
       if (mgr.mayBeAuthorised(false)) {
         mgr.logOut();
-        handler.sendEmptyMessage(0);
+        activity.runOnUiThread(new Runnable(){
+          public void run(){
+            final NetworkLibrary library=NetworkLibrary.Instance();
+            library.invalidateVisibility();
+            library.synchronize();
+            NetworkView.Instance().fireModelChanged();
+          }
+        }
+);
       }
     }
   }

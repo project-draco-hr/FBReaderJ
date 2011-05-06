@@ -5,6 +5,5 @@
   tree.ChildrenItems.clear();
   tree.clear();
   NetworkView.Instance().fireModelChangedAsync();
-  final ExpandCatalogHandler handler=new ExpandCatalogHandler(tree);
-  ItemsLoadingService.start(activity,tree,new ExpandCatalogRunnable(handler,tree,false,false));
+  ItemsLoadingService.start(activity,tree,new CatalogExpander(activity,tree,false,false));
 }

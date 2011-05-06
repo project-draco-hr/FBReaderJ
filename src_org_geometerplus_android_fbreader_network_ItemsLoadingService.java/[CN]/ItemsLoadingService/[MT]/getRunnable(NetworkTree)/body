@@ -1,3 +1,3 @@
 {
-  return (ItemsLoadingRunnable)tree.getUserData(KEY);
+  return (ItemsLoader)tree.getUserData(KEY);
 }

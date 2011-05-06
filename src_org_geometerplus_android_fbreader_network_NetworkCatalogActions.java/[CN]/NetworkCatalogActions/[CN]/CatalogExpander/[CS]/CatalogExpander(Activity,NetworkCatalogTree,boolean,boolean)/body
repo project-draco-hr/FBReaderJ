@@ -1,0 +1,6 @@
+{
+  super(activity);
+  myTree=tree;
+  myCheckAuthentication=checkAuthentication;
+  myResumeNotLoad=resumeNotLoad;
+}

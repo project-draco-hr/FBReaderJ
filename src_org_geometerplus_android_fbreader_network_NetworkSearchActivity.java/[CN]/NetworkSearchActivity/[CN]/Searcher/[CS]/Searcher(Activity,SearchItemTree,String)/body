@@ -1,0 +1,5 @@
+{
+  super(activity);
+  myTree=tree;
+  myPattern=pattern;
+}

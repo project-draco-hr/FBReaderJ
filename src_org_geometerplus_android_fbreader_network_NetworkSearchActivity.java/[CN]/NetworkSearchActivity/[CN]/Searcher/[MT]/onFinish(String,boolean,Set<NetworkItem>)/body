@@ -1,0 +1,10 @@
+{
+  if (interrupted) {
+    myTree.setSearchResult(null);
+  }
+ else {
+    myTree.updateSubTrees();
+    afterUpdateCatalog(errorMessage,myTree.getSearchResult().isEmpty());
+  }
+  NetworkView.Instance().fireModelChanged();
+}

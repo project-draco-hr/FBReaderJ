@@ -1,0 +1,12 @@
+{
+  final NetworkCatalogActivity activity=NetworkCatalogActivity.getByTree(myTree);
+  if (activity == null) {
+    return;
+  }
+  if (errorMessage != null) {
+    UIUtil.showErrorMessageText(activity,errorMessage);
+  }
+ else   if (childrenEmpty) {
+    UIUtil.showErrorMessage(activity,"emptyCatalog");
+  }
+}

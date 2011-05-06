@@ -1,0 +1,13 @@
+{
+  if (myFinishRunnable != null) {
+    return;
+  }
+synchronized (myFinishedLock) {
+    if (myFinished) {
+      runnable.run();
+    }
+ else {
+      myFinishRunnable=runnable;
+    }
+  }
+}

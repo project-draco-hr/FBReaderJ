@@ -1,7 +1,7 @@
 {
   Link=link;
   Title=title;
-  Summary=summary;
+  setSummary(summary);
   if (urls != null && !urls.isEmpty()) {
     myURLs=new UrlInfoCollection(urls);
   }

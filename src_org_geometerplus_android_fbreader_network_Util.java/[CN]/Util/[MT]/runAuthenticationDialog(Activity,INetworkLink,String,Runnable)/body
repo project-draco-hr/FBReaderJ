@@ -8,7 +8,7 @@
   intent.putExtra(AuthenticationActivity.SCHEME_KEY,"https");
   intent.putExtra(AuthenticationActivity.ERROR_KEY,error);
   if (onSuccess != null) {
-    myAfterRegisrationMap.put(activity,onSuccess);
+    ourAfterRegisrationMap.put(activity,onSuccess);
   }
   activity.startActivityForResult(intent,NetworkBaseActivity.CUSTOM_AUTHENTICATION_CODE);
 }

@@ -1,5 +1,6 @@
 {
   initUser("","","");
+  myInitializedDataSid=null;
   myPurchasedBookMap.clear();
   myPurchasedBookList.clear();
 }

@@ -1,4 +1,8 @@
 {
   addUrls(getUrls((OPDSNetworkLink)Link,entry,myUrl));
+  final String summary=getAnnotation(entry);
+  if (summary != null) {
+    setSummary(summary);
+  }
   return false;
 }
