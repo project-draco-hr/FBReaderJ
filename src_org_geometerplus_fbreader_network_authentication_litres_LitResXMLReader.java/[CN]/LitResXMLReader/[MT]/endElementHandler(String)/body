@@ -90,12 +90,13 @@ myState=TITLE_INFO;
 }
 break;
 case ANNOTATION:
+myHtmlToString.appendText(bufferContent);
 if (TAG_ANNOTATION == tag) {
-mySummary=myHtmlToString.finishTextContent(bufferContent);
+mySummary=myHtmlToString.finishTextContent();
 myState=TITLE_INFO;
 }
  else {
-myHtmlToString.processTextContent(true,tag,null,bufferContent);
+myHtmlToString.processTextContent(true,tag,null);
 }
 break;
 case DATE:

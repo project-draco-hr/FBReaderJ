@@ -1,7 +1,4 @@
 {
-  if (bufferContent != null) {
-    myTextContent.append(bufferContent);
-  }
   char[] contentArray=myTextContent.toString().trim().toCharArray();
   String result;
   if (contentArray.length == 0) {

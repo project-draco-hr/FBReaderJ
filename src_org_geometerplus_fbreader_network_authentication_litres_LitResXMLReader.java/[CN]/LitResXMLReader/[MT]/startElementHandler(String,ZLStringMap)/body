@@ -85,7 +85,8 @@ myState=LAST_NAME;
 }
 break;
 case ANNOTATION:
-myHtmlToString.processTextContent(false,tag,attributes,bufferContent);
+myHtmlToString.appendText(bufferContent);
+myHtmlToString.processTextContent(false,tag,attributes);
 break;
 }
 return false;

@@ -1,20 +1,9 @@
 {
   if (ATOMConstants.TYPE_XHTML.equals(myTextType) || MimeType.TEXT_XHTML.Name.equals(myTextType)) {
-    if (bufferContent != null) {
-      myTextContent.append(bufferContent);
-    }
     if (closeTag) {
-      final int index=myTextContent.length() - 1;
-      if (tag == myLastOpenedTag && bufferContent == null && myTextContent.charAt(index) == '>') {
-        myTextContent.insert(index,'/');
-      }
- else {
-        myTextContent.append("</").append(tag).append(">");
-      }
-      myLastOpenedTag=null;
+      myTextContent.append("</").append(tag).append(">");
     }
  else {
-      myLastOpenedTag=tag;
       StringBuilder buffer=new StringBuilder("<").append(tag);
       for (int i=0; i < attributes.getSize(); ++i) {
         final String key=attributes.getKey(i);
@@ -27,11 +16,6 @@
       }
       buffer.append(" >");
       myTextContent.append(buffer.toString());
-    }
-  }
- else {
-    if (bufferContent != null) {
-      myTextContent.append(bufferContent);
     }
   }
 }
