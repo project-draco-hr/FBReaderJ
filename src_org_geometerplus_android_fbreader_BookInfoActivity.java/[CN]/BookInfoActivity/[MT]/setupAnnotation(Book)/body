@@ -8,6 +8,6 @@
   }
  else {
     titleView.setText(myResource.getResource("annotation").getValue());
-    bodyView.setText(annotation);
+    bodyView.setText(Html.fromHtml(annotation));
   }
 }
