@@ -1,3 +1,0 @@
-{
-  NetworkLibrary.Instance().simpleSearch(myPattern,doWithListener);
-}

@@ -1,6 +1,4 @@
 {
-  if (Item.Summary == null) {
-    return "";
-  }
-  return Item.Summary;
+  final String summary=Item.getSummary();
+  return summary != null ? summary : "";
 }

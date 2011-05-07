@@ -11,7 +11,7 @@
     doStop();
     return;
   }
-  final ItemsLoadingRunnable runnable=getRunnable(tree);
+  final ItemsLoader runnable=getRunnable(tree);
   if (runnable == null) {
     doStop();
     return;
@@ -20,9 +20,7 @@
     public void handleMessage(    Message message){
       doStop();
       removeRunnable(tree);
-      if (NetworkView.Instance().isInitialized()) {
-        NetworkView.Instance().fireModelChangedAsync();
-      }
+      NetworkView.Instance().fireModelChanged();
     }
   }
 ;

@@ -1,0 +1,39 @@
+{
+  try {
+    doBefore();
+  }
+ catch (  ZLNetworkException e) {
+    finishOnUiThread(e.getMessage(),false);
+    return;
+  }
+  String error=null;
+  try {
+    doLoading(new NetworkOperationData.OnNewItemListener(){
+      private long myUpdateTime;
+      private int myItemsNumber;
+      public void onNewItem(      INetworkLink link,      NetworkItem item){
+        addItem(link,item);
+        ++myItemsNumber;
+        final long now=System.currentTimeMillis();
+        if (now > myUpdateTime) {
+          updateItemsOnUiThread();
+          myUpdateTime=now + myUpdateInterval;
+        }
+      }
+      public boolean confirmInterrupt(){
+        return confirmInterruptLoading();
+      }
+      public void commitItems(      INetworkLink link){
+        ItemsLoader.this.commitItems(link);
+      }
+    }
+);
+  }
+ catch (  ZLNetworkException e) {
+    error=e.getMessage();
+  }
+  updateItemsOnUiThread();
+  ensureItemsProcessed();
+  finishOnUiThread(error,isLoadingInterrupted());
+  ensureFinishProcessed();
+}

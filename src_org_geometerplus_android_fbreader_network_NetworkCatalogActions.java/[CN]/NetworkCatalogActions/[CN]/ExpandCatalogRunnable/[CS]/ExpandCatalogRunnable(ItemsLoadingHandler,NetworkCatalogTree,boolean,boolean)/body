@@ -1,6 +1,0 @@
-{
-  super(handler);
-  myTree=tree;
-  myCheckAuthentication=checkAuthentication;
-  myResumeNotLoad=resumeNotLoad;
-}

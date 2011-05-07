@@ -1,6 +1,0 @@
-{
-  for (  NetworkItem item : items) {
-    myTree.ChildrenItems.add(item);
-    NetworkTreeFactory.createNetworkTree(myTree,item);
-  }
-}

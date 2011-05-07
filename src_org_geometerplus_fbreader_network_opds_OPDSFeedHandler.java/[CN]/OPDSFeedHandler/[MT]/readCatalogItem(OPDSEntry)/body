@@ -8,7 +8,7 @@
     final String href=ZLNetworkUtil.url(myBaseURL,link.getHref());
     final MimeType type=MimeType.get(link.getType());
     final String rel=opdsLink.relation(link.getRel(),type);
-    if (MimeType.IMAGE_PNG.equals(type) || MimeType.IMAGE_JPEG.equals(type)) {
+    if (MimeType.IMAGE_PNG.weakEquals(type) || MimeType.IMAGE_JPEG.weakEquals(type)) {
       if (REL_IMAGE_THUMBNAIL.equals(rel) || REL_THUMBNAIL.equals(rel)) {
         urlMap.addInfo(new UrlInfo(UrlInfo.Type.Thumbnail,href));
       }
@@ -16,7 +16,7 @@
         urlMap.addInfo(new UrlInfo(UrlInfo.Type.Image,href));
       }
     }
- else     if (MimeType.APP_ATOM.equals(type)) {
+ else     if (MimeType.APP_ATOM.weakEquals(type)) {
       final boolean hasCatalogUrl=urlMap.getInfo(UrlInfo.Type.Catalog) != null;
       if (REL_ALTERNATE.equals(rel)) {
         if (!hasCatalogUrl) {
@@ -35,12 +35,12 @@
         }
       }
     }
- else     if (MimeType.TEXT_HTML.equals(type)) {
+ else     if (MimeType.TEXT_HTML.weakEquals(type)) {
       if (REL_ACQUISITION.equals(rel) || REL_ACQUISITION_OPEN.equals(rel) || REL_ALTERNATE.equals(rel)|| rel == null) {
         urlMap.addInfo(new UrlInfo(UrlInfo.Type.HtmlPage,href));
       }
     }
- else     if (MimeType.APP_LITRES.equals(type)) {
+ else     if (MimeType.APP_LITRES.weakEquals(type)) {
       urlMap.addInfo(new UrlInfo(UrlInfo.Type.Catalog,href));
       litresRel=rel;
     }

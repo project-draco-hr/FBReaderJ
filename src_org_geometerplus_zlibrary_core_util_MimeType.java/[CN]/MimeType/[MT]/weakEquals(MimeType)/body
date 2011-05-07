@@ -1,0 +1,3 @@
+{
+  return ZLMiscUtil.equals(Name,type.Name);
+}
