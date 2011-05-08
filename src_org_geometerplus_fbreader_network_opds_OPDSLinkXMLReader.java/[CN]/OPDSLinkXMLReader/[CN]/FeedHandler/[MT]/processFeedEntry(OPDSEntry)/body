@@ -4,8 +4,8 @@
     return false;
   }
   final String siteName=id.substring(ENTRY_ID_PREFIX.length());
-  final String title=entry.Title;
-  final String summary=entry.Content;
+  final CharSequence title=entry.Title;
+  final CharSequence summary=entry.Content;
   final String language=entry.DCLanguage;
   final UrlInfoCollection<UrlInfoWithDate> infos=new UrlInfoCollection<UrlInfoWithDate>();
   final HashMap<String,NetworkCatalogItem.Accessibility> urlConditions=new HashMap<String,NetworkCatalogItem.Accessibility>();

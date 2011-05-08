@@ -1,6 +1,6 @@
 {
   Link=link;
-  Title=title;
+  Title=title != null ? title : "";
   setSummary(summary);
   if (urls != null && !urls.isEmpty()) {
     myURLs=new UrlInfoCollection(urls);

@@ -1,8 +1,8 @@
 INetworkLink link
 String id
 int index
-String title
-String summary
+CharSequence title
+CharSequence summary
 List<AuthorData> authors
 List<String> tags
 String seriesTitle

@@ -1,6 +1,6 @@
 String siteName
-String title
-String summary
+CharSequence title
+CharSequence summary
 String language
 UrlInfoCollection<UrlInfoWithDate> infos
 HashMap<String,NetworkCatalogItem.Accessibility> urlConditions

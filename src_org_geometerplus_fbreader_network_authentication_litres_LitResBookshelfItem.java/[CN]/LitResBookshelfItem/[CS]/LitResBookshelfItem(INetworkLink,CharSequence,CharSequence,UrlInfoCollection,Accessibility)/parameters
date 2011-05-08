@@ -1,6 +1,5 @@
 INetworkLink link
-String title
-String summary
+CharSequence title
+CharSequence summary
 UrlInfoCollection urls
 Accessibility accessibility
-int flags

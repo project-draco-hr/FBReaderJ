@@ -1,6 +1,6 @@
-INetworkLink link
-String title
-String summary
+OPDSNetworkLink link
+CharSequence title
+CharSequence summary
 UrlInfoCollection urls
 Accessibility accessibility
 int flags

@@ -18,7 +18,8 @@ case CATALOG:
 case BOOK:
 if (TAG_BOOK == tag) {
   Books.add(new NetworkBookItem(Link,myBookId,myIndex++,myTitle,mySummary,myAuthors,myTags,mySeriesTitle,myIndexInSeries,myUrls));
-  myBookId=myTitle=mySeriesTitle=mySummary=null;
+  myBookId=myTitle=mySeriesTitle=null;
+  mySummary=null;
   myIndexInSeries=0;
   myAuthors.clear();
   myTags.clear();

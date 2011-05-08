@@ -2,7 +2,9 @@
   if (siteName == null || title == null || infos.getInfo(UrlInfo.Type.Catalog) == null) {
     return null;
   }
-  OPDSNetworkLink opdsLink=new OPDSNetworkLink(siteName,title,summary,language,infos,myHasStableIdentifiers);
+  final String titleString=title.toString();
+  final String summaryString=summary != null ? summary.toString() : null;
+  OPDSNetworkLink opdsLink=new OPDSNetworkLink(siteName,titleString,summaryString,language,infos,myHasStableIdentifiers);
   opdsLink.setRelationAliases(myRelationAliases);
   opdsLink.setUrlConditions(urlConditions);
   opdsLink.setUrlRewritingRules(myUrlRewritingRules);

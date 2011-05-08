@@ -1,5 +1,5 @@
 OPDSNetworkLink link
-String title
-String summary
+CharSequence title
+CharSequence summary
 UrlInfoCollection urls
 Map<String,String> extraData

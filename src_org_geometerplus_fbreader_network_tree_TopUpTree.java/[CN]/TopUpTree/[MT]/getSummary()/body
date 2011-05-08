@@ -3,9 +3,9 @@
   try {
     if (mgr.isAuthorised(false)) {
       final String account=mgr.currentAccount();
-      final String summary=Item.getSummary();
+      final CharSequence summary=Item.getSummary();
       if (account != null && summary != null) {
-        return summary.replace("%s",account);
+        return summary.toString().replace("%s",account);
       }
     }
   }
