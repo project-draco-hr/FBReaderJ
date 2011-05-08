@@ -48,7 +48,7 @@ myState=FEL_FORMAT;
 break;
 case FE_CONTENT:
 myHtmlToString.appendText(bufferContent);
-myHtmlToString.processTextContent(false,tag,attributes);
+myHtmlToString.appendStartTag(tag,attributes);
 if (tag == TAG_HACK_SPAN || attributes.getValue("class") == "price") {
 myState=FEC_HACK_SPAN;
 }

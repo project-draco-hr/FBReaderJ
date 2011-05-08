@@ -9,8 +9,7 @@
   }
   if (result != null) {
     if (ATOMConstants.TYPE_HTML.equals(myTextType) || ATOMConstants.TYPE_XHTML.equals(myTextType) || MimeType.TEXT_HTML.Name.equals(myTextType)|| MimeType.TEXT_XHTML.Name.equals(myTextType)) {
-      myHtmlToStringReader.readFromString(result);
-      result=myHtmlToStringReader.getString();
+      result=Html.fromHtml(new String(contentArray)).toString();
     }
   }
   myTextType=null;

@@ -63,27 +63,27 @@ break;
 case F_TITLE:
 myHtmlToString.appendText(bufferContent);
 if (ns == XMLNamespaces.Atom && tag == TAG_TITLE) {
-final String title=myHtmlToString.finishTextContent();
+final String title=myHtmlToString.getText();
 if (myFeed != null) {
 myFeed.Title=title;
 }
 myState=FEED;
 }
  else {
-myHtmlToString.processTextContent(true,tag,null);
+myHtmlToString.appendEndTag(tag);
 }
 break;
 case F_SUBTITLE:
 myHtmlToString.appendText(bufferContent);
 if (ns == XMLNamespaces.Atom && tag == TAG_SUBTITLE) {
-final String subtitle=myHtmlToString.finishTextContent();
+final String subtitle=myHtmlToString.getText();
 if (myFeed != null) {
 myFeed.Subtitle=subtitle;
 }
 myState=FEED;
 }
  else {
-myHtmlToString.processTextContent(true,tag,null);
+myHtmlToString.appendEndTag(tag);
 }
 break;
 case F_UPDATED:
@@ -185,31 +185,31 @@ break;
 case FE_SUMMARY:
 myHtmlToString.appendText(bufferContent);
 if (ns == XMLNamespaces.Atom && tag == TAG_SUMMARY) {
-myEntry.Summary=myHtmlToString.finishTextContent();
+myEntry.Summary=myHtmlToString.getText();
 myState=F_ENTRY;
 }
  else {
-myHtmlToString.processTextContent(true,tag,null);
+myHtmlToString.appendEndTag(tag);
 }
 break;
 case FE_CONTENT:
 myHtmlToString.appendText(bufferContent);
 if (ns == XMLNamespaces.Atom && tag == TAG_CONTENT) {
-myEntry.Content=myHtmlToString.finishTextContent();
+myEntry.Content=myHtmlToString.getText();
 myState=F_ENTRY;
 }
  else {
-myHtmlToString.processTextContent(true,tag,null);
+myHtmlToString.appendEndTag(tag);
 }
 break;
 case FE_TITLE:
 myHtmlToString.appendText(bufferContent);
 if (ns == XMLNamespaces.Atom && tag == TAG_TITLE) {
-myEntry.Title=myHtmlToString.finishTextContent();
+myEntry.Title=myHtmlToString.getText();
 myState=F_ENTRY;
 }
  else {
-myHtmlToString.processTextContent(true,tag,null);
+myHtmlToString.appendEndTag(tag);
 }
 break;
 case FE_UPDATED:

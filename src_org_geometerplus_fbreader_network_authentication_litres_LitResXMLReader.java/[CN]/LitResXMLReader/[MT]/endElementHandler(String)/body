@@ -92,11 +92,11 @@ break;
 case ANNOTATION:
 myHtmlToString.appendText(bufferContent);
 if (TAG_ANNOTATION == tag) {
-mySummary=myHtmlToString.finishTextContent();
+mySummary=myHtmlToString.getText();
 myState=TITLE_INFO;
 }
  else {
-myHtmlToString.processTextContent(true,tag,null);
+myHtmlToString.appendEndTag(tag);
 }
 break;
 case DATE:

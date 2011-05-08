@@ -124,7 +124,7 @@ case FE_TITLE:
 case F_TITLE:
 case F_SUBTITLE:
 myHtmlToString.appendText(bufferContent);
-myHtmlToString.processTextContent(false,tag,attributes);
+myHtmlToString.appendStartTag(tag,attributes);
 break;
 default :
 break;

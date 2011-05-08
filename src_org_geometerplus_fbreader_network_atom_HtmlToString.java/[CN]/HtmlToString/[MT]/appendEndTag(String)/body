@@ -1,0 +1,3 @@
+{
+  myTextContent.append("</").append(tag).append(">");
+}

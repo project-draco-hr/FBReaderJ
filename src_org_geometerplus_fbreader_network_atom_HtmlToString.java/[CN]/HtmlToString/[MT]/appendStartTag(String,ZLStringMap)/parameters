@@ -1,3 +1,2 @@
-boolean closeTag
 String tag
 ZLStringMap attributes
