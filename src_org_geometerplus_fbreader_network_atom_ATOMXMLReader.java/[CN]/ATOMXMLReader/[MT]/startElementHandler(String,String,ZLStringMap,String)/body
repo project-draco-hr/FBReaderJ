@@ -32,11 +32,11 @@ if (ns == XMLNamespaces.Atom) {
     myState=F_CATEGORY;
   }
  else   if (tag == TAG_TITLE) {
-    myHtmlToString.setupTextContent(attributes.getValue("type"));
+    setFormattingType(attributes.getValue("type"));
     myState=F_TITLE;
   }
  else   if (tag == TAG_SUBTITLE) {
-    myHtmlToString.setupTextContent(attributes.getValue("type"));
+    setFormattingType(attributes.getValue("type"));
     myState=F_SUBTITLE;
   }
  else   if (tag == TAG_UPDATED) {
@@ -76,15 +76,15 @@ myPublished=new ATOMPublished(attributes);
 myState=FE_PUBLISHED;
 }
  else if (tag == TAG_SUMMARY) {
-myHtmlToString.setupTextContent(attributes.getValue("type"));
+setFormattingType(attributes.getValue("type"));
 myState=FE_SUMMARY;
 }
  else if (tag == TAG_CONTENT) {
-myHtmlToString.setupTextContent(attributes.getValue("type"));
+setFormattingType(attributes.getValue("type"));
 myState=FE_CONTENT;
 }
  else if (tag == TAG_TITLE) {
-myHtmlToString.setupTextContent(attributes.getValue("type"));
+setFormattingType(attributes.getValue("type"));
 myState=FE_TITLE;
 }
  else if (tag == TAG_UPDATED) {

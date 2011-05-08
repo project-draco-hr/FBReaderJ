@@ -1,6 +1,5 @@
 {
   final String text=myBuffer.toString();
-  myBuffer.delete(0,myBuffer.length());
 switch (myType) {
 case Html:
 case XHtml:

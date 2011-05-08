@@ -1,12 +1,11 @@
 {
   if (ATOMConstants.TYPE_HTML.equals(type) || MimeType.TEXT_HTML.Name.equals(type)) {
-    myType=Type.Html;
+    myHtmlToString.reset(FormattedBuffer.Type.Html);
   }
  else   if (ATOMConstants.TYPE_XHTML.equals(type) || MimeType.TEXT_XHTML.Name.equals(type)) {
-    myType=Type.XHtml;
+    myHtmlToString.reset(FormattedBuffer.Type.XHtml);
   }
  else {
-    myType=Type.Text;
+    myHtmlToString.reset(FormattedBuffer.Type.Text);
   }
-  myBuffer.delete(0,myBuffer.length());
 }

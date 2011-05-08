@@ -1,0 +1,3 @@
+{
+  myBuffer.delete(0,myBuffer.length());
+}
