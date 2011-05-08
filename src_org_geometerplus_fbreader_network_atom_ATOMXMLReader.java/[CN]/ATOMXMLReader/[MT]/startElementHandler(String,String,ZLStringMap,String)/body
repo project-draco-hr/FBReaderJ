@@ -123,8 +123,8 @@ case FE_SUMMARY:
 case FE_TITLE:
 case F_TITLE:
 case F_SUBTITLE:
-myHtmlToString.appendText(bufferContent);
-myHtmlToString.appendStartTag(tag,attributes);
+myFormattedBuffer.appendText(bufferContent);
+myFormattedBuffer.appendStartTag(tag,attributes);
 break;
 default :
 break;
