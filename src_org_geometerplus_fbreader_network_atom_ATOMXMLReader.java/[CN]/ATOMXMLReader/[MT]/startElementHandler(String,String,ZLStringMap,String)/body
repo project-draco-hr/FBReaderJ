@@ -119,6 +119,7 @@ myState=FEA_EMAIL;
 }
 }
 break;
+case FE_CONTENT:
 case FE_SUMMARY:
 case FE_TITLE:
 case F_TITLE:
