@@ -8,7 +8,7 @@
   }
  else {
     titleView.setText(myResource.getResource("annotation").getValue());
-    bodyView.setText(Html.fromHtml(annotation));
+    bodyView.setText(HtmlUtil.getHtmlText(annotation));
     bodyView.setMovementMethod(new LinkMovementMethod());
   }
 }
