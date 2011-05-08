@@ -11,7 +11,7 @@
       if (fdiff != 0) {
         return fdiff > 0 ? 1 : -1;
       }
-      return book0.Title.compareTo(book1.Title);
+      return book0.Title.toString().compareTo(book1.Title.toString());
     }
   }
 ;

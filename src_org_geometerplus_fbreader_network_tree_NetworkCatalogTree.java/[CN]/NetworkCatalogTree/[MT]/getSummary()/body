@@ -1,4 +1,4 @@
 {
-  final String summary=Item.getSummary();
-  return summary != null ? summary : "";
+  final CharSequence summary=Item.getSummary();
+  return summary != null ? summary.toString() : "";
 }

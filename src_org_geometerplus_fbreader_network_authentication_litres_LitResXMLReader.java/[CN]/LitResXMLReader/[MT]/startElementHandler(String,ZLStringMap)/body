@@ -1,14 +1,5 @@
 {
   tag=tag.intern();
-  final char[] bufferContentArray=myBuffer.toString().trim().toCharArray();
-  final String bufferContent;
-  if (bufferContentArray.length == 0) {
-    bufferContent=null;
-  }
- else {
-    bufferContent=new String(bufferContentArray);
-  }
-  myBuffer.delete(0,myBuffer.length());
 switch (myState) {
 case START:
     if (TAG_CATALOG == tag) {
@@ -49,7 +40,6 @@ myState=AUTHOR;
 myState=BOOK_TITLE;
 }
  else if (TAG_ANNOTATION == tag) {
-myHtmlToString.setupTextContent(MimeType.TEXT_XHTML.Name);
 myState=ANNOTATION;
 }
  else if (TAG_DATE == tag) {
@@ -85,8 +75,10 @@ myState=LAST_NAME;
 }
 break;
 case ANNOTATION:
-myHtmlToString.processTextContent(false,tag,attributes,bufferContent);
+myAnnotationBuffer.appendText(myBuffer);
+myAnnotationBuffer.appendStartTag(tag,attributes);
 break;
 }
+myBuffer.delete(0,myBuffer.length());
 return false;
 }

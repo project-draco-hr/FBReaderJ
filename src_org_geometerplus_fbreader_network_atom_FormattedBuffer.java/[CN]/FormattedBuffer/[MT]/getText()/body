@@ -1,0 +1,10 @@
+{
+  final String text=myBuffer.toString();
+switch (myType) {
+case Html:
+case XHtml:
+    return Html.fromHtml(text);
+default :
+  return text;
+}
+}

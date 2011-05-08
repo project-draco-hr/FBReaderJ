@@ -1,0 +1,13 @@
+{
+  myBuffer.append("<").append(tag);
+  for (int i=0; i < attributes.getSize(); ++i) {
+    final String key=attributes.getKey(i);
+    final String value=attributes.getValue(key);
+    myBuffer.append(" ").append(key).append("=\"");
+    if (value != null) {
+      myBuffer.append(value);
+    }
+    myBuffer.append("\"");
+  }
+  myBuffer.append(">");
+}

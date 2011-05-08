@@ -19,7 +19,9 @@ if (ns == XMLNamespaces.DublinCoreTerms && tag == DC_TAG_FORMAT) {
 }
 break;
 case FEC_HACK_SPAN:
-myHtmlToString.processTextContent(true,tag,null,bufferContent);
+myFormattedBuffer.appendText(bufferContent);
+myFormattedBuffer.appendEndTag(tag);
+myFormattedBuffer.appendText("<br/>");
 if (bufferContent != null) {
 getOPDSEntry().addAttribute(KEY_PRICE,bufferContent.intern());
 }

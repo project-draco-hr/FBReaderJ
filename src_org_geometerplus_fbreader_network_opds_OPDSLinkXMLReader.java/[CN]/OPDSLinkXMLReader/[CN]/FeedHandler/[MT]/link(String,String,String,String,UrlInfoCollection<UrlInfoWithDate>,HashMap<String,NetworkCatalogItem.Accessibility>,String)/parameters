@@ -1,7 +1,0 @@
-String siteName
-String title
-String summary
-String language
-UrlInfoCollection<UrlInfoWithDate> infos
-HashMap<String,NetworkCatalogItem.Accessibility> urlConditions
-String sslCertificate
