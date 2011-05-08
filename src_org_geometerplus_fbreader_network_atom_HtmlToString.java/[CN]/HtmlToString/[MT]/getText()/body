@@ -1,18 +1,11 @@
 {
-  char[] contentArray=myTextContent.toString().trim().toCharArray();
-  String result;
-  if (contentArray.length == 0) {
-    result=null;
-  }
- else {
-    result=new String(contentArray);
-  }
-  if (result != null) {
-    if (ATOMConstants.TYPE_HTML.equals(myTextType) || ATOMConstants.TYPE_XHTML.equals(myTextType) || MimeType.TEXT_HTML.Name.equals(myTextType)|| MimeType.TEXT_XHTML.Name.equals(myTextType)) {
-      result=Html.fromHtml(new String(contentArray)).toString();
-    }
-  }
-  myTextType=null;
-  myTextContent.delete(0,myTextContent.length());
-  return result;
+  final String text=myBuffer.toString();
+  myBuffer.delete(0,myBuffer.length());
+switch (myType) {
+case Html:
+case XHtml:
+    return Html.fromHtml(text).toString();
+default :
+  return text;
+}
 }

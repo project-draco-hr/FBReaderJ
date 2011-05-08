@@ -1,13 +1,13 @@
 {
-  myTextContent.append("<").append(tag);
+  myBuffer.append("<").append(tag);
   for (int i=0; i < attributes.getSize(); ++i) {
     final String key=attributes.getKey(i);
     final String value=attributes.getValue(key);
-    myTextContent.append(" ").append(key).append("=\"");
+    myBuffer.append(" ").append(key).append("=\"");
     if (value != null) {
-      myTextContent.append(value);
+      myBuffer.append(value);
     }
-    myTextContent.append("\"");
+    myBuffer.append("\"");
   }
-  myTextContent.append(">");
+  myBuffer.append(">");
 }

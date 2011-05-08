@@ -1,5 +1,5 @@
 {
   if (text != null) {
-    myTextContent.append(text);
+    myBuffer.append(text);
   }
 }
