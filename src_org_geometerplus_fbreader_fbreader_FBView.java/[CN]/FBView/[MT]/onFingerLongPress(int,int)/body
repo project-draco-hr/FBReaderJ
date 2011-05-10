@@ -2,14 +2,22 @@
   if (super.onFingerLongPress(x,y)) {
     return true;
   }
-  if (myReader.DictionaryTappingActionOption.getValue() != FBReaderApp.DictionaryTappingAction.doNothing) {
-    final ZLTextElementRegion region=findRegion(x,y,10,ZLTextElementRegion.AnyRegionFilter);
-    if (region != null) {
-      selectRegion(region);
-      myReader.getViewWidget().reset();
-      myReader.getViewWidget().repaint();
-      return true;
-    }
+  final ZLTextElementRegion region=findRegion(x,y,10,ZLTextElementRegion.AnyRegionFilter);
+  boolean doSelectRegion=false;
+  if (region instanceof ZLTextWordRegion) {
+    doSelectRegion=myReader.DictionaryTappingActionOption.getValue() != FBReaderApp.DictionaryTappingAction.doNothing;
+  }
+ else   if (region instanceof ZLTextImageRegion) {
+    doSelectRegion=myReader.ImageTappingActionOption.getValue() != FBReaderApp.ImageTappingAction.doNothing;
+  }
+ else   if (region instanceof ZLTextHyperlinkRegion) {
+    doSelectRegion=true;
+  }
+  if (doSelectRegion) {
+    selectRegion(region);
+    myReader.getViewWidget().reset();
+    myReader.getViewWidget().repaint();
+    return true;
   }
   return false;
 }

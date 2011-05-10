@@ -1,5 +1,5 @@
 {
-  myPaint.setColor(Color.rgb(128,128,128));
+  myPaint.setColor(ZLAndroidColorUtil.rgb(myBgColor));
   final int w=getWidth();
   final int h=getHeight();
   canvas.drawRect(0,0,w,h,myPaint);
