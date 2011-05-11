@@ -2,7 +2,7 @@
   if (mySelectedRegion == null) {
     return null;
   }
-  final ArrayList<ZLTextElementRegion> elementRegions=myCurrentPage.TextElementMap.ElementRegions;
+  final ArrayList<ZLTextRegion> elementRegions=myCurrentPage.TextElementMap.ElementRegions;
   if (elementRegions.isEmpty()) {
     return null;
   }

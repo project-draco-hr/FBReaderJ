@@ -1,0 +1,4 @@
+int x
+int y
+int maxDistance
+ZLTextRegion.Filter filter

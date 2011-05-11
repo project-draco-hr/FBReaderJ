@@ -1,5 +1,5 @@
 {
-  final ArrayList<ZLTextElementRegion> elementRegions=myCurrentPage.TextElementMap.ElementRegions;
+  final ArrayList<ZLTextRegion> elementRegions=myCurrentPage.TextElementMap.ElementRegions;
   if (elementRegions.isEmpty()) {
     return null;
   }
@@ -31,7 +31,7 @@ break;
 switch (direction) {
 case rightToLeft:
 for (; index >= 0; --index) {
-final ZLTextElementRegion candidate=elementRegions.get(index);
+final ZLTextRegion candidate=elementRegions.get(index);
 if (filter.accepts(candidate) && candidate.isAtLeftOf(mySelectedRegion)) {
 return candidate;
 }
@@ -39,7 +39,7 @@ return candidate;
 break;
 case leftToRight:
 for (; index < elementRegions.size(); ++index) {
-final ZLTextElementRegion candidate=elementRegions.get(index);
+final ZLTextRegion candidate=elementRegions.get(index);
 if (filter.accepts(candidate) && candidate.isAtRightOf(mySelectedRegion)) {
 return candidate;
 }
@@ -47,9 +47,9 @@ return candidate;
 break;
 case down:
 {
-ZLTextElementRegion firstCandidate=null;
+ZLTextRegion firstCandidate=null;
 for (; index < elementRegions.size(); ++index) {
-final ZLTextElementRegion candidate=elementRegions.get(index);
+final ZLTextRegion candidate=elementRegions.get(index);
 if (!filter.accepts(candidate)) {
 continue;
 }
@@ -66,9 +66,9 @@ return firstCandidate;
 break;
 }
 case up:
-ZLTextElementRegion firstCandidate=null;
+ZLTextRegion firstCandidate=null;
 for (; index >= 0; --index) {
-final ZLTextElementRegion candidate=elementRegions.get(index);
+final ZLTextRegion candidate=elementRegions.get(index);
 if (!filter.accepts(candidate)) {
 continue;
 }

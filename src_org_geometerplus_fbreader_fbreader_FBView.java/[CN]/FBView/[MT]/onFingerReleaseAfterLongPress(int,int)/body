@@ -3,7 +3,7 @@
     return true;
   }
   boolean doRunAction=false;
-  final ZLTextElementRegion region=getSelectedRegion();
+  final ZLTextRegion region=getSelectedRegion();
   if (region instanceof ZLTextWordRegion) {
     doRunAction=myReader.DictionaryTappingActionOption.getValue() == FBReaderApp.DictionaryTappingAction.openDictionary;
   }
