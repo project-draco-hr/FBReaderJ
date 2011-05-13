@@ -2,12 +2,15 @@
   if (super.onFingerMoveAfterLongPress(x,y)) {
     return true;
   }
-  if (myReader.DictionaryTappingActionOption.getValue() != FBReaderApp.DictionaryTappingAction.doNothing) {
-    final ZLTextElementRegion region=findRegion(x,y,10,ZLTextElementRegion.AnyRegionFilter);
-    if (region != null) {
-      selectRegion(region);
-      myReader.getViewWidget().reset();
-      myReader.getViewWidget().repaint();
+  final ZLTextRegion selectedRegion=getSelectedRegion();
+  if (selectedRegion instanceof ZLTextHyperlinkRegion || selectedRegion instanceof ZLTextWordRegion) {
+    if (myReader.DictionaryTappingActionOption.getValue() != FBReaderApp.DictionaryTappingAction.doNothing) {
+      final ZLTextRegion region=findRegion(x,y,10,ZLTextRegion.AnyRegionFilter);
+      if (region instanceof ZLTextHyperlinkRegion || region instanceof ZLTextWordRegion) {
+        selectRegion(region);
+        myReader.getViewWidget().reset();
+        myReader.getViewWidget().repaint();
+      }
     }
   }
   return true;

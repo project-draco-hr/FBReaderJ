@@ -3,7 +3,7 @@
 switch (myType) {
 case Html:
 case XHtml:
-    return Html.fromHtml(text);
+    return HtmlUtil.getHtmlText(text);
 default :
   return text;
 }

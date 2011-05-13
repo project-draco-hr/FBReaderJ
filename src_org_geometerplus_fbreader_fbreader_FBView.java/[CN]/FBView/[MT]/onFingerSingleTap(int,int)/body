@@ -2,7 +2,7 @@
   if (super.onFingerSingleTap(x,y)) {
     return true;
   }
-  final ZLTextElementRegion region=findRegion(x,y,10,ZLTextElementRegion.HyperlinkFilter);
+  final ZLTextRegion region=findRegion(x,y,10,ZLTextRegion.HyperlinkFilter);
   if (region != null) {
     selectRegion(region);
     myReader.getViewWidget().reset();
