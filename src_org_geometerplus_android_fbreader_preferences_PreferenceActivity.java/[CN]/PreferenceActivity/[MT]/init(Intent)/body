@@ -20,6 +20,7 @@
 );
   statusBarPreferences.add(appearanceScreen.addOption(androidApp.ShowStatusBarWhenMenuIsActiveOption,"showStatusBarWhenMenuIsActive"));
   statusBarPreferences.setEnabled(!androidApp.ShowStatusBarOption.getValue());
+  appearanceScreen.addOption(androidApp.DisableButtonLightsOption,"disableButtonLights");
   final Screen textScreen=createPreferenceScreen("text");
   final ZLTextStyleCollection collection=ZLTextStyleCollection.Instance();
   final ZLTextBaseStyle baseStyle=collection.getBaseStyle();
