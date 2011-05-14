@@ -3,6 +3,7 @@
     WallpaperOption=new ZLStringOption("Colors",name + ":Wallpaper","");
     BackgroundOption=createOption(name,"Background",0,0,0);
     SelectionBackgroundOption=createOption(name,"SelectionBackground",82,131,194);
+    SelectionForegroundOption=createOption(name,"SelectionForeground",0,0,0);
     HighlightingOption=createOption(name,"Highlighting",96,96,128);
     RegularTextOption=createOption(name,"Text",192,192,192);
     HyperlinkTextOption=createOption(name,"Hyperlink",60,142,224);
@@ -13,6 +14,7 @@
     WallpaperOption=new ZLStringOption("Colors",name + ":Wallpaper","wallpapers/sepia.jpg");
     BackgroundOption=createOption(name,"Background",255,255,255);
     SelectionBackgroundOption=createOption(name,"SelectionBackground",82,131,194);
+    SelectionForegroundOption=createOption(name,"SelectionForeground",0,0,0);
     HighlightingOption=createOption(name,"Highlighting",255,192,128);
     RegularTextOption=createOption(name,"Text",0,0,0);
     HyperlinkTextOption=createOption(name,"Hyperlink",60,139,255);
