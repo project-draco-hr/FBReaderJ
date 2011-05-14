@@ -1,7 +1,0 @@
-{
-  stopSelectionScrolling();
-  myIsEmpty=true;
-  myIsActive=false;
-  myDoUpdate=false;
-  myText.delete(0,myText.length());
-}

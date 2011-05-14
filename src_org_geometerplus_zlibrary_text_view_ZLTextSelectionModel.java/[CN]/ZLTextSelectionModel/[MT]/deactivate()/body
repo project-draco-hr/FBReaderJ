@@ -1,5 +1,0 @@
-{
-  stopSelectionScrolling();
-  myIsActive=false;
-  myDoUpdate=false;
-}

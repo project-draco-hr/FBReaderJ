@@ -1,7 +1,0 @@
-{
-  if (myIsEmpty) {
-    return true;
-  }
-  Range range=getRange();
-  return !range.Left.Exists || !range.Right.Exists || (range.Left.equalsTo(range.Right));
-}
