@@ -1,4 +1,3 @@
 {
   super(application);
-  mySelectionModel=new ZLTextSelectionModel(this);
 }

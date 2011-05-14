@@ -46,9 +46,6 @@ prepareTextLine(page,info,y);
 y+=info.Height + info.Descent + info.VSpaceAfter;
 labels[++index]=page.TextElementMap.size();
 }
-if (page == myCurrentPage) {
-mySelectionModel.update();
-}
 y=getTopMargin();
 index=0;
 for (ZLTextLineInfo info : lineInfos) {
