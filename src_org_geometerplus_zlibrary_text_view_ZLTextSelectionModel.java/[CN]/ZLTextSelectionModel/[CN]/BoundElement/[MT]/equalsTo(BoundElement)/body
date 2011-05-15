@@ -1,3 +1,0 @@
-{
-  return (Exists == be.Exists) && (ParagraphIndex == be.ParagraphIndex) && (ElementIndex == be.ElementIndex)&& (CharIndex == be.CharIndex);
-}

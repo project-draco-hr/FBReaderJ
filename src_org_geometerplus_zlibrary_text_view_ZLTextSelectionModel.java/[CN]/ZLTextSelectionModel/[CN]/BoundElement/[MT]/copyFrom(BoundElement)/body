@@ -1,6 +1,0 @@
-{
-  Exists=original.Exists;
-  ParagraphIndex=original.ParagraphIndex;
-  ElementIndex=original.ElementIndex;
-  CharIndex=original.CharIndex;
-}
