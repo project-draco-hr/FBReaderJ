@@ -1,4 +1,0 @@
-{
-  Before.copyFrom(original.Before);
-  After.copyFrom(original.After);
-}
