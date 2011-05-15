@@ -1,3 +1,0 @@
-{
-  Toast.makeText(getApplicationContext(),getResource().getResource(key).getValue().replace("%s",parameter),Toast.LENGTH_SHORT).show();
-}
