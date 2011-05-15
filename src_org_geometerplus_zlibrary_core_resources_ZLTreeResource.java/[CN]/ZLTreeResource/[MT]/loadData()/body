@@ -1,0 +1,5 @@
+{
+  ResourceTreeReader reader=new ResourceTreeReader();
+  loadData(reader,ourLanguage + ".xml");
+  loadData(reader,ourLanguage + "_" + ourCountry+ ".xml");
+}
