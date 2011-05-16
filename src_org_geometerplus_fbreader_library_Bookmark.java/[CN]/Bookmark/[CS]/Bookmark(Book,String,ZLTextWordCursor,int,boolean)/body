@@ -1,4 +1,3 @@
 {
-  this(book,modelId,cursor,createBookmarkText(cursor,maxLength));
-  IsVisible=isVisible;
+  this(book,modelId,cursor,createBookmarkText(cursor,maxLength),isVisible);
 }

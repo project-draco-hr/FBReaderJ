@@ -6,6 +6,6 @@
   myText=text;
   myCreationDate=new Date();
   ModelId=modelId;
-  IsVisible=true;
+  IsVisible=isVisible;
   myIsChanged=true;
 }
