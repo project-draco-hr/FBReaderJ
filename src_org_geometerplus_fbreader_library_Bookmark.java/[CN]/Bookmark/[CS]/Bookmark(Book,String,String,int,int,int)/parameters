@@ -1,6 +1,0 @@
-Book book
-String modelId
-String text
-int paragraphIndex
-int elementIndex
-int charIndex

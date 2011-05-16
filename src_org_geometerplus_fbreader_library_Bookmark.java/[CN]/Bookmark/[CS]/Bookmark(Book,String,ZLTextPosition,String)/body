@@ -1,5 +1,5 @@
 {
-  super(paragraphIndex,elementIndex,charIndex);
+  super(position);
   myId=-1;
   myBookId=book.getId();
   myBookTitle=book.getTitle();
