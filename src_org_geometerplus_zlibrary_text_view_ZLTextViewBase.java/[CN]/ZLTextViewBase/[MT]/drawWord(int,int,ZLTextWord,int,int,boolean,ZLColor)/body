@@ -1,6 +1,6 @@
 {
   final ZLPaintContext context=myContext;
-  context.setTextColor(getTextColor(myTextStyle.Hyperlink));
+  context.setTextColor(color);
   if ((start == 0) && (length == -1)) {
     drawString(x,y,word.Data,word.Offset,word.Length,word.getMark(),0);
   }
