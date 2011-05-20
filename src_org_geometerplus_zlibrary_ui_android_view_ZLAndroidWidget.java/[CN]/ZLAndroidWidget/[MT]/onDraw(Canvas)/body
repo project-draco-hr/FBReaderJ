@@ -7,8 +7,6 @@
     System.err.println("A surprise: view's context is not a ZLAndroidActivity");
   }
   super.onDraw(canvas);
-  final int w=getWidth();
-  final int h=getMainAreaHeight();
   if (getAnimationProvider().inProgress()) {
     onDrawInScrolling(canvas);
   }

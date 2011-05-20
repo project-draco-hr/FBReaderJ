@@ -1,6 +1,6 @@
 {
   final OPDSNetworkLink opdsLink=(OPDSNetworkLink)myData.Link;
-  final UrlInfoCollection urlMap=new UrlInfoCollection();
+  final UrlInfoCollection<UrlInfo> urlMap=new UrlInfoCollection<UrlInfo>();
   boolean urlIsAlternate=false;
   String litresRel=null;
   int catalogType=NetworkCatalogItem.FLAGS_DEFAULT;

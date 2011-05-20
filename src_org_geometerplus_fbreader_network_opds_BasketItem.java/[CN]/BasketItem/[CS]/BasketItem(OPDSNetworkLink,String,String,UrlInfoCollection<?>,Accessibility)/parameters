@@ -1,0 +1,5 @@
+OPDSNetworkLink link
+String title
+String summary
+UrlInfoCollection<?> urls
+Accessibility accessibility

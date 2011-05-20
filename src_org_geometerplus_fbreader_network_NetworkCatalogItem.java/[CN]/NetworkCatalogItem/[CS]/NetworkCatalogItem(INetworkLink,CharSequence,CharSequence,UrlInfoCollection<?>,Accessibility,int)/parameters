@@ -1,0 +1,6 @@
+INetworkLink link
+CharSequence title
+CharSequence summary
+UrlInfoCollection<?> urls
+Accessibility accessibility
+int flags
