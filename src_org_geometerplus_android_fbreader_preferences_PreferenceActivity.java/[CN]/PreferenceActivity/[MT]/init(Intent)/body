@@ -144,7 +144,7 @@
   final Screen dictionaryScreen=createPreferenceScreen("dictionary");
   dictionaryScreen.addPreference(new DictionaryPreference(this,dictionaryScreen.Resource,"dictionary"));
   dictionaryScreen.addPreference(new ZLBooleanPreference(this,fbReader.NavigateAllWordsOption,dictionaryScreen.Resource,"navigateOverAllWords"));
-  dictionaryScreen.addOption(fbReader.DictionaryTappingActionOption,"tappingAction");
+  dictionaryScreen.addOption(fbReader.WordTappingActionOption,"tappingAction");
   final Screen imagesScreen=createPreferenceScreen("images");
   imagesScreen.addOption(fbReader.ImageTappingActionOption,"tappingAction");
   imagesScreen.addOption(fbReader.ImageViewBackgroundOption,"backgroundColor");

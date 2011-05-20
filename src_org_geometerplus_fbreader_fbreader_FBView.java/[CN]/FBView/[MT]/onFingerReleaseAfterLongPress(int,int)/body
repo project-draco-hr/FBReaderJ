@@ -5,7 +5,7 @@
   boolean doRunAction=false;
   final ZLTextRegion region=getSelectedRegion();
   if (region instanceof ZLTextWordRegion) {
-    doRunAction=myReader.DictionaryTappingActionOption.getValue() == FBReaderApp.DictionaryTappingAction.openDictionary;
+    doRunAction=myReader.WordTappingActionOption.getValue() == FBReaderApp.WordTappingAction.openDictionary;
   }
  else   if (region instanceof ZLTextImageRegion) {
     doRunAction=myReader.ImageTappingActionOption.getValue() == FBReaderApp.ImageTappingAction.openImageView;

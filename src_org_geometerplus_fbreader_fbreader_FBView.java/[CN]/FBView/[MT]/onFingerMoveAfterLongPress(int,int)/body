@@ -4,7 +4,7 @@
   }
   final ZLTextRegion selectedRegion=getSelectedRegion();
   if (selectedRegion instanceof ZLTextHyperlinkRegion || selectedRegion instanceof ZLTextWordRegion) {
-    if (myReader.DictionaryTappingActionOption.getValue() != FBReaderApp.DictionaryTappingAction.doNothing) {
+    if (myReader.WordTappingActionOption.getValue() != FBReaderApp.WordTappingAction.doNothing) {
       final ZLTextRegion region=findRegion(x,y,MAX_SELECTION_DISTANCE,ZLTextRegion.AnyRegionFilter);
       if (region instanceof ZLTextHyperlinkRegion || region instanceof ZLTextWordRegion) {
         selectRegion(region);

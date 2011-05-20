@@ -5,7 +5,7 @@
   final ZLTextRegion region=findRegion(x,y,MAX_SELECTION_DISTANCE,ZLTextRegion.AnyRegionFilter);
   boolean doSelectRegion=false;
   if (region instanceof ZLTextWordRegion) {
-    doSelectRegion=myReader.DictionaryTappingActionOption.getValue() != FBReaderApp.DictionaryTappingAction.doNothing;
+    doSelectRegion=myReader.WordTappingActionOption.getValue() != FBReaderApp.WordTappingAction.doNothing;
   }
  else   if (region instanceof ZLTextImageRegion) {
     doSelectRegion=myReader.ImageTappingActionOption.getValue() != FBReaderApp.ImageTappingAction.doNothing;
