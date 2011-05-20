@@ -1,0 +1,10 @@
+{
+  if (isEmpty()) {
+    return false;
+  }
+  stop();
+  myInitialRegion=null;
+  myLeftBound=null;
+  myRightBound=null;
+  return true;
+}

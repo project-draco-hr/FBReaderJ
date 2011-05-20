@@ -1,0 +1,10 @@
+{
+  clear();
+  myInitialRegion=myView.findRegion(x,y,ZLTextView.MAX_SELECTION_DISTANCE,ZLTextRegion.AnyRegionFilter);
+  if (myInitialRegion == null) {
+    return false;
+  }
+  myLeftBound=myInitialRegion.getFirstArea();
+  myRightBound=myInitialRegion.getLastArea();
+  return true;
+}

@@ -1,0 +1,3 @@
+{
+  return !isEmpty() && myLeftBound.weakCompareTo(area) <= 0 && myRightBound.weakCompareTo(area) >= 0;
+}

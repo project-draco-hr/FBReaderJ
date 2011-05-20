@@ -1,0 +1,5 @@
+{
+  myScrollForward=forward;
+  setXY(x,y);
+  myView.Application.addTimerTask(this,400);
+}

@@ -2,7 +2,7 @@
   if (super.onFingerLongPress(x,y)) {
     return true;
   }
-  final ZLTextRegion region=findRegion(x,y,10,ZLTextRegion.AnyRegionFilter);
+  final ZLTextRegion region=findRegion(x,y,MAX_SELECTION_DISTANCE,ZLTextRegion.AnyRegionFilter);
   boolean doSelectRegion=false;
   if (region instanceof ZLTextWordRegion) {
     doSelectRegion=myReader.DictionaryTappingActionOption.getValue() != FBReaderApp.DictionaryTappingAction.doNothing;
