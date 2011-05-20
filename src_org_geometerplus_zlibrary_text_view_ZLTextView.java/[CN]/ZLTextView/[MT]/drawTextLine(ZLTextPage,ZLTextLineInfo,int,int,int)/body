@@ -40,7 +40,7 @@
       final int areaX=area.XStart;
       final int areaY=area.YEnd - getElementDescent(element) - getTextStyle().getVerticalShift();
       if (element instanceof ZLTextWord) {
-        drawWord(areaX,areaY,(ZLTextWord)element,charIndex,-1,false,getTextColor(getTextStyle().Hyperlink));
+        drawWord(areaX,areaY,(ZLTextWord)element,charIndex,-1,false,mySelection.isAreaSelected(area) ? getSelectedForegroundColor() : getTextColor(getTextStyle().Hyperlink));
       }
  else       if (element instanceof ZLTextImageElement) {
         context.drawImage(areaX,areaY,((ZLTextImageElement)element).ImageData);
@@ -60,6 +60,6 @@
     }
     int len=info.EndCharIndex;
     final ZLTextWord word=(ZLTextWord)paragraph.getElement(info.EndElementIndex);
-    drawWord(area.XStart,area.YEnd - context.getDescent() - getTextStyle().getVerticalShift(),word,0,len,area.AddHyphenationSign,getTextColor(getTextStyle().Hyperlink));
+    drawWord(area.XStart,area.YEnd - context.getDescent() - getTextStyle().getVerticalShift(),word,0,len,area.AddHyphenationSign,mySelection.isAreaSelected(area) ? getSelectedForegroundColor() : getTextColor(getTextStyle().Hyperlink));
   }
 }
