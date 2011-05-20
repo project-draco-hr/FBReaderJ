@@ -1,5 +1,5 @@
 {
-  final UrlInfoCollection urls=new UrlInfoCollection();
+  final UrlInfoCollection<UrlInfo> urls=new UrlInfoCollection<UrlInfo>();
   for (  ATOMLink link : entry.Links) {
     final String href=ZLNetworkUtil.url(baseUrl,link.getHref());
     final MimeType type=MimeType.get(link.getType());

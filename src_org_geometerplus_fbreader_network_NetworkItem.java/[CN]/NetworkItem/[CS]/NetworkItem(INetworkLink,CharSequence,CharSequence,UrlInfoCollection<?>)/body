@@ -1,0 +1,11 @@
+{
+  Link=link;
+  Title=title != null ? title : "";
+  setSummary(summary);
+  if (urls != null && !urls.isEmpty()) {
+    myURLs=new UrlInfoCollection<UrlInfo>(urls);
+  }
+ else {
+    myURLs=null;
+  }
+}

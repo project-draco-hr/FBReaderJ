@@ -1,0 +1,2 @@
+ATOMFeedHandler<T1,T2> handler
+boolean readEntryNotFeed
