@@ -7,7 +7,7 @@
  else {
     context.clear(getBackgroundColor());
   }
-  if ((myModel == null) || (myModel.getParagraphsNumber() == 0)) {
+  if (myModel == null || myModel.getParagraphsNumber() == 0) {
     return;
   }
   ZLTextPage page;

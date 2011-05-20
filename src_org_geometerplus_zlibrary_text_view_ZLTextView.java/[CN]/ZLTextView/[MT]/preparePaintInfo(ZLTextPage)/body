@@ -1,7 +1,7 @@
 {
   int newWidth=getTextAreaWidth();
   int newHeight=getTextAreaHeight();
-  if ((newWidth != page.OldWidth) || (newHeight != page.OldHeight)) {
+  if (newWidth != page.OldWidth || newHeight != page.OldHeight) {
     page.OldWidth=newWidth;
     page.OldHeight=newHeight;
     if (page.PaintState != PaintStateEnum.NOTHING_TO_PAINT) {
@@ -28,7 +28,7 @@
       }
     }
   }
-  if ((page.PaintState == PaintStateEnum.NOTHING_TO_PAINT) || (page.PaintState == PaintStateEnum.READY)) {
+  if (page.PaintState == PaintStateEnum.NOTHING_TO_PAINT || page.PaintState == PaintStateEnum.READY) {
     return;
   }
   final HashMap<ZLTextLineInfo,ZLTextLineInfo> cache=myLineInfoCache;
@@ -63,7 +63,7 @@ page.findLineFromStart(startCursor,1);
 if (!startCursor.isNull()) {
 final ZLTextWordCursor endCursor=new ZLTextWordCursor();
 buildInfos(page,startCursor,endCursor);
-if (!page.isEmptyPage() && ((myScrollingMode != ScrollingMode.KEEP_LINES) || (!endCursor.samePositionAs(page.EndCursor)))) {
+if (!page.isEmptyPage() && (myScrollingMode != ScrollingMode.KEEP_LINES || !endCursor.samePositionAs(page.EndCursor))) {
 page.StartCursor.setCursor(startCursor);
 page.EndCursor.setCursor(endCursor);
 break;

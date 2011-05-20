@@ -50,7 +50,7 @@ wordOccurred=false;
 --spaceCounter;
 }
 }
- else if ((element instanceof ZLTextWord) || (element instanceof ZLTextImageElement)) {
+ else if (element instanceof ZLTextWord || element instanceof ZLTextImageElement) {
 final int height=getElementHeight(element);
 final int descent=getElementDescent(element);
 final int length=(element instanceof ZLTextWord) ? ((ZLTextWord)element).Length : 0;
