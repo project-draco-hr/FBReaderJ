@@ -1,5 +1,5 @@
 {
-  final UrlInfoCollection urlMap=new UrlInfoCollection();
+  final UrlInfoCollection<UrlInfo> urlMap=new UrlInfoCollection<UrlInfo>();
   urlMap.addInfo(getUrlInfo(UrlInfo.Type.Catalog));
   urlMap.addInfo(getUrlInfo(UrlInfo.Type.Image));
   urlMap.addInfo(getUrlInfo(UrlInfo.Type.Thumbnail));

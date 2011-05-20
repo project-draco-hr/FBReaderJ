@@ -2,7 +2,7 @@
   super(context,resource,resourceKey);
   myOption=option;
   final T initialValue=option.getValue();
-  final Enum[] allValues=initialValue.getClass().getEnumConstants();
+  final T[] allValues=initialValue.getDeclaringClass().getEnumConstants();
   final String[] stringValues=new String[allValues.length];
   for (int i=0; i < stringValues.length; ++i) {
     stringValues[i]=allValues[i].toString();

@@ -1,7 +1,5 @@
 {
   final ZLView view=ZLApplication.Instance().getCurrentView();
-  final int w=getWidth();
-  final int h=getMainAreaHeight();
   final AnimationProvider animator=getAnimationProvider();
   final AnimationProvider.Mode oldMode=animator.getMode();
   animator.doStep();
