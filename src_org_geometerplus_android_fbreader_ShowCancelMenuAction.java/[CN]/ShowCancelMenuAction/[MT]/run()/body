@@ -9,7 +9,7 @@
     }
  else {
       final Intent intent=new Intent();
-      intent.setClass(myBaseActivity,CancelActivity.class);
+      intent.setClass(BaseActivity,CancelActivity.class);
       intent.putExtra(CancelActivity.LIST_SIZE,descriptionList.size());
       int index=0;
       for (      FBReaderApp.CancelActionDescription description : descriptionList) {
@@ -17,7 +17,7 @@
         intent.putExtra(CancelActivity.ITEM_SUMMARY + index,description.Summary);
         ++index;
       }
-      myBaseActivity.startActivityForResult(intent,FBReader.CANCEL_CODE);
+      BaseActivity.startActivityForResult(intent,FBReader.CANCEL_CODE);
     }
   }
 }
