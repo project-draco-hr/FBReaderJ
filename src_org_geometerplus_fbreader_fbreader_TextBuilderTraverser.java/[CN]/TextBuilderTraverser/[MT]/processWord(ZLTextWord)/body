@@ -1,0 +1,3 @@
+{
+  myBuffer.append(word.Data,word.Offset,word.Length);
+}
