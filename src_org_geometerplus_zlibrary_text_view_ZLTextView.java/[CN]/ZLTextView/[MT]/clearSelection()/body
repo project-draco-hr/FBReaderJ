@@ -1,0 +1,6 @@
+{
+  if (mySelection.clear()) {
+    Application.getViewWidget().reset();
+    Application.getViewWidget().repaint();
+  }
+}

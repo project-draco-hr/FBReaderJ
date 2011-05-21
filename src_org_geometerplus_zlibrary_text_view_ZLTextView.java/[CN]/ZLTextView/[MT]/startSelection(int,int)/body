@@ -1,0 +1,8 @@
+{
+  if (!mySelection.start(x,y)) {
+    return false;
+  }
+  Application.getViewWidget().reset();
+  Application.getViewWidget().repaint();
+  return true;
+}
