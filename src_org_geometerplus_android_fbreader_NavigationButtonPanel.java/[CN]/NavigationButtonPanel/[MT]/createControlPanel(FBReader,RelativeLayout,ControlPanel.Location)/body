@@ -1,5 +1,5 @@
 {
-  myControlPanel=new ControlPanel(activity,root,true);
+  myControlPanel=new ControlPanel(activity,root,location,true);
   final View layout=activity.getLayoutInflater().inflate(R.layout.navigate,myControlPanel,false);
   final SeekBar slider=(SeekBar)layout.findViewById(R.id.book_position_slider);
   final TextView text=(TextView)layout.findViewById(R.id.book_position_text);
