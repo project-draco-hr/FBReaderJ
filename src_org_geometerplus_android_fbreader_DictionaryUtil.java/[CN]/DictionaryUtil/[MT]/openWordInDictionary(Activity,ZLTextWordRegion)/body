@@ -1,5 +1,5 @@
 {
-  String text=region.Word.toString();
+  final String text=region.Word.toString();
   int start=0;
   int end=text.length();
   for (; start < end && !Character.isLetterOrDigit(text.charAt(start)); ++start)   ;
