@@ -28,6 +28,7 @@
     }
   }
   if (ourWallpaper != null) {
+    myBackgroundColor=ZLAndroidColorUtil.getAverageColor(ourWallpaper);
     final int w=ourWallpaper.getWidth();
     final int h=ourWallpaper.getHeight();
     for (int cw=0, iw=1; cw < myWidth; cw+=w, ++iw) {
