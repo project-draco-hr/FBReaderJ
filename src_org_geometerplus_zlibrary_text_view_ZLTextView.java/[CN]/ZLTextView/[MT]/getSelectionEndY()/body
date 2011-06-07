@@ -1,6 +1,6 @@
 {
   final ZLTextElementAreaVector vector=myCurrentPage.TextElementMap;
-  if (vector.isEmpty()) {
+  if (mySelection.isEmpty() || vector.isEmpty()) {
     return 0;
   }
   final ZLTextElementArea selectionEndArea=mySelection.getEndArea();
