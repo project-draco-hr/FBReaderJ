@@ -5,19 +5,27 @@
   final ZLTextRegion region=findRegion(x,y,MAX_SELECTION_DISTANCE,ZLTextRegion.AnyRegionFilter);
   boolean doSelectRegion=false;
   if (region instanceof ZLTextWordRegion) {
-    doSelectRegion=myReader.WordTappingActionOption.getValue() != FBReaderApp.WordTappingAction.doNothing;
-  }
- else   if (region instanceof ZLTextImageRegion) {
-    doSelectRegion=myReader.ImageTappingActionOption.getValue() != FBReaderApp.ImageTappingAction.doNothing;
-  }
- else   if (region instanceof ZLTextHyperlinkRegion) {
-    doSelectRegion=true;
-  }
-  if (doSelectRegion) {
-    selectRegion(region);
-    myReader.getViewWidget().reset();
-    myReader.getViewWidget().repaint();
+switch (myReader.WordTappingActionOption.getValue()) {
+case startSelecting:
+      initSelection(x,y);
     return true;
-  }
-  return false;
+case selectSingleWord:
+case openDictionary:
+  doSelectRegion=true;
+break;
+}
+}
+ else if (region instanceof ZLTextImageRegion) {
+doSelectRegion=myReader.ImageTappingActionOption.getValue() != FBReaderApp.ImageTappingAction.doNothing;
+}
+ else if (region instanceof ZLTextHyperlinkRegion) {
+doSelectRegion=true;
+}
+if (doSelectRegion) {
+selectRegion(region);
+myReader.getViewWidget().reset();
+myReader.getViewWidget().repaint();
+return true;
+}
+return false;
 }
