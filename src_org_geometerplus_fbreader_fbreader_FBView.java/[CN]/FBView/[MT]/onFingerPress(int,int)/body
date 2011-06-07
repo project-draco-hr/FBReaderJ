@@ -2,6 +2,11 @@
   if (super.onFingerPress(x,y)) {
     return true;
   }
+  final SelectionCursor cursor=findSelectionCursor(x,y,MAX_SELECTION_DISTANCE);
+  if (cursor != SelectionCursor.None) {
+    moveSelectionCursorTo(cursor,x,y);
+    return true;
+  }
   if (myReader.AllowScreenBrightnessAdjustmentOption.getValue() && x < myContext.getWidth() / 10) {
     myIsBrightnessAdjustmentInProgress=true;
     myStartY=y;

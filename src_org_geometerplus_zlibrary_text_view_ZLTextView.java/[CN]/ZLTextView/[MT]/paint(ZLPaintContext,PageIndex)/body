@@ -57,17 +57,6 @@ final ZLTextRegion selectedElementRegion=getCurrentElementRegion(page);
 if (selectedElementRegion != null && myHighlightSelectedRegion) {
 selectedElementRegion.draw(context);
 }
-final ZLTextElementAreaVector vector=page.TextElementMap;
-if (!mySelection.isEmpty() && !vector.isEmpty()) {
-final ZLTextElementArea firstArea=vector.get(0);
-final ZLTextElementArea lastArea=vector.get(vector.size() - 1);
-final ZLTextElementArea selectionStartArea=mySelection.getStartArea();
-final ZLTextElementArea selectionEndArea=mySelection.getEndArea();
-if (selectionStartArea.compareTo(firstArea) >= 0 && selectionStartArea.compareTo(lastArea) <= 0) {
-drawSelectionCursor(context,selectionStartArea.XStart,selectionStartArea.YEnd);
-}
-if (selectionEndArea.compareTo(firstArea) >= 0 && selectionEndArea.compareTo(lastArea) <= 0) {
-drawSelectionCursor(context,selectionEndArea.XEnd,selectionEndArea.YEnd);
-}
-}
+drawSelectionCursor(context,getSelectionCursorPoint(page,SelectionCursor.Left));
+drawSelectionCursor(context,getSelectionCursorPoint(page,SelectionCursor.Right));
 }

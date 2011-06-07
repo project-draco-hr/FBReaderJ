@@ -1,9 +1,17 @@
 {
+  System.err.println("onFingerRelease 0");
   if (myIsBrightnessAdjustmentInProgress) {
     myIsBrightnessAdjustmentInProgress=false;
     return true;
   }
   if (super.onFingerRelease(x,y)) {
+    return true;
+  }
+  System.err.println("onFingerRelease 1");
+  final SelectionCursor cursor=getSelectionCursorInMovement();
+  if (cursor != SelectionCursor.None) {
+    System.err.println("onFingerRelease 2");
+    releaseSelectionCursor();
     return true;
   }
   if (isFlickScrollingEnabled()) {

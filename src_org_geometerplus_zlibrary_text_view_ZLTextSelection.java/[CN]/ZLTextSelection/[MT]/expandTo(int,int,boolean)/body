@@ -1,6 +1,6 @@
 {
-  if (myInitialRegion == null) {
-    return start(x,y);
+  if (isEmpty()) {
+    return false;
   }
   if (y < 10) {
     if (myScroller != null && myScroller.scrollsForward()) {

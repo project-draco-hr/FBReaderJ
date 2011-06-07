@@ -1,3 +1,2 @@
 ZLPaintContext context
-int x
-int y
+Point pt

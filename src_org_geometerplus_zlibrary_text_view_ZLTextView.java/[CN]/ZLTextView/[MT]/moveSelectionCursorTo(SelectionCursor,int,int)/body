@@ -1,0 +1,6 @@
+{
+  mySelectionCursorInMovement=cursor;
+  myMovedSelectionCursorPoint.X=x;
+  myMovedSelectionCursorPoint.Y=y;
+  expandSelectionTo(x,y,cursor == SelectionCursor.Right);
+}

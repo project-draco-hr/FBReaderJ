@@ -1,0 +1,14 @@
+{
+  if (mySelection.isEmpty()) {
+    return SelectionCursor.None;
+  }
+  final int leftDistance2=distance2ToCursor(x,y,getSelectionCursorPoint(myCurrentPage,SelectionCursor.Left));
+  final int rightDistance2=distance2ToCursor(x,y,getSelectionCursorPoint(myCurrentPage,SelectionCursor.Right));
+  final int maxDistance2=maxDistance * maxDistance;
+  if (rightDistance2 < leftDistance2) {
+    return rightDistance2 <= maxDistance2 ? SelectionCursor.Right : SelectionCursor.None;
+  }
+ else {
+    return leftDistance2 <= maxDistance2 ? SelectionCursor.Left : SelectionCursor.None;
+  }
+}

@@ -2,6 +2,11 @@
   if (super.onFingerMove(x,y)) {
     return true;
   }
+  final SelectionCursor cursor=getSelectionCursorInMovement();
+  if (cursor != SelectionCursor.None) {
+    moveSelectionCursorTo(cursor,x,y);
+    return true;
+  }
 synchronized (this) {
     if (myIsBrightnessAdjustmentInProgress) {
       if (x >= myContext.getWidth() / 5) {

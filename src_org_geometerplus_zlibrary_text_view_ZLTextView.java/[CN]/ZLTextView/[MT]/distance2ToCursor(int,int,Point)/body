@@ -1,0 +1,28 @@
+{
+  final int dpi=ZLibrary.Instance().getDisplayDPI();
+  final int width=dpi / 6;
+  final int height=dpi / 4;
+  if (cursorPoint == null) {
+    return Integer.MAX_VALUE;
+  }
+  final int dX, dY;
+  if (x < cursorPoint.X - width / 2) {
+    dX=cursorPoint.X - width / 2 - x;
+  }
+ else   if (x > cursorPoint.X + width / 2) {
+    dX=x - cursorPoint.X - width / 2;
+  }
+ else {
+    dX=0;
+  }
+  if (y < cursorPoint.Y) {
+    dY=cursorPoint.Y - y;
+  }
+ else   if (y > cursorPoint.Y + height) {
+    dY=y - cursorPoint.Y - height;
+  }
+ else {
+    dY=0;
+  }
+  return dX * dX + dY * dY;
+}

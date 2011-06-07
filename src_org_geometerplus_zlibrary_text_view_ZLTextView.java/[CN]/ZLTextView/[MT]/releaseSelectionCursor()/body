@@ -1,8 +1,5 @@
 {
-  if (!mySelection.expandTo(x,y)) {
-    return false;
-  }
+  mySelectionCursorInMovement=SelectionCursor.None;
   Application.getViewWidget().reset();
   Application.getViewWidget().repaint();
-  return true;
 }

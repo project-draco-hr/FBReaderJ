@@ -1,0 +1,8 @@
+{
+  if (!mySelection.expandTo(x,y,moveRightBound)) {
+    return false;
+  }
+  Application.getViewWidget().reset();
+  Application.getViewWidget().repaint();
+  return true;
+}
