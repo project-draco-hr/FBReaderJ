@@ -1,10 +1,11 @@
 {
-  final int ascent=8;
-  final int width=16;
-  final int height=40;
+  final int dpi=ZLibrary.Instance().getDisplayDPI();
+  final int accent=dpi / 10;
+  final int width=dpi / 6;
+  final int height=dpi / 4;
   int[] xs={x,x + width / 2,x + width / 2,x - width / 2,x - width / 2};
-  int[] ys={y - ascent,y,y + height,y + height,y};
-  context.setFillColor(context.getBackgroundColor(),127);
+  int[] ys={y - accent,y,y + height,y + height,y};
+  context.setFillColor(context.getBackgroundColor(),192);
   context.fillPolygon(xs,ys);
   context.setLineColor(getTextColor(ZLTextHyperlink.NO_LINK));
   context.drawPolygonalLine(xs,ys);
