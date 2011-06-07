@@ -1,3 +1,0 @@
-{
-  myFillPaint.setColor(ZLAndroidColorUtil.rgb(color));
-}

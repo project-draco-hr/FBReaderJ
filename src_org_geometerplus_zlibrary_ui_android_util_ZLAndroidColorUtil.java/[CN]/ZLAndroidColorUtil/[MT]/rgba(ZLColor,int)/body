@@ -1,0 +1,3 @@
+{
+  return Color.argb(alpha,color.Red,color.Green,color.Blue);
+}

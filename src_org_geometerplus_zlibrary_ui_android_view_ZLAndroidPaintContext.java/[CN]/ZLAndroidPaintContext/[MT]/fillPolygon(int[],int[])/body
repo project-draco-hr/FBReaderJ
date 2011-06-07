@@ -1,0 +1,9 @@
+{
+  final Path path=new Path();
+  final int last=xs.length - 1;
+  path.moveTo(xs[last],ys[last]);
+  for (int i=0; i <= last; ++i) {
+    path.lineTo(xs[i],ys[i]);
+  }
+  myCanvas.drawPath(path,myFillPaint);
+}
