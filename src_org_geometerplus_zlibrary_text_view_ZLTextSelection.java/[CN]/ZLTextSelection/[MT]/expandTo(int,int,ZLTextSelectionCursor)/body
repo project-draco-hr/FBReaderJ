@@ -1,0 +1,34 @@
+{
+  if (isEmpty()) {
+    return cursorToMove;
+  }
+  ZLTextRegion region=myView.findRegion(x,y,ZLTextView.MAX_SELECTION_DISTANCE,ZLTextRegion.AnyRegionFilter);
+  if (region == null && myScroller != null) {
+    region=myView.findRegion(x,y,ZLTextRegion.AnyRegionFilter);
+  }
+  if (region == null) {
+    return cursorToMove;
+  }
+  if (cursorToMove == ZLTextSelectionCursor.Right) {
+    if (myLeftMostRegion.compareTo(region) <= 0) {
+      myRightMostRegion=region;
+      return cursorToMove;
+    }
+ else {
+      myRightMostRegion=myLeftMostRegion;
+      myLeftMostRegion=region;
+      return ZLTextSelectionCursor.Left;
+    }
+  }
+ else {
+    if (myRightMostRegion.compareTo(region) >= 0) {
+      myLeftMostRegion=region;
+      return cursorToMove;
+    }
+ else {
+      myLeftMostRegion=myRightMostRegion;
+      myRightMostRegion=region;
+      return ZLTextSelectionCursor.Right;
+    }
+  }
+}

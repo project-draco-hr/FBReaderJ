@@ -3,7 +3,7 @@
     return false;
   }
   stop();
-  myLeftBound=null;
-  myRightBound=null;
+  myLeftMostRegion=null;
+  myRightMostRegion=null;
   return true;
 }

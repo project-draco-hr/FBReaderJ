@@ -1,3 +1,0 @@
-{
-  return mySelection.expandTo(x,y,moveRightBound);
-}

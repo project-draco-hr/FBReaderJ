@@ -1,3 +1,3 @@
 {
-  return myRightBound;
+  return myRightMostRegion.getLastArea();
 }

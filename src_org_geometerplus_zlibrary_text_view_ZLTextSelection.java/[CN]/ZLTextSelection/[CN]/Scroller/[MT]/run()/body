@@ -1,7 +1,6 @@
 {
   myView.scrollPage(myScrollForward,ZLTextView.ScrollingMode.SCROLL_LINES,1);
   myView.preparePaintInfo();
-  expandTo(myX,myY,myScrollForward);
   myView.Application.getViewWidget().reset();
   myView.Application.getViewWidget().repaint();
 }
