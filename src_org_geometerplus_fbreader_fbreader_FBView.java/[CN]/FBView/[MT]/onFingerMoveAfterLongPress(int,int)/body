@@ -2,6 +2,11 @@
   if (super.onFingerMoveAfterLongPress(x,y)) {
     return true;
   }
+  final ZLTextSelectionCursor cursor=getSelectionCursorInMovement();
+  if (cursor != ZLTextSelectionCursor.None) {
+    moveSelectionCursorTo(cursor,x,y);
+    return true;
+  }
   final ZLTextRegion selectedRegion=getSelectedRegion();
   if (selectedRegion instanceof ZLTextHyperlinkRegion || selectedRegion instanceof ZLTextWordRegion) {
     if (myReader.WordTappingActionOption.getValue() != FBReaderApp.WordTappingAction.doNothing) {

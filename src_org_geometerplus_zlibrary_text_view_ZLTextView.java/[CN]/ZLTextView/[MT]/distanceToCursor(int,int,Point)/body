@@ -23,5 +23,5 @@
  else {
     dY=0;
   }
-  return dX * dX + dY * dY;
+  return Math.max(dX,dY);
 }

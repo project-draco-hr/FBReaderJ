@@ -8,10 +8,14 @@
 switch (myReader.WordTappingActionOption.getValue()) {
 case startSelecting:
       initSelection(x,y);
-    return true;
+    final ZLTextSelectionCursor cursor=findSelectionCursor(x,y);
+  if (cursor != ZLTextSelectionCursor.None) {
+    moveSelectionCursorTo(cursor,x,y);
+  }
+return true;
 case selectSingleWord:
 case openDictionary:
-  doSelectRegion=true;
+doSelectRegion=true;
 break;
 }
 }

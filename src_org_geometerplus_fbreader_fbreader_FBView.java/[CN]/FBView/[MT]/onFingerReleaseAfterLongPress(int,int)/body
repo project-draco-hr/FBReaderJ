@@ -2,6 +2,11 @@
   if (super.onFingerReleaseAfterLongPress(x,y)) {
     return true;
   }
+  final ZLTextSelectionCursor cursor=getSelectionCursorInMovement();
+  if (cursor != ZLTextSelectionCursor.None) {
+    releaseSelectionCursor();
+    return true;
+  }
   boolean doRunAction=false;
   final ZLTextRegion region=getSelectedRegion();
   if (region instanceof ZLTextWordRegion) {

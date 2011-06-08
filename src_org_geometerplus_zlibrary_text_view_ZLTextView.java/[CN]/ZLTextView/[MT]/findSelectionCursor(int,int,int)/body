@@ -2,13 +2,12 @@
   if (mySelection.isEmpty()) {
     return ZLTextSelectionCursor.None;
   }
-  final int leftDistance2=distance2ToCursor(x,y,getSelectionCursorPoint(myCurrentPage,ZLTextSelectionCursor.Left));
-  final int rightDistance2=distance2ToCursor(x,y,getSelectionCursorPoint(myCurrentPage,ZLTextSelectionCursor.Right));
-  final int maxDistance2=maxDistance * maxDistance;
-  if (rightDistance2 < leftDistance2) {
-    return rightDistance2 <= maxDistance2 ? ZLTextSelectionCursor.Right : ZLTextSelectionCursor.None;
+  final int leftDistance=distanceToCursor(x,y,getSelectionCursorPoint(myCurrentPage,ZLTextSelectionCursor.Left));
+  final int rightDistance=distanceToCursor(x,y,getSelectionCursorPoint(myCurrentPage,ZLTextSelectionCursor.Right));
+  if (rightDistance < leftDistance) {
+    return rightDistance <= maxDistance ? ZLTextSelectionCursor.Right : ZLTextSelectionCursor.None;
   }
  else {
-    return leftDistance2 <= maxDistance2 ? ZLTextSelectionCursor.Left : ZLTextSelectionCursor.None;
+    return leftDistance <= maxDistance ? ZLTextSelectionCursor.Left : ZLTextSelectionCursor.None;
   }
 }
