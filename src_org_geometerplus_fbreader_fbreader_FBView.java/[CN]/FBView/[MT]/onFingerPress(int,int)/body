@@ -2,8 +2,8 @@
   if (super.onFingerPress(x,y)) {
     return true;
   }
-  final SelectionCursor cursor=findSelectionCursor(x,y,MAX_SELECTION_DISTANCE);
-  if (cursor != SelectionCursor.None) {
+  final ZLTextSelectionCursor cursor=findSelectionCursor(x,y,MAX_SELECTION_DISTANCE);
+  if (cursor != ZLTextSelectionCursor.None) {
     moveSelectionCursorTo(cursor,x,y);
     return true;
   }

@@ -57,6 +57,6 @@ final ZLTextRegion selectedElementRegion=getCurrentElementRegion(page);
 if (selectedElementRegion != null && myHighlightSelectedRegion) {
 selectedElementRegion.draw(context);
 }
-drawSelectionCursor(context,getSelectionCursorPoint(page,SelectionCursor.Left));
-drawSelectionCursor(context,getSelectionCursorPoint(page,SelectionCursor.Right));
+drawSelectionCursor(context,getSelectionCursorPoint(page,ZLTextSelectionCursor.Left));
+drawSelectionCursor(context,getSelectionCursorPoint(page,ZLTextSelectionCursor.Right));
 }

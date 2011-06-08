@@ -1,25 +1,24 @@
 {
-  final int dpi=ZLibrary.Instance().getDisplayDPI();
-  final int width=dpi / 6;
-  final int height=dpi / 4;
   if (cursorPoint == null) {
     return Integer.MAX_VALUE;
   }
   final int dX, dY;
-  if (x < cursorPoint.X - width / 2) {
-    dX=cursorPoint.X - width / 2 - x;
+  final int w=ZLTextSelectionCursor.getWidth() / 2;
+  if (x < cursorPoint.X - w) {
+    dX=cursorPoint.X - w - x;
   }
- else   if (x > cursorPoint.X + width / 2) {
-    dX=x - cursorPoint.X - width / 2;
+ else   if (x > cursorPoint.X + w) {
+    dX=x - cursorPoint.X - w;
   }
  else {
     dX=0;
   }
+  final int h=ZLTextSelectionCursor.getHeight();
   if (y < cursorPoint.Y) {
     dY=cursorPoint.Y - y;
   }
- else   if (y > cursorPoint.Y + height) {
-    dY=y - cursorPoint.Y - height;
+ else   if (y > cursorPoint.Y + h) {
+    dY=y - cursorPoint.Y - h;
   }
  else {
     dY=0;

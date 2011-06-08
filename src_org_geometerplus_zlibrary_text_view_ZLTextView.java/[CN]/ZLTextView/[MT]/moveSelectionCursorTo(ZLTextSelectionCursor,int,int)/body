@@ -1,0 +1,9 @@
+{
+  y-=ZLTextSelectionCursor.getHeight() / 2 + ZLTextSelectionCursor.getAccent() / 2;
+  mySelectionCursorInMovement=cursor;
+  myMovedSelectionCursorPoint.X=x;
+  myMovedSelectionCursorPoint.Y=y;
+  expandSelectionTo(x,y,cursor == ZLTextSelectionCursor.Right);
+  Application.getViewWidget().reset();
+  Application.getViewWidget().repaint();
+}

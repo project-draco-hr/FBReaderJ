@@ -2,12 +2,11 @@
   if (pt == null) {
     return;
   }
-  final int dpi=ZLibrary.Instance().getDisplayDPI();
-  final int accent=dpi / 12;
-  final int width=dpi / 6;
-  final int height=dpi / 4;
-  final int[] xs={pt.X,pt.X + width / 2,pt.X + width / 2,pt.X - width / 2,pt.X - width / 2};
-  final int[] ys={pt.Y - accent,pt.Y,pt.Y + height,pt.Y + height,pt.Y};
+  final int w=ZLTextSelectionCursor.getWidth() / 2;
+  final int h=ZLTextSelectionCursor.getHeight();
+  final int a=ZLTextSelectionCursor.getAccent();
+  final int[] xs={pt.X,pt.X + w,pt.X + w,pt.X - w,pt.X - w};
+  final int[] ys={pt.Y - a,pt.Y,pt.Y + h,pt.Y + h,pt.Y};
   context.setFillColor(context.getBackgroundColor(),192);
   context.fillPolygon(xs,ys);
   context.setLineColor(getTextColor(ZLTextHyperlink.NO_LINK));
