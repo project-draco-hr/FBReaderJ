@@ -7,11 +7,12 @@
   if (region instanceof ZLTextWordRegion) {
 switch (myReader.WordTappingActionOption.getValue()) {
 case startSelecting:
-      initSelection(x,y);
-    final ZLTextSelectionCursor cursor=findSelectionCursor(x,y);
-  if (cursor != ZLTextSelectionCursor.None) {
-    moveSelectionCursorTo(cursor,x,y);
-  }
+      myReader.doAction(ActionCode.SELECTION_HIDE_PANEL);
+    initSelection(x,y);
+  final ZLTextSelectionCursor cursor=findSelectionCursor(x,y);
+if (cursor != ZLTextSelectionCursor.None) {
+  moveSelectionCursorTo(cursor,x,y);
+}
 return true;
 case selectSingleWord:
 case openDictionary:
