@@ -1,3 +1,5 @@
 {
-  hideAllPanels();
+  for (  ButtonPanel panel : myPanels) {
+    panel.hide();
+  }
 }
