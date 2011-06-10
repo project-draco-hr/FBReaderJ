@@ -1,0 +1,5 @@
+{
+  if (!myIsInProgress && myWindow != null) {
+    setupNavigation(myWindow);
+  }
+}

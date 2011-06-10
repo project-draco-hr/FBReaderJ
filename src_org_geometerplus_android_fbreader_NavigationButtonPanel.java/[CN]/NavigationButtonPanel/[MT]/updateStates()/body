@@ -1,6 +1,0 @@
-{
-  super.updateStates();
-  if (!myIsInProgress && myControlPanel != null) {
-    setupNavigation(myControlPanel);
-  }
-}

@@ -1,0 +1,8 @@
+{
+  if (myWindow != null) {
+    ViewGroup root=(ViewGroup)myWindow.getParent();
+    myWindow.hide();
+    root.removeView(myWindow);
+    myWindow=null;
+  }
+}

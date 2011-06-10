@@ -1,7 +1,0 @@
-{
-  final ActionButton button=new ActionButton(myControlPanel.getContext(),actionId,isCloseButton);
-  button.setImageResource(imageId);
-  myControlPanel.addView(button);
-  button.setOnClickListener(this);
-  myButtons.add(button);
-}

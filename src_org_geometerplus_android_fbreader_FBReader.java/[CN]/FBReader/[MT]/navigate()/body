@@ -1,3 +1,3 @@
 {
-  ourNavigatePanel.runNavigation();
+  ((NavigationPopup)FBReaderApp.Instance().getPopupById(NavigationPopup.ID)).runNavigation();
 }

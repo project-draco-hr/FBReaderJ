@@ -1,5 +1,0 @@
-{
-  if (myControlPanel != null) {
-    setupNavigation(myControlPanel);
-  }
-}

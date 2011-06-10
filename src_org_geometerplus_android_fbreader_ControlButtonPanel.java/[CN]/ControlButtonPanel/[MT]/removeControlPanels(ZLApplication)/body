@@ -1,5 +1,0 @@
-{
-  for (  ZLApplication.ButtonPanel panel : application.buttonPanels()) {
-    ((ControlButtonPanel)panel).removeControlPanel();
-  }
-}

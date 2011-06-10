@@ -1,6 +1,0 @@
-{
-  if (myControlPanel != null) {
-    return myControlPanel.getVisibility() == View.VISIBLE;
-  }
-  return false;
-}

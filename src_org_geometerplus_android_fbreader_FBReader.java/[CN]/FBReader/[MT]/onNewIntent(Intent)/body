@@ -3,13 +3,14 @@
     final String pattern=intent.getStringExtra(SearchManager.QUERY);
     final Runnable runnable=new Runnable(){
       public void run(){
-        ourTextSearchPanel.initPosition();
         final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
+        final TextSearchPopup popup=(TextSearchPopup)fbReader.getPopupById(TextSearchPopup.ID);
+        popup.initPosition();
         fbReader.TextSearchPatternOption.setValue(pattern);
         if (fbReader.getTextView().search(pattern,true,false,false,false) != 0) {
           runOnUiThread(new Runnable(){
             public void run(){
-              ourTextSearchPanel.show(true);
+              fbReader.showPopup(popup.getId());
             }
           }
 );
@@ -18,7 +19,7 @@
           runOnUiThread(new Runnable(){
             public void run(){
               UIUtil.showErrorMessage(FBReader.this,"textNotFound");
-              ourTextSearchPanel.StartPosition=null;
+              popup.StartPosition=null;
             }
           }
 );

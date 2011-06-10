@@ -1,0 +1,59 @@
+{
+  if (myWindow != null) {
+    return;
+  }
+  myWindow=new PopupWindow(activity,root,location,true);
+  final View layout=activity.getLayoutInflater().inflate(R.layout.navigate,myWindow,false);
+  final SeekBar slider=(SeekBar)layout.findViewById(R.id.book_position_slider);
+  final TextView text=(TextView)layout.findViewById(R.id.book_position_text);
+  slider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
+    private void gotoPage(    int page){
+      final ZLTextView view=getReader().getTextView();
+      if (page == 1) {
+        view.gotoHome();
+      }
+ else {
+        view.gotoPage(page);
+      }
+      getReader().getViewWidget().reset();
+      getReader().getViewWidget().repaint();
+    }
+    public void onStopTrackingTouch(    SeekBar seekBar){
+      myIsInProgress=false;
+    }
+    public void onStartTrackingTouch(    SeekBar seekBar){
+      myIsInProgress=true;
+    }
+    public void onProgressChanged(    SeekBar seekBar,    int progress,    boolean fromUser){
+      if (fromUser) {
+        final int page=progress + 1;
+        final int pagesNumber=seekBar.getMax() + 1;
+        text.setText(makeProgressText(page,pagesNumber));
+        gotoPage(page);
+      }
+    }
+  }
+);
+  final Button btnOk=(Button)layout.findViewById(android.R.id.button1);
+  final Button btnCancel=(Button)layout.findViewById(android.R.id.button3);
+  View.OnClickListener listener=new View.OnClickListener(){
+    public void onClick(    View v){
+      final ZLTextWordCursor position=StartPosition;
+      if (v == btnCancel && position != null) {
+        getReader().getTextView().gotoPosition(position);
+      }
+ else       if (v == btnOk) {
+        storePosition();
+      }
+      StartPosition=null;
+      Application.hideActivePopup();
+    }
+  }
+;
+  btnOk.setOnClickListener(listener);
+  btnCancel.setOnClickListener(listener);
+  final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
+  btnOk.setText(buttonResource.getResource("ok").getValue());
+  btnCancel.setText(buttonResource.getResource("cancel").getValue());
+  myWindow.addView(layout);
+}

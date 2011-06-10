@@ -4,11 +4,11 @@
   myFullScreenFlag=application.ShowStatusBarOption.getValue() ? 0 : WindowManager.LayoutParams.FLAG_FULLSCREEN;
   getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,myFullScreenFlag);
   final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
-  if (ourTextSearchPanel == null) {
-    ourTextSearchPanel=new TextSearchButtonPanel(fbReader);
+  if (fbReader.getPopupById(TextSearchPopup.ID) == null) {
+    new TextSearchPopup(fbReader);
   }
-  if (ourNavigatePanel == null) {
-    ourNavigatePanel=new NavigationButtonPanel(fbReader);
+  if (fbReader.getPopupById(NavigationPopup.ID) == null) {
+    new NavigationPopup(fbReader);
   }
   fbReader.addAction(ActionCode.SHOW_LIBRARY,new ShowLibraryAction(this,fbReader));
   fbReader.addAction(ActionCode.SHOW_PREFERENCES,new ShowPreferencesAction(this,fbReader));

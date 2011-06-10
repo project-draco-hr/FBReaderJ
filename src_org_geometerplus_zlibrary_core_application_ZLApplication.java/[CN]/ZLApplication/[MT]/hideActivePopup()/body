@@ -1,0 +1,6 @@
+{
+  if (myActivePopup != null) {
+    myActivePopup.hide_();
+    myActivePopup=null;
+  }
+}

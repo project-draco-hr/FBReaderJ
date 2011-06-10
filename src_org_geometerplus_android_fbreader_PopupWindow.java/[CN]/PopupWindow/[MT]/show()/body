@@ -1,0 +1,8 @@
+{
+  myActivity.runOnUiThread(new Runnable(){
+    public void run(){
+      setVisibility(View.VISIBLE);
+    }
+  }
+);
+}

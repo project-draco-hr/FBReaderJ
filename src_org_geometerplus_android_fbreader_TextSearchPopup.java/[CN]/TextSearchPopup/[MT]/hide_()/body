@@ -1,0 +1,4 @@
+{
+  getReader().getTextView().clearFindResults();
+  super.hide_();
+}

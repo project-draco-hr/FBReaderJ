@@ -1,0 +1,6 @@
+{
+  super.show_();
+  if (myWindow != null) {
+    setupNavigation(myWindow);
+  }
+}
