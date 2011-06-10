@@ -1,8 +1,0 @@
-{
-  final ArrayList<ZLTextRegion> elementRegions=page.TextElementMap.ElementRegions;
-  final int index=elementRegions.indexOf(mySelectedRegion);
-  if (index == -1) {
-    return null;
-  }
-  return elementRegions.get(index);
-}

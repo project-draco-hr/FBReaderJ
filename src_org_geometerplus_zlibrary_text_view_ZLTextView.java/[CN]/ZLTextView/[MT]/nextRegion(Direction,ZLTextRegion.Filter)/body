@@ -1,10 +1,10 @@
 {
-  final ArrayList<ZLTextRegion> elementRegions=myCurrentPage.TextElementMap.ElementRegions;
+  final List<ZLTextRegion> elementRegions=myCurrentPage.TextElementMap.elementRegions();
   if (elementRegions.isEmpty()) {
     return null;
   }
-  int index=elementRegions.indexOf(mySelectedRegion);
-  mySelectedRegion=index >= 0 ? elementRegions.get(index) : null;
+  final ZLTextRegion selectedRegion=getSelectedRegion();
+  int index=selectedRegion != null ? elementRegions.indexOf(selectedRegion) : -1;
 switch (direction) {
 case rightToLeft:
 case up:
@@ -32,7 +32,7 @@ switch (direction) {
 case rightToLeft:
 for (; index >= 0; --index) {
 final ZLTextRegion candidate=elementRegions.get(index);
-if (filter.accepts(candidate) && candidate.isAtLeftOf(mySelectedRegion)) {
+if (filter.accepts(candidate) && candidate.isAtLeftOf(selectedRegion)) {
 return candidate;
 }
 }
@@ -40,7 +40,7 @@ break;
 case leftToRight:
 for (; index < elementRegions.size(); ++index) {
 final ZLTextRegion candidate=elementRegions.get(index);
-if (filter.accepts(candidate) && candidate.isAtRightOf(mySelectedRegion)) {
+if (filter.accepts(candidate) && candidate.isAtRightOf(selectedRegion)) {
 return candidate;
 }
 }
@@ -53,10 +53,10 @@ final ZLTextRegion candidate=elementRegions.get(index);
 if (!filter.accepts(candidate)) {
 continue;
 }
-if (candidate.isExactlyUnder(mySelectedRegion)) {
+if (candidate.isExactlyUnder(selectedRegion)) {
 return candidate;
 }
-if (firstCandidate == null && candidate.isUnder(mySelectedRegion)) {
+if (firstCandidate == null && candidate.isUnder(selectedRegion)) {
 firstCandidate=candidate;
 }
 }
@@ -72,10 +72,10 @@ final ZLTextRegion candidate=elementRegions.get(index);
 if (!filter.accepts(candidate)) {
 continue;
 }
-if (candidate.isExactlyOver(mySelectedRegion)) {
+if (candidate.isExactlyOver(selectedRegion)) {
 return candidate;
 }
-if (firstCandidate == null && candidate.isOver(mySelectedRegion)) {
+if (firstCandidate == null && candidate.isOver(selectedRegion)) {
 firstCandidate=candidate;
 }
 }

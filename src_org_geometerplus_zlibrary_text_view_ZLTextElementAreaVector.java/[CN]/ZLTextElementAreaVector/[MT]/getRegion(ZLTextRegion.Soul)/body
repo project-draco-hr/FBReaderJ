@@ -1,0 +1,11 @@
+{
+  if (soul == null) {
+    return null;
+  }
+  for (  ZLTextRegion region : myElementRegions) {
+    if (soul.equals(region.getSoul())) {
+      return region;
+    }
+  }
+  return null;
+}

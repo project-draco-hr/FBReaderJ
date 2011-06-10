@@ -53,7 +53,7 @@ drawTextLine(page,info,labels[index],labels[index + 1],y);
 y+=info.Height + info.Descent + info.VSpaceAfter;
 ++index;
 }
-final ZLTextRegion selectedElementRegion=getCurrentElementRegion(page);
+final ZLTextRegion selectedElementRegion=getSelectedRegion(page);
 if (selectedElementRegion != null && myHighlightSelectedRegion) {
 selectedElementRegion.draw(context);
 }

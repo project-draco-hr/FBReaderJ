@@ -7,17 +7,20 @@
     releaseSelectionCursor();
     return true;
   }
-  boolean doRunAction=false;
   final ZLTextRegion region=getSelectedRegion();
-  if (region instanceof ZLTextWordRegion) {
-    doRunAction=myReader.WordTappingActionOption.getValue() == FBReaderApp.WordTappingAction.openDictionary;
-  }
- else   if (region instanceof ZLTextImageRegion) {
-    doRunAction=myReader.ImageTappingActionOption.getValue() == FBReaderApp.ImageTappingAction.openImageView;
-  }
-  if (doRunAction) {
-    myReader.doAction(ActionCode.PROCESS_HYPERLINK);
-    return true;
+  if (region != null) {
+    final ZLTextRegion.Soul soul=region.getSoul();
+    boolean doRunAction=false;
+    if (soul instanceof ZLTextWordRegionSoul) {
+      doRunAction=myReader.WordTappingActionOption.getValue() == FBReaderApp.WordTappingAction.openDictionary;
+    }
+ else     if (soul instanceof ZLTextImageRegionSoul) {
+      doRunAction=myReader.ImageTappingActionOption.getValue() == FBReaderApp.ImageTappingAction.openImageView;
+    }
+    if (doRunAction) {
+      myReader.doAction(ActionCode.PROCESS_HYPERLINK);
+      return true;
+    }
   }
   return false;
 }

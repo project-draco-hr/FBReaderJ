@@ -1,0 +1,3 @@
+{
+  return Hyperlink == area.Style.Hyperlink;
+}

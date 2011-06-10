@@ -3,8 +3,8 @@
     return true;
   }
   final Direction direction=(diffY != 0) ? (diffY > 0 ? Direction.down : Direction.up) : (diffX > 0 ? Direction.leftToRight : Direction.rightToLeft);
-  ZLTextRegion region=currentRegion();
-  final ZLTextRegion.Filter filter=region instanceof ZLTextWordRegion || myReader.NavigateAllWordsOption.getValue() ? ZLTextRegion.AnyRegionFilter : ZLTextRegion.ImageOrHyperlinkFilter;
+  ZLTextRegion region=getSelectedRegion();
+  final ZLTextRegion.Filter filter=(region != null && region.getSoul() instanceof ZLTextWordRegionSoul) || myReader.NavigateAllWordsOption.getValue() ? ZLTextRegion.AnyRegionFilter : ZLTextRegion.ImageOrHyperlinkFilter;
   region=nextRegion(direction,filter);
   if (region != null) {
     selectRegion(region);

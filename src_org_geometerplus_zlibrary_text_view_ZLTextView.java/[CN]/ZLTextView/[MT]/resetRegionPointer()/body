@@ -1,4 +1,4 @@
 {
-  mySelectedRegion=null;
+  mySelectedRegionSoul=null;
   myHighlightSelectedRegion=true;
 }

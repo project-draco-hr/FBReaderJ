@@ -1,7 +1,7 @@
 {
   ZLTextRegion bestRegion=null;
   int distance=maxDistance + 1;
-  for (  ZLTextRegion region : myCurrentPage.TextElementMap.ElementRegions) {
+  for (  ZLTextRegion region : myCurrentPage.TextElementMap.elementRegions()) {
     if (filter.accepts(region)) {
       final int d=region.distanceTo(x,y);
       if (d < distance) {
