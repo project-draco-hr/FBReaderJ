@@ -7,5 +7,5 @@
   if (start == end) {
     return;
   }
-  openTextInDictionary(activity,text.substring(start,end),region.getTop(),region.getBottom());
+  openTextInDictionary(activity,text.substring(start,end),true,region.getTop(),region.getBottom());
 }

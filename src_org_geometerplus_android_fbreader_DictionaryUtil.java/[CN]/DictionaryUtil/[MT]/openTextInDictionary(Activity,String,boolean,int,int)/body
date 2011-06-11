@@ -1,5 +1,5 @@
 {
-  final PackageInfo info=getCurrentDictionaryInfo();
+  final PackageInfo info=getCurrentDictionaryInfo(singleWord);
   final Intent intent=getDictionaryIntent(info,text);
   try {
     if ("ColorDict".equals(info.Id)) {
@@ -20,6 +20,6 @@
     activity.startActivity(intent);
   }
  catch (  ActivityNotFoundException e) {
-    DictionaryUtil.installDictionaryIfNotInstalled(activity);
+    DictionaryUtil.installDictionaryIfNotInstalled(activity,singleWord);
   }
 }

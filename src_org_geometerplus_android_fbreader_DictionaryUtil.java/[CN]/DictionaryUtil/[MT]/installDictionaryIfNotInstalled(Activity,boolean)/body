@@ -1,8 +1,8 @@
 {
-  if (PackageUtil.canBeStarted(activity,getDictionaryIntent("test"),false)) {
+  if (PackageUtil.canBeStarted(activity,getDictionaryIntent("test",singleWord),false)) {
     return;
   }
-  final PackageInfo dictionaryInfo=getCurrentDictionaryInfo();
+  final PackageInfo dictionaryInfo=getCurrentDictionaryInfo(singleWord);
   final ZLResource dialogResource=ZLResource.resource("dialog");
   final ZLResource buttonResource=dialogResource.getResource("button");
   final ZLResource installResource=dialogResource.getResource("installDictionary");
