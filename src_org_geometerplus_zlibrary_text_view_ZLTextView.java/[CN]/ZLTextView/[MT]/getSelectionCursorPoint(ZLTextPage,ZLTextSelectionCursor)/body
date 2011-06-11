@@ -3,7 +3,7 @@
     return null;
   }
   if (cursor == mySelection.getCursorInMovement()) {
-    return myMovedSelectionCursorPoint;
+    return mySelection.getCursorInMovementPoint();
   }
   if (cursor == ZLTextSelectionCursor.Left) {
     if (mySelection.hasAPartBeforePage(page)) {
@@ -11,7 +11,7 @@
     }
     final ZLTextElementArea selectionStartArea=mySelection.getStartArea(page);
     if (selectionStartArea != null) {
-      return new Point(selectionStartArea.XStart,selectionStartArea.YEnd);
+      return new ZLTextSelection.Point(selectionStartArea.XStart,selectionStartArea.YEnd);
     }
   }
  else {
@@ -20,7 +20,7 @@
     }
     final ZLTextElementArea selectionEndArea=mySelection.getEndArea(page);
     if (selectionEndArea != null) {
-      return new Point(selectionEndArea.XEnd,selectionEndArea.YEnd);
+      return new ZLTextSelection.Point(selectionEndArea.XEnd,selectionEndArea.YEnd);
     }
   }
   return null;
