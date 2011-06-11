@@ -1,0 +1,11 @@
+{
+  final String text=word.toString();
+  int start=0;
+  int end=text.length();
+  for (; start < end && !Character.isLetterOrDigit(text.charAt(start)); ++start)   ;
+  for (; start < end && !Character.isLetterOrDigit(text.charAt(end - 1)); --end)   ;
+  if (start == end) {
+    return;
+  }
+  openTextInDictionary(activity,text.substring(start,end),region.getTop(),region.getBottom());
+}

@@ -1,0 +1,13 @@
+{
+  if (mySelection.isEmpty()) {
+    return ZLTextSelectionCursor.None;
+  }
+  final int leftDistance=distanceToCursor(x,y,getSelectionCursorPoint(myCurrentPage,ZLTextSelectionCursor.Left));
+  final int rightDistance=distanceToCursor(x,y,getSelectionCursorPoint(myCurrentPage,ZLTextSelectionCursor.Right));
+  if (rightDistance < leftDistance) {
+    return rightDistance <= maxDistance ? ZLTextSelectionCursor.Right : ZLTextSelectionCursor.None;
+  }
+ else {
+    return leftDistance <= maxDistance ? ZLTextSelectionCursor.Left : ZLTextSelectionCursor.None;
+  }
+}

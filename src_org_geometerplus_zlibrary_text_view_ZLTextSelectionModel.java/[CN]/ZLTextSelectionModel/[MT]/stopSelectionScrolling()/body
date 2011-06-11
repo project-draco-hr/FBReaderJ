@@ -1,6 +1,0 @@
-{
-  if (myScrollingTask != null) {
-    myScrollingTask.cancel();
-  }
-  myScrollingTask=null;
-}

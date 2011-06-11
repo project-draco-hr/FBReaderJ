@@ -1,0 +1,6 @@
+{
+  if (myScroller != null) {
+    myScroller.stop();
+    myScroller=null;
+  }
+}

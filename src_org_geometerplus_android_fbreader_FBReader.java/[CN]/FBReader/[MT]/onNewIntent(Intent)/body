@@ -1,29 +1,28 @@
 {
   if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
     final String pattern=intent.getStringExtra(SearchManager.QUERY);
-    final Handler successHandler=new Handler(){
-      public void handleMessage(      Message message){
-        ourTextSearchPanel.show(true);
-      }
-    }
-;
-    final Handler failureHandler=new Handler(){
-      public void handleMessage(      Message message){
-        UIUtil.showErrorMessage(FBReader.this,"textNotFound");
-        ourTextSearchPanel.StartPosition=null;
-      }
-    }
-;
     final Runnable runnable=new Runnable(){
       public void run(){
-        ourTextSearchPanel.initPosition();
         final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
+        final TextSearchPopup popup=(TextSearchPopup)fbReader.getPopupById(TextSearchPopup.ID);
+        popup.initPosition();
         fbReader.TextSearchPatternOption.setValue(pattern);
         if (fbReader.getTextView().search(pattern,true,false,false,false) != 0) {
-          successHandler.sendEmptyMessage(0);
+          runOnUiThread(new Runnable(){
+            public void run(){
+              fbReader.showPopup(popup.getId());
+            }
+          }
+);
         }
  else {
-          failureHandler.sendEmptyMessage(0);
+          runOnUiThread(new Runnable(){
+            public void run(){
+              UIUtil.showErrorMessage(FBReader.this,"textNotFound");
+              popup.StartPosition=null;
+            }
+          }
+);
         }
       }
     }

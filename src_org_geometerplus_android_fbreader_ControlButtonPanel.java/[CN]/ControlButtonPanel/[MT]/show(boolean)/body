@@ -1,7 +1,0 @@
-{
-  if (myControlPanel != null && !getVisibility()) {
-    hideOthers();
-    onShow();
-    myControlPanel.show(animate);
-  }
-}

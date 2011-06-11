@@ -1,3 +1,3 @@
 {
-  setFillColor(color,FillStyle.SOLID_FILL);
+  setFillColor(color,0xFF,FillStyle.SOLID_FILL);
 }

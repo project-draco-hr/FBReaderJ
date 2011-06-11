@@ -61,27 +61,29 @@ myState=FEED;
 }
 break;
 case F_TITLE:
+myFormattedBuffer.appendText(bufferContent);
 if (ns == XMLNamespaces.Atom && tag == TAG_TITLE) {
-final String title=myHtmlToString.finishTextContent(bufferContent);
+final CharSequence title=myFormattedBuffer.getText();
 if (myFeed != null) {
 myFeed.Title=title;
 }
 myState=FEED;
 }
  else {
-myHtmlToString.processTextContent(true,tag,null,bufferContent);
+myFormattedBuffer.appendEndTag(tag);
 }
 break;
 case F_SUBTITLE:
+myFormattedBuffer.appendText(bufferContent);
 if (ns == XMLNamespaces.Atom && tag == TAG_SUBTITLE) {
-final String subtitle=myHtmlToString.finishTextContent(bufferContent);
+final CharSequence subtitle=myFormattedBuffer.getText();
 if (myFeed != null) {
 myFeed.Subtitle=subtitle;
 }
 myState=FEED;
 }
  else {
-myHtmlToString.processTextContent(true,tag,null,bufferContent);
+myFormattedBuffer.appendEndTag(tag);
 }
 break;
 case F_UPDATED:
@@ -181,30 +183,33 @@ myState=F_ENTRY;
 }
 break;
 case FE_SUMMARY:
+myFormattedBuffer.appendText(bufferContent);
 if (ns == XMLNamespaces.Atom && tag == TAG_SUMMARY) {
-myEntry.Summary=myHtmlToString.finishTextContent(bufferContent);
+myEntry.Summary=myFormattedBuffer.getText();
 myState=F_ENTRY;
 }
  else {
-myHtmlToString.processTextContent(true,tag,null,bufferContent);
+myFormattedBuffer.appendEndTag(tag);
 }
 break;
 case FE_CONTENT:
+myFormattedBuffer.appendText(bufferContent);
 if (ns == XMLNamespaces.Atom && tag == TAG_CONTENT) {
-myEntry.Content=myHtmlToString.finishTextContent(bufferContent);
+myEntry.Content=myFormattedBuffer.getText();
 myState=F_ENTRY;
 }
  else {
-myHtmlToString.processTextContent(true,tag,null,bufferContent);
+myFormattedBuffer.appendEndTag(tag);
 }
 break;
 case FE_TITLE:
+myFormattedBuffer.appendText(bufferContent);
 if (ns == XMLNamespaces.Atom && tag == TAG_TITLE) {
-myEntry.Title=myHtmlToString.finishTextContent(bufferContent);
+myEntry.Title=myFormattedBuffer.getText();
 myState=F_ENTRY;
 }
  else {
-myHtmlToString.processTextContent(true,tag,null,bufferContent);
+myFormattedBuffer.appendEndTag(tag);
 }
 break;
 case FE_UPDATED:

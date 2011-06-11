@@ -1,0 +1,6 @@
+{
+  final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
+  final ZLTextView view=fbReader.getTextView();
+  ((SelectionPopup)fbReader.getPopupById(SelectionPopup.ID)).move(view.getSelectionStartY(),view.getSelectionEndY());
+  fbReader.showPopup(SelectionPopup.ID);
+}

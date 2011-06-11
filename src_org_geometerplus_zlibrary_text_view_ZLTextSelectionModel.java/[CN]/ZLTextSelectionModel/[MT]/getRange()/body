@@ -1,3 +1,0 @@
-{
-  return mySecondBound.isLessThan(myFirstBound) ? new Range(mySecondBound.After,myFirstBound.Before) : new Range(myFirstBound.After,mySecondBound.Before);
-}

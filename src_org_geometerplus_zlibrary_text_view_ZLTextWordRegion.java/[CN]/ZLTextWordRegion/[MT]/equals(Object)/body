@@ -1,6 +1,0 @@
-{
-  if (!(other instanceof ZLTextWordRegion)) {
-    return false;
-  }
-  return Word == ((ZLTextWordRegion)other).Word;
-}

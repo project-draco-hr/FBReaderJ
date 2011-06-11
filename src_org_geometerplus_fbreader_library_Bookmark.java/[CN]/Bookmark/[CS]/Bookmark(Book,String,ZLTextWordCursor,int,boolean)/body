@@ -1,11 +1,3 @@
 {
-  super(cursor);
-  myId=-1;
-  myBookId=book.getId();
-  myBookTitle=book.getTitle();
-  myText=createBookmarkText(cursor,maxLength);
-  myCreationDate=new Date();
-  ModelId=modelId;
-  IsVisible=isVisible;
-  myIsChanged=true;
+  this(book,modelId,cursor,createBookmarkText(cursor,maxLength),isVisible);
 }

@@ -78,7 +78,7 @@
       wordOccurred=true;
       isVisible=true;
     }
-    if ((newWidth > maxWidth) && (info.EndElementIndex != startIndex)) {
+    if (newWidth > maxWidth && info.EndElementIndex != startIndex) {
       break;
     }
     ZLTextElement previousElement=element;
@@ -87,7 +87,7 @@
     boolean allowBreak=currentElementIndex == endIndex;
     if (!allowBreak) {
       element=paragraphCursor.getElement(currentElementIndex);
-      allowBreak=(((!(element instanceof ZLTextWord)) || (previousElement instanceof ZLTextWord)) && !(element instanceof ZLTextImageElement) && !(element instanceof ZLTextControlElement));
+      allowBreak=((!(element instanceof ZLTextWord) || previousElement instanceof ZLTextWord) && !(element instanceof ZLTextImageElement) && !(element instanceof ZLTextControlElement));
     }
     if (allowBreak) {
       info.IsVisible=isVisible;
@@ -106,13 +106,13 @@
     }
   }
  while (currentElementIndex != endIndex);
-  if ((currentElementIndex != endIndex) && (ZLTextStyleCollection.Instance().getBaseStyle().AutoHyphenationOption.getValue()) && (getTextStyle().allowHyphenations())) {
+  if (currentElementIndex != endIndex && ZLTextStyleCollection.Instance().getBaseStyle().AutoHyphenationOption.getValue() && getTextStyle().allowHyphenations()) {
     ZLTextElement element=paragraphCursor.getElement(currentElementIndex);
     if (element instanceof ZLTextWord) {
       final ZLTextWord word=(ZLTextWord)element;
       newWidth-=getWordWidth(word,currentCharIndex);
       int spaceLeft=maxWidth - newWidth;
-      if ((word.Length > 3) && (spaceLeft > 2 * context.getSpaceWidth())) {
+      if (word.Length > 3 && spaceLeft > 2 * context.getSpaceWidth()) {
         ZLTextHyphenationInfo hyphenationInfo=ZLTextHyphenator.Instance().getInfo(word);
         int hyphenationPosition=word.Length - 1;
         int subwordWidth=0;
@@ -153,7 +153,7 @@
   if (info.isEndOfParagraph()) {
     info.VSpaceAfter=getTextStyle().getSpaceAfter();
   }
-  if ((info.EndElementIndex != endIndex) || (endIndex == info.ParagraphCursorLength)) {
+  if (info.EndElementIndex != endIndex || endIndex == info.ParagraphCursorLength) {
     myLineInfoCache.put(info,info);
   }
   return info;

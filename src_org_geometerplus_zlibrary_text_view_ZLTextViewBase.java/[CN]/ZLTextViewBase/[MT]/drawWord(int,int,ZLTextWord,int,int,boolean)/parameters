@@ -1,6 +1,0 @@
-int x
-int y
-ZLTextWord word
-int start
-int length
-boolean addHyphenationSign

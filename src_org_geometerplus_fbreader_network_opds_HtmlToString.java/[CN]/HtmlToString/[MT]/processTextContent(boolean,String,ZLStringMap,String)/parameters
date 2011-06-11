@@ -1,4 +1,0 @@
-boolean closeTag
-String tag
-ZLStringMap attributes
-String bufferContent

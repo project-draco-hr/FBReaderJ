@@ -1,0 +1,22 @@
+{
+  final int fromParagraph=from.getParagraphIndex();
+  final int toParagraph=to.getParagraphIndex();
+  ZLTextParagraphCursor cursor=ZLTextParagraphCursor.cursor(myView.getModel(),fromParagraph);
+  for (int i=fromParagraph; i <= toParagraph; ++i) {
+    final int fromElement=i == fromParagraph ? from.getElementIndex() : 0;
+    final int toElement=i == toParagraph ? to.getElementIndex() : cursor.getParagraphLength() - 1;
+    for (int j=fromElement; j <= toElement; j++) {
+      final ZLTextElement element=cursor.getElement(j);
+      if (element == ZLTextElement.HSpace) {
+        processSpace();
+      }
+ else       if (element instanceof ZLTextWord) {
+        processWord((ZLTextWord)element);
+      }
+    }
+    if (i < toParagraph) {
+      processEndOfParagraph();
+      cursor=cursor.next();
+    }
+  }
+}

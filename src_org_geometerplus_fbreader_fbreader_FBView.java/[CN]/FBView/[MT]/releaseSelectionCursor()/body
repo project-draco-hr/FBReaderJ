@@ -1,0 +1,4 @@
+{
+  super.releaseSelectionCursor();
+  myReader.doAction(ActionCode.SELECTION_SHOW_PANEL);
+}

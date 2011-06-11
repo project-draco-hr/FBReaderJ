@@ -1,9 +1,0 @@
-{
-  if (type == null) {
-    myTextType=ATOMConstants.TYPE_DEFAULT;
-  }
- else {
-    myTextType=type;
-  }
-  myTextContent.delete(0,myTextContent.length());
-}

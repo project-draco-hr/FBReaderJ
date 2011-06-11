@@ -1,0 +1,5 @@
+{
+  if (StartPosition == null) {
+    StartPosition=new ZLTextWordCursor(getReader().getTextView().getStartCursor());
+  }
+}

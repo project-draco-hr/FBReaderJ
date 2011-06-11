@@ -1,0 +1,4 @@
+{
+  application.myPopups.put(getId(),this);
+  Application=application;
+}

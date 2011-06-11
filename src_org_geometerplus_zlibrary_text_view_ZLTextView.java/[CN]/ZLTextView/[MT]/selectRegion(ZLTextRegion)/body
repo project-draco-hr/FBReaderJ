@@ -1,0 +1,7 @@
+{
+  final ZLTextRegion.Soul soul=region != null ? region.getSoul() : null;
+  if (soul == null || !soul.equals(mySelectedRegionSoul)) {
+    myHighlightSelectedRegion=true;
+  }
+  mySelectedRegionSoul=soul;
+}

@@ -2,9 +2,25 @@
   if (super.onFingerReleaseAfterLongPress(x,y)) {
     return true;
   }
-  if (myReader.DictionaryTappingActionOption.getValue() == FBReaderApp.DictionaryTappingAction.openDictionary) {
-    myReader.doAction(ActionCode.PROCESS_HYPERLINK);
+  final ZLTextSelectionCursor cursor=getSelectionCursorInMovement();
+  if (cursor != ZLTextSelectionCursor.None) {
+    releaseSelectionCursor();
     return true;
+  }
+  final ZLTextRegion region=getSelectedRegion();
+  if (region != null) {
+    final ZLTextRegion.Soul soul=region.getSoul();
+    boolean doRunAction=false;
+    if (soul instanceof ZLTextWordRegionSoul) {
+      doRunAction=myReader.WordTappingActionOption.getValue() == FBReaderApp.WordTappingAction.openDictionary;
+    }
+ else     if (soul instanceof ZLTextImageRegionSoul) {
+      doRunAction=myReader.ImageTappingActionOption.getValue() == FBReaderApp.ImageTappingAction.openImageView;
+    }
+    if (doRunAction) {
+      myReader.doAction(ActionCode.PROCESS_HYPERLINK);
+      return true;
+    }
   }
   return false;
 }

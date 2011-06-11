@@ -1,0 +1,5 @@
+{
+  if (StartPosition != null && !StartPosition.equals(getReader().getTextView().getStartCursor())) {
+    getReader().addInvisibleBookmark(StartPosition);
+  }
+}

@@ -2,12 +2,26 @@
   if (super.onFingerMoveAfterLongPress(x,y)) {
     return true;
   }
-  if (myReader.DictionaryTappingActionOption.getValue() != FBReaderApp.DictionaryTappingAction.doNothing) {
-    final ZLTextElementRegion region=findRegion(x,y,10,ZLTextElementRegion.AnyRegionFilter);
-    if (region != null) {
-      selectRegion(region);
-      myReader.getViewWidget().reset();
-      myReader.getViewWidget().repaint();
+  final ZLTextSelectionCursor cursor=getSelectionCursorInMovement();
+  if (cursor != ZLTextSelectionCursor.None) {
+    moveSelectionCursorTo(cursor,x,y);
+    return true;
+  }
+  ZLTextRegion region=getSelectedRegion();
+  if (region != null) {
+    ZLTextRegion.Soul soul=region.getSoul();
+    if (soul instanceof ZLTextHyperlinkRegionSoul || soul instanceof ZLTextWordRegionSoul) {
+      if (myReader.WordTappingActionOption.getValue() != FBReaderApp.WordTappingAction.doNothing) {
+        region=findRegion(x,y,MAX_SELECTION_DISTANCE,ZLTextRegion.AnyRegionFilter);
+        if (region != null) {
+          soul=region.getSoul();
+          if (soul instanceof ZLTextHyperlinkRegionSoul || soul instanceof ZLTextWordRegionSoul) {
+            selectRegion(region);
+            myReader.getViewWidget().reset();
+            myReader.getViewWidget().repaint();
+          }
+        }
+      }
     }
   }
   return true;

@@ -1,0 +1,27 @@
+{
+  if (cursor == ZLTextSelectionCursor.None) {
+    return null;
+  }
+  if (cursor == mySelectionCursorInMovement) {
+    return myMovedSelectionCursorPoint;
+  }
+  if (cursor == ZLTextSelectionCursor.Left) {
+    if (mySelection.hasAPartBeforePage(page)) {
+      return null;
+    }
+    final ZLTextElementArea selectionStartArea=mySelection.getStartArea(page);
+    if (selectionStartArea != null) {
+      return new Point(selectionStartArea.XStart,selectionStartArea.YEnd);
+    }
+  }
+ else {
+    if (mySelection.hasAPartAfterPage(page)) {
+      return null;
+    }
+    final ZLTextElementArea selectionEndArea=mySelection.getEndArea(page);
+    if (selectionEndArea != null) {
+      return new Point(selectionEndArea.XEnd,selectionEndArea.YEnd);
+    }
+  }
+  return null;
+}

@@ -1,4 +1,0 @@
-{
-  ControlButtonPanel.saveVisibilities(FBReaderApp.Instance());
-  super.onPause();
-}

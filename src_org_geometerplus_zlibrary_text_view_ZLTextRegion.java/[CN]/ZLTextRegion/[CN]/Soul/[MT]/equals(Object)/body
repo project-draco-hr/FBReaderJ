@@ -1,0 +1,10 @@
+{
+  if (other == this) {
+    return true;
+  }
+  if (!(other instanceof Soul)) {
+    return false;
+  }
+  final Soul soul=(Soul)other;
+  return ParagraphIndex == soul.ParagraphIndex && StartElementIndex == soul.StartElementIndex && EndElementIndex == soul.EndElementIndex;
+}

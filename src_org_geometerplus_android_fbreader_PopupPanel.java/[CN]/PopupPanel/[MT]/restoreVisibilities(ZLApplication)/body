@@ -1,0 +1,6 @@
+{
+  final PopupPanel popup=(PopupPanel)application.getActivePopup();
+  if (popup != null) {
+    popup.show_();
+  }
+}

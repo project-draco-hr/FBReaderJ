@@ -1,7 +1,0 @@
-{
-  for (  ZLApplication.ButtonPanel panel : Reader.buttonPanels()) {
-    if (panel != this) {
-      ((ControlButtonPanel)panel).hide(false);
-    }
-  }
-}

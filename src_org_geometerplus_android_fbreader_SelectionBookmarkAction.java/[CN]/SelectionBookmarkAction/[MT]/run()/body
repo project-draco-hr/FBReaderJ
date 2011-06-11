@@ -1,0 +1,7 @@
+{
+  final FBView fbview=Reader.getTextView();
+  final String text=fbview.getSelectedText();
+  new Bookmark(Reader.Model.Book,fbview.getModel().getId(),fbview.getSelectionStartPosition(),text,true).save();
+  fbview.clearSelection();
+  UIUtil.showMessageText(BaseActivity,ZLResource.resource("selection").getResource("bookmarkCreated").getValue().replace("%s",text));
+}

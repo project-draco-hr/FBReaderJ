@@ -2,8 +2,6 @@
   if (ItemsLoadingService.getRunnable(tree) != null) {
     return;
   }
-  tree.ChildrenItems.clear();
-  tree.clear();
-  NetworkView.Instance().fireModelChangedAsync();
+  clearTree(activity,tree);
   ItemsLoadingService.start(activity,tree,new CatalogExpander(activity,tree,false,false));
 }

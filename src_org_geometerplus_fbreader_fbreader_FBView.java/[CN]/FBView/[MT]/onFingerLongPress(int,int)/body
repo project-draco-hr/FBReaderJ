@@ -2,14 +2,38 @@
   if (super.onFingerLongPress(x,y)) {
     return true;
   }
-  if (myReader.DictionaryTappingActionOption.getValue() != FBReaderApp.DictionaryTappingAction.doNothing) {
-    final ZLTextElementRegion region=findRegion(x,y,10,ZLTextElementRegion.AnyRegionFilter);
-    if (region != null) {
-      selectRegion(region);
-      myReader.getViewWidget().reset();
-      myReader.getViewWidget().repaint();
-      return true;
-    }
+  final ZLTextRegion region=findRegion(x,y,MAX_SELECTION_DISTANCE,ZLTextRegion.AnyRegionFilter);
+  if (region != null) {
+    final ZLTextRegion.Soul soul=region.getSoul();
+    boolean doSelectRegion=false;
+    if (soul instanceof ZLTextWordRegionSoul) {
+switch (myReader.WordTappingActionOption.getValue()) {
+case startSelecting:
+        myReader.doAction(ActionCode.SELECTION_HIDE_PANEL);
+      initSelection(x,y);
+    final ZLTextSelectionCursor cursor=findSelectionCursor(x,y);
+  if (cursor != ZLTextSelectionCursor.None) {
+    moveSelectionCursorTo(cursor,x,y);
   }
-  return false;
+return true;
+case selectSingleWord:
+case openDictionary:
+doSelectRegion=true;
+break;
+}
+}
+ else if (soul instanceof ZLTextImageRegionSoul) {
+doSelectRegion=myReader.ImageTappingActionOption.getValue() != FBReaderApp.ImageTappingAction.doNothing;
+}
+ else if (soul instanceof ZLTextHyperlinkRegionSoul) {
+doSelectRegion=true;
+}
+if (doSelectRegion) {
+selectRegion(region);
+myReader.getViewWidget().reset();
+myReader.getViewWidget().repaint();
+return true;
+}
+}
+return false;
 }

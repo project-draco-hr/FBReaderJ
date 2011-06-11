@@ -1,0 +1,7 @@
+{
+  hideActivePopup();
+  myActivePopup=myPopups.get(id);
+  if (myActivePopup != null) {
+    myActivePopup.show_();
+  }
+}

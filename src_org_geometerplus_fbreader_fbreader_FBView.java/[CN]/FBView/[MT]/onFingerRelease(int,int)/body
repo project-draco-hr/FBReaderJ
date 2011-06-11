@@ -1,9 +1,14 @@
 {
-  if (myIsBrightnessAdjustmentInProgress) {
-    myIsBrightnessAdjustmentInProgress=false;
+  if (super.onFingerRelease(x,y)) {
     return true;
   }
-  if (super.onFingerRelease(x,y)) {
+  final ZLTextSelectionCursor cursor=getSelectionCursorInMovement();
+  if (cursor != ZLTextSelectionCursor.None) {
+    releaseSelectionCursor();
+    return true;
+  }
+  if (myIsBrightnessAdjustmentInProgress) {
+    myIsBrightnessAdjustmentInProgress=false;
     return true;
   }
   if (isFlickScrollingEnabled()) {

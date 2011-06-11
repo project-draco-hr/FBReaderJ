@@ -1,0 +1,12 @@
+{
+  if (isEmpty()) {
+    return false;
+  }
+  final ZLTextElementAreaVector vector=page.TextElementMap;
+  if (vector.isEmpty()) {
+    return false;
+  }
+  final ZLTextElementArea lastPageArea=vector.get(vector.size() - 1);
+  final int cmp=myRightMostRegionSoul.compareTo(lastPageArea);
+  return cmp > 0 || (cmp == 0 && !lastPageArea.isLastInElement());
+}

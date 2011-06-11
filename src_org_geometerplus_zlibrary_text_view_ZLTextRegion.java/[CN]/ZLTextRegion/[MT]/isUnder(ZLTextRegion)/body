@@ -1,0 +1,3 @@
+{
+  return other == null || getFirstArea().YStart >= other.getLastArea().YEnd;
+}

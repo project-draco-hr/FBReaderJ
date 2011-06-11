@@ -1,6 +1,5 @@
 {
   ZLTextParagraphCursorCache.clear();
-  mySelectionModel.clear();
   myModel=model;
   myCurrentPage.reset();
   myPreviousPage.reset();

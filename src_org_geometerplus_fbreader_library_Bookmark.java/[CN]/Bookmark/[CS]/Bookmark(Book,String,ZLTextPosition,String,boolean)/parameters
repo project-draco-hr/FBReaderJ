@@ -1,0 +1,5 @@
+Book book
+String modelId
+ZLTextPosition position
+String text
+boolean isVisible

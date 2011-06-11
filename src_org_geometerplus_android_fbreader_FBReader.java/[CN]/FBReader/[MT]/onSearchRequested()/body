@@ -1,11 +1,13 @@
 {
   final FBReaderApp fbreader=(FBReaderApp)FBReaderApp.Instance();
-  ControlButtonPanel.saveVisibilities(fbreader);
-  ControlButtonPanel.hideAllPendingNotify(fbreader);
+  final FBReaderApp.PopupPanel popup=fbreader.getActivePopup();
+  fbreader.hideActivePopup();
   final SearchManager manager=(SearchManager)getSystemService(SEARCH_SERVICE);
   manager.setOnCancelListener(new SearchManager.OnCancelListener(){
     public void onCancel(){
-      ControlButtonPanel.restoreVisibilities(fbreader);
+      if (popup != null) {
+        fbreader.showPopup(popup.getId());
+      }
       manager.setOnCancelListener(null);
     }
   }

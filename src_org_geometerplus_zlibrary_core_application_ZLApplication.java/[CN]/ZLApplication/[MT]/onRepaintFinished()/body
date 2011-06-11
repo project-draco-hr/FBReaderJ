@@ -2,7 +2,7 @@
   if (myWindow != null) {
     myWindow.refreshMenu();
   }
-  for (  ButtonPanel panel : myPanels) {
-    panel.updateStates();
+  for (  PopupPanel popup : popupPanels()) {
+    popup.update();
   }
 }

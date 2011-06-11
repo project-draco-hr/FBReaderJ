@@ -1,4 +1,0 @@
-{
-  myBuffer.delete(0,myBuffer.length());
-  myByteDataLength=0;
-}

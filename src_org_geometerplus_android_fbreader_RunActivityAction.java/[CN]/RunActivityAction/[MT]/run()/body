@@ -1,3 +1,3 @@
 {
-  myBaseActivity.startActivity(new Intent(myBaseActivity.getApplicationContext(),myActivityClass));
+  BaseActivity.startActivity(new Intent(BaseActivity.getApplicationContext(),myActivityClass));
 }

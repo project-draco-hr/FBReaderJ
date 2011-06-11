@@ -20,6 +20,7 @@
 );
   statusBarPreferences.add(appearanceScreen.addOption(androidApp.ShowStatusBarWhenMenuIsActiveOption,"showStatusBarWhenMenuIsActive"));
   statusBarPreferences.setEnabled(!androidApp.ShowStatusBarOption.getValue());
+  appearanceScreen.addOption(androidApp.DisableButtonLightsOption,"disableButtonLights");
   final Screen textScreen=createPreferenceScreen("text");
   final ZLTextStyleCollection collection=ZLTextStyleCollection.Instance();
   final ZLTextBaseStyle baseStyle=collection.getBaseStyle();
@@ -90,6 +91,8 @@
   colorsScreen.addOption(profile.HyperlinkTextOption,"hyperlink");
   colorsScreen.addOption(profile.VisitedHyperlinkTextOption,"hyperlinkVisited");
   colorsScreen.addOption(profile.FooterFillOption,"footer");
+  colorsScreen.addOption(profile.SelectionBackgroundOption,"selectionBackground");
+  colorsScreen.addOption(profile.SelectionForegroundOption,"selectionForeground");
   final Screen marginsScreen=createPreferenceScreen("margins");
   marginsScreen.addPreference(new ZLIntegerRangePreference(this,marginsScreen.Resource.getResource("left"),fbReader.LeftMarginOption));
   marginsScreen.addPreference(new ZLIntegerRangePreference(this,marginsScreen.Resource.getResource("right"),fbReader.RightMarginOption));
@@ -143,7 +146,10 @@
   final Screen dictionaryScreen=createPreferenceScreen("dictionary");
   dictionaryScreen.addPreference(new DictionaryPreference(this,dictionaryScreen.Resource,"dictionary"));
   dictionaryScreen.addPreference(new ZLBooleanPreference(this,fbReader.NavigateAllWordsOption,dictionaryScreen.Resource,"navigateOverAllWords"));
-  dictionaryScreen.addOption(fbReader.DictionaryTappingActionOption,"tappingAction");
+  dictionaryScreen.addOption(fbReader.WordTappingActionOption,"tappingAction");
+  final Screen imagesScreen=createPreferenceScreen("images");
+  imagesScreen.addOption(fbReader.ImageTappingActionOption,"tappingAction");
+  imagesScreen.addOption(fbReader.ImageViewBackgroundOption,"backgroundColor");
   final Screen cancelMenuScreen=createPreferenceScreen("cancelMenu");
   cancelMenuScreen.addOption(fbReader.ShowPreviousBookInCancelMenuOption,"previousBook");
   cancelMenuScreen.addOption(fbReader.ShowPositionsInCancelMenuOption,"positions");

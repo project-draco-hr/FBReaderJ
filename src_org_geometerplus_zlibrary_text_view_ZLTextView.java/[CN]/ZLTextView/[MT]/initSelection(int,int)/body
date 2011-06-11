@@ -1,0 +1,9 @@
+{
+  y-=ZLTextSelectionCursor.getHeight() / 2 + ZLTextSelectionCursor.getAccent() / 2;
+  if (!mySelection.start(x,y)) {
+    return false;
+  }
+  Application.getViewWidget().reset();
+  Application.getViewWidget().repaint();
+  return true;
+}

@@ -1,4 +1,4 @@
 {
-  ControlButtonPanel.removeControlPanels(FBReaderApp.Instance());
+  PopupPanel.removeAllWindows(FBReaderApp.Instance());
   super.onStop();
 }

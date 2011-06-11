@@ -1,0 +1,3 @@
+{
+  setFillColor(color,alpha,FillStyle.SOLID_FILL);
+}

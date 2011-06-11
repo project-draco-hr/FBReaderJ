@@ -1,6 +1,0 @@
-{
-  if (!(other instanceof ZLTextHyperlinkRegion)) {
-    return false;
-  }
-  return Hyperlink == ((ZLTextHyperlinkRegion)other).Hyperlink;
-}

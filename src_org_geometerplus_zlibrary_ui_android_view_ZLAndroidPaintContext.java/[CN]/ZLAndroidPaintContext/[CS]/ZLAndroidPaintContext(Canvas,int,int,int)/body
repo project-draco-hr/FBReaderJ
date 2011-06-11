@@ -6,6 +6,7 @@
   myTextPaint.setLinearText(false);
   myTextPaint.setAntiAlias(true);
   myTextPaint.setSubpixelText(false);
+  myLinePaint.setStyle(Paint.Style.STROKE);
   myOutlinePaint.setColor(Color.rgb(255,127,0));
   myOutlinePaint.setAntiAlias(true);
   myOutlinePaint.setDither(true);

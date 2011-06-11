@@ -4,11 +4,14 @@
   myFullScreenFlag=application.ShowStatusBarOption.getValue() ? 0 : WindowManager.LayoutParams.FLAG_FULLSCREEN;
   getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,myFullScreenFlag);
   final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
-  if (ourTextSearchPanel == null) {
-    ourTextSearchPanel=new TextSearchButtonPanel(fbReader);
+  if (fbReader.getPopupById(TextSearchPopup.ID) == null) {
+    new TextSearchPopup(fbReader);
   }
-  if (ourNavigatePanel == null) {
-    ourNavigatePanel=new NavigationButtonPanel(fbReader);
+  if (fbReader.getPopupById(NavigationPopup.ID) == null) {
+    new NavigationPopup(fbReader);
+  }
+  if (fbReader.getPopupById(SelectionPopup.ID) == null) {
+    new SelectionPopup(fbReader);
   }
   fbReader.addAction(ActionCode.SHOW_LIBRARY,new ShowLibraryAction(this,fbReader));
   fbReader.addAction(ActionCode.SHOW_PREFERENCES,new ShowPreferencesAction(this,fbReader));
@@ -19,6 +22,12 @@
   fbReader.addAction(ActionCode.SHOW_MENU,new ShowMenuAction(this,fbReader));
   fbReader.addAction(ActionCode.SHOW_NAVIGATION,new ShowNavigationAction(this,fbReader));
   fbReader.addAction(ActionCode.SEARCH,new SearchAction(this,fbReader));
+  fbReader.addAction(ActionCode.SELECTION_SHOW_PANEL,new SelectionShowPanelAction(this,fbReader));
+  fbReader.addAction(ActionCode.SELECTION_HIDE_PANEL,new SelectionHidePanelAction(this,fbReader));
+  fbReader.addAction(ActionCode.SELECTION_COPY_TO_CLIPBOARD,new SelectionCopyAction(this,fbReader));
+  fbReader.addAction(ActionCode.SELECTION_SHARE,new SelectionShareAction(this,fbReader));
+  fbReader.addAction(ActionCode.SELECTION_OPEN_IN_DICTIONARY,new SelectionDictionaryAction(this,fbReader));
+  fbReader.addAction(ActionCode.SELECTION_ADD_BOOKMARK,new SelectionBookmarkAction(this,fbReader));
   fbReader.addAction(ActionCode.PROCESS_HYPERLINK,new ProcessHyperlinkAction(this,fbReader));
   fbReader.addAction(ActionCode.SPEAK,new SpeakAction(this,fbReader));
   fbReader.addAction(ActionCode.SHOW_CANCEL_MENU,new ShowCancelMenuAction(this,fbReader));

@@ -1,4 +1,5 @@
 {
+  myBackgroundColor=color;
   myFillPaint.setColor(ZLAndroidColorUtil.rgb(color));
   myCanvas.drawRect(0,0,myWidth + myScrollbarWidth,myHeight,myFillPaint);
 }

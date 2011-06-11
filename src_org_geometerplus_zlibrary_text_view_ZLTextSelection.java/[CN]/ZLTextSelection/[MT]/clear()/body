@@ -1,0 +1,9 @@
+{
+  if (isEmpty()) {
+    return false;
+  }
+  stop();
+  myLeftMostRegionSoul=null;
+  myRightMostRegionSoul=null;
+  return true;
+}

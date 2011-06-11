@@ -1,0 +1,5 @@
+{
+  for (  ZLApplication.PopupPanel popup : application.popupPanels()) {
+    ((PopupPanel)popup).removeWindow();
+  }
+}

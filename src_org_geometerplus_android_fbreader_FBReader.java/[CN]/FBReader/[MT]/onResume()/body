@@ -5,5 +5,5 @@
   }
  catch (  Throwable t) {
   }
-  ControlButtonPanel.restoreVisibilities(FBReaderApp.Instance());
+  PopupPanel.restoreVisibilities(FBReaderApp.Instance());
 }

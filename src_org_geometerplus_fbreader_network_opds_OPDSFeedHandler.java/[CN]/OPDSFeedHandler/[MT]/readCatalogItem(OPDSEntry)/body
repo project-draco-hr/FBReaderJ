@@ -1,6 +1,6 @@
 {
   final OPDSNetworkLink opdsLink=(OPDSNetworkLink)myData.Link;
-  final UrlInfoCollection urlMap=new UrlInfoCollection();
+  final UrlInfoCollection<UrlInfo> urlMap=new UrlInfoCollection<UrlInfo>();
   boolean urlIsAlternate=false;
   String litresRel=null;
   int catalogType=NetworkCatalogItem.FLAGS_DEFAULT;
@@ -51,12 +51,12 @@
   if (urlMap.getInfo(UrlInfo.Type.Catalog) != null && !urlIsAlternate) {
     urlMap.removeAllInfos(UrlInfo.Type.HtmlPage);
   }
-  final String annotation;
+  final CharSequence annotation;
   if (entry.Summary != null) {
-    annotation=entry.Summary.replace("\n","");
+    annotation=entry.Summary;
   }
  else   if (entry.Content != null) {
-    annotation=entry.Content.replace("\n","");
+    annotation=entry.Content;
   }
  else {
     annotation=null;

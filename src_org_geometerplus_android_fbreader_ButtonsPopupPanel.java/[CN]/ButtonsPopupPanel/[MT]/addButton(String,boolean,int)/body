@@ -1,0 +1,7 @@
+{
+  final ActionButton button=new ActionButton(myWindow.getContext(),actionId,isCloseButton);
+  button.setImageResource(imageId);
+  myWindow.addView(button);
+  button.setOnClickListener(this);
+  myButtons.add(button);
+}

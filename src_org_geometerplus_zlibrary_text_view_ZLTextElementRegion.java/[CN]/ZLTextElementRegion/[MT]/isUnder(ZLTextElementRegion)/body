@@ -1,3 +1,0 @@
-{
-  return other == null || myList.get(myFromIndex).YStart >= other.myList.get(other.myToIndex - 1).YEnd;
-}

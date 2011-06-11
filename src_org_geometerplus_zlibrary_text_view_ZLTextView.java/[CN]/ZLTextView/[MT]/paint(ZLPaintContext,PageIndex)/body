@@ -7,7 +7,7 @@
  else {
     context.clear(getBackgroundColor());
   }
-  if ((myModel == null) || (myModel.getParagraphsNumber() == 0)) {
+  if (myModel == null || myModel.getParagraphsNumber() == 0) {
     return;
   }
   ZLTextPage page;
@@ -46,9 +46,6 @@ prepareTextLine(page,info,y);
 y+=info.Height + info.Descent + info.VSpaceAfter;
 labels[++index]=page.TextElementMap.size();
 }
-if (page == myCurrentPage) {
-mySelectionModel.update();
-}
 y=getTopMargin();
 index=0;
 for (ZLTextLineInfo info : lineInfos) {
@@ -56,8 +53,10 @@ drawTextLine(page,info,labels[index],labels[index + 1],y);
 y+=info.Height + info.Descent + info.VSpaceAfter;
 ++index;
 }
-final ZLTextElementRegion selectedElementRegion=getCurrentElementRegion(page);
+final ZLTextRegion selectedElementRegion=getSelectedRegion(page);
 if (selectedElementRegion != null && myHighlightSelectedRegion) {
 selectedElementRegion.draw(context);
 }
+drawSelectionCursor(context,getSelectionCursorPoint(page,ZLTextSelectionCursor.Left));
+drawSelectionCursor(context,getSelectionCursorPoint(page,ZLTextSelectionCursor.Right));
 }

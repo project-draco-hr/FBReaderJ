@@ -1,8 +1,0 @@
-{
-  if (myControlPanel != null) {
-    ViewGroup root=(ViewGroup)myControlPanel.getParent();
-    myControlPanel.hide(false);
-    root.removeView(myControlPanel);
-    myControlPanel=null;
-  }
-}

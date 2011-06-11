@@ -1,0 +1,7 @@
+{
+  if (myWindow.getVisibility() == View.GONE) {
+    myIsInProgress=false;
+    initPosition();
+    Application.showPopup(ID);
+  }
+}

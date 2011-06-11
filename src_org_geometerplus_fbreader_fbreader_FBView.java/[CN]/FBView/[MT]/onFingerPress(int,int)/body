@@ -2,6 +2,12 @@
   if (super.onFingerPress(x,y)) {
     return true;
   }
+  final ZLTextSelectionCursor cursor=findSelectionCursor(x,y,MAX_SELECTION_DISTANCE);
+  if (cursor != ZLTextSelectionCursor.None) {
+    myReader.doAction(ActionCode.SELECTION_HIDE_PANEL);
+    moveSelectionCursorTo(cursor,x,y);
+    return true;
+  }
   if (myReader.AllowScreenBrightnessAdjustmentOption.getValue() && x < myContext.getWidth() / 10) {
     myIsBrightnessAdjustmentInProgress=true;
     myStartY=y;

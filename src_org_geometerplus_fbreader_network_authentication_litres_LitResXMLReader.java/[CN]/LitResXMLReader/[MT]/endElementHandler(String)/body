@@ -1,14 +1,5 @@
 {
   tag=tag.intern();
-  final char[] bufferContentArray=myBuffer.toString().trim().toCharArray();
-  final String bufferContent;
-  if (bufferContentArray.length == 0) {
-    bufferContent=null;
-  }
- else {
-    bufferContent=new String(bufferContentArray);
-  }
-  myBuffer.delete(0,myBuffer.length());
 switch (myState) {
 case CATALOG:
     if (TAG_CATALOG == tag) {
@@ -18,7 +9,8 @@ case CATALOG:
 case BOOK:
 if (TAG_BOOK == tag) {
   Books.add(new NetworkBookItem(Link,myBookId,myIndex++,myTitle,mySummary,myAuthors,myTags,mySeriesTitle,myIndexInSeries,myUrls));
-  myBookId=myTitle=mySeriesTitle=mySummary=null;
+  myBookId=myTitle=mySeriesTitle=null;
+  mySummary=null;
   myIndexInSeries=0;
   myAuthors.clear();
   myTags.clear();
@@ -62,19 +54,19 @@ myState=TITLE_INFO;
 break;
 case FIRST_NAME:
 if (TAG_FIRST_NAME == tag) {
-myAuthorFirstName=bufferContent;
+myAuthorFirstName=myBuffer.toString();
 myState=AUTHOR;
 }
 break;
 case MIDDLE_NAME:
 if (TAG_MIDDLE_NAME == tag) {
-myAuthorMiddleName=bufferContent;
+myAuthorMiddleName=myBuffer.toString();
 myState=AUTHOR;
 }
 break;
 case LAST_NAME:
 if (TAG_LAST_NAME == tag) {
-myAuthorLastName=bufferContent;
+myAuthorLastName=myBuffer.toString();
 myState=AUTHOR;
 }
 break;
@@ -85,17 +77,19 @@ myState=TITLE_INFO;
 break;
 case BOOK_TITLE:
 if (TAG_BOOK_TITLE == tag) {
-myTitle=bufferContent;
+myTitle=myBuffer.toString();
 myState=TITLE_INFO;
 }
 break;
 case ANNOTATION:
+myAnnotationBuffer.appendText(myBuffer);
 if (TAG_ANNOTATION == tag) {
-mySummary=myHtmlToString.finishTextContent(bufferContent);
+mySummary=myAnnotationBuffer.getText();
+myAnnotationBuffer.reset();
 myState=TITLE_INFO;
 }
  else {
-myHtmlToString.processTextContent(true,tag,null,bufferContent);
+myAnnotationBuffer.appendEndTag(tag);
 }
 break;
 case DATE:
@@ -109,5 +103,6 @@ myState=TITLE_INFO;
 }
 break;
 }
+myBuffer.delete(0,myBuffer.length());
 return false;
 }

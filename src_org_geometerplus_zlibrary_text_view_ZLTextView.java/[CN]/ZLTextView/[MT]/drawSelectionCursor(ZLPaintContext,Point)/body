@@ -1,0 +1,14 @@
+{
+  if (pt == null) {
+    return;
+  }
+  final int w=ZLTextSelectionCursor.getWidth() / 2;
+  final int h=ZLTextSelectionCursor.getHeight();
+  final int a=ZLTextSelectionCursor.getAccent();
+  final int[] xs={pt.X,pt.X + w,pt.X + w,pt.X - w,pt.X - w};
+  final int[] ys={pt.Y - a,pt.Y,pt.Y + h,pt.Y + h,pt.Y};
+  context.setFillColor(context.getBackgroundColor(),192);
+  context.fillPolygon(xs,ys);
+  context.setLineColor(getTextColor(ZLTextHyperlink.NO_LINK));
+  context.drawPolygonalLine(xs,ys);
+}

@@ -1,6 +1,0 @@
-{
-  if (!(other instanceof ZLTextImageRegion)) {
-    return false;
-  }
-  return ImageElement == ((ZLTextImageRegion)other).ImageElement;
-}

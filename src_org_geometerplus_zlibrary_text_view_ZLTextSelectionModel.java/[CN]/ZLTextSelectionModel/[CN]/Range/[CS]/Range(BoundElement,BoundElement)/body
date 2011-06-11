@@ -1,4 +1,0 @@
-{
-  Left.copyFrom(left);
-  Right.copyFrom(right);
-}

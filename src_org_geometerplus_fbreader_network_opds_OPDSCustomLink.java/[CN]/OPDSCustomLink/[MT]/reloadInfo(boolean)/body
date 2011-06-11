@@ -18,8 +18,8 @@
           descriptions.add(info.DirectOpenSearchDescription);
         }
         if (!urlsOnly) {
-          myTitle=info.Title;
-          mySummary=info.Summary;
+          myTitle=info.Title.toString();
+          mySummary=info.Summary != null ? info.Summary.toString() : null;
         }
       }
     }

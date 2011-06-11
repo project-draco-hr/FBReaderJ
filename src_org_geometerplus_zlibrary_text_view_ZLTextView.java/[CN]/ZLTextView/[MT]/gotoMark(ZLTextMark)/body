@@ -12,7 +12,7 @@
   if (myCurrentPage.StartCursor.isNull()) {
     return;
   }
-  if ((myCurrentPage.StartCursor.getParagraphIndex() != mark.ParagraphIndex) || (myCurrentPage.StartCursor.getMark().compareTo(mark) > 0)) {
+  if (myCurrentPage.StartCursor.getParagraphIndex() != mark.ParagraphIndex || myCurrentPage.StartCursor.getMark().compareTo(mark) > 0) {
     doRepaint=true;
     gotoPosition(mark.ParagraphIndex,0,0);
     preparePaintInfo(myCurrentPage);

@@ -13,7 +13,7 @@
     while (info.EndElementIndex != endIndex) {
       info=processTextLine(paragraphCursor,info.EndElementIndex,info.EndCharIndex,endIndex);
       textAreaHeight-=info.Height + info.Descent;
-      if ((textAreaHeight < 0) && (counter > 0)) {
+      if (textAreaHeight < 0 && counter > 0) {
         break;
       }
       textAreaHeight-=info.VSpaceAfter;
