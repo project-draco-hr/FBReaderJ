@@ -2,6 +2,7 @@ int paragraphIndex
 int elementIndex
 int charIndex
 int length
+boolean lastInElement
 boolean addHyphenationSign
 boolean changeStyle
 ZLTextStyle style

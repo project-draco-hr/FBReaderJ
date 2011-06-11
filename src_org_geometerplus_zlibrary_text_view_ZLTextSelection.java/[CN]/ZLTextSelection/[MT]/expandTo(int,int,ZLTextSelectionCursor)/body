@@ -13,23 +13,38 @@
   if (cursorToMove == ZLTextSelectionCursor.Right) {
     if (myLeftMostRegionSoul.compareTo(soul) <= 0) {
       myRightMostRegionSoul=soul;
-      return cursorToMove;
     }
  else {
       myRightMostRegionSoul=myLeftMostRegionSoul;
       myLeftMostRegionSoul=soul;
-      return ZLTextSelectionCursor.Left;
+      cursorToMove=ZLTextSelectionCursor.Left;
     }
   }
  else {
     if (myRightMostRegionSoul.compareTo(soul) >= 0) {
       myLeftMostRegionSoul=soul;
-      return cursorToMove;
     }
  else {
       myLeftMostRegionSoul=myRightMostRegionSoul;
       myRightMostRegionSoul=soul;
-      return ZLTextSelectionCursor.Right;
+      cursorToMove=ZLTextSelectionCursor.Right;
     }
   }
+  if (cursorToMove == ZLTextSelectionCursor.Right) {
+    System.err.println("++");
+    if (hasAPartAfterPage(myView.myCurrentPage)) {
+      System.err.println("--");
+      myView.scrollPage(true,ZLTextView.ScrollingMode.SCROLL_LINES,1);
+      myView.Application.getViewWidget().reset();
+      myView.preparePaintInfo();
+    }
+  }
+ else {
+    if (hasAPartBeforePage(myView.myCurrentPage)) {
+      myView.scrollPage(false,ZLTextView.ScrollingMode.SCROLL_LINES,1);
+      myView.Application.getViewWidget().reset();
+      myView.preparePaintInfo();
+    }
+  }
+  return cursorToMove;
 }

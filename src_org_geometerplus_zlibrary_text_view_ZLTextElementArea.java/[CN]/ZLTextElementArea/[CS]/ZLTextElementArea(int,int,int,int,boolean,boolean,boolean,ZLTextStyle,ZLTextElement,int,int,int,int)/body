@@ -5,6 +5,7 @@
   YStart=yStart;
   YEnd=yEnd;
   Length=length;
+  myIsLastInElement=lastInElement;
   AddHyphenationSign=addHyphenationSign;
   ChangeStyle=changeStyle;
   Style=style;
