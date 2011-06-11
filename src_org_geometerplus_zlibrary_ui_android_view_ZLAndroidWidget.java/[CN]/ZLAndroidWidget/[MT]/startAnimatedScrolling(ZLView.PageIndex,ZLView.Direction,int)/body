@@ -5,7 +5,7 @@
   }
   final AnimationProvider animator=getAnimationProvider();
   animator.setup(direction,getWidth(),getMainAreaHeight());
-  animator.startAutoScrolling(pageIndex,null,null,speed);
+  animator.startAnimatedScrolling(pageIndex,null,null,speed);
   if (animator.getMode().Auto) {
     postInvalidate();
   }

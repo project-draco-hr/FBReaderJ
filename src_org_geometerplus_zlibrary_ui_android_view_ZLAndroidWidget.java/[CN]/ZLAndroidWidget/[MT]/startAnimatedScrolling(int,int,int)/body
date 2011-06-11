@@ -5,6 +5,6 @@
     animator.terminate();
     return;
   }
-  animator.startAutoScrolling(x,y,speed);
+  animator.startAnimatedScrolling(x,y,speed);
   postInvalidate();
 }

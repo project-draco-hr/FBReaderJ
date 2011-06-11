@@ -3,7 +3,7 @@
     return;
   }
   terminate();
-  myMode=Mode.AutoScrollingForward;
+  myMode=Mode.AnimatedScrollingForward;
 switch (myDirection) {
 case up:
 case rightToLeft:
@@ -14,6 +14,6 @@ case down:
 mySpeed=pageIndex == ZLView.PageIndex.next ? 15 : -15;
 break;
 }
-setupAutoScrollingStart(x,y);
-startAutoScrollingInternal(speed);
+setupAnimatedScrollingStart(x,y);
+startAnimatedScrollingInternal(speed);
 }
