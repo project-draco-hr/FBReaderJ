@@ -1,3 +1,4 @@
 {
-  return myList.get(myToIndex - 1);
+  final ZLTextElementArea[] areas=textAreas();
+  return areas[areas.length - 1];
 }

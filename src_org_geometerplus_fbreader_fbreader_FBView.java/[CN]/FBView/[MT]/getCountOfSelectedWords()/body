@@ -1,7 +1,7 @@
 {
-  final TextBuildTraverser traverser=new TextBuildTraverser(this);
+  final WordCountTraverser traverser=new WordCountTraverser(this);
   if (!isSelectionEmpty()) {
     traverser.traverse(getSelectionStartPosition(),getSelectionEndPosition());
   }
-  return traverser.getText();
+  return traverser.getCount();
 }

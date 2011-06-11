@@ -1,4 +1,14 @@
 {
+  if (singleWord) {
+    int start=0;
+    int end=text.length();
+    for (; start < end && !Character.isLetterOrDigit(text.charAt(start)); ++start)     ;
+    for (; start < end && !Character.isLetterOrDigit(text.charAt(end - 1)); --end)     ;
+    if (start == end) {
+      return;
+    }
+    text=text.substring(start,end);
+  }
   final PackageInfo info=getCurrentDictionaryInfo(singleWord);
   final Intent intent=getDictionaryIntent(info,text);
   try {

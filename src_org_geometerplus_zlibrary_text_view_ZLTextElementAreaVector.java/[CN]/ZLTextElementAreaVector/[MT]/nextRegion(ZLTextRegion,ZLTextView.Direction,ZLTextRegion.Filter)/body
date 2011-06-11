@@ -1,29 +1,30 @@
 {
-  if (myElementRegions.isEmpty()) {
-    return null;
-  }
-  int index=currentRegion != null ? myElementRegions.indexOf(currentRegion) : -1;
+synchronized (myElementRegions) {
+    if (myElementRegions.isEmpty()) {
+      return null;
+    }
+    int index=currentRegion != null ? myElementRegions.indexOf(currentRegion) : -1;
 switch (direction) {
 case rightToLeft:
 case up:
-    if (index == -1) {
-      index=myElementRegions.size() - 1;
-    }
- else     if (index == 0) {
-      return null;
-    }
+      if (index == -1) {
+        index=myElementRegions.size() - 1;
+      }
+ else       if (index == 0) {
+        return null;
+      }
  else {
-      --index;
-    }
-  break;
+        --index;
+      }
+    break;
 case leftToRight:
 case down:
-if (index == myElementRegions.size() - 1) {
-  return null;
-}
+  if (index == myElementRegions.size() - 1) {
+    return null;
+  }
  else {
-  ++index;
-}
+    ++index;
+  }
 break;
 }
 switch (direction) {
@@ -31,7 +32,7 @@ case rightToLeft:
 for (; index >= 0; --index) {
 final ZLTextRegion candidate=myElementRegions.get(index);
 if (filter.accepts(candidate) && candidate.isAtLeftOf(currentRegion)) {
-return candidate;
+  return candidate;
 }
 }
 break;
@@ -81,6 +82,7 @@ if (firstCandidate != null) {
 return firstCandidate;
 }
 break;
+}
 }
 return null;
 }
