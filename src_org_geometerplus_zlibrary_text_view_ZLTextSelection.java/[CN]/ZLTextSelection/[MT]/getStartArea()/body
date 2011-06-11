@@ -1,3 +1,0 @@
-{
-  return myLeftMostRegion.getFirstArea();
-}

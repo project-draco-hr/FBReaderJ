@@ -3,14 +3,14 @@
   if (mySelection.isEmpty() || vector.isEmpty()) {
     return 0;
   }
-  final ZLTextElementArea selectionEndArea=mySelection.getEndArea();
-  final int index=vector.indexOf(selectionEndArea);
-  if (index != -1) {
-    return vector.get(index).YEnd;
+  final ZLTextElementArea selectionEndArea=mySelection.getEndArea(myCurrentPage);
+  if (selectionEndArea != null) {
+    return selectionEndArea.YEnd;
   }
-  final ZLTextElementArea endArea=vector.get(vector.size() - 1);
-  if (selectionEndArea.compareTo(endArea) > 0) {
-    return endArea.YEnd;
+  if (mySelection.hasAPartAfterPage(myCurrentPage)) {
+    return vector.get(vector.size() - 1).YEnd;
   }
-  return vector.get(0).YStart;
+ else {
+    return vector.get(0).YStart;
+  }
 }

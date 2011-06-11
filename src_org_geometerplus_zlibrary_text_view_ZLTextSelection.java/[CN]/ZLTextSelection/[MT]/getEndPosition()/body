@@ -1,0 +1,6 @@
+{
+  if (isEmpty()) {
+    return null;
+  }
+  return new ZLTextFixedPosition(myRightMostRegionSoul.ParagraphIndex,myRightMostRegionSoul.EndElementIndex,0);
+}

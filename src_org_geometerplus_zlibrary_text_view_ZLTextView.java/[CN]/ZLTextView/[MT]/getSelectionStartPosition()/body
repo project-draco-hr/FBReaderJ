@@ -1,4 +1,3 @@
 {
-  final ZLTextPosition start=mySelection.getStartArea();
-  return new ZLTextFixedPosition(start.getParagraphIndex(),start.getElementIndex(),0);
+  return mySelection.getStartPosition();
 }

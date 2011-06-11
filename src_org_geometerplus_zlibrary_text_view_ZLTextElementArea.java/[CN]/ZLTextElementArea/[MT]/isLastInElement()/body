@@ -1,0 +1,3 @@
+{
+  return !(Element instanceof ZLTextWord) || CharIndex > 0;
+}

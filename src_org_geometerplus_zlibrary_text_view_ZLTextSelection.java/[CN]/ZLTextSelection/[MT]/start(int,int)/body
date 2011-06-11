@@ -1,9 +1,9 @@
 {
   clear();
-  myLeftMostRegion=myView.findRegion(x,y,ZLTextView.MAX_SELECTION_DISTANCE,ZLTextRegion.AnyRegionFilter);
-  if (myLeftMostRegion == null) {
+  final ZLTextRegion region=myView.findRegion(x,y,ZLTextView.MAX_SELECTION_DISTANCE,ZLTextRegion.AnyRegionFilter);
+  if (region == null) {
     return false;
   }
-  myRightMostRegion=myLeftMostRegion;
+  myRightMostRegionSoul=myLeftMostRegionSoul=region.getSoul();
   return true;
 }

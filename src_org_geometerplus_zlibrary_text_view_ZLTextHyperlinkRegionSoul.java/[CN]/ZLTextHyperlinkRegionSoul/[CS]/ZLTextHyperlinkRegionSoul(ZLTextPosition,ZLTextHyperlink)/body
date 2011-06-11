@@ -1,0 +1,4 @@
+{
+  super(position.getParagraphIndex(),position.getElementIndex(),position.getElementIndex());
+  Hyperlink=hyperlink;
+}

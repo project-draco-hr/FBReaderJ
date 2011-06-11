@@ -1,3 +1,3 @@
 {
-  return !isEmpty() && myLeftMostRegion.getFirstArea().weakCompareTo(area) <= 0 && myRightMostRegion.getLastArea().weakCompareTo(area) >= 0;
+  return !isEmpty() && myLeftMostRegionSoul.compareTo(area) <= 0 && myRightMostRegionSoul.compareTo(area) >= 0;
 }

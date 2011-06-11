@@ -1,22 +1,25 @@
 {
-  final ZLTextElementAreaVector vector=page.TextElementMap;
-  if (cursor == ZLTextSelectionCursor.None || mySelection.isEmpty() || vector.isEmpty()) {
+  if (cursor == ZLTextSelectionCursor.None) {
     return null;
   }
   if (cursor == mySelectionCursorInMovement) {
     return myMovedSelectionCursorPoint;
   }
-  final ZLTextElementArea firstArea=vector.get(0);
-  final ZLTextElementArea lastArea=vector.get(vector.size() - 1);
   if (cursor == ZLTextSelectionCursor.Left) {
-    final ZLTextElementArea selectionStartArea=mySelection.getStartArea();
-    if (selectionStartArea.compareTo(firstArea) >= 0 && selectionStartArea.compareTo(lastArea) <= 0) {
+    if (mySelection.hasAPartBeforePage(page)) {
+      return null;
+    }
+    final ZLTextElementArea selectionStartArea=mySelection.getStartArea(page);
+    if (selectionStartArea != null) {
       return new Point(selectionStartArea.XStart,selectionStartArea.YEnd);
     }
   }
  else {
-    final ZLTextElementArea selectionEndArea=mySelection.getEndArea();
-    if (selectionEndArea.compareTo(firstArea) >= 0 && selectionEndArea.compareTo(lastArea) <= 0) {
+    if (mySelection.hasAPartAfterPage(page)) {
+      return null;
+    }
+    final ZLTextElementArea selectionEndArea=mySelection.getEndArea(page);
+    if (selectionEndArea != null) {
       return new Point(selectionEndArea.XEnd,selectionEndArea.YEnd);
     }
   }

@@ -4,9 +4,9 @@
   if (!mySelection.isEmpty() && from != to) {
     final ZLTextElementArea fromArea=page.TextElementMap.get(from);
     final ZLTextElementArea toArea=page.TextElementMap.get(to - 1);
-    final ZLTextElementArea selectionStartArea=mySelection.getStartArea();
-    final ZLTextElementArea selectionEndArea=mySelection.getEndArea();
-    if (fromArea.compareTo(selectionEndArea) <= 0 && toArea.compareTo(selectionStartArea) >= 0) {
+    final ZLTextElementArea selectionStartArea=mySelection.getStartArea(page);
+    final ZLTextElementArea selectionEndArea=mySelection.getEndArea(page);
+    if (selectionStartArea != null && selectionEndArea != null && selectionStartArea.compareTo(toArea) <= 0 && selectionEndArea.compareTo(fromArea) >= 0) {
       final int top=y + 1;
       int left, right, bottom=y + info.Height + info.Descent;
       if (selectionStartArea.compareTo(fromArea) < 0) {

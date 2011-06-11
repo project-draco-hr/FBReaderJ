@@ -1,4 +1,3 @@
 {
-  final ZLTextPosition end=mySelection.getEndArea();
-  return new ZLTextFixedPosition(end.getParagraphIndex(),end.getElementIndex(),Integer.MAX_VALUE);
+  return mySelection.getEndPosition();
 }

@@ -9,25 +9,26 @@
   if (region == null) {
     return cursorToMove;
   }
+  final ZLTextRegion.Soul soul=region.getSoul();
   if (cursorToMove == ZLTextSelectionCursor.Right) {
-    if (myLeftMostRegion.compareTo(region) <= 0) {
-      myRightMostRegion=region;
+    if (myLeftMostRegionSoul.compareTo(soul) <= 0) {
+      myRightMostRegionSoul=soul;
       return cursorToMove;
     }
  else {
-      myRightMostRegion=myLeftMostRegion;
-      myLeftMostRegion=region;
+      myRightMostRegionSoul=myLeftMostRegionSoul;
+      myLeftMostRegionSoul=soul;
       return ZLTextSelectionCursor.Left;
     }
   }
  else {
-    if (myRightMostRegion.compareTo(region) >= 0) {
-      myLeftMostRegion=region;
+    if (myRightMostRegionSoul.compareTo(soul) >= 0) {
+      myLeftMostRegionSoul=soul;
       return cursorToMove;
     }
  else {
-      myLeftMostRegion=myRightMostRegion;
-      myRightMostRegion=region;
+      myLeftMostRegionSoul=myRightMostRegionSoul;
+      myRightMostRegionSoul=soul;
       return ZLTextSelectionCursor.Right;
     }
   }

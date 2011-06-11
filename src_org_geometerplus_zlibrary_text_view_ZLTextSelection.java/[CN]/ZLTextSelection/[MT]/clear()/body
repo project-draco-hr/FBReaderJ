@@ -3,7 +3,7 @@
     return false;
   }
   stop();
-  myLeftMostRegion=null;
-  myRightMostRegion=null;
+  myLeftMostRegionSoul=null;
+  myRightMostRegionSoul=null;
   return true;
 }
