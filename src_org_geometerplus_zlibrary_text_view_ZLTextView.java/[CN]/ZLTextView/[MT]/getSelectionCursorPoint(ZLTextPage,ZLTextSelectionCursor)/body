@@ -2,7 +2,7 @@
   if (cursor == ZLTextSelectionCursor.None) {
     return null;
   }
-  if (cursor == mySelectionCursorInMovement) {
+  if (cursor == mySelection.getCursorInMovement()) {
     return myMovedSelectionCursorPoint;
   }
   if (cursor == ZLTextSelectionCursor.Left) {

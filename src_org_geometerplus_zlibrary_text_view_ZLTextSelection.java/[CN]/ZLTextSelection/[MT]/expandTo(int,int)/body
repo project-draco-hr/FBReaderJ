@@ -1,23 +1,53 @@
 {
   if (isEmpty()) {
-    return cursorToMove;
+    return;
+  }
+  final ZLTextElementAreaVector vector=myView.myCurrentPage.TextElementMap;
+  if (!vector.isEmpty() && y < vector.get(0).YStart) {
+    if (myScroller != null && myScroller.scrollsForward()) {
+      myScroller.stop();
+      myScroller=null;
+    }
+    if (myScroller == null) {
+      myScroller=new Scroller(false,x,y);
+      return;
+    }
+  }
+ else   if (!vector.isEmpty() && y + ZLTextSelectionCursor.getHeight() / 2 + ZLTextSelectionCursor.getAccent() / 2 > vector.get(vector.size() - 1).YEnd) {
+    if (myScroller != null && !myScroller.scrollsForward()) {
+      myScroller.stop();
+      myScroller=null;
+    }
+    if (myScroller == null) {
+      myScroller=new Scroller(true,x,y);
+      return;
+    }
+  }
+ else {
+    if (myScroller != null) {
+      myScroller.stop();
+      myScroller=null;
+    }
+  }
+  if (myScroller != null) {
+    myScroller.setXY(x,y);
   }
   ZLTextRegion region=myView.findRegion(x,y,ZLTextView.MAX_SELECTION_DISTANCE,ZLTextRegion.AnyRegionFilter);
   if (region == null && myScroller != null) {
     region=myView.findRegion(x,y,ZLTextRegion.AnyRegionFilter);
   }
   if (region == null) {
-    return cursorToMove;
+    return;
   }
   final ZLTextRegion.Soul soul=region.getSoul();
-  if (cursorToMove == ZLTextSelectionCursor.Right) {
+  if (myCursorInMovement == ZLTextSelectionCursor.Right) {
     if (myLeftMostRegionSoul.compareTo(soul) <= 0) {
       myRightMostRegionSoul=soul;
     }
  else {
       myRightMostRegionSoul=myLeftMostRegionSoul;
       myLeftMostRegionSoul=soul;
-      cursorToMove=ZLTextSelectionCursor.Left;
+      myCursorInMovement=ZLTextSelectionCursor.Left;
     }
   }
  else {
@@ -27,13 +57,11 @@
  else {
       myLeftMostRegionSoul=myRightMostRegionSoul;
       myRightMostRegionSoul=soul;
-      cursorToMove=ZLTextSelectionCursor.Right;
+      myCursorInMovement=ZLTextSelectionCursor.Right;
     }
   }
-  if (cursorToMove == ZLTextSelectionCursor.Right) {
-    System.err.println("++");
+  if (myCursorInMovement == ZLTextSelectionCursor.Right) {
     if (hasAPartAfterPage(myView.myCurrentPage)) {
-      System.err.println("--");
       myView.scrollPage(true,ZLTextView.ScrollingMode.SCROLL_LINES,1);
       myView.Application.getViewWidget().reset();
       myView.preparePaintInfo();
@@ -46,5 +74,4 @@
       myView.preparePaintInfo();
     }
   }
-  return cursorToMove;
 }

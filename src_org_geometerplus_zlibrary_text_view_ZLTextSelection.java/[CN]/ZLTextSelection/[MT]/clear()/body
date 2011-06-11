@@ -5,5 +5,6 @@
   stop();
   myLeftMostRegionSoul=null;
   myRightMostRegionSoul=null;
+  myCursorInMovement=ZLTextSelectionCursor.None;
   return true;
 }

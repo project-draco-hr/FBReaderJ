@@ -1,5 +1,5 @@
 {
-  mySelectionCursorInMovement=ZLTextSelectionCursor.None;
+  mySelection.setCursorInMovement(ZLTextSelectionCursor.None);
   mySelection.stop();
   if (mySelection.clear()) {
     Application.getViewWidget().reset();
