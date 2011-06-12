@@ -6,5 +6,8 @@
       word.addMark(mark.Offset - paragraphOffset,mark.Length);
     }
   }
+  if (hyperlink != null) {
+    hyperlink.addElementIndex(myElements.size());
+  }
   myElements.add(word);
 }

@@ -2,3 +2,4 @@ char[] data
 int offset
 int len
 int paragraphOffset
+ZLTextHyperlink hyperlink

@@ -16,7 +16,7 @@
       ch=data[offset + index];
       if (Character.isSpace(ch)) {
         if (index > 0 && spaceState == NO_SPACE) {
-          addWord(data,offset + wordStart,index - wordStart,myOffset + wordStart);
+          addWord(data,offset + wordStart,index - wordStart,myOffset + wordStart,hyperlink);
         }
         spaceState=SPACE;
       }
@@ -28,7 +28,7 @@ case SPACE:
       break;
 case NO_SPACE:
     if (index > 0 && breaks[index - 1] != LineBreaker.NOBREAK && previousChar != '-' && index != wordStart) {
-      addWord(data,offset + wordStart,index - wordStart,myOffset + wordStart);
+      addWord(data,offset + wordStart,index - wordStart,myOffset + wordStart,hyperlink);
       wordStart=index;
     }
   break;
@@ -41,7 +41,7 @@ case SPACE:
 elements.add(hSpace);
 break;
 case NO_SPACE:
-addWord(data,offset + wordStart,length - wordStart,myOffset + wordStart);
+addWord(data,offset + wordStart,length - wordStart,myOffset + wordStart,hyperlink);
 break;
 }
 myOffset+=length;
