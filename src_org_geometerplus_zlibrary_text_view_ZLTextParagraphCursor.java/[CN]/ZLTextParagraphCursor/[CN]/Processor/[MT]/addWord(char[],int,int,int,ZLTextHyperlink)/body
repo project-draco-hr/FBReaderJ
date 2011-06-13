@@ -1,0 +1,13 @@
+{
+  ZLTextWord word=new ZLTextWord(data,offset,len,paragraphOffset);
+  for (int i=myFirstMark; i < myLastMark; ++i) {
+    final ZLTextMark mark=(ZLTextMark)myMarks.get(i);
+    if ((mark.Offset < paragraphOffset + len) && (mark.Offset + mark.Length > paragraphOffset)) {
+      word.addMark(mark.Offset - paragraphOffset,mark.Length);
+    }
+  }
+  if (hyperlink != null) {
+    hyperlink.addElementIndex(myElements.size());
+  }
+  myElements.add(word);
+}

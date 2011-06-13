@@ -1,0 +1,7 @@
+{
+  final WordCountTraverser traverser=new WordCountTraverser(this);
+  if (!isSelectionEmpty()) {
+    traverser.traverse(getSelectionStartPosition(),getSelectionEndPosition());
+  }
+  return traverser.getCount();
+}

@@ -1,0 +1,16 @@
+{
+  ZLTextRegion bestRegion=null;
+  int distance=maxDistance + 1;
+synchronized (myElementRegions) {
+    for (    ZLTextRegion region : myElementRegions) {
+      if (filter.accepts(region)) {
+        final int d=region.distanceTo(x,y);
+        if (d < distance) {
+          bestRegion=region;
+          distance=d;
+        }
+      }
+    }
+  }
+  return bestRegion;
+}

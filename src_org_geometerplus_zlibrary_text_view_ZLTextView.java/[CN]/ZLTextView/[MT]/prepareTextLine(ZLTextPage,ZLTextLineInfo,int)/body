@@ -39,7 +39,7 @@ if (wordOccurred && (spaceCounter > 0)) {
 final int correction=fullCorrection / spaceCounter;
 final int spaceLength=context.getSpaceWidth() + correction;
 if (getTextStyle().isUnderline()) {
-spaceElement=new ZLTextElementArea(paragraphIndex,wordIndex,0,0,false,false,getTextStyle(),element,x,x + spaceLength,y,y);
+spaceElement=new ZLTextElementArea(paragraphIndex,wordIndex,0,0,true,false,false,getTextStyle(),element,x,x + spaceLength,y,y);
 }
  else {
 spaceElement=null;
@@ -58,7 +58,7 @@ if (spaceElement != null) {
 page.TextElementMap.add(spaceElement);
 spaceElement=null;
 }
-page.TextElementMap.add(new ZLTextElementArea(paragraphIndex,wordIndex,charIndex,length - charIndex,false,changeStyle,getTextStyle(),element,x,x + width - 1,y - height + 1,y + descent));
+page.TextElementMap.add(new ZLTextElementArea(paragraphIndex,wordIndex,charIndex,length - charIndex,true,false,changeStyle,getTextStyle(),element,x,x + width - 1,y - height + 1,y + descent));
 changeStyle=false;
 wordOccurred=true;
 }
@@ -77,7 +77,7 @@ final boolean addHyphenationSign=word.Data[word.Offset + len - 1] != '-';
 final int width=getWordWidth(word,0,len,addHyphenationSign);
 final int height=getElementHeight(word);
 final int descent=context.getDescent();
-page.TextElementMap.add(new ZLTextElementArea(paragraphIndex,wordIndex,0,len,addHyphenationSign,changeStyle,getTextStyle(),word,x,x + width - 1,y - height + 1,y + descent));
+page.TextElementMap.add(new ZLTextElementArea(paragraphIndex,wordIndex,0,len,false,addHyphenationSign,changeStyle,getTextStyle(),word,x,x + width - 1,y - height + 1,y + descent));
 }
 }
 }

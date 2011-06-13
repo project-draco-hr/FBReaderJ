@@ -17,7 +17,7 @@ myEndY-=(int)mySpeed;
 break;
 }
 final int bound;
-if (getMode() == Mode.AutoScrollingForward) {
+if (getMode() == Mode.AnimatedScrollingForward) {
 bound=myDirection.IsHorizontal ? myWidth : myHeight;
 }
  else {

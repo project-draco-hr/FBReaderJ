@@ -1,4 +1,6 @@
 {
   super.releaseSelectionCursor();
-  myReader.doAction(ActionCode.SELECTION_SHOW_PANEL);
+  if (getCountOfSelectedWords() > 0) {
+    myReader.doAction(ActionCode.SELECTION_SHOW_PANEL);
+  }
 }

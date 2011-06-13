@@ -1,4 +1,4 @@
 {
   final ScrollingPreferences preferences=ScrollingPreferences.Instance();
-  Reader.getViewWidget().startAutoScrolling(myForward ? FBView.PageIndex.next : FBView.PageIndex.previous,x,y,preferences.HorizontalOption.getValue() ? FBView.Direction.rightToLeft : FBView.Direction.up,preferences.AnimationSpeedOption.getValue());
+  Reader.getViewWidget().startAnimatedScrolling(myForward ? FBView.PageIndex.next : FBView.PageIndex.previous,x,y,preferences.HorizontalOption.getValue() ? FBView.Direction.rightToLeft : FBView.Direction.up,preferences.AnimationSpeedOption.getValue());
 }

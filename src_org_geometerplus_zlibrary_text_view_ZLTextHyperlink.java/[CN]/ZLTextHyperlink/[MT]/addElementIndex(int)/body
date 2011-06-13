@@ -1,0 +1,6 @@
+{
+  if (myElementIndexes == null) {
+    myElementIndexes=new LinkedList<Integer>();
+  }
+  myElementIndexes.add(elementIndex);
+}

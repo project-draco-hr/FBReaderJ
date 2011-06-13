@@ -1,6 +1,6 @@
 {
   mySoul=soul;
-  myList=list;
+  myAreaList=list;
   myFromIndex=fromIndex;
   myToIndex=fromIndex + 1;
 }

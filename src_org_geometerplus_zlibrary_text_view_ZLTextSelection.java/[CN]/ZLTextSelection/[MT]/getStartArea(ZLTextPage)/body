@@ -10,7 +10,7 @@
   if (region != null) {
     return region.getFirstArea();
   }
-  if (myRightMostRegionSoul.compareTo(vector.get(0)) >= 0) {
+  if (myLeftMostRegionSoul.compareTo(vector.get(0)) <= 0) {
     return vector.get(0);
   }
   return null;

@@ -1,0 +1,5 @@
+{
+  final FBView fbview=Reader.getTextView();
+  DictionaryUtil.openTextInDictionary(BaseActivity,fbview.getSelectedText(),fbview.getCountOfSelectedWords() == 1,fbview.getSelectionStartY(),fbview.getSelectionEndY());
+  fbview.clearSelection();
+}

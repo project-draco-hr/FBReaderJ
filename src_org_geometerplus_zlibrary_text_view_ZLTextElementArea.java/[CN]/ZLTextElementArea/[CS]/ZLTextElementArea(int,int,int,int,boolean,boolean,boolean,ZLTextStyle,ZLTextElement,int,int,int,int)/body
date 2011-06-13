@@ -1,0 +1,13 @@
+{
+  super(paragraphIndex,elementIndex,charIndex);
+  XStart=xStart;
+  XEnd=xEnd;
+  YStart=yStart;
+  YEnd=yEnd;
+  Length=length;
+  myIsLastInElement=lastInElement;
+  AddHyphenationSign=addHyphenationSign;
+  ChangeStyle=changeStyle;
+  Style=style;
+  Element=element;
+}

@@ -1,0 +1,5 @@
+Activity activity
+String text
+boolean singleWord
+int selectionTop
+int selectionBottom

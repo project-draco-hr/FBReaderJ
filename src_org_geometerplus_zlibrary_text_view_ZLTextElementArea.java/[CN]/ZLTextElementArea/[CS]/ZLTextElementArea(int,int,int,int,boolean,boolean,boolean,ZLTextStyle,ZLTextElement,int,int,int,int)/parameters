@@ -1,0 +1,13 @@
+int paragraphIndex
+int elementIndex
+int charIndex
+int length
+boolean lastInElement
+boolean addHyphenationSign
+boolean changeStyle
+ZLTextStyle style
+ZLTextElement element
+int xStart
+int xEnd
+int yStart
+int yEnd

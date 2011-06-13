@@ -15,12 +15,12 @@
       soul=new ZLTextWordRegionSoul(area,(ZLTextWord)area.Element);
     }
     if (soul != null) {
-      myCurrentElementRegion=new ZLTextRegion(soul,this,size());
+      myCurrentElementRegion=new ZLTextRegion(soul,myAreas,size());
       myElementRegions.add(myCurrentElementRegion);
     }
  else {
       myCurrentElementRegion=null;
     }
   }
-  return super.add(area);
+  return myAreas.add(area);
 }

@@ -1,5 +1,5 @@
 {
-  final TextBuilderTraverser traverser=new TextBuilderTraverser(this);
+  final TextBuildTraverser traverser=new TextBuildTraverser(this);
   if (!isSelectionEmpty()) {
     traverser.traverse(getSelectionStartPosition(),getSelectionEndPosition());
   }

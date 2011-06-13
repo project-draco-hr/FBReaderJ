@@ -1,0 +1,3 @@
+{
+  return myElementIndexes != null ? Collections.unmodifiableList(myElementIndexes) : Collections.<Integer>emptyList();
+}

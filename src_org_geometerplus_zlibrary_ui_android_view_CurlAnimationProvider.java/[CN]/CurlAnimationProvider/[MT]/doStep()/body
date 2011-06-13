@@ -7,7 +7,7 @@
   final int cornerX=myStartX > myWidth / 2 ? myWidth : 0;
   final int cornerY=myStartY > myHeight / 2 ? myHeight : 0;
   final int boundX, boundY;
-  if (getMode() == Mode.AutoScrollingForward) {
+  if (getMode() == Mode.AnimatedScrollingForward) {
     boundX=cornerX == 0 ? 2 * myWidth : -myWidth;
     boundY=cornerY == 0 ? 2 * myHeight : -myHeight;
   }
@@ -31,7 +31,7 @@
     speedY=speed;
   }
   final boolean xSpeedIsPositive, ySpeedIsPositive;
-  if (getMode() == Mode.AutoScrollingForward) {
+  if (getMode() == Mode.AnimatedScrollingForward) {
     xSpeedIsPositive=cornerX == 0;
     ySpeedIsPositive=cornerY == 0;
   }

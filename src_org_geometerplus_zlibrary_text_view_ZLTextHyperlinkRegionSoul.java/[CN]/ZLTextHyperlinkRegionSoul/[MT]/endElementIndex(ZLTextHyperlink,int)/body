@@ -1,0 +1,4 @@
+{
+  final List<Integer> indexes=hyperlink.elementIndexes();
+  return indexes.isEmpty() ? fallback : indexes.get(indexes.size() - 1);
+}

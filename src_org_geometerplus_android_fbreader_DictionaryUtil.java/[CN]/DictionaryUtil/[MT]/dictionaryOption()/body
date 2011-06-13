@@ -1,6 +1,0 @@
-{
-  if (ourDictionaryOption == null) {
-    ourDictionaryOption=new ZLStringOption("Dictionary","Id",firstInfo().Id);
-  }
-  return ourDictionaryOption;
-}

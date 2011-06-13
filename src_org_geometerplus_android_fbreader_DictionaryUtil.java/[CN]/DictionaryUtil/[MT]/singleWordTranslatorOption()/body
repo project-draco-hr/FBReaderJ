@@ -1,0 +1,6 @@
+{
+  if (ourSingleWordTranslatorOption == null) {
+    ourSingleWordTranslatorOption=new ZLStringOption("Dictionary","Id",firstInfo().Id);
+  }
+  return ourSingleWordTranslatorOption;
+}

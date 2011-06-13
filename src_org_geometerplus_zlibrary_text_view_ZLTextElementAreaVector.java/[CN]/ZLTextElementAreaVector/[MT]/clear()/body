@@ -1,5 +1,5 @@
 {
   myElementRegions.clear();
   myCurrentElementRegion=null;
-  super.clear();
+  myAreas.clear();
 }

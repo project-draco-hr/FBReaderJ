@@ -1,3 +1,3 @@
 {
-  return !(Element instanceof ZLTextWord) || CharIndex > 0;
+  return myIsLastInElement;
 }

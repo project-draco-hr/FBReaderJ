@@ -1,0 +1,77 @@
+{
+  if (isEmpty()) {
+    return;
+  }
+  final ZLTextElementAreaVector vector=myView.myCurrentPage.TextElementMap;
+  if (!vector.isEmpty() && y < vector.get(0).YStart) {
+    if (myScroller != null && myScroller.scrollsForward()) {
+      myScroller.stop();
+      myScroller=null;
+    }
+    if (myScroller == null) {
+      myScroller=new Scroller(false,x,y);
+      return;
+    }
+  }
+ else   if (!vector.isEmpty() && y + ZLTextSelectionCursor.getHeight() / 2 + ZLTextSelectionCursor.getAccent() / 2 > vector.get(vector.size() - 1).YEnd) {
+    if (myScroller != null && !myScroller.scrollsForward()) {
+      myScroller.stop();
+      myScroller=null;
+    }
+    if (myScroller == null) {
+      myScroller=new Scroller(true,x,y);
+      return;
+    }
+  }
+ else {
+    if (myScroller != null) {
+      myScroller.stop();
+      myScroller=null;
+    }
+  }
+  if (myScroller != null) {
+    myScroller.setXY(x,y);
+  }
+  ZLTextRegion region=myView.findRegion(x,y,ZLTextView.MAX_SELECTION_DISTANCE,ZLTextRegion.AnyRegionFilter);
+  if (region == null && myScroller != null) {
+    region=myView.findRegion(x,y,ZLTextRegion.AnyRegionFilter);
+  }
+  if (region == null) {
+    return;
+  }
+  final ZLTextRegion.Soul soul=region.getSoul();
+  if (myCursorInMovement == ZLTextSelectionCursor.Right) {
+    if (myLeftMostRegionSoul.compareTo(soul) <= 0) {
+      myRightMostRegionSoul=soul;
+    }
+ else {
+      myRightMostRegionSoul=myLeftMostRegionSoul;
+      myLeftMostRegionSoul=soul;
+      myCursorInMovement=ZLTextSelectionCursor.Left;
+    }
+  }
+ else {
+    if (myRightMostRegionSoul.compareTo(soul) >= 0) {
+      myLeftMostRegionSoul=soul;
+    }
+ else {
+      myLeftMostRegionSoul=myRightMostRegionSoul;
+      myRightMostRegionSoul=soul;
+      myCursorInMovement=ZLTextSelectionCursor.Right;
+    }
+  }
+  if (myCursorInMovement == ZLTextSelectionCursor.Right) {
+    if (hasAPartAfterPage(myView.myCurrentPage)) {
+      myView.scrollPage(true,ZLTextView.ScrollingMode.SCROLL_LINES,1);
+      myView.Application.getViewWidget().reset();
+      myView.preparePaintInfo();
+    }
+  }
+ else {
+    if (hasAPartBeforePage(myView.myCurrentPage)) {
+      myView.scrollPage(false,ZLTextView.ScrollingMode.SCROLL_LINES,1);
+      myView.Application.getViewWidget().reset();
+      myView.preparePaintInfo();
+    }
+  }
+}
