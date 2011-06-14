@@ -1,0 +1,8 @@
+{
+  for (int i=Offset; i < Offset + Length; ++i) {
+    if (!Character.isWhitespace(Data[i])) {
+      return false;
+    }
+  }
+  return true;
+}
