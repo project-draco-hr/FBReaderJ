@@ -3,4 +3,6 @@
   HashMap<String,String> callbackMap=new HashMap<String,String>();
   callbackMap.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID,PARAGRAPHUTTERANCE);
   myTTS.speak(s,TextToSpeech.QUEUE_FLUSH,callbackMap);
+  System.err.println(myParagraphIndex);
+  System.err.println(s);
 }

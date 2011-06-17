@@ -1,4 +1,14 @@
 {
+  if (active && myParagraphIndex == -1) {
+    try {
+      myParagraphIndex=myConnection.getPageStartParagraphIndex();
+      myMaxParagraphIndex=myConnection.getMaxParagraphIndex();
+    }
+ catch (    ApiException e) {
+    }
+    System.err.println(myParagraphIndex + ":" + myMaxParagraphIndex);
+    active=myParagraphIndex != -1;
+  }
   myIsActive=active;
   if (myIsActive) {
     myPauseButton.post(new UpdateControls(R.drawable.speak_pause));

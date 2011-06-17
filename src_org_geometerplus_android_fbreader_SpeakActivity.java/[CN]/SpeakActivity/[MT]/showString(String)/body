@@ -1,5 +1,2 @@
 {
-  myView.gotoPosition(myParagraphCursor.Index,0,0);
-  myReader.getViewWidget().repaint();
-  myReader.showBookTextView();
 }

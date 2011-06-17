@@ -1,0 +1,9 @@
+{
+  checkConnection();
+  try {
+    return myInterface.getMaxParagraphIndex();
+  }
+ catch (  android.os.RemoteException e) {
+    throw new ApiException(e);
+  }
+}

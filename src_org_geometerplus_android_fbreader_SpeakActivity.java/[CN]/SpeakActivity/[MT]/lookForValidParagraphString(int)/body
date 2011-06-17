@@ -1,0 +1,18 @@
+{
+  String s="";
+  while (s.equals("") && myParagraphIndex != -1) {
+switch (direction) {
+case SEARCHFORWARD:
+      ++myParagraphIndex;
+    break;
+case SEARCHBACKWARD:
+  --myParagraphIndex;
+break;
+case CURRENTORFORWARD:
+direction=SEARCHFORWARD;
+break;
+}
+s=getParagraphText(myParagraphIndex);
+}
+return s;
+}

@@ -1,0 +1,14 @@
+{
+  final StringBuffer sb=new StringBuffer();
+  final ZLTextWordCursor cursor=new ZLTextWordCursor(myReader.getTextView().getStartCursor());
+  cursor.moveToParagraph(paragraphIndex);
+  cursor.moveToParagraphStart();
+  while (!cursor.isEndOfParagraph()) {
+    ZLTextElement element=cursor.getElement();
+    if (element instanceof ZLTextWord) {
+      sb.append(element.toString() + " ");
+    }
+    cursor.nextWord();
+  }
+  return sb.toString();
+}

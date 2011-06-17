@@ -1,0 +1,3 @@
+{
+  return myReader.Model.BookTextModel.getParagraphsNumber() - 1;
+}

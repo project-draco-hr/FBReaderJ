@@ -1,10 +1,13 @@
 {
-  String s=lookforValidParagraphString(direction);
+  if (myParagraphIndex >= myMaxParagraphIndex) {
+    stopTalking();
+    return;
+  }
+  String s=lookForValidParagraphString(direction);
   if (show) {
     showString(s);
   }
   if (speak) {
     speakString(s);
   }
-  return s;
 }

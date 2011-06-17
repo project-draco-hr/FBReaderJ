@@ -1,0 +1,3 @@
+{
+  return myReader.getTextView().getStartCursor().getParagraphIndex();
+}

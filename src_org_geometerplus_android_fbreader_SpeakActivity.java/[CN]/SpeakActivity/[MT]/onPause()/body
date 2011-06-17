@@ -1,4 +1,3 @@
 {
-  myReader.onWindowClosing();
   super.onPause();
 }

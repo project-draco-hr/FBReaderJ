@@ -1,5 +1,4 @@
 {
-  myReader.onWindowClosing();
   setActive(false);
   myTTS.shutdown();
   super.onDestroy();
