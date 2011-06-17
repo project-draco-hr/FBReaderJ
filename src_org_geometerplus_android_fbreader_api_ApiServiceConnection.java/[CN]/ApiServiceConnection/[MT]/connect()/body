@@ -1,0 +1,5 @@
+{
+  if (myInterface == null) {
+    myContext.bindService(new Intent(ACTION_API),this,Context.BIND_AUTO_CREATE);
+  }
+}
