@@ -4,8 +4,10 @@
     return;
   }
   String s=lookForValidParagraphString(direction);
-  if (show) {
-    showString(myParagraphIndex);
+  try {
+    myConnection.setPageStart(new TextPosition(myParagraphIndex,0,0));
+  }
+ catch (  ApiException e) {
   }
   if (speak) {
     speakString(s);

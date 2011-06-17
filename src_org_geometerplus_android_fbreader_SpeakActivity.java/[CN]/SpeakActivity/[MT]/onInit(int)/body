@@ -1,5 +1,5 @@
 {
   myTTS.setOnUtteranceCompletedListener(this);
   setActive(true);
-  nextParagraphString(true,true,CURRENTORFORWARD);
+  nextParagraphString(true,CURRENTORFORWARD);
 }

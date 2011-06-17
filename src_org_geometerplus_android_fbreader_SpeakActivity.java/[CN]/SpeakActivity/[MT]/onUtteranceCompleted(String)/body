@@ -1,6 +1,6 @@
 {
   if (myIsActive && uttId.equals(PARAGRAPHUTTERANCE)) {
-    nextParagraphString(true,true,SEARCHFORWARD);
+    nextParagraphString(true,SEARCHFORWARD);
   }
  else {
     setActive(false);
