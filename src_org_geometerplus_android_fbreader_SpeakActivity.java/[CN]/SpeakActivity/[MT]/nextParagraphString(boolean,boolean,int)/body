@@ -5,7 +5,7 @@
   }
   String s=lookForValidParagraphString(direction);
   if (show) {
-    showString(s);
+    showString(myParagraphIndex);
   }
   if (speak) {
     speakString(s);

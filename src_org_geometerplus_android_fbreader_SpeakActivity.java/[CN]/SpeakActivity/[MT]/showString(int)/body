@@ -1,0 +1,7 @@
+{
+  try {
+    myConnection.setPageStart(new TextPosition(paragraphIndex,0,0));
+  }
+ catch (  ApiException e) {
+  }
+}
