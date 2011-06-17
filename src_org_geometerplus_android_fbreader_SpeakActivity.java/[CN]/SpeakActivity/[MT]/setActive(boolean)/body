@@ -1,12 +1,11 @@
 {
   if (active && myParagraphIndex == -1) {
     try {
-      myParagraphIndex=myConnection.getPageStartParagraphIndex();
-      myMaxParagraphIndex=myConnection.getMaxParagraphIndex();
+      myParagraphIndex=myConnection.getPageStart().ParagraphIndex;
+      myParagraphsNumber=myConnection.getParagraphsNumber();
     }
  catch (    ApiException e) {
     }
-    System.err.println(myParagraphIndex + ":" + myMaxParagraphIndex);
     active=myParagraphIndex != -1;
   }
   myIsActive=active;

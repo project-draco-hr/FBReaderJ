@@ -1,5 +1,5 @@
 {
-  if (myParagraphIndex >= myMaxParagraphIndex) {
+  if (myParagraphIndex >= myParagraphsNumber - 1) {
     stopTalking();
     return;
   }
