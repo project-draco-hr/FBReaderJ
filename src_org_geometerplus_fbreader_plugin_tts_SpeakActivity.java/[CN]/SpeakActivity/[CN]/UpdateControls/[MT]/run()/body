@@ -1,3 +1,0 @@
-{
-  myPauseButton.setImageResource(myImageResourceId);
-}

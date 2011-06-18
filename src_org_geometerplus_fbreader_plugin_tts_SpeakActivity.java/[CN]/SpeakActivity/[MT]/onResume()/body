@@ -1,4 +1,0 @@
-{
-  myConnection.connect();
-  super.onResume();
-}

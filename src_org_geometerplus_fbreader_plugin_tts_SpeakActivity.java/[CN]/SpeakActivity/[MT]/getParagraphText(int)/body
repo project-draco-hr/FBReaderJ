@@ -1,8 +1,0 @@
-{
-  try {
-    return myConnection.getParagraphText(paragraphIndex);
-  }
- catch (  ApiException e) {
-    return "";
-  }
-}

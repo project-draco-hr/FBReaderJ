@@ -1,8 +1,0 @@
-{
-  if (myIsActive && uttId.equals(PARAGRAPHUTTERANCE)) {
-    nextParagraphString(true,SEARCHFORWARD);
-  }
- else {
-    setActive(false);
-  }
-}

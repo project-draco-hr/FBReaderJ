@@ -1,7 +1,0 @@
-{
-  setActive(false);
-  if (myTTS != null) {
-    myTTS.shutdown();
-  }
-  super.onDestroy();
-}

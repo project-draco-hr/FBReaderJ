@@ -1,3 +1,0 @@
-{
-  return Collections.singletonList(new PluginApi.ActionInfo(Uri.parse("http://data.fbreader.org/plugin/tts/speak"),"Speak"));
-}

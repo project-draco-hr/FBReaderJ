@@ -1,8 +1,0 @@
-{
-  setActive(false);
-  if (myTTS != null) {
-    if (myTTS.isSpeaking()) {
-      myTTS.stop();
-    }
-  }
-}
