@@ -1,7 +1,7 @@
 {
   final List<ActionInfo> newActions=implementedActions();
   if (newActions != null) {
-    ArrayList<ActionInfo> actions=(ArrayList<ActionInfo>)intent.getSerializableExtra(KEY);
+    ArrayList<ActionInfo> actions=intent.getParcelableArrayListExtra(KEY);
     if (actions == null) {
       actions=new ArrayList<ActionInfo>();
     }

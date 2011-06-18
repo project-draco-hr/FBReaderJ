@@ -1,4 +1,4 @@
 {
-  final List<ActionInfo> actions=intent != null ? (ArrayList<ActionInfo>)intent.getSerializableExtra(KEY) : null;
+  final List<ActionInfo> actions=intent != null ? intent.<ActionInfo>getParcelableArrayListExtra(KEY) : null;
   return actions != null ? actions : Collections.<ActionInfo>emptyList();
 }
