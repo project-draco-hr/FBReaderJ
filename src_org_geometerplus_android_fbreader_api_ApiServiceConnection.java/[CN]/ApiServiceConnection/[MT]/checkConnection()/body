@@ -1,5 +1,5 @@
 {
   if (myInterface == null) {
-    throw new ApiException("No connection with FBReader");
+    throw new ApiException("Not connected to FBReader");
   }
 }

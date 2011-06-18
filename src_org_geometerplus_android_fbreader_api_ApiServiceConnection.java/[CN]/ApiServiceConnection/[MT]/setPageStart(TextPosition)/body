@@ -1,7 +1,7 @@
 {
   checkConnection();
   try {
-    return myInterface.getPageStartParagraphIndex();
+    myInterface.setPageStart(position);
   }
  catch (  android.os.RemoteException e) {
     throw new ApiException(e);

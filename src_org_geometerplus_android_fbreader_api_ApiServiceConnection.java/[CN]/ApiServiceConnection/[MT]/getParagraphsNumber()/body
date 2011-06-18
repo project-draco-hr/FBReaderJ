@@ -1,7 +1,7 @@
 {
   checkConnection();
   try {
-    return myInterface.getMaxParagraphIndex();
+    return myInterface.getParagraphsNumber();
   }
  catch (  android.os.RemoteException e) {
     throw new ApiException(e);

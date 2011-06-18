@@ -1,0 +1,10 @@
+{
+  if (myInterface != null) {
+    try {
+      myContext.unbindService(this);
+    }
+ catch (    IllegalArgumentException e) {
+    }
+    myInterface=null;
+  }
+}
