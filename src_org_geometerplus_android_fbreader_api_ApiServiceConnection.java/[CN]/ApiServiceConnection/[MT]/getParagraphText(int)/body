@@ -1,9 +1,3 @@
 {
-  checkConnection();
-  try {
-    return myInterface.getParagraphText(paragraphIndex);
-  }
- catch (  android.os.RemoteException e) {
-    throw new ApiException(e);
-  }
+  return requestString(GET_PARAGRAPH_TEXT,envelope(paragraphIndex));
 }

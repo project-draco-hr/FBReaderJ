@@ -1,0 +1,16 @@
+{
+  if (myInterface == null) {
+    throw new ApiException("Not connected to FBReader");
+  }
+  final ApiObject object;
+  try {
+    object=myInterface.request(method,params);
+  }
+ catch (  android.os.RemoteException e) {
+    throw new ApiException(e);
+  }
+  if (object instanceof ApiObject.Error) {
+    throw new ApiException(((ApiObject.Error)object).Message);
+  }
+  return object;
+}

@@ -1,9 +1,3 @@
 {
-  checkConnection();
-  try {
-    return myInterface.getParagraphsNumber();
-  }
- catch (  android.os.RemoteException e) {
-    throw new ApiException(e);
-  }
+  return requestInt(GET_PARAGRAPHS_NUMBER,EMPTY_PARAMETERS);
 }

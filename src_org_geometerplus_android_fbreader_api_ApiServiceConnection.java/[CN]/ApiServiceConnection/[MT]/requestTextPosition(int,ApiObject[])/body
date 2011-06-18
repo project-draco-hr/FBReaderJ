@@ -1,0 +1,7 @@
+{
+  final ApiObject object=request(method,params);
+  if (!(object instanceof TextPosition)) {
+    throw new ApiException("Cannot cast return type of method " + method + " to TextPosition");
+  }
+  return (TextPosition)object;
+}

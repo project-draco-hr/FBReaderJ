@@ -1,0 +1,7 @@
+{
+  final ApiObject object=request(method,params);
+  if (!(object instanceof ApiObject.String)) {
+    throw new ApiException("Cannot cast return type of method " + method + " to String");
+  }
+  return ((ApiObject.String)object).Value;
+}
