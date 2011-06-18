@@ -1,0 +1,3 @@
+{
+  myIdToActionMap.remove(actionId);
+}

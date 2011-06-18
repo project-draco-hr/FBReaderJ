@@ -13,6 +13,12 @@
   addMenuItem(menu,ActionCode.INCREASE_FONT);
   addMenuItem(menu,ActionCode.DECREASE_FONT);
   addMenuItem(menu,ActionCode.SHOW_NAVIGATION);
+synchronized (myPluginActions) {
+    int index=0;
+    for (    PluginApi.ActionInfo info : myPluginActions) {
+      addMenuItem(menu,PLUGIN_ACTION_PREFIX + index++,info.MenuItemName);
+    }
+  }
   final ZLAndroidApplication application=(ZLAndroidApplication)getApplication();
   application.myMainWindow.refreshMenu();
   return true;
