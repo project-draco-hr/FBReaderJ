@@ -1,12 +1,14 @@
 {
   try {
 switch (method) {
+case GET_FBREADER_VERSION:
+      return ApiObject.envelope(ZLibrary.Instance().getVersionName());
 case GET_BOOK_LANGUAGE:
-      return ApiObject.envelope(getBookLanguage());
+    return ApiObject.envelope(getBookLanguage());
 case GET_PARAGRAPHS_NUMBER:
-    return ApiObject.envelope(getParagraphsNumber());
+  return ApiObject.envelope(getParagraphsNumber());
 case GET_ELEMENTS_NUMBER:
-  return ApiObject.envelope(getElementsNumber(((ApiObject.Integer)parameters[0]).Value));
+return ApiObject.envelope(getElementsNumber(((ApiObject.Integer)parameters[0]).Value));
 case GET_PARAGRAPH_TEXT:
 return ApiObject.envelope(getParagraphText(((ApiObject.Integer)parameters[0]).Value));
 case GET_PAGE_START:

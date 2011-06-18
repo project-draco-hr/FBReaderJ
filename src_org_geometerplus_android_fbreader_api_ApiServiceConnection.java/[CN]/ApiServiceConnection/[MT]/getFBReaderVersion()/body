@@ -1,0 +1,3 @@
+{
+  return requestString(GET_FBREADER_VERSION,EMPTY_PARAMETERS);
+}
