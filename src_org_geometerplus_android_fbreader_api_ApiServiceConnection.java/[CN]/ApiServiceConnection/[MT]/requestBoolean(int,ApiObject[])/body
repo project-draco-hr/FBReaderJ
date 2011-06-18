@@ -1,0 +1,7 @@
+{
+  final ApiObject object=request(method,params);
+  if (!(object instanceof ApiObject.Boolean)) {
+    throw new ApiException("Cannot cast return type of method " + method + " to boolean");
+  }
+  return ((ApiObject.Boolean)object).Value;
+}

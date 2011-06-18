@@ -1,0 +1,3 @@
+{
+  return requestBoolean(IS_PAGE_END_OF_SECTION,EMPTY_PARAMETERS);
+}

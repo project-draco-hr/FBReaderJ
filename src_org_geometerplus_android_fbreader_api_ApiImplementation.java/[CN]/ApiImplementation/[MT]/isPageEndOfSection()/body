@@ -1,0 +1,4 @@
+{
+  final ZLTextWordCursor cursor=myReader.getTextView().getEndCursor();
+  return cursor.isEndOfParagraph() && cursor.getParagraphCursor().isEndOfSection();
+}
