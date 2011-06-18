@@ -1,0 +1,7 @@
+{
+  try {
+    BaseActivity.startActivity(new Intent("android.fbreader.action.plugin.RUN",myUri));
+  }
+ catch (  ActivityNotFoundException e) {
+  }
+}
