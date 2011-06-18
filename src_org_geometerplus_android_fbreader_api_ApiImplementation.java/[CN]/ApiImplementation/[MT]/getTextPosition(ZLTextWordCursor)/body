@@ -1,0 +1,3 @@
+{
+  return new TextPosition(cursor.getParagraphIndex(),cursor.getElementIndex(),cursor.getCharIndex());
+}
