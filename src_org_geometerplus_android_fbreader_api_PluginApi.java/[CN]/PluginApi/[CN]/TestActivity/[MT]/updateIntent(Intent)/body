@@ -1,0 +1,13 @@
+{
+  final List<ActionInfo> newActions=implementedActions();
+  if (newActions != null) {
+    ArrayList<ActionInfo> actions=(ArrayList<ActionInfo>)intent.getSerializableExtra(KEY);
+    if (actions == null) {
+      actions=new ArrayList<ActionInfo>();
+    }
+    actions.addAll(newActions);
+    intent.putExtra(KEY,actions);
+  }
+  startNextMatchingActivity(intent);
+  setResult(1,intent);
+}

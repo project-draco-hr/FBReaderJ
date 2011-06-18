@@ -1,0 +1,4 @@
+{
+  myId=id.toString();
+  MenuItemName=menuItemName;
+}
