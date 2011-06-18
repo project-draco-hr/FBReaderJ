@@ -1,3 +1,5 @@
 {
+  stopTalking();
+  myConnection.disconnect();
   super.onPause();
 }
