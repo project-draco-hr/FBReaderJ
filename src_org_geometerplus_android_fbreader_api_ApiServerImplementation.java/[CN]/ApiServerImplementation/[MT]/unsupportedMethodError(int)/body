@@ -1,0 +1,3 @@
+{
+  return new ApiObject.Error("Unsupported method code: " + method);
+}

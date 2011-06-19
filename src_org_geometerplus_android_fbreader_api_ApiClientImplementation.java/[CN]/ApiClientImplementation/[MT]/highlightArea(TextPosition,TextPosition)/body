@@ -1,0 +1,3 @@
+{
+  request(HIGHLIGHT_AREA,new ApiObject[]{start,end});
+}

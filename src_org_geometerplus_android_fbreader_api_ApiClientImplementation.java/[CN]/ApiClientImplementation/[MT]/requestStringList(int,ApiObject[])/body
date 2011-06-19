@@ -1,0 +1,11 @@
+{
+  final List<ApiObject> list=requestList(method,params);
+  final ArrayList<String> stringList=new ArrayList<String>(list.size());
+  for (  ApiObject object : list) {
+    if (!(object instanceof ApiObject.String)) {
+      throw new ApiException("Cannot cast an element returned from method " + method + " to String");
+    }
+    stringList.add(((ApiObject.String)object).Value);
+  }
+  return stringList;
+}

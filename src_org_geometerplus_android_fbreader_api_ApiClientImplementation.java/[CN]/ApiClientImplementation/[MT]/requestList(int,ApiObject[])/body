@@ -1,0 +1,15 @@
+{
+  checkConnection();
+  try {
+    final List<ApiObject> list=myInterface.requestList(method,params);
+    for (    ApiObject object : list) {
+      if (object instanceof ApiObject.Error) {
+        throw new ApiException(((ApiObject.Error)object).Message);
+      }
+    }
+    return list;
+  }
+ catch (  android.os.RemoteException e) {
+    throw new ApiException(e);
+  }
+}

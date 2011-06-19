@@ -1,0 +1,4 @@
+{
+  final ApiObject error=unsupportedMethodError(method);
+  return Collections.singletonMap(error,error);
+}

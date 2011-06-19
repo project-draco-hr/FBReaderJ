@@ -1,0 +1,13 @@
+{
+  checkConnection();
+  try {
+    final ApiObject object=myInterface.request(method,params);
+    if (object instanceof ApiObject.Error) {
+      throw new ApiException(((ApiObject.Error)object).Message);
+    }
+    return object;
+  }
+ catch (  android.os.RemoteException e) {
+    throw new ApiException(e);
+  }
+}
