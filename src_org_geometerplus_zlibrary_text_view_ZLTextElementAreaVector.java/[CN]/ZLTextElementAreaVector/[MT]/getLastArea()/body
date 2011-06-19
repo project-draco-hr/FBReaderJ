@@ -1,0 +1,5 @@
+{
+synchronized (myAreas) {
+    return myAreas.isEmpty() ? null : myAreas.get(myAreas.size() - 1);
+  }
+}

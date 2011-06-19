@@ -1,6 +1,5 @@
 {
-  final ZLTextElementAreaVector vector=myCurrentPage.TextElementMap;
-  if (mySelection.isEmpty() || vector.isEmpty()) {
+  if (mySelection.isEmpty()) {
     return 0;
   }
   final ZLTextElementArea selectionEndArea=mySelection.getEndArea(myCurrentPage);
@@ -8,9 +7,11 @@
     return selectionEndArea.YEnd;
   }
   if (mySelection.hasAPartAfterPage(myCurrentPage)) {
-    return vector.get(vector.size() - 1).YEnd;
+    final ZLTextElementArea lastArea=myCurrentPage.TextElementMap.getLastArea();
+    return lastArea != null ? lastArea.YEnd : 0;
   }
  else {
-    return vector.get(0).YStart;
+    final ZLTextElementArea firstArea=myCurrentPage.TextElementMap.getFirstArea();
+    return firstArea != null ? firstArea.YStart : 0;
   }
 }

@@ -1,0 +1,3 @@
+{
+  return new ZLTextFixedPosition(position.ParagraphIndex,position.ElementIndex,position.CharIndex);
+}

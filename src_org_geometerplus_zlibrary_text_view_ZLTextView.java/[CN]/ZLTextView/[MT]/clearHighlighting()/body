@@ -1,0 +1,6 @@
+{
+  if (myHighlighting.clear()) {
+    Application.getViewWidget().reset();
+    Application.getViewWidget().repaint();
+  }
+}

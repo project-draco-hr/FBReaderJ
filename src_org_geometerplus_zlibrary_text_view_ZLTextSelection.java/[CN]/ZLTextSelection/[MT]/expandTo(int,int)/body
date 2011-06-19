@@ -3,7 +3,9 @@
     return;
   }
   final ZLTextElementAreaVector vector=myView.myCurrentPage.TextElementMap;
-  if (!vector.isEmpty() && y < vector.get(0).YStart) {
+  final ZLTextElementArea firstArea=vector.getFirstArea();
+  final ZLTextElementArea lastArea=vector.getLastArea();
+  if (firstArea != null && y < firstArea.YStart) {
     if (myScroller != null && myScroller.scrollsForward()) {
       myScroller.stop();
       myScroller=null;
@@ -13,7 +15,7 @@
       return;
     }
   }
- else   if (!vector.isEmpty() && y + ZLTextSelectionCursor.getHeight() / 2 + ZLTextSelectionCursor.getAccent() / 2 > vector.get(vector.size() - 1).YEnd) {
+ else   if (lastArea != null && y + ZLTextSelectionCursor.getHeight() / 2 + ZLTextSelectionCursor.getAccent() / 2 > lastArea.YEnd) {
     if (myScroller != null && !myScroller.scrollsForward()) {
       myScroller.stop();
       myScroller=null;

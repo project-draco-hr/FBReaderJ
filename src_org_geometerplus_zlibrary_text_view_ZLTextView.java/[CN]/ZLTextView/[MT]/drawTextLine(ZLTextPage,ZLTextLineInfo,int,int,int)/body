@@ -1,31 +1,8 @@
 {
-  final ZLTextParagraphCursor paragraph=info.ParagraphCursor;
+  drawBackgroung(mySelection,getSelectedBackgroundColor(),page,info,from,to,y);
+  drawBackgroung(myHighlighting,getHighlightingColor(),page,info,from,to,y);
   final ZLPaintContext context=myContext;
-  if (!mySelection.isEmpty() && from != to) {
-    final ZLTextElementArea fromArea=page.TextElementMap.get(from);
-    final ZLTextElementArea toArea=page.TextElementMap.get(to - 1);
-    final ZLTextElementArea selectionStartArea=mySelection.getStartArea(page);
-    final ZLTextElementArea selectionEndArea=mySelection.getEndArea(page);
-    if (selectionStartArea != null && selectionEndArea != null && selectionStartArea.compareTo(toArea) <= 0 && selectionEndArea.compareTo(fromArea) >= 0) {
-      final int top=y + 1;
-      int left, right, bottom=y + info.Height + info.Descent;
-      if (selectionStartArea.compareTo(fromArea) < 0) {
-        left=getLeftMargin();
-      }
- else {
-        left=selectionStartArea.XStart;
-      }
-      if (selectionEndArea.compareTo(toArea) > 0) {
-        right=getRightLine();
-        bottom+=info.VSpaceAfter;
-      }
- else {
-        right=selectionEndArea.XEnd;
-      }
-      context.setFillColor(getSelectedBackgroundColor());
-      context.fillRectangle(left,top,right,bottom);
-    }
-  }
+  final ZLTextParagraphCursor paragraph=info.ParagraphCursor;
   int index=from;
   final int endElementIndex=info.EndElementIndex;
   int charIndex=info.RealStartCharIndex;

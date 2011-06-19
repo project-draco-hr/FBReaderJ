@@ -1,4 +1,5 @@
 {
   super(application);
   mySelection=new ZLTextSelection(this);
+  myHighlighting=new ZLTextHighlighting();
 }

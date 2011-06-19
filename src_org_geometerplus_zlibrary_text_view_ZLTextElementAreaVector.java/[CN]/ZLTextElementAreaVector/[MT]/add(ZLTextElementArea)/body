@@ -1,26 +1,28 @@
 {
-  if (myCurrentElementRegion != null && myCurrentElementRegion.getSoul().accepts(area)) {
-    myCurrentElementRegion.extend();
-  }
- else {
-    ZLTextRegion.Soul soul=null;
-    final ZLTextHyperlink hyperlink=area.Style.Hyperlink;
-    if (hyperlink.Id != null) {
-      soul=new ZLTextHyperlinkRegionSoul(area,hyperlink);
-    }
- else     if (area.Element instanceof ZLTextImageElement) {
-      soul=new ZLTextImageRegionSoul(area,(ZLTextImageElement)area.Element);
-    }
- else     if (area.Element instanceof ZLTextWord && !((ZLTextWord)area.Element).isASpace()) {
-      soul=new ZLTextWordRegionSoul(area,(ZLTextWord)area.Element);
-    }
-    if (soul != null) {
-      myCurrentElementRegion=new ZLTextRegion(soul,myAreas,size());
-      myElementRegions.add(myCurrentElementRegion);
+synchronized (myAreas) {
+    if (myCurrentElementRegion != null && myCurrentElementRegion.getSoul().accepts(area)) {
+      myCurrentElementRegion.extend();
     }
  else {
-      myCurrentElementRegion=null;
+      ZLTextRegion.Soul soul=null;
+      final ZLTextHyperlink hyperlink=area.Style.Hyperlink;
+      if (hyperlink.Id != null) {
+        soul=new ZLTextHyperlinkRegionSoul(area,hyperlink);
+      }
+ else       if (area.Element instanceof ZLTextImageElement) {
+        soul=new ZLTextImageRegionSoul(area,(ZLTextImageElement)area.Element);
+      }
+ else       if (area.Element instanceof ZLTextWord && !((ZLTextWord)area.Element).isASpace()) {
+        soul=new ZLTextWordRegionSoul(area,(ZLTextWord)area.Element);
+      }
+      if (soul != null) {
+        myCurrentElementRegion=new ZLTextRegion(soul,myAreas,myAreas.size());
+        myElementRegions.add(myCurrentElementRegion);
+      }
+ else {
+        myCurrentElementRegion=null;
+      }
     }
+    return myAreas.add(area);
   }
-  return myAreas.add(area);
 }

@@ -3,15 +3,13 @@
     return null;
   }
   final ZLTextElementAreaVector vector=page.TextElementMap;
-  if (vector.isEmpty()) {
-    return null;
-  }
   final ZLTextRegion region=vector.getRegion(myLeftMostRegionSoul);
   if (region != null) {
     return region.getFirstArea();
   }
-  if (myLeftMostRegionSoul.compareTo(vector.get(0)) <= 0) {
-    return vector.get(0);
+  final ZLTextElementArea firstArea=vector.getFirstArea();
+  if (firstArea != null && myLeftMostRegionSoul.compareTo(firstArea) <= 0) {
+    return firstArea;
   }
   return null;
 }

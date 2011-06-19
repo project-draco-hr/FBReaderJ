@@ -47,6 +47,8 @@
       }
       StartPosition=null;
       Application.hideActivePopup();
+      getReader().getViewWidget().reset();
+      getReader().getViewWidget().repaint();
     }
   }
 ;

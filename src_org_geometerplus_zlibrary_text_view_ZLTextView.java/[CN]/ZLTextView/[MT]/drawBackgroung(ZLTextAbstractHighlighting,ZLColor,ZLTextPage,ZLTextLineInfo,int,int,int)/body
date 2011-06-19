@@ -1,0 +1,27 @@
+{
+  if (!highligting.isEmpty() && from != to) {
+    final ZLTextElementArea fromArea=page.TextElementMap.get(from);
+    final ZLTextElementArea toArea=page.TextElementMap.get(to - 1);
+    final ZLTextElementArea selectionStartArea=highligting.getStartArea(page);
+    final ZLTextElementArea selectionEndArea=highligting.getEndArea(page);
+    if (selectionStartArea != null && selectionEndArea != null && selectionStartArea.compareTo(toArea) <= 0 && selectionEndArea.compareTo(fromArea) >= 0) {
+      final int top=y + 1;
+      int left, right, bottom=y + info.Height + info.Descent;
+      if (selectionStartArea.compareTo(fromArea) < 0) {
+        left=getLeftMargin();
+      }
+ else {
+        left=selectionStartArea.XStart;
+      }
+      if (selectionEndArea.compareTo(toArea) > 0) {
+        right=getRightLine();
+        bottom+=info.VSpaceAfter;
+      }
+ else {
+        right=selectionEndArea.XEnd;
+      }
+      myContext.setFillColor(color);
+      myContext.fillRectangle(left,top,right,bottom);
+    }
+  }
+}

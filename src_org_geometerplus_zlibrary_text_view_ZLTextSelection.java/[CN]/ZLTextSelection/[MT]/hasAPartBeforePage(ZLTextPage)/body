@@ -3,10 +3,10 @@
     return false;
   }
   final ZLTextElementAreaVector vector=page.TextElementMap;
-  if (vector.isEmpty()) {
+  final ZLTextElementArea firstPageArea=page.TextElementMap.getFirstArea();
+  if (firstPageArea == null) {
     return false;
   }
-  final ZLTextElementArea firstPageArea=vector.get(0);
   final int cmp=myLeftMostRegionSoul.compareTo(firstPageArea);
   return cmp < 0 || (cmp == 0 && !firstPageArea.isFirstInElement());
 }

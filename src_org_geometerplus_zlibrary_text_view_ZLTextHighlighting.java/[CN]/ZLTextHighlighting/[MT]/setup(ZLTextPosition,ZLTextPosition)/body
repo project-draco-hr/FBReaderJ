@@ -1,0 +1,4 @@
+{
+  myStartPosition=new ZLTextFixedPosition(start);
+  myEndPosition=new ZLTextFixedPosition(end);
+}

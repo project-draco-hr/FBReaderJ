@@ -1,0 +1,10 @@
+{
+synchronized (myAreas) {
+    for (    ZLTextElementArea area : myAreas) {
+      if (position.compareTo(area) <= 0) {
+        return area;
+      }
+    }
+  }
+  return null;
+}

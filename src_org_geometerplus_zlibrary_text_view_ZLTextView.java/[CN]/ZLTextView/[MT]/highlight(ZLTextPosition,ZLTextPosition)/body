@@ -1,0 +1,5 @@
+{
+  myHighlighting.setup(start,end);
+  Application.getViewWidget().reset();
+  Application.getViewWidget().repaint();
+}

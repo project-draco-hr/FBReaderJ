@@ -25,8 +25,12 @@ case SET_PAGE_START:
 setPageStart((TextPosition)parameters[0]);
 return ApiObject.Void.Instance;
 case HIGHLIGHT_AREA:
+{
+myReader.getTextView().highlight(getZLTextPosition((TextPosition)parameters[0]),getZLTextPosition((TextPosition)parameters[1]));
 return ApiObject.Void.Instance;
+}
 case CLEAR_HIGHLIGHTING:
+myReader.getTextView().clearHighlighting();
 return ApiObject.Void.Instance;
 default :
 return unsupportedMethodError(method);
