@@ -1,6 +1,7 @@
 {
   final HashMap<String,String> map=new HashMap<String,String>();
   map.put("litres:userId",myUserIdOption.getValue());
+  map.put("litres:canRebill",myCanRebillOption.getValue() ? "true" : "false");
   map.put("litres:sid",mySidOption.getValue());
   return map;
 }

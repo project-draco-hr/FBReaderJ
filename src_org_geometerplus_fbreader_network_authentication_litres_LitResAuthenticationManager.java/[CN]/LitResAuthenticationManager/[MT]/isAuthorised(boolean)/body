@@ -33,7 +33,7 @@ synchronized (this) {
       logOut();
       return false;
     }
-    initUser(UserNameOption.getValue(),xmlReader.Sid,xmlReader.UserId);
+    initUser(UserNameOption.getValue(),xmlReader.Sid,xmlReader.UserId,xmlReader.CanRebill);
     return true;
   }
 }
