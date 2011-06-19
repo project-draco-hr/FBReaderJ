@@ -1,3 +1,0 @@
-{
-  return myReader.Model.Book.getLanguage();
-}
