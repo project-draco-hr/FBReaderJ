@@ -1,0 +1,12 @@
+{
+  final List<ActionInfo> newActions=implementedActions(context);
+  if (newActions != null) {
+    final Bundle bundle=getResultExtras(true);
+    ArrayList<ActionInfo> actions=bundle.<ActionInfo>getParcelableArrayList(KEY);
+    if (actions == null) {
+      actions=new ArrayList<ActionInfo>();
+    }
+    actions.addAll(newActions);
+    bundle.putParcelableArrayList(KEY,actions);
+  }
+}
