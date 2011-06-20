@@ -1,4 +1,6 @@
 {
-  System.err.println("onServiceConnected call");
   myInterface=ApiInterface.Stub.asInterface(service);
+  if (myListener != null) {
+    myListener.onConnected();
+  }
 }
