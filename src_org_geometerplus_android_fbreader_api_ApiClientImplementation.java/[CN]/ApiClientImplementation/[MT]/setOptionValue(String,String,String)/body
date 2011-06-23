@@ -1,0 +1,3 @@
+{
+  request(SET_OPTION_VALUE,new ApiObject[]{ApiObject.envelope(group),ApiObject.envelope(name),ApiObject.envelope(value)});
+}

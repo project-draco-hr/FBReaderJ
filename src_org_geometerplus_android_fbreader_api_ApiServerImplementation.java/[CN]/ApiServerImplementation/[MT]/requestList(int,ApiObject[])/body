@@ -1,3 +1,14 @@
 {
-  return Collections.<ApiObject>singletonList(unsupportedMethodError(method));
+  try {
+switch (method) {
+case GET_OPTION_GROUPS:
+case GET_OPTION_NAMES:
+case GET_BOOK_TAGS:
+default :
+      return Collections.<ApiObject>singletonList(unsupportedMethodError(method));
+  }
+}
+ catch (Throwable e) {
+  return Collections.<ApiObject>singletonList(exceptionInMethodError(method,e));
+}
 }

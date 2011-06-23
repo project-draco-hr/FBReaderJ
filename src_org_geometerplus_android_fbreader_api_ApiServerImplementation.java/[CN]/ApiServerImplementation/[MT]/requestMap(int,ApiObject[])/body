@@ -1,4 +1,11 @@
 {
-  final ApiObject error=unsupportedMethodError(method);
-  return Collections.singletonMap(error,error);
+  try {
+switch (method) {
+default :
+      return errorMap(unsupportedMethodError(method));
+  }
+}
+ catch (Throwable e) {
+  return errorMap(exceptionInMethodError(method,e));
+}
 }

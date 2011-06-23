@@ -1,0 +1,3 @@
+{
+  myReader.getTextView().highlight(getZLTextPosition(start),getZLTextPosition(end));
+}

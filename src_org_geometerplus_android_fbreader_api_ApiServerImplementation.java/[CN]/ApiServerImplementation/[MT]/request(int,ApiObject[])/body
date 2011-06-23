@@ -2,11 +2,18 @@
   try {
 switch (method) {
 case GET_FBREADER_VERSION:
-      return ApiObject.envelope(ZLibrary.Instance().getVersionName());
+      return ApiObject.envelope(getFBReaderVersion());
+case GET_OPTION_VALUE:
+    return ApiObject.envelope(getOptionValue(((ApiObject.String)parameters[0]).Value,((ApiObject.String)parameters[1]).Value));
+case SET_OPTION_VALUE:
+  setOptionValue(((ApiObject.String)parameters[0]).Value,((ApiObject.String)parameters[1]).Value,((ApiObject.String)parameters[2]).Value);
+return ApiObject.Void.Instance;
 case GET_BOOK_LANGUAGE:
-    return ApiObject.envelope(myReader.Model.Book.getLanguage());
+return ApiObject.envelope(getBookLanguage());
 case GET_BOOK_TITLE:
-  return ApiObject.envelope(myReader.Model.Book.getTitle());
+return ApiObject.envelope(getBookTitle());
+case GET_BOOK_FILE_NAME:
+return ApiObject.envelope(getBookFileName());
 case GET_PARAGRAPHS_NUMBER:
 return ApiObject.envelope(getParagraphsNumber());
 case GET_ELEMENTS_NUMBER:
@@ -14,9 +21,9 @@ return ApiObject.envelope(getElementsNumber(((ApiObject.Integer)parameters[0]).V
 case GET_PARAGRAPH_TEXT:
 return ApiObject.envelope(getParagraphText(((ApiObject.Integer)parameters[0]).Value));
 case GET_PAGE_START:
-return getTextPosition(myReader.getTextView().getStartCursor());
+return getPageStart();
 case GET_PAGE_END:
-return getTextPosition(myReader.getTextView().getEndCursor());
+return getPageEnd();
 case IS_PAGE_END_OF_SECTION:
 return ApiObject.envelope(isPageEndOfSection());
 case IS_PAGE_END_OF_TEXT:
@@ -26,11 +33,11 @@ setPageStart((TextPosition)parameters[0]);
 return ApiObject.Void.Instance;
 case HIGHLIGHT_AREA:
 {
-myReader.getTextView().highlight(getZLTextPosition((TextPosition)parameters[0]),getZLTextPosition((TextPosition)parameters[1]));
+highlightArea((TextPosition)parameters[0],(TextPosition)parameters[1]);
 return ApiObject.Void.Instance;
 }
 case CLEAR_HIGHLIGHTING:
-myReader.getTextView().clearHighlighting();
+clearHighlighting();
 return ApiObject.Void.Instance;
 default :
 return unsupportedMethodError(method);

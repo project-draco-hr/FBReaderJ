@@ -1,0 +1,3 @@
+{
+  return requestStringList(GET_OPTION_GROUPS,EMPTY_PARAMETERS);
+}

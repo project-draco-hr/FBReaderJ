@@ -1,0 +1,3 @@
+{
+  return new ApiObject.Error("Exception in method " + method + ": "+ e);
+}
