@@ -2,13 +2,16 @@
   try {
 switch (method) {
 case GET_OPTION_GROUPS:
+      return ApiObject.envelope(getOptionGroups());
 case GET_OPTION_NAMES:
+    return ApiObject.envelope(getOptionNames(((ApiObject.String)parameters[0]).Value));
 case GET_BOOK_TAGS:
+  return ApiObject.envelope(getBookTags());
 default :
-      return Collections.<ApiObject>singletonList(unsupportedMethodError(method));
-  }
+return Collections.<ApiObject>singletonList(unsupportedMethodError(method));
+}
 }
  catch (Throwable e) {
-  return Collections.<ApiObject>singletonList(exceptionInMethodError(method,e));
+return Collections.<ApiObject>singletonList(exceptionInMethodError(method,e));
 }
 }
