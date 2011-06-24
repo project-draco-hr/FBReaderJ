@@ -1,4 +1,4 @@
 {
-  myId=id.toString();
+  super(id);
   MenuItemName=menuItemName;
 }
