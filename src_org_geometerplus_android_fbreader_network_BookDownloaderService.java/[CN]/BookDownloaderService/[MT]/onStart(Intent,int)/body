@@ -20,7 +20,7 @@
   }
   if (myDownloadingURLs.contains(url)) {
     if ((notifications & Notifications.ALREADY_DOWNLOADING) != 0) {
-      UIUtil.showErrorMessage(getApplicationContext(),"alreadyDownloading");
+      showMessage("alreadyDownloading");
     }
     doStop();
     return;
@@ -35,12 +35,12 @@
     final String dir=fileName.substring(0,index);
     final File dirFile=new File(dir);
     if (!dirFile.exists() && !dirFile.mkdirs()) {
-      UIUtil.showErrorMessage(getApplicationContext(),"cannotCreateDirectory",dirFile.getPath());
+      showMessage("cannotCreateDirectory",dirFile.getPath());
       doStop();
       return;
     }
     if (!dirFile.exists() || !dirFile.isDirectory()) {
-      UIUtil.showErrorMessage(getApplicationContext(),"cannotCreateDirectory",dirFile.getPath());
+      showMessage("cannotCreateDirectory",dirFile.getPath());
       doStop();
       return;
     }
@@ -48,7 +48,7 @@
   final File fileFile=new File(fileName);
   if (fileFile.exists()) {
     if (!fileFile.isFile()) {
-      UIUtil.showErrorMessage(getApplicationContext(),"cannotCreateFile",fileFile.getPath());
+      showMessage("cannotCreateFile",fileFile.getPath());
       doStop();
       return;
     }
@@ -61,7 +61,7 @@
     title=fileFile.getName();
   }
   if ((notifications & Notifications.DOWNLOADING_STARTED) != 0) {
-    UIUtil.showErrorMessage(getApplicationContext(),"downloadingStarted");
+    showMessage("downloadingStarted");
   }
   final String sslCertificate=intent.getStringExtra(SSL_CERTIFICATE_KEY);
   startFileDownload(url,sslCertificate,fileFile,title);
