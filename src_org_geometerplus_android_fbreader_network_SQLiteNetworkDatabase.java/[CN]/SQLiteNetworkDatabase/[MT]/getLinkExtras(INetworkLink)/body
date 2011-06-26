@@ -4,5 +4,6 @@
   while (cursor.moveToNext()) {
     extras.put(cursor.getString(0),cursor.getString(1));
   }
+  cursor.close();
   return extras;
 }
