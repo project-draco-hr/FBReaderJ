@@ -27,7 +27,7 @@ synchronized (myBackgroundLock) {
         final ICustomNetworkLink customLink=(ICustomNetworkLink)link;
         if (customLink.isObsolete(12 * 60 * 60* 1000)) {
           customLink.reloadInfo(true);
-          NetworkDatabase.Instance().saveCustomLink(customLink);
+          NetworkDatabase.Instance().saveLink(customLink);
         }
       }
     }

@@ -1,5 +1,5 @@
 {
   myLinks.remove(link);
-  NetworkDatabase.Instance().deleteCustomLink(link);
+  NetworkDatabase.Instance().deleteLink(link);
   invalidateChildren();
 }

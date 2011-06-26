@@ -1,0 +1,14 @@
+{
+  if (link.getId() == INetworkLink.INVALID_ID) {
+    return;
+  }
+  executeAsATransaction(new Runnable(){
+    public void run(){
+      final String stringLinkId=String.valueOf(link.getId());
+      myDatabase.rawQuery("DELETE FROM LinkUrls WHERE link_id = ?",new String[]{stringLinkId});
+      myDatabase.rawQuery("DELETE FROM Links WHERE link_id = ?",new String[]{stringLinkId});
+      link.setId(INetworkLink.INVALID_ID);
+    }
+  }
+);
+}

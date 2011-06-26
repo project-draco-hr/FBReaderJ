@@ -2,7 +2,7 @@
   executeAsATransaction(new Runnable(){
     public void run(){
       final SQLiteStatement statement;
-      if (link.getId() == ICustomNetworkLink.INVALID_ID) {
+      if (link.getId() == INetworkLink.INVALID_ID) {
         if (myInsertCustomLinkStatement == null) {
           myInsertCustomLinkStatement=myDatabase.compileStatement("INSERT INTO Links (title,site_name,summary,is_predefined,is_enabled) VALUES (?,?,?,?,?)");
         }

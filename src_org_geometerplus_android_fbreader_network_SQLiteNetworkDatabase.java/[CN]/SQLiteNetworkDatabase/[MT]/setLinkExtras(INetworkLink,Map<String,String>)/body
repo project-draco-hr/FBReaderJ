@@ -1,5 +1,5 @@
 {
-  if (link.getId() == -1) {
+  if (link.getId() == INetworkLink.INVALID_ID) {
     return;
   }
   final String stringLinkId=String.valueOf(link.getId());

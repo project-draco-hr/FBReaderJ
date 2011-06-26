@@ -16,7 +16,7 @@
   }
   final NetworkDatabase db=NetworkDatabase.Instance();
   if (db != null) {
-    myLinks.addAll(db.loadLinks());
+    myLinks.addAll(db.listLinks());
   }
   myIsAlreadyInitialized=true;
 }
