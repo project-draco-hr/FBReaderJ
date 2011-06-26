@@ -31,10 +31,6 @@ if (ns == XMLNamespaces.FBReaderCatalogMetadata) {
     getFeedHandler().addUrlRewritingRule(new URLRewritingRule(attributes));
     return false;
   }
- else   if (tag == FBREADER_STABLE_IDENTIFIERS) {
-    getFeedHandler().setHasStableIdentifiers(true);
-    return false;
-  }
  else   if (tag == FBREADER_EXTRA) {
     final String name=attributes.getValue("name");
     final String value=attributes.getValue("value");

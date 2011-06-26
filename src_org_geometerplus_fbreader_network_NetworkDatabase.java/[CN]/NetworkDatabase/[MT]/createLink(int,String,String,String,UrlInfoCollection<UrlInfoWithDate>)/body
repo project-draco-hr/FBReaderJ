@@ -2,5 +2,5 @@
   if (siteName == null || title == null || infos.getInfo(UrlInfo.Type.Catalog) == null) {
     return null;
   }
-  return new OPDSCustomLink(id,siteName,title,summary,infos);
+  return new OPDSCustomNetworkLink(id,siteName,title,summary,infos);
 }

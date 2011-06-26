@@ -1,6 +1,5 @@
 {
   myAuthenticationType=null;
-  myHasStableIdentifiers=false;
   myUrlRewritingRules.clear();
   myRelationAliases.clear();
   myExtraData.clear();

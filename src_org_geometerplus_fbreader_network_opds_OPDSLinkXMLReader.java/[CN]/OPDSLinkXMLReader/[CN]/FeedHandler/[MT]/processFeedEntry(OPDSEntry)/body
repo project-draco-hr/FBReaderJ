@@ -69,7 +69,7 @@
  else {
     sslCertificate=null;
   }
-  INetworkLink result=link(siteName,title,summary,language,infos,urlConditions,sslCertificate);
+  INetworkLink result=link(id,siteName,title,summary,language,infos,urlConditions,sslCertificate);
   if (result != null) {
     myListener.onNewLink(result);
   }

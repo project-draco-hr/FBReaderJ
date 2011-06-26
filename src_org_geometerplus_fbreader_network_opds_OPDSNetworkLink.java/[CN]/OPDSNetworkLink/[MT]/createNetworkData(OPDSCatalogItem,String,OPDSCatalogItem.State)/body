@@ -10,7 +10,7 @@
       }
       new OPDSXMLReader(new OPDSFeedHandler(catalog,getURL(),result),false).read(inputStream);
       if (result.Listener.confirmInterrupt()) {
-        if (!myHasStableIdentifiers && result.LastLoadedId != null) {
+        if (result.LastLoadedId != null) {
           result.LastLoadedId=null;
         }
  else {

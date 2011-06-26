@@ -1,4 +1,3 @@
 {
   super(id,siteName,title,summary,language,infos);
-  myHasStableIdentifiers=hasStableIdentifiers;
 }

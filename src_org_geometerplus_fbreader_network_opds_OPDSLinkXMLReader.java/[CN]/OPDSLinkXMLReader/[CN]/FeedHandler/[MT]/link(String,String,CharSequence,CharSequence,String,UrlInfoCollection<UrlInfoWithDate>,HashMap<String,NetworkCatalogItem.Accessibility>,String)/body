@@ -4,7 +4,7 @@
   }
   final String titleString=title.toString();
   final String summaryString=summary != null ? summary.toString() : null;
-  OPDSNetworkLink opdsLink=new OPDSNetworkLink(OPDSNetworkLink.INVALID_ID,siteName,titleString,summaryString,language,infos,myHasStableIdentifiers);
+  OPDSNetworkLink opdsLink=new OPDSPredefinedNetworkLink(id,siteName,titleString,summaryString,language,infos);
   opdsLink.setRelationAliases(myRelationAliases);
   opdsLink.setUrlConditions(urlConditions);
   opdsLink.setUrlRewritingRules(myUrlRewritingRules);

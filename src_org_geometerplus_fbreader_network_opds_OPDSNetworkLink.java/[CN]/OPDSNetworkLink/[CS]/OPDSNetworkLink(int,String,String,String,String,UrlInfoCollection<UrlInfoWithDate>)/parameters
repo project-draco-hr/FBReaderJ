@@ -4,4 +4,3 @@ String title
 String summary
 String language
 UrlInfoCollection<UrlInfoWithDate> infos
-boolean hasStableIdentifiers
