@@ -1,3 +1,0 @@
-{
-  super(id,removeWWWPrefix(siteName),title,summary,null,infos);
-}
