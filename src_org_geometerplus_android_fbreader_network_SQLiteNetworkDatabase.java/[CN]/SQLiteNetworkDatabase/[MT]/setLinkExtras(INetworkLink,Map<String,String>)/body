@@ -2,9 +2,8 @@
   if (link.getId() == INetworkLink.INVALID_ID) {
     return;
   }
-  final String stringLinkId=String.valueOf(link.getId());
-  myDatabase.rawQuery("DELETE FROM Extras WHERE link_id = ?",new String[]{stringLinkId});
+  myDatabase.delete("Extras","link_id = ?",new String[]{String.valueOf(link.getId())});
   for (  Map.Entry<String,String> entry : extras.entrySet()) {
-    myDatabase.rawQuery("INSERT INTO Extras (link_id,key,value) VALUES (?,?,?)",new String[]{stringLinkId,entry.getKey(),entry.getValue()});
+    myDatabase.execSQL("INSERT INTO Extras (link_id,key,value) VALUES (?,?,?)",new Object[]{link.getId(),entry.getKey(),entry.getValue()});
   }
 }
