@@ -4,7 +4,7 @@
       final SQLiteStatement statement;
       if (link.getId() == ICustomNetworkLink.INVALID_ID) {
         if (myInsertCustomLinkStatement == null) {
-          myInsertCustomLinkStatement=myDatabase.compileStatement("INSERT INTO Links (title,site_name,summary) VALUES (?,?,?)");
+          myInsertCustomLinkStatement=myDatabase.compileStatement("INSERT INTO Links (title,site_name,summary,is_predefined,is_enabled) VALUES (?,?,?,?,?)");
         }
         statement=myInsertCustomLinkStatement;
       }
@@ -20,6 +20,8 @@
       final long id;
       final UrlInfoCollection<UrlInfoWithDate> linksMap=new UrlInfoCollection<UrlInfoWithDate>();
       if (statement == myInsertCustomLinkStatement) {
+        statement.bindLong(4,0);
+        statement.bindLong(5,1);
         id=statement.executeInsert();
         link.setId((int)id);
       }
