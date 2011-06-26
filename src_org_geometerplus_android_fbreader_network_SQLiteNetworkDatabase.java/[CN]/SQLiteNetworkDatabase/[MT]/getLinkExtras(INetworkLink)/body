@@ -1,0 +1,8 @@
+{
+  final HashMap<String,String> extras=new HashMap<String,String>();
+  final Cursor cursor=myDatabase.rawQuery("SELECT key,value FROM Extras WHERE link_id = ?",new String[]{String.valueOf(link.getId())});
+  while (cursor.moveToNext()) {
+    extras.put(cursor.getString(0),cursor.getString(1));
+  }
+  return extras;
+}

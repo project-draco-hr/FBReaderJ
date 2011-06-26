@@ -1,4 +1,3 @@
 {
-  super(removeWWWPrefix(siteName),title,summary,null,infos,false);
-  myId=id;
+  super(id,removeWWWPrefix(siteName),title,summary,null,infos,false);
 }

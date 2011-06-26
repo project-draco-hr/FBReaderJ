@@ -1,4 +1,5 @@
 {
+  myId=id;
   mySiteName=siteName;
   myTitle=title;
   mySummary=summary;
