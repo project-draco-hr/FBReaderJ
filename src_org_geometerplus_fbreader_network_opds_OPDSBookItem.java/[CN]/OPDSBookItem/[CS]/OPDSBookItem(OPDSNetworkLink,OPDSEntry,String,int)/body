@@ -1,3 +1,3 @@
 {
-  super(networkLink,entry.Id.Uri,itemIndex,entry.Title,getAnnotation(entry),getAuthors(entry),getTags(entry),entry.SeriesTitle,entry.SeriesIndex,getUrls(networkLink,entry,baseUrl));
+  this(networkLink,entry.Id.Uri,index,entry.Title,getAnnotation(entry),getAuthors(entry),getTags(entry),entry.SeriesTitle,entry.SeriesIndex,getUrls(networkLink,entry,baseUrl));
 }

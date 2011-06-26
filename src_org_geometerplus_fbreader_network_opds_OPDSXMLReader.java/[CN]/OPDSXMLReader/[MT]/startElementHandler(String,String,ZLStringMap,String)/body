@@ -13,6 +13,11 @@ case FEED:
       }
       return false;
     }
+ else     if (ns == XMLNamespaces.FBReaderCatalogMetadata) {
+      if (tag == FBREADER_TAG_VIEW) {
+        myState=FBREADER_VIEW;
+      }
+    }
  else {
       return super.startElementHandler(ns,tag,attributes,bufferContent);
     }

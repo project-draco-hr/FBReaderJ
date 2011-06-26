@@ -8,7 +8,8 @@ case CATALOG:
   break;
 case BOOK:
 if (TAG_BOOK == tag) {
-  Books.add(new NetworkBookItem(Link,myBookId,myIndex++,myTitle,mySummary,myAuthors,myTags,mySeriesTitle,myIndexInSeries,myUrls));
+  myUrls.addInfo(new UrlInfo(UrlInfo.Type.SingleEntry,"http://data.fbreader.org/catalogs/litres2/full.php5?id=" + myBookId));
+  Books.add(new OPDSBookItem(Link,myBookId,myIndex++,myTitle,mySummary,myAuthors,myTags,mySeriesTitle,myIndexInSeries,myUrls));
   myBookId=myTitle=mySeriesTitle=null;
   mySummary=null;
   myIndexInSeries=0;
@@ -45,7 +46,7 @@ displayName.append(myAuthorMiddleName).append(" ");
 if (myAuthorLastName != null) {
 displayName.append(myAuthorLastName).append(" ");
 }
-myAuthors.add(new NetworkBookItem.AuthorData(displayName.toString().trim(),myAuthorLastName));
+myAuthors.add(new OPDSBookItem.AuthorData(displayName.toString().trim(),myAuthorLastName));
 myAuthorFirstName=null;
 myAuthorMiddleName=null;
 myAuthorLastName=null;

@@ -1,2 +1,3 @@
+OPDSCatalogItem catalog
 String baseURL
 OPDSCatalogItem.State result

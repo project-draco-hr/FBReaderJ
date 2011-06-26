@@ -1,0 +1,10 @@
+OPDSNetworkLink link
+String id
+int index
+CharSequence title
+CharSequence summary
+List<AuthorData> authors
+List<String> tags
+String seriesTitle
+float indexInSeries
+UrlInfoCollection<?> urls

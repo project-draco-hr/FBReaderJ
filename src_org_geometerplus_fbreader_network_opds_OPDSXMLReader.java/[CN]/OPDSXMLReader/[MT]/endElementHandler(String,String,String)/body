@@ -103,5 +103,13 @@ getOPDSFeed().OpensearchStartIndex=Integer.parseInt(bufferContent);
 myState=FEED;
 }
 return false;
+case FBREADER_VIEW:
+if (ns == XMLNamespaces.FBReaderCatalogMetadata && tag == FBREADER_TAG_VIEW) {
+if (getOPDSFeed() != null) {
+getOPDSFeed().ViewType=bufferContent;
+}
+myState=FEED;
+}
+return false;
 }
 }

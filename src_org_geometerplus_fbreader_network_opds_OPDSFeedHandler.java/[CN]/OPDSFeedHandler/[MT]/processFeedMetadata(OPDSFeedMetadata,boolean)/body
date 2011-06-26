@@ -8,14 +8,23 @@
         myItemsToLoad=len;
       }
     }
-    return false;
+    if (myCatalog != null) {
+      if ("series".equals(feed.ViewType)) {
+        myCatalog.setFlags(myCatalog.getFlags() & ~OPDSCatalogItem.FLAGS_GROUP);
+      }
+ else       if ("authors".equals(feed.ViewType)) {
+        myCatalog.setFlags(myCatalog.getFlags() & ~OPDSCatalogItem.FLAG_SHOW_AUTHOR);
+      }
+    }
   }
-  final OPDSNetworkLink opdsLink=(OPDSNetworkLink)myData.Link;
-  for (  ATOMLink link : feed.Links) {
-    final MimeType type=MimeType.get(link.getType());
-    final String rel=opdsLink.relation(link.getRel(),type);
-    if (MimeType.APP_ATOM.weakEquals(type) && "next".equals(rel)) {
-      myNextURL=ZLNetworkUtil.url(myBaseURL,link.getHref());
+ else {
+    final OPDSNetworkLink opdsLink=(OPDSNetworkLink)myData.Link;
+    for (    ATOMLink link : feed.Links) {
+      final MimeType type=MimeType.get(link.getType());
+      final String rel=opdsLink.relation(link.getRel(),type);
+      if (MimeType.APP_ATOM.weakEquals(type) && "next".equals(rel)) {
+        myNextURL=ZLNetworkUtil.url(myBaseURL,link.getHref());
+      }
     }
   }
   return false;
