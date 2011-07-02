@@ -1,6 +1,6 @@
 {
   int width=myWidth;
-  if (width == -1) {
+  if (width <= 1) {
     width=context.getStringWidth(Data,Offset,Length);
     myWidth=width;
   }
