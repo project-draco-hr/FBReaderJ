@@ -19,7 +19,6 @@ synchronized (this) {
     exception=e;
   }
 synchronized (this) {
-    mySidChecked=true;
     if (exception != null) {
       logOut();
       throw exception;

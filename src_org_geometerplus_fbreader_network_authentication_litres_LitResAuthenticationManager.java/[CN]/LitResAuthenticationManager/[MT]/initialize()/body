@@ -7,7 +7,7 @@ synchronized (this) {
     if (sid.length() == 0) {
       throw new ZLNetworkException(NetworkException.ERROR_AUTHENTICATION_FAILED);
     }
-    if (sid.equals(myInitializedDataSid)) {
+    if (sid.equals(myInitializedDataSid) || !isAuthorised(true)) {
       return;
     }
     purchasedBooksRequest=loadPurchasedBooks();

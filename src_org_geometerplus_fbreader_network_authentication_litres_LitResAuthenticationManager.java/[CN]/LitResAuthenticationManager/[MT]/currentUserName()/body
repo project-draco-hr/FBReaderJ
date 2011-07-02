@@ -1,7 +1,7 @@
 {
   final String value;
 synchronized (this) {
-    value=mySidUserNameOption.getValue();
+    value=UserNameOption.getValue();
   }
   if (value.length() == 0) {
     return null;

@@ -1,7 +1,7 @@
 {
-  mySidChecked=true;
-  mySidUserNameOption.setValue(userName);
+  UserNameOption.setValue(userName);
   mySidOption.setValue(sid);
   myUserIdOption.setValue(userId);
   myCanRebillOption.setValue(canRebill);
+  myFullyInitialized=!"".equals(userName) && !"".equals(sid) && !"".equals(userId);
 }

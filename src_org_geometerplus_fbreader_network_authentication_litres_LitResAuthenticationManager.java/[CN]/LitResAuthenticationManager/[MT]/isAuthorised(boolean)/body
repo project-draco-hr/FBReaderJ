@@ -1,8 +1,8 @@
 {
   final String sid;
 synchronized (this) {
-    boolean authState=mySidUserNameOption.getValue().length() != 0 && mySidOption.getValue().length() != 0;
-    if (mySidChecked || !useNetwork) {
+    boolean authState=UserNameOption.getValue().length() != 0 && mySidOption.getValue().length() != 0;
+    if (myFullyInitialized || !useNetwork) {
       return authState;
     }
     if (!authState) {
