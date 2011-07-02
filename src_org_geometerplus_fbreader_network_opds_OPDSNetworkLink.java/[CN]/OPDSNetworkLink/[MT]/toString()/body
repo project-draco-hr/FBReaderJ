@@ -1,3 +1,3 @@
 {
-  return "OPDSNetworkLink: {super=" + super.toString() + "; authManager="+ (myAuthenticationManager != null ? myAuthenticationManager.getClass().getName() : null)+ "; relationAliases="+ myRelationAliases+ "; urlConditions="+ myUrlConditions+ "; rewritingRules="+ myUrlRewritingRules+ "}";
+  return "OPDSNetworkLink: {super=" + super.toString() + "; authManager="+ (myAuthenticationManager != null ? myAuthenticationManager.getClass().getName() : null)+ "; relationAliases="+ myRelationAliases+ "; rewritingRules="+ myUrlRewritingRules+ "}";
 }

@@ -1,8 +1,0 @@
-{
-  if (conditions != null && conditions.size() > 0) {
-    myUrlConditions=new TreeMap<String,NetworkCatalogItem.Accessibility>(conditions);
-  }
- else {
-    myUrlConditions=null;
-  }
-}

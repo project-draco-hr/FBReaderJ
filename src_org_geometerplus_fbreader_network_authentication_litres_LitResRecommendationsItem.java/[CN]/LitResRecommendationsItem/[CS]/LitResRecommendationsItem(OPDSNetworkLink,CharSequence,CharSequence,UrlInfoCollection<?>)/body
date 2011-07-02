@@ -1,0 +1,3 @@
+{
+  super(link,title,summary,urls,Accessibility.HAS_BOOKS,FLAGS_DEFAULT & ~FLAGS_GROUP);
+}

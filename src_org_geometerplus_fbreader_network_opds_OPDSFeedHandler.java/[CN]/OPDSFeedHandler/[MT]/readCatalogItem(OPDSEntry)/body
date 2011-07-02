@@ -56,10 +56,10 @@
   }
   if (litresRel != null) {
     if (REL_BOOKSHELF.equals(litresRel)) {
-      return new LitResBookshelfItem(opdsLink,entry.Title,annotation,urlMap,opdsLink.getCondition(entry.Id.Uri));
+      return new LitResBookshelfItem(opdsLink,entry.Title,annotation,urlMap);
     }
  else     if (REL_RECOMMENDATIONS.equals(litresRel)) {
-      return new LitResRecommendationsItem(opdsLink,entry.Title,annotation,urlMap,opdsLink.getCondition(entry.Id.Uri));
+      return new LitResRecommendationsItem(opdsLink,entry.Title,annotation,urlMap);
     }
  else     if (REL_BASKET.equals(litresRel)) {
       return null;
@@ -72,6 +72,6 @@
     }
   }
  else {
-    return new OPDSCatalogItem(opdsLink,entry.Title,annotation,urlMap,opdsLink.getCondition(entry.Id.Uri),NetworkCatalogItem.FLAGS_DEFAULT);
+    return new OPDSCatalogItem(opdsLink,entry.Title,annotation,urlMap,OPDSCatalogItem.Accessibility.ALWAYS,NetworkCatalogItem.FLAGS_DEFAULT);
   }
 }

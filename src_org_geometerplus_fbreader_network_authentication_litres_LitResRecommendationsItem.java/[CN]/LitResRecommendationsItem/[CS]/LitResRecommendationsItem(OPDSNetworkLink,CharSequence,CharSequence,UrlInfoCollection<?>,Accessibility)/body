@@ -1,3 +1,0 @@
-{
-  super(link,title,summary,urls,accessibility,FLAGS_DEFAULT & ~FLAGS_GROUP);
-}

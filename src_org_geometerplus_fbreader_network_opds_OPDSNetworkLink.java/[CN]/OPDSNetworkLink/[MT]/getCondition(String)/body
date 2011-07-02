@@ -1,7 +1,0 @@
-{
-  if (myUrlConditions == null) {
-    return NetworkCatalogItem.Accessibility.ALWAYS;
-  }
-  NetworkCatalogItem.Accessibility cond=myUrlConditions.get(url);
-  return cond != null ? cond : NetworkCatalogItem.Accessibility.ALWAYS;
-}
