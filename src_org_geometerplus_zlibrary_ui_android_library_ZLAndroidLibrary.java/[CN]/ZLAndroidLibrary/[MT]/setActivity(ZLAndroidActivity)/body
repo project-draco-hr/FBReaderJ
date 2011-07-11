@@ -1,5 +1,5 @@
 {
   myActivity=activity;
-  ((ZLAndroidDialogManager)ZLAndroidDialogManager.Instance()).setActivity(activity);
+  ((ZLAndroidMainWindowUtil)ZLAndroidMainWindowUtil.Instance()).setActivity(activity);
   myWidget=null;
 }
