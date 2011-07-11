@@ -22,7 +22,7 @@
         gotoBookmark(bookmark);
       }
       Library.addBookToRecentList(book);
-      ZLMainWindowUtil.Instance().setTitle(book.getTitle());
+      setTitle(book.getTitle());
     }
   }
   getViewWidget().repaint();

@@ -1,0 +1,9 @@
+{
+  final Activity activity=((ZLAndroidLibrary)ZLAndroidLibrary.Instance()).getActivity();
+  if (activity != null) {
+    UIUtil.wait(key,action,activity);
+  }
+ else {
+    action.run();
+  }
+}

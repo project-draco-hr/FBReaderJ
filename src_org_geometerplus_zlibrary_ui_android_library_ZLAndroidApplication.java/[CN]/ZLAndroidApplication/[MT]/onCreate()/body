@@ -2,6 +2,5 @@
   super.onCreate();
   new ZLSQLiteConfig(this);
   new ZLAndroidImageManager();
-  new ZLAndroidMainWindowUtil();
   new ZLAndroidLibrary(this);
 }

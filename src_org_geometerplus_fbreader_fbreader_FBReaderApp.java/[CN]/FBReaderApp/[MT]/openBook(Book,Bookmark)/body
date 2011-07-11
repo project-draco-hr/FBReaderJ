@@ -7,7 +7,7 @@
       return;
     }
   }
-  ZLMainWindowUtil.Instance().wait("loadingBook",new Runnable(){
+  wait("loadingBook",new Runnable(){
     public void run(){
       openBookInternal(book,bookmark);
     }

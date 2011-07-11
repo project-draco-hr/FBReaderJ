@@ -1,8 +1,0 @@
-{
-  if (myActivity != null) {
-    UIUtil.wait(key,action,myActivity);
-  }
- else {
-    action.run();
-  }
-}

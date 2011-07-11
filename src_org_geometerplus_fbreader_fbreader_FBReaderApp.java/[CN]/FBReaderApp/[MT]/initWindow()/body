@@ -1,6 +1,6 @@
 {
   super.initWindow();
-  ZLMainWindowUtil.Instance().wait("loadingBook",new Runnable(){
+  wait("loadingBook",new Runnable(){
     public void run(){
       Book book=createBookForFile(ZLFile.createFileByPath(myArg0));
       if (book == null) {
