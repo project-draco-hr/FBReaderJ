@@ -1,0 +1,9 @@
+{
+  if (o == this) {
+    return true;
+  }
+  if (!(o instanceof FileItem)) {
+    return true;
+  }
+  return myFile.equals(((FileItem)o).myFile);
+}
