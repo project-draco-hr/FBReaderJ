@@ -1,0 +1,12 @@
+{
+  int index=0;
+synchronized (myItems) {
+    for (    FBTree t : myItems) {
+      if (myActivity.isTreeSelected(t)) {
+        return index;
+      }
+      ++index;
+    }
+  }
+  return -1;
+}
