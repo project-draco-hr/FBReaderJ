@@ -1,8 +1,10 @@
 {
-  for (  FileItem item : myItems) {
-    if (file.equals(item.getFile())) {
-      myItems.remove(item);
-      break;
+synchronized (myItems) {
+    for (    FileItem item : myItems) {
+      if (file.equals(item.getFile())) {
+        myItems.remove(item);
+        break;
+      }
     }
   }
 }

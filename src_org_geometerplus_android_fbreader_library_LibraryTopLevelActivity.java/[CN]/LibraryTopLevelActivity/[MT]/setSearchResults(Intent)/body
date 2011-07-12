@@ -1,7 +1,5 @@
 {
-  if (myItems.get(0) == mySearchResultsItem) {
-    myItems.remove(0);
-  }
+  myItems.remove(mySearchResultsItem);
   final String pattern=intent.getStringExtra(SearchManager.QUERY);
   mySearchResultsItem=new TopLevelTree(myResource.getResource(PATH_SEARCH_RESULTS),pattern,R.drawable.ic_list_library_books,new OpenTreeRunnable(LibraryInstance,PATH_SEARCH_RESULTS,pattern));
   myItems.add(0,mySearchResultsItem);
