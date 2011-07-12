@@ -1,7 +1,7 @@
 {
   final FBTree tree=getItem(position);
   final View view=createView(convertView,parent,tree);
-  if (isTreeSelected(tree)) {
+  if (myActivity.isTreeSelected(tree)) {
     view.setBackgroundColor(0xff555555);
   }
  else {
@@ -24,6 +24,9 @@
     }
  else     if (tree instanceof BookTree) {
       coverView.setImageResource(R.drawable.ic_list_library_book);
+    }
+ else     if (tree instanceof FileManager.FileItem) {
+      coverView.setImageResource(((FileManager.FileItem)tree).getIcon());
     }
  else {
       coverView.setImageResource(R.drawable.ic_list_library_books);

@@ -1,4 +1,5 @@
 {
+  final FileItem item=(FileItem)tree;
   if (mySelectedBookPath == null || !item.isSelectable()) {
     return false;
   }
