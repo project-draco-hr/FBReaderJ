@@ -1,7 +1,0 @@
-{
-  if (!myCoverIsInitialized) {
-    myCoverIsInitialized=true;
-    myCover=Library.getCover(myFile);
-  }
-  return myCover;
-}

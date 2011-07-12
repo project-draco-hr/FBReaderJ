@@ -1,6 +1,6 @@
 {
   final FileItem item=getItem(position);
-  final View view=createView(convertView,parent,item.getName(),item.getSummary());
+  final View view=createView(convertView,parent,item);
   if (isItemSelected(item)) {
     view.setBackgroundColor(0xff555555);
   }

@@ -12,9 +12,6 @@
   final ArrayList<ZLFile> children=new ArrayList<ZLFile>(myFile.children());
   Collections.sort(children,new FileComparator());
   for (  final ZLFile file : children) {
-    if (Thread.currentThread().isInterrupted()) {
-      break;
-    }
     if (file.isDirectory() || file.isArchive() || PluginCollection.Instance().getPlugin(file) != null) {
       ((FileListAdapter)getListAdapter()).add(new FileItem(file));
     }
