@@ -9,7 +9,6 @@
     LibraryInstance=new Library();
     startService(new Intent(getApplicationContext(),InitializationService.class));
   }
-  myItems=new LinkedList<FBTree>();
   myItems.add(new TopLevelTree(myResource.getResource(PATH_FAVORITES),R.drawable.ic_list_library_favorites,new OpenTreeRunnable(LibraryInstance,new StartTreeActivityRunnable(PATH_FAVORITES,null){
     public void run(){
       if (LibraryInstance.favorites().hasChildren()) {
@@ -31,6 +30,7 @@
     }
   }
 ));
+  myItems=new LinkedList<FBTree>();
   setListAdapter(new LibraryAdapter(myItems));
   onNewIntent(getIntent());
 }

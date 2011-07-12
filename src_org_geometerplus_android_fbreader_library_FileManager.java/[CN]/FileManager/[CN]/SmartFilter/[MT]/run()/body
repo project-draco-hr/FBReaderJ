@@ -16,14 +16,7 @@
       break;
     }
     if (file.isDirectory() || file.isArchive() || PluginCollection.Instance().getPlugin(file) != null) {
-      runOnUiThread(new Runnable(){
-        public void run(){
-          final FileListAdapter adapter=(FileListAdapter)getListAdapter();
-          adapter.add(new FileItem(file));
-          adapter.notifyDataSetChanged();
-        }
-      }
-);
+      ((FileListAdapter)getListAdapter()).add(new FileItem(file));
     }
   }
 }

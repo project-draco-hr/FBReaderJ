@@ -1,4 +1,4 @@
 {
   myActivity=activity;
-  myItems=Collections.synchronizedList(new ArrayList(items));
+  myItems=Collections.synchronizedList(items);
 }

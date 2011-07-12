@@ -2,6 +2,7 @@
   myActivity.runOnUiThread(new Runnable(){
     public void run(){
       myItems.add(item);
+      notifyDataSetChanged();
     }
   }
 );
