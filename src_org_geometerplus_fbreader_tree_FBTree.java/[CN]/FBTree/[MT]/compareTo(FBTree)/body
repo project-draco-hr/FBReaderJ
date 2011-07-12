@@ -1,6 +1,6 @@
 {
   final String key0=getSortKey();
-  final String key1=ct.getSortKey();
+  final String key1=tree.getSortKey();
   if (key0 == null) {
     return (key1 == null) ? 0 : -1;
   }
