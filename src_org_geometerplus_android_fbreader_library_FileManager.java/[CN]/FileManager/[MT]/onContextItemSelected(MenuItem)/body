@@ -1,6 +1,6 @@
 {
   final int position=((AdapterView.AdapterContextMenuInfo)item.getMenuInfo()).position;
-  final FileItem fileItem=((FileListAdapter)getListAdapter()).getItem(position);
+  final FileItem fileItem=(FileItem)((FileListAdapter)getListAdapter()).getItem(position);
   final Book book=fileItem.getBook();
   if (book != null) {
     return onContextItemSelected(item.getItemId(),book);

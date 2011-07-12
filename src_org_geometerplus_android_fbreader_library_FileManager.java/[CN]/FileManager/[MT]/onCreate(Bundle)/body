@@ -21,7 +21,7 @@
   getListView().setTextFilterEnabled(true);
   getListView().setOnItemClickListener(new AdapterView.OnItemClickListener(){
     public void onItemClick(    AdapterView<?> parent,    View view,    int position,    long id){
-      runItem(((FileListAdapter)getListAdapter()).getItem(position));
+      runItem((FileItem)((FileListAdapter)getListAdapter()).getItem(position));
     }
   }
 );
