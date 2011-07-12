@@ -9,7 +9,7 @@
     LibraryInstance=new Library();
     startService(new Intent(getApplicationContext(),InitializationService.class));
   }
-  final ListAdapter adapter=new LibraryAdapter(new LinkedList<FBTree>());
+  final ListAdapter adapter=new ListAdapter(this,new LinkedList<FBTree>());
   setListAdapter(adapter);
   adapter.add(new TopLevelTree(myResource.getResource(PATH_FAVORITES),R.drawable.ic_list_library_favorites,new OpenTreeRunnable(LibraryInstance,new StartTreeActivityRunnable(PATH_FAVORITES,null){
     public void run(){

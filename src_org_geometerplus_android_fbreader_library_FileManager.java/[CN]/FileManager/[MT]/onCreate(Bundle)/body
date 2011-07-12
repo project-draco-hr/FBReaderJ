@@ -4,7 +4,7 @@
     finish();
     return;
   }
-  FileListAdapter adapter=new FileListAdapter();
+  final ListAdapter adapter=new ListAdapter(this,new ArrayList<FBTree>());
   setListAdapter(adapter);
   myPath=getIntent().getStringExtra(FILE_MANAGER_PATH);
   if (myPath == null) {
@@ -21,7 +21,7 @@
   getListView().setTextFilterEnabled(true);
   getListView().setOnItemClickListener(new AdapterView.OnItemClickListener(){
     public void onItemClick(    AdapterView<?> parent,    View view,    int position,    long id){
-      runItem((FileItem)((FileListAdapter)getListAdapter()).getItem(position));
+      runItem((FileItem)((ListAdapter)getListAdapter()).getItem(position));
     }
   }
 );

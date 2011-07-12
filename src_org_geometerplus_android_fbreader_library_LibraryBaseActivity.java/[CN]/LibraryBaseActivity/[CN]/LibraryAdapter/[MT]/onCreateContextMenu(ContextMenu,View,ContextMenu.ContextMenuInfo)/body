@@ -1,7 +1,0 @@
-{
-  final int position=((AdapterView.AdapterContextMenuInfo)menuInfo).position;
-  final LibraryTree tree=(LibraryTree)getItem(position);
-  if (tree instanceof BookTree) {
-    createBookContextMenu(menu,((BookTree)tree).Book);
-  }
-}

@@ -1,7 +1,0 @@
-{
-  final int position=((AdapterView.AdapterContextMenuInfo)menuInfo).position;
-  final Book book=((FileItem)getItem(position)).getBook();
-  if (book != null) {
-    createBookContextMenu(menu,book);
-  }
-}

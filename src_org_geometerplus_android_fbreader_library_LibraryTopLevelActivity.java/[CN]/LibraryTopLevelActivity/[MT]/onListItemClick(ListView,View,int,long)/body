@@ -1,4 +1,4 @@
 {
-  TopLevelTree tree=(TopLevelTree)((LibraryAdapter)getListAdapter()).getItem(position);
+  TopLevelTree tree=(TopLevelTree)((ListAdapter)getListAdapter()).getItem(position);
   tree.run();
 }

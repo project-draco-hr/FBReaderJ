@@ -1,4 +1,4 @@
 {
   final ZLResource resource=myResource.getResource(resourceKey);
-  ((FileListAdapter)getListAdapter()).add(new FileItem(ZLFile.createFileByPath(path),resource.getValue(),resource.getResource("summary").getValue()));
+  ((ListAdapter)getListAdapter()).add(new FileItem(ZLFile.createFileByPath(path),resource.getValue(),resource.getResource("summary").getValue()));
 }

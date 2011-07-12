@@ -1,3 +1,0 @@
-{
-  super(FileManager.this,new ArrayList<FBTree>());
-}

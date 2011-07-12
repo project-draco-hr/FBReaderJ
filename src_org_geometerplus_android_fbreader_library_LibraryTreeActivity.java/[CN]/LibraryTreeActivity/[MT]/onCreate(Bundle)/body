@@ -62,7 +62,7 @@
     }
   }
   if (tree != null) {
-    final LibraryAdapter adapter=new LibraryAdapter(tree.subTrees());
+    final ListAdapter adapter=new ListAdapter(this,tree.subTrees());
     setListAdapter(adapter);
     getListView().setOnCreateContextMenuListener(adapter);
     setSelection(adapter.getFirstSelectedItemIndex());
