@@ -1,5 +1,5 @@
 {
-  final ListAdapter adapter=(ListAdapter)getListAdapter();
+  final ListAdapter adapter=getListAdapter();
   adapter.remove(mySearchResultsItem);
   final String pattern=intent.getStringExtra(SearchManager.QUERY);
   mySearchResultsItem=new TopLevelTree(myResource.getResource(PATH_SEARCH_RESULTS),pattern,R.drawable.ic_list_library_books,new OpenTreeRunnable(LibraryInstance,PATH_SEARCH_RESULTS,pattern));

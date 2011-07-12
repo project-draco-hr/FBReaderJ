@@ -1,4 +1,5 @@
 {
+  final FileItem item=(FileItem)getListAdapter().getItem(position);
   final ZLFile file=item.getFile();
   final Book book=item.getBook();
   if (book != null) {

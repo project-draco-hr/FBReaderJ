@@ -1,7 +1,7 @@
 {
   if (requestCode == CHILD_LIST_REQUEST && returnCode == RESULT_DO_INVALIDATE_VIEWS) {
     if (myPath != null) {
-      ((ListAdapter)getListAdapter()).clear();
+      getListAdapter().clear();
       startUpdate();
     }
     getListView().invalidateViews();

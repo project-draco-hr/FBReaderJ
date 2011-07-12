@@ -1,5 +1,5 @@
 {
-  FBTree tree=((ListAdapter)getListAdapter()).getItem(position);
+  final FBTree tree=getListAdapter().getItem(position);
   if (tree instanceof BookTree) {
     showBookInfo(((BookTree)tree).Book);
   }
