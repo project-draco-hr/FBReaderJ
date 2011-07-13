@@ -2,7 +2,7 @@
   super.onCreate(icicle);
   requestWindowFeature(Window.FEATURE_NO_TITLE);
   final ListAdapter adapter=new ListAdapter(this,new LinkedList<FBTree>());
-  adapter.add(new TopLevelTree(Library.ROOT_FAVORITES,myResource.getResource(Library.ROOT_FAVORITES),R.drawable.ic_list_library_favorites,new OpenTreeRunnable(LibraryInstance,new StartTreeActivityRunnable(Library.ROOT_FAVORITES,null){
+  adapter.add(new TopLevelTree(Library.ROOT_FAVORITES,myResource.getResource(Library.ROOT_FAVORITES),R.drawable.ic_list_library_favorites,new OpenTreeRunnable(LibraryInstance,new StartTreeActivityRunnable(FBTree.Key.createRootKey(Library.ROOT_FAVORITES),null){
     public void run(){
       if (LibraryInstance.favorites().hasChildren()) {
         super.run();

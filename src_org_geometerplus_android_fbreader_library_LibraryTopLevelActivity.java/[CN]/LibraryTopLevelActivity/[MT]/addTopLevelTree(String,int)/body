@@ -1,3 +1,3 @@
 {
-  getListAdapter().add(new TopLevelTree(key,myResource.getResource(key),imageId,new OpenTreeRunnable(LibraryInstance,key)));
+  getListAdapter().add(new TopLevelTree(key,myResource.getResource(key),imageId,new OpenTreeRunnable(LibraryInstance,FBTree.Key.createRootKey(key))));
 }

@@ -1,4 +1,4 @@
 {
-  myTreePath=treePath;
+  myTreeKey=key;
   myParameter=parameter;
 }

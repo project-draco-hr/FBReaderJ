@@ -2,7 +2,7 @@
   final ListAdapter adapter=getListAdapter();
   adapter.remove(mySearchResultsItem);
   final String pattern=intent.getStringExtra(SearchManager.QUERY);
-  mySearchResultsItem=new TopLevelTree(Library.ROOT_SEARCH_RESULTS,myResource.getResource(Library.ROOT_SEARCH_RESULTS),pattern,R.drawable.ic_list_library_books,new OpenTreeRunnable(LibraryInstance,Library.ROOT_SEARCH_RESULTS,pattern));
+  mySearchResultsItem=new TopLevelTree(Library.ROOT_SEARCH_RESULTS,myResource.getResource(Library.ROOT_SEARCH_RESULTS),pattern,R.drawable.ic_list_library_books,new OpenTreeRunnable(LibraryInstance,FBTree.Key.createRootKey(Library.ROOT_SEARCH_RESULTS),pattern));
   adapter.add(0,mySearchResultsItem);
   getListView().invalidateViews();
   adapter.notifyDataSetChanged();
