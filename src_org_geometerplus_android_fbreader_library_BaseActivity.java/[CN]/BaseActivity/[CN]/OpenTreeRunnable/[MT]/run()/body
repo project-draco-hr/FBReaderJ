@@ -6,7 +6,7 @@
     myPostRunnable.run();
   }
  else {
-    UIUtil.runWithMessage(LibraryBaseActivity.this,"loadingBookList",new Runnable(){
+    UIUtil.runWithMessage(BaseActivity.this,"loadingBookList",new Runnable(){
       public void run(){
         myLibrary.waitForState(Library.STATE_FULLY_INITIALIZED);
       }

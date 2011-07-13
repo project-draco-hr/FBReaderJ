@@ -1,9 +1,0 @@
-{
-  final FBTree tree=getListAdapter().getItem(position);
-  if (tree instanceof BookTree) {
-    showBookInfo(((BookTree)tree).Book);
-  }
- else {
-    new OpenTreeRunnable(LibraryInstance,myTreePathString + "\000" + tree.getName()).run();
-  }
-}
