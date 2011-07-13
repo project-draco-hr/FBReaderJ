@@ -6,15 +6,21 @@
   }
   final ListAdapter adapter=new ListAdapter(this,new ArrayList<FBTree>());
   setListAdapter(adapter);
-  myPath=getIntent().getStringExtra(FILE_MANAGER_PATH);
-  if (myPath == null) {
+  final String path=getIntent().getStringExtra(FILE_MANAGER_PATH);
+  if (path == null) {
+    myFile=null;
     setTitle(myResource.getResource("fileTree").getValue());
     addItem(Paths.BooksDirectoryOption().getValue(),"fileTreeLibrary");
     addItem("/","fileTreeRoot");
     addItem(Environment.getExternalStorageDirectory().getPath(),"fileTreeCard");
   }
  else {
-    setTitle(myPath);
+    myFile=ZLFile.createFileByPath(path);
+    if (myFile == null) {
+      finish();
+      return;
+    }
+    setTitle(path);
     startUpdate();
   }
   getListView().setOnCreateContextMenuListener(adapter);
