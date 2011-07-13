@@ -2,9 +2,9 @@
   if (other == this) {
     return true;
   }
-  if (!(other instanceof NetworkTree.Key)) {
+  if (!(other instanceof Key)) {
     return false;
   }
-  final NetworkTree.Key key=(NetworkTree.Key)other;
+  final Key key=(Key)other;
   return Id.equals(key.Id) && ZLMiscUtil.equals(Parent,key.Parent);
 }
