@@ -14,7 +14,7 @@
       UIUtil.showErrorMessage(this,"permissionDenied");
     }
  else     if (file.isDirectory() || file.isArchive()) {
-      startActivityForResult(new Intent(this,FileManager.class).putExtra(SELECTED_BOOK_PATH_KEY,mySelectedBookPath).putExtra(TREE_PATH_KEY,PATH_FILE_TREE + '\000' + file.getPath()),CHILD_LIST_REQUEST);
+      startActivityForResult(new Intent(this,FileManager.class).putExtra(SELECTED_BOOK_PATH_KEY,mySelectedBookPath).putExtra(TREE_KEY_KEY,tree.getUniqueKey()),CHILD_LIST_REQUEST);
     }
   }
  else   if (tree instanceof BookTree) {

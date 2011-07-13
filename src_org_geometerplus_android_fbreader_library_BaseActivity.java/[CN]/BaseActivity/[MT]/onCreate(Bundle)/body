@@ -9,8 +9,6 @@
     LibraryInstance=new Library();
     startService(new Intent(getApplicationContext(),InitializationService.class));
   }
-  final String treePathString=getIntent().getStringExtra(TREE_PATH_KEY);
-  myTreePath=treePathString != null ? treePathString.split("\000") : new String[0];
   myTreeKey=(FBTree.Key)getIntent().getSerializableExtra(TREE_KEY_KEY);
   mySelectedBookPath=getIntent().getStringExtra(SELECTED_BOOK_PATH_KEY);
   mySelectedBook=null;
