@@ -1,0 +1,6 @@
+{
+  if (myKey == null) {
+    myKey=new Key(Parent != null ? Parent.getUniqueKey() : null,getStringId());
+  }
+  return myKey;
+}

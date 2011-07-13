@@ -4,16 +4,15 @@
   }
   waitForState(STATE_FULLY_INITIALIZED);
   myBooks.remove(book);
-  myLibraryByAuthor.removeBook(book);
-  myLibraryByTag.removeBook(book);
-  if (myRecentBooks.removeBook(book)) {
+  if (getRootTree(ROOT_RECENT).removeBook(book)) {
     final BooksDatabase db=BooksDatabase.Instance();
     final List<Long> ids=db.loadRecentBookIds();
     ids.remove(book.getId());
     db.saveRecentBookIds(ids);
   }
-  mySearchResult.removeBook(book);
-  myFavorites.removeBook(book);
+  for (  LibraryTree root : myRootTrees.values()) {
+    root.removeBook(book);
+  }
   BooksDatabase.Instance().deleteFromBookList(book.getId());
   if ((removeMode & REMOVE_FROM_DISK) != 0) {
     book.File.getPhysicalFile().delete();

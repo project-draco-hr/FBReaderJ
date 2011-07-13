@@ -1,4 +1,5 @@
 {
+  myId=id;
   myResource=resource;
   myParameter=parameter;
   myCoverResourceId=coverResourceId;

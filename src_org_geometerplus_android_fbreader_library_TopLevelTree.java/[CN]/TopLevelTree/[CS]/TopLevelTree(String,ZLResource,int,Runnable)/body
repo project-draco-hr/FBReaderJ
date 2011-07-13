@@ -1,0 +1,3 @@
+{
+  this(id,resource,null,coverResourceId,action);
+}

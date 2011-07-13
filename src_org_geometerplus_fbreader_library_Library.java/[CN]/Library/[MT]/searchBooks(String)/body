@@ -1,6 +1,6 @@
 {
   waitForState(STATE_FULLY_INITIALIZED);
-  final RootTree newSearchResults=new RootTree();
+  final RootTree newSearchResults=new RootTree(ROOT_SEARCH_RESULTS);
   if (pattern != null) {
     pattern=pattern.toLowerCase();
     for (    Book book : myBooks) {
@@ -10,7 +10,7 @@
     }
     newSearchResults.sortAllChildren();
     if (newSearchResults.hasChildren()) {
-      mySearchResult=newSearchResults;
+      myRootTrees.put(ROOT_SEARCH_RESULTS,newSearchResults);
     }
   }
   return newSearchResults;

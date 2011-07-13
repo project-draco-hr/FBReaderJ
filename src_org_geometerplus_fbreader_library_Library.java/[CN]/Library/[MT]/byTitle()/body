@@ -1,4 +1,4 @@
 {
   waitForState(STATE_FULLY_INITIALIZED);
-  return myLibraryByTitle;
+  return getRootTree(ROOT_BY_TITLE);
 }

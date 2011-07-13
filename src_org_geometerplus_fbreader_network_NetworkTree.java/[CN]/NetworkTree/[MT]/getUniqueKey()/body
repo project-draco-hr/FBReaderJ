@@ -1,7 +1,0 @@
-{
-  if (myKey == null) {
-    final Key parentKey=Parent instanceof NetworkTree ? ((NetworkTree)Parent).getUniqueKey() : null;
-    myKey=createKey(parentKey,getStringId());
-  }
-  return myKey;
-}

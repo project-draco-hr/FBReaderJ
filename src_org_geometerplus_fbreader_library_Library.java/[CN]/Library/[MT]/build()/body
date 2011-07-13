@@ -14,7 +14,7 @@
     for (    Author a : authors) {
       AuthorTree authorTree=authorTreeMap.get(a);
       if (authorTree == null) {
-        authorTree=myLibraryByAuthor.createAuthorSubTree(a);
+        authorTree=getRootTree(ROOT_BY_AUTHOR).createAuthorSubTree(a);
         authorTreeMap.put(a,authorTree);
       }
       if (seriesInfo == null) {
@@ -67,7 +67,7 @@
       Character c=title.charAt(0);
       TitleTree tree=letterTrees.get(c);
       if (tree == null) {
-        tree=myLibraryByTitle.createTitleSubTree(c.toString());
+        tree=getRootTree(ROOT_BY_TITLE).createTitleSubTree(c.toString());
         letterTrees.put(c,tree);
       }
       tree.createBookSubTree(book,true);
@@ -75,26 +75,26 @@
   }
  else {
     for (    Book book : myBooks) {
-      myLibraryByTitle.createBookSubTree(book,true);
+      getRootTree(ROOT_BY_TITLE).createBookSubTree(book,true);
     }
   }
   final BooksDatabase db=BooksDatabase.Instance();
   for (  long id : db.loadRecentBookIds()) {
     Book book=bookById.get(id);
     if (book != null) {
-      myRecentBooks.createBookSubTree(book,true);
+      getRootTree(ROOT_RECENT).createBookSubTree(book,true);
     }
   }
   for (  long id : db.loadFavoritesIds()) {
     Book book=bookById.get(id);
     if (book != null) {
-      myFavorites.createBookSubTree(book,true);
+      getRootTree(ROOT_FAVORITES).createBookSubTree(book,true);
     }
   }
-  myFavorites.sortAllChildren();
-  myLibraryByAuthor.sortAllChildren();
-  myLibraryByTitle.sortAllChildren();
-  myLibraryByTag.sortAllChildren();
+  getRootTree(ROOT_FAVORITES).sortAllChildren();
+  getRootTree(ROOT_BY_AUTHOR).sortAllChildren();
+  getRootTree(ROOT_BY_TITLE).sortAllChildren();
+  getRootTree(ROOT_BY_TAG).sortAllChildren();
   db.executeAsATransaction(new Runnable(){
     public void run(){
       for (      Book book : myBooks) {
