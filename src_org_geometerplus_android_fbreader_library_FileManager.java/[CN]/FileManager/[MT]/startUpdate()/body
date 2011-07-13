@@ -1,3 +1,14 @@
 {
-  new Thread(new SmartFilter()).start();
+  new Thread(new Runnable(){
+    public void run(){
+      final ArrayList<ZLFile> children=new ArrayList<ZLFile>(myFile.children());
+      Collections.sort(children,new FileComparator());
+      for (      final ZLFile file : children) {
+        if (file.isDirectory() || file.isArchive() || PluginCollection.Instance().getPlugin(file) != null) {
+          getListAdapter().add(new FileItem(file));
+        }
+      }
+    }
+  }
+).start();
 }
