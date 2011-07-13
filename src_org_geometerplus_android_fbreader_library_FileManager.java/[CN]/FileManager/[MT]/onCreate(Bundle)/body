@@ -1,12 +1,12 @@
 {
   super.onCreate(icicle);
   final ListAdapter adapter=new ListAdapter(this,new ArrayList<FBTree>());
-  if (PATH_FILE_TREE.equals(myTreeKey.Id)) {
+  if (Library.ROOT_FILE_TREE.equals(myTreeKey.Id)) {
     myFile=null;
     setTitle(myResource.getResource(myTreeKey.Id).getValue());
     addItem(Paths.BooksDirectoryOption().getValue(),"fileTreeLibrary");
     addItem("/","fileTreeRoot");
-    addItem(Environment.getExternalStorageDirectory().getPath(),"fileTreeCard");
+    addItem(Paths.cardDirectory(),"fileTreeCard");
   }
  else {
     myFile=ZLFile.createFileByPath(myTreeKey.Id);
