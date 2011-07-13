@@ -1,8 +1,6 @@
 {
   super.onCreate(icicle);
   final ListAdapter adapter=new ListAdapter(this,new ArrayList<FBTree>());
-  setListAdapter(adapter);
-  getListView().setOnCreateContextMenuListener(adapter);
   final String[] path=getIntent().getStringExtra(TREE_PATH_KEY).split("\000");
   if (path.length == 1) {
     myFile=null;
