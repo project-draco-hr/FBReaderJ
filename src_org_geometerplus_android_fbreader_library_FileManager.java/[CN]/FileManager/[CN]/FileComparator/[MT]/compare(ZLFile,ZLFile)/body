@@ -1,7 +1,0 @@
-{
-  final boolean isDir=f0.isDirectory();
-  if (isDir != f1.isDirectory()) {
-    return isDir ? -1 : 1;
-  }
-  return f0.getShortName().compareToIgnoreCase(f1.getShortName());
-}

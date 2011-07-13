@@ -1,13 +1,14 @@
 {
   new Thread(new Runnable(){
     public void run(){
-      final ArrayList<ZLFile> children=new ArrayList<ZLFile>(myFile.children());
-      Collections.sort(children,new FileComparator());
-      for (      final ZLFile file : children) {
+      final ArrayList<FBTree> children=new ArrayList<FBTree>();
+      for (      ZLFile file : myFile.children()) {
         if (file.isDirectory() || file.isArchive() || PluginCollection.Instance().getPlugin(file) != null) {
-          getListAdapter().add(new FileItem(file));
+          children.add(new FileItem(file));
         }
       }
+      Collections.sort(children);
+      getListAdapter().addAll(children);
     }
   }
 ).start();
