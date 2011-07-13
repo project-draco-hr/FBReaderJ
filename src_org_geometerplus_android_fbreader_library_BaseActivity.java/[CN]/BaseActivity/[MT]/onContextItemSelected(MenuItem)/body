@@ -4,5 +4,11 @@
   if (tree instanceof BookTree) {
     return onContextItemSelected(item.getItemId(),((BookTree)tree).Book);
   }
+ else   if (tree instanceof FileItem) {
+    final Book book=((FileItem)tree).getBook();
+    if (book != null) {
+      return onContextItemSelected(item.getItemId(),book);
+    }
+  }
   return super.onContextItemSelected(item);
 }

@@ -6,10 +6,10 @@
   }
   final ListAdapter adapter=new ListAdapter(this,new ArrayList<FBTree>());
   setListAdapter(adapter);
-  final String path=getIntent().getStringExtra(FILE_MANAGER_PATH);
+  final String path=getIntent().getStringExtra(PATH_FILE_TREE);
   if (path == null) {
     myFile=null;
-    setTitle(myResource.getResource("fileTree").getValue());
+    setTitle(myResource.getResource(PATH_FILE_TREE).getValue());
     addItem(Paths.BooksDirectoryOption().getValue(),"fileTreeLibrary");
     addItem("/","fileTreeRoot");
     addItem(Environment.getExternalStorageDirectory().getPath(),"fileTreeCard");
