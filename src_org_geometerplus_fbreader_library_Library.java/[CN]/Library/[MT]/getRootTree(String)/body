@@ -1,5 +1,5 @@
 {
-  LibraryTree root=myRootTrees.get(id);
+  RootTree root=myRootTrees.get(id);
   if (root == null) {
     root=new RootTree(id);
     myRootTrees.put(id,root);

@@ -1,0 +1,4 @@
+{
+  super(id);
+  myPattern=pattern != null ? pattern : "";
+}

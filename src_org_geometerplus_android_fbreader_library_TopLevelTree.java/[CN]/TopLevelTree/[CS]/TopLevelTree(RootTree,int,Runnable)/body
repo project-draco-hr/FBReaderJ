@@ -1,7 +1,5 @@
 {
-  myId=id;
-  myResource=resource;
-  myParameter=parameter;
+  myRoot=root;
   myCoverResourceId=coverResourceId;
   myAction=action;
 }

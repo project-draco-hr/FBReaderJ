@@ -2,7 +2,8 @@
   super.onCreate(icicle);
   requestWindowFeature(Window.FEATURE_NO_TITLE);
   final ListAdapter adapter=new ListAdapter(this,new LinkedList<FBTree>());
-  adapter.add(new TopLevelTree(Library.ROOT_FAVORITES,myResource.getResource(Library.ROOT_FAVORITES),R.drawable.ic_list_library_favorites,new OpenTreeRunnable(LibraryInstance,new StartTreeActivityRunnable(FBTree.Key.createRootKey(Library.ROOT_FAVORITES),null){
+  final RootTree rootFavorites=LibraryInstance.getRootTree(Library.ROOT_FAVORITES);
+  adapter.add(new TopLevelTree(rootFavorites,R.drawable.ic_list_library_favorites,new OpenTreeRunnable(LibraryInstance,new StartTreeActivityRunnable(rootFavorites.getUniqueKey()){
     public void run(){
       if (LibraryInstance.favorites().hasChildren()) {
         super.run();
@@ -17,7 +18,7 @@
   addTopLevelTree(Library.ROOT_BY_AUTHOR,R.drawable.ic_list_library_authors);
   addTopLevelTree(Library.ROOT_BY_TITLE,R.drawable.ic_list_library_books);
   addTopLevelTree(Library.ROOT_BY_TAG,R.drawable.ic_list_library_tags);
-  adapter.add(new TopLevelTree(Library.ROOT_FILE_TREE,myResource.getResource(Library.ROOT_FILE_TREE),R.drawable.ic_list_library_folder,new Runnable(){
+  adapter.add(new TopLevelTree(LibraryInstance.getRootTree(Library.ROOT_FILE_TREE),R.drawable.ic_list_library_folder,new Runnable(){
     public void run(){
       startActivity(new Intent(LibraryTopLevelActivity.this,FileManager.class).putExtra(TREE_KEY_KEY,FBTree.Key.createRootKey(Library.ROOT_FILE_TREE)).putExtra(SELECTED_BOOK_PATH_KEY,mySelectedBookPath));
     }

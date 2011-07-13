@@ -1,8 +1,8 @@
 {
   final ListAdapter adapter=getListAdapter();
   adapter.remove(mySearchResultsItem);
-  final String pattern=intent.getStringExtra(SearchManager.QUERY);
-  mySearchResultsItem=new TopLevelTree(Library.ROOT_SEARCH_RESULTS,myResource.getResource(Library.ROOT_SEARCH_RESULTS),pattern,R.drawable.ic_list_library_books,new OpenTreeRunnable(LibraryInstance,FBTree.Key.createRootKey(Library.ROOT_SEARCH_RESULTS),pattern));
+  final RootTree searchRoot=LibraryInstance.getRootTree(Library.ROOT_SEARCH_RESULTS);
+  mySearchResultsItem=new TopLevelTree(searchRoot,R.drawable.ic_list_library_books,new OpenTreeRunnable(LibraryInstance,searchRoot.getUniqueKey()));
   adapter.add(0,mySearchResultsItem);
   getListView().invalidateViews();
   adapter.notifyDataSetChanged();

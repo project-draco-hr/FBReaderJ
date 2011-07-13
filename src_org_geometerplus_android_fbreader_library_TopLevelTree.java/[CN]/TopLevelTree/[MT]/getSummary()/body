@@ -1,4 +1,3 @@
 {
-  final String summary=myResource.getResource("summary").getValue();
-  return myParameter == null ? summary : summary.replace("%s",myParameter);
+  return myRoot.getSummary();
 }

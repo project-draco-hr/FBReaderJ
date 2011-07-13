@@ -3,7 +3,7 @@
   final ListAdapter adapter=new ListAdapter(this,new ArrayList<FBTree>());
   if (Library.ROOT_FILE_TREE.equals(myTreeKey.Id)) {
     myFile=null;
-    setTitle(myResource.getResource(myTreeKey.Id).getValue());
+    setTitle(Library.resource().getResource(myTreeKey.Id).getValue());
     addItem(Paths.BooksDirectoryOption().getValue(),"fileTreeLibrary");
     addItem("/","fileTreeRoot");
     addItem(Paths.cardDirectory(),"fileTreeCard");

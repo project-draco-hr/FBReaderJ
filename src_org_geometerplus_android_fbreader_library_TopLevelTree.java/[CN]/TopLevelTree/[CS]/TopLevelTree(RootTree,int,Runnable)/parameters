@@ -1,4 +1,3 @@
-String id
-ZLResource resource
+RootTree root
 int coverResourceId
 Runnable action
