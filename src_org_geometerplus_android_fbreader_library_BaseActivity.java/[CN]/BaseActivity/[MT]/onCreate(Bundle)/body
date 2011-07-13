@@ -9,6 +9,8 @@
     LibraryInstance=new Library();
     startService(new Intent(getApplicationContext(),InitializationService.class));
   }
+  myTreePathString=getIntent().getStringExtra(TREE_PATH_KEY);
+  myTreePath=myTreePathString != null ? myTreePathString.split("\000") : new String[0];
   mySelectedBookPath=getIntent().getStringExtra(SELECTED_BOOK_PATH_KEY);
   mySelectedBook=null;
   if (mySelectedBookPath != null) {
