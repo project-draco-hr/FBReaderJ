@@ -1,14 +1,4 @@
 {
-  if (!myFile.isReadable()) {
-    runOnUiThread(new Runnable(){
-      public void run(){
-        UIUtil.showErrorMessage(FileManager.this,"permissionDenied");
-      }
-    }
-);
-    finish();
-    return;
-  }
   final ArrayList<ZLFile> children=new ArrayList<ZLFile>(myFile.children());
   Collections.sort(children,new FileComparator());
   for (  final ZLFile file : children) {
