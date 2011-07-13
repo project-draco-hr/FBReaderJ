@@ -9,6 +9,12 @@
       }
       Collections.sort(children);
       getListAdapter().addAll(children);
+      runOnUiThread(new Runnable(){
+        public void run(){
+          setSelection(getListAdapter().getFirstSelectedItemIndex());
+        }
+      }
+);
     }
   }
 ).start();
