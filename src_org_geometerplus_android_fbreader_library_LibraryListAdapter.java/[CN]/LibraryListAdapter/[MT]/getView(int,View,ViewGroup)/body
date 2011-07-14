@@ -1,7 +1,7 @@
 {
   final FBTree tree=getItem(position);
   final View view=createView(convertView,parent,tree);
-  if (myActivity.isTreeSelected(tree)) {
+  if (getActivity().isTreeSelected(tree)) {
     view.setBackgroundColor(0xff555555);
   }
  else {
@@ -13,7 +13,7 @@
     coverView.setImageBitmap(coverBitmap);
   }
  else {
-    coverView.setImageResource(myActivity.getCoverResourceId(tree));
+    coverView.setImageResource(getActivity().getCoverResourceId(tree));
   }
   return view;
 }
