@@ -7,17 +7,12 @@
     return R.drawable.ic_list_library_book;
   }
  else   if (tree instanceof FileTree) {
-    final FileTree fileTree=(FileTree)tree;
-    if (fileTree.getFile().isDirectory()) {
-      if (fileTree.getFile().isReadable()) {
-        return R.drawable.ic_list_library_folder;
-      }
- else {
-        return R.drawable.ic_list_library_permission_denied;
-      }
-    }
- else     if (fileTree.getFile().isArchive()) {
+    final ZLFile file=((FileTree)tree).getFile();
+    if (file.isArchive()) {
       return R.drawable.ic_list_library_zip;
+    }
+ else     if (file.isDirectory() && file.isReadable()) {
+      return R.drawable.ic_list_library_folder;
     }
  else {
       return R.drawable.ic_list_library_permission_denied;

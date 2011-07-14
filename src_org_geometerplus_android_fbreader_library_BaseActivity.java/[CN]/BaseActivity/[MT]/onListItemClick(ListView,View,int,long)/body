@@ -5,13 +5,7 @@
     showBookInfo(book);
   }
  else   if (tree instanceof FileTree) {
-    final ZLFile file=((FileTree)tree).getFile();
-    if (!file.isReadable()) {
-      UIUtil.showErrorMessage(this,"permissionDenied");
-    }
- else     if (file.isDirectory() || file.isArchive()) {
-      startActivityForResult(new Intent(this,FileManager.class).putExtra(SELECTED_BOOK_PATH_KEY,mySelectedBookPath).putExtra(TREE_KEY_KEY,tree.getUniqueKey()),CHILD_LIST_REQUEST);
-    }
+    new OpenTreeRunnable(tree,FileManager.class).run();
   }
  else {
     final FBTreeInfo info=myInfoMap.get(tree);

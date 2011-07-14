@@ -1,0 +1,6 @@
+{
+  if (!myFile.isReadable()) {
+    return Status.CANNOT_OPEN;
+  }
+  return Status.READY_TO_OPEN;
+}
