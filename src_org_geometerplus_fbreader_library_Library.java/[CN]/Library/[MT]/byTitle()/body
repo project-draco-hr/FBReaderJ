@@ -1,4 +1,0 @@
-{
-  waitForState(STATE_FULLY_INITIALIZED);
-  return getRootTree(ROOT_BY_TITLE);
-}
