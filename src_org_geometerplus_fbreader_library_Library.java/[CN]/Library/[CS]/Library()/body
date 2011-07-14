@@ -1,2 +1,3 @@
 {
+  myRootTrees.put(ROOT_FILE_TREE,new FileRootTree(ROOT_FILE_TREE));
 }

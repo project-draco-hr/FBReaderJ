@@ -5,9 +5,7 @@
     startUpdate();
   }
  else {
-    addItem(Paths.BooksDirectoryOption().getValue(),"fileTreeLibrary");
-    addItem("/","fileTreeRoot");
-    addItem(Paths.cardDirectory(),"fileTreeCard");
+    adapter.addAll(myCurrentTree.subTrees());
   }
   getListView().setTextFilterEnabled(true);
 }

@@ -1,0 +1,4 @@
+{
+  final ZLResource resource=Library.resource().getResource(resourceKey);
+  new FileTree(this,ZLFile.createFileByPath(path),resource.getValue(),resource.getResource("summary").getValue());
+}
