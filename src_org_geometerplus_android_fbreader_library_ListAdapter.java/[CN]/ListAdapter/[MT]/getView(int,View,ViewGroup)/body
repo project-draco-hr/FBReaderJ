@@ -12,9 +12,6 @@
   if (coverBitmap != null) {
     coverView.setImageBitmap(coverBitmap);
   }
- else   if (tree instanceof ZLAndroidTree) {
-    coverView.setImageResource(((ZLAndroidTree)tree).getCoverResourceId());
-  }
  else {
     coverView.setImageResource(myActivity.getCoverResourceId(tree));
   }
