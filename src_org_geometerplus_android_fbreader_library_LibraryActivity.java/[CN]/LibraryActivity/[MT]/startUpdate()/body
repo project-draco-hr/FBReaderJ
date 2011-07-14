@@ -1,9 +1,0 @@
-{
-  new Thread(new Runnable(){
-    public void run(){
-      getCurrentTree().waitForOpening();
-      getListAdapter().replaceAll(getCurrentTree().subTrees());
-    }
-  }
-).start();
-}

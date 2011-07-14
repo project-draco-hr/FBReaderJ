@@ -1,8 +1,8 @@
 {
   super.onCreate(icicle);
-  DatabaseInstance=SQLiteBooksDatabase.Instance();
-  if (DatabaseInstance == null) {
-    DatabaseInstance=new SQLiteBooksDatabase(this,"LIBRARY");
+  myDatabase=SQLiteBooksDatabase.Instance();
+  if (myDatabase == null) {
+    myDatabase=new SQLiteBooksDatabase(this,"LIBRARY");
   }
   if (LibraryInstance == null) {
     LibraryInstance=new Library();
@@ -11,10 +11,10 @@
   final FBTree.Key key=(FBTree.Key)getIntent().getSerializableExtra(TREE_KEY_KEY);
   setCurrentTree(key != null ? LibraryInstance.getLibraryTree(key) : LibraryInstance.getRootTree());
   setTitle(getCurrentTree().getTreeTitle());
-  mySelectedBookPath=getIntent().getStringExtra(SELECTED_BOOK_PATH_KEY);
+  final String selectedBookPath=getIntent().getStringExtra(SELECTED_BOOK_PATH_KEY);
   mySelectedBook=null;
-  if (mySelectedBookPath != null) {
-    final ZLFile file=ZLFile.createFileByPath(mySelectedBookPath);
+  if (selectedBookPath != null) {
+    final ZLFile file=ZLFile.createFileByPath(selectedBookPath);
     if (file != null) {
       mySelectedBook=Book.getByFile(file);
     }

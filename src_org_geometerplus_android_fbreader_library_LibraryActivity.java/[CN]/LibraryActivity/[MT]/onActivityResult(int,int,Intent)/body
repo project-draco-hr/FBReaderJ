@@ -1,11 +1,5 @@
 {
-  if (requestCode == CHILD_LIST_REQUEST && returnCode == RESULT_DO_INVALIDATE_VIEWS) {
-    if (getCurrentTree() instanceof FileTree) {
-      startUpdate();
-    }
-    getListView().invalidateViews();
-  }
- else   if (requestCode == BOOK_INFO_REQUEST) {
+  if (requestCode == BOOK_INFO_REQUEST) {
     getListView().invalidateViews();
   }
 }
