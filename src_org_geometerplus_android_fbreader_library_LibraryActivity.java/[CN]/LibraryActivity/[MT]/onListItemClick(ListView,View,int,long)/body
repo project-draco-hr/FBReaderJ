@@ -5,6 +5,6 @@
     showBookInfo(book);
   }
  else {
-    new OpenTreeRunnable(tree).run();
+    openTree(tree);
   }
 }

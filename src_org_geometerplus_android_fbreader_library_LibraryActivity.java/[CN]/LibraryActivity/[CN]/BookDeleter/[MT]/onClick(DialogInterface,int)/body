@@ -1,4 +1,3 @@
 {
   deleteBook(myBook,myMode);
-  setResult(RESULT_DO_INVALIDATE_VIEWS);
 }

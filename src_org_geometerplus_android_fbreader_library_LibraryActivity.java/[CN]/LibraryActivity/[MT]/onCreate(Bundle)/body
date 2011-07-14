@@ -9,8 +9,8 @@
     startService(new Intent(getApplicationContext(),InitializationService.class));
   }
   final FBTree.Key key=(FBTree.Key)getIntent().getSerializableExtra(TREE_KEY_KEY);
-  myCurrentTree=key != null ? LibraryInstance.getLibraryTree(key) : LibraryInstance.getRootTree();
-  setTitle(myCurrentTree.getTreeTitle());
+  setCurrentTree(key != null ? LibraryInstance.getLibraryTree(key) : LibraryInstance.getRootTree());
+  setTitle(getCurrentTree().getTreeTitle());
   mySelectedBookPath=getIntent().getStringExtra(SELECTED_BOOK_PATH_KEY);
   mySelectedBook=null;
   if (mySelectedBookPath != null) {
@@ -19,19 +19,7 @@
       mySelectedBook=Book.getByFile(file);
     }
   }
-  setResult(RESULT_DONT_INVALIDATE_VIEWS);
-  final Intent intent=getIntent();
-  if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-    if (runSearch(intent)) {
-      startActivity(intent.setAction(ACTION_FOUND).setClass(getApplicationContext(),LibraryTopLevelActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-    }
- else {
-      showNotFoundToast();
-      finish();
-    }
-    return;
-  }
-  final ListAdapter adapter=new ListAdapter(this,myCurrentTree.subTrees());
+  final ListAdapter adapter=new ListAdapter(this,getCurrentTree().subTrees());
   setSelection(adapter.getFirstSelectedItemIndex());
   getListView().setTextFilterEnabled(true);
 }

@@ -1,5 +1,0 @@
-{
-  final List<FBTree> trees=myCurrentTree.subTrees();
-  getListAdapter().replaceAll(trees);
-  getListView().invalidateViews();
-}

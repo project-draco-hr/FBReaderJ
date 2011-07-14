@@ -1,0 +1,10 @@
+{
+  if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+    if (runSearch(intent)) {
+      openSearchResults();
+    }
+ else {
+      UIUtil.showErrorMessage(this,"bookNotFound");
+    }
+  }
+}

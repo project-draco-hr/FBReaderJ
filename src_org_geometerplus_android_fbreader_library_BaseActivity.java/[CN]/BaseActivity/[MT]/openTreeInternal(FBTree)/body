@@ -1,14 +1,14 @@
 {
-switch (myTree.getOpeningStatus()) {
+switch (tree.getOpeningStatus()) {
 case READY_TO_OPEN:
 case ALWAYS_RELOAD_BEFORE_OPENING:
-    myCurrentTree=myTree;
+    myCurrentTree=tree;
   getListAdapter().replaceAll(myCurrentTree.subTrees());
 setTitle(myCurrentTree.getTreeTitle());
 setSelection(getListAdapter().getFirstSelectedItemIndex());
 break;
 case CANNOT_OPEN:
-UIUtil.showErrorMessage(BaseActivity.this,myTree.getOpeningStatusMessage());
+UIUtil.showErrorMessage(BaseActivity.this,tree.getOpeningStatusMessage());
 break;
 }
 }

@@ -1,0 +1,10 @@
+{
+  FBTree tree=getCurrentTree();
+  while (tree.Parent != null) {
+    tree=tree.Parent;
+  }
+  tree=tree.getSubTree(Library.ROOT_SEARCH_RESULTS);
+  if (tree != null) {
+    openTree(tree);
+  }
+}

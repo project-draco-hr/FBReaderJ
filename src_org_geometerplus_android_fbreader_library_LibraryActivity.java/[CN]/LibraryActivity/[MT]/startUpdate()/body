@@ -1,8 +1,8 @@
 {
   new Thread(new Runnable(){
     public void run(){
-      myCurrentTree.waitForOpening();
-      getListAdapter().replaceAll(myCurrentTree.subTrees());
+      getCurrentTree().waitForOpening();
+      getListAdapter().replaceAll(getCurrentTree().subTrees());
     }
   }
 ).start();
