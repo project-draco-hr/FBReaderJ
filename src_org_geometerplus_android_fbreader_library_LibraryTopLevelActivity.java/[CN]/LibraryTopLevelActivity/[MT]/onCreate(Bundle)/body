@@ -1,6 +1,6 @@
 {
   super.onCreate(icicle);
-  final ListAdapter adapter=new ListAdapter(this,new LinkedList<FBTree>());
+  final ListAdapter adapter=new ListAdapter(this,Collections.<FBTree>emptyList());
   addTopLevelTree(Library.ROOT_FAVORITES,R.drawable.ic_list_library_favorites,LibraryTreeActivity.class);
   addTopLevelTree(Library.ROOT_RECENT,R.drawable.ic_list_library_recent,LibraryTreeActivity.class);
   addTopLevelTree(Library.ROOT_BY_AUTHOR,R.drawable.ic_list_library_authors,LibraryTreeActivity.class);

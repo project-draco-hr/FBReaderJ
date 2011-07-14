@@ -1,7 +1,6 @@
 {
   super.onCreate(icicle);
-  final ListAdapter adapter=new ListAdapter(this,new ArrayList<FBTree>());
-  adapter.replaceAll(myCurrentTree.subTrees());
+  final ListAdapter adapter=new ListAdapter(this,myCurrentTree.subTrees());
   setSelection(getListAdapter().getFirstSelectedItemIndex());
   getListView().setTextFilterEnabled(true);
 }
