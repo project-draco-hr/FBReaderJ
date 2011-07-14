@@ -1,0 +1,16 @@
+{
+  if (book == null) {
+    return false;
+  }
+  if (Tag == null) {
+    return book.tags().isEmpty();
+  }
+  for (  Tag t : book.tags()) {
+    for (; t != null; t=t.Parent) {
+      if (t == Tag) {
+        return true;
+      }
+    }
+  }
+  return false;
+}

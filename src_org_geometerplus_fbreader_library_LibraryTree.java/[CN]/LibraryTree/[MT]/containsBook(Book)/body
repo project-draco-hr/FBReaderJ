@@ -1,8 +1,3 @@
 {
-  for (  FBTree tree : this) {
-    if ((tree instanceof BookTree) && ((BookTree)tree).Book.equals(book)) {
-      return true;
-    }
-  }
   return false;
 }

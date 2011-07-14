@@ -1,9 +1,10 @@
 {
   waitForState(STATE_FULLY_INITIALIZED);
-  final LibraryTree rootFavorites=getRootTree(ROOT_FAVORITES);
-  if (!rootFavorites.containsBook(book)) {
-    rootFavorites.createBookSubTree(book,true);
-    rootFavorites.sortAllChildren();
-    BooksDatabase.Instance().addToFavorites(book.getId());
+  if (isBookInFavorites(book)) {
+    return;
   }
+  final LibraryTree rootFavorites=getRootTree(ROOT_FAVORITES);
+  rootFavorites.createBookSubTree(book,true);
+  rootFavorites.sortAllChildren();
+  BooksDatabase.Instance().addToFavorites(book.getId());
 }
