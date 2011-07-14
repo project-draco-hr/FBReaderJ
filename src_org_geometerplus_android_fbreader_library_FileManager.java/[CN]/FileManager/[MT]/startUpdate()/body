@@ -2,8 +2,7 @@
   new Thread(new Runnable(){
     public void run(){
       myCurrentTree.waitForOpening();
-      getListAdapter().clear();
-      getListAdapter().addAll(myCurrentTree.subTrees());
+      getListAdapter().replaceAll(myCurrentTree.subTrees());
     }
   }
 ).start();

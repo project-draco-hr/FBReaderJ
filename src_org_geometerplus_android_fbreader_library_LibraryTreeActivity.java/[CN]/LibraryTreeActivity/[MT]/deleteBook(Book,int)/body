@@ -1,5 +1,5 @@
 {
   super.deleteBook(book,mode);
+  getListAdapter().replaceAll(myCurrentTree.subTrees());
   getListView().invalidateViews();
-  getListAdapter().notifyDataSetChanged();
 }

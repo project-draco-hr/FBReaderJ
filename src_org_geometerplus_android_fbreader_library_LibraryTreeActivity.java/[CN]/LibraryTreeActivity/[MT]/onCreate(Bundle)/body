@@ -11,6 +11,7 @@
     }
     return;
   }
-  final ListAdapter adapter=new ListAdapter(this,myCurrentTree.subTrees());
+  final ListAdapter adapter=new ListAdapter(this,new ArrayList<FBTree>());
+  adapter.replaceAll(myCurrentTree.subTrees());
   setSelection(adapter.getFirstSelectedItemIndex());
 }
