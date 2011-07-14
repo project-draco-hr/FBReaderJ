@@ -2,8 +2,9 @@
   if (mySelectedBook == null) {
     return false;
   }
-  if (tree instanceof BookTree) {
-    return mySelectedBook.equals(((BookTree)tree).Book);
+  final Book book=((LibraryTree)tree).getBook();
+  if (book != null) {
+    return mySelectedBook.equals(book);
   }
  else   if (tree instanceof AuthorTree) {
     return mySelectedBook.authors().contains(((AuthorTree)tree).Author);
@@ -33,11 +34,7 @@
       return false;
     }
     final ZLFile file=fileTree.getFile();
-    final String path=file.getPath();
-    if (mySelectedBookPath.equals(path)) {
-      return true;
-    }
-    String prefix=path;
+    String prefix=file.getPath();
     if (file.isDirectory()) {
       if (!prefix.endsWith("/")) {
         prefix+='/';

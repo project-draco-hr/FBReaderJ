@@ -1,14 +1,8 @@
 {
   final int position=((AdapterView.AdapterContextMenuInfo)item.getMenuInfo()).position;
-  final FBTree tree=getListAdapter().getItem(position);
-  if (tree instanceof BookTree) {
-    return onContextItemSelected(item.getItemId(),((BookTree)tree).Book);
-  }
- else   if (tree instanceof FileTree) {
-    final Book book=((FileTree)tree).getBook();
-    if (book != null) {
-      return onContextItemSelected(item.getItemId(),book);
-    }
+  final Book book=((LibraryTree)getListAdapter().getItem(position)).getBook();
+  if (book != null) {
+    return onContextItemSelected(item.getItemId(),book);
   }
   return super.onContextItemSelected(item);
 }

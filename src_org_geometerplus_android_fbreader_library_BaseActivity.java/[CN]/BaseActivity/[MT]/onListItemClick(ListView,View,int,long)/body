@@ -1,21 +1,17 @@
 {
-  final FBTree tree=getListAdapter().getItem(position);
-  if (tree instanceof FileTree) {
-    final FileTree fileTree=(FileTree)tree;
-    final ZLFile file=fileTree.getFile();
-    final Book book=fileTree.getBook();
-    if (book != null) {
-      showBookInfo(book);
-    }
- else     if (!file.isReadable()) {
+  final LibraryTree tree=(LibraryTree)getListAdapter().getItem(position);
+  final Book book=tree.getBook();
+  if (book != null) {
+    showBookInfo(book);
+  }
+ else   if (tree instanceof FileTree) {
+    final ZLFile file=((FileTree)tree).getFile();
+    if (!file.isReadable()) {
       UIUtil.showErrorMessage(this,"permissionDenied");
     }
  else     if (file.isDirectory() || file.isArchive()) {
       startActivityForResult(new Intent(this,FileManager.class).putExtra(SELECTED_BOOK_PATH_KEY,mySelectedBookPath).putExtra(TREE_KEY_KEY,tree.getUniqueKey()),CHILD_LIST_REQUEST);
     }
-  }
- else   if (tree instanceof BookTree) {
-    showBookInfo(((BookTree)tree).Book);
   }
  else {
     final FBTreeInfo info=myInfoMap.get(tree);
