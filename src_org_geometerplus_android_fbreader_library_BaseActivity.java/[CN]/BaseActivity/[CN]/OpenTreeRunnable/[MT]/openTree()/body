@@ -1,6 +1,7 @@
 {
 switch (myTree.getOpeningStatus()) {
 case READY_TO_OPEN:
+case ALWAYS_RELOAD_BEFORE_OPENING:
     startActivityForResult(new Intent(BaseActivity.this,myActivityClass).putExtra(SELECTED_BOOK_PATH_KEY,mySelectedBookPath).putExtra(TREE_KEY_KEY,myTree.getUniqueKey()),CHILD_LIST_REQUEST);
   break;
 case CANNOT_OPEN:

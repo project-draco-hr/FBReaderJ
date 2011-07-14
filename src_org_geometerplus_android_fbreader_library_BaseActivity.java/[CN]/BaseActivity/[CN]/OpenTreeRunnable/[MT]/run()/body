@@ -1,6 +1,10 @@
 {
-  if (myTree.getOpeningStatus() == LibraryTree.Status.WAIT_FOR_OPEN) {
-    UIUtil.runWithMessage(BaseActivity.this,myTree.getOpeningStatusMessage(),new Runnable(){
+switch (myTree.getOpeningStatus()) {
+case WAIT_FOR_OPEN:
+case ALWAYS_RELOAD_BEFORE_OPENING:
+    final String messageKey=myTree.getOpeningStatusMessage();
+  if (messageKey != null) {
+    UIUtil.runWithMessage(BaseActivity.this,messageKey,new Runnable(){
       public void run(){
         myTree.waitForOpening();
       }
@@ -13,6 +17,12 @@
 );
   }
  else {
+    myTree.waitForOpening();
     openTree();
   }
+break;
+default :
+openTree();
+break;
+}
 }
