@@ -4,16 +4,7 @@
   if (book != null) {
     showBookInfo(book);
   }
- else   if (tree instanceof FileTree) {
-    new OpenTreeRunnable(tree,LibraryTreeActivity.class).run();
-  }
  else {
-    final FBTreeInfo info=myInfoMap.get(tree);
-    if (info != null && info.Action != null) {
-      info.Action.run();
-    }
- else {
-      new OpenTreeRunnable(tree,LibraryTreeActivity.class).run();
-    }
+    new OpenTreeRunnable(tree).run();
   }
 }

@@ -1,4 +1,0 @@
-{
-  final RootTree root=LibraryInstance.getRootTree(key);
-  addFBTreeWithInfo(root,imageId,new OpenTreeRunnable(root,activityClass));
-}

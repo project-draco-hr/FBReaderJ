@@ -1,0 +1,4 @@
+{
+  getListAdapter().add(tree);
+  myIconMap.put(tree,coverResourceId);
+}

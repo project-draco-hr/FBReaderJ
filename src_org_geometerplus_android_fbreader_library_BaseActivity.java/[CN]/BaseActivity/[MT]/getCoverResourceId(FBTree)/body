@@ -1,7 +1,7 @@
 {
-  final FBTreeInfo info=myInfoMap.get(tree);
-  if (info != null && info.CoverResourceId != -1) {
-    return info.CoverResourceId;
+  final Integer icon=myIconMap.get(tree);
+  if (icon != null) {
+    return icon.intValue();
   }
  else   if (((LibraryTree)tree).getBook() != null) {
     return R.drawable.ic_list_library_book;
