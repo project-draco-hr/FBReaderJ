@@ -1,5 +1,5 @@
 {
   super.onCreate(icicle);
-  new ListAdapter(this,LibraryInstance.getRootTree().subTrees());
+  new ListAdapter(this,myCurrentTree.subTrees());
   onNewIntent(getIntent());
 }
