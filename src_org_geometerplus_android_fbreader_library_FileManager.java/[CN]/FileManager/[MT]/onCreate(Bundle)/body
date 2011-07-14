@@ -1,9 +1,7 @@
 {
   super.onCreate(icicle);
   final ListAdapter adapter=new ListAdapter(this,new ArrayList<FBTree>());
-  myFileItem=LibraryInstance.getLibraryTree(myTreeKey);
-  setTitle(myFileItem.getTreeTitle());
-  if (myFileItem instanceof FileItem) {
+  if (myCurrentTree instanceof FileItem) {
     startUpdate();
   }
  else {

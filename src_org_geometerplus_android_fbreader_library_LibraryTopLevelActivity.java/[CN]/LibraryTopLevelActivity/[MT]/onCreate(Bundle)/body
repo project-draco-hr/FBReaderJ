@@ -1,6 +1,5 @@
 {
   super.onCreate(icicle);
-  requestWindowFeature(Window.FEATURE_NO_TITLE);
   final ListAdapter adapter=new ListAdapter(this,new LinkedList<FBTree>());
   final RootTree rootFavorites=LibraryInstance.getRootTree(Library.ROOT_FAVORITES);
   addFBTreeWithInfo(rootFavorites,R.drawable.ic_list_library_favorites,new OpenTreeRunnable(rootFavorites){

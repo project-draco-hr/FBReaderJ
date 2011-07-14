@@ -1,6 +1,6 @@
 {
   if (requestCode == CHILD_LIST_REQUEST && returnCode == RESULT_DO_INVALIDATE_VIEWS) {
-    if (myFileItem instanceof FileItem) {
+    if (myCurrentTree instanceof FileItem) {
       getListAdapter().clear();
       startUpdate();
     }

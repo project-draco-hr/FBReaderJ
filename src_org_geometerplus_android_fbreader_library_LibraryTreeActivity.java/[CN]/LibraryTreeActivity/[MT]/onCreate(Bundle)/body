@@ -11,10 +11,6 @@
     }
     return;
   }
-  final LibraryTree tree=LibraryInstance.getLibraryTree(myTreeKey);
-  if (tree != null) {
-    setTitle(tree.getTreeTitle());
-    final ListAdapter adapter=new ListAdapter(this,tree.subTrees());
-    setSelection(adapter.getFirstSelectedItemIndex());
-  }
+  final ListAdapter adapter=new ListAdapter(this,myCurrentTree.subTrees());
+  setSelection(adapter.getFirstSelectedItemIndex());
 }
