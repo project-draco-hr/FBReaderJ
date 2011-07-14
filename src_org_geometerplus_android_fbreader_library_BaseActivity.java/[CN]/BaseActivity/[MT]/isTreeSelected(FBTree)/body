@@ -1,4 +1,0 @@
-{
-  final LibraryTree lTree=(LibraryTree)tree;
-  return lTree.isSelectable() && lTree.containsBook(mySelectedBook);
-}

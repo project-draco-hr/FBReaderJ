@@ -2,5 +2,4 @@
   final List<FBTree> trees=myCurrentTree.subTrees();
   getListAdapter().replaceAll(trees);
   getListView().invalidateViews();
-  new OpenTreeRunnable(trees.get(0)).run();
 }

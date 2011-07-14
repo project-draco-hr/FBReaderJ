@@ -1,0 +1,11 @@
+{
+  if (keyCode == KeyEvent.KEYCODE_BACK && myCurrentTree.Parent != null) {
+    final FBTree oldTree=myCurrentTree;
+    new OpenTreeRunnable(myCurrentTree.Parent).run();
+    setSelection(getListAdapter().getIndex(oldTree));
+    return true;
+  }
+ else {
+    return super.onKeyDown(keyCode,event);
+  }
+}

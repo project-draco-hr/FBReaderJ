@@ -2,8 +2,11 @@
 switch (myTree.getOpeningStatus()) {
 case READY_TO_OPEN:
 case ALWAYS_RELOAD_BEFORE_OPENING:
-    startActivityForResult(new Intent(BaseActivity.this,LibraryTreeActivity.class).putExtra(SELECTED_BOOK_PATH_KEY,mySelectedBookPath).putExtra(TREE_KEY_KEY,myTree.getUniqueKey()),CHILD_LIST_REQUEST);
-  break;
+    myCurrentTree=myTree;
+  getListAdapter().replaceAll(myCurrentTree.subTrees());
+setTitle(myCurrentTree.getTreeTitle());
+setSelection(getListAdapter().getFirstSelectedItemIndex());
+break;
 case CANNOT_OPEN:
 UIUtil.showErrorMessage(BaseActivity.this,myTree.getOpeningStatusMessage());
 break;

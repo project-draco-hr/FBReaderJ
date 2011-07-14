@@ -1,5 +1,5 @@
 {
-  super.deleteBook(book,mode);
+  LibraryInstance.removeBook(book,mode);
   if (myCurrentTree instanceof FileTree) {
     getListAdapter().remove(new FileTree((FileTree)myCurrentTree,book.File));
   }
