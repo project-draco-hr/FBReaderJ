@@ -1,9 +1,8 @@
 {
-  final FileItem parent=new FileItem(myFile);
   new Thread(new Runnable(){
     public void run(){
-      parent.update();
-      getListAdapter().addAll(parent.subTrees());
+      ((FileItem)myFileItem).update();
+      getListAdapter().addAll(myFileItem.subTrees());
       runOnUiThread(new Runnable(){
         public void run(){
           setSelection(getListAdapter().getFirstSelectedItemIndex());

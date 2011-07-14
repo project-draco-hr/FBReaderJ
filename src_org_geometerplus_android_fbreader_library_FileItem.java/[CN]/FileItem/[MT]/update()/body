@@ -2,6 +2,7 @@
   if (getBook() != null) {
     return;
   }
+  clear();
   for (  ZLFile file : myFile.children()) {
     if (file.isDirectory() || file.isArchive() || PluginCollection.Instance().getPlugin(file) != null) {
       new FileItem(this,file);

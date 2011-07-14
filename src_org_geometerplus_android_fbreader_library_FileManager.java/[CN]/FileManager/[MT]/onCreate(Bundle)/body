@@ -1,21 +1,16 @@
 {
   super.onCreate(icicle);
   final ListAdapter adapter=new ListAdapter(this,new ArrayList<FBTree>());
-  if (Library.ROOT_FILE_TREE.equals(myTreeKey.Id)) {
-    myFile=null;
-    setTitle(Library.resource().getResource(myTreeKey.Id).getValue());
+  myFileItem=LibraryInstance.getLibraryTree(myTreeKey);
+  if (myFileItem instanceof FileItem) {
+    setTitle(myTreeKey.Id);
+    startUpdate();
+  }
+ else {
+    setTitle(myFileItem.getName());
     addItem(Paths.BooksDirectoryOption().getValue(),"fileTreeLibrary");
     addItem("/","fileTreeRoot");
     addItem(Paths.cardDirectory(),"fileTreeCard");
-  }
- else {
-    myFile=ZLFile.createFileByPath(myTreeKey.Id);
-    if (myFile == null) {
-      finish();
-      return;
-    }
-    setTitle(myTreeKey.Id);
-    startUpdate();
   }
   getListView().setTextFilterEnabled(true);
 }
