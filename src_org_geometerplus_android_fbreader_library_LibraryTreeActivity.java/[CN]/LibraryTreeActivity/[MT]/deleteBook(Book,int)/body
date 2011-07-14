@@ -1,5 +1,10 @@
 {
   super.deleteBook(book,mode);
-  getListAdapter().replaceAll(myCurrentTree.subTrees());
+  if (myCurrentTree instanceof FileTree) {
+    getListAdapter().remove(new FileTree((FileTree)myCurrentTree,book.File));
+  }
+ else {
+    getListAdapter().replaceAll(myCurrentTree.subTrees());
+  }
   getListView().invalidateViews();
 }

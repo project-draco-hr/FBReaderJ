@@ -1,0 +1,17 @@
+{
+  if (myCurrentTree instanceof FileTree) {
+    if (requestCode == CHILD_LIST_REQUEST && returnCode == RESULT_DO_INVALIDATE_VIEWS) {
+      if (myCurrentTree instanceof FileTree) {
+        startUpdate();
+      }
+      getListView().invalidateViews();
+      setResult(RESULT_DO_INVALIDATE_VIEWS);
+    }
+ else     if (requestCode == BOOK_INFO_REQUEST) {
+      getListView().invalidateViews();
+    }
+  }
+ else {
+    super.onActivityResult(requestCode,returnCode,intent);
+  }
+}

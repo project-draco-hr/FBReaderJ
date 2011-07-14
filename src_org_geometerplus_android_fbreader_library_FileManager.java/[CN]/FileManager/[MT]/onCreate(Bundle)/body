@@ -1,6 +1,0 @@
-{
-  super.onCreate(icicle);
-  final ListAdapter adapter=new ListAdapter(this,myCurrentTree.subTrees());
-  setSelection(getListAdapter().getFirstSelectedItemIndex());
-  getListView().setTextFilterEnabled(true);
-}
