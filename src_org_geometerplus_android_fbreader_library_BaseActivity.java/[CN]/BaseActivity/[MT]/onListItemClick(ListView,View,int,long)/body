@@ -21,6 +21,6 @@
     showBookInfo(((BookTree)tree).Book);
   }
  else {
-    new OpenTreeRunnable(LibraryInstance,tree).run();
+    new OpenTreeRunnable(tree).run();
   }
 }

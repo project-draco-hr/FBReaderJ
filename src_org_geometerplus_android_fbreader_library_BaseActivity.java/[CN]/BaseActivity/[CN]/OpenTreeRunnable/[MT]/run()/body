@@ -1,14 +1,11 @@
 {
-  if (myLibrary == null) {
-    return;
-  }
-  if (myLibrary.hasState(Library.STATE_FULLY_INITIALIZED)) {
+  if (LibraryInstance.hasState(Library.STATE_FULLY_INITIALIZED)) {
     openTree();
   }
  else {
     UIUtil.runWithMessage(BaseActivity.this,"loadingBookList",new Runnable(){
       public void run(){
-        myLibrary.waitForState(Library.STATE_FULLY_INITIALIZED);
+        LibraryInstance.waitForState(Library.STATE_FULLY_INITIALIZED);
       }
     }
 ,new Runnable(){

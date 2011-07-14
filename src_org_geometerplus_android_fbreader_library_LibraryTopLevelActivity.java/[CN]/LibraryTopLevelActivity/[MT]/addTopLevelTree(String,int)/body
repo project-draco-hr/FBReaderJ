@@ -1,4 +1,4 @@
 {
   final RootTree root=LibraryInstance.getRootTree(key);
-  getListAdapter().add(new TopLevelTree(root,imageId,new OpenTreeRunnable(LibraryInstance,root)));
+  getListAdapter().add(new TopLevelTree(root,imageId,new OpenTreeRunnable(root)));
 }
