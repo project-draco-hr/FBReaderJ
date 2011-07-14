@@ -27,4 +27,5 @@
     }
   }
   setResult(RESULT_DONT_INVALIDATE_VIEWS);
+  getListView().setOnCreateContextMenuListener(this);
 }

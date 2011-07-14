@@ -2,5 +2,4 @@
   myActivity=activity;
   myItems=Collections.synchronizedList(items);
   activity.setListAdapter(this);
-  activity.getListView().setOnCreateContextMenuListener(this);
 }
