@@ -19,7 +19,7 @@
       info.Action.run();
     }
  else {
-      new OpenTreeRunnable(tree).run();
+      new OpenTreeRunnable(tree,LibraryTreeActivity.class).run();
     }
   }
 }

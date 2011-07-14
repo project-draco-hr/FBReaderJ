@@ -1,3 +1,10 @@
 {
-  startActivityForResult(new Intent(BaseActivity.this,LibraryTreeActivity.class).putExtra(SELECTED_BOOK_PATH_KEY,mySelectedBookPath).putExtra(TREE_KEY_KEY,myTree.getUniqueKey()),CHILD_LIST_REQUEST);
+switch (myTree.getOpeningStatus()) {
+case READY_TO_OPEN:
+    startActivityForResult(new Intent(BaseActivity.this,myActivityClass).putExtra(SELECTED_BOOK_PATH_KEY,mySelectedBookPath).putExtra(TREE_KEY_KEY,myTree.getUniqueKey()),CHILD_LIST_REQUEST);
+  break;
+case CANNOT_OPEN:
+UIUtil.showErrorMessage(BaseActivity.this,myTree.getOpeningStatusMessage());
+break;
+}
 }

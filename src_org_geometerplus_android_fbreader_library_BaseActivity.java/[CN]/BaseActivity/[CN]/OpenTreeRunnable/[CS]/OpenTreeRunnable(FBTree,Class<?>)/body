@@ -1,0 +1,4 @@
+{
+  myTree=(LibraryTree)tree;
+  myActivityClass=activityClass;
+}

@@ -5,5 +5,5 @@
   adapter.add(0,mySearchResultsItem);
   getListView().invalidateViews();
   adapter.notifyDataSetChanged();
-  new OpenTreeRunnable(mySearchResultsItem).run();
+  new OpenTreeRunnable(mySearchResultsItem,LibraryTreeActivity.class).run();
 }

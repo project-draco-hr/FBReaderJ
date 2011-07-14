@@ -1,0 +1,3 @@
+{
+  return getOpeningStatus() == Status.CANNOT_OPEN ? "noFavorites" : super.getOpeningStatusMessage();
+}

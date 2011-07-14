@@ -1,6 +1,6 @@
 {
   waitForState(STATE_FULLY_INITIALIZED);
-  final RootTree newSearchResults=new SearchResultsTree(ROOT_SEARCH_RESULTS,pattern);
+  final RootTree newSearchResults=new SearchResultsTree(this,ROOT_SEARCH_RESULTS,pattern);
   if (pattern != null) {
     pattern=pattern.toLowerCase();
     for (    Book book : myBooks) {

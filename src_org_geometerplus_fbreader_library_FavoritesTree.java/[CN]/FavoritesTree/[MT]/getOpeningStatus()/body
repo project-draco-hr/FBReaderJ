@@ -1,0 +1,7 @@
+{
+  final Status status=super.getOpeningStatus();
+  if (status == Status.READY_TO_OPEN && !hasChildren()) {
+    return Status.CANNOT_OPEN;
+  }
+  return status;
+}

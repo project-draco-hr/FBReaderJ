@@ -1,0 +1,3 @@
+{
+  myLibrary.waitForState(Library.STATE_FULLY_INITIALIZED);
+}

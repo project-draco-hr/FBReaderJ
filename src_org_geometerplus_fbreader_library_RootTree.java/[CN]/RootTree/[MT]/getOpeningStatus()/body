@@ -1,0 +1,3 @@
+{
+  return myLibrary.hasState(Library.STATE_FULLY_INITIALIZED) ? Status.READY_TO_OPEN : Status.WAIT_FOR_OPEN;
+}
