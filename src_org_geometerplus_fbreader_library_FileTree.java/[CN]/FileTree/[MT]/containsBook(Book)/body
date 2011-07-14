@@ -1,0 +1,18 @@
+{
+  if (book == null) {
+    return false;
+  }
+  if (myFile.isDirectory()) {
+    String prefix=myFile.getPath();
+    if (!prefix.endsWith("/")) {
+      prefix+="/";
+    }
+    return book.File.getPath().startsWith(prefix);
+  }
+ else   if (myFile.isArchive()) {
+    return book.File.getPath().startsWith(myFile.getPath() + ":");
+  }
+ else {
+    return book.equals(getBook());
+  }
+}

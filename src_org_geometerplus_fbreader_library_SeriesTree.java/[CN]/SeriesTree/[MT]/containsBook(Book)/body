@@ -1,0 +1,7 @@
+{
+  if (book == null) {
+    return false;
+  }
+  final SeriesInfo info=book.getSeriesInfo();
+  return info != null && Series.equals(info.Name);
+}
