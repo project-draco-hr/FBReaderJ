@@ -11,14 +11,9 @@
     }
     return;
   }
-  final FBTree tree=LibraryInstance.getLibraryTree(myTreeKey);
+  final LibraryTree tree=LibraryInstance.getLibraryTree(myTreeKey);
   if (tree != null) {
-    if (myTreeKey.Parent == null) {
-      setTitle(tree.getSecondString());
-    }
- else {
-      setTitle(tree.getName());
-    }
+    setTitle(tree.getTreeTitle());
     final ListAdapter adapter=new ListAdapter(this,tree.subTrees());
     setSelection(adapter.getFirstSelectedItemIndex());
   }
