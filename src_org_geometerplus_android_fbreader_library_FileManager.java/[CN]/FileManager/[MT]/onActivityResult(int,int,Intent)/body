@@ -1,7 +1,6 @@
 {
   if (requestCode == CHILD_LIST_REQUEST && returnCode == RESULT_DO_INVALIDATE_VIEWS) {
     if (myCurrentTree instanceof FileTree) {
-      getListAdapter().clear();
       startUpdate();
     }
     getListView().invalidateViews();
