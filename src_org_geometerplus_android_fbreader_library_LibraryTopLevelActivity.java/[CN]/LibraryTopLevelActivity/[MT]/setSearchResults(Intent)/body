@@ -2,7 +2,7 @@
   final ListAdapter adapter=getListAdapter();
   adapter.remove(mySearchResultsItem);
   final RootTree searchRoot=LibraryInstance.getRootTree(Library.ROOT_SEARCH_RESULTS);
-  mySearchResultsItem=new TopLevelTree(searchRoot,R.drawable.ic_list_library_books,new OpenTreeRunnable(LibraryInstance,searchRoot.getUniqueKey()));
+  mySearchResultsItem=new TopLevelTree(searchRoot,R.drawable.ic_list_library_books,new OpenTreeRunnable(LibraryInstance,searchRoot));
   adapter.add(0,mySearchResultsItem);
   getListView().invalidateViews();
   adapter.notifyDataSetChanged();

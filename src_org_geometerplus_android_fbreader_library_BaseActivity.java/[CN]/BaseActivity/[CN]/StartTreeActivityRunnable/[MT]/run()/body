@@ -1,3 +1,0 @@
-{
-  startActivityForResult(new Intent(BaseActivity.this,LibraryTreeActivity.class).putExtra(SELECTED_BOOK_PATH_KEY,mySelectedBookPath).putExtra(TREE_KEY_KEY,myTreeKey),CHILD_LIST_REQUEST);
-}

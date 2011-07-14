@@ -3,7 +3,7 @@
     return;
   }
   if (myLibrary.hasState(Library.STATE_FULLY_INITIALIZED)) {
-    myPostRunnable.run();
+    openTree();
   }
  else {
     UIUtil.runWithMessage(BaseActivity.this,"loadingBookList",new Runnable(){
@@ -11,6 +11,11 @@
         myLibrary.waitForState(Library.STATE_FULLY_INITIALIZED);
       }
     }
-,myPostRunnable);
+,new Runnable(){
+      public void run(){
+        openTree();
+      }
+    }
+);
   }
 }

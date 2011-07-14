@@ -1,3 +1,0 @@
-{
-  this(library,new StartTreeActivityRunnable(key));
-}
