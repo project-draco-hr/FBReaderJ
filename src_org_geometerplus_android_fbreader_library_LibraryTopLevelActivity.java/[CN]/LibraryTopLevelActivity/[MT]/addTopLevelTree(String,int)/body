@@ -1,3 +1,0 @@
-{
-  addFBTreeWithIcon(LibraryInstance.getRootTree(key),imageId);
-}

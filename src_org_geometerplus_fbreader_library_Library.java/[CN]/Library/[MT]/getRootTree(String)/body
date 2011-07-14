@@ -1,7 +1,7 @@
 {
-  RootTree root=myRootTrees.get(id);
+  FirstLevelTree root=myRootTrees.get(id);
   if (root == null) {
-    root=new RootTree(this,id);
+    root=new FirstLevelTree(this,id);
     myRootTrees.put(id,root);
   }
   return root;
