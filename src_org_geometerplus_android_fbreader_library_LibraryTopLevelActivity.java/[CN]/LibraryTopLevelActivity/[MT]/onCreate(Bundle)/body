@@ -3,9 +3,9 @@
   requestWindowFeature(Window.FEATURE_NO_TITLE);
   final ListAdapter adapter=new ListAdapter(this,new LinkedList<FBTree>());
   final RootTree rootFavorites=LibraryInstance.getRootTree(Library.ROOT_FAVORITES);
-  adapter.add(new TopLevelTree(rootFavorites,R.drawable.ic_list_library_favorites,new OpenTreeRunnable(rootFavorites){
+  addFBTreeWithInfo(rootFavorites,R.drawable.ic_list_library_favorites,new OpenTreeRunnable(rootFavorites){
     @Override protected void openTree(){
-      if (rootFavorites.hasChildren()) {
+      if (LibraryInstance.favorites().hasChildren()) {
         super.openTree();
       }
  else {
@@ -13,17 +13,17 @@
       }
     }
   }
-));
+);
   addTopLevelTree(Library.ROOT_RECENT,R.drawable.ic_list_library_recent);
   addTopLevelTree(Library.ROOT_BY_AUTHOR,R.drawable.ic_list_library_authors);
   addTopLevelTree(Library.ROOT_BY_TITLE,R.drawable.ic_list_library_books);
   addTopLevelTree(Library.ROOT_BY_TAG,R.drawable.ic_list_library_tags);
   final RootTree fileTreeRoot=LibraryInstance.getRootTree(Library.ROOT_FILE_TREE);
-  adapter.add(new TopLevelTree(fileTreeRoot,R.drawable.ic_list_library_folder,new Runnable(){
+  addFBTreeWithInfo(fileTreeRoot,R.drawable.ic_list_library_folder,new Runnable(){
     public void run(){
       startActivity(new Intent(LibraryTopLevelActivity.this,FileManager.class).putExtra(TREE_KEY_KEY,fileTreeRoot.getUniqueKey()).putExtra(SELECTED_BOOK_PATH_KEY,mySelectedBookPath));
     }
   }
-));
+);
   onNewIntent(getIntent());
 }

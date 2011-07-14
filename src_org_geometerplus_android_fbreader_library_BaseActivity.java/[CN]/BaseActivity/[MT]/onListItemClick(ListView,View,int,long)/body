@@ -1,9 +1,6 @@
 {
   final FBTree tree=getListAdapter().getItem(position);
-  if (tree instanceof TopLevelTree) {
-    ((TopLevelTree)tree).run();
-  }
- else   if (tree instanceof FileItem) {
+  if (tree instanceof FileItem) {
     final FileItem item=(FileItem)tree;
     final ZLFile file=item.getFile();
     final Book book=item.getBook();
@@ -21,6 +18,12 @@
     showBookInfo(((BookTree)tree).Book);
   }
  else {
-    new OpenTreeRunnable(tree).run();
+    final FBTreeInfo info=myInfoMap.get(tree);
+    if (info != null && info.Action != null) {
+      info.Action.run();
+    }
+ else {
+      new OpenTreeRunnable(tree).run();
+    }
   }
 }

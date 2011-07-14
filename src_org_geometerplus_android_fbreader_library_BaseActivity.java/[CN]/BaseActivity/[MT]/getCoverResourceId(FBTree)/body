@@ -1,0 +1,18 @@
+{
+  final FBTreeInfo info=myInfoMap.get(tree);
+  if (info != null && info.CoverResourceId != -1) {
+    return info.CoverResourceId;
+  }
+ else   if (tree instanceof AuthorTree) {
+    return R.drawable.ic_list_library_author;
+  }
+ else   if (tree instanceof TagTree) {
+    return R.drawable.ic_list_library_tag;
+  }
+ else   if (tree instanceof BookTree) {
+    return R.drawable.ic_list_library_book;
+  }
+ else {
+    return R.drawable.ic_list_library_books;
+  }
+}

@@ -1,0 +1,4 @@
+{
+  getListAdapter().add(tree);
+  myInfoMap.put(tree,new FBTreeInfo(coverResourceId,action));
+}

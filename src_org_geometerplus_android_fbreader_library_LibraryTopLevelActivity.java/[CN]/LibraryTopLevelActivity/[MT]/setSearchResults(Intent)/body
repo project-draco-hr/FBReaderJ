@@ -1,10 +1,9 @@
 {
   final ListAdapter adapter=getListAdapter();
   adapter.remove(mySearchResultsItem);
-  final RootTree searchRoot=LibraryInstance.getRootTree(Library.ROOT_SEARCH_RESULTS);
-  mySearchResultsItem=new TopLevelTree(searchRoot,R.drawable.ic_list_library_books,new OpenTreeRunnable(searchRoot));
+  mySearchResultsItem=LibraryInstance.getRootTree(Library.ROOT_SEARCH_RESULTS);
   adapter.add(0,mySearchResultsItem);
   getListView().invalidateViews();
   adapter.notifyDataSetChanged();
-  mySearchResultsItem.run();
+  new OpenTreeRunnable(mySearchResultsItem).run();
 }
