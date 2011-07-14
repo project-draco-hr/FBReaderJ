@@ -1,0 +1,9 @@
+{
+  if (o == this) {
+    return true;
+  }
+  if (!(o instanceof FileTree)) {
+    return true;
+  }
+  return myFile.equals(((FileTree)o).myFile);
+}

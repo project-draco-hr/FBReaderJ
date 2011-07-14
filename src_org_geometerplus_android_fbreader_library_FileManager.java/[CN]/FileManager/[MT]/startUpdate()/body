@@ -1,7 +1,7 @@
 {
   new Thread(new Runnable(){
     public void run(){
-      ((FileItem)myCurrentTree).update();
+      ((FileTree)myCurrentTree).update();
       getListAdapter().addAll(myCurrentTree.subTrees());
       runOnUiThread(new Runnable(){
         public void run(){

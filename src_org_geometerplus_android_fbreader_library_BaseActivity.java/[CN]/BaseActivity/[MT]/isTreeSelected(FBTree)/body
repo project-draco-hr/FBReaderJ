@@ -27,12 +27,12 @@
       }
     }
   }
- else   if (tree instanceof FileItem) {
-    final FileItem item=(FileItem)tree;
-    if (!item.isSelectable()) {
+ else   if (tree instanceof FileTree) {
+    final FileTree fileTree=(FileTree)tree;
+    if (!fileTree.isSelectable()) {
       return false;
     }
-    final ZLFile file=item.getFile();
+    final ZLFile file=fileTree.getFile();
     final String path=file.getPath();
     if (mySelectedBookPath.equals(path)) {
       return true;

@@ -1,7 +1,7 @@
 {
   super.onCreate(icicle);
   final ListAdapter adapter=new ListAdapter(this,new ArrayList<FBTree>());
-  if (myCurrentTree instanceof FileItem) {
+  if (myCurrentTree instanceof FileTree) {
     startUpdate();
   }
  else {

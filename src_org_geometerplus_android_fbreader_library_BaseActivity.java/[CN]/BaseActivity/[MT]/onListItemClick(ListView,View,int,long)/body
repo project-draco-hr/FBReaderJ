@@ -1,9 +1,9 @@
 {
   final FBTree tree=getListAdapter().getItem(position);
-  if (tree instanceof FileItem) {
-    final FileItem item=(FileItem)tree;
-    final ZLFile file=item.getFile();
-    final Book book=item.getBook();
+  if (tree instanceof FileTree) {
+    final FileTree fileTree=(FileTree)tree;
+    final ZLFile file=fileTree.getFile();
+    final Book book=fileTree.getBook();
     if (book != null) {
       showBookInfo(book);
     }

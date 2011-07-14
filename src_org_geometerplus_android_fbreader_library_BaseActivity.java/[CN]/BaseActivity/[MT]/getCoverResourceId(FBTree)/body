@@ -3,20 +3,20 @@
   if (info != null && info.CoverResourceId != -1) {
     return info.CoverResourceId;
   }
- else   if (tree instanceof FileItem) {
-    final FileItem item=(FileItem)tree;
-    if (item.getBook() != null) {
+ else   if (tree instanceof FileTree) {
+    final FileTree fileTree=(FileTree)tree;
+    if (fileTree.getBook() != null) {
       return R.drawable.ic_list_library_book;
     }
- else     if (item.getFile().isDirectory()) {
-      if (item.getFile().isReadable()) {
+ else     if (fileTree.getFile().isDirectory()) {
+      if (fileTree.getFile().isReadable()) {
         return R.drawable.ic_list_library_folder;
       }
  else {
         return R.drawable.ic_list_library_permission_denied;
       }
     }
- else     if (item.getFile().isArchive()) {
+ else     if (fileTree.getFile().isArchive()) {
       return R.drawable.ic_list_library_zip;
     }
  else {
