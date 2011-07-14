@@ -1,16 +1,18 @@
 {
   waitForState(STATE_FULLY_INITIALIZED);
-  final FirstLevelTree newSearchResults=new SearchResultsTree(this,ROOT_SEARCH_RESULTS,pattern);
+  FirstLevelTree newSearchResults=null;
   if (pattern != null) {
     pattern=pattern.toLowerCase();
     for (    Book book : myBooks) {
       if (book.matches(pattern)) {
+        if (newSearchResults == null) {
+          newSearchResults=createNewSearchResults(pattern);
+        }
         newSearchResults.createBookSubTree(book,true);
       }
     }
-    newSearchResults.sortAllChildren();
-    if (newSearchResults.hasChildren()) {
-      myRootTrees.put(ROOT_SEARCH_RESULTS,newSearchResults);
+    if (newSearchResults != null) {
+      newSearchResults.sortAllChildren();
     }
   }
   return newSearchResults;

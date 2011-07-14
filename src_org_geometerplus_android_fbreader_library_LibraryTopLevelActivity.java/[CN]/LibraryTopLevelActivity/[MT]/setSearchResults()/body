@@ -1,0 +1,6 @@
+{
+  final List<FBTree> trees=LibraryInstance.getRootTree().subTrees();
+  getListAdapter().replaceAll(trees);
+  getListView().invalidateViews();
+  new OpenTreeRunnable(trees.get(0)).run();
+}

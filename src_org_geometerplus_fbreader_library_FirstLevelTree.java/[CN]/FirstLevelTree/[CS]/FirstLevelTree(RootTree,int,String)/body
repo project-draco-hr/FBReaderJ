@@ -1,0 +1,6 @@
+{
+  super(root,position);
+  myLibrary=root.getLibrary();
+  myId=id;
+  myResource=Library.resource().getResource(myId);
+}

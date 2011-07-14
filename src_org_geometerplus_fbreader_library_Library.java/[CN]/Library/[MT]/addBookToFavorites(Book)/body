@@ -3,7 +3,7 @@
   if (isBookInFavorites(book)) {
     return;
   }
-  final LibraryTree rootFavorites=getRootTree(ROOT_FAVORITES);
+  final LibraryTree rootFavorites=getFirstLevelTree(ROOT_FAVORITES);
   rootFavorites.createBookSubTree(book,true);
   rootFavorites.sortAllChildren();
   BooksDatabase.Instance().addToFavorites(book.getId());

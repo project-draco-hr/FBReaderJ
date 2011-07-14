@@ -1,13 +1,13 @@
 {
   if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
     if (runSearch(intent)) {
-      setSearchResults(intent);
+      setSearchResults();
     }
  else {
       showNotFoundToast();
     }
   }
  else   if (ACTION_FOUND.equals(intent.getAction())) {
-    setSearchResults(intent);
+    setSearchResults();
   }
 }

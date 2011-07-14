@@ -1,0 +1,8 @@
+{
+  for (  FBTree tree : myRootTree.subTrees()) {
+    if (key.equals(tree.getUniqueKey().Id)) {
+      return (FirstLevelTree)tree;
+    }
+  }
+  return null;
+}

@@ -3,7 +3,7 @@
     return false;
   }
   waitForState(STATE_FULLY_INITIALIZED);
-  final LibraryTree rootFavorites=getRootTree(ROOT_FAVORITES);
+  final LibraryTree rootFavorites=getFirstLevelTree(ROOT_FAVORITES);
   for (  FBTree tree : rootFavorites.subTrees()) {
     if (tree instanceof BookTree && book.equals(((BookTree)tree).Book)) {
       return true;

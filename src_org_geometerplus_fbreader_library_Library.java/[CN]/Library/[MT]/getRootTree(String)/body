@@ -1,8 +1,0 @@
-{
-  FirstLevelTree root=myRootTrees.get(id);
-  if (root == null) {
-    root=new FirstLevelTree(this,id);
-    myRootTrees.put(id,root);
-  }
-  return root;
-}

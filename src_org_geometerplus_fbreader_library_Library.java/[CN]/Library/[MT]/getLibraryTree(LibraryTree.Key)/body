@@ -3,7 +3,7 @@
     return null;
   }
   if (key.Parent == null) {
-    return getRootTree(key.Id);
+    return key.Id.equals(myRootTree.getUniqueKey().Id) ? myRootTree : null;
   }
   final LibraryTree parentTree=getLibraryTree(key.Parent);
   return parentTree != null ? (LibraryTree)parentTree.getSubTree(key.Id) : null;

@@ -1,4 +1,8 @@
 {
-  myRootTrees.put(ROOT_FAVORITES,new FavoritesTree(this,ROOT_FAVORITES));
-  myRootTrees.put(ROOT_FILE_TREE,new FileFirstLevelTree(this,ROOT_FILE_TREE));
+  new FavoritesTree(myRootTree,ROOT_FAVORITES);
+  new FirstLevelTree(myRootTree,ROOT_RECENT);
+  new FirstLevelTree(myRootTree,ROOT_BY_AUTHOR);
+  new FirstLevelTree(myRootTree,ROOT_BY_TITLE);
+  new FirstLevelTree(myRootTree,ROOT_BY_TAG);
+  new FileFirstLevelTree(myRootTree,ROOT_FILE_TREE);
 }

@@ -1,9 +1,0 @@
-{
-  final ListAdapter adapter=getListAdapter();
-  adapter.remove(mySearchResultsItem);
-  mySearchResultsItem=LibraryInstance.getRootTree(Library.ROOT_SEARCH_RESULTS);
-  adapter.add(0,mySearchResultsItem);
-  getListView().invalidateViews();
-  adapter.notifyDataSetChanged();
-  new OpenTreeRunnable(mySearchResultsItem).run();
-}

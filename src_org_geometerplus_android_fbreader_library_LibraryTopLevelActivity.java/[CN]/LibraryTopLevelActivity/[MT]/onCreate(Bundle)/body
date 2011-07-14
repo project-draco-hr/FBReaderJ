@@ -1,11 +1,5 @@
 {
   super.onCreate(icicle);
-  final ListAdapter adapter=new ListAdapter(this,Collections.<FBTree>emptyList());
-  adapter.add(LibraryInstance.getRootTree(Library.ROOT_FAVORITES));
-  adapter.add(LibraryInstance.getRootTree(Library.ROOT_RECENT));
-  adapter.add(LibraryInstance.getRootTree(Library.ROOT_BY_AUTHOR));
-  adapter.add(LibraryInstance.getRootTree(Library.ROOT_BY_TITLE));
-  adapter.add(LibraryInstance.getRootTree(Library.ROOT_BY_TAG));
-  adapter.add(LibraryInstance.getRootTree(Library.ROOT_FILE_TREE));
+  new ListAdapter(this,LibraryInstance.getRootTree().subTrees());
   onNewIntent(getIntent());
 }

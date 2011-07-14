@@ -1,3 +1,0 @@
-{
-  return getRootTree(ROOT_SEARCH_RESULTS);
-}
