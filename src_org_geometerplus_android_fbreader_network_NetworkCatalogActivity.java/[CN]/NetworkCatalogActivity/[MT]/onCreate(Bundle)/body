@@ -1,12 +1,5 @@
 {
   super.onCreate(icicle);
-  requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
-  setCurrentTree(Util.getTreeFromIntent(getIntent()));
-  if (getCurrentTree() == null) {
-    finish();
-    return;
-  }
   setForTree((NetworkTree)getCurrentTree(),this);
-  setListAdapter(new NetworkLibraryAdapter(this,getCurrentTree().subTrees()));
-  setupTitle();
+  setProgressBarIndeterminateVisibility(myInProgress);
 }

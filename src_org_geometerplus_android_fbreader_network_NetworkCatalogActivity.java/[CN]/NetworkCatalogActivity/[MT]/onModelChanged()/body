@@ -10,7 +10,7 @@
           child.invalidateChildren();
         }
       }
-      setupTitle();
+      setProgressBarIndeterminateVisibility(myInProgress);
     }
   }
 );

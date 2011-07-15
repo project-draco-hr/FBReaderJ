@@ -1,4 +1,0 @@
-{
-  setTitle(getCurrentTree().getTreeTitle());
-  setProgressBarIndeterminateVisibility(myInProgress);
-}
