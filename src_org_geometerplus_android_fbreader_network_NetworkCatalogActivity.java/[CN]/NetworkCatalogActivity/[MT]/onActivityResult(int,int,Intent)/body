@@ -10,10 +10,10 @@ synchronized (myCredentialsCreator) {
     }
   break;
 case CUSTOM_AUTHENTICATION_CODE:
-Util.processCustomAuthentication(this,((NetworkCatalogTree)myTree).Item.Link,resultCode,data);
+Util.processCustomAuthentication(this,((NetworkCatalogTree)getCurrentTree()).Item.Link,resultCode,data);
 break;
 case SIGNUP_CODE:
-Util.processSignup(((NetworkCatalogTree)myTree).Item.Link,resultCode,data);
+Util.processSignup(((NetworkCatalogTree)getCurrentTree()).Item.Link,resultCode,data);
 break;
 }
 }

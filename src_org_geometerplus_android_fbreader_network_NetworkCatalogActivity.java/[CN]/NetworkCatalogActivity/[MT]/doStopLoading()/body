@@ -1,5 +1,5 @@
 {
-  final ItemsLoader runnable=ItemsLoadingService.getRunnable(myTree);
+  final ItemsLoader runnable=ItemsLoadingService.getRunnable((NetworkTree)getCurrentTree());
   if (runnable != null) {
     runnable.interruptLoading();
   }

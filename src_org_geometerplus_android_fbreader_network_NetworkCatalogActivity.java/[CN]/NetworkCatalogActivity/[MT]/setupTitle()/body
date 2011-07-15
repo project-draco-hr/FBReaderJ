@@ -1,15 +1,4 @@
 {
-  String title=null;
-  final NetworkView networkView=NetworkView.Instance();
-  if (networkView.isInitialized()) {
-    final NetworkTreeActions actions=networkView.getActions(myTree);
-    if (actions != null) {
-      title=actions.getTreeTitle(myTree);
-    }
-  }
-  if (title == null) {
-    title=myTree.getName();
-  }
-  setTitle(title);
+  setTitle(getCurrentTree().getTreeTitle());
   setProgressBarIndeterminateVisibility(myInProgress);
 }

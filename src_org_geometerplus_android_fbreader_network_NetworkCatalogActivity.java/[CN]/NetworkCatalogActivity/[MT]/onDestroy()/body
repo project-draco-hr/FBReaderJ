@@ -1,4 +1,4 @@
 {
-  setForTree(myTree,null);
+  setForTree((NetworkTree)getCurrentTree(),null);
   super.onDestroy();
 }

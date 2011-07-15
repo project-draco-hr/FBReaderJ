@@ -13,7 +13,7 @@
     coverView.setImageBitmap(coverBitmap);
   }
  else {
-    coverView.setImageResource(getActivity().getCoverResourceId(tree));
+    coverView.setImageResource(getCoverResourceId(tree));
   }
   return view;
 }

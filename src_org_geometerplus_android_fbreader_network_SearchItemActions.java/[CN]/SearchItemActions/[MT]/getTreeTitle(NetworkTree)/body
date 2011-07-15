@@ -1,7 +1,0 @@
-{
-  final SearchResult result=((SearchItemTree)tree).getSearchResult();
-  if (result != null) {
-    return result.Summary;
-  }
-  return tree.getName();
-}

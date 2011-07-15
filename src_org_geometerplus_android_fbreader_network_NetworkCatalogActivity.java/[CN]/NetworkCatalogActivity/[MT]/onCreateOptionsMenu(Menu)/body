@@ -1,4 +1,4 @@
 {
   super.onCreateOptionsMenu(menu);
-  return NetworkView.Instance().createOptionsMenu(menu,myTree);
+  return NetworkView.Instance().createOptionsMenu(menu,(NetworkTree)getCurrentTree());
 }

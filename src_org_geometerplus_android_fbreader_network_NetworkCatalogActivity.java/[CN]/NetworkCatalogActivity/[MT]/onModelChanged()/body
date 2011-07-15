@@ -1,7 +1,7 @@
 {
   runOnUiThread(new Runnable(){
     public void run(){
-      final NetworkTree tree=getLoadableNetworkTree(myTree);
+      final NetworkTree tree=getLoadableNetworkTree((NetworkTree)getCurrentTree());
       myInProgress=tree != null && ItemsLoadingService.getRunnable(tree) != null;
       getListView().invalidateViews();
       ((CatalogAdapter)getListAdapter()).onModelChanged();

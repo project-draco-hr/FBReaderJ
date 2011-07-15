@@ -1,6 +1,6 @@
 {
   notifyDataSetChanged();
-  for (  FBTree child : myTree.subTrees()) {
+  for (  FBTree child : getCurrentTree().subTrees()) {
     if (child instanceof TopUpTree) {
       child.invalidateChildren();
     }

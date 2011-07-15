@@ -1,12 +1,12 @@
 {
   super.onCreate(icicle);
   requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
-  myTree=Util.getTreeFromIntent(getIntent());
-  if (myTree == null) {
+  setCurrentTree(Util.getTreeFromIntent(getIntent()));
+  if (getCurrentTree() == null) {
     finish();
     return;
   }
-  setForTree(myTree,this);
+  setForTree((NetworkTree)getCurrentTree(),this);
   setListAdapter(new CatalogAdapter());
   getListView().invalidateViews();
   setupTitle();

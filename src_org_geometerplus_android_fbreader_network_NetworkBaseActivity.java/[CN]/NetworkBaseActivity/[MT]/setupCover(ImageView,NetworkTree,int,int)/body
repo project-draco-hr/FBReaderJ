@@ -1,16 +1,4 @@
 {
-  if (tree instanceof AddCustomCatalogItemTree) {
-    coverView.setImageResource(R.drawable.ic_list_plus);
-    return;
-  }
-  if (tree instanceof SearchItemTree) {
-    coverView.setImageResource(R.drawable.ic_list_searchresult);
-    return;
-  }
-  if (tree instanceof ZLAndroidTree) {
-    coverView.setImageResource(((ZLAndroidTree)tree).getCoverResourceId());
-    return;
-  }
   Bitmap coverBitmap=null;
   ZLImage cover=tree.getCover();
   if (cover != null) {
@@ -37,6 +25,12 @@
   }
  else   if (tree instanceof NetworkBookTree) {
     coverView.setImageResource(R.drawable.ic_list_library_book);
+  }
+ else   if (tree instanceof AddCustomCatalogItemTree) {
+    coverView.setImageResource(R.drawable.ic_list_plus);
+  }
+ else   if (tree instanceof SearchItemTree) {
+    coverView.setImageResource(R.drawable.ic_list_searchresult);
   }
  else {
     coverView.setImageResource(R.drawable.ic_list_library_books);

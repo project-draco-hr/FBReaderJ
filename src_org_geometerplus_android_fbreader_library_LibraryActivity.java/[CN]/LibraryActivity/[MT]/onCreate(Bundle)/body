@@ -22,4 +22,5 @@
   final ListAdapter adapter=new LibraryListAdapter(this,getCurrentTree().subTrees());
   setSelection(adapter.getFirstSelectedItemIndex());
   getListView().setTextFilterEnabled(true);
+  getListView().setOnCreateContextMenuListener(this);
 }
