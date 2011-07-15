@@ -43,7 +43,7 @@ return true;
 case CUSTOM_CATALOG_EDIT:
 {
 final Intent intent=new Intent(activity,AddCustomCatalogActivity.class);
-NetworkLibraryActivity.addLinkToIntent(intent,(ICustomNetworkLink)item.Link);
+AddCustomCatalogActivity.addLinkToIntent(intent,(ICustomNetworkLink)item.Link);
 activity.startActivity(intent);
 return true;
 }

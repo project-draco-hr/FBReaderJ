@@ -27,7 +27,7 @@
   }
 );
   final Intent intent=getIntent();
-  myLink=NetworkLibraryActivity.getLinkFromIntent(intent);
+  myLink=getLinkFromIntent(intent);
   final Uri uri=intent.getData();
   if (myLink != null) {
     setTextById(R.id.add_custom_catalog_url,myLink.getUrl(UrlInfo.Type.Catalog));
