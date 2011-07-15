@@ -1,3 +1,3 @@
 {
-  return ZLResource.resource("networkView").getResource("addCustomCatalog").getValue();
+  return NetworkLibrary.resource().getResource("addCustomCatalog").getValue();
 }

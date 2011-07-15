@@ -16,7 +16,7 @@ case OPEN_CATALOG_ITEM_ID:
 case OPEN_IN_BROWSER_ITEM_ID:
 if (item instanceof NetworkURLCatalogItem) {
   final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
-  final String message=myResource.getResource("confirmQuestions").getResource("openInBrowser").getValue();
+  final String message=NetworkLibrary.resource().getResource("confirmQuestions").getResource("openInBrowser").getValue();
   new AlertDialog.Builder(activity).setTitle(catalogTree.getName()).setMessage(message).setIcon(0).setPositiveButton(buttonResource.getResource("yes").getValue(),new DialogInterface.OnClickListener(){
     public void onClick(    DialogInterface dialog,    int which){
       Util.openInBrowser(activity,item.getUrl(UrlInfo.Type.HtmlPage));

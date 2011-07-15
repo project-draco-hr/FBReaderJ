@@ -5,7 +5,7 @@
   if (tree == null || ItemsLoadingService.getRunnable(tree) != null) {
     return;
   }
-  final String summary=ZLResource.resource("networkView").getResource("searchResults").getValue().replace("%s",pattern);
+  final String summary=NetworkLibrary.resource().getResource("searchResults").getValue().replace("%s",pattern);
   final SearchResult result=new SearchResult(summary);
   tree.setSearchResult(result);
   NetworkView.Instance().fireModelChangedAsync();
