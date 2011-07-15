@@ -1,13 +1,7 @@
 {
 switch (requestCode) {
 case BASIC_AUTHENTICATION_CODE:
-synchronized (myCredentialsCreator) {
-      if (resultCode == AuthenticationActivity.RESULT_OK && data != null) {
-        myCredentialsCreator.myUsername=data.getStringExtra(AuthenticationActivity.USERNAME_KEY);
-        myCredentialsCreator.myPassword=data.getStringExtra(AuthenticationActivity.PASSWORD_KEY);
-      }
-      myCredentialsCreator.notify();
-    }
+    myCredentialsCreator.onDataReceived(resultCode,data);
   break;
 case CUSTOM_AUTHENTICATION_CODE:
 Util.processCustomAuthentication(this,((NetworkCatalogTree)getCurrentTree()).Item.Link,resultCode,data);

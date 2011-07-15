@@ -6,12 +6,12 @@
   final String host=scope.getHost();
   final String area=scope.getRealm();
   final ZLStringOption option=new ZLStringOption("username",host + ":" + area,"");
-  intent.setClass(NetworkCatalogActivity.this,AuthenticationActivity.class);
-  intent.putExtra(AuthenticationActivity.HOST_KEY,host);
-  intent.putExtra(AuthenticationActivity.AREA_KEY,area);
-  intent.putExtra(AuthenticationActivity.SCHEME_KEY,scheme);
-  intent.putExtra(AuthenticationActivity.USERNAME_KEY,option.getValue());
-  startActivityForResult(intent,BASIC_AUTHENTICATION_CODE);
+  intent.setClass(myActivity,AuthenticationActivity.class);
+  intent.putExtra(HOST_KEY,host);
+  intent.putExtra(AREA_KEY,area);
+  intent.putExtra(SCHEME_KEY,scheme);
+  intent.putExtra(USERNAME_KEY,option.getValue());
+  myActivity.startActivityForResult(intent,myCode);
 synchronized (this) {
     try {
       wait();

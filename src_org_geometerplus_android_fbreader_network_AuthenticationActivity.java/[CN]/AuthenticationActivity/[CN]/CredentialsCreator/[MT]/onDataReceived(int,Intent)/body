@@ -1,0 +1,7 @@
+{
+  if (resultCode == RESULT_OK && data != null) {
+    myUsername=data.getStringExtra(USERNAME_KEY);
+    myPassword=data.getStringExtra(PASSWORD_KEY);
+  }
+  notify();
+}
