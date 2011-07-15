@@ -1,4 +1,0 @@
-{
-  final NetworkTree tree=(NetworkTree)getItem(position);
-  return ((NetworkBaseActivity)getActivity()).setupNetworkTreeItemView(convertView,parent,tree);
-}

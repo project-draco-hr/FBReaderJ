@@ -1,4 +1,5 @@
 {
+  final NetworkTree tree=(NetworkTree)getItem(position);
   final View view=(convertView != null) ? convertView : LayoutInflater.from(parent.getContext()).inflate(R.layout.network_tree_item,parent,false);
   ((TextView)view.findViewById(R.id.network_tree_item_name)).setText(tree.getName());
   ((TextView)view.findViewById(R.id.network_tree_item_childrenlist)).setText(tree.getSecondString());
@@ -15,7 +16,7 @@
   coverView.requestLayout();
   setupCover(coverView,tree,myCoverWidth,myCoverWidth);
   final ImageView statusView=(ImageView)view.findViewById(R.id.network_tree_item_status);
-  final int status=(tree instanceof NetworkBookTree) ? NetworkBookActions.getBookStatus(((NetworkBookTree)tree).Book,Connection) : 0;
+  final int status=(tree instanceof NetworkBookTree) ? NetworkBookActions.getBookStatus(((NetworkBookTree)tree).Book,((NetworkBaseActivity)getActivity()).Connection) : 0;
   if (status != 0) {
     statusView.setVisibility(View.VISIBLE);
     statusView.setImageResource(status);
