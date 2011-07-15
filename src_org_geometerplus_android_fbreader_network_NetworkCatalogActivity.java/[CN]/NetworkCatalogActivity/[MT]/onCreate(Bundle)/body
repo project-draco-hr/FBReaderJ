@@ -7,7 +7,6 @@
     return;
   }
   setForTree((NetworkTree)getCurrentTree(),this);
-  setListAdapter(new CatalogAdapter());
-  getListView().invalidateViews();
+  setListAdapter(new NetworkLibraryAdapter(this,getCurrentTree().subTrees()));
   setupTitle();
 }

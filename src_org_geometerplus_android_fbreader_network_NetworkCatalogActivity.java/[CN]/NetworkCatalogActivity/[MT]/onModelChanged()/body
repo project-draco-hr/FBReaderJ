@@ -4,7 +4,12 @@
       final NetworkTree tree=getLoadableNetworkTree((NetworkTree)getCurrentTree());
       myInProgress=tree != null && ItemsLoadingService.getRunnable(tree) != null;
       getListView().invalidateViews();
-      ((CatalogAdapter)getListAdapter()).onModelChanged();
+      ((NetworkLibraryAdapter)getListAdapter()).replaceAll(getCurrentTree().subTrees());
+      for (      FBTree child : getCurrentTree().subTrees()) {
+        if (child instanceof TopUpTree) {
+          child.invalidateChildren();
+        }
+      }
       setupTitle();
     }
   }

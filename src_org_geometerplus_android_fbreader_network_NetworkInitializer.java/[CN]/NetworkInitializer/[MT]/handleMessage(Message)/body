@@ -9,7 +9,7 @@
     if (myActivity instanceof NetworkLibraryActivity) {
       final NetworkLibraryActivity a=(NetworkLibraryActivity)myActivity;
       a.startService(new Intent(a.getApplicationContext(),LibraryInitializationService.class));
-      a.prepareView();
+      a.onModelChanged();
     }
   }
  else {

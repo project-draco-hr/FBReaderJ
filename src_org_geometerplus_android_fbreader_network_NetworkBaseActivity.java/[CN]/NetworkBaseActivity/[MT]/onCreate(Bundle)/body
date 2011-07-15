@@ -1,6 +1,6 @@
 {
   super.onCreate(icicle);
-  Thread.setDefaultUncaughtExceptionHandler(new org.geometerplus.zlibrary.ui.android.library.UncaughtExceptionHandler(this));
+  OLD_STYLE_FLAG=true;
   SQLiteCookieDatabase.init(this);
   Connection=new BookDownloaderServiceConnection();
   bindService(new Intent(getApplicationContext(),BookDownloaderService.class),Connection,BIND_AUTO_CREATE);

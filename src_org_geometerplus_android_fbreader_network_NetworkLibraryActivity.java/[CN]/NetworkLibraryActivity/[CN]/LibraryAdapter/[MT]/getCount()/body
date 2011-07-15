@@ -1,6 +1,0 @@
-{
-  if (!NetworkView.Instance().isInitialized()) {
-    return 0;
-  }
-  return getCurrentTree().subTrees().size();
-}

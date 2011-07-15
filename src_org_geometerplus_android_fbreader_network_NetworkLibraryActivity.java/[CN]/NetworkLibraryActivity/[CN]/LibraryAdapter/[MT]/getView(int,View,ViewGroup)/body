@@ -1,4 +1,0 @@
-{
-  final NetworkTree tree=getItem(position);
-  return setupNetworkTreeItemView(convertView,parent,tree);
-}

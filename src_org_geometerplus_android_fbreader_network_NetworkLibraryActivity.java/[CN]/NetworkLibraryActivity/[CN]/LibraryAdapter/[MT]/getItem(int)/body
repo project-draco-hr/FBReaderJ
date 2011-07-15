@@ -1,3 +1,0 @@
-{
-  return (NetworkTree)getCurrentTree().subTrees().get(position);
-}

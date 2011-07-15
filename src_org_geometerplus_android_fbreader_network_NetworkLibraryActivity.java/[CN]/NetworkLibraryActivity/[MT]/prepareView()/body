@@ -1,7 +1,0 @@
-{
-  if (getCurrentTree() == null) {
-    setCurrentTree(NetworkLibrary.Instance().getRootTree());
-    setListAdapter(new LibraryAdapter());
-    getListView().invalidateViews();
-  }
-}

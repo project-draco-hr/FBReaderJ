@@ -1,6 +1,0 @@
-{
-  if (position < 0 || position >= getCurrentTree().subTrees().size()) {
-    return null;
-  }
-  return (NetworkTree)getCurrentTree().subTrees().get(position);
-}
