@@ -1,0 +1,5 @@
+{
+  myActivity=activity;
+  myItems=Collections.synchronizedList(new ArrayList<FBTree>());
+  activity.setListAdapter(this);
+}

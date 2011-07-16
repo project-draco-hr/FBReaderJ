@@ -5,13 +5,8 @@
   SQLiteCookieDatabase.init(this);
   Connection=new BookDownloaderServiceConnection();
   bindService(new Intent(getApplicationContext(),BookDownloaderService.class),Connection,BIND_AUTO_CREATE);
-  NetworkTree tree=Util.getTreeFromIntent(getIntent());
-  if (tree == null) {
-    tree=NetworkLibrary.Instance().getRootTree();
-  }
-  setCurrentTree(tree);
-  setListAdapter(new NetworkLibraryAdapter(this,tree.subTrees()));
-  setTitle(tree.getTreeTitle());
+  setListAdapter(new NetworkLibraryAdapter(this));
+  init(getIntent());
   setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
   setForTree((NetworkTree)getCurrentTree(),this);
   setProgressBarIndeterminateVisibility(myInProgress);

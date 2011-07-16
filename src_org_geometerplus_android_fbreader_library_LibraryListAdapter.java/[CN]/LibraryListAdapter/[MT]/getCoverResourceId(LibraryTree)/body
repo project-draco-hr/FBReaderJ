@@ -1,5 +1,5 @@
 {
-  if (((LibraryTree)tree).getBook() != null) {
+  if (tree.getBook() != null) {
     return R.drawable.ic_list_library_book;
   }
  else   if (tree instanceof FirstLevelTree) {

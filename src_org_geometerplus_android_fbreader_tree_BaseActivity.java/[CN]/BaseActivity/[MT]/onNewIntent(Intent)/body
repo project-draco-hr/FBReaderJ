@@ -1,13 +1,6 @@
 {
   if (OPEN_TREE_ACTION.equals(intent.getAction())) {
-    final FBTree.Key key=(FBTree.Key)intent.getSerializableExtra(TREE_KEY_KEY);
-    final FBTree.Key selectedKey=(FBTree.Key)intent.getSerializableExtra(SELECTED_TREE_KEY_KEY);
-    myCurrentTree=getTreeByKey(key);
-    final ListAdapter adapter=getListAdapter();
-    adapter.replaceAll(myCurrentTree.subTrees());
-    setTitle(myCurrentTree.getTreeTitle());
-    final FBTree selectedTree=selectedKey != null ? getTreeByKey(selectedKey) : adapter.getFirstSelectedItem();
-    setSelection(adapter.getIndex(selectedTree));
+    init(intent);
   }
  else {
     super.onNewIntent(intent);
