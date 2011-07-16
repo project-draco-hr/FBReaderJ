@@ -4,7 +4,7 @@
   final int fullScreenFlag=application.ShowStatusBarOption.getValue() ? 0 : WindowManager.LayoutParams.FLAG_FULLSCREEN;
   if (fullScreenFlag != myFullScreenFlag) {
     finish();
-    startActivity(new Intent(this,this.getClass()));
+    startActivity(new Intent(this,getClass()));
   }
   final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
   final RelativeLayout root=(RelativeLayout)findViewById(R.id.root_view);
