@@ -7,4 +7,5 @@
   final TextView descriptionView=(TextView)findViewById(R.id.network_book_description);
   descriptionView.setText(description);
   descriptionView.setMovementMethod(new LinkMovementMethod());
+  descriptionView.setTextColor(ColorStateList.valueOf(descriptionView.getTextColors().getDefaultColor()));
 }
