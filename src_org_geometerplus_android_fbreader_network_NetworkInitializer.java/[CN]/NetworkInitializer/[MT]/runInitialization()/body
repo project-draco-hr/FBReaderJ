@@ -4,8 +4,8 @@
       String error=null;
       try {
         NetworkView.Instance().initialize();
-        if (myActivity instanceof NetworkLibraryActivity) {
-          ((NetworkLibraryActivity)myActivity).processSavedIntent();
+        if (myActivity instanceof NetworkTopLevelActivity) {
+          ((NetworkTopLevelActivity)myActivity).processSavedIntent();
         }
       }
  catch (      ZLNetworkException e) {

@@ -31,7 +31,7 @@
     myLink.setTitle(title);
     myLink.setSummary(summary);
     myLink.setUrl(UrlInfo.Type.Catalog,uri.toString());
-    Intent intent=new Intent(ADD_CATALOG,uri,AddCustomCatalogActivity.this,NetworkLibraryActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+    Intent intent=new Intent(ADD_CATALOG,uri,AddCustomCatalogActivity.this,NetworkTopLevelActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
     addLinkToIntent(intent,myLink);
     startActivity(intent);
   }

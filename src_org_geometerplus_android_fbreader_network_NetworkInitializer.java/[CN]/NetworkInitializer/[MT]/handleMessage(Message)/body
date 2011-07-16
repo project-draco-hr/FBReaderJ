@@ -6,8 +6,8 @@
     runInitialization();
   }
  else   if (message.obj == null) {
-    if (myActivity instanceof NetworkLibraryActivity) {
-      final NetworkLibraryActivity a=(NetworkLibraryActivity)myActivity;
+    if (myActivity instanceof NetworkTopLevelActivity) {
+      final NetworkTopLevelActivity a=(NetworkTopLevelActivity)myActivity;
       a.startService(new Intent(a.getApplicationContext(),LibraryInitializationService.class));
       a.onModelChanged();
     }
