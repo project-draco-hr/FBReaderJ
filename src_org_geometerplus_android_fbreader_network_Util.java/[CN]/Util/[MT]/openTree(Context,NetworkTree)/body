@@ -1,4 +1,4 @@
 {
   final Class<?> clz=tree instanceof NetworkBookTree ? NetworkBookInfoActivity.class : NetworkBaseActivity.class;
-  context.startActivity(new Intent(context.getApplicationContext(),clz).putExtra(TREE_KEY_KEY,tree.getUniqueKey()));
+  context.startActivity(new Intent(context.getApplicationContext(),clz).putExtra(NetworkBaseActivity.TREE_KEY_KEY,tree.getUniqueKey()));
 }

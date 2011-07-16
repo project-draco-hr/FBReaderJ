@@ -3,9 +3,7 @@
     return super.onKeyDown(keyCode,event);
   }
   if (keyCode == KeyEvent.KEYCODE_BACK && myCurrentTree.Parent != null) {
-    final FBTree oldTree=myCurrentTree;
-    openTree(myCurrentTree.Parent);
-    setSelection(getListAdapter().getIndex(oldTree));
+    openTree(myCurrentTree.Parent,myCurrentTree);
     return true;
   }
  else {

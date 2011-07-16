@@ -1,0 +1,4 @@
+{
+  final NetworkLibrary library=NetworkLibrary.Instance();
+  return key != null ? library.getTreeByKey(key) : library.getRootTree();
+}

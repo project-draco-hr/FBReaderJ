@@ -1,0 +1,28 @@
+{
+switch (tree.getOpeningStatus()) {
+case WAIT_FOR_OPEN:
+case ALWAYS_RELOAD_BEFORE_OPENING:
+    final String messageKey=tree.getOpeningStatusMessage();
+  if (messageKey != null) {
+    UIUtil.runWithMessage(BaseActivity.this,messageKey,new Runnable(){
+      public void run(){
+        tree.waitForOpening();
+      }
+    }
+,new Runnable(){
+      public void run(){
+        openTreeInternal(tree,treeToSelect);
+      }
+    }
+);
+  }
+ else {
+    tree.waitForOpening();
+    openTreeInternal(tree,treeToSelect);
+  }
+break;
+default :
+openTreeInternal(tree,treeToSelect);
+break;
+}
+}

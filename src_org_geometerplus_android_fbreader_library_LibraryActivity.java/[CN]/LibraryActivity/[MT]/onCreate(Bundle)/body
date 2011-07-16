@@ -9,7 +9,7 @@
     startService(new Intent(getApplicationContext(),InitializationService.class));
   }
   final FBTree.Key key=(FBTree.Key)getIntent().getSerializableExtra(TREE_KEY_KEY);
-  setCurrentTree(key != null ? LibraryInstance.getLibraryTree(key) : LibraryInstance.getRootTree());
+  setCurrentTree(getTreeByKey(key));
   setTitle(getCurrentTree().getTreeTitle());
   final String selectedBookPath=getIntent().getStringExtra(SELECTED_BOOK_PATH_KEY);
   mySelectedBook=null;
@@ -20,7 +20,7 @@
     }
   }
   final ListAdapter adapter=new LibraryListAdapter(this,getCurrentTree().subTrees());
-  setSelection(adapter.getFirstSelectedItemIndex());
+  setSelection(adapter.getIndex(adapter.getFirstSelectedItem()));
   getListView().setTextFilterEnabled(true);
   getListView().setOnCreateContextMenuListener(this);
 }

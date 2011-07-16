@@ -6,7 +6,7 @@
     doStop();
     return;
   }
-  intent.removeExtra(Util.TREE_KEY_KEY);
+  intent.removeExtra(NetworkBaseActivity.TREE_KEY_KEY);
   if (!NetworkView.Instance().isInitialized()) {
     doStop();
     return;
