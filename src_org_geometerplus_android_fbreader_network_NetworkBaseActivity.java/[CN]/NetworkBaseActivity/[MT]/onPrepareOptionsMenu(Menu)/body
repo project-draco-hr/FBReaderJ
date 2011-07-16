@@ -1,0 +1,10 @@
+{
+  super.onPrepareOptionsMenu(menu);
+  if (getCurrentTree() instanceof RootTree) {
+    menu.findItem(MENU_SEARCH).setEnabled(!searchIsInProgress());
+    return true;
+  }
+ else {
+    return NetworkView.Instance().prepareOptionsMenu(this,menu,(NetworkTree)getCurrentTree());
+  }
+}

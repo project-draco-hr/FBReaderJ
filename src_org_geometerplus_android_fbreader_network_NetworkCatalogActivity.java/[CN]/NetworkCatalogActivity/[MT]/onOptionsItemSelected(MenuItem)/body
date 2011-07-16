@@ -1,6 +1,0 @@
-{
-  if (NetworkView.Instance().runOptionsMenu(this,item,(NetworkTree)getCurrentTree())) {
-    return true;
-  }
-  return super.onOptionsItemSelected(item);
-}
