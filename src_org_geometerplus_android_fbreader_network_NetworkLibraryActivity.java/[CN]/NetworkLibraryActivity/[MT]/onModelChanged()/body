@@ -1,4 +1,0 @@
-{
-  getListView().invalidateViews();
-  ((NetworkLibraryAdapter)getListAdapter()).replaceAll(getCurrentTree().subTrees());
-}

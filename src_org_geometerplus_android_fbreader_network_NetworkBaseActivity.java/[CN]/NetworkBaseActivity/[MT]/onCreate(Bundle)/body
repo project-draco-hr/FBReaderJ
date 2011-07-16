@@ -14,4 +14,5 @@
   setTitle(tree.getTreeTitle());
   setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
   setForTree((NetworkTree)getCurrentTree(),this);
+  setProgressBarIndeterminateVisibility(myInProgress);
 }
