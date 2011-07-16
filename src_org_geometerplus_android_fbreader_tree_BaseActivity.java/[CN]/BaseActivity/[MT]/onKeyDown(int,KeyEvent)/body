@@ -2,11 +2,18 @@
   if (OLD_STYLE_FLAG) {
     return super.onKeyDown(keyCode,event);
   }
-  if (keyCode == KeyEvent.KEYCODE_BACK && myCurrentTree.Parent != null) {
-    openTree(myCurrentTree.Parent,myCurrentTree);
-    return true;
+  if (keyCode == KeyEvent.KEYCODE_BACK) {
+    FBTree parent=null;
+    while (parent == null && !myHistory.isEmpty()) {
+      parent=getTreeByKey(myHistory.remove(myHistory.size() - 1));
+    }
+    if (parent == null) {
+      parent=myCurrentTree.Parent;
+    }
+    if (parent != null) {
+      openTree(parent,myCurrentTree,false);
+      return true;
+    }
   }
- else {
-    return super.onKeyDown(keyCode,event);
-  }
+  return super.onKeyDown(keyCode,event);
 }

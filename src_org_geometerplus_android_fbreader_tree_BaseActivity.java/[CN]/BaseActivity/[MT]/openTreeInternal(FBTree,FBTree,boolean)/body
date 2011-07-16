@@ -1,0 +1,14 @@
+{
+switch (tree.getOpeningStatus()) {
+case READY_TO_OPEN:
+case ALWAYS_RELOAD_BEFORE_OPENING:
+    if (storeInHistory && !myCurrentKey.equals(tree.getUniqueKey())) {
+      myHistory.add(myCurrentKey);
+    }
+  startActivity(new Intent(this,getClass()).setAction(OPEN_TREE_ACTION).putExtra(TREE_KEY_KEY,tree.getUniqueKey()).putExtra(SELECTED_TREE_KEY_KEY,treeToSelect != null ? treeToSelect.getUniqueKey() : null).putExtra(HISTORY_KEY,myHistory));
+break;
+case CANNOT_OPEN:
+UIUtil.showErrorMessage(BaseActivity.this,tree.getOpeningStatusMessage());
+break;
+}
+}

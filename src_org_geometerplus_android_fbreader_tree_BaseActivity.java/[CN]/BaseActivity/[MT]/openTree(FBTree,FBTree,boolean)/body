@@ -11,18 +11,18 @@ case ALWAYS_RELOAD_BEFORE_OPENING:
     }
 ,new Runnable(){
       public void run(){
-        openTreeInternal(tree,treeToSelect);
+        openTreeInternal(tree,treeToSelect,storeInHistory);
       }
     }
 );
   }
  else {
     tree.waitForOpening();
-    openTreeInternal(tree,treeToSelect);
+    openTreeInternal(tree,treeToSelect,storeInHistory);
   }
 break;
 default :
-openTreeInternal(tree,treeToSelect);
+openTreeInternal(tree,treeToSelect,storeInHistory);
 break;
 }
 }
