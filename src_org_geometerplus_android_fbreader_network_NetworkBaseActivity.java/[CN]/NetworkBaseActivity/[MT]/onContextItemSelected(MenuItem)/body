@@ -9,5 +9,14 @@
       }
     }
   }
+ else   if (getCurrentTree() instanceof NetworkCatalogTree) {
+    final INetworkLink link=((NetworkCatalogTree)getCurrentTree()).Item.Link;
+    if (Util.isTopupSupported(this,link)) {
+      final TopupActions actions=NetworkView.Instance().getTopupActions();
+      if (actions != null && TopupActions.runAction(this,link,item.getItemId())) {
+        return true;
+      }
+    }
+  }
   return super.onContextItemSelected(item);
 }
