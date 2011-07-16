@@ -13,4 +13,5 @@
   setListAdapter(new NetworkLibraryAdapter(this,tree.subTrees()));
   setTitle(tree.getTreeTitle());
   setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
+  setForTree((NetworkTree)getCurrentTree(),this);
 }
