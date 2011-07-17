@@ -1,0 +1,14 @@
+{
+  if (book == null) {
+    return null;
+  }
+  String title=book.getTitle();
+  if (title == null) {
+    return null;
+  }
+  title=title.trim();
+  if ("".equals(title)) {
+    return null;
+  }
+  return String.valueOf(Character.toUpperCase(title.charAt(0)));
+}
