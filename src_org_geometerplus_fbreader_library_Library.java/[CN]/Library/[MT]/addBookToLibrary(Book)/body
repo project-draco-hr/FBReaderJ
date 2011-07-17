@@ -11,11 +11,15 @@
       authorTree.getBookSubTree(book,false);
     }
  else {
-      final String series=seriesInfo.Name;
-      final AuthorSeriesPair pair=new AuthorSeriesPair(a,series);
-      final SeriesTree seriesTree=authorTree.getSeriesSubTree(series);
-      seriesTree.getBookInSeriesSubTree(book);
+      authorTree.getSeriesSubTree(seriesInfo.Name).getBookInSeriesSubTree(book);
     }
+  }
+  if (seriesInfo != null) {
+    FirstLevelTree seriesRoot=getFirstLevelTree(ROOT_BY_SERIES);
+    if (seriesRoot == null) {
+      seriesRoot=new FirstLevelTree(myRootTree,myRootTree.indexOf(getFirstLevelTree(ROOT_BY_TITLE)) + 1,ROOT_BY_SERIES);
+    }
+    seriesRoot.getSeriesSubTree(seriesInfo.Name).getBookInSeriesSubTree(book);
   }
   if (myDoGroupTitlesByFirstLetter) {
     final String letter=TitleTree.firstTitleLetter(book);

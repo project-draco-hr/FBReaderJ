@@ -7,13 +7,19 @@
     savedBooksByBookId.put(b.getId(),b);
   }
   for (  long id : db.loadRecentBookIds()) {
-    final Book book=savedBooksByBookId.get(id);
+    Book book=savedBooksByBookId.get(id);
+    if (book == null) {
+      book=Book.getById(id);
+    }
     if (book != null) {
       new BookTree(getFirstLevelTree(ROOT_RECENT),book,true);
     }
   }
   for (  long id : db.loadFavoritesIds()) {
-    final Book book=savedBooksByBookId.get(id);
+    Book book=savedBooksByBookId.get(id);
+    if (book == null) {
+      book=Book.getById(id);
+    }
     if (book != null) {
       getFirstLevelTree(ROOT_FAVORITES).getBookSubTree(book,true);
     }
@@ -59,7 +65,7 @@ synchronized (this) {
     fireModelChangedEvent();
   }
   db.setExistingFlag(orphanedBooks,false);
-  final Map<Long,Book> orphanedBooksByFileId=db.loadBooks(fileInfos,true);
+  final Map<Long,Book> orphanedBooksByFileId=db.loadBooks(fileInfos,false);
   final Set<Book> newBooks=new HashSet<Book>();
   final List<ZLPhysicalFile> physicalFilesList=collectPhysicalFiles();
   for (  ZLPhysicalFile file : physicalFilesList) {

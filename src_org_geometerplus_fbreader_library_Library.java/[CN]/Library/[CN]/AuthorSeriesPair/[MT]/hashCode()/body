@@ -1,3 +1,0 @@
-{
-  return Author.hashCode(myAuthor) + mySeries.hashCode();
-}
