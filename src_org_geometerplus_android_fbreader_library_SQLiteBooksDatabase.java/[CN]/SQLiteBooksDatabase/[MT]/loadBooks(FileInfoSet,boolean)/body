@@ -1,5 +1,5 @@
 {
-  Cursor cursor=myDatabase.rawQuery("SELECT book_id,file_id,title,encoding,language FROM Books",null);
+  Cursor cursor=myDatabase.rawQuery("SELECT book_id,file_id,title,encoding,language FROM Books WHERE `exists` = " + (existing ? 1 : 0),null);
   final HashMap<Long,Book> booksById=new HashMap<Long,Book>();
   final HashMap<Long,Book> booksByFileId=new HashMap<Long,Book>();
   while (cursor.moveToNext()) {

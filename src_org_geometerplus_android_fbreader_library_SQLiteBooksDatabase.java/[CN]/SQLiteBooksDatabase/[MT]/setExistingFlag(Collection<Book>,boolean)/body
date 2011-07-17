@@ -1,0 +1,18 @@
+{
+  if (books.isEmpty()) {
+    return;
+  }
+  final StringBuilder bookSet=new StringBuilder("(");
+  boolean first=true;
+  for (  Book b : books) {
+    if (first) {
+      first=false;
+    }
+ else {
+      bookSet.append(",");
+    }
+    bookSet.append(b.getId());
+  }
+  bookSet.append(")");
+  myDatabase.execSQL("UPDATE Books SET `exists` = " + (flag ? 1 : 0) + " WHERE book_id IN "+ bookSet);
+}

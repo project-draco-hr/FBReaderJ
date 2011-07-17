@@ -1,0 +1,2 @@
+Collection<Book> books
+boolean flag
