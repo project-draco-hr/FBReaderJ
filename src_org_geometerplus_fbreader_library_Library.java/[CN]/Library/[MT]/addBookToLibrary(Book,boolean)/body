@@ -1,0 +1,37 @@
+{
+  myBooks.add(book);
+  List<Author> authors=book.authors();
+  if (authors.isEmpty()) {
+    authors=(List<Author>)myNullList;
+  }
+  final SeriesInfo seriesInfo=book.getSeriesInfo();
+  for (  Author a : authors) {
+    final AuthorTree authorTree=getFirstLevelTree(ROOT_BY_AUTHOR).getAuthorSubTree(a);
+    if (seriesInfo == null) {
+      authorTree.getBookSubTree(book,false);
+    }
+ else {
+      final String series=seriesInfo.Name;
+      final AuthorSeriesPair pair=new AuthorSeriesPair(a,series);
+      final SeriesTree seriesTree=authorTree.getSeriesSubTree(series);
+      seriesTree.getBookInSeriesSubTree(book);
+    }
+  }
+  if (doGroupTitlesByFirstLetter) {
+    final String letter=TitleTree.firstTitleLetter(book);
+    if (letter != null) {
+      final TitleTree tree=getFirstLevelTree(ROOT_BY_TITLE).getTitleSubTree(letter);
+      tree.getBookSubTree(book,true);
+    }
+  }
+ else {
+    getFirstLevelTree(ROOT_BY_TITLE).getBookSubTree(book,true);
+  }
+  List<Tag> tags=book.tags();
+  if (tags.isEmpty()) {
+    tags=(List<Tag>)myNullList;
+  }
+  for (  Tag t : tags) {
+    getTagTree(t).getBookSubTree(book,true);
+  }
+}
