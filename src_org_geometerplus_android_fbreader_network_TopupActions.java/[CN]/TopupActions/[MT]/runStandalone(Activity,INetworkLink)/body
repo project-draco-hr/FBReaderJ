@@ -9,6 +9,7 @@
       view=((NetworkBookInfoActivity)activity).getMainView();
     }
     if (view != null) {
+      activity.registerForContextMenu(view);
       view.showContextMenu();
     }
   }

@@ -4,5 +4,4 @@
   SQLiteCookieDatabase.init(this);
   myMainView=getLayoutInflater().inflate(R.layout.network_book,null,false);
   setContentView(myMainView);
-  myMainView.setOnCreateContextMenuListener(this);
 }
