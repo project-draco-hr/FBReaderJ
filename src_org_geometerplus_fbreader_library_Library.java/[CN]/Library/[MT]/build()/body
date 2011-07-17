@@ -1,11 +1,11 @@
 {
+  final BooksDatabase db=BooksDatabase.Instance();
   final FileInfoSet fileInfos=new FileInfoSet();
-  final Map<Long,Book> savedBooksByFileId=BooksDatabase.Instance().loadBooks(fileInfos,true);
+  final Map<Long,Book> savedBooksByFileId=db.loadBooks(fileInfos,true);
   final Map<Long,Book> savedBooksByBookId=new HashMap<Long,Book>();
   for (  Book b : savedBooksByFileId.values()) {
     savedBooksByBookId.put(b.getId(),b);
   }
-  final BooksDatabase db=BooksDatabase.Instance();
   for (  long id : db.loadRecentBookIds()) {
     final Book book=savedBooksByBookId.get(id);
     if (book != null) {
@@ -19,7 +19,6 @@
     }
   }
   fireModelChangedEvent();
-  boolean doGroupTitlesByFirstLetter=false;
   if (savedBooksByFileId.size() > 10) {
     final HashSet<String> letterSet=new HashSet<String>();
     for (    Book book : savedBooksByFileId.values()) {
@@ -28,22 +27,62 @@
         letterSet.add(letter);
       }
     }
-    doGroupTitlesByFirstLetter=savedBooksByFileId.values().size() > letterSet.size() * 5 / 4;
+    myDoGroupTitlesByFirstLetter=savedBooksByFileId.values().size() > letterSet.size() * 5 / 4;
   }
   final Set<Book> orphanedBooks=new HashSet<Book>();
   for (  Book book : savedBooksByFileId.values()) {
-    if (book.File.exists()) {
-      addBookToLibrary(book,doGroupTitlesByFirstLetter);
-    }
+synchronized (this) {
+      if (book.File.exists()) {
+        boolean doAdd=true;
+        final ZLPhysicalFile file=book.File.getPhysicalFile();
+        if (file == null) {
+          continue;
+        }
+        if (!fileInfos.check(file,true)) {
+          if (book.readMetaInfo()) {
+            book.save();
+          }
  else {
-      myRootTree.removeBook(book);
-      orphanedBooks.add(book);
+            doAdd=false;
+          }
+          file.setCached(false);
+        }
+        if (doAdd) {
+          addBookToLibrary(book);
+        }
+      }
+ else {
+        myRootTree.removeBook(book);
+        orphanedBooks.add(book);
+      }
     }
     fireModelChangedEvent();
   }
-  BooksDatabase.Instance().setExistingFlag(orphanedBooks,false);
-  final Map<Long,Book> orphanedBooksByFileId=BooksDatabase.Instance().loadBooks(fileInfos,true);
-  final Set<Book> existingBooks=new HashSet<Book>();
+  db.setExistingFlag(orphanedBooks,false);
+  final Map<Long,Book> orphanedBooksByFileId=db.loadBooks(fileInfos,true);
   final Set<Book> newBooks=new HashSet<Book>();
+  final List<ZLPhysicalFile> physicalFilesList=collectPhysicalFiles();
+  for (  ZLPhysicalFile file : physicalFilesList) {
+    collectBooks(file,fileInfos,savedBooksByFileId,orphanedBooksByFileId,newBooks,!fileInfos.check(file,true));
+    file.setCached(false);
+  }
+  final ZLFile helpFile=getHelpFile();
+  Book helpBook=savedBooksByFileId.get(fileInfos.getId(helpFile));
+  if (helpBook == null) {
+    helpBook=new Book(helpFile);
+    helpBook.readMetaInfo();
+  }
+  addBookToLibrary(helpBook);
+  fireModelChangedEvent();
+  fileInfos.save();
+  db.executeAsATransaction(new Runnable(){
+    public void run(){
+      for (      Book book : newBooks) {
+        book.save();
+      }
+    }
+  }
+);
+  db.setExistingFlag(newBooks,true);
   myState=STATE_FULLY_INITIALIZED;
 }

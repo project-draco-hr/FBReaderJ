@@ -1,0 +1,6 @@
+ZLFile file
+FileInfoSet fileInfos
+Map<Long,Book> savedBooksByFileId
+Map<Long,Book> orphanedBooksByFileId
+Set<Book> newBooks
+boolean doReadMetaInfo

@@ -17,7 +17,7 @@
       seriesTree.getBookInSeriesSubTree(book);
     }
   }
-  if (doGroupTitlesByFirstLetter) {
+  if (myDoGroupTitlesByFirstLetter) {
     final String letter=TitleTree.firstTitleLetter(book);
     if (letter != null) {
       final TitleTree tree=getFirstLevelTree(ROOT_BY_TITLE).getTitleSubTree(letter);
