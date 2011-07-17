@@ -1,3 +1,0 @@
-{
-  return new BookTree(this,book,showAuthors);
-}

@@ -8,11 +8,8 @@
         if (newSearchResults == null) {
           newSearchResults=createNewSearchResults(pattern);
         }
-        newSearchResults.createBookSubTree(book,true);
+        newSearchResults.getBookSubTree(book,true);
       }
-    }
-    if (newSearchResults != null) {
-      newSearchResults.sortAllChildren();
     }
   }
   return newSearchResults;

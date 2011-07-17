@@ -4,7 +4,6 @@
     return;
   }
   final LibraryTree rootFavorites=getFirstLevelTree(ROOT_FAVORITES);
-  rootFavorites.createBookSubTree(book,true);
-  rootFavorites.sortAllChildren();
+  rootFavorites.getBookSubTree(book,true);
   BooksDatabase.Instance().addToFavorites(book.getId());
 }

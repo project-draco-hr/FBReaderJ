@@ -1,0 +1,4 @@
+LibraryTree parent
+Book book
+boolean showAuthors
+int position

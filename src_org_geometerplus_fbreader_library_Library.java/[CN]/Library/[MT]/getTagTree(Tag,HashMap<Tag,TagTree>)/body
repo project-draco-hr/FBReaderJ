@@ -1,9 +1,0 @@
-{
-  TagTree tagTree=tagTreeMap.get(tag);
-  if (tagTree == null) {
-    LibraryTree parent=((tag != null) && (tag.Parent != null)) ? getTagTree(tag.Parent,tagTreeMap) : getFirstLevelTree(ROOT_BY_TAG);
-    tagTree=parent.createTagSubTree(tag);
-    tagTreeMap.put(tag,tagTree);
-  }
-  return tagTree;
-}
