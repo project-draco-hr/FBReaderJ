@@ -1,7 +1,6 @@
 {
   super.onCreate(icicle);
   OLD_STYLE_FLAG=true;
-  requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
   SQLiteCookieDatabase.init(this);
   Connection=new BookDownloaderServiceConnection();
   bindService(new Intent(getApplicationContext(),BookDownloaderService.class),Connection,BIND_AUTO_CREATE);

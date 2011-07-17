@@ -1,3 +1,5 @@
 {
-  System.err.println("model changed event");
+  for (  ChangeListener l : myListeners) {
+    l.onLibraryChanged();
+  }
 }

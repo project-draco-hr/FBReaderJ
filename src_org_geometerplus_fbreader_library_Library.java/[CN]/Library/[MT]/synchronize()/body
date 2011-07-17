@@ -1,12 +1,5 @@
 {
-  if (myState == STATE_NOT_INITIALIZED) {
-    try {
-      myInterrupted=false;
-      build();
-    }
- catch (    Throwable t) {
-      myInterrupted=true;
-    }
-    notifyAll();
-  }
+  build();
+  myIsSynchronized=true;
+  fireModelChangedEvent();
 }

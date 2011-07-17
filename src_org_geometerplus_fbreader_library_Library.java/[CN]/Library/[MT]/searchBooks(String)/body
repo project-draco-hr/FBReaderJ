@@ -1,5 +1,4 @@
 {
-  waitForState(STATE_FULLY_INITIALIZED);
   FirstLevelTree newSearchResults=null;
   if (pattern != null) {
     pattern=pattern.toLowerCase();

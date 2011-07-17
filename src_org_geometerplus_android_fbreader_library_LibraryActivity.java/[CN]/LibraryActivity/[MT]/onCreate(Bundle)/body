@@ -8,6 +8,7 @@
     LibraryInstance=new Library();
     startService(new Intent(getApplicationContext(),InitializationService.class));
   }
+  LibraryInstance.addChangeListener(this);
   final String selectedBookPath=getIntent().getStringExtra(SELECTED_BOOK_PATH_KEY);
   mySelectedBook=null;
   if (selectedBookPath != null) {

@@ -84,5 +84,4 @@ synchronized (this) {
   }
 );
   db.setExistingFlag(newBooks,true);
-  myState=STATE_FULLY_INITIALIZED;
 }

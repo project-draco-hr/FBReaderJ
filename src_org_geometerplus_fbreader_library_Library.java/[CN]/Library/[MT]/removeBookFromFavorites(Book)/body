@@ -1,5 +1,4 @@
 {
-  waitForState(STATE_FULLY_INITIALIZED);
   if (getFirstLevelTree(ROOT_FAVORITES).removeBook(book)) {
     BooksDatabase.Instance().removeFromFavorites(book.getId());
   }

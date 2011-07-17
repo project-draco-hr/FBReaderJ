@@ -1,4 +1,3 @@
 {
-  waitForState(STATE_FULLY_INITIALIZED);
   return canDeleteBookFile(book) ? REMOVE_FROM_DISK : REMOVE_DONT_REMOVE;
 }
