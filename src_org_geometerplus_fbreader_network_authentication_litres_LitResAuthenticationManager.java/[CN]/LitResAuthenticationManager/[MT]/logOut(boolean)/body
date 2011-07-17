@@ -1,0 +1,11 @@
+{
+  if (full) {
+    initUser(UserNameOption.getValue(),"","",false);
+  }
+ else {
+    myFullyInitialized=false;
+  }
+  myInitializedDataSid=null;
+  myPurchasedBookMap.clear();
+  myPurchasedBookList.clear();
+}

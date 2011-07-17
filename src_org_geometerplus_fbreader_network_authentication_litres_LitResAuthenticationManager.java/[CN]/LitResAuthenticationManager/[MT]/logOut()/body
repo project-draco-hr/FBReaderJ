@@ -1,6 +1,3 @@
 {
-  initUser("","","",false);
-  myInitializedDataSid=null;
-  myPurchasedBookMap.clear();
-  myPurchasedBookList.clear();
+  logOut(true);
 }

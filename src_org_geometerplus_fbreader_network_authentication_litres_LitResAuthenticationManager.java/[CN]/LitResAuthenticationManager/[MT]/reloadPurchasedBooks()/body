@@ -6,7 +6,7 @@ synchronized (this) {
       throw new ZLNetworkException(NetworkException.ERROR_AUTHENTICATION_FAILED);
     }
     if (!sid.equals(myInitializedDataSid)) {
-      logOut();
+      logOut(false);
       throw new ZLNetworkException(NetworkException.ERROR_AUTHENTICATION_FAILED);
     }
     networkRequest=loadPurchasedBooks();
@@ -21,7 +21,7 @@ synchronized (this) {
 synchronized (this) {
     if (exception != null) {
       if (NetworkException.ERROR_AUTHENTICATION_FAILED.equals(exception.getCode())) {
-        logOut();
+        logOut(false);
       }
       throw exception;
     }

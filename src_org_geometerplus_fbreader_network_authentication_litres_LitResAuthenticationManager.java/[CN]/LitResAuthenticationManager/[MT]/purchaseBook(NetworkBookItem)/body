@@ -27,7 +27,7 @@ synchronized (this) {
     if (exception != null) {
       final String code=exception.getCode();
       if (NetworkException.ERROR_AUTHENTICATION_FAILED.equals(code)) {
-        logOut();
+        logOut(false);
       }
  else       if (NetworkException.ERROR_PURCHASE_ALREADY_PURCHASED.equals(code)) {
         myPurchasedBookMap.put(book.Id,book);
