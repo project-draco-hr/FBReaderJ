@@ -1,0 +1,6 @@
+{
+  final FirstLevelTree tree=getFirstLevelTree(rootId);
+  if (tree != null) {
+    tree.removeBook(book);
+  }
+}

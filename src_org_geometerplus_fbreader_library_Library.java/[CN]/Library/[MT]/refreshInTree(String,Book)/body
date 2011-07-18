@@ -1,0 +1,10 @@
+{
+  final FirstLevelTree tree=getFirstLevelTree(rootId);
+  if (tree != null) {
+    int index=tree.indexOf(new BookTree(book,true));
+    if (index >= 0) {
+      tree.removeBook(book);
+      new BookTree(tree,book,true,index);
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  if (object == this) {
+    return true;
+  }
+  if (!(object instanceof BookTree)) {
+    return false;
+  }
+  return Book.equals(((BookTree)object).Book);
+}

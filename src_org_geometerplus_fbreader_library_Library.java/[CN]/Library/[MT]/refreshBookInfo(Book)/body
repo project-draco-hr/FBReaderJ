@@ -1,0 +1,15 @@
+{
+  if (book == null) {
+    return;
+  }
+  myBooks.remove(book);
+  refreshInTree(ROOT_FAVORITES,book);
+  refreshInTree(ROOT_RECENT,book);
+  removeFromTree(ROOT_SEARCH_RESULTS,book);
+  removeFromTree(ROOT_BY_TITLE,book);
+  removeFromTree(ROOT_BY_SERIES,book);
+  removeFromTree(ROOT_BY_AUTHOR,book);
+  removeFromTree(ROOT_BY_TAG,book);
+  addBookToLibrary(book);
+  fireModelChangedEvent();
+}
