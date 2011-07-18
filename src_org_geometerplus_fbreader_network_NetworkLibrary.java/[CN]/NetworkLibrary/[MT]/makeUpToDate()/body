@@ -4,7 +4,7 @@
   FBTree currentNode=null;
   int nodeCount=0;
   final ArrayList<INetworkLink> links=new ArrayList<INetworkLink>(activeLinks());
-  Collections.sort(links,new LinksComparator());
+  Collections.sort(links);
   for (int i=0; i < links.size(); ++i) {
     INetworkLink link=links.get(i);
     boolean processed=false;

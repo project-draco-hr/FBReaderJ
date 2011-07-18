@@ -1,0 +1,7 @@
+{
+  final int diff=getLanguageOrder(getLanguage()) - getLanguageOrder(link.getLanguage());
+  if (diff != 0) {
+    return diff;
+  }
+  return getTitleForComparison().compareToIgnoreCase(((AbstractNetworkLink)link).getTitleForComparison());
+}
