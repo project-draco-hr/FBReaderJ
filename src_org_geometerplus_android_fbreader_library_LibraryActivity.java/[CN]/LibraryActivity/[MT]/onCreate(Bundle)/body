@@ -4,11 +4,11 @@
   if (myDatabase == null) {
     myDatabase=new SQLiteBooksDatabase(this,"LIBRARY");
   }
-  if (LibraryInstance == null) {
-    LibraryInstance=new Library();
-    startService(new Intent(getApplicationContext(),InitializationService.class));
+  if (myLibrary == null) {
+    myLibrary=new Library();
+    myLibrary.addChangeListener(this);
+    myLibrary.startBuild();
   }
-  LibraryInstance.addChangeListener(this);
   final String selectedBookPath=getIntent().getStringExtra(SELECTED_BOOK_PATH_KEY);
   mySelectedBook=null;
   if (selectedBookPath != null) {

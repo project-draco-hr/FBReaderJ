@@ -3,7 +3,7 @@
     final String pattern=intent.getStringExtra(SearchManager.QUERY);
     if (pattern != null && pattern.length() > 0) {
       BookSearchPatternOption.setValue(pattern);
-      LibraryInstance.startBookSearch(pattern);
+      myLibrary.startBookSearch(pattern);
     }
   }
  else {

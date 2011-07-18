@@ -6,7 +6,7 @@ default :
         getListAdapter().replaceAll(getCurrentTree().subTrees());
       break;
 case StatusChanged:
-    setProgressBarIndeterminateVisibility(!LibraryInstance.isUpToDate());
+    setProgressBarIndeterminateVisibility(!myLibrary.isUpToDate());
   break;
 case Found:
 openSearchResults();

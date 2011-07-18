@@ -1,7 +1,5 @@
 {
-  if (LibraryInstance != null) {
-    LibraryInstance.removeChangeListener(this);
-    LibraryInstance=null;
-  }
+  myLibrary.removeChangeListener(this);
+  myLibrary=null;
   super.onDestroy();
 }
