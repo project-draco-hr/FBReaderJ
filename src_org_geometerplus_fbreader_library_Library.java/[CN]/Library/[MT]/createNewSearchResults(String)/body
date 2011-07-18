@@ -1,7 +1,0 @@
-{
-  final FirstLevelTree old=getFirstLevelTree(ROOT_SEARCH_RESULTS);
-  if (old != null) {
-    old.removeSelf();
-  }
-  return new SearchResultsTree(myRootTree,ROOT_SEARCH_RESULTS,pattern);
-}

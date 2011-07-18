@@ -1,9 +1,0 @@
-{
-  runOnUiThread(new Runnable(){
-    public void run(){
-      getListAdapter().replaceAll(getCurrentTree().subTrees());
-      setProgressBarIndeterminateVisibility(!LibraryInstance.isSynchronized());
-    }
-  }
-);
-}

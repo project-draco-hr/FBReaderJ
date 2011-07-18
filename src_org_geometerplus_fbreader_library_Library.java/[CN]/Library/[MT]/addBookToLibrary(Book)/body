@@ -42,4 +42,5 @@
   if (searchResults != null && book.matches(searchResults.getPattern())) {
     searchResults.getBookSubTree(book,true);
   }
+  fireModelChangedEvent(ChangeListener.Code.BookAdded);
 }

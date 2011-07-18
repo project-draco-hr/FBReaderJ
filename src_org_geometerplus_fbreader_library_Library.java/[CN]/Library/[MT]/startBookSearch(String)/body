@@ -1,0 +1,10 @@
+{
+  setStatus(myStatusMask | STATUS_SEARCHING);
+  new Thread(new Runnable(){
+    public void run(){
+      searchBooks(pattern);
+      setStatus(myStatusMask & ~STATUS_SEARCHING);
+    }
+  }
+).start();
+}

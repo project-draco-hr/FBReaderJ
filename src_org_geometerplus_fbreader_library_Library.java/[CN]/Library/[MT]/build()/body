@@ -30,7 +30,7 @@
       getFirstLevelTree(ROOT_FAVORITES).getBookSubTree(book,true);
     }
   }
-  fireModelChangedEvent();
+  fireModelChangedEvent(ChangeListener.Code.BookAdded);
   if (savedBooksByFileId.size() > 10) {
     final HashSet<String> letterSet=new HashSet<String>();
     for (    Book book : savedBooksByFileId.values()) {
@@ -65,10 +65,10 @@ synchronized (this) {
       }
  else {
         myRootTree.removeBook(book);
+        fireModelChangedEvent(ChangeListener.Code.BookRemoved);
         orphanedBooks.add(book);
       }
     }
-    fireModelChangedEvent();
   }
   db.setExistingFlag(orphanedBooks,false);
   final Map<Long,Book> orphanedBooksByFileId=db.loadBooks(fileInfos,false);
@@ -85,7 +85,6 @@ synchronized (this) {
     helpBook.readMetaInfo();
   }
   addBookToLibrary(helpBook);
-  fireModelChangedEvent();
   fileInfos.save();
   db.executeAsATransaction(new Runnable(){
     public void run(){

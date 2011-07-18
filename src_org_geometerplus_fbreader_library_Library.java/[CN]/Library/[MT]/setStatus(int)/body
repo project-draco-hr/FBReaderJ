@@ -1,0 +1,4 @@
+{
+  myStatusMask=status;
+  fireModelChangedEvent(ChangeListener.Code.StatusChanged);
+}

@@ -1,10 +1,9 @@
 {
   if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-    if (runSearch(intent)) {
-      openSearchResults();
-    }
- else {
-      UIUtil.showErrorMessage(this,"bookNotFound");
+    final String pattern=intent.getStringExtra(SearchManager.QUERY);
+    if (pattern != null && pattern.length() > 0) {
+      BookSearchPatternOption.setValue(pattern);
+      LibraryInstance.startBookSearch(pattern);
     }
   }
  else {

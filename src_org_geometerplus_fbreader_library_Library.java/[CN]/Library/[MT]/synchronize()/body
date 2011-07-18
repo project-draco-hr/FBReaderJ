@@ -1,5 +1,5 @@
 {
+  setStatus(myStatusMask | STATUS_LOADING);
   build();
-  myIsSynchronized=true;
-  fireModelChangedEvent();
+  setStatus(myStatusMask & ~STATUS_LOADING);
 }

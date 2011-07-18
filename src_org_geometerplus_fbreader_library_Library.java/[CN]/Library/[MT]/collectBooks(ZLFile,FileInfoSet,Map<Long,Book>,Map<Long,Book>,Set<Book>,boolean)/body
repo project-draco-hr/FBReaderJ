@@ -7,14 +7,12 @@
   if (book != null && (!doReadMetaInfo || book.readMetaInfo())) {
     addBookToLibrary(book);
     newBooks.add(book);
-    fireModelChangedEvent();
     return;
   }
   book=new Book(file);
   if (book.readMetaInfo()) {
     addBookToLibrary(book);
     newBooks.add(book);
-    fireModelChangedEvent();
     return;
   }
   if (file.isArchive()) {
