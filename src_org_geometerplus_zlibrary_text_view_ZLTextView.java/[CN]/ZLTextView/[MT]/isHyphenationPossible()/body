@@ -1,0 +1,3 @@
+{
+  return ZLTextStyleCollection.Instance().getBaseStyle().AutoHyphenationOption.getValue() && getTextStyle().allowHyphenations();
+}
