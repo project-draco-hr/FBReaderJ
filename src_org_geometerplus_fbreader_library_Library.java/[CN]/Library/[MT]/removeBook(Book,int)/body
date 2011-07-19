@@ -3,13 +3,14 @@
     return;
   }
   myBooks.remove(book);
-  if (getFirstLevelTree(ROOT_RECENT).removeBook(book)) {
+  if (getFirstLevelTree(ROOT_RECENT).removeBook(book,false)) {
     final BooksDatabase db=BooksDatabase.Instance();
     final List<Long> ids=db.loadRecentBookIds();
     ids.remove(book.getId());
     db.saveRecentBookIds(ids);
   }
-  myRootTree.removeBook(book);
+  getFirstLevelTree(ROOT_FAVORITES).removeBook(book,false);
+  myRootTree.removeBook(book,true);
   BooksDatabase.Instance().deleteFromBookList(book.getId());
   if ((removeMode & REMOVE_FROM_DISK) != 0) {
     book.File.getPhysicalFile().delete();

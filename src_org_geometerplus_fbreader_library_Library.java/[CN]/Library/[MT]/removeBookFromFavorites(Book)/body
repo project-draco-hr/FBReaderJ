@@ -1,5 +1,5 @@
 {
-  if (getFirstLevelTree(ROOT_FAVORITES).removeBook(book)) {
+  if (getFirstLevelTree(ROOT_FAVORITES).removeBook(book,false)) {
     BooksDatabase.Instance().removeFromFavorites(book.getId());
   }
 }

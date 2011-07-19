@@ -64,7 +64,7 @@ synchronized (this) {
         }
       }
  else {
-        myRootTree.removeBook(book);
+        myRootTree.removeBook(book,true);
         fireModelChangedEvent(ChangeListener.Code.BookRemoved);
         orphanedBooks.add(book);
       }
