@@ -1,0 +1,6 @@
+{
+  if (!(tree instanceof SearchItemTree)) {
+    return -1;
+  }
+  return 0;
+}
