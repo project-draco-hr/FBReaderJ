@@ -2,9 +2,15 @@
   StringWriter stackTrace=new StringWriter();
   exception.printStackTrace(new PrintWriter(stackTrace));
   System.err.println(stackTrace);
-  Intent intent=new Intent(myContext,BugReportActivity.class);
-  intent.putExtra(BugReportActivity.STACKTRACE,stackTrace.toString());
-  myContext.startActivity(intent);
+  Intent intent=new Intent("android.fbreader.action.CRASH",new Uri.Builder().scheme("crash").appendPath(exception.getClass().getName()).build());
+  try {
+    myContext.startActivity(intent);
+  }
+ catch (  ActivityNotFoundException e) {
+    intent=new Intent(myContext,BugReportActivity.class);
+    intent.putExtra(BugReportActivity.STACKTRACE,stackTrace.toString());
+    myContext.startActivity(intent);
+  }
   Process.killProcess(Process.myPid());
   System.exit(10);
 }
