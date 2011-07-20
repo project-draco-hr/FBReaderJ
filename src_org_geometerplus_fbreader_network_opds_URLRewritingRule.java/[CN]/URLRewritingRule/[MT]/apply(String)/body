@@ -13,6 +13,17 @@ case ADD_URL_PARAMETER:
   }
 case REWRITE:
 {
+  final String pattern=myParameters.get("pattern");
+  final String replacement=myParameters.get("replacement");
+  if (pattern == null || replacement == null) {
+    return url;
+  }
+  final Matcher matcher=Pattern.compile(pattern).matcher(url);
+  if (matcher.matches()) {
+    for (int i=matcher.groupCount(); i >= 1; --i) {
+      url=replacement.replace("%" + i,matcher.group(1));
+    }
+  }
   return url;
 }
 }
