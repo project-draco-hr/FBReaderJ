@@ -2,5 +2,14 @@
   myName=name;
   final List<String> keys=new LinkedList<String>();
   new Reader(keys).readBindings();
+  Collections.sort(keys);
   myKeysOption=new ZLStringListOption(name,"KeyList",keys);
+  ZLStringOption oldBackKeyOption=new ZLStringOption(name + ":" + ACTION,"<Back>","");
+  if (oldBackKeyOption.getValue() != null) {
+    new ZLStringOption(name + ":" + ACTION,"4",oldBackKeyOption.getValue());
+  }
+  oldBackKeyOption=new ZLStringOption(name + ":" + LONG_PRESS_ACTION,"<Back>","");
+  if (oldBackKeyOption.getValue() != null) {
+    new ZLStringOption(name + ":" + LONG_PRESS_ACTION,"4",oldBackKeyOption.getValue());
+  }
 }

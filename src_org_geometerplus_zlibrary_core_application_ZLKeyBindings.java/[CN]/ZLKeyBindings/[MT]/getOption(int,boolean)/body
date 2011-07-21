@@ -1,5 +1,5 @@
 {
-  final TreeMap<String,ZLStringOption> map=longPress ? myLongPressActionMap : myActionMap;
+  final TreeMap<Integer,ZLStringOption> map=longPress ? myLongPressActionMap : myActionMap;
   ZLStringOption option=map.get(key);
   if (option == null) {
     option=createOption(key,longPress,ZLApplication.NoAction);

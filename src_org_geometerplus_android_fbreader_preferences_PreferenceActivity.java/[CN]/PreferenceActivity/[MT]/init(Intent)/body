@@ -156,7 +156,7 @@
   cancelMenuScreen.addOption(fbReader.ShowPositionsInCancelMenuOption,"positions");
   final ZLKeyBindings bindings=fbReader.keyBindings();
   final String[] backKeyActions={ActionCode.EXIT,ActionCode.SHOW_CANCEL_MENU};
-  cancelMenuScreen.addPreference(new ZLStringChoicePreference(this,cancelMenuScreen.Resource,"backKeyAction",bindings.getOption("<Back>",false),backKeyActions));
+  cancelMenuScreen.addPreference(new ZLStringChoicePreference(this,cancelMenuScreen.Resource,"backKeyAction",bindings.getOption(KeyEvent.KEYCODE_BACK,false),backKeyActions));
   final String[] backKeyLongPressActions={ActionCode.EXIT,ActionCode.SHOW_CANCEL_MENU,FBReaderApp.NoAction};
-  cancelMenuScreen.addPreference(new ZLStringChoicePreference(this,cancelMenuScreen.Resource,"backKeyLongPressAction",bindings.getOption("<Back>",true),backKeyLongPressActions));
+  cancelMenuScreen.addPreference(new ZLStringChoicePreference(this,cancelMenuScreen.Resource,"backKeyLongPressAction",bindings.getOption(KeyEvent.KEYCODE_BACK,true),backKeyLongPressActions));
 }
