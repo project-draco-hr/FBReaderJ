@@ -2,7 +2,11 @@
   myName=name;
   final Set<String> keys=new TreeSet<String>();
   new Reader(keys).read(ZLFile.createFileByPath("default/keymap.xml"));
-  new Reader(keys).read(ZLFile.createFileByPath(Paths.BooksDirectoryOption().getValue() + "/keymap.xml"));
+  try {
+    new Reader(keys).read(ZLFile.createFileByPath(Paths.BooksDirectoryOption().getValue() + "/keymap.xml"));
+  }
+ catch (  Exception e) {
+  }
   myKeysOption=new ZLStringListOption(name,"KeyList",new ArrayList<String>(keys));
   ZLStringOption oldBackKeyOption=new ZLStringOption(myName + ":" + ACTION,"<Back>","");
   if (!"".equals(oldBackKeyOption.getValue())) {
