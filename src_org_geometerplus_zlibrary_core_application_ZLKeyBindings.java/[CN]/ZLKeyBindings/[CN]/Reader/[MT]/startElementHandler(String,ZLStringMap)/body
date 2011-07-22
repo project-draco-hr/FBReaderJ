@@ -5,7 +5,7 @@
     if (stringKey != null && actionId != null) {
       try {
         final int key=Integer.parseInt(stringKey);
-        myKeyList.add(stringKey);
+        myKeySet.add(stringKey);
         myActionMap.put(key,createOption(key,false,actionId));
       }
  catch (      NumberFormatException e) {

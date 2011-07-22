@@ -1,9 +1,9 @@
 {
   myName=name;
-  final List<String> keys=new LinkedList<String>();
-  new Reader(keys).readBindings();
-  Collections.sort(keys);
-  myKeysOption=new ZLStringListOption(name,"KeyList",keys);
+  final Set<String> keys=new TreeSet<String>();
+  new Reader(keys).read(ZLFile.createFileByPath("default/keymap.xml"));
+  new Reader(keys).read(ZLFile.createFileByPath(Paths.BooksDirectoryOption().getValue() + "/keymap.xml"));
+  myKeysOption=new ZLStringListOption(name,"KeyList",new ArrayList<String>(keys));
   ZLStringOption oldBackKeyOption=new ZLStringOption(myName + ":" + ACTION,"<Back>","");
   if (!"".equals(oldBackKeyOption.getValue())) {
     bindKey(KeyEvent.KEYCODE_BACK,false,oldBackKeyOption.getValue());
