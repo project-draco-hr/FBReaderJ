@@ -1,5 +1,5 @@
 {
-  myDatabase.beginTransaction();
+  myDatabase.beginTransactionNonExclusive();
   try {
     actions.run();
     myDatabase.setTransactionSuccessful();
