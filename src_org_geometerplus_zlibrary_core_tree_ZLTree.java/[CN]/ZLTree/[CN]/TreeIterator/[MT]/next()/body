@@ -9,10 +9,12 @@
     while (!myIndexStack.isEmpty()) {
       final int index=myIndexStack.removeLast() + 1;
       parent=parent.Parent;
-      if (parent.mySubTrees.size() > index) {
-        myCurrentElement=parent.mySubTrees.get(index);
-        myIndexStack.add(index);
-        break;
+synchronized (parent.mySubTrees) {
+        if (parent.mySubTrees.size() > index) {
+          myCurrentElement=parent.mySubTrees.get(index);
+          myIndexStack.add(index);
+          break;
+        }
       }
     }
     if (myIndexStack.isEmpty()) {

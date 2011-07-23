@@ -1,14 +1,18 @@
 {
-  if (mySubTrees == null) {
-    mySubTrees=new ArrayList<T>();
+synchronized (this) {
+    if (mySubTrees == null) {
+      mySubTrees=Collections.synchronizedList(new ArrayList<T>());
+    }
   }
   final int subTreeSize=subtree.getSize();
-  final int thisSubTreesSize=mySubTrees.size();
-  while (position < thisSubTreesSize) {
-    subtree=mySubTrees.set(position++,subtree);
-  }
-  mySubTrees.add(subtree);
-  for (ZLTree<?> parent=this; parent != null; parent=parent.Parent) {
-    parent.mySize+=subTreeSize;
+synchronized (mySubTrees) {
+    final int thisSubTreesSize=mySubTrees.size();
+    while (position < thisSubTreesSize) {
+      subtree=mySubTrees.set(position++,subtree);
+    }
+    mySubTrees.add(subtree);
+    for (ZLTree<?> parent=this; parent != null; parent=parent.Parent) {
+      parent.mySize+=subTreeSize;
+    }
   }
 }

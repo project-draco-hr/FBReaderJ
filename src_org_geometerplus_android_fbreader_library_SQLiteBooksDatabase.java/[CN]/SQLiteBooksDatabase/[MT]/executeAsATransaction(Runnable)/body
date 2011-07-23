@@ -1,10 +1,12 @@
 {
-  myDatabase.beginTransactionNonExclusive();
+  myDatabase.execSQL("BEGIN IMMEDIATE");
   try {
     actions.run();
-    myDatabase.setTransactionSuccessful();
   }
-  finally {
-    myDatabase.endTransaction();
+ catch (  Throwable t) {
+    myDatabase.execSQL("ROLLBACK");
+  }
+ finally {
+    myDatabase.execSQL("END");
   }
 }
