@@ -1,8 +1,6 @@
 {
-synchronized (this) {
-    if (mySubTrees == null) {
-      mySubTrees=Collections.synchronizedList(new ArrayList<T>());
-    }
+  if (mySubTrees == null) {
+    mySubTrees=Collections.synchronizedList(new ArrayList<T>());
   }
   final int subTreeSize=subtree.getSize();
 synchronized (mySubTrees) {

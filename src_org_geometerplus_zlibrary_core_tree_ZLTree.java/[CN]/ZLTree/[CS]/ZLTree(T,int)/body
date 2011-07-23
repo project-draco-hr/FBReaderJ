@@ -1,6 +1,6 @@
 {
-  if (parent != null && (position < 0 || position > parent.mySubTrees.size())) {
-    throw new IndexOutOfBoundsException("`position` value equals " + position + " but must be in range [0; "+ parent.mySubTrees.size()+ "]");
+  if (parent != null && (position < 0 || position > parent.subTrees().size())) {
+    throw new IndexOutOfBoundsException("`position` value equals " + position + " but must be in range [0; "+ parent.subTrees().size()+ "]");
   }
   Parent=parent;
   if (parent != null) {
