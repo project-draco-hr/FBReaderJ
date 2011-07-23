@@ -2,11 +2,14 @@
   if (getBook() != null) {
     return;
   }
-  clear();
+  final TreeSet<ZLFile> set=new TreeSet<ZLFile>(ourFileComparator);
   for (  ZLFile file : myFile.children()) {
     if (file.isDirectory() || file.isArchive() || PluginCollection.Instance().getPlugin(file) != null) {
-      new FileTree(this,file);
+      set.add(file);
     }
   }
-  sortAllChildren();
+  clear();
+  for (  ZLFile file : set) {
+    new FileTree(this,file);
+  }
 }

@@ -1,9 +1,0 @@
-{
-  List<FBTree> children=subTrees();
-  if (!children.isEmpty()) {
-    Collections.sort(children);
-    for (    FBTree tree : children) {
-      tree.sortAllChildren();
-    }
-  }
-}
