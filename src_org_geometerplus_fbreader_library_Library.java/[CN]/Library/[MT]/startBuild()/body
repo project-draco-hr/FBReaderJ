@@ -1,6 +1,6 @@
 {
   setStatus(myStatusMask | STATUS_LOADING);
-  new Thread("Library.build"){
+  final Thread builder=new Thread("Library.build"){
     public void run(){
       try {
         build();
@@ -10,5 +10,7 @@
       }
     }
   }
-.start();
+;
+  builder.setPriority((Thread.MIN_PRIORITY + Thread.NORM_PRIORITY) / 2);
+  builder.start();
 }
