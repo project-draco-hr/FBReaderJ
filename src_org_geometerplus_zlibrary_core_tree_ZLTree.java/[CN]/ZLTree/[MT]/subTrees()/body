@@ -3,6 +3,6 @@
     return Collections.emptyList();
   }
 synchronized (mySubTrees) {
-    return new ArrayList(mySubTrees);
+    return new ArrayList<T>(mySubTrees);
   }
 }
