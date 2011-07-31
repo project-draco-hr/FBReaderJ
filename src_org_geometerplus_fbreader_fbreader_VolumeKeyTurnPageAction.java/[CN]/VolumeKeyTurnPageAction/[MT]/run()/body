@@ -1,8 +1,4 @@
 {
   final ScrollingPreferences preferences=ScrollingPreferences.Instance();
-  boolean forward=myForward;
-  if (preferences.InvertVolumeKeysOption.getValue()) {
-    forward=!forward;
-  }
-  Reader.getViewWidget().startAnimatedScrolling(forward ? FBView.PageIndex.next : FBView.PageIndex.previous,preferences.HorizontalOption.getValue() ? FBView.Direction.rightToLeft : FBView.Direction.up,preferences.AnimationSpeedOption.getValue());
+  Reader.getViewWidget().startAnimatedScrolling(myForward ? FBView.PageIndex.next : FBView.PageIndex.previous,preferences.HorizontalOption.getValue() ? FBView.Direction.rightToLeft : FBView.Direction.up,preferences.AnimationSpeedOption.getValue());
 }

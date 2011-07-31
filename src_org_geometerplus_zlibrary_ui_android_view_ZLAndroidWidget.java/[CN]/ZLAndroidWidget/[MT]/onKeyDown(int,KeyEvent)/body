@@ -1,29 +1,27 @@
 {
   final ZLApplication application=ZLApplication.Instance();
 switch (keyCode) {
-case KeyEvent.KEYCODE_VOLUME_DOWN:
-case KeyEvent.KEYCODE_VOLUME_UP:
-case KeyEvent.KEYCODE_BACK:
-case KeyEvent.KEYCODE_ENTER:
-case KeyEvent.KEYCODE_DPAD_CENTER:
-{
-      final String keyName=ZLAndroidKeyUtil.getKeyNameByCode(keyCode);
-      if (myKeyUnderTracking != null) {
-        if (myKeyUnderTracking.equals(keyName)) {
+default :
+    if (application.hasActionForKey(keyCode,true) || application.hasActionForKey(keyCode,false)) {
+      if (myKeyUnderTracking != -1) {
+        if (myKeyUnderTracking == keyCode) {
           return true;
         }
  else {
-          myKeyUnderTracking=null;
+          myKeyUnderTracking=-1;
         }
       }
-      if (application.hasActionForKey(keyName,true)) {
-        myKeyUnderTracking=keyName;
+      if (application.hasActionForKey(keyCode,true)) {
+        myKeyUnderTracking=keyCode;
         myTrackingStartTime=System.currentTimeMillis();
         return true;
       }
  else {
-        return application.doActionByKey(keyName,false);
+        return application.doActionByKey(keyCode,false);
       }
+    }
+ else {
+      return false;
     }
 case KeyEvent.KEYCODE_DPAD_LEFT:
   application.getCurrentView().onTrackballRotated(-1,0);
@@ -37,7 +35,5 @@ return true;
 case KeyEvent.KEYCODE_DPAD_UP:
 application.getCurrentView().onTrackballRotated(0,-1);
 return true;
-default :
-return false;
 }
 }

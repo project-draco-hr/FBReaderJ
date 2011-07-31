@@ -1,0 +1,11 @@
+{
+  final String stringKey=String.valueOf(key);
+  List<String> keys=myKeysOption.getValue();
+  if (!keys.contains(stringKey)) {
+    keys=new ArrayList<String>(keys);
+    keys.add(stringKey);
+    Collections.sort(keys);
+    myKeysOption.setValue(keys);
+  }
+  getOption(key,longPress).setValue(actionId);
+}

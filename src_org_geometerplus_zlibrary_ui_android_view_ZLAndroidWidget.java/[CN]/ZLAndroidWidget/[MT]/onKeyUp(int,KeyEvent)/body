@@ -1,20 +1,14 @@
 {
-switch (keyCode) {
-case KeyEvent.KEYCODE_VOLUME_DOWN:
-case KeyEvent.KEYCODE_VOLUME_UP:
-case KeyEvent.KEYCODE_BACK:
-case KeyEvent.KEYCODE_ENTER:
-case KeyEvent.KEYCODE_DPAD_CENTER:
-    if (myKeyUnderTracking != null) {
-      final String keyName=ZLAndroidKeyUtil.getKeyNameByCode(keyCode);
-      if (myKeyUnderTracking.equals(keyName)) {
-        final boolean longPress=System.currentTimeMillis() > myTrackingStartTime + ViewConfiguration.getLongPressTimeout();
-        ZLApplication.Instance().doActionByKey(keyName,longPress);
-      }
-      myKeyUnderTracking=null;
+  if (myKeyUnderTracking != -1) {
+    if (myKeyUnderTracking == keyCode) {
+      final boolean longPress=System.currentTimeMillis() > myTrackingStartTime + ViewConfiguration.getLongPressTimeout();
+      ZLApplication.Instance().doActionByKey(keyCode,longPress);
     }
-  return true;
-default :
-return false;
-}
+    myKeyUnderTracking=-1;
+    return true;
+  }
+ else {
+    final ZLApplication application=ZLApplication.Instance();
+    return application.hasActionForKey(keyCode,false) || application.hasActionForKey(keyCode,true);
+  }
 }

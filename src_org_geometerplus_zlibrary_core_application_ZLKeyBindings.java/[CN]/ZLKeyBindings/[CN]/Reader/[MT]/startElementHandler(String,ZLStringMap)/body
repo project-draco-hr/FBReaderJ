@@ -1,10 +1,15 @@
 {
   if ("binding".equals(tag)) {
-    final String key=attributes.getValue("key");
+    final String stringKey=attributes.getValue("key");
     final String actionId=attributes.getValue("action");
-    if (key != null && actionId != null) {
-      myKeyList.add(key);
-      myActionMap.put(key,createOption(key,false,actionId));
+    if (stringKey != null && actionId != null) {
+      try {
+        final int key=Integer.parseInt(stringKey);
+        myKeySet.add(stringKey);
+        myActionMap.put(key,createOption(key,false,actionId));
+      }
+ catch (      NumberFormatException e) {
+      }
     }
   }
   return false;

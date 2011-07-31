@@ -1,17 +1,21 @@
 {
-  if ((index < 0) || (index >= mySize)) {
+  if (index < 0 || index >= mySize) {
     return null;
   }
   if (index == 0) {
     return (T)this;
   }
   --index;
-  for (  T subtree : mySubTrees) {
-    if (subtree.mySize <= index) {
-      index-=subtree.mySize;
-    }
+  if (mySubTrees != null) {
+synchronized (mySubTrees) {
+      for (      T subtree : mySubTrees) {
+        if (subtree.mySize <= index) {
+          index-=subtree.mySize;
+        }
  else {
-      return (T)subtree.getTreeByParagraphNumber(index);
+          return (T)subtree.getTreeByParagraphNumber(index);
+        }
+      }
     }
   }
   throw new RuntimeException("That's impossible!!!");

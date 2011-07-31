@@ -1,9 +1,0 @@
-{
-  List<String> keys=myKeysOption.getValue();
-  if (!keys.contains(key)) {
-    keys=new ArrayList<String>(keys);
-    keys.add(key);
-    myKeysOption.setValue(keys);
-  }
-  getOption(key,longPress).setValue(actionId);
-}

@@ -6,8 +6,9 @@
     return;
   }
   final int diff=myDirection.IsHorizontal ? x - myStartX : y - myStartY;
+  final int dpi=ZLibrary.Instance().getDisplayDPI();
   final int minDiff=myDirection.IsHorizontal ? (myWidth > myHeight ? myWidth / 4 : myWidth / 3) : (myHeight > myWidth ? myHeight / 4 : myHeight / 3);
-  boolean forward=Math.abs(diff) > minDiff;
+  boolean forward=Math.abs(diff) > Math.min(minDiff,dpi);
   myMode=forward ? Mode.AnimatedScrollingForward : Mode.AnimatedScrollingBackward;
   float velocity=15;
   if (myDrawInfos.size() > 1) {

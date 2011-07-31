@@ -2,5 +2,7 @@
   if (mySubTrees == null) {
     return Collections.emptyList();
   }
-  return mySubTrees;
+synchronized (mySubTrees) {
+    return new ArrayList<T>(mySubTrees);
+  }
 }

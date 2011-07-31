@@ -1,0 +1,4 @@
+{
+  final String group=myName + ":" + (longPress ? LONG_PRESS_ACTION : ACTION);
+  return new ZLStringOption(group,String.valueOf(key),defaultValue);
+}

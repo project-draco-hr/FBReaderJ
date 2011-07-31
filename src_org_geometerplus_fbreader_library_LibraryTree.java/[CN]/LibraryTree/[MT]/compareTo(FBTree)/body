@@ -1,0 +1,7 @@
+{
+  final int cmp=super.compareTo(tree);
+  if (cmp == 0) {
+    return getClass().getSimpleName().compareTo(tree.getClass().getSimpleName());
+  }
+  return cmp;
+}

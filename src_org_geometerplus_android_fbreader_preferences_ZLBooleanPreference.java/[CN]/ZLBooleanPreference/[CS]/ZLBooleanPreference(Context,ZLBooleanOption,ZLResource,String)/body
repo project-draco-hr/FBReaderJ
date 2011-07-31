@@ -1,9 +1,5 @@
 {
-  super(context);
+  super(context,rootResource,resourceKey);
   myOption=option;
-  ZLResource resource=rootResource.getResource(resourceKey);
-  setTitle(resource.getValue());
-  setSummaryOn(resource.getResource("summaryOn").getValue());
-  setSummaryOff(resource.getResource("summaryOff").getValue());
   setChecked(option.getValue());
 }

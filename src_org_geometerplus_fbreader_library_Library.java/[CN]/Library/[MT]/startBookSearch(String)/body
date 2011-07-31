@@ -1,6 +1,6 @@
 {
   setStatus(myStatusMask | STATUS_SEARCHING);
-  new Thread("Library.searchBooks"){
+  final Thread searcher=new Thread("Library.searchBooks"){
     public void run(){
       try {
         searchBooks(pattern);
@@ -10,5 +10,7 @@
       }
     }
   }
-.start();
+;
+  searcher.setPriority((Thread.MIN_PRIORITY + Thread.NORM_PRIORITY) / 2);
+  searcher.start();
 }

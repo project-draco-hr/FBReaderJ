@@ -1,8 +1,3 @@
 {
-  final FileTree fileTree=(FileTree)tree;
-  final boolean isDir=myFile.isDirectory();
-  if (isDir != fileTree.myFile.isDirectory()) {
-    return isDir ? -1 : 1;
-  }
-  return getName().compareToIgnoreCase(fileTree.getName());
+  return ourFileComparator.compare(myFile,((FileTree)tree).myFile);
 }
