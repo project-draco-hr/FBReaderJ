@@ -1,4 +1,4 @@
 {
-  TopupActions.runAction(this,myBook.Link,item.getItemId());
+  NetworkView.Instance().getTopupActions().runAction(this,myBook.Link,item.getItemId());
   return true;
 }

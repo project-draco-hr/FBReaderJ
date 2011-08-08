@@ -1,0 +1,8 @@
+{
+  if (BROWSER_TOPUP_ACTION.equals(IntentAction)) {
+    return Util.isBrowserTopupSupported(activity,link);
+  }
+ else {
+    return Util.isTopupSupported(activity,link,IntentAction);
+  }
+}

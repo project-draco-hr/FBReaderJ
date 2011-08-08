@@ -1,0 +1,8 @@
+{
+  if (BROWSER_TOPUP_ACTION.equals(IntentAction)) {
+    return browserTopupRunnable(activity,link);
+  }
+ else {
+    return topupRunnable(activity,link,IntentAction);
+  }
+}
