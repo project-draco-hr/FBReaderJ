@@ -1,3 +1,8 @@
 {
-  return testService(activity,action,link.getUrl(UrlInfo.Type.Catalog));
+  if (BROWSER_TOPUP_ACTION.equals(action)) {
+    return link.getUrl(UrlInfo.Type.TopUp) != null;
+  }
+ else {
+    return testService(activity,action,link.getUrl(UrlInfo.Type.Catalog));
+  }
 }

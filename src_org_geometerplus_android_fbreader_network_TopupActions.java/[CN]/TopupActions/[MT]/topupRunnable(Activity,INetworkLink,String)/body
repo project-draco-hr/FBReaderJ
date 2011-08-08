@@ -1,8 +1,18 @@
 {
-  return new Runnable(){
-    public void run(){
-      Util.runTopupDialog(activity,link,action);
+  if (Util.BROWSER_TOPUP_ACTION.equals(action)) {
+    return new Runnable(){
+      public void run(){
+        Util.openInBrowser(activity,link.authenticationManager().topupLink());
+      }
     }
-  }
 ;
+  }
+ else {
+    return new Runnable(){
+      public void run(){
+        Util.runTopupDialog(activity,link,action);
+      }
+    }
+;
+  }
 }
