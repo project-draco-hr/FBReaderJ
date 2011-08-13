@@ -1,8 +1,9 @@
 {
-  if (BROWSER_TOPUP_ACTION.equals(action)) {
+  if (BROWSER_ACTION_ID.equals(actionId)) {
     return link.getUrl(UrlInfo.Type.TopUp) != null;
   }
  else {
-    return testService(activity,action,link.getUrl(UrlInfo.Type.Catalog));
+    final String url=link.getUrl(UrlInfo.Type.Catalog) + "/" + actionId;
+    return testService(activity,TOPUP_ACTION,url);
   }
 }

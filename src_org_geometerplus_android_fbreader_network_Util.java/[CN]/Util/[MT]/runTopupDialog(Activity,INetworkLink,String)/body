@@ -1,6 +1,7 @@
 {
   try {
-    final Intent intent=new Intent(action,Uri.parse(link.getUrl(UrlInfo.Type.Catalog)));
+    final String url=link.getUrl(UrlInfo.Type.Catalog) + "/" + actionId;
+    final Intent intent=new Intent(TOPUP_ACTION,Uri.parse(url));
     final NetworkAuthenticationManager mgr=link.authenticationManager();
     if (mgr != null) {
       for (      Map.Entry<String,String> entry : mgr.getTopupData().entrySet()) {

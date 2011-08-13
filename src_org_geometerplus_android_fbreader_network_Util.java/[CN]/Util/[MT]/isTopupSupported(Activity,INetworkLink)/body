@@ -1,3 +1,3 @@
 {
-  return isTopupSupported(activity,link,BROWSER_TOPUP_ACTION) || isTopupSupported(activity,link,SMS_TOPUP_ACTION) || isTopupSupported(activity,link,CREDIT_CARD_TOPUP_ACTION)|| isTopupSupported(activity,link,SELF_SERVICE_KIOSK_TOPUP_ACTION);
+  return isTopupSupported(activity,link,BROWSER_ACTION_ID) || isTopupSupported(activity,link,SMS_ACTION_ID) || isTopupSupported(activity,link,CREDIT_CARD_ACTION_ID)|| isTopupSupported(activity,link,SELF_SERVICE_ACTION_ID);
 }
