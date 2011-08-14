@@ -10,5 +10,5 @@
   if (onSuccess != null) {
     ourAfterRegisrationMap.put(activity,onSuccess);
   }
-  activity.startActivityForResult(intent,NetworkBaseActivity.CUSTOM_AUTHENTICATION_CODE);
+  activity.startActivityForResult(intent,NetworkLibraryActivity.CUSTOM_AUTHENTICATION_CODE);
 }

@@ -6,7 +6,7 @@
   }
   final NetworkBookTree bookTree=(NetworkBookTree)tree;
   final NetworkBookItem book=bookTree.Book;
-  Set<Action> actions=getContextMenuActions(book,((NetworkBaseActivity)activity).Connection);
+  Set<Action> actions=getContextMenuActions(book,((NetworkLibraryActivity)activity).Connection);
   for (  Action a : actions) {
     if (a.Arg == null) {
       addMenuItem(menu,a.Id,a.Key);

@@ -2,8 +2,8 @@
   final int topupActionCode=getDefaultActionCode(activity,link);
   if (topupActionCode == TREE_SHOW_CONTEXT_MENU) {
     View view=null;
-    if (activity instanceof NetworkBaseActivity) {
-      view=((NetworkBaseActivity)activity).getListView();
+    if (activity instanceof NetworkLibraryActivity) {
+      view=((NetworkLibraryActivity)activity).getListView();
     }
  else     if (activity instanceof NetworkBookInfoActivity) {
       view=((NetworkBookInfoActivity)activity).getMainView();

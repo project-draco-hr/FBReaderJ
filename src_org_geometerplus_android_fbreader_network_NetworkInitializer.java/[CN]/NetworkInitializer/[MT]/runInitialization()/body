@@ -4,9 +4,7 @@
       String error=null;
       try {
         NetworkView.Instance().initialize();
-        if (myActivity instanceof NetworkBaseActivity) {
-          ((NetworkBaseActivity)myActivity).processSavedIntent();
-        }
+        myActivity.processSavedIntent();
       }
  catch (      ZLNetworkException e) {
         error=e.getMessage();

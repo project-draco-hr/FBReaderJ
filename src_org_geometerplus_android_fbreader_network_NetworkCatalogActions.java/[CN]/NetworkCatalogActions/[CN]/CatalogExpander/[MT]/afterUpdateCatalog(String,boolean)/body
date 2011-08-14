@@ -1,5 +1,5 @@
 {
-  final NetworkBaseActivity activity=NetworkBaseActivity.getByTree(myTree);
+  final NetworkLibraryActivity activity=NetworkLibraryActivity.getByTree(myTree);
   if (activity == null) {
     return;
   }
