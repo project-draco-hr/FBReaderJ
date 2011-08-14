@@ -1,8 +1,0 @@
-{
-  if (searchIsInProgress()) {
-    return false;
-  }
-  final NetworkLibrary library=NetworkLibrary.Instance();
-  startSearch(library.NetworkSearchPatternOption.getValue(),true,null,false);
-  return true;
-}

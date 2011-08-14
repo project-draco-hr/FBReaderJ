@@ -9,5 +9,11 @@ break;
 case SIGNUP_CODE:
 Util.processSignup(((NetworkCatalogTree)getCurrentTree()).Item.Link,resultCode,data);
 break;
+case LIST_TOPUP_METHODS_CODE:
+{
+final Bundle bundle=data.getExtras();
+final ArrayList<PluginApi.ActionInfo> infos=bundle != null ? bundle.<PluginApi.ActionInfo>getParcelableArrayList(PluginApi.PluginInfo.KEY) : null;
+System.err.println("infos: " + infos);
+}
 }
 }

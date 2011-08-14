@@ -1,6 +1,8 @@
 {
   NetworkView.Instance().tryResumeLoading(activity,tree,new Runnable(){
     public void run(){
+      if (tree instanceof NetworkCatalogRootTree) {
+      }
       boolean resumeNotLoad=false;
       if (tree.hasChildren()) {
         if (tree.isContentValid()) {

@@ -1,4 +1,9 @@
 {
+  if (getCurrentTree() instanceof RootTree) {
+    if (!NetworkView.Instance().isInitialized() && NetworkInitializer.Instance != null) {
+      NetworkInitializer.Instance.setActivity(null);
+    }
+  }
   setForTree((NetworkTree)getCurrentTree(),null);
   if (Connection != null) {
     unbindService(Connection);
