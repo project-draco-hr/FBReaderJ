@@ -1,0 +1,3 @@
+{
+  return tree instanceof RootTree && ((RootTree)tree).IsFake;
+}

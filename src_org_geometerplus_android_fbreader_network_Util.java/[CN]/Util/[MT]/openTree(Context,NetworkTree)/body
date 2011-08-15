@@ -1,4 +1,9 @@
 {
   final Class<?> clz=tree instanceof NetworkBookTree ? NetworkBookInfoActivity.class : NetworkLibraryActivity.class;
-  context.startActivity(new Intent(context.getApplicationContext(),clz).putExtra(NetworkLibraryActivity.TREE_KEY_KEY,tree.getUniqueKey()));
+  if (context instanceof NetworkLibraryActivity && clz == NetworkLibraryActivity.class) {
+    ((NetworkLibraryActivity)context).openTree(tree);
+  }
+ else {
+    context.startActivity(new Intent(context.getApplicationContext(),clz).putExtra(NetworkLibraryActivity.TREE_KEY_KEY,tree.getUniqueKey()));
+  }
 }
