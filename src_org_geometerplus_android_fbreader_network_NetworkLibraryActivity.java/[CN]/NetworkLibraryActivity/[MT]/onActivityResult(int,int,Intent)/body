@@ -1,18 +1,18 @@
 {
 switch (requestCode) {
 case BASIC_AUTHENTICATION_CODE:
-    myCredentialsCreator.onDataReceived(resultCode,data);
+    myCredentialsCreator.onDataReceived(resultCode,intent);
   break;
 case CUSTOM_AUTHENTICATION_CODE:
-Util.processCustomAuthentication(this,((NetworkCatalogTree)getCurrentTree()).Item.Link,resultCode,data);
+Util.processCustomAuthentication(this,((NetworkCatalogTree)getCurrentTree()).Item.Link,resultCode,intent);
 break;
 case SIGNUP_CODE:
-Util.processSignup(((NetworkCatalogTree)getCurrentTree()).Item.Link,resultCode,data);
+Util.processSignup(((NetworkCatalogTree)getCurrentTree()).Item.Link,resultCode,intent);
 break;
 case LIST_TOPUP_METHODS_CODE:
-if (data != null) {
-final Bundle bundle=data.getExtras();
-final ArrayList<PluginApi.ActionInfo> infos=bundle != null ? bundle.<PluginApi.ActionInfo>getParcelableArrayList(PluginApi.PluginInfo.KEY) : null;
+if (intent != null) {
+final ArrayList<PluginApi.ActionInfo> infos=intent.<PluginApi.ActionInfo>getParcelableArrayListExtra(PluginApi.PluginInfo.KEY);
+System.err.println("data: " + intent.getData());
 System.err.println("infos: " + infos);
 }
 }

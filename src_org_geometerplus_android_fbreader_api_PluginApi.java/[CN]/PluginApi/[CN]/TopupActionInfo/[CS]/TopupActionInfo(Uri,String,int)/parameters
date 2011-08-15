@@ -1,4 +1,3 @@
 Uri id
-String typeId
 String menuItemName
 int weight

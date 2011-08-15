@@ -1,6 +1,5 @@
 {
   super.writeToParcel(parcel,flags);
-  parcel.writeString(TypeId);
   parcel.writeString(MenuItemName);
   parcel.writeInt(Weight);
 }

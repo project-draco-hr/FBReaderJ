@@ -1,6 +1,5 @@
 {
   super.onCreate(icicle);
-  System.err.println("NetworkLibraryActivity.onCreate");
   SQLiteCookieDatabase.init(this);
   Connection=new BookDownloaderServiceConnection();
   bindService(new Intent(getApplicationContext(),BookDownloaderService.class),Connection,BIND_AUTO_CREATE);

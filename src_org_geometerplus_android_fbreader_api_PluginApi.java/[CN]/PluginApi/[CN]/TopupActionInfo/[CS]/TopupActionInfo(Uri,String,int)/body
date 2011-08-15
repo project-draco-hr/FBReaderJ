@@ -1,6 +1,5 @@
 {
   super(id);
-  TypeId=typeId;
   MenuItemName=menuItemName;
   Weight=weight;
 }
