@@ -8,11 +8,6 @@
 ;
   }
  else {
-    return new Runnable(){
-      public void run(){
-        Util.runTopupDialog(activity,link,actionId);
-      }
-    }
-;
+    return null;
   }
 }
