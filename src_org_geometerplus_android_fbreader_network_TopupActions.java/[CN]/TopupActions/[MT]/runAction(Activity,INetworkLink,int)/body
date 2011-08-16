@@ -1,6 +1,19 @@
 {
   try {
-    doTopup(activity,link,myActionInfos.get(actionCode).getRunnable(activity,link));
+    if (actionCode < myActionInfos.size()) {
+      doTopup(activity,link,myActionInfos.get(actionCode).getRunnable(activity,link));
+    }
+ else {
+      actionCode-=myActionInfos.size();
+      final List<PluginApi.TopupActionInfo> infos=NetworkView.Instance().TopupActionInfos.get(link.getUrlInfo(UrlInfo.Type.Catalog).Url);
+      final String url=infos.get(actionCode).getId().toString();
+      doTopup(activity,link,new Runnable(){
+        public void run(){
+          Util.runTopupDialogWithUrl(activity,link,url);
+        }
+      }
+);
+    }
     return true;
   }
  catch (  Exception e) {

@@ -1,0 +1,16 @@
+{
+  try {
+    final Intent intent=new Intent(TOPUP_ACTION,Uri.parse(url));
+    final NetworkAuthenticationManager mgr=link.authenticationManager();
+    if (mgr != null) {
+      for (      Map.Entry<String,String> entry : mgr.getTopupData().entrySet()) {
+        intent.putExtra(entry.getKey(),entry.getValue());
+      }
+    }
+    if (PackageUtil.canBeStarted(activity,intent,true)) {
+      activity.startActivity(intent);
+    }
+  }
+ catch (  ActivityNotFoundException e) {
+  }
+}
