@@ -1,0 +1,3 @@
+{
+  return menu.add(0,id,0,text).setEnabled(id != TREE_NO_ACTION);
+}

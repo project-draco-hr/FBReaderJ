@@ -1,9 +1,16 @@
 {
   menu.setHeaderTitle(getTitleValue("topupTitle"));
-  for (int i=0; i < myActionInfos.size(); ++i) {
+  int i=0;
+  for (; i < myActionInfos.size(); ++i) {
     final ActionInfo info=myActionInfos.get(i);
     if (info.isSupported(activity,link)) {
       addMenuItem(menu,i,info.ResourceId);
+    }
+  }
+  final List<PluginApi.TopupActionInfo> infos=NetworkView.Instance().TopupActionInfos.get(link.getUrlInfo(UrlInfo.Type.Catalog).Url);
+  if (infos != null) {
+    for (    PluginApi.TopupActionInfo info : infos) {
+      addMenuItemWithText(menu,i++,info.MenuItemName);
     }
   }
 }
