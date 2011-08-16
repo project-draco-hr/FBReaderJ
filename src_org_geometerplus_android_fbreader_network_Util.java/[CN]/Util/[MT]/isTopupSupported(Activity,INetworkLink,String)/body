@@ -3,7 +3,6 @@
     return link.getUrl(UrlInfo.Type.TopUp) != null;
   }
  else {
-    final String url=link.getUrl(UrlInfo.Type.Catalog) + "/" + actionId;
-    return testService(activity,TOPUP_ACTION,url);
+    return false;
   }
 }

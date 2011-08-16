@@ -13,7 +13,7 @@
       userName=mgr.currentUserName();
       signOut=true;
       account=mgr.currentAccount();
-      if (account != null && Util.isTopupSupported(activity,item.Link)) {
+      if (account != null && Util.isTopupSupported(item.Link)) {
         topup=true;
       }
     }
