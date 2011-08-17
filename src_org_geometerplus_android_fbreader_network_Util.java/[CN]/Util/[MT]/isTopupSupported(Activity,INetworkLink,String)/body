@@ -1,8 +1,0 @@
-{
-  if (BROWSER_ACTION_ID.equals(actionId)) {
-    return link.getUrl(UrlInfo.Type.TopUp) != null;
-  }
- else {
-    return false;
-  }
-}

@@ -11,7 +11,14 @@ Util.processSignup(((NetworkCatalogTree)getCurrentTree()).Item.Link,resultCode,i
 break;
 case LIST_TOPUP_METHODS_CODE:
 if (intent != null) {
-NetworkView.Instance().TopupActionInfos.put(intent.getData().toString(),intent.<PluginApi.TopupActionInfo>getParcelableArrayListExtra(PluginApi.PluginInfo.KEY));
+final String url=intent.getData().toString();
+final List<PluginApi.TopupActionInfo> actions=intent.<PluginApi.TopupActionInfo>getParcelableArrayListExtra(PluginApi.PluginInfo.KEY);
+final INetworkLink link=NetworkLibrary.Instance().getLinkByUrl(url);
+if (link != null) {
+actions.add(new PluginApi.TopupActionInfo(Uri.parse(url + "/browser"),NetworkLibrary.resource().getResource("topupViaBrowser").getValue(),100));
+}
+Collections.sort(actions);
+NetworkView.Instance().TopupActionInfos.put(url,actions);
 }
 }
 }
