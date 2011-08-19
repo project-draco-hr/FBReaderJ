@@ -24,7 +24,7 @@
               buttonKey="topup";
               action=new DialogInterface.OnClickListener(){
                 public void onClick(                DialogInterface dialog,                int which){
-                  TopupActions.runStandalone(activity,book.Link);
+                  TopupMenuActivity.runMenu(activity,book.Link);
                 }
               }
 ;

@@ -38,7 +38,7 @@ case SIGNOUT_ITEM_ID:
 doSignOut(activity,catalogTree);
 return true;
 case TOPUP_ITEM_ID:
-TopupActions.runStandalone(activity,item.Link);
+TopupMenuActivity.runMenu(activity,item.Link);
 return true;
 case CUSTOM_CATALOG_EDIT:
 {

@@ -1,4 +1,4 @@
 {
-  runStandalone(activity,((TopUpTree)tree).Item.Link);
+  TopupMenuActivity.runMenu(activity,((TopUpTree)tree).Item.Link);
   return true;
 }

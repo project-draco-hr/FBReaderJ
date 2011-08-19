@@ -1,8 +1,4 @@
 {
-switch (actionCode) {
-case RUN_ITEM_ID:
-    addCustomCatalog(activity);
+  addCustomCatalog(activity);
   return true;
-}
-return false;
 }
