@@ -1,0 +1,26 @@
+{
+  try {
+    doTopup(new Runnable(){
+      public void run(){
+        try {
+          final Intent intent=new Intent(TOPUP_ACTION,info.getId());
+          final NetworkAuthenticationManager mgr=myLink.authenticationManager();
+          if (mgr != null) {
+            for (            Map.Entry<String,String> entry : mgr.getTopupData().entrySet()) {
+              intent.putExtra(entry.getKey(),entry.getValue());
+            }
+          }
+          intent.putExtra("topup:amount",(String)null);
+          if (PackageUtil.canBeStarted(TopupMenuActivity.this,intent,true)) {
+            startActivity(intent);
+          }
+        }
+ catch (        ActivityNotFoundException e) {
+        }
+      }
+    }
+);
+  }
+ catch (  Exception e) {
+  }
+}

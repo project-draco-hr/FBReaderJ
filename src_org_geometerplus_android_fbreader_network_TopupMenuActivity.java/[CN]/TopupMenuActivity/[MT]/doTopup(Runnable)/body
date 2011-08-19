@@ -1,0 +1,16 @@
+{
+  final NetworkAuthenticationManager mgr=myLink.authenticationManager();
+  if (mgr.mayBeAuthorised(false)) {
+    action.run();
+  }
+ else {
+    Util.runAuthenticationDialog(this,myLink,null,new Runnable(){
+      public void run(){
+        if (mgr.mayBeAuthorised(false)) {
+          runOnUiThread(action);
+        }
+      }
+    }
+);
+  }
+}

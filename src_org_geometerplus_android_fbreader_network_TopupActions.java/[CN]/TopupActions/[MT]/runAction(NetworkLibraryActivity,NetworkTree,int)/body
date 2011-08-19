@@ -1,4 +1,5 @@
 {
   final INetworkLink link=((TopUpTree)tree).Item.Link;
-  return runAction(activity,link,actionCode);
+  runStandalone(activity,link);
+  return true;
 }
