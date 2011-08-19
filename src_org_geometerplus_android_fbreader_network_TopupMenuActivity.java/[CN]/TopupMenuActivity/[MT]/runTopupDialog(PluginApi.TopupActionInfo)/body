@@ -10,7 +10,7 @@
               intent.putExtra(entry.getKey(),entry.getValue());
             }
           }
-          intent.putExtra("topup:amount",(String)null);
+          intent.putExtra(AMOUNT_KEY,myAmount);
           if (PackageUtil.canBeStarted(TopupMenuActivity.this,intent,true)) {
             startActivity(intent);
           }

@@ -4,6 +4,7 @@
   final String url=getIntent().getData().toString();
   myLink=NetworkLibrary.Instance().getLinkByUrl(url);
   myInfos=NetworkView.Instance().TopupActionInfos.get(url);
+  myAmount=getIntent().getStringExtra(AMOUNT_KEY);
   if (myInfos == null || myInfos.size() == 0) {
     finish();
     return;

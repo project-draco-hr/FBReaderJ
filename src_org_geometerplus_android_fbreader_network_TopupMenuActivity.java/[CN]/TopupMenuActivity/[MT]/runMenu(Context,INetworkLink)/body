@@ -1,3 +1,0 @@
-{
-  context.startActivity(new Intent(context,TopupMenuActivity.class).setData(Uri.parse(link.getUrlInfo(UrlInfo.Type.Catalog).Url)));
-}
