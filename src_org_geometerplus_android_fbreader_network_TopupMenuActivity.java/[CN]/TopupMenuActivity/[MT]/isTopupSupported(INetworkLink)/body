@@ -1,4 +1,3 @@
 {
-  final List<PluginApi.TopupActionInfo> infos=NetworkView.Instance().TopupActionInfos.get(link.getUrlInfo(UrlInfo.Type.Catalog).Url);
-  return infos != null && infos.size() > 0;
+  return link.authenticationManager().topupLink() != null;
 }

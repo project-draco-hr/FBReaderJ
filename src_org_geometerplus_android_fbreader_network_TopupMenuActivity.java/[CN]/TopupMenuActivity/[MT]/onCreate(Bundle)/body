@@ -3,14 +3,18 @@
   setTitle(NetworkLibrary.resource().getResource("topupTitle").getValue());
   final String url=getIntent().getData().toString();
   myLink=NetworkLibrary.Instance().getLinkByUrl(url);
-  myInfos=NetworkView.Instance().TopupActionInfos.get(url);
   myAmount=getIntent().getStringExtra(AMOUNT_KEY);
-  if (myInfos == null || myInfos.size() == 0) {
-    finish();
-    return;
+  myInfos=new ArrayList<PluginApi.TopupActionInfo>();
+  if (myLink.authenticationManager().topupLink() != null) {
+    myInfos.add(new PluginApi.TopupActionInfo(Uri.parse(url + "/browser"),NetworkLibrary.resource().getResource("topupViaBrowser").getValue(),100));
   }
- else   if (myInfos.size() == 1) {
-    runTopupDialog(myInfos.get(0));
+  try {
+    startActivityForResult(new Intent(TOPUP_ACTION,getIntent().getData()),0);
+  }
+ catch (  ActivityNotFoundException e) {
+    if (myInfos.size() == 1) {
+      runTopupDialog(myInfos.get(0));
+    }
     finish();
     return;
   }
