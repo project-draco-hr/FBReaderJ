@@ -13,7 +13,6 @@
   final String area=intent.getStringExtra(AREA_KEY);
   final String username=intent.getStringExtra(USERNAME_KEY);
   final String error=intent.getStringExtra(ERROR_KEY);
-  final boolean showSignupLink=intent.getBooleanExtra(SHOW_SIGNUP_LINK_KEY,false);
   myCustomAuthentication=intent.getBooleanExtra(CUSTOM_AUTH_KEY,false);
   myOnSuccessRunnable=ourOnSuccessRunnableMap.remove(intent.getLongExtra(RUNNABLE_KEY,-1));
   myResource=ZLResource.resource("dialog").getResource("AuthenticationDialog");
@@ -36,21 +35,6 @@
   myUsernameView=findTextView(R.id.authentication_username);
   myUsernameView.setText(username);
   setError(error);
-  if (showSignupLink) {
-    findViewById(R.id.authentication_signup_box).setVisibility(View.VISIBLE);
-    final TextView signupView=(TextView)findViewById(R.id.authentication_signup);
-    signupView.setText(myResource.getResource("register").getValue());
-    signupView.setOnClickListener(new View.OnClickListener(){
-      public void onClick(      View view){
-        setResult(RESULT_SIGNUP,Util.intentByLink(new Intent(),myLink));
-        finish();
-      }
-    }
-);
-  }
- else {
-    findViewById(R.id.authentication_signup_box).setVisibility(View.GONE);
-  }
   final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
   myOkButton=findButton(R.id.authentication_ok_button);
   myOkButton.setText(buttonResource.getResource("ok").getValue());
