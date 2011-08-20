@@ -37,20 +37,7 @@
   myOptionsMenuActions.add(new SignInAction(this));
   myOptionsMenuActions.add(new SignUpAction(this));
   myOptionsMenuActions.add(new SignOutAction(this));
-  myOptionsMenuActions.add(new CatalogAction(ActionCode.TOPUP,"topup"){
-    @Override public boolean isVisible(    NetworkTree tree){
-      if (!super.isVisible(tree)) {
-        return false;
-      }
-      final NetworkCatalogItem item=((NetworkCatalogTree)tree).Item;
-      final NetworkAuthenticationManager mgr=item.Link.authenticationManager();
-      return mgr != null && mgr.mayBeAuthorised(false) && mgr.currentAccount() != null && TopupMenuActivity.isTopupSupported(item.Link);
-    }
-    @Override public void run(    NetworkTree tree){
-      TopupMenuActivity.runMenu(NetworkLibraryActivity.this,((NetworkCatalogTree)tree).Item.Link,"113");
-    }
-  }
-);
+  myOptionsMenuActions.add(new TopupAction(this));
   final NetworkTree tree=(NetworkTree)getCurrentTree();
   for (  Action a : myOptionsMenuActions) {
     final MenuItem item=menu.add(0,a.Code,Menu.NONE,"");
