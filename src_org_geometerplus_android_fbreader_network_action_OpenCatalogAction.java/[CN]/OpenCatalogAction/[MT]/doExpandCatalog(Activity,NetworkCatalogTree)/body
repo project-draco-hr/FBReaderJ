@@ -13,10 +13,10 @@
           }
         }
  else {
-          clearTree(activity,tree);
+          NetworkCatalogActions.clearTree(activity,tree);
         }
       }
-      ItemsLoadingService.start(activity,tree,new CatalogExpander(activity,tree,true,resumeNotLoad));
+      ItemsLoadingService.start(activity,tree,new NetworkCatalogActions.CatalogExpander(activity,tree,true,resumeNotLoad));
       processExtraData(activity,tree.Item.extraData(),new Runnable(){
         public void run(){
           Util.openTree(activity,tree);

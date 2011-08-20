@@ -4,6 +4,6 @@
     UIUtil.showErrorMessage(myActivity,"emptyBasket");
   }
  else {
-    NetworkCatalogActions.doExpandCatalog(myActivity,(NetworkCatalogTree)tree);
+    doExpandCatalog(myActivity,(NetworkCatalogTree)tree);
   }
 }

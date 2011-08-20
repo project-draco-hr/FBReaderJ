@@ -19,7 +19,7 @@
         public void onClick(        View view){
           final NetworkCatalogItem catalogItem=myBook.createRelatedCatalogItem(relatedInfo);
           if (catalogItem != null) {
-            NetworkCatalogActions.doExpandCatalog(NetworkBookInfoActivity.this,NetworkLibrary.Instance().getFakeCatalogTree(catalogItem));
+            new OpenCatalogAction(NetworkBookInfoActivity.this).run(NetworkLibrary.Instance().getFakeCatalogTree(catalogItem));
           }
  else           if (MimeType.TEXT_HTML.equals(relatedInfo.Mime)) {
             Util.openInBrowser(NetworkBookInfoActivity.this,relatedInfo.Url);
