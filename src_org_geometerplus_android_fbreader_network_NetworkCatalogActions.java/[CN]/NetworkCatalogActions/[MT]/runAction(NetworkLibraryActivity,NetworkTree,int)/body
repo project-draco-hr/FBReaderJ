@@ -31,9 +31,6 @@ return true;
 case ActionCode.SIGNIN:
 Util.runAuthenticationDialog(activity,item.Link,null,null);
 return true;
-case ActionCode.SIGNUP:
-Util.runRegistrationDialog(activity,item.Link);
-return true;
 case ActionCode.SIGNOUT:
 doSignOut(activity,catalogTree);
 return true;

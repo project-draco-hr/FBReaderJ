@@ -1,0 +1,3 @@
+{
+  Util.runRegistrationDialog(myActivity,(((NetworkCatalogTree)tree).Item).Link);
+}

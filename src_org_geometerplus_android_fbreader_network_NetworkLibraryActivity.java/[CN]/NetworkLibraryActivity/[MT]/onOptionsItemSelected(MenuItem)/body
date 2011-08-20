@@ -1,13 +1,18 @@
 {
-  if (getCurrentTree() instanceof RootTree) {
+  final NetworkTree tree=(NetworkTree)getCurrentTree();
+  for (  Action a : myMenuActions) {
+    if (a.Code == item.getItemId()) {
+      a.run(tree);
+      break;
+    }
+  }
+  if (tree instanceof RootTree) {
 switch (item.getItemId()) {
-case ActionCode.SEARCH:
-      return onSearchRequested();
 case ActionCode.CUSTOM_CATALOG_ADD:
-    AddCustomCatalogItemActions.addCustomCatalog(this);
-  return true;
+      AddCustomCatalogItemActions.addCustomCatalog(this);
+    return true;
 case ActionCode.REFRESH:
-refreshCatalogsList();
+  refreshCatalogsList();
 return true;
 case ActionCode.LANGUAGE_FILTER:
 runLanguageFilterDialog();
@@ -17,7 +22,6 @@ return true;
 }
 }
  else {
-final NetworkTree tree=(NetworkTree)getCurrentTree();
 final NetworkTreeActions actions=NetworkView.Instance().getActions(tree);
 if (actions != null) {
 return actions.runAction(this,tree,item.getItemId());
