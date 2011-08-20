@@ -16,7 +16,7 @@
           }
         }
       }
-      NetworkView.Instance().fireModelChangedAsync();
+      NetworkView.Instance().fireModelChanged();
     }
   }
 ).setNegativeButton(buttonResource.getResource("no").getValue(),null).create().show();

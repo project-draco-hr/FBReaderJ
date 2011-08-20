@@ -1,5 +1,7 @@
 {
-  for (  EventListener listener : myEventListeners) {
-    listener.onModelChanged();
+synchronized (myEventListeners) {
+    for (    EventListener listener : myEventListeners) {
+      listener.onModelChanged();
+    }
   }
 }

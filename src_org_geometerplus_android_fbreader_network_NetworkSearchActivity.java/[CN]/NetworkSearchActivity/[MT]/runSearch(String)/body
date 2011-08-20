@@ -8,7 +8,7 @@
   final String summary=NetworkLibrary.resource().getResource("searchResults").getValue().replace("%s",pattern);
   final SearchResult result=new SearchResult(summary);
   tree.setSearchResult(result);
-  NetworkView.Instance().fireModelChangedAsync();
+  NetworkView.Instance().fireModelChanged();
   ItemsLoadingService.start(this,tree,new Searcher(this,tree,pattern));
   Util.openTree(this,tree);
 }
