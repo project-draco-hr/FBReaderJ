@@ -1,0 +1,14 @@
+{
+  final INetworkLink link=myTree.Item.Link;
+  if (myCheckAuthentication && link.authenticationManager() != null) {
+    final NetworkAuthenticationManager mgr=link.authenticationManager();
+    try {
+      if (mgr.isAuthorised(true) && mgr.needsInitialization()) {
+        mgr.initialize();
+      }
+    }
+ catch (    ZLNetworkException e) {
+      mgr.logOut();
+    }
+  }
+}
