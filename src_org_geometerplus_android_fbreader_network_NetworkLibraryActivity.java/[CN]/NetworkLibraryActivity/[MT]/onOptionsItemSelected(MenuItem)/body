@@ -6,26 +6,5 @@
       break;
     }
   }
-  if (tree instanceof RootTree) {
-switch (item.getItemId()) {
-case ActionCode.CUSTOM_CATALOG_ADD:
-      AddCustomCatalogItemActions.addCustomCatalog(this);
-    return true;
-case ActionCode.REFRESH:
-  refreshCatalogsList();
-return true;
-case ActionCode.LANGUAGE_FILTER:
-runLanguageFilterDialog();
-return true;
-default :
-return true;
-}
-}
- else {
-final NetworkTreeActions actions=NetworkView.Instance().getActions(tree);
-if (actions != null) {
-return actions.runAction(this,tree,item.getItemId());
-}
-return false;
-}
+  return true;
 }
