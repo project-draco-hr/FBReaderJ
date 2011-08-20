@@ -17,7 +17,7 @@
   }
 ;
   final ZLResource dialogResource=ZLResource.resource("dialog");
-  final AlertDialog dialog=new AlertDialog.Builder(this).setMultiChoiceItems(languageNames,checked,listener).setTitle(dialogResource.getResource("languageFilterDialog").getResource("title").getValue()).setPositiveButton(dialogResource.getResource("button").getResource("ok").getValue(),new DialogInterface.OnClickListener(){
+  final AlertDialog dialog=new AlertDialog.Builder(myActivity).setMultiChoiceItems(languageNames,checked,listener).setTitle(dialogResource.getResource("languageFilterDialog").getResource("title").getValue()).setPositiveButton(dialogResource.getResource("button").getResource("ok").getValue(),new DialogInterface.OnClickListener(){
     public void onClick(    DialogInterface dialog,    int which){
       final TreeSet<String> newActiveCodes=new TreeSet<String>(new ZLLanguageUtil.CodeComparator());
       for (int i=0; i < checked.length; ++i) {

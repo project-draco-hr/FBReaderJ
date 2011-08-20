@@ -22,12 +22,7 @@
     }
   }
 );
-  myMenuActions.add(new RootAction(ActionCode.LANGUAGE_FILTER,"languages",R.drawable.ic_menu_languages){
-    @Override public void run(    NetworkTree tree){
-      runLanguageFilterDialog();
-    }
-  }
-);
+  myMenuActions.add(new LanguageFilterAction(this));
   myMenuActions.add(new CatalogAction(ActionCode.RELOAD_CATALOG,"reload"){
     @Override public boolean isVisible(    NetworkTree tree){
       if (!super.isVisible(tree)) {
