@@ -1,4 +1,0 @@
-{
-  super(ActionCode.CUSTOM_CATALOG_ADD,"addCustomCatalog",R.drawable.ic_menu_add);
-  myActivity=activity;
-}

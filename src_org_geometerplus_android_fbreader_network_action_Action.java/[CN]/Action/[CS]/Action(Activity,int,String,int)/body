@@ -1,0 +1,6 @@
+{
+  myActivity=activity;
+  Code=code;
+  myResourceKey=resourceKey;
+  IconId=iconId;
+}

@@ -1,4 +1,0 @@
-{
-  super(ActionCode.TOPUP,"topup",-1);
-  myActivity=activity;
-}

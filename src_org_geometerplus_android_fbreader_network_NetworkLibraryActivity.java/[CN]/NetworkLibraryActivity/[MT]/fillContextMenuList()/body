@@ -1,4 +1,5 @@
 {
+  myContextMenuActions.add(new OpenCatalogAction(this));
   myContextMenuActions.add(new AddCustomCatalogAction(this));
   myContextMenuActions.add(new TopupAction(this));
 }

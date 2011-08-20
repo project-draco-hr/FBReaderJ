@@ -6,7 +6,7 @@
     if (a.isVisible(tree)) {
       item.setVisible(true);
       item.setEnabled(a.isEnabled(tree));
-      item.setTitle(a.getLabel(tree));
+      item.setTitle(a.getOptionsLabel(tree));
     }
  else {
       item.setVisible(false);

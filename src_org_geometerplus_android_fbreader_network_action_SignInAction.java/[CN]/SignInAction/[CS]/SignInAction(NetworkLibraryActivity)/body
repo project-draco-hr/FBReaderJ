@@ -1,4 +1,0 @@
-{
-  super(ActionCode.SIGNIN,"signIn");
-  myActivity=activity;
-}

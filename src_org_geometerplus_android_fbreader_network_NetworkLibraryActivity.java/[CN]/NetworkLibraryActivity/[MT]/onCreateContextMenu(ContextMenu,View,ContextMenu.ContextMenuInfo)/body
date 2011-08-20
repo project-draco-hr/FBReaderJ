@@ -18,6 +18,12 @@
       }
     }
  else     if (count > 1) {
+      menu.setHeaderTitle(tree.getName());
+      for (      Action a : myContextMenuActions) {
+        if (a.isVisible(tree) && a.isEnabled(tree)) {
+          menu.add(0,a.Code,0,a.getContextLabel(tree));
+        }
+      }
     }
   }
 }

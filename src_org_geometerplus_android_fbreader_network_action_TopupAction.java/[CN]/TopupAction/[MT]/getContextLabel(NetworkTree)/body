@@ -1,0 +1,17 @@
+{
+  INetworkLink link=null;
+  if (tree instanceof TopUpTree) {
+    link=((TopUpTree)tree).Item.Link;
+  }
+ else   if (tree instanceof NetworkCatalogTree) {
+    link=((NetworkCatalogTree)tree).Item.Link;
+  }
+  String account=null;
+  if (link != null) {
+    final NetworkAuthenticationManager mgr=link.authenticationManager();
+    if (mgr != null && mgr.mayBeAuthorised(false)) {
+      account=mgr.currentAccount();
+    }
+  }
+  return super.getContextLabel(tree).replace("%s",account != null ? account : "");
+}

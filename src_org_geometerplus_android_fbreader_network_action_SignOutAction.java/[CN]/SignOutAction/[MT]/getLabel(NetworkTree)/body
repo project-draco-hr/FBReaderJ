@@ -1,5 +1,0 @@
-{
-  final NetworkAuthenticationManager mgr=(((NetworkCatalogTree)tree).Item).Link.authenticationManager();
-  final String userName=mgr != null && mgr.mayBeAuthorised(false) ? mgr.currentUserName() : "";
-  return super.getLabel(tree).replace("%s",userName);
-}
