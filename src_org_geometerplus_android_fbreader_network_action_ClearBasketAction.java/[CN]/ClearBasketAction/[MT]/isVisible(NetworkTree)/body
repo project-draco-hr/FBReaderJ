@@ -1,0 +1,3 @@
+{
+  return super.isVisible(tree) && ((NetworkCatalogTree)tree).Item instanceof BasketItem;
+}
