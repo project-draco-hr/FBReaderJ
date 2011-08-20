@@ -1,3 +1,22 @@
 {
-  NetworkCatalogActions.doSignOut(myActivity,(NetworkCatalogRootTree)tree);
+  final NetworkCatalogItem item=((NetworkCatalogRootTree)tree).Item;
+  final NetworkAuthenticationManager mgr=item.Link.authenticationManager();
+  final Runnable runnable=new Runnable(){
+    public void run(){
+      if (mgr.mayBeAuthorised(false)) {
+        mgr.logOut();
+        myActivity.runOnUiThread(new Runnable(){
+          public void run(){
+            final NetworkLibrary library=NetworkLibrary.Instance();
+            library.invalidateVisibility();
+            library.synchronize();
+            NetworkView.Instance().fireModelChanged();
+          }
+        }
+);
+      }
+    }
+  }
+;
+  UIUtil.wait("signOut",runnable,myActivity);
 }
