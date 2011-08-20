@@ -1,0 +1,26 @@
+{
+  final NetworkAuthenticationManager mgr=myLink.authenticationManager();
+  mgr.UserNameOption.setValue(username);
+  final Runnable runnable=new Runnable(){
+    public void run(){
+      try {
+        mgr.authorise(password);
+        if (mgr.needsInitialization()) {
+          mgr.initialize();
+        }
+        finishOk(username,password);
+      }
+ catch (      final ZLNetworkException e) {
+        mgr.logOut();
+        runOnUiThread(new Runnable(){
+          public void run(){
+            setError(e.getMessage());
+          }
+        }
+);
+      }
+    }
+  }
+;
+  UIUtil.wait("authentication",runnable,this);
+}

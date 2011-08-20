@@ -4,13 +4,6 @@
     action.run();
   }
  else {
-    Util.runAuthenticationDialog(this,myLink,null,new Runnable(){
-      public void run(){
-        if (mgr.mayBeAuthorised(false)) {
-          runOnUiThread(action);
-        }
-      }
-    }
-);
+    Util.runAuthenticationDialog(this,myLink,action);
   }
 }

@@ -22,38 +22,19 @@ case AuthenticationActivity.RESULT_CANCELED:
 ,activity);
   break;
 case AuthenticationActivity.RESULT_OK:
-{
-  final ZLResource resource=ZLResource.resource("dialog").getResource("AuthenticationDialog");
-  final String username=data.getStringExtra(AuthenticationActivity.USERNAME_KEY);
-  final String password=data.getStringExtra(AuthenticationActivity.PASSWORD_KEY);
-  final NetworkAuthenticationManager mgr=link.authenticationManager();
-  mgr.UserNameOption.setValue(username);
-  final Runnable runnable=new Runnable(){
-    public void run(){
-      try {
-        mgr.authorise(password);
-        if (mgr.needsInitialization()) {
-          mgr.initialize();
-        }
-        if (onSuccess != null) {
-          onSuccess.run();
-        }
-      }
- catch (      ZLNetworkException e) {
-        mgr.logOut();
-        runAuthenticationDialog(activity,link,e.getMessage(),onSuccess);
-        return;
-      }
-      final NetworkLibrary library=NetworkLibrary.Instance();
-      library.invalidateVisibility();
-      library.synchronize();
-      NetworkView.Instance().fireModelChanged();
+activity.runOnUiThread(new Runnable(){
+  public void run(){
+    if (onSuccess != null) {
+      onSuccess.run();
     }
+    final NetworkLibrary library=NetworkLibrary.Instance();
+    library.invalidateVisibility();
+    library.synchronize();
+    NetworkView.Instance().fireModelChanged();
   }
-;
-  UIUtil.wait("authentication",runnable,activity);
-  break;
 }
+);
+break;
 case AuthenticationActivity.RESULT_SIGNUP:
 Util.runRegistrationDialog(activity,link);
 break;

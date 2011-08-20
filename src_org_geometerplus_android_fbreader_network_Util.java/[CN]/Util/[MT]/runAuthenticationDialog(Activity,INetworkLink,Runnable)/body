@@ -6,7 +6,7 @@
     intent.putExtra(AuthenticationActivity.SHOW_SIGNUP_LINK_KEY,true);
   }
   intent.putExtra(AuthenticationActivity.SCHEME_KEY,"https");
-  intent.putExtra(AuthenticationActivity.ERROR_KEY,error);
+  intent.putExtra(AuthenticationActivity.CUSTOM_AUTH_KEY,true);
   if (onSuccess != null) {
     ourAfterRegisrationMap.put(activity,onSuccess);
   }

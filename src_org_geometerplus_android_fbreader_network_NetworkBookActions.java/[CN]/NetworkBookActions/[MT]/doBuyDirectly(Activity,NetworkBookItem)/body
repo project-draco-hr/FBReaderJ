@@ -92,5 +92,5 @@
   }
  catch (  ZLNetworkException e) {
   }
-  Util.runAuthenticationDialog(activity,book.Link,null,buyOnUiRunnable);
+  Util.runAuthenticationDialog(activity,book.Link,buyOnUiRunnable);
 }
