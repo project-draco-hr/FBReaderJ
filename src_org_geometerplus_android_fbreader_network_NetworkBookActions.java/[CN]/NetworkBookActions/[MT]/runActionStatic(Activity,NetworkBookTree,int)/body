@@ -1,3 +1,0 @@
-{
-  return runActionStatic(activity,tree.Book,actionCode);
-}

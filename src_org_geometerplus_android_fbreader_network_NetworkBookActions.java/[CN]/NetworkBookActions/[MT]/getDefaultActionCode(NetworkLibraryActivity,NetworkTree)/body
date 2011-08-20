@@ -1,3 +1,0 @@
-{
-  return ActionCode.SHOW_BOOK_ACTIVITY;
-}
