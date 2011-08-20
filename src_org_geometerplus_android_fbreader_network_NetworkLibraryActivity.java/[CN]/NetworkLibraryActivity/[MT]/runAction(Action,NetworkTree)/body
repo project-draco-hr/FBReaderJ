@@ -1,0 +1,26 @@
+{
+  if (tree instanceof NetworkCatalogTree) {
+    final NetworkCatalogItem item=((NetworkCatalogTree)tree).Item;
+switch (item.getVisibility()) {
+case B3_TRUE:
+      action.run(tree);
+    break;
+case B3_UNDEFINED:
+  Util.runAuthenticationDialog(this,item.Link,null,new Runnable(){
+    public void run(){
+      if (item.getVisibility() != ZLBoolean3.B3_TRUE) {
+        return;
+      }
+      if (action.Code != ActionCode.SIGNIN) {
+        action.run(tree);
+      }
+    }
+  }
+);
+break;
+}
+}
+ else {
+action.run(tree);
+}
+}

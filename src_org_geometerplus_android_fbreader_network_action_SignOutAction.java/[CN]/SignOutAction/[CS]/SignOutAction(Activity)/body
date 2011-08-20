@@ -1,3 +1,3 @@
 {
-  super(activity,ActionCode.SIGNOUT,"signOut");
+  super(activity,ActionCode.SIGNOUT,"signOut",-1);
 }

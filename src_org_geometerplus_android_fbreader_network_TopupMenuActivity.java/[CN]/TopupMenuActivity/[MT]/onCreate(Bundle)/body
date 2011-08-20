@@ -5,7 +5,7 @@
   myLink=NetworkLibrary.Instance().getLinkByUrl(url);
   myAmount=getIntent().getStringExtra(AMOUNT_KEY);
   myInfos=new ArrayList<PluginApi.TopupActionInfo>();
-  if (myLink.authenticationManager().topupLink() != null) {
+  if (myLink.getUrlInfo(UrlInfo.Type.TopUp) != null) {
     myInfos.add(new PluginApi.TopupActionInfo(Uri.parse(url + "/browser"),NetworkLibrary.resource().getResource("topupViaBrowser").getValue(),100));
   }
   try {

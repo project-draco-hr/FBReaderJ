@@ -1,7 +1,0 @@
-{
-  if (ItemsLoadingService.getRunnable(tree) != null) {
-    return;
-  }
-  clearTree(activity,tree);
-  ItemsLoadingService.start(activity,tree,new CatalogExpander(activity,tree,false,false));
-}

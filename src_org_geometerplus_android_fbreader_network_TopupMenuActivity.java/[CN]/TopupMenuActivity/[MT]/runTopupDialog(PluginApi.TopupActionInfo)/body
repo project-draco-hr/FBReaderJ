@@ -5,7 +5,9 @@
         try {
           final NetworkAuthenticationManager mgr=myLink.authenticationManager();
           if (info.getId().toString().endsWith("/browser")) {
-            Util.openInBrowser(TopupMenuActivity.this,mgr.topupLink());
+            if (mgr != null) {
+              Util.openInBrowser(TopupMenuActivity.this,mgr.topupLink());
+            }
           }
  else {
             final Intent intent=new Intent(TOPUP_ACTION,info.getId());

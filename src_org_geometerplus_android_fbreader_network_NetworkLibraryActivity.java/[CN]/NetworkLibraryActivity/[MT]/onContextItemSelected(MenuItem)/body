@@ -2,9 +2,11 @@
   final int position=((AdapterView.AdapterContextMenuInfo)item.getMenuInfo()).position;
   final NetworkTree tree=(NetworkTree)getListAdapter().getItem(position);
   if (tree != null) {
-    final NetworkTreeActions actions=NetworkView.Instance().getActions(tree);
-    if (actions != null && actions.runAction(this,tree,item.getItemId())) {
-      return true;
+    for (    Action a : myContextMenuActions) {
+      if (a.Code == item.getItemId()) {
+        runAction(a,tree);
+        return true;
+      }
     }
   }
   return super.onContextItemSelected(item);

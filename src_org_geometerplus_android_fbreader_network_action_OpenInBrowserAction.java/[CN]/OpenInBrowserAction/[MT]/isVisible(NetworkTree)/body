@@ -1,0 +1,10 @@
+{
+  if (!super.isVisible(tree)) {
+    return false;
+  }
+  final NetworkCatalogItem item=((NetworkCatalogTree)tree).Item;
+  if (!(item instanceof NetworkURLCatalogItem)) {
+    return false;
+  }
+  return ((NetworkURLCatalogItem)item).getUrl(UrlInfo.Type.HtmlPage) != null;
+}

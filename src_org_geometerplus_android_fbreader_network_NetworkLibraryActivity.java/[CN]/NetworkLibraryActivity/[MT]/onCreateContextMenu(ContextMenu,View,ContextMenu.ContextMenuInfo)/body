@@ -12,10 +12,6 @@
       }
     }
     if (count == 0) {
-      final NetworkTreeActions actions=NetworkView.Instance().getActions(tree);
-      if (actions != null) {
-        actions.buildContextMenu(this,menu,tree);
-      }
     }
  else     if (count > 1) {
       menu.setHeaderTitle(tree.getName());

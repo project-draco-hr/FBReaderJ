@@ -1,0 +1,64 @@
+{
+  final INetworkLink link=linkByIntent(data);
+  if (link == null) {
+    return;
+  }
+  final Runnable onSuccess=ourAfterRegisrationMap.get(activity);
+  ourAfterRegisrationMap.remove(activity);
+switch (resultCode) {
+case AuthenticationActivity.RESULT_CANCELED:
+    UIUtil.wait("signOut",new Runnable(){
+      public void run(){
+        final NetworkAuthenticationManager mgr=link.authenticationManager();
+        if (mgr.mayBeAuthorised(false)) {
+          mgr.logOut();
+        }
+        final NetworkLibrary library=NetworkLibrary.Instance();
+        library.invalidateVisibility();
+        library.synchronize();
+        NetworkView.Instance().fireModelChanged();
+      }
+    }
+,activity);
+  break;
+case AuthenticationActivity.RESULT_OK:
+{
+  final ZLResource resource=ZLResource.resource("dialog").getResource("AuthenticationDialog");
+  final String username=data.getStringExtra(AuthenticationActivity.USERNAME_KEY);
+  final String password=data.getStringExtra(AuthenticationActivity.PASSWORD_KEY);
+  if (username.length() == 0) {
+    runAuthenticationDialog(activity,link,resource.getResource("loginIsEmpty").getValue(),onSuccess);
+  }
+  final NetworkAuthenticationManager mgr=link.authenticationManager();
+  mgr.UserNameOption.setValue(username);
+  final Runnable runnable=new Runnable(){
+    public void run(){
+      try {
+        mgr.authorise(password);
+        if (mgr.needsInitialization()) {
+          mgr.initialize();
+        }
+        if (onSuccess != null) {
+          onSuccess.run();
+        }
+      }
+ catch (      ZLNetworkException e) {
+        mgr.logOut();
+        runAuthenticationDialog(activity,link,e.getMessage(),onSuccess);
+        return;
+      }
+      final NetworkLibrary library=NetworkLibrary.Instance();
+      library.invalidateVisibility();
+      library.synchronize();
+      NetworkView.Instance().fireModelChanged();
+    }
+  }
+;
+  UIUtil.wait("authentication",runnable,activity);
+  break;
+}
+case AuthenticationActivity.RESULT_SIGNUP:
+Util.runRegistrationDialog(activity,link);
+break;
+}
+}

@@ -1,52 +1,10 @@
 {
   final NetworkCatalogTree catalogTree=(NetworkCatalogTree)tree;
-  if (consumeByVisibility(activity,catalogTree,actionCode)) {
-    return true;
-  }
   final NetworkCatalogItem item=catalogTree.Item;
 switch (actionCode) {
-case ActionCode.OPEN_CATALOG:
-    if (item instanceof BasketItem && item.Link.basket().bookIds().size() == 0) {
-      UIUtil.showErrorMessage(activity,"emptyBasket");
-    }
- else {
-      doExpandCatalog(activity,catalogTree);
-    }
-  return true;
-case ActionCode.OPEN_IN_BROWSER:
-if (item instanceof NetworkURLCatalogItem) {
-  final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
-  final String message=NetworkLibrary.resource().getResource("confirmQuestions").getResource("openInBrowser").getValue();
-  new AlertDialog.Builder(activity).setTitle(catalogTree.getName()).setMessage(message).setIcon(0).setPositiveButton(buttonResource.getResource("yes").getValue(),new DialogInterface.OnClickListener(){
-    public void onClick(    DialogInterface dialog,    int which){
-      Util.openInBrowser(activity,item.getUrl(UrlInfo.Type.HtmlPage));
-    }
-  }
-).setNegativeButton(buttonResource.getResource("no").getValue(),null).create().show();
-}
-return true;
-case ActionCode.RELOAD_CATALOG:
-doReloadCatalog(activity,catalogTree);
-return true;
 case ActionCode.SIGNIN:
-Util.runAuthenticationDialog(activity,item.Link,null,null);
-return true;
-case ActionCode.SIGNOUT:
-doSignOut(activity,catalogTree);
-return true;
-case ActionCode.TOPUP:
-TopupMenuActivity.runMenu(activity,item.Link,"112");
-return true;
-case ActionCode.CUSTOM_CATALOG_EDIT:
-{
-final Intent intent=new Intent(activity,AddCustomCatalogActivity.class);
-AddCustomCatalogActivity.addLinkToIntent(intent,(ICustomNetworkLink)item.Link);
-activity.startActivity(intent);
-return true;
-}
-case ActionCode.CUSTOM_CATALOG_REMOVE:
-removeCustomLink((ICustomNetworkLink)item.Link);
-return true;
+    Util.runAuthenticationDialog(activity,item.Link,null,null);
+  return true;
 case ActionCode.BASKET_CLEAR:
 item.Link.basket().clear();
 return true;

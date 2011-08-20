@@ -4,32 +4,10 @@
   }
   final NetworkTree tree=(NetworkTree)getListAdapter().getItem(position);
   Action defaultAction=null;
-  int count=0;
   for (  Action a : myContextMenuActions) {
     if (a.isVisible(tree) && a.isEnabled(tree)) {
-      defaultAction=a;
-      ++count;
-    }
-  }
-  if (count == 0) {
-    final NetworkView networkView=NetworkView.Instance();
-    final NetworkTreeActions actions=networkView.getActions(tree);
-    if (actions == null) {
+      runAction(a,tree);
       return;
     }
-    final int actionCode=actions.getDefaultActionCode(this,tree);
-    if (actionCode == ActionCode.TREE_SHOW_CONTEXT_MENU) {
-      listView.showContextMenuForChild(view);
-      return;
-    }
-    if (actionCode < 0) {
-      return;
-    }
-    actions.runAction(this,tree,actionCode);
-  }
- else   if (count == 1) {
-    defaultAction.run(tree);
-  }
- else {
   }
 }

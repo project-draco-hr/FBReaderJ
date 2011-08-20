@@ -1,0 +1,11 @@
+{
+  if (!super.isVisible(tree)) {
+    return false;
+  }
+  final NetworkCatalogItem item=((NetworkCatalogTree)tree).Item;
+  if (!(item instanceof NetworkURLCatalogItem)) {
+    return true;
+  }
+  final String catalogUrl=((NetworkURLCatalogItem)item).getUrl(UrlInfo.Type.Catalog);
+  return catalogUrl != null && (!(item instanceof BasketItem) || item.Link.basket().bookIds().size() > 0);
+}

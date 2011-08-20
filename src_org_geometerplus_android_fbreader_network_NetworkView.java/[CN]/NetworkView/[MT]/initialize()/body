@@ -3,9 +3,5 @@
   final NetworkLibrary library=NetworkLibrary.Instance();
   library.initialize();
   library.synchronize();
-  myActions.add(new NetworkBookActions());
-  myActions.add(new NetworkCatalogActions());
-  myActions.add(new SearchItemActions());
-  myActions.trimToSize();
   myInitialized=true;
 }

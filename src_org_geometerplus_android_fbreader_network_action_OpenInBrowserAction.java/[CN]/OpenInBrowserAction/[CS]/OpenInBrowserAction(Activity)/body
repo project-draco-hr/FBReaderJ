@@ -1,0 +1,3 @@
+{
+  super(activity,ActionCode.OPEN_IN_BROWSER,"openInBrowser");
+}

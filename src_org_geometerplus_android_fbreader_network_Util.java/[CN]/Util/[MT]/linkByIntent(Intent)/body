@@ -1,0 +1,3 @@
+{
+  return NetworkLibrary.Instance().getLinkByUrl(intent.getData().toString());
+}
