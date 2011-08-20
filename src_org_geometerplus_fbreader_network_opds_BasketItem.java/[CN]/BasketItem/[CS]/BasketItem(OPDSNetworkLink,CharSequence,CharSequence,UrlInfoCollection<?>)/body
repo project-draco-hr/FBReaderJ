@@ -1,0 +1,4 @@
+{
+  super(link,title,summary,urls,Accessibility.ALWAYS,FLAGS_DEFAULT & ~FLAGS_GROUP);
+  link.setSupportsBasket();
+}

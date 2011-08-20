@@ -1,0 +1,4 @@
+OPDSNetworkLink link
+CharSequence title
+CharSequence summary
+UrlInfoCollection<?> urls

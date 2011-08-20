@@ -3,8 +3,8 @@
   if (tree instanceof TopUpTree) {
     link=((TopUpTree)tree).Item.Link;
   }
- else   if (tree instanceof NetworkCatalogTree) {
-    link=((NetworkCatalogTree)tree).Item.Link;
+ else   if (tree instanceof NetworkCatalogRootTree) {
+    link=((NetworkCatalogRootTree)tree).Item.Link;
   }
   if (link != null) {
     TopupMenuActivity.runMenu(myActivity,link,null);
