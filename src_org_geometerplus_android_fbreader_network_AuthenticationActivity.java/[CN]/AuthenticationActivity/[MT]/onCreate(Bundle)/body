@@ -15,6 +15,7 @@
   final String error=intent.getStringExtra(ERROR_KEY);
   final boolean showSignupLink=intent.getBooleanExtra(SHOW_SIGNUP_LINK_KEY,false);
   myCustomAuthentication=intent.getBooleanExtra(CUSTOM_AUTH_KEY,false);
+  myOnSuccessRunnable=ourOnSuccessRunnableMap.remove(intent.getLongExtra(RUNNABLE_KEY,-1));
   myResource=ZLResource.resource("dialog").getResource("AuthenticationDialog");
   setTitle(host != null ? host : myResource.getResource("title").getValue());
   if (area != null && !"".equals(area)) {
@@ -70,6 +71,19 @@
   cancelButton.setText(buttonResource.getResource("cancel").getValue());
   cancelButton.setOnClickListener(new Button.OnClickListener(){
     public void onClick(    View v){
+      runOnUiThread(new Runnable(){
+        public void run(){
+          final NetworkAuthenticationManager mgr=myLink.authenticationManager();
+          if (mgr.mayBeAuthorised(false)) {
+            mgr.logOut();
+          }
+          final NetworkLibrary library=NetworkLibrary.Instance();
+          library.invalidateVisibility();
+          library.synchronize();
+          NetworkView.Instance().fireModelChanged();
+        }
+      }
+);
       finish();
     }
   }

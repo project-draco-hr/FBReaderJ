@@ -9,6 +9,13 @@
           mgr.initialize();
         }
         finishOk(username,password);
+        if (myOnSuccessRunnable != null) {
+          myOnSuccessRunnable.run();
+        }
+        final NetworkLibrary library=NetworkLibrary.Instance();
+        library.invalidateVisibility();
+        library.synchronize();
+        NetworkView.Instance().fireModelChanged();
       }
  catch (      final ZLNetworkException e) {
         mgr.logOut();

@@ -3,40 +3,9 @@
   if (link == null) {
     return;
   }
-  final Runnable onSuccess=ourAfterRegisrationMap.get(activity);
-  ourAfterRegisrationMap.remove(activity);
 switch (resultCode) {
-case AuthenticationActivity.RESULT_CANCELED:
-    UIUtil.wait("signOut",new Runnable(){
-      public void run(){
-        final NetworkAuthenticationManager mgr=link.authenticationManager();
-        if (mgr.mayBeAuthorised(false)) {
-          mgr.logOut();
-        }
-        final NetworkLibrary library=NetworkLibrary.Instance();
-        library.invalidateVisibility();
-        library.synchronize();
-        NetworkView.Instance().fireModelChanged();
-      }
-    }
-,activity);
-  break;
-case AuthenticationActivity.RESULT_OK:
-activity.runOnUiThread(new Runnable(){
-  public void run(){
-    if (onSuccess != null) {
-      onSuccess.run();
-    }
-    final NetworkLibrary library=NetworkLibrary.Instance();
-    library.invalidateVisibility();
-    library.synchronize();
-    NetworkView.Instance().fireModelChanged();
-  }
-}
-);
-break;
 case AuthenticationActivity.RESULT_SIGNUP:
-Util.runRegistrationDialog(activity,link);
-break;
+    runRegistrationDialog(activity,link);
+  break;
 }
 }
