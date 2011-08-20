@@ -1,7 +1,7 @@
 {
   menu.setHeaderTitle(tree.getName());
   if (tree instanceof NetworkAuthorTree || tree instanceof NetworkSeriesTree) {
-    addMenuItem(menu,SHOW_BOOKS_ITEM_ID,"showBooks");
+    addMenuItem(menu,ActionCode.SHOW_BOOKS,"showBooks");
     return;
   }
   final NetworkBookTree bookTree=(NetworkBookTree)tree;

@@ -1,6 +1,6 @@
 {
 switch (actionCode) {
-case SHOW_BOOK_ACTIVITY_ITEM_ID:
+case ActionCode.SHOW_BOOK_ACTIVITY:
     if (tree.Book.isFullyLoaded()) {
       Util.openTree(activity,tree);
     }

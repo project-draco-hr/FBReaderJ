@@ -6,11 +6,11 @@
       actions.add(new Action(ActionCode.TREE_NO_ACTION,"alreadyDownloading"));
     }
  else     if (book.localCopyFileName() != null) {
-      actions.add(new Action(READ_BOOK_ITEM_ID,"read"));
-      actions.add(new Action(DELETE_BOOK_ITEM_ID,"delete"));
+      actions.add(new Action(ActionCode.READ_BOOK,"read"));
+      actions.add(new Action(ActionCode.DELETE_BOOK,"delete"));
     }
  else     if (reference != null) {
-      actions.add(new Action(DOWNLOAD_BOOK_ITEM_ID,"download"));
+      actions.add(new Action(ActionCode.DOWNLOAD_BOOK,"download"));
     }
   }
   if (useDemoReferences(book)) {
@@ -19,11 +19,11 @@
       actions.add(new Action(ActionCode.TREE_NO_ACTION,"alreadyDownloadingDemo"));
     }
  else     if (reference.localCopyFileName(UrlInfo.Type.BookDemo) != null) {
-      actions.add(new Action(READ_DEMO_ITEM_ID,"readDemo"));
-      actions.add(new Action(DELETE_DEMO_ITEM_ID,"deleteDemo"));
+      actions.add(new Action(ActionCode.READ_DEMO,"readDemo"));
+      actions.add(new Action(ActionCode.DELETE_DEMO,"deleteDemo"));
     }
  else {
-      actions.add(new Action(DOWNLOAD_DEMO_ITEM_ID,"downloadDemo"));
+      actions.add(new Action(ActionCode.DOWNLOAD_DEMO,"downloadDemo"));
     }
   }
   if (useBuyReferences(book)) {
@@ -31,11 +31,11 @@
     BookUrlInfo reference=null;
     if (book.reference(UrlInfo.Type.BookBuy) != null) {
       reference=book.reference(UrlInfo.Type.BookBuy);
-      id=BUY_DIRECTLY_ITEM_ID;
+      id=ActionCode.BUY_DIRECTLY;
     }
  else     if (book.reference(UrlInfo.Type.BookBuyInBrowser) != null) {
       reference=book.reference(UrlInfo.Type.BookBuyInBrowser);
-      id=BUY_IN_BROWSER_ITEM_ID;
+      id=ActionCode.BUY_IN_BROWSER;
     }
     if (reference != null) {
       final String price=((BookBuyUrlInfo)reference).Price;
@@ -44,10 +44,10 @@
     final Basket basket=book.Link.basket();
     if (basket != null) {
       if (basket.contains(book)) {
-        actions.add(new Action(REMOVE_BOOK_FROM_BASKET,"removeFromBasket"));
+        actions.add(new Action(ActionCode.REMOVE_BOOK_FROM_BASKET,"removeFromBasket"));
       }
  else {
-        actions.add(new Action(ADD_BOOK_TO_BASKET,"addToBasket"));
+        actions.add(new Action(ActionCode.ADD_BOOK_TO_BASKET,"addToBasket"));
       }
     }
   }

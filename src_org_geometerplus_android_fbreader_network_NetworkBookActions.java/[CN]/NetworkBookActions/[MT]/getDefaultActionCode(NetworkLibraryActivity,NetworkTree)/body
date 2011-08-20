@@ -1,6 +1,6 @@
 {
   if (tree instanceof NetworkAuthorTree || tree instanceof NetworkSeriesTree) {
-    return SHOW_BOOKS_ITEM_ID;
+    return ActionCode.SHOW_BOOKS;
   }
-  return SHOW_BOOK_ACTIVITY_ITEM_ID;
+  return ActionCode.SHOW_BOOK_ACTIVITY;
 }
