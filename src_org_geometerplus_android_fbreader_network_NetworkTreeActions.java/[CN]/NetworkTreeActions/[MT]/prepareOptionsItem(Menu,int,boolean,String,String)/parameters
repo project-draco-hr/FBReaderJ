@@ -1,5 +1,0 @@
-Menu menu
-int id
-boolean state
-String key
-String arg

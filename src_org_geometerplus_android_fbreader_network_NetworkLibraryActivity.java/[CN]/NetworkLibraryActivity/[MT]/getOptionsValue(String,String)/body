@@ -1,0 +1,3 @@
+{
+  return NetworkLibrary.resource().getResource("menu").getResource(key).getValue().replace("%s",arg);
+}

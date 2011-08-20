@@ -6,7 +6,7 @@
     return;
   }
   final int actionCode=actions.getDefaultActionCode(this,networkTree);
-  if (actionCode == NetworkTreeActions.TREE_SHOW_CONTEXT_MENU) {
+  if (actionCode == ActionCode.TREE_SHOW_CONTEXT_MENU) {
     listView.showContextMenuForChild(view);
     return;
   }

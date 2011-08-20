@@ -3,7 +3,7 @@
   if (useFullReferences(book)) {
     final BookUrlInfo reference=book.reference(UrlInfo.Type.Book);
     if (reference != null && connection != null && connection.isBeingDownloaded(reference.Url)) {
-      actions.add(new Action(TREE_NO_ACTION,"alreadyDownloading"));
+      actions.add(new Action(ActionCode.TREE_NO_ACTION,"alreadyDownloading"));
     }
  else     if (book.localCopyFileName() != null) {
       actions.add(new Action(READ_BOOK_ITEM_ID,"read"));
@@ -16,7 +16,7 @@
   if (useDemoReferences(book)) {
     final BookUrlInfo reference=book.reference(UrlInfo.Type.BookDemo);
     if (connection != null && connection.isBeingDownloaded(reference.Url)) {
-      actions.add(new Action(TREE_NO_ACTION,"alreadyDownloadingDemo"));
+      actions.add(new Action(ActionCode.TREE_NO_ACTION,"alreadyDownloadingDemo"));
     }
  else     if (reference.localCopyFileName(UrlInfo.Type.BookDemo) != null) {
       actions.add(new Action(READ_DEMO_ITEM_ID,"readDemo"));
@@ -27,7 +27,7 @@
     }
   }
   if (useBuyReferences(book)) {
-    int id=TREE_NO_ACTION;
+    int id=ActionCode.TREE_NO_ACTION;
     BookUrlInfo reference=null;
     if (book.reference(UrlInfo.Type.BookBuy) != null) {
       reference=book.reference(UrlInfo.Type.BookBuy);

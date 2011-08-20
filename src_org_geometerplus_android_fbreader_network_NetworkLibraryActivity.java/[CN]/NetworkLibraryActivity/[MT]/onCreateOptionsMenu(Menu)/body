@@ -1,13 +1,78 @@
 {
   super.onCreateOptionsMenu(menu);
-  if (getCurrentTree() instanceof RootTree) {
-    addMenuItem(menu,MENU_SEARCH,"networkSearch",R.drawable.ic_menu_search);
-    addMenuItem(menu,MENU_ADD_CATALOG,"addCustomCatalog",R.drawable.ic_menu_add);
-    addMenuItem(menu,MENU_REFRESH,"refreshCatalogsList",R.drawable.ic_menu_refresh);
-    addMenuItem(menu,MENU_LANGUAGE_FILTER,"languages",R.drawable.ic_menu_languages);
-    return true;
+  myMenuActions.clear();
+  myMenuActions.add(new RootAction(ActionCode.SEARCH,"networkSearch",R.drawable.ic_menu_search){
+    @Override boolean isEnabled(    NetworkTree tree){
+      return !searchIsInProgress();
+    }
   }
- else {
-    return NetworkView.Instance().createOptionsMenu(menu,(NetworkTree)getCurrentTree());
+);
+  myMenuActions.add(new RootAction(ActionCode.CUSTOM_CATALOG_ADD,"addCustomCatalog",R.drawable.ic_menu_add));
+  myMenuActions.add(new RootAction(ActionCode.REFRESH,"refreshCatalogsList",R.drawable.ic_menu_refresh));
+  myMenuActions.add(new RootAction(ActionCode.LANGUAGE_FILTER,"languages",R.drawable.ic_menu_languages));
+  myMenuActions.add(new CatalogAction(ActionCode.RELOAD_CATALOG,"reload"){
+    @Override boolean isVisible(    NetworkTree tree){
+      if (!super.isVisible(tree)) {
+        return false;
+      }
+      final NetworkCatalogItem item=((NetworkCatalogTree)tree).Item;
+      if (!(item instanceof NetworkURLCatalogItem)) {
+        return false;
+      }
+      return ((NetworkURLCatalogItem)item).getUrl(UrlInfo.Type.Catalog) != null && ItemsLoadingService.getRunnable(tree) == null;
+    }
   }
+);
+  myMenuActions.add(new CatalogAction(ActionCode.SIGNIN,"signIn"){
+    @Override boolean isVisible(    NetworkTree tree){
+      if (!super.isVisible(tree)) {
+        return false;
+      }
+      final NetworkAuthenticationManager mgr=(((NetworkCatalogTree)tree).Item).Link.authenticationManager();
+      return mgr != null && !mgr.mayBeAuthorised(false);
+    }
+  }
+);
+  myMenuActions.add(new CatalogAction(ActionCode.SIGNUP,"signUp"){
+    @Override boolean isVisible(    NetworkTree tree){
+      if (!super.isVisible(tree)) {
+        return false;
+      }
+      final NetworkCatalogItem item=((NetworkCatalogTree)tree).Item;
+      final NetworkAuthenticationManager mgr=item.Link.authenticationManager();
+      return mgr != null && !mgr.mayBeAuthorised(false) && Util.isRegistrationSupported(NetworkLibraryActivity.this,item.Link);
+    }
+  }
+);
+  myMenuActions.add(new CatalogAction(ActionCode.SIGNOUT,"signOut"){
+    @Override boolean isVisible(    NetworkTree tree){
+      if (!super.isVisible(tree)) {
+        return false;
+      }
+      final NetworkAuthenticationManager mgr=(((NetworkCatalogTree)tree).Item).Link.authenticationManager();
+      return mgr != null && mgr.mayBeAuthorised(false);
+    }
+    @Override String getLabel(    NetworkTree tree){
+      final NetworkAuthenticationManager mgr=(((NetworkCatalogTree)tree).Item).Link.authenticationManager();
+      final String userName=mgr != null && mgr.mayBeAuthorised(false) ? mgr.currentUserName() : "";
+      return super.getLabel(tree).replace("%s",userName);
+    }
+  }
+);
+  myMenuActions.add(new CatalogAction(ActionCode.TOPUP,"topup"){
+    @Override boolean isVisible(    NetworkTree tree){
+      if (!super.isVisible(tree)) {
+        return false;
+      }
+      final NetworkCatalogItem item=((NetworkCatalogTree)tree).Item;
+      final NetworkAuthenticationManager mgr=item.Link.authenticationManager();
+      return mgr != null && mgr.mayBeAuthorised(false) && mgr.currentAccount() != null && TopupMenuActivity.isTopupSupported(item.Link);
+    }
+  }
+);
+  final NetworkTree tree=(NetworkTree)getCurrentTree();
+  for (  Action a : myMenuActions) {
+    addMenuItem(menu,a,tree);
+  }
+  return true;
 }

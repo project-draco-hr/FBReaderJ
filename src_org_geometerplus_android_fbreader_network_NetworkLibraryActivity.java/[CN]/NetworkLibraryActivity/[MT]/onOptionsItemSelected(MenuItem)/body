@@ -1,15 +1,15 @@
 {
   if (getCurrentTree() instanceof RootTree) {
 switch (item.getItemId()) {
-case MENU_SEARCH:
+case ActionCode.SEARCH:
       return onSearchRequested();
-case MENU_ADD_CATALOG:
+case ActionCode.CUSTOM_CATALOG_ADD:
     AddCustomCatalogItemActions.addCustomCatalog(this);
   return true;
-case MENU_REFRESH:
+case ActionCode.REFRESH:
 refreshCatalogsList();
 return true;
-case MENU_LANGUAGE_FILTER:
+case ActionCode.LANGUAGE_FILTER:
 runLanguageFilterDialog();
 return true;
 default :
@@ -17,6 +17,11 @@ return true;
 }
 }
  else {
-return NetworkView.Instance().runOptionsMenu(this,item,(NetworkTree)getCurrentTree());
+final NetworkTree tree=(NetworkTree)getCurrentTree();
+final NetworkTreeActions actions=NetworkView.Instance().getActions(tree);
+if (actions != null) {
+return actions.runAction(this,tree,item.getItemId());
+}
+return false;
 }
 }
