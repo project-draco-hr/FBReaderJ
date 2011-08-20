@@ -2,6 +2,6 @@
   if (ItemsLoadingService.getRunnable(tree) != null) {
     return;
   }
-  NetworkCatalogActions.clearTree(myActivity,(NetworkCatalogTree)tree);
+  Util.clearTree(myActivity,(NetworkCatalogTree)tree);
   ItemsLoadingService.start(myActivity,tree,new CatalogExpander(myActivity,(NetworkCatalogTree)tree,false,false));
 }

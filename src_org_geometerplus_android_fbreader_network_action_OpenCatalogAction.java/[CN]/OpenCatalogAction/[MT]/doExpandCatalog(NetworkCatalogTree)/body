@@ -13,7 +13,7 @@
           }
         }
  else {
-          NetworkCatalogActions.clearTree(myActivity,tree);
+          Util.clearTree(myActivity,tree);
         }
       }
       ItemsLoadingService.start(myActivity,tree,new CatalogExpander(myActivity,tree,true,resumeNotLoad));
