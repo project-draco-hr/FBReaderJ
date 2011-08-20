@@ -11,9 +11,7 @@
         ++count;
       }
     }
-    if (count == 0) {
-    }
- else     if (count > 1) {
+    if (count > 1) {
       menu.setHeaderTitle(tree.getName());
       for (      Action a : myContextMenuActions) {
         if (a.isVisible(tree) && a.isEnabled(tree)) {

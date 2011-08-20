@@ -1,9 +1,5 @@
 {
   menu.setHeaderTitle(tree.getName());
-  if (tree instanceof NetworkAuthorTree || tree instanceof NetworkSeriesTree) {
-    addMenuItem(menu,ActionCode.SHOW_BOOKS,"showBooks");
-    return;
-  }
   final NetworkBookTree bookTree=(NetworkBookTree)tree;
   final NetworkBookItem book=bookTree.Book;
   Set<Action> actions=getContextMenuActions(book,((NetworkLibraryActivity)activity).Connection);
