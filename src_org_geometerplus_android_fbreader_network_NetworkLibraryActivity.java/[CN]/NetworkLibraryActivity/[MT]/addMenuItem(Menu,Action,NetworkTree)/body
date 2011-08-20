@@ -1,7 +1,0 @@
-{
-  final MenuItem item=menu.add(0,action.Code,Menu.NONE,"");
-  if (action.IconId != -1) {
-    item.setIcon(action.IconId);
-  }
-  return item;
-}

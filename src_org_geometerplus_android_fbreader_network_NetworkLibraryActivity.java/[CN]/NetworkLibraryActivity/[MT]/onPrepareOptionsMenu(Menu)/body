@@ -1,7 +1,7 @@
 {
   super.onPrepareOptionsMenu(menu);
   final NetworkTree tree=(NetworkTree)getCurrentTree();
-  for (  Action a : myMenuActions) {
+  for (  Action a : myOptionsMenuActions) {
     final MenuItem item=menu.findItem(a.Code);
     if (a.isVisible(tree)) {
       item.setVisible(true);

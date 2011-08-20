@@ -1,4 +1,0 @@
-{
-  addCustomCatalog(activity);
-  return true;
-}

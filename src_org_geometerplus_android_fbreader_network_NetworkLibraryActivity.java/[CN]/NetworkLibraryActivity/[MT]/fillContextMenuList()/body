@@ -1,0 +1,3 @@
+{
+  myContextMenuActions.add(new AddCustomCatalogAction(this));
+}

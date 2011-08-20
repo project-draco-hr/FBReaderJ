@@ -1,7 +1,7 @@
 {
   super.onCreateOptionsMenu(menu);
-  myMenuActions.clear();
-  myMenuActions.add(new RootAction(ActionCode.SEARCH,"networkSearch",R.drawable.ic_menu_search){
+  myOptionsMenuActions.clear();
+  myOptionsMenuActions.add(new RootAction(ActionCode.SEARCH,"networkSearch",R.drawable.ic_menu_search){
     @Override public boolean isEnabled(    NetworkTree tree){
       return !searchIsInProgress();
     }
@@ -10,20 +10,15 @@
     }
   }
 );
-  myMenuActions.add(new RootAction(ActionCode.CUSTOM_CATALOG_ADD,"addCustomCatalog",R.drawable.ic_menu_add){
-    @Override public void run(    NetworkTree tree){
-      AddCustomCatalogItemActions.addCustomCatalog(NetworkLibraryActivity.this);
-    }
-  }
-);
-  myMenuActions.add(new RootAction(ActionCode.REFRESH,"refreshCatalogsList",R.drawable.ic_menu_refresh){
+  myOptionsMenuActions.add(new AddCustomCatalogAction(this));
+  myOptionsMenuActions.add(new RootAction(ActionCode.REFRESH,"refreshCatalogsList",R.drawable.ic_menu_refresh){
     @Override public void run(    NetworkTree tree){
       refreshCatalogsList();
     }
   }
 );
-  myMenuActions.add(new LanguageFilterAction(this));
-  myMenuActions.add(new CatalogAction(ActionCode.RELOAD_CATALOG,"reload"){
+  myOptionsMenuActions.add(new LanguageFilterAction(this));
+  myOptionsMenuActions.add(new CatalogAction(ActionCode.RELOAD_CATALOG,"reload"){
     @Override public boolean isVisible(    NetworkTree tree){
       if (!super.isVisible(tree)) {
         return false;
@@ -39,10 +34,10 @@
     }
   }
 );
-  myMenuActions.add(new SignInAction(this));
-  myMenuActions.add(new SignUpAction(this));
-  myMenuActions.add(new SignOutAction(this));
-  myMenuActions.add(new CatalogAction(ActionCode.TOPUP,"topup"){
+  myOptionsMenuActions.add(new SignInAction(this));
+  myOptionsMenuActions.add(new SignUpAction(this));
+  myOptionsMenuActions.add(new SignOutAction(this));
+  myOptionsMenuActions.add(new CatalogAction(ActionCode.TOPUP,"topup"){
     @Override public boolean isVisible(    NetworkTree tree){
       if (!super.isVisible(tree)) {
         return false;
@@ -57,8 +52,11 @@
   }
 );
   final NetworkTree tree=(NetworkTree)getCurrentTree();
-  for (  Action a : myMenuActions) {
-    addMenuItem(menu,a,tree);
+  for (  Action a : myOptionsMenuActions) {
+    final MenuItem item=menu.add(0,a.Code,Menu.NONE,"");
+    if (a.IconId != -1) {
+      item.setIcon(a.IconId);
+    }
   }
   return true;
 }

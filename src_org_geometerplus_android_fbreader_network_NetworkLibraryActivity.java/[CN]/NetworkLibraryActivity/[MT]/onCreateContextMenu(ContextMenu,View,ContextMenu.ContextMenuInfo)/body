@@ -1,10 +1,23 @@
 {
+  if (myContextMenuActions.isEmpty()) {
+    fillContextMenuList();
+  }
   final int position=((AdapterView.AdapterContextMenuInfo)menuInfo).position;
   final NetworkTree tree=(NetworkTree)getListAdapter().getItem(position);
   if (tree != null) {
-    final NetworkTreeActions actions=NetworkView.Instance().getActions(tree);
-    if (actions != null) {
-      actions.buildContextMenu(this,menu,tree);
+    int count=0;
+    for (    Action a : myContextMenuActions) {
+      if (a.isVisible(tree) && a.isEnabled(tree)) {
+        ++count;
+      }
+    }
+    if (count == 0) {
+      final NetworkTreeActions actions=NetworkView.Instance().getActions(tree);
+      if (actions != null) {
+        actions.buildContextMenu(this,menu,tree);
+      }
+    }
+ else     if (count > 1) {
     }
   }
 }

@@ -1,6 +1,6 @@
 {
   final NetworkTree tree=(NetworkTree)getCurrentTree();
-  for (  Action a : myMenuActions) {
+  for (  Action a : myOptionsMenuActions) {
     if (a.Code == item.getItemId()) {
       a.run(tree);
       break;
