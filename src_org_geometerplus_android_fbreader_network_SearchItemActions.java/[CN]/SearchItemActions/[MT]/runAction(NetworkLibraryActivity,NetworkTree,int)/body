@@ -1,8 +1,0 @@
-{
-switch (actionCode) {
-case RUN_SEARCH_ITEM_ID:
-    activity.onSearchRequested();
-  return true;
-}
-return false;
-}

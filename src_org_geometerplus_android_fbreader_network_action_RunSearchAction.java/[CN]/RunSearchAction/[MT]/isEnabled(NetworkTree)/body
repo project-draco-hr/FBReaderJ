@@ -1,0 +1,3 @@
+{
+  return ItemsLoadingService.getRunnable(NetworkLibrary.Instance().getSearchItemTree()) == null;
+}
