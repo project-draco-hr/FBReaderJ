@@ -1,13 +1,12 @@
 {
-  final NetworkBookItem book=((NetworkBookTree)tree).Book;
-  if (book.isFullyLoaded()) {
+  if (getBook(tree).isFullyLoaded()) {
     Util.openTree(myActivity,tree);
   }
  else {
     UIUtil.wait("loadInfo",new Runnable(){
       public void run(){
         try {
-          book.loadFullInformation();
+          getBook(tree).loadFullInformation();
         }
  catch (        ZLNetworkException e) {
           e.printStackTrace();

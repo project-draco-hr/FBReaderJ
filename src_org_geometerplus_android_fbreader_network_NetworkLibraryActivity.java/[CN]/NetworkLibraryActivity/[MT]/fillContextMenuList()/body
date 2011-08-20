@@ -1,7 +1,6 @@
 {
   myContextMenuActions.add(new OpenCatalogAction(this));
   myContextMenuActions.add(new OpenInBrowserAction(this));
-  myContextMenuActions.add(new ShowBooksAction(this));
   myContextMenuActions.add(new AddCustomCatalogAction(this));
   myContextMenuActions.add(new SignOutAction(this));
   myContextMenuActions.add(new TopupAction(this));
@@ -9,5 +8,4 @@
   myContextMenuActions.add(new EditCustomCatalogAction(this));
   myContextMenuActions.add(new RemoveCustomCatalogAction(this));
   myContextMenuActions.add(new ClearBasketAction(this));
-  myContextMenuActions.add(new ShowBookInfoAction(this));
 }
