@@ -1,0 +1,4 @@
+{
+  super(ActionCode.SIGNOUT,"signOut");
+  myActivity=activity;
+}

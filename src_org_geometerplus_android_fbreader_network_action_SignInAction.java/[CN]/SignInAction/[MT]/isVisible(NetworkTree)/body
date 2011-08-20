@@ -1,0 +1,8 @@
+{
+  if (!super.isVisible(tree)) {
+    return false;
+  }
+  final NetworkCatalogItem item=((NetworkCatalogTree)tree).Item;
+  final NetworkAuthenticationManager mgr=item.Link.authenticationManager();
+  return mgr != null && !mgr.mayBeAuthorised(false);
+}
