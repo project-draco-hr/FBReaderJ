@@ -1,0 +1,3 @@
+{
+  return tree instanceof NetworkBookTree ? NetworkBookActions.getContextMenuActions(this,((NetworkBookTree)tree).Book,Connection) : myContextMenuActions;
+}

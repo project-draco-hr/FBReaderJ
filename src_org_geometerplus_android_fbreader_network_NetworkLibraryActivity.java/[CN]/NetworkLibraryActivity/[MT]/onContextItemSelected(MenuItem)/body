@@ -2,8 +2,7 @@
   final int position=((AdapterView.AdapterContextMenuInfo)item.getMenuInfo()).position;
   final NetworkTree tree=(NetworkTree)getListAdapter().getItem(position);
   if (tree != null) {
-    final List<? extends Action> actions=tree instanceof NetworkBookTree ? NetworkBookActions.getContextMenuActions(this,((NetworkBookTree)tree).Book,Connection) : myContextMenuActions;
-    for (    Action a : actions) {
+    for (    Action a : getContextMenuActions(tree)) {
       if (a.Code == item.getItemId()) {
         a.checkAndRun(tree);
         return true;

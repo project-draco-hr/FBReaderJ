@@ -1,0 +1,6 @@
+{
+  if (super.isVisible(tree)) {
+    System.err.println(((NetworkCatalogTree)tree).Item);
+  }
+  return super.isVisible(tree) && ((NetworkCatalogTree)tree).Item instanceof BasketItem;
+}

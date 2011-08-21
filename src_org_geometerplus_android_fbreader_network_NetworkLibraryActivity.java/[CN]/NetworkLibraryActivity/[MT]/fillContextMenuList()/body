@@ -7,5 +7,6 @@
   myContextMenuActions.add(new SignInAction(this));
   myContextMenuActions.add(new EditCustomCatalogAction(this));
   myContextMenuActions.add(new RemoveCustomCatalogAction(this));
+  myContextMenuActions.add(new BuyBasketBooksAction(this));
   myContextMenuActions.add(new ClearBasketAction(this));
 }

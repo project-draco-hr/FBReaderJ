@@ -8,4 +8,6 @@
   myOptionsMenuActions.add(new SignUpAction(this));
   myOptionsMenuActions.add(new SignOutAction(this));
   myOptionsMenuActions.add(new TopupAction(this));
+  myOptionsMenuActions.add(new BuyBasketBooksAction(this));
+  myOptionsMenuActions.add(new ClearBasketAction(this));
 }

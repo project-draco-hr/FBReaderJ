@@ -4,14 +4,12 @@
   }
   final int position=((AdapterView.AdapterContextMenuInfo)menuInfo).position;
   final NetworkTree tree=(NetworkTree)getListAdapter().getItem(position);
-  if (tree == null) {
-    return;
-  }
-  final List<? extends Action> actions=tree instanceof NetworkBookTree ? NetworkBookActions.getContextMenuActions(this,((NetworkBookTree)tree).Book,Connection) : myContextMenuActions;
-  menu.setHeaderTitle(tree.getName());
-  for (  Action a : actions) {
-    if (a.isVisible(tree) && a.isEnabled(tree)) {
-      menu.add(0,a.Code,0,a.getContextLabel(tree));
+  if (tree != null) {
+    menu.setHeaderTitle(tree.getName());
+    for (    Action a : getContextMenuActions(tree)) {
+      if (a.isVisible(tree) && a.isEnabled(tree)) {
+        menu.add(0,a.Code,0,a.getContextLabel(tree));
+      }
     }
   }
 }
