@@ -1,14 +1,13 @@
 {
   super.onStart(intent,startId);
-  final NetworkView view=NetworkView.Instance();
-  if (!view.isInitialized()) {
+  if (!NetworkView.Instance().isInitialized()) {
     stopSelf();
     return;
   }
   final Handler handler=new Handler(){
     @Override public void handleMessage(    Message msg){
       if (msg.what > 0 && msg.obj == null) {
-        view.finishBackgroundUpdate();
+        NetworkLibrary.Instance().finishBackgroundUpdate();
       }
       stopSelf();
     }
@@ -20,7 +19,7 @@
       String error=null;
       try {
         try {
-          view.runBackgroundUpdate(false);
+          NetworkLibrary.Instance().runBackgroundUpdate(false);
         }
  catch (        ZLNetworkException e) {
           error=e.getMessage();

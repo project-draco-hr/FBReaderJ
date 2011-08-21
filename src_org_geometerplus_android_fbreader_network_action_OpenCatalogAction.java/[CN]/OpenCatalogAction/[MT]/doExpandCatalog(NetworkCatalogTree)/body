@@ -1,5 +1,5 @@
 {
-  NetworkView.Instance().tryResumeLoading(myActivity,tree,new Runnable(){
+  tryResumeLoading(myActivity,tree,new Runnable(){
     public void run(){
       boolean resumeNotLoad=false;
       if (tree.hasChildren()) {

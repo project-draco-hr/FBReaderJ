@@ -1,6 +1,6 @@
 {
   if (getCurrentTree() instanceof RootTree) {
-    if (!NetworkView.Instance().isInitialized() && NetworkInitializer.Instance != null) {
+    if (NetworkInitializer.Instance != null) {
       NetworkInitializer.Instance.setActivity(null);
     }
   }

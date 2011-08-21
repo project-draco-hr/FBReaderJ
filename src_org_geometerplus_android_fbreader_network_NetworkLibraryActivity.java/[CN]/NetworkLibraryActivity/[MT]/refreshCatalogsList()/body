@@ -1,9 +1,8 @@
 {
-  final NetworkView view=NetworkView.Instance();
   final Handler handler=new Handler(){
     @Override public void handleMessage(    Message msg){
       if (msg.obj == null) {
-        view.finishBackgroundUpdate();
+        NetworkLibrary.Instance().finishBackgroundUpdate();
       }
  else {
         final ZLResource dialogResource=ZLResource.resource("dialog");
@@ -18,7 +17,7 @@
     public void run(){
       String error=null;
       try {
-        view.runBackgroundUpdate(true);
+        NetworkLibrary.Instance().runBackgroundUpdate(true);
       }
  catch (      ZLNetworkException e) {
         error=e.getMessage();

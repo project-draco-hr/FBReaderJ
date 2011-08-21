@@ -6,4 +6,5 @@ synchronized (myBackgroundLock) {
     }
     invalidateChildren();
   }
+  synchronize();
 }
