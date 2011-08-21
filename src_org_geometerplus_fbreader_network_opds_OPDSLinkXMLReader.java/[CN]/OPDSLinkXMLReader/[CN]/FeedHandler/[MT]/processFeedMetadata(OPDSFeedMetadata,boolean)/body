@@ -1,4 +1,3 @@
 {
-  myUpdatedTime=feed.Updated;
-  return myListener == null;
+  return false;
 }

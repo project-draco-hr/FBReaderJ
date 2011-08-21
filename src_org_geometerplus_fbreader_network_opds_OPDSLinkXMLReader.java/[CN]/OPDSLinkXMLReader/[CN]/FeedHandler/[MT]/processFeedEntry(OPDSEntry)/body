@@ -59,9 +59,8 @@
  else {
     sslCertificate=null;
   }
-  INetworkLink result=link(id,siteName,title,summary,language,infos,sslCertificate);
-  if (result != null) {
-    myListener.onNewLink(result);
+  if (siteName != null && title != null && infos.getInfo(UrlInfo.Type.Catalog) != null) {
+    myLinks.add(link(id,siteName,title,summary,language,infos,sslCertificate));
   }
   return false;
 }
