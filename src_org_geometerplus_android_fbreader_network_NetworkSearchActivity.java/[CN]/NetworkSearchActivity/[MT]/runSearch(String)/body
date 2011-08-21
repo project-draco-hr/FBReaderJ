@@ -1,7 +1,7 @@
 {
   final NetworkLibrary library=NetworkLibrary.Instance();
   library.NetworkSearchPatternOption.setValue(pattern);
-  final SearchItemTree tree=library.getSearchItemTree();
+  final SearchItemTree tree=null;
   if (tree == null || ItemsLoadingService.getRunnable(tree) != null) {
     return;
   }

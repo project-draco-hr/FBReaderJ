@@ -13,7 +13,7 @@
  else {
     return;
   }
-  final SearchItemTree tree=NetworkLibrary.Instance().getSearchItemTree();
+  final SearchItemTree tree=null;
   if (tree == null) {
     return;
   }

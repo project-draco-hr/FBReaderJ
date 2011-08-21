@@ -1,5 +1,5 @@
 {
-  if (language == ZLLanguageUtil.MULTI_LANGUAGE_CODE) {
+  if (ZLLanguageUtil.MULTI_LANGUAGE_CODE.equals(language)) {
     return 1;
   }
   if (language.equals(Locale.getDefault().getLanguage())) {

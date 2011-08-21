@@ -1,5 +1,8 @@
 {
+  System.err.println("removeCustomLink: " + link.getTitle() + " :: "+ myLinks.contains(link));
+  System.err.println("before: " + myLinks.size());
   myLinks.remove(link);
+  System.err.println("after: " + myLinks.size());
   NetworkDatabase.Instance().deleteLink(link);
   invalidateChildren();
 }
