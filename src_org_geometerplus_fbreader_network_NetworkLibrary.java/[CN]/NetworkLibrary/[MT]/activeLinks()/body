@@ -2,7 +2,6 @@
   final LinkedList<INetworkLink> filteredList=new LinkedList<INetworkLink>();
   final Collection<String> codes=activeLanguageCodes();
 synchronized (myLinks) {
-    System.err.println("in activeLinks: " + myLinks.size());
     for (    INetworkLink link : myLinks) {
       if (link instanceof ICustomNetworkLink || codes.contains(link.getLanguage())) {
         filteredList.add(link);
