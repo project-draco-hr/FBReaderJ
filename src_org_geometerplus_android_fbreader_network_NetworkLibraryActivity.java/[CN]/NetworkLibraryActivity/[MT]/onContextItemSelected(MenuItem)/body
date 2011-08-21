@@ -5,7 +5,7 @@
     final List<? extends Action> actions=tree instanceof NetworkBookTree ? NetworkBookActions.getContextMenuActions(this,((NetworkBookTree)tree).Book,Connection) : myContextMenuActions;
     for (    Action a : actions) {
       if (a.Code == item.getItemId()) {
-        runAction(a,tree);
+        a.checkAndRun(tree);
         return true;
       }
     }

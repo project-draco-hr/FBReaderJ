@@ -6,7 +6,7 @@
   Action defaultAction=null;
   for (  Action a : myListClickActions) {
     if (a.isVisible(tree) && a.isEnabled(tree)) {
-      runAction(a,tree);
+      a.checkAndRun(tree);
       return;
     }
   }
