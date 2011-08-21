@@ -1,15 +1,8 @@
 {
   super.onCreateOptionsMenu(menu);
-  myOptionsMenuActions.clear();
-  myOptionsMenuActions.add(new RunSearchAction(this));
-  myOptionsMenuActions.add(new AddCustomCatalogAction(this));
-  myOptionsMenuActions.add(new RefreshRootCatalogAction(this));
-  myOptionsMenuActions.add(new LanguageFilterAction(this));
-  myOptionsMenuActions.add(new ReloadCatalogAction(this));
-  myOptionsMenuActions.add(new SignInAction(this));
-  myOptionsMenuActions.add(new SignUpAction(this));
-  myOptionsMenuActions.add(new SignOutAction(this));
-  myOptionsMenuActions.add(new TopupAction(this));
+  if (myOptionsMenuActions.isEmpty()) {
+    fillOptionsMenuList();
+  }
   final NetworkTree tree=(NetworkTree)getCurrentTree();
   for (  Action a : myOptionsMenuActions) {
     final MenuItem item=menu.add(0,a.Code,Menu.NONE,"");
