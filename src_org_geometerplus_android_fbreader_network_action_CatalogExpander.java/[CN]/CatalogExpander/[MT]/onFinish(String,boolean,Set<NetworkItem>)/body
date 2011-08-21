@@ -6,7 +6,12 @@
     myTree.removeItems(uncommitedItems);
     myTree.updateLoadedTime();
     if (!interrupted) {
-      afterUpdateCatalog(errorMessage,myTree.ChildrenItems.size() == 0);
+      if (errorMessage != null) {
+        UIUtil.showMessageText(myActivity,errorMessage);
+      }
+ else       if (myTree.ChildrenItems.isEmpty()) {
+        UIUtil.showErrorMessage(myActivity,"emptyCatalog");
+      }
     }
     final NetworkLibrary library=NetworkLibrary.Instance();
     library.invalidateVisibility();
