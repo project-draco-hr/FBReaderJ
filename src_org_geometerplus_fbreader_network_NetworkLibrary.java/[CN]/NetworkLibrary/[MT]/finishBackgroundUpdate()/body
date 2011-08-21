@@ -1,5 +1,4 @@
 {
-  System.err.println("finishBackgroundUpdate 0");
 synchronized (myBackgroundLock) {
     if (myBackgroundLinks != null) {
       removeAllLoadedLinks();
@@ -7,6 +6,5 @@ synchronized (myBackgroundLock) {
     }
     invalidateChildren();
   }
-  System.err.println("finishBackgroundUpdate 1");
   synchronize();
 }
