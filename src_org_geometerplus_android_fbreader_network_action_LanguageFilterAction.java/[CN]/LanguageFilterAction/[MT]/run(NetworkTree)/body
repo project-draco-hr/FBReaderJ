@@ -27,7 +27,6 @@
       }
       library.setActiveLanguageCodes(newActiveCodes);
       library.synchronize();
-      NetworkView.Instance().fireModelChanged();
     }
   }
 ).create();

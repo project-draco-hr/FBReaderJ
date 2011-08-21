@@ -68,4 +68,5 @@
   }
   new AddCustomCatalogItemTree(myRootTree);
   mySearchItemTree=new SearchItemTree(myRootTree,0);
+  fireModelChangedEvent(ChangeListener.Code.SomeCode);
 }

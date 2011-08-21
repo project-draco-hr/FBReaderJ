@@ -20,11 +20,11 @@
     public void handleMessage(    Message message){
       doStop();
       removeRunnable(tree);
-      NetworkView.Instance().fireModelChanged();
+      NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
     }
   }
 ;
-  NetworkView.Instance().fireModelChanged();
+  NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
   final Thread loader=new Thread(new Runnable(){
     public void run(){
       try {

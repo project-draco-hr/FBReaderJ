@@ -3,5 +3,5 @@
     myTree.ChildrenItems.add(item);
     NetworkTreeFactory.createNetworkTree(myTree,item);
   }
-  NetworkView.Instance().fireModelChanged();
+  NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
 }

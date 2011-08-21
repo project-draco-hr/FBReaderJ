@@ -43,9 +43,6 @@
             library.invalidateVisibility();
             library.synchronize();
           }
-          if (NetworkView.Instance().isInitialized()) {
-            NetworkView.Instance().fireModelChanged();
-          }
         }
       }
 ;

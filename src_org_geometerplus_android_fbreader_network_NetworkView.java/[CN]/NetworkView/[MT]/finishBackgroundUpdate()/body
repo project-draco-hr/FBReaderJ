@@ -2,5 +2,5 @@
   NetworkLibrary library=NetworkLibrary.Instance();
   library.finishBackgroundUpdate();
   library.synchronize();
-  fireModelChanged();
+  library.fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
 }

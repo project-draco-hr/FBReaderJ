@@ -10,7 +10,6 @@
             final NetworkLibrary library=NetworkLibrary.Instance();
             library.invalidateVisibility();
             library.synchronize();
-            NetworkView.Instance().fireModelChanged();
           }
         }
 );

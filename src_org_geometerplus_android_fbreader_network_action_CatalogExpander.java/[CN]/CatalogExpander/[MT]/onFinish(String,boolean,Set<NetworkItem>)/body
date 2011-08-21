@@ -1,7 +1,6 @@
 {
   if (interrupted && (!myTree.Item.supportsResumeLoading() || errorMessage != null)) {
-    myTree.ChildrenItems.clear();
-    myTree.clear();
+    myTree.clearCatalog();
   }
  else {
     myTree.removeItems(uncommitedItems);
@@ -13,5 +12,4 @@
     library.invalidateVisibility();
     library.synchronize();
   }
-  NetworkView.Instance().fireModelChanged();
 }

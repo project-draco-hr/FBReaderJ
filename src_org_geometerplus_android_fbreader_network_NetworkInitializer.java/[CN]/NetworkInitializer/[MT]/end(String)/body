@@ -5,7 +5,7 @@
         if (error == null) {
           if (myActivity != null) {
             myActivity.startService(new Intent(myActivity.getApplicationContext(),LibraryInitializationService.class));
-            myActivity.onModelChanged();
+            NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
           }
         }
  else {

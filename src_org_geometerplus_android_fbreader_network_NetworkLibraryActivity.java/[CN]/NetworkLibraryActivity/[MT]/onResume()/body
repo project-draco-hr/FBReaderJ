@@ -1,6 +1,6 @@
 {
   super.onResume();
   getListView().setOnCreateContextMenuListener(this);
-  onModelChanged();
+  NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
   ZLNetworkManager.Instance().setCredentialsCreator(myCredentialsCreator);
 }

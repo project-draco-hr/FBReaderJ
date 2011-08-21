@@ -7,7 +7,6 @@
           final NetworkLibrary library=NetworkLibrary.Instance();
           library.addCustomLink(link);
           library.synchronize();
-          onModelChanged();
         }
       }
 );

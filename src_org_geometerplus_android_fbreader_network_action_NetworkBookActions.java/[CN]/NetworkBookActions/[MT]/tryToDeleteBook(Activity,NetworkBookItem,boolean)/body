@@ -16,7 +16,7 @@
           }
         }
       }
-      NetworkView.Instance().fireModelChanged();
+      NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
     }
   }
 ).setNegativeButton(buttonResource.getResource("no").getValue(),null).create().show();

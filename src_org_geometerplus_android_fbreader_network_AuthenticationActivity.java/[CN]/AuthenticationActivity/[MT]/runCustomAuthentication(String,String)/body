@@ -15,7 +15,6 @@
         final NetworkLibrary library=NetworkLibrary.Instance();
         library.invalidateVisibility();
         library.synchronize();
-        NetworkView.Instance().fireModelChanged();
       }
  catch (      final ZLNetworkException e) {
         mgr.logOut();

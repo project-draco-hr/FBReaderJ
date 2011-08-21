@@ -20,7 +20,7 @@
       }
     }
  else {
-      onModelChanged();
+      NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
       if (myIntent != null) {
         processIntent(myIntent);
         myIntent=null;
