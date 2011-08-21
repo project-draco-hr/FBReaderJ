@@ -1,9 +1,0 @@
-{
-  if (SQLiteNetworkDatabase.Instance() == null) {
-    new SQLiteNetworkDatabase();
-  }
-  final NetworkLibrary library=NetworkLibrary.Instance();
-  library.initialize();
-  library.synchronize();
-  myInitialized=true;
-}

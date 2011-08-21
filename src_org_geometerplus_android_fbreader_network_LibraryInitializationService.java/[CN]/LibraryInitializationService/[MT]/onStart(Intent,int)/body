@@ -1,6 +1,6 @@
 {
   super.onStart(intent,startId);
-  if (!NetworkView.Instance().isInitialized()) {
+  if (!NetworkLibrary.Instance().isInitialized()) {
     stopSelf();
     return;
   }
