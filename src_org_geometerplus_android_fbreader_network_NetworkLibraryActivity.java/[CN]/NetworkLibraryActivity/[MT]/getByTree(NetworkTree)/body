@@ -1,3 +1,0 @@
-{
-  return (NetworkLibraryActivity)tree.getUserData(ACTIVITY_BY_TREE_KEY);
-}
