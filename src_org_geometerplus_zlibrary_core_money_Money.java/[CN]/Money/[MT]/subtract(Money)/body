@@ -1,0 +1,6 @@
+{
+  if (!Currency.equals(m.Currency)) {
+    throw new MoneyException("Different currencies");
+  }
+  return new Money(Amount.subtract(m.Amount),Currency);
+}

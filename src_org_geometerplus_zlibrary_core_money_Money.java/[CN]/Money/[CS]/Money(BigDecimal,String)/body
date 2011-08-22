@@ -1,4 +1,4 @@
 {
-  Price=price;
+  Amount=amount;
   Currency=currency;
 }

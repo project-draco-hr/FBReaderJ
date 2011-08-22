@@ -2,5 +2,5 @@ UrlInfoCollection<UrlInfo> urls
 OPDSLink opdsLink
 String href
 UrlInfo.Type type
-String price
+Money price
 boolean addWithoutFormat

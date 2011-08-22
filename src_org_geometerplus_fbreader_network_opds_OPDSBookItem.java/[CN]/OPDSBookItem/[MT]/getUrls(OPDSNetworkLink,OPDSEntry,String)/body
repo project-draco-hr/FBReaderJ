@@ -20,16 +20,9 @@
     }
  else     if (UrlInfo.Type.BookBuy == referenceType) {
       final OPDSLink opdsLink=(OPDSLink)link;
-      String price=null;
-      final OPDSPrice opdsPrice=opdsLink.selectBestPrice();
-      if (opdsPrice != null) {
-        price=BookBuyUrlInfo.price(opdsPrice.Price,opdsPrice.Currency);
-      }
+      Money price=opdsLink.selectBestPrice();
       if (price == null) {
-        price=BookBuyUrlInfo.price(entry.getAttribute(OPDSXMLReader.KEY_PRICE),null);
-      }
-      if (price == null) {
-        price="";
+        price=new Money(entry.getAttribute(OPDSXMLReader.KEY_PRICE));
       }
       if (MimeType.TEXT_HTML.equals(type)) {
         collectReferences(urls,opdsLink,href,UrlInfo.Type.BookBuyInBrowser,price,true);

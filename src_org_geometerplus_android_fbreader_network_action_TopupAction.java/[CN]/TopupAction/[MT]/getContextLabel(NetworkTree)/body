@@ -6,12 +6,12 @@
  else   if (tree instanceof NetworkCatalogRootTree) {
     link=((NetworkCatalogRootTree)tree).Item.Link;
   }
-  String account=null;
+  Money account=null;
   if (link != null) {
     final NetworkAuthenticationManager mgr=link.authenticationManager();
     if (mgr != null && mgr.mayBeAuthorised(false)) {
       account=mgr.currentAccount();
     }
   }
-  return super.getContextLabel(tree).replace("%s",account != null ? account : "");
+  return super.getContextLabel(tree).replace("%s",account != null ? account.toString() : "");
 }

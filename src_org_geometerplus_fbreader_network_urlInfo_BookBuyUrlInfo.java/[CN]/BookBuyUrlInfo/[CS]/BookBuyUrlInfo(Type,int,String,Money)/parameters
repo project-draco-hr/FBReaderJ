@@ -1,4 +1,4 @@
 Type type
 int format
 String url
-String price
+Money price

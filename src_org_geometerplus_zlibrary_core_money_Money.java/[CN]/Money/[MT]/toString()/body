@@ -1,0 +1,18 @@
+{
+  if ("RUB".equals(Currency)) {
+    return Amount + " \u0440.";
+  }
+ else   if ("USD".equals(Currency)) {
+    return "$" + Amount;
+  }
+ else   if ("GBP".equals(Currency)) {
+    return "\u00A3" + Amount;
+  }
+ else   if ("EUR".equals(Currency)) {
+    return "\u20AC" + Amount;
+  }
+ else   if ("JPY".equals(Currency)) {
+    return "\u00A5" + Amount;
+  }
+  return Currency + " " + Amount;
+}

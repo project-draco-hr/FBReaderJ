@@ -1,0 +1,10 @@
+{
+  if (o == this) {
+    return true;
+  }
+  if (!(o instanceof Money)) {
+    return false;
+  }
+  final Money m=(Money)o;
+  return Amount.equals(m.Amount) && Currency.equals(m.Currency);
+}
