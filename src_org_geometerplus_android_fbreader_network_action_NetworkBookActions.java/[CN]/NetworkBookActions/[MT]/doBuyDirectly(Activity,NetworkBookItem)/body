@@ -24,7 +24,18 @@
               buttonKey="topup";
               action=new DialogInterface.OnClickListener(){
                 public void onClick(                DialogInterface dialog,                int which){
-                  TopupMenuActivity.runMenu(activity,book.Link,"111");
+                  final BookBuyUrlInfo info=book.buyInfo();
+                  Money price=info != null ? info.Price : null;
+                  System.err.println("price = " + price);
+                  if (price != null) {
+                    final Money account=mgr.currentAccount();
+                    System.err.println("account = " + account);
+                    if (account != null) {
+                      price=price.subtract(account);
+                    }
+                  }
+                  System.err.println("price = " + price);
+                  TopupMenuActivity.runMenu(activity,book.Link,price);
                 }
               }
 ;

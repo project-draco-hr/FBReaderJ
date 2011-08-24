@@ -28,18 +28,10 @@
   }
   if (useBuyReferences(book)) {
     int id=ActionCode.TREE_NO_ACTION;
-    BookUrlInfo reference=null;
-    if (book.reference(UrlInfo.Type.BookBuy) != null) {
-      reference=book.reference(UrlInfo.Type.BookBuy);
-      id=ActionCode.BUY_DIRECTLY;
-    }
- else     if (book.reference(UrlInfo.Type.BookBuyInBrowser) != null) {
-      reference=book.reference(UrlInfo.Type.BookBuyInBrowser);
-      id=ActionCode.BUY_IN_BROWSER;
-    }
+    final BookBuyUrlInfo reference=book.buyInfo();
     if (reference != null) {
-      final String price=((BookBuyUrlInfo)reference).Price.toString();
-      actions.add(new NBAction(activity,id,"buy",price));
+      id=reference.InfoType == UrlInfo.Type.BookBuy ? ActionCode.BUY_DIRECTLY : ActionCode.BUY_IN_BROWSER;
+      actions.add(new NBAction(activity,id,"buy",reference.Price.toString()));
     }
     final Basket basket=book.Link.basket();
     if (basket != null) {

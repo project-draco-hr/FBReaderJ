@@ -1,0 +1,7 @@
+{
+  final UrlInfo info=reference(UrlInfo.Type.BookBuy);
+  if (info != null) {
+    return (BookBuyUrlInfo)info;
+  }
+  return (BookBuyUrlInfo)reference(UrlInfo.Type.BookBuyInBrowser);
+}

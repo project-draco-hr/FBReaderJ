@@ -1,5 +1,8 @@
 {
-  if ("RUB".equals(Currency)) {
+  if (Currency == null) {
+    return Amount.toString();
+  }
+ else   if ("RUB".equals(Currency)) {
     return Amount + " \u0440.";
   }
  else   if ("USD".equals(Currency)) {

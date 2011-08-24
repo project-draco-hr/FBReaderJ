@@ -1,3 +1,0 @@
-{
-  context.startActivity(Util.intentByLink(new Intent(context,TopupMenuActivity.class),link).putExtra(AMOUNT_KEY,amount));
-}

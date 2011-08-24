@@ -1,3 +1,3 @@
 Context context
 INetworkLink link
-String amount
+Money amount
