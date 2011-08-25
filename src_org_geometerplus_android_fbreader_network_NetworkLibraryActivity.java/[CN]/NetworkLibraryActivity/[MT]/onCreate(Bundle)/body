@@ -6,7 +6,6 @@
   setListAdapter(new NetworkLibraryAdapter(this));
   init(getIntent());
   setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
-  setProgressBarIndeterminateVisibility(myInProgress);
   if (getCurrentTree() instanceof RootTree) {
     myIntent=getIntent();
     if (!NetworkLibrary.Instance().isInitialized()) {
