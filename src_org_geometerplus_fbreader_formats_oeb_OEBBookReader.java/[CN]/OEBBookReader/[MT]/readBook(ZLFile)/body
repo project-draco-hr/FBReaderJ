@@ -13,6 +13,9 @@
   myModelReader.pushKind(FBTextKind.REGULAR);
   for (  String name : myHtmlFileNames) {
     final ZLFile xhtmlFile=ZLFile.createFileByPath(myFilePrefix + name);
+    if (xhtmlFile == null) {
+      return false;
+    }
     final XHTMLReader reader=new XHTMLReader(myModelReader,myFileNumbers);
     final String referenceName=reader.getFileAlias(MiscUtil.archiveEntryName(xhtmlFile.getPath()));
     myModelReader.addHyperlinkLabel(referenceName);
