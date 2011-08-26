@@ -8,7 +8,9 @@
         }
         final NetworkLibrary library=NetworkLibrary.Instance();
         library.initialize();
-        myActivity.processSavedIntent();
+        if (myActivity instanceof NetworkLibraryActivity) {
+          ((NetworkLibraryActivity)myActivity).processSavedIntent();
+        }
       }
  catch (      ZLNetworkException e) {
         error=e.getMessage();

@@ -3,6 +3,9 @@
   final NetworkLibrary library=NetworkLibrary.Instance();
   if (!library.isInitialized()) {
     try {
+      if (SQLiteNetworkDatabase.Instance() == null) {
+        new SQLiteNetworkDatabase();
+      }
       library.initialize();
     }
  catch (    ZLNetworkException e) {
