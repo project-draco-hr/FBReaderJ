@@ -1,18 +1,27 @@
 {
   super.onResume();
-  if (!NetworkLibrary.Instance().isInitialized()) {
-    new NetworkInitializer(null).start();
+  final NetworkLibrary library=NetworkLibrary.Instance();
+  if (!library.isInitialized()) {
+    try {
+      library.initialize();
+    }
+ catch (    ZLNetworkException e) {
+    }
   }
   if (myBook == null) {
     if ("litres-book".equals(getIntent().getData().getScheme())) {
-      System.err.println("uri = " + getIntent().getData());
+      myBook=OPDSBookItem.create(NetworkLibrary.Instance().getLinkBySiteName("litres.ru"),getIntent().getData().toString().replace("litres-book://","http://"));
     }
-    final NetworkTree tree=Util.getTreeFromIntent(getIntent());
-    if (!(tree instanceof NetworkBookTree)) {
+ else {
+      final NetworkTree tree=Util.getTreeFromIntent(getIntent());
+      if (tree instanceof NetworkBookTree) {
+        myBook=((NetworkBookTree)tree).Book;
+      }
+    }
+    if (myBook == null) {
       finish();
       return;
     }
-    myBook=((NetworkBookTree)tree).Book;
     myConnection=new BookDownloaderServiceConnection();
     bindService(new Intent(getApplicationContext(),BookDownloaderService.class),myConnection,BIND_AUTO_CREATE);
     setTitle(myBook.Title);

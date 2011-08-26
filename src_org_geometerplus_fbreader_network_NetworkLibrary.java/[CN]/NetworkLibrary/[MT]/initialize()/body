@@ -13,5 +13,6 @@
   if (db != null) {
     myLinks.addAll(db.listLinks());
   }
+  synchronize();
   myIsInitialized=true;
 }

@@ -1,4 +1,7 @@
 {
+  if (myBook == null) {
+    return;
+  }
   runOnUiThread(new Runnable(){
     public void run(){
       updateView();

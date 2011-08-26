@@ -1,0 +1,10 @@
+{
+synchronized (myLinks) {
+    for (    INetworkLink link : myLinks) {
+      if (siteName.equals(link.getSiteName())) {
+        return link;
+      }
+    }
+  }
+  return null;
+}

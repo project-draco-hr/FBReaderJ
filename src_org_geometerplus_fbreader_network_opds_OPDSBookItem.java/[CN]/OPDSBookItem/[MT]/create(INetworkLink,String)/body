@@ -1,0 +1,18 @@
+{
+  if (link == null || url == null) {
+    return null;
+  }
+  final CreateBookHandler handler=new CreateBookHandler(link,url);
+  try {
+    ZLNetworkManager.Instance().perform(new ZLNetworkRequest(url){
+      @Override public void handleStream(      InputStream inputStream,      int length) throws IOException, ZLNetworkException {
+        new OPDSXMLReader(handler,true).read(inputStream);
+      }
+    }
+);
+  }
+ catch (  ZLNetworkException e) {
+    e.printStackTrace();
+  }
+  return handler.getBook();
+}
