@@ -9,13 +9,7 @@
   if (getCurrentTree() instanceof RootTree) {
     myIntent=getIntent();
     if (!NetworkLibrary.Instance().isInitialized()) {
-      if (NetworkInitializer.Instance == null) {
-        new NetworkInitializer(this);
-        NetworkInitializer.Instance.start();
-      }
- else {
-        NetworkInitializer.Instance.setActivity(this);
-      }
+      new NetworkInitializer(this).start();
     }
  else {
       NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);

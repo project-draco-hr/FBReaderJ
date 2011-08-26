@@ -1,16 +1,12 @@
 {
   super.onResume();
   if (!NetworkLibrary.Instance().isInitialized()) {
-    if (NetworkInitializer.Instance == null) {
-      new NetworkInitializer(null);
-      NetworkInitializer.Instance.start();
-    }
- else {
-      NetworkInitializer.Instance.setActivity(null);
-    }
+    new NetworkInitializer(null).start();
   }
   if (myBook == null) {
-    System.err.println("uri = " + getIntent().getData());
+    if ("litres-book".equals(getIntent().getData().getScheme())) {
+      System.err.println("uri = " + getIntent().getData());
+    }
     final NetworkTree tree=Util.getTreeFromIntent(getIntent());
     if (!(tree instanceof NetworkBookTree)) {
       finish();
