@@ -1,7 +1,4 @@
 {
-  if (OLD_STYLE_FLAG) {
-    return super.onKeyDown(keyCode,event);
-  }
   if (keyCode == KeyEvent.KEYCODE_BACK) {
     FBTree parent=null;
     while (parent == null && !myHistory.isEmpty()) {
@@ -10,7 +7,7 @@
     if (parent == null) {
       parent=myCurrentTree.Parent;
     }
-    if (parent != null) {
+    if (parent != null && !isTreeInvisible(parent)) {
       openTree(parent,myCurrentTree,false);
       return true;
     }

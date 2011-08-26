@@ -1,6 +1,0 @@
-{
-  super.onResume();
-  getListView().setOnCreateContextMenuListener(this);
-  onModelChanged();
-  ZLNetworkManager.Instance().setCredentialsCreator(myCredentialsCreator);
-}

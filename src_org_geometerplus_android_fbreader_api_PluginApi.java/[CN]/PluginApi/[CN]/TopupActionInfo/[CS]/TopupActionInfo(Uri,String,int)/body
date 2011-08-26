@@ -1,0 +1,5 @@
+{
+  super(id);
+  MenuItemName=menuItemName;
+  Weight=weight;
+}

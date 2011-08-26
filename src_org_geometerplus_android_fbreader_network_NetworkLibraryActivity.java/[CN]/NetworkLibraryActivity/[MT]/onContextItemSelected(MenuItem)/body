@@ -1,0 +1,13 @@
+{
+  final int position=((AdapterView.AdapterContextMenuInfo)item.getMenuInfo()).position;
+  final NetworkTree tree=(NetworkTree)getListAdapter().getItem(position);
+  if (tree != null) {
+    for (    Action a : getContextMenuActions(tree)) {
+      if (a.Code == item.getItemId()) {
+        a.checkAndRun(tree);
+        return true;
+      }
+    }
+  }
+  return super.onContextItemSelected(item);
+}

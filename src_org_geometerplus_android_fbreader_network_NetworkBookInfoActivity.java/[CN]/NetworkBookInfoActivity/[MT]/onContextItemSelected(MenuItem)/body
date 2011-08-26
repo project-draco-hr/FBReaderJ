@@ -1,4 +1,0 @@
-{
-  TopupActions.runAction(this,myBook.Link,item.getItemId());
-  return true;
-}

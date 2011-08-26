@@ -1,0 +1,4 @@
+{
+  Amount=new BigDecimal(amount);
+  Currency=currency;
+}

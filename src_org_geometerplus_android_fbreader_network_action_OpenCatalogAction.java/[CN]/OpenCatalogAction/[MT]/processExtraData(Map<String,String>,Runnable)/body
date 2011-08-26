@@ -1,0 +1,8 @@
+{
+  if (extraData != null && !extraData.isEmpty()) {
+    PackageUtil.runInstallPluginDialog(myActivity,extraData,postRunnable);
+  }
+ else {
+    postRunnable.run();
+  }
+}

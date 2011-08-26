@@ -1,0 +1,23 @@
+{
+  final ZLResource dialogResource=ZLResource.resource("dialog");
+  final ZLResource buttonResource=dialogResource.getResource("button");
+  final ZLResource boxResource=dialogResource.getResource("deleteBookBox");
+  new AlertDialog.Builder(activity).setTitle(book.Title).setMessage(boxResource.getResource("message").getValue()).setIcon(0).setPositiveButton(buttonResource.getResource("yes").getValue(),new DialogInterface.OnClickListener(){
+    public void onClick(    DialogInterface dialog,    int which){
+      if (!demo) {
+        book.removeLocalFiles();
+      }
+ else {
+        final BookUrlInfo reference=book.reference(UrlInfo.Type.BookDemo);
+        if (reference != null) {
+          final String fileName=reference.localCopyFileName(UrlInfo.Type.BookDemo);
+          if (fileName != null) {
+            new File(fileName).delete();
+          }
+        }
+      }
+      NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
+    }
+  }
+).setNegativeButton(buttonResource.getResource("no").getValue(),null).create().show();
+}

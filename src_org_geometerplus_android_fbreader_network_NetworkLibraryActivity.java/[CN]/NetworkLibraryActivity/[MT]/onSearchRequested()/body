@@ -1,0 +1,9 @@
+{
+  final NetworkTree tree=(NetworkTree)getCurrentTree();
+  if (!new RunSearchAction(this).isEnabled(tree)) {
+    return false;
+  }
+  final NetworkLibrary library=NetworkLibrary.Instance();
+  startSearch(library.NetworkSearchPatternOption.getValue(),true,null,false);
+  return true;
+}

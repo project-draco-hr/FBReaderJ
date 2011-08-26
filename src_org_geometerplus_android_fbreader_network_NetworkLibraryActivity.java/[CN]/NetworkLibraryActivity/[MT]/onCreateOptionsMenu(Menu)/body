@@ -1,0 +1,14 @@
+{
+  super.onCreateOptionsMenu(menu);
+  if (myOptionsMenuActions.isEmpty()) {
+    fillOptionsMenuList();
+  }
+  final NetworkTree tree=(NetworkTree)getCurrentTree();
+  for (  Action a : myOptionsMenuActions) {
+    final MenuItem item=menu.add(0,a.Code,Menu.NONE,"");
+    if (a.IconId != -1) {
+      item.setIcon(a.IconId);
+    }
+  }
+  return true;
+}

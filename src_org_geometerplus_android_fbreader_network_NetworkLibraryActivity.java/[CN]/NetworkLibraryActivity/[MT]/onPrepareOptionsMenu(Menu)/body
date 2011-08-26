@@ -1,0 +1,16 @@
+{
+  super.onPrepareOptionsMenu(menu);
+  final NetworkTree tree=(NetworkTree)getCurrentTree();
+  for (  Action a : myOptionsMenuActions) {
+    final MenuItem item=menu.findItem(a.Code);
+    if (a.isVisible(tree)) {
+      item.setVisible(true);
+      item.setEnabled(a.isEnabled(tree));
+      item.setTitle(a.getOptionsLabel(tree));
+    }
+ else {
+      item.setVisible(false);
+    }
+  }
+  return true;
+}

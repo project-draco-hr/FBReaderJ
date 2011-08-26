@@ -1,0 +1,12 @@
+{
+  myContextMenuActions.add(new OpenCatalogAction(this));
+  myContextMenuActions.add(new OpenInBrowserAction(this));
+  myContextMenuActions.add(new AddCustomCatalogAction(this));
+  myContextMenuActions.add(new SignOutAction(this));
+  myContextMenuActions.add(new TopupAction(this));
+  myContextMenuActions.add(new SignInAction(this));
+  myContextMenuActions.add(new EditCustomCatalogAction(this));
+  myContextMenuActions.add(new RemoveCustomCatalogAction(this));
+  myContextMenuActions.add(new BuyBasketBooksAction(this));
+  myContextMenuActions.add(new ClearBasketAction(this));
+}

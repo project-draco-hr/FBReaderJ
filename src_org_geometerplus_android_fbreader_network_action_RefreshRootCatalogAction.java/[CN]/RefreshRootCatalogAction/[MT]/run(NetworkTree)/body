@@ -1,0 +1,21 @@
+{
+  UIUtil.wait("updatingCatalogsList",new Runnable(){
+    public void run(){
+      try {
+        NetworkLibrary.Instance().runBackgroundUpdate(true);
+      }
+ catch (      final ZLNetworkException e) {
+        final ZLResource dialogResource=ZLResource.resource("dialog");
+        final ZLResource boxResource=dialogResource.getResource("networkError");
+        final ZLResource buttonResource=dialogResource.getResource("button");
+        myActivity.runOnUiThread(new Runnable(){
+          public void run(){
+            new AlertDialog.Builder(myActivity).setTitle(boxResource.getResource("title").getValue()).setMessage(e.getMessage()).setIcon(0).setPositiveButton(buttonResource.getResource("ok").getValue(),null).create().show();
+          }
+        }
+);
+      }
+    }
+  }
+,myActivity);
+}

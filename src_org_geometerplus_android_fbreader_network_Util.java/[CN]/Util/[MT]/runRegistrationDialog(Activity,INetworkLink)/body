@@ -2,7 +2,7 @@
   try {
     final Intent intent=new Intent(REGISTRATION_ACTION,Uri.parse(link.getUrl(UrlInfo.Type.SignUp)));
     if (PackageUtil.canBeStarted(activity,intent,true)) {
-      activity.startActivityForResult(new Intent(REGISTRATION_ACTION,Uri.parse(link.getUrl(UrlInfo.Type.SignUp))),NetworkBaseActivity.SIGNUP_CODE);
+      activity.startActivityForResult(new Intent(REGISTRATION_ACTION,Uri.parse(link.getUrl(UrlInfo.Type.SignUp))),NetworkLibraryActivity.SIGNUP_CODE);
     }
   }
  catch (  ActivityNotFoundException e) {

@@ -4,4 +4,5 @@
       ((NetworkCatalogTree)tree).updateVisibility();
     }
   }
+  fireModelChangedEvent(ChangeListener.Code.SomeCode);
 }

@@ -1,0 +1,29 @@
+{
+  tryResumeLoading(myActivity,tree,new Runnable(){
+    public void run(){
+      boolean resumeNotLoad=false;
+      if (tree.hasChildren()) {
+        if (tree.isContentValid()) {
+          if (tree.Item.supportsResumeLoading()) {
+            resumeNotLoad=true;
+          }
+ else {
+            Util.openTree(myActivity,tree);
+            return;
+          }
+        }
+ else {
+          tree.clearCatalog();
+        }
+      }
+      ItemsLoadingService.start(myActivity,tree,new CatalogExpander(myActivity,tree,true,resumeNotLoad));
+      processExtraData(tree.Item.extraData(),new Runnable(){
+        public void run(){
+          Util.openTree(myActivity,tree);
+        }
+      }
+);
+    }
+  }
+);
+}

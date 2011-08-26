@@ -1,0 +1,8 @@
+{
+  if (myOkButtonUpdater != null) {
+    myOkButtonUpdater.cancel();
+    myOkButtonUpdater.purge();
+    myOkButtonUpdater=null;
+  }
+  super.onPause();
+}

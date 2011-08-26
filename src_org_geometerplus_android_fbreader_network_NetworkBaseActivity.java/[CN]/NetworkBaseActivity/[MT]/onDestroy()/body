@@ -1,8 +1,0 @@
-{
-  setForTree((NetworkTree)getCurrentTree(),null);
-  if (Connection != null) {
-    unbindService(Connection);
-    Connection=null;
-  }
-  super.onDestroy();
-}

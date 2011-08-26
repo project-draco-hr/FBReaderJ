@@ -1,0 +1,15 @@
+{
+  if (myContextMenuActions.isEmpty()) {
+    fillContextMenuList();
+  }
+  final int position=((AdapterView.AdapterContextMenuInfo)menuInfo).position;
+  final NetworkTree tree=(NetworkTree)getListAdapter().getItem(position);
+  if (tree != null) {
+    menu.setHeaderTitle(tree.getName());
+    for (    Action a : getContextMenuActions(tree)) {
+      if (a.isVisible(tree) && a.isEnabled(tree)) {
+        menu.add(0,a.Code,0,a.getContextLabel(tree));
+      }
+    }
+  }
+}

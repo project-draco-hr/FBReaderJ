@@ -1,0 +1,17 @@
+{
+  super.onResume();
+  if (myOkButtonUpdater == null) {
+    myOkButtonUpdater=new Timer();
+    myOkButtonUpdater.schedule(new TimerTask(){
+      public void run(){
+        runOnUiThread(new Runnable(){
+          public void run(){
+            myOkButton.setEnabled(myUsernameView.getText().length() > 0);
+          }
+        }
+);
+      }
+    }
+,0,100);
+  }
+}

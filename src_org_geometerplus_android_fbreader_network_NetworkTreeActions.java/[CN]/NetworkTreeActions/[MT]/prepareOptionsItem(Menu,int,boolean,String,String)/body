@@ -1,7 +1,0 @@
-{
-  final MenuItem item=prepareOptionsItem(menu,id,state);
-  if (state) {
-    item.setTitle(getOptionsValue(key,arg));
-  }
-  return item;
-}

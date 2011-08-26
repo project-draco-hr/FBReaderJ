@@ -1,0 +1,15 @@
+{
+  if (AddCustomCatalogActivity.ADD_CATALOG.equals(intent.getAction())) {
+    final ICustomNetworkLink link=AddCustomCatalogActivity.getLinkFromIntent(intent);
+    if (link != null) {
+      runOnUiThread(new Runnable(){
+        public void run(){
+          final NetworkLibrary library=NetworkLibrary.Instance();
+          library.addCustomLink(link);
+          library.synchronize();
+        }
+      }
+);
+    }
+  }
+}

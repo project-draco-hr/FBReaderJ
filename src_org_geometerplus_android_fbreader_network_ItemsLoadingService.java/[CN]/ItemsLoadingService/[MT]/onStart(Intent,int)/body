@@ -6,8 +6,8 @@
     doStop();
     return;
   }
-  intent.removeExtra(NetworkBaseActivity.TREE_KEY_KEY);
-  if (!NetworkView.Instance().isInitialized()) {
+  intent.removeExtra(NetworkLibraryActivity.TREE_KEY_KEY);
+  if (!NetworkLibrary.Instance().isInitialized()) {
     doStop();
     return;
   }
@@ -20,11 +20,11 @@
     public void handleMessage(    Message message){
       doStop();
       removeRunnable(tree);
-      NetworkView.Instance().fireModelChanged();
+      NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
     }
   }
 ;
-  NetworkView.Instance().fireModelChangedAsync();
+  NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
   final Thread loader=new Thread(new Runnable(){
     public void run(){
       try {

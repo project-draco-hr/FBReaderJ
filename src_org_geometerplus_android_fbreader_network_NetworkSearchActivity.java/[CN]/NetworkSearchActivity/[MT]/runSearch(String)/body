@@ -1,14 +1,14 @@
 {
   final NetworkLibrary library=NetworkLibrary.Instance();
   library.NetworkSearchPatternOption.setValue(pattern);
-  final SearchItemTree tree=library.getSearchItemTree();
+  final SearchItemTree tree=null;
   if (tree == null || ItemsLoadingService.getRunnable(tree) != null) {
     return;
   }
   final String summary=NetworkLibrary.resource().getResource("searchResults").getValue().replace("%s",pattern);
   final SearchResult result=new SearchResult(summary);
   tree.setSearchResult(result);
-  NetworkView.Instance().fireModelChangedAsync();
+  NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
   ItemsLoadingService.start(this,tree,new Searcher(this,tree,pattern));
   Util.openTree(this,tree);
 }

@@ -1,0 +1,3 @@
+{
+  Util.runAuthenticationDialog(myActivity,((NetworkCatalogTree)tree).Item.Link,null);
+}

@@ -13,13 +13,10 @@
  else {
     return;
   }
-  final SearchItemTree tree=NetworkLibrary.Instance().getSearchItemTree();
+  final SearchItemTree tree=null;
   if (tree == null) {
     return;
   }
-  final NetworkBaseActivity activity=NetworkBaseActivity.getByTree(tree);
-  if (activity != null) {
-    final ZLResource buttonResource=dialogResource.getResource("button");
-    new AlertDialog.Builder(activity).setTitle(boxResource.getResource("title").getValue()).setMessage(msg).setIcon(0).setPositiveButton(buttonResource.getResource("ok").getValue(),null).create().show();
-  }
+  final ZLResource buttonResource=dialogResource.getResource("button");
+  new AlertDialog.Builder(myActivity).setTitle(boxResource.getResource("title").getValue()).setMessage(msg).setIcon(0).setPositiveButton(buttonResource.getResource("ok").getValue(),null).create().show();
 }

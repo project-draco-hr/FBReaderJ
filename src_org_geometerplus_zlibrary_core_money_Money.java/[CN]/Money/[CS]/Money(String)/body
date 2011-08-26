@@ -1,0 +1,14 @@
+{
+  text=text.trim();
+  if (text.startsWith("$")) {
+    Amount=new BigDecimal(text.substring(1).trim());
+    Currency="USD";
+  }
+ else   if (text.endsWith("$")) {
+    Amount=new BigDecimal(text.substring(0,text.length() - 1).trim());
+    Currency="USD";
+  }
+ else {
+    throw new MoneyException("Unknown money format: '" + text + "'");
+  }
+}

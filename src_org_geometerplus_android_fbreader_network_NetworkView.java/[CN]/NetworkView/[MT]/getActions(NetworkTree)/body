@@ -1,8 +1,0 @@
-{
-  for (  NetworkTreeActions actions : myActions) {
-    if (actions.canHandleTree(tree)) {
-      return actions;
-    }
-  }
-  return null;
-}

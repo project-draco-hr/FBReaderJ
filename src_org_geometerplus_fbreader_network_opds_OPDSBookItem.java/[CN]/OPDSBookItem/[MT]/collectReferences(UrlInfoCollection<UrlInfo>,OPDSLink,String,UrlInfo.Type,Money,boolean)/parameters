@@ -1,0 +1,6 @@
+UrlInfoCollection<UrlInfo> urls
+OPDSLink opdsLink
+String href
+UrlInfo.Type type
+Money price
+boolean addWithoutFormat

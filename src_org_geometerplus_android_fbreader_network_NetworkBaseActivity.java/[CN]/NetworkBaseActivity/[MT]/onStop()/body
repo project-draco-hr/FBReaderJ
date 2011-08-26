@@ -1,4 +1,0 @@
-{
-  NetworkView.Instance().removeEventListener(this);
-  super.onStop();
-}

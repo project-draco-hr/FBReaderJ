@@ -1,6 +1,6 @@
 {
   super.onResume();
-  if (!NetworkView.Instance().isInitialized()) {
+  if (!NetworkLibrary.Instance().isInitialized()) {
     if (NetworkInitializer.Instance == null) {
       new NetworkInitializer(null);
       NetworkInitializer.Instance.start();

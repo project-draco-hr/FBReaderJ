@@ -1,0 +1,14 @@
+{
+  if (myListClickActions.isEmpty()) {
+    fillListClickList();
+  }
+  final NetworkTree tree=(NetworkTree)getListAdapter().getItem(position);
+  Action defaultAction=null;
+  for (  Action a : myListClickActions) {
+    if (a.isVisible(tree) && a.isEnabled(tree)) {
+      a.checkAndRun(tree);
+      return;
+    }
+  }
+  listView.showContextMenuForChild(view);
+}

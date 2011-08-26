@@ -1,0 +1,12 @@
+{
+  if (Amount.equals(ZERO.Amount)) {
+    return new Money(m.Amount.negate(),m.Currency);
+  }
+  if (m.Amount.equals(ZERO.Amount)) {
+    return this;
+  }
+  if (!Currency.equals(m.Currency)) {
+    throw new MoneyException("Different currencies");
+  }
+  return new Money(Amount.subtract(m.Amount),Currency);
+}

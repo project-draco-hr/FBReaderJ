@@ -1,0 +1,11 @@
+{
+  final TextView errorView=findTextView(R.id.authentication_error);
+  if (error != null && !"".equals(error)) {
+    errorView.setVisibility(View.VISIBLE);
+    errorView.setText(error);
+    findTextView(R.id.authentication_password).setText("");
+  }
+ else {
+    errorView.setVisibility(View.GONE);
+  }
+}

@@ -1,0 +1,3 @@
+{
+  runActionStatic(myActivity,book,myId);
+}

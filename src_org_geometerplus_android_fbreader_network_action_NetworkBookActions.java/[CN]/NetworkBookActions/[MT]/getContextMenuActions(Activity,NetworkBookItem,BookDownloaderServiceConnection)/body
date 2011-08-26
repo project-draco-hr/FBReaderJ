@@ -1,0 +1,47 @@
+{
+  List<NBAction> actions=new LinkedList<NBAction>();
+  if (useFullReferences(book)) {
+    final BookUrlInfo reference=book.reference(UrlInfo.Type.Book);
+    if (reference != null && connection != null && connection.isBeingDownloaded(reference.Url)) {
+      actions.add(new NBAction(activity,ActionCode.TREE_NO_ACTION,"alreadyDownloading"));
+    }
+ else     if (book.localCopyFileName() != null) {
+      actions.add(new NBAction(activity,ActionCode.READ_BOOK,"read"));
+      actions.add(new NBAction(activity,ActionCode.DELETE_BOOK,"delete"));
+    }
+ else     if (reference != null) {
+      actions.add(new NBAction(activity,ActionCode.DOWNLOAD_BOOK,"download"));
+    }
+  }
+  if (useDemoReferences(book)) {
+    final BookUrlInfo reference=book.reference(UrlInfo.Type.BookDemo);
+    if (connection != null && connection.isBeingDownloaded(reference.Url)) {
+      actions.add(new NBAction(activity,ActionCode.TREE_NO_ACTION,"alreadyDownloadingDemo"));
+    }
+ else     if (reference.localCopyFileName(UrlInfo.Type.BookDemo) != null) {
+      actions.add(new NBAction(activity,ActionCode.READ_DEMO,"readDemo"));
+      actions.add(new NBAction(activity,ActionCode.DELETE_DEMO,"deleteDemo"));
+    }
+ else {
+      actions.add(new NBAction(activity,ActionCode.DOWNLOAD_DEMO,"downloadDemo"));
+    }
+  }
+  if (useBuyReferences(book)) {
+    int id=ActionCode.TREE_NO_ACTION;
+    final BookBuyUrlInfo reference=book.buyInfo();
+    if (reference != null) {
+      id=reference.InfoType == UrlInfo.Type.BookBuy ? ActionCode.BUY_DIRECTLY : ActionCode.BUY_IN_BROWSER;
+      actions.add(new NBAction(activity,id,"buy",reference.Price.toString()));
+    }
+    final Basket basket=book.Link.basket();
+    if (basket != null) {
+      if (basket.contains(book)) {
+        actions.add(new NBAction(activity,ActionCode.REMOVE_BOOK_FROM_BASKET,"removeFromBasket"));
+      }
+ else {
+        actions.add(new NBAction(activity,ActionCode.ADD_BOOK_TO_BASKET,"addToBasket"));
+      }
+    }
+  }
+  return actions;
+}

@@ -1,0 +1,13 @@
+{
+  if (o == this) {
+    return true;
+  }
+  if (!(o instanceof Money)) {
+    return false;
+  }
+  final Money m=(Money)o;
+  if (Amount.equals(ZERO.Amount)) {
+    return m.Amount.equals(ZERO.Amount);
+  }
+  return Amount.equals(m.Amount) && ZLMiscUtil.equals(Currency,m.Currency);
+}

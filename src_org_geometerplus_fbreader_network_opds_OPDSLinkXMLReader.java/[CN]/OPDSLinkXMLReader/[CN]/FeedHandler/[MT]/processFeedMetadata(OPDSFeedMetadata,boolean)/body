@@ -1,7 +1,3 @@
 {
-  myUpdatedTime=feed.Updated;
-  if (myUpdatedTime != null && myReadAfterTime != null && myUpdatedTime.compareTo(myReadAfterTime) <= 0) {
-    return true;
-  }
-  return myListener == null;
+  return false;
 }

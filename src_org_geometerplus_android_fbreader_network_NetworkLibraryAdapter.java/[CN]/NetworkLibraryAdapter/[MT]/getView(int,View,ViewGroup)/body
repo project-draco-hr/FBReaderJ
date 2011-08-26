@@ -16,7 +16,7 @@
   coverView.requestLayout();
   setupCover(coverView,tree,myCoverWidth,myCoverWidth);
   final ImageView statusView=(ImageView)view.findViewById(R.id.network_tree_item_status);
-  final int status=(tree instanceof NetworkBookTree) ? NetworkBookActions.getBookStatus(((NetworkBookTree)tree).Book,((NetworkBaseActivity)getActivity()).Connection) : 0;
+  final int status=(tree instanceof NetworkBookTree) ? NetworkBookActions.getBookStatus(((NetworkBookTree)tree).Book,((NetworkLibraryActivity)getActivity()).Connection) : 0;
   if (status != 0) {
     statusView.setVisibility(View.VISIBLE);
     statusView.setImageResource(status);

@@ -1,3 +1,0 @@
-{
-  buildContextMenu(activity,menu,((TopUpTree)tree).Item.Link);
-}

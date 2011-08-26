@@ -1,5 +1,5 @@
 {
-  for (  OPDSPrice p : Prices) {
+  for (  Money p : Prices) {
     if (currency.equals(p.Currency)) {
       return p;
     }

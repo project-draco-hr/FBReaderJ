@@ -1,0 +1,10 @@
+{
+switch (requestCode) {
+case BASIC_AUTHENTICATION_CODE:
+    myCredentialsCreator.onDataReceived(resultCode,intent);
+  break;
+case SIGNUP_CODE:
+Util.processSignup(((NetworkCatalogTree)getCurrentTree()).Item.Link,resultCode,intent);
+break;
+}
+}

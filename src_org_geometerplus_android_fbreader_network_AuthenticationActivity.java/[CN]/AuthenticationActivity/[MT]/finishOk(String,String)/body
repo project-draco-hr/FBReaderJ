@@ -1,0 +1,7 @@
+{
+  final Intent data=Util.intentByLink(new Intent(),myLink);
+  data.putExtra(USERNAME_KEY,username);
+  data.putExtra(PASSWORD_KEY,password);
+  setResult(RESULT_OK,data);
+  finish();
+}

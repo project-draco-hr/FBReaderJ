@@ -1,9 +1,0 @@
-{
-synchronized (myBackgroundLock) {
-    if (myBackgroundLinks != null) {
-      removeAllLoadedLinks();
-      myLinks.addAll(myBackgroundLinks);
-    }
-    invalidateChildren();
-  }
-}

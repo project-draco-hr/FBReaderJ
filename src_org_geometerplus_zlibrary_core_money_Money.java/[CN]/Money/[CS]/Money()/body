@@ -1,0 +1,4 @@
+{
+  Amount=BigDecimal.ZERO;
+  Currency=null;
+}

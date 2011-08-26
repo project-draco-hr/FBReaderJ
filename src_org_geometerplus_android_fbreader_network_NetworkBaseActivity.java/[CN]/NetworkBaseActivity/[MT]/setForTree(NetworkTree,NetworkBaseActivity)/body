@@ -1,5 +1,0 @@
-{
-  if (tree != null) {
-    tree.setUserData(ACTIVITY_BY_TREE_KEY,activity);
-  }
-}

@@ -1,3 +1,0 @@
-{
-  return getDefaultActionCode(activity,((TopUpTree)tree).Item.Link);
-}

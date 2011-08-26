@@ -1,5 +1,5 @@
 {
-  if (!NetworkView.Instance().isInitialized() && NetworkInitializer.Instance != null) {
+  if (!NetworkLibrary.Instance().isInitialized() && NetworkInitializer.Instance != null) {
     NetworkInitializer.Instance.setActivity(null);
   }
   if (myConnection != null) {

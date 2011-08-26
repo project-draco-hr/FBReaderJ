@@ -1,10 +1,14 @@
 {
+  System.err.println("synchronize 0");
   if (myChildrenAreInvalid) {
+    System.err.println("synchronize 1");
     myChildrenAreInvalid=false;
     makeUpToDate();
   }
   if (myUpdateVisibility) {
+    System.err.println("synchronize 2");
     myUpdateVisibility=false;
     updateVisibility();
   }
+  System.err.println("synchronize 3");
 }

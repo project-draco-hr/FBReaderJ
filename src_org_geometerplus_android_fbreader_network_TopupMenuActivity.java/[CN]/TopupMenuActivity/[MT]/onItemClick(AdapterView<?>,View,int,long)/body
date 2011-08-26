@@ -1,0 +1,4 @@
+{
+  runTopupDialog(myInfos.get(position));
+  finish();
+}

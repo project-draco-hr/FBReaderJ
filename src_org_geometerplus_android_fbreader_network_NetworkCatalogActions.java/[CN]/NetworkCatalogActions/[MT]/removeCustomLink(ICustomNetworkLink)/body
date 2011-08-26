@@ -1,6 +1,0 @@
-{
-  final NetworkLibrary library=NetworkLibrary.Instance();
-  library.removeCustomLink(link);
-  library.synchronize();
-  NetworkView.Instance().fireModelChangedAsync();
-}

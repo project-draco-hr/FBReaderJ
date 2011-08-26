@@ -1,14 +1,9 @@
 {
-  if (myIsAlreadyInitialized) {
+  if (myIsInitialized) {
     return;
   }
   try {
-    OPDSLinkReader.loadOPDSLinks(OPDSLinkReader.CACHE_LOAD,new OnNewLinkListener(){
-      public void onNewLink(      INetworkLink link){
-        myLinks.add(link);
-      }
-    }
-);
+    myLinks.addAll(OPDSLinkReader.loadOPDSLinks(OPDSLinkReader.CacheMode.LOAD));
   }
  catch (  ZLNetworkException e) {
     removeAllLoadedLinks();
@@ -18,5 +13,5 @@
   if (db != null) {
     myLinks.addAll(db.listLinks());
   }
-  myIsAlreadyInitialized=true;
+  myIsInitialized=true;
 }

@@ -1,0 +1,10 @@
+{
+  final NetworkTree tree=(NetworkTree)getCurrentTree();
+  for (  Action a : myOptionsMenuActions) {
+    if (a.Code == item.getItemId()) {
+      a.checkAndRun(tree);
+      break;
+    }
+  }
+  return true;
+}

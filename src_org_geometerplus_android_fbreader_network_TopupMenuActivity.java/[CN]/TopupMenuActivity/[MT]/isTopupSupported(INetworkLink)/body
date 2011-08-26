@@ -1,0 +1,3 @@
+{
+  return link.getUrlInfo(UrlInfo.Type.TopUp) != null;
+}

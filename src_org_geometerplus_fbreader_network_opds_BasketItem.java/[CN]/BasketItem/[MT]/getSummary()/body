@@ -1,0 +1,7 @@
+{
+  final int size=Link.basket().bookIds().size();
+  if (size == 0) {
+    return super.getSummary();
+  }
+  return NetworkLibrary.resource().getResource("basketSummary").getValue().replace("%0",String.valueOf(size)).replace("%1","XXX");
+}

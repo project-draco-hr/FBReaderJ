@@ -1,6 +1,0 @@
-{
-  NetworkLibrary library=NetworkLibrary.Instance();
-  library.finishBackgroundUpdate();
-  library.synchronize();
-  fireModelChanged();
-}

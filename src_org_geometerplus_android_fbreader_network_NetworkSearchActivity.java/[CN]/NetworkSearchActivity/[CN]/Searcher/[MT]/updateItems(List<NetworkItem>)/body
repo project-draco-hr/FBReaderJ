@@ -6,5 +6,5 @@
     }
   }
   myTree.updateSubTrees();
-  NetworkView.Instance().fireModelChanged();
+  NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
 }

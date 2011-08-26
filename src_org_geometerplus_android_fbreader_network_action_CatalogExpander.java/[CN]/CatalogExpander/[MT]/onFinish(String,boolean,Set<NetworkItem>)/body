@@ -1,0 +1,20 @@
+{
+  if (interrupted && (!myTree.Item.supportsResumeLoading() || errorMessage != null)) {
+    myTree.clearCatalog();
+  }
+ else {
+    myTree.removeItems(uncommitedItems);
+    myTree.updateLoadedTime();
+    if (!interrupted) {
+      if (errorMessage != null) {
+        UIUtil.showMessageText(myActivity,errorMessage);
+      }
+ else       if (myTree.ChildrenItems.isEmpty()) {
+        UIUtil.showErrorMessage(myActivity,"emptyCatalog");
+      }
+    }
+    final NetworkLibrary library=NetworkLibrary.Instance();
+    library.invalidateVisibility();
+    library.synchronize();
+  }
+}

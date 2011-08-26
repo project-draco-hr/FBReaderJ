@@ -1,0 +1,12 @@
+{
+  if (getCurrentTree() instanceof RootTree) {
+    if (NetworkInitializer.Instance != null) {
+      NetworkInitializer.Instance.setActivity(null);
+    }
+  }
+  if (Connection != null) {
+    unbindService(Connection);
+    Connection=null;
+  }
+  super.onDestroy();
+}

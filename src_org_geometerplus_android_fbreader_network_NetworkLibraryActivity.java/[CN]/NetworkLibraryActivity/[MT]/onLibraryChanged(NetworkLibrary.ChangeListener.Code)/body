@@ -1,0 +1,17 @@
+{
+  runOnUiThread(new Runnable(){
+    public void run(){
+      final NetworkTree tree=getLoadableNetworkTree((NetworkTree)getCurrentTree());
+      final boolean inProgress=tree != null && ItemsLoadingService.getRunnable(tree) != null;
+      setProgressBarIndeterminateVisibility(inProgress);
+      getListAdapter().replaceAll(getCurrentTree().subTrees());
+      getListView().invalidateViews();
+      for (      FBTree child : getCurrentTree().subTrees()) {
+        if (child instanceof TopUpTree) {
+          child.invalidateSummary();
+        }
+      }
+    }
+  }
+);
+}

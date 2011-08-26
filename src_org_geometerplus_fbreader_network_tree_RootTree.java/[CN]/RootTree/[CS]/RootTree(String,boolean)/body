@@ -1,0 +1,4 @@
+{
+  IsFake=isFake;
+  myId=id;
+}

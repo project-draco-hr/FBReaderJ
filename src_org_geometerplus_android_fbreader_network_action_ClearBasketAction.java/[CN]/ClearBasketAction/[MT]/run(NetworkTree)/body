@@ -1,0 +1,3 @@
+{
+  ((NetworkCatalogTree)tree).Item.Link.basket().clear();
+}

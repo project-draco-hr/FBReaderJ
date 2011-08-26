@@ -9,13 +9,8 @@
         return;
       }
       new OPDSXMLReader(new OPDSFeedHandler(catalog,getURL(),result),false).read(inputStream);
-      if (result.Listener.confirmInterrupt()) {
-        if (result.LastLoadedId != null) {
-          result.LastLoadedId=null;
-        }
- else {
-          result.Listener.commitItems(OPDSNetworkLink.this);
-        }
+      if (result.Listener.confirmInterrupt() && result.LastLoadedId != null) {
+        result.LastLoadedId=null;
       }
  else {
         result.Listener.commitItems(OPDSNetworkLink.this);

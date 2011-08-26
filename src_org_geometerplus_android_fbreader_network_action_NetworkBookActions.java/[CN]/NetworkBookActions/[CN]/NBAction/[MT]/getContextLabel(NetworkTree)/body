@@ -1,0 +1,4 @@
+{
+  final String base=super.getContextLabel(tree);
+  return myArg == null ? base : base.replace("%s",myArg);
+}

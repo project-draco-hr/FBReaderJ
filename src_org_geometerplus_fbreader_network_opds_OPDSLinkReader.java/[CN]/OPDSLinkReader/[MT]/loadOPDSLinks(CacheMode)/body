@@ -1,0 +1,65 @@
+{
+  final OPDSLinkXMLReader xmlReader=new OPDSLinkXMLReader();
+  final File dirFile=new File(Paths.networkCacheDirectory());
+  if (!dirFile.exists() && !dirFile.mkdirs()) {
+    ZLNetworkManager.Instance().perform(new ZLNetworkRequest(CATALOGS_URL){
+      @Override public void handleStream(      InputStream inputStream,      int length) throws IOException, ZLNetworkException {
+        xmlReader.read(inputStream);
+      }
+    }
+);
+    return xmlReader.links();
+  }
+  boolean cacheIsGood=false;
+  File oldCache=null;
+  final File catalogsFile=new File(dirFile,FILE_NAME);
+  if (catalogsFile.exists()) {
+switch (cacheMode) {
+case UPDATE:
+      final long diff=System.currentTimeMillis() - catalogsFile.lastModified();
+    if (diff >= 0 && diff <= 7 * 24 * 60* 60* 1000) {
+      return Collections.emptyList();
+    }
+case CLEAR:
+  oldCache=new File(dirFile,"_" + FILE_NAME);
+oldCache.delete();
+if (!catalogsFile.renameTo(oldCache)) {
+catalogsFile.delete();
+oldCache=null;
+}
+break;
+case LOAD:
+cacheIsGood=true;
+break;
+}
+}
+if (!cacheIsGood) {
+try {
+ZLNetworkManager.Instance().downloadToFile(CATALOGS_URL,catalogsFile);
+}
+ catch (ZLNetworkException e) {
+if (oldCache == null) {
+throw e;
+}
+catalogsFile.delete();
+if (!oldCache.renameTo(catalogsFile)) {
+oldCache.delete();
+oldCache=null;
+throw e;
+}
+}
+ finally {
+if (oldCache != null) {
+oldCache.delete();
+oldCache=null;
+}
+}
+}
+try {
+xmlReader.read(new FileInputStream(catalogsFile));
+return xmlReader.links();
+}
+ catch (FileNotFoundException e) {
+return Collections.emptyList();
+}
+}
