@@ -12,8 +12,9 @@
     }
   }
   if (myBook == null) {
-    if ("litres-book".equals(getIntent().getData().getScheme())) {
-      myBook=OPDSBookItem.create(NetworkLibrary.Instance().getLinkBySiteName("litres.ru"),getIntent().getData().toString().replace("litres-book://","http://"));
+    final Uri url=getIntent().getData();
+    if (url != null && "litres-book".equals(url.getScheme())) {
+      myBook=OPDSBookItem.create(NetworkLibrary.Instance().getLinkBySiteName("litres.ru"),url.toString().replace("litres-book://","http://"));
     }
  else {
       final NetworkTree tree=Util.getTreeFromIntent(getIntent());
