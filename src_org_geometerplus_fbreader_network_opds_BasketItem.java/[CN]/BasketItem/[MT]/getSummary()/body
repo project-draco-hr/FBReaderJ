@@ -1,7 +1,13 @@
 {
-  final int size=Link.basket().bookIds().size();
+  final Basket basket=Link.basket();
+  final int size=basket.bookIds().size();
   if (size == 0) {
     return super.getSummary();
   }
-  return NetworkLibrary.resource().getResource("basketSummary").getValue().replace("%0",String.valueOf(size)).replace("%1","XXX");
+ else   if (size == basket.books().size()) {
+    return NetworkLibrary.resource().getResource("basketSummary").getValue().replace("%0",String.valueOf(size)).replace("%1",basket.cost().toString());
+  }
+ else {
+    return NetworkLibrary.resource().getResource("basketSummaryCountOnly").getValue().replace("%0",String.valueOf(size));
+  }
 }
