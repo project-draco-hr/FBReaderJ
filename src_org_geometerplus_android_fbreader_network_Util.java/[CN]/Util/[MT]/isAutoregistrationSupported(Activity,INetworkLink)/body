@@ -1,0 +1,3 @@
+{
+  return testService(activity,AUTOREGISTRATION_ACTION,link.getUrl(UrlInfo.Type.SignUp));
+}

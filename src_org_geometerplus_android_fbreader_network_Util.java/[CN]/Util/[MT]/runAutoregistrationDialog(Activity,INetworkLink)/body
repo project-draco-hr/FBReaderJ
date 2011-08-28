@@ -1,6 +1,6 @@
 {
   try {
-    final Intent intent=new Intent(REGISTRATION_ACTION,Uri.parse(link.getUrl(UrlInfo.Type.SignUp)));
+    final Intent intent=new Intent(AUTOREGISTRATION_ACTION,Uri.parse(link.getUrl(UrlInfo.Type.SignUp)));
     if (PackageUtil.canBeStarted(activity,intent,true)) {
       activity.startActivityForResult(intent,NetworkLibraryActivity.SIGNUP_CODE);
     }
