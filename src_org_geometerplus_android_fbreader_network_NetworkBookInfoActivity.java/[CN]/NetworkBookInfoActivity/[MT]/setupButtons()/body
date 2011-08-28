@@ -1,5 +1,4 @@
 {
-  final ZLResource resource=NetworkLibrary.resource();
   final int buttons[]=new int[]{R.id.network_book_button0,R.id.network_book_button1,R.id.network_book_button2,R.id.network_book_button3};
   final List<NetworkBookActions.NBAction> actions=NetworkBookActions.getContextMenuActions(this,myBook,myConnection);
   final boolean skipSecondButton=actions.size() < buttons.length && actions.size() % 2 == 1;
