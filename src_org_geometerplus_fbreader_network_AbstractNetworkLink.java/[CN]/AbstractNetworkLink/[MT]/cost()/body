@@ -1,3 +1,10 @@
 {
-  return Money.ZERO;
+  Money sum=Money.ZERO;
+  for (  NetworkBookItem b : books()) {
+    final BookBuyUrlInfo info=b.buyInfo();
+    if (info != null) {
+      sum=sum.add(info.Price);
+    }
+  }
+  return sum;
 }
