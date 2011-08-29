@@ -1,7 +1,7 @@
 {
   tag=tag.toLowerCase().intern();
   if (TAG_AUTHORIZATION_FAILED == tag) {
-    setException(new ZLNetworkException(NetworkException.ERROR_AUTHENTICATION_FAILED));
+    setException(new ZLNetworkException(ZLNetworkException.ERROR_AUTHENTICATION_FAILED));
   }
  else   if (TAG_AUTHORIZATION_OK == tag) {
     FirstName=attributes.getValue("first-name");
@@ -15,7 +15,7 @@
     CanRebill=stringCanRebill != null && !"0".equals(stringCanRebill) && !"no".equalsIgnoreCase(stringCanRebill);
   }
  else {
-    setException(new ZLNetworkException(NetworkException.ERROR_SOMETHING_WRONG,HostName));
+    setException(new ZLNetworkException(ZLNetworkException.ERROR_SOMETHING_WRONG,HostName));
   }
   return true;
 }

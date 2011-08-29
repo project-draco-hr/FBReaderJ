@@ -6,5 +6,8 @@ case BASIC_AUTHENTICATION_CODE:
 case SIGNUP_CODE:
 Util.processSignup(((NetworkCatalogTree)getCurrentTree()).Item.Link,resultCode,intent);
 break;
+case AUTO_SIGNIN_CODE:
+Util.processAutoSignIn(this,((NetworkCatalogTree)getCurrentTree()).Item.Link,resultCode,intent);
+break;
 }
 }

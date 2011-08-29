@@ -1,0 +1,3 @@
+{
+  return testService(activity,AUTO_SIGNIN_ACTION,link.getUrl(UrlInfo.Type.SignUp));
+}
