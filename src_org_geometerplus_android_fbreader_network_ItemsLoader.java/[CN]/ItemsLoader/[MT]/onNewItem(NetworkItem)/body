@@ -1,16 +1,6 @@
 {
 synchronized (myItemsMonitor) {
-    ++myItemsCounter;
     myUncommitedItems.add(item);
+    addItem(item);
   }
-  myActivity.runOnUiThread(new Runnable(){
-    public void run(){
-synchronized (myItemsMonitor) {
-        addItem(item);
-        --myItemsCounter;
-        myItemsMonitor.notifyAll();
-      }
-    }
-  }
-);
 }

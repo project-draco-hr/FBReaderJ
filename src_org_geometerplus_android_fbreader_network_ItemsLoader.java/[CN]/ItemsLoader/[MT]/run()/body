@@ -17,7 +17,6 @@
  catch (    ZLNetworkException e) {
       error=e.getMessage();
     }
-    ensureItemsProcessed();
     finishOnUiThread(error,isLoadingInterrupted());
     ensureFinishProcessed();
   }
