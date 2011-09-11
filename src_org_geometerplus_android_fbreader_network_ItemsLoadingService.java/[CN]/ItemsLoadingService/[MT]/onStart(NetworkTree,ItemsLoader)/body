@@ -1,24 +1,9 @@
 {
-  super.onStart(intent,startId);
-  doStart();
-  final NetworkTree tree=Util.getTreeFromIntent(intent);
-  if (tree == null) {
-    doStop();
-    return;
-  }
-  intent.removeExtra(NetworkLibraryActivity.TREE_KEY_KEY);
   if (!NetworkLibrary.Instance().isInitialized()) {
-    doStop();
-    return;
-  }
-  final ItemsLoader runnable=getRunnable(tree);
-  if (runnable == null) {
-    doStop();
     return;
   }
   final Handler finishHandler=new Handler(){
     public void handleMessage(    Message message){
-      doStop();
       removeRunnable(tree);
       NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
     }

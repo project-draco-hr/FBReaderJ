@@ -12,4 +12,5 @@
   if (myHistory == null) {
     myHistory=new ArrayList<FBTree.Key>();
   }
+  onCurrentTreeChanged();
 }
