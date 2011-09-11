@@ -1,8 +1,0 @@
-{
-synchronized (myFinishedLock) {
-    if (myPostRunnable != null) {
-      myActivity.runOnUiThread(myPostRunnable);
-    }
-    myFinished=true;
-  }
-}

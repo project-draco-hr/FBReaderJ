@@ -1,19 +1,34 @@
 {
+  final NetworkLibrary library=NetworkLibrary.Instance();
   try {
-    doBefore();
+    library.storeLoader(getTree(),this);
+    library.fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
+    try {
+      doBefore();
+    }
+ catch (    ZLNetworkException e) {
+      finishOnUiThread(e.getMessage(),false);
+      return;
+    }
+    String error=null;
+    try {
+      doLoading();
+    }
+ catch (    ZLNetworkException e) {
+      error=e.getMessage();
+    }
+    ensureItemsProcessed();
+    finishOnUiThread(error,isLoadingInterrupted());
+    ensureFinishProcessed();
   }
- catch (  ZLNetworkException e) {
-    finishOnUiThread(e.getMessage(),false);
-    return;
+  finally {
+    library.removeStoredLoader(getTree());
+synchronized (myFinishedLock) {
+      if (myPostRunnable != null) {
+        myActivity.runOnUiThread(myPostRunnable);
+      }
+      myFinished=true;
+    }
+    library.fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
   }
-  String error=null;
-  try {
-    doLoading();
-  }
- catch (  ZLNetworkException e) {
-    error=e.getMessage();
-  }
-  ensureItemsProcessed();
-  finishOnUiThread(error,isLoadingInterrupted());
-  ensureFinishProcessed();
 }
