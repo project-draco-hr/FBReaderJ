@@ -1,15 +1,15 @@
 {
-  if (interrupted && (!myTree.Item.supportsResumeLoading() || errorMessage != null)) {
-    myTree.clearCatalog();
+  if (interrupted && (!getTree().Item.supportsResumeLoading() || errorMessage != null)) {
+    getTree().clearCatalog();
   }
  else {
-    myTree.removeItems(uncommitedItems);
-    myTree.updateLoadedTime();
+    getTree().removeItems(uncommitedItems);
+    getTree().updateLoadedTime();
     if (!interrupted) {
       if (errorMessage != null) {
         UIUtil.showMessageText(myActivity,errorMessage);
       }
- else       if (myTree.ChildrenItems.isEmpty()) {
+ else       if (getTree().ChildrenItems.isEmpty()) {
         UIUtil.showErrorMessage(myActivity,"emptyCatalog");
       }
     }

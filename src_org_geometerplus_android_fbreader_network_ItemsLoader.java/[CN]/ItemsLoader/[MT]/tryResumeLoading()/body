@@ -1,8 +1,0 @@
-{
-synchronized (myInterruptLock) {
-    if (!myInterruptConfirmed) {
-      myInterruptRequested=false;
-    }
-    return !myInterruptRequested;
-  }
-}

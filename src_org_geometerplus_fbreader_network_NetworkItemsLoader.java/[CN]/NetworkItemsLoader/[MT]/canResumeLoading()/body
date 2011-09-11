@@ -1,0 +1,8 @@
+{
+synchronized (myInterruptLock) {
+    if (myInterruptionState == InterruptionState.REQUESTED) {
+      myInterruptionState=InterruptionState.NONE;
+    }
+    return myInterruptionState == InterruptionState.NONE;
+  }
+}

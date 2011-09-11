@@ -1,0 +1,3 @@
+{
+  myLoaders.put(tree,loader);
+}

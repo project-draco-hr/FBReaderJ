@@ -1,9 +1,0 @@
-{
-synchronized (tree) {
-    ItemsLoader runnable=(ItemsLoader)tree.getUserData(KEY);
-    if (runnable != null) {
-      tree.setUserData(KEY,null);
-      runnable.runFinishHandler();
-    }
-  }
-}

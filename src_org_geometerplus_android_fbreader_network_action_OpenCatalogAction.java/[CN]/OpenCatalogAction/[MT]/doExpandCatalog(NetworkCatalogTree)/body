@@ -16,7 +16,7 @@
           tree.clearCatalog();
         }
       }
-      ItemsLoadingService.start(tree,new CatalogExpander(myActivity,tree,true,resumeNotLoad));
+      new CatalogExpander(myActivity,tree,true,resumeNotLoad).start();
       processExtraData(tree.Item.extraData(),new Runnable(){
         public void run(){
           Util.openTree(myActivity,tree);

@@ -1,13 +1,13 @@
 {
-  final ItemsLoader runnable=ItemsLoadingService.getRunnable(tree);
-  if (runnable != null && runnable.tryResumeLoading()) {
+  final NetworkItemsLoader loader=NetworkLibrary.Instance().getStoredLoader(tree);
+  if (loader != null && loader.canResumeLoading()) {
     Util.openTree(activity,tree);
     return;
   }
-  if (runnable == null) {
+  if (loader == null) {
     expandRunnable.run();
   }
  else {
-    runnable.setPostRunnable(expandRunnable);
+    loader.setPostRunnable(expandRunnable);
   }
 }

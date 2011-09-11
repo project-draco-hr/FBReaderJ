@@ -12,7 +12,7 @@
   while (requestList.size() != 0) {
     ZLNetworkManager.Instance().perform(requestList);
     requestList.clear();
-    if (loader.confirmInterrupt()) {
+    if (loader.confirmInterruption()) {
       return;
     }
     for (    NetworkOperationData data : dataList) {

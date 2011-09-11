@@ -1,5 +1,5 @@
 {
-  if (myFinishRunnable != null) {
+  if (myPostRunnable != null) {
     return;
   }
 synchronized (myFinishedLock) {
@@ -7,7 +7,7 @@ synchronized (myFinishedLock) {
       runnable.run();
     }
  else {
-      myFinishRunnable=runnable;
+      myPostRunnable=runnable;
     }
   }
 }

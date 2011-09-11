@@ -1,7 +1,7 @@
 {
   while (networkRequest != null) {
     ZLNetworkManager.Instance().perform(networkRequest);
-    if (data.Loader.confirmInterrupt()) {
+    if (data.Loader.confirmInterruption()) {
       return;
     }
     networkRequest=data.resume();

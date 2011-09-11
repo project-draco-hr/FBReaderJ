@@ -2,13 +2,13 @@
   final NetworkLibrary library=NetworkLibrary.Instance();
   library.NetworkSearchPatternOption.setValue(pattern);
   final SearchItemTree tree=null;
-  if (tree == null || ItemsLoadingService.getRunnable(tree) != null) {
+  if (tree == null || library.getStoredLoader(tree) != null) {
     return;
   }
   final String summary=NetworkLibrary.resource().getResource("searchResults").getValue().replace("%s",pattern);
   final SearchResult result=new SearchResult(summary);
   tree.setSearchResult(result);
   NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
-  ItemsLoadingService.start(tree,new Searcher(this,tree,pattern));
+  new Searcher(this,tree,pattern).start();
   Util.openTree(this,tree);
 }
