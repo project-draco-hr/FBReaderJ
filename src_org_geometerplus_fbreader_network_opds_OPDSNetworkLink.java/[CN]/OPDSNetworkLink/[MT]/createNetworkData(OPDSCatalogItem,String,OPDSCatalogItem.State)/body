@@ -5,15 +5,15 @@
   url=rewriteUrl(url,false);
   return new ZLNetworkRequest(url){
     @Override public void handleStream(    InputStream inputStream,    int length) throws IOException, ZLNetworkException {
-      if (result.Listener.confirmInterrupt()) {
+      if (result.Loader.confirmInterrupt()) {
         return;
       }
       new OPDSXMLReader(new OPDSFeedHandler(catalog,getURL(),result),false).read(inputStream);
-      if (result.Listener.confirmInterrupt() && result.LastLoadedId != null) {
+      if (result.Loader.confirmInterrupt() && result.LastLoadedId != null) {
         result.LastLoadedId=null;
       }
  else {
-        result.Listener.commitItems();
+        result.Loader.commitItems();
       }
     }
   }

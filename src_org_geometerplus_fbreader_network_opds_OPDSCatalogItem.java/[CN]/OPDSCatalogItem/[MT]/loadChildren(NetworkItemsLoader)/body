@@ -1,0 +1,5 @@
+{
+  final OPDSNetworkLink opdsLink=(OPDSNetworkLink)Link;
+  myLoadingState=opdsLink.createOperationData(loader);
+  doLoadChildren(opdsLink.createNetworkData(this,getCatalogUrl(),myLoadingState));
+}

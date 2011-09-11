@@ -1,6 +1,0 @@
-{
-  for (  NetworkItem child : myChildren) {
-    listener.onNewItem(child);
-  }
-  listener.commitItems();
-}

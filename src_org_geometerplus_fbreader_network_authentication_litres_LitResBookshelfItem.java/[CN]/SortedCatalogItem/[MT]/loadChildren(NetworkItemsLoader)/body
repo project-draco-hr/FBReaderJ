@@ -1,0 +1,6 @@
+{
+  for (  NetworkItem child : myChildren) {
+    loader.onNewItem(child);
+  }
+  loader.commitItems();
+}

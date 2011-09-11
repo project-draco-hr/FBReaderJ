@@ -1,0 +1,25 @@
+{
+  LinkedList<ZLNetworkRequest> requestList=new LinkedList<ZLNetworkRequest>();
+  LinkedList<NetworkOperationData> dataList=new LinkedList<NetworkOperationData>();
+  for (  INetworkLink link : activeLinks()) {
+    final NetworkOperationData data=link.createOperationData(loader);
+    final ZLNetworkRequest request=link.simpleSearchRequest(pattern,data);
+    if (request != null) {
+      dataList.add(data);
+      requestList.add(request);
+    }
+  }
+  while (requestList.size() != 0) {
+    ZLNetworkManager.Instance().perform(requestList);
+    requestList.clear();
+    if (loader.confirmInterrupt()) {
+      return;
+    }
+    for (    NetworkOperationData data : dataList) {
+      ZLNetworkRequest request=data.resume();
+      if (request != null) {
+        requestList.add(request);
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  final LitResAuthenticationManager mgr=(LitResAuthenticationManager)Link.authenticationManager();
+  if (!mgr.mayBeAuthorised(true)) {
+    throw new ZLNetworkException(NetworkException.ERROR_AUTHENTICATION_FAILED);
+  }
+  try {
+    if (myForceReload) {
+      mgr.reloadPurchasedBooks();
+    }
+  }
+  finally {
+    myForceReload=true;
+    ArrayList<NetworkItem> children=new ArrayList<NetworkItem>(mgr.purchasedBooks());
+    if (children.size() <= 5) {
+      Collections.sort(children,new NetworkBookItemComparator());
+      for (      NetworkItem item : children) {
+        loader.onNewItem(item);
+      }
+    }
+ else {
+      loader.onNewItem(new ByDateCatalogItem(this,children));
+      loader.onNewItem(new ByAuthorCatalogItem(this,children));
+      loader.onNewItem(new ByTitleCatalogItem(this,children));
+      final BySeriesCatalogItem bySeries=new BySeriesCatalogItem(this,children);
+      if (!bySeries.isEmpty()) {
+        loader.onNewItem(bySeries);
+      }
+    }
+    loader.commitItems();
+  }
+}

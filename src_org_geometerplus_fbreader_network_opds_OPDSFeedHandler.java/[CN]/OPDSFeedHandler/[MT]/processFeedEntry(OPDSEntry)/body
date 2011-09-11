@@ -39,7 +39,7 @@
     item=readCatalogItem(entry);
   }
   if (item != null) {
-    myData.Listener.onNewItem(item);
+    myData.Loader.onNewItem(item);
   }
   return tryInterrupt();
 }
