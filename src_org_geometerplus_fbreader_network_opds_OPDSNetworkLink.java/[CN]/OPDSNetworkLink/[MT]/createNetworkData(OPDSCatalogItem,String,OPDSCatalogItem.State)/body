@@ -13,7 +13,7 @@
         result.LastLoadedId=null;
       }
  else {
-        result.Listener.commitItems(OPDSNetworkLink.this);
+        result.Listener.commitItems();
       }
     }
   }

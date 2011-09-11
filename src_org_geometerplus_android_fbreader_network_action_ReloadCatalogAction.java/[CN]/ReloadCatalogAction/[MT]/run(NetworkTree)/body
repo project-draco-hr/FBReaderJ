@@ -3,5 +3,5 @@
     return;
   }
   ((NetworkCatalogTree)tree).clearCatalog();
-  ItemsLoadingService.start(myActivity,tree,new CatalogExpander(myActivity,(NetworkCatalogTree)tree,false,false));
+  ItemsLoadingService.start(tree,new CatalogExpander(myActivity,(NetworkCatalogTree)tree,false,false));
 }

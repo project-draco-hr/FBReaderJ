@@ -1,11 +1,9 @@
 {
   myActivity.runOnUiThread(new Runnable(){
     public void run(){
-      HashSet<NetworkItem> uncommitedItems=new HashSet<NetworkItem>();
-synchronized (myUncommitedItems) {
-        for (        LinkedList<NetworkItem> items : myUncommitedItems.values()) {
-          uncommitedItems.addAll(items);
-        }
+      final Set<NetworkItem> uncommitedItems;
+synchronized (myItemsMonitor) {
+        uncommitedItems=new HashSet<NetworkItem>(myUncommitedItems);
       }
 synchronized (myFinishMonitor) {
         onFinish(errorMessage,interrupted,uncommitedItems);

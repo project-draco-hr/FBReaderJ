@@ -10,16 +10,16 @@
   try {
     doLoading(new NetworkOperationData.OnNewItemListener(){
       private int myItemsNumber;
-      public void onNewItem(      INetworkLink link,      NetworkItem item){
-        addItem(link,item);
+      public void onNewItem(      NetworkItem item){
+        addItem(item);
         ++myItemsNumber;
         updateItemsOnUiThread();
       }
       public boolean confirmInterrupt(){
         return confirmInterruptLoading();
       }
-      public void commitItems(      INetworkLink link){
-        ItemsLoader.this.commitItems(link);
+      public void commitItems(){
+        ItemsLoader.this.commitItems();
       }
     }
 );

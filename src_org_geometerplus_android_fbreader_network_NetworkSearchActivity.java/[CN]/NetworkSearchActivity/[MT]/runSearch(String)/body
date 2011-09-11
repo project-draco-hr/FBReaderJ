@@ -9,6 +9,6 @@
   final SearchResult result=new SearchResult(summary);
   tree.setSearchResult(result);
   NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
-  ItemsLoadingService.start(this,tree,new Searcher(this,tree,pattern));
+  ItemsLoadingService.start(tree,new Searcher(this,tree,pattern));
   Util.openTree(this,tree);
 }

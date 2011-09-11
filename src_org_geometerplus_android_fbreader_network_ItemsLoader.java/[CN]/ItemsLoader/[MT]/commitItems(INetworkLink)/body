@@ -1,8 +1,0 @@
-{
-synchronized (myItemsMonitor) {
-    LinkedList<NetworkItem> uncommited=myUncommitedItems.get(link);
-    if (uncommited != null) {
-      uncommited.clear();
-    }
-  }
-}
