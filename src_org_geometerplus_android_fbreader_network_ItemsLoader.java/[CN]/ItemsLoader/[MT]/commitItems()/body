@@ -1,5 +1,3 @@
 {
-synchronized (myItemsMonitor) {
-    myUncommitedItems.clear();
-  }
+  myUncommitedItems.clear();
 }

@@ -1,6 +1,4 @@
 {
-synchronized (myItemsMonitor) {
-    myUncommitedItems.add(item);
-    addItem(item);
-  }
+  myUncommitedItems.add(item);
+  addItem(item);
 }
