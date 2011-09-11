@@ -24,7 +24,7 @@
     library.removeStoredLoader(getTree());
 synchronized (myFinishedLock) {
       if (myPostRunnable != null) {
-        myActivity.runOnUiThread(myPostRunnable);
+        myPostRunnable.run();
       }
       myFinished=true;
     }

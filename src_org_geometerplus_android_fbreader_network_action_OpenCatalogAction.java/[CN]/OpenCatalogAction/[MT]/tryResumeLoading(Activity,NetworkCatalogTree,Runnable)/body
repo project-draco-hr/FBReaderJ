@@ -8,6 +8,11 @@
     expandRunnable.run();
   }
  else {
-    loader.setPostRunnable(expandRunnable);
+    loader.setPostRunnable(new Runnable(){
+      public void run(){
+        activity.runOnUiThread(expandRunnable);
+      }
+    }
+);
   }
 }
