@@ -9,16 +9,11 @@
   String error=null;
   try {
     doLoading(new NetworkOperationData.OnNewItemListener(){
-      private long myUpdateTime;
       private int myItemsNumber;
       public void onNewItem(      INetworkLink link,      NetworkItem item){
         addItem(link,item);
         ++myItemsNumber;
-        final long now=System.currentTimeMillis();
-        if (now > myUpdateTime) {
-          updateItemsOnUiThread();
-          myUpdateTime=now + myUpdateInterval;
-        }
+        updateItemsOnUiThread();
       }
       public boolean confirmInterrupt(){
         return confirmInterruptLoading();

@@ -1,5 +1,6 @@
 {
-  if (runnable == null) {
+  final NetworkLibrary networkLibrary=NetworkLibrary.Instance();
+  if (!networkLibrary.isInitialized()) {
     return;
   }
 synchronized (tree) {
@@ -8,5 +9,19 @@ synchronized (tree) {
     }
     tree.setUserData(KEY,runnable);
   }
-  onStart(tree,runnable);
+  networkLibrary.fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
+  final Thread loader=new Thread(new Runnable(){
+    public void run(){
+      try {
+        runnable.run();
+      }
+  finally {
+        removeRunnable(tree);
+        networkLibrary.fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
+      }
+    }
+  }
+);
+  loader.setPriority(Thread.MIN_PRIORITY);
+  loader.start();
 }
