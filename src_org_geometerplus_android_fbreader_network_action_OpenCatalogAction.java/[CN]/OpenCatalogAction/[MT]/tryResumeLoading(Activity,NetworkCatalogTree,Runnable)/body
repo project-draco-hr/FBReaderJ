@@ -8,6 +8,6 @@
     expandRunnable.run();
   }
  else {
-    runnable.runOnFinish(expandRunnable);
+    runnable.setPostRunnable(expandRunnable);
   }
 }

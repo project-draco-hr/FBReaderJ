@@ -8,7 +8,7 @@ case ALWAYS_RELOAD_BEFORE_OPENING:
   onNewIntent(new Intent(this,getClass()).setAction(OPEN_TREE_ACTION).putExtra(TREE_KEY_KEY,tree.getUniqueKey()).putExtra(SELECTED_TREE_KEY_KEY,treeToSelect != null ? treeToSelect.getUniqueKey() : null).putExtra(HISTORY_KEY,myHistory));
 break;
 case CANNOT_OPEN:
-UIUtil.showErrorMessage(BaseActivity.this,tree.getOpeningStatusMessage());
+UIUtil.showErrorMessage(TreeActivity.this,tree.getOpeningStatusMessage());
 break;
 }
 }

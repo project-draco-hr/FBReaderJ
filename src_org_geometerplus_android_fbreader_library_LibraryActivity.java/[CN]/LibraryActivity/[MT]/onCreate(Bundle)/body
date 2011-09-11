@@ -17,7 +17,7 @@
       mySelectedBook=Book.getByFile(file);
     }
   }
-  new LibraryListAdapter(this);
+  new LibraryTreeAdapter(this);
   init(getIntent());
   getListView().setTextFilterEnabled(true);
   getListView().setOnCreateContextMenuListener(this);

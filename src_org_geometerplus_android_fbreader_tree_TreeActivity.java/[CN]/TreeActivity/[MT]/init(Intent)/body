@@ -3,7 +3,7 @@
   final FBTree.Key selectedKey=(FBTree.Key)intent.getSerializableExtra(SELECTED_TREE_KEY_KEY);
   myCurrentTree=getTreeByKey(key);
   myCurrentKey=myCurrentTree.getUniqueKey();
-  final ListAdapter adapter=getListAdapter();
+  final TreeAdapter adapter=getListAdapter();
   adapter.replaceAll(myCurrentTree.subTrees());
   setTitle(myCurrentTree.getTreeTitle());
   final FBTree selectedTree=selectedKey != null ? getTreeByKey(selectedKey) : adapter.getFirstSelectedItem();
