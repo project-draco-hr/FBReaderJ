@@ -1,7 +1,0 @@
-{
-  try {
-    NetworkLibrary.Instance().simpleSearch(myPattern,doWithListener);
-  }
- catch (  ZLNetworkException e) {
-  }
-}

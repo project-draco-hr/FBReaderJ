@@ -8,38 +8,7 @@
   }
   String error=null;
   try {
-    doLoading(new NetworkOperationData.OnNewItemListener(){
-      public void onNewItem(      NetworkItem item){
-synchronized (myItemsMonitor) {
-          myItems.add(item);
-          myUncommitedItems.add(item);
-        }
-        myActivity.runOnUiThread(new Runnable(){
-          public void run(){
-synchronized (myItemsMonitor) {
-              updateItems(myItems);
-              myItems.clear();
-              myItemsMonitor.notifyAll();
-            }
-          }
-        }
-);
-      }
-      public boolean confirmInterrupt(){
-synchronized (myInterruptLock) {
-          if (myInterruptRequested) {
-            myInterruptConfirmed=true;
-          }
-          return myInterruptConfirmed;
-        }
-      }
-      public void commitItems(){
-synchronized (myItemsMonitor) {
-          myUncommitedItems.clear();
-        }
-      }
-    }
-);
+    doLoading();
   }
  catch (  ZLNetworkException e) {
     error=e.getMessage();
