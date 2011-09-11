@@ -1,6 +1,6 @@
 {
 synchronized (myItemsMonitor) {
-    while (myItems.size() > 0) {
+    while (myItemsCounter > 0) {
       try {
         myItemsMonitor.wait();
       }
