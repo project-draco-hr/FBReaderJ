@@ -17,6 +17,7 @@
       myBitmap=((ZLAndroidImageData)imageData).getFullSizeBitmap();
     }
  catch (    Exception e) {
+      e.printStackTrace();
       finish();
     }
   }
