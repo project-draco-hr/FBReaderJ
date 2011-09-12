@@ -72,6 +72,6 @@
     }
   }
  else {
-    return new OPDSCatalogItem(opdsLink,entry.Title,annotation,urlMap,OPDSCatalogItem.Accessibility.ALWAYS,NetworkCatalogItem.FLAGS_DEFAULT);
+    return new OPDSCatalogItem(opdsLink,entry.Title,annotation,urlMap);
   }
 }

@@ -1,0 +1,3 @@
+{
+  super(link,NetworkLibrary.resource().getResource("search").getValue(),NetworkLibrary.resource().getResource("searchSummaryEmpty").getValue(),new UrlInfoCollection<UrlInfo>(),Accessibility.ALWAYS,FLAGS_DEFAULT);
+}

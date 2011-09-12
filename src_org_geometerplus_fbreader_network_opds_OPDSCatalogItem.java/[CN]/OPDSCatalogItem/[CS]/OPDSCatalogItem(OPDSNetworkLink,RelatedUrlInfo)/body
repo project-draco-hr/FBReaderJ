@@ -1,4 +1,3 @@
 {
-  super(link,info.Title,null,createSimpleCollection(info.Url));
-  myExtraData=null;
+  this(link,info.Title,null,createSimpleCollection(info.Url));
 }
