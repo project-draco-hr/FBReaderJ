@@ -1,12 +1,8 @@
 {
   myActivity.runOnUiThread(new Runnable(){
     public void run(){
-      final Set<NetworkItem> uncommitedItems;
-synchronized (myUncommitedItems) {
-        uncommitedItems=new HashSet<NetworkItem>(myUncommitedItems);
-      }
 synchronized (myFinishMonitor) {
-        onFinish(errorMessage,interrupted,uncommitedItems);
+        onFinish(errorMessage,interrupted,uncommitedItems());
         myFinishProcessed=true;
         myFinishMonitor.notifyAll();
       }

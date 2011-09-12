@@ -1,0 +1,5 @@
+{
+synchronized (myUncommitedItems) {
+    return new HashSet<NetworkItem>(myUncommitedItems);
+  }
+}

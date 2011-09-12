@@ -1,0 +1,4 @@
+{
+  myUncommitedItems.add(item);
+  addItem(item);
+}
