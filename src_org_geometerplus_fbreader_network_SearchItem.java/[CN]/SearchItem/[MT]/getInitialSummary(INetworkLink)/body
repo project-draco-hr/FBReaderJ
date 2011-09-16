@@ -1,0 +1,8 @@
+{
+  if (link == null) {
+    return NetworkLibrary.resource().getResource("searchSummaryAllCatalogs").getValue();
+  }
+ else {
+    return NetworkLibrary.resource().getResource("searchSummary").getValue().replace("%s",link.getSiteName());
+  }
+}

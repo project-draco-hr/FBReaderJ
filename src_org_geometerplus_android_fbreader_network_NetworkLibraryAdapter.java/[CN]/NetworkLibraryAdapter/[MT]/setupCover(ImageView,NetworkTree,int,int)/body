@@ -1,6 +1,6 @@
 {
   if (tree instanceof NetworkCatalogTree && tree.getHoldedItem() instanceof SearchItem) {
-    coverView.setImageResource(R.drawable.ic_list_library_books);
+    coverView.setImageResource(R.drawable.ic_list_library_search);
     return;
   }
   Bitmap coverBitmap=null;
