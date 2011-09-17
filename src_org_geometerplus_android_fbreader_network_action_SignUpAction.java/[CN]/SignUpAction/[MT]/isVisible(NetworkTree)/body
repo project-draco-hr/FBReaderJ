@@ -2,7 +2,7 @@
   if (!(tree instanceof NetworkCatalogRootTree)) {
     return false;
   }
-  final NetworkCatalogItem item=((NetworkCatalogRootTree)tree).Item;
-  final NetworkAuthenticationManager mgr=item.Link.authenticationManager();
-  return mgr != null && !mgr.mayBeAuthorised(false) && Util.isRegistrationSupported(myActivity,item.Link);
+  final INetworkLink link=tree.getLink();
+  final NetworkAuthenticationManager mgr=link.authenticationManager();
+  return mgr != null && !mgr.mayBeAuthorised(false) && Util.isRegistrationSupported(myActivity,link);
 }

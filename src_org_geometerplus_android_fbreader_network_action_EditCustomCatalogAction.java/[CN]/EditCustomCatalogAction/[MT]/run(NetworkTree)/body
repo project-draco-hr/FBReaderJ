@@ -1,5 +1,5 @@
 {
   final Intent intent=new Intent(myActivity,AddCustomCatalogActivity.class);
-  AddCustomCatalogActivity.addLinkToIntent(intent,(ICustomNetworkLink)((NetworkCatalogTree)tree).Item.Link);
+  AddCustomCatalogActivity.addLinkToIntent(intent,(ICustomNetworkLink)tree.getLink());
   myActivity.startActivity(intent);
 }

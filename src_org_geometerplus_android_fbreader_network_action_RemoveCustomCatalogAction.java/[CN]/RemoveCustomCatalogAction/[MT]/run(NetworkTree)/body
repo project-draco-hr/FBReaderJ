@@ -1,5 +1,5 @@
 {
   final NetworkLibrary library=NetworkLibrary.Instance();
-  library.removeCustomLink((ICustomNetworkLink)((NetworkCatalogTree)tree).Item.Link);
+  library.removeCustomLink((ICustomNetworkLink)tree.getLink());
   library.synchronize();
 }

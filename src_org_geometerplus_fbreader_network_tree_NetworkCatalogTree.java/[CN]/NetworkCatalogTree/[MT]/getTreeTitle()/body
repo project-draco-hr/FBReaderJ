@@ -1,3 +1,4 @@
 {
-  return getName() + " - " + Item.Link.getSiteName();
+  final INetworkLink link=getLink();
+  return link != null ? getName() + " - " + link.getSiteName() : getName();
 }

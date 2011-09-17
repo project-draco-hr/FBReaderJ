@@ -1,7 +1,8 @@
 {
   if ((Item.getFlags() & NetworkCatalogItem.FLAG_ADD_SEARCH_ITEM) != 0) {
-    if (Item.Link.getUrl(UrlInfo.Type.Search) != null) {
-      final SearchItem item=new SearchItem(Item.Link);
+    final INetworkLink link=getLink();
+    if (link != null && link.getUrl(UrlInfo.Type.Search) != null) {
+      final SearchItem item=new SearchItem(link);
       myChildrenItems.add(item);
       new SearchCatalogTree(this,item,0);
     }

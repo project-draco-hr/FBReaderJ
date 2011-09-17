@@ -2,5 +2,5 @@
   if (!(tree instanceof NetworkCatalogRootTree)) {
     return 1;
   }
-  return Item.Link.compareTo(((NetworkCatalogTree)tree).Item.Link);
+  return getLink().compareTo(((NetworkCatalogRootTree)tree).getLink());
 }

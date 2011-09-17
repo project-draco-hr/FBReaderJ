@@ -2,7 +2,6 @@
   if (!(tree instanceof NetworkCatalogRootTree)) {
     return false;
   }
-  final NetworkCatalogItem item=((NetworkCatalogRootTree)tree).Item;
-  final NetworkAuthenticationManager mgr=item.Link.authenticationManager();
+  final NetworkAuthenticationManager mgr=tree.getLink().authenticationManager();
   return mgr != null && !mgr.mayBeAuthorised(false);
 }

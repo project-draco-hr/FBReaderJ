@@ -1,6 +1,5 @@
 {
-  final NetworkCatalogItem item=((NetworkCatalogRootTree)tree).Item;
-  final NetworkAuthenticationManager mgr=item.Link.authenticationManager();
+  final NetworkAuthenticationManager mgr=tree.getLink().authenticationManager();
   final Runnable runnable=new Runnable(){
     public void run(){
       if (mgr.mayBeAuthorised(false)) {

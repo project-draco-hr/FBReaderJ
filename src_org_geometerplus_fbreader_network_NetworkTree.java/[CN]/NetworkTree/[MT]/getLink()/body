@@ -1,0 +1,4 @@
+{
+  final NetworkTree parent=(NetworkTree)Parent;
+  return parent != null ? parent.getLink() : null;
+}

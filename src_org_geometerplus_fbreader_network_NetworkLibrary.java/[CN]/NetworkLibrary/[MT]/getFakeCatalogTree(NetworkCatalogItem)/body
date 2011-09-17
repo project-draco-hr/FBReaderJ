@@ -6,5 +6,5 @@
       return ncTree;
     }
   }
-  return new NetworkCatalogTree(myFakeRootTree,item,0);
+  return new NetworkCatalogTree(myFakeRootTree,item.Link,item,0);
 }

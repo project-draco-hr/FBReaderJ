@@ -1,11 +1,5 @@
 {
-  INetworkLink link=null;
-  if (tree instanceof TopUpTree) {
-    link=((TopUpTree)tree).Item.Link;
-  }
- else   if (tree instanceof NetworkCatalogRootTree) {
-    link=((NetworkCatalogRootTree)tree).Item.Link;
-  }
+  final INetworkLink link=tree.getLink();
   if (link != null) {
     TopupMenuActivity.runMenu(myActivity,link,null);
   }

@@ -3,7 +3,7 @@
   final LinkedList<FBTree> toRemove=new LinkedList<FBTree>();
   for (  FBTree t : myRootTree.subTrees()) {
     if (t instanceof NetworkCatalogTree) {
-      final INetworkLink link=((NetworkCatalogTree)t).Item.Link;
+      final INetworkLink link=((NetworkCatalogTree)t).getLink();
       if (link != null) {
         if (!linkSet.contains(link)) {
           toRemove.add(t);
@@ -29,7 +29,7 @@
   for (  INetworkLink link : linkSet) {
     int index=0;
     for (    FBTree t : myRootTree.subTrees()) {
-      final INetworkLink l=((NetworkCatalogTree)t).Item.Link;
+      final INetworkLink l=((NetworkTree)t).getLink();
       if (l != null && link.compareTo(l) <= 0) {
         break;
       }

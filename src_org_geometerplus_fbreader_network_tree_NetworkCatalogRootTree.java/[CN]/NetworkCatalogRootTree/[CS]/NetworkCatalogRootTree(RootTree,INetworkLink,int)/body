@@ -1,3 +1,3 @@
 {
-  super(parent,(NetworkCatalogItem)link.libraryItem(),position);
+  super(parent,link,(NetworkCatalogItem)link.libraryItem(),position);
 }

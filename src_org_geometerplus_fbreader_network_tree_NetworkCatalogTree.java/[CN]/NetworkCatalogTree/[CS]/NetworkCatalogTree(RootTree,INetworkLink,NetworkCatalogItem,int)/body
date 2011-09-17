@@ -1,5 +1,6 @@
 {
   super(parent,position);
+  myLink=link;
   Item=item;
   addSearchTree();
 }
