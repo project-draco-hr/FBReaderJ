@@ -2,7 +2,6 @@
   if (myBooksNumber >= books.size()) {
     return;
   }
-  invalidateSummary();
   ListIterator<NetworkBookItem> booksIterator=books.listIterator(myBooksNumber);
   while (booksIterator.hasNext()) {
     NetworkBookItem book=booksIterator.next();
@@ -39,7 +38,6 @@
           }
           ++insertAt;
         }
-        seriesTree.invalidateSummary();
         new NetworkBookTree(seriesTree,book,insertAt,false);
       }
     }

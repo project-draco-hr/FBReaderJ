@@ -1,9 +1,0 @@
-{
-  if (mySecondString == null) {
-    mySecondString=getSummary();
-    if (mySecondString == null) {
-      mySecondString="";
-    }
-  }
-  return mySecondString;
-}

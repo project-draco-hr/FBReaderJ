@@ -5,6 +5,7 @@
       ids=new ArrayList<String>(ids);
       ids.remove(book.Id);
       myBooksInBasketOption.setValue(ids);
+      NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
     }
   }
 }

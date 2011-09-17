@@ -6,11 +6,6 @@
       setProgressBarIndeterminateVisibility(inProgress);
       getListAdapter().replaceAll(getCurrentTree().subTrees());
       getListView().invalidateViews();
-      for (      FBTree child : getCurrentTree().subTrees()) {
-        if (child instanceof TopUpTree) {
-          child.invalidateSummary();
-        }
-      }
     }
   }
 );
