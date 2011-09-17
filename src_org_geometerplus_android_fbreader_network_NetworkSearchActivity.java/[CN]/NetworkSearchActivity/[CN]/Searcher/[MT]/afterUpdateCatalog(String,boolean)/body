@@ -13,7 +13,7 @@
  else {
     return;
   }
-  final SearchItemTree tree=null;
+  final SearchCatalogTree tree=null;
   if (tree == null) {
     return;
   }

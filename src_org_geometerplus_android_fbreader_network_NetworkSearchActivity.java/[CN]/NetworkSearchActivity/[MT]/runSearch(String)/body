@@ -1,7 +1,7 @@
 {
   final NetworkLibrary library=NetworkLibrary.Instance();
   library.NetworkSearchPatternOption.setValue(pattern);
-  final SearchItemTree tree=null;
+  final SearchCatalogTree tree=null;
   if (tree == null || library.getStoredLoader(tree) != null) {
     return;
   }
