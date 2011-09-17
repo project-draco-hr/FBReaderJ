@@ -28,8 +28,7 @@ case B3_FALSE:
       toRemove.add(child);
     break;
 case B3_UNDEFINED:
-  child.clear();
-child.ChildrenItems.clear();
+  child.clearCatalog();
 break;
 }
 currentNode=null;

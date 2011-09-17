@@ -1,5 +1,6 @@
 {
   ChildrenItems.clear();
   clear();
+  addSearchTree();
   NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
 }
