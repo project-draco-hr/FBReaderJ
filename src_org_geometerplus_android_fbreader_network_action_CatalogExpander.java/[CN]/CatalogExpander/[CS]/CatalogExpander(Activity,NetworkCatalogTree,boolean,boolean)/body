@@ -1,5 +1,0 @@
-{
-  super(activity,tree);
-  myCheckAuthentication=checkAuthentication;
-  myResumeNotLoad=resumeNotLoad;
-}

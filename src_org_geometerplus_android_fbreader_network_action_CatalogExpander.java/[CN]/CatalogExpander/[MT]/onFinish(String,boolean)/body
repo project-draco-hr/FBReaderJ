@@ -7,10 +7,10 @@
     getTree().updateLoadedTime();
     if (!interrupted) {
       if (errorMessage != null) {
-        UIUtil.showMessageText(myActivity,errorMessage);
+        NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.NetworkError,errorMessage);
       }
  else       if (getTree().subTrees().isEmpty()) {
-        UIUtil.showErrorMessage(myActivity,"emptyCatalog");
+        NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.EmptyCatalog,errorMessage);
       }
     }
     final NetworkLibrary library=NetworkLibrary.Instance();

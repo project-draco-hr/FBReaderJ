@@ -7,7 +7,7 @@
       doBefore();
     }
  catch (    ZLNetworkException e) {
-      finishOnUiThread(e.getMessage(),false);
+      onFinish(e.getMessage(),false);
       return;
     }
     String error=null;
@@ -17,8 +17,7 @@
  catch (    ZLNetworkException e) {
       error=e.getMessage();
     }
-    finishOnUiThread(error,isLoadingInterrupted());
-    ensureFinishProcessed();
+    onFinish(error,isLoadingInterrupted());
   }
   finally {
     library.removeStoredLoader(getTree());

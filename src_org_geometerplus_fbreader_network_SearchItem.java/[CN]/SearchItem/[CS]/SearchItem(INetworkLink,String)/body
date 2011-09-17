@@ -1,3 +1,0 @@
-{
-  super(link,getResource().getValue(),summary,new UrlInfoCollection<UrlInfo>(),Accessibility.ALWAYS,FLAGS_DEFAULT);
-}

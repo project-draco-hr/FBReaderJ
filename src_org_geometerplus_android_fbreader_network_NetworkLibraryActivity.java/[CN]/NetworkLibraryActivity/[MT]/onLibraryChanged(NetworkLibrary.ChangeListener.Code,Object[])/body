@@ -1,0 +1,27 @@
+{
+  runOnUiThread(new Runnable(){
+    public void run(){
+switch (code) {
+default :
+{
+          final NetworkTree tree=getLoadableNetworkTree((NetworkTree)getCurrentTree());
+          final boolean inProgress=tree != null && NetworkLibrary.Instance().getStoredLoader(tree) != null;
+          setProgressBarIndeterminateVisibility(inProgress);
+          getListAdapter().replaceAll(getCurrentTree().subTrees());
+          getListView().invalidateViews();
+          break;
+        }
+case NotFound:
+      UIUtil.showErrorMessage(NetworkLibraryActivity.this,"emptyNetworkSearchResults");
+    break;
+case EmptyCatalog:
+  UIUtil.showErrorMessage(NetworkLibraryActivity.this,"emptyCatalog");
+break;
+case NetworkError:
+UIUtil.showMessageText(NetworkLibraryActivity.this,(String)params[0]);
+break;
+}
+}
+}
+);
+}

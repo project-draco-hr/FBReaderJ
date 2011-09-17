@@ -37,7 +37,7 @@
     }
     new NetworkCatalogRootTree(myRootTree,link,index);
   }
-  new SearchCatalogTree(myRootTree,new AllCatalogsSearchItem(),0);
+  new SearchCatalogTree(myRootTree,mySearchItem,0);
   new AddCustomCatalogItemTree(myRootTree);
   fireModelChangedEvent(ChangeListener.Code.SomeCode);
 }

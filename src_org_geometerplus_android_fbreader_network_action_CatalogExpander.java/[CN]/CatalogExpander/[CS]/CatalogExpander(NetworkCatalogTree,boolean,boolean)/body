@@ -1,0 +1,5 @@
+{
+  super(tree);
+  myCheckAuthentication=checkAuthentication;
+  myResumeNotLoad=resumeNotLoad;
+}

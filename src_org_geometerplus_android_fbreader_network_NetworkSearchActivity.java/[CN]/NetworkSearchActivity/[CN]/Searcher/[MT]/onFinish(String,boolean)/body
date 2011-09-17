@@ -3,5 +3,7 @@
   }
  else {
   }
-  NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
+  if (!myItemFound) {
+    NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.NotFound);
+  }
 }
