@@ -1,8 +1,0 @@
-{
-  SearchResult result=getTree().getSearchResult();
-  if (item instanceof NetworkBookItem) {
-    result.addBook((NetworkBookItem)item);
-    getTree().updateSubTrees();
-    NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
-  }
-}

@@ -7,7 +7,6 @@
   }
   final String summary=NetworkLibrary.resource().getResource("searchResults").getValue().replace("%s",pattern);
   final SearchResult result=new SearchResult(summary);
-  tree.setSearchResult(result);
   NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
   new Searcher(this,tree,pattern).start();
   Util.openTree(this,tree);

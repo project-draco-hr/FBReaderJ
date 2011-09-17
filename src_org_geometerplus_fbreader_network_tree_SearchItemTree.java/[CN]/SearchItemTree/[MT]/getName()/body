@@ -1,3 +1,0 @@
-{
-  return NetworkLibrary.resource().getResource("search").getValue();
-}

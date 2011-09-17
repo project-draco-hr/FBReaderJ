@@ -1,10 +1,7 @@
 {
   if (interrupted) {
-    getTree().setSearchResult(null);
   }
  else {
-    getTree().updateSubTrees();
-    afterUpdateCatalog(errorMessage,getTree().getSearchResult().isEmpty());
   }
   NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
 }
