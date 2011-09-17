@@ -1,6 +1,7 @@
 {
   myListClickActions.add(new OpenCatalogAction(this));
   myListClickActions.add(new OpenInBrowserAction(this));
+  myListClickActions.add(new RunSearchAction(this,true));
   myListClickActions.add(new ShowBooksAction(this));
   myListClickActions.add(new AddCustomCatalogAction(this));
   myListClickActions.add(new TopupAction(this));

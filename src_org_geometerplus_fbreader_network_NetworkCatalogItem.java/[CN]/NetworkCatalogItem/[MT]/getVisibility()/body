@@ -1,4 +1,7 @@
 {
+  if (Link == null) {
+    return ZLBoolean3.B3_TRUE;
+  }
   final NetworkAuthenticationManager mgr=Link.authenticationManager();
 switch (myAccessibility) {
 default :

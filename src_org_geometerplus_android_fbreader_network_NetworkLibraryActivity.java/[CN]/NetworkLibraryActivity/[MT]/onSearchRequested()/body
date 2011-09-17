@@ -1,6 +1,6 @@
 {
   final NetworkTree tree=(NetworkTree)getCurrentTree();
-  if (!new RunSearchAction(this).isEnabled(tree)) {
+  if (!new RunSearchAction(this,false).isVisible(tree)) {
     return false;
   }
   final NetworkLibrary library=NetworkLibrary.Instance();

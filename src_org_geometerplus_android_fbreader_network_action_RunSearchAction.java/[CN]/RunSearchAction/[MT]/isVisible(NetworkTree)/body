@@ -1,0 +1,8 @@
+{
+  if (myFromContextMenu) {
+    return tree instanceof SearchCatalogTree;
+  }
+ else {
+    return true;
+  }
+}
