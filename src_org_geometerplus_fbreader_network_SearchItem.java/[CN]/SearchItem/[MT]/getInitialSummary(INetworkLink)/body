@@ -1,9 +1,0 @@
-{
-  final ZLResource resource=NetworkLibrary.resource().getResource("search");
-  if (link == null) {
-    return resource.getResource("summaryAllCatalogs").getValue();
-  }
- else {
-    return resource.getResource("summary").getValue().replace("%s",link.getSiteName());
-  }
-}

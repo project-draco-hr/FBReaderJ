@@ -1,0 +1,3 @@
+{
+  super(link,getResource().getResource("summary").getValue().replace("%s",link.getSiteName()));
+}
