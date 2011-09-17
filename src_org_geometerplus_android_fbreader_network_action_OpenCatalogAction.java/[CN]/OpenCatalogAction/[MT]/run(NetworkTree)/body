@@ -1,9 +1,3 @@
 {
-  final NetworkCatalogItem item=((NetworkCatalogTree)tree).Item;
-  if (item instanceof BasketItem && item.Link.basket().bookIds().size() == 0) {
-    UIUtil.showErrorMessage(myActivity,"emptyBasket");
-  }
- else {
-    doExpandCatalog((NetworkCatalogTree)tree);
-  }
+  doExpandCatalog((NetworkCatalogTree)tree);
 }
