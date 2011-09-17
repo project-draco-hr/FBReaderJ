@@ -2,9 +2,5 @@
   if (!super.isVisible(tree)) {
     return false;
   }
-  final NetworkCatalogItem item=((NetworkCatalogTree)tree).Item;
-  if (!(item instanceof NetworkURLCatalogItem)) {
-    return true;
-  }
-  return ((NetworkURLCatalogItem)item).getUrl(UrlInfo.Type.Catalog) != null;
+  return ((NetworkCatalogTree)tree).Item.canBeOpened();
 }
