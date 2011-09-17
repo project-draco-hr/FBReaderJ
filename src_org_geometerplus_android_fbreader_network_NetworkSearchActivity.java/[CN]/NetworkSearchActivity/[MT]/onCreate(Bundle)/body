@@ -3,18 +3,16 @@
   Thread.setDefaultUncaughtExceptionHandler(new org.geometerplus.zlibrary.ui.android.library.UncaughtExceptionHandler(this));
   final Intent intent=getIntent();
   if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-    SearchCatalogTree searchTree=null;
     final Bundle data=intent.getBundleExtra(SearchManager.APP_DATA);
     if (data != null) {
       final NetworkLibrary library=NetworkLibrary.Instance();
       final NetworkTree.Key key=(NetworkTree.Key)data.getSerializable(NetworkLibraryActivity.TREE_KEY_KEY);
       final NetworkTree tree=library.getTreeByKey(key);
       if (tree instanceof SearchCatalogTree) {
-        searchTree=(SearchCatalogTree)tree;
+        final String pattern=intent.getStringExtra(SearchManager.QUERY);
+        library.NetworkSearchPatternOption.setValue(pattern);
+        new Searcher((SearchCatalogTree)tree,pattern).start();
       }
-    }
-    if (searchTree != null) {
-      runSearch(searchTree,intent.getStringExtra(SearchManager.QUERY));
     }
   }
   finish();

@@ -21,12 +21,6 @@
   }
   finally {
     library.removeStoredLoader(getTree());
-synchronized (myFinishedLock) {
-      if (myPostRunnable != null) {
-        myPostRunnable.run();
-      }
-      myFinished=true;
-    }
     library.fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
   }
 }

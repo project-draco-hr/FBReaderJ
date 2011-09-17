@@ -1,5 +1,0 @@
-{
-  final NetworkLibrary library=NetworkLibrary.Instance();
-  library.NetworkSearchPatternOption.setValue(pattern);
-  new Searcher(tree,pattern).start();
-}
