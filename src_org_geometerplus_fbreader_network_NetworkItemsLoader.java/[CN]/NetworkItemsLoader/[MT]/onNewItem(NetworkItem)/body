@@ -1,6 +1,0 @@
-{
-  myUncommitedItems.add(item);
-  getTree().ChildrenItems.add(item);
-  NetworkTreeFactory.createNetworkTree(getTree(),item);
-  NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
-}

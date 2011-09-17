@@ -3,8 +3,8 @@
   ListIterator<FBTree> nodeIterator=subTrees().listIterator();
   FBTree currentNode=null;
   int nodeCount=0;
-  for (int i=0; i < ChildrenItems.size(); ++i) {
-    NetworkItem currentItem=ChildrenItems.get(i);
+  for (int i=0; i < myChildrenItems.size(); ++i) {
+    NetworkItem currentItem=myChildrenItems.get(i);
     if (!(currentItem instanceof NetworkCatalogItem)) {
       continue;
     }
@@ -38,8 +38,8 @@ break;
 }
  else {
 boolean found=false;
-for (int j=i + 1; j < ChildrenItems.size(); ++j) {
-if (child.Item == ChildrenItems.get(j)) {
+for (int j=i + 1; j < myChildrenItems.size(); ++j) {
+if (child.Item == myChildrenItems.get(j)) {
 found=true;
 break;
 }

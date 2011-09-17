@@ -13,7 +13,7 @@
         result.LastLoadedId=null;
       }
  else {
-        result.Loader.commitItems();
+        result.Loader.getTree().confirmAllItems();
       }
     }
   }

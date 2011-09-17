@@ -2,7 +2,7 @@
   myActivity.runOnUiThread(new Runnable(){
     public void run(){
 synchronized (myFinishMonitor) {
-        onFinish(errorMessage,interrupted,uncommitedItems());
+        onFinish(errorMessage,interrupted);
         myFinishProcessed=true;
         myFinishMonitor.notifyAll();
       }

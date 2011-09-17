@@ -2,7 +2,7 @@
   if ((Item.getFlags() & NetworkCatalogItem.FLAG_ADD_SEARCH_ITEM) != 0) {
     if (Item.Link.getUrl(UrlInfo.Type.Search) != null) {
       final SearchItem item=new SearchItem(Item.Link);
-      ChildrenItems.add(item);
+      myChildrenItems.add(item);
       new SearchCatalogTree(this,item,0);
     }
   }

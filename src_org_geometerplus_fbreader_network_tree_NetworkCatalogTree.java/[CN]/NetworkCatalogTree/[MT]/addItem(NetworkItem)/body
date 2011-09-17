@@ -1,0 +1,6 @@
+{
+  myUnconfirmedItems.add(item);
+  myChildrenItems.add(item);
+  NetworkTreeFactory.createNetworkTree(this,item);
+  NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
+}
