@@ -1,4 +1,0 @@
-{
-  myChildrenItems.removeAll(items);
-  super.removeItems(items);
-}

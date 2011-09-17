@@ -1,0 +1,8 @@
+{
+  for (  NetworkTree t : trees) {
+    if (t instanceof NetworkCatalogTree) {
+      myChildrenItems.remove(((NetworkCatalogTree)t).Item);
+    }
+  }
+  super.removeTrees(trees);
+}

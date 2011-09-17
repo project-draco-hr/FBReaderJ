@@ -1,24 +1,21 @@
 {
   final LinkedList<FBTree> toRemove=new LinkedList<FBTree>();
   ListIterator<FBTree> nodeIterator=subTrees().listIterator();
-  FBTree currentNode=null;
+  FBTree currentTree=null;
   int nodeCount=0;
   for (int i=0; i < myChildrenItems.size(); ++i) {
-    NetworkItem currentItem=myChildrenItems.get(i);
-    if (!(currentItem instanceof NetworkCatalogItem)) {
-      continue;
-    }
+    final NetworkCatalogItem currentItem=myChildrenItems.get(i);
     boolean processed=false;
-    while (currentNode != null || nodeIterator.hasNext()) {
-      if (currentNode == null) {
-        currentNode=nodeIterator.next();
+    while (currentTree != null || nodeIterator.hasNext()) {
+      if (currentTree == null) {
+        currentTree=nodeIterator.next();
       }
-      if (!(currentNode instanceof NetworkCatalogTree)) {
-        currentNode=null;
+      if (!(currentTree instanceof NetworkCatalogTree)) {
+        currentTree=null;
         ++nodeCount;
         continue;
       }
-      NetworkCatalogTree child=(NetworkCatalogTree)currentNode;
+      NetworkCatalogTree child=(NetworkCatalogTree)currentTree;
       if (child.Item == currentItem) {
 switch (child.Item.getVisibility()) {
 case B3_TRUE:
@@ -31,7 +28,7 @@ case B3_UNDEFINED:
   child.clearCatalog();
 break;
 }
-currentNode=null;
+currentTree=null;
 ++nodeCount;
 processed=true;
 break;
@@ -45,8 +42,8 @@ break;
 }
 }
 if (!found) {
-toRemove.add(currentNode);
-currentNode=null;
+toRemove.add(currentTree);
+currentTree=null;
 ++nodeCount;
 }
  else {
@@ -60,14 +57,14 @@ if (!processed && NetworkTreeFactory.createNetworkTree(this,currentItem,nodeCoun
 nodeIterator=subTrees().listIterator(nextIndex + 1);
 }
 }
-while (currentNode != null || nodeIterator.hasNext()) {
-if (currentNode == null) {
-currentNode=nodeIterator.next();
+while (currentTree != null || nodeIterator.hasNext()) {
+if (currentTree == null) {
+currentTree=nodeIterator.next();
 }
-if (currentNode instanceof NetworkCatalogTree) {
-toRemove.add(currentNode);
+if (currentTree instanceof NetworkCatalogTree) {
+toRemove.add(currentTree);
 }
-currentNode=null;
+currentTree=null;
 }
 for (FBTree tree : toRemove) {
 tree.removeSelf();

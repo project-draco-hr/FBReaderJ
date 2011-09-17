@@ -1,5 +1,5 @@
 {
-  super.removeItems(items);
+  super.removeTrees(trees);
   if (subTrees().isEmpty()) {
     removeSelf();
   }

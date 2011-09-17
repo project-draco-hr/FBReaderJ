@@ -1,7 +1,5 @@
 {
-  final Set<NetworkItem> unconfirmedItems;
-synchronized (myUnconfirmedItems) {
-    unconfirmedItems=new HashSet<NetworkItem>(myUnconfirmedItems);
+synchronized (myUnconfirmedTrees) {
+    removeTrees(myUnconfirmedTrees);
   }
-  removeItems(unconfirmedItems);
 }
