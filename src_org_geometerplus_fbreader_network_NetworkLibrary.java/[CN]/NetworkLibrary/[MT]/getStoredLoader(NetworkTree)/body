@@ -1,3 +1,3 @@
 {
-  return myLoaders.get(tree);
+  return tree != null ? myLoaders.get(tree) : null;
 }

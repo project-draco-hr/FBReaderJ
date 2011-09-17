@@ -3,6 +3,6 @@
     return tree instanceof SearchCatalogTree;
   }
  else {
-    return ((NetworkCatalogTree)tree).getSearchTree() != null;
+    return getSearchTree(tree) != null;
   }
 }

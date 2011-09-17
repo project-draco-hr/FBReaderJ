@@ -1,0 +1,4 @@
+{
+  final NetworkLibrary library=NetworkLibrary.Instance();
+  library.NetworkSearchPatternOption.setValue(pattern);
+}

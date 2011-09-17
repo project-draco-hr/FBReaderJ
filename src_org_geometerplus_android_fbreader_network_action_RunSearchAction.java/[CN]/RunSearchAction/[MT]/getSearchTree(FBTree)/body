@@ -1,5 +1,5 @@
 {
-  for (FBTree tree=this; tree != null; tree=tree.Parent) {
+  for (; tree != null; tree=tree.Parent) {
     for (    FBTree t : tree.subTrees()) {
       if (t instanceof SearchCatalogTree) {
         return (SearchCatalogTree)t;

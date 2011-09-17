@@ -1,9 +1,11 @@
 {
   final NetworkTree tree=(NetworkTree)getCurrentTree();
-  if (!new RunSearchAction(this,false).isVisible(tree)) {
+  final RunSearchAction action=new RunSearchAction(this,false);
+  if (action.isVisible(tree)) {
+    action.run(tree);
+    return true;
+  }
+ else {
     return false;
   }
-  final NetworkLibrary library=NetworkLibrary.Instance();
-  startSearch(library.NetworkSearchPatternOption.getValue(),true,null,false);
-  return true;
 }

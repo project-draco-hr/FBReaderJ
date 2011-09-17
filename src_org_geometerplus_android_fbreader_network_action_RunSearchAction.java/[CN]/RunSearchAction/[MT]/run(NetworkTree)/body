@@ -1,3 +1,6 @@
 {
-  myActivity.onSearchRequested();
+  final Bundle bundle=new Bundle();
+  bundle.putSerializable(NetworkLibraryActivity.TREE_KEY_KEY,getSearchTree(tree).getUniqueKey());
+  final NetworkLibrary library=NetworkLibrary.Instance();
+  myActivity.startSearch(library.NetworkSearchPatternOption.getValue(),true,bundle,false);
 }
