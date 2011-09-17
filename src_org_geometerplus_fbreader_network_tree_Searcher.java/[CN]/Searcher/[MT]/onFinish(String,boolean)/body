@@ -1,9 +1,5 @@
 {
-  if (interrupted) {
-  }
- else {
-  }
-  if (!myItemFound) {
+  if (!interrupted && !myItemFound) {
     NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.NotFound);
   }
 }
