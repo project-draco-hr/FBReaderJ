@@ -1,3 +1,0 @@
-{
-  return BooksMap.size() == 0;
-}
