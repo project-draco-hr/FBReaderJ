@@ -1,3 +1,0 @@
-{
-  return getPattern() != null ? NetworkLibrary.resource().getResource("found").getResource("summary").getValue().replace("%s",getPattern()) : NetworkLibrary.resource().getResource("search").getResource("summary").getValue().replace("%s",Link.getSiteName());
-}
