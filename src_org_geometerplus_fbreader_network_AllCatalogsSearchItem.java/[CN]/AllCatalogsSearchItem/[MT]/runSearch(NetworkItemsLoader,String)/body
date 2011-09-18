@@ -1,7 +1,7 @@
 {
-  LinkedList<ZLNetworkRequest> requestList=new LinkedList<ZLNetworkRequest>();
-  LinkedList<NetworkOperationData> dataList=new LinkedList<NetworkOperationData>();
-  for (  INetworkLink link : activeLinks()) {
+  final LinkedList<ZLNetworkRequest> requestList=new LinkedList<ZLNetworkRequest>();
+  final LinkedList<NetworkOperationData> dataList=new LinkedList<NetworkOperationData>();
+  for (  INetworkLink link : NetworkLibrary.Instance().activeLinks()) {
     final NetworkOperationData data=link.createOperationData(loader);
     final ZLNetworkRequest request=link.simpleSearchRequest(pattern,data);
     if (request != null) {
@@ -9,7 +9,7 @@
       requestList.add(request);
     }
   }
-  while (requestList.size() != 0) {
+  while (!requestList.isEmpty()) {
     ZLNetworkManager.Instance().perform(requestList);
     requestList.clear();
     if (loader.confirmInterruption()) {
