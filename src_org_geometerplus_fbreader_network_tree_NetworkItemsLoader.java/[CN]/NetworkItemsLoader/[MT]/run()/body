@@ -21,5 +21,11 @@
   finally {
     library.removeStoredLoader(getTree());
     library.fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
+synchronized (this) {
+      if (myPostRunnable != null) {
+        myPostRunnable.run();
+        myFinishedFlag=true;
+      }
+    }
   }
 }

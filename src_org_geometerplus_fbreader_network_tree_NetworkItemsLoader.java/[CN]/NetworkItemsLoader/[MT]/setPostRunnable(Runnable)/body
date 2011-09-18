@@ -1,0 +1,8 @@
+{
+  if (myFinishedFlag) {
+    action.run();
+  }
+ else {
+    myPostRunnable=action;
+  }
+}
