@@ -1,4 +1,5 @@
 {
   super(parent,null,item,position);
   setCover(null);
+  item.setPattern(null);
 }
