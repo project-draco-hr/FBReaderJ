@@ -3,17 +3,21 @@
     public void run(){
 switch (code) {
 default :
-{
-          updateLoadingProgress();
-          getListAdapter().replaceAll(getCurrentTree().subTrees());
-          getListView().invalidateViews();
-          break;
-        }
+        updateLoadingProgress();
+      getListAdapter().replaceAll(getCurrentTree().subTrees());
+    getListView().invalidateViews();
+  break;
+case InitializationFinished:
+if (myDeferredIntent != null) {
+  processIntent(myDeferredIntent);
+  myDeferredIntent=null;
+}
+break;
 case Found:
-      openTree((NetworkTree)params[0]);
-    break;
+openTree((NetworkTree)params[0]);
+break;
 case NotFound:
-  UIUtil.showErrorMessage(NetworkLibraryActivity.this,"emptyNetworkSearchResults");
+UIUtil.showErrorMessage(NetworkLibraryActivity.this,"emptyNetworkSearchResults");
 break;
 case EmptyCatalog:
 UIUtil.showErrorMessage(NetworkLibraryActivity.this,"emptyCatalog");

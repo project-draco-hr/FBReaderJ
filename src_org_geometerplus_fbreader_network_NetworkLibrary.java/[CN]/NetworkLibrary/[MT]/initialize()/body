@@ -15,4 +15,5 @@
   }
   synchronize();
   myIsInitialized=true;
+  fireModelChangedEvent(ChangeListener.Code.InitializationFinished);
 }
