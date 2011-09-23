@@ -1,4 +1,6 @@
 {
+  if (code == NetworkLibrary.ChangeListener.Code.InitializationFailed) {
+  }
   if (myBook == null) {
     return;
   }

@@ -7,10 +7,14 @@ default :
       getListAdapter().replaceAll(getCurrentTree().subTrees());
     getListView().invalidateViews();
   break;
+case InitializationFailed:
+showTryAgainDialog((String)params[0]);
+break;
 case InitializationFinished:
+startService(new Intent(getApplicationContext(),LibraryInitializationService.class));
 if (myDeferredIntent != null) {
-  processIntent(myDeferredIntent);
-  myDeferredIntent=null;
+processIntent(myDeferredIntent);
+myDeferredIntent=null;
 }
 break;
 case Found:

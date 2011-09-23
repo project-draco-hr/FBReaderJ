@@ -9,11 +9,11 @@
   if (getCurrentTree() instanceof RootTree) {
     myDeferredIntent=getIntent();
     if (!NetworkLibrary.Instance().isInitialized()) {
-      new NetworkInitializer(this).start();
+      initLibrary();
     }
  else {
+      NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.InitializationFinished);
       NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
-      new NetworkInitializer(this).end(null);
       if (myDeferredIntent != null) {
         processIntent(myDeferredIntent);
         myDeferredIntent=null;
