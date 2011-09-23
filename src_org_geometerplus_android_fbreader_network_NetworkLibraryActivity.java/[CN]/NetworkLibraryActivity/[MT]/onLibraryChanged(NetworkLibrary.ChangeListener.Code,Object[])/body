@@ -11,7 +11,7 @@ case InitializationFailed:
 showInitLibraryDialog((String)params[0]);
 break;
 case InitializationFinished:
-startService(new Intent(getApplicationContext(),LibraryInitializationService.class));
+NetworkLibrary.Instance().runBackgroundUpdate(false);
 if (myDeferredIntent != null) {
 processIntent(myDeferredIntent);
 myDeferredIntent=null;

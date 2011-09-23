@@ -6,5 +6,5 @@
   if (!(item instanceof NetworkURLCatalogItem)) {
     return false;
   }
-  return ((NetworkURLCatalogItem)item).getUrl(UrlInfo.Type.Catalog) != null && NetworkLibrary.Instance().getStoredLoader(tree) == null;
+  return ((NetworkURLCatalogItem)item).getUrl(UrlInfo.Type.Catalog) != null;
 }

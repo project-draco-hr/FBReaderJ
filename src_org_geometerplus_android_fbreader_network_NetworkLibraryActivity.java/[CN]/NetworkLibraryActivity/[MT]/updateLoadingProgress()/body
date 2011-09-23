@@ -2,5 +2,5 @@
   final NetworkTree tree=(NetworkTree)getCurrentTree();
   final NetworkTree lTree=getLoadableNetworkTree(tree);
   final NetworkTree sTree=RunSearchAction.getSearchTree(tree);
-  setProgressBarIndeterminateVisibility(NetworkLibrary.Instance().getStoredLoader(lTree) != null || NetworkLibrary.Instance().getStoredLoader(sTree) != null);
+  setProgressBarIndeterminateVisibility(NetworkLibrary.Instance().isUpdateInProgress() || NetworkLibrary.Instance().getStoredLoader(lTree) != null || NetworkLibrary.Instance().getStoredLoader(sTree) != null);
 }
