@@ -8,7 +8,7 @@ default :
     getListView().invalidateViews();
   break;
 case InitializationFailed:
-showTryAgainDialog((String)params[0]);
+showInitLibraryDialog((String)params[0]);
 break;
 case InitializationFinished:
 startService(new Intent(getApplicationContext(),LibraryInitializationService.class));
