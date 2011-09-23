@@ -7,7 +7,7 @@
       doBefore();
     }
  catch (    ZLNetworkException e) {
-      onFinish(e.getMessage(),false);
+      onFinish(e,false);
       return;
     }
     try {
@@ -15,7 +15,7 @@
       onFinish(null,isLoadingInterrupted());
     }
  catch (    ZLNetworkException e) {
-      onFinish(e.getMessage(),isLoadingInterrupted());
+      onFinish(e,isLoadingInterrupted());
     }
   }
   finally {

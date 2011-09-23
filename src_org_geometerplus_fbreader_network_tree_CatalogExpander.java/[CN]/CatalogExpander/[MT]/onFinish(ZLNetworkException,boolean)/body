@@ -1,0 +1,22 @@
+{
+  if (interrupted && (!getTree().Item.supportsResumeLoading() || exception != null)) {
+    getTree().clearCatalog();
+  }
+ else {
+    getTree().removeUnconfirmedItems();
+    if (!interrupted) {
+      if (exception != null) {
+        NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.NetworkError,exception.getMessage());
+      }
+ else {
+        getTree().updateLoadedTime();
+        if (getTree().subTrees().isEmpty()) {
+          NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.EmptyCatalog);
+        }
+      }
+    }
+    final NetworkLibrary library=NetworkLibrary.Instance();
+    library.invalidateVisibility();
+    library.synchronize();
+  }
+}
