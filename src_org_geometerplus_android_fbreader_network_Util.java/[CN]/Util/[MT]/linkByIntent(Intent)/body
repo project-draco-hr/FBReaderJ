@@ -1,3 +1,4 @@
 {
-  return NetworkLibrary.Instance().getLinkByUrl(intent.getData().toString());
+  final Uri uri=intent.getData();
+  return uri != null ? NetworkLibrary.Instance().getLinkByUrl(uri.toString()) : null;
 }

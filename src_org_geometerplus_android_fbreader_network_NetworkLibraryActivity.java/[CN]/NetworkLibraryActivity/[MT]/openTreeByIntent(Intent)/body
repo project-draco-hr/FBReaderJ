@@ -2,7 +2,7 @@
   if (OPEN_CATALOG_ACTION.equals(intent.getAction())) {
     final NetworkTree tree=NetworkLibrary.Instance().getCatalogTreeByUrl(intent.getData().toString());
     if (tree != null) {
-      openTree(tree);
+      new OpenCatalogAction(this).run(tree);
       return true;
     }
   }

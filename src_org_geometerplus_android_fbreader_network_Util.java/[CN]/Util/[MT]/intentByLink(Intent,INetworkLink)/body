@@ -1,3 +1,6 @@
 {
-  return intent.setData(Uri.parse(link.getUrl(UrlInfo.Type.Catalog)));
+  if (link != null) {
+    intent.setData(Uri.parse(link.getUrl(UrlInfo.Type.Catalog)));
+  }
+  return intent;
 }
