@@ -12,10 +12,6 @@ showInitLibraryDialog((String)params[0]);
 break;
 case InitializationFinished:
 NetworkLibrary.Instance().runBackgroundUpdate(false);
-if (myDeferredIntent != null) {
-processIntent(myDeferredIntent);
-myDeferredIntent=null;
-}
 break;
 case Found:
 openTree((NetworkTree)params[0]);

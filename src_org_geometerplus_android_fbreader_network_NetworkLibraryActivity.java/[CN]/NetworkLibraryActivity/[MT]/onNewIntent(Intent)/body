@@ -1,4 +1,5 @@
 {
-  super.onNewIntent(intent);
-  processIntent(intent);
+  if (!openTreeByIntent(intent)) {
+    super.onNewIntent(intent);
+  }
 }

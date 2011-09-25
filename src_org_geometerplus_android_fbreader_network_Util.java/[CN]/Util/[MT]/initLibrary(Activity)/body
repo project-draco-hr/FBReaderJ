@@ -1,11 +1,15 @@
 {
+  final NetworkLibrary library=NetworkLibrary.Instance();
+  if (library.isInitialized()) {
+    return;
+  }
   UIUtil.wait("loadingNetworkLibrary",new Runnable(){
     public void run(){
       if (SQLiteNetworkDatabase.Instance() == null) {
         new SQLiteNetworkDatabase();
       }
-      NetworkLibrary.Instance().initialize();
+      library.initialize();
     }
   }
-,this);
+,activity);
 }

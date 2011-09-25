@@ -1,0 +1,10 @@
+{
+  if (OPEN_CATALOG_ACTION.equals(intent.getAction())) {
+    final NetworkTree tree=NetworkLibrary.Instance().getCatalogTreeByUrl(intent.getData().toString());
+    if (tree != null) {
+      openTree(tree);
+      return true;
+    }
+  }
+  return false;
+}

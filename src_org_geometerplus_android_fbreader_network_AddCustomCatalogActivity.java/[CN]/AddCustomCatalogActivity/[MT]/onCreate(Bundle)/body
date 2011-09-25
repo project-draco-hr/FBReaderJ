@@ -26,6 +26,7 @@
     }
   }
 );
+  Util.initLibrary(this);
   final Intent intent=getIntent();
   myLink=getLinkFromIntent(intent);
   final Uri uri=intent.getData();

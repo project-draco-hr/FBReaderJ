@@ -2,7 +2,7 @@
   final DialogInterface.OnClickListener listener=new DialogInterface.OnClickListener(){
     public void onClick(    DialogInterface dialog,    int which){
       if (which == DialogInterface.BUTTON_POSITIVE) {
-        initLibrary();
+        Util.initLibrary(NetworkLibraryActivity.this);
       }
  else {
         finish();

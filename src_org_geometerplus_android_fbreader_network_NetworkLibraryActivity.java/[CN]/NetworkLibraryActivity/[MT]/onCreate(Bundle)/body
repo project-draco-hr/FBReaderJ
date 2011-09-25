@@ -7,17 +7,12 @@
   init(getIntent());
   setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
   if (getCurrentTree() instanceof RootTree) {
-    myDeferredIntent=getIntent();
     if (!NetworkLibrary.Instance().isInitialized()) {
-      initLibrary();
+      Util.initLibrary(this);
     }
  else {
-      NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.InitializationFinished);
       NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
-      if (myDeferredIntent != null) {
-        processIntent(myDeferredIntent);
-        myDeferredIntent=null;
-      }
     }
   }
+  openTreeByIntent(getIntent());
 }
