@@ -4,17 +4,19 @@
   Connection=new BookDownloaderServiceConnection();
   bindService(new Intent(getApplicationContext(),BookDownloaderService.class),Connection,BIND_AUTO_CREATE);
   setListAdapter(new NetworkLibraryAdapter(this));
-  init(getIntent());
+  final Intent intent=getIntent();
+  init(intent);
   myDeferredIntent=null;
   setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
   if (getCurrentTree() instanceof RootTree) {
+    mySingleCatalog=intent.getBooleanExtra("SingleCatalog",false);
     if (!NetworkLibrary.Instance().isInitialized()) {
       Util.initLibrary(this);
-      myDeferredIntent=getIntent();
+      myDeferredIntent=intent;
     }
  else {
       NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
-      openTreeByIntent(getIntent());
+      openTreeByIntent(intent);
     }
   }
 }
