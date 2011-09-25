@@ -1,9 +1,12 @@
 {
   if (OPEN_CATALOG_ACTION.equals(intent.getAction())) {
-    final NetworkTree tree=NetworkLibrary.Instance().getCatalogTreeByUrl(intent.getData().toString());
-    if (tree != null) {
-      new OpenCatalogAction(this).run(tree);
-      return true;
+    final Uri uri=intent.getData();
+    if (uri != null) {
+      final NetworkTree tree=NetworkLibrary.Instance().getCatalogTreeByUrl(uri.toString());
+      if (tree != null) {
+        new OpenCatalogAction(this).run(tree);
+        return true;
+      }
     }
   }
   return false;

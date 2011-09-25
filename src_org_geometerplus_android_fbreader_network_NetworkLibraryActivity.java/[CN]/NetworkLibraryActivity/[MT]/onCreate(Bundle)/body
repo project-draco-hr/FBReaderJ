@@ -5,14 +5,16 @@
   bindService(new Intent(getApplicationContext(),BookDownloaderService.class),Connection,BIND_AUTO_CREATE);
   setListAdapter(new NetworkLibraryAdapter(this));
   init(getIntent());
+  myDeferredIntent=null;
   setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
   if (getCurrentTree() instanceof RootTree) {
     if (!NetworkLibrary.Instance().isInitialized()) {
       Util.initLibrary(this);
+      myDeferredIntent=getIntent();
     }
  else {
       NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
+      openTreeByIntent(getIntent());
     }
   }
-  openTreeByIntent(getIntent());
 }

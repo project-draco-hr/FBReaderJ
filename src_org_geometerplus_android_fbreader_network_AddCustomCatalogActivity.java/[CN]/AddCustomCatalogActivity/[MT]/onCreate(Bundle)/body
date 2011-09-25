@@ -28,8 +28,18 @@
 );
   Util.initLibrary(this);
   final Intent intent=getIntent();
-  myLink=getLinkFromIntent(intent);
-  final Uri uri=intent.getData();
+  myLink=null;
+  Uri uri=intent.getData();
+  if (uri != null) {
+    if ("opds".equals(uri.getScheme())) {
+      uri=Uri.parse("http" + uri.toString().substring(4));
+    }
+    final INetworkLink link=NetworkLibrary.Instance().getLinkByUrl(uri.toString());
+    if (link instanceof ICustomNetworkLink) {
+      myLink=(ICustomNetworkLink)link;
+    }
+  }
+  myEditNotAdd=intent.getBooleanExtra(EDIT_KEY,false);
   if (myLink != null) {
     setTextById(R.id.add_custom_catalog_url,myLink.getUrl(UrlInfo.Type.Catalog));
     setTextById(R.id.add_custom_catalog_title,myLink.getTitle());
@@ -37,6 +47,9 @@
     setExtraFieldsVisibility(true);
   }
  else   if (uri != null) {
+    if ("opds".equals(uri.getScheme())) {
+      uri=Uri.parse("http" + uri.toString().substring(4));
+    }
     loadInfoByUri(uri);
   }
  else {

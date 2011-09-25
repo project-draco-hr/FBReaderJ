@@ -4,9 +4,6 @@
     textUrl="http://" + textUrl;
     uri=Uri.parse(textUrl);
   }
- else   if ("opds".equals(uri.getScheme())) {
-    textUrl="http" + uri.toString().substring(4);
-  }
   setTextById(R.id.add_custom_catalog_url,textUrl);
   final String siteName=uri.getHost();
   if (isEmptyString(siteName)) {

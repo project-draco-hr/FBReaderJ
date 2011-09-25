@@ -1,7 +1,0 @@
-{
-  final Uri uri=intent.getData();
-  if (uri == null || !intent.hasExtra(ADD_CATALOG_ID_KEY)) {
-    return null;
-  }
-  return new OPDSCustomNetworkLink(intent.getIntExtra(ADD_CATALOG_ID_KEY,ICustomNetworkLink.INVALID_ID),uri.getHost(),intent.getStringExtra(ADD_CATALOG_TITLE_KEY),intent.getStringExtra(ADD_CATALOG_SUMMARY_KEY),null,(UrlInfoCollection<UrlInfoWithDate>)intent.getSerializableExtra(ADD_CATALOG_URLS_MAP_KEY));
-}
