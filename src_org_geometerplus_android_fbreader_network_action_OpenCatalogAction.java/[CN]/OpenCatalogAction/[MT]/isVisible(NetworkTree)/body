@@ -1,6 +1,11 @@
 {
-  if (!super.isVisible(tree)) {
+  if (tree instanceof NetworkAuthorTree || tree instanceof NetworkSeriesTree) {
+    return true;
+  }
+ else   if (tree instanceof NetworkCatalogTree) {
+    return ((NetworkCatalogTree)tree).canBeOpened();
+  }
+ else {
     return false;
   }
-  return ((NetworkCatalogTree)tree).canBeOpened();
 }

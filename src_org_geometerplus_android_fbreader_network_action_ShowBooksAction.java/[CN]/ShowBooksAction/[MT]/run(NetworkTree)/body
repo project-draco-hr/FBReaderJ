@@ -1,3 +1,0 @@
-{
-  ((NetworkLibraryActivity)myActivity).openTree(tree);
-}

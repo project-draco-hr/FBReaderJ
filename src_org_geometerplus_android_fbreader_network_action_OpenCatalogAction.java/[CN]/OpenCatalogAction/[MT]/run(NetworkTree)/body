@@ -1,3 +1,8 @@
 {
-  doExpandCatalog((NetworkCatalogTree)tree);
+  if (tree instanceof NetworkCatalogTree) {
+    doExpandCatalog((NetworkCatalogTree)tree);
+  }
+ else {
+    doOpenTree(tree);
+  }
 }
