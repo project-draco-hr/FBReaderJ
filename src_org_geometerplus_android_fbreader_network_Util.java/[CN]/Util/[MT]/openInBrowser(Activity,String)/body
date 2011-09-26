@@ -1,6 +1,6 @@
 {
   if (url != null) {
     url=NetworkLibrary.Instance().rewriteUrl(url,true);
-    context.startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(url)));
+    activity.startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(url)));
   }
 }
