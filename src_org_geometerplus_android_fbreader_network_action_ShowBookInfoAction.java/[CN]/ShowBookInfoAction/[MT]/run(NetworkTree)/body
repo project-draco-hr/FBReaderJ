@@ -1,6 +1,6 @@
 {
   if (getBook(tree).isFullyLoaded()) {
-    Util.openTree(myActivity,tree);
+    showBookInfo(tree);
   }
  else {
     UIUtil.wait("loadInfo",new Runnable(){
@@ -13,7 +13,7 @@
         }
         myActivity.runOnUiThread(new Runnable(){
           public void run(){
-            Util.openTree(myActivity,tree);
+            showBookInfo(tree);
           }
         }
 );

@@ -5,7 +5,7 @@
   final NetworkTree tree=(NetworkTree)getListAdapter().getItem(position);
   for (  Action a : myListClickActions) {
     if (a.isVisible(tree) && a.isEnabled(tree)) {
-      a.checkAndRun(tree);
+      checkAndRun(a,tree);
       return;
     }
   }

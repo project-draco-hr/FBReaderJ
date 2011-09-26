@@ -4,7 +4,7 @@
   if (tree != null) {
     for (    Action a : getContextMenuActions(tree)) {
       if (a.Code == item.getItemId()) {
-        a.checkAndRun(tree);
+        checkAndRun(a,tree);
         return true;
       }
     }

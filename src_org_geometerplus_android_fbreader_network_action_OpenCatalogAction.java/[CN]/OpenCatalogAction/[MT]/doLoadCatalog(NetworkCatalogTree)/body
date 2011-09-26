@@ -6,7 +6,7 @@
         resumeNotLoad=true;
       }
  else {
-        Util.openTree(myActivity,tree);
+        doOpenTree(tree);
         return;
       }
     }
@@ -17,7 +17,7 @@
   new CatalogExpander(tree,true,resumeNotLoad).start();
   processExtraData(tree.Item.extraData(),new Runnable(){
     public void run(){
-      Util.openTree(myActivity,tree);
+      doOpenTree(tree);
     }
   }
 );
