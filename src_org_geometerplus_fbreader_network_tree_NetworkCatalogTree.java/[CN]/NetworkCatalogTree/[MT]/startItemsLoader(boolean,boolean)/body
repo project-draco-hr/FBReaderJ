@@ -1,0 +1,3 @@
+{
+  new CatalogExpander(this,checkAuthentication,resumeNotLoad).start();
+}
