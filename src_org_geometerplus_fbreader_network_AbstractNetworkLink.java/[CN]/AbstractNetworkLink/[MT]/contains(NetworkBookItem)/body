@@ -1,3 +1,0 @@
-{
-  return myBooksInBasketOption.getValue().contains(book.Id);
-}

@@ -1,5 +1,0 @@
-{
-  if (myBooksInBasketOption == null) {
-    myBooksInBasketOption=new ZLStringListOption(mySiteName,"Basket",null);
-  }
-}

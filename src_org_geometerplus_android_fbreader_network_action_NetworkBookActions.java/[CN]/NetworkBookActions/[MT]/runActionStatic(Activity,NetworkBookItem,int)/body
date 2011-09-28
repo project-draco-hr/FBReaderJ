@@ -25,10 +25,10 @@ case ActionCode.BUY_IN_BROWSER:
 doBuyInBrowser(activity,book);
 return true;
 case ActionCode.ADD_BOOK_TO_BASKET:
-book.Link.basket().add(book);
+book.Link.getBasketItem().add(book);
 return true;
 case ActionCode.REMOVE_BOOK_FROM_BASKET:
-book.Link.basket().remove(book);
+book.Link.getBasketItem().remove(book);
 return true;
 }
 return false;

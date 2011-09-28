@@ -1,0 +1,12 @@
+{
+  final int size=bookIds().size();
+  if (size == 0) {
+    return super.getSummary();
+  }
+ else   if (size == books().size()) {
+    return NetworkLibrary.resource().getResource("basketSummary").getValue().replace("%0",String.valueOf(size)).replace("%1",cost().toString());
+  }
+ else {
+    return NetworkLibrary.resource().getResource("basketSummaryCountOnly").getValue().replace("%0",String.valueOf(size));
+  }
+}

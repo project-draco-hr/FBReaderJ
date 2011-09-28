@@ -33,9 +33,9 @@
       id=reference.InfoType == UrlInfo.Type.BookBuy ? ActionCode.BUY_DIRECTLY : ActionCode.BUY_IN_BROWSER;
       actions.add(new NBAction(activity,id,"buy",reference.Price.toString()));
     }
-    final Basket basket=book.Link.basket();
-    if (basket != null) {
-      if (basket.contains(book)) {
+    final BasketItem basketItem=book.Link.getBasketItem();
+    if (basketItem != null) {
+      if (basketItem.contains(book)) {
         actions.add(new NBAction(activity,ActionCode.REMOVE_BOOK_FROM_BASKET,"removeFromBasket"));
       }
  else {

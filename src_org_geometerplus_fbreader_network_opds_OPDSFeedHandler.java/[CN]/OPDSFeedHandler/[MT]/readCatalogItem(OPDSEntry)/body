@@ -61,9 +61,6 @@
  else     if (REL_RECOMMENDATIONS.equals(litresRel)) {
       return new LitResRecommendationsItem(opdsLink,entry.Title,annotation,urlMap);
     }
- else     if (REL_BASKET.equals(litresRel)) {
-      return new BasketItem(opdsLink,urlMap);
-    }
  else     if (REL_TOPUP.equals(litresRel)) {
       return new TopUpItem(opdsLink,urlMap);
     }

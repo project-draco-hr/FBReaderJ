@@ -2,5 +2,5 @@
   super(parent,position);
   myLink=parent.myLink;
   Item=item;
-  addSearchTree();
+  addSpecialTrees();
 }
