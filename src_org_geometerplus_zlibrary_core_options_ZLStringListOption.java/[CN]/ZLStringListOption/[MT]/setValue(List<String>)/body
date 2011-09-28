@@ -10,7 +10,7 @@
     unsetConfigValue();
   }
  else {
-    setConfigValue(listToString(value));
+    setConfigValue(ZLMiscUtil.listToString(value));
   }
   myIsSynchronized=true;
 }

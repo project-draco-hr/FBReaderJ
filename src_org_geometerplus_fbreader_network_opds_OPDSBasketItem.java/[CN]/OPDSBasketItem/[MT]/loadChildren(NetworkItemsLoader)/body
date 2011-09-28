@@ -1,0 +1,14 @@
+{
+  final List<String> ids=bookIds();
+  if (ids.isEmpty()) {
+    return;
+  }
+  final OPDSNetworkLink opdsLink=(OPDSNetworkLink)Link;
+  String url=opdsLink.getUrl(UrlInfo.Type.ListBooks);
+  if (url == null) {
+    return;
+  }
+  url=url.replace("{ids}",ZLMiscUtil.listToString(ids));
+  final OPDSCatalogItem.State state=opdsLink.createOperationData(loader);
+  doLoadChildren(state,opdsLink.createNetworkData(null,url,state));
+}
