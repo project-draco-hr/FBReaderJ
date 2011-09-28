@@ -1,0 +1,7 @@
+{
+  if (!(item instanceof NetworkBookItem)) {
+    return;
+  }
+  super.addItem(item);
+  ((BasketItem)Item).addItem((NetworkBookItem)item);
+}

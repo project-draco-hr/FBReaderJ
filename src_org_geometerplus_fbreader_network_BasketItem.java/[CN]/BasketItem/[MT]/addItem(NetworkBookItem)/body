@@ -1,0 +1,3 @@
+{
+  myBooks.put(book.Id,book);
+}

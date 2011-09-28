@@ -1,4 +1,5 @@
 {
   myBooksInBasketOption.setValue(null);
+  myBooks.clear();
   NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
 }

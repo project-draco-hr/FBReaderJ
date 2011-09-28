@@ -1,8 +1,15 @@
 {
   Money sum=Money.ZERO;
-  for (  NetworkBookItem b : books()) {
-    final BookBuyUrlInfo info=b.buyInfo();
-    if (info != null) {
+synchronized (myBooks) {
+    for (    String id : bookIds()) {
+      final NetworkBookItem b=myBooks.get(id);
+      if (b == null) {
+        return null;
+      }
+      final BookBuyUrlInfo info=b.buyInfo();
+      if (info == null) {
+        return null;
+      }
       sum=sum.add(info.Price);
     }
   }
