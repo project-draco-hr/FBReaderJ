@@ -1,4 +1,9 @@
 {
+  if (myBuildStarted) {
+    fireModelChangedEvent(ChangeListener.Code.StatusChanged);
+    return;
+  }
+  myBuildStarted=true;
   setStatus(myStatusMask | STATUS_LOADING);
   final Thread builder=new Thread("Library.build"){
     public void run(){
