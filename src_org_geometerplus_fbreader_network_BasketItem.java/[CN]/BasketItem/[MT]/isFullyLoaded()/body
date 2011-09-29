@@ -1,0 +1,11 @@
+{
+synchronized (myBooks) {
+    for (    String id : bookIds()) {
+      final NetworkBookItem b=myBooks.get(id);
+      if (b == null) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
