@@ -1,5 +1,5 @@
 {
-  final FBTree tree=myLibrary.getRootTree().getSubTree(Library.ROOT_SEARCH_RESULTS);
+  final FBTree tree=myLibrary.getRootTree().getSubTree(Library.ROOT_FOUND);
   if (tree != null) {
     openTree(tree);
   }

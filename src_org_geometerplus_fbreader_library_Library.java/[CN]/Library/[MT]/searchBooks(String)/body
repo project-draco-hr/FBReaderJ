@@ -4,7 +4,7 @@
     return;
   }
   pattern=pattern.toLowerCase();
-  final SearchResultsTree oldSearchResults=(SearchResultsTree)getFirstLevelTree(ROOT_SEARCH_RESULTS);
+  final SearchResultsTree oldSearchResults=(SearchResultsTree)getFirstLevelTree(ROOT_FOUND);
   if (oldSearchResults != null && pattern.equals(oldSearchResults.getPattern())) {
     fireModelChangedEvent(ChangeListener.Code.Found);
     return;
@@ -17,7 +17,7 @@ synchronized (this) {
           if (oldSearchResults != null) {
             oldSearchResults.removeSelf();
           }
-          newSearchResults=new SearchResultsTree(myRootTree,ROOT_SEARCH_RESULTS,pattern);
+          newSearchResults=new SearchResultsTree(myRootTree,ROOT_FOUND,pattern);
           fireModelChangedEvent(ChangeListener.Code.Found);
         }
         newSearchResults.getBookSubTree(book,true);
