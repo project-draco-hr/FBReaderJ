@@ -40,5 +40,9 @@ synchronized (this) {
     }
     myPurchasedBookMap.put(book.Id,book);
     myPurchasedBookList.add(0,book);
+    final BasketItem basket=book.Link.getBasketItem();
+    if (basket != null) {
+      basket.remove(book);
+    }
   }
 }

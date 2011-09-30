@@ -1,5 +1,6 @@
 {
-  String url=Link.getUrl(UrlInfo.Type.SignIn);
+  final Map<String,String> params=new HashMap<String,String>();
+  final String url=parseUrl(Link.getUrl(UrlInfo.Type.SignIn),params);
   if (url == null) {
     throw new ZLNetworkException(NetworkException.ERROR_UNSUPPORTED_OPERATION);
   }
@@ -11,6 +12,9 @@ synchronized (this) {
   ZLNetworkException exception=null;
   try {
     final LitResNetworkRequest request=new LitResNetworkRequest(url,xmlReader);
+    for (    Map.Entry<String,String> entry : params.entrySet()) {
+      request.addPostParameter(entry.getKey(),entry.getValue());
+    }
     request.addPostParameter("login",login);
     request.addPostParameter("pwd",password);
     ZLNetworkManager.Instance().perform(request);

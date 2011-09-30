@@ -1,0 +1,13 @@
+{
+  final String[] parts=url.split("\\?");
+  if (parts.length != 2) {
+    return url;
+  }
+  for (  String s : parts[1].split("&")) {
+    final String[] pair=s.split("=");
+    if (pair.length == 2) {
+      params.put(pair[0],pair[1]);
+    }
+  }
+  return parts[0];
+}
