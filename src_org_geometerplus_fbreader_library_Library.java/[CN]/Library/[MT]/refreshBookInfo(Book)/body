@@ -11,4 +11,5 @@
   removeFromTree(ROOT_BY_AUTHOR,book);
   removeFromTree(ROOT_BY_TAG,book);
   addBookToLibrary(book);
+  fireModelChangedEvent(ChangeListener.Code.BookAdded);
 }
