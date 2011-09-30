@@ -1,7 +1,11 @@
 {
-  if (!(item instanceof NetworkBookItem)) {
+  if (!(i instanceof NetworkBookItem)) {
     return;
   }
-  super.addItem(item);
-  ((BasketItem)Item).addItem((NetworkBookItem)item);
+  final BasketItem basketItem=(BasketItem)Item;
+  final NetworkBookItem bookItem=(NetworkBookItem)i;
+  if (basketItem.contains(bookItem)) {
+    super.addItem(bookItem);
+    basketItem.addItem(bookItem);
+  }
 }

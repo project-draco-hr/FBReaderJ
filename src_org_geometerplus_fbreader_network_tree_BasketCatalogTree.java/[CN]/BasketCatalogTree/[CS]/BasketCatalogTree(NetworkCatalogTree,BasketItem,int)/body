@@ -1,5 +1,8 @@
 {
   super(parent,item,position);
+  item.setTree(this);
   setCover(null);
-  startItemsLoader(false,false);
+  if (!item.bookIds().isEmpty()) {
+    startItemsLoader(false,false);
+  }
 }

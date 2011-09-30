@@ -1,0 +1,8 @@
+{
+  for (  FBTree t : subTrees()) {
+    if (i.equals(((NetworkBookTree)t).Book)) {
+      t.removeSelf();
+      break;
+    }
+  }
+}
