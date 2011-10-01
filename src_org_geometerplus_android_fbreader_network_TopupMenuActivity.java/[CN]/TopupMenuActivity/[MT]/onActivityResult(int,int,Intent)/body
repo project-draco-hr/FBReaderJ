@@ -1,6 +1,6 @@
 {
   if (intent != null) {
-    final List<PluginApi.TopupActionInfo> actions=intent.<PluginApi.TopupActionInfo>getParcelableArrayListExtra(PluginApi.PluginInfo.KEY);
+    final List<PluginApi.MenuActionInfo> actions=intent.<PluginApi.MenuActionInfo>getParcelableArrayListExtra(PluginApi.PluginInfo.KEY);
     if (actions != null) {
       myInfos.addAll(actions);
     }

@@ -4,9 +4,9 @@
   final String url=getIntent().getData().toString();
   myLink=NetworkLibrary.Instance().getLinkByUrl(url);
   myAmount=(BigDecimal)getIntent().getSerializableExtra(AMOUNT_KEY);
-  myInfos=new ArrayList<PluginApi.TopupActionInfo>();
+  myInfos=new ArrayList<PluginApi.MenuActionInfo>();
   if (myLink.getUrlInfo(UrlInfo.Type.TopUp) != null) {
-    myInfos.add(new PluginApi.TopupActionInfo(Uri.parse(url + "/browser"),NetworkLibrary.resource().getResource("topupViaBrowser").getValue(),100));
+    myInfos.add(new PluginApi.MenuActionInfo(Uri.parse(url + "/browser"),NetworkLibrary.resource().getResource("topupViaBrowser").getValue(),100));
   }
   try {
     startActivityForResult(new Intent(TOPUP_ACTION,getIntent().getData()),0);
