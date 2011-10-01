@@ -6,7 +6,7 @@
   opdsLink.setUrlRewritingRules(myUrlRewritingRules);
   opdsLink.setExtraData(myExtraData);
   if (myAuthenticationType == "litres") {
-    opdsLink.setAuthenticationManager(NetworkAuthenticationManager.createManager(opdsLink,sslCertificate,LitResAuthenticationManager.class));
+    opdsLink.setAuthenticationManager(NetworkAuthenticationManager.createManager(opdsLink,LitResAuthenticationManager.class));
   }
   return opdsLink;
 }

@@ -1,5 +1,4 @@
 {
   Link=link;
   UserNameOption=new ZLStringOption(link.getSiteName(),"userName","");
-  SSLCertificate=sslCertificate;
 }

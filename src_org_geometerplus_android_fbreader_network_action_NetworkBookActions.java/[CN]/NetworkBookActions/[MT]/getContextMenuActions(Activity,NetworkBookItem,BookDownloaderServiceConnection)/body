@@ -26,13 +26,10 @@
       actions.add(new NBAction(activity,ActionCode.DOWNLOAD_DEMO,"downloadDemo"));
     }
   }
-  if (useBuyReferences(book)) {
-    int id=ActionCode.TREE_NO_ACTION;
+  if (book.getStatus() == NetworkBookItem.Status.CanBePurchased) {
     final BookBuyUrlInfo reference=book.buyInfo();
-    if (reference != null) {
-      id=reference.InfoType == UrlInfo.Type.BookBuy ? ActionCode.BUY_DIRECTLY : ActionCode.BUY_IN_BROWSER;
-      actions.add(new NBAction(activity,id,"buy",reference.Price.toString()));
-    }
+    final int id=reference.InfoType == UrlInfo.Type.BookBuy ? ActionCode.BUY_DIRECTLY : ActionCode.BUY_IN_BROWSER;
+    actions.add(new NBAction(activity,id,"buy",reference.Price.toString()));
     final BasketItem basketItem=book.Link.getBasketItem();
     if (basketItem != null) {
       if (basketItem.contains(book)) {

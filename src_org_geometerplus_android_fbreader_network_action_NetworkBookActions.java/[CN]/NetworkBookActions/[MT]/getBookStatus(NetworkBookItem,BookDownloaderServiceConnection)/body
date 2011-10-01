@@ -11,7 +11,7 @@
       return R.drawable.ic_list_download;
     }
   }
-  if (useBuyReferences(book) && book.reference(UrlInfo.Type.BookBuy) != null || book.reference(UrlInfo.Type.BookBuyInBrowser) != null) {
+  if (book.getStatus() == NetworkBookItem.Status.CanBePurchased) {
     return R.drawable.ic_list_buy;
   }
   return 0;

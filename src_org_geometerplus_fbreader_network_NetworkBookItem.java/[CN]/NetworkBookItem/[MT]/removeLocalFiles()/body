@@ -1,5 +1,5 @@
 {
-  final boolean hasBuyReference=this.reference(UrlInfo.Type.BookBuy) != null || this.reference(UrlInfo.Type.BookBuyInBrowser) != null;
+  final boolean hasBuyReference=buyInfo() != null;
   for (  UrlInfo r : getAllInfos()) {
     if (!(r instanceof BookUrlInfo)) {
       continue;

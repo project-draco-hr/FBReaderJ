@@ -1,5 +1,5 @@
 {
-  final boolean hasBuyReference=this.reference(UrlInfo.Type.BookBuy) != null || this.reference(UrlInfo.Type.BookBuyInBrowser) != null;
+  final boolean hasBuyReference=buyInfo() != null;
   BookUrlInfo reference=null;
   String fileName=null;
   for (  UrlInfo r : getAllInfos()) {

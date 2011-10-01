@@ -1,6 +1,5 @@
 {
   Money sum=Money.ZERO;
-  final NetworkAuthenticationManager mgr=Link.authenticationManager();
 synchronized (myBooks) {
     for (    String id : bookIds()) {
       final NetworkBookItem b=myBooks.get(id);
@@ -11,7 +10,7 @@ synchronized (myBooks) {
       if (info == null) {
         return null;
       }
-      if (mgr == null || mgr.needPurchase(b)) {
+      if (b.getStatus() == NetworkBookItem.Status.CanBePurchased) {
         sum=sum.add(info.Price);
       }
     }

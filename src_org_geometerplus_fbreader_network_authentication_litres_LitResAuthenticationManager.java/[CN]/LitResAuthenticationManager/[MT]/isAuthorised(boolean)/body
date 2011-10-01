@@ -11,33 +11,27 @@ synchronized (this) {
     }
     sid=mySidOption.getValue();
   }
-  final Map<String,String> params=new HashMap<String,String>();
-  final String url=parseUrl(Link.getUrl(UrlInfo.Type.SignIn),params);
-  if (url == null) {
-    throw new ZLNetworkException(NetworkException.ERROR_UNSUPPORTED_OPERATION);
-  }
-  final LitResLoginXMLReader xmlReader=new LitResLoginXMLReader(Link.getSiteName());
-  ZLNetworkException exception=null;
   try {
+    final LitResLoginXMLReader xmlReader=new LitResLoginXMLReader(Link.getSiteName());
+    final Map<String,String> params=new HashMap<String,String>();
+    final String url=parseUrl(Link.getUrl(UrlInfo.Type.SignIn),params);
+    if (url == null) {
+      throw new ZLNetworkException(NetworkException.ERROR_UNSUPPORTED_OPERATION);
+    }
     final LitResNetworkRequest request=new LitResNetworkRequest(url,xmlReader);
     for (    Map.Entry<String,String> entry : params.entrySet()) {
       request.addPostParameter(entry.getKey(),entry.getValue());
     }
     request.addPostParameter("sid",sid);
     ZLNetworkManager.Instance().perform(request);
-  }
- catch (  ZLNetworkException e) {
-    exception=e;
-  }
-synchronized (this) {
-    if (exception != null) {
-      if (NetworkException.ERROR_AUTHENTICATION_FAILED.equals(exception.getCode())) {
-        throw exception;
-      }
-      logOut(false);
-      return false;
-    }
     initUser(UserNameOption.getValue(),xmlReader.Sid,xmlReader.UserId,xmlReader.CanRebill);
     return true;
+  }
+ catch (  ZLNetworkException e) {
+    if (NetworkException.ERROR_AUTHENTICATION_FAILED.equals(e.getCode())) {
+      throw e;
+    }
+    logOut(false);
+    return false;
   }
 }

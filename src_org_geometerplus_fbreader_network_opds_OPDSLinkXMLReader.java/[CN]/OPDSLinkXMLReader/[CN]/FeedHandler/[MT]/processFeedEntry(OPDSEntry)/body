@@ -54,16 +54,8 @@
       infos.addInfo(new UrlInfoWithDate(UrlInfo.Type.RecoverPassword,href));
     }
   }
-  final String sslCertificate;
-  final String path="network/" + siteName + ".crt";
-  if (ZLResourceFile.createResourceFile(path).exists()) {
-    sslCertificate=path;
-  }
- else {
-    sslCertificate=null;
-  }
   if (siteName != null && title != null && infos.getInfo(UrlInfo.Type.Catalog) != null) {
-    myLinks.add(link(id,siteName,title,summary,language,infos,sslCertificate));
+    myLinks.add(link(id,siteName,title,summary,language,infos));
   }
   return false;
 }

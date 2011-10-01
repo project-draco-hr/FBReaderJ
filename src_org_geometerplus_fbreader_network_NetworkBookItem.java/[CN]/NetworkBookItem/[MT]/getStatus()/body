@@ -1,0 +1,14 @@
+{
+  if (localCopyFileName() != null) {
+    return Status.Downloaded;
+  }
+ else   if (reference(UrlInfo.Type.Book) != null) {
+    return Status.ReadyForDownload;
+  }
+ else   if (buyInfo() != null) {
+    return Status.CanBePurchased;
+  }
+ else {
+    return Status.NotAvailable;
+  }
+}

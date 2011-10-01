@@ -1,3 +1,2 @@
 INetworkLink link
-String sslCertificate
 Class<? extends NetworkAuthenticationManager> managerClass

@@ -1,3 +1,0 @@
-{
-  return book.localCopyFileName() == null && book.reference(UrlInfo.Type.Book) == null;
-}
