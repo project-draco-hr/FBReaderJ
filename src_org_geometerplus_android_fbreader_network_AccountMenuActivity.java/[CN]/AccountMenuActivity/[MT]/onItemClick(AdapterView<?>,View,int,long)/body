@@ -1,0 +1,4 @@
+{
+  runAccountDialog(myInfos.get(position));
+  finish();
+}
