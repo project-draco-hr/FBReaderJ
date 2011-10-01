@@ -1,0 +1,33 @@
+{
+  try {
+    doTopup(new Runnable(){
+      public void run(){
+        try {
+          final NetworkAuthenticationManager mgr=myLink.authenticationManager();
+          if (info.getId().toString().endsWith("/browser")) {
+            if (mgr != null) {
+              Util.openInBrowser(TopupMenuActivity.this,mgr.topupLink());
+            }
+          }
+ else {
+            final Intent intent=new Intent(getAction(),info.getId());
+            if (mgr != null) {
+              for (              Map.Entry<String,String> entry : mgr.getTopupData().entrySet()) {
+                intent.putExtra(entry.getKey(),entry.getValue());
+              }
+            }
+            intent.putExtra(AMOUNT_KEY,myAmount);
+            if (PackageUtil.canBeStarted(TopupMenuActivity.this,intent,true)) {
+              startActivity(intent);
+            }
+          }
+        }
+ catch (        ActivityNotFoundException e) {
+        }
+      }
+    }
+);
+  }
+ catch (  Exception e) {
+  }
+}

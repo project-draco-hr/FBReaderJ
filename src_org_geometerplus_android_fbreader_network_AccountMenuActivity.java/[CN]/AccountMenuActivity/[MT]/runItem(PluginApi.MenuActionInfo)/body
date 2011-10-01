@@ -1,0 +1,25 @@
+{
+  try {
+    final NetworkAuthenticationManager mgr=myLink.authenticationManager();
+    if (info.getId().toString().endsWith("/signIn")) {
+      Util.runAuthenticationDialog(AccountMenuActivity.this,myLink,new Runnable(){
+        public void run(){
+        }
+      }
+);
+    }
+ else {
+      final Intent intent=new Intent(getAction(),info.getId());
+      if (mgr != null) {
+        for (        Map.Entry<String,String> entry : mgr.getAccountData().entrySet()) {
+          intent.putExtra(entry.getKey(),entry.getValue());
+        }
+      }
+      if (PackageUtil.canBeStarted(AccountMenuActivity.this,intent,true)) {
+        startActivity(intent);
+      }
+    }
+  }
+ catch (  Exception e) {
+  }
+}

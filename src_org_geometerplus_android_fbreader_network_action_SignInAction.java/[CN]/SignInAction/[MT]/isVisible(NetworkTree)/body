@@ -1,5 +1,5 @@
 {
-  if (!(tree instanceof NetworkCatalogRootTree)) {
+  if (!(tree instanceof NetworkCatalogTree)) {
     return false;
   }
   final NetworkAuthenticationManager mgr=tree.getLink().authenticationManager();

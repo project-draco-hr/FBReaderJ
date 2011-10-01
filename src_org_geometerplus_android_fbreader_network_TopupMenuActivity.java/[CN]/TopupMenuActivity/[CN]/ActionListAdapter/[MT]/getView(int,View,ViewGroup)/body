@@ -1,5 +1,0 @@
-{
-  final View view=convertView != null ? convertView : LayoutInflater.from(parent.getContext()).inflate(R.layout.menu_item,parent,false);
-  ((TextView)view).setText(myInfos.get(position).MenuItemName);
-  return view;
-}

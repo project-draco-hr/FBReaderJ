@@ -1,0 +1,4 @@
+{
+  runItem(myInfos.get(position));
+  finish();
+}

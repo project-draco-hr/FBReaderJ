@@ -1,6 +1,7 @@
 {
   try {
-    final Intent intent=new Intent(REGISTRATION_ACTION,Uri.parse(link.getUrl(UrlInfo.Type.SignUp)));
+    final Intent intent=new Intent(ACCOUNT_ACTION,Uri.parse(link.getUrl(UrlInfo.Type.Catalog) + "/register"));
+    intent.putExtra(UserRegistrationConstants.SIGNUP_URL,link.getUrl(UrlInfo.Type.SignUp));
     if (PackageUtil.canBeStarted(activity,intent,true)) {
       activity.startActivityForResult(intent,NetworkLibraryActivity.SIGNUP_CODE);
     }

@@ -1,0 +1,9 @@
+{
+  setTitle(NetworkLibrary.resource().getResource("topupTitle").getValue());
+  final String url=getIntent().getData().toString();
+  myLink=NetworkLibrary.Instance().getLinkByUrl(url);
+  myAmount=(BigDecimal)getIntent().getSerializableExtra(AMOUNT_KEY);
+  if (myLink.getUrlInfo(UrlInfo.Type.TopUp) != null) {
+    myInfos.add(new PluginApi.MenuActionInfo(Uri.parse(url + "/browser"),NetworkLibrary.resource().getResource("topupViaBrowser").getValue(),100));
+  }
+}

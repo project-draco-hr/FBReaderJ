@@ -1,0 +1,3 @@
+{
+  return "android.fbreader.action.network.ACCOUNT";
+}

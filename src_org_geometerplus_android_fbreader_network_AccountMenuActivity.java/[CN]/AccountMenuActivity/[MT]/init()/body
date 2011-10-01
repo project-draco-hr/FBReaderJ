@@ -1,0 +1,8 @@
+{
+  setTitle(NetworkLibrary.resource().getResource("accountTitle").getValue());
+  final String url=getIntent().getData().toString();
+  myLink=NetworkLibrary.Instance().getLinkByUrl(url);
+  if (myLink.getUrlInfo(UrlInfo.Type.SignIn) != null) {
+    myInfos.add(new PluginApi.MenuActionInfo(Uri.parse(url + "/signIn"),NetworkLibrary.resource().getResource("signIn").getValue(),0));
+  }
+}

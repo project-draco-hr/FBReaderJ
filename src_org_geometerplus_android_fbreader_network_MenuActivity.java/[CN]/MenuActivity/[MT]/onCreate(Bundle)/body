@@ -1,0 +1,17 @@
+{
+  super.onCreate(icicle);
+  myInfos=new ArrayList<PluginApi.MenuActionInfo>();
+  init();
+  try {
+    startActivityForResult(new Intent(getAction(),getIntent().getData()),0);
+  }
+ catch (  ActivityNotFoundException e) {
+    if (myInfos.size() == 1) {
+      runItem(myInfos.get(0));
+    }
+    finish();
+    return;
+  }
+  setListAdapter(new ActionListAdapter());
+  getListView().setOnItemClickListener(this);
+}
