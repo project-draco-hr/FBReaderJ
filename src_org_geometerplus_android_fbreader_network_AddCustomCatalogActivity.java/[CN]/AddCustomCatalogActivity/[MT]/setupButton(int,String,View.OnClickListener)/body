@@ -1,5 +1,5 @@
 {
-  final Button button=(Button)findViewById(id);
+  final Button button=(Button)findViewById(R.id.add_custom_catalog_buttons).findViewById(id);
   button.setText(ZLResource.resource("dialog").getResource("button").getResource(resourceKey).getValue());
   button.setOnClickListener(listener);
 }
