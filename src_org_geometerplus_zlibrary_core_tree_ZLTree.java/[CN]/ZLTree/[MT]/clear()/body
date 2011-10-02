@@ -1,7 +1,7 @@
 {
   final int subTreesSize=mySize - 1;
-synchronized (this) {
-    mySubTrees=null;
+  if (mySubTrees != null) {
+    mySubTrees.clear();
   }
   mySize=1;
   if (subTreesSize > 0) {

@@ -3,11 +3,6 @@
   ZLTree<?> parent=Parent;
   if (parent != null) {
     parent.mySubTrees.remove(this);
-synchronized (parent) {
-      if (parent.mySubTrees.isEmpty()) {
-        parent.mySubTrees=null;
-      }
-    }
     for (; parent != null; parent=parent.Parent) {
       parent.mySize-=subTreeSize;
     }
