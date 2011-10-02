@@ -1,2 +1,9 @@
 {
+  final ArrayList<NetworkBookTree> bookTrees=new ArrayList<NetworkBookTree>();
+  for (  FBTree t : tree.subTrees()) {
+    if (t instanceof NetworkBookTree) {
+      bookTrees.add((NetworkBookTree)t);
+    }
+  }
+  BuyBooksActivity.run(myActivity,bookTrees);
 }

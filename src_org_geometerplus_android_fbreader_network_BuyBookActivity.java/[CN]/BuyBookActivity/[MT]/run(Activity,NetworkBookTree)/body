@@ -1,5 +1,0 @@
-{
-  final Intent intent=new Intent(activity,BuyBookActivity.class);
-  intent.putExtra(NetworkLibraryActivity.TREE_KEY_KEY,tree.getUniqueKey());
-  activity.startActivity(intent);
-}

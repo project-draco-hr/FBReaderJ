@@ -1,8 +1,5 @@
 {
   final Intent intent=Util.intentByLink(new Intent(context,TopupMenuActivity.class),link);
-  if (amount != null) {
-    intent.putExtra(AMOUNT_KEY,amount.Amount);
-    intent.putExtra(CURRENCY_KEY,amount.Currency);
-  }
+  intent.putExtra(AMOUNT_KEY,amount);
   context.startActivity(intent);
 }

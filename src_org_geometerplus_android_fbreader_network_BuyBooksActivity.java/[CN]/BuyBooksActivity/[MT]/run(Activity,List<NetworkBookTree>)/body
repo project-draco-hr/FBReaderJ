@@ -1,0 +1,9 @@
+{
+  final Intent intent=new Intent(activity,BuyBooksActivity.class);
+  final ArrayList<NetworkTree.Key> keys=new ArrayList<NetworkTree.Key>(trees.size());
+  for (  NetworkBookTree t : trees) {
+    keys.add(t.getUniqueKey());
+  }
+  intent.putExtra(NetworkLibraryActivity.TREE_KEY_KEY,keys);
+  activity.startActivity(intent);
+}
