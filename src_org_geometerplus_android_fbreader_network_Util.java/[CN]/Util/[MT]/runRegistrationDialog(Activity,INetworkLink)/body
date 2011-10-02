@@ -1,8 +1,6 @@
 {
   try {
-    final NetworkAuthenticationManager mgr=link.authenticationManager();
-    final Intent intent=new Intent(AUTHORIZATION_ACTION,Uri.parse(link.getUrl(UrlInfo.Type.Catalog) + "/register"));
-    addAuthorizationData(intent,link);
+    final Intent intent=registrationIntent(link);
     if (PackageUtil.canBeStarted(activity,intent,true)) {
       activity.startActivity(intent);
     }

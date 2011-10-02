@@ -1,10 +1,10 @@
 {
   final NetworkLibrary library=NetworkLibrary.Instance();
   if ("android.fbreader.action.network.SIGNIN".equals(intent.getAction())) {
-    final String url=intent.getStringExtra(UserRegistrationConstants.CATALOG_URL);
+    final String url=intent.getStringExtra(CATALOG_URL);
     final INetworkLink link=library.getLinkByUrl(url);
     if (link != null) {
-      Util.processSignup(link,android.app.Activity.RESULT_OK,intent);
+      processSignup(link,intent);
     }
     library.fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SignedIn);
   }

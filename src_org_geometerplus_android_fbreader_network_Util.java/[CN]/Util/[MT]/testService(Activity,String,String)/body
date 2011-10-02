@@ -1,3 +1,0 @@
-{
-  return url != null && PackageUtil.canBeStarted(activity,new Intent(action,Uri.parse(url)),true);
-}
