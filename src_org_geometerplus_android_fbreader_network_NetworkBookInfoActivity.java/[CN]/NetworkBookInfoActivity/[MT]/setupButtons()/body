@@ -16,7 +16,7 @@
     button.setVisibility(View.VISIBLE);
     button.setOnClickListener(new View.OnClickListener(){
       public void onClick(      View v){
-        a.run(myBook);
+        a.run(myTree);
         NetworkBookInfoActivity.this.updateView();
       }
     }

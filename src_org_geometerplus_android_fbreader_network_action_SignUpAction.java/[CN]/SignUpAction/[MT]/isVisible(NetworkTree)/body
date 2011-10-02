@@ -1,5 +1,5 @@
 {
-  if (!(tree instanceof NetworkCatalogTree)) {
+  if (!(tree instanceof NetworkCatalogRootTree)) {
     return false;
   }
   final INetworkLink link=tree.getLink();

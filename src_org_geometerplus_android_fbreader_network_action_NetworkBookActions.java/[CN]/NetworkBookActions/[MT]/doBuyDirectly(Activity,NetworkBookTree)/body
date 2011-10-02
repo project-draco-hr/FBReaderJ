@@ -1,0 +1,16 @@
+{
+  final NetworkAuthenticationManager mgr=tree.Book.Link.authenticationManager();
+  if (mgr == null) {
+    return;
+  }
+  try {
+    if (mgr.isAuthorised(true)) {
+      BuyBookActivity.run(activity,tree);
+    }
+ else {
+      AccountMenuActivity.runMenu(activity,tree.Book.Link);
+    }
+  }
+ catch (  ZLNetworkException e) {
+  }
+}

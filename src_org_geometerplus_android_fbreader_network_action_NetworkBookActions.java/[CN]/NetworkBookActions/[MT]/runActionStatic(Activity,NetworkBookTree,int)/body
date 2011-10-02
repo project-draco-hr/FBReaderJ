@@ -1,34 +1,34 @@
 {
 switch (actionCode) {
 case ActionCode.DOWNLOAD_BOOK:
-    doDownloadBook(activity,book,false);
+    Util.doDownloadBook(activity,tree.Book,false);
   return true;
 case ActionCode.DOWNLOAD_DEMO:
-doDownloadBook(activity,book,true);
+Util.doDownloadBook(activity,tree.Book,true);
 return true;
 case ActionCode.READ_BOOK:
-doReadBook(activity,book,false);
+doReadBook(activity,tree.Book,false);
 return true;
 case ActionCode.READ_DEMO:
-doReadBook(activity,book,true);
+doReadBook(activity,tree.Book,true);
 return true;
 case ActionCode.DELETE_BOOK:
-tryToDeleteBook(activity,book,false);
+tryToDeleteBook(activity,tree.Book,false);
 return true;
 case ActionCode.DELETE_DEMO:
-tryToDeleteBook(activity,book,true);
+tryToDeleteBook(activity,tree.Book,true);
 return true;
 case ActionCode.BUY_DIRECTLY:
-doBuyDirectly(activity,book);
+doBuyDirectly(activity,tree);
 return true;
 case ActionCode.BUY_IN_BROWSER:
-doBuyInBrowser(activity,book);
+doBuyInBrowser(activity,tree.Book);
 return true;
 case ActionCode.ADD_BOOK_TO_BASKET:
-book.Link.getBasketItem().add(book);
+tree.Book.Link.getBasketItem().add(tree.Book);
 return true;
 case ActionCode.REMOVE_BOOK_FROM_BASKET:
-book.Link.getBasketItem().remove(book);
+tree.Book.Link.getBasketItem().remove(tree.Book);
 return true;
 }
 return false;

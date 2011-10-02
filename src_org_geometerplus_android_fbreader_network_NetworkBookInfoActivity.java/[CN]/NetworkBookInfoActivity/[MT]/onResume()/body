@@ -1,4 +1,6 @@
 {
   super.onResume();
-  UIUtil.wait("loadingBookInfo",myInitializer,this);
+  if (!myInitializerStarted) {
+    UIUtil.wait("loadingNetworkBookInfo",myInitializer,this);
+  }
 }

@@ -1,7 +1,8 @@
 {
   if (code == NetworkLibrary.ChangeListener.Code.InitializationFailed) {
+    return;
   }
-  if (myBook == null) {
+  if (myBook == null || myTree == null) {
     return;
   }
   runOnUiThread(new Runnable(){
