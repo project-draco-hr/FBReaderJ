@@ -1,5 +1,5 @@
 {
-  setTitle(NetworkLibrary.resource().getResource("accountTitle").getValue());
+  setTitle(NetworkLibrary.resource().getResource("accountMenuTitle").getValue());
   final String url=getIntent().getData().toString();
   myLink=NetworkLibrary.Instance().getLinkByUrl(url);
   if (myLink.getUrlInfo(UrlInfo.Type.SignIn) != null) {
