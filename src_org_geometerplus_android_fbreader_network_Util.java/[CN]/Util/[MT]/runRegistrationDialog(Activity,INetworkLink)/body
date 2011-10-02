@@ -2,11 +2,7 @@
   try {
     final NetworkAuthenticationManager mgr=link.authenticationManager();
     final Intent intent=new Intent(AUTHORIZATION_ACTION,Uri.parse(link.getUrl(UrlInfo.Type.Catalog) + "/register"));
-    if (mgr != null) {
-      for (      Map.Entry<String,String> entry : mgr.getAccountData().entrySet()) {
-        intent.putExtra(entry.getKey(),entry.getValue());
-      }
-    }
+    addAuthorizationData(intent,link);
     if (PackageUtil.canBeStarted(activity,intent,true)) {
       activity.startActivity(intent);
     }
