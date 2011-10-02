@@ -1,3 +1,8 @@
 {
-  ((NetworkLibraryActivity)myActivity).openTree(tree);
+  if (myActivity instanceof NetworkLibraryActivity) {
+    ((NetworkLibraryActivity)myActivity).openTree(tree);
+  }
+ else {
+    myActivity.startActivity(new Intent(myActivity.getApplicationContext(),NetworkLibraryActivity.class).putExtra(NetworkLibraryActivity.TREE_KEY_KEY,tree.getUniqueKey()));
+  }
 }
