@@ -2,25 +2,11 @@
   if (trees.isEmpty()) {
     return;
   }
-  final INetworkLink link=trees.get(0).getLink();
-  final NetworkAuthenticationManager mgr=link.authenticationManager();
-  if (mgr == null) {
-    return;
+  final Intent intent=new Intent(activity,BuyBooksActivity.class);
+  final ArrayList<NetworkTree.Key> keys=new ArrayList<NetworkTree.Key>(trees.size());
+  for (  NetworkBookTree t : trees) {
+    keys.add(t.getUniqueKey());
   }
-  try {
-    if (mgr.isAuthorised(true)) {
-      final Intent intent=new Intent(activity,BuyBooksActivity.class);
-      final ArrayList<NetworkTree.Key> keys=new ArrayList<NetworkTree.Key>(trees.size());
-      for (      NetworkBookTree t : trees) {
-        keys.add(t.getUniqueKey());
-      }
-      intent.putExtra(NetworkLibraryActivity.TREE_KEY_KEY,keys);
-      activity.startActivity(intent);
-    }
- else {
-      AccountMenuActivity.runMenu(activity,link);
-    }
-  }
- catch (  ZLNetworkException e) {
-  }
+  intent.putExtra(NetworkLibraryActivity.TREE_KEY_KEY,keys);
+  activity.startActivity(intent);
 }

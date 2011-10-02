@@ -1,7 +1,6 @@
 {
   super.onCreate(bundle);
   Thread.setDefaultUncaughtExceptionHandler(new org.geometerplus.zlibrary.ui.android.library.UncaughtExceptionHandler(this));
-  setContentView(R.layout.buy_book);
   myLibrary=NetworkLibrary.Instance();
   final List<NetworkTree.Key> keys=(List<NetworkTree.Key>)getIntent().getSerializableExtra(NetworkLibraryActivity.TREE_KEY_KEY);
   if (keys == null || keys.isEmpty()) {
@@ -19,17 +18,25 @@
       return;
     }
   }
-  myCost=calculateCost();
-  if (myCost == null) {
-    finish();
-    return;
-  }
   myLink=myBooks.get(0).Link;
   final NetworkAuthenticationManager mgr=myLink.authenticationManager();
   if (mgr == null) {
     finish();
     return;
   }
+  try {
+    if (!mgr.isAuthorised(true)) {
+      AccountMenuActivity.runMenu(this,myLink);
+    }
+  }
+ catch (  ZLNetworkException e) {
+  }
+  setContentView(R.layout.buy_book);
+  myCost=calculateCost();
+  if (myCost == null) {
+    finish();
+    return;
+  }
   myAccount=mgr.currentAccount();
-  setupUI();
+  setupUI(true);
 }

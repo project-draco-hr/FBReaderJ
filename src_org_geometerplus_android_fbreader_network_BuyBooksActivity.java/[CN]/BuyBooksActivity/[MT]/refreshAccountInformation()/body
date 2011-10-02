@@ -18,7 +18,7 @@
         if (updated) {
           runOnUiThread(new Runnable(){
             public void run(){
-              setupUI();
+              setupUI(true);
             }
           }
 );

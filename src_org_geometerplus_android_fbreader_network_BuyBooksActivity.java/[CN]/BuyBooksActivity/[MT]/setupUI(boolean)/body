@@ -11,7 +11,24 @@
  else {
     setTitle(resource.getResource("title").getValue());
   }
-  if (myAccount == null) {
+  if (!authorized) {
+    textArea.setText(resource.getResource("notAuthorized").getValue());
+    okButton.setText(buttonResource.getResource("authorize").getValue());
+    cancelButton.setText(buttonResource.getResource("cancel").getValue());
+    okButton.setOnClickListener(new View.OnClickListener(){
+      public void onClick(      View v){
+        AccountMenuActivity.runMenu(BuyBooksActivity.this,myLink);
+      }
+    }
+);
+    cancelButton.setOnClickListener(new View.OnClickListener(){
+      public void onClick(      View v){
+        finish();
+      }
+    }
+);
+  }
+ else   if (myAccount == null) {
     textArea.setText(resource.getResource("noAccountInformation").getValue());
     okButton.setText(buttonResource.getResource("refresh").getValue());
     cancelButton.setText(buttonResource.getResource("cancel").getValue());

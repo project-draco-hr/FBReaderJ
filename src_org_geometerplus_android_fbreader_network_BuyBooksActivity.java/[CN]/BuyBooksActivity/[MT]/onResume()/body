@@ -1,4 +1,15 @@
 {
   super.onResume();
-  refreshAccountInformation();
+  final NetworkAuthenticationManager mgr=myLink.authenticationManager();
+  try {
+    if (mgr.isAuthorised(true)) {
+      refreshAccountInformation();
+    }
+ else {
+      setupUI(false);
+    }
+  }
+ catch (  ZLNetworkException e) {
+    setupUI(false);
+  }
 }
