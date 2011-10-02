@@ -1,0 +1,14 @@
+{
+  Money cost=Money.ZERO;
+  for (  NetworkBookItem b : myBooks) {
+    if (b.getStatus() != NetworkBookItem.Status.CanBePurchased) {
+      continue;
+    }
+    final BookBuyUrlInfo info=b.buyInfo();
+    if (info == null || info.Price == null) {
+      return null;
+    }
+    cost=cost.add(info.Price);
+  }
+  return cost;
+}

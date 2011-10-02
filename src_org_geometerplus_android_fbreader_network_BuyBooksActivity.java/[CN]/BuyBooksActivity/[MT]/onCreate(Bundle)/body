@@ -19,17 +19,10 @@
       return;
     }
   }
-  myCost=Money.ZERO;
-  for (  NetworkBookItem b : myBooks) {
-    if (b.getStatus() != NetworkBookItem.Status.CanBePurchased) {
-      continue;
-    }
-    final BookBuyUrlInfo info=b.buyInfo();
-    if (info == null || info.Price == null) {
-      finish();
-      return;
-    }
-    myCost=myCost.add(info.Price);
+  myCost=calculateCost();
+  if (myCost == null) {
+    finish();
+    return;
   }
   myLink=myBooks.get(0).Link;
   final NetworkAuthenticationManager mgr=myLink.authenticationManager();
