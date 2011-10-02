@@ -1,0 +1,38 @@
+{
+  return new Runnable(){
+    public void run(){
+      try {
+        final NetworkAuthenticationManager mgr=myLink.authenticationManager();
+        for (        final NetworkBookItem b : myBooks) {
+          if (b.getStatus() != NetworkBookItem.Status.CanBePurchased) {
+            continue;
+          }
+          mgr.purchaseBook(b);
+          runOnUiThread(new Runnable(){
+            public void run(){
+              Util.doDownloadBook(BuyBooksActivity.this,b,false);
+            }
+          }
+);
+        }
+        finish();
+      }
+ catch (      final ZLNetworkException e) {
+        final ZLResource dialogResource=ZLResource.resource("dialog");
+        final ZLResource buttonResource=dialogResource.getResource("button");
+        final ZLResource boxResource=dialogResource.getResource("networkError");
+        runOnUiThread(new Runnable(){
+          public void run(){
+            new AlertDialog.Builder(BuyBooksActivity.this).setTitle(boxResource.getResource("title").getValue()).setMessage(e.getMessage()).setIcon(0).setPositiveButton(buttonResource.getResource("ok").getValue(),null).create().show();
+          }
+        }
+);
+      }
+ finally {
+        myLibrary.invalidateVisibility();
+        myLibrary.synchronize();
+      }
+    }
+  }
+;
+}

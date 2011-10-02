@@ -1,4 +1,0 @@
-{
-  LitResPurchaseXMLReader reader=(LitResPurchaseXMLReader)accountRequest.Reader;
-  myAccount=new Money(reader.Account,"RUB");
-}

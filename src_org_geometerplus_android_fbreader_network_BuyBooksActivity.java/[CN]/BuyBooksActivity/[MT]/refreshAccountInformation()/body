@@ -1,0 +1,25 @@
+{
+  UIUtil.wait("updatingAccountInformation",new Runnable(){
+    public void run(){
+      final NetworkAuthenticationManager mgr=myLink.authenticationManager();
+      try {
+        mgr.refreshAccountInformation();
+        final Money oldAccount=myAccount;
+        myAccount=mgr.currentAccount();
+        if (myAccount != null && !myAccount.equals(oldAccount)) {
+          runOnUiThread(new Runnable(){
+            public void run(){
+              setupUI();
+            }
+          }
+);
+        }
+        myLibrary.invalidateVisibility();
+        myLibrary.synchronize();
+      }
+ catch (      ZLNetworkException e) {
+      }
+    }
+  }
+,this);
+}

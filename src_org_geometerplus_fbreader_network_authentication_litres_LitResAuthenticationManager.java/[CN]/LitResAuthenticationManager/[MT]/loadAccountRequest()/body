@@ -1,8 +1,7 @@
 {
-  final String sid=mySidOption.getValue();
   final String query="pages/purchase_book/";
   final LitResNetworkRequest request=new LitResNetworkRequest(LitResUtil.url(Link,query),new LitResPurchaseXMLReader(Link.getSiteName()));
-  request.addPostParameter("sid",sid);
+  request.addPostParameter("sid",mySidOption.getValue());
   request.addPostParameter("art","0");
   return request;
 }

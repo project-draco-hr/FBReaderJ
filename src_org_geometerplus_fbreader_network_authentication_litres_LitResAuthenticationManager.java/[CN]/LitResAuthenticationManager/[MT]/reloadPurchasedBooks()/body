@@ -9,7 +9,7 @@ synchronized (this) {
       logOut(false);
       throw new ZLNetworkException(NetworkException.ERROR_AUTHENTICATION_FAILED);
     }
-    networkRequest=loadPurchasedBooks();
+    networkRequest=loadPurchasedBooksRequest();
   }
   ZLNetworkException exception=null;
   try {
