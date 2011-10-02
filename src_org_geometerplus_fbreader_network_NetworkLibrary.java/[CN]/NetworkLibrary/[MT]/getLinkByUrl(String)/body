@@ -1,4 +1,7 @@
 {
+  if (url == null) {
+    return null;
+  }
 synchronized (myLinks) {
     for (    INetworkLink link : myLinks) {
       if (url.equals(link.getUrlInfo(UrlInfo.Type.Catalog).Url)) {

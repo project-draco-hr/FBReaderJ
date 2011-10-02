@@ -46,7 +46,12 @@
 );
   }
  else   if (myCost.compareTo(myAccount) > 0) {
-    textArea.setText(resource.getResource("unsufficientFunds").getValue().replace("%0",myCost.toString()).replace("%1",myAccount.toString()));
+    if (Money.ZERO.equals(myAccount)) {
+      textArea.setText(resource.getResource("zeroFunds").getValue().replace("%0",myCost.toString()));
+    }
+ else {
+      textArea.setText(resource.getResource("unsufficientFunds").getValue().replace("%0",myCost.toString()).replace("%1",myAccount.toString()));
+    }
     okButton.setText(buttonResource.getResource("pay").getValue());
     cancelButton.setText(buttonResource.getResource("refresh").getValue());
     okButton.setOnClickListener(new View.OnClickListener(){
