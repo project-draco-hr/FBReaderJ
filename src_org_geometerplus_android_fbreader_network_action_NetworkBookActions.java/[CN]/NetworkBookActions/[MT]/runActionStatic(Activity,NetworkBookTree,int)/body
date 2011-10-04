@@ -30,6 +30,8 @@ return true;
 case ActionCode.REMOVE_BOOK_FROM_BASKET:
 tree.Book.Link.getBasketItem().remove(tree.Book);
 return true;
+case ActionCode.OPEN_BASKET:
+return true;
 }
 return false;
 }

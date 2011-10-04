@@ -1,4 +1,5 @@
 {
+  final NetworkBookItem book=tree.Book;
   List<NBAction> actions=new LinkedList<NBAction>();
   if (useFullReferences(book)) {
     final BookUrlInfo reference=book.reference(UrlInfo.Type.Book);
@@ -33,7 +34,12 @@
     final BasketItem basketItem=book.Link.getBasketItem();
     if (basketItem != null) {
       if (basketItem.contains(book)) {
-        actions.add(new NBAction(activity,ActionCode.REMOVE_BOOK_FROM_BASKET,"removeFromBasket"));
+        if (tree.Parent instanceof BasketCatalogTree || activity instanceof NetworkLibraryActivity) {
+          actions.add(new NBAction(activity,ActionCode.REMOVE_BOOK_FROM_BASKET,"removeFromBasket"));
+        }
+ else {
+          actions.add(new NBAction(activity,ActionCode.OPEN_BASKET,"openBasket"));
+        }
       }
  else {
         actions.add(new NBAction(activity,ActionCode.ADD_BOOK_TO_BASKET,"addToBasket"));
