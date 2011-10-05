@@ -1,0 +1,7 @@
+{
+  super(parent,item.Link,item,0);
+  setCover(null);
+  if (!item.bookIds().isEmpty()) {
+    startItemsLoader(false,false);
+  }
+}
