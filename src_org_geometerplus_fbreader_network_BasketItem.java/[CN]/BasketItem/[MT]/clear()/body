@@ -1,8 +1,6 @@
 {
   myBooksInBasketOption.setValue(null);
   myBooks.clear();
-  if (myTree != null) {
-    myTree.clearCatalog();
-  }
+  ++myGeneration;
   NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
 }

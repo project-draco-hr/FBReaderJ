@@ -4,12 +4,8 @@
     ids=new ArrayList<String>(ids);
     ids.add(book.Id);
     myBooksInBasketOption.setValue(ids);
-    if (myTree != null) {
-      myTree.addItem(book);
-    }
- else {
-      addItem(book);
-    }
+    addItem(book);
+    ++myGeneration;
     NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
   }
 }

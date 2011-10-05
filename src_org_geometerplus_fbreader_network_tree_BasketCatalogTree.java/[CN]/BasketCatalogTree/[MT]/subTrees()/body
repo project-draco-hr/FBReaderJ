@@ -1,0 +1,31 @@
+{
+  final BasketItem basketItem=(BasketItem)Item;
+  final long generation=basketItem.getGeneration();
+  if (generation != myGeneration) {
+    myGeneration=generation;
+    final List<FBTree> toRemove=new ArrayList<FBTree>();
+    final Set<String> idsToAdd=new TreeSet(basketItem.bookIds());
+    for (    FBTree t : super.subTrees()) {
+      if (!(t instanceof NetworkBookTree)) {
+        continue;
+      }
+      final NetworkBookTree bookTree=(NetworkBookTree)t;
+      if (basketItem.contains(bookTree.Book)) {
+        idsToAdd.remove(bookTree.Book.Id);
+      }
+ else {
+        toRemove.add(bookTree);
+      }
+    }
+    for (    FBTree t : toRemove) {
+      t.removeSelf();
+    }
+    for (    String id : idsToAdd) {
+      final NetworkBookItem book=basketItem.getBook(id);
+      if (book != null) {
+        NetworkTreeFactory.createNetworkTree(this,book);
+      }
+    }
+  }
+  return super.subTrees();
+}

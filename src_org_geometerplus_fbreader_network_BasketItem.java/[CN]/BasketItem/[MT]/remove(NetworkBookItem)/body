@@ -5,9 +5,7 @@
     ids.remove(book.Id);
     myBooksInBasketOption.setValue(ids);
     myBooks.remove(book);
-    if (myTree != null) {
-      myTree.removeItem(book);
-    }
+    ++myGeneration;
     NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
   }
 }

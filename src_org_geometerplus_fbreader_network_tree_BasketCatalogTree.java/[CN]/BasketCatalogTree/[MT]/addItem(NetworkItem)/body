@@ -2,6 +2,11 @@
   if (!(i instanceof NetworkBookItem)) {
     return;
   }
+  for (  FBTree t : subTrees()) {
+    if (t instanceof NetworkBookTree && i.equals(((NetworkBookTree)t).Book)) {
+      return;
+    }
+  }
   final BasketItem basketItem=(BasketItem)Item;
   final NetworkBookItem bookItem=(NetworkBookItem)i;
   if (basketItem.contains(bookItem)) {
