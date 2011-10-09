@@ -1,12 +1,7 @@
 {
   LitResXMLReader reader=(LitResXMLReader)purchasedBooksRequest.Reader;
-  myPurchasedBookMap.clear();
-  myPurchasedBookList.clear();
-  for (  NetworkItem item : reader.Books) {
-    if (item instanceof NetworkBookItem) {
-      NetworkBookItem book=(NetworkBookItem)item;
-      myPurchasedBookMap.put(book.Id,book);
-      myPurchasedBookList.add(book);
-    }
+  myPurchasedBooks.clear();
+  for (  NetworkBookItem book : reader.Books) {
+    myPurchasedBooks.addToEnd(book);
   }
 }

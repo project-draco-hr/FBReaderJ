@@ -6,6 +6,5 @@
     myFullyInitialized=false;
   }
   myInitializedDataSid=null;
-  myPurchasedBookMap.clear();
-  myPurchasedBookList.clear();
+  myPurchasedBooks.clear();
 }

@@ -30,16 +30,14 @@ synchronized (this) {
         logOut(false);
       }
  else       if (NetworkException.ERROR_PURCHASE_ALREADY_PURCHASED.equals(code)) {
-        myPurchasedBookMap.put(book.Id,book);
-        myPurchasedBookList.add(0,book);
+        myPurchasedBooks.addToStart(book);
       }
       throw exception;
     }
     if (xmlReader.BookId == null || !xmlReader.BookId.equals(book.Id)) {
       throw new ZLNetworkException(NetworkException.ERROR_SOMETHING_WRONG,Link.getSiteName());
     }
-    myPurchasedBookMap.put(book.Id,book);
-    myPurchasedBookList.add(0,book);
+    myPurchasedBooks.addToStart(book);
     final BasketItem basket=book.Link.getBasketItem();
     if (basket != null) {
       basket.remove(book);

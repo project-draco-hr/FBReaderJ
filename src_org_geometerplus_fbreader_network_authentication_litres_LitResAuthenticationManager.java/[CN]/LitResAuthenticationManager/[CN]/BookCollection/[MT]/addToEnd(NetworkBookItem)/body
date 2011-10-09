@@ -1,0 +1,4 @@
+{
+  myMap.put(book.Id,book);
+  myList.add(book);
+}
