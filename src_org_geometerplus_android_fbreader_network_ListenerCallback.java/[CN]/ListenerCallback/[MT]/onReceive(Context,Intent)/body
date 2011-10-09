@@ -4,9 +4,17 @@
     final String url=intent.getStringExtra(CATALOG_URL);
     final INetworkLink link=library.getLinkByUrl(url);
     if (link != null) {
-      processSignup(link,intent);
+      final NetworkAuthenticationManager mgr=link.authenticationManager();
+      if (mgr instanceof LitResAuthenticationManager) {
+        try {
+          processSignup((LitResAuthenticationManager)mgr,intent);
+          library.fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SignedIn);
+        }
+ catch (        ZLNetworkException e) {
+          e.printStackTrace();
+        }
+      }
     }
-    library.fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SignedIn);
   }
  else {
     library.fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
