@@ -12,6 +12,7 @@
       perform(r);
     }
  catch (    ZLNetworkException e) {
+      e.printStackTrace();
       errors.add(e.getMessage());
     }
   }
