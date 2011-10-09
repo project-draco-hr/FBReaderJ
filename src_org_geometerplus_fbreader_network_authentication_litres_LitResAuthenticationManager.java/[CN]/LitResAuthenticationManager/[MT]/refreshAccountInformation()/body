@@ -1,5 +1,5 @@
 {
-  final LitResNetworkRequest accountRequest=loadAccountRequest();
+  final LitResNetworkRequest accountRequest=loadAccountRequest(mySidOption.getValue());
   ZLNetworkManager.Instance().perform(accountRequest);
 synchronized (this) {
     myAccount=new Money(((LitResPurchaseXMLReader)accountRequest.Reader).Account,"RUB");

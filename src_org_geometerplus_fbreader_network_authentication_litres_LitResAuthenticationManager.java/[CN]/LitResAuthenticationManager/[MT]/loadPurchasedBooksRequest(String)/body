@@ -1,5 +1,4 @@
 {
-  final String sid=mySidOption.getValue();
   final String query="pages/catalit_browser/";
   final LitResNetworkRequest request=new LitResNetworkRequest(LitResUtil.url(Link,query),new LitResXMLReader((OPDSNetworkLink)Link));
   request.addPostParameter("my","1");

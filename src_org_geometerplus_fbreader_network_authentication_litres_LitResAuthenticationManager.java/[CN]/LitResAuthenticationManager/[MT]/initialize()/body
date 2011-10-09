@@ -10,8 +10,8 @@ synchronized (this) {
     if (sid.equals(myInitializedDataSid) || !isAuthorised(true)) {
       return;
     }
-    purchasedBooksRequest=loadPurchasedBooksRequest();
-    accountRequest=loadAccountRequest();
+    purchasedBooksRequest=loadPurchasedBooksRequest(sid);
+    accountRequest=loadAccountRequest(sid);
   }
   final LinkedList<ZLNetworkRequest> requests=new LinkedList<ZLNetworkRequest>();
   requests.add(purchasedBooksRequest);
