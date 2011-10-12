@@ -1,0 +1,4 @@
+{
+  myDatabase.execSQL("DELETE FROM CookiePort");
+  myDatabase.execSQL("DELETE FROM Cookie");
+}
