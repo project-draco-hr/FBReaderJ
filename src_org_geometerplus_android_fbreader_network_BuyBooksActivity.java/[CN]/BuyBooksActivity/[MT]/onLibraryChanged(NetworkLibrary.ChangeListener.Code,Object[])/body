@@ -1,7 +1,12 @@
 {
+  runOnUiThread(new Runnable(){
+    public void run(){
 switch (code) {
 case SignedIn:
-    updateAuthorizationState();
-  break;
+        updateAuthorizationState();
+      break;
+  }
 }
+}
+);
 }

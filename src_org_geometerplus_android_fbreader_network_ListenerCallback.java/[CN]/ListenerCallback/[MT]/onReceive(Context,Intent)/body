@@ -8,7 +8,6 @@
       if (mgr instanceof LitResAuthenticationManager) {
         try {
           processSignup((LitResAuthenticationManager)mgr,intent);
-          library.fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SignedIn);
         }
  catch (        ZLNetworkException e) {
           e.printStackTrace();

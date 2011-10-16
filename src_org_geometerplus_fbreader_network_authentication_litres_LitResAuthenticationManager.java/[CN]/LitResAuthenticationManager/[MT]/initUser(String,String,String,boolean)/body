@@ -1,7 +1,12 @@
 {
-  UserNameOption.setValue(userName);
+  if (username == null) {
+    username=UserNameOption.getValue();
+  }
+ else {
+    UserNameOption.setValue(username);
+  }
   mySidOption.setValue(sid);
   myUserIdOption.setValue(userId);
   myCanRebillOption.setValue(canRebill);
-  myFullyInitialized=!"".equals(userName) && !"".equals(sid) && !"".equals(userId);
+  myFullyInitialized=!"".equals(username) && !"".equals(sid) && !"".equals(userId);
 }

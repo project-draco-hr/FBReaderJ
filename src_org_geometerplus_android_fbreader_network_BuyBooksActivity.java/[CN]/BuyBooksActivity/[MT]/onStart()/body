@@ -1,4 +1,0 @@
-{
-  super.onStart();
-  NetworkLibrary.Instance().addChangeListener(this);
-}

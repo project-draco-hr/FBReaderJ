@@ -1,4 +1,4 @@
 {
   NetworkLibrary.Instance().removeChangeListener(this);
-  super.onStop();
+  super.onDestroy();
 }

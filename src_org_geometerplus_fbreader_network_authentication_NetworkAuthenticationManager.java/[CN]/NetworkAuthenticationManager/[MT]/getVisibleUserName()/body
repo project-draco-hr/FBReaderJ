@@ -1,0 +1,4 @@
+{
+  final String username=getUserName();
+  return username.startsWith("fbreader-auto-") ? "auto" : username;
+}

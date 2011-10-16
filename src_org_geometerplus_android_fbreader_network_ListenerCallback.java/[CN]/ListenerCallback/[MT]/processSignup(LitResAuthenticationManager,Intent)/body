@@ -1,7 +1,7 @@
 {
   mgr.initUser(data.getStringExtra(USER_REGISTRATION_USERNAME),data.getStringExtra(USER_REGISTRATION_LITRES_SID),"",false);
   try {
-    mgr.authorise(data.getStringExtra(USER_REGISTRATION_PASSWORD));
+    mgr.authorise(data.getStringExtra(USER_REGISTRATION_USERNAME),data.getStringExtra(USER_REGISTRATION_PASSWORD));
     mgr.initialize();
   }
  catch (  ZLNetworkException e) {

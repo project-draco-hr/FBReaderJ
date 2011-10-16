@@ -4,29 +4,23 @@
   if (url == null) {
     throw new ZLNetworkException(NetworkException.ERROR_UNSUPPORTED_OPERATION);
   }
-  final String login;
 synchronized (this) {
-    login=UserNameOption.getValue();
+    UserNameOption.setValue(username);
   }
-  final LitResLoginXMLReader xmlReader=new LitResLoginXMLReader(Link.getSiteName());
-  ZLNetworkException exception=null;
   try {
+    final LitResLoginXMLReader xmlReader=new LitResLoginXMLReader(Link.getSiteName());
     final LitResNetworkRequest request=new LitResNetworkRequest(url,xmlReader);
     for (    Map.Entry<String,String> entry : params.entrySet()) {
       request.addPostParameter(entry.getKey(),entry.getValue());
     }
-    request.addPostParameter("login",login);
+    request.addPostParameter("login",username);
     request.addPostParameter("pwd",password);
     ZLNetworkManager.Instance().perform(request);
+    NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SignedIn);
+    initUser(null,xmlReader.Sid,xmlReader.UserId,xmlReader.CanRebill);
   }
  catch (  ZLNetworkException e) {
-    exception=e;
-  }
-synchronized (this) {
-    if (exception != null) {
-      logOut(false);
-      throw exception;
-    }
-    initUser(UserNameOption.getValue(),xmlReader.Sid,xmlReader.UserId,xmlReader.CanRebill);
+    logOut(false);
+    throw e;
   }
 }

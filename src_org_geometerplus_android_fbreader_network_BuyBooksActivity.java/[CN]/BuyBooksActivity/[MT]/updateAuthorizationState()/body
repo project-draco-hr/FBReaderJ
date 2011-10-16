@@ -2,13 +2,15 @@
   final NetworkAuthenticationManager mgr=myLink.authenticationManager();
   try {
     if (mgr.isAuthorised(true)) {
+      setupUI(AuthorizationState.Authorized);
       refreshAccountInformation();
     }
  else {
-      setupUI(false);
+      setupUI(AuthorizationState.NotAuthorized);
     }
   }
  catch (  ZLNetworkException e) {
-    setupUI(false);
+    e.printStackTrace();
+    setupUI(AuthorizationState.NotAuthorized);
   }
 }

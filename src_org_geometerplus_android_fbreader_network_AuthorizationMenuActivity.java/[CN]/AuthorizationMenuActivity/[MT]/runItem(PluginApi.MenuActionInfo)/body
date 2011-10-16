@@ -2,11 +2,11 @@
   try {
     final NetworkAuthenticationManager mgr=myLink.authenticationManager();
     if (info.getId().toString().endsWith("/signIn")) {
-      Util.runAuthenticationDialog(AccountMenuActivity.this,myLink,null);
+      Util.runAuthenticationDialog(AuthorizationMenuActivity.this,myLink,null);
     }
  else {
       final Intent intent=Util.authorizationIntent(myLink,info.getId());
-      if (PackageUtil.canBeStarted(AccountMenuActivity.this,intent,true)) {
+      if (PackageUtil.canBeStarted(AuthorizationMenuActivity.this,intent,true)) {
         startActivity(intent);
       }
     }
