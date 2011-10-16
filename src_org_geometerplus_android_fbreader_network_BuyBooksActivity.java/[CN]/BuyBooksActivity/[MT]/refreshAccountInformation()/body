@@ -1,34 +1,8 @@
 {
-  UIUtil.wait("updatingAccountInformation",new Runnable(){
+  runOnUiThread(new Runnable(){
     public void run(){
-      final NetworkAuthenticationManager mgr=myLink.authenticationManager();
-      try {
-        boolean updated=false;
-        mgr.refreshAccountInformation();
-        final Money account=mgr.currentAccount();
-        if (account != null && !account.equals(myAccount)) {
-          myAccount=account;
-          updated=true;
-        }
-        final Money cost=calculateCost();
-        if (cost != null && !cost.equals(myCost)) {
-          myCost=cost;
-          updated=true;
-        }
-        if (updated) {
-          runOnUiThread(new Runnable(){
-            public void run(){
-              setupUI(AuthorizationState.Authorized);
-            }
-          }
-);
-        }
-        myLibrary.invalidateVisibility();
-        myLibrary.synchronize();
-      }
- catch (      ZLNetworkException e) {
-      }
+      refreshAccountInformationInternal();
     }
   }
-,this);
+);
 }
