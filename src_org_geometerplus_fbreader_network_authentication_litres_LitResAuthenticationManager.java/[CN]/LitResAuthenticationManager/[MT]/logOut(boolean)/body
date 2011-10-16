@@ -1,14 +1,17 @@
 {
-  if ("".equals(mySidOption.getValue())) {
-    return;
-  }
+  boolean changed=false;
   if (full) {
-    initUser(null,"","",false);
+    changed=initUser(null,"","",false);
   }
  else {
+    changed=myFullyInitialized;
     myFullyInitialized=false;
   }
+  changed|=myInitializedDataSid != null;
   myInitializedDataSid=null;
+  changed|=!myPurchasedBooks.isEmpty();
   myPurchasedBooks.clear();
-  NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SignedIn);
+  if (changed) {
+    NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SignedIn);
+  }
 }
