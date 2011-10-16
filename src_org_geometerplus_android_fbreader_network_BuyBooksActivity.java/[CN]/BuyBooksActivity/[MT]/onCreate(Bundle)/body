@@ -24,14 +24,15 @@
     finish();
     return;
   }
+  setContentView(R.layout.buy_book);
   try {
     if (!mgr.isAuthorised(true)) {
-      AuthorizationMenuActivity.runMenu(this,myLink);
+      findViewById(R.id.buy_book_buttons).setVisibility(View.GONE);
+      AuthorizationMenuActivity.runMenu(this,myLink,1);
     }
   }
  catch (  ZLNetworkException e) {
   }
-  setContentView(R.layout.buy_book);
   myCost=calculateCost();
   if (myCost == null) {
     finish();

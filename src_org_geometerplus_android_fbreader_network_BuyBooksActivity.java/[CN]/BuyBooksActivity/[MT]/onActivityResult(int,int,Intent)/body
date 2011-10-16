@@ -1,0 +1,4 @@
+{
+  findViewById(R.id.buy_book_buttons).setVisibility(View.VISIBLE);
+  super.onActivityResult(requestCode,resultCode,data);
+}
