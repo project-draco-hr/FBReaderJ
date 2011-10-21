@@ -22,7 +22,10 @@
       final OPDSLink opdsLink=(OPDSLink)link;
       Money price=opdsLink.selectBestPrice();
       if (price == null) {
-        price=new Money(entry.getAttribute(OPDSXMLReader.KEY_PRICE));
+        final String priceAttribute=entry.getAttribute(OPDSXMLReader.KEY_PRICE);
+        if (priceAttribute != null) {
+          price=new Money(priceAttribute);
+        }
       }
       if (MimeType.TEXT_HTML.equals(type)) {
         collectReferences(urls,opdsLink,href,UrlInfo.Type.BookBuyInBrowser,price,true);
