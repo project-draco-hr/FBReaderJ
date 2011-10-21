@@ -14,11 +14,17 @@
     public void run(){
       nLibrary.initialize();
       intent.setData(Uri.parse(nLibrary.rewriteUrl(urlString,externalUrl)));
-      try {
-        BaseActivity.startActivity(intent);
+      BaseActivity.runOnUiThread(new Runnable(){
+        public void run(){
+          try {
+            BaseActivity.startActivity(intent);
+          }
+ catch (          ActivityNotFoundException e) {
+            e.printStackTrace();
+          }
+        }
       }
- catch (      ActivityNotFoundException e) {
-      }
+);
     }
   }
 ).start();
