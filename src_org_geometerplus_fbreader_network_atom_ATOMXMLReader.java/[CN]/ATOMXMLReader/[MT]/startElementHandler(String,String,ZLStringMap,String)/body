@@ -4,7 +4,7 @@ switch (myState) {
 case START:
     if (ns == XMLNamespaces.Atom && tag == TAG_FEED) {
       myFeedHandler.processFeedStart();
-      myFeed=createFeed(attributes);
+      myFeed=myFeedHandler.createFeed(attributes);
       myState=FEED;
       myFeedMetadataProcessed=false;
     }
@@ -24,7 +24,7 @@ if (ns == XMLNamespaces.Atom) {
     myState=F_ICON;
   }
  else   if (tag == TAG_LINK) {
-    myLink=createLink(attributes);
+    myLink=myFeedHandler.createLink(attributes);
     myState=F_LINK;
   }
  else   if (tag == TAG_CATEGORY) {
@@ -44,7 +44,7 @@ if (ns == XMLNamespaces.Atom) {
     myState=F_UPDATED;
   }
  else   if (tag == TAG_ENTRY) {
-    myEntry=createEntry(attributes);
+    myEntry=myFeedHandler.createEntry(attributes);
     myState=F_ENTRY;
     if (myFeed != null && !myFeedMetadataProcessed) {
       interruptReading=myFeedHandler.processFeedMetadata(myFeed,true);
@@ -68,7 +68,7 @@ myCategory=new ATOMCategory(attributes);
 myState=FE_CATEGORY;
 }
  else if (tag == TAG_LINK) {
-myLink=createLink(attributes);
+myLink=myFeedHandler.createLink(attributes);
 myState=FE_LINK;
 }
  else if (tag == TAG_PUBLISHED) {
