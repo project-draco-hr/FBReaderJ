@@ -1,3 +1,3 @@
 {
-  return Item.Title.toString();
+  return Item.Title != null ? Item.Title.toString() : "";
 }
