@@ -7,11 +7,16 @@
     externalUrl=false;
   }
   final NetworkLibrary nLibrary=NetworkLibrary.Instance();
-  nLibrary.initialize();
-  intent.setData(Uri.parse(nLibrary.rewriteUrl(urlString,externalUrl)));
-  try {
-    BaseActivity.startActivity(intent);
+  new Thread(new Runnable(){
+    public void run(){
+      nLibrary.initialize();
+      intent.setData(Uri.parse(nLibrary.rewriteUrl(urlString,externalUrl)));
+      try {
+        BaseActivity.startActivity(intent);
+      }
+ catch (      ActivityNotFoundException e) {
+      }
+    }
   }
- catch (  ActivityNotFoundException e) {
-  }
+).start();
 }
