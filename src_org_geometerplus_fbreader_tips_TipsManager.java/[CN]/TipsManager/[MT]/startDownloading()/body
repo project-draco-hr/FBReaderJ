@@ -1,8 +1,5 @@
 {
-  if (!ShowTipsOption.getValue() || hasNextTip()) {
-    return;
-  }
-  if (myDownloadInProgress) {
+  if (!tipsShouldBeDownloaded()) {
     return;
   }
   myDownloadInProgress=true;
