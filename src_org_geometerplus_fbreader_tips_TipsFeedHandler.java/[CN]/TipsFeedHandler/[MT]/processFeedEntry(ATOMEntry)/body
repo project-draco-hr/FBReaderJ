@@ -1,0 +1,4 @@
+{
+  myTips.add(new Tip(entry.Title,entry.Content));
+  return false;
+}
