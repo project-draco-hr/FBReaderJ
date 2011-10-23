@@ -1,0 +1,10 @@
+{
+  final Tip tip=myManager.getNextTip();
+  if (tip != null) {
+    setTitle(tip.Title);
+    final TextView textView=((TextView)findViewById(R.id.tip_text));
+    textView.setText(tip.Content);
+    textView.setMovementMethod(LinkMovementMethod.getInstance());
+  }
+  nextTipButton.setEnabled(myManager.hasNextTip());
+}

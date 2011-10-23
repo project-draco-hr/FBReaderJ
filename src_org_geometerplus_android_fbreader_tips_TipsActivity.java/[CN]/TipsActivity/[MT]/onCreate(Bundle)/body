@@ -1,0 +1,26 @@
+{
+  super.onCreate(icicle);
+  setContentView(R.layout.tip);
+  final ZLResource dialogResource=ZLResource.resource("dialog");
+  final ZLResource resource=dialogResource.getResource("tips");
+  final CheckBox checkBox=(CheckBox)findViewById(R.id.tip_checkbox);
+  checkBox.setText(resource.getResource("dontShowAgain").getValue());
+  final Button okButton=(Button)findViewById(R.id.tip_buttons).findViewById(R.id.ok_button);
+  okButton.setText(dialogResource.getResource("button").getResource("ok").getValue());
+  okButton.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      myManager.ShowTipsOption.setValue(!checkBox.isChecked());
+      finish();
+    }
+  }
+);
+  final Button nextTipButton=(Button)findViewById(R.id.tip_buttons).findViewById(R.id.cancel_button);
+  nextTipButton.setText(resource.getResource("more").getValue());
+  nextTipButton.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      showTip(nextTipButton);
+    }
+  }
+);
+  showTip(nextTipButton);
+}
