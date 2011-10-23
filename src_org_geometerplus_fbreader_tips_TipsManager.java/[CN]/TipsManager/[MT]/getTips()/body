@@ -1,6 +1,6 @@
 {
   if (myTips == null) {
-    final ZLFile file=getFile();
+    final ZLFile file=ZLFile.createFileByPath(getLocalFilePath());
     if (file.exists()) {
       final TipsFeedHandler handler=new TipsFeedHandler();
       new ATOMXMLReader(handler,false).read(file);

@@ -5,7 +5,7 @@
   }
   final int index=myIndexOption.getValue();
   if (index >= tips.size()) {
-    getFile().getPhysicalFile().delete();
+    new File(getLocalFilePath()).delete();
     myIndexOption.setValue(0);
     return null;
   }

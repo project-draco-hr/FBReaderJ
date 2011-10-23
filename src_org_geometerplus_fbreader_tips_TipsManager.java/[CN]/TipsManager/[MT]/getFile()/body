@@ -1,3 +1,0 @@
-{
-  return ZLFile.createFileByPath(Paths.networkCacheDirectory() + "/tips/tips.xml");
-}

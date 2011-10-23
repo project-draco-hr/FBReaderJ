@@ -1,0 +1,24 @@
+{
+  if (!ShowTipsOption.getValue() || hasNextTip()) {
+    return;
+  }
+  if (myDownloadInProgress) {
+    return;
+  }
+  myDownloadInProgress=true;
+  new File(Paths.networkCacheDirectory() + "/tips").mkdirs();
+  new Thread(new Runnable(){
+    public void run(){
+      try {
+        ZLNetworkManager.Instance().downloadToFile(getUrl(),new File(getLocalFilePath()));
+      }
+ catch (      ZLNetworkException e) {
+        e.printStackTrace();
+      }
+ finally {
+        myDownloadInProgress=false;
+      }
+    }
+  }
+);
+}

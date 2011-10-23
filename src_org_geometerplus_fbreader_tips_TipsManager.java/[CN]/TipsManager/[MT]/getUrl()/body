@@ -1,0 +1,3 @@
+{
+  return "http://data.fbreader.org/tips/tips.xml";
+}
