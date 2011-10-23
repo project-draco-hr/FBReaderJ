@@ -1,4 +1,4 @@
 {
   final List<Tip> tips=getTips();
-  return tips != null && ourIndexOption.getValue() < tips.size();
+  return tips != null && myIndexOption.getValue() < tips.size();
 }

@@ -187,5 +187,5 @@
   final String[] backKeyLongPressActions={ActionCode.EXIT,ActionCode.SHOW_CANCEL_MENU,FBReaderApp.NoAction};
   cancelMenuScreen.addPreference(new ZLStringChoicePreference(this,cancelMenuScreen.Resource,"backKeyLongPressAction",keyBindings.getOption(KeyEvent.KEYCODE_BACK,true),backKeyLongPressActions));
   final Screen tipsScreen=createPreferenceScreen("tips");
-  tipsScreen.addOption(TipsManager.ShowTipsOption,"showTips");
+  tipsScreen.addOption(TipsManager.Instance().ShowTipsOption,"showTips");
 }
