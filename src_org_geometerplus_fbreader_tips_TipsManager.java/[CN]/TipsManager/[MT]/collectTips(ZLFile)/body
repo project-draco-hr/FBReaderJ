@@ -1,5 +1,0 @@
-{
-  final TipsFeedHandler handler=new TipsFeedHandler();
-  new ATOMXMLReader(handler,false).read(file);
-  return Collections.unmodifiableList(handler.Tips);
-}

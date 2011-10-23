@@ -1,0 +1,15 @@
+{
+  final List<Tip> tips=getTips();
+  if (tips == null) {
+    return null;
+  }
+  final int index=ourIndexOption.getValue();
+  if (index >= tips.size()) {
+    getFile().getPhysicalFile().delete();
+    ourIndexOption.setValue(0);
+    return null;
+  }
+  ourIndexOption.setValue(index + 1);
+  ourLastShownOption.setValue(currentTime());
+  return tips.get(index);
+}
