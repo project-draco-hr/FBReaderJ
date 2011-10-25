@@ -31,7 +31,6 @@
             setExtraFieldsVisibility(true);
           }
  else {
-            runErrorDialog(myError);
             myLink=null;
           }
         }
