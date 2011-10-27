@@ -1,16 +1,21 @@
 {
-  final NetworkAuthenticationManager mgr=myLink.authenticationManager();
-  try {
-    if (mgr.isAuthorised(true)) {
-      setupUI(AuthorizationState.Authorized);
-      refreshAccountInformation();
-    }
+  new Thread(new Runnable(){
+    public void run(){
+      final NetworkAuthenticationManager mgr=myLink.authenticationManager();
+      try {
+        if (mgr.isAuthorised(true)) {
+          setupUI(AuthorizationState.Authorized);
+          refreshAccountInformation();
+        }
  else {
-      setupUI(AuthorizationState.NotAuthorized);
+          setupUI(AuthorizationState.NotAuthorized);
+        }
+      }
+ catch (      ZLNetworkException e) {
+        e.printStackTrace();
+        setupUI(AuthorizationState.NotAuthorized);
+      }
     }
   }
- catch (  ZLNetworkException e) {
-    e.printStackTrace();
-    setupUI(AuthorizationState.NotAuthorized);
-  }
+).start();
 }
