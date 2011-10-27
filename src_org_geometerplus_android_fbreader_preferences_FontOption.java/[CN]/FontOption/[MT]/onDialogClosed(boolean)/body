@@ -1,4 +1,5 @@
 {
+  super.onDialogClosed(result);
   final String value=getValue();
   myOption.setValue(UNCHANGED.equals(value) ? "" : value);
 }

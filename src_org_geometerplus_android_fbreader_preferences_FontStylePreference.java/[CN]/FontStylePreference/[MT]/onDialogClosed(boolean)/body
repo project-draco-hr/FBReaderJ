@@ -1,4 +1,5 @@
 {
+  super.onDialogClosed(result);
   final int intValue=findIndexOfValue(getValue());
   myBoldOption.setValue((intValue & 0x1) == 0x1);
   myItalicOption.setValue((intValue & 0x2) == 0x2);
