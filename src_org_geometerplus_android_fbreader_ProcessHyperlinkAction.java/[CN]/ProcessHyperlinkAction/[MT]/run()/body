@@ -10,12 +10,7 @@
     final ZLTextHyperlink hyperlink=((ZLTextHyperlinkRegionSoul)soul).Hyperlink;
 switch (hyperlink.Type) {
 case FBHyperlinkType.EXTERNAL:
-      if (hyperlink.Id.startsWith(ACTION_LINK_PREFIX)) {
-        Reader.doAction(hyperlink.Id.substring(ACTION_LINK_PREFIX.length()));
-      }
- else {
-        openInBrowser(hyperlink.Id);
-      }
+      openInBrowser(hyperlink.Id);
     break;
 case FBHyperlinkType.INTERNAL:
   Reader.Model.Book.markHyperlinkAsVisited(hyperlink.Id);
