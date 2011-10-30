@@ -1,5 +1,5 @@
 {
-  if (myWindow != null) {
+  if (myWindow != null && activity == myWindow.getActivity()) {
     return;
   }
   myWindow=new PopupWindow(activity,root,location,true);
