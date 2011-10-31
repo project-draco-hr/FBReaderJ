@@ -1,6 +1,5 @@
 {
   super(parent,item,position);
-  setCover(null);
   if (!item.bookIds().isEmpty()) {
     startItemsLoader(false,false);
   }
