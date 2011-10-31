@@ -82,6 +82,7 @@
         success=true;
       }
  catch (      ZLNetworkException e) {
+        e.printStackTrace();
         file.delete();
       }
  finally {
