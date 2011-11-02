@@ -1,5 +1,6 @@
 {
-  Screen screen=new Screen(Resource,resourceKey);
+  final Screen screen=new Screen(Resource,resourceKey);
+  myScreenMap.put(resourceKey,screen);
   myScreen.addPreference(screen.myScreen);
   return screen;
 }
