@@ -1,0 +1,11 @@
+{
+  final ScrollingPreferences preferences=ScrollingPreferences.Instance();
+  if (params.length == 2 && params[0] instanceof Integer && params[1] instanceof Integer) {
+    final int x=(Integer)params[0];
+    final int y=(Integer)params[1];
+    Reader.getViewWidget().startAnimatedScrolling(myForward ? FBView.PageIndex.next : FBView.PageIndex.previous,x,y,preferences.HorizontalOption.getValue() ? FBView.Direction.rightToLeft : FBView.Direction.up,preferences.AnimationSpeedOption.getValue());
+  }
+ else {
+    Reader.getViewWidget().startAnimatedScrolling(myForward ? FBView.PageIndex.next : FBView.PageIndex.previous,preferences.HorizontalOption.getValue() ? FBView.Direction.rightToLeft : FBView.Direction.up,preferences.AnimationSpeedOption.getValue());
+  }
+}

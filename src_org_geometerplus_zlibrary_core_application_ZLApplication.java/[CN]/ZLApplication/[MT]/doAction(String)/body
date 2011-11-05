@@ -1,6 +1,0 @@
-{
-  final ZLAction action=myIdToActionMap.get(actionId);
-  if (action != null) {
-    action.checkAndRun();
-  }
-}

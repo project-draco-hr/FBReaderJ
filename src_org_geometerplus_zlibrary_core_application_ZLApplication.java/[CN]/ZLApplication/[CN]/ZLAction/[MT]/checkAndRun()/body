@@ -1,7 +1,0 @@
-{
-  if (isEnabled()) {
-    run();
-    return true;
-  }
-  return false;
-}
