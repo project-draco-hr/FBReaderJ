@@ -1,3 +1,4 @@
 {
-  return Item.Title != null ? Item.Title.toString() : "";
+  final String title=Item.Title;
+  return title != null ? String.valueOf(title) : "";
 }
