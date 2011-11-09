@@ -1,0 +1,3 @@
+{
+  return ZLMiscUtil.hashCode(Domain) + ZLMiscUtil.hashCode(Path) + ZLMiscUtil.hashCode(Name);
+}

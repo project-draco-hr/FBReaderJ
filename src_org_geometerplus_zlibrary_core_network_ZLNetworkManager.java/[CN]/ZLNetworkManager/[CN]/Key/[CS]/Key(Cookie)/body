@@ -1,0 +1,5 @@
+{
+  Domain=c.getDomain();
+  Path=c.getPath();
+  Name=c.getName();
+}

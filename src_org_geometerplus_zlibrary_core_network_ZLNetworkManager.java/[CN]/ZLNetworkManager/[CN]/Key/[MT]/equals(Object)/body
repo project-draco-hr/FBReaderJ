@@ -1,0 +1,10 @@
+{
+  if (o == this) {
+    return true;
+  }
+  if (!(o instanceof Key)) {
+    return false;
+  }
+  final Key k=(Key)o;
+  return ZLMiscUtil.equals(Domain,k.Domain) && ZLMiscUtil.equals(Path,k.Path) && ZLMiscUtil.equals(Name,k.Name);
+}
