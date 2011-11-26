@@ -1,3 +1,23 @@
 {
-  myCanvas.drawText(string,offset,length,x,y,myTextPaint);
+  boolean containsSoftHyphen=false;
+  for (int i=offset; i < offset + length; ++i) {
+    if (string[i] == (char)0xAD) {
+      containsSoftHyphen=true;
+      break;
+    }
+  }
+  if (!containsSoftHyphen) {
+    myCanvas.drawText(string,offset,length,x,y,myTextPaint);
+  }
+ else {
+    final char[] corrected=new char[length];
+    int len=0;
+    for (int o=offset; o < offset + length; ++o) {
+      final char chr=string[o];
+      if (chr != (char)0xAD) {
+        corrected[len++]=chr;
+      }
+    }
+    myCanvas.drawText(corrected,0,len,x,y,myTextPaint);
+  }
 }

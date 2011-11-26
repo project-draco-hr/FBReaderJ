@@ -1,3 +1,23 @@
 {
-  return (int)(myTextPaint.measureText(string,offset,length) + 0.5f);
+  boolean containsSoftHyphen=false;
+  for (int i=offset; i < offset + length; ++i) {
+    if (string[i] == (char)0xAD) {
+      containsSoftHyphen=true;
+      break;
+    }
+  }
+  if (!containsSoftHyphen) {
+    return (int)(myTextPaint.measureText(string,offset,length) + 0.5f);
+  }
+ else {
+    final char[] corrected=new char[length];
+    int len=0;
+    for (int o=offset; o < offset + length; ++o) {
+      final char chr=string[o];
+      if (chr != (char)0xAD) {
+        corrected[len++]=chr;
+      }
+    }
+    return (int)(myTextPaint.measureText(corrected,0,len) + 0.5f);
+  }
 }
