@@ -1,0 +1,21 @@
+{
+  final FBView fbView=Reader.getTextView();
+  ZLTextRegion region=fbView.getSelectedRegion();
+  final ZLTextRegion.Filter filter=(region != null && region.getSoul() instanceof ZLTextWordRegionSoul) || Reader.NavigateAllWordsOption.getValue() ? ZLTextRegion.AnyRegionFilter : ZLTextRegion.ImageOrHyperlinkFilter;
+  region=fbView.nextRegion(myDirection,filter);
+  if (region != null) {
+    fbView.selectRegion(region);
+  }
+ else {
+switch (myDirection) {
+case down:
+      fbView.scrollPage(true,FBView.ScrollingMode.SCROLL_LINES,1);
+    break;
+case up:
+  fbView.scrollPage(false,FBView.ScrollingMode.SCROLL_LINES,1);
+break;
+}
+}
+Reader.getViewWidget().reset();
+Reader.getViewWidget().repaint();
+}
