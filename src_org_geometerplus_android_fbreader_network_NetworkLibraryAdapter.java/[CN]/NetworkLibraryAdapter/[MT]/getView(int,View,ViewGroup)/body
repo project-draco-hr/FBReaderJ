@@ -1,5 +1,8 @@
 {
   final NetworkTree tree=(NetworkTree)getItem(position);
+  if (tree == null) {
+    throw new IllegalArgumentException("tree == null");
+  }
   final View view=(convertView != null) ? convertView : LayoutInflater.from(parent.getContext()).inflate(R.layout.network_tree_item,parent,false);
   ((TextView)view.findViewById(R.id.network_tree_item_name)).setText(tree.getName());
   ((TextView)view.findViewById(R.id.network_tree_item_childrenlist)).setText(tree.getSummary());
