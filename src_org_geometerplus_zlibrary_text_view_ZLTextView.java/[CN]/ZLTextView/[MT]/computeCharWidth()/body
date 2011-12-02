@@ -2,6 +2,7 @@
   if (myLettersModel != myModel) {
     myLettersModel=myModel;
     myLettersBufferLength=0;
+    myCharWidth=-1f;
     int paragraph=0;
     final int textSize=myModel.getTextLength(myModel.getParagraphsNumber() - 1);
     if (textSize > myLettersBuffer.length) {
@@ -23,6 +24,8 @@
       System.arraycopy(ourDefaultLetters,0,myLettersBuffer,0,myLettersBufferLength);
     }
   }
-  final float charWidth=computeCharWidth(myLettersBuffer,myLettersBufferLength);
-  return charWidth;
+  if (myCharWidth < 0f) {
+    myCharWidth=computeCharWidth(myLettersBuffer,myLettersBufferLength);
+  }
+  return myCharWidth;
 }

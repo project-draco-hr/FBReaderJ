@@ -1,4 +1,5 @@
 {
   rebuildPaintInfo();
   Application.getViewWidget().reset();
+  myCharWidth=-1;
 }
