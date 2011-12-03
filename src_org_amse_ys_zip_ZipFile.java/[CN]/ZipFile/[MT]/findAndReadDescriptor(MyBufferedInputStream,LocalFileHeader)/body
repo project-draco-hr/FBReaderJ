@@ -9,4 +9,5 @@
     uncompressedSize+=blockSize;
   }
   header.UncompressedSize=uncompressedSize;
+  Decompressor.storeDecompressor(decompressor);
 }

@@ -1,7 +1,7 @@
 {
-  if (myInflatingInProgress) {
-    endInflating();
-    myInflatingInProgress=false;
+  if (myInflatorId != -1) {
+    endInflating(myInflatorId);
+    myInflatorId=-1;
   }
   myStream=inputStream;
   myCompressedAvailable=header.CompressedSize;
@@ -16,6 +16,8 @@
   myInBufferLength=0;
   myOutBufferOffset=OUT_BUFFER_SIZE;
   myOutBufferLength=0;
-  startInflating();
-  myInflatingInProgress=true;
+  myInflatorId=startInflating();
+  if (myInflatorId == -1) {
+    throw new IOException("cannot start inflating");
+  }
 }

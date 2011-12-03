@@ -1,3 +1,4 @@
+int inflatorId
 byte[] in
 int inOffset
 int inLength

@@ -1,5 +1,5 @@
 {
-  if (!myInflatingInProgress) {
+  if (myInflatorId == -1) {
     return;
   }
   while (myOutBufferLength == 0) {
@@ -17,7 +17,7 @@
     if (myInBufferLength == 0) {
       break;
     }
-    final long result=inflate(myInBuffer,myInBufferOffset,myInBufferLength,myOutBuffer);
+    final long result=inflate(myInflatorId,myInBuffer,myInBufferOffset,myInBufferLength,myOutBuffer);
     if (result <= 0) {
       throw new IOException("Cannot inflate zip-compressed block, code = " + result);
     }
@@ -28,8 +28,8 @@
     myOutBufferOffset=0;
     myOutBufferLength=out;
     if ((result & (1L << 32)) != 0) {
-      endInflating();
-      myInflatingInProgress=false;
+      endInflating(myInflatorId);
+      myInflatorId=-1;
       myStream.backSkip(myInBufferLength);
       break;
     }
