@@ -1,7 +1,0 @@
-{
-switch (requestCode) {
-case BASIC_AUTHENTICATION_CODE:
-    myCredentialsCreator.onDataReceived(resultCode,intent);
-  break;
-}
-}
