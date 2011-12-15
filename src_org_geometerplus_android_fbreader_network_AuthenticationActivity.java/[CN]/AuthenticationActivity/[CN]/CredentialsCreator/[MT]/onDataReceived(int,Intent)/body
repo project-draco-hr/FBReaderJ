@@ -1,6 +1,0 @@
-{
-  if (resultCode == RESULT_OK && data != null) {
-    setCredentials(data.getStringExtra(USERNAME_KEY),data.getStringExtra(PASSWORD_KEY));
-  }
-  notify();
-}

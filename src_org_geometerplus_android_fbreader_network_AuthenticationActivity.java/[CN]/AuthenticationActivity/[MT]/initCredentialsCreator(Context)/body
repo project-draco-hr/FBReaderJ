@@ -1,0 +1,6 @@
+{
+  final ZLNetworkManager manager=ZLNetworkManager.Instance();
+  if (manager.getCredentialsCreator() == null) {
+    manager.setCredentialsCreator(new CredentialsCreator(context));
+  }
+}

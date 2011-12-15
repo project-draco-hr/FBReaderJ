@@ -2,5 +2,4 @@
   super.onResume();
   getListView().setOnCreateContextMenuListener(this);
   NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
-  ZLNetworkManager.Instance().setCredentialsCreator(myCredentialsCreator);
 }

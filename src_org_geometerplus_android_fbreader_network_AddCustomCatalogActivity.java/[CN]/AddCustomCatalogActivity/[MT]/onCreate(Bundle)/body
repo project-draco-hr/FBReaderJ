@@ -1,6 +1,7 @@
 {
   super.onCreate(icicle);
   Thread.setDefaultUncaughtExceptionHandler(new org.geometerplus.zlibrary.ui.android.library.UncaughtExceptionHandler(this));
+  AuthenticationActivity.initCredentialsCreator(this);
   setContentView(R.layout.add_custom_catalog);
   myResource=ZLResource.resource("dialog").getResource("CustomCatalogDialog");
   setTitle(myResource.getResource("title").getValue());
