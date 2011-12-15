@@ -1,0 +1,4 @@
+String host
+String area
+String scheme
+String username

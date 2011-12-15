@@ -2,16 +2,10 @@
   if (!"basic".equalsIgnoreCase(scope.getScheme())) {
     return null;
   }
-  final Intent intent=new Intent();
   final String host=scope.getHost();
   final String area=scope.getRealm();
-  final ZLStringOption option=new ZLStringOption("username",host + ":" + area,"");
-  intent.setClass(myActivity,AuthenticationActivity.class);
-  intent.putExtra(HOST_KEY,host);
-  intent.putExtra(AREA_KEY,area);
-  intent.putExtra(SCHEME_KEY,scheme);
-  intent.putExtra(USERNAME_KEY,option.getValue());
-  myActivity.startActivityForResult(intent,myCode);
+  final ZLStringOption usernameOption=new ZLStringOption("username",host + ":" + area,"");
+  startAuthenticationDialog(host,area,scheme,usernameOption.getValue());
 synchronized (this) {
     try {
       wait();
@@ -21,7 +15,7 @@ synchronized (this) {
   }
   Credentials creds=null;
   if (myUsername != null && myPassword != null) {
-    option.setValue(myUsername);
+    usernameOption.setValue(myUsername);
     creds=new UsernamePasswordCredentials(myUsername,myPassword);
   }
   myUsername=null;

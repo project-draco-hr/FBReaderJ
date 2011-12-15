@@ -1,0 +1,9 @@
+{
+  final Intent intent=new Intent();
+  intent.setClass(myActivity,AuthenticationActivity.class);
+  intent.putExtra(HOST_KEY,host);
+  intent.putExtra(AREA_KEY,area);
+  intent.putExtra(SCHEME_KEY,scheme);
+  intent.putExtra(USERNAME_KEY,username);
+  myActivity.startActivityForResult(intent,myCode);
+}
