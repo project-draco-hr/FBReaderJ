@@ -1,0 +1,59 @@
+{
+  final LinkedList<String> opensearchDescriptionURLs=new LinkedList<String>();
+  final List<OpenSearchDescription> descriptions=Collections.synchronizedList(new LinkedList<OpenSearchDescription>());
+  ZLNetworkException error=null;
+  try {
+    ZLNetworkManager.Instance().perform(new ZLNetworkRequest(getUrl(UrlInfo.Type.Catalog),quietMode){
+      @Override public void handleStream(      InputStream inputStream,      int length) throws IOException, ZLNetworkException {
+        final OPDSCatalogInfoHandler info=new OPDSCatalogInfoHandler(getURL(),OPDSCustomNetworkLink.this,opensearchDescriptionURLs);
+        new OPDSXMLReader(info,false).read(inputStream);
+        if (!info.FeedStarted) {
+          throw new ZLNetworkException(NetworkException.ERROR_NOT_AN_OPDS);
+        }
+        if (info.Title == null) {
+          throw new ZLNetworkException(NetworkException.ERROR_NO_REQUIRED_INFORMATION);
+        }
+        setUrl(UrlInfo.Type.Image,info.Icon);
+        if (info.DirectOpenSearchDescription != null) {
+          descriptions.add(info.DirectOpenSearchDescription);
+        }
+        if (!urlsOnly) {
+          myTitle=info.Title.toString();
+          mySummary=info.Summary != null ? info.Summary.toString() : null;
+        }
+      }
+    }
+);
+  }
+ catch (  ZLNetworkException e) {
+    error=e;
+  }
+  if (!opensearchDescriptionURLs.isEmpty()) {
+    LinkedList<ZLNetworkRequest> requests=new LinkedList<ZLNetworkRequest>();
+    for (    String url : opensearchDescriptionURLs) {
+      requests.add(new ZLNetworkRequest(url){
+        @Override public void handleStream(        InputStream inputStream,        int length) throws IOException, ZLNetworkException {
+          new OpenSearchXMLReader(getURL(),descriptions).read(inputStream);
+        }
+      }
+);
+    }
+    try {
+      ZLNetworkManager.Instance().perform(requests);
+    }
+ catch (    ZLNetworkException e) {
+      if (error == null) {
+        error=e;
+      }
+    }
+  }
+  if (!descriptions.isEmpty()) {
+    setUrl(UrlInfo.Type.Search,descriptions.get(0).makeQuery("%s"));
+  }
+ else {
+    setUrl(UrlInfo.Type.Search,null);
+  }
+  if (error != null) {
+    throw error;
+  }
+}

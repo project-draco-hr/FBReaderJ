@@ -1,6 +1,9 @@
 {
-  if (!"basic".equalsIgnoreCase(scope.getScheme())) {
+  if (!"basic".equalsIgnoreCase(scope.getScheme()) && !"digest".equalsIgnoreCase(scope.getScheme())) {
     return null;
+  }
+  if (CredMap.containsKey(scope) || quietMode) {
+    return CredMap.get(scope);
   }
   final String host=scope.getHost();
   final String area=scope.getRealm();
@@ -17,6 +20,7 @@ synchronized (this) {
   if (myUsername != null && myPassword != null) {
     usernameOption.setValue(myUsername);
     creds=new UsernamePasswordCredentials(myUsername,myPassword);
+    CredMap.put(scope,creds);
   }
   myUsername=null;
   myPassword=null;

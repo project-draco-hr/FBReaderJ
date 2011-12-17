@@ -29,7 +29,7 @@
     httpRequest.setHeader("User-Agent",ZLNetworkUtil.getUserAgent());
     httpRequest.setHeader("Accept-Encoding","gzip");
     httpRequest.setHeader("Accept-Language",Locale.getDefault().getLanguage());
-    httpClient.setCredentialsProvider(new MyCredentialsProvider(httpRequest));
+    httpClient.setCredentialsProvider(new MyCredentialsProvider(httpRequest,request.isQuiet()));
     HttpResponse response=null;
     IOException lastException=null;
     for (int retryCounter=0; retryCounter < 3 && entity == null; ++retryCounter) {
@@ -37,9 +37,33 @@
         response=httpClient.execute(httpRequest,httpContext);
         entity=response.getEntity();
         lastException=null;
+        if (response.getStatusLine().getStatusCode() == HttpURLConnection.HTTP_UNAUTHORIZED) {
+          if (response.containsHeader("Www-Authenticate")) {
+            Header h=response.getFirstHeader("Www-Authenticate");
+            for (            HeaderElement he : h.getElements()) {
+              if (he.getName().equalsIgnoreCase("digest realm") || he.getName().equalsIgnoreCase("basic realm")) {
+                String realm=he.getValue();
+                URI uri=httpRequest.getURI();
+                String host=uri.getHost();
+                String scheme="BASIC";
+                if (he.getName().equalsIgnoreCase("digest realm")) {
+                  scheme="DIGEST";
+                }
+                int port=uri.getPort();
+                AuthScope scope=new AuthScope(host,port,realm,scheme);
+                if (BasicCredentialsCreator.CredMap.containsKey(scope)) {
+                  Log.d("fbreader","saved credentials failed");
+                  BasicCredentialsCreator.CredMap.remove(scope);
+                  entity=null;
+                }
+              }
+            }
+          }
+        }
       }
  catch (      IOException e) {
         lastException=e;
+        Log.d("fbreader",e.getMessage());
       }
     }
     if (lastException != null) {
