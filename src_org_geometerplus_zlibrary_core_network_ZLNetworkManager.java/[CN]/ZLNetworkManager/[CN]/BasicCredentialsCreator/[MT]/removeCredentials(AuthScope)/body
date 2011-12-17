@@ -1,0 +1,3 @@
+{
+  myCredentialsMap.remove(scope);
+}
