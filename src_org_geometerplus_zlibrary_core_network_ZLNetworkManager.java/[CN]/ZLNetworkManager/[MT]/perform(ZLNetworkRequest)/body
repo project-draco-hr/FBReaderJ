@@ -52,7 +52,6 @@
                 int port=uri.getPort();
                 AuthScope scope=new AuthScope(host,port,realm,scheme);
                 if (BasicCredentialsCreator.CredMap.containsKey(scope)) {
-                  Log.d("fbreader","saved credentials failed");
                   BasicCredentialsCreator.CredMap.remove(scope);
                   entity=null;
                 }
@@ -63,7 +62,6 @@
       }
  catch (      IOException e) {
         lastException=e;
-        Log.d("fbreader",e.getMessage());
       }
     }
     if (lastException != null) {
