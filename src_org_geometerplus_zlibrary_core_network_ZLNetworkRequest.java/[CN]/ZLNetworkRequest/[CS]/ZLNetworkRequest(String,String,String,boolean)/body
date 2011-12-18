@@ -1,0 +1,6 @@
+{
+  URL=url;
+  SSLCertificate=sslCertificate;
+  PostData=postData;
+  myIsQuiet=quiet;
+}
