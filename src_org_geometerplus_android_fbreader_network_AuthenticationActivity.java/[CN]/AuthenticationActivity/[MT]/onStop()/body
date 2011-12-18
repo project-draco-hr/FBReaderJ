@@ -1,7 +1,7 @@
 {
   final ZLNetworkManager.CredentialsCreator creator=ZLNetworkManager.Instance().getCredentialsCreator();
-  if (creator instanceof CredentialsCreator) {
-    ((CredentialsCreator)creator).release();
+  if (creator != null) {
+    creator.release();
   }
   super.onStop();
 }
