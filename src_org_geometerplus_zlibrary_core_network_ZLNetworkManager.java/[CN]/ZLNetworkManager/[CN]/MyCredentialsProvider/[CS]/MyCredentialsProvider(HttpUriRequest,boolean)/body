@@ -1,3 +1,4 @@
 {
   myRequest=request;
+  myQuitely=quitely;
 }

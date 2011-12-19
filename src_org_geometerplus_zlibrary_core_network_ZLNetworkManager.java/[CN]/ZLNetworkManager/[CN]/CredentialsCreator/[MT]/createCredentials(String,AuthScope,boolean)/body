@@ -6,12 +6,14 @@
   final String host=scope.getHost();
   final String area=scope.getRealm();
   final ZLStringOption usernameOption=new ZLStringOption("username",host + ":" + area,"");
-  startAuthenticationDialog(host,area,scheme,usernameOption.getValue());
+  if (!quitely) {
+    startAuthenticationDialog(host,area,scheme,usernameOption.getValue());
 synchronized (this) {
-    try {
-      wait();
-    }
- catch (    InterruptedException e) {
+      try {
+        wait();
+      }
+ catch (      InterruptedException e) {
+      }
     }
   }
   Credentials creds=null;
