@@ -1,2 +1,2 @@
 HttpUriRequest request
-boolean quiet
+boolean quietly
