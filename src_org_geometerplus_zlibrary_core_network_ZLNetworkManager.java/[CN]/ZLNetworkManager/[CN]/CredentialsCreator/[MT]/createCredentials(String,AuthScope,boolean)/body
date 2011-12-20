@@ -3,7 +3,7 @@
   if (!"basic".equalsIgnoreCase(authScheme) && !"digest".equalsIgnoreCase(authScheme)) {
     return null;
   }
-  if (myCredentialsMap.containsKey(scope) || quietMode) {
+  if (myCredentialsMap.containsKey(scope) || quietly) {
     return myCredentialsMap.get(scope);
   }
   final String host=scope.getHost();
