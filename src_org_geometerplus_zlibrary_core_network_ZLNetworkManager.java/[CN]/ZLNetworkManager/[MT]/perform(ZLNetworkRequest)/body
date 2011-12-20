@@ -51,8 +51,7 @@
                 }
                 int port=uri.getPort();
                 AuthScope scope=new AuthScope(host,port,realm,scheme);
-                if (myCredentialsCreator.credentialsExist(scope)) {
-                  myCredentialsCreator.removeCredentials(scope);
+                if (myCredentialsCreator.removeCredentials(scope)) {
                   entity=null;
                 }
               }

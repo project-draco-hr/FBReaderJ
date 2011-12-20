@@ -1,0 +1,31 @@
+{
+  final String authScheme=scope.getScheme();
+  if (!"basic".equalsIgnoreCase(authScheme) && !"digest".equalsIgnoreCase(authScheme)) {
+    return null;
+  }
+  if (myCredentialsMap.containsKey(scope) || quietMode) {
+    return myCredentialsMap.get(scope);
+  }
+  final String host=scope.getHost();
+  final String area=scope.getRealm();
+  final ZLStringOption usernameOption=new ZLStringOption("username",host + ":" + area,"");
+  if (!quietly) {
+    startAuthenticationDialog(host,area,scheme,usernameOption.getValue());
+synchronized (this) {
+      try {
+        wait();
+      }
+ catch (      InterruptedException e) {
+      }
+    }
+  }
+  Credentials creds=null;
+  if (myUsername != null && myPassword != null) {
+    usernameOption.setValue(myUsername);
+    creds=new UsernamePasswordCredentials(myUsername,myPassword);
+    myCredentialsMap.put(scope,creds);
+  }
+  myUsername=null;
+  myPassword=null;
+  return creds;
+}

@@ -2,5 +2,5 @@
   URL=url;
   SSLCertificate=sslCertificate;
   PostData=postData;
-  myQuiet=q;
+  myIsQuiet=quiet;
 }

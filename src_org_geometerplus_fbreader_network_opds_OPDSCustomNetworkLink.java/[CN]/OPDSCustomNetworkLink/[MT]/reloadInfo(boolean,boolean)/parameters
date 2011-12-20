@@ -1,2 +1,2 @@
 boolean urlsOnly
-boolean quietMode
+boolean quietly
