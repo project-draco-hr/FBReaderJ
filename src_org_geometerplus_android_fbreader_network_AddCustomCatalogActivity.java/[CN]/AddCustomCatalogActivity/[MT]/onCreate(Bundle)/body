@@ -27,6 +27,16 @@
     }
   }
 );
+  final Button button=(Button)findViewById(R.id.search_button);
+  button.setText(myResource.getResource("localNetworkSearch").getValue());
+  button.setOnClickListener(new View.OnClickListener(){
+    public void onClick(    View view){
+      final Intent intent=new Intent();
+      intent.setClass(AddCustomCatalogActivity.this,SearchForCatalogsActivity.class);
+      startActivityForResult(intent,1);
+    }
+  }
+);
   Util.initLibrary(this);
   final Intent intent=getIntent();
   myLink=null;

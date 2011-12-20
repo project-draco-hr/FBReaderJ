@@ -1,0 +1,14 @@
+{
+  runOnUiThread(new Runnable(){
+    public void run(){
+      final TextView errorView=(TextView)findViewById(android.R.id.empty);
+      if (errorText != null) {
+        errorView.setText(errorText);
+      }
+ else {
+        errorView.setText(myResource.getResource("empty").getValue());
+      }
+    }
+  }
+);
+}

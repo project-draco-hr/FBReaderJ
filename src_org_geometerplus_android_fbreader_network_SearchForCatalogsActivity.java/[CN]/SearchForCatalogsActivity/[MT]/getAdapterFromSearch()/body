@@ -1,0 +1,19 @@
+{
+  ArrayList<ServiceInfoItem> services=new ArrayList<ServiceInfoItem>();
+  if (myJmdns == null) {
+    try {
+      myJmdns=JmDNS.create();
+    }
+ catch (    IOException e) {
+      setErrorText(e.getMessage());
+      return new ArrayAdapter<ServiceInfoItem>(this,R.layout.search_catalogs_item,services);
+    }
+  }
+  for (  String type : TYPES) {
+    for (    ServiceInfo si : myJmdns.list(type)) {
+      services.add(new ServiceInfoItem(si));
+    }
+  }
+  ArrayAdapter<ServiceInfoItem> adapter=new ArrayAdapter<ServiceInfoItem>(this,R.layout.search_catalogs_item,services);
+  return adapter;
+}

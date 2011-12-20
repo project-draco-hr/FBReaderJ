@@ -1,0 +1,10 @@
+{
+  if (resultCode == RESULT_OK) {
+switch (requestCode) {
+case 1:
+      setTextById(R.id.add_custom_catalog_url,intent.getStringExtra(SearchForCatalogsActivity.URL_RETURNED));
+    onOkButton();
+  break;
+}
+}
+}

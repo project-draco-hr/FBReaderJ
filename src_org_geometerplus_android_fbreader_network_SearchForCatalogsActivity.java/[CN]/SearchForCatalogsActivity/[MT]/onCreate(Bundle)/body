@@ -1,0 +1,29 @@
+{
+  super.onCreate(icicle);
+  Thread.setDefaultUncaughtExceptionHandler(new org.geometerplus.zlibrary.ui.android.library.UncaughtExceptionHandler(this));
+  setContentView(R.layout.search_catalogs);
+  myResource=ZLResource.resource("dialog").getResource("SearchForCatalogs");
+  setTitle(myResource.getResource("title").getValue());
+  final Button cbutton=(Button)findViewById(R.id.search_catalog_buttons).findViewById(R.id.cancel_button);
+  cbutton.setText(ZLResource.resource("dialog").getResource("button").getResource("cancel").getValue());
+  cbutton.setOnClickListener(new View.OnClickListener(){
+    public void onClick(    View view){
+      finish();
+    }
+  }
+);
+  final Button rbutton=(Button)findViewById(R.id.search_catalog_buttons).findViewById(R.id.ok_button);
+  rbutton.setText(ZLResource.resource("dialog").getResource("button").getResource("reload").getValue());
+  rbutton.setOnClickListener(new View.OnClickListener(){
+    public void onClick(    View view){
+      Reload();
+    }
+  }
+);
+  WifiManager wifi=(android.net.wifi.WifiManager)getSystemService(android.content.Context.WIFI_SERVICE);
+  myLock=wifi.createMulticastLock("FBReader_lock");
+  myLock.setReferenceCounted(true);
+  myLock.acquire();
+  myJmdns=null;
+  Reload();
+}

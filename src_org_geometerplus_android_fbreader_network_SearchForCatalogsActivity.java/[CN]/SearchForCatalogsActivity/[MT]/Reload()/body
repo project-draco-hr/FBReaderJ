@@ -1,0 +1,17 @@
+{
+  final Runnable searchRunnable=new Runnable(){
+    private String myError;
+    public void run(){
+      final ArrayAdapter<ServiceInfoItem> adapter=getAdapterFromSearch();
+      runOnUiThread(new Runnable(){
+        public void run(){
+          SearchForCatalogsActivity.this.setListAdapter(adapter);
+        }
+      }
+);
+      setErrorText(myError);
+    }
+  }
+;
+  UIUtil.wait("searchingForCatalogs",searchRunnable,this);
+}

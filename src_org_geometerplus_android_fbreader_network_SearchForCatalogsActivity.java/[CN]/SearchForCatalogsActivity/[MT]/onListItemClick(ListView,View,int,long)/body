@@ -1,0 +1,7 @@
+{
+  ServiceInfoItem item=(ServiceInfoItem)getListAdapter().getItem(position);
+  Intent intent=new Intent();
+  intent.putExtra(URL_RETURNED,item.getUrl());
+  setResult(RESULT_OK,intent);
+  finish();
+}
