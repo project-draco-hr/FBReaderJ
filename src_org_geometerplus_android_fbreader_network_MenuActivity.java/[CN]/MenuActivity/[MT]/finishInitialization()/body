@@ -1,0 +1,13 @@
+{
+switch (myInfos.size()) {
+default :
+    return false;
+case 0:
+  finish();
+return true;
+case 1:
+runItem(myInfos.get(0));
+finish();
+return true;
+}
+}

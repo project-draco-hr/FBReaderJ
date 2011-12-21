@@ -6,11 +6,9 @@
     startActivityForResult(new Intent(getAction(),getIntent().getData()),0);
   }
  catch (  ActivityNotFoundException e) {
-    if (myInfos.size() == 1) {
-      runItem(myInfos.get(0));
+    if (finishInitialization()) {
+      return;
     }
-    finish();
-    return;
   }
   setListAdapter(new ActionListAdapter());
   getListView().setOnItemClickListener(this);
