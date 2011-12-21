@@ -5,7 +5,7 @@
       final ArrayAdapter<ServiceInfoItem> adapter=getAdapterFromSearch();
       runOnUiThread(new Runnable(){
         public void run(){
-          SearchForCatalogsActivity.this.setListAdapter(adapter);
+          ScanLocalNetworkActivity.this.setListAdapter(adapter);
         }
       }
 );

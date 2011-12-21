@@ -32,7 +32,7 @@
   button.setOnClickListener(new View.OnClickListener(){
     public void onClick(    View view){
       final Intent intent=new Intent();
-      intent.setClass(AddCustomCatalogActivity.this,SearchForCatalogsActivity.class);
+      intent.setClass(AddCustomCatalogActivity.this,ScanLocalNetworkActivity.class);
       startActivityForResult(intent,1);
     }
   }
