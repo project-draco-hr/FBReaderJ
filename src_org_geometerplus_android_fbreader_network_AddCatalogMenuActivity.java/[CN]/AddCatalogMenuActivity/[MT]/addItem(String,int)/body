@@ -1,0 +1,3 @@
+{
+  myInfos.add(new PluginApi.MenuActionInfo(Uri.parse("http://data.fbreader.org/add_catalog/" + id),myResource.getResource(id).getValue(),weight));
+}

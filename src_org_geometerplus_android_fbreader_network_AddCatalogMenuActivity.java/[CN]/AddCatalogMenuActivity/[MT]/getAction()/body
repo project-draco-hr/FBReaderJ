@@ -1,0 +1,3 @@
+{
+  return "android.fbreader.action.ADD_CUSTOM_CATALOG";
+}

@@ -1,0 +1,5 @@
+{
+  setTitle(myResource.getResource("title").getValue());
+  addItem("editUrl",1);
+  addItem("scanLocalNetwork",2);
+}
