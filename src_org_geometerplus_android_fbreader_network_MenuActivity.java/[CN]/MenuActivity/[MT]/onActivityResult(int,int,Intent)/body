@@ -4,13 +4,7 @@
     if (actions != null) {
       myInfos.addAll(actions);
     }
-    if (myInfos.size() == 0) {
-      finish();
-      return;
-    }
- else     if (myInfos.size() == 1) {
-      runItem(myInfos.get(0));
-      finish();
+    if (finishInitialization()) {
       return;
     }
     Collections.sort(myInfos);
