@@ -27,21 +27,13 @@
     }
   }
 );
-  final Button button=(Button)findViewById(R.id.search_button);
-  button.setText(myResource.getResource("localNetworkSearch").getValue());
-  button.setOnClickListener(new View.OnClickListener(){
-    public void onClick(    View view){
-      final Intent intent=new Intent();
-      intent.setClass(AddCustomCatalogActivity.this,ScanLocalNetworkActivity.class);
-      startActivityForResult(intent,1);
-    }
-  }
-);
   Util.initLibrary(this);
   final Intent intent=getIntent();
+  final String action=intent.getAction();
+  myEditNotAdd=Util.EDIT_CATALOG_ACTION.equals(action);
   myLink=null;
   Uri uri=null;
-  if (Intent.ACTION_VIEW.equals(intent.getAction())) {
+  if (myEditNotAdd || Intent.ACTION_VIEW.equals(action)) {
     uri=intent.getData();
     if (uri != null) {
       if ("opds".equals(uri.getScheme())) {
@@ -53,7 +45,6 @@
       }
     }
   }
-  myEditNotAdd=intent.getBooleanExtra(EDIT_KEY,false);
   if (myLink != null) {
     setTextById(R.id.add_custom_catalog_url,myLink.getUrl(UrlInfo.Type.Catalog));
     setTextById(R.id.add_custom_catalog_title,myLink.getTitle());
