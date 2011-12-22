@@ -2,6 +2,7 @@
   final Runnable scanRunnable=new Runnable(){
     public void run(){
       final ArrayList<ServiceInfoItem> services=new ArrayList<ServiceInfoItem>();
+      String errorText;
       try {
         final JmDNS mcDNS=JmDNS.create();
         for (        String type : ourServiceTypes) {
@@ -9,18 +10,12 @@
             services.add(new ServiceInfoItem(si));
           }
         }
-        setError(services.isEmpty() ? myResource.getResource("noCatalogsFound").getValue() : null);
+        errorText=services.isEmpty() ? myResource.getResource("noCatalogsFound").getValue() : null;
       }
- catch (      IOException e) {
-        setError(e.getMessage());
+ catch (      Exception e) {
+        errorText=e.getMessage();
       }
-      final ArrayAdapter<ServiceInfoItem> adapter=new ArrayAdapter<ServiceInfoItem>(ScanLocalNetworkActivity.this,R.layout.local_service_item,services);
-      runOnUiThread(new Runnable(){
-        public void run(){
-          ScanLocalNetworkActivity.this.setListAdapter(adapter);
-        }
-      }
-);
+      setup(services,errorText);
     }
   }
 ;

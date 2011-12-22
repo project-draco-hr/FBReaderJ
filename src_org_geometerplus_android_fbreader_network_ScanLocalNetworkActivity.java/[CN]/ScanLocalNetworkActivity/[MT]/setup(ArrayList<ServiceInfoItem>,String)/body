@@ -1,12 +1,13 @@
 {
   runOnUiThread(new Runnable(){
     public void run(){
+      setListAdapter(new ArrayAdapter<ServiceInfoItem>(ScanLocalNetworkActivity.this,R.layout.local_service_item,services));
       final View listView=findViewById(android.R.id.list);
       final View errorView=findViewById(R.id.scan_local_network_error);
-      if (error != null) {
+      if (errorText != null) {
         listView.setVisibility(View.GONE);
         errorView.setVisibility(View.VISIBLE);
-        ((TextView)errorView).setText(error);
+        ((TextView)errorView).setText(errorText);
       }
  else {
         listView.setVisibility(View.VISIBLE);
