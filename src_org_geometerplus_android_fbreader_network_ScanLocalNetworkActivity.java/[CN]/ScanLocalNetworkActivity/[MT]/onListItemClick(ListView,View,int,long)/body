@@ -1,0 +1,9 @@
+{
+  final ServiceInfoItem item=(ServiceInfoItem)getListAdapter().getItem(position);
+  try {
+    startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(item.getUrl()),getApplicationContext(),AddCustomCatalogActivity.class));
+    finish();
+  }
+ catch (  Exception e) {
+  }
+}
