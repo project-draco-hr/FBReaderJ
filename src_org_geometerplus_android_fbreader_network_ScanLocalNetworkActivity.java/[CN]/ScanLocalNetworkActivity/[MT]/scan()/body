@@ -1,0 +1,28 @@
+{
+  final Runnable scanRunnable=new Runnable(){
+    public void run(){
+      final ArrayList<ServiceInfoItem> services=new ArrayList<ServiceInfoItem>();
+      try {
+        final JmDNS mcDNS=JmDNS.create();
+        for (        String type : ourServiceTypes) {
+          for (          ServiceInfo si : mcDNS.list(type)) {
+            services.add(new ServiceInfoItem(si));
+          }
+        }
+        setError(services.isEmpty() ? myResource.getResource("noCatalogsFound").getValue() : null);
+      }
+ catch (      IOException e) {
+        setError(e.getMessage());
+      }
+      final ArrayAdapter<ServiceInfoItem> adapter=new ArrayAdapter<ServiceInfoItem>(ScanLocalNetworkActivity.this,R.layout.local_service_item,services);
+      runOnUiThread(new Runnable(){
+        public void run(){
+          ScanLocalNetworkActivity.this.setListAdapter(adapter);
+        }
+      }
+);
+    }
+  }
+;
+  UIUtil.wait("scanningLocalNetwork",scanRunnable,this);
+}
