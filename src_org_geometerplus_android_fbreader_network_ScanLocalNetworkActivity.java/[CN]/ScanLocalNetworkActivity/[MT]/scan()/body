@@ -6,8 +6,8 @@
       try {
         final JmDNS mcDNS=JmDNS.create();
         for (        String type : ourServiceTypes) {
-          for (          ServiceInfo si : mcDNS.list(type)) {
-            services.add(new ServiceInfoItem(si));
+          for (          ServiceInfo info : mcDNS.list(type)) {
+            services.add(new ServiceInfoItem(info));
           }
         }
         errorText=services.isEmpty() ? myResource.getResource("noCatalogsFound").getValue() : null;

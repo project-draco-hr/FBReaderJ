@@ -3,20 +3,21 @@
   Thread.setDefaultUncaughtExceptionHandler(new org.geometerplus.zlibrary.ui.android.library.UncaughtExceptionHandler(this));
   setContentView(R.layout.scan_local_network);
   setTitle(myResource.getResource("localCatalogs").getValue());
+  final View buttonView=findViewById(R.id.scan_local_network_buttons);
   final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
-  final Button cbutton=(Button)findViewById(R.id.scan_local_network_buttons).findViewById(R.id.cancel_button);
-  cbutton.setText(buttonResource.getResource("cancel").getValue());
-  cbutton.setOnClickListener(new View.OnClickListener(){
+  final Button rescanButton=(Button)buttonView.findViewById(R.id.ok_button);
+  rescanButton.setText(buttonResource.getResource("rescan").getValue());
+  rescanButton.setOnClickListener(new View.OnClickListener(){
     public void onClick(    View view){
-      finish();
+      scan();
     }
   }
 );
-  final Button rbutton=(Button)findViewById(R.id.scan_local_network_buttons).findViewById(R.id.ok_button);
-  rbutton.setText(buttonResource.getResource("rescan").getValue());
-  rbutton.setOnClickListener(new View.OnClickListener(){
+  final Button cancelButton=(Button)buttonView.findViewById(R.id.cancel_button);
+  cancelButton.setText(buttonResource.getResource("cancel").getValue());
+  cancelButton.setOnClickListener(new View.OnClickListener(){
     public void onClick(    View view){
-      scan();
+      finish();
     }
   }
 );
