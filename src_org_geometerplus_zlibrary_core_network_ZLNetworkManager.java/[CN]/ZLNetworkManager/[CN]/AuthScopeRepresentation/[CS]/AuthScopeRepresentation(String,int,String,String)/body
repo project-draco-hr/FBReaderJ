@@ -1,0 +1,6 @@
+{
+  Host=host;
+  Port=port;
+  Realm=realm;
+  Scheme=scheme;
+}

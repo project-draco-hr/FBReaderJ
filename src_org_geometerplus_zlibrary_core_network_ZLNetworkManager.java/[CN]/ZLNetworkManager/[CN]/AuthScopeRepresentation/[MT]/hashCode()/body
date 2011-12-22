@@ -1,0 +1,8 @@
+{
+  int hash=7;
+  hash=31 * hash + Port;
+  hash=31 * hash + (null == Host ? 0 : Host.hashCode());
+  hash=31 * hash + (null == Realm ? 0 : Realm.hashCode());
+  hash=31 * hash + (null == Scheme ? 0 : Scheme.hashCode());
+  return hash;
+}

@@ -50,7 +50,10 @@
                   scheme="DIGEST";
                 }
                 int port=uri.getPort();
-                AuthScope scope=new AuthScope(host,port,realm,scheme);
+                if (port == -1) {
+                  port=80;
+                }
+                AuthScopeRepresentation scope=new AuthScopeRepresentation(host,port,realm,scheme);
                 if (myCredentialsCreator.removeCredentials(scope)) {
                   entity=null;
                 }
