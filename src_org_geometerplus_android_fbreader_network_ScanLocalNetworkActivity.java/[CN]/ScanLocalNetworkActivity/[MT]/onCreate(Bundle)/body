@@ -16,7 +16,7 @@
   rbutton.setText(ZLResource.resource("dialog").getResource("button").getResource("reload").getValue());
   rbutton.setOnClickListener(new View.OnClickListener(){
     public void onClick(    View view){
-      Reload();
+      reload();
     }
   }
 );
@@ -25,5 +25,5 @@
   myLock.setReferenceCounted(true);
   myLock.acquire();
   myJmdns=null;
-  Reload();
+  reload();
 }

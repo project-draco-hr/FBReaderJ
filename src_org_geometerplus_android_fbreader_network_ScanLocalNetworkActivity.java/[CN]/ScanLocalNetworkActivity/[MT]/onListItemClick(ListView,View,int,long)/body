@@ -1,7 +1,5 @@
 {
-  ServiceInfoItem item=(ServiceInfoItem)getListAdapter().getItem(position);
-  Intent intent=new Intent();
-  intent.putExtra(URL_RETURNED,item.getUrl());
-  setResult(RESULT_OK,intent);
+  final ServiceInfoItem item=(ServiceInfoItem)getListAdapter().getItem(position);
+  startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(item.getUrl()),getApplicationContext(),AddCustomCatalogActivity.class));
   finish();
 }
