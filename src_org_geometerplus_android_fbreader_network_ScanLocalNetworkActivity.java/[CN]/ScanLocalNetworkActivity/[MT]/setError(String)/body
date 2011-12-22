@@ -3,10 +3,10 @@
     public void run(){
       final View listView=findViewById(android.R.id.list);
       final View errorView=findViewById(R.id.scan_local_network_error);
-      if (errorText != null) {
+      if (error != null) {
         listView.setVisibility(View.GONE);
         errorView.setVisibility(View.VISIBLE);
-        ((TextView)errorView).setText(errorText);
+        ((TextView)errorView).setText(error);
       }
  else {
         listView.setVisibility(View.VISIBLE);

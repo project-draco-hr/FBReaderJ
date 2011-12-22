@@ -1,18 +1,16 @@
 {
   final ArrayList<ServiceInfoItem> services=new ArrayList<ServiceInfoItem>();
-  if (myJmdns == null) {
-    try {
-      myJmdns=JmDNS.create();
+  try {
+    final JmDNS mcDNS=JmDNS.create();
+    for (    String type : ourServiceTypes) {
+      for (      ServiceInfo si : mcDNS.list(type)) {
+        services.add(new ServiceInfoItem(si));
+      }
     }
- catch (    IOException e) {
-      setErrorText(e.getMessage());
-      return new ArrayAdapter<ServiceInfoItem>(this,R.layout.search_catalogs_item,services);
-    }
+    setError(services.isEmpty() ? myResource.getResource("empty").getValue() : null);
   }
-  for (  String type : ourServiceTypes) {
-    for (    ServiceInfo si : myJmdns.list(type)) {
-      services.add(new ServiceInfoItem(si));
-    }
+ catch (  IOException e) {
+    setError(e.getMessage());
   }
   return new ArrayAdapter<ServiceInfoItem>(this,R.layout.search_catalogs_item,services);
 }

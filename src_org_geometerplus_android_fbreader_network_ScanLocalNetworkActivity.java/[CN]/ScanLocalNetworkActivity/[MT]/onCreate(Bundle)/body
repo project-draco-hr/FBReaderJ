@@ -24,6 +24,5 @@
   myLock=wifi.createMulticastLock("FBReader_lock");
   myLock.setReferenceCounted(true);
   myLock.acquire();
-  myJmdns=null;
   reload();
 }
