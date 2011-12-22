@@ -1,10 +1,10 @@
 {
   super.onCreate(icicle);
   Thread.setDefaultUncaughtExceptionHandler(new org.geometerplus.zlibrary.ui.android.library.UncaughtExceptionHandler(this));
-  setContentView(R.layout.search_catalogs);
+  setContentView(R.layout.scan_local_network);
   myResource=ZLResource.resource("dialog").getResource("SearchForCatalogs");
   setTitle(myResource.getResource("title").getValue());
-  final Button cbutton=(Button)findViewById(R.id.search_catalog_buttons).findViewById(R.id.cancel_button);
+  final Button cbutton=(Button)findViewById(R.id.scan_local_network_buttons).findViewById(R.id.cancel_button);
   cbutton.setText(ZLResource.resource("dialog").getResource("button").getResource("cancel").getValue());
   cbutton.setOnClickListener(new View.OnClickListener(){
     public void onClick(    View view){
@@ -12,7 +12,7 @@
     }
   }
 );
-  final Button rbutton=(Button)findViewById(R.id.search_catalog_buttons).findViewById(R.id.ok_button);
+  final Button rbutton=(Button)findViewById(R.id.scan_local_network_buttons).findViewById(R.id.ok_button);
   rbutton.setText(ZLResource.resource("dialog").getResource("button").getResource("reload").getValue());
   rbutton.setOnClickListener(new View.OnClickListener(){
     public void onClick(    View view){
