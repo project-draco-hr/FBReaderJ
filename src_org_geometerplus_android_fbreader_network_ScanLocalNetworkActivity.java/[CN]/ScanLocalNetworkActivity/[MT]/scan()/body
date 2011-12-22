@@ -1,0 +1,23 @@
+{
+  final Runnable scanRunnable=new Runnable(){
+    public void run(){
+      final ArrayList<ServiceInfoItem> services=new ArrayList<ServiceInfoItem>();
+      String errorText;
+      try {
+        final JmDNS mcDNS=JmDNS.create();
+        for (        String type : ourServiceTypes) {
+          for (          ServiceInfo info : mcDNS.list(type)) {
+            services.add(new ServiceInfoItem(info));
+          }
+        }
+        errorText=services.isEmpty() ? myResource.getResource("noCatalogsFound").getValue() : null;
+      }
+ catch (      Exception e) {
+        errorText=e.getMessage();
+      }
+      setup(services,errorText);
+    }
+  }
+;
+  UIUtil.wait("scanningLocalNetwork",scanRunnable,this);
+}
