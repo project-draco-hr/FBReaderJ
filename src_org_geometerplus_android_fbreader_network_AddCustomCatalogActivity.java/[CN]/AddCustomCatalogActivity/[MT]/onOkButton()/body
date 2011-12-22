@@ -34,7 +34,7 @@
     final NetworkLibrary library=NetworkLibrary.Instance();
     library.addCustomLink(myLink);
     library.synchronize();
-    final Intent intent=new Intent(NetworkLibraryActivity.OPEN_CATALOG_ACTION,myEditNotAdd ? null : uri,AddCustomCatalogActivity.this,NetworkLibraryActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+    final Intent intent=new Intent(NetworkLibraryActivity.OPEN_CATALOG_ACTION,myEditNotAdd ? null : uri,AddCustomCatalogActivity.this,NetworkLibraryPrimaryActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
     startActivity(intent);
     finish();
   }
