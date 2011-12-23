@@ -1,0 +1,30 @@
+{
+  AlertDialog alertDialog=new AlertDialog.Builder(this).create();
+  alertDialog.setTitle(myResource.getResource("wifiDisabled").getValue());
+  alertDialog.setMessage(myResource.getResource("enableWifi").getValue());
+  final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
+  alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,buttonResource.getResource("ok").getValue(),new DialogInterface.OnClickListener(){
+    public void onClick(    DialogInterface dialog,    int id){
+      final Runnable wifiRunnable=new Runnable(){
+        public void run(){
+          if (!myWifi.setWifiEnabled(true)) {
+            finish();
+          }
+          while (!myWifi.isWifiEnabled()) {
+          }
+        }
+      }
+;
+      UIUtil.wait("enablingWifi",wifiRunnable,ScanLocalNetworkActivity.this);
+      scan();
+    }
+  }
+);
+  alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE,buttonResource.getResource("cancel").getValue(),new DialogInterface.OnClickListener(){
+    public void onClick(    DialogInterface dialog,    int id){
+      finish();
+    }
+  }
+);
+  alertDialog.show();
+}

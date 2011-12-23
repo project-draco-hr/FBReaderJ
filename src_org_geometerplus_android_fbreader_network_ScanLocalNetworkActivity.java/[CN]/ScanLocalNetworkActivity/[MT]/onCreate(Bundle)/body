@@ -21,8 +21,8 @@
     }
   }
 );
-  final WifiManager wifi=(WifiManager)getSystemService(Context.WIFI_SERVICE);
-  myLock=wifi.createMulticastLock("FBReader_lock");
+  myWifi=(WifiManager)getSystemService(Context.WIFI_SERVICE);
+  myLock=myWifi.createMulticastLock("FBReader_lock");
   myLock.setReferenceCounted(true);
   myLock.acquire();
   scan();
