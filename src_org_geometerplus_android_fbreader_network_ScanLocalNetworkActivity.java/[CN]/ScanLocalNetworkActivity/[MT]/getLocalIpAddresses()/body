@@ -2,6 +2,9 @@
   final List<InetAddress> addresses=new LinkedList<InetAddress>();
   try {
     for (    NetworkInterface iface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
+      if (iface.isPointToPoint()) {
+        continue;
+      }
       for (      InetAddress addr : Collections.list(iface.getInetAddresses())) {
         if (!addr.isLoopbackAddress() && addr instanceof Inet4Address) {
           addresses.add(addr);
