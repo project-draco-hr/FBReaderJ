@@ -3,6 +3,11 @@
   if (!"basic".equalsIgnoreCase(authScheme) && !"digest".equalsIgnoreCase(authScheme)) {
     return null;
   }
+  final AuthScopeKey key=new AuthScopeKey(scope);
+  Credentials creds=myCredentialsMap.get(key);
+  if (cred != null || quietly) {
+    return cred;
+  }
   final String host=scope.getHost();
   final String area=scope.getRealm();
   final ZLStringOption usernameOption=new ZLStringOption("username",host + ":" + area,"");
@@ -16,10 +21,10 @@ synchronized (this) {
       }
     }
   }
-  Credentials creds=null;
   if (myUsername != null && myPassword != null) {
     usernameOption.setValue(myUsername);
     creds=new UsernamePasswordCredentials(myUsername,myPassword);
+    myCredentialsMap.put(key,creds);
   }
   myUsername=null;
   myPassword=null;

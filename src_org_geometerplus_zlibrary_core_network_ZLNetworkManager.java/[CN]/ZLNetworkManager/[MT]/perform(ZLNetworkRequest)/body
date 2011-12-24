@@ -37,6 +37,15 @@
         response=httpClient.execute(httpRequest,httpContext);
         entity=response.getEntity();
         lastException=null;
+        if (response.getStatusLine().getStatusCode() == HttpURLConnection.HTTP_UNAUTHORIZED) {
+          final AuthState state=(AuthState)httpContext.getAttribute(ClientContext.TARGET_AUTH_STATE);
+          if (state != null) {
+            final AuthScopeKey key=new AuthScopeKey(state.getAuthScope());
+            if (myCredentialsCreator.removeCredentials(key)) {
+              entity=null;
+            }
+          }
+        }
       }
  catch (      IOException e) {
         lastException=e;
