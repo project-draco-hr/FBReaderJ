@@ -3,8 +3,10 @@
   if (!"basic".equalsIgnoreCase(authScheme) && !"digest".equalsIgnoreCase(authScheme)) {
     return null;
   }
-  if (myCredentialsMap.containsKey(new AuthScopeRepresentation(scope)) || quietly) {
-    return myCredentialsMap.get(new AuthScopeRepresentation(scope));
+  final AuthScopeKey key=new AuthScopeKey(scope);
+  Credentials creds=myCredentialsMap.get(key);
+  if (cred != null || quietly) {
+    return cred;
   }
   final String host=scope.getHost();
   final String area=scope.getRealm();
@@ -19,11 +21,10 @@ synchronized (this) {
       }
     }
   }
-  Credentials creds=null;
   if (myUsername != null && myPassword != null) {
     usernameOption.setValue(myUsername);
     creds=new UsernamePasswordCredentials(myUsername,myPassword);
-    myCredentialsMap.put(new AuthScopeRepresentation(scope),creds);
+    myCredentialsMap.put(key,creds);
   }
   myUsername=null;
   myPassword=null;

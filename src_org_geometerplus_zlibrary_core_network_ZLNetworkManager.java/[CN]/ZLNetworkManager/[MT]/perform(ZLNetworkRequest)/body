@@ -40,8 +40,8 @@
         if (response.getStatusLine().getStatusCode() == HttpURLConnection.HTTP_UNAUTHORIZED) {
           final AuthState state=(AuthState)httpContext.getAttribute(ClientContext.TARGET_AUTH_STATE);
           if (state != null) {
-            AuthScopeRepresentation scope=new AuthScopeRepresentation(state.getAuthScope());
-            if (myCredentialsCreator.removeCredentials(scope)) {
+            final AuthScopeKey key=new AuthScopeKey(state.getAuthScope());
+            if (myCredentialsCreator.removeCredentials(key)) {
               entity=null;
             }
           }

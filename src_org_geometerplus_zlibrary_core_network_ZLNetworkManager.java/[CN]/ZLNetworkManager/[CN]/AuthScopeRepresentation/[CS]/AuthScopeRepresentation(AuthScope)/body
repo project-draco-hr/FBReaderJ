@@ -1,6 +1,0 @@
-{
-  Host=scope.getHost();
-  Port=scope.getPort();
-  Realm=scope.getRealm();
-  Scheme=scope.getScheme();
-}

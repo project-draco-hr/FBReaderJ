@@ -1,0 +1,16 @@
+{
+  if (this == obj) {
+    return true;
+  }
+  if (!(obj instanceof AuthScopeKey)) {
+    return false;
+  }
+  final AuthScope scope=((AuthScopeKey)obj).myScope;
+  if (myScope == null) {
+    return scope == null;
+  }
+  if (scope == null) {
+    return false;
+  }
+  return myScope.getPort() == scope.getPort() && ZLMiscUtil.equals(myScope.getHost(),scope.getHost()) && ZLMiscUtil.equals(myScope.getScheme(),scope.getScheme()) && ZLMiscUtil.equals(myScope.getRealm(),scope.getRealm());
+}

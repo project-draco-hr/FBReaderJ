@@ -1,6 +1,0 @@
-{
-  if (this == obj)   return true;
-  if ((obj == null) || (obj.getClass() != this.getClass()))   return false;
-  AuthScopeRepresentation asr=(AuthScopeRepresentation)obj;
-  return Port == asr.Port && (Host == asr.Host || (Host != null && Host.equals(asr.Host))) && (Realm == asr.Realm || (Realm != null && Realm.equals(asr.Realm))) && (Scheme == asr.Scheme || (Scheme != null && Scheme.equals(asr.Scheme)));
-}
