@@ -1,7 +1,4 @@
 {
-  if (myWifi.getWifiState() != WifiManager.WIFI_STATE_ENABLED && myWifi.getWifiState() != WifiManager.WIFI_STATE_ENABLING) {
-    showWifiDialog();
-  }
   final Runnable scanRunnable=new Runnable(){
     public void run(){
       final ArrayList<ServiceInfoItem> services=new ArrayList<ServiceInfoItem>();
