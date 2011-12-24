@@ -1,0 +1,6 @@
+{
+  if (myScope == null) {
+    return 0;
+  }
+  return myScope.getPort() + ZLMiscUtil.hashCode(myScope.getHost()) + ZLMiscUtil.hashCode(myScope.getScheme())+ ZLMiscUtil.hashCode(myScope.getRealm());
+}
