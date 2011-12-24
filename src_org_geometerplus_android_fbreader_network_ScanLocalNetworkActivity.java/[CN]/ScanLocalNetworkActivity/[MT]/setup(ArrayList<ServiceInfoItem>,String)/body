@@ -1,5 +1,4 @@
 {
-  System.err.println("setup " + services.size() + " "+ errorText);
   runOnUiThread(new Runnable(){
     public void run(){
       setListAdapter(new ArrayAdapter<ServiceInfoItem>(ScanLocalNetworkActivity.this,R.layout.local_service_item,services));
