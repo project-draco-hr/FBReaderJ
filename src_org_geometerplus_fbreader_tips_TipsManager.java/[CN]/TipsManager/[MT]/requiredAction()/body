@@ -1,0 +1,14 @@
+{
+  if (!TipsAreInitializedOption.getValue()) {
+    return Action.Initialize;
+  }
+  if (ShowTipsOption.getValue()) {
+    if (hasNextTip()) {
+      return myLastShownOption.getValue() + DELAY < currentTime() ? Action.Show : Action.None;
+    }
+ else {
+      return myDownloadInProgress ? Action.None : Action.Download;
+    }
+  }
+  return Action.None;
+}

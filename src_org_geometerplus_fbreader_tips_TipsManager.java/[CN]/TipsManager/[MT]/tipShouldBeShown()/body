@@ -1,3 +1,0 @@
-{
-  return ShowTipsOption.getValue() && myLastShownOption.getValue() + DELAY < currentTime() && hasNextTip();
-}

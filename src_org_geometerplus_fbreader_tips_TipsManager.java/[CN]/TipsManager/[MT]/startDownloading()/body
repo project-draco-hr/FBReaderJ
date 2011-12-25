@@ -1,5 +1,5 @@
 {
-  if (!tipsShouldBeDownloaded()) {
+  if (requiredAction() != Action.Download) {
     return;
   }
   myDownloadInProgress=true;
