@@ -1,6 +1,6 @@
 {
   final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
-  final ZLAndroidApplication androidApp=ZLAndroidApplication.Instance();
+  final ZLAndroidApplication androidApp=(ZLAndroidApplication)getApplication();
   final ColorProfile profile=fbReader.getColorProfile();
   final Screen directoriesScreen=createPreferenceScreen("directories");
   directoriesScreen.addOption(Paths.BooksDirectoryOption(),"books");

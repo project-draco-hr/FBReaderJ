@@ -1,5 +1,5 @@
 {
-  final ZLAndroidApplication application=ZLAndroidApplication.Instance();
+  final ZLAndroidApplication application=(ZLAndroidApplication)getApplication();
   myOrientation=application.AutoOrientationOption.getValue() ? ActivityInfo.SCREEN_ORIENTATION_SENSOR : ActivityInfo.SCREEN_ORIENTATION_NOSENSOR;
   setRequestedOrientation(myOrientation);
   myChangeCounter=0;
