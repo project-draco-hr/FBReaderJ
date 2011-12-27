@@ -6,10 +6,10 @@
  else {
     final Money basketCost=cost();
     if (basketCost != null) {
-      return NetworkLibrary.resource().getResource("basketSummary").getValue().replace("%0",String.valueOf(size)).replace("%1",basketCost.toString());
+      return NetworkLibrary.resource().getResource("basketSummary").getValue(size).replace("%0",String.valueOf(size)).replace("%1",basketCost.toString());
     }
  else {
-      return NetworkLibrary.resource().getResource("basketSummaryCountOnly").getValue().replace("%0",String.valueOf(size));
+      return NetworkLibrary.resource().getResource("basketSummaryCountOnly").getValue(size).replace("%0",String.valueOf(size));
     }
   }
 }
