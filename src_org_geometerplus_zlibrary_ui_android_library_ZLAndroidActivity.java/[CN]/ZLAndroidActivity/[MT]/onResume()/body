@@ -1,9 +1,8 @@
 {
   super.onResume();
-  final ZLAndroidApplication application=(ZLAndroidApplication)getApplication();
-  switchWakeLock(application.BatteryLevelToTurnScreenOffOption.getValue() < ZLApplication.Instance().getBatteryLevel());
+  switchWakeLock(getLibrary().BatteryLevelToTurnScreenOffOption.getValue() < ZLApplication.Instance().getBatteryLevel());
   myStartTimer=true;
-  final int brightnessLevel=application.ScreenBrightnessLevelOption.getValue();
+  final int brightnessLevel=getLibrary().ScreenBrightnessLevelOption.getValue();
   if (brightnessLevel != 0) {
     setScreenBrightness(brightnessLevel);
   }

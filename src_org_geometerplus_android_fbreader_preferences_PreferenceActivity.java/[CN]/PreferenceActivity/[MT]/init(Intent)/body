@@ -1,6 +1,6 @@
 {
   final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
-  final ZLAndroidApplication androidApp=(ZLAndroidApplication)getApplication();
+  final ZLAndroidLibrary androidLibrary=(ZLAndroidLibrary)ZLAndroidLibrary.Instance();
   final ColorProfile profile=fbReader.getColorProfile();
   final Screen directoriesScreen=createPreferenceScreen("directories");
   directoriesScreen.addOption(Paths.BooksDirectoryOption(),"books");
@@ -10,17 +10,17 @@
   directoriesScreen.addOption(Paths.WallpapersDirectoryOption(),"wallpapers");
   final ZLPreferenceSet statusBarPreferences=new ZLPreferenceSet();
   final Screen appearanceScreen=createPreferenceScreen("appearance");
-  appearanceScreen.addOption(androidApp.AutoOrientationOption,"autoOrientation");
-  appearanceScreen.addPreference(new ZLBooleanPreference(this,androidApp.ShowStatusBarOption,appearanceScreen.Resource,"showStatusBar"){
+  appearanceScreen.addOption(androidLibrary.AutoOrientationOption,"autoOrientation");
+  appearanceScreen.addPreference(new ZLBooleanPreference(this,androidLibrary.ShowStatusBarOption,appearanceScreen.Resource,"showStatusBar"){
     @Override public void onClick(){
       super.onClick();
       statusBarPreferences.setEnabled(!isChecked());
     }
   }
 );
-  statusBarPreferences.add(appearanceScreen.addOption(androidApp.ShowStatusBarWhenMenuIsActiveOption,"showStatusBarWhenMenuIsActive"));
-  statusBarPreferences.setEnabled(!androidApp.ShowStatusBarOption.getValue());
-  appearanceScreen.addOption(androidApp.DisableButtonLightsOption,"disableButtonLights");
+  statusBarPreferences.add(appearanceScreen.addOption(androidLibrary.ShowStatusBarWhenMenuIsActiveOption,"showStatusBarWhenMenuIsActive"));
+  statusBarPreferences.setEnabled(!androidLibrary.ShowStatusBarOption.getValue());
+  appearanceScreen.addOption(androidLibrary.DisableButtonLightsOption,"disableButtonLights");
   final Screen textScreen=createPreferenceScreen("text");
   final ZLTextStyleCollection collection=ZLTextStyleCollection.Instance();
   final ZLTextBaseStyle baseStyle=collection.getBaseStyle();
@@ -120,12 +120,12 @@
     public void onAccept(){
       super.onAccept();
       if (!isChecked()) {
-        androidApp.ScreenBrightnessLevelOption.setValue(0);
+        androidLibrary.ScreenBrightnessLevelOption.setValue(0);
       }
     }
   }
 );
-  displayScreen.addPreference(new BatteryLevelToTurnScreenOffPreference(this,androidApp.BatteryLevelToTurnScreenOffOption,displayScreen.Resource,"dontTurnScreenOff"));
+  displayScreen.addPreference(new BatteryLevelToTurnScreenOffPreference(this,androidLibrary.BatteryLevelToTurnScreenOffOption,displayScreen.Resource,"dontTurnScreenOff"));
   final ScrollingPreferences scrollingPreferences=ScrollingPreferences.Instance();
   final ZLKeyBindings keyBindings=fbReader.keyBindings();
   final Screen scrollingScreen=createPreferenceScreen("scrolling");

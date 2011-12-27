@@ -1,4 +1,4 @@
 {
-  final Activity activity=((ZLAndroidLibrary)ZLAndroidLibrary.Instance()).getActivity();
-  return activity != null && !((ZLAndroidApplication)activity.getApplication()).AutoOrientationOption.getValue();
+  final ZLAndroidLibrary zlibrary=(ZLAndroidLibrary)ZLAndroidLibrary.Instance();
+  return zlibrary.AutoOrientationOption.getValue();
 }

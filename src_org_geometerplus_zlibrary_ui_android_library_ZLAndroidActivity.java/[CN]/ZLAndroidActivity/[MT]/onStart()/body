@@ -1,6 +1,6 @@
 {
   super.onStart();
-  if (((ZLAndroidApplication)getApplication()).AutoOrientationOption.getValue()) {
+  if (getLibrary().AutoOrientationOption.getValue()) {
     setAutoRotationMode();
   }
  else {

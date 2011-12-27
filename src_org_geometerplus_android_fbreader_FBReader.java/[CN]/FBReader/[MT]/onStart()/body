@@ -1,7 +1,7 @@
 {
   super.onStart();
-  final ZLAndroidApplication application=(ZLAndroidApplication)getApplication();
-  final int fullScreenFlag=application.ShowStatusBarOption.getValue() ? 0 : WindowManager.LayoutParams.FLAG_FULLSCREEN;
+  final ZLAndroidLibrary zlibrary=(ZLAndroidLibrary)ZLAndroidLibrary.Instance();
+  final int fullScreenFlag=zlibrary.ShowStatusBarOption.getValue() ? 0 : WindowManager.LayoutParams.FLAG_FULLSCREEN;
   if (fullScreenFlag != myFullScreenFlag) {
     finish();
     startActivity(new Intent(this,getClass()));
