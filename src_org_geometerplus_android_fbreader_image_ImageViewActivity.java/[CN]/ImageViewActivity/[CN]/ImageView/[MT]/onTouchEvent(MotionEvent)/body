@@ -1,23 +1,10 @@
 {
-  int x=(int)event.getX();
-  int y=(int)event.getY();
-switch (event.getAction()) {
-case MotionEvent.ACTION_UP:
-    myMotionControl=false;
-  break;
-case MotionEvent.ACTION_DOWN:
-myMotionControl=true;
-mySavedX=x;
-mySavedY=y;
-break;
-case MotionEvent.ACTION_MOVE:
-if (myMotionControl) {
-shift(x - mySavedX,y - mySavedY);
+switch (event.getPointerCount()) {
+case 1:
+    return onSingleTouchEvent(event);
+case 2:
+  return onDoubleTouchEvent(event);
+default :
+return false;
 }
-myMotionControl=true;
-mySavedX=x;
-mySavedY=y;
-break;
-}
-return true;
 }
