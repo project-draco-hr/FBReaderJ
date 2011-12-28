@@ -10,11 +10,11 @@ case HtmlTag.IMG:
           final int index=Integer.parseInt(recIndex.toString());
           if (paragraphIsOpen()) {
             endParagraph();
-            addImageReference("" + index);
+            addImageReference("" + index,false);
             beginParagraph();
           }
  else {
-            addImageReference("" + index);
+            addImageReference("" + index,false);
           }
         }
  catch (        NumberFormatException e) {

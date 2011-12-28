@@ -20,7 +20,6 @@ synchronized (myPluginActions) {
   }
   sendOrderedBroadcast(new Intent(PluginApi.ACTION_REGISTER),null,myPluginInfoReceiver,null,RESULT_OK,null,null);
   final TipsManager manager=TipsManager.Instance();
-  System.err.println("TIPS: " + manager.requiredAction());
 switch (manager.requiredAction()) {
 case Initialize:
     startActivity(new Intent(TipsActivity.INITIALIZE_ACTION,null,this,TipsActivity.class));

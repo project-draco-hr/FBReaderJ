@@ -8,7 +8,8 @@
     if (COVER == type) {
       final String href=attributes.getValue("href");
       if (href != null) {
-        myCoverXHTML=myPathPrefix + MiscUtil.decodeHtmlReference(href);
+        final ZLFile coverFile=ZLFile.createFileByPath(myPathPrefix + MiscUtil.decodeHtmlReference(href));
+        myImage=XHTMLImageFinder.getCoverImage(coverFile);
         return true;
       }
     }

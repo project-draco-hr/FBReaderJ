@@ -11,10 +11,14 @@
   }
   myModelReader.setMainTextModel();
   myModelReader.pushKind(FBTextKind.REGULAR);
+  int count=0;
   for (  String name : myHtmlFileNames) {
     final ZLFile xhtmlFile=ZLFile.createFileByPath(myFilePrefix + name);
     if (xhtmlFile == null) {
       return false;
+    }
+    if (count++ == 0 && xhtmlFile.getPath().equals(myCoverFileName)) {
+      continue;
     }
     final XHTMLReader reader=new XHTMLReader(myModelReader,myFileNumbers);
     final String referenceName=reader.getFileAlias(MiscUtil.archiveEntryName(xhtmlFile.getPath()));

@@ -1,0 +1,4 @@
+{
+  final Bitmap bitmap=((ZLAndroidImageData)imageData).getBitmap(maxSize,scaling);
+  return (bitmap != null && !bitmap.isRecycled()) ? new Size(bitmap.getWidth(),bitmap.getHeight()) : null;
+}

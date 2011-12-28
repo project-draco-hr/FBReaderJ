@@ -1,0 +1,10 @@
+{
+  if (other == this) {
+    return true;
+  }
+  if (!(other instanceof Size)) {
+    return false;
+  }
+  final Size s=(Size)other;
+  return Width == s.Width && Height == s.Height;
+}
