@@ -1,0 +1,4 @@
+{
+  super.onCreate();
+  bindService(new Intent(this,LibraryService.class),null,LibraryService.BIND_AUTO_CREATE);
+}

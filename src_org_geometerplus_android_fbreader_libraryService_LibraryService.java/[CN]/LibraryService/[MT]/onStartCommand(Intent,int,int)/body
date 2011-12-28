@@ -1,0 +1,4 @@
+{
+  System.err.println("LibraryService started for intent " + intent);
+  return START_STICKY;
+}
