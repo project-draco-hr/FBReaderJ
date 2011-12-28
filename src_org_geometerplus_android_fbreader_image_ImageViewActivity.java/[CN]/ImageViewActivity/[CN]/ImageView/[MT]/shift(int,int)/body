@@ -4,8 +4,8 @@
   }
   final int w=getWidth();
   final int h=getHeight();
-  final int bw=myBitmap.getWidth();
-  final int bh=myBitmap.getHeight();
+  final int bw=(int)(myBitmap.getWidth() * myZoomFactor);
+  final int bh=(int)(myBitmap.getHeight() * myZoomFactor);
   final int newDx, newDy;
   if (w < bw) {
     final int delta=bw - w;

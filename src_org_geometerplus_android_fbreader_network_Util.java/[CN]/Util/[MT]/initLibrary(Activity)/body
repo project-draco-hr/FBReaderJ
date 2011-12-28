@@ -6,7 +6,7 @@
   UIUtil.wait("loadingNetworkLibrary",new Runnable(){
     public void run(){
       if (SQLiteNetworkDatabase.Instance() == null) {
-        new SQLiteNetworkDatabase();
+        new SQLiteNetworkDatabase(activity.getApplication());
       }
       library.initialize();
     }

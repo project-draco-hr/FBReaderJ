@@ -1,4 +1,0 @@
-{
-  myDatabase=ZLAndroidApplication.Instance().openOrCreateDatabase("network.db",Context.MODE_PRIVATE,null);
-  migrate();
-}

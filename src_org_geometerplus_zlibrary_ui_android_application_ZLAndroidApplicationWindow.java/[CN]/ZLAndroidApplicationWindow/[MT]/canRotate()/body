@@ -1,3 +1,4 @@
 {
-  return !ZLAndroidApplication.Instance().AutoOrientationOption.getValue();
+  final ZLAndroidLibrary zlibrary=(ZLAndroidLibrary)ZLAndroidLibrary.Instance();
+  return zlibrary.AutoOrientationOption.getValue();
 }

@@ -1,0 +1,17 @@
+{
+  final ZLTextWritableModel textModel=myCurrentTextModel;
+  if (textModel != null) {
+    mySectionContainsRegularContents=true;
+    if (myTextParagraphExists) {
+      flushTextBufferToParagraph();
+      textModel.addImage(ref,vOffset,isCover);
+    }
+ else {
+      beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
+      textModel.addControl(FBTextKind.IMAGE,true);
+      textModel.addImage(ref,vOffset,isCover);
+      textModel.addControl(FBTextKind.IMAGE,false);
+      endParagraph();
+    }
+  }
+}

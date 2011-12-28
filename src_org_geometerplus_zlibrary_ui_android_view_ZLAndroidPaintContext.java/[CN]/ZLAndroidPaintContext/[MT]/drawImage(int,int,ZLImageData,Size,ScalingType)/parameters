@@ -1,0 +1,5 @@
+int x
+int y
+ZLImageData imageData
+Size maxSize
+ScalingType scaling

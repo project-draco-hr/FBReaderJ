@@ -6,16 +6,17 @@
     myChangeCounter=state.getInt(ORIENTATION_CHANGE_COUNTER_KEY);
   }
   requestWindowFeature(Window.FEATURE_NO_TITLE);
-  if (ZLAndroidApplication.Instance().DisableButtonLightsOption.getValue()) {
+  if (getLibrary().DisableButtonLightsOption.getValue()) {
     disableButtonLight();
   }
   setContentView(R.layout.main);
   setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
   getLibrary().setActivity(this);
   final ZLFile fileToOpen=fileFromIntent(getIntent());
-  if (((ZLAndroidApplication)getApplication()).myMainWindow == null) {
-    ZLApplication application=createApplication(fileToOpen);
-    ((ZLAndroidApplication)getApplication()).myMainWindow=new ZLAndroidApplicationWindow(application);
+  final ZLAndroidApplication androidApplication=(ZLAndroidApplication)getApplication();
+  if (androidApplication.myMainWindow == null) {
+    final ZLApplication application=createApplication(fileToOpen);
+    androidApplication.myMainWindow=new ZLAndroidApplicationWindow(application);
     application.initWindow();
   }
  else {

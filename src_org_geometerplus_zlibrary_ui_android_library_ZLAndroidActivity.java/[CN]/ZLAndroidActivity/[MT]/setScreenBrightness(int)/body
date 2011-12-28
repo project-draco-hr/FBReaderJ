@@ -8,5 +8,5 @@
   final WindowManager.LayoutParams attrs=getWindow().getAttributes();
   attrs.screenBrightness=percent / 100.0f;
   getWindow().setAttributes(attrs);
-  ((ZLAndroidApplication)getApplication()).ScreenBrightnessLevelOption.setValue(percent);
+  getLibrary().ScreenBrightnessLevelOption.setValue(percent);
 }

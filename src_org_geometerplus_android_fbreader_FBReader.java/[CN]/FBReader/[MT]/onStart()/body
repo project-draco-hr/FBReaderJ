@@ -1,7 +1,7 @@
 {
   super.onStart();
-  final ZLAndroidApplication application=(ZLAndroidApplication)getApplication();
-  final int fullScreenFlag=application.ShowStatusBarOption.getValue() ? 0 : WindowManager.LayoutParams.FLAG_FULLSCREEN;
+  final ZLAndroidLibrary zlibrary=(ZLAndroidLibrary)ZLAndroidLibrary.Instance();
+  final int fullScreenFlag=zlibrary.ShowStatusBarOption.getValue() ? 0 : WindowManager.LayoutParams.FLAG_FULLSCREEN;
   if (fullScreenFlag != myFullScreenFlag) {
     finish();
     startActivity(new Intent(this,getClass()));
@@ -19,4 +19,18 @@ synchronized (myPluginActions) {
     myPluginActions.clear();
   }
   sendOrderedBroadcast(new Intent(PluginApi.ACTION_REGISTER),null,myPluginInfoReceiver,null,RESULT_OK,null,null);
+  final TipsManager manager=TipsManager.Instance();
+switch (manager.requiredAction()) {
+case Initialize:
+    startActivity(new Intent(TipsActivity.INITIALIZE_ACTION,null,this,TipsActivity.class));
+  break;
+case Show:
+startActivity(new Intent(TipsActivity.SHOW_TIP_ACTION,null,this,TipsActivity.class));
+break;
+case Download:
+manager.startDownloading();
+break;
+case None:
+break;
+}
 }

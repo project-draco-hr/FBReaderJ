@@ -1,10 +1,11 @@
 {
   final ArrayList<ZLTreeResource> stack=myStack;
   if (!stack.isEmpty() && (NODE.equals(tag))) {
-    String name=attributes.getValue("name");
+    final String name=attributes.getValue("name");
+    final String condition=attributes.getValue("condition");
+    final String value=attributes.getValue("value");
+    final ZLTreeResource peek=stack.get(stack.size() - 1);
     if (name != null) {
-      String value=attributes.getValue("value");
-      ZLTreeResource peek=stack.get(stack.size() - 1);
       ZLTreeResource node;
       HashMap<String,ZLTreeResource> children=peek.myChildren;
       if (children == null) {
@@ -25,6 +26,16 @@
         }
       }
       stack.add(node);
+    }
+ else     if (condition != null && value != null) {
+      final Condition compiled=parseCondition(condition);
+      if (compiled != null) {
+        if (peek.myConditionalValues == null) {
+          peek.myConditionalValues=new LinkedHashMap<Condition,String>();
+        }
+        peek.myConditionalValues.put(compiled,value);
+      }
+      stack.add(peek);
     }
   }
   return false;

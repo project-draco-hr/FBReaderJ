@@ -1,0 +1,4 @@
+{
+  myDatabase=application.openOrCreateDatabase("network.db",Context.MODE_PRIVATE,null);
+  migrate();
+}

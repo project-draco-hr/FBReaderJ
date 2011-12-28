@@ -1,0 +1,11 @@
+{
+  updateLanguage();
+  if (myConditionalValues != null) {
+    for (    Map.Entry<Condition,String> entry : myConditionalValues.entrySet()) {
+      if (entry.getKey().accepts(number)) {
+        return entry.getValue();
+      }
+    }
+  }
+  return myHasValue ? myValue : ZLMissingResource.Value;
+}

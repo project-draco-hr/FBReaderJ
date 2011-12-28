@@ -1,0 +1,3 @@
+{
+  return myMin <= number && number <= myMax;
+}

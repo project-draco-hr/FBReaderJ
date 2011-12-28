@@ -1,0 +1,18 @@
+{
+  final String[] parts=description.split(" ");
+  try {
+    if ("range".equals(parts[0])) {
+      return new RangeCondition(Integer.parseInt(parts[1]),Integer.parseInt(parts[2]));
+    }
+ else     if ("mod".equals(parts[0])) {
+      return new ModCondition(Integer.parseInt(parts[1]),Integer.parseInt(parts[2]));
+    }
+ else     if ("value".equals(parts[0])) {
+      return new ValueCondition(Integer.parseInt(parts[1]));
+    }
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+  return null;
+}

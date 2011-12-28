@@ -1,7 +1,7 @@
 {
   final String text=Reader.getTextView().getSelectedText();
   Reader.getTextView().clearSelection();
-  final ClipboardManager clipboard=(ClipboardManager)ZLAndroidApplication.Instance().getSystemService(Application.CLIPBOARD_SERVICE);
+  final ClipboardManager clipboard=(ClipboardManager)BaseActivity.getApplication().getSystemService(Application.CLIPBOARD_SERVICE);
   clipboard.setText(text);
   UIUtil.showMessageText(BaseActivity,ZLResource.resource("selection").getResource("textInBuffer").getValue().replace("%s",clipboard.getText()));
 }
