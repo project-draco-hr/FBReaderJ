@@ -14,6 +14,8 @@ case GET_BOOK_TITLE:
 return ApiObject.envelope(getBookTitle());
 case GET_BOOK_FILE_NAME:
 return ApiObject.envelope(getBookFileName());
+case GET_BOOK_HASH:
+return ApiObject.envelope(getBookHash());
 case GET_PARAGRAPHS_NUMBER:
 return ApiObject.envelope(getParagraphsNumber());
 case GET_ELEMENTS_NUMBER:
