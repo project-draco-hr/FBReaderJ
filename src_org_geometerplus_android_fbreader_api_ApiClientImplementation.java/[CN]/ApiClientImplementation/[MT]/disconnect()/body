@@ -1,5 +1,6 @@
 {
   if (myInterface != null) {
+    myContext.unregisterReceiver(myEventReceiver);
     try {
       myContext.unbindService(this);
     }
