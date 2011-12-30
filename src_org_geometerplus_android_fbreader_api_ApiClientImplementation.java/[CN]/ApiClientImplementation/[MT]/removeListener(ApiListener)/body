@@ -1,0 +1,3 @@
+{
+  myApiListeners.remove(listener);
+}

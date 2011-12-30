@@ -1,5 +1,6 @@
 {
   if (myInterface == null) {
     myContext.bindService(new Intent(ACTION_API),this,Context.BIND_AUTO_CREATE);
+    myContext.registerReceiver(myEventReceiver,new IntentFilter(ACTION_API_CALLBACK));
   }
 }
