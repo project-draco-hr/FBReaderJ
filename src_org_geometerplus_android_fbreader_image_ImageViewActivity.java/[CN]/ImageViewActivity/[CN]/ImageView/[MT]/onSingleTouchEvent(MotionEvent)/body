@@ -12,7 +12,7 @@ mySavedY=y;
 break;
 case MotionEvent.ACTION_MOVE:
 if (myMotionControl) {
-shift(x - mySavedX,y - mySavedY);
+shift((int)((x - mySavedX) / myZoomFactor),(int)((y - mySavedY) / myZoomFactor));
 }
 myMotionControl=true;
 mySavedX=x;

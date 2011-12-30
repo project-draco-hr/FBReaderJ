@@ -2,20 +2,20 @@
   if (myBitmap == null || myBitmap.isRecycled()) {
     return;
   }
-  final int w=getWidth();
-  final int h=getHeight();
-  final int bw=(int)(myBitmap.getWidth() * myZoomFactor);
-  final int bh=(int)(myBitmap.getHeight() * myZoomFactor);
+  final int w=(int)(getWidth() / myZoomFactor);
+  final int h=(int)(getHeight() / myZoomFactor);
+  final int bw=myBitmap.getWidth();
+  final int bh=myBitmap.getHeight();
   final int newDx, newDy;
   if (w < bw) {
-    final int delta=bw - w;
+    final int delta=(bw - w) / 2;
     newDx=Math.max(-delta,Math.min(delta,myDx + dx));
   }
  else {
     newDx=myDx;
   }
   if (h < bh) {
-    final int delta=bh - h;
+    final int delta=(bh - h) / 2;
     newDy=Math.max(-delta,Math.min(delta,myDy + dy));
   }
  else {
