@@ -1,0 +1,7 @@
+{
+  final ZLAndroidLibrary zlibrary=(ZLAndroidLibrary)ZLibrary.Instance();
+  if (!zlibrary.ShowStatusBarOption.getValue() && zlibrary.ShowStatusBarWhenMenuIsActiveOption.getValue()) {
+    getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
+  }
+  return super.onOptionsItemSelected(item);
+}
