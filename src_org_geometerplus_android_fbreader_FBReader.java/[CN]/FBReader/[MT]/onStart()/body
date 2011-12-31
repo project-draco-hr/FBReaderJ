@@ -1,11 +1,12 @@
 {
   super.onStart();
-  final ZLAndroidLibrary zlibrary=(ZLAndroidLibrary)ZLAndroidLibrary.Instance();
+  final ZLAndroidLibrary zlibrary=(ZLAndroidLibrary)ZLibrary.Instance();
   final int fullScreenFlag=zlibrary.ShowStatusBarOption.getValue() ? 0 : WindowManager.LayoutParams.FLAG_FULLSCREEN;
   if (fullScreenFlag != myFullScreenFlag) {
     finish();
     startActivity(new Intent(this,getClass()));
   }
+  SetScreenOrientationAction.setOrientation(this,zlibrary.OrientationOption.getValue());
   final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
   final RelativeLayout root=(RelativeLayout)findViewById(R.id.root_view);
   ((PopupPanel)fbReader.getPopupById(TextSearchPopup.ID)).createControlPanel(this,root,PopupWindow.Location.Bottom);

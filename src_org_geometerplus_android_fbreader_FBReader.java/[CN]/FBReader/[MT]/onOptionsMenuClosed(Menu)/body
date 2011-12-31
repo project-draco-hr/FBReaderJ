@@ -1,6 +1,6 @@
 {
   super.onOptionsMenuClosed(menu);
-  final ZLAndroidLibrary zlibrary=(ZLAndroidLibrary)ZLAndroidLibrary.Instance();
+  final ZLAndroidLibrary zlibrary=(ZLAndroidLibrary)ZLibrary.Instance();
   if (!zlibrary.ShowStatusBarOption.getValue() && zlibrary.ShowStatusBarWhenMenuIsActiveOption.getValue()) {
     getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
   }

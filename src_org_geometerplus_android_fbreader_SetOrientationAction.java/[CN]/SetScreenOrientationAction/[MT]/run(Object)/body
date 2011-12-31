@@ -1,0 +1,4 @@
+{
+  setOrientation(BaseActivity,myOptionValue);
+  ZLibrary.Instance().OrientationOption.setValue(myOptionValue);
+}

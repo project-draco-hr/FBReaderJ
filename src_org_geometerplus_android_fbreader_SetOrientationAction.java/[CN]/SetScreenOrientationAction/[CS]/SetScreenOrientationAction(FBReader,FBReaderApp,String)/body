@@ -1,0 +1,4 @@
+{
+  super(baseActivity,fbreader);
+  myOptionValue=optionValue;
+}

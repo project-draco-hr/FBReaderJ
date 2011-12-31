@@ -9,7 +9,14 @@
   addMenuItem(menu,ActionCode.SEARCH,R.drawable.ic_menu_search);
   addMenuItem(menu,ActionCode.SHOW_PREFERENCES);
   addMenuItem(menu,ActionCode.SHOW_BOOK_INFO);
-  addMenuItem(menu,ActionCode.ROTATE);
+  final Menu subMenu=menu.addSubMenu("Screen orientation");
+  addMenuItem(subMenu,ActionCode.SET_SCREEN_ORIENTATION_AUTO);
+  addMenuItem(subMenu,ActionCode.SET_SCREEN_ORIENTATION_PORTRAIT);
+  addMenuItem(subMenu,ActionCode.SET_SCREEN_ORIENTATION_LANDSCAPE);
+  if (ZLibrary.Instance().supportsAllOrientations()) {
+    addMenuItem(subMenu,ActionCode.SET_SCREEN_ORIENTATION_REVERSE_PORTRAIT);
+    addMenuItem(subMenu,ActionCode.SET_SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
+  }
   addMenuItem(menu,ActionCode.INCREASE_FONT);
   addMenuItem(menu,ActionCode.DECREASE_FONT);
   addMenuItem(menu,ActionCode.SHOW_NAVIGATION);
