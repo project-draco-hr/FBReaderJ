@@ -1,0 +1,3 @@
+{
+  return myOptionValue.equals(ZLibrary.Instance().OrientationOption.getValue()) ? ZLBoolean3.B3_TRUE : ZLBoolean3.B3_FALSE;
+}
