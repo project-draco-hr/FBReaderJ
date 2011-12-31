@@ -9,7 +9,7 @@
       first=false;
     }
  else {
-      builder.append(",");
+      builder.append(delimiter);
     }
     builder.append(s);
   }

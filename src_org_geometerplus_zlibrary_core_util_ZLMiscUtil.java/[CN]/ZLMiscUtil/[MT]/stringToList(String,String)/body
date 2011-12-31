@@ -2,5 +2,5 @@
   if (str == null || "".equals(str)) {
     return Collections.emptyList();
   }
-  return Arrays.asList(str.split(","));
+  return Arrays.asList(str.split(delimiter));
 }
