@@ -30,7 +30,7 @@
   fbReader.addAction(ActionCode.SELECTION_BOOKMARK,new SelectionBookmarkAction(this,fbReader));
   fbReader.addAction(ActionCode.PROCESS_HYPERLINK,new ProcessHyperlinkAction(this,fbReader));
   fbReader.addAction(ActionCode.SHOW_CANCEL_MENU,new ShowCancelMenuAction(this,fbReader));
-  fbReader.addAction(ActionCode.SET_SCREEN_ORIENTATION_AUTO,new SetScreenOrientationAction(this,fbReader,ZLibrary.SCREEN_ORIENTATION_AUTO));
+  fbReader.addAction(ActionCode.SET_SCREEN_ORIENTATION_SYSTEM,new SetScreenOrientationAction(this,fbReader,ZLibrary.SCREEN_ORIENTATION_SYSTEM));
   fbReader.addAction(ActionCode.SET_SCREEN_ORIENTATION_PORTRAIT,new SetScreenOrientationAction(this,fbReader,ZLibrary.SCREEN_ORIENTATION_PORTRAIT));
   fbReader.addAction(ActionCode.SET_SCREEN_ORIENTATION_LANDSCAPE,new SetScreenOrientationAction(this,fbReader,ZLibrary.SCREEN_ORIENTATION_LANDSCAPE));
   if (ZLibrary.Instance().supportsAllOrientations()) {

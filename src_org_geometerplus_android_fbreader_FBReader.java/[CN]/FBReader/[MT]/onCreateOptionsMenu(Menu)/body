@@ -10,7 +10,7 @@
   addMenuItem(menu,ActionCode.SHOW_PREFERENCES);
   addMenuItem(menu,ActionCode.SHOW_BOOK_INFO);
   final Menu subMenu=menu.addSubMenu("Screen orientation");
-  addMenuItem(subMenu,ActionCode.SET_SCREEN_ORIENTATION_AUTO);
+  addMenuItem(subMenu,ActionCode.SET_SCREEN_ORIENTATION_SYSTEM);
   addMenuItem(subMenu,ActionCode.SET_SCREEN_ORIENTATION_PORTRAIT);
   addMenuItem(subMenu,ActionCode.SET_SCREEN_ORIENTATION_LANDSCAPE);
   if (ZLibrary.Instance().supportsAllOrientations()) {
