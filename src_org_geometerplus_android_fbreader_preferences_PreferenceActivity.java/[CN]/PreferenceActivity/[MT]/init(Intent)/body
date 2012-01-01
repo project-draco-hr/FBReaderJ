@@ -8,18 +8,9 @@
     directoriesScreen.addOption(Paths.FontsDirectoryOption(),"fonts");
   }
   directoriesScreen.addOption(Paths.WallpapersDirectoryOption(),"wallpapers");
-  final ZLPreferenceSet statusBarPreferences=new ZLPreferenceSet();
   final Screen appearanceScreen=createPreferenceScreen("appearance");
   appearanceScreen.addPreference(new ZLStringChoicePreference(this,appearanceScreen.Resource,"screenOrientation",androidLibrary.OrientationOption,androidLibrary.allOrientations()));
-  appearanceScreen.addPreference(new ZLBooleanPreference(this,androidLibrary.ShowStatusBarOption,appearanceScreen.Resource,"showStatusBar"){
-    @Override public void onClick(){
-      super.onClick();
-      statusBarPreferences.setEnabled(!isChecked());
-    }
-  }
-);
-  statusBarPreferences.add(appearanceScreen.addOption(androidLibrary.ShowStatusBarWhenMenuIsActiveOption,"showStatusBarWhenMenuIsActive"));
-  statusBarPreferences.setEnabled(!androidLibrary.ShowStatusBarOption.getValue());
+  appearanceScreen.addOption(androidLibrary.ShowStatusBarOption,"showStatusBar");
   appearanceScreen.addOption(androidLibrary.DisableButtonLightsOption,"disableButtonLights");
   final Screen textScreen=createPreferenceScreen("text");
   final ZLTextStyleCollection collection=ZLTextStyleCollection.Instance();
@@ -36,7 +27,7 @@
   textScreen.addPreference(new ZLChoicePreference(this,textScreen.Resource,"lineSpacing",spaceOption,spacings));
   final String[] alignments={"left","right","center","justify"};
   textScreen.addPreference(new ZLChoicePreference(this,textScreen.Resource,"alignment",baseStyle.AlignmentOption,alignments));
-  textScreen.addPreference(new ZLBooleanPreference(this,baseStyle.AutoHyphenationOption,textScreen.Resource,"autoHyphenations"));
+  textScreen.addOption(baseStyle.AutoHyphenationOption,"autoHyphenations");
   final Screen moreStylesScreen=textScreen.createPreferenceScreen("more");
   byte styles[]={FBTextKind.REGULAR,FBTextKind.TITLE,FBTextKind.SECTION_TITLE,FBTextKind.SUBTITLE,FBTextKind.H1,FBTextKind.H2,FBTextKind.H3,FBTextKind.H4,FBTextKind.H5,FBTextKind.H6,FBTextKind.ANNOTATION,FBTextKind.EPIGRAPH,FBTextKind.AUTHOR,FBTextKind.POEM_TITLE,FBTextKind.STANZA,FBTextKind.VERSE,FBTextKind.CITE,FBTextKind.INTERNAL_HYPERLINK,FBTextKind.EXTERNAL_HYPERLINK,FBTextKind.FOOTNOTE,FBTextKind.ITALIC,FBTextKind.EMPHASIS,FBTextKind.BOLD,FBTextKind.STRONG,FBTextKind.DEFINITION,FBTextKind.DEFINITION_DESCRIPTION,FBTextKind.PREFORMATTED,FBTextKind.CODE};
   for (int i=0; i < styles.length; ++i) {
