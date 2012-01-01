@@ -10,17 +10,7 @@
   if (cursor.isEndOfParagraph()) {
     ++index;
   }
-  TOCTree treeToSelect=null;
-  for (  TOCTree tree : root) {
-    final TOCTree.Reference reference=tree.getReference();
-    if (reference == null) {
-      continue;
-    }
-    if (reference.ParagraphIndex > index) {
-      break;
-    }
-    treeToSelect=tree;
-  }
+  TOCTree treeToSelect=fbreader.getCurrentTOCElement();
   myAdapter.selectItem(treeToSelect);
   mySelectedItem=treeToSelect;
 }
