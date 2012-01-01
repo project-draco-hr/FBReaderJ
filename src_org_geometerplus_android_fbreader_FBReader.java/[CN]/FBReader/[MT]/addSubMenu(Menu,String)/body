@@ -1,0 +1,4 @@
+{
+  final ZLAndroidApplication application=(ZLAndroidApplication)getApplication();
+  return application.myMainWindow.addSubMenu(menu,id);
+}
