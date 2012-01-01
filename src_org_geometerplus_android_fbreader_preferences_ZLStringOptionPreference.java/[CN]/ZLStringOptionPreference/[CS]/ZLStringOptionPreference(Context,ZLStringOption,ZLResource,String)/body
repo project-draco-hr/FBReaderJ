@@ -1,5 +1,5 @@
 {
   super(context,rootResource,resourceKey);
   myOption=option;
-  setValue(myOption.getValue());
+  super.setValue(myOption.getValue());
 }

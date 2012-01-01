@@ -1,4 +1,0 @@
-{
-  final String value=getValue();
-  myBook.setLanguage((value.length() != 0) ? value : null);
-}
