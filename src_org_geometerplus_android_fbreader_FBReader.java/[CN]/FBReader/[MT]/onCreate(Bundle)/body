@@ -1,6 +1,6 @@
 {
   super.onCreate(icicle);
-  final ZLAndroidLibrary zlibrary=(ZLAndroidLibrary)ZLAndroidLibrary.Instance();
+  final ZLAndroidLibrary zlibrary=(ZLAndroidLibrary)ZLibrary.Instance();
   myFullScreenFlag=zlibrary.ShowStatusBarOption.getValue() ? 0 : WindowManager.LayoutParams.FLAG_FULLSCREEN;
   getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,myFullScreenFlag);
   final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
@@ -30,4 +30,11 @@
   fbReader.addAction(ActionCode.SELECTION_BOOKMARK,new SelectionBookmarkAction(this,fbReader));
   fbReader.addAction(ActionCode.PROCESS_HYPERLINK,new ProcessHyperlinkAction(this,fbReader));
   fbReader.addAction(ActionCode.SHOW_CANCEL_MENU,new ShowCancelMenuAction(this,fbReader));
+  fbReader.addAction(ActionCode.SET_SCREEN_ORIENTATION_SYSTEM,new SetScreenOrientationAction(this,fbReader,ZLibrary.SCREEN_ORIENTATION_SYSTEM));
+  fbReader.addAction(ActionCode.SET_SCREEN_ORIENTATION_PORTRAIT,new SetScreenOrientationAction(this,fbReader,ZLibrary.SCREEN_ORIENTATION_PORTRAIT));
+  fbReader.addAction(ActionCode.SET_SCREEN_ORIENTATION_LANDSCAPE,new SetScreenOrientationAction(this,fbReader,ZLibrary.SCREEN_ORIENTATION_LANDSCAPE));
+  if (ZLibrary.Instance().supportsAllOrientations()) {
+    fbReader.addAction(ActionCode.SET_SCREEN_ORIENTATION_REVERSE_PORTRAIT,new SetScreenOrientationAction(this,fbReader,ZLibrary.SCREEN_ORIENTATION_REVERSE_PORTRAIT));
+    fbReader.addAction(ActionCode.SET_SCREEN_ORIENTATION_REVERSE_LANDSCAPE,new SetScreenOrientationAction(this,fbReader,ZLibrary.SCREEN_ORIENTATION_REVERSE_LANDSCAPE));
+  }
 }

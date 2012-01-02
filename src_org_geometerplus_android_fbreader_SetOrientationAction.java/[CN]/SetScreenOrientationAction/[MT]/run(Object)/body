@@ -1,0 +1,6 @@
+{
+  setOrientation(BaseActivity,myOptionValue);
+  ZLibrary.Instance().OrientationOption.setValue(myOptionValue);
+  final ZLAndroidApplication application=(ZLAndroidApplication)BaseActivity.getApplication();
+  application.myMainWindow.refreshMenu();
+}

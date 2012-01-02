@@ -1,0 +1,4 @@
+String group
+String optionName
+List<String> defaultValue
+String delimiter

@@ -1,4 +1,4 @@
 {
   super(link,NetworkLibrary.resource().getResource("basket").getValue(),NetworkLibrary.resource().getResource("basketSummaryEmpty").getValue(),new UrlInfoCollection<UrlInfo>(),Accessibility.ALWAYS,FLAGS_DEFAULT & ~FLAGS_GROUP);
-  myBooksInBasketOption=new ZLStringListOption(Link.getSiteName(),"Basket",null);
+  myBooksInBasketOption=new ZLStringListOption(Link.getSiteName(),"Basket",null,",");
 }

@@ -1,0 +1,17 @@
+{
+  if (list == null || list.isEmpty()) {
+    return "";
+  }
+  final StringBuilder builder=new StringBuilder();
+  boolean first=true;
+  for (  String s : list) {
+    if (first) {
+      first=false;
+    }
+ else {
+      builder.append(delimiter);
+    }
+    builder.append(s);
+  }
+  return builder.toString();
+}

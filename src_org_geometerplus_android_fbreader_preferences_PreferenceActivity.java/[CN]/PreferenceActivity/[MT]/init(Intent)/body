@@ -8,18 +8,18 @@
     directoriesScreen.addOption(Paths.FontsDirectoryOption(),"fonts");
   }
   directoriesScreen.addOption(Paths.WallpapersDirectoryOption(),"wallpapers");
-  final ZLPreferenceSet statusBarPreferences=new ZLPreferenceSet();
   final Screen appearanceScreen=createPreferenceScreen("appearance");
-  appearanceScreen.addOption(androidLibrary.AutoOrientationOption,"autoOrientation");
-  appearanceScreen.addPreference(new ZLBooleanPreference(this,androidLibrary.ShowStatusBarOption,appearanceScreen.Resource,"showStatusBar"){
-    @Override public void onClick(){
+  appearanceScreen.addPreference(new ZLStringChoicePreference(this,appearanceScreen.Resource,"screenOrientation",androidLibrary.OrientationOption,androidLibrary.allOrientations()));
+  appearanceScreen.addPreference(new ZLBooleanPreference(this,fbReader.AllowScreenBrightnessAdjustmentOption,appearanceScreen.Resource,"allowScreenBrightnessAdjustment"){
+    private final int myLevel=androidLibrary.ScreenBrightnessLevelOption.getValue();
+    @Override protected void onClick(){
       super.onClick();
-      statusBarPreferences.setEnabled(!isChecked());
+      androidLibrary.ScreenBrightnessLevelOption.setValue(isChecked() ? myLevel : 0);
     }
   }
 );
-  statusBarPreferences.add(appearanceScreen.addOption(androidLibrary.ShowStatusBarWhenMenuIsActiveOption,"showStatusBarWhenMenuIsActive"));
-  statusBarPreferences.setEnabled(!androidLibrary.ShowStatusBarOption.getValue());
+  appearanceScreen.addPreference(new BatteryLevelToTurnScreenOffPreference(this,androidLibrary.BatteryLevelToTurnScreenOffOption,appearanceScreen.Resource,"dontTurnScreenOff"));
+  appearanceScreen.addOption(androidLibrary.ShowStatusBarOption,"showStatusBar");
   appearanceScreen.addOption(androidLibrary.DisableButtonLightsOption,"disableButtonLights");
   final Screen textScreen=createPreferenceScreen("text");
   final ZLTextStyleCollection collection=ZLTextStyleCollection.Instance();
@@ -36,7 +36,7 @@
   textScreen.addPreference(new ZLChoicePreference(this,textScreen.Resource,"lineSpacing",spaceOption,spacings));
   final String[] alignments={"left","right","center","justify"};
   textScreen.addPreference(new ZLChoicePreference(this,textScreen.Resource,"alignment",baseStyle.AlignmentOption,alignments));
-  textScreen.addPreference(new ZLBooleanPreference(this,baseStyle.AutoHyphenationOption,textScreen.Resource,"autoHyphenations"));
+  textScreen.addOption(baseStyle.AutoHyphenationOption,"autoHyphenations");
   final Screen moreStylesScreen=textScreen.createPreferenceScreen("more");
   byte styles[]={FBTextKind.REGULAR,FBTextKind.TITLE,FBTextKind.SECTION_TITLE,FBTextKind.SUBTITLE,FBTextKind.H1,FBTextKind.H2,FBTextKind.H3,FBTextKind.H4,FBTextKind.H5,FBTextKind.H6,FBTextKind.ANNOTATION,FBTextKind.EPIGRAPH,FBTextKind.AUTHOR,FBTextKind.POEM_TITLE,FBTextKind.STANZA,FBTextKind.VERSE,FBTextKind.CITE,FBTextKind.INTERNAL_HYPERLINK,FBTextKind.EXTERNAL_HYPERLINK,FBTextKind.FOOTNOTE,FBTextKind.ITALIC,FBTextKind.EMPHASIS,FBTextKind.BOLD,FBTextKind.STRONG,FBTextKind.DEFINITION,FBTextKind.DEFINITION_DESCRIPTION,FBTextKind.PREFORMATTED,FBTextKind.CODE};
   for (int i=0; i < styles.length; ++i) {
@@ -115,17 +115,6 @@
   footerPreferences.add(statusLineScreen.addOption(fbReader.FooterShowProgressOption,"showProgress"));
   footerPreferences.add(statusLineScreen.addPreference(new FontOption(this,statusLineScreen.Resource,"font",fbReader.FooterFontOption,false)));
   footerPreferences.setEnabled(fbReader.ScrollbarTypeOption.getValue() == FBView.SCROLLBAR_SHOW_AS_FOOTER);
-  final Screen displayScreen=createPreferenceScreen("display");
-  displayScreen.addPreference(new ZLBooleanPreference(this,fbReader.AllowScreenBrightnessAdjustmentOption,displayScreen.Resource,"allowScreenBrightnessAdjustment"){
-    public void onAccept(){
-      super.onAccept();
-      if (!isChecked()) {
-        androidLibrary.ScreenBrightnessLevelOption.setValue(0);
-      }
-    }
-  }
-);
-  displayScreen.addPreference(new BatteryLevelToTurnScreenOffPreference(this,androidLibrary.BatteryLevelToTurnScreenOffOption,displayScreen.Resource,"dontTurnScreenOff"));
   final ScrollingPreferences scrollingPreferences=ScrollingPreferences.Instance();
   final ZLKeyBindings keyBindings=fbReader.keyBindings();
   final Screen scrollingScreen=createPreferenceScreen("scrolling");

@@ -10,7 +10,7 @@
     unsetConfigValue();
   }
  else {
-    setConfigValue(ZLMiscUtil.listToString(value));
+    setConfigValue(ZLMiscUtil.listToString(value,myDelimiter));
   }
   myIsSynchronized=true;
 }

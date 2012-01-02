@@ -1,0 +1,6 @@
+{
+  super(group,optionName);
+  myDefaultValue=(defaultValue != null) ? defaultValue : Collections.<String>emptyList();
+  myValue=myDefaultValue;
+  myDelimiter=delimiter;
+}

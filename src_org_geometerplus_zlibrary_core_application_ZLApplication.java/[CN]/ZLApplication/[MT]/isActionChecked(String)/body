@@ -1,0 +1,4 @@
+{
+  final ZLAction action=myIdToActionMap.get(actionId);
+  return action != null ? action.isChecked() : ZLBoolean3.B3_UNDEFINED;
+}

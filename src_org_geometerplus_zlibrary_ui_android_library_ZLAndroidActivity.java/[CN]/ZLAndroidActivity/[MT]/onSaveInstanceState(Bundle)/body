@@ -1,5 +1,0 @@
-{
-  super.onSaveInstanceState(state);
-  state.putInt(REQUESTED_ORIENTATION_KEY,myOrientation);
-  state.putInt(ORIENTATION_CHANGE_COUNTER_KEY,myChangeCounter);
-}

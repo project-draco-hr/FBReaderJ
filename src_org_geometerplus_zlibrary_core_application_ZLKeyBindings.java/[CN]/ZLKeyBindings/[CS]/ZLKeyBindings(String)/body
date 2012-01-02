@@ -12,7 +12,7 @@
   }
  catch (  Exception e) {
   }
-  myKeysOption=new ZLStringListOption(name,"KeyList",new ArrayList<String>(keys));
+  myKeysOption=new ZLStringListOption(name,"KeyList",new ArrayList<String>(keys),",");
   ZLStringOption oldBackKeyOption=new ZLStringOption(myName + ":" + ACTION,"<Back>","");
   if (!"".equals(oldBackKeyOption.getValue())) {
     bindKey(KeyEvent.KEYCODE_BACK,false,oldBackKeyOption.getValue());

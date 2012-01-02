@@ -1,8 +1,8 @@
 {
   if (!myIsSynchronized) {
-    final String value=getConfigValue(ZLMiscUtil.listToString(myDefaultValue));
+    final String value=getConfigValue(ZLMiscUtil.listToString(myDefaultValue,myDelimiter));
     if (value != null) {
-      myValue=ZLMiscUtil.stringToList(value);
+      myValue=ZLMiscUtil.stringToList(value,myDelimiter);
     }
     myIsSynchronized=true;
   }

@@ -1,4 +1,0 @@
-{
-  super.onDialogClosed(result);
-  myOption.setValue(getValue());
-}
