@@ -1,3 +1,8 @@
 {
-  myText=text;
+  if (text != null) {
+    myText=text.trim().replaceAll("[\t ]+"," ");
+  }
+ else {
+    myText=null;
+  }
 }
