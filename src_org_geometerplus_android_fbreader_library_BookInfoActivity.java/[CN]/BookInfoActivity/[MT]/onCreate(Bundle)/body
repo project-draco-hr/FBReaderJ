@@ -2,7 +2,7 @@
   super.onCreate(icicle);
   Thread.setDefaultUncaughtExceptionHandler(new org.geometerplus.zlibrary.ui.android.library.UncaughtExceptionHandler(this));
   final String path=getIntent().getStringExtra(CURRENT_BOOK_PATH_KEY);
-  myHideOpenButton=getIntent().getBooleanExtra(HIDE_OPEN_BUTTON_KEY,false);
+  myDontReloadBook=getIntent().getBooleanExtra(FROM_READING_MODE_KEY,false);
   myFile=ZLFile.createFileByPath(path);
   myImage=Library.getCover(myFile);
   if (SQLiteBooksDatabase.Instance() == null) {

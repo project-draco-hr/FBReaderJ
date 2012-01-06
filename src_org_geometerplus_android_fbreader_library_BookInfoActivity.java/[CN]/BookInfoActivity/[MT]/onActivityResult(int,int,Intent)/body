@@ -2,5 +2,6 @@
   final Book book=Book.getByFile(myFile);
   if (book != null) {
     setupBookInfo(book);
+    myDontReloadBook=false;
   }
 }
