@@ -1,4 +1,7 @@
 {
+  if (myFootnoteIdDepth > 0) {
+    --myFootnoteIdDepth;
+  }
   final byte tag=myTagStack[--myTagStackSize];
 switch (tag) {
 case FB2Tag.P:
