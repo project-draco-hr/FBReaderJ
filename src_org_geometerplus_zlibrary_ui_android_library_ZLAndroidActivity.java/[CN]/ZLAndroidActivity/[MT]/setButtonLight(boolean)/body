@@ -4,7 +4,8 @@
     final Class<?> cls=attrs.getClass();
     final Field fld=cls.getField("buttonBrightness");
     if (fld != null && "float".equals(fld.getType().toString())) {
-      fld.setFloat(attrs,0);
+      fld.setFloat(attrs,enabled ? -1.0f : 0.0f);
+      getWindow().setAttributes(attrs);
     }
   }
  catch (  NoSuchFieldException e) {
