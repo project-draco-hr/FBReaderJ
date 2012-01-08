@@ -1,0 +1,3 @@
+{
+  return "GT-S5830".equals(Build.MODEL);
+}
