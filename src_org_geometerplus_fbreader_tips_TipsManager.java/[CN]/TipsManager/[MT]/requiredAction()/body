@@ -1,7 +1,4 @@
 {
-  if (!TipsAreInitializedOption.getValue()) {
-    return Action.Initialize;
-  }
   if (ShowTipsOption.getValue()) {
     if (hasNextTip()) {
       return myLastShownOption.getValue() + DELAY < currentTime() ? Action.Show : Action.None;
@@ -9,6 +6,9 @@
  else {
       return myDownloadInProgress ? Action.None : Action.Download;
     }
+  }
+ else   if (!TipsAreInitializedOption.getValue()) {
+    return Action.Initialize;
   }
   return Action.None;
 }
