@@ -1,14 +1,22 @@
 {
-  text=text.trim();
+  text=text.trim().toLowerCase();
   if (text.startsWith("$")) {
     Amount=new BigDecimal(text.substring(1).trim());
     Currency="USD";
+    return;
   }
- else   if (text.endsWith("$")) {
+  if (text.endsWith("$")) {
     Amount=new BigDecimal(text.substring(0,text.length() - 1).trim());
     Currency="USD";
+    return;
   }
- else {
-    throw new MoneyException("Unknown money format: '" + text + "'");
+  final String[] roubles={"p.","??.","??????.","??","??????"};
+  for (  String c : roubles) {
+    if (text.endsWith(c)) {
+      Amount=new BigDecimal(text.substring(0,text.length() - c.length()).trim());
+      Currency="RUB";
+      return;
+    }
   }
+  throw new MoneyException("Unknown money format: '" + text + "'");
 }
