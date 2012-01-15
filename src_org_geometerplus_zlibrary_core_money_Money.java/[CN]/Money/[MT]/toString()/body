@@ -3,7 +3,14 @@
     return Amount.toString();
   }
  else   if ("RUB".equals(Currency)) {
-    return String.format(Locale.getDefault(),"%.2f \u0440.",Amount.floatValue());
+    final int roubles=Amount.intValue();
+    final int kopek=Amount.movePointRight(2).intValue() % 100;
+    if (kopek != 0) {
+      return String.format(Locale.getDefault(),"%d ??????. %d ??????.",roubles,kopek);
+    }
+ else {
+      return String.format(Locale.getDefault(),"%d ??????.",roubles);
+    }
   }
  else   if ("USD".equals(Currency)) {
     return String.format(Locale.getDefault(),"$%.2f",Amount.floatValue());
