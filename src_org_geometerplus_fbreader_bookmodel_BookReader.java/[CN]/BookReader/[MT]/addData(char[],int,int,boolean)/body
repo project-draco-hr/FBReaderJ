@@ -12,7 +12,7 @@
     }
   }
   myTextParagraphIsNonEmpty=true;
-  if (direct && (myTextBufferLength == 0) && !myInsideTitle) {
+  if (direct && myTextBufferLength == 0 && !myInsideTitle) {
     myCurrentTextModel.addText(data,offset,length);
   }
  else {

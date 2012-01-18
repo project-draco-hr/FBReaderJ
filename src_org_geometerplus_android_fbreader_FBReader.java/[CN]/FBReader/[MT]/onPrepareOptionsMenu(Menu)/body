@@ -1,6 +1,6 @@
 {
   final ZLAndroidLibrary zlibrary=(ZLAndroidLibrary)ZLibrary.Instance();
-  if (!zlibrary.ShowStatusBarOption.getValue()) {
+  if (!zlibrary.isKindleFire() && !zlibrary.ShowStatusBarOption.getValue()) {
     getWindow().addFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
   }
   return super.onPrepareOptionsMenu(menu);

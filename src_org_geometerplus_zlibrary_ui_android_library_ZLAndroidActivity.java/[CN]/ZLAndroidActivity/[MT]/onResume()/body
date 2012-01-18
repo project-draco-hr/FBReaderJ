@@ -9,5 +9,8 @@
  else {
     setScreenBrightnessAuto();
   }
+  if (getLibrary().DisableButtonLightsOption.getValue()) {
+    setButtonLight(false);
+  }
   registerReceiver(myBatteryInfoReceiver,new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
 }

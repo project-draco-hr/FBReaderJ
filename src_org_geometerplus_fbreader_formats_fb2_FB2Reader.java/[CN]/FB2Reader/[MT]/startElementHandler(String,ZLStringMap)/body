@@ -1,8 +1,12 @@
 {
   String id=attributes.getValue("id");
+  if (myFootnoteIdDepth > 0) {
+    ++myFootnoteIdDepth;
+  }
   if (id != null) {
-    if (!myReadMainText) {
+    if (!myReadMainText && myFootnoteIdDepth == 0) {
       myBookReader.setFootnoteTextModel(id);
+      myFootnoteIdDepth=1;
     }
     myBookReader.addHyperlinkLabel(id);
   }
