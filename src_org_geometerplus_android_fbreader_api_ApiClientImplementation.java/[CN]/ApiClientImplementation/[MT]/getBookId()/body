@@ -1,0 +1,3 @@
+{
+  return requestString(GET_BOOK_ID,EMPTY_PARAMETERS);
+}

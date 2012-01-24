@@ -1,0 +1,3 @@
+{
+  return requestString(GET_BOOK_FILE_PATH,EMPTY_PARAMETERS);
+}
