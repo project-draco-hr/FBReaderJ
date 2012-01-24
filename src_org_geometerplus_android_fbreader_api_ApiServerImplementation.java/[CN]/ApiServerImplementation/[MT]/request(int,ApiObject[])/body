@@ -9,17 +9,47 @@ case SET_OPTION_VALUE:
   setOptionValue(((ApiObject.String)parameters[0]).Value,((ApiObject.String)parameters[1]).Value,((ApiObject.String)parameters[2]).Value);
 return ApiObject.Void.Instance;
 case GET_BOOK_LANGUAGE:
+if (parameters.length == 0) {
 return ApiObject.envelope(getBookLanguage());
+}
+ else {
+return ApiObject.envelope(getBookLanguage(((ApiObject.Long)parameters[0]).Value));
+}
 case GET_BOOK_TITLE:
+if (parameters.length == 0) {
 return ApiObject.envelope(getBookTitle());
+}
+ else {
+return ApiObject.envelope(getBookTitle(((ApiObject.Long)parameters[0]).Value));
+}
 case GET_BOOK_FILE_PATH:
+if (parameters.length == 0) {
 return ApiObject.envelope(getBookFilePath());
+}
+ else {
+return ApiObject.envelope(getBookFilePath(((ApiObject.Long)parameters[0]).Value));
+}
 case GET_BOOK_HASH:
+if (parameters.length == 0) {
 return ApiObject.envelope(getBookHash());
-case GET_BOOK_ID:
-return ApiObject.envelope(getBookId());
+}
+ else {
+return ApiObject.envelope(getBookHash(((ApiObject.Long)parameters[0]).Value));
+}
+case GET_BOOK_UNIQUE_ID:
+if (parameters.length == 0) {
+return ApiObject.envelope(getBookUniqueId());
+}
+ else {
+return ApiObject.envelope(getBookUniqueId(((ApiObject.Long)parameters[0]).Value));
+}
 case GET_BOOK_LAST_TURNING_TIME:
+if (parameters.length == 0) {
 return ApiObject.envelope(getBookLastTurningTime());
+}
+ else {
+return ApiObject.envelope(getBookLastTurningTime(((ApiObject.Long)parameters[0]).Value));
+}
 case GET_PARAGRAPHS_NUMBER:
 return ApiObject.envelope(getParagraphsNumber());
 case GET_ELEMENTS_NUMBER:

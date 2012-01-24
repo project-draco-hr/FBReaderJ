@@ -1,0 +1,3 @@
+{
+  return requestString(GET_BOOK_TITLE,EMPTY_PARAMETERS);
+}

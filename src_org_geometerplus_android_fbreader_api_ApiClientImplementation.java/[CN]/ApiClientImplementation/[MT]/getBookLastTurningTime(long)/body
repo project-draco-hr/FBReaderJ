@@ -1,0 +1,3 @@
+{
+  return requestDate(GET_BOOK_LAST_TURNING_TIME,EMPTY_PARAMETERS);
+}
