@@ -1,0 +1,3 @@
+{
+  return requestStringList(GET_BOOK_TAGS,EMPTY_PARAMETERS);
+}

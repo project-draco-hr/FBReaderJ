@@ -1,0 +1,8 @@
+{
+  super(context);
+  resource=resource.getResource(resourceKey);
+  myUrl=resource.getResource("url").getValue();
+  setTitle(resource.getValue());
+  setSummary(myUrl);
+  setOnPreferenceClickListener(this);
+}

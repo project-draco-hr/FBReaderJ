@@ -1,0 +1,3 @@
+{
+  return requestString(GET_BOOK_HASH,EMPTY_PARAMETERS);
+}
