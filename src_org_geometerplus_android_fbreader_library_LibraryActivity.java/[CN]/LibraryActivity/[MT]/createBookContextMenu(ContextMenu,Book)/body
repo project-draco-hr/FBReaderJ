@@ -1,5 +1,5 @@
 {
-  final ZLResource resource=Library.resource();
+  final ZLResource resource=LibraryUtil.resource();
   menu.setHeaderTitle(book.getTitle());
   menu.add(0,OPEN_BOOK_ITEM_ID,0,resource.getResource("openBook").getValue());
   menu.add(0,SHOW_BOOK_INFO_ITEM_ID,0,resource.getResource("showBookInfo").getValue());

@@ -1,3 +1,3 @@
 {
-  return Library.getCover(Book.File);
+  return LibraryUtil.getCover(Book.File);
 }

@@ -1,5 +1,5 @@
 {
   super(root);
   myId=id;
-  myResource=Library.resource().getResource(myId);
+  myResource=LibraryUtil.resource().getResource(myId);
 }

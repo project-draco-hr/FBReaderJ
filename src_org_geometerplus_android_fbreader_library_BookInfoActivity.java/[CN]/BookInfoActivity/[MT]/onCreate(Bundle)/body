@@ -4,7 +4,7 @@
   final String path=getIntent().getStringExtra(CURRENT_BOOK_PATH_KEY);
   myDontReloadBook=getIntent().getBooleanExtra(FROM_READING_MODE_KEY,false);
   myFile=ZLFile.createFileByPath(path);
-  myImage=Library.getCover(myFile);
+  myImage=LibraryUtil.getCover(myFile);
   if (SQLiteBooksDatabase.Instance() == null) {
     new SQLiteBooksDatabase(this,"LIBRARY");
   }
