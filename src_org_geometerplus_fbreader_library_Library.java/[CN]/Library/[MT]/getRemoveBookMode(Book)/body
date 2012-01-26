@@ -1,3 +1,0 @@
-{
-  return canDeleteBookFile(book) ? REMOVE_FROM_DISK : REMOVE_DONT_REMOVE;
-}
