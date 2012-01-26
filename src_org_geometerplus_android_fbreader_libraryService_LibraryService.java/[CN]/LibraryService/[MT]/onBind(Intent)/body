@@ -1,4 +1,4 @@
 {
   System.err.println("LibraryService binded for intent " + intent);
-  return null;
+  return myImplementation;
 }

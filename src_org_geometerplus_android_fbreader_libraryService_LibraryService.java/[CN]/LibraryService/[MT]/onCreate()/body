@@ -1,0 +1,14 @@
+{
+  System.err.println("LibraryService.onCreate()");
+  super.onCreate();
+  myDatabase=SQLiteBooksDatabase.Instance();
+  if (myDatabase == null) {
+    myDatabase=new SQLiteBooksDatabase(this,"LIBRARY SERVICE");
+  }
+  if (myLibrary == null) {
+    myLibrary=Library.Instance();
+    myLibrary.addChangeListener(this);
+    ((Library)myLibrary).startBuild();
+  }
+  myImplementation=new LibraryImplementation();
+}

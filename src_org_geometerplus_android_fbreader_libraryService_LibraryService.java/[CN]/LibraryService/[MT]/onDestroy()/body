@@ -1,0 +1,6 @@
+{
+  System.err.println("LibraryService.onDestroy()");
+  myLibrary.removeChangeListener(this);
+  myLibrary=null;
+  super.onDestroy();
+}
