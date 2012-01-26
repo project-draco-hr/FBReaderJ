@@ -6,6 +6,16 @@
   for (  Book b : savedBooksByFileId.values()) {
     savedBooksByBookId.put(b.getId(),b);
   }
+  if (savedBooksByFileId.size() > 10) {
+    final HashSet<String> letterSet=new HashSet<String>();
+    for (    Book book : savedBooksByFileId.values()) {
+      final String letter=TitleTree.firstTitleLetter(book);
+      if (letter != null) {
+        letterSet.add(letter);
+      }
+    }
+    myDoGroupTitlesByFirstLetter=savedBooksByFileId.values().size() > letterSet.size() * 5 / 4;
+  }
   for (  long id : db.loadRecentBookIds()) {
     Book book=savedBooksByBookId.get(id);
     if (book == null) {
@@ -31,16 +41,6 @@
     }
   }
   fireModelChangedEvent(ChangeListener.Code.BookAdded);
-  if (savedBooksByFileId.size() > 10) {
-    final HashSet<String> letterSet=new HashSet<String>();
-    for (    Book book : savedBooksByFileId.values()) {
-      final String letter=TitleTree.firstTitleLetter(book);
-      if (letter != null) {
-        letterSet.add(letter);
-      }
-    }
-    myDoGroupTitlesByFirstLetter=savedBooksByFileId.values().size() > letterSet.size() * 5 / 4;
-  }
   final Set<Book> orphanedBooks=new HashSet<Book>();
   int count=0;
   for (  Book book : savedBooksByFileId.values()) {
