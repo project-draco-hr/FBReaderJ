@@ -1,3 +1,8 @@
 {
-  return myInterface.isUpToDate();
+  try {
+    return myInterface.isUpToDate();
+  }
+ catch (  RemoteException e) {
+    return false;
+  }
 }
