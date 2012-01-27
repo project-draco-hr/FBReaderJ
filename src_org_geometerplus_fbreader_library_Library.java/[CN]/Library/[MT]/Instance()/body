@@ -1,6 +1,6 @@
 {
   if (ourInstance == null) {
-    ourInstance=new Library();
+    ourInstance=new Library(BooksDatabase.Instance());
   }
   return ourInstance;
 }

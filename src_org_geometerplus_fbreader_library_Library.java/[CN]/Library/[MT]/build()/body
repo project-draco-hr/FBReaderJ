@@ -1,7 +1,6 @@
 {
-  final BooksDatabase db=BooksDatabase.Instance();
   final FileInfoSet fileInfos=new FileInfoSet();
-  final Map<Long,Book> savedBooksByFileId=db.loadBooks(fileInfos,true);
+  final Map<Long,Book> savedBooksByFileId=myDatabase.loadBooks(fileInfos,true);
   final Map<Long,Book> savedBooksByBookId=new HashMap<Long,Book>();
   for (  Book b : savedBooksByFileId.values()) {
     savedBooksByBookId.put(b.getId(),b);
@@ -16,7 +15,7 @@
     }
     myDoGroupTitlesByFirstLetter=savedBooksByFileId.values().size() > letterSet.size() * 5 / 4;
   }
-  for (  long id : db.loadRecentBookIds()) {
+  for (  long id : myDatabase.loadRecentBookIds()) {
     Book book=savedBooksByBookId.get(id);
     if (book == null) {
       book=Book.getById(id);
@@ -28,7 +27,7 @@
       new BookTree(getFirstLevelTree(ROOT_RECENT),book,true);
     }
   }
-  for (  long id : db.loadFavoritesIds()) {
+  for (  long id : myDatabase.loadFavoritesIds()) {
     Book book=savedBooksByBookId.get(id);
     if (book == null) {
       book=Book.getById(id);
@@ -75,8 +74,8 @@ synchronized (this) {
     }
   }
   fireModelChangedEvent(ChangeListener.Code.BookAdded);
-  db.setExistingFlag(orphanedBooks,false);
-  final Map<Long,Book> orphanedBooksByFileId=db.loadBooks(fileInfos,false);
+  myDatabase.setExistingFlag(orphanedBooks,false);
+  final Map<Long,Book> orphanedBooksByFileId=myDatabase.loadBooks(fileInfos,false);
   final Set<Book> newBooks=new HashSet<Book>();
   final List<ZLPhysicalFile> physicalFilesList=collectPhysicalFiles();
   for (  ZLPhysicalFile file : physicalFilesList) {
@@ -92,7 +91,7 @@ synchronized (this) {
   addBookToLibrary(helpBook);
   fireModelChangedEvent(ChangeListener.Code.BookAdded);
   fileInfos.save();
-  db.executeAsATransaction(new Runnable(){
+  myDatabase.executeAsATransaction(new Runnable(){
     public void run(){
       for (      Book book : newBooks) {
         book.save();
@@ -100,5 +99,5 @@ synchronized (this) {
     }
   }
 );
-  db.setExistingFlag(newBooks,true);
+  myDatabase.setExistingFlag(newBooks,true);
 }

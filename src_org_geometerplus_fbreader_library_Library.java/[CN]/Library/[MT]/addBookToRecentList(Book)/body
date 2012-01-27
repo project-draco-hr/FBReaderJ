@@ -1,11 +1,10 @@
 {
-  final BooksDatabase db=BooksDatabase.Instance();
-  final List<Long> ids=db.loadRecentBookIds();
+  final List<Long> ids=myDatabase.loadRecentBookIds();
   final Long bookId=book.getId();
   ids.remove(bookId);
   ids.add(0,bookId);
   if (ids.size() > 12) {
     ids.remove(12);
   }
-  db.saveRecentBookIds(ids);
+  myDatabase.saveRecentBookIds(ids);
 }

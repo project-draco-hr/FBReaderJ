@@ -21,7 +21,7 @@
  else {
         gotoBookmark(bookmark);
       }
-      Library.addBookToRecentList(book);
+      Library.Instance().addBookToRecentList(book);
       final StringBuilder title=new StringBuilder(book.getTitle());
       if (!book.authors().isEmpty()) {
         boolean first=true;

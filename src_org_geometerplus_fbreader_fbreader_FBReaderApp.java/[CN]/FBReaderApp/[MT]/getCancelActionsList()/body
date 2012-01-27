@@ -1,7 +1,7 @@
 {
   myCancelActionsList.clear();
   if (ShowPreviousBookInCancelMenuOption.getValue()) {
-    final Book previousBook=Library.getPreviousBook();
+    final Book previousBook=Library.Instance().getPreviousBook();
     if (previousBook != null) {
       myCancelActionsList.add(new CancelActionDescription(CancelActionType.previousBook,previousBook.getTitle()));
     }

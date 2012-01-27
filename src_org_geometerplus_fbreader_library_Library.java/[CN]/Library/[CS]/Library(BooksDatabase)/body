@@ -1,4 +1,5 @@
 {
+  myDatabase=db;
   new FavoritesTree(myRootTree,ROOT_FAVORITES);
   new FirstLevelTree(myRootTree,ROOT_RECENT);
   new FirstLevelTree(myRootTree,ROOT_BY_AUTHOR);

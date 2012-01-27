@@ -1,0 +1,8 @@
+{
+  BooksDatabase database=SQLiteBooksDatabase.Instance();
+  if (database == null) {
+    database=new SQLiteBooksDatabase(LibraryService.this,"LIBRARY SERVICE");
+  }
+  myBaseLibrary=new Library(database);
+  ((Library)myBaseLibrary).startBuild();
+}

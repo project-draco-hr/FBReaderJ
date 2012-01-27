@@ -1,4 +1,4 @@
 {
-  List<Long> recentIds=BooksDatabase.Instance().loadRecentBookIds();
+  List<Long> recentIds=myDatabase.loadRecentBookIds();
   return recentIds.size() > 0 ? Book.getById(recentIds.get(0)) : null;
 }
