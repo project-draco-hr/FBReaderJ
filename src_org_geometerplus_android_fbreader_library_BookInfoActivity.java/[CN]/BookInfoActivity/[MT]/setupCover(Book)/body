@@ -6,16 +6,17 @@
   final int maxWidth=maxHeight * 2 / 3;
   coverView.setVisibility(View.GONE);
   coverView.setImageDrawable(null);
-  if (myImage == null) {
+  final ZLImage image=LibraryUtil.getCover(book);
+  if (image == null) {
     return;
   }
-  if (myImage instanceof ZLLoadableImage) {
-    final ZLLoadableImage loadableImage=(ZLLoadableImage)myImage;
+  if (image instanceof ZLLoadableImage) {
+    final ZLLoadableImage loadableImage=(ZLLoadableImage)image;
     if (!loadableImage.isSynchronized()) {
       loadableImage.synchronize();
     }
   }
-  final ZLAndroidImageData data=((ZLAndroidImageManager)ZLAndroidImageManager.Instance()).getImageData(myImage);
+  final ZLAndroidImageData data=((ZLAndroidImageManager)ZLAndroidImageManager.Instance()).getImageData(image);
   if (data == null) {
     return;
   }
