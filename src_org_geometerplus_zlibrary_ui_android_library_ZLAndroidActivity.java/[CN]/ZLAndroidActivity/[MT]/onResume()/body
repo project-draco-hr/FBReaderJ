@@ -1,5 +1,4 @@
 {
-  System.err.println("+onResume");
   super.onResume();
   switchWakeLock(getLibrary().BatteryLevelToTurnScreenOffOption.getValue() < ZLApplication.Instance().getBatteryLevel());
   myStartTimer=true;
@@ -14,5 +13,4 @@
     setButtonLight(false);
   }
   registerReceiver(myBatteryInfoReceiver,new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
-  System.err.println("-onResume");
 }

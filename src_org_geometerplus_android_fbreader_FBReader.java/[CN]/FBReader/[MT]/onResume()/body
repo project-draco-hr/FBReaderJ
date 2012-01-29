@@ -1,6 +1,5 @@
 {
   super.onResume();
-  System.err.println("+FBReader.onResume");
   try {
     sendBroadcast(new Intent(getApplicationContext(),KillerCallback.class));
   }
@@ -8,5 +7,4 @@
   }
   PopupPanel.restoreVisibilities(FBReaderApp.Instance());
   ApiServerImplementation.sendEvent(this,ApiListener.EVENT_READ_MODE_OPENED);
-  System.err.println("-FBReader.onResume");
 }
