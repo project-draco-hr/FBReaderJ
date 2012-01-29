@@ -1,0 +1,11 @@
+{
+  if ("dictionary".equals(tag)) {
+    final String id=attributes.getValue("id");
+    final String title=attributes.getValue("title");
+    final PackageInfo info=new PackageInfo(String.valueOf(++myCounter),attributes.getValue("package"),".Start",attributes.getValue("title"),Intent.ACTION_VIEW,null,attributes.getValue("pattern"));
+    if (PackageUtil.canBeStarted(myContext,getDictionaryIntent(info,"test"),false)) {
+      ourInfos.put(info,FLAG_SHOW_AS_DICTIONARY | FLAG_INSTALLED_ONLY);
+    }
+  }
+  return false;
+}

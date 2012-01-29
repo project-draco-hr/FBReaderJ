@@ -1,7 +1,9 @@
 {
-  for (  Map.Entry<PackageInfo,Boolean> entry : infos().entrySet()) {
-    if (!entry.getValue()) {
-      return entry.getKey();
+synchronized (ourInfos) {
+    for (    Map.Entry<PackageInfo,Integer> entry : ourInfos.entrySet()) {
+      if ((entry.getValue() & FLAG_INSTALLED_ONLY) == 0) {
+        return entry.getKey();
+      }
     }
   }
   throw new RuntimeException("There are no available dictionary infos");

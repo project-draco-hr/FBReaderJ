@@ -1,0 +1,34 @@
+{
+  final LinkedList<PackageInfo> list=new LinkedList<PackageInfo>();
+  final HashSet<String> installedPackages=new HashSet<String>();
+  final HashSet<String> notInstalledPackages=new HashSet<String>();
+synchronized (ourInfos) {
+    for (    Map.Entry<PackageInfo,Integer> entry : ourInfos.entrySet()) {
+      final PackageInfo info=entry.getKey();
+      final int flags=entry.getValue();
+      if (dictionaryNotTranslator) {
+        if ((flags & FLAG_SHOW_AS_DICTIONARY) == 0) {
+          continue;
+        }
+      }
+ else {
+        if ((flags & FLAG_SHOW_AS_TRANSLATOR) == 0) {
+          continue;
+        }
+      }
+      if (((flags & FLAG_INSTALLED_ONLY) == 0) || installedPackages.contains(info.PackageName)) {
+        list.add(info);
+      }
+ else       if (!notInstalledPackages.contains(info.PackageName)) {
+        if (PackageUtil.canBeStarted(context,getDictionaryIntent(info,"test"),false)) {
+          list.add(info);
+          installedPackages.add(info.PackageName);
+        }
+ else {
+          notInstalledPackages.add(info.PackageName);
+        }
+      }
+    }
+  }
+  return list;
+}

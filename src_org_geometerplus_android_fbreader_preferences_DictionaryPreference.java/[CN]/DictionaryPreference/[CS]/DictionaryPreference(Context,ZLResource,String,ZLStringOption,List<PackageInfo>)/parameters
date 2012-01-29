@@ -2,3 +2,4 @@ Context context
 ZLResource resource
 String resourceKey
 ZLStringOption dictionaryOption
+List<PackageInfo> infos

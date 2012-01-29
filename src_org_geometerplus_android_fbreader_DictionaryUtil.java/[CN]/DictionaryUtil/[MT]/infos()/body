@@ -1,6 +1,0 @@
-{
-  if (ourDictionaryInfos.isEmpty()) {
-    new InfoReader().read(ZLFile.createFileByPath("dictionaries.xml"));
-  }
-  return ourDictionaryInfos;
-}

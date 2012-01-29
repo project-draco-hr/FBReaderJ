@@ -2,7 +2,11 @@
   if ("dictionary".equals(tag)) {
     final String id=attributes.getValue("id");
     final String title=attributes.getValue("title");
-    ourDictionaryInfos.put(new PackageInfo(id,attributes.getValue("package"),attributes.getValue("class"),title != null ? title : id,attributes.getValue("action"),attributes.getValue("dataKey"),attributes.getValue("pattern")),!"always".equals(attributes.getValue("list")));
+    int flags=FLAG_SHOW_AS_DICTIONARY | FLAG_SHOW_AS_TRANSLATOR;
+    if (!"always".equals(attributes.getValue("list"))) {
+      flags|=FLAG_INSTALLED_ONLY;
+    }
+    ourInfos.put(new PackageInfo(id,attributes.getValue("package"),attributes.getValue("class"),title != null ? title : id,attributes.getValue("action"),attributes.getValue("dataKey"),attributes.getValue("pattern")),flags);
   }
   return false;
 }

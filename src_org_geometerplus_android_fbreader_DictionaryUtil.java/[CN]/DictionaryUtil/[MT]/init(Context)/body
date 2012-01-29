@@ -1,0 +1,13 @@
+{
+  if (ourInfos.isEmpty()) {
+    final Thread initThread=new Thread(new Runnable(){
+      public void run(){
+        new InfoReader().read(ZLFile.createFileByPath("dictionaries/main.xml"));
+        new SlovoEdInfoReader(context).read(ZLFile.createFileByPath("dictionaries/slovoEd.xml"));
+      }
+    }
+);
+    initThread.setPriority(Thread.MIN_PRIORITY);
+    initThread.start();
+  }
+}
