@@ -2,7 +2,7 @@
   if (myWindow != null && activity == myWindow.getActivity()) {
     return;
   }
-  myWindow=new PopupWindow(activity,root,location,false);
+  myWindow=new PopupWindow(activity,root,PopupWindow.Location.Bottom,false);
   addButton(ActionCode.FIND_PREVIOUS,false,R.drawable.text_search_previous);
   addButton(ActionCode.CLEAR_FIND_RESULTS,true,R.drawable.text_search_close);
   addButton(ActionCode.FIND_NEXT,false,R.drawable.text_search_next);

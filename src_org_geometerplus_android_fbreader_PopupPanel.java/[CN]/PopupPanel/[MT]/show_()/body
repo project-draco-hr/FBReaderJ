@@ -1,4 +1,7 @@
 {
+  if (myActivity != null) {
+    createControlPanel(myActivity,myRoot);
+  }
   if (myWindow != null) {
     myWindow.show();
   }

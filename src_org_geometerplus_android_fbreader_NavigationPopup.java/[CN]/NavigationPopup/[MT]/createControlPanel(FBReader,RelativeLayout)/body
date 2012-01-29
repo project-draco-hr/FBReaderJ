@@ -2,7 +2,7 @@
   if (myWindow != null && activity == myWindow.getActivity()) {
     return;
   }
-  myWindow=new PopupWindow(activity,root,location,true);
+  myWindow=new PopupWindow(activity,root,PopupWindow.Location.Bottom,true);
   final View layout=activity.getLayoutInflater().inflate(R.layout.navigate,myWindow,false);
   final SeekBar slider=(SeekBar)layout.findViewById(R.id.book_position_slider);
   final TextView text=(TextView)layout.findViewById(R.id.book_position_text);
