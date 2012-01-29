@@ -30,6 +30,6 @@ synchronized (myPluginActions) {
     }
   }
   final ZLAndroidApplication application=(ZLAndroidApplication)getApplication();
-  application.myMainWindow.refreshMenu();
+  application.myMainWindow.refresh();
   return true;
 }
