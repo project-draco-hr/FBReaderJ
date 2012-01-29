@@ -1,5 +1,6 @@
 {
   super.onCreate(icicle);
+  System.err.println("+FBReader.onCreate");
   DictionaryUtil.init(this);
   final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
   final ZLAndroidLibrary zlibrary=(ZLAndroidLibrary)ZLibrary.Instance();
@@ -39,4 +40,5 @@
     fbReader.addAction(ActionCode.SET_SCREEN_ORIENTATION_REVERSE_PORTRAIT,new SetScreenOrientationAction(this,fbReader,ZLibrary.SCREEN_ORIENTATION_REVERSE_PORTRAIT));
     fbReader.addAction(ActionCode.SET_SCREEN_ORIENTATION_REVERSE_LANDSCAPE,new SetScreenOrientationAction(this,fbReader,ZLibrary.SCREEN_ORIENTATION_REVERSE_LANDSCAPE));
   }
+  System.err.println("-FBReader.onCreate");
 }

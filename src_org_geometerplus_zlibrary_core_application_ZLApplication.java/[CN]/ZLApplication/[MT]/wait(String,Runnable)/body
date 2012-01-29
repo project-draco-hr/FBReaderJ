@@ -1,5 +1,0 @@
-{
-  if (myWindow != null) {
-    myWindow.wait(key,runnable);
-  }
-}

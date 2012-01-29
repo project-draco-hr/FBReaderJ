@@ -1,6 +1,3 @@
 {
-  final Book book=createBookForFile(file);
-  if (book != null) {
-    openBook(book,null);
-  }
+  openBook(createBookForFile(file),null);
 }

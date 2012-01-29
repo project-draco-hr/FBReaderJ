@@ -1,0 +1,28 @@
+{
+  final String message=ZLResource.resource("dialog").getResource("waitMessage").getResource(key).getValue();
+  activity.runOnUiThread(new Runnable(){
+    public void run(){
+      final ProgressDialog progress=ProgressDialog.show(activity,null,message,true,false);
+      final Thread runner=new Thread(){
+        public void run(){
+          action.run();
+          activity.runOnUiThread(new Runnable(){
+            public void run(){
+              progress.dismiss();
+              if (postAction != null) {
+                postAction.run();
+              }
+            }
+          }
+);
+        }
+      }
+;
+      if (minPriority) {
+        runner.setPriority(Thread.MIN_PRIORITY);
+      }
+      runner.start();
+    }
+  }
+);
+}

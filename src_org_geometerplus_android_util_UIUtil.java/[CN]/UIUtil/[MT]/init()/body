@@ -1,0 +1,31 @@
+{
+  if (ourProgressHandler != null) {
+    return true;
+  }
+  try {
+    ourProgressHandler=new Handler(){
+      public void handleMessage(      Message message){
+        try {
+synchronized (ourMonitor) {
+            if (ourTaskQueue.isEmpty()) {
+              ourProgress.dismiss();
+              ourProgress=null;
+            }
+ else {
+              ourProgress.setMessage(ourTaskQueue.peek().Message);
+            }
+            ourMonitor.notify();
+          }
+        }
+ catch (        Exception e) {
+        }
+      }
+    }
+;
+    return true;
+  }
+ catch (  Throwable t) {
+    t.printStackTrace();
+    return false;
+  }
+}

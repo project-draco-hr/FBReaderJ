@@ -1,4 +1,8 @@
 {
+  if (!init()) {
+    action.run();
+    return;
+  }
 synchronized (ourMonitor) {
     final String message=ZLResource.resource("dialog").getResource("waitMessage").getResource(key).getValue();
     ourTaskQueue.offer(new Pair(action,message));

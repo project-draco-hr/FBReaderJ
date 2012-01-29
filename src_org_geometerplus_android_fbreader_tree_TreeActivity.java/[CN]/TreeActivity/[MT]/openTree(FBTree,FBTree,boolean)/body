@@ -14,7 +14,7 @@ case ALWAYS_RELOAD_BEFORE_OPENING:
         openTreeInternal(tree,treeToSelect,storeInHistory);
       }
     }
-);
+,true);
   }
  else {
     tree.waitForOpening();
