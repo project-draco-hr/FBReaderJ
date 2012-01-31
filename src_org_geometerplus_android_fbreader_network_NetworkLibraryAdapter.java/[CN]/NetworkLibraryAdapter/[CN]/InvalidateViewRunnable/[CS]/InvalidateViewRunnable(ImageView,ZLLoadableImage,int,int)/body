@@ -1,0 +1,6 @@
+{
+  myView=view;
+  myImage=image;
+  myWidth=width;
+  myHeight=height;
+}

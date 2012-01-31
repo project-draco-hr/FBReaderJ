@@ -1,0 +1,14 @@
+{
+synchronized (myImageMap) {
+    WeakReference<ZLImage> ref=myImageMap.get(url);
+    if (ref != null) {
+      final ZLImage image=ref.get();
+      if (image != null) {
+        return image;
+      }
+    }
+    final ZLImage image=new NetworkImage(url,mimeType);
+    myImageMap.put(url,new WeakReference<ZLImage>(image));
+    return image;
+  }
+}

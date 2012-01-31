@@ -10,7 +10,7 @@
         data=mgr.getImageData(img);
       }
  else {
-        img.startSynchronization(myInvalidateViewsRunnable);
+        img.startSynchronization(new InvalidateViewRunnable(coverView,img,width,height));
       }
     }
  else {

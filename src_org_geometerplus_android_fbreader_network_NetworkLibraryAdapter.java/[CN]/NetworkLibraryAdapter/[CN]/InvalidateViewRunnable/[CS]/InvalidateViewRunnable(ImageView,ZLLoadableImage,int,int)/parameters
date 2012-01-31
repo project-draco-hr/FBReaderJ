@@ -1,0 +1,4 @@
+ImageView view
+ZLLoadableImage image
+int width
+int height
