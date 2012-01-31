@@ -1,16 +1,21 @@
 {
-  if (!myImage.isSynchronized()) {
-    return;
+synchronized (myImageViews) {
+    if (myImageViews.remove(myView) != this) {
+      return;
+    }
+    if (!myImage.isSynchronized()) {
+      return;
+    }
+    final ZLAndroidImageManager mgr=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
+    final ZLAndroidImageData data=mgr.getImageData(myImage);
+    if (data == null) {
+      return;
+    }
+    final Bitmap coverBitmap=data.getBitmap(2 * myWidth,2 * myHeight);
+    if (coverBitmap == null) {
+      return;
+    }
+    myView.setImageBitmap(coverBitmap);
+    myView.postInvalidate();
   }
-  final ZLAndroidImageManager mgr=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
-  final ZLAndroidImageData data=mgr.getImageData(myImage);
-  if (data == null) {
-    return;
-  }
-  final Bitmap coverBitmap=data.getBitmap(2 * myWidth,2 * myHeight);
-  if (coverBitmap == null) {
-    return;
-  }
-  myView.setImageBitmap(coverBitmap);
-  myView.postInvalidate();
 }

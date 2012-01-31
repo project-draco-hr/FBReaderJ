@@ -1,4 +1,5 @@
 {
+  myImageViews.remove(coverView);
   Bitmap coverBitmap=null;
   final ZLImage cover=tree.getCover();
   if (cover != null) {
