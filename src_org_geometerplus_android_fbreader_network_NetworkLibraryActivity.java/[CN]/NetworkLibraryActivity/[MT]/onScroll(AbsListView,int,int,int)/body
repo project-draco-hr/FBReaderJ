@@ -1,0 +1,8 @@
+{
+  if (firstVisible + visibleCount + 1 >= totalCount) {
+    final FBTree tree=getCurrentTree();
+    if (tree instanceof NetworkCatalogTree) {
+      ((NetworkCatalogTree)tree).loadMoreChildren(totalCount);
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  if (myLastTotalChildren >= currentTotal) {
+    return;
+  }
+  if (NetworkLibrary.Instance().getStoredLoader(this) == null) {
+    myLastTotalChildren=currentTotal;
+    startItemsLoader(false,true);
+  }
+}

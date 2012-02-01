@@ -20,4 +20,5 @@
       openTreeByIntent(intent);
     }
   }
+  getListView().setOnScrollListener(this);
 }
