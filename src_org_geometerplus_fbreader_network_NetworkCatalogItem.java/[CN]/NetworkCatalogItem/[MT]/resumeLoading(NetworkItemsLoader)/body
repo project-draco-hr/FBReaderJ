@@ -1,3 +1,2 @@
 {
-  throw new ZLNetworkException(NetworkException.ERROR_UNSUPPORTED_OPERATION);
 }
