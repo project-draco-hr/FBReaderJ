@@ -3,6 +3,7 @@
   myDirName=Paths.cacheDirectory();
   new File(myDirName).mkdirs();
   myFileNumber=ourCounter++;
+  myNamePostfix=namePostfix;
   try {
     myStreamWriter=new OutputStreamWriter(new FileOutputStream(encodedFileName()),"UTF-8");
   }
