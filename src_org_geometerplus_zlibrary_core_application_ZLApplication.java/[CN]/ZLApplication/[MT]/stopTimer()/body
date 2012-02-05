@@ -1,7 +1,9 @@
 {
-  if (myTimer != null) {
-    myTimer.cancel();
-    myTimer=null;
-    myTimerTasks.clear();
+synchronized (myTimerLock) {
+    if (myTimer != null) {
+      myTimer.cancel();
+      myTimer=null;
+      myTimerTasks.clear();
+    }
   }
 }
