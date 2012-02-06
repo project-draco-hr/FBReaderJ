@@ -8,5 +8,5 @@
   }
  catch (  UnsupportedEncodingException e) {
   }
-  return createNetworkData(null,url.replace("%s",pattern),(OPDSCatalogItem.State)data);
+  return createNetworkData(url.replace("%s",pattern),(OPDSCatalogItem.State)data);
 }

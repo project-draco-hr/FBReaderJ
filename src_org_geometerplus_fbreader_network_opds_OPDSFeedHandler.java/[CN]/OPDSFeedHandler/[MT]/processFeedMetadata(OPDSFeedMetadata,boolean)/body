@@ -8,13 +8,11 @@
         myItemsToLoad=len;
       }
     }
-    if (myCatalog != null) {
-      if ("series".equals(feed.ViewType)) {
-        myCatalog.setFlags(myCatalog.getFlags() & ~OPDSCatalogItem.FLAGS_GROUP);
-      }
- else       if ("authors".equals(feed.ViewType)) {
-        myCatalog.setFlags(myCatalog.getFlags() & ~OPDSCatalogItem.FLAG_SHOW_AUTHOR);
-      }
+    if ("series".equals(feed.ViewType)) {
+      myCatalog.setFlags(myCatalog.getFlags() & ~OPDSCatalogItem.FLAGS_GROUP);
+    }
+ else     if ("authors".equals(feed.ViewType)) {
+      myCatalog.setFlags(myCatalog.getFlags() & ~OPDSCatalogItem.FLAG_SHOW_AUTHOR);
     }
   }
  else {

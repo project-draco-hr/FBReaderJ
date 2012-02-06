@@ -1,0 +1,3 @@
+{
+  return (tree instanceof NetworkCatalogTree && ((NetworkCatalogTree)tree).Item.UpdatingInProgress) || getStoredLoader(tree) != null;
+}

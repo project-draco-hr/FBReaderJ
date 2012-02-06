@@ -1,0 +1,6 @@
+{
+  if (item != null) {
+    item.UpdatingInProgress=false;
+    fireModelChangedEvent(ChangeListener.Code.SomeCode);
+  }
+}
