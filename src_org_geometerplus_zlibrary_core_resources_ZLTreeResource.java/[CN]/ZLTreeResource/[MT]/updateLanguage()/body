@@ -1,7 +1,7 @@
 {
   final long timeStamp=System.currentTimeMillis();
   if (timeStamp > ourTimeStamp + 1000) {
-synchronized (ourRoot) {
+synchronized (ourLock) {
       if (timeStamp > ourTimeStamp + 1000) {
         ourTimeStamp=timeStamp;
         final String language=Locale.getDefault().getLanguage();

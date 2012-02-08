@@ -2,8 +2,7 @@
   final int position=((AdapterView.AdapterContextMenuInfo)menuInfo).position;
   if (getItem(position) != null) {
     menu.setHeaderTitle(getItem(position).getText());
-    final ZLResource resource=ZLResource.resource("bookmarksView");
-    menu.add(0,OPEN_ITEM_ID,0,resource.getResource("open").getValue());
-    menu.add(0,DELETE_ITEM_ID,0,resource.getResource("delete").getValue());
+    menu.add(0,OPEN_ITEM_ID,0,myResource.getResource("open").getValue());
+    menu.add(0,DELETE_ITEM_ID,0,myResource.getResource("delete").getValue());
   }
 }
