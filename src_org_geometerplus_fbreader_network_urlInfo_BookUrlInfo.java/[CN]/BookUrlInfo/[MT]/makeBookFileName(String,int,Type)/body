@@ -44,6 +44,9 @@ case Format.EPUB:
 case Format.MOBIPOCKET:
 ext=".mobi";
 break;
+case Format.FB2:
+ext=".fb2";
+break;
 case Format.FB2_ZIP:
 ext=".fb2.zip";
 break;
