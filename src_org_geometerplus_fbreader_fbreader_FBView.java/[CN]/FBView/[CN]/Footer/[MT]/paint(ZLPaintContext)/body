@@ -14,7 +14,7 @@
   final int height=getHeight();
   final int lineWidth=height <= 10 ? 1 : 2;
   final int delta=height <= 10 ? 0 : 1;
-  context.setFont(reader.FooterFontOption.getValue(),height <= 10 ? height + 3 : height + 1,height > 10,false,false);
+  context.setFont(reader.FooterFontOption.getValue(),height <= 10 ? height + 3 : height + 1,height > 10,false,false,false);
   final PagePosition pagePosition=FBView.this.pagePosition();
   final StringBuilder info=new StringBuilder();
   if (reader.FooterShowProgressOption.getValue()) {

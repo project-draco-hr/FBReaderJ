@@ -5,6 +5,7 @@
   BoldOption=new ZLBoolean3Option(STYLE,name + ":bold",bold);
   ItalicOption=new ZLBoolean3Option(STYLE,name + ":italic",italic);
   UnderlineOption=new ZLBoolean3Option(STYLE,name + ":underline",underline);
+  StrikeThroughOption=new ZLBoolean3Option(STYLE,name + ":strikeThrough",strikeThrough);
   VerticalShiftOption=new ZLIntegerOption(STYLE,name + ":vShift",verticalShift);
   AllowHyphenationsOption=new ZLBoolean3Option(STYLE,name + ":allowHyphenations",allowHyphenations);
 }

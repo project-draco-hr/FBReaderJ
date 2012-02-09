@@ -3,3 +3,4 @@ int size
 boolean bold
 boolean italic
 boolean underline
+boolean strikeThrough

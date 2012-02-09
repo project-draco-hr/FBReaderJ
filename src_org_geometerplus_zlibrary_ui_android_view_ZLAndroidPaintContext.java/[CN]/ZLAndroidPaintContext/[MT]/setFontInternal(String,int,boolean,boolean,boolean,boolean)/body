@@ -35,4 +35,5 @@
   myTextPaint.setTypeface(tf);
   myTextPaint.setTextSize(size);
   myTextPaint.setUnderlineText(underline);
+  myTextPaint.setStrikeThruText(strikeThrought);
 }

@@ -1,0 +1,15 @@
+String name
+int fontSizeDelta
+ZLBoolean3 bold
+ZLBoolean3 italic
+ZLBoolean3 underline
+ZLBoolean3 strikeThrough
+int spaceBefore
+int spaceAfter
+int leftIndent
+int rightIndent
+int firstLineIndentDelta
+int verticalShift
+byte alignment
+int lineSpace
+ZLBoolean3 allowHyphenations

@@ -1,0 +1,6 @@
+{
+  if (myIsNotCached) {
+    initCache();
+  }
+  return myIsStrikeThrough;
+}

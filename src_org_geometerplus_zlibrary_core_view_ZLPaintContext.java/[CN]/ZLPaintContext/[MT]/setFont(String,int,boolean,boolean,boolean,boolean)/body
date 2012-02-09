@@ -19,9 +19,13 @@
     myFontIsUnderlined=underline;
     myResetFont=true;
   }
+  if (myFontIsStrikedThrough != strikeThrough) {
+    myFontIsStrikedThrough=strikeThrough;
+    myResetFont=true;
+  }
   if (myResetFont) {
     myResetFont=false;
-    setFontInternal(myFontFamily,size,bold,italic,underline);
+    setFontInternal(myFontFamily,size,bold,italic,underline,strikeThrough);
     mySpaceWidth=-1;
     myStringHeight=-1;
     myDescent=-1;
