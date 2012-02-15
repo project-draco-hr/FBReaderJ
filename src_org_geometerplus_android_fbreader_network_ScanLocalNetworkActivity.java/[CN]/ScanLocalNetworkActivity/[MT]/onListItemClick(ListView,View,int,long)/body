@@ -1,9 +1,11 @@
 {
-  final ServiceInfoItem item=(ServiceInfoItem)getListAdapter().getItem(position);
-  try {
-    startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(item.getUrl()),getApplicationContext(),AddCustomCatalogActivity.class));
-    finish();
-  }
- catch (  Exception e) {
+  final Item item=getListAdapter().getItem(position);
+  if (item instanceof ServiceInfoItem) {
+    try {
+      startActivity(new Intent(Intent.ACTION_VIEW,((ServiceInfoItem)item).URI,getApplicationContext(),AddCustomCatalogActivity.class));
+      finish();
+    }
+ catch (    ActivityNotFoundException e) {
+    }
   }
 }

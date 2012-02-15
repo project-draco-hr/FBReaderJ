@@ -1,0 +1,11 @@
+{
+  if (myWaitItemCount == 0) {
+    return false;
+  }
+  if (--myWaitItemCount == 0) {
+    notifyDataSetChanged();
+    findViewById(R.id.scan_local_network_container).invalidate();
+    return true;
+  }
+  return false;
+}

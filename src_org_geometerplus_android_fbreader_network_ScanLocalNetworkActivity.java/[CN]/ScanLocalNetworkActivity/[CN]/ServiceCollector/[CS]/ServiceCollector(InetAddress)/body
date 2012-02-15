@@ -1,0 +1,40 @@
+{
+  try {
+    myMCDNS=JmDNS.create(address,"FBReader");
+  }
+ catch (  IOException e) {
+    return;
+  }
+  myMCDNS.addServiceListener(STANZA_ZEROCONF_TYPE,this);
+  myMCDNS.addServiceListener(CALIBRE_ZEROCONF_TYPE,this);
+  myMCDNS.addServiceListener(OPDS_ZEROCONF_TYPE,this);
+  runOnUiThread(new Runnable(){
+    public void run(){
+      getListAdapter().addWaitItem();
+    }
+  }
+);
+  final Timer timer=new Timer();
+  timer.schedule(new TimerTask(){
+    @Override public void run(){
+      runOnUiThread(new Runnable(){
+        public void run(){
+          final ItemAdapter adapter=getListAdapter();
+          if (adapter.removeWaitItem() && adapter.getCount() == 0) {
+            setErrorText(myResource.getResource("noCatalogsFound").getValue());
+          }
+        }
+      }
+);
+      System.err.println("Cancelling JmDNS");
+      try {
+        myMCDNS.close();
+      }
+ catch (      IOException e) {
+        e.printStackTrace();
+      }
+      timer.cancel();
+    }
+  }
+,10000);
+}

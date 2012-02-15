@@ -1,0 +1,7 @@
+{
+  getListAdapter().clear();
+  final View listView=findViewById(android.R.id.list);
+  final TextView errorView=(TextView)findViewById(R.id.scan_local_network_error);
+  listView.setVisibility(View.VISIBLE);
+  errorView.setVisibility(View.GONE);
+}

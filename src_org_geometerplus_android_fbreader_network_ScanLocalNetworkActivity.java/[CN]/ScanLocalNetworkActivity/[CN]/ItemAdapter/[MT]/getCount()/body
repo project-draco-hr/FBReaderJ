@@ -1,0 +1,3 @@
+{
+  return myWaitItemCount > 0 ? myItems.size() + 1 : myItems.size();
+}

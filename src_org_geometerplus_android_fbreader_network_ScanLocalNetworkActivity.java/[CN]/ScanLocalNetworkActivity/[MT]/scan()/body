@@ -1,34 +1,21 @@
 {
-  final Runnable scanRunnable=new Runnable(){
-    public void run(){
-      final ArrayList<ServiceInfoItem> services=new ArrayList<ServiceInfoItem>();
-      String errorText=null;
-      try {
-        final List<InetAddress> addresses=getLocalIpAddresses();
-        if (addresses.isEmpty()) {
-          errorText=myResource.getResource("noLocalConnection").getValue();
-        }
+  final List<InetAddress> addresses=getLocalIpAddresses();
+  if (addresses.isEmpty()) {
+    runOnUiThread(new Runnable(){
+      public void run(){
+        setErrorText(myResource.getResource("noLocalConnection").getValue());
+      }
+    }
+);
+  }
  else {
-          for (          InetAddress address : addresses) {
-            final JmDNS mcDNS=JmDNS.create(address,"FBReader");
-            for (            String type : ourServiceTypes) {
-              for (              ServiceInfo info : mcDNS.list(type)) {
-                services.add(new ServiceInfoItem(info));
-              }
-            }
-            mcDNS.close();
-          }
-          if (services.isEmpty()) {
-            errorText=myResource.getResource("noCatalogsFound").getValue();
-          }
+    for (    final InetAddress a : addresses) {
+      new Thread(){
+        public void run(){
+          new ServiceCollector(a);
         }
       }
- catch (      Exception e) {
-        errorText=e.getMessage();
-      }
-      setup(services,errorText);
+.start();
     }
   }
-;
-  UIUtil.wait("scanningLocalNetwork",scanRunnable,this);
 }

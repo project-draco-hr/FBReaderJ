@@ -2,6 +2,7 @@
   super.onCreate(icicle);
   Thread.setDefaultUncaughtExceptionHandler(new org.geometerplus.zlibrary.ui.android.library.UncaughtExceptionHandler(this));
   setContentView(R.layout.scan_local_network);
+  setListAdapter(new ItemAdapter());
   setTitle(myResource.getResource("localCatalogs").getValue());
   final View buttonView=findViewById(R.id.scan_local_network_buttons);
   final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
@@ -31,7 +32,13 @@
     rescanButton.setText(buttonResource.getResource("rescan").getValue());
     rescanButton.setOnClickListener(new View.OnClickListener(){
       public void onClick(      View view){
-        scan();
+        runOnUiThread(new Runnable(){
+          public void run(){
+            clear();
+            scan();
+          }
+        }
+);
       }
     }
 );

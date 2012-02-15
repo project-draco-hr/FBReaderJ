@@ -1,0 +1,5 @@
+{
+  myItems.clear();
+  myWaitItemCount=0;
+  notifyDataSetChanged();
+}

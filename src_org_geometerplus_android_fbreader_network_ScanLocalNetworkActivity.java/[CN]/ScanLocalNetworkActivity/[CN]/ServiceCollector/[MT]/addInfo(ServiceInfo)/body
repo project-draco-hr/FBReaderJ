@@ -1,0 +1,26 @@
+{
+  if (info == null || !info.hasData()) {
+    return;
+  }
+  final String path=info.getPropertyString("path");
+  if (path == null) {
+    return;
+  }
+  final String[] urls=info.getURLs();
+  if (urls.length != 1) {
+    return;
+  }
+  if (urls[0] == null || !urls[0].endsWith(path)) {
+    return;
+  }
+  final String type=info.getType();
+  if (STANZA_ZEROCONF_TYPE.equals(info.getType()) || "/stanza".equals(path)) {
+    urls[0]=urls[0].substring(0,urls[0].length() - path.length()) + "/opds";
+  }
+  runOnUiThread(new Runnable(){
+    public void run(){
+      getListAdapter().addServiceItem(info.getName(),urls[0]);
+    }
+  }
+);
+}

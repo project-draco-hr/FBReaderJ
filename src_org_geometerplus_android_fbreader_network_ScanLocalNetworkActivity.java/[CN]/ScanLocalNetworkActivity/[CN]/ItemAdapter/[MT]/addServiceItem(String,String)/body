@@ -1,0 +1,12 @@
+{
+  try {
+    final ServiceInfoItem item=new ServiceInfoItem(name,Uri.parse(url));
+    if (!myItems.contains(item)) {
+      myItems.add(item);
+      notifyDataSetChanged();
+      findViewById(R.id.scan_local_network_container).invalidate();
+    }
+  }
+ catch (  ParseException e) {
+  }
+}
