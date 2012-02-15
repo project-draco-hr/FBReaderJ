@@ -1,6 +1,6 @@
 {
   try {
-    final ServiceInfoItem item=new ServiceInfoItem(name,Uri.parse(url));
+    final ServiceInfoItem item=new ServiceInfoItem(name,Uri.parse(url),iconId);
     if (!myItems.contains(item)) {
       myItems.add(item);
       notifyDataSetChanged();

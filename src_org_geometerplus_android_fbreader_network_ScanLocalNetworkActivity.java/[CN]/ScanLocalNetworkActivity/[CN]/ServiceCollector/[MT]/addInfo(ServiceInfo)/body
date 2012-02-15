@@ -19,7 +19,7 @@
   }
   runOnUiThread(new Runnable(){
     public void run(){
-      getListAdapter().addServiceItem(info.getName(),urls[0]);
+      getListAdapter().addServiceItem(info.getName(),urls[0],R.drawable.ic_list_library_calibre);
     }
   }
 );

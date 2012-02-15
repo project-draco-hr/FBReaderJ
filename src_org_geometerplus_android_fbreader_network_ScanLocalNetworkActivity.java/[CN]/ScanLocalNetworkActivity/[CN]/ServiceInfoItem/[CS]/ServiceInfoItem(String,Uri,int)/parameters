@@ -1,2 +1,3 @@
 String name
 Uri uri
+int iconId
