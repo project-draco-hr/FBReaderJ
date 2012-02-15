@@ -26,7 +26,6 @@
         }
       }
 );
-      System.err.println("Cancelling JmDNS");
       try {
         myMCDNS.close();
       }
