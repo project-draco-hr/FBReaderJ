@@ -15,7 +15,7 @@
         urls.addInfo(new UrlInfo(UrlInfo.Type.Image,href));
       }
     }
- else     if (MimeType.APP_ATOM.Name.equals(type.Name) && "entry".equals(type.getParameter("type"))) {
+ else     if (MimeType.APP_ATOM.weakEquals(type) && "entry".equals(type.getParameter("type"))) {
       urls.addInfo(new UrlInfo(UrlInfo.Type.SingleEntry,href));
     }
  else     if (UrlInfo.Type.BookBuy == referenceType) {

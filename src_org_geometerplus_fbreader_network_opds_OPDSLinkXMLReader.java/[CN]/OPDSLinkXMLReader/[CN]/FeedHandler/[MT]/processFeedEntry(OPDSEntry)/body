@@ -23,12 +23,12 @@
       }
     }
  else     if (rel == null) {
-      if (MimeType.APP_ATOM.equals(type)) {
+      if (MimeType.APP_ATOM.weakEquals(type)) {
         infos.addInfo(new UrlInfoWithDate(UrlInfo.Type.Catalog,href));
       }
     }
  else     if (rel == "search") {
-      if (MimeType.APP_ATOM.equals(type)) {
+      if (MimeType.APP_ATOM.weakEquals(type)) {
         final OpenSearchDescription descr=OpenSearchDescription.createDefault(href);
         if (descr.isValid()) {
           infos.addInfo(new UrlInfoWithDate(UrlInfo.Type.Search,descr.makeQuery("%s")));
