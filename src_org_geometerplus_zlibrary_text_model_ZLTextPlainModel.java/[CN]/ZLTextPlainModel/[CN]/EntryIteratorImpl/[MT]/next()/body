@@ -67,6 +67,8 @@ entry.setAlignmentType((byte)data[dataOffset++]);
 }
 myStyleEntry=entry;
 }
+case ZLTextParagraph.Entry.RESET_BIDI:
+break;
 }
 ++myCounter;
 myDataOffset=dataOffset;
