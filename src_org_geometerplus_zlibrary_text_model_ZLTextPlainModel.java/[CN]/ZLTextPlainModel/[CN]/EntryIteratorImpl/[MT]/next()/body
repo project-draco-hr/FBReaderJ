@@ -15,7 +15,7 @@
   ++dataOffset;
 switch (type) {
 case ZLTextParagraph.Entry.TEXT:
-    myTextLength=((int)data[dataOffset++] << 16) + (int)data[dataOffset++];
+    myTextLength=(int)data[dataOffset++] + (((int)data[dataOffset++]) << 16);
   myTextData=data;
 myTextOffset=dataOffset;
 dataOffset+=myTextLength;
