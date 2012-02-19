@@ -3,7 +3,7 @@
   if (plugin == null) {
     return null;
   }
-  BookModel model=new BookModel(book);
+  BookModel model=new JavaBookModel(book);
   if (plugin.readModel(model)) {
     return model;
   }
