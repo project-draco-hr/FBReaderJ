@@ -1,0 +1,11 @@
+{
+  if (siteName == null || title == null || infos.getInfo(UrlInfo.Type.Catalog) == null) {
+    return null;
+  }
+switch (type) {
+default :
+    return new OPDSCustomNetworkLink(id,type,siteName,title,summary,language,infos);
+case Predefined:
+  return new OPDSPredefinedNetworkLink(id,predefinedId,siteName,title,summary,language,infos);
+}
+}

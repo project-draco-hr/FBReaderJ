@@ -1,6 +1,0 @@
-{
-  if (siteName == null || title == null || infos.getInfo(UrlInfo.Type.Catalog) == null) {
-    return null;
-  }
-  return predefinedId != null ? new OPDSPredefinedNetworkLink(id,predefinedId,siteName,title,summary,language,infos) : new OPDSCustomNetworkLink(id,siteName,title,summary,language,infos);
-}

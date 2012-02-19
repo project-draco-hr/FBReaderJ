@@ -4,7 +4,7 @@
       final SQLiteStatement statement;
       if (link.getId() == INetworkLink.INVALID_ID) {
         if (myInsertCustomLinkStatement == null) {
-          myInsertCustomLinkStatement=myDatabase.compileStatement("INSERT INTO Links (title,site_name,summary,language,predefined_id) VALUES (?,?,?,?,?)");
+          myInsertCustomLinkStatement=myDatabase.compileStatement("INSERT INTO Links (title,site_name,summary,language,predefined_id,type) VALUES (?,?,?,?,?,?)");
         }
         statement=myInsertCustomLinkStatement;
       }
@@ -27,6 +27,7 @@
  else {
           SQLiteUtil.bindString(statement,5,null);
         }
+        statement.bindLong(6,link.getType().Index);
         id=statement.executeInsert();
         link.setId((int)id);
       }

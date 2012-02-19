@@ -44,6 +44,10 @@
         myLink=(ICustomNetworkLink)link;
       }
     }
+    final INetworkLink.Type type=(INetworkLink.Type)intent.getSerializableExtra(TYPE);
+    if (type != null) {
+      myType=type;
+    }
   }
   if (myLink != null) {
     setTextById(R.id.add_custom_catalog_url,myLink.getUrl(UrlInfo.Type.Catalog));

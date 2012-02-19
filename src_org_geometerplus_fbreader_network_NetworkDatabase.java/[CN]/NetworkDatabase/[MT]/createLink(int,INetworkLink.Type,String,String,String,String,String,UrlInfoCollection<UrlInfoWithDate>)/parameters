@@ -1,4 +1,6 @@
 int id
+INetworkLink.Type type
+String predefinedId
 String siteName
 String title
 String summary

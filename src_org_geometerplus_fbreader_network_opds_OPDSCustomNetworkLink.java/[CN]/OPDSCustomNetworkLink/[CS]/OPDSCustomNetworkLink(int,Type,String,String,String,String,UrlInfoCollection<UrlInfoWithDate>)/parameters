@@ -1,5 +1,5 @@
 int id
-String predefinedId
+Type type
 String siteName
 String title
 String summary
