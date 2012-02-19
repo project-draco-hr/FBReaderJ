@@ -21,7 +21,7 @@
     modelId.getChars(0,idLength,block,offset);
     offset+=idLength;
   }
-  block[offset++]=(char)(paragraphNumber >> 16);
   block[offset++]=(char)paragraphNumber;
+  block[offset++]=(char)(paragraphNumber >> 16);
   myCurrentLinkBlockOffset=offset;
 }
