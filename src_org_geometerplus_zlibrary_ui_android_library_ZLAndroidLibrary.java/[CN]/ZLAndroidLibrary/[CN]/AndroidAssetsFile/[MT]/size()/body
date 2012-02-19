@@ -1,14 +1,6 @@
 {
-  try {
-    AssetFileDescriptor descriptor=myApplication.getAssets().openFd(getPath());
-    if (descriptor == null) {
-      return 0;
-    }
-    long length=descriptor.getLength();
-    descriptor.close();
-    return length;
+  if (mySize == -1) {
+    mySize=sizeInternal();
   }
- catch (  IOException e) {
-    return 0;
-  }
+  return mySize;
 }
