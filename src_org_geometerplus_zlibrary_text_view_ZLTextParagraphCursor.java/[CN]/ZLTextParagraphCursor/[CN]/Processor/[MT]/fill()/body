@@ -40,7 +40,7 @@ elements.add(new ZLTextImageElement(imageEntry.Id,data,image.getURI(),imageEntry
 }
 }
 break;
-case ZLTextParagraph.Entry.FORCED_CONTROL:
+case ZLTextParagraph.Entry.STYLE:
 break;
 case ZLTextParagraph.Entry.FIXED_HSPACE:
 elements.add(ZLTextFixedHSpaceElement.getElement(it.getFixedHSpaceLength()));
