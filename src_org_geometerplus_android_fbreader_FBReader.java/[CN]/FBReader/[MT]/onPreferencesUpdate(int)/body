@@ -13,6 +13,7 @@ default :
       }
       fbReader.clearTextCaches();
       fbReader.getViewWidget().repaint();
+      break;
     }
 }
 }
