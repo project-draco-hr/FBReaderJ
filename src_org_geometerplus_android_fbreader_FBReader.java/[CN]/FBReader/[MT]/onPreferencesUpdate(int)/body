@@ -18,6 +18,7 @@ case RESULT_REPAINT:
     break;
   }
 case RESULT_RELOAD_BOOK:
+fbReader.reloadBook();
 break;
 }
 }
