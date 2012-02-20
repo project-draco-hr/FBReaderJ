@@ -1,6 +1,0 @@
-{
-  final TOCTree contentsTree=Model.TOCTree;
-  if (contentsParagraphNumber < contentsTree.getSize()) {
-    contentsTree.getTreeByParagraphNumber(contentsParagraphNumber).setReference(textModel,referenceNumber);
-  }
-}
