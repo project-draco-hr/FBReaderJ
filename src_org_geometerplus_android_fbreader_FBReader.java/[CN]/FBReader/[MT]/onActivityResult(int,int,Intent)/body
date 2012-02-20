@@ -1,22 +1,10 @@
 {
-  final FBReaderApp fbreader=(FBReaderApp)FBReaderApp.Instance();
 switch (requestCode) {
-case REPAINT_CODE:
-{
-      final BookModel model=fbreader.Model;
-      if (model != null) {
-        final Book book=model.Book;
-        if (book != null) {
-          book.reloadInfoFromDatabase();
-          ZLTextHyphenator.Instance().load(book.getLanguage());
-        }
-      }
-      fbreader.clearTextCaches();
-      fbreader.getViewWidget().repaint();
-      break;
-    }
-case CANCEL_CODE:
-  fbreader.runCancelAction(resultCode - 1);
+case REQUEST_PREFERENCES:
+case REQUEST_BOOK_INFO:
+    onPreferencesUpdate(resultCode);
+case REQUEST_CANCEL_MENU:
+  ((FBReaderApp)FBReaderApp.Instance()).runCancelAction(resultCode - 1);
 break;
 }
 }
