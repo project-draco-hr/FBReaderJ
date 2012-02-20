@@ -1,19 +1,23 @@
 {
   final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
 switch (resultCode) {
-default :
+case RESULT_DO_NOTHING:
+    break;
+case RESULT_REPAINT:
 {
-      final BookModel model=fbReader.Model;
-      if (model != null) {
-        final Book book=model.Book;
-        if (book != null) {
-          book.reloadInfoFromDatabase();
-          ZLTextHyphenator.Instance().load(book.getLanguage());
-        }
+    final BookModel model=fbReader.Model;
+    if (model != null) {
+      final Book book=model.Book;
+      if (book != null) {
+        book.reloadInfoFromDatabase();
+        ZLTextHyphenator.Instance().load(book.getLanguage());
       }
-      fbReader.clearTextCaches();
-      fbReader.getViewWidget().repaint();
-      break;
     }
+    fbReader.clearTextCaches();
+    fbReader.getViewWidget().repaint();
+    break;
+  }
+case RESULT_RELOAD_BOOK:
+break;
 }
 }

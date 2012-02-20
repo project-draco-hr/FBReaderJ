@@ -4,4 +4,6 @@
     setupBookInfo(book);
     myDontReloadBook=false;
   }
+  myResult=Math.max(myResult,resultCode);
+  setResult(myResult);
 }
