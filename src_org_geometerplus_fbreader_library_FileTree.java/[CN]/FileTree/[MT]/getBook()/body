@@ -1,3 +1,9 @@
 {
-  return Book.getByFile(myFile);
+  if (myBook == null) {
+    myBook=Book.getByFile(myFile);
+    if (myBook == null) {
+      myBook=NULL_BOOK;
+    }
+  }
+  return myBook instanceof Book ? (Book)myBook : null;
 }
