@@ -1,0 +1,3 @@
+{
+  myFootnotes.put(model.getId(),model);
+}
