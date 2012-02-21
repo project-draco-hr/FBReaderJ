@@ -3,7 +3,7 @@
     final Thread initThread=new Thread(new Runnable(){
       public void run(){
         new InfoReader().read(ZLFile.createFileByPath("dictionaries/main.xml"));
-        new SlovoEdInfoReader(context).read(ZLFile.createFileByPath("dictionaries/slovoEd.xml"));
+        new ParagonInfoReader(context).read(ZLFile.createFileByPath("dictionaries/paragon.xml"));
       }
     }
 );
