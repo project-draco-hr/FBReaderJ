@@ -33,8 +33,6 @@
   textScreen.addPreference(new FontOption(this,textScreen.Resource,"font",baseStyle.FontFamilyOption,false));
   textScreen.addPreference(new ZLIntegerRangePreference(this,textScreen.Resource.getResource("fontSize"),baseStyle.FontSizeOption));
   textScreen.addPreference(new FontStylePreference(this,textScreen.Resource,"fontStyle",baseStyle.BoldOption,baseStyle.ItalicOption));
-  textScreen.addOption(baseStyle.UnderlineOption,"underlined");
-  textScreen.addOption(baseStyle.StrikeThroughOption,"strikedThrough");
   final ZLIntegerRangeOption spaceOption=baseStyle.LineSpaceOption;
   final String[] spacings=new String[spaceOption.MaxValue - spaceOption.MinValue + 1];
   for (int i=0; i < spacings.length; ++i) {
