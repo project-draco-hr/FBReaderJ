@@ -1,0 +1,4 @@
+{
+  super(directoryName,fileExtension);
+  myArray.addAll(Collections.nCopies(blocksNumber,new WeakReference<char[]>(null)));
+}
