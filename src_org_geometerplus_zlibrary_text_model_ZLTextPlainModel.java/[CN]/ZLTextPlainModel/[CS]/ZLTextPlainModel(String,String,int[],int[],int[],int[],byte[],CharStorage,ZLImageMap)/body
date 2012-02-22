@@ -1,0 +1,11 @@
+{
+  myId=id;
+  myLanguage=language;
+  myStartEntryIndices=entryIndices;
+  myStartEntryOffsets=entryOffsets;
+  myParagraphLengths=paragraphLenghts;
+  myTextSizes=textSizes;
+  myParagraphKinds=paragraphKinds;
+  myStorage=storage;
+  myImageMap=imageMap;
+}

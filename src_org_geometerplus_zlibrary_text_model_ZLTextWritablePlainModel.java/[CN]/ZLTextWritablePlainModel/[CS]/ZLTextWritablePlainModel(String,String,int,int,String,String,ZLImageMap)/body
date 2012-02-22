@@ -1,3 +1,3 @@
 {
-  super(id,language,arraySize,dataBlockSize,directoryName,extension,imageMap);
+  super(id,language,new int[arraySize],new int[arraySize],new int[arraySize],new int[arraySize],new byte[arraySize],new CachedCharStorage(dataBlockSize,directoryName,extension),imageMap);
 }
