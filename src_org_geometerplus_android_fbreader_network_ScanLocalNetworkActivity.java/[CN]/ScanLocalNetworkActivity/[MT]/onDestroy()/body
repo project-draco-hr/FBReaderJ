@@ -1,6 +1,0 @@
-{
-  if (myLock != null) {
-    myLock.release();
-  }
-  super.onDestroy();
-}

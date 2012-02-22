@@ -1,3 +1,0 @@
-{
-  return (ItemAdapter)super.getListAdapter();
-}

@@ -1,7 +1,0 @@
-{
-  ServiceInfo info=event.getInfo();
-  if (info == null || !info.hasData()) {
-    info=myMCDNS.getServiceInfo(event.getType(),event.getName(),true);
-  }
-  addInfo(info);
-}

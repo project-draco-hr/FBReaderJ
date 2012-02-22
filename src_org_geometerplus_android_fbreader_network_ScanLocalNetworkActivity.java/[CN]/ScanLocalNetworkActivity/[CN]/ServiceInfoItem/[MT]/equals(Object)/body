@@ -1,3 +1,0 @@
-{
-  return o instanceof ServiceInfoItem && Name.equals(((ServiceInfoItem)o).Name) && URI.equals(((ServiceInfoItem)o).URI);
-}

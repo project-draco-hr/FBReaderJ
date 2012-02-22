@@ -1,5 +1,0 @@
-{
-  super(name);
-  URI=uri;
-  IconId=iconId;
-}
