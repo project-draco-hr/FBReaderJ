@@ -1,0 +1,12 @@
+String id
+String language
+int paragraphsNumber
+int[] entryIndices
+int[] entryOffsets
+int[] paragraphLengths
+int[] textSizes
+byte[] paragraphKinds
+String directoryName
+String fileExtension
+int blocksNumber
+ZLImageMap imageMap

@@ -1,0 +1,4 @@
+{
+  super(id,language,entryIndices,entryOffsets,paragraphLengths,textSizes,paragraphKinds,new CachedCharStorageRO(directoryName,fileExtension,blocksNumber),imageMap);
+  myParagraphsNumber=paragraphsNumber;
+}
