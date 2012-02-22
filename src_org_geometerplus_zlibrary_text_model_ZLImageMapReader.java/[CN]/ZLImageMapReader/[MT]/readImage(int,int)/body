@@ -1,0 +1,15 @@
+{
+  char[] data=myStorage.block(index);
+  while (offset == data.length || data[offset] == '\000') {
+    data=myStorage.block(++index);
+    offset=0;
+  }
+  final byte kind=(byte)data[offset];
+  final boolean multi=((byte)(data[offset] >> 8)) != 0;
+  if (multi) {
+    return readMultiImage(index,offset + 1,data);
+  }
+ else {
+    return readSingleImage(index,offset + 1,data,kind);
+  }
+}
