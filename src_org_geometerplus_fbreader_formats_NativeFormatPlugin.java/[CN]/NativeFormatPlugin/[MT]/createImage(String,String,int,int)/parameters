@@ -1,0 +1,4 @@
+String mimeType
+String fileName
+int offset
+int length
