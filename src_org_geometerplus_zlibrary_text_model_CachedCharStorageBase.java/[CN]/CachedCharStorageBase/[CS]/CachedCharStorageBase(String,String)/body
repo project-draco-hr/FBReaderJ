@@ -1,0 +1,4 @@
+{
+  myDirectoryName=directoryName + '/';
+  myFileExtension='.' + fileExtension;
+}
