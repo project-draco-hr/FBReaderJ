@@ -1,8 +1,0 @@
-{
-  if (myFont == font) {
-    return;
-  }
-  setFont(myFont,false);
-  myFont=font;
-  setFont(myFont,true);
-}

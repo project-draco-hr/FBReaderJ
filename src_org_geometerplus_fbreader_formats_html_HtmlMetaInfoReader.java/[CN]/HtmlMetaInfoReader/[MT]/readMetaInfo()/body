@@ -1,4 +1,0 @@
-{
-  myReadTitle=false;
-  return readDocument(myBook.File);
-}

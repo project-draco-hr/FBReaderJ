@@ -1,3 +1,0 @@
-{
-  return "htm".equals(file.getExtension()) || "html".equals(file.getExtension());
-}

@@ -1,6 +1,0 @@
-{
-  super(mimeType);
-  myFile=file;
-  myOffset=offset;
-  mySize=size;
-}

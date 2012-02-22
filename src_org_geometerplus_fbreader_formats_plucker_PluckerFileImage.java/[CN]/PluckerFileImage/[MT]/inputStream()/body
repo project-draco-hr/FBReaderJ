@@ -1,8 +1,0 @@
-{
-  try {
-    return new SliceInputStream(myFile.getInputStream(),myOffset,mySize);
-  }
- catch (  IOException e) {
-    return null;
-  }
-}

@@ -1,3 +1,0 @@
-{
-  return 256 * ptr[offset] + ptr[offset + 1];
-}

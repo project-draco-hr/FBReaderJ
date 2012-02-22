@@ -1,8 +1,0 @@
-{
-  if (myParagraphStarted) {
-    addHyperlinkControl(FBTextKind.INTERNAL_HYPERLINK,id);
-  }
- else {
-    myDelayedHyperlinks.add(id);
-  }
-}

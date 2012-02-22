@@ -1,3 +1,0 @@
-{
-  return "DataPlkr".equals(fileType(file));
-}

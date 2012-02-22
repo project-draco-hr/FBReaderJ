@@ -1,8 +1,0 @@
-{
-  try {
-    return new HtmlReader(model).readBook();
-  }
- catch (  IOException e) {
-    return false;
-  }
-}

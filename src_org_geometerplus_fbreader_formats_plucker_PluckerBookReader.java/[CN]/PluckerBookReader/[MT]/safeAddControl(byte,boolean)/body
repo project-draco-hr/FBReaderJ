@@ -1,8 +1,0 @@
-{
-  if (myParagraphStarted) {
-    addControl((Byte)kind,(Boolean)start);
-  }
- else {
-    myDelayedControls.add(new Pair(kind,start));
-  }
-}

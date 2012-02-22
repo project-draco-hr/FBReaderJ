@@ -1,4 +1,0 @@
-{
-  myBook=book;
-  myBook.setTitle("");
-}
