@@ -1,5 +1,5 @@
 {
-  final FormatPlugin plugin=null;
+  final FormatPlugin plugin=PluginCollection.Instance().getPlugin(file,FormatPlugin.Type.JAVA);
   if (plugin != null) {
     return plugin.readAnnotation(file);
   }

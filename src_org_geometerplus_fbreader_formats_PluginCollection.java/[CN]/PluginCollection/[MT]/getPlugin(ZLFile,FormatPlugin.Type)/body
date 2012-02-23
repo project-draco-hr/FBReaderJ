@@ -1,0 +1,4 @@
+{
+  final FileType fileType=FileTypeCollection.Instance.typeForFile(file);
+  return getPlugin(fileType,formatType);
+}

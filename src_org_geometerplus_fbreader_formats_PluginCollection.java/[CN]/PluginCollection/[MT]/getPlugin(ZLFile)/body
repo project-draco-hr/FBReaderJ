@@ -1,8 +1,3 @@
 {
-  for (  FormatPlugin plugin : myPlugins) {
-    if (plugin.acceptsFile(file)) {
-      return plugin;
-    }
-  }
-  return null;
+  return getPlugin(file,FormatPlugin.Type.ANY);
 }
