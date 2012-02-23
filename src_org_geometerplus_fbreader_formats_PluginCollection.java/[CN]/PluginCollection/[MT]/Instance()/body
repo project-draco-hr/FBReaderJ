@@ -1,6 +1,9 @@
 {
   if (ourInstance == null) {
     ourInstance=new PluginCollection();
+    for (    FormatPlugin p : ourInstance.nativePlugins()) {
+      ourInstance.addPlugin(p);
+    }
   }
   return ourInstance;
 }
