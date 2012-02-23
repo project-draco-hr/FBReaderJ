@@ -1,0 +1,4 @@
+{
+  final String extension=file.getExtension().toLowerCase();
+  return extension.endsWith("html") || "htm".equals(extension);
+}
