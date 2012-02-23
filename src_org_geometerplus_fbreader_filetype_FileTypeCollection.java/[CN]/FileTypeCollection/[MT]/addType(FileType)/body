@@ -1,0 +1,3 @@
+{
+  myTypes.put(type.Id,type);
+}

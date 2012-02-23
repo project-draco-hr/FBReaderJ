@@ -1,0 +1,3 @@
+{
+  return "mobi".equals(file.getExtension()) || super.acceptsFile(file);
+}

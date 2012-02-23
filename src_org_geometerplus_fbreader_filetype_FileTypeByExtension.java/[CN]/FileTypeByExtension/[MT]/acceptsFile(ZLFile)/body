@@ -1,0 +1,3 @@
+{
+  return myExtension.equalsIgnoreCase(file.getExtension());
+}

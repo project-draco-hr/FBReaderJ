@@ -1,0 +1,4 @@
+{
+  final String extension=file.getExtension();
+  return ("pdb".equalsIgnoreCase(extension) || "prc".equalsIgnoreCase(extension)) && myPalmId.equals(fileType(file));
+}
