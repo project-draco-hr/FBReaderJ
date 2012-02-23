@@ -1,4 +1,0 @@
-{
-  final String extension=file.getExtension();
-  return (extension == "prc") || (extension == "pdb") || (extension == "mobi");
-}

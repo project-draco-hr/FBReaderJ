@@ -1,4 +1,5 @@
 {
   addType(new FileTypeByExtension("fb2","fb2",MimeType.TEXT_FB2));
   addType(new FileTypeEpub());
+  addType(new FileTypeMobipocket());
 }

@@ -1,4 +1,0 @@
-{
-  final String extension=file.getExtension();
-  return "oebzip".equals(extension) || "epub".equals(extension) || "opf".equals(extension);
-}

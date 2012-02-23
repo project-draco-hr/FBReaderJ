@@ -1,0 +1,4 @@
+{
+  final FileType fileType=FileTypeCollection.Instance.typeById(supportedFileType());
+  return fileType != null && fileType.acceptsFile(file);
+}

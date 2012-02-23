@@ -4,14 +4,18 @@
     return null;
   }
   final BookModel model;
-  if (plugin.type() == FormatPlugin.Type.NATIVE) {
+switch (plugin.type()) {
+case NATIVE:
     model=new NativeBookModel(book);
-  }
- else {
-    model=new JavaBookModel(book);
-  }
-  if (plugin.readModel(model)) {
-    return model;
-  }
-  return null;
+  break;
+case JAVA:
+model=new JavaBookModel(book);
+break;
+default :
+return null;
+}
+if (plugin.readModel(model)) {
+return model;
+}
+return null;
 }
