@@ -1,0 +1,8 @@
+{
+  for (  FileType type : types()) {
+    if (type.acceptsFile(file)) {
+      return type;
+    }
+  }
+  return null;
+}
