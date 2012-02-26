@@ -13,7 +13,7 @@
   }
   new Thread(){
     public void run(){
-      ZLApplication.Instance().openFile(fileFromIntent(getIntent()));
+      ZLApplication.Instance().openFile(fileFromIntent(getIntent()),getPostponedInitAction());
       ZLApplication.Instance().getViewWidget().repaint();
     }
   }

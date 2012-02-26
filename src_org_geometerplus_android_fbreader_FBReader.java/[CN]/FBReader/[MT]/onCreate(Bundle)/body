@@ -1,6 +1,5 @@
 {
   super.onCreate(icicle);
-  DictionaryUtil.init(this);
   final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
   final ZLAndroidLibrary zlibrary=(ZLAndroidLibrary)ZLibrary.Instance();
   myFullScreenFlag=zlibrary.ShowStatusBarOption.getValue() ? 0 : WindowManager.LayoutParams.FLAG_FULLSCREEN;

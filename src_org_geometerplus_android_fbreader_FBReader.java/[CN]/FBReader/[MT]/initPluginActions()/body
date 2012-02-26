@@ -1,0 +1,11 @@
+{
+  final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
+synchronized (myPluginActions) {
+    int index=0;
+    while (index < myPluginActions.size()) {
+      fbReader.removeAction(PLUGIN_ACTION_PREFIX + index++);
+    }
+    myPluginActions.clear();
+  }
+  sendOrderedBroadcast(new Intent(PluginApi.ACTION_REGISTER),null,myPluginInfoReceiver,null,RESULT_OK,null,null);
+}

@@ -12,13 +12,4 @@
   ((PopupPanel)fbReader.getPopupById(TextSearchPopup.ID)).setPanelInfo(this,root);
   ((PopupPanel)fbReader.getPopupById(NavigationPopup.ID)).setPanelInfo(this,root);
   ((PopupPanel)fbReader.getPopupById(SelectionPopup.ID)).setPanelInfo(this,root);
-synchronized (myPluginActions) {
-    int index=0;
-    while (index < myPluginActions.size()) {
-      fbReader.removeAction(PLUGIN_ACTION_PREFIX + index++);
-    }
-    myPluginActions.clear();
-  }
-  sendOrderedBroadcast(new Intent(PluginApi.ACTION_REGISTER),null,myPluginInfoReceiver,null,RESULT_OK,null,null);
-  new TipRunner().start();
 }

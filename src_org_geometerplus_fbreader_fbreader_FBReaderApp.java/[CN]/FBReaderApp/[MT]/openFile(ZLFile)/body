@@ -1,3 +1,0 @@
-{
-  openBook(createBookForFile(file),null);
-}

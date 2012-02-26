@@ -5,7 +5,7 @@
   final CancelActionDescription description=myCancelActionsList.get(index);
 switch (description.Type) {
 case previousBook:
-    openBook(Library.Instance().getPreviousBook(),null);
+    openBook(Library.Instance().getPreviousBook(),null,null);
   break;
 case returnTo:
 {
