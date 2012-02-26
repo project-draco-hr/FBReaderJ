@@ -2,6 +2,9 @@
   final Activity activity=((ZLAndroidLibrary)ZLAndroidLibrary.Instance()).getActivity();
   if (activity != null) {
     UIUtil.runWithMessage(activity,key,action,null,false);
+    if (postAction != null) {
+      activity.runOnUiThread(postAction);
+    }
   }
  else {
     action.run();

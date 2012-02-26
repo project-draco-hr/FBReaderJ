@@ -3,9 +3,9 @@
     Model.Book.reloadInfoFromDatabase();
     runWithMessage("loadingBook",new Runnable(){
       public void run(){
-        openBookInternal(Model.Book,null,null);
+        openBookInternal(Model.Book,null);
       }
     }
-);
+,null);
   }
 }

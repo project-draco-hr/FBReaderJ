@@ -18,8 +18,8 @@
   final Book bookToOpen=book;
   runWithMessage("loadingBook",new Runnable(){
     public void run(){
-      openBookInternal(bookToOpen,bookmark,postAction);
+      openBookInternal(bookToOpen,bookmark);
     }
   }
-);
+,postAction);
 }
