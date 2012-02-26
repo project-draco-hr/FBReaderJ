@@ -1,0 +1,11 @@
+{
+  XHTMLTagAction action=myActions.get(tag);
+  if (action == null) {
+    action=ourTagActions.get(tag.toLowerCase());
+    if (action == null) {
+      action=ourNullAction;
+    }
+    myActions.put(tag,action);
+  }
+  return action == ourNullAction ? null : action;
+}

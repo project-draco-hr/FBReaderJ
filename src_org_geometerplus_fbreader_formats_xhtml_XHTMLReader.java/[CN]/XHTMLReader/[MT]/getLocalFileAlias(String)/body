@@ -1,0 +1,8 @@
+{
+  String alias=myLocalFileNumbers.get(fileName);
+  if (alias == null) {
+    alias=getFileAlias(myLocalPathPrefix + fileName);
+    myLocalFileNumbers.put(fileName,alias);
+  }
+  return alias;
+}

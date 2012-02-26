@@ -1,10 +1,13 @@
 {
-  fileName=MiscUtil.decodeHtmlReference(fileName);
-  fileName=ZLArchiveEntryFile.normalizeEntryName(fileName);
-  Integer num=myFileNumbers.get(fileName);
+  String num=myFileNumbers.get(fileName);
   if (num == null) {
-    num=myFileNumbers.size();
+    fileName=MiscUtil.decodeHtmlReference(fileName);
+    fileName=ZLArchiveEntryFile.normalizeEntryName(fileName);
+    num=myFileNumbers.get(fileName);
+  }
+  if (num == null) {
+    num=String.valueOf(myFileNumbers.size());
     myFileNumbers.put(fileName,num);
   }
-  return num.toString();
+  return num;
 }

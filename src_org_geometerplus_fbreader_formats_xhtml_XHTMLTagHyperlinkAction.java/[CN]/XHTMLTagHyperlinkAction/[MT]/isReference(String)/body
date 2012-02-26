@@ -1,3 +1,12 @@
 {
-  return text.startsWith("fbreader-action://") || text.startsWith("http://") || text.startsWith("https://")|| text.startsWith("mailto:")|| text.startsWith("ftp://");
+switch (text.charAt(0)) {
+default :
+    return false;
+case 'f':
+  return text.startsWith("fbreader-action://") || text.startsWith("ftp://");
+case 'h':
+return text.startsWith("http://") || text.startsWith("https://");
+case 'm':
+return text.startsWith("mailto:");
+}
 }

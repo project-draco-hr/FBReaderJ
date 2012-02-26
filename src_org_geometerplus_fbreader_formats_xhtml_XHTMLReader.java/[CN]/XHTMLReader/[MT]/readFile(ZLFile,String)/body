@@ -2,7 +2,11 @@
   fillTagTable();
   myReferencePrefix=referencePrefix;
   myPathPrefix=MiscUtil.htmlDirectoryPrefix(file);
-  myLocalPathPrefix=MiscUtil.archiveEntryName(myPathPrefix);
+  final String localPrefix=MiscUtil.archiveEntryName(myPathPrefix);
+  if (!localPrefix.equals(myLocalPathPrefix)) {
+    myLocalPathPrefix=localPrefix;
+    myLocalFileNumbers.clear();
+  }
   myPreformatted=false;
   myInsideBody=false;
   return read(file);

@@ -1,5 +1,5 @@
 {
-  XHTMLTagAction action=(XHTMLTagAction)ourTagActions.get(tag.toLowerCase());
+  final XHTMLTagAction action=getTagAction(tag);
   if (action != null) {
     action.doAtEnd(this);
   }
