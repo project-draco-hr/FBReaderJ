@@ -1,7 +1,0 @@
-{
-  myView=view;
-  myImage=image;
-  myWidth=width;
-  myHeight=height;
-  myImageViews.put(view,this);
-}

@@ -1,0 +1,41 @@
+{
+  Bitmap coverBitmap=myCachedBitmaps.get(holder.key);
+  final ZLImage cover=tree.getCover();
+  if (coverBitmap == null && cover != null) {
+    ZLLoadableImage img=null;
+    ZLAndroidImageData data=null;
+    final ZLAndroidImageManager mgr=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
+    if (cover instanceof ZLLoadableImage) {
+      img=(ZLLoadableImage)cover;
+      if (img.isSynchronized()) {
+        data=mgr.getImageData(img);
+        if (data != null)         startUpdateCover(holder,img,width,height);
+      }
+ else {
+        img.startSynchronization(new CoverSyncRunnable(holder,img,width,height));
+      }
+    }
+ else {
+      data=mgr.getImageData(cover);
+      if (data != null)       coverBitmap=data.getBitmap(2 * width,2 * height);
+    }
+  }
+  if (coverBitmap != null) {
+    holder.coverView.setImageBitmap(coverBitmap);
+  }
+ else   if (tree instanceof NetworkBookTree) {
+    holder.coverView.setImageResource(R.drawable.ic_list_library_book);
+  }
+ else   if (tree instanceof SearchCatalogTree) {
+    holder.coverView.setImageResource(R.drawable.ic_list_library_search);
+  }
+ else   if (tree instanceof BasketCatalogTree) {
+    holder.coverView.setImageResource(R.drawable.ic_list_library_basket);
+  }
+ else   if (tree instanceof AddCustomCatalogItemTree) {
+    holder.coverView.setImageResource(R.drawable.ic_list_plus);
+  }
+ else {
+    holder.coverView.setImageResource(R.drawable.ic_list_library_books);
+  }
+}

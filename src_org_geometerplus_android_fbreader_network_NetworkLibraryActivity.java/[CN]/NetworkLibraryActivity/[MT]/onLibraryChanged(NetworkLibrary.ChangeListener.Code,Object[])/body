@@ -5,10 +5,9 @@ switch (code) {
 default :
         updateLoadingProgress();
       getListAdapter().replaceAll(getCurrentTree().subTrees());
-    getListView().invalidateViews();
-  break;
+    break;
 case InitializationFailed:
-showInitLibraryDialog((String)params[0]);
+  showInitLibraryDialog((String)params[0]);
 break;
 case InitializationFinished:
 NetworkLibrary.Instance().runBackgroundUpdate(false);

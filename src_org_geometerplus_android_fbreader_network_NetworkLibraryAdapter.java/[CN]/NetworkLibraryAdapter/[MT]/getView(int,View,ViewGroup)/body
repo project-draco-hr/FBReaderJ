@@ -3,30 +3,52 @@
   if (tree == null) {
     throw new IllegalArgumentException("tree == null");
   }
-  final View view=(convertView != null) ? convertView : LayoutInflater.from(parent.getContext()).inflate(R.layout.network_tree_item,parent,false);
-  ((TextView)view.findViewById(R.id.network_tree_item_name)).setText(tree.getName());
-  ((TextView)view.findViewById(R.id.network_tree_item_childrenlist)).setText(tree.getSummary());
-  if (myCoverWidth == -1) {
-    view.measure(ViewGroup.LayoutParams.FILL_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-    myCoverHeight=view.getMeasuredHeight();
-    myCoverWidth=myCoverHeight * 15 / 32;
-    view.requestLayout();
-  }
-  final ImageView coverView=(ImageView)view.findViewById(R.id.network_tree_item_icon);
-  coverView.getLayoutParams().width=myCoverWidth;
-  coverView.getLayoutParams().height=myCoverHeight;
-  coverView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-  coverView.requestLayout();
-  setupCover(coverView,tree,myCoverWidth,myCoverWidth);
-  final ImageView statusView=(ImageView)view.findViewById(R.id.network_tree_item_status);
-  final int status=(tree instanceof NetworkBookTree) ? NetworkBookActions.getBookStatus(((NetworkBookTree)tree).Book,((NetworkLibraryActivity)getActivity()).Connection) : 0;
-  if (status != 0) {
-    statusView.setVisibility(View.VISIBLE);
-    statusView.setImageResource(status);
+  final ViewHolder holder;
+  if (view == null) {
+    view=LayoutInflater.from(parent.getContext()).inflate(R.layout.network_tree_item,parent,false);
+    if (myCoverWidth == -1) {
+      view.measure(ViewGroup.LayoutParams.FILL_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+      myCoverHeight=view.getMeasuredHeight();
+      myCoverWidth=myCoverHeight * 15 / 32;
+      view.requestLayout();
+    }
+    holder=new ViewHolder();
+    holder.nameView=(TextView)view.findViewById(R.id.network_tree_item_name);
+    holder.summaryView=(TextView)view.findViewById(R.id.network_tree_item_childrenlist);
+    holder.coverView=(ImageView)view.findViewById(R.id.network_tree_item_icon);
+    holder.coverView.getLayoutParams().width=myCoverWidth;
+    holder.coverView.getLayoutParams().height=myCoverHeight;
+    holder.coverView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+    holder.coverView.requestLayout();
+    holder.statusView=(ImageView)view.findViewById(R.id.network_tree_item_status);
+    view.setTag(holder);
+    numViewHolders++;
   }
  else {
-    statusView.setVisibility(View.GONE);
+    holder=(ViewHolder)view.getTag();
   }
-  statusView.requestLayout();
+synchronized (holder) {
+    if (holder.tree != tree) {
+      if (holder.coverBitmapTask != null) {
+        holder.coverBitmapTask.cancel(true);
+        holder.coverBitmapTask=null;
+      }
+      holder.coverBitmapRunnable=null;
+    }
+    holder.key=tree.getUniqueKey();
+    holder.tree=tree;
+  }
+  holder.nameView.setText(tree.getName());
+  holder.summaryView.setText(tree.getSummary());
+  setupCover(holder,tree,myCoverWidth,myCoverWidth);
+  final int status=(tree instanceof NetworkBookTree) ? NetworkBookActions.getBookStatus(((NetworkBookTree)tree).Book,((NetworkLibraryActivity)getActivity()).Connection) : 0;
+  if (status != 0) {
+    holder.statusView.setVisibility(View.VISIBLE);
+    holder.statusView.setImageResource(status);
+  }
+ else {
+    holder.statusView.setVisibility(View.GONE);
+  }
+  holder.statusView.requestLayout();
   return view;
 }

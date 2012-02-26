@@ -1,4 +1,4 @@
-ImageView view
+ViewHolder holder
 ZLLoadableImage image
 int width
 int height
