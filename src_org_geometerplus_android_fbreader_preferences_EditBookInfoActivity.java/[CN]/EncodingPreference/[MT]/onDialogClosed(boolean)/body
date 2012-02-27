@@ -1,2 +1,5 @@
 {
+  super.onDialogClosed(result);
+  if (result) {
+  }
 }
