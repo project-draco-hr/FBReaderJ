@@ -1,5 +1,4 @@
 {
-  LanguageAutoDetectOption=new ZLBooleanOption("Format","AutoDetect",true);
   DefaultLanguageOption=new ZLStringOption("Format","DefaultLanguage","en");
   DefaultEncodingOption=new ZLStringOption("Format","DefaultEncoding","windows-1252");
   addPlugin(new FB2Plugin());
