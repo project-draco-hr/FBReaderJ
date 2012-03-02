@@ -3,6 +3,7 @@
     ourInstance=new PluginCollection();
     for (    NativeFormatPlugin p : ourInstance.nativePlugins()) {
       ourInstance.addPlugin(p);
+      System.err.println("native plugin: " + p);
     }
   }
   return ourInstance;
