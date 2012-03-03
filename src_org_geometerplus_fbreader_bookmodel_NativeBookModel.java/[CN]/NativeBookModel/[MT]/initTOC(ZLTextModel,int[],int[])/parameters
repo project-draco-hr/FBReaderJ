@@ -1,0 +1,3 @@
+ZLTextModel contentsModel
+int[] childrenNumbers
+int[] referenceNumbers
