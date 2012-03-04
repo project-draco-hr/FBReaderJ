@@ -1,7 +1,7 @@
 {
-  addInvisibleBookmark();
   final String modelId=bookmark.ModelId;
   if (modelId == null) {
+    addInvisibleBookmark();
     BookTextView.gotoPosition(bookmark);
     setView(BookTextView);
   }

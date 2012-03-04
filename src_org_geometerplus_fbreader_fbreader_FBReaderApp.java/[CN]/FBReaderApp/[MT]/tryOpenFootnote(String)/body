@@ -1,10 +1,17 @@
 {
   if (Model != null) {
+    myJumpEndPosition=null;
+    myJumpTimeStamp=null;
     BookModel.Label label=Model.getLabel(id);
     if (label != null) {
-      addInvisibleBookmark();
       if (label.ModelId == null) {
+        if (getTextView() == BookTextView) {
+          addInvisibleBookmark();
+          myJumpEndPosition=new ZLTextFixedPosition(label.ParagraphIndex,0,0);
+          myJumpTimeStamp=new Date();
+        }
         BookTextView.gotoPosition(label.ParagraphIndex,0,0);
+        setView(BookTextView);
       }
  else {
         FootnoteView.setModel(Model.getFootnoteModel(label.ModelId));
