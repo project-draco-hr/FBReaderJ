@@ -7,7 +7,13 @@
   mySeriesInfo=null;
   myIsSaved=false;
   final FormatPlugin plugin=PluginCollection.Instance().getPlugin(File);
-  if (plugin == null || !plugin.readMetaInfo(this)) {
+  if (plugin == null) {
+    return false;
+  }
+  try {
+    plugin.readMetaInfo(this);
+  }
+ catch (  BookReadingException e) {
     return false;
   }
   if (myTitle == null || myTitle.length() == 0) {

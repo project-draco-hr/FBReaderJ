@@ -1,5 +1,10 @@
 {
   final ZLFile file=ZLFile.createFileByPath(filePath);
   myLocalPathPrefix=MiscUtil.archiveEntryName(MiscUtil.htmlDirectoryPrefix(file));
-  return read(file);
+  try {
+    read(file);
+  }
+ catch (  IOException e) {
+    throw new BookReadingException(e,file);
+  }
 }

@@ -1,4 +1,8 @@
 {
-  final ZLFile opfFile=getOpfFile(file);
-  return (opfFile != null) ? new OEBAnnotationReader().readAnnotation(opfFile) : null;
+  try {
+    return new OEBAnnotationReader().readAnnotation(getOpfFile(file));
+  }
+ catch (  BookReadingException e) {
+    return null;
+  }
 }

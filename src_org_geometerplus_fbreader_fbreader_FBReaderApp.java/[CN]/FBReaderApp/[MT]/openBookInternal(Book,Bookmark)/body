@@ -10,8 +10,8 @@
     Model=null;
     System.gc();
     System.gc();
-    Model=BookModel.createModel(book);
-    if (Model != null) {
+    try {
+      Model=BookModel.createModel(book);
       ZLTextHyphenator.Instance().load(book.getLanguage());
       BookTextView.setModel(Model.getTextModel());
       BookTextView.gotoPosition(book.getStoredPosition());
@@ -33,6 +33,9 @@
         title.append(")");
       }
       setTitle(title.toString());
+    }
+ catch (    BookReadingException e) {
+      e.printStackTrace();
     }
   }
   getViewWidget().repaint();

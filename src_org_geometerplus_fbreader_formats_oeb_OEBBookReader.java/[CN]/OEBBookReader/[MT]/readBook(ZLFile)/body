@@ -6,8 +6,11 @@
   myTourTOC.clear();
   myGuideTOC.clear();
   myState=READ_NONE;
-  if (!read(file)) {
-    return false;
+  try {
+    read(file);
+  }
+ catch (  IOException e) {
+    throw new BookReadingException(e,file);
   }
   myModelReader.setMainTextModel();
   myModelReader.pushKind(FBTextKind.REGULAR);
@@ -15,7 +18,7 @@
   for (  String name : myHtmlFileNames) {
     final ZLFile xhtmlFile=ZLFile.createFileByPath(myFilePrefix + name);
     if (xhtmlFile == null) {
-      return false;
+      throw new BookReadingException("fileNotFound",myFilePrefix + name);
     }
     if (count++ == 0 && xhtmlFile.getPath().equals(myCoverFileName)) {
       continue;
@@ -24,9 +27,13 @@
     final String referenceName=reader.getFileAlias(MiscUtil.archiveEntryName(xhtmlFile.getPath()));
     myModelReader.addHyperlinkLabel(referenceName);
     myTOCLabels.put(referenceName,myModelReader.Model.BookTextModel.getParagraphsNumber());
-    reader.readFile(xhtmlFile,referenceName + '#');
+    try {
+      reader.readFile(xhtmlFile,referenceName + '#');
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
     myModelReader.insertEndOfSectionParagraph();
   }
   generateTOC();
-  return true;
 }

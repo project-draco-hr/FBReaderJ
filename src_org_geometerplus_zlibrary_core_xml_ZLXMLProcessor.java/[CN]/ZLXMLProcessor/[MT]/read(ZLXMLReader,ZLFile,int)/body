@@ -1,18 +1,13 @@
 {
-  InputStream stream=null;
+  InputStream stream=file.getInputStream();
   try {
-    stream=file.getInputStream();
+    read(xmlReader,stream,bufferSize);
   }
- catch (  IOException e) {
+  finally {
+    try {
+      stream.close();
+    }
+ catch (    IOException e) {
+    }
   }
-  if (stream == null) {
-    return false;
-  }
-  boolean code=read(xmlReader,stream,bufferSize);
-  try {
-    stream.close();
-  }
- catch (  IOException e) {
-  }
-  return code;
 }

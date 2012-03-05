@@ -1,7 +1,7 @@
 {
   final FormatPlugin plugin=PluginCollection.Instance().getPlugin(book.File);
   if (plugin == null) {
-    return null;
+    throw new BookReadingException("pluginNotFound");
   }
   final BookModel model;
 switch (plugin.type()) {
@@ -12,10 +12,8 @@ case JAVA:
 model=new JavaBookModel(book);
 break;
 default :
-return null;
+throw new BookReadingException("unknownPluginType",plugin.type().toString());
 }
-if (plugin.readModel(model)) {
+plugin.readModel(model);
 return model;
-}
-return null;
 }

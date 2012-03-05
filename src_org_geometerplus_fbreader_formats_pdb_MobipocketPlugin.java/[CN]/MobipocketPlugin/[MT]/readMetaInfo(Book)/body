@@ -5,7 +5,7 @@
     final PdbHeader header=new PdbHeader(stream);
     PdbUtil.skip(stream,header.Offsets[0] + 16 - header.length());
     if (PdbUtil.readInt(stream) != 0x4D4F4249) {
-      return false;
+      throw new BookReadingException("unsupportedFileFormat");
     }
     final int length=(int)PdbUtil.readInt(stream);
     PdbUtil.skip(stream,4);
@@ -70,10 +70,9 @@ PdbUtil.skip(stream,fullNameOffset - offset);
 final byte[] titleBuffer=new byte[fullNameLength];
 stream.read(titleBuffer);
 book.setTitle(new String(titleBuffer,encodingName));
-return true;
 }
  catch (IOException e) {
-return false;
+throw new BookReadingException(e,book.File);
 }
  finally {
 if (stream != null) {

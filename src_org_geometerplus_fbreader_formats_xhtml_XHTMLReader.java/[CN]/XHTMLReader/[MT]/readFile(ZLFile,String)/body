@@ -9,5 +9,5 @@
   }
   myPreformatted=false;
   myInsideBody=false;
-  return read(file);
+  read(file);
 }

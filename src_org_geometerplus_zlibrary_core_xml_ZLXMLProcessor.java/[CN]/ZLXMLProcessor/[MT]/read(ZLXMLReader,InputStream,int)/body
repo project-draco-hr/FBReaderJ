@@ -6,13 +6,9 @@
     parser.doIt();
     reader.endDocumentHandler();
   }
- catch (  IOException e) {
-    return false;
-  }
- finally {
+  finally {
     if (parser != null) {
       parser.finish();
     }
   }
-  return true;
 }

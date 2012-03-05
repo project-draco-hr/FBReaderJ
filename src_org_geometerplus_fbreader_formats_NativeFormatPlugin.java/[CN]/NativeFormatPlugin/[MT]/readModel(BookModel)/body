@@ -1,0 +1,5 @@
+{
+  if (!readModelNative(model)) {
+    throw new BookReadingException("errorReadingFile",model.Book.File.getPath());
+  }
+}

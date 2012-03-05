@@ -1,8 +1,11 @@
 {
   myReadMetaData=false;
   myReadState=READ_NONE;
-  if (!ZLXMLProcessor.read(this,file,512)) {
-    return false;
+  try {
+    ZLXMLProcessor.read(this,file,512);
+  }
+ catch (  IOException e) {
+    throw new BookReadingException(e,file);
   }
   final ArrayList<String> authors=myAuthorList.isEmpty() ? myAuthorList2 : myAuthorList;
   for (  String a : authors) {
@@ -15,5 +18,4 @@
     }
     myBook.addAuthor(a);
   }
-  return true;
 }

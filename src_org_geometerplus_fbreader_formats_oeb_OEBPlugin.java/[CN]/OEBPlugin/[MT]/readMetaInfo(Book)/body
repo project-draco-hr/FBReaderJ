@@ -1,4 +1,3 @@
 {
-  final ZLFile opfFile=getOpfFile(book.File);
-  return (opfFile != null) ? new OEBMetaInfoReader(book).readMetaInfo(opfFile) : false;
+  new OEBMetaInfoReader(book).readMetaInfo(getOpfFile(book.File));
 }

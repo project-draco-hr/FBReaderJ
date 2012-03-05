@@ -1,5 +1,5 @@
 {
   myStack.clear();
   myStack.add(root);
-  read(file);
+  readQuietly(file);
 }

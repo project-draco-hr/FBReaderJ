@@ -56,10 +56,10 @@ oldCache=null;
 }
 }
 try {
-xmlReader.read(new FileInputStream(catalogsFile));
+xmlReader.read(new ZLPhysicalFile(catalogsFile));
 return xmlReader.links();
 }
- catch (FileNotFoundException e) {
+ catch (IOException e) {
 return Collections.emptyList();
 }
 }

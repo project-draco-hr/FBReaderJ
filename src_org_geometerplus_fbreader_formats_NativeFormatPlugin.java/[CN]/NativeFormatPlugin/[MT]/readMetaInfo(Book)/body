@@ -1,0 +1,5 @@
+{
+  if (!readMetaInfoNative(book)) {
+    throw new BookReadingException("errorReadingFile",book.File.getPath());
+  }
+}

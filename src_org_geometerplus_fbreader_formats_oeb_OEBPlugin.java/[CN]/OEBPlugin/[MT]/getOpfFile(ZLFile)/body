@@ -5,7 +5,7 @@
   final ZLFile containerInfoFile=ZLFile.createFile(oebFile,"META-INF/container.xml");
   if (containerInfoFile.exists()) {
     final ContainerFileReader reader=new ContainerFileReader();
-    reader.read(containerInfoFile);
+    reader.readQuietly(containerInfoFile);
     final String opfPath=reader.getRootPath();
     if (opfPath != null) {
       return ZLFile.createFile(oebFile,opfPath);
@@ -16,5 +16,5 @@
       return child;
     }
   }
-  return null;
+  throw new BookReadingException("opfFileNotFound");
 }

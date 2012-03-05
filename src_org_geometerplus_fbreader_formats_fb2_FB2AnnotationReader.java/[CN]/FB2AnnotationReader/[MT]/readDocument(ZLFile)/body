@@ -1,3 +1,9 @@
 {
-  return ZLXMLProcessor.read(this,file,512);
+  try {
+    ZLXMLProcessor.read(this,file,512);
+    return true;
+  }
+ catch (  IOException e) {
+    return false;
+  }
 }

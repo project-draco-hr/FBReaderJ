@@ -4,5 +4,10 @@
   myAuthorNames[1]="";
   myAuthorNames[2]="";
   myBuffer.delete(0,myBuffer.length());
-  return readDocument(myBook.File);
+  try {
+    ZLXMLProcessor.read(this,myBook.File,512);
+  }
+ catch (  IOException e) {
+    throw new BookReadingException(e,myBook.File);
+  }
 }

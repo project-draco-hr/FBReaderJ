@@ -1,3 +1,3 @@
 {
-  return ZLXMLProcessor.read(this,stream,65536);
+  ZLXMLProcessor.read(this,stream,65536);
 }
