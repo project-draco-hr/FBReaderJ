@@ -18,7 +18,7 @@
   for (  String name : myHtmlFileNames) {
     final ZLFile xhtmlFile=ZLFile.createFileByPath(myFilePrefix + name);
     if (xhtmlFile == null) {
-      throw new BookReadingException("fileNotFound",myFilePrefix + name);
+      throw new BookReadingException("fileNotFound",myFilePrefix + name,file);
     }
     if (count++ == 0 && xhtmlFile.getPath().equals(myCoverFileName)) {
       continue;

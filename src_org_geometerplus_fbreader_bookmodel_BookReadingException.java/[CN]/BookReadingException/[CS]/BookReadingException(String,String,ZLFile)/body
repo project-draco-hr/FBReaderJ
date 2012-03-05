@@ -1,3 +1,4 @@
 {
   super(getResourceText(resourceId).replace("%s",param));
+  File=file;
 }

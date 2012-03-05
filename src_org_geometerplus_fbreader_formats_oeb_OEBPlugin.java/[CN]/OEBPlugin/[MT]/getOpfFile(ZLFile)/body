@@ -16,5 +16,5 @@
       return child;
     }
   }
-  throw new BookReadingException("opfFileNotFound",oebFile.getPath());
+  throw new BookReadingException("opfFileNotFound",oebFile);
 }
