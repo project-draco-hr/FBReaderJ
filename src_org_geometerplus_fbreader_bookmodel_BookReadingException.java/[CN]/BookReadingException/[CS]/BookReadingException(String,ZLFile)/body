@@ -1,0 +1,3 @@
+{
+  super(getResourceText(resourceId).replace("%s",file.getPath()));
+}
