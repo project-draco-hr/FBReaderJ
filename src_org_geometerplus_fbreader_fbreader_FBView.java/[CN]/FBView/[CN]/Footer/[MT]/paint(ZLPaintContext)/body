@@ -1,4 +1,11 @@
 {
+  final ZLFile wallpaper=getWallpaperFile();
+  if (wallpaper != null) {
+    context.clear(wallpaper,wallpaper instanceof ZLResourceFile);
+  }
+ else {
+    context.clear(getBackgroundColor());
+  }
   final FBReaderApp reader=myReader;
   if (reader == null) {
     return;
@@ -37,13 +44,6 @@
   }
   final String infoString=info.toString();
   final int infoWidth=context.getStringWidth(infoString);
-  final ZLFile wallpaper=getWallpaperFile();
-  if (wallpaper != null) {
-    context.clear(wallpaper,wallpaper instanceof ZLResourceFile);
-  }
- else {
-    context.clear(getBackgroundColor());
-  }
   context.setTextColor(fgColor);
   context.drawString(right - infoWidth,height - delta,infoString);
   final int gaugeRight=right - (infoWidth == 0 ? 0 : infoWidth + 10);
