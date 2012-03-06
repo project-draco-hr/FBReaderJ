@@ -1,0 +1,26 @@
+{
+  super.onCreate(bundle);
+  setContentView(R.layout.error_book_reading);
+  final ZLResource resource=ZLResource.resource("error").getResource("bookReading");
+  setTitle(resource.getResource("title").getValue());
+  final TextView textView=(TextView)findViewById(R.id.error_book_reading_text);
+  textView.setText(getIntent().getStringExtra("message"));
+  final View buttonView=findViewById(R.id.error_book_reading_buttons);
+  final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
+  final Button okButton=(Button)buttonView.findViewById(R.id.ok_button);
+  okButton.setText(buttonResource.getResource("sendReport").getValue());
+  okButton.setOnClickListener(new Button.OnClickListener(){
+    public void onClick(    View v){
+      finish();
+    }
+  }
+);
+  final Button cancelButton=(Button)buttonView.findViewById(R.id.cancel_button);
+  cancelButton.setText(buttonResource.getResource("cancel").getValue());
+  cancelButton.setOnClickListener(new Button.OnClickListener(){
+    public void onClick(    View v){
+      finish();
+    }
+  }
+);
+}
