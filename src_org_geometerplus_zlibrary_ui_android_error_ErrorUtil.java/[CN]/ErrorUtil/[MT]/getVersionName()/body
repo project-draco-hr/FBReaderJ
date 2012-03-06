@@ -1,6 +1,6 @@
 {
   try {
-    final PackageInfo info=getPackageManager().getPackageInfo(getPackageName(),0);
+    final PackageInfo info=myContext.getPackageManager().getPackageInfo(myContext.getPackageName(),0);
     return info.versionName + " (" + info.versionCode+ ")";
   }
  catch (  Exception e) {

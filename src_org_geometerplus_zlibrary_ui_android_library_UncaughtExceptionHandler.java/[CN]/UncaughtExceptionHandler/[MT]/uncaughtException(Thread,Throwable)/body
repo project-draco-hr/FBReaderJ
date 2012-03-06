@@ -1,5 +1,5 @@
 {
-  StringWriter stackTrace=new StringWriter();
+  final StringWriter stackTrace=new StringWriter();
   exception.printStackTrace(new PrintWriter(stackTrace));
   System.err.println(stackTrace);
   Intent intent=new Intent("android.fbreader.action.CRASH",new Uri.Builder().scheme(exception.getClass().getSimpleName()).build());
