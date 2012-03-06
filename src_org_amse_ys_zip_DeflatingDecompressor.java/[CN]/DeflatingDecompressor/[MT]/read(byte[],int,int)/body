@@ -11,7 +11,7 @@
     }
     if (myOutBufferLength == 0) {
       if (myInflatorId != -1) {
-        throw new IOException("cannot read from zip");
+        throw new ZipException("cannot read from zip");
       }
  else {
         len-=toFill;

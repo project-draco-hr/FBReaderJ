@@ -4,7 +4,7 @@
   int thirdByte=read();
   int fourthByte=read();
   if (fourthByte < 0) {
-    throw new IOException("unexpected end of file at position " + offset());
+    throw new ZipException("unexpected end of file at position " + offset());
   }
   return (fourthByte << 24) + (thirdByte << 16) + (secondByte << 8)+ firstByte;
 }

@@ -2,7 +2,7 @@
   int low=read();
   int high=read();
   if (high < 0) {
-    throw new IOException("unexpected end of file at position " + offset());
+    throw new ZipException("unexpected end of file at position " + offset());
   }
   return (high << 8) + low;
 }

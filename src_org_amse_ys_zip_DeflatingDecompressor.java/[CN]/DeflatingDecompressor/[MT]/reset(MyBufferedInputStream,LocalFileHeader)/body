@@ -18,6 +18,6 @@
   myOutBufferLength=0;
   myInflatorId=startInflating();
   if (myInflatorId == -1) {
-    throw new IOException("cannot start inflating");
+    throw new ZipException("cannot start inflating");
   }
 }
