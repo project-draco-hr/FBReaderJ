@@ -1,4 +1,0 @@
-{
-  final String name=myEncodingByAlias.get(alias);
-  return (name != null) ? name : alias;
-}

@@ -1,0 +1,3 @@
+{
+  return other instanceof Encoding && Name.equals(((Encoding)other).Name);
+}

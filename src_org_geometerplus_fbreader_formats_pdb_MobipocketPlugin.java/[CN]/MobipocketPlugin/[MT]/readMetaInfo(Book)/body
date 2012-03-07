@@ -10,10 +10,8 @@
     final int length=(int)PdbUtil.readInt(stream);
     PdbUtil.skip(stream,4);
     final int encodingCode=(int)PdbUtil.readInt(stream);
-    String encodingName=EncodingCollection.Instance().getEncodingName(encodingCode);
-    if (encodingName == null) {
-      encodingName="utf-8";
-    }
+    final Encoding encoding=supportedEncodings().getEncoding(encodingCode);
+    final String encodingName=encoding != null ? encoding.Name : "utf-8";
     book.setEncoding(encodingName);
     PdbUtil.skip(stream,52);
     final int fullNameOffset=(int)PdbUtil.readInt(stream);

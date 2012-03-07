@@ -1,0 +1,4 @@
+{
+  final Encoding e=myEncodingByAlias.get(alias);
+  return e != null ? e : new Encoding(null,alias,alias);
+}

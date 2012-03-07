@@ -1,0 +1,3 @@
+{
+  return getEncoding(String.valueOf(code));
+}
