@@ -1,6 +1,6 @@
 {
   if (ourInstance == null) {
-    ourInstance=new ZLEncodingCollection();
+    ourInstance=new EncodingCollection();
   }
   return ourInstance;
 }
