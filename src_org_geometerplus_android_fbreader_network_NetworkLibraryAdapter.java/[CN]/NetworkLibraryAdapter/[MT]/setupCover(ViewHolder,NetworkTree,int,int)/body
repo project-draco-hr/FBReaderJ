@@ -21,21 +21,21 @@
     }
   }
   if (coverBitmap != null) {
-    holder.coverView.setImageBitmap(coverBitmap);
+    holder.CoverView.setImageBitmap(coverBitmap);
   }
  else   if (tree instanceof NetworkBookTree) {
-    holder.coverView.setImageResource(R.drawable.ic_list_library_book);
+    holder.CoverView.setImageResource(R.drawable.ic_list_library_book);
   }
  else   if (tree instanceof SearchCatalogTree) {
-    holder.coverView.setImageResource(R.drawable.ic_list_library_search);
+    holder.CoverView.setImageResource(R.drawable.ic_list_library_search);
   }
  else   if (tree instanceof BasketCatalogTree) {
-    holder.coverView.setImageResource(R.drawable.ic_list_library_basket);
+    holder.CoverView.setImageResource(R.drawable.ic_list_library_basket);
   }
  else   if (tree instanceof AddCustomCatalogItemTree) {
-    holder.coverView.setImageResource(R.drawable.ic_list_plus);
+    holder.CoverView.setImageResource(R.drawable.ic_list_plus);
   }
  else {
-    holder.coverView.setImageResource(R.drawable.ic_list_library_books);
+    holder.CoverView.setImageResource(R.drawable.ic_list_library_books);
   }
 }

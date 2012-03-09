@@ -1,0 +1,12 @@
+{
+  NameView=(TextView)view.findViewById(R.id.network_tree_item_name);
+  SummaryView=(TextView)view.findViewById(R.id.network_tree_item_childrenlist);
+  CoverView=(ImageView)view.findViewById(R.id.network_tree_item_icon);
+  CoverView.getLayoutParams().width=width;
+  CoverView.getLayoutParams().height=height;
+  CoverView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+  CoverView.requestLayout();
+  StatusView=(ImageView)view.findViewById(R.id.network_tree_item_status);
+  view.setTag(this);
+  numViewHolders++;
+}

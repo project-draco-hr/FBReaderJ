@@ -2,7 +2,7 @@
 synchronized (holder) {
     Bitmap coverBitmap=myCachedBitmaps.get(holder.key);
     if (coverBitmap != null) {
-      holder.coverView.setImageBitmap(coverBitmap);
+      holder.CoverView.setImageBitmap(coverBitmap);
       return;
     }
     if (holder.coverBitmapTask == null) {
