@@ -1,0 +1,3 @@
+{
+  ((TextView)view.findViewById(resourceId)).setText(text);
+}
