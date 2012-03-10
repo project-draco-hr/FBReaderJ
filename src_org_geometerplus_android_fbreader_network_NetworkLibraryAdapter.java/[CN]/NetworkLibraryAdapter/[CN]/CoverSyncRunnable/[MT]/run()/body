@@ -19,7 +19,9 @@ synchronized (myHolder) {
 );
     }
   finally {
-      if (myHolder.coverSyncRunnable == this)       myHolder.coverSyncRunnable=null;
+      if (myHolder.coverSyncRunnable == this) {
+        myHolder.coverSyncRunnable=null;
+      }
     }
   }
 }
