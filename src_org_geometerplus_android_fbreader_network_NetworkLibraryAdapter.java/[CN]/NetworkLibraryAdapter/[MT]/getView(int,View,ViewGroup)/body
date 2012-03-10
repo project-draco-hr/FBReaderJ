@@ -28,8 +28,8 @@ synchronized (holder) {
     }
     holder.key=key;
   }
-  holder.NameView.setText(tree.getName());
-  holder.SummaryView.setText(tree.getSummary());
+  setSubviewText(view,R.id.network_tree_item_name,tree.getName());
+  setSubviewText(view,R.id.network_tree_item_childrenlist,tree.getSummary());
   setupCover(holder,tree,myCoverWidth,myCoverWidth);
   final int status=(tree instanceof NetworkBookTree) ? NetworkBookActions.getBookStatus(((NetworkBookTree)tree).Book,((NetworkLibraryActivity)getActivity()).Connection) : 0;
   if (status != 0) {
