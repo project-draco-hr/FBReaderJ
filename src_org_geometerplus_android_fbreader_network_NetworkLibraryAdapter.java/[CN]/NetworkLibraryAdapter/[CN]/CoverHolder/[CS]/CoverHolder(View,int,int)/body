@@ -5,5 +5,5 @@
   CoverView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
   CoverView.requestLayout();
   view.setTag(this);
-  numViewHolders++;
+  numCoverHolders++;
 }

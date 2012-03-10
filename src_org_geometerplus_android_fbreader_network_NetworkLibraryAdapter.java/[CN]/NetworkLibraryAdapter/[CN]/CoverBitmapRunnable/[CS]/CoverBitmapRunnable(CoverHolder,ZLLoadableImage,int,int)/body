@@ -4,7 +4,7 @@
   myWidth=width;
   myHeight=height;
 synchronized (holder) {
-    myKey=holder.key;
+    myKey=holder.Key;
     holder.coverBitmapRunnable=this;
   }
 }

@@ -1,5 +1,5 @@
 {
-  Bitmap coverBitmap=myCachedBitmaps.get(holder.key);
+  Bitmap coverBitmap=myCachedBitmaps.get(holder.Key);
   final ZLImage cover=tree.getCover();
   if (coverBitmap == null && cover != null) {
     ZLLoadableImage img=null;

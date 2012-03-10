@@ -1,4 +1,4 @@
-ViewHolder holder
+CoverHolder holder
 NetworkTree tree
 int width
 int height

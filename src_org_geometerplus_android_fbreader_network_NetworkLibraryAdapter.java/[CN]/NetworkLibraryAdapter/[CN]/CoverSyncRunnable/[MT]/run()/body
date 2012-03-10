@@ -4,13 +4,13 @@ synchronized (myHolder) {
       if (myHolder.coverSyncRunnable != this) {
         return;
       }
-      if (!myHolder.key.equals(myKey)) {
+      if (!myHolder.Key.equals(myKey)) {
         return;
       }
       if (!myImage.isSynchronized()) {
         return;
       }
-      if (myCachedBitmaps.containsKey(myHolder.key)) {
+      if (myCachedBitmaps.containsKey(myHolder.Key)) {
         return;
       }
       final ZLAndroidImageManager mgr=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
@@ -21,7 +21,7 @@ synchronized (myHolder) {
       getActivity().runOnUiThread(new Runnable(){
         @Override public void run(){
 synchronized (myHolder) {
-            if (myHolder.key.equals(myKey)) {
+            if (myHolder.Key.equals(myKey)) {
               startUpdateCover(myHolder,myImage,myWidth,myHeight);
             }
           }

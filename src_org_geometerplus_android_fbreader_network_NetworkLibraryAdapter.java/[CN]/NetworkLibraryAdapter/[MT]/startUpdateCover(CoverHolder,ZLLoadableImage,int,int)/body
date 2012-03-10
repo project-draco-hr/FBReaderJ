@@ -1,6 +1,6 @@
 {
 synchronized (holder) {
-    final Bitmap coverBitmap=myCachedBitmaps.get(holder.key);
+    final Bitmap coverBitmap=myCachedBitmaps.get(holder.Key);
     if (coverBitmap != null) {
       holder.CoverView.setImageBitmap(coverBitmap);
     }

@@ -3,7 +3,7 @@
   if (tree == null) {
     throw new IllegalArgumentException("tree == null");
   }
-  final ViewHolder holder;
+  final CoverHolder holder;
   if (view == null) {
     view=LayoutInflater.from(parent.getContext()).inflate(R.layout.network_tree_item,parent,false);
     if (myCoverWidth == -1) {
@@ -12,21 +12,21 @@
       myCoverWidth=myCoverHeight * 15 / 32;
       view.requestLayout();
     }
-    holder=new ViewHolder(view,myCoverWidth,myCoverHeight);
+    holder=new CoverHolder(view,myCoverWidth,myCoverHeight);
   }
  else {
-    holder=(ViewHolder)view.getTag();
+    holder=(CoverHolder)view.getTag();
   }
 synchronized (holder) {
     final FBTree.Key key=tree.getUniqueKey();
-    if (!holder.key.equals(key)) {
+    if (!holder.Key.equals(key)) {
       if (holder.coverBitmapTask != null) {
         holder.coverBitmapTask.cancel(true);
         holder.coverBitmapTask=null;
       }
       holder.coverBitmapRunnable=null;
     }
-    holder.key=key;
+    holder.Key=key;
   }
   setSubviewText(view,R.id.network_tree_item_name,tree.getName());
   setSubviewText(view,R.id.network_tree_item_childrenlist,tree.getSummary());
