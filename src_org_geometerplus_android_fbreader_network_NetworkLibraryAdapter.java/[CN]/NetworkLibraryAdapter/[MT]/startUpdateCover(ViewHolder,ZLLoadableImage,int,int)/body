@@ -1,11 +1,10 @@
 {
 synchronized (holder) {
-    Bitmap coverBitmap=myCachedBitmaps.get(holder.key);
+    final Bitmap coverBitmap=myCachedBitmaps.get(holder.key);
     if (coverBitmap != null) {
       holder.CoverView.setImageBitmap(coverBitmap);
-      return;
     }
-    if (holder.coverBitmapTask == null) {
+ else     if (holder.coverBitmapTask == null) {
       holder.coverBitmapTask=myPool.submit(new CoverBitmapRunnable(holder,image,width,height));
     }
   }
