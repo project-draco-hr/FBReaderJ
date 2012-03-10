@@ -15,6 +15,11 @@ synchronized (CoverHolder.this) {
     if (Thread.currentThread().isInterrupted()) {
       return;
     }
+synchronized (CoverHolder.this) {
+      if (!Key.equals(myKey)) {
+        return;
+      }
+    }
     myManager.CachedBitmaps.put(myKey,coverBitmap);
     myManager.runOnUiThread(new Runnable(){
       @Override public void run(){
