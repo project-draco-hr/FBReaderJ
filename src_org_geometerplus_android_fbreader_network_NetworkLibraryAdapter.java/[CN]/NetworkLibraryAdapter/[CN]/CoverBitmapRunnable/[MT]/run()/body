@@ -1,9 +1,13 @@
 {
 synchronized (myHolder) {
-    if (myHolder.coverBitmapRunnable != this)     return;
+    if (myHolder.coverBitmapRunnable != this) {
+      return;
+    }
   }
   try {
-    if (!myImage.isSynchronized())     return;
+    if (!myImage.isSynchronized()) {
+      return;
+    }
     final ZLAndroidImageManager mgr=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
     final ZLAndroidImageData data=mgr.getImageData(myImage);
     if (data == null) {

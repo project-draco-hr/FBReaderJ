@@ -9,7 +9,9 @@
       img=(ZLLoadableImage)cover;
       if (img.isSynchronized()) {
         data=mgr.getImageData(img);
-        if (data != null)         startUpdateCover(holder,img,width,height);
+        if (data != null) {
+          startUpdateCover(holder,img,width,height);
+        }
       }
  else {
         img.startSynchronization(new CoverSyncRunnable(holder,img,width,height));
