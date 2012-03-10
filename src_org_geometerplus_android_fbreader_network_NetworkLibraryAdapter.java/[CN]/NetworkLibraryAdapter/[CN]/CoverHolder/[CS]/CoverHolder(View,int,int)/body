@@ -4,6 +4,8 @@
   CoverView.getLayoutParams().height=height;
   CoverView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
   CoverView.requestLayout();
+  Width=width;
+  Height=height;
   view.setTag(this);
   numCoverHolders++;
 }

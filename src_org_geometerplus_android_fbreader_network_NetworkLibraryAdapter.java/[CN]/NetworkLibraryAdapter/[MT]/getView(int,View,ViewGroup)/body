@@ -30,7 +30,7 @@ synchronized (holder) {
   }
   setSubviewText(view,R.id.network_tree_item_name,tree.getName());
   setSubviewText(view,R.id.network_tree_item_childrenlist,tree.getSummary());
-  setupCover(holder,tree,myCoverWidth,myCoverWidth);
+  setupCover(holder,tree);
   final ImageView statusView=(ImageView)view.findViewById(R.id.network_tree_item_status);
   final int status=(tree instanceof NetworkBookTree) ? NetworkBookActions.getBookStatus(((NetworkBookTree)tree).Book,((NetworkLibraryActivity)getActivity()).Connection) : 0;
   if (status != 0) {

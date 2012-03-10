@@ -1,6 +1,6 @@
 {
-synchronized (myHolder) {
-    if (myHolder.coverBitmapRunnable != this) {
+synchronized (CoverHolder.this) {
+    if (coverBitmapRunnable != this) {
       return;
     }
   }
@@ -13,24 +13,24 @@ synchronized (myHolder) {
     if (data == null) {
       return;
     }
-    final Bitmap coverBitmap=data.getBitmap(2 * myWidth,2 * myHeight);
+    final Bitmap coverBitmap=data.getBitmap(2 * Width,2 * Height);
     if (coverBitmap == null) {
       return;
     }
     if (Thread.currentThread().isInterrupted()) {
       return;
     }
-synchronized (myHolder) {
-      if (!myHolder.Key.equals(myKey)) {
+synchronized (CoverHolder.this) {
+      if (!Key.equals(myKey)) {
         return;
       }
     }
     myCachedBitmaps.put(myKey,coverBitmap);
     getActivity().runOnUiThread(new Runnable(){
       @Override public void run(){
-synchronized (myHolder) {
-          if (myHolder.Key.equals(myKey)) {
-            myHolder.CoverView.setImageBitmap(coverBitmap);
+synchronized (CoverHolder.this) {
+          if (Key.equals(myKey)) {
+            CoverView.setImageBitmap(coverBitmap);
           }
         }
       }
@@ -38,10 +38,10 @@ synchronized (myHolder) {
 );
   }
   finally {
-synchronized (myHolder) {
-      if (myHolder.coverBitmapRunnable == this) {
-        myHolder.coverBitmapRunnable=null;
-        myHolder.coverBitmapTask=null;
+synchronized (CoverHolder.this) {
+      if (coverBitmapRunnable == this) {
+        coverBitmapRunnable=null;
+        coverBitmapTask=null;
       }
     }
   }

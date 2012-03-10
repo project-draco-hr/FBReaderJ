@@ -1,16 +1,16 @@
 {
-synchronized (myHolder) {
+synchronized (CoverHolder.this) {
     try {
-      if (myHolder.coverSyncRunnable != this) {
+      if (coverSyncRunnable != this) {
         return;
       }
-      if (!myHolder.Key.equals(myKey)) {
+      if (!Key.equals(myKey)) {
         return;
       }
       if (!myImage.isSynchronized()) {
         return;
       }
-      if (myCachedBitmaps.containsKey(myHolder.Key)) {
+      if (myCachedBitmaps.containsKey(Key)) {
         return;
       }
       final ZLAndroidImageManager mgr=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
@@ -20,9 +20,9 @@ synchronized (myHolder) {
       }
       getActivity().runOnUiThread(new Runnable(){
         @Override public void run(){
-synchronized (myHolder) {
-            if (myHolder.Key.equals(myKey)) {
-              startUpdateCover(myHolder,myImage,myWidth,myHeight);
+synchronized (CoverHolder.this) {
+            if (Key.equals(myKey)) {
+              startUpdateCover(CoverHolder.this,myImage);
             }
           }
         }
@@ -30,8 +30,8 @@ synchronized (myHolder) {
 );
     }
   finally {
-      if (myHolder.coverSyncRunnable == this) {
-        myHolder.coverSyncRunnable=null;
+      if (coverSyncRunnable == this) {
+        coverSyncRunnable=null;
       }
     }
   }

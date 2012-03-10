@@ -10,17 +10,17 @@
       if (img.isSynchronized()) {
         data=mgr.getImageData(img);
         if (data != null) {
-          startUpdateCover(holder,img,width,height);
+          startUpdateCover(holder,img);
         }
       }
  else {
-        img.startSynchronization(new CoverSyncRunnable(holder,img,width,height));
+        img.startSynchronization(holder.new CoverSyncRunnable(img));
       }
     }
  else {
       data=mgr.getImageData(cover);
       if (data != null) {
-        coverBitmap=data.getBitmap(2 * width,2 * height);
+        coverBitmap=data.getBitmap(2 * holder.Width,2 * holder.Height);
       }
     }
   }

@@ -1,0 +1,7 @@
+{
+  myImage=image;
+synchronized (CoverHolder.this) {
+    myKey=Key;
+    coverBitmapRunnable=this;
+  }
+}
