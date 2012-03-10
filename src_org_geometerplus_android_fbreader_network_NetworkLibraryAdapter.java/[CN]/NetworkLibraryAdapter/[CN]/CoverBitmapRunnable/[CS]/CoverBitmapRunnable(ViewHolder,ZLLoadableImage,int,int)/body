@@ -5,7 +5,6 @@
   myHeight=height;
 synchronized (holder) {
     myKey=holder.key;
-    myTree=holder.tree;
     holder.coverBitmapRunnable=this;
   }
 }

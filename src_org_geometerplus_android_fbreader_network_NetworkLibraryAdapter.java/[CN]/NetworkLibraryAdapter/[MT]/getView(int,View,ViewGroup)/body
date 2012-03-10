@@ -18,15 +18,15 @@
     holder=(ViewHolder)view.getTag();
   }
 synchronized (holder) {
-    if (holder.tree != tree) {
+    final FBTree.Key key=tree.getUniqueKey();
+    if (!holder.key.equals(key)) {
       if (holder.coverBitmapTask != null) {
         holder.coverBitmapTask.cancel(true);
         holder.coverBitmapTask=null;
       }
       holder.coverBitmapRunnable=null;
     }
-    holder.key=tree.getUniqueKey();
-    holder.tree=tree;
+    holder.key=key;
   }
   holder.NameView.setText(tree.getName());
   holder.SummaryView.setText(tree.getSummary());

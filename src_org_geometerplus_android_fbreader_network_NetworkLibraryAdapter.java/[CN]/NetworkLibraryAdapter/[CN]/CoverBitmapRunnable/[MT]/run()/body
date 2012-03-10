@@ -21,7 +21,7 @@ synchronized (myHolder) {
       return;
     }
 synchronized (myHolder) {
-      if (myHolder.key != myKey || myHolder.tree != myTree) {
+      if (!myHolder.key.equals(myKey)) {
         return;
       }
     }
@@ -29,7 +29,7 @@ synchronized (myHolder) {
     getActivity().runOnUiThread(new Runnable(){
       @Override public void run(){
 synchronized (myHolder) {
-          if (myHolder.key == myKey && myHolder.tree == myTree) {
+          if (myHolder.key.equals(myKey)) {
             myHolder.CoverView.setImageBitmap(coverBitmap);
           }
         }
