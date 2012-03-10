@@ -1,7 +1,7 @@
 {
-  myView=view;
+  CoverView=view;
   myImage=image;
-  myWidth=width;
-  myHeight=height;
+  Width=width;
+  Height=height;
   myImageViews.put(view,this);
 }

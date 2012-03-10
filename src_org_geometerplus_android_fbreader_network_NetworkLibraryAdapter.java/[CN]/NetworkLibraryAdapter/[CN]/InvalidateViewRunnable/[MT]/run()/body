@@ -1,6 +1,6 @@
 {
 synchronized (myImageViews) {
-    if (myImageViews.remove(myView) != this) {
+    if (myImageViews.remove(CoverView) != this) {
       return;
     }
     if (!myImage.isSynchronized()) {
@@ -11,11 +11,11 @@ synchronized (myImageViews) {
     if (data == null) {
       return;
     }
-    final Bitmap coverBitmap=data.getBitmap(2 * myWidth,2 * myHeight);
+    final Bitmap coverBitmap=data.getBitmap(2 * Width,2 * Height);
     if (coverBitmap == null) {
       return;
     }
-    myView.setImageBitmap(coverBitmap);
-    myView.postInvalidate();
+    CoverView.setImageBitmap(coverBitmap);
+    CoverView.postInvalidate();
   }
 }
