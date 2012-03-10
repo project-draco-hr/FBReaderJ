@@ -8,25 +8,15 @@ synchronized (CoverHolder.this) {
     if (!myImage.isSynchronized()) {
       return;
     }
-    final ZLAndroidImageManager mgr=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
-    final ZLAndroidImageData data=mgr.getImageData(myImage);
-    if (data == null) {
-      return;
-    }
-    final Bitmap coverBitmap=data.getBitmap(2 * Width,2 * Height);
+    final Bitmap coverBitmap=myManager.getBitmap(myImage);
     if (coverBitmap == null) {
       return;
     }
     if (Thread.currentThread().isInterrupted()) {
       return;
     }
-synchronized (CoverHolder.this) {
-      if (!Key.equals(myKey)) {
-        return;
-      }
-    }
-    myCachedBitmaps.put(myKey,coverBitmap);
-    getActivity().runOnUiThread(new Runnable(){
+    myManager.CachedBitmaps.put(myKey,coverBitmap);
+    myManager.runOnUiThread(new Runnable(){
       @Override public void run(){
 synchronized (CoverHolder.this) {
           if (Key.equals(myKey)) {

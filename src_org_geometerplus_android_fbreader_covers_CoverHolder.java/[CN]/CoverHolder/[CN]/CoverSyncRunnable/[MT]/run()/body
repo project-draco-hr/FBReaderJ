@@ -10,19 +10,11 @@ synchronized (CoverHolder.this) {
       if (!myImage.isSynchronized()) {
         return;
       }
-      if (myCachedBitmaps.containsKey(Key)) {
-        return;
-      }
-      final ZLAndroidImageManager mgr=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
-      final ZLAndroidImageData data=mgr.getImageData(myImage);
-      if (data == null) {
-        return;
-      }
-      getActivity().runOnUiThread(new Runnable(){
+      myManager.runOnUiThread(new Runnable(){
         @Override public void run(){
 synchronized (CoverHolder.this) {
             if (Key.equals(myKey)) {
-              startUpdateCover(CoverHolder.this,myImage);
+              myManager.setCoverForView(CoverHolder.this,myImage);
             }
           }
         }

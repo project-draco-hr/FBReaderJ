@@ -1,4 +1,3 @@
+CoverManager manager
 ImageView coverView
-int width
-int height
 FBTree.Key key

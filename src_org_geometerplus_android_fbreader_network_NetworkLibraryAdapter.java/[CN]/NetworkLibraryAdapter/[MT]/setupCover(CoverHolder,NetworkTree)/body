@@ -1,33 +1,8 @@
 {
-  Bitmap coverBitmap=myCachedBitmaps.get(holder.Key);
-  final ZLImage cover=tree.getCover();
-  if (coverBitmap == null && cover != null) {
-    ZLLoadableImage img=null;
-    ZLAndroidImageData data=null;
-    final ZLAndroidImageManager mgr=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
-    if (cover instanceof ZLLoadableImage) {
-      img=(ZLLoadableImage)cover;
-      if (img.isSynchronized()) {
-        data=mgr.getImageData(img);
-        if (data != null) {
-          startUpdateCover(holder,img);
-        }
-      }
- else {
-        img.startSynchronization(holder.new CoverSyncRunnable(img));
-      }
-    }
- else {
-      data=mgr.getImageData(cover);
-      if (data != null) {
-        coverBitmap=data.getBitmap(2 * holder.Width,2 * holder.Height);
-      }
-    }
+  if (myCoverManager.trySetCoverImage(holder,tree)) {
+    return;
   }
-  if (coverBitmap != null) {
-    holder.CoverView.setImageBitmap(coverBitmap);
-  }
- else   if (tree instanceof NetworkBookTree) {
+  if (tree instanceof NetworkBookTree) {
     holder.CoverView.setImageResource(R.drawable.ic_list_library_book);
   }
  else   if (tree instanceof SearchCatalogTree) {

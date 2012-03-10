@@ -1,0 +1,8 @@
+{
+  final ZLAndroidImageManager mgr=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
+  final ZLAndroidImageData data=mgr.getImageData(image);
+  if (data == null) {
+    return null;
+  }
+  return data.getBitmap(2 * myCoverWidth,2 * myCoverHeight);
+}

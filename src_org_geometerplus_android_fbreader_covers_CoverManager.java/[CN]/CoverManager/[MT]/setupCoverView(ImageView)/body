@@ -1,0 +1,6 @@
+{
+  coverView.getLayoutParams().width=myCoverWidth;
+  coverView.getLayoutParams().height=myCoverHeight;
+  coverView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+  coverView.requestLayout();
+}

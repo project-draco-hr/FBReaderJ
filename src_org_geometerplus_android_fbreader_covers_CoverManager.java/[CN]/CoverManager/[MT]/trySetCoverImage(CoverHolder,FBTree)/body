@@ -1,0 +1,23 @@
+{
+  Bitmap coverBitmap=CachedBitmaps.get(holder.Key);
+  if (coverBitmap == null) {
+    final ZLImage cover=tree.getCover();
+    if (cover instanceof ZLLoadableImage) {
+      final ZLLoadableImage img=(ZLLoadableImage)cover;
+      if (img.isSynchronized()) {
+        setCoverForView(holder,img);
+      }
+ else {
+        img.startSynchronization(holder.new CoverSyncRunnable(img));
+      }
+    }
+ else     if (cover != null) {
+      coverBitmap=getBitmap(cover);
+    }
+  }
+  if (coverBitmap != null) {
+    holder.CoverView.setImageBitmap(coverBitmap);
+    return true;
+  }
+  return false;
+}

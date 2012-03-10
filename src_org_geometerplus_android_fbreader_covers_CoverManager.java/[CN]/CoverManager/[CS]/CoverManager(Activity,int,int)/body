@@ -1,0 +1,5 @@
+{
+  myActivity=activity;
+  myCoverWidth=coverWidth;
+  myCoverHeight=coverHeight;
+}
