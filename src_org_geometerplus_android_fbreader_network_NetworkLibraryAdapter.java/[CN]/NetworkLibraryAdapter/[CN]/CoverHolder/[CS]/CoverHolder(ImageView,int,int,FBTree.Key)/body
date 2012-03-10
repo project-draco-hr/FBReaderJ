@@ -1,0 +1,7 @@
+{
+  CoverView=coverView;
+  Width=width;
+  Height=height;
+  Key=key;
+  numCoverHolders++;
+}

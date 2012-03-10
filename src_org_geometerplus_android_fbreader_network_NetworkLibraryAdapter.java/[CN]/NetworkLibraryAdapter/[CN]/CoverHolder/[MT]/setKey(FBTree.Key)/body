@@ -1,0 +1,10 @@
+{
+  if (!Key.equals(key)) {
+    if (coverBitmapTask != null) {
+      coverBitmapTask.cancel(true);
+      coverBitmapTask=null;
+    }
+    coverBitmapRunnable=null;
+  }
+  Key=key;
+}
