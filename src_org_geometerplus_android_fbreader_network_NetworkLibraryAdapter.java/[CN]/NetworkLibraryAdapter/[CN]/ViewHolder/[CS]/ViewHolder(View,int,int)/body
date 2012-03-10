@@ -4,7 +4,6 @@
   CoverView.getLayoutParams().height=height;
   CoverView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
   CoverView.requestLayout();
-  StatusView=(ImageView)view.findViewById(R.id.network_tree_item_status);
   view.setTag(this);
   numViewHolders++;
 }

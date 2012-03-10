@@ -31,14 +31,15 @@ synchronized (holder) {
   setSubviewText(view,R.id.network_tree_item_name,tree.getName());
   setSubviewText(view,R.id.network_tree_item_childrenlist,tree.getSummary());
   setupCover(holder,tree,myCoverWidth,myCoverWidth);
+  final ImageView statusView=(ImageView)view.findViewById(R.id.network_tree_item_status);
   final int status=(tree instanceof NetworkBookTree) ? NetworkBookActions.getBookStatus(((NetworkBookTree)tree).Book,((NetworkLibraryActivity)getActivity()).Connection) : 0;
   if (status != 0) {
-    holder.StatusView.setVisibility(View.VISIBLE);
-    holder.StatusView.setImageResource(status);
+    statusView.setVisibility(View.VISIBLE);
+    statusView.setImageResource(status);
   }
  else {
-    holder.StatusView.setVisibility(View.GONE);
+    statusView.setVisibility(View.GONE);
   }
-  holder.StatusView.requestLayout();
+  statusView.requestLayout();
   return view;
 }
