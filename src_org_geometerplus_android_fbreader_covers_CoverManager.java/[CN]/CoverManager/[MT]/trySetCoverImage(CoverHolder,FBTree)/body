@@ -1,5 +1,8 @@
 {
-  Bitmap coverBitmap=CachedBitmaps.get(holder.Key);
+  Object coverBitmap=CachedBitmaps.get(holder.Key);
+  if (coverBitmap == NULL_BITMAP) {
+    return false;
+  }
   if (coverBitmap == null) {
     final ZLImage cover=tree.getCover();
     if (cover instanceof ZLLoadableImage) {
@@ -16,7 +19,7 @@
     }
   }
   if (coverBitmap != null) {
-    holder.CoverView.setImageBitmap(coverBitmap);
+    holder.CoverView.setImageBitmap((Bitmap)coverBitmap);
     return true;
   }
   return false;

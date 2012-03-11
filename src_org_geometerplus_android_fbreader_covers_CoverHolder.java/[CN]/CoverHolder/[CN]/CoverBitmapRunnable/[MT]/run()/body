@@ -10,6 +10,7 @@ synchronized (CoverHolder.this) {
     }
     final Bitmap coverBitmap=myManager.getBitmap(myImage);
     if (coverBitmap == null) {
+      myManager.CachedBitmaps.put(myKey,CoverManager.NULL_BITMAP);
       return;
     }
     if (Thread.currentThread().isInterrupted()) {
