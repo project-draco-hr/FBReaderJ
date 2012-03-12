@@ -10,18 +10,13 @@ synchronized (CoverHolder.this) {
     }
     final Bitmap coverBitmap=myManager.getBitmap(myImage);
     if (coverBitmap == null) {
-      myManager.CachedBitmaps.put(myKey,CoverManager.NULL_BITMAP);
+      myManager.Cache.putBitmap(myKey,null);
       return;
     }
     if (Thread.currentThread().isInterrupted()) {
       return;
     }
-synchronized (CoverHolder.this) {
-      if (!Key.equals(myKey)) {
-        return;
-      }
-    }
-    myManager.CachedBitmaps.put(myKey,coverBitmap);
+    myManager.Cache.putBitmap(myKey,coverBitmap);
     myManager.runOnUiThread(new Runnable(){
       @Override public void run(){
 synchronized (CoverHolder.this) {

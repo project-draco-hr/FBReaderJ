@@ -1,0 +1,7 @@
+{
+  final Object bitmap=myBitmaps.get(key);
+  if (bitmap == NULL_BITMAP) {
+    throw new NullObjectException();
+  }
+  return (Bitmap)bitmap;
+}

@@ -1,14 +1,15 @@
 {
 synchronized (holder) {
-    final Object coverBitmap=CachedBitmaps.get(holder.Key);
-    if (coverBitmap == NULL_BITMAP) {
-      return;
+    try {
+      final Bitmap coverBitmap=Cache.getBitmap(holder.Key);
+      if (coverBitmap != null) {
+        holder.CoverView.setImageBitmap(coverBitmap);
+      }
+ else       if (holder.coverBitmapTask == null) {
+        holder.coverBitmapTask=myPool.submit(holder.new CoverBitmapRunnable(image));
+      }
     }
- else     if (coverBitmap != null) {
-      holder.CoverView.setImageBitmap((Bitmap)coverBitmap);
-    }
- else     if (holder.coverBitmapTask == null) {
-      holder.coverBitmapTask=myPool.submit(holder.new CoverBitmapRunnable(image));
+ catch (    CoverCache.NullObjectException e) {
     }
   }
 }

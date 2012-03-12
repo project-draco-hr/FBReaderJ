@@ -3,5 +3,5 @@
   manager.setupCoverView(coverView);
   CoverView=coverView;
   Key=key;
-  myManager.HoldersCounter++;
+  myManager.Cache.HoldersCounter++;
 }

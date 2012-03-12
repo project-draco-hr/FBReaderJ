@@ -1,6 +1,9 @@
 {
-  Object coverBitmap=CachedBitmaps.get(holder.Key);
-  if (coverBitmap == NULL_BITMAP) {
+  Bitmap coverBitmap;
+  try {
+    coverBitmap=Cache.getBitmap(holder.Key);
+  }
+ catch (  CoverCache.NullObjectException e) {
     return false;
   }
   if (coverBitmap == null) {
@@ -19,7 +22,7 @@
     }
   }
   if (coverBitmap != null) {
-    holder.CoverView.setImageBitmap((Bitmap)coverBitmap);
+    holder.CoverView.setImageBitmap(coverBitmap);
     return true;
   }
   return false;
