@@ -1,0 +1,11 @@
+{
+  CoverHolder holder=(CoverHolder)coverView.getTag();
+  if (holder == null) {
+    holder=new CoverHolder(this,coverView,tree.getUniqueKey());
+    coverView.setTag(holder);
+  }
+ else {
+    holder.setKey(tree.getUniqueKey());
+  }
+  return holder;
+}

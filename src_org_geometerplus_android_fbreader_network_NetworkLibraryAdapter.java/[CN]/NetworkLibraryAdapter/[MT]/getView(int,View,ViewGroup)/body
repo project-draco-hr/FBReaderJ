@@ -3,7 +3,6 @@
   if (tree == null) {
     throw new IllegalArgumentException("tree == null");
   }
-  final CoverHolder holder;
   if (view == null) {
     view=LayoutInflater.from(parent.getContext()).inflate(R.layout.network_tree_item,parent,false);
     if (myCoverManager == null) {
@@ -12,17 +11,10 @@
       myCoverManager=new CoverManager(getActivity(),coverHeight * 15 / 32,coverHeight);
       view.requestLayout();
     }
-    final ImageView coverView=(ImageView)view.findViewById(R.id.network_tree_item_icon);
-    holder=new CoverHolder(myCoverManager,coverView,tree.getUniqueKey());
-    view.setTag(holder);
-  }
- else {
-    holder=(CoverHolder)view.getTag();
-    holder.setKey(tree.getUniqueKey());
   }
   setSubviewText(view,R.id.network_tree_item_name,tree.getName());
   setSubviewText(view,R.id.network_tree_item_childrenlist,tree.getSummary());
-  setupCover(holder,tree);
+  setupCover((ImageView)view.findViewById(R.id.network_tree_item_icon),tree);
   final ImageView statusView=(ImageView)view.findViewById(R.id.network_tree_item_status);
   final int status=(tree instanceof NetworkBookTree) ? NetworkBookActions.getBookStatus(((NetworkBookTree)tree).Book,((NetworkLibraryActivity)getActivity()).Connection) : 0;
   if (status != 0) {

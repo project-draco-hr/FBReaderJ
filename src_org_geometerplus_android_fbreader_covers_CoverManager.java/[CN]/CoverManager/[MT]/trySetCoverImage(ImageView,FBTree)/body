@@ -1,4 +1,5 @@
 {
+  final CoverHolder holder=getHolder(coverView,tree);
   Bitmap coverBitmap;
   try {
     coverBitmap=Cache.getBitmap(holder.Key);
