@@ -4,5 +4,4 @@ synchronized (CoverHolder.this) {
     myKey=Key;
     coverBitmapRunnable=this;
   }
-  System.err.println("+ CoverBitmapRunnable for " + myKey);
 }

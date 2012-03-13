@@ -4,5 +4,4 @@ synchronized (CoverHolder.this) {
     myKey=Key;
     coverSyncRunnable=this;
   }
-  System.err.println("+ CoverSyncRunnable for " + myKey);
 }
