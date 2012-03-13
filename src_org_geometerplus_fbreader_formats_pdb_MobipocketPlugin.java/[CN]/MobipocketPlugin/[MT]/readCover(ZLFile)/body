@@ -1,90 +1,14 @@
 {
-  InputStream stream=null;
-  try {
-    stream=file.getInputStream();
-    final PdbHeader header=new PdbHeader(stream);
-    PdbUtil.skip(stream,header.Offsets[0] + 16 - header.length());
-    if (PdbUtil.readInt(stream) != 0x4D4F4249) {
-      return null;
+  return new ZLImageProxy(){
+    @Override public String getId(){
+      return file.getPath();
     }
-    final int length=(int)PdbUtil.readInt(stream);
-    PdbUtil.skip(stream,104);
-    final int exthFlags=(int)PdbUtil.readInt(stream);
-    int coverIndex=-1;
-    int thumbIndex=-1;
-    int offset=132;
-    if ((exthFlags & 0x40) != 0) {
-      PdbUtil.skip(stream,length - 116);
-      offset=length + 20;
-      if (PdbUtil.readInt(stream) != 0x45585448) {
-        return null;
-      }
-      PdbUtil.skip(stream,4);
-      final int recordsNumber=(int)PdbUtil.readInt(stream);
-      offset+=8;
-      for (int i=0; i < recordsNumber; ++i) {
-        final int type=(int)PdbUtil.readInt(stream);
-        final int size=(int)PdbUtil.readInt(stream);
-        offset+=size;
-        if (size <= 8) {
-          continue;
-        }
-switch (type) {
-default :
-          PdbUtil.skip(stream,size - 8);
-        break;
-case 201:
-{
-        if (size == 12) {
-          coverIndex=(int)PdbUtil.readInt(stream);
-        }
- else {
-          PdbUtil.skip(stream,size - 8);
-        }
-        break;
-      }
-case 202:
-{
-      if (size == 12) {
-        thumbIndex=(int)PdbUtil.readInt(stream);
-      }
- else {
-        PdbUtil.skip(stream,size - 8);
-      }
-      break;
+    @Override public int sourceType(){
+      return SourceType.DISK;
     }
-}
-}
-}
-final InputStream tempStream=stream;
-stream=null;
-tempStream.close();
-if (coverIndex == -1) {
-if (thumbIndex == -1) {
-return null;
-}
-coverIndex=thumbIndex;
-}
-MobipocketStream myMobipocketStream=new MobipocketStream(file);
-int start=myMobipocketStream.getImageOffset(coverIndex);
-if (start >= 0) {
-int len=myMobipocketStream.getImageLength(coverIndex);
-if (len > 0) {
-return new ZLFileImage(MimeType.IMAGE_AUTO,file,start,len);
-}
-}
-return null;
-}
- catch (IOException e) {
-return null;
-}
- finally {
-if (stream != null) {
-try {
-stream.close();
-}
- catch (IOException e) {
-}
-}
-}
+    @Override public ZLSingleImage getRealImage(){
+      return readCoverInternal(file);
+    }
+  }
+;
 }
