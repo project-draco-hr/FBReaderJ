@@ -7,6 +7,12 @@
  else {
     view.setBackgroundColor(0);
   }
+  if (myCoverManager == null) {
+    view.measure(ViewGroup.LayoutParams.FILL_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+    int coverHeight=view.getMeasuredHeight();
+    myCoverManager=new CoverManager(getActivity(),coverHeight * 15 / 32,coverHeight);
+    view.requestLayout();
+  }
   final ImageView coverView=getCoverView(view);
   final Bitmap coverBitmap=getCoverBitmap(tree.getCover());
   if (coverBitmap != null) {
