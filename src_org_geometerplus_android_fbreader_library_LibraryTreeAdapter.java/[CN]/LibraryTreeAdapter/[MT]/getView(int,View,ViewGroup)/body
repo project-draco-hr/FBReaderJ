@@ -9,8 +9,8 @@
   }
   if (myCoverManager == null) {
     view.measure(ViewGroup.LayoutParams.FILL_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-    final int height=view.getMeasuredHeight();
-    myCoverManager=new CoverManager(getActivity(),height * 15 / 32,height);
+    final int coverHeight=view.getMeasuredHeight();
+    myCoverManager=new CoverManager(getActivity(),coverHeight * 15 / 32,coverHeight);
     view.requestLayout();
   }
   CoverHolder holder=(CoverHolder)view.getTag();
