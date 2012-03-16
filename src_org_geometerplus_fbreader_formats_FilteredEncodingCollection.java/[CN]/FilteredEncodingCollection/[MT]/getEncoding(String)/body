@@ -1,0 +1,9 @@
+{
+  Encoding e=myEncodingByAlias.get(alias);
+  if (e == null && isEncodingSupported(alias)) {
+    e=new Encoding(null,alias,alias);
+    myEncodingByAlias.put(alias,e);
+    myEncodings.add(e);
+  }
+  return e;
+}
