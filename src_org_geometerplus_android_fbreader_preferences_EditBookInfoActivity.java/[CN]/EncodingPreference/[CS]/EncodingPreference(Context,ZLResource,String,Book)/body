@@ -1,3 +1,26 @@
 {
   super(context,rootResource,resourceKey);
+  final FormatPlugin plugin=PluginCollection.Instance().getPlugin(book.File);
+  if (plugin != null) {
+    final List<Encoding> encodings=new ArrayList<Encoding>(plugin.supportedEncodings().encodings());
+    Collections.sort(encodings,new Comparator<Encoding>(){
+      public int compare(      Encoding e1,      Encoding e2){
+        return e1.DisplayName.compareTo(e2.DisplayName);
+      }
+    }
+);
+    final String[] codes=new String[encodings.size()];
+    final String[] names=new String[encodings.size()];
+    int index=0;
+    for (    Encoding e : encodings) {
+      codes[index]=e.Name;
+      names[index]=e.DisplayName;
+      ++index;
+    }
+    setLists(codes,names);
+    if (encodings.size() == 1) {
+      setInitialValue(codes[0]);
+      setEnabled(false);
+    }
+  }
 }
