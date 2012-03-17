@@ -1,3 +1,16 @@
 {
+  if (myEncoding == null) {
+    final FormatPlugin plugin=PluginCollection.Instance().getPlugin(File);
+    if (plugin != null) {
+      try {
+        System.err.println("do encoding detection");
+        plugin.detectLanguageAndEncoding(this);
+      }
+ catch (      BookReadingException e) {
+      }
+      if (myEncoding == null) {
+      }
+    }
+  }
   return myEncoding;
 }
