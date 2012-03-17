@@ -2,6 +2,7 @@
   super.onStart();
   final Book book=Book.getByFile(myFile);
   if (book != null) {
+    book.getEncoding();
     setupCover(book);
     setupBookInfo(book);
     setupAnnotation(book);
