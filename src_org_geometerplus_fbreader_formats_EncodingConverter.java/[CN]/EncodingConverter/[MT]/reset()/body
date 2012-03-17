@@ -1,0 +1,4 @@
+{
+  myDecoder.reset();
+  myEncoder.reset();
+}

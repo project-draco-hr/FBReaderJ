@@ -1,0 +1,12 @@
+{
+  final ByteBuffer inBuffer=ByteBuffer.wrap(in,inOffset,inLength);
+  final ByteBuffer outBuffer=ByteBuffer.wrap(out,outOffset,out.length - outOffset);
+  try {
+    final CharBuffer charBuffer=myDecoder.decode(inBuffer);
+    myEncoder.encode(charBuffer,outBuffer,true);
+    return charBuffer.length();
+  }
+ catch (  CharacterCodingException e) {
+    return 0;
+  }
+}

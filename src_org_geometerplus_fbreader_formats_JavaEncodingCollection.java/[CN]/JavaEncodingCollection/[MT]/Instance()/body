@@ -1,0 +1,6 @@
+{
+  if (ourInstance == null) {
+    ourInstance=new JavaEncodingCollection();
+  }
+  return ourInstance;
+}
