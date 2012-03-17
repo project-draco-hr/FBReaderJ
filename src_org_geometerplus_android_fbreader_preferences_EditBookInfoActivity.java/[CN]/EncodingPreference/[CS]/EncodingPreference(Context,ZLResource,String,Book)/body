@@ -1,5 +1,6 @@
 {
   super(context,rootResource,resourceKey);
+  myBook=book;
   final FormatPlugin plugin=PluginCollection.Instance().getPlugin(book.File);
   if (plugin != null) {
     final List<Encoding> encodings=new ArrayList<Encoding>(plugin.supportedEncodings().encodings());
@@ -21,6 +22,12 @@
     if (encodings.size() == 1) {
       setInitialValue(codes[0]);
       setEnabled(false);
+    }
+ else {
+      final String bookEncoding=book.getEncoding();
+      if (bookEncoding != null) {
+        setInitialValue(bookEncoding.toLowerCase());
+      }
     }
   }
 }

@@ -1,5 +1,10 @@
 {
   super.onDialogClosed(result);
   if (result) {
+    final String value=getValue();
+    if (!value.equalsIgnoreCase(myBook.getEncoding())) {
+      myBook.setEncoding(value);
+      ((EditBookInfoActivity)getContext()).setResult(FBReader.RESULT_RELOAD_BOOK);
+    }
   }
 }
