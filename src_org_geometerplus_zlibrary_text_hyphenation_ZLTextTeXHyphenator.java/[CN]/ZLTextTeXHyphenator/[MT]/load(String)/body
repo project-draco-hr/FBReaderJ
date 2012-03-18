@@ -1,5 +1,8 @@
 {
-  if (ZLMiscUtil.equals(language,myLanguage)) {
+  if (language == null || ZLLanguageUtil.OTHER_LANGUAGE_CODE.equals(language)) {
+    language=ZLLanguageUtil.defaultLanguageCode();
+  }
+  if (language == null || language.equals(myLanguage)) {
     return;
   }
   myLanguage=language;
