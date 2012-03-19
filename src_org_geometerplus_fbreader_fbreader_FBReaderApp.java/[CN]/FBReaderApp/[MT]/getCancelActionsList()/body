@@ -8,7 +8,7 @@
   }
   if (ShowPositionsInCancelMenuOption.getValue()) {
     if (Model != null && Model.Book != null) {
-      for (      Bookmark bookmark : Bookmark.invisibleBookmarks(Model.Book)) {
+      for (      Bookmark bookmark : Library.Instance().invisibleBookmarks(Model.Book)) {
         myCancelActionsList.add(new BookmarkDescription(bookmark));
       }
     }
