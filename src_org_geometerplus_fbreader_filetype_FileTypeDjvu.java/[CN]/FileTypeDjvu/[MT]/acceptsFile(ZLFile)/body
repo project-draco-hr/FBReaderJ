@@ -1,0 +1,4 @@
+{
+  final String extension=file.getExtension();
+  return "djvu".equalsIgnoreCase(extension) || "djv".equalsIgnoreCase(extension);
+}
