@@ -1,3 +1,0 @@
-{
-  return MimeType.APP_EPUB;
-}
