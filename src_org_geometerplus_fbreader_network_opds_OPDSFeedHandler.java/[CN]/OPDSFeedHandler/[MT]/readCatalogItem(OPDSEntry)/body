@@ -15,7 +15,7 @@
         urlMap.addInfo(new UrlInfo(UrlInfo.Type.Image,href));
       }
     }
- else     if (MimeType.APP_ATOM.weakEquals(type)) {
+ else     if (MimeType.APP_ATOM_XML.weakEquals(type)) {
       final boolean hasCatalogUrl=urlMap.getInfo(UrlInfo.Type.Catalog) != null;
       if (REL_ALTERNATE.equals(rel)) {
         if (!hasCatalogUrl) {

@@ -20,7 +20,7 @@
     for (    ATOMLink link : feed.Links) {
       final MimeType type=MimeType.get(link.getType());
       final String rel=opdsLink.relation(link.getRel(),type);
-      if (MimeType.APP_ATOM.weakEquals(type) && "next".equals(rel)) {
+      if (MimeType.APP_ATOM_XML.weakEquals(type) && "next".equals(rel)) {
         myNextURL=ZLNetworkUtil.url(myBaseURL,link.getHref());
       }
     }
