@@ -1,4 +1,5 @@
 {
+  Name=encoding;
   myDecoder=Charset.forName(encoding).newDecoder().onMalformedInput(CodingErrorAction.REPLACE).onUnmappableCharacter(CodingErrorAction.REPLACE);
   myEncoder=Charset.forName("utf-8").newEncoder();
 }
