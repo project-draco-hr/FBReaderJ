@@ -1,4 +1,5 @@
 MimeType mimeType
 ZLFile file
+String encoding
 int offset
 int length

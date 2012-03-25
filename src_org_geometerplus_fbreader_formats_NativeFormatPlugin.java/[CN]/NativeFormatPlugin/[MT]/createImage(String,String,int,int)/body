@@ -1,3 +1,0 @@
-{
-  return new ZLFileImage(MimeType.get(mimeType),ZLFile.createFileByPath(fileName),offset,length);
-}

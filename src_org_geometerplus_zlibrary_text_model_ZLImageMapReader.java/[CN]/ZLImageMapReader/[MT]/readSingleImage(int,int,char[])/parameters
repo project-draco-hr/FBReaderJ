@@ -1,4 +1,3 @@
 int index
 int offset
 char[] data
-byte kind
