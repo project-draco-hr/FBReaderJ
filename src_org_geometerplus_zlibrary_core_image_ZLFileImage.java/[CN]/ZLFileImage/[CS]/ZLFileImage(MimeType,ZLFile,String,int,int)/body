@@ -4,4 +4,5 @@
   myEncoding=encoding;
   myOffset=offset;
   myLength=length;
+  System.err.println("++ ZLFileImage(" + file.getPath() + ","+ encoding+ ")");
 }
