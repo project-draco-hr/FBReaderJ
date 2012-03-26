@@ -1,24 +1,35 @@
 {
 switch (b) {
 default :
-    return (byte)(b - '0');
+    return -1;
+case '0':
+case '1':
+case '2':
+case '3':
+case '4':
+case '5':
+case '6':
+case '7':
+case '8':
+case '9':
+  return b - '0';
 case 'a':
 case 'A':
-  return (byte)10;
+return 10;
 case 'b':
 case 'B':
-return (byte)11;
+return 11;
 case 'c':
 case 'C':
-return (byte)12;
+return 12;
 case 'd':
 case 'D':
-return (byte)13;
+return 13;
 case 'e':
 case 'E':
-return (byte)14;
+return 14;
 case 'f':
 case 'F':
-return (byte)15;
+return 15;
 }
 }
