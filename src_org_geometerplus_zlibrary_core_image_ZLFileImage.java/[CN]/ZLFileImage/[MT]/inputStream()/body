@@ -4,6 +4,9 @@
     if (ENCODING_NONE.equals(myEncoding)) {
       return stream;
     }
+ else     if (ENCODING_HEX.equals(myEncoding)) {
+      return new HexInputStream(stream);
+    }
  else {
       System.err.println("unsupported encoding: " + myEncoding);
       return null;

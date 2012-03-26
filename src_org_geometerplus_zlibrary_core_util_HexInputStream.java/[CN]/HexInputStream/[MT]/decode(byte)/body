@@ -1,0 +1,24 @@
+{
+switch (b) {
+default :
+    return (byte)(b - '0');
+case 'a':
+case 'A':
+  return (byte)10;
+case 'b':
+case 'B':
+return (byte)11;
+case 'c':
+case 'C':
+return (byte)12;
+case 'd':
+case 'D':
+return (byte)13;
+case 'e':
+case 'E':
+return (byte)14;
+case 'f':
+case 'F':
+return (byte)15;
+}
+}

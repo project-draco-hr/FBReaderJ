@@ -1,0 +1,28 @@
+{
+  int offset=myBufferOffset;
+  int available=myBufferLength;
+  byte first=0;
+  for (int ready=0; ready < len; ) {
+    while (ready < len && available-- > 0) {
+      byte digit=myBuffer[offset++];
+      if (Character.isLetterOrDigit(digit)) {
+        if (first == 0) {
+          first=digit;
+        }
+ else {
+          b[off + ready++]=(byte)((decode(first) << 4) + decode(digit));
+          first=0;
+        }
+      }
+    }
+    fillBuffer();
+    available=myBufferLength;
+    if (available == -1) {
+      return ready == 0 ? -1 : ready;
+    }
+    offset=0;
+  }
+  myBufferLength=available;
+  myBufferOffset=offset;
+  return len;
+}

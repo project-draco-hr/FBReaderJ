@@ -1,0 +1,18 @@
+{
+  byte first=0;
+  while (myBufferLength >= 0) {
+    while (myBufferLength-- > 0) {
+      byte digit=myBuffer[myBufferOffset++];
+      if (Character.isLetterOrDigit(digit)) {
+        if (first == 0) {
+          first=digit;
+        }
+ else {
+          return (decode(first) << 4) + decode(digit);
+        }
+      }
+    }
+    fillBuffer();
+  }
+  return -1;
+}

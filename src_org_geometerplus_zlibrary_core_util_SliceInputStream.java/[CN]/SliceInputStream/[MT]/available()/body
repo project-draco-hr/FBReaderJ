@@ -1,3 +1,3 @@
 {
-  return Math.min(super.available(),Math.max(myStart + myLength - super.offset(),0));
+  return Math.min(super.available(),Math.max(myLength - offset(),0));
 }

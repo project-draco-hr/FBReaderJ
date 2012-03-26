@@ -8,6 +8,8 @@
     maxSize=new ZLPaintContext.Size(-1,-1);
   }
   if (!maxSize.equals(myLastRequestedSize) || scaling != myLastRequestedScaling) {
+    myLastRequestedSize=maxSize;
+    myLastRequestedScaling=scaling;
     if (myBitmap != null) {
       myBitmap.recycle();
       myBitmap=null;
@@ -76,8 +78,6 @@ case IntegerCoefficient:
         break;
       }
   }
-  myLastRequestedSize=maxSize;
-  myLastRequestedScaling=scaling;
 }
 }
  catch (OutOfMemoryError e) {
