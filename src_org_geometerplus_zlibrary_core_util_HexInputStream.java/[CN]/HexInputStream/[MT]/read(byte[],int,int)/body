@@ -15,12 +15,14 @@
         }
       }
     }
-    fillBuffer();
-    available=myBufferLength;
-    if (available == -1) {
-      return ready == 0 ? -1 : ready;
+    if (ready < len) {
+      fillBuffer();
+      available=myBufferLength;
+      if (available == -1) {
+        return ready == 0 ? -1 : ready;
+      }
+      offset=0;
     }
-    offset=0;
   }
   myBufferLength=available;
   myBufferOffset=offset;
