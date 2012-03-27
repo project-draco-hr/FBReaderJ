@@ -1,0 +1,23 @@
+{
+  int offset=myBufferOffset;
+  int available=myBufferLength;
+  byte first=0;
+  for (long skipped=0; skipped < 2 * n; ) {
+    while (skipped < 2 * n && available-- > 0) {
+      if (decode(myBuffer[offset++]) != -1) {
+        ++skipped;
+      }
+    }
+    if (skipped < 2 * n) {
+      fillBuffer();
+      available=myBufferLength;
+      if (available == -1) {
+        return skipped / 2;
+      }
+      offset=0;
+    }
+  }
+  myBufferLength=available;
+  myBufferOffset=offset;
+  return n;
+}

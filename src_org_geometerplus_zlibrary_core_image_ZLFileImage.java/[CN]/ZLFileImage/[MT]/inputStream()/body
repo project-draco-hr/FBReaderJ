@@ -7,6 +7,9 @@
  else     if (ENCODING_HEX.equals(myEncoding)) {
       return new HexInputStream(stream);
     }
+ else     if (ENCODING_BASE64.equals(myEncoding)) {
+      return new Base64InputStream(stream);
+    }
  else {
       System.err.println("unsupported encoding: " + myEncoding);
       return null;

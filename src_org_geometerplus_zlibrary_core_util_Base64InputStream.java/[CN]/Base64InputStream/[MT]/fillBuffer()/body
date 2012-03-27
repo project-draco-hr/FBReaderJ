@@ -1,0 +1,4 @@
+{
+  myBufferLength=myBaseStream.read(myBuffer);
+  myBufferOffset=0;
+}

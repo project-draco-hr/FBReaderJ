@@ -1,0 +1,5 @@
+{
+  myBaseStream.reset();
+  myBufferOffset=0;
+  myBufferLength=0;
+}

@@ -1,0 +1,18 @@
+{
+  int first=-1;
+  while (myBufferLength >= 0) {
+    while (myBufferLength-- > 0) {
+      final int digit=decode(myBuffer[myBufferOffset++]);
+      if (digit != -1) {
+        if (first == -1) {
+          first=digit;
+        }
+ else {
+          return (first << 4) + digit;
+        }
+      }
+    }
+    fillBuffer();
+  }
+  return -1;
+}
