@@ -1,3 +1,0 @@
-{
-  ((ZLPlainImageMap)myImageMap).put(id,image);
-}

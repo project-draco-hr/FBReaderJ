@@ -1,0 +1,4 @@
+{
+  System.err.println(id + ":" + image);
+  myImageMap.put(id,image);
+}

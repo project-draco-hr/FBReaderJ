@@ -1,0 +1,5 @@
+String mimeType
+ZLFile file
+String encoding
+int offset
+int length

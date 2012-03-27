@@ -1,6 +1,3 @@
 {
-  if (myImageMap == null) {
-    throw new RuntimeException("NativeBookModel should be initialized with initImageMap method");
-  }
   return new ZLTextNativeModel(id,language,paragraphsNumber,entryIndices,entryOffsets,paragraphLenghts,textSizes,paragraphKinds,directoryName,fileExtension,blocksNumber,myImageMap);
 }

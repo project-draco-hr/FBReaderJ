@@ -1,6 +1,0 @@
-String[] ids
-int[] indices
-int[] offsets
-String directoryName
-String fileExtension
-int blocksNumber

@@ -1,3 +1,0 @@
-{
-  myImageMap=new ZLCachedImageMap(ids,indices,offsets,directoryName,fileExtension,blocksNumber);
-}
