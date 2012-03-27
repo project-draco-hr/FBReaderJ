@@ -3,7 +3,6 @@
     public void run(){
       runOnUiThread(new Runnable(){
         public void run(){
-          initPluginActions();
           new TipRunner().start();
           DictionaryUtil.init(FBReader.this);
         }
