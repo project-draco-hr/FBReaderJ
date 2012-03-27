@@ -2,4 +2,7 @@
   myBaseStream.reset();
   myBufferOffset=0;
   myBufferLength=0;
+  myDecodedBuffer[0]=-1;
+  myDecodedBuffer[1]=-1;
+  myDecodedBuffer[2]=-1;
 }
