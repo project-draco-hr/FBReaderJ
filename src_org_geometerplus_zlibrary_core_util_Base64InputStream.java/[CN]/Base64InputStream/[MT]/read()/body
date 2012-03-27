@@ -1,21 +1,21 @@
 {
-  int result=myDecodedBuffer[0];
+  int result=myDecoded0;
   if (result != -1) {
-    myDecodedBuffer[0]=-1;
+    myDecoded0=-1;
     return result;
   }
-  result=myDecodedBuffer[1];
+  result=myDecoded1;
   if (result != -1) {
-    myDecodedBuffer[1]=-1;
+    myDecoded1=-1;
     return result;
   }
-  result=myDecodedBuffer[2];
+  result=myDecoded2;
   if (result != -1) {
-    myDecodedBuffer[2]=-1;
+    myDecoded2=-1;
     return result;
   }
   fillDecodedBuffer();
-  result=myDecodedBuffer[0];
-  myDecodedBuffer[0]=-1;
+  result=myDecoded0;
+  myDecoded0=-1;
   return result;
 }

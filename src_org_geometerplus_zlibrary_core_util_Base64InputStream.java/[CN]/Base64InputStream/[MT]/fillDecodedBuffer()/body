@@ -25,8 +25,8 @@
     fillBuffer();
   }
   if (first != -1) {
-    myDecodedBuffer[0]=(first << 2) | (second >> 4);
-    myDecodedBuffer[1]=0xFF & ((second << 4) | (third >> 2));
-    myDecodedBuffer[2]=0xFF & ((third << 6) | fourth);
+    myDecoded0=(first << 2) | (second >> 4);
+    myDecoded1=0xFF & ((second << 4) | (third >> 2));
+    myDecoded2=0xFF & ((third << 6) | fourth);
   }
 }
