@@ -7,9 +7,9 @@
       return file.getPath();
     }
     @Override public ZLSingleImage getRealImage(){
-synchronized (ourCoversLock) {
-        return (ZLSingleImage)readCoverInternal(file);
-      }
+      final ZLImage[] box=new ZLImage[1];
+      readCoverInternal(file,box);
+      return (ZLSingleImage)box[0];
     }
   }
 ;
