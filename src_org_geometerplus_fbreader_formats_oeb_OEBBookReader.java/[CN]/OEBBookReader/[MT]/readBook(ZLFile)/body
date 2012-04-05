@@ -17,8 +17,8 @@
   int count=0;
   for (  String name : myHtmlFileNames) {
     final ZLFile xhtmlFile=ZLFile.createFileByPath(myFilePrefix + name);
-    if (xhtmlFile == null) {
-      throw new BookReadingException("fileNotFound",myFilePrefix + name,file);
+    if (xhtmlFile == null || !xhtmlFile.exists()) {
+      continue;
     }
     if (count++ == 0 && xhtmlFile.getPath().equals(myCoverFileName)) {
       continue;
@@ -31,7 +31,7 @@
       reader.readFile(xhtmlFile,referenceName + '#');
     }
  catch (    IOException e) {
-      e.printStackTrace();
+      throw new BookReadingException(e,xhtmlFile);
     }
     myModelReader.insertEndOfSectionParagraph();
   }

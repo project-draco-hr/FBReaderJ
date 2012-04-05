@@ -1,0 +1,3 @@
+{
+  return myParent.exists() && archiveEntries(myParent).contains(this);
+}

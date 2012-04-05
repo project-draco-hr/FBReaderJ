@@ -11,9 +11,9 @@
   MyBufferedInputStream baseStream=getBaseStream();
   baseStream.setPosition(0);
   try {
-    while (!readFileHeader(baseStream,entryName)) {
+    while (baseStream.available() > 0 && !readFileHeader(baseStream,entryName)) {
     }
-    LocalFileHeader header=myFileHeaders.get(entryName);
+    final LocalFileHeader header=myFileHeaders.get(entryName);
     if (header != null) {
       return header;
     }
