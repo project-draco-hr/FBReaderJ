@@ -6,5 +6,5 @@
     myMetrics=new DisplayMetrics();
     myActivity.getWindowManager().getDefaultDisplay().getMetrics(myMetrics);
   }
-  return (int)(160 * myMetrics.density);
+  return myMetrics.widthPixels;
 }
