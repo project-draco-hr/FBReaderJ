@@ -1,0 +1,35 @@
+{
+  if (myNCXTOCFileName == null) {
+    return false;
+  }
+  final ZLFile ncxFile=ZLFile.createFileByPath(myFilePrefix + myNCXTOCFileName);
+  if (ncxFile == null || !ncxFile.exists()) {
+    return false;
+  }
+  final NCXReader ncxReader=new NCXReader(myModelReader);
+  ncxReader.readFile(ncxFile);
+  final Map<Integer,NCXReader.NavPoint> navigationMap=ncxReader.navigationMap();
+  if (navigationMap.isEmpty()) {
+    return false;
+  }
+  int level=0;
+  for (  NCXReader.NavPoint point : navigationMap.values()) {
+    final BookModel.Label label=getTOCLabel(point.ContentHRef);
+    int index=(label != null) ? label.ParagraphIndex : -1;
+    while (level > point.Level) {
+      myModelReader.endContentsParagraph();
+      --level;
+    }
+    while (++level <= point.Level) {
+      myModelReader.beginContentsParagraph(-2);
+      myModelReader.addContentsData(Dots);
+    }
+    myModelReader.beginContentsParagraph(index);
+    myModelReader.addContentsData(point.Text.toCharArray());
+  }
+  while (level > 0) {
+    myModelReader.endContentsParagraph();
+    --level;
+  }
+  return true;
+}

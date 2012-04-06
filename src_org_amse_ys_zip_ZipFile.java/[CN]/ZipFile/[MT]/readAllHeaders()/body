@@ -7,7 +7,7 @@
   baseStream.setPosition(0);
   myFileHeaders.clear();
   try {
-    while (true) {
+    while (baseStream.available() > 0) {
       readFileHeader(baseStream,null);
     }
   }
