@@ -1,0 +1,3 @@
+{
+  return acceptsFile(file) ? MimeType.APP_MOBI : MimeType.NULL;
+}
