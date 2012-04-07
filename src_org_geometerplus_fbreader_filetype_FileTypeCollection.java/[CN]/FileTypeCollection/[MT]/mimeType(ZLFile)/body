@@ -5,5 +5,5 @@
       return mime;
     }
   }
-  return MimeType.NULL;
+  return MimeType.UNKNOWN;
 }
