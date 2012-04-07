@@ -1,0 +1,3 @@
+{
+  return acceptsFile(file) ? myMimeTypes.get(0) : MimeType.NULL;
+}

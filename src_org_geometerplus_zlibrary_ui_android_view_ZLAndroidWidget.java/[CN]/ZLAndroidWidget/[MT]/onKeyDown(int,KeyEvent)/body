@@ -15,7 +15,7 @@
       return true;
     }
  else {
-      return application.doActionByKey(keyCode,false);
+      return application.runActionByKey(keyCode,false);
     }
   }
  else {

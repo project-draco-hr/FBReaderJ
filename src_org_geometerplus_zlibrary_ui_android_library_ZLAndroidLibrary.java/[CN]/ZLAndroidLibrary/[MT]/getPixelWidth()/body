@@ -1,0 +1,10 @@
+{
+  if (myMetrics == null) {
+    if (myActivity == null) {
+      return 0;
+    }
+    myMetrics=new DisplayMetrics();
+    myActivity.getWindowManager().getDefaultDisplay().getMetrics(myMetrics);
+  }
+  return myMetrics.widthPixels;
+}

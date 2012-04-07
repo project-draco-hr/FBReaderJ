@@ -1,0 +1,3 @@
+{
+  return acceptsFile(file) ? MimeType.IMAGE_VND_DJVU : MimeType.NULL;
+}

@@ -2,6 +2,6 @@
   if (super.onFingerDoubleTap(x,y)) {
     return true;
   }
-  myReader.doAction(getZoneMap().getActionByCoordinates(x,y,myContext.getWidth(),myContext.getHeight(),TapZoneMap.Tap.doubleTap),x,y);
+  myReader.runAction(getZoneMap().getActionByCoordinates(x,y,myContext.getWidth(),myContext.getHeight(),TapZoneMap.Tap.doubleTap),x,y);
   return true;
 }

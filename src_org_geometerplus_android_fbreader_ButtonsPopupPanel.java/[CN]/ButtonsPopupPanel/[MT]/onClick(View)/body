@@ -1,6 +1,6 @@
 {
   final ActionButton button=(ActionButton)view;
-  Application.doAction(button.ActionId);
+  Application.runAction(button.ActionId);
   if (button.IsCloseButton) {
     storePosition();
     StartPosition=null;

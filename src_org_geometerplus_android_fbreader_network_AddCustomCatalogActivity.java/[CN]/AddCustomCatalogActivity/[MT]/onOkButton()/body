@@ -26,6 +26,7 @@
   }
  else   if (isEmptyString(title)) {
     setErrorByKey("titleIsEmpty");
+    setExtraFieldsVisibility(true);
   }
  else {
     myLink.setTitle(title);

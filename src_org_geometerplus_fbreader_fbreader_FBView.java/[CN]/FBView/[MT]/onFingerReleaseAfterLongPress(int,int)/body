@@ -18,7 +18,7 @@
       doRunAction=myReader.ImageTappingActionOption.getValue() == FBReaderApp.ImageTappingAction.openImageView;
     }
     if (doRunAction) {
-      myReader.doAction(ActionCode.PROCESS_HYPERLINK);
+      myReader.runAction(ActionCode.PROCESS_HYPERLINK);
       return true;
     }
   }

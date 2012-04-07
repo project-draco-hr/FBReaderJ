@@ -4,15 +4,21 @@
   }
   final CancelActionDescription description=myCancelActionsList.get(index);
 switch (description.Type) {
-case previousBook:
-    openBook(Library.Instance().getPreviousBook(),null,null);
+case library:
+    runAction(ActionCode.SHOW_LIBRARY);
   break;
+case networkLibrary:
+runAction(ActionCode.SHOW_NETWORK_LIBRARY);
+break;
+case previousBook:
+openBook(Library.Instance().getPreviousBook(),null,null);
+break;
 case returnTo:
 {
-  final Bookmark b=((BookmarkDescription)description).Bookmark;
-  b.delete();
-  gotoBookmark(b);
-  break;
+final Bookmark b=((BookmarkDescription)description).Bookmark;
+b.delete();
+gotoBookmark(b);
+break;
 }
 case close:
 closeWindow();
