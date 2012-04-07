@@ -9,7 +9,7 @@
     if (soul instanceof ZLTextWordRegionSoul) {
 switch (myReader.WordTappingActionOption.getValue()) {
 case startSelecting:
-        myReader.doAction(ActionCode.SELECTION_HIDE_PANEL);
+        myReader.runAction(ActionCode.SELECTION_HIDE_PANEL);
       initSelection(x,y);
     final ZLTextSelectionCursor cursor=findSelectionCursor(x,y);
   if (cursor != ZLTextSelectionCursor.None) {

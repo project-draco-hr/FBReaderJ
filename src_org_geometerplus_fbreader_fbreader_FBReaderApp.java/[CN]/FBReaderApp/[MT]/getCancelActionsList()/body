@@ -1,5 +1,11 @@
 {
   myCancelActionsList.clear();
+  if (ShowLibraryInCancelMenuOption.getValue()) {
+    myCancelActionsList.add(new CancelActionDescription(CancelActionType.library,null));
+  }
+  if (ShowNetworkLibraryInCancelMenuOption.getValue()) {
+    myCancelActionsList.add(new CancelActionDescription(CancelActionType.networkLibrary,null));
+  }
   if (ShowPreviousBookInCancelMenuOption.getValue()) {
     final Book previousBook=Library.Instance().getPreviousBook();
     if (previousBook != null) {

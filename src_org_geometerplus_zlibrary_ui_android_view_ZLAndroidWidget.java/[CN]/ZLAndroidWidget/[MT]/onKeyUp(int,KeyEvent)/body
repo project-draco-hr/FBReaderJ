@@ -2,7 +2,7 @@
   if (myKeyUnderTracking != -1) {
     if (myKeyUnderTracking == keyCode) {
       final boolean longPress=System.currentTimeMillis() > myTrackingStartTime + ViewConfiguration.getLongPressTimeout();
-      ZLApplication.Instance().doActionByKey(keyCode,longPress);
+      ZLApplication.Instance().runActionByKey(keyCode,longPress);
     }
     myKeyUnderTracking=-1;
     return true;

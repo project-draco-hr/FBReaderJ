@@ -7,9 +7,9 @@
     selectRegion(region);
     myReader.getViewWidget().reset();
     myReader.getViewWidget().repaint();
-    myReader.doAction(ActionCode.PROCESS_HYPERLINK);
+    myReader.runAction(ActionCode.PROCESS_HYPERLINK);
     return true;
   }
-  myReader.doAction(getZoneMap().getActionByCoordinates(x,y,myContext.getWidth(),myContext.getHeight(),isDoubleTapSupported() ? TapZoneMap.Tap.singleNotDoubleTap : TapZoneMap.Tap.singleTap),x,y);
+  myReader.runAction(getZoneMap().getActionByCoordinates(x,y,myContext.getWidth(),myContext.getHeight(),isDoubleTapSupported() ? TapZoneMap.Tap.singleNotDoubleTap : TapZoneMap.Tap.singleTap),x,y);
   return true;
 }
