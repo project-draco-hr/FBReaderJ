@@ -1,5 +1,5 @@
 {
-  addType(new SimpleFileType("fb2","fb2",MimeType.TYPES_FB2));
+  addType(new FileTypeFB2());
   addType(new FileTypeEpub());
   addType(new FileTypeMobipocket());
   addType(new FileTypeHtml());
@@ -8,4 +8,5 @@
   addType(new SimpleFileType("PDF","pdf",MimeType.TYPES_PDF));
   addType(new FileTypeDjVu());
   addType(new FileTypeFB2Zip());
+  addType(new SimpleFileType("ZIP archive","zip",Collections.singletonList(MimeType.APP_ZIP)));
 }

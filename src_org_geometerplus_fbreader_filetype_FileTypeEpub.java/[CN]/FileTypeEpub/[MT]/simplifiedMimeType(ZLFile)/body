@@ -1,0 +1,7 @@
+{
+  final String extension=file.getExtension();
+  if ("epub".equalsIgnoreCase(extension)) {
+    return MimeType.APP_ZIP;
+  }
+  return MimeType.NULL;
+}
