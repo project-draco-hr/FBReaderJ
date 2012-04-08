@@ -7,7 +7,7 @@ case SHOW_BOOK_INFO_ITEM_ID:
 showBookInfo(book);
 return true;
 case SHARE_BOOK_ITEM_ID:
-Util.shareBook(this,book);
+FBUtil.shareBook(this,book);
 return true;
 case ADD_TO_FAVORITES_ITEM_ID:
 myLibrary.addBookToFavorites(book);

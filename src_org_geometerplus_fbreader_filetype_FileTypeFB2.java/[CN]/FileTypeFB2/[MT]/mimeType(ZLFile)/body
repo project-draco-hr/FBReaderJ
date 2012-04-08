@@ -1,0 +1,3 @@
+{
+  return acceptsFile(file) ? MimeType.TEXT_FB2 : MimeType.NULL;
+}
