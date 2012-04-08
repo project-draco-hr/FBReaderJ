@@ -16,6 +16,7 @@
       }
       left-=skipped;
     }
+    myCurrentPosition+=n - left;
     return n - left;
   }
 }
