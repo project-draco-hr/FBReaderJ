@@ -6,13 +6,8 @@
     fillOutBuffer();
   }
   if (myOutBufferLength == 0) {
-    if (myInflatorId != -1) {
-      throw new ZipException("cannot read from zip");
-    }
- else {
-      myAvailable=0;
-      return -1;
-    }
+    myAvailable=0;
+    return -1;
   }
   --myAvailable;
   --myOutBufferLength;
