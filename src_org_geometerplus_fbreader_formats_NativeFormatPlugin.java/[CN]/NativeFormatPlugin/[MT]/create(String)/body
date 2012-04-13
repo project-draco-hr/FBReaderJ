@@ -1,0 +1,8 @@
+{
+  if ("fb2".equals(fileType)) {
+    return new FB2NativePlugin();
+  }
+ else {
+    return new NativeFormatPlugin(fileType);
+  }
+}

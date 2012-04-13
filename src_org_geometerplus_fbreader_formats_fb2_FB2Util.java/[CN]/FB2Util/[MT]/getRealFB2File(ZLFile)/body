@@ -1,0 +1,15 @@
+{
+  final String name=file.getShortName().toLowerCase();
+  if (name.endsWith(".fb2.zip") && file.isArchive()) {
+    final List<ZLFile> children=file.children();
+    if (children != null && children.size() == 1) {
+      return children.get(0);
+    }
+ else {
+      return null;
+    }
+  }
+ else {
+    return file;
+  }
+}
