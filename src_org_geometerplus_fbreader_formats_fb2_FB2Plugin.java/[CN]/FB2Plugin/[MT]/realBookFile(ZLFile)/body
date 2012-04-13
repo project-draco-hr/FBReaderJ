@@ -1,0 +1,3 @@
+{
+  return FB2Util.getRealFB2File(file);
+}
