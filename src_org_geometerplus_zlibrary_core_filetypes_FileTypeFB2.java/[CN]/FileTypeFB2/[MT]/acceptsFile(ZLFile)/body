@@ -1,3 +1,4 @@
 {
-  return "fb2".equalsIgnoreCase(file.getExtension());
+  final String lName=file.getShortName().toLowerCase();
+  return lName.endsWith(".fb2") || lName.endsWith(".fb2.zip");
 }

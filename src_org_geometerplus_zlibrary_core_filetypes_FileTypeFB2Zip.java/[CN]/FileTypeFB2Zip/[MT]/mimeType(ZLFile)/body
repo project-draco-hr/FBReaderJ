@@ -1,3 +1,0 @@
-{
-  return acceptsFile(file) ? MimeType.APP_FB2_ZIP : MimeType.NULL;
-}

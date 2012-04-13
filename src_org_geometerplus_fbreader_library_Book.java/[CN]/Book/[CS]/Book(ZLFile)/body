@@ -1,5 +1,6 @@
 {
   myId=-1;
-  File=file;
-  readMetaInfo();
+  final FormatPlugin plugin=getPlugin(file);
+  File=plugin.realBookFile(file);
+  readMetaInfo(plugin);
 }

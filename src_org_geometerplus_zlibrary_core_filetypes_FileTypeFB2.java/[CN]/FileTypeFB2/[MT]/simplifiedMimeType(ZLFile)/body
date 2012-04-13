@@ -1,3 +1,12 @@
 {
-  return acceptsFile(file) ? MimeType.TEXT_XML : MimeType.NULL;
+  final String lName=file.getShortName().toLowerCase();
+  if (lName.endsWith(".fb2")) {
+    return MimeType.TEXT_XML;
+  }
+ else   if (lName.endsWith(".fb2.zip")) {
+    return MimeType.APP_ZIP;
+  }
+ else {
+    return MimeType.NULL;
+  }
 }

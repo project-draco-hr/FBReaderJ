@@ -1,3 +1,0 @@
-{
-  return acceptsFile(file) ? MimeType.APP_ZIP : MimeType.NULL;
-}
