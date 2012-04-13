@@ -10,7 +10,7 @@
       fillOutBuffer();
     }
     if (myOutBufferLength == 0) {
-      if (myInflatorId == -1) {
+      if (myInflatorId != -1) {
         throw new ZipException("cannot read from zip");
       }
  else {
