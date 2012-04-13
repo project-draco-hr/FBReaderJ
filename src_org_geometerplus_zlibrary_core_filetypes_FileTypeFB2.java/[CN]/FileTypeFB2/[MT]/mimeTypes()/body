@@ -1,3 +1,7 @@
 {
-  return MimeType.TYPES_FB2;
+  if (myMimeTypes.isEmpty()) {
+    myMimeTypes.addAll(MimeType.TYPES_FB2);
+    myMimeTypes.addAll(MimeType.TYPES_FB2_ZIP);
+  }
+  return myMimeTypes;
 }

@@ -1,3 +1,0 @@
-{
-  return MimeType.TYPES_FB2_ZIP;
-}

@@ -1,3 +1,0 @@
-{
-  return file.getShortName().toLowerCase().endsWith(".fb2.zip");
-}
