@@ -1,4 +1,5 @@
 {
   myId=-1;
   File=file;
+  readMetaInfo();
 }

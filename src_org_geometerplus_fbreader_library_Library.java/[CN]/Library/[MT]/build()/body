@@ -51,10 +51,11 @@ synchronized (this) {
           continue;
         }
         if (!fileInfos.check(file,true)) {
-          if (book.readMetaInfo()) {
+          try {
+            book.readMetaInfo();
             book.save();
           }
- else {
+ catch (          BookReadingException e) {
             doAdd=false;
           }
           file.setCached(false);
@@ -82,14 +83,18 @@ synchronized (this) {
     collectBooks(file,fileInfos,savedBooksByFileId,orphanedBooksByFileId,newBooks,!fileInfos.check(file,true));
     file.setCached(false);
   }
-  final ZLFile helpFile=getHelpFile();
-  Book helpBook=savedBooksByFileId.get(fileInfos.getId(helpFile));
-  if (helpBook == null) {
-    helpBook=new Book(helpFile);
-    helpBook.readMetaInfo();
+  try {
+    final ZLFile helpFile=getHelpFile();
+    Book helpBook=savedBooksByFileId.get(fileInfos.getId(helpFile));
+    if (helpBook == null) {
+      helpBook=new Book(helpFile);
+    }
+    addBookToLibrary(helpBook);
+    fireModelChangedEvent(ChangeListener.Code.BookAdded);
   }
-  addBookToLibrary(helpBook);
-  fireModelChangedEvent(ChangeListener.Code.BookAdded);
+ catch (  BookReadingException e) {
+    e.printStackTrace();
+  }
   fileInfos.save();
   myDatabase.executeAsATransaction(new Runnable(){
     public void run(){

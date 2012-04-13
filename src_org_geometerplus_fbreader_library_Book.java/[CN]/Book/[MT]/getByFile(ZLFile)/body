@@ -15,12 +15,17 @@
     return book;
   }
   fileInfos.save();
-  if (book == null) {
-    book=new Book(bookFile);
+  try {
+    if (book == null) {
+      book=new Book(bookFile);
+    }
+ else {
+      book.readMetaInfo();
+    }
   }
-  if (book.readMetaInfo()) {
-    book.save();
-    return book;
+ catch (  BookReadingException e) {
+    return null;
   }
-  return null;
+  book.save();
+  return book;
 }
