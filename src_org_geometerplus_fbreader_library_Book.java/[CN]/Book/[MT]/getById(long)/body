@@ -17,5 +17,11 @@
     return book;
   }
   fileInfos.save();
-  return book.readMetaInfo() ? book : null;
+  try {
+    book.readMetaInfo();
+    return book;
+  }
+ catch (  BookReadingException e) {
+    return null;
+  }
 }

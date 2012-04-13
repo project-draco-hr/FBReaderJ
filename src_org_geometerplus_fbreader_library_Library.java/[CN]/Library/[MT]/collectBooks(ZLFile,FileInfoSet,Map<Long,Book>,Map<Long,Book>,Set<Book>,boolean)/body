@@ -3,19 +3,28 @@
   if (savedBooksByFileId.get(fileId) != null) {
     return;
   }
-  Book book=orphanedBooksByFileId.get(fileId);
-  if (book != null && (!doReadMetaInfo || book.readMetaInfo())) {
+  try {
+    final Book book=orphanedBooksByFileId.get(fileId);
+    if (book != null) {
+      if (doReadMetaInfo) {
+        book.readMetaInfo();
+      }
+      addBookToLibrary(book);
+      fireModelChangedEvent(ChangeListener.Code.BookAdded);
+      newBooks.add(book);
+      return;
+    }
+  }
+ catch (  BookReadingException e) {
+  }
+  try {
+    final Book book=new Book(file);
     addBookToLibrary(book);
     fireModelChangedEvent(ChangeListener.Code.BookAdded);
     newBooks.add(book);
     return;
   }
-  book=new Book(file);
-  if (book.readMetaInfo()) {
-    addBookToLibrary(book);
-    fireModelChangedEvent(ChangeListener.Code.BookAdded);
-    newBooks.add(book);
-    return;
+ catch (  BookReadingException e) {
   }
   if (file.isArchive()) {
     for (    ZLFile entry : fileInfos.archiveEntries(file)) {

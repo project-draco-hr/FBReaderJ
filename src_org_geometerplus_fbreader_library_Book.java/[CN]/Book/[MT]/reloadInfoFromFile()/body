@@ -1,5 +1,8 @@
 {
-  if (readMetaInfo()) {
+  try {
+    readMetaInfo();
     save();
+  }
+ catch (  BookReadingException e) {
   }
 }
