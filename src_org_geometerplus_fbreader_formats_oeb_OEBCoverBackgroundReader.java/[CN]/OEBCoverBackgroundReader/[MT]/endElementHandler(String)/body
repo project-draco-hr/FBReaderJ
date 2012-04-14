@@ -1,8 +1,21 @@
 {
   tag=tag.toLowerCase();
-  if (GUIDE == tag) {
-    myReadGuide=false;
-    return true;
-  }
-  return false;
+switch (myReadState) {
+case READ_GUIDE:
+    if (GUIDE.equals(tag)) {
+      myReadState=READ_NOTHING;
+    }
+  break;
+case READ_MANIFEST:
+if (MANIFEST.equals(tag)) {
+  myReadState=READ_NOTHING;
+}
+break;
+case READ_METADATA:
+if (testTag(OpenPackagingFormat,"metadata",tag)) {
+myReadState=READ_NOTHING;
+}
+break;
+}
+return false;
 }

@@ -1,0 +1,6 @@
+{
+  if (href == null) {
+    return null;
+  }
+  return new ZLFileImage(MimeType.IMAGE_AUTO,ZLFile.createFileByPath(myPathPrefix + MiscUtil.decodeHtmlReference(href)));
+}

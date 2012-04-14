@@ -1,0 +1,14 @@
+{
+  if (name.equals(tag) && namespace.equals(myNamespaceMap.get(""))) {
+    return true;
+  }
+  final int nameLen=name.length();
+  final int tagLen=tag.length();
+  if (tagLen < nameLen + 2) {
+    return false;
+  }
+  if (tag.endsWith(name) && tag.charAt(tagLen - nameLen - 1) == ':') {
+    return namespace.equals(myNamespaceMap.get(tag.substring(0,tagLen - nameLen - 1)));
+  }
+  return false;
+}
