@@ -1,29 +1,20 @@
 {
-  final int index=tag.indexOf(':');
-  final String tagPrefix;
-  if (index != -1) {
-    tagPrefix=tag.substring(0,index).intern();
-    tag=tag.substring(index + 1).intern();
-  }
- else {
-    tagPrefix=null;
-    tag=tag.intern();
-  }
+  tag=tag.toLowerCase();
 switch (myState) {
 case START:
-    if (tagPrefix == myOpenSearchNamespaceId && tag == TAG_DESCRIPTION) {
+    if (testTag(XMLNamespaces.OpenSearch,TAG_DESCRIPTION,tag)) {
       myState=DESCRIPTION;
     }
   break;
 case DESCRIPTION:
-if (tagPrefix == myOpenSearchNamespaceId && tag == TAG_URL) {
+if (testTag(XMLNamespaces.OpenSearch,TAG_URL,tag)) {
   final MimeType type=MimeType.get(attributes.getValue("type"));
   final String rel=attributes.getValue("rel");
   if (MimeType.APP_ATOM_XML.weakEquals(type) && (rel == null || rel == "results")) {
-    final String template=ZLNetworkUtil.url(myBaseURL,attributes.getValue("template"));
+    final String tmpl=ZLNetworkUtil.url(myBaseURL,attributes.getValue("template"));
     final int indexOffset=parseInt(attributes.getValue("indexOffset"));
     final int pageOffset=parseInt(attributes.getValue("pageOffset"));
-    final OpenSearchDescription descr=new OpenSearchDescription(template,indexOffset,pageOffset);
+    final OpenSearchDescription descr=new OpenSearchDescription(tmpl,indexOffset,pageOffset);
     if (descr.isValid()) {
       myDescriptions.add(0,descr);
     }
