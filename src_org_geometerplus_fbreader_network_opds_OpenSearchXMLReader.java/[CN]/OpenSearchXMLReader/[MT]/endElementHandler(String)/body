@@ -1,17 +1,8 @@
 {
-  final int index=tag.indexOf(':');
-  final String tagPrefix;
-  if (index != -1) {
-    tagPrefix=tag.substring(0,index).intern();
-    tag=tag.substring(index + 1).intern();
-  }
- else {
-    tagPrefix=null;
-    tag=tag.intern();
-  }
+  tag=tag.toLowerCase();
 switch (myState) {
 case DESCRIPTION:
-    if (tagPrefix == myOpenSearchNamespaceId && tag == TAG_DESCRIPTION) {
+    if (testTag(XMLNamespaces.OpenSearch,TAG_DESCRIPTION,tag)) {
       myState=START;
     }
   break;
