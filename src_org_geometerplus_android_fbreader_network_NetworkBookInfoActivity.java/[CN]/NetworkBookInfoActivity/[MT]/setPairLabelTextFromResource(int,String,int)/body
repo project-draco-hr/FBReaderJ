@@ -1,0 +1,3 @@
+{
+  ((TextView)findViewById(id).findViewById(R.id.book_info_key)).setText(myResource.getResource(resourceKey).getValue(param));
+}

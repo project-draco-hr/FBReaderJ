@@ -2,13 +2,14 @@
   ((TextView)findViewById(R.id.book_info_title)).setText(myResource.getResource("bookInfo").getValue());
   setupInfoPair(R.id.book_title,"title",book.getTitle());
   final StringBuilder buffer=new StringBuilder();
-  for (  Author author : book.authors()) {
+  final List<Author> authors=book.authors();
+  for (  Author a : authors) {
     if (buffer.length() > 0) {
       buffer.append(", ");
     }
-    buffer.append(author.DisplayName);
+    buffer.append(a.DisplayName);
   }
-  setupInfoPair(R.id.book_authors,"authors",buffer);
+  setupInfoPair(R.id.book_authors,"authors",buffer,authors.size());
   final SeriesInfo series=book.getSeriesInfo();
   setupInfoPair(R.id.book_series,"series",series == null ? null : series.Name);
   String seriesIndexString=null;
@@ -32,7 +33,7 @@
       tagNames.add(tag.Name);
     }
   }
-  setupInfoPair(R.id.book_tags,"tags",buffer);
+  setupInfoPair(R.id.book_tags,"tags",buffer,tagNames.size());
   String language=book.getLanguage();
   if (!ZLLanguageUtil.languageCodes().contains(language)) {
     language=ZLLanguageUtil.OTHER_LANGUAGE_CODE;
