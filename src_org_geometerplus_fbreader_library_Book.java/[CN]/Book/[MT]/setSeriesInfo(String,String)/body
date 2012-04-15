@@ -1,0 +1,3 @@
+{
+  setSeriesInfo(name,SeriesInfo.createIndex(index));
+}

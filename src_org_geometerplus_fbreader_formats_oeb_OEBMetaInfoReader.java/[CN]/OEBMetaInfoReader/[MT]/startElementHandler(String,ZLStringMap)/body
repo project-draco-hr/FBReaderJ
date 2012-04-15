@@ -32,12 +32,7 @@ if (attributes.getValue("name").equals("calibre:series")) {
   mySeriesTitle=attributes.getValue("content");
 }
  else if (attributes.getValue("name").equals("calibre:series_index")) {
-  final String strIndex=attributes.getValue("content");
-  try {
-    mySeriesIndex=Float.parseFloat(strIndex);
-  }
- catch (  NumberFormatException e) {
-  }
+  mySeriesIndex=attributes.getValue("content");
 }
 }
 break;

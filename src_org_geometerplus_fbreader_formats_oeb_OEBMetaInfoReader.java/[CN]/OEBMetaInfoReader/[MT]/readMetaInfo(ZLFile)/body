@@ -1,7 +1,7 @@
 {
   myReadState=ReadState.Nothing;
   mySeriesTitle="";
-  mySeriesIndex=0;
+  mySeriesIndex=null;
   try {
     ZLXMLProcessor.read(this,file,512);
   }
