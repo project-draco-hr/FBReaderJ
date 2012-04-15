@@ -1,5 +1,6 @@
 {
-  if (tag.equalsIgnoreCase(myDescriptionTag)) {
+  tag=tag.toLowerCase();
+  if (testTag(DublinCore,"description",tag) || testTag(DublinCoreLegacy,"description",tag)) {
     myReadState=READ_DESCRIPTION;
   }
  else   if (myReadState == READ_DESCRIPTION) {

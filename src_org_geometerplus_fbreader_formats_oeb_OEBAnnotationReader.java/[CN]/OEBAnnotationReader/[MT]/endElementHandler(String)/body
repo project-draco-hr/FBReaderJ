@@ -3,7 +3,7 @@
     return false;
   }
   tag=tag.toLowerCase();
-  if (tag.equalsIgnoreCase(myDescriptionTag)) {
+  if (testTag(DublinCore,"description",tag) || testTag(DublinCoreLegacy,"description",tag)) {
     return true;
   }
   myBuffer.append(" ");
