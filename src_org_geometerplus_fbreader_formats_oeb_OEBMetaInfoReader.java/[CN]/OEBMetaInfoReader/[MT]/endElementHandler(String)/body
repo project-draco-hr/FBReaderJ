@@ -1,24 +1,25 @@
 {
   tag=tag.toLowerCase();
-  if (tag.equals(myMetadataTagRealName)) {
+  if (myReadState == ReadState.Metadata && (testTag(OpenPackagingFormat,"metadata",tag) || "dc-metadata".equals(tag))) {
+    myReadState=ReadState.Nothing;
     return true;
   }
   String bufferContent=myBuffer.toString().trim();
   if (bufferContent.length() != 0) {
 switch (myReadState) {
-case READ_TITLE:
+case Title:
       myBook.setTitle(bufferContent);
     break;
-case READ_AUTHOR:
+case Author:
   myAuthorList.add(bufferContent);
 break;
-case READ_AUTHOR2:
+case Author2:
 myAuthorList2.add(bufferContent);
 break;
-case READ_SUBJECT:
+case Subject:
 myBook.addTag(bufferContent);
 break;
-case READ_LANGUAGE:
+case Language:
 {
 int index=bufferContent.indexOf('_');
 if (index >= 0) {
@@ -29,18 +30,11 @@ if (index >= 0) {
 bufferContent=bufferContent.substring(0,index);
 }
 myBook.setLanguage("cz".equals(bufferContent) ? "cs" : bufferContent);
-}
 break;
-}
-}
- else {
-if (tag.equals(myMetaTag)) {
-if (!"".equals(mySeriesTitle)) {
-myBook.setSeriesInfo(mySeriesTitle,mySeriesIndex);
 }
 }
 }
 myBuffer.delete(0,myBuffer.length());
-myReadState=READ_NONE;
+myReadState=ReadState.Metadata;
 return false;
 }

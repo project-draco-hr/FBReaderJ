@@ -1,29 +1,28 @@
 {
   tag=tag.toLowerCase().intern();
-  if (tag == myMetadataTag || tag == myDCMetadataTag || tag == myOpfMetadataTag) {
-    myMetadataTagRealName=tag;
-    myReadMetaData=true;
+  if (testTag(OpenPackagingFormat,"metadata",tag) || "dc-metadata".equals(tag)) {
+    myReadState=ReadState.Metadata;
   }
- else   if (myReadMetaData) {
+ else   if (myReadState == ReadState.Metadata) {
     if (tag == myTitleTag) {
-      myReadState=READ_TITLE;
+      myReadState=ReadState.Title;
     }
  else     if (tag == myAuthorTag) {
       final String role=attributes.getValue("role");
       if (role == null) {
-        myReadState=READ_AUTHOR2;
+        myReadState=ReadState.Author2;
       }
  else       if (role.equals("aut")) {
-        myReadState=READ_AUTHOR;
+        myReadState=ReadState.Author;
       }
     }
  else     if (tag == mySubjectTag) {
-      myReadState=READ_SUBJECT;
+      myReadState=ReadState.Subject;
     }
  else     if (tag == myLanguageTag) {
-      myReadState=READ_LANGUAGE;
+      myReadState=ReadState.Language;
     }
- else     if (tag == myMetaTag) {
+ else     if (testTag(OpenPackagingFormat,"meta",tag)) {
       if (attributes.getValue("name").equals("calibre:series")) {
         mySeriesTitle=attributes.getValue("content");
       }

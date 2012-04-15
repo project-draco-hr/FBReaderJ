@@ -1,9 +1,9 @@
 {
+  super.namespaceMapChangedHandler(namespaceMap);
   myTitleTag=null;
   myAuthorTag=null;
   mySubjectTag=null;
   myLanguageTag=null;
-  myOpfMetadataTag="metadata";
   for (  Map.Entry<String,String> entry : namespaceMap.entrySet()) {
     final String id=entry.getValue();
     if (DublinCore.equals(id) || id.startsWith(DublinCoreLegacyPrefix)) {
@@ -12,10 +12,6 @@
       myAuthorTag=(name + ":creator").intern();
       mySubjectTag=(name + ":subject").intern();
       myLanguageTag=(name + ":language").intern();
-    }
- else     if (id.equals(OpenPackagingFormat)) {
-      final String name=entry.getKey();
-      myOpfMetadataTag=(name + ":metadata").intern();
     }
   }
 }
