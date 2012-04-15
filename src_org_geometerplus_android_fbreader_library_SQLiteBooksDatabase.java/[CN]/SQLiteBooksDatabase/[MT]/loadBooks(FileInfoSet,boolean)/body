@@ -48,9 +48,9 @@
   while (cursor.moveToNext()) {
     Book book=booksById.get(cursor.getLong(0));
     if (book != null) {
-      String series=seriesById.get(cursor.getLong(1));
+      final String series=seriesById.get(cursor.getLong(1));
       if (series != null) {
-        setSeriesInfo(book,series,cursor.getFloat(2));
+        setSeriesInfo(book,series,cursor.getString(2));
       }
     }
   }

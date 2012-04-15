@@ -1,0 +1,28 @@
+{
+  myDatabase.execSQL("ALTER TABLE BookSeries RENAME TO BookSeries_Obsolete");
+  myDatabase.execSQL("CREATE TABLE BookSeries(" + "series_id INTEGER NOT NULL REFERENCES Series(series_id)," + "book_id INTEGER NOT NULL UNIQUE REFERENCES Books(book_id),"+ "book_index TEXT)");
+  final SQLiteStatement insert=myDatabase.compileStatement("INSERT INTO BookSeries (series_id,book_id,book_index) VALUES (?,?,?)");
+  final Cursor cursor=myDatabase.rawQuery("SELECT series_id,book_id,book_index FROM BookSeries_Obsolete",null);
+  while (cursor.moveToNext()) {
+    insert.bindLong(1,cursor.getLong(0));
+    insert.bindLong(2,cursor.getLong(1));
+    final float index=cursor.getFloat(2);
+    final String stringIndex;
+    if (index == 0.0f) {
+      stringIndex=null;
+    }
+ else {
+      if (Math.abs(index - Math.round(index)) < 0.01) {
+        stringIndex=String.valueOf(Math.round(index));
+      }
+ else {
+        stringIndex=String.format("%.1f",index);
+      }
+    }
+    final BigDecimal bdIndex=SeriesInfo.createIndex(stringIndex);
+    SQLiteUtil.bindString(insert,3,bdIndex != null ? bdIndex.toString() : null);
+    insert.executeInsert();
+  }
+  cursor.close();
+  myDatabase.execSQL("DROP TABLE BookSeries_Obsolete");
+}
