@@ -1,4 +1,3 @@
 {
-  final LinearLayout layout=(LinearLayout)findViewById(id);
-  ((TextView)layout.findViewById(R.id.book_info_key)).setText(myResource.getResource(resourceKey).getValue());
+  ((TextView)findViewById(id).findViewById(R.id.book_info_key)).setText(myResource.getResource(resourceKey).getValue());
 }
