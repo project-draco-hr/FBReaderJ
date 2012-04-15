@@ -1,0 +1,5 @@
+{
+  myMin=min;
+  myMax=max;
+  myBase=base;
+}

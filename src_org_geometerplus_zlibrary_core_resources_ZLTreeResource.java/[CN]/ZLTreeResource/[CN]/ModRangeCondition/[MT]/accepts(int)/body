@@ -1,0 +1,4 @@
+{
+  number=number % myBase;
+  return myMin <= number && number <= myMax;
+}
