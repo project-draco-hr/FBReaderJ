@@ -1,41 +1,46 @@
 {
-  tag=tag.toLowerCase().intern();
-  if (tag == myMetadataTag || tag == myDCMetadataTag || tag == myOpfMetadataTag) {
-    myMetadataTagRealName=tag;
-    myReadMetaData=true;
+  tag=tag.toLowerCase();
+switch (myReadState) {
+default :
+    break;
+case Nothing:
+  if (testTag(OpenPackagingFormat,"metadata",tag) || "dc-metadata".equals(tag)) {
+    myReadState=ReadState.Metadata;
   }
- else   if (myReadMetaData) {
-    if (tag == myTitleTag) {
-      myReadState=READ_TITLE;
-    }
- else     if (tag == myAuthorTag) {
-      final String role=attributes.getValue("role");
-      if (role == null) {
-        myReadState=READ_AUTHOR2;
-      }
- else       if (role.equals("aut")) {
-        myReadState=READ_AUTHOR;
-      }
-    }
- else     if (tag == mySubjectTag) {
-      myReadState=READ_SUBJECT;
-    }
- else     if (tag == myLanguageTag) {
-      myReadState=READ_LANGUAGE;
-    }
- else     if (tag == myMetaTag) {
-      if (attributes.getValue("name").equals("calibre:series")) {
-        mySeriesTitle=attributes.getValue("content");
-      }
- else       if (attributes.getValue("name").equals("calibre:series_index")) {
-        final String strIndex=attributes.getValue("content");
-        try {
-          mySeriesIndex=Float.parseFloat(strIndex);
-        }
- catch (        NumberFormatException e) {
-        }
-      }
-    }
+break;
+case Metadata:
+if (testDCTag("title",tag)) {
+myReadState=ReadState.Title;
+}
+ else if (testDCTag("author",tag)) {
+final String role=attributes.getValue("role");
+if (role == null) {
+  myReadState=ReadState.Author2;
+}
+ else if (role.equals("aut")) {
+  myReadState=ReadState.Author;
+}
+}
+ else if (testDCTag("subject",tag)) {
+myReadState=ReadState.Subject;
+}
+ else if (testDCTag("language",tag)) {
+myReadState=ReadState.Language;
+}
+ else if (testTag(OpenPackagingFormat,"meta",tag)) {
+if (attributes.getValue("name").equals("calibre:series")) {
+  mySeriesTitle=attributes.getValue("content");
+}
+ else if (attributes.getValue("name").equals("calibre:series_index")) {
+  final String strIndex=attributes.getValue("content");
+  try {
+    mySeriesIndex=Float.parseFloat(strIndex);
   }
-  return false;
+ catch (  NumberFormatException e) {
+  }
+}
+}
+break;
+}
+return false;
 }

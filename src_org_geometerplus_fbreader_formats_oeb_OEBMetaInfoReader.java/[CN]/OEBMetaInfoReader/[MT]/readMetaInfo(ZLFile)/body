@@ -1,6 +1,7 @@
 {
-  myReadMetaData=false;
-  myReadState=READ_NONE;
+  myReadState=ReadState.Nothing;
+  mySeriesTitle="";
+  mySeriesIndex=0;
   try {
     ZLXMLProcessor.read(this,file,512);
   }
@@ -17,5 +18,8 @@
       a=a.trim();
     }
     myBook.addAuthor(a);
+  }
+  if (!"".equals(mySeriesTitle)) {
+    myBook.setSeriesInfo(mySeriesTitle,mySeriesIndex);
   }
 }

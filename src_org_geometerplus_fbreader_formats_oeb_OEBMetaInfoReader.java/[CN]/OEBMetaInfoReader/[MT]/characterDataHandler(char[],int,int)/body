@@ -1,12 +1,13 @@
 {
 switch (myReadState) {
-case READ_NONE:
+case Nothing:
+case Metadata:
     break;
-case READ_AUTHOR:
-case READ_AUTHOR2:
-case READ_TITLE:
-case READ_SUBJECT:
-case READ_LANGUAGE:
+case Author:
+case Author2:
+case Title:
+case Subject:
+case Language:
   myBuffer.append(data,start,len);
 break;
 }
