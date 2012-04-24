@@ -1,4 +1,4 @@
-ZLImageMap imageMap
+Map<String,ZLImage> imageMap
 String id
 short vOffset
 boolean isCover

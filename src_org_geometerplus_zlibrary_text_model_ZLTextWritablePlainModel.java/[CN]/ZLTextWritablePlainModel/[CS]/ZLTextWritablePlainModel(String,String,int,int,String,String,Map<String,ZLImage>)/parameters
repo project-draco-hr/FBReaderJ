@@ -4,4 +4,4 @@ int arraySize
 int dataBlockSize
 String directoryName
 String extension
-ZLImageMap imageMap
+Map<String,ZLImage> imageMap

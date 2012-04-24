@@ -6,4 +6,4 @@ int[] paragraphLenghts
 int[] textSizes
 byte[] paragraphKinds
 CharStorage storage
-ZLImageMap imageMap
+Map<String,ZLImage> imageMap
