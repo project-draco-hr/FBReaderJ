@@ -14,10 +14,7 @@
       }
       reader.close();
     }
- catch (    FileNotFoundException e) {
-      throw new CachedCharStorageException("Error during reading " + fileName(index));
-    }
-catch (    IOException e) {
+ catch (    IOException e) {
       throw new CachedCharStorageException("Error during reading " + fileName(index));
     }
     myArray.set(index,new WeakReference<char[]>(block));
