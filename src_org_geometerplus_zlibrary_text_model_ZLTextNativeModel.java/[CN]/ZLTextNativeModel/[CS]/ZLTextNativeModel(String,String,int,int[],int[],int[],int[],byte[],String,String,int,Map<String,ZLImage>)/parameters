@@ -9,4 +9,4 @@ byte[] paragraphKinds
 String directoryName
 String fileExtension
 int blocksNumber
-ZLImageMap imageMap
+Map<String,ZLImage> imageMap
