@@ -1,0 +1,6 @@
+{
+  final ByteBuffer inBuffer=ByteBuffer.wrap(in,inOffset,inLength);
+  final CharBuffer outBuffer=CharBuffer.wrap(out,0,out.length);
+  myDecoder.decode(inBuffer,outBuffer,false);
+  return outBuffer.position();
+}

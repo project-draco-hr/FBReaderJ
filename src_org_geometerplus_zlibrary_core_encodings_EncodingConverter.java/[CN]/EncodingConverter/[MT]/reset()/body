@@ -1,4 +1,3 @@
 {
   myDecoder.reset();
-  myEncoder.reset();
 }
