@@ -1,3 +1,0 @@
-{
-  return (myMask & SUPPORTS_ALIGNMENT_TYPE) == SUPPORTS_ALIGNMENT_TYPE;
-}
