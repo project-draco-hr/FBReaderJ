@@ -76,7 +76,8 @@ entry.setFontFamily(new String(data,dataOffset,familyLength));
 dataOffset+=familyLength;
 }
 if (ZLTextStyleEntry.isFeatureSupported(mask,FONT_STYLE_MODIFIER)) {
-dataOffset+=1;
+final short value=(short)data[dataOffset++];
+entry.setFontModifiers((byte)(value & 0xFF),(byte)((value >> 8) & 0xFF));
 }
 myStyleEntry=entry;
 }

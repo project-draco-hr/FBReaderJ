@@ -1,0 +1,10 @@
+{
+  myFeatureMask|=1 << Feature.FONT_STYLE_MODIFIER;
+  mySupportedFontModifiers|=modifier;
+  if (on) {
+    myFontModifiers|=modifier;
+  }
+ else {
+    myFontModifiers&=~modifier;
+  }
+}

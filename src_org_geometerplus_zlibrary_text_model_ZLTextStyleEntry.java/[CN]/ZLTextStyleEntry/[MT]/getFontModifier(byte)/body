@@ -1,0 +1,6 @@
+{
+  if ((mySupportedFontModifiers & modifier) == 0) {
+    return ZLBoolean3.B3_UNDEFINED;
+  }
+  return (myFontModifiers & modifier) == 0 ? ZLBoolean3.B3_FALSE : ZLBoolean3.B3_TRUE;
+}

@@ -1,3 +1,13 @@
 {
-  return Base.isUnderline();
+  if (!myEntry.isFeatureSupported(FONT_STYLE_MODIFIER)) {
+    return Base.isUnderline();
+  }
+switch (myEntry.getFontModifier(FONT_MODIFIER_UNDERLINED)) {
+case B3_TRUE:
+    return true;
+case B3_FALSE:
+  return false;
+default :
+return Base.isUnderline();
+}
 }

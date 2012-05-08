@@ -1,5 +1,4 @@
 {
   myFeatureMask|=1 << Feature.FONT_FAMILY;
-  System.err.println("setting font family to " + fontFamily);
   myFontFamily=fontFamily;
 }
