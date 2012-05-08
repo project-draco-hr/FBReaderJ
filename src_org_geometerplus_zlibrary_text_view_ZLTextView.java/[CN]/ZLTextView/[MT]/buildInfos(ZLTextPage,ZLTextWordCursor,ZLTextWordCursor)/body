@@ -7,7 +7,7 @@
     resetTextStyle();
     final ZLTextParagraphCursor paragraphCursor=result.getParagraphCursor();
     final int wordIndex=result.getElementIndex();
-    applyControls(paragraphCursor,0,wordIndex);
+    applyStyleChanges(paragraphCursor,0,wordIndex);
     ZLTextLineInfo info=new ZLTextLineInfo(paragraphCursor,wordIndex,result.getCharIndex(),getTextStyle());
     final int endIndex=info.ParagraphCursorLength;
     while (info.EndElementIndex != endIndex) {

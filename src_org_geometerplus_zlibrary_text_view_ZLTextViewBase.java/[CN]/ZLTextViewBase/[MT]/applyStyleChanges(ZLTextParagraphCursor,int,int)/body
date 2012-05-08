@@ -1,0 +1,5 @@
+{
+  for (; index != end; ++index) {
+    applyStyleChangeElement(cursor.getElement(index));
+  }
+}

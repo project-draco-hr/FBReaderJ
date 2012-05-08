@@ -1,5 +1,4 @@
 {
   myFeatureMask|=1 << Feature.FONT_SIZE_MAGNIFICATION;
-  System.err.println("setting font size magnification to " + fontSizeMagnification);
   myFontSizeMagnification=fontSizeMagnification;
 }

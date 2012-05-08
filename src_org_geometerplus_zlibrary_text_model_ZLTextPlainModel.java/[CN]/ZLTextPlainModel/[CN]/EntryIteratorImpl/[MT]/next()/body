@@ -80,6 +80,8 @@ dataOffset+=1;
 }
 myStyleEntry=entry;
 }
+case ZLTextParagraph.Entry.STYLE_CLOSE:
+break;
 case ZLTextParagraph.Entry.RESET_BIDI:
 break;
 }

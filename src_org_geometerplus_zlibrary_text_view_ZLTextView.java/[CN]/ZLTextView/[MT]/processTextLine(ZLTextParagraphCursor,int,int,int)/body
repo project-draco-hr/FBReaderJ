@@ -3,7 +3,7 @@
   final ZLTextLineInfo info=new ZLTextLineInfo(paragraphCursor,startIndex,startCharIndex,getTextStyle());
   final ZLTextLineInfo cachedInfo=myLineInfoCache.get(info);
   if (cachedInfo != null) {
-    applyControls(paragraphCursor,startIndex,cachedInfo.EndElementIndex);
+    applyStyleChanges(paragraphCursor,startIndex,cachedInfo.EndElementIndex);
     return cachedInfo;
   }
   int currentElementIndex=startIndex;
@@ -11,8 +11,8 @@
   final boolean isFirstLine=startIndex == 0 && startCharIndex == 0;
   if (isFirstLine) {
     ZLTextElement element=paragraphCursor.getElement(currentElementIndex);
-    while (element instanceof ZLTextControlElement) {
-      applyControl((ZLTextControlElement)element);
+    while (isStyleChangeElement(element)) {
+      applyStyleChangeElement(element);
       ++currentElementIndex;
       currentCharIndex=0;
       if (currentElementIndex == endIndex) {
@@ -61,12 +61,12 @@
       wordOccurred=true;
       isVisible=true;
     }
- else     if (element instanceof ZLTextControlElement) {
-      applyControl((ZLTextControlElement)element);
-    }
  else     if (element instanceof ZLTextImageElement) {
       wordOccurred=true;
       isVisible=true;
+    }
+ else     if (isStyleChangeElement(element)) {
+      applyStyleChangeElement(element);
     }
     if (newWidth > maxWidth) {
       if (info.EndElementIndex != startIndex || element instanceof ZLTextWord) {

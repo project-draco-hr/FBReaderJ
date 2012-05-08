@@ -1,8 +1,0 @@
-{
-  for (; index != end; ++index) {
-    final ZLTextElement element=cursor.getElement(index);
-    if (element instanceof ZLTextControlElement) {
-      applyControl((ZLTextControlElement)element);
-    }
-  }
-}

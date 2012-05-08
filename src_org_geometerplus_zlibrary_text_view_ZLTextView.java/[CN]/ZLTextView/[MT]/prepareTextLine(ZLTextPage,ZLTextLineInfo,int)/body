@@ -62,8 +62,8 @@ page.TextElementMap.add(new ZLTextElementArea(paragraphIndex,wordIndex,charIndex
 changeStyle=false;
 wordOccurred=true;
 }
- else if (element instanceof ZLTextControlElement) {
-applyControl((ZLTextControlElement)element);
+ else if (isStyleChangeElement(element)) {
+applyStyleChangeElement(element);
 changeStyle=true;
 }
 x+=width;

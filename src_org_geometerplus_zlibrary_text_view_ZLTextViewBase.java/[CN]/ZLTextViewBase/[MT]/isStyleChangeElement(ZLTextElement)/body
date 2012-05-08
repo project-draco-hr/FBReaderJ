@@ -1,0 +1,3 @@
+{
+  return element == ZLTextElement.StyleClose || element instanceof ZLTextStyleElement || element instanceof ZLTextControlElement;
+}

@@ -7,7 +7,7 @@
     final ZLPaintContext.Size size=myContext.imageSize(imageElement.ImageData,getTextAreaSize(),imageElement.IsCover ? ZLPaintContext.ScalingType.FitMaximum : ZLPaintContext.ScalingType.IntegerCoefficient);
     return size != null ? size.Width : 0;
   }
- else   if (element == ZLTextElement.IndentElement) {
+ else   if (element == ZLTextElement.Indent) {
     return myTextStyle.getFirstLineIndentDelta();
   }
  else   if (element instanceof ZLTextFixedHSpaceElement) {

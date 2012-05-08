@@ -1,5 +1,4 @@
 {
   myFeatureMask|=1 << Feature.ALIGNMENT_TYPE;
-  System.err.println("setting alignment to " + alignmentType);
   myAlignmentType=alignmentType;
 }

@@ -1,0 +1,3 @@
+{
+  return myEntry.isFeatureSupported(ALIGNMENT_TYPE) ? myEntry.getAlignmentType() : Base.getAlignment();
+}

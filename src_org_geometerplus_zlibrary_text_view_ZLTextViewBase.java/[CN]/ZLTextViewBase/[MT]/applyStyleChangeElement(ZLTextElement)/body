@@ -1,0 +1,11 @@
+{
+  if (element == ZLTextElement.StyleClose) {
+    applyStyleClose();
+  }
+ else   if (element instanceof ZLTextStyleElement) {
+    applyStyle((ZLTextStyleElement)element);
+  }
+ else   if (element instanceof ZLTextControlElement) {
+    applyControl((ZLTextControlElement)element);
+  }
+}

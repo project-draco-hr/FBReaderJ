@@ -1,0 +1,3 @@
+{
+  setTextStyle(new ZLTextExplicitlyDecoratedStyle(myTextStyle,element.Entry));
+}
