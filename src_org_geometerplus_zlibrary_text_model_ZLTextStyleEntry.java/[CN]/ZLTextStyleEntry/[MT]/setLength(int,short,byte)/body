@@ -1,0 +1,4 @@
+{
+  myFeatureMask|=1 << featureId;
+  myLengths[featureId]=new Length(size,unit);
+}
