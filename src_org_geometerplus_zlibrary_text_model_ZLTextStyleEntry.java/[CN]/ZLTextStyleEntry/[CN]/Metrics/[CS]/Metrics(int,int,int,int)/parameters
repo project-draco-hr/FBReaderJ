@@ -1,0 +1,4 @@
+int fontSize
+int fontXHeight
+int fullWidth
+int fullHeight

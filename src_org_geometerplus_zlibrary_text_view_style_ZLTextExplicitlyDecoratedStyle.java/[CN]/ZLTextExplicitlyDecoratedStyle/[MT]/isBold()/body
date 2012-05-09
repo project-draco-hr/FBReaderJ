@@ -1,7 +1,4 @@
 {
-  if (!myEntry.isFeatureSupported(FONT_STYLE_MODIFIER)) {
-    return Base.isBold();
-  }
 switch (myEntry.getFontModifier(FONT_MODIFIER_BOLD)) {
 case B3_TRUE:
     return true;

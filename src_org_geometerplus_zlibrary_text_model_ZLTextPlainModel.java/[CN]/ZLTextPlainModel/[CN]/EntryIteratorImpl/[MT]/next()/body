@@ -63,14 +63,9 @@ final byte unit=(byte)data[dataOffset++];
 entry.setLength(i,size,unit);
 }
 }
-if (ZLTextStyleEntry.isFeatureSupported(mask,ALIGNMENT_TYPE) || ZLTextStyleEntry.isFeatureSupported(mask,FONT_SIZE_MAGNIFICATION)) {
-final short value=(short)data[dataOffset++];
 if (ZLTextStyleEntry.isFeatureSupported(mask,ALIGNMENT_TYPE)) {
+final short value=(short)data[dataOffset++];
 entry.setAlignmentType((byte)(value & 0xFF));
-}
-if (ZLTextStyleEntry.isFeatureSupported(mask,FONT_SIZE_MAGNIFICATION)) {
-entry.setFontSizeMagnification((byte)((value >> 8) & 0xFF));
-}
 }
 if (ZLTextStyleEntry.isFeatureSupported(mask,FONT_FAMILY)) {
 final short familyLength=(short)data[dataOffset++];

@@ -1,7 +1,4 @@
 {
-  if (!myEntry.isFeatureSupported(FONT_STYLE_MODIFIER)) {
-    return Base.isStrikeThrough();
-  }
 switch (myEntry.getFontModifier(FONT_MODIFIER_STRIKEDTHROUGH)) {
 case B3_TRUE:
     return true;

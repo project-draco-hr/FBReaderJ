@@ -1,7 +1,4 @@
 {
-  if (!myEntry.isFeatureSupported(FONT_STYLE_MODIFIER)) {
-    return Base.isItalic();
-  }
 switch (myEntry.getFontModifier(FONT_MODIFIER_ITALIC)) {
 case B3_TRUE:
     return true;
