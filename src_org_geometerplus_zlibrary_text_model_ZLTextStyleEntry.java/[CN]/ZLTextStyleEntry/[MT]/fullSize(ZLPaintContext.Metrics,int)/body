@@ -1,0 +1,14 @@
+{
+switch (featureId) {
+default :
+case Feature.LENGTH_LEFT_INDENT:
+case Feature.LENGTH_RIGHT_INDENT:
+case Feature.LENGTH_FIRST_LINE_INDENT_DELTA:
+    return metrics.FullWidth;
+case Feature.LENGTH_SPACE_BEFORE:
+case Feature.LENGTH_SPACE_AFTER:
+  return metrics.FullHeight;
+case Feature.LENGTH_FONT_SIZE:
+return metrics.FontSize;
+}
+}

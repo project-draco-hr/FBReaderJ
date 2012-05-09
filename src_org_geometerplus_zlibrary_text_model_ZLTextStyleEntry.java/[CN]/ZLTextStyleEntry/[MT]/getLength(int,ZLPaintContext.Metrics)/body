@@ -1,0 +1,13 @@
+{
+switch (myLengths[featureId].Unit) {
+default :
+case SizeUnit.PIXEL:
+    return myLengths[featureId].Size;
+case SizeUnit.EM_100:
+  return (myLengths[featureId].Size * metrics.FontSize + 50) / 100;
+case SizeUnit.EX_100:
+return (myLengths[featureId].Size * metrics.FontXHeight + 50) / 100;
+case SizeUnit.PERCENT:
+return (myLengths[featureId].Size * fullSize(metrics,featureId) + 50) / 100;
+}
+}
