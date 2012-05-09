@@ -2,6 +2,9 @@
   if ("fb2".equals(fileType)) {
     return new FB2NativePlugin();
   }
+ else   if ("ePub".equals(fileType)) {
+    return new OEBNativePlugin();
+  }
  else {
     return new NativeFormatPlugin(fileType);
   }
