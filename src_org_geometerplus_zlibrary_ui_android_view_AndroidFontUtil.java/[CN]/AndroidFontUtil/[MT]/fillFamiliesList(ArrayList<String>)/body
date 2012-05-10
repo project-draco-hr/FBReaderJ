@@ -1,5 +1,5 @@
 {
-  final TreeSet<String> familySet=new TreeSet<String>(getFontMap(forceReload).keySet());
+  final TreeSet<String> familySet=new TreeSet<String>(getFontMap(true).keySet());
   familySet.add("Droid Sans");
   familySet.add("Droid Serif");
   familySet.add("Droid Mono");

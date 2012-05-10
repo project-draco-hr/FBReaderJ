@@ -3,10 +3,10 @@
     return Collections.emptyMap();
   }
   final long timeStamp=System.currentTimeMillis();
-  if (forceReload && timeStamp < myTimeStamp + 1000) {
+  if (forceReload && timeStamp < ourTimeStamp + 1000) {
     forceReload=false;
   }
-  myTimeStamp=timeStamp;
+  ourTimeStamp=timeStamp;
   if (ourFileSet == null || forceReload) {
     final HashSet<File> fileSet=new HashSet<File>();
     final FilenameFilter filter=new FilenameFilter(){

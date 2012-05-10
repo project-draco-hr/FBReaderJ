@@ -1,0 +1,4 @@
+{
+  ourTypefaces.clear();
+  ourFileSet=null;
+}
