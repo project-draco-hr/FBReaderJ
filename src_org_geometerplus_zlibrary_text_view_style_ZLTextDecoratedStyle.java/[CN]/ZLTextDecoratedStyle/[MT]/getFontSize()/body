@@ -1,6 +1,0 @@
-{
-  if (myIsNotCached) {
-    initCache();
-  }
-  return myFontSize;
-}

@@ -1,0 +1,3 @@
+{
+  return Base.getFontSize(metrics) + myDecoration.FontSizeDeltaOption.getValue();
+}

@@ -3,5 +3,5 @@
     myTextStyle=style;
     myWordHeight=-1;
   }
-  myContext.setFont(style.getFontFamily(),style.getFontSize(),style.isBold(),style.isItalic(),style.isUnderline(),style.isStrikeThrough());
+  myContext.setFont(style.getFontFamily(),style.getFontSize(metrics()),style.isBold(),style.isItalic(),style.isUnderline(),style.isStrikeThrough());
 }

@@ -1,0 +1,4 @@
+{
+  myMetrics=metrics;
+  myFontSize=getFontSizeInternal(metrics);
+}

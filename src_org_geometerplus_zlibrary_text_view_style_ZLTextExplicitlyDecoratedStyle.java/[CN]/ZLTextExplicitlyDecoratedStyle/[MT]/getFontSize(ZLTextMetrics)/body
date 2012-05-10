@@ -1,0 +1,14 @@
+{
+  if (myEntry.isFeatureSupported(FONT_STYLE_MODIFIER)) {
+    if (myEntry.getFontModifier(FONT_MODIFIER_LARGER) == ZLBoolean3.B3_TRUE) {
+      return Base.Base.getFontSize(metrics) * 120 / 100;
+    }
+    if (myEntry.getFontModifier(FONT_MODIFIER_SMALLER) == ZLBoolean3.B3_TRUE) {
+      return Base.Base.getFontSize(metrics) * 100 / 120;
+    }
+  }
+  if (myEntry.isFeatureSupported(LENGTH_FONT_SIZE)) {
+    return myEntry.getLength(LENGTH_FONT_SIZE,metrics);
+  }
+  return Base.getFontSize(metrics);
+}

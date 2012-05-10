@@ -1,0 +1,10 @@
+{
+  if (o == this) {
+    return true;
+  }
+  if (!(o instanceof ZLTextMetrics)) {
+    return false;
+  }
+  final ZLTextMetrics oo=(ZLTextMetrics)o;
+  return FontSize == oo.FontSize && FontXHeight == oo.FontXHeight && FullWidth == oo.FullWidth && FullHeight == oo.FullHeight;
+}
