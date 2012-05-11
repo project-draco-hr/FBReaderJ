@@ -1,6 +1,6 @@
 {
   final SeekBar slider=(SeekBar)view.findViewById(id);
-  slider.setProgress(value);
   slider.setProgressDrawable(new SeekBarDrawable(slider.getProgressDrawable(),ZLResource.resource("color").getResource(resourceKey).getValue(),slider));
+  slider.setProgress(value);
   return slider;
 }
