@@ -1,0 +1,5 @@
+{
+  myCurrentTree=new TOCTree(myCurrentTree);
+  myCurrentTree.setText(text);
+  myCurrentTree.setReference(myBookTextModel,reference);
+}

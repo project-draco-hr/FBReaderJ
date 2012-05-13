@@ -1,0 +1,6 @@
+{
+  myCurrentTree=myCurrentTree.Parent;
+  if (myCurrentTree == null) {
+    myCurrentTree=TOCTree;
+  }
+}
