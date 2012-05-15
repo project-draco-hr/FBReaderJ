@@ -2,9 +2,11 @@
 switch (myLengths[featureId].Unit) {
 default :
 case SizeUnit.PIXEL:
-    return myLengths[featureId].Size;
+    return myLengths[featureId].Size * metrics.FontSize / metrics.DefaultFontSize;
+case SizeUnit.POINT:
+  return myLengths[featureId].Size * metrics.DPI * metrics.FontSize / 72 / metrics.DefaultFontSize / 2;
 case SizeUnit.EM_100:
-  return (myLengths[featureId].Size * metrics.FontSize + 50) / 100;
+return (myLengths[featureId].Size * metrics.FontSize + 50) / 100;
 case SizeUnit.EX_100:
 return (myLengths[featureId].Size * metrics.FontXHeight + 50) / 100;
 case SizeUnit.PERCENT:

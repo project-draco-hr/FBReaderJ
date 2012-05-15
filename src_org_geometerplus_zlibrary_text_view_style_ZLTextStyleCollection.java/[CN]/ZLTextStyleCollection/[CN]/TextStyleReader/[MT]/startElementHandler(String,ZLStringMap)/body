@@ -2,7 +2,8 @@
   final String BASE="base";
   final String STYLE="style";
   if (BASE.equals(tag)) {
-    myCollection.myBaseStyle=new ZLTextBaseStyle(attributes.getValue("family"),intValue(attributes,"fontSize",0));
+    myCollection.myDefaultFontSize=intValue(attributes,"fontSize",0);
+    myCollection.myBaseStyle=new ZLTextBaseStyle(attributes.getValue("family"),myCollection.myDefaultFontSize);
   }
  else   if (STYLE.equals(tag)) {
     String idString=attributes.getValue("id");

@@ -1,7 +1,8 @@
 {
   if (myMetrics == null) {
-    final ZLTextBaseStyle base=ZLTextStyleCollection.Instance().getBaseStyle();
-    myMetrics=new ZLTextMetrics(base.getFontSize(),base.getFontSize() * 15 / 10,100,100);
+    final ZLTextStyleCollection collection=ZLTextStyleCollection.Instance();
+    final ZLTextBaseStyle base=collection.getBaseStyle();
+    myMetrics=new ZLTextMetrics(ZLibrary.Instance().getDisplayDPI(),collection.getDefaultFontSize(),base.getFontSize(),base.getFontSize() * 15 / 10,100,100);
   }
   return myMetrics;
 }

@@ -1,4 +1,6 @@
 {
+  DPI=dpi;
+  DefaultFontSize=defaultFontSize;
   FontSize=fontSize;
   FontXHeight=fontXHeight;
   FullWidth=fullWidth;
