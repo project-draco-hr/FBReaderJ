@@ -1,5 +1,5 @@
 {
-  Decompressor decompressor=Decompressor.init(baseStream,header);
+  final Decompressor decompressor=Decompressor.init(baseStream,header);
   int uncompressedSize=0;
   while (true) {
     int blockSize=decompressor.read(null,0,2048);
