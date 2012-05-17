@@ -2,7 +2,7 @@
   if (book == null) {
     return;
   }
-  myBooks.remove(book);
+  myBooks.remove(book.File);
   refreshInTree(ROOT_FAVORITES,book);
   refreshInTree(ROOT_RECENT,book);
   removeFromTree(ROOT_FOUND,book);

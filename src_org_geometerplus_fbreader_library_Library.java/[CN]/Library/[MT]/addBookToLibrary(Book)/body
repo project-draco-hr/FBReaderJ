@@ -1,5 +1,8 @@
 {
-  myBooks.add(book);
+  if (myBooks.containsKey(book.File)) {
+    return;
+  }
+  myBooks.put(book.File,book);
   List<Author> authors=book.authors();
   if (authors.isEmpty()) {
     authors=(List<Author>)myNullList;

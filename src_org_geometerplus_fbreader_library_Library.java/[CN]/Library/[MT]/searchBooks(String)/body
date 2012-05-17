@@ -12,7 +12,7 @@
   FirstLevelTree newSearchResults=null;
   final List<Book> booksCopy;
 synchronized (myBooks) {
-    booksCopy=new ArrayList<Book>(myBooks);
+    booksCopy=new ArrayList<Book>(myBooks.values());
   }
   for (  Book book : booksCopy) {
     if (book.matches(pattern)) {
