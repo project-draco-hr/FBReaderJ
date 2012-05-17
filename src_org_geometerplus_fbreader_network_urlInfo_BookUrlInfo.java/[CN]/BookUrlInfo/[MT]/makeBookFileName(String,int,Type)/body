@@ -1,13 +1,16 @@
 {
-  URI uri;
+  final URI uri;
   try {
     uri=new URI(url);
   }
  catch (  Throwable ex) {
     return null;
   }
-  String host=uri.getHost();
-  StringBuilder path=new StringBuilder(host);
+  final String host=uri.getHost();
+  if (host == null) {
+    throw new IllegalArgumentException("Invalid URL: `" + url + "'");
+  }
+  final StringBuilder path=new StringBuilder(host);
   if (host.startsWith("www.")) {
     path.delete(0,4);
   }
