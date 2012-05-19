@@ -1,5 +1,5 @@
 {
   super(source);
-  readAttribute(URI,source);
-  readAttribute(VERSION,source);
+  readAttribute(KEY_URI,source);
+  readAttribute(KEY_VERSION,source);
 }

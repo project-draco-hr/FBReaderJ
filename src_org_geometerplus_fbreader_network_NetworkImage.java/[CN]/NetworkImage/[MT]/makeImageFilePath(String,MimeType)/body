@@ -1,20 +1,20 @@
 {
-  URI uri;
-  try {
-    uri=new URI(url);
-  }
- catch (  URISyntaxException ex) {
-    return null;
-  }
+  final Uri uri=Uri.parse(url);
   String host=uri.getHost();
-  StringBuilder path=new StringBuilder(host);
+  if (host == null) {
+    host="host.unknown";
+  }
+  final StringBuilder path=new StringBuilder(host);
   if (host.startsWith("www.")) {
     path.delete(0,4);
   }
   path.insert(0,File.separator);
   path.insert(0,Paths.networkCacheDirectory());
   int index=path.length();
-  path.append(uri.getPath());
+  final String uriPath=uri.getPath();
+  if (uriPath != null) {
+    path.append(uriPath);
+  }
   int nameIndex=index;
   while (index < path.length()) {
     char ch=path.charAt(index);

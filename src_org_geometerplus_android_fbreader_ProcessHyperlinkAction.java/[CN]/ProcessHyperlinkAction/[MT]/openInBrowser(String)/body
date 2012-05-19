@@ -1,7 +1,7 @@
 {
   final Intent intent=new Intent(Intent.ACTION_VIEW);
   final boolean externalUrl;
-  if (BookDownloader.acceptsUri(Uri.parse(urlString))) {
+  if (BookDownloader.acceptsUri(Uri.parse(url))) {
     intent.setClass(BaseActivity,BookDownloader.class);
     intent.putExtra(BookDownloaderService.SHOW_NOTIFICATIONS_KEY,BookDownloaderService.Notifications.ALL);
     externalUrl=false;
@@ -12,10 +12,10 @@
   final NetworkLibrary nLibrary=NetworkLibrary.Instance();
   new Thread(new Runnable(){
     public void run(){
-      if (!urlString.startsWith("fbreader-action:")) {
+      if (!url.startsWith("fbreader-action:")) {
         nLibrary.initialize();
       }
-      intent.setData(Uri.parse(nLibrary.rewriteUrl(urlString,externalUrl)));
+      intent.setData(Uri.parse(nLibrary.rewriteUrl(url,externalUrl)));
       BaseActivity.runOnUiThread(new Runnable(){
         public void run(){
           try {

@@ -1,14 +1,8 @@
 {
-  final URI uri;
-  try {
-    uri=new URI(url);
-  }
- catch (  Throwable ex) {
-    return null;
-  }
-  final String host=uri.getHost();
+  final Uri uri=Uri.parse(url);
+  String host=uri.getHost();
   if (host == null) {
-    throw new IllegalArgumentException("Invalid URL: `" + url + "'");
+    host="host.unknown";
   }
   final StringBuilder path=new StringBuilder(host);
   if (host.startsWith("www.")) {
@@ -21,7 +15,10 @@
   }
   path.insert(0,Paths.mainBookDirectory());
   int index=path.length();
-  path.append(uri.getPath());
+  final String uriPath=uri.getPath();
+  if (uriPath != null) {
+    path.append(uriPath);
+  }
   int nameIndex=index;
   while (index < path.length()) {
     char ch=path.charAt(index);
