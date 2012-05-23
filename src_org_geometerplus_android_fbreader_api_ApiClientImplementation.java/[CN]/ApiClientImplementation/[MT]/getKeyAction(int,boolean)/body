@@ -1,0 +1,3 @@
+{
+  return requestString(GET_KEY_ACTION,new ApiObject[]{ApiObject.envelope(key),ApiObject.envelope(longPress)});
+}
