@@ -1,12 +1,24 @@
 {
   try {
 switch (method) {
-case GET_OPTION_GROUPS:
+case LIST_OPTION_GROUPS:
       return ApiObject.envelope(getOptionGroups());
-case GET_OPTION_NAMES:
+case LIST_OPTION_NAMES:
     return ApiObject.envelope(getOptionNames(((ApiObject.String)parameters[0]).Value));
-case GET_BOOK_TAGS:
+case LIST_BOOK_TAGS:
   return ApiObject.envelope(getBookTags());
+case LIST_ACTIONS:
+return ApiObject.envelope(listActions());
+case LIST_ACTION_NAMES:
+{
+final ArrayList<String> actions=new ArrayList<String>(parameters.length);
+for (ApiObject o : parameters) {
+  actions.add(((ApiObject.String)o).Value);
+}
+return ApiObject.envelope(listActionNames(actions));
+}
+case LIST_TAPZONES:
+return ApiObject.envelope(listTapZones());
 default :
 return Collections.<ApiObject>singletonList(unsupportedMethodError(method));
 }
