@@ -1,0 +1,3 @@
+{
+  return !ourPredefinedMaps.contains(Name);
+}

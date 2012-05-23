@@ -1,0 +1,9 @@
+{
+  if (ourPredefinedMaps.contains(name)) {
+    return;
+  }
+  ourMaps.remove(name);
+  final List<String> lst=new LinkedList<String>(ourMapsOption.getValue());
+  lst.remove(name);
+  ourMapsOption.setValue(lst);
+}
