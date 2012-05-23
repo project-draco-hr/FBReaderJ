@@ -1,3 +1,0 @@
-{
-  request(CREATE_TAPZONE,new ApiObject[]{ApiObject.envelope(name),ApiObject.envelope(width),ApiObject.envelope(height)});
-}

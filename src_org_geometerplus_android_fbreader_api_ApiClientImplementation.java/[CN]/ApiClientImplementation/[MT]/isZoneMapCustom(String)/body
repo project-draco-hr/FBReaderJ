@@ -1,0 +1,3 @@
+{
+  return requestBoolean(IS_ZONEMAP_CUSTOM,envelope(name));
+}

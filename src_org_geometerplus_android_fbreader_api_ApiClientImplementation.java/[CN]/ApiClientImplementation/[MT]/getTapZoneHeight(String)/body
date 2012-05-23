@@ -1,3 +1,0 @@
-{
-  return requestInt(GET_TAPZONE_HEIGHT,envelope(name));
-}

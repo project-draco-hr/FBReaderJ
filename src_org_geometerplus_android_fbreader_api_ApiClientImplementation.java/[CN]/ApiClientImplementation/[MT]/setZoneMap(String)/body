@@ -1,0 +1,3 @@
+{
+  request(SET_ZONEMAP,envelope(name));
+}

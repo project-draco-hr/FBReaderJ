@@ -1,0 +1,3 @@
+{
+  ScrollingPreferences.Instance().TapZoneMapOption.setValue(name);
+}

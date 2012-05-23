@@ -1,3 +1,0 @@
-{
-  return requestStringList(LIST_TAPZONES,EMPTY_PARAMETERS);
-}

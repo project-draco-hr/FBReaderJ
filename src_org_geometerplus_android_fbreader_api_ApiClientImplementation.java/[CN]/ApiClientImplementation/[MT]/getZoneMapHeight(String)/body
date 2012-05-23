@@ -1,0 +1,3 @@
+{
+  return requestInt(GET_ZONEMAP_HEIGHT,envelope(name));
+}

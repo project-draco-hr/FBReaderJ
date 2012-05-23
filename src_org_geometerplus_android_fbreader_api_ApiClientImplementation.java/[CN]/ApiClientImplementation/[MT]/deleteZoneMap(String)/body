@@ -1,0 +1,3 @@
+{
+  request(DELETE_ZONEMAP,envelope(name));
+}

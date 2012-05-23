@@ -17,8 +17,8 @@ for (ApiObject o : parameters) {
 }
 return ApiObject.envelope(listActionNames(actions));
 }
-case LIST_TAPZONES:
-return ApiObject.envelope(listTapZones());
+case LIST_ZONEMAPS:
+return ApiObject.envelope(listZoneMaps());
 default :
 return Collections.<ApiObject>singletonList(unsupportedMethodError(method));
 }
