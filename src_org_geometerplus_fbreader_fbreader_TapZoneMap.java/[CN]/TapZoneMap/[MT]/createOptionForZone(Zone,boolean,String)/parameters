@@ -1,0 +1,3 @@
+Zone zone
+boolean singleTap
+String action

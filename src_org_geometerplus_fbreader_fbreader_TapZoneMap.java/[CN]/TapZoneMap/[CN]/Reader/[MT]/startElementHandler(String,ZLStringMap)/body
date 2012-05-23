@@ -1,15 +1,14 @@
 {
   try {
     if ("zone".equals(tag)) {
-      final int x=Integer.parseInt(attributes.getValue("x"));
-      final int y=Integer.parseInt(attributes.getValue("y"));
+      final Zone zone=new Zone(Integer.parseInt(attributes.getValue("x")),Integer.parseInt(attributes.getValue("y")));
       final String action=attributes.getValue("action");
       final String action2=attributes.getValue("action2");
       if (action != null) {
-        myZoneMap.put(new Zone(x,y),action);
+        myZoneMap.put(zone,createOptionForZone(zone,true,action));
       }
       if (action2 != null) {
-        myZoneMap2.put(new Zone(x,y),action2);
+        myZoneMap2.put(zone,createOptionForZone(zone,false,action2));
       }
     }
  else     if ("tapZones".equals(tag)) {

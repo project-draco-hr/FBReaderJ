@@ -1,0 +1,15 @@
+{
+switch (tap) {
+default :
+    return null;
+case singleTap:
+{
+    final ZLStringOption option=myZoneMap.get(zone);
+    return option != null ? option : myZoneMap2.get(zone);
+  }
+case singleNotDoubleTap:
+return myZoneMap.get(zone);
+case doubleTap:
+return myZoneMap2.get(zone);
+}
+}

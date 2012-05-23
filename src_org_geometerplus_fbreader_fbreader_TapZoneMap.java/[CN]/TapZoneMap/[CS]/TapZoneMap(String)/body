@@ -1,4 +1,5 @@
 {
+  myName=name;
   final ZLFile mapFile=ZLFile.createFileByPath("default/tapzones/" + name.toLowerCase() + ".xml");
   new Reader().readQuietly(mapFile);
 }

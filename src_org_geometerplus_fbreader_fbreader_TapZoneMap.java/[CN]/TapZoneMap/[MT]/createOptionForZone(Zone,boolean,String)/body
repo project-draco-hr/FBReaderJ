@@ -1,0 +1,3 @@
+{
+  return new ZLStringOption("TapZones:" + (singleTap ? "Action" : "Action2"),myName + ":" + zone.HIndex+ ":"+ zone.VIndex,action);
+}
