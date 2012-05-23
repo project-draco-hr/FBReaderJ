@@ -1,2 +1,3 @@
 {
+  TapZoneMap.createZoneMap(name,width,height);
 }

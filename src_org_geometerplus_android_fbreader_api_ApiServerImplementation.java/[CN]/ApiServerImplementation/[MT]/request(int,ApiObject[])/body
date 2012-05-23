@@ -80,6 +80,8 @@ return ApiObject.envelope(getKeyAction(((ApiObject.Integer)parameters[0]).Value,
 case SET_KEY_ACTION:
 setKeyAction(((ApiObject.Integer)parameters[0]).Value,((ApiObject.Boolean)parameters[1]).Value,((ApiObject.String)parameters[2]).Value);
 return ApiObject.Void.Instance;
+case GET_CURRENT_TAPZONE:
+return ApiObject.envelope(getCurrentTapZone());
 case GET_TAPZONE_ACTION:
 return ApiObject.envelope(getTapZoneAction(((ApiObject.String)parameters[0]).Value,((ApiObject.Integer)parameters[1]).Value,((ApiObject.Integer)parameters[2]).Value,((ApiObject.Boolean)parameters[3]).Value));
 case GET_TAPZONE_HEIGHT:

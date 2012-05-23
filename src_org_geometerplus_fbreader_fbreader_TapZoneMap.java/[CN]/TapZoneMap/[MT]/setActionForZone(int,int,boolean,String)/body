@@ -1,0 +1,10 @@
+{
+  final Zone zone=new Zone(h,v);
+  final HashMap<Zone,ZLStringOption> map=singleTap ? myZoneMap : myZoneMap2;
+  ZLStringOption option=map.get(zone);
+  if (option == null) {
+    option=createOptionForZone(zone,singleTap,null);
+    map.put(zone,option);
+  }
+  option.setValue(action);
+}

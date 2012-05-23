@@ -1,5 +1,8 @@
 {
-  myName=name;
+  Name=name;
+  myOptionGroupName="TapZones:" + name;
+  myHeight=new ZLIntegerRangeOption(myOptionGroupName,"Height",2,5,3);
+  myWidth=new ZLIntegerRangeOption(myOptionGroupName,"Width",2,5,3);
   final ZLFile mapFile=ZLFile.createFileByPath("default/tapzones/" + name.toLowerCase() + ".xml");
   new Reader().readQuietly(mapFile);
 }

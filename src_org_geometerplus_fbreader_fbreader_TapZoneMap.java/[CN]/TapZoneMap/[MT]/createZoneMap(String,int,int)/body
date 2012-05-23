@@ -1,0 +1,12 @@
+{
+  if (ourMapsOption.getValue().contains(name)) {
+    return null;
+  }
+  final TapZoneMap map=zoneMap(name);
+  map.myWidth.setValue(width);
+  map.myHeight.setValue(height);
+  final List<String> lst=new LinkedList<String>(ourMapsOption.getValue());
+  lst.add(name);
+  ourMapsOption.setValue(lst);
+  return map;
+}

@@ -1,3 +1,3 @@
 {
-  return requestString(GET_TAPZONE_ACTION,new ApiObject[]{ApiObject.envelope(name),ApiObject.envelope(v),ApiObject.envelope(h),ApiObject.envelope(longPress)});
+  return requestString(GET_TAPZONE_ACTION,new ApiObject[]{ApiObject.envelope(name),ApiObject.envelope(h),ApiObject.envelope(v),ApiObject.envelope(singleTap)});
 }

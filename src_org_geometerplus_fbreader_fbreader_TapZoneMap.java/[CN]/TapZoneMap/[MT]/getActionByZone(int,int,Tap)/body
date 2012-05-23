@@ -1,0 +1,4 @@
+{
+  final ZLStringOption option=getOptionByZone(new Zone(h,v),tap);
+  return option != null ? option.getValue() : null;
+}

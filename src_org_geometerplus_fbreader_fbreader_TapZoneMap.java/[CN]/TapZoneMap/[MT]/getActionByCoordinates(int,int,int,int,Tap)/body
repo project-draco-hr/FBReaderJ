@@ -2,7 +2,5 @@
   if (width == 0 || height == 0) {
     return null;
   }
-  final Zone zone=new Zone(myHorizontalSize * x / width,myVerticalSize * y / height);
-  final ZLStringOption option=getOptionByZone(zone,tap);
-  return option != null ? option.getValue() : null;
+  return getActionByZone(myWidth.getValue() * x / width,myHeight.getValue() * y / height,tap);
 }

@@ -1,0 +1,8 @@
+{
+  TapZoneMap map=ourMaps.get(name);
+  if (map == null) {
+    map=new TapZoneMap(name);
+    ourMaps.put(name,map);
+  }
+  return map;
+}

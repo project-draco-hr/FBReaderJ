@@ -1,8 +1,11 @@
 {
-  final String id=ScrollingPreferences.Instance().HorizontalOption.getValue() ? "right_to_left" : "up";
-  if (!id.equals(myZoneMapId)) {
-    myZoneMap=new TapZoneMap(id);
-    myZoneMapId=id;
+  final ScrollingPreferences prefs=ScrollingPreferences.Instance();
+  String id=prefs.TapZonesSchemeOption.getValue();
+  if ("".equals(id)) {
+    id=ScrollingPreferences.Instance().HorizontalOption.getValue() ? "right_to_left" : "up";
+  }
+  if (myZoneMap == null || !id.equals(myZoneMap.Name)) {
+    myZoneMap=TapZoneMap.zoneMap(id);
   }
   return myZoneMap;
 }

@@ -14,11 +14,11 @@
  else     if ("tapZones".equals(tag)) {
       final String v=attributes.getValue("v");
       if (v != null) {
-        myVerticalSize=Integer.parseInt(v);
+        myHeight.setValue(Integer.parseInt(v));
       }
       final String h=attributes.getValue("h");
       if (h != null) {
-        myHorizontalSize=Integer.parseInt(h);
+        myWidth.setValue(Integer.parseInt(h));
       }
     }
   }

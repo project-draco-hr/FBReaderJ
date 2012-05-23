@@ -1,2 +1,3 @@
 {
+  TapZoneMap.zoneMap(name).setActionForZone(h,v,singleTap,action);
 }

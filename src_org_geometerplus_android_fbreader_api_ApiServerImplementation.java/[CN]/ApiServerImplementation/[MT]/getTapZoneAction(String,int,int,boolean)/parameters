@@ -1,4 +1,4 @@
 String name
-int v
 int h
-boolean longPress
+int v
+boolean singleTap

@@ -1,0 +1,3 @@
+{
+  return requestString(GET_CURRENT_TAPZONE,EMPTY_PARAMETERS);
+}
