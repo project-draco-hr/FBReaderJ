@@ -1,25 +1,10 @@
 {
-  if (book == null) {
-    if (Model == null) {
-      book=Library.Instance().getRecentBook();
-      if (book == null || !book.File.exists()) {
-        book=Book.getByFile(Library.getHelpFile());
+  if (book != null || Model == null) {
+    runWithMessage("loadingBook",new Runnable(){
+      public void run(){
+        openBookInternal(book,bookmark);
       }
     }
-    if (book == null) {
-      return;
-    }
-  }
-  if (Model != null) {
-    if (bookmark == null & book.File.getPath().equals(Model.Book.File.getPath())) {
-      return;
-    }
-  }
-  final Book bookToOpen=book;
-  runWithMessage("loadingBook",new Runnable(){
-    public void run(){
-      openBookInternal(bookToOpen,bookmark);
-    }
-  }
 ,postAction);
+  }
 }
