@@ -42,9 +42,7 @@
       ZLNetworkManager.Instance().perform(requests);
     }
  catch (    ZLNetworkException e) {
-      if (error == null) {
-        error=e;
-      }
+      e.printStackTrace();
     }
   }
   if (!descriptions.isEmpty()) {
