@@ -1,0 +1,6 @@
+{
+  if (myAuthors != null) {
+    myAuthors=null;
+    myIsSaved=false;
+  }
+}
