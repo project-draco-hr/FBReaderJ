@@ -1,0 +1,3 @@
+{
+  return count == 0 ? null : getTag(getTag(names,count - 1),names[count - 1]);
+}

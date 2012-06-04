@@ -1,0 +1,6 @@
+{
+  if (myTags != null) {
+    myTags=null;
+    myIsSaved=false;
+  }
+}
