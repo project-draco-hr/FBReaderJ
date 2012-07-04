@@ -1,0 +1,3 @@
+{
+  this(MimeType.get(mimeType),file,encoding,offsets,lengths);
+}

@@ -1,7 +1,14 @@
 {
   try {
     final String[] data=urlPath.split("\000");
-    return new ZLFileImage(MimeType.IMAGE_AUTO,ZLFile.createFileByPath(data[0]),data[1],Integer.parseInt(data[2]),Integer.parseInt(data[3]));
+    int count=Integer.parseInt(data[2]);
+    int[] offsets=new int[count];
+    int[] lengths=new int[count];
+    for (int i=0; i < count; ++i) {
+      offsets[i]=Integer.parseInt(data[3 + i]);
+      lengths[i]=Integer.parseInt(data[3 + count + i]);
+    }
+    return new ZLFileImage(MimeType.IMAGE_AUTO,ZLFile.createFileByPath(data[0]),data[1],offsets,lengths);
   }
  catch (  Exception e) {
     e.printStackTrace();

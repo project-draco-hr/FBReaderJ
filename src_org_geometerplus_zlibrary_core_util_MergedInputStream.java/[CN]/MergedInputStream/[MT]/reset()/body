@@ -1,0 +1,7 @@
+{
+  myCurrentStream=myStreams[0];
+  myCurrentStreamNumber=0;
+  for (  InputStream stream : myStreams) {
+    stream.reset();
+  }
+}
