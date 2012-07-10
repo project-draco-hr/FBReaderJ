@@ -1,0 +1,11 @@
+{
+  int readed=-1;
+  boolean streamIsAvailable=true;
+  while (readed == -1 && streamIsAvailable) {
+    readed=myCurrentStream.read();
+    if (readed == -1) {
+      streamIsAvailable=nextStream();
+    }
+  }
+  return readed;
+}

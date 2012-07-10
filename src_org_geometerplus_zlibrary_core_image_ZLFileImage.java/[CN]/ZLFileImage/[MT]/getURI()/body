@@ -1,3 +1,10 @@
 {
-  return SCHEME + "://" + myFile.getPath()+ "\000"+ myEncoding+ "\000"+ myOffset+ "\000"+ myLength;
+  String result=SCHEME + "://" + myFile.getPath()+ "\000"+ myEncoding+ "\000"+ myOffsets.length;
+  for (  int offset : myOffsets) {
+    result+="\000" + offset;
+  }
+  for (  int length : myLengths) {
+    result+="\000" + length;
+  }
+  return result;
 }

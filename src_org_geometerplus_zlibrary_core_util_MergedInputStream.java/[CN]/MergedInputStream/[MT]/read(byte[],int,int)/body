@@ -1,0 +1,17 @@
+{
+  int bytesToRead=len;
+  int bytesReaded=0;
+  boolean streamIsAvailable=true;
+  while (bytesToRead > 0 && streamIsAvailable) {
+    int readed=myCurrentStream.read(b,off,bytesToRead);
+    if (readed != -1) {
+      bytesToRead-=readed;
+      off+=readed;
+      bytesReaded+=readed;
+    }
+    if (bytesToRead != 0) {
+      streamIsAvailable=nextStream();
+    }
+  }
+  return bytesReaded == 0 ? -1 : bytesReaded;
+}

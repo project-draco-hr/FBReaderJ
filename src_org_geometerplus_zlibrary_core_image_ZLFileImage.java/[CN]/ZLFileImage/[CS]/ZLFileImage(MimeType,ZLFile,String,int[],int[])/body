@@ -2,8 +2,6 @@
   super(mimeType);
   myFile=file;
   myEncoding=encoding != null ? encoding : ENCODING_NONE;
-  myOffsets=new int[1];
-  myLengths=new int[1];
-  myOffsets[0]=offset;
-  myLengths[0]=length;
+  myOffsets=offsets;
+  myLengths=lengths;
 }

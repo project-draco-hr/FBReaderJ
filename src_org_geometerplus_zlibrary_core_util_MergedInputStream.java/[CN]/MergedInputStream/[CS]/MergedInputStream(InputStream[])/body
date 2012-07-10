@@ -1,0 +1,5 @@
+{
+  myStreams=streams;
+  myCurrentStream=streams[0];
+  myCurrentStreamNumber=0;
+}

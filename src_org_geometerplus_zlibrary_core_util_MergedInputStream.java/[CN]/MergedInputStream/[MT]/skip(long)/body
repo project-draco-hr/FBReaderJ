@@ -1,0 +1,11 @@
+{
+  long skipped=myCurrentStream.skip(n);
+  boolean streamIsAvailable=true;
+  while (skipped < n && streamIsAvailable) {
+    streamIsAvailable=nextStream();
+    if (streamIsAvailable) {
+      skipped+=myCurrentStream.skip(n - skipped);
+    }
+  }
+  return skipped;
+}

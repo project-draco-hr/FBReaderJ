@@ -1,0 +1,8 @@
+{
+  if (myCurrentStreamNumber + 1 >= myStreams.length) {
+    return false;
+  }
+  ++myCurrentStreamNumber;
+  myCurrentStream=myStreams[myCurrentStreamNumber];
+  return true;
+}
