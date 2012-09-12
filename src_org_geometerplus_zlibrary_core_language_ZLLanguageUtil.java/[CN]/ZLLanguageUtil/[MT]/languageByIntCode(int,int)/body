@@ -41,7 +41,7 @@ return "ko";
 case 0x13:
 return "nl";
 case 0x14:
-return "no";
+return "nb";
 case 0x15:
 return "pl";
 case 0x16:
