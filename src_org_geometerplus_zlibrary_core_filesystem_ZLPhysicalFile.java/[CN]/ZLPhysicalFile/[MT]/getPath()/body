@@ -1,3 +1,8 @@
 {
-  return myFile.getPath();
+  try {
+    return myFile.getCanonicalPath();
+  }
+ catch (  IOException e) {
+    return myFile.getPath();
+  }
 }
