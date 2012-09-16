@@ -4,7 +4,7 @@
   }
  else   if (element instanceof ZLTextImageElement) {
     final ZLTextImageElement imageElement=(ZLTextImageElement)element;
-    final ZLPaintContext.Size size=myContext.imageSize(imageElement.ImageData,getTextAreaSize(),imageElement.IsCover ? ZLPaintContext.ScalingType.FitMaximum : ZLPaintContext.ScalingType.IntegerCoefficient);
+    final ZLPaintContext.Size size=myContext.imageSize(imageElement.ImageData,getTextAreaSize(),getScalingType(imageElement));
     return (size != null ? size.Height : 0) + Math.max(myContext.getStringHeight() * (myTextStyle.getLineSpacePercent() - 100) / 100,3);
   }
   return 0;

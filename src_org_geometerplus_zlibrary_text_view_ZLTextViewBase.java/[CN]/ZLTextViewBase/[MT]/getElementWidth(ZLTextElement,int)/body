@@ -4,7 +4,7 @@
   }
  else   if (element instanceof ZLTextImageElement) {
     final ZLTextImageElement imageElement=(ZLTextImageElement)element;
-    final ZLPaintContext.Size size=myContext.imageSize(imageElement.ImageData,getTextAreaSize(),imageElement.IsCover ? ZLPaintContext.ScalingType.FitMaximum : ZLPaintContext.ScalingType.IntegerCoefficient);
+    final ZLPaintContext.Size size=myContext.imageSize(imageElement.ImageData,getTextAreaSize(),getScalingType(imageElement));
     return size != null ? size.Width : 0;
   }
  else   if (element == ZLTextElement.Indent) {

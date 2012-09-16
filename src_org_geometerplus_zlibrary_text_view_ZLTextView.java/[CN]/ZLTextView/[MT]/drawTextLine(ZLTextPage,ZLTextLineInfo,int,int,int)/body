@@ -21,7 +21,7 @@
       }
  else       if (element instanceof ZLTextImageElement) {
         final ZLTextImageElement imageElement=(ZLTextImageElement)element;
-        context.drawImage(areaX,areaY,imageElement.ImageData,getTextAreaSize(),imageElement.IsCover ? ZLPaintContext.ScalingType.FitMaximum : ZLPaintContext.ScalingType.IntegerCoefficient);
+        context.drawImage(areaX,areaY,imageElement.ImageData,getTextAreaSize(),getScalingType(imageElement));
       }
  else       if (element == ZLTextElement.HSpace) {
         final int cw=context.getSpaceWidth();

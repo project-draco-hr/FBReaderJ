@@ -1,0 +1,11 @@
+{
+switch (getImageFitting()) {
+default :
+case none:
+    return ZLPaintContext.ScalingType.IntegerCoefficient;
+case covers:
+  return imageElement.IsCover ? ZLPaintContext.ScalingType.FitMaximum : ZLPaintContext.ScalingType.IntegerCoefficient;
+case all:
+return ZLPaintContext.ScalingType.FitMaximum;
+}
+}
