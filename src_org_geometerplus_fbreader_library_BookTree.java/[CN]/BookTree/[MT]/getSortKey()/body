@@ -1,3 +1,0 @@
-{
-  return "BSK:" + super.getSortKey();
-}

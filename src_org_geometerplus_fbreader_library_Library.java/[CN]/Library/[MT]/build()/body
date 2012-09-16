@@ -41,12 +41,20 @@
   }
   fireModelChangedEvent(ChangeListener.Code.BookAdded);
   final Set<Book> orphanedBooks=new HashSet<Book>();
+  final Set<ZLPhysicalFile> physicalFiles=new HashSet<ZLPhysicalFile>();
   int count=0;
   for (  Book book : savedBooksByFileId.values()) {
 synchronized (this) {
+      final ZLPhysicalFile file=book.File.getPhysicalFile();
+      if (file != null) {
+        physicalFiles.add(file);
+      }
+      if (file != book.File && file != null && file.getPath().endsWith(".epub")) {
+        myDatabase.deleteFromBookList(book.getId());
+        continue;
+      }
       if (book.File.exists()) {
         boolean doAdd=true;
-        final ZLPhysicalFile file=book.File.getPhysicalFile();
         if (file == null) {
           continue;
         }
@@ -80,6 +88,9 @@ synchronized (this) {
   final Set<Book> newBooks=new HashSet<Book>();
   final List<ZLPhysicalFile> physicalFilesList=collectPhysicalFiles();
   for (  ZLPhysicalFile file : physicalFilesList) {
+    if (physicalFiles.contains(file)) {
+      continue;
+    }
     collectBooks(file,fileInfos,savedBooksByFileId,orphanedBooksByFileId,newBooks,!fileInfos.check(file,true));
     file.setCached(false);
   }
