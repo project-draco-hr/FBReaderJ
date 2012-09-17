@@ -1,0 +1,21 @@
+def processNodes(base, custom):
+    customChild = custom.firstChild
+    for baseChild in base.childNodes:
+        if (baseChild.nodeType != minidom.Node.ELEMENT_NODE):
+            continue
+        while ((customChild is not None) and (customChild.nodeType != minidom.Node.ELEMENT_NODE)):
+            customChild = customChild.nextSibling
+        if (baseChild.nodeName == 'node'):
+            name = baseChild.getAttribute('name')
+            if (name == ''):
+                continue
+            if ((customChild is None) or (name != customChild.getAttribute('name'))):
+                newNode = custom.ownerDocument.createElement('node')
+                newNode.setAttribute('name', name)
+                value = baseChild.getAttribute('value')
+                if (value != ''):
+                    newNode.setAttribute('value', value)
+                    newNode.setAttribute('toBeTranslated', 'true')
+                customChild = custom.insertBefore(newNode, customChild)
+        processNodes(baseChild, customChild)
+        customChild = customChild.nextSibling
