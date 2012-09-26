@@ -15,29 +15,35 @@
   ++dataOffset;
 switch (type) {
 case ZLTextParagraph.Entry.TEXT:
-    myTextLength=(int)data[dataOffset++] + (((int)data[dataOffset++]) << 16);
-  myTextData=data;
-myTextOffset=dataOffset;
-dataOffset+=myTextLength;
-break;
+{
+      int textLength=(int)data[dataOffset++] + (((int)data[dataOffset++]) << 16);
+      if (textLength > data.length - dataOffset) {
+        textLength=data.length - dataOffset;
+      }
+      myTextLength=textLength;
+      myTextData=data;
+      myTextOffset=dataOffset;
+      dataOffset+=textLength;
+      break;
+    }
 case ZLTextParagraph.Entry.CONTROL:
 {
-short kind=(short)data[dataOffset++];
-myControlKind=(byte)kind;
-myControlIsStart=(kind & 0x0100) == 0x0100;
-myHyperlinkType=0;
-break;
-}
+    short kind=(short)data[dataOffset++];
+    myControlKind=(byte)kind;
+    myControlIsStart=(kind & 0x0100) == 0x0100;
+    myHyperlinkType=0;
+    break;
+  }
 case ZLTextParagraph.Entry.HYPERLINK_CONTROL:
 {
-short kind=(short)data[dataOffset++];
-myControlKind=(byte)kind;
-myControlIsStart=true;
-myHyperlinkType=(byte)(kind >> 8);
-short labelLength=(short)data[dataOffset++];
-myHyperlinkId=new String(data,dataOffset,labelLength);
-dataOffset+=labelLength;
-break;
+  short kind=(short)data[dataOffset++];
+  myControlKind=(byte)kind;
+  myControlIsStart=true;
+  myHyperlinkType=(byte)(kind >> 8);
+  short labelLength=(short)data[dataOffset++];
+  myHyperlinkId=new String(data,dataOffset,labelLength);
+  dataOffset+=labelLength;
+  break;
 }
 case ZLTextParagraph.Entry.IMAGE:
 {
