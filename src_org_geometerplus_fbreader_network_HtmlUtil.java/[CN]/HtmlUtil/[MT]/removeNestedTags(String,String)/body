@@ -1,0 +1,12 @@
+{
+  Pattern pattern=ourTagPatterns.get(tag);
+  if (pattern == null) {
+    pattern=Pattern.compile("(<" + tag + ">.*)</*"+ tag+ ">(.*</"+ tag+ ">)");
+  }
+  final Matcher matcher=pattern.matcher(text);
+  while (matcher.find()) {
+    text=matcher.replaceAll("$1 $2");
+    matcher.reset(text);
+  }
+  return text;
+}
