@@ -1,6 +1,6 @@
 {
   if (myUpdateBookInfoStatement == null) {
-    myUpdateBookInfoStatement=myDatabase.compileStatement("UPDATE Books SET file_id = ?, encoding = ?, language = ?, title = ? WHERE book_id = ?");
+    myUpdateBookInfoStatement=myDatabase.compileStatement("UPDATE OR IGNORE Books SET file_id = ?, encoding = ?, language = ?, title = ? WHERE book_id = ?");
   }
   myUpdateBookInfoStatement.bindLong(1,fileId);
   SQLiteUtil.bindString(myUpdateBookInfoStatement,2,encoding);
