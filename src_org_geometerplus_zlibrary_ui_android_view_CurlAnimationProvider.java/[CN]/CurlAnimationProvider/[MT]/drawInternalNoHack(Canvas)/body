@@ -88,19 +88,4 @@
   myEdgePath.lineTo((x + 7 * x1 - 2 * sX) / 8,(y + 7 * cornerY) / 8);
   myEdgePath.quadTo((x + 3 * x1) / 4,(y + 3 * cornerY) / 4,(x + x1) / 2,(y + cornerY) / 2);
   canvas.drawPath(myEdgePath,myEdgePaint);
-  canvas.save();
-  canvas.clipPath(myEdgePath);
-  final Matrix m=new Matrix();
-  m.postScale(1,-1);
-  m.postTranslate(x - cornerX,y + cornerY);
-  final float angle;
-  if (cornerY == 0) {
-    angle=-180 / 3.1416f * (float)Math.atan2(x - cornerX,y - y1);
-  }
- else {
-    angle=180 - 180 / 3.1416f * (float)Math.atan2(x - cornerX,y - y1);
-  }
-  m.postRotate(angle,x,y);
-  canvas.drawBitmap(fgBitmap,m,myBackPaint);
-  canvas.restore();
 }
