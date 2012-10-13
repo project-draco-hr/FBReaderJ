@@ -1,0 +1,3 @@
+{
+  return requestInt(GET_TOP_MARGIN,EMPTY_PARAMETERS);
+}

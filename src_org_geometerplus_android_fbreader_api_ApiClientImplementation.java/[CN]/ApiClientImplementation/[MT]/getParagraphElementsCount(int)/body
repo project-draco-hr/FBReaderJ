@@ -1,0 +1,3 @@
+{
+  return requestInt(GET_PARAGRAPH_ELEMENTS_COUNT,envelope(paragraphIndex));
+}

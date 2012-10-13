@@ -1,0 +1,3 @@
+{
+  myReader.LeftMarginOption.setValue(value);
+}

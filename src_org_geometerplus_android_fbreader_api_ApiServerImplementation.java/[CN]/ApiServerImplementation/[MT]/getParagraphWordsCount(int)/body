@@ -1,0 +1,14 @@
+{
+  final ArrayList<String> words=new ArrayList<String>();
+  final ZLTextWordCursor cursor=new ZLTextWordCursor(myReader.getTextView().getStartCursor());
+  cursor.moveToParagraph(paragraphIndex);
+  cursor.moveToParagraphStart();
+  while (!cursor.isEndOfParagraph()) {
+    ZLTextElement element=cursor.getElement();
+    if (element instanceof ZLTextWord) {
+      words.add(element.toString());
+    }
+    cursor.nextWord();
+  }
+  return words;
+}

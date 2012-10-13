@@ -1,0 +1,7 @@
+{
+  final ArrayList<ApiObject> objects=new ArrayList<ApiObject>(values.size());
+  for (  java.lang.Integer v : values) {
+    objects.add(new Integer(v));
+  }
+  return objects;
+}

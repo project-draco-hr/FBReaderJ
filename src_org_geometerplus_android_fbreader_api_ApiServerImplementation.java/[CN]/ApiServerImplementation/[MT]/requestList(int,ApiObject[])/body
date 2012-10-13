@@ -19,6 +19,10 @@ return ApiObject.envelope(listActionNames(actions));
 }
 case LIST_ZONEMAPS:
 return ApiObject.envelope(listZoneMaps());
+case GET_PARAGRAPH_WORDS_COUNT:
+return ApiObject.envelope(getParagraphWordsCount(((ApiObject.Integer)parameters[0]).Value));
+case GET_PARAGRAPH_WORD_INDICES:
+return ApiObject.envelope(getParagraphWordIndices(((ApiObject.Integer)parameters[0]).Value));
 default :
 return Collections.<ApiObject>singletonList(unsupportedMethodError(method));
 }

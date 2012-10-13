@@ -1,3 +1,0 @@
-{
-  return requestInt(GET_ELEMENTS_NUMBER,envelope(paragraphIndex));
-}
