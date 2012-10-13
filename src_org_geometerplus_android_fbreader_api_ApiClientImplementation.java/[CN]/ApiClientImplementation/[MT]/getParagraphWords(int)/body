@@ -1,0 +1,3 @@
+{
+  return requestStringList(GET_PARAGRAPH_WORDS,envelope(paragraphIndex));
+}

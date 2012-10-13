@@ -1,3 +1,0 @@
-{
-  return requestStringList(GET_PARAGRAPH_WORDS_COUNT,envelope(paragraphIndex));
-}
