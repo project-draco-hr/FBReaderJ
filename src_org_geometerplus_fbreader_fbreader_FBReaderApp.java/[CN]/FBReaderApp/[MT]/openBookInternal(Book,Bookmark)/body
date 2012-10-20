@@ -15,9 +15,7 @@
   }
   if (book != null) {
     onViewChanged();
-    if (Model != null) {
-      Model.Book.storePosition(BookTextView.getStartCursor());
-    }
+    storePosition();
     BookTextView.setModel(null);
     FootnoteView.setModel(null);
     clearTextCaches();

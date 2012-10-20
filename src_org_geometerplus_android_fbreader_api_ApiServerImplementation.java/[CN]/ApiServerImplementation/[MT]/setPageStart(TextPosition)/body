@@ -1,4 +1,5 @@
 {
   myReader.getTextView().gotoPosition(position.ParagraphIndex,position.ElementIndex,position.CharIndex);
   myReader.getViewWidget().repaint();
+  myReader.storePosition();
 }
