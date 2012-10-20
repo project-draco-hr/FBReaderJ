@@ -1,5 +1,3 @@
 {
-  if (Model != null && BookTextView != null) {
-    Model.Book.storePosition(BookTextView.getStartCursor());
-  }
+  storePosition();
 }
