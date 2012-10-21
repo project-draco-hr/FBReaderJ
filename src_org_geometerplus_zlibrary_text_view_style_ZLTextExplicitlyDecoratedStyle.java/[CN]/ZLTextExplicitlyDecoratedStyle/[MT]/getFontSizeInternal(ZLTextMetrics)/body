@@ -1,4 +1,7 @@
 {
+  if (myEntry instanceof ZLTextCSSStyleEntry && !ZLTextStyleCollection.Instance().UseCSSFontSizeOption.getValue()) {
+    return Base.getFontSize(metrics);
+  }
   if (myEntry.isFeatureSupported(FONT_STYLE_MODIFIER)) {
     if (myEntry.getFontModifier(FONT_MODIFIER_INHERIT) == ZLBoolean3.B3_TRUE) {
       return Base.Base.getFontSize(metrics);

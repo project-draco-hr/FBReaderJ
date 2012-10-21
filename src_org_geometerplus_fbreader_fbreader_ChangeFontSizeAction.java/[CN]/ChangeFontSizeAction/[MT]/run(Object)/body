@@ -1,5 +1,5 @@
 {
-  ZLIntegerRangeOption option=ZLTextStyleCollection.Instance().getBaseStyle().FontSizeOption;
+  final ZLIntegerRangeOption option=ZLTextStyleCollection.Instance().getBaseStyle().FontSizeOption;
   option.setValue(option.getValue() + myDelta);
   Reader.clearTextCaches();
   Reader.getViewWidget().repaint();
