@@ -5,9 +5,7 @@
   final ColorProfile profile=fbReader.getColorProfile();
   final Screen directoriesScreen=createPreferenceScreen("directories");
   directoriesScreen.addOption(Paths.BooksDirectoryOption(),"books");
-  if (AndroidFontUtil.areExternalFontsSupported()) {
-    directoriesScreen.addOption(Paths.FontsDirectoryOption(),"fonts");
-  }
+  directoriesScreen.addOption(Paths.FontsDirectoryOption(),"fonts");
   directoriesScreen.addOption(Paths.WallpapersDirectoryOption(),"wallpapers");
   final Screen appearanceScreen=createPreferenceScreen("appearance");
   appearanceScreen.addPreference(new ZLStringChoicePreference(this,appearanceScreen.Resource,"screenOrientation",androidLibrary.OrientationOption,androidLibrary.allOrientations()));
