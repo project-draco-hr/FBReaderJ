@@ -2,7 +2,7 @@
   if (book != null || Model == null) {
     runWithMessage("loadingBook",new Runnable(){
       public void run(){
-        openBookInternal(book,bookmark);
+        openBookInternal(book,bookmark,false);
       }
     }
 ,postAction);
