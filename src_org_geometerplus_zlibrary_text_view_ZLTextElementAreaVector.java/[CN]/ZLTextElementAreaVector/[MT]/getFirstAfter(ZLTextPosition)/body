@@ -1,4 +1,7 @@
 {
+  if (position == null) {
+    return null;
+  }
 synchronized (myAreas) {
     for (    ZLTextElementArea area : myAreas) {
       if (position.compareTo(area) <= 0) {
