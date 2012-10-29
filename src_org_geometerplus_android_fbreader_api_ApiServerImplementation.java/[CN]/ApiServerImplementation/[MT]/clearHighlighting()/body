@@ -1,3 +1,3 @@
 {
-  myReader.getTextView().clearHighlighting();
+  getReader().getTextView().clearHighlighting();
 }

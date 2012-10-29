@@ -1,5 +1,5 @@
 {
-  final ZLTextWordCursor cursor=new ZLTextWordCursor(myReader.getTextView().getStartCursor());
+  final ZLTextWordCursor cursor=new ZLTextWordCursor(getReader().getTextView().getStartCursor());
   cursor.moveToParagraph(paragraphIndex);
   cursor.moveToParagraphEnd();
   return cursor.getElementIndex();

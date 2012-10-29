@@ -1,0 +1,6 @@
+{
+  if (myReader == null) {
+    myReader=(FBReaderApp)FBReaderApp.Instance();
+  }
+  return myReader;
+}

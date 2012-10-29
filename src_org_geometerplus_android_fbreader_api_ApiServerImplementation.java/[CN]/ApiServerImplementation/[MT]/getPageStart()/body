@@ -1,3 +1,3 @@
 {
-  return getTextPosition(myReader.getTextView().getStartCursor());
+  return getTextPosition(getReader().getTextView().getStartCursor());
 }

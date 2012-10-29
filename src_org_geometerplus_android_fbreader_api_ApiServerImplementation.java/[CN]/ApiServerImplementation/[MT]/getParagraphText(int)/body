@@ -1,6 +1,6 @@
 {
   final StringBuffer sb=new StringBuffer();
-  final ZLTextWordCursor cursor=new ZLTextWordCursor(myReader.getTextView().getStartCursor());
+  final ZLTextWordCursor cursor=new ZLTextWordCursor(getReader().getTextView().getStartCursor());
   cursor.moveToParagraph(paragraphIndex);
   cursor.moveToParagraphStart();
   while (!cursor.isEndOfParagraph()) {
