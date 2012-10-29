@@ -1,6 +1,0 @@
-{
-  for (  String t : tags) {
-    text=removeNestedTags(text,t);
-  }
-  return text;
-}

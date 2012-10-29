@@ -1,5 +1,4 @@
 {
-  text=removeNestedTags(text,new String[]{"i","b","strong"});
   final Spanned htmlText=Html.fromHtml(text);
   if (htmlText.getSpans(0,htmlText.length(),URLSpan.class).length == 0) {
     return htmlText;
