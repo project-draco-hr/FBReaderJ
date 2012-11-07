@@ -6,7 +6,7 @@
   }
   cursor.close();
   fileInfos.save();
-  myDatabase.execSQL("CREATE TABLE RecentBooks(" + "book_index INTEGER PRIMARY KEY," + "book_id INTEGER REFERENCES Books(book_id))");
+  myDatabase.execSQL("CREATE TABLE IF NOT EXISTS RecentBooks(" + "book_index INTEGER PRIMARY KEY," + "book_id INTEGER REFERENCES Books(book_id))");
   final ArrayList<Long> ids=new ArrayList<Long>();
   final SQLiteStatement statement=myDatabase.compileStatement("SELECT book_id FROM Books WHERE file_name = ?");
   for (int i=0; i < 20; ++i) {

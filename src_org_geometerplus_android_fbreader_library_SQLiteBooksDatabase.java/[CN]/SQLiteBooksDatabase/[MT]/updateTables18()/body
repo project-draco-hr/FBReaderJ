@@ -1,6 +1,6 @@
 {
   myDatabase.execSQL("ALTER TABLE BookSeries RENAME TO BookSeries_Obsolete");
-  myDatabase.execSQL("CREATE TABLE BookSeries(" + "series_id INTEGER NOT NULL REFERENCES Series(series_id)," + "book_id INTEGER NOT NULL UNIQUE REFERENCES Books(book_id),"+ "book_index TEXT)");
+  myDatabase.execSQL("CREATE TABLE IF NOT EXISTS BookSeries(" + "series_id INTEGER NOT NULL REFERENCES Series(series_id)," + "book_id INTEGER NOT NULL UNIQUE REFERENCES Books(book_id),"+ "book_index TEXT)");
   final SQLiteStatement insert=myDatabase.compileStatement("INSERT INTO BookSeries (series_id,book_id,book_index) VALUES (?,?,?)");
   final Cursor cursor=myDatabase.rawQuery("SELECT series_id,book_id,book_index FROM BookSeries_Obsolete",null);
   while (cursor.moveToNext()) {

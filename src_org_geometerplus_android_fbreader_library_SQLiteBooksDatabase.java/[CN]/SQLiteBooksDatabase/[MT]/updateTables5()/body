@@ -1,6 +1,6 @@
 {
-  myDatabase.execSQL("CREATE TABLE Bookmarks(" + "bookmark_id INTEGER PRIMARY KEY," + "book_id INTEGER NOT NULL REFERENCES Books(book_id),"+ "bookmark_text TEXT NOT NULL,"+ "creation_time INTEGER NOT NULL,"+ "modification_time INTEGER,"+ "access_time INTEGER,"+ "access_counter INTEGER NOT NULL,"+ "paragraph INTEGER NOT NULL,"+ "word INTEGER NOT NULL,"+ "char INTEGER NOT NULL)");
-  myDatabase.execSQL("CREATE TABLE BookState(" + "book_id INTEGER UNIQUE NOT NULL REFERENCES Books(book_id)," + "paragraph INTEGER NOT NULL,"+ "word INTEGER NOT NULL,"+ "char INTEGER NOT NULL)");
+  myDatabase.execSQL("CREATE TABLE IF NOT EXISTS Bookmarks(" + "bookmark_id INTEGER PRIMARY KEY," + "book_id INTEGER NOT NULL REFERENCES Books(book_id),"+ "bookmark_text TEXT NOT NULL,"+ "creation_time INTEGER NOT NULL,"+ "modification_time INTEGER,"+ "access_time INTEGER,"+ "access_counter INTEGER NOT NULL,"+ "paragraph INTEGER NOT NULL,"+ "word INTEGER NOT NULL,"+ "char INTEGER NOT NULL)");
+  myDatabase.execSQL("CREATE TABLE IF NOT EXISTS BookState(" + "book_id INTEGER UNIQUE NOT NULL REFERENCES Books(book_id)," + "paragraph INTEGER NOT NULL,"+ "word INTEGER NOT NULL,"+ "char INTEGER NOT NULL)");
   Cursor cursor=myDatabase.rawQuery("SELECT book_id,file_name FROM Books",null);
   final SQLiteStatement statement=myDatabase.compileStatement("INSERT INTO BookState (book_id,paragraph,word,char) VALUES (?,?,?,?)");
   while (cursor.moveToNext()) {
