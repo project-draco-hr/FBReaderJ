@@ -1,0 +1,3 @@
+{
+  this(type,url,mime,new Date());
+}

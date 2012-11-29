@@ -31,7 +31,7 @@
  else {
     myLink.setTitle(title);
     myLink.setSummary(summary);
-    myLink.setUrl(UrlInfo.Type.Catalog,uri.toString());
+    myLink.setUrl(UrlInfo.Type.Catalog,uri.toString(),MimeType.APP_ATOM_XML);
     final NetworkLibrary library=NetworkLibrary.Instance();
     library.addCustomLink(myLink);
     library.synchronize();

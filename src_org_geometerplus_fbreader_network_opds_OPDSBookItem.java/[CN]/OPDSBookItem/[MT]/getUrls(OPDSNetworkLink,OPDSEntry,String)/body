@@ -2,21 +2,21 @@
   final UrlInfoCollection<UrlInfo> urls=new UrlInfoCollection<UrlInfo>();
   for (  ATOMLink link : entry.Links) {
     final String href=ZLNetworkUtil.url(baseUrl,link.getHref());
-    final MimeType type=MimeType.get(link.getType());
-    final String rel=networkLink.relation(link.getRel(),type);
+    final MimeType mime=MimeType.get(link.getType());
+    final String rel=networkLink.relation(link.getRel(),mime);
     final UrlInfo.Type referenceType=typeByRelation(rel);
     if (REL_IMAGE_THUMBNAIL.equals(rel) || REL_THUMBNAIL.equals(rel)) {
-      if (MimeType.IMAGE_PNG.equals(type) || MimeType.IMAGE_JPEG.equals(type)) {
-        urls.addInfo(new UrlInfo(UrlInfo.Type.Thumbnail,href));
+      if (MimeType.IMAGE_PNG.equals(mime) || MimeType.IMAGE_JPEG.equals(mime)) {
+        urls.addInfo(new UrlInfo(UrlInfo.Type.Thumbnail,href,mime));
       }
     }
  else     if ((rel != null && rel.startsWith(REL_IMAGE_PREFIX)) || REL_COVER.equals(rel)) {
-      if (MimeType.IMAGE_PNG.equals(type) || MimeType.IMAGE_JPEG.equals(type)) {
-        urls.addInfo(new UrlInfo(UrlInfo.Type.Image,href));
+      if (MimeType.IMAGE_PNG.equals(mime) || MimeType.IMAGE_JPEG.equals(mime)) {
+        urls.addInfo(new UrlInfo(UrlInfo.Type.Image,href,mime));
       }
     }
- else     if (MimeType.APP_ATOM_XML.weakEquals(type) && "entry".equals(type.getParameter("type"))) {
-      urls.addInfo(new UrlInfo(UrlInfo.Type.SingleEntry,href));
+ else     if (MimeType.APP_ATOM_XML.weakEquals(mime) && "entry".equals(mime.getParameter("type"))) {
+      urls.addInfo(new UrlInfo(UrlInfo.Type.SingleEntry,href,mime));
     }
  else     if (UrlInfo.Type.BookBuy == referenceType) {
       final OPDSLink opdsLink=(OPDSLink)link;
@@ -27,7 +27,7 @@
           price=new Money(priceAttribute);
         }
       }
-      if (MimeType.TEXT_HTML.equals(type)) {
+      if (MimeType.TEXT_HTML.equals(mime)) {
         collectReferences(urls,opdsLink,href,UrlInfo.Type.BookBuyInBrowser,price,true);
       }
  else {
@@ -35,18 +35,18 @@
       }
     }
  else     if (referenceType == UrlInfo.Type.Related) {
-      urls.addInfo(new RelatedUrlInfo(referenceType,link.getTitle(),type,href));
+      urls.addInfo(new RelatedUrlInfo(referenceType,link.getTitle(),href,mime));
     }
  else     if (referenceType == UrlInfo.Type.Comments) {
-      urls.addInfo(new RelatedUrlInfo(referenceType,link.getTitle(),type,href));
+      urls.addInfo(new RelatedUrlInfo(referenceType,link.getTitle(),href,mime));
     }
  else     if (referenceType == UrlInfo.Type.TOC) {
-      urls.addInfo(new UrlInfo(referenceType,href));
+      urls.addInfo(new UrlInfo(referenceType,href,mime));
     }
  else     if (referenceType != null) {
-      final int format=formatByMimeType(type);
+      final int format=formatByMimeType(mime);
       if (format != BookUrlInfo.Format.NONE) {
-        urls.addInfo(new BookUrlInfo(referenceType,format,href));
+        urls.addInfo(new BookUrlInfo(referenceType,format,href,mime));
       }
     }
   }

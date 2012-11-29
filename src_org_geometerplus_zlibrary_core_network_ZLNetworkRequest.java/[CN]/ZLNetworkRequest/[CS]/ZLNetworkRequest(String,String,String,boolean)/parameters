@@ -1,4 +1,0 @@
-String url
-String sslCertificate
-String postData
-boolean quiet

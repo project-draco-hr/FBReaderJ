@@ -1,0 +1,5 @@
+Type type
+int format
+String url
+MimeType mime
+Money price

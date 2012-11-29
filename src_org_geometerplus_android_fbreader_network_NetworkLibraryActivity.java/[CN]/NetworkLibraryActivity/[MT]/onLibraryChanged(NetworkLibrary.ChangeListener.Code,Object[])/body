@@ -21,6 +21,7 @@ openTree((NetworkTree)params[0]);
 break;
 case NotFound:
 UIUtil.showErrorMessage(NetworkLibraryActivity.this,"emptyNetworkSearchResults");
+getListView().invalidateViews();
 break;
 case EmptyCatalog:
 UIUtil.showErrorMessage(NetworkLibraryActivity.this,"emptyCatalog");

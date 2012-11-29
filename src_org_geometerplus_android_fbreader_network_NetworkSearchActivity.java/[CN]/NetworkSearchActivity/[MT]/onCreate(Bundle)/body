@@ -9,7 +9,15 @@
       final NetworkTree.Key key=(NetworkTree.Key)data.getSerializable(NetworkLibraryActivity.TREE_KEY_KEY);
       final NetworkTree tree=library.getTreeByKey(key);
       if (tree instanceof SearchCatalogTree) {
-        ((SearchCatalogTree)tree).startItemsLoader(intent.getStringExtra(SearchManager.QUERY));
+        final SearchCatalogTree searchTree=(SearchCatalogTree)tree;
+        final String pattern=intent.getStringExtra(SearchManager.QUERY);
+        final MimeType mime=searchTree.getMimeType();
+        if (MimeType.APP_ATOM_XML.weakEquals(mime)) {
+          searchTree.startItemsLoader(pattern);
+        }
+ else         if (MimeType.TEXT_HTML.weakEquals(mime)) {
+          Util.openInBrowser(this,searchTree.getUrl(pattern));
+        }
       }
     }
   }

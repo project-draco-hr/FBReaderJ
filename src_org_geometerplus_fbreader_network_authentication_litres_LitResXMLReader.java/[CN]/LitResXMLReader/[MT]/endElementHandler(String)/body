@@ -8,7 +8,7 @@ case CATALOG:
   break;
 case BOOK:
 if (TAG_BOOK == tag) {
-  myUrls.addInfo(new UrlInfo(UrlInfo.Type.SingleEntry,"http://data.fbreader.org/catalogs/litres2/full.php5?id=" + myBookId));
+  myUrls.addInfo(new UrlInfo(UrlInfo.Type.SingleEntry,"http://data.fbreader.org/catalogs/litres2/full.php5?id=" + myBookId,MimeType.APP_ATOM_XML_ENTRY));
   Books.add(new OPDSBookItem(Link,myBookId,myIndex++,myTitle,mySummary,myAuthors,myTags,mySeriesTitle,myIndexInSeries,myUrls));
   myBookId=myTitle=mySeriesTitle=null;
   mySummary=null;

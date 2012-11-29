@@ -6,5 +6,5 @@
     return false;
   }
   final UrlInfoWithDate info=(UrlInfoWithDate)o;
-  return InfoType == info.InfoType && ZLMiscUtil.equals(Url,info.Url) && ZLMiscUtil.equals(Updated,info.Updated);
+  return InfoType == info.InfoType && ZLMiscUtil.equals(Url,info.Url) && ZLMiscUtil.equals(Mime,info.Mime) && ZLMiscUtil.equals(Updated,info.Updated);
 }

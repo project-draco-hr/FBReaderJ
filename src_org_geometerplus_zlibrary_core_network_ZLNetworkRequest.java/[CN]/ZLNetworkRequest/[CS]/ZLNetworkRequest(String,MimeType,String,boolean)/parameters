@@ -1,0 +1,4 @@
+String url
+MimeType mime
+String postData
+boolean quiet

@@ -6,14 +6,14 @@
   int idType=0;
   final OPDSNetworkLink opdsLink=(OPDSNetworkLink)myData.Link;
   for (  ATOMLink link : entry.Links) {
-    final MimeType type=MimeType.get(link.getType());
-    final String rel=opdsLink.relation(link.getRel(),type);
-    if (rel == null && MimeType.APP_ATOM_XML.weakEquals(type)) {
+    final MimeType mime=MimeType.get(link.getType());
+    final String rel=opdsLink.relation(link.getRel(),mime);
+    if (rel == null && MimeType.APP_ATOM_XML.weakEquals(mime)) {
       return ZLNetworkUtil.url(myBaseURL,link.getHref());
     }
     int relType=BookUrlInfo.Format.NONE;
     if (rel == null || rel.startsWith(REL_ACQUISITION_PREFIX) || rel.startsWith(REL_FBREADER_ACQUISITION_PREFIX)) {
-      relType=OPDSBookItem.formatByMimeType(type);
+      relType=OPDSBookItem.formatByMimeType(mime);
     }
     if (relType != BookUrlInfo.Format.NONE && (id == null || idType < relType || (idType == relType && REL_ACQUISITION.equals(rel)))) {
       id=ZLNetworkUtil.url(myBaseURL,link.getHref());

@@ -1,6 +1,6 @@
 {
-  final String url=getUrl(UrlInfo.Type.Search);
-  if (url == null) {
+  final UrlInfo info=getUrlInfo(UrlInfo.Type.Search);
+  if (info == null || info.Url == null) {
     return null;
   }
   try {
@@ -8,5 +8,5 @@
   }
  catch (  UnsupportedEncodingException e) {
   }
-  return createNetworkData(url.replace("%s",pattern),(OPDSCatalogItem.State)data);
+  return createNetworkData(info.Url.replace("%s",pattern),info.Mime,(OPDSCatalogItem.State)data);
 }

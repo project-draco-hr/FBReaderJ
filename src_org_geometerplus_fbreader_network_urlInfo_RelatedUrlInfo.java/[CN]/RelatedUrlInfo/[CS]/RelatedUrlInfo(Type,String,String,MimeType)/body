@@ -1,0 +1,4 @@
+{
+  super(type,url,mime);
+  Title=title;
+}

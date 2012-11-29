@@ -63,6 +63,5 @@
   if ((notifications & Notifications.DOWNLOADING_STARTED) != 0) {
     showMessage("downloadingStarted");
   }
-  final String sslCertificate=intent.getStringExtra(SSL_CERTIFICATE_KEY);
-  startFileDownload(url,sslCertificate,fileFile,title);
+  startFileDownload(url,fileFile,title);
 }

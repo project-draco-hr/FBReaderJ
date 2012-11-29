@@ -1,0 +1,6 @@
+{
+  Template=tmpl;
+  IndexOffset=indexOffset;
+  PageOffset=pageOffset;
+  Mime=mime;
+}

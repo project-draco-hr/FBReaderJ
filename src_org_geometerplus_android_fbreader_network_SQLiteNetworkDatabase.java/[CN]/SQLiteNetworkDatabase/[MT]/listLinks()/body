@@ -11,10 +11,10 @@
     final String summary=cursor.getString(5);
     final String language=cursor.getString(6);
     linksMap.clear();
-    final Cursor linksCursor=myDatabase.rawQuery("SELECT key,url,update_time FROM LinkUrls WHERE link_id = " + id,null);
+    final Cursor linksCursor=myDatabase.rawQuery("SELECT key,url,mime,update_time FROM LinkUrls WHERE link_id = " + id,null);
     while (linksCursor.moveToNext()) {
       try {
-        linksMap.addInfo(new UrlInfoWithDate(UrlInfo.Type.valueOf(linksCursor.getString(0)),linksCursor.getString(1),SQLiteUtil.getDate(linksCursor,2)));
+        linksMap.addInfo(new UrlInfoWithDate(UrlInfo.Type.valueOf(linksCursor.getString(0)),linksCursor.getString(1),MimeType.get(linksCursor.getString(2)),SQLiteUtil.getDate(linksCursor,3)));
       }
  catch (      IllegalArgumentException e) {
       }

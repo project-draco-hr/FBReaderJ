@@ -1,14 +1,14 @@
 {
-  if (MimeType.TEXT_FB2.equals(type)) {
+  if (MimeType.TEXT_FB2.equals(mime)) {
     return BookUrlInfo.Format.FB2;
   }
- else   if (MimeType.APP_FB2_ZIP.equals(type)) {
+ else   if (MimeType.APP_FB2_ZIP.equals(mime)) {
     return BookUrlInfo.Format.FB2_ZIP;
   }
- else   if (MimeType.APP_EPUB_ZIP.equals(type)) {
+ else   if (MimeType.APP_EPUB_ZIP.equals(mime)) {
     return BookUrlInfo.Format.EPUB;
   }
- else   if (MimeType.APP_MOBIPOCKET.equals(type)) {
+ else   if (MimeType.APP_MOBIPOCKET.equals(mime)) {
     return BookUrlInfo.Format.MOBIPOCKET;
   }
   return BookUrlInfo.Format.NONE;

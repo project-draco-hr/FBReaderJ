@@ -11,7 +11,7 @@
     return;
   }
   final UrlInfoCollection<UrlInfoWithDate> infos=new UrlInfoCollection<UrlInfoWithDate>();
-  infos.addInfo(new UrlInfoWithDate(UrlInfo.Type.Catalog,textUrl));
+  infos.addInfo(new UrlInfoWithDate(UrlInfo.Type.Catalog,textUrl,MimeType.APP_ATOM_XML));
   myLink=new OPDSCustomNetworkLink(ICustomNetworkLink.INVALID_ID,myType,siteName,null,null,null,infos);
   final Runnable loadInfoRunnable=new Runnable(){
     private String myError;

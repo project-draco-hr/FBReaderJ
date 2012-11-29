@@ -1,0 +1,4 @@
+{
+  final UrlInfo info=Link.getUrlInfo(UrlInfo.Type.Search);
+  return info != null ? info.Mime : MimeType.NULL;
+}

@@ -1,4 +1,4 @@
 {
-  super(base.InfoType,base.BookFormat,url);
+  super(base.InfoType,base.BookFormat,url,base.Mime);
   myCleanUrl=base.cleanUrl();
 }

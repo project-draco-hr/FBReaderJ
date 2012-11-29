@@ -1,0 +1,3 @@
+{
+  myDatabase.execSQL("ALTER TABLE LinkUrls ADD COLUMN mime TEXT");
+}

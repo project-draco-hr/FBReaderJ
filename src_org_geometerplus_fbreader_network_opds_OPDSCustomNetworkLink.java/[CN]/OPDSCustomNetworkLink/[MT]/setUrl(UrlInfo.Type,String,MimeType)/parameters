@@ -1,0 +1,3 @@
+UrlInfo.Type type
+String url
+MimeType mime

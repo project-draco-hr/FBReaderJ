@@ -1,0 +1,4 @@
+String tmpl
+int indexOffset
+int pageOffset
+MimeType mime

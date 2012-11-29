@@ -35,10 +35,10 @@
         id=link.getId();
         statement.bindLong(5,id);
         statement.execute();
-        final Cursor linksCursor=myDatabase.rawQuery("SELECT key,url,update_time FROM LinkUrls WHERE link_id = " + link.getId(),null);
+        final Cursor linksCursor=myDatabase.rawQuery("SELECT key,url,mime,update_time FROM LinkUrls WHERE link_id = " + link.getId(),null);
         while (linksCursor.moveToNext()) {
           try {
-            linksMap.addInfo(new UrlInfoWithDate(UrlInfo.Type.valueOf(linksCursor.getString(0)),linksCursor.getString(1),SQLiteUtil.getDate(linksCursor,2)));
+            linksMap.addInfo(new UrlInfoWithDate(UrlInfo.Type.valueOf(linksCursor.getString(0)),linksCursor.getString(1),MimeType.get(linksCursor.getString(2)),SQLiteUtil.getDate(linksCursor,3)));
           }
  catch (          IllegalArgumentException e) {
           }
@@ -52,13 +52,13 @@
         final SQLiteStatement urlStatement;
         if (dbInfo == null) {
           if (myInsertCustomLinkUrlStatement == null) {
-            myInsertCustomLinkUrlStatement=myDatabase.compileStatement("INSERT OR REPLACE INTO LinkUrls(url,update_time,link_id,key) VALUES (?,?,?,?)");
+            myInsertCustomLinkUrlStatement=myDatabase.compileStatement("INSERT OR REPLACE INTO LinkUrls(url,mime,update_time,link_id,key) VALUES (?,?,?,?,?)");
           }
           urlStatement=myInsertCustomLinkUrlStatement;
         }
  else         if (!info.equals(dbInfo)) {
           if (myUpdateCustomLinkUrlStatement == null) {
-            myUpdateCustomLinkUrlStatement=myDatabase.compileStatement("UPDATE LinkUrls SET url = ?, update_time = ? WHERE link_id = ? AND key = ?");
+            myUpdateCustomLinkUrlStatement=myDatabase.compileStatement("UPDATE LinkUrls SET url = ?, mime = ?, update_time = ? WHERE link_id = ? AND key = ?");
           }
           urlStatement=myUpdateCustomLinkUrlStatement;
         }
@@ -66,9 +66,10 @@
           continue;
         }
         SQLiteUtil.bindString(urlStatement,1,info.Url);
-        SQLiteUtil.bindDate(urlStatement,2,info.Updated);
-        urlStatement.bindLong(3,id);
-        urlStatement.bindString(4,key.toString());
+        SQLiteUtil.bindString(urlStatement,2,info.Mime.toString());
+        SQLiteUtil.bindDate(urlStatement,3,info.Updated);
+        urlStatement.bindLong(4,id);
+        urlStatement.bindString(5,key.toString());
         urlStatement.execute();
       }
       for (      UrlInfo info : linksMap.getAllInfos()) {

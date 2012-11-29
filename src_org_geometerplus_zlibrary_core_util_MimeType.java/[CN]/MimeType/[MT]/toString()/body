@@ -1,0 +1,13 @@
+{
+  if (myParameters == null) {
+    return Name;
+  }
+  final StringBuilder buffer=new StringBuilder(Name);
+  for (  Map.Entry<String,String> entry : myParameters.entrySet()) {
+    buffer.append(';');
+    buffer.append(entry.getKey());
+    buffer.append('=');
+    buffer.append(entry.getValue());
+  }
+  return buffer.toString();
+}

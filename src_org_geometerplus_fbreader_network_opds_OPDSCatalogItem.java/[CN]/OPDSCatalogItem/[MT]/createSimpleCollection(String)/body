@@ -1,5 +1,5 @@
 {
   final UrlInfoCollection<UrlInfo> collection=new UrlInfoCollection<UrlInfo>();
-  collection.addInfo(new UrlInfo(UrlInfo.Type.Catalog,url));
+  collection.addInfo(new UrlInfo(UrlInfo.Type.Catalog,url,MimeType.APP_ATOM_XML));
   return collection;
 }
