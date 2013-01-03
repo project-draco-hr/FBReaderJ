@@ -1,0 +1,9 @@
+{
+  if (intent == null) {
+    return;
+  }
+  final int orientation=intent.getIntExtra(KEY,Integer.MIN_VALUE);
+  if (orientation != Integer.MIN_VALUE) {
+    activity.setRequestedOrientation(orientation);
+  }
+}

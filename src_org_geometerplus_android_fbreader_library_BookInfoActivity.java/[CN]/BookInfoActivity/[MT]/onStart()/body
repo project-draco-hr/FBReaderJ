@@ -1,5 +1,6 @@
 {
   super.onStart();
+  OrientationUtil.setOrientation(this,getIntent());
   final Book book=Book.getByFile(myFile);
   if (book != null) {
     book.getEncoding();
@@ -21,7 +22,7 @@
 );
   setupButton(R.id.book_info_button_edit,"editInfo",new View.OnClickListener(){
     public void onClick(    View view){
-      startActivityForResult(new Intent(getApplicationContext(),EditBookInfoActivity.class).putExtra(CURRENT_BOOK_PATH_KEY,myFile.getPath()),1);
+      OrientationUtil.startActivityForResult(BookInfoActivity.this,new Intent(getApplicationContext(),EditBookInfoActivity.class).putExtra(CURRENT_BOOK_PATH_KEY,myFile.getPath()),1);
     }
   }
 );

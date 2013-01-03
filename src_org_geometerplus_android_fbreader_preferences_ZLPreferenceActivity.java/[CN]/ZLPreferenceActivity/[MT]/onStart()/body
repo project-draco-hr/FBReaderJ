@@ -1,5 +1,4 @@
 {
   super.onStart();
   OrientationUtil.setOrientation(this,getIntent());
-  NetworkLibrary.Instance().addChangeListener(this);
 }
