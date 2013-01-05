@@ -1,0 +1,3 @@
+{
+  current.startActivity(intent.putExtra(KEY,current.getRequestedOrientation()));
+}

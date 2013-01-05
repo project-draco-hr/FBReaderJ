@@ -19,7 +19,7 @@
       BaseActivity.runOnUiThread(new Runnable(){
         public void run(){
           try {
-            BaseActivity.startActivity(intent);
+            OrientationUtil.startActivity(BaseActivity,intent);
           }
  catch (          ActivityNotFoundException e) {
             e.printStackTrace();

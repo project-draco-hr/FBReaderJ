@@ -1,4 +1,5 @@
 {
+  OrientationUtil.setOrientation(this,intent);
   if (!Intent.ACTION_SEARCH.equals(intent.getAction())) {
     return;
   }

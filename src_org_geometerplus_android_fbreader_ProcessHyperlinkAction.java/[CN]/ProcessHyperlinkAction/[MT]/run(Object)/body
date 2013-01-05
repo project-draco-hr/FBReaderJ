@@ -28,7 +28,7 @@ final Intent intent=new Intent();
 intent.setClass(BaseActivity,ImageViewActivity.class);
 intent.setData(Uri.parse(url));
 intent.putExtra(ImageViewActivity.BACKGROUND_COLOR_KEY,Reader.ImageViewBackgroundOption.getValue().getIntValue());
-BaseActivity.startActivity(intent);
+OrientationUtil.startActivity(BaseActivity,intent);
 }
  catch (Exception e) {
 e.printStackTrace();
