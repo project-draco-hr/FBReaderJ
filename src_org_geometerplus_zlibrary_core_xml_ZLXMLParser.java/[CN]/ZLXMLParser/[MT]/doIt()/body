@@ -2,7 +2,7 @@
   final ZLXMLReader xmlReader=myXMLReader;
   final HashMap<String,char[]> entityMap=getDTDMap(xmlReader.externalDTDs());
   xmlReader.collectExternalEntities(entityMap);
-  final InputStreamReader streamReader=myStreamReader;
+  final Reader streamReader=myStreamReader;
   final boolean processNamespaces=myProcessNamespaces;
   HashMap<String,String> oldNamespaceMap=processNamespaces ? new HashMap<String,String>() : null;
   HashMap<String,String> currentNamespaceMap=null;

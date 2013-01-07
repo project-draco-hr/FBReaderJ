@@ -1,0 +1,10 @@
+{
+  buffer.append('<').append(tag);
+  for (int i=0; i < attrs.length - 1; i+=2) {
+    buffer.append(' ').append(escapeForXml(attrs[i])).append("=\"").append(escapeForXml(attrs[i + 1])).append('"');
+  }
+  if (close) {
+    buffer.append('/');
+  }
+  buffer.append(">\n");
+}

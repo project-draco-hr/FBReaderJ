@@ -1,0 +1,26 @@
+{
+switch (myState) {
+case READ_ID:
+    try {
+      myId=Long.parseLong(new String(ch,start,length));
+    }
+ catch (    NumberFormatException e) {
+    }
+  break;
+case READ_TITLE:
+myTitle.append(ch,start,length);
+break;
+case READ_LANGUAGE:
+myLanguage.append(ch,start,length);
+break;
+case READ_ENCODING:
+myEncoding.append(ch,start,length);
+break;
+case READ_AUTHOR_URI:
+myAuthorSortKey.append(ch,start,length);
+break;
+case READ_AUTHOR_NAME:
+myAuthorName.append(ch,start,length);
+break;
+}
+}

@@ -1,7 +1,0 @@
-{
-  buffer.append('<').append(tag);
-  for (int i=0; i < attrs.length - 1; i+=2) {
-    buffer.append(' ').append(attrs[i]).append("=\"").append(attrs[i + 1]).append('"');
-  }
-  buffer.append("/>\n");
-}

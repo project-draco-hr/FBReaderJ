@@ -1,0 +1,10 @@
+{
+  myBook=null;
+  myId=-1;
+  myUrl=null;
+  clear(myTitle);
+  clear(myLanguage);
+  clear(myEncoding);
+  myAuthors.clear();
+  myState=State.READ_NOTHING;
+}

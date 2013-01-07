@@ -1,0 +1,7 @@
+{
+  System.err.println("url = " + url);
+  if (url == null || !url.startsWith("file://")) {
+    return null;
+  }
+  return createFileByPath(url.substring("file://".length()));
+}

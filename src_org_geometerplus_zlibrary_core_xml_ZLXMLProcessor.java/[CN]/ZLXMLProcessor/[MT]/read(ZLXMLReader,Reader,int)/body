@@ -1,7 +1,7 @@
 {
   ZLXMLParser parser=null;
   try {
-    parser=new ZLXMLParser(xmlReader,stream,bufferSize);
+    parser=new ZLXMLParser(xmlReader,reader,bufferSize);
     xmlReader.startDocumentHandler();
     parser.doIt();
     xmlReader.endDocumentHandler();

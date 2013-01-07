@@ -1,3 +1,5 @@
 {
-  buffer.append('<').append(tag).append('>').append(content).append("</").append(tag).append(">\n");
+  if (content != null) {
+    buffer.append('<').append(tag).append('>').append(escapeForXml(content)).append("</").append(tag).append(">\n");
+  }
 }

@@ -1,9 +1,10 @@
 {
   final StringBuilder buffer=new StringBuilder();
-  buffer.append("<entry>\n");
+  appendTagWithAttributes(buffer,"entry",false,"xmlns:dc",XMLNamespaces.DublinCore);
   appendTagWithContent(buffer,"id",String.valueOf(book.getId()));
   appendTagWithContent(buffer,"title",book.getTitle());
   appendTagWithContent(buffer,"dc:language",book.getLanguage());
+  appendTagWithContent(buffer,"dc:encoding",book.getEncodingNoDetection());
   for (  Author author : book.authors()) {
     buffer.append("<author>\n");
     appendTagWithContent(buffer,"uri",author.SortKey);
@@ -11,9 +12,9 @@
     buffer.append("</author>\n");
   }
   for (  Tag tag : book.tags()) {
-    appendTagWithAttributes(buffer,"category","term",tag.toString("/"),"label",tag.Name);
+    appendTagWithAttributes(buffer,"category",true,"term",tag.toString("/"),"label",tag.Name);
   }
-  appendTagWithAttributes(buffer,"link","href",book.File.getUrl(),"type","application/epub+zip","rel","http://opds-spec.org/acquisition");
+  appendTagWithAttributes(buffer,"link",true,"href",book.File.getUrl(),"type","application/epub+zip","rel","http://opds-spec.org/acquisition");
   buffer.append("</entry>\n");
   return buffer.toString();
 }

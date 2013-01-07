@@ -1,6 +1,6 @@
 {
   try {
-    read(file);
+    read(string);
     return true;
   }
  catch (  IOException e) {
