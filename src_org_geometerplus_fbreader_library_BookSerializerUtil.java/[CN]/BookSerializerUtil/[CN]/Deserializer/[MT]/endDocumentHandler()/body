@@ -6,4 +6,8 @@
   for (  Author author : myAuthors) {
     myBook.addAuthorWithNoCheck(author);
   }
+  for (  Tag tag : myTags) {
+    myBook.addTagWithNoCheck(tag);
+  }
+  myBook.setSeriesInfoWithNoCheck(string(mySeriesTitle),string(mySeriesIndex));
 }

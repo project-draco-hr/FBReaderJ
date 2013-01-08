@@ -5,6 +5,9 @@
   clear(myTitle);
   clear(myLanguage);
   clear(myEncoding);
+  clear(mySeriesTitle);
+  clear(mySeriesIndex);
   myAuthors.clear();
+  myTags.clear();
   myState=State.READ_NOTHING;
 }

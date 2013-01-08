@@ -22,5 +22,11 @@ break;
 case READ_AUTHOR_NAME:
 myAuthorName.append(ch,start,length);
 break;
+case READ_SERIES_TITLE:
+mySeriesTitle.append(ch,start,length);
+break;
+case READ_SERIES_INDEX:
+mySeriesIndex.append(ch,start,length);
+break;
 }
 }

@@ -2,7 +2,7 @@
   if (myTitle != null && ZLMiscUtil.matchesIgnoreCase(myTitle,pattern)) {
     return true;
   }
-  if (mySeriesInfo != null && ZLMiscUtil.matchesIgnoreCase(mySeriesInfo.Name,pattern)) {
+  if (mySeriesInfo != null && ZLMiscUtil.matchesIgnoreCase(mySeriesInfo.Title,pattern)) {
     return true;
   }
   if (myAuthors != null) {

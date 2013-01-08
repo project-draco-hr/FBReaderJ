@@ -25,6 +25,16 @@ clear(myAuthorName);
 clear(myAuthorSortKey);
 }
  else if ("category".equals(tag)) {
+final String term=attributes.getValue("term");
+if (term != null) {
+  myTags.add(Tag.getTag(term.split("/")));
+}
+}
+ else if ("calibre:series".equals(tag)) {
+myState=State.READ_SERIES_TITLE;
+}
+ else if ("calibre:series_index".equals(tag)) {
+myState=State.READ_SERIES_INDEX;
 }
  else if ("link".equals(tag)) {
 myUrl=attributes.getValue("href");

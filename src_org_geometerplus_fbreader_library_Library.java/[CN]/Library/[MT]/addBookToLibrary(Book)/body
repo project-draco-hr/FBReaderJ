@@ -2,9 +2,9 @@
   if (myBooks.containsKey(book.File)) {
     return;
   }
-  final String xml=BookSerializerUtil.serialize(book);
-  BookSerializerUtil.deserialize(xml);
   myBooks.put(book.File,book);
+  final String xml=BookSerializerUtil.serialize(book);
+  book=BookSerializerUtil.deserialize(xml);
   List<Author> authors=book.authors();
   if (authors.isEmpty()) {
     authors=(List<Author>)myNullList;
@@ -16,7 +16,7 @@
       authorTree.getBookSubTree(book,false);
     }
  else {
-      authorTree.getSeriesSubTree(seriesInfo.Name).getBookInSeriesSubTree(book);
+      authorTree.getSeriesSubTree(seriesInfo.Title).getBookInSeriesSubTree(book);
     }
   }
   if (seriesInfo != null) {
@@ -24,7 +24,7 @@
     if (seriesRoot == null) {
       seriesRoot=new FirstLevelTree(myRootTree,myRootTree.indexOf(getFirstLevelTree(ROOT_BY_TITLE)) + 1,ROOT_BY_SERIES);
     }
-    seriesRoot.getSeriesSubTree(seriesInfo.Name).getBookInSeriesSubTree(book);
+    seriesRoot.getSeriesSubTree(seriesInfo.Title).getBookInSeriesSubTree(book);
   }
   if (myDoGroupTitlesByFirstLetter) {
     final String letter=TitleTree.firstTitleLetter(book);

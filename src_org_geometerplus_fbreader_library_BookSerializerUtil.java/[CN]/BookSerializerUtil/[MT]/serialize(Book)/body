@@ -1,6 +1,6 @@
 {
   final StringBuilder buffer=new StringBuilder();
-  appendTagWithAttributes(buffer,"entry",false,"xmlns:dc",XMLNamespaces.DublinCore);
+  appendTagWithAttributes(buffer,"entry",false,"xmlns:dc",XMLNamespaces.DublinCore,"xmlns:calibre",XMLNamespaces.CalibreMetadata);
   appendTagWithContent(buffer,"id",String.valueOf(book.getId()));
   appendTagWithContent(buffer,"title",book.getTitle());
   appendTagWithContent(buffer,"dc:language",book.getLanguage());
@@ -13,6 +13,13 @@
   }
   for (  Tag tag : book.tags()) {
     appendTagWithAttributes(buffer,"category",true,"term",tag.toString("/"),"label",tag.Name);
+  }
+  final SeriesInfo seriesInfo=book.getSeriesInfo();
+  if (seriesInfo != null) {
+    appendTagWithContent(buffer,"calibre:series",seriesInfo.Title);
+    if (seriesInfo.Index != null) {
+      appendTagWithContent(buffer,"calibre:series_index",String.valueOf(seriesInfo.Index));
+    }
   }
   appendTagWithAttributes(buffer,"link",true,"href",book.File.getUrl(),"type","application/epub+zip","rel","http://opds-spec.org/acquisition");
   buffer.append("</entry>\n");
