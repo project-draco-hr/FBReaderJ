@@ -1,6 +1,0 @@
-{
-  if (!myCollection.addBook(book)) {
-    return;
-  }
-  addBookToLibraryWithNoCheck(book);
-}

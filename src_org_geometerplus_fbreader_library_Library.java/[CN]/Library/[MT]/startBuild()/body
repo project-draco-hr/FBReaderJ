@@ -1,21 +1,3 @@
 {
-  if (myBuildStarted) {
-    fireModelChangedEvent(ChangeListener.Code.StatusChanged);
-    return;
-  }
-  myBuildStarted=true;
-  setStatus(myStatusMask | STATUS_LOADING);
-  final Thread builder=new Thread("Library.build"){
-    public void run(){
-      try {
-        build();
-      }
-  finally {
-        setStatus(myStatusMask & ~STATUS_LOADING);
-      }
-    }
-  }
-;
-  builder.setPriority((Thread.MIN_PRIORITY + Thread.NORM_PRIORITY) / 2);
-  builder.start();
+  myCollection.startBuild();
 }

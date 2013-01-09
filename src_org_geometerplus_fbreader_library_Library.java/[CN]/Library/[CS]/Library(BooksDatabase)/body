@@ -5,12 +5,17 @@
     public void onCollectionChanged(    Code code,    Book book){
 switch (code) {
 case BookAdded:
-        break;
+        addBookToLibraryWithNoCheck(book);
+      if (myCollection.size() % 16 == 0) {
+        Library.this.fireModelChangedEvent(ChangeListener.Code.BookAdded);
+      }
+    break;
 case BuildStarted:
-      Library.this.fireModelChangedEvent(ChangeListener.Code.StatusChanged);
-    setStatus(myStatusMask | STATUS_LOADING);
-  break;
+  Library.this.fireModelChangedEvent(ChangeListener.Code.StatusChanged);
+setStatus(myStatusMask | STATUS_LOADING);
+break;
 case BuildCompleted:
+Library.this.fireModelChangedEvent(ChangeListener.Code.BookAdded);
 setStatus(myStatusMask & ~STATUS_LOADING);
 break;
 }
