@@ -1,0 +1,23 @@
+{
+  if (myBuildStarted) {
+    fireModelChangedEvent(ChangeListener.Code.BuildNotStarted,null);
+    return;
+  }
+  myBuildStarted=true;
+  final Thread builder=new Thread("Library.build"){
+    public void run(){
+      try {
+        fireModelChangedEvent(ChangeListener.Code.BuildStarted,null);
+        build();
+        fireModelChangedEvent(ChangeListener.Code.BuildSucceeded,null);
+      }
+  finally {
+        fireModelChangedEvent(ChangeListener.Code.BuildCompleted,null);
+        myBuildStarted=false;
+      }
+    }
+  }
+;
+  builder.setPriority((Thread.MIN_PRIORITY + Thread.NORM_PRIORITY) / 2);
+  builder.start();
+}

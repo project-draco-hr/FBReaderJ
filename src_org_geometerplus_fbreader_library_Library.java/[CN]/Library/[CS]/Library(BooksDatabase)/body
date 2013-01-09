@@ -1,9 +1,26 @@
 {
   myDatabase=db;
-  new FavoritesTree(myRootTree,ROOT_FAVORITES);
-  new FirstLevelTree(myRootTree,ROOT_RECENT);
-  new FirstLevelTree(myRootTree,ROOT_BY_AUTHOR);
-  new FirstLevelTree(myRootTree,ROOT_BY_TITLE);
-  new FirstLevelTree(myRootTree,ROOT_BY_TAG);
-  new FileFirstLevelTree(myRootTree,ROOT_FILE_TREE);
+  myCollection=new BookCollection(db);
+  myCollection.addChangeListener(new BookCollection.ChangeListener(){
+    public void onCollectionChanged(    Code code,    Book book){
+switch (code) {
+case BookAdded:
+        break;
+case BuildStarted:
+      Library.this.fireModelChangedEvent(ChangeListener.Code.StatusChanged);
+    setStatus(myStatusMask | STATUS_LOADING);
+  break;
+case BuildCompleted:
+setStatus(myStatusMask & ~STATUS_LOADING);
+break;
+}
+}
+}
+);
+new FavoritesTree(myRootTree,ROOT_FAVORITES);
+new FirstLevelTree(myRootTree,ROOT_RECENT);
+new FirstLevelTree(myRootTree,ROOT_BY_AUTHOR);
+new FirstLevelTree(myRootTree,ROOT_BY_TITLE);
+new FirstLevelTree(myRootTree,ROOT_BY_TAG);
+new FileFirstLevelTree(myRootTree,ROOT_FILE_TREE);
 }

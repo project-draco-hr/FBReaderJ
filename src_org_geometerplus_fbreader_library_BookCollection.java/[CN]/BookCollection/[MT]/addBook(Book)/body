@@ -1,7 +1,8 @@
 {
-  if (myBooks.containsKey(book.File)) {
+  if (book == null || myBooks.containsKey(book.File)) {
     return false;
   }
   myBooks.put(book.File,book);
+  fireModelChangedEvent(ChangeListener.Code.BookAdded,book);
   return true;
 }

@@ -1,0 +1,7 @@
+{
+synchronized (myListeners) {
+    for (    ChangeListener l : myListeners) {
+      l.onCollectionChanged(code,book);
+    }
+  }
+}
