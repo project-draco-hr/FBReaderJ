@@ -1,5 +1,4 @@
 {
-  myDatabase=db;
   myCollection=new BookCollection(db);
   myCollection.addListener(new BookCollection.Listener(){
     public void onBookEvent(    BookEvent event,    Book book){

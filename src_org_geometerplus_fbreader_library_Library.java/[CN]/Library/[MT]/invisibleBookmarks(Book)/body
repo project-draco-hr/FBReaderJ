@@ -1,5 +1,3 @@
 {
-  final List<Bookmark> list=myDatabase.loadBookmarks(book.getId(),false);
-  Collections.sort(list,new Bookmark.ByTimeComparator());
-  return list;
+  return myCollection.invisibleBookmarks(book);
 }

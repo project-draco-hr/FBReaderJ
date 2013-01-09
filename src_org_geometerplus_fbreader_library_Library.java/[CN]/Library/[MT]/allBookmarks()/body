@@ -1,3 +1,3 @@
 {
-  return myDatabase.loadAllVisibleBookmarks();
+  return myCollection.allBookmarks();
 }
