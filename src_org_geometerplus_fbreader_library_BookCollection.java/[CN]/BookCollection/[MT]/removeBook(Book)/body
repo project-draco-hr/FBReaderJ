@@ -1,3 +1,0 @@
-{
-  myBooks.remove(book.File);
-}

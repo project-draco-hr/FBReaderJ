@@ -1,0 +1,12 @@
+{
+  myBooks.remove(book.File);
+  final List<Long> ids=myDatabase.loadRecentBookIds();
+  if (ids.remove(book.getId())) {
+    myDatabase.saveRecentBookIds(ids);
+  }
+  myDatabase.deleteFromBookList(book.getId());
+  if (deleteFromDisk) {
+    book.File.getPhysicalFile().delete();
+  }
+  fireModelChangedEvent(ChangeListener.Code.BookRemoved,book);
+}
