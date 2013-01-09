@@ -1,0 +1,7 @@
+{
+  if (myBooks.containsKey(book.File)) {
+    return false;
+  }
+  myBooks.put(book.File,book);
+  return true;
+}

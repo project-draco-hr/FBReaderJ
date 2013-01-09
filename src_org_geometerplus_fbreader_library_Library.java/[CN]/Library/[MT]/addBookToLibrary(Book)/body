@@ -1,50 +1,6 @@
 {
-  if (myBooks.containsKey(book.File)) {
+  if (!myCollection.addBook(book)) {
     return;
   }
-  myBooks.put(book.File,book);
-  final String xml=BookSerializerUtil.serialize(book);
-  book=BookSerializerUtil.deserialize(xml);
-  List<Author> authors=book.authors();
-  if (authors.isEmpty()) {
-    authors=(List<Author>)myNullList;
-  }
-  final SeriesInfo seriesInfo=book.getSeriesInfo();
-  for (  Author a : authors) {
-    final AuthorTree authorTree=getFirstLevelTree(ROOT_BY_AUTHOR).getAuthorSubTree(a);
-    if (seriesInfo == null) {
-      authorTree.getBookSubTree(book,false);
-    }
- else {
-      authorTree.getSeriesSubTree(seriesInfo.Title).getBookInSeriesSubTree(book);
-    }
-  }
-  if (seriesInfo != null) {
-    FirstLevelTree seriesRoot=getFirstLevelTree(ROOT_BY_SERIES);
-    if (seriesRoot == null) {
-      seriesRoot=new FirstLevelTree(myRootTree,myRootTree.indexOf(getFirstLevelTree(ROOT_BY_TITLE)) + 1,ROOT_BY_SERIES);
-    }
-    seriesRoot.getSeriesSubTree(seriesInfo.Title).getBookInSeriesSubTree(book);
-  }
-  if (myDoGroupTitlesByFirstLetter) {
-    final String letter=TitleTree.firstTitleLetter(book);
-    if (letter != null) {
-      final TitleTree tree=getFirstLevelTree(ROOT_BY_TITLE).getTitleSubTree(letter);
-      tree.getBookSubTree(book,true);
-    }
-  }
- else {
-    getFirstLevelTree(ROOT_BY_TITLE).getBookSubTree(book,true);
-  }
-  List<Tag> tags=book.tags();
-  if (tags.isEmpty()) {
-    tags=(List<Tag>)myNullList;
-  }
-  for (  Tag t : tags) {
-    getTagTree(t).getBookSubTree(book,true);
-  }
-  final SearchResultsTree found=(SearchResultsTree)getFirstLevelTree(ROOT_FOUND);
-  if (found != null && book.matches(found.getPattern())) {
-    found.getBookSubTree(book,true);
-  }
+  addBookToLibraryWithNoCheck(book);
 }

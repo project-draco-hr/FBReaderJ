@@ -2,7 +2,6 @@
   if (book == null) {
     return;
   }
-  myBooks.remove(book.File);
   refreshInTree(ROOT_FAVORITES,book);
   refreshInTree(ROOT_RECENT,book);
   removeFromTree(ROOT_FOUND,book);
@@ -10,6 +9,6 @@
   removeFromTree(ROOT_BY_SERIES,book);
   removeFromTree(ROOT_BY_AUTHOR,book);
   removeFromTree(ROOT_BY_TAG,book);
-  addBookToLibrary(book);
+  addBookToLibraryWithNoCheck(book);
   fireModelChangedEvent(ChangeListener.Code.BookAdded);
 }

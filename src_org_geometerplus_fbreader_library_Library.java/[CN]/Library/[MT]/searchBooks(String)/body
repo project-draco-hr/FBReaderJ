@@ -10,11 +10,7 @@
     return;
   }
   FirstLevelTree newSearchResults=null;
-  final List<Book> booksCopy;
-synchronized (myBooks) {
-    booksCopy=new ArrayList<Book>(myBooks.values());
-  }
-  for (  Book book : booksCopy) {
+  for (  Book book : myCollection.books()) {
     if (book.matches(pattern)) {
 synchronized (this) {
         if (newSearchResults == null) {
