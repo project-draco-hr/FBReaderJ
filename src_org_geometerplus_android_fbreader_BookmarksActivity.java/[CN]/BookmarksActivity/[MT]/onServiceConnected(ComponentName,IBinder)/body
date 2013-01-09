@@ -1,4 +1,0 @@
-{
-  myLibraryInterface=LibraryInterface.Stub.asInterface(service);
-  System.err.println("onServiceConnected " + name + " : "+ myLibraryInterface);
-}

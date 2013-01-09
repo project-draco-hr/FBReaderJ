@@ -1,0 +1,11 @@
+{
+  if (myInterface == null) {
+    return null;
+  }
+  try {
+    return BookSerializerUtil.deserialize(myInterface.bookById(id));
+  }
+ catch (  RemoteException e) {
+    return null;
+  }
+}

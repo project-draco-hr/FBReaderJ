@@ -1,0 +1,3 @@
+{
+  myInterface=LibraryInterface.Stub.asInterface(service);
+}

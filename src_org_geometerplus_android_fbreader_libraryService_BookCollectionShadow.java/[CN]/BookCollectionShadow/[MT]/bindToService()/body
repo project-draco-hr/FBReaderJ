@@ -1,0 +1,3 @@
+{
+  myContext.bindService(new Intent(myContext,LibraryService.class),this,LibraryService.BIND_AUTO_CREATE);
+}
