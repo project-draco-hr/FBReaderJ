@@ -1,4 +1,7 @@
 {
+  if (book == null) {
+    return null;
+  }
   final StringBuilder buffer=new StringBuilder();
   appendTagWithAttributes(buffer,"entry",false,"xmlns:dc",XMLNamespaces.DublinCore,"xmlns:calibre",XMLNamespaces.CalibreMetadata);
   appendTagWithContent(buffer,"id",String.valueOf(book.getId()));

@@ -1,2 +1,4 @@
 {
+  myLibraryInterface=null;
+  System.err.println("onServiceDisconnected " + name);
 }
