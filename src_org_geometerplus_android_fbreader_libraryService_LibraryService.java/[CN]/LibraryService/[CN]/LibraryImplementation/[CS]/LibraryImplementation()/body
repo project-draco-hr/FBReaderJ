@@ -3,4 +3,12 @@
   if (database == null) {
     database=new SQLiteBooksDatabase(LibraryService.this,"LIBRARY SERVICE");
   }
+  final Library collection=Library.Instance();
+  collection.addChangeListener(new Library.ChangeListener(){
+    public void onLibraryChanged(    final Code code){
+      System.err.println("LibraryService.onLibraryChanged(" + code + ")");
+    }
+  }
+);
+  collection.startBuild();
 }
