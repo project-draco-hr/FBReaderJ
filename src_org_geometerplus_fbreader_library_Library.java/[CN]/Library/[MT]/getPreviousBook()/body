@@ -1,4 +1,3 @@
 {
-  List<Long> recentIds=myDatabase.loadRecentBookIds();
-  return recentIds.size() > 1 ? Book.getById(recentIds.get(1)) : null;
+  return myCollection.getRecentBook(1);
 }
