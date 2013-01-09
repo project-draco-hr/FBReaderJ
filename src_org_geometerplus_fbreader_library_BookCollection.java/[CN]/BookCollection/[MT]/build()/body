@@ -89,6 +89,7 @@ synchronized (this) {
     public void run(){
       for (      Book book : newBooks) {
         book.save();
+        addBookById(book);
       }
     }
   }

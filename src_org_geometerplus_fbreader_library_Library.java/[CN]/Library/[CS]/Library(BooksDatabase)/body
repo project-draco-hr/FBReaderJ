@@ -1,20 +1,24 @@
 {
   myDatabase=db;
   myCollection=new BookCollection(db);
-  myCollection.addChangeListener(new BookCollection.ChangeListener(){
-    public void onCollectionChanged(    Code code,    Book book){
-switch (code) {
-case BookAdded:
-        addBookToLibraryWithNoCheck(book);
+  myCollection.addListener(new BookCollection.Listener(){
+    public void onBookEvent(    BookEvent event,    Book book){
+switch (event) {
+case Added:
+        addBookToLibrary(book);
       if (myCollection.size() % 16 == 0) {
         Library.this.fireModelChangedEvent(ChangeListener.Code.BookAdded);
       }
     break;
-case BuildStarted:
+}
+}
+public void onBuildEvent(BuildEvent event){
+switch (event) {
+case Started:
   Library.this.fireModelChangedEvent(ChangeListener.Code.StatusChanged);
 setStatus(myStatusMask | STATUS_LOADING);
 break;
-case BuildCompleted:
+case Completed:
 Library.this.fireModelChangedEvent(ChangeListener.Code.BookAdded);
 setStatus(myStatusMask & ~STATUS_LOADING);
 break;

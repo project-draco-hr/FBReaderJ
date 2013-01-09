@@ -9,6 +9,6 @@
   removeFromTree(ROOT_BY_SERIES,book);
   removeFromTree(ROOT_BY_AUTHOR,book);
   removeFromTree(ROOT_BY_TAG,book);
-  addBookToLibraryWithNoCheck(book);
+  addBookToLibrary(book);
   fireModelChangedEvent(ChangeListener.Code.BookAdded);
 }

@@ -1,18 +1,21 @@
 {
   if (myBuildStarted) {
-    fireModelChangedEvent(ChangeListener.Code.BuildNotStarted,null);
+    fireBuildEvent(Listener.BuildEvent.NotStarted);
     return;
   }
   myBuildStarted=true;
   final Thread builder=new Thread("Library.build"){
     public void run(){
       try {
-        fireModelChangedEvent(ChangeListener.Code.BuildStarted,null);
+        fireBuildEvent(Listener.BuildEvent.Started);
         build();
-        fireModelChangedEvent(ChangeListener.Code.BuildSucceeded,null);
+        fireBuildEvent(Listener.BuildEvent.Succeeded);
       }
-  finally {
-        fireModelChangedEvent(ChangeListener.Code.BuildCompleted,null);
+ catch (      Throwable t) {
+        fireBuildEvent(Listener.BuildEvent.Failed);
+      }
+ finally {
+        fireBuildEvent(Listener.BuildEvent.Completed);
         myBuildStarted=false;
       }
     }

@@ -1,6 +1,6 @@
 {
   if (getFirstLevelTree(ROOT_FAVORITES).removeBook(book,false)) {
-    myDatabase.removeFromFavorites(book.getId());
+    myCollection.setBookFavorite(book,false);
     fireModelChangedEvent(ChangeListener.Code.BookRemoved);
   }
 }
