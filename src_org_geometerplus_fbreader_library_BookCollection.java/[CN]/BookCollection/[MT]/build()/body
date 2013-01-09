@@ -6,24 +6,22 @@
     savedBooksByBookId.put(b.getId(),b);
   }
   for (  long id : myDatabase.loadRecentBookIds()) {
-    Book book=savedBooksByBookId.get(id);
-    if (book == null) {
-      book=Book.getById(id);
-      if (book != null && !book.File.exists()) {
-        book=null;
-      }
+    final Book book=savedBooksByBookId.get(id);
+    if (book != null) {
+      addBook(book);
     }
-    addBook(book);
+ else {
+      getBookById(id);
+    }
   }
   for (  long id : myDatabase.loadFavoritesIds()) {
-    Book book=savedBooksByBookId.get(id);
-    if (book == null) {
-      book=Book.getById(id);
-      if (book != null && !book.File.exists()) {
-        book=null;
-      }
+    final Book book=savedBooksByBookId.get(id);
+    if (book != null) {
+      addBook(book);
     }
-    addBook(book);
+ else {
+      getBookById(id);
+    }
   }
   final Set<Book> orphanedBooks=new HashSet<Book>();
   final Set<ZLPhysicalFile> physicalFiles=new HashSet<ZLPhysicalFile>();

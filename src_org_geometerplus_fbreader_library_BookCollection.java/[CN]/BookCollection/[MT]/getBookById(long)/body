@@ -1,5 +1,9 @@
 {
-  final Book book=BooksDatabase.Instance().loadBook(bookId);
+  Book book=myBooksById.get(id);
+  if (book != null) {
+    return book;
+  }
+  book=BooksDatabase.Instance().loadBook(id);
   if (book == null) {
     return null;
   }
@@ -7,6 +11,7 @@
   final ZLFile bookFile=book.File;
   final ZLPhysicalFile physicalFile=bookFile.getPhysicalFile();
   if (physicalFile == null) {
+    addBook(book);
     return book;
   }
   if (!physicalFile.exists()) {
@@ -14,11 +19,13 @@
   }
   FileInfoSet fileInfos=new FileInfoSet(physicalFile);
   if (fileInfos.check(physicalFile,physicalFile != bookFile)) {
+    addBook(book);
     return book;
   }
   fileInfos.save();
   try {
     book.readMetaInfo();
+    addBook(book);
     return book;
   }
  catch (  BookReadingException e) {

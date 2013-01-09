@@ -1,8 +1,10 @@
 {
-  if (book == null || myBooksByFile.containsKey(book.File)) {
-    return;
+synchronized (myBooksByFile) {
+    if (book == null || myBooksByFile.containsKey(book.File)) {
+      return;
+    }
+    myBooksByFile.put(book.File,book);
+    addBookById(book);
   }
-  myBooksByFile.put(book.File,book);
-  addBookById(book);
   fireBookEvent(Listener.BookEvent.Added,book);
 }

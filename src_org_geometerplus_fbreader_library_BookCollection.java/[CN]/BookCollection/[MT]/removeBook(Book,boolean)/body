@@ -1,12 +1,15 @@
 {
-  myBooksByFile.remove(book.File);
-  final List<Long> ids=myDatabase.loadRecentBookIds();
-  if (ids.remove(book.getId())) {
-    myDatabase.saveRecentBookIds(ids);
-  }
-  myDatabase.deleteFromBookList(book.getId());
-  if (deleteFromDisk) {
-    book.File.getPhysicalFile().delete();
+synchronized (myBooksByFile) {
+    myBooksByFile.remove(book.File);
+    myBooksById.remove(book.getId());
+    final List<Long> ids=myDatabase.loadRecentBookIds();
+    if (ids.remove(book.getId())) {
+      myDatabase.saveRecentBookIds(ids);
+    }
+    myDatabase.deleteFromBookList(book.getId());
+    if (deleteFromDisk) {
+      book.File.getPhysicalFile().delete();
+    }
   }
   fireBookEvent(Listener.BookEvent.Removed,book);
 }
