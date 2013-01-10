@@ -1,0 +1,3 @@
+{
+  return bookmark != null ? defaultSerializer.serialize(bookmark) : null;
+}

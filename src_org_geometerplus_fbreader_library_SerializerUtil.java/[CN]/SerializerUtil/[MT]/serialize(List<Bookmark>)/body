@@ -1,0 +1,7 @@
+{
+  final List<String> serialized=new ArrayList<String>(bookmarks.size());
+  for (  Bookmark b : bookmarks) {
+    serialized.add(SerializerUtil.serialize(b));
+  }
+  return serialized;
+}

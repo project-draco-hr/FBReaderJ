@@ -1,3 +1,3 @@
 {
-  return BookSerializerUtil.serialize(myCollection.getBookById(id));
+  return SerializerUtil.serialize(myCollection.getBookById(id));
 }
