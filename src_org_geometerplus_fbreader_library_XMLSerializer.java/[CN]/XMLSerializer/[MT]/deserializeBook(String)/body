@@ -1,5 +1,5 @@
 {
-  final Deserializer deserializer=new Deserializer();
+  final BookDeserializer deserializer=new BookDeserializer();
   deserializer.readQuietly(xml);
   return deserializer.getBook();
 }

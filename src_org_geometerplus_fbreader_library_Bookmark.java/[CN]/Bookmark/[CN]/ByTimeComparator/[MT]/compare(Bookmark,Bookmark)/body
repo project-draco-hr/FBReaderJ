@@ -1,3 +1,3 @@
 {
-  return bm1.getTime(LATEST).compareTo(bm0.getTime(LATEST));
+  return bm1.getDate(DateType.Latest).compareTo(bm0.getDate(DateType.Latest));
 }

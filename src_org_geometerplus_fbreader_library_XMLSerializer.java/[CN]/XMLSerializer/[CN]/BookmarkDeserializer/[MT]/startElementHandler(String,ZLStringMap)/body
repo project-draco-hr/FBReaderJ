@@ -1,0 +1,59 @@
+{
+switch (myState) {
+case READ_NOTHING:
+    if (!"bookmark".equals(tag)) {
+      return true;
+    }
+  try {
+    myId=Long.parseLong(attributes.getValue("id"));
+    myIsVisible=Boolean.parseBoolean(attributes.getValue("visible"));
+    myState=State.READ_BOOKMARK;
+  }
+ catch (  Exception e) {
+    return true;
+  }
+break;
+case READ_BOOKMARK:
+if ("book".equals(tag)) {
+try {
+  myBookId=Long.parseLong(attributes.getValue("id"));
+  myBookTitle=attributes.getValue("title");
+}
+ catch (Exception e) {
+  return true;
+}
+}
+ else if ("text".equals(tag)) {
+myState=State.READ_TEXT;
+}
+ else if ("history".equals(tag)) {
+try {
+  myCreationDate=parseDate(attributes.getValue("date-creation"));
+  myModificationDate=parseDate(attributes.getValue("date-modification"));
+  myAccessDate=parseDate(attributes.getValue("date-access"));
+  myAccessCount=Integer.parseInt(attributes.getValue("access-count"));
+}
+ catch (Exception e) {
+  return true;
+}
+}
+ else if ("position".equals(tag)) {
+try {
+  myModelId=attributes.getValue("model");
+  myParagraphIndex=Integer.parseInt(attributes.getValue("paragraph"));
+  myElementIndex=Integer.parseInt(attributes.getValue("element"));
+  myCharIndex=Integer.parseInt(attributes.getValue("char"));
+}
+ catch (Exception e) {
+  return true;
+}
+}
+ else {
+return true;
+}
+break;
+case READ_TEXT:
+return true;
+}
+return false;
+}

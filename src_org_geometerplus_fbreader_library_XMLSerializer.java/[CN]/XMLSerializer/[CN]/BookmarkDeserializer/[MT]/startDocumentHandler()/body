@@ -1,0 +1,17 @@
+{
+  myBookmark=null;
+  myId=-1;
+  myBookId=-1;
+  myBookTitle=null;
+  clear(myText);
+  myCreationDate=null;
+  myModificationDate=null;
+  myAccessDate=null;
+  myAccessCount=0;
+  myModelId=null;
+  myParagraphIndex=0;
+  myElementIndex=0;
+  myCharIndex=0;
+  myIsVisible=false;
+  myState=State.READ_NOTHING;
+}

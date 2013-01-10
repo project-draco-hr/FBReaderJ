@@ -1,0 +1,3 @@
+{
+  return date != null ? ourDateFormatter.format(date) : null;
+}

@@ -1,0 +1,6 @@
+{
+  if (myId == -1 || myBookId == -1) {
+    return;
+  }
+  myBookmark=new Bookmark(myId,myBookId,myBookTitle,myText.toString(),myCreationDate,myModificationDate,myAccessDate,myAccessCount,myModelId,myParagraphIndex,myElementIndex,myCharIndex,myIsVisible);
+}

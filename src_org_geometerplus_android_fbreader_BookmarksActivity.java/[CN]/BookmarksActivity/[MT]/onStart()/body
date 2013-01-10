@@ -1,4 +1,12 @@
 {
   super.onStart();
+  myCollection.bindToService(new Runnable(){
+    public void run(){
+      if (myAllBooksBookmarks == null) {
+        init();
+      }
+    }
+  }
+);
   OrientationUtil.setOrientation(this,getIntent());
 }
