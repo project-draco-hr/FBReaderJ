@@ -1,0 +1,11 @@
+{
+  if (myInterface == null) {
+    return 0;
+  }
+  try {
+    return myInterface.size();
+  }
+ catch (  RemoteException e) {
+    return 0;
+  }
+}
