@@ -1,0 +1,3 @@
+{
+  return Collections.singletonList(Paths.BooksDirectoryOption().getValue());
+}
