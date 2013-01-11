@@ -1,9 +1,9 @@
 {
   myAllBooksBookmarks=new ArrayList<Bookmark>(myCollection.allBookmarks());
   Collections.sort(myAllBooksBookmarks,new Bookmark.ByTimeComparator());
-  final FBReaderApp fbreader=(FBReaderApp)FBReaderApp.Instance();
-  if (fbreader.Model != null) {
-    final long bookId=fbreader.Model.Book.getId();
+  final Book book=SerializerUtil.deserializeBook(getIntent().getStringExtra(CURRENT_BOOK_KEY));
+  if (book != null) {
+    final long bookId=book.getId();
     for (    Bookmark bookmark : myAllBooksBookmarks) {
       if (bookmark.getBookId() == bookId) {
         myThisBookBookmarks.add(bookmark);

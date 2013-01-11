@@ -1,0 +1,5 @@
+{
+  final Intent intent=new Intent(BaseActivity.getApplicationContext(),BookmarksActivity.class);
+  intent.putExtra(BookmarksActivity.CURRENT_BOOK_KEY,SerializerUtil.serialize(Reader.Model.Book));
+  OrientationUtil.startActivity(BaseActivity,intent);
+}
