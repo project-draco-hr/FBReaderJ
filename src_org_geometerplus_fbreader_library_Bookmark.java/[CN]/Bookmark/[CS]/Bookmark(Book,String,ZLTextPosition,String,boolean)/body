@@ -7,5 +7,4 @@
   myCreationDate=new Date();
   ModelId=modelId;
   IsVisible=isVisible;
-  myIsChanged=true;
 }

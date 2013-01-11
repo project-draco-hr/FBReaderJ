@@ -1,5 +1,6 @@
 {
-  bookmark.onOpen();
+  bookmark.markAsAccessed();
+  myCollection.saveBookmark(bookmark);
   final FBReaderApp fbreader=(FBReaderApp)FBReaderApp.Instance();
   final long bookId=bookmark.getBookId();
   if (fbreader.Model == null || fbreader.Model.Book.getId() != bookId) {

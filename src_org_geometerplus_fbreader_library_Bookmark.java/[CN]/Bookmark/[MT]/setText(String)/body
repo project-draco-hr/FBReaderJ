@@ -3,6 +3,5 @@
     myText=text;
     myModificationDate=new Date();
     myLatestDate=myModificationDate;
-    myIsChanged=true;
   }
 }

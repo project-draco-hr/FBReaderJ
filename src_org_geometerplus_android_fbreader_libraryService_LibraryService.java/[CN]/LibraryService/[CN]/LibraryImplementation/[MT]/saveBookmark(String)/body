@@ -1,0 +1,5 @@
+{
+  final Bookmark bookmark=SerializerUtil.deserializeBookmark(serialized);
+  myCollection.saveBookmark(bookmark);
+  return SerializerUtil.serialize(bookmark);
+}

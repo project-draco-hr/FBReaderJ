@@ -11,7 +11,7 @@ final Intent intent=new Intent(this,BookmarkEditActivity.class);
 OrientationUtil.startActivityForResult(this,intent,1);
 return true;
 case DELETE_ITEM_ID:
-bookmark.delete();
+myCollection.deleteBookmark(bookmark);
 myThisBookBookmarks.remove(bookmark);
 myAllBooksBookmarks.remove(bookmark);
 mySearchResults.remove(bookmark);

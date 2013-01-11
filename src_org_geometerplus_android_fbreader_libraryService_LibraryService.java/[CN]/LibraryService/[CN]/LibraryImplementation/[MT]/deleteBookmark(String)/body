@@ -1,0 +1,3 @@
+{
+  myCollection.deleteBookmark(SerializerUtil.deserializeBookmark(serialized));
+}
