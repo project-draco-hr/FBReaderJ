@@ -5,24 +5,6 @@
   for (  Book b : savedBooksByFileId.values()) {
     savedBooksByBookId.put(b.getId(),b);
   }
-  for (  long id : myDatabase.loadRecentBookIds()) {
-    final Book book=savedBooksByBookId.get(id);
-    if (book != null) {
-      addBook(book);
-    }
- else {
-      getBookById(id);
-    }
-  }
-  for (  long id : myDatabase.loadFavoritesIds()) {
-    final Book book=savedBooksByBookId.get(id);
-    if (book != null) {
-      addBook(book);
-    }
- else {
-      getBookById(id);
-    }
-  }
   final Set<Book> orphanedBooks=new HashSet<Book>();
   final Set<ZLPhysicalFile> physicalFiles=new HashSet<ZLPhysicalFile>();
   int count=0;
