@@ -1,3 +1,0 @@
-{
-  OrientationUtil.startActivity(BaseActivity,new Intent(BaseActivity.getApplicationContext(),myActivityClass));
-}
