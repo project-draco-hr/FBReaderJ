@@ -1,7 +1,6 @@
 {
-  final Book book=Book.getByFile(myFile);
-  if (book != null) {
-    setupBookInfo(book);
+  if (myBook != null) {
+    setupBookInfo(myBook);
     myDontReloadBook=false;
   }
   myResult=Math.max(myResult,resultCode);

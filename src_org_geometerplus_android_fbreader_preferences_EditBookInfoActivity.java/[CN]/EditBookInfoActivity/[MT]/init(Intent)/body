@@ -2,9 +2,7 @@
   if (SQLiteBooksDatabase.Instance() == null) {
     new SQLiteBooksDatabase(this,"LIBRARY");
   }
-  final String path=intent.getStringExtra(BookInfoActivity.CURRENT_BOOK_PATH_KEY);
-  final ZLFile file=ZLFile.createFileByPath(path);
-  myBook=Book.getByFile(file);
+  myBook=SerializerUtil.deserializeBook(intent.getStringExtra(BookInfoActivity.CURRENT_BOOK_KEY));
   setResult(FBReader.RESULT_REPAINT);
   if (myBook == null) {
     finish();

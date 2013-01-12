@@ -1,9 +1,8 @@
 {
   super.onCreate(icicle);
   Thread.setDefaultUncaughtExceptionHandler(new org.geometerplus.zlibrary.ui.android.library.UncaughtExceptionHandler(this));
-  final String path=getIntent().getStringExtra(CURRENT_BOOK_PATH_KEY);
   myDontReloadBook=getIntent().getBooleanExtra(FROM_READING_MODE_KEY,false);
-  myFile=ZLFile.createFileByPath(path);
+  myBook=SerializerUtil.deserializeBook(getIntent().getStringExtra(CURRENT_BOOK_KEY));
   if (SQLiteBooksDatabase.Instance() == null) {
     new SQLiteBooksDatabase(this,"LIBRARY");
   }

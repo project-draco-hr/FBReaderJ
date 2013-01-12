@@ -10,14 +10,7 @@
     myLibrary.addChangeListener(this);
     collection.startBuild();
   }
-  final String selectedBookPath=getIntent().getStringExtra(SELECTED_BOOK_PATH_KEY);
-  mySelectedBook=null;
-  if (selectedBookPath != null) {
-    final ZLFile file=ZLFile.createFileByPath(selectedBookPath);
-    if (file != null) {
-      mySelectedBook=Book.getByFile(file);
-    }
-  }
+  mySelectedBook=SerializerUtil.deserializeBook(getIntent().getStringExtra(SELECTED_BOOK_KEY));
   new LibraryTreeAdapter(this);
   init(getIntent());
   getListView().setTextFilterEnabled(true);

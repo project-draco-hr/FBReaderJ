@@ -1,8 +1,8 @@
 {
   final BookModel model=Reader.Model;
   Intent intent=new Intent(BaseActivity.getApplicationContext(),LibraryActivity.class);
-  if (model != null && model.Book != null) {
-    intent.putExtra(LibraryActivity.SELECTED_BOOK_PATH_KEY,model.Book.File.getPath());
+  if (model != null) {
+    intent.putExtra(LibraryActivity.SELECTED_BOOK_KEY,SerializerUtil.serialize(model.Book));
   }
   OrientationUtil.startActivity(BaseActivity,intent);
 }
