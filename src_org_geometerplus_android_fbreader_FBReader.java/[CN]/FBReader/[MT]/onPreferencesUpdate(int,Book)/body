@@ -7,11 +7,10 @@ case RESULT_REPAINT:
 {
     AndroidFontUtil.clearFontCache();
     final BookModel model=fbReader.Model;
-    if (model != null) {
-      final Book book=model.Book;
-      if (book != null) {
-        book.reloadInfoFromDatabase();
-        ZLTextHyphenator.Instance().load(book.getLanguage());
+    if (model != null && book != null) {
+      if (model.Book != null) {
+        model.Book=book;
+        ZLTextHyphenator.Instance().load(model.Book.getLanguage());
       }
     }
     fbReader.clearTextCaches();
@@ -19,7 +18,7 @@ case RESULT_REPAINT:
     break;
   }
 case RESULT_RELOAD_BOOK:
-fbReader.reloadBook();
+fbReader.reloadBook(book);
 break;
 }
 }

@@ -32,7 +32,9 @@
         setupBookInfo(myBook);
         myDontReloadBook=false;
         myResult=Math.max(myResult,FBReader.RESULT_RELOAD_BOOK);
-        setResult(myResult);
+        final Intent intent=new Intent();
+        intent.putExtra(CURRENT_BOOK_KEY,SerializerUtil.serialize(myBook));
+        setResult(myResult,intent);
       }
     }
   }

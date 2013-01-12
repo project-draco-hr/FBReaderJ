@@ -1,0 +1,6 @@
+{
+  myStatus=Math.max(myStatus,code);
+  final Intent intent=new Intent();
+  intent.putExtra(BookInfoActivity.CURRENT_BOOK_KEY,SerializerUtil.serialize(myBook));
+  setResult(myStatus,intent);
+}

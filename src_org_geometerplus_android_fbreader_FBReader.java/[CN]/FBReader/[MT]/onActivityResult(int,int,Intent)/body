@@ -2,7 +2,7 @@
 switch (requestCode) {
 case REQUEST_PREFERENCES:
 case REQUEST_BOOK_INFO:
-    onPreferencesUpdate(resultCode);
+    onPreferencesUpdate(resultCode,SerializerUtil.deserializeBook(data.getStringExtra(BookInfoActivity.CURRENT_BOOK_KEY)));
   break;
 case REQUEST_CANCEL_MENU:
 ((FBReaderApp)FBReaderApp.Instance()).runCancelAction(resultCode - 1);

@@ -3,7 +3,7 @@
     new SQLiteBooksDatabase(this,"LIBRARY");
   }
   myBook=SerializerUtil.deserializeBook(intent.getStringExtra(BookInfoActivity.CURRENT_BOOK_KEY));
-  setResult(FBReader.RESULT_REPAINT);
+  myStatus=FBReader.RESULT_REPAINT;
   if (myBook == null) {
     finish();
     return;

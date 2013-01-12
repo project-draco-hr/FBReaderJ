@@ -4,7 +4,7 @@
     final String value=getValue();
     if (!value.equalsIgnoreCase(myBook.getEncoding())) {
       myBook.setEncoding(value);
-      ((EditBookInfoActivity)getContext()).setResult(FBReader.RESULT_RELOAD_BOOK);
+      ((EditBookInfoActivity)getContext()).setBookStatus(FBReader.RESULT_RELOAD_BOOK);
     }
   }
 }
