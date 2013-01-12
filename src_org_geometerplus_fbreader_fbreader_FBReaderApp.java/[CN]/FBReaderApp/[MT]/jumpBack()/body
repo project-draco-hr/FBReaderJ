@@ -13,12 +13,12 @@
     if (!myJumpEndPosition.equals(BookTextView.getStartCursor())) {
       return false;
     }
-    final List<Bookmark> bookmarks=Library.Instance().invisibleBookmarks(Model.Book);
+    final List<Bookmark> bookmarks=myCollection.invisibleBookmarks(Model.Book);
     if (bookmarks.isEmpty()) {
       return false;
     }
     final Bookmark b=bookmarks.get(0);
-    b.delete();
+    myCollection.deleteBookmark(b);
     gotoBookmark(b);
     return true;
   }

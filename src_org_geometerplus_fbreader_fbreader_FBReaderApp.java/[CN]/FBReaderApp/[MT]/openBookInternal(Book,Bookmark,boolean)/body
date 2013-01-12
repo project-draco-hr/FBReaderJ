@@ -1,6 +1,6 @@
 {
   if (book == null) {
-    book=Library.Instance().getRecentBook();
+    book=myCollection.getRecentBook(0);
     if (book == null || !book.File.exists()) {
       book=Book.getByFile(Library.getHelpFile());
     }
@@ -31,7 +31,7 @@
  else {
         gotoBookmark(bookmark);
       }
-      Library.Instance().addBookToRecentList(book);
+      myCollection.addBookToRecentList(book);
       final StringBuilder title=new StringBuilder(book.getTitle());
       if (!book.authors().isEmpty()) {
         boolean first=true;

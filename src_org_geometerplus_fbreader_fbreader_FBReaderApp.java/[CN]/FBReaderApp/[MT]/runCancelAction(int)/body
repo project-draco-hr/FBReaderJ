@@ -11,12 +11,12 @@ case networkLibrary:
 runAction(ActionCode.SHOW_NETWORK_LIBRARY);
 break;
 case previousBook:
-openBook(Library.Instance().getPreviousBook(),null,null);
+openBook(myCollection.getRecentBook(1),null,null);
 break;
 case returnTo:
 {
 final Bookmark b=((BookmarkDescription)description).Bookmark;
-b.delete();
+myCollection.deleteBookmark(b);
 gotoBookmark(b);
 break;
 }

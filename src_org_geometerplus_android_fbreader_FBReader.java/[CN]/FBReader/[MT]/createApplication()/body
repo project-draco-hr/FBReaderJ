@@ -1,6 +1,7 @@
 {
-  if (SQLiteBooksDatabase.Instance() == null) {
-    new SQLiteBooksDatabase(this,"READER");
+  BooksDatabase db=SQLiteBooksDatabase.Instance();
+  if (db == null) {
+    db=new SQLiteBooksDatabase(this,"READER");
   }
-  return new FBReaderApp();
+  return new FBReaderApp(new BookCollection(db));
 }
