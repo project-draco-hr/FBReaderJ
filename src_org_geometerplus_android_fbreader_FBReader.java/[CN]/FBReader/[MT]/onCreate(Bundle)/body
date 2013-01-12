@@ -1,4 +1,5 @@
 {
+  myCollection.bindToService(null);
   super.onCreate(icicle);
   final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
   final ZLAndroidLibrary zlibrary=(ZLAndroidLibrary)ZLibrary.Instance();
