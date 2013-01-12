@@ -4,6 +4,11 @@
     database=new SQLiteBooksDatabase(LibraryService.this,"LIBRARY SERVICE");
   }
   myCollection=new BookCollection(database);
+  for (  String path : myCollection.bookDirectories()) {
+    final Observer observer=new Observer(path);
+    observer.startWatching();
+    myFileObservers.add(observer);
+  }
   final long start=System.currentTimeMillis();
   myCollection.addListener(new BookCollection.Listener(){
     public void onBookEvent(    BookEvent event,    Book book){
