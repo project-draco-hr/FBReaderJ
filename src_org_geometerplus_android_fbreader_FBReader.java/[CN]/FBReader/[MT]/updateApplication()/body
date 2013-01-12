@@ -1,0 +1,3 @@
+{
+  ((FBReaderApp)FBReaderApp.Instance()).setCollection(myCollection);
+}

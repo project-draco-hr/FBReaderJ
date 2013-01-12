@@ -1,7 +1,0 @@
-{
-  if (ourInstance == null) {
-    final BookCollection collection=new BookCollection(BooksDatabase.Instance());
-    ourInstance=new Library(collection);
-  }
-  return ourInstance;
-}

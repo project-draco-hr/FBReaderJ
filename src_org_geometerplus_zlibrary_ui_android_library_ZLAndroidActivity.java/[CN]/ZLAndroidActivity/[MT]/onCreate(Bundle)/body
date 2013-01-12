@@ -11,6 +11,9 @@
     androidApplication.myMainWindow=new ZLAndroidApplicationWindow(application);
     application.initWindow();
   }
+ else {
+    updateApplication();
+  }
   new Thread(){
     public void run(){
       ZLApplication.Instance().openFile(fileFromIntent(getIntent()),getPostponedInitAction());
