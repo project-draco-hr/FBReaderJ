@@ -1,9 +1,9 @@
 {
-  if (myBuildStarted) {
+  if (myBuildStatus != BuildStatus.NotStarted) {
     fireBuildEvent(Listener.BuildEvent.NotStarted);
     return;
   }
-  myBuildStarted=true;
+  myBuildStatus=BuildStatus.Started;
   final Thread builder=new Thread("Library.build"){
     public void run(){
       try {
@@ -16,7 +16,7 @@
       }
  finally {
         fireBuildEvent(Listener.BuildEvent.Completed);
-        myBuildStarted=false;
+        myBuildStatus=BuildStatus.Finished;
       }
     }
   }

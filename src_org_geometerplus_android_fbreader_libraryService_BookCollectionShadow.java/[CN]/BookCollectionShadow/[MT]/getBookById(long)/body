@@ -3,7 +3,7 @@
     return null;
   }
   try {
-    return SerializerUtil.deserializeBook(myInterface.bookById(id));
+    return SerializerUtil.deserializeBook(myInterface.getBookById(id));
   }
  catch (  RemoteException e) {
     return null;

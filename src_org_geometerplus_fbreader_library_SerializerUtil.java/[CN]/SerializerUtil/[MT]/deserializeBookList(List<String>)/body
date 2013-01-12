@@ -1,0 +1,7 @@
+{
+  final List<Book> books=new ArrayList<Book>(xmlList.size());
+  for (  String xml : xmlList) {
+    books.add(defaultSerializer.deserializeBook(xml));
+  }
+  return books;
+}

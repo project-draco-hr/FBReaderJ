@@ -1,5 +1,5 @@
 {
-  myCollection=new BookCollection(db);
+  myCollection=collection;
   myCollection.addListener(new BookCollection.Listener(){
     public void onBookEvent(    BookEvent event,    Book book){
 switch (event) {
