@@ -1,4 +1,7 @@
 {
+  if (book != null) {
+    book.save(true);
+  }
   final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
 switch (resultCode) {
 case RESULT_DO_NOTHING:

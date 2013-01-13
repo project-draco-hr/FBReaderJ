@@ -1,10 +1,9 @@
 {
-  final Book book=SerializerUtil.deserializeBook(data.getStringExtra(CURRENT_BOOK_KEY));
+  final Book book=bookByIntent(data);
   if (book != null) {
     myBook=book;
     setupBookInfo(book);
     myDontReloadBook=false;
-    myBook.save(true);
   }
   myResult=Math.max(myResult,resultCode);
   setResult(myResult,data);

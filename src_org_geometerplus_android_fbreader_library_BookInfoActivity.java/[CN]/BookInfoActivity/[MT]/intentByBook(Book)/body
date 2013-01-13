@@ -1,0 +1,3 @@
+{
+  return new Intent().putExtra(CURRENT_BOOK_KEY,SerializerUtil.serialize(book));
+}

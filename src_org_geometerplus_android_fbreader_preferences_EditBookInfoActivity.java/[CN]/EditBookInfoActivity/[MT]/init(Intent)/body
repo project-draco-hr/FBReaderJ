@@ -1,8 +1,5 @@
 {
-  if (SQLiteBooksDatabase.Instance() == null) {
-    new SQLiteBooksDatabase(this,"LIBRARY");
-  }
-  myBook=SerializerUtil.deserializeBook(intent.getStringExtra(BookInfoActivity.CURRENT_BOOK_KEY));
+  myBook=BookInfoActivity.bookByIntent(intent);
   myStatus=FBReader.RESULT_REPAINT;
   if (myBook == null) {
     finish();
