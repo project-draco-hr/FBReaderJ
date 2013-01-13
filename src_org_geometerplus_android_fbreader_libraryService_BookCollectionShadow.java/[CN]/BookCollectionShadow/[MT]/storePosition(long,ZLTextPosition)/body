@@ -1,5 +1,5 @@
 {
-  if (myInterface != null) {
+  if (position != null && myInterface != null) {
     try {
       myInterface.storePosition(bookId,new TextPosition(position.getParagraphIndex(),position.getElementIndex(),position.getCharIndex()));
     }

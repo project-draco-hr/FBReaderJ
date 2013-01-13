@@ -4,6 +4,9 @@
   }
   try {
     final TextPosition position=myInterface.getStoredPosition(bookId);
+    if (position == null) {
+      return null;
+    }
     return new ZLTextFixedPosition(position.ParagraphIndex,position.ElementIndex,position.CharIndex);
   }
  catch (  RemoteException e) {

@@ -1,4 +1,7 @@
 {
   final ZLTextPosition position=myCollection.getStoredPosition(bookId);
+  if (position == null) {
+    return null;
+  }
   return new TextPosition(position.getParagraphIndex(),position.getElementIndex(),position.getCharIndex());
 }
