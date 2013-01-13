@@ -1,4 +1,5 @@
 LibraryTree parent
+IBookCollection collection
 ZLFile file
 String name
 String summary

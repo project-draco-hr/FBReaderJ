@@ -1,6 +1,6 @@
 {
   if (myBook == null) {
-    myBook=Book.getByFile(myFile);
+    myBook=myCollection.getBookByFile(myFile);
     if (myBook == null) {
       myBook=NULL_BOOK;
     }

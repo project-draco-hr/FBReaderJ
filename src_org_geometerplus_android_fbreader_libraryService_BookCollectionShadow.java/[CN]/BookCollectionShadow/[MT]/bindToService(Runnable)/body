@@ -1,7 +1,13 @@
 {
   if (myInterface != null) {
-    return;
+    if (onBindAction != null) {
+      onBindAction.run();
+    }
   }
-  myOnBindAction=onBindAction;
-  myContext.bindService(new Intent(myContext,LibraryService.class),this,LibraryService.BIND_AUTO_CREATE);
+ else {
+    if (onBindAction != null) {
+      myOnBindAction=onBindAction;
+    }
+    myContext.bindService(new Intent(myContext,LibraryService.class),this,LibraryService.BIND_AUTO_CREATE);
+  }
 }

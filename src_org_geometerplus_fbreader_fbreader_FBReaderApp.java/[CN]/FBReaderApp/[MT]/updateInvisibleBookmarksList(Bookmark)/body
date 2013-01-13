@@ -1,14 +1,14 @@
 {
   if (Model != null && Model.Book != null && b != null) {
-    for (    Bookmark bm : myCollection.invisibleBookmarks(Model.Book)) {
+    for (    Bookmark bm : Collection.invisibleBookmarks(Model.Book)) {
       if (b.equals(bm)) {
-        myCollection.deleteBookmark(bm);
+        Collection.deleteBookmark(bm);
       }
     }
-    myCollection.saveBookmark(b);
-    final List<Bookmark> bookmarks=myCollection.invisibleBookmarks(Model.Book);
+    Collection.saveBookmark(b);
+    final List<Bookmark> bookmarks=Collection.invisibleBookmarks(Model.Book);
     for (int i=3; i < bookmarks.size(); ++i) {
-      myCollection.deleteBookmark(bookmarks.get(i));
+      Collection.deleteBookmark(bookmarks.get(i));
     }
   }
 }

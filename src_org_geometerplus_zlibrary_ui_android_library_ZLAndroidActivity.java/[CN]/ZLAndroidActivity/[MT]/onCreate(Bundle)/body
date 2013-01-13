@@ -11,15 +11,17 @@
     androidApplication.myMainWindow=new ZLAndroidApplicationWindow(application);
     application.initWindow();
   }
- else {
-    updateApplication();
-  }
-  new Thread(){
+  init(new Runnable(){
     public void run(){
-      ZLApplication.Instance().openFile(fileFromIntent(getIntent()),getPostponedInitAction());
+      new Thread(){
+        public void run(){
+          ZLApplication.Instance().openFile(fileFromIntent(getIntent()),getPostponedInitAction());
+          ZLApplication.Instance().getViewWidget().repaint();
+        }
+      }
+.start();
       ZLApplication.Instance().getViewWidget().repaint();
     }
   }
-.start();
-  ZLApplication.Instance().getViewWidget().repaint();
+);
 }

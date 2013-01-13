@@ -3,7 +3,7 @@
   final FBView fbView=fbReader.getTextView();
   final String text=fbView.getSelectedText();
   final Bookmark bookmark=new Bookmark(fbReader.Model.Book,fbView.getModel().getId(),fbView.getSelectionStartPosition(),text,true);
-  myCollection.saveBookmark(bookmark);
+  fbReader.Collection.saveBookmark(bookmark);
   fbView.clearSelection();
   UIUtil.showMessageText(this,ZLResource.resource("selection").getResource("bookmarkCreated").getValue().replace("%s",text));
 }

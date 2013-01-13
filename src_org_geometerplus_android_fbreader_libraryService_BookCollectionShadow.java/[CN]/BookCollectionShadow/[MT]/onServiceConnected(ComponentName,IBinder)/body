@@ -2,5 +2,6 @@
   myInterface=LibraryInterface.Stub.asInterface(service);
   if (myOnBindAction != null) {
     myOnBindAction.run();
+    myOnBindAction=null;
   }
 }

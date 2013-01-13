@@ -2,16 +2,21 @@
   if (bookFile == null) {
     return null;
   }
+  Book book=myBooksByFile.get(bookFile);
+  if (book != null) {
+    return book;
+  }
   final ZLPhysicalFile physicalFile=bookFile.getPhysicalFile();
   if (physicalFile != null && !physicalFile.exists()) {
     return null;
   }
   final FileInfoSet fileInfos=new FileInfoSet(bookFile);
-  Book book=BooksDatabase.Instance().loadBookByFile(fileInfos.getId(bookFile),bookFile);
+  book=BooksDatabase.Instance().loadBookByFile(fileInfos.getId(bookFile),bookFile);
   if (book != null) {
     book.loadLists();
   }
   if (book != null && fileInfos.check(physicalFile,physicalFile != bookFile)) {
+    addBook(book);
     return book;
   }
   fileInfos.save();
@@ -27,5 +32,6 @@
     return null;
   }
   book.save();
+  addBook(book);
   return book;
 }

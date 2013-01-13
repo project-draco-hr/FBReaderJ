@@ -1,0 +1,3 @@
+{
+  getCollection().bindToService(action);
+}

@@ -1,4 +1,4 @@
 {
   super.onRestart();
-  myCollection.bindToService(null);
+  getCollection().bindToService(null);
 }

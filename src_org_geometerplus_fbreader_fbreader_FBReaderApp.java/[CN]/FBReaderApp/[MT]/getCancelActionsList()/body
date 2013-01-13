@@ -7,14 +7,14 @@
     myCancelActionsList.add(new CancelActionDescription(CancelActionType.networkLibrary,null));
   }
   if (ShowPreviousBookInCancelMenuOption.getValue()) {
-    final Book previousBook=myCollection.getRecentBook(1);
+    final Book previousBook=Collection.getRecentBook(1);
     if (previousBook != null) {
       myCancelActionsList.add(new CancelActionDescription(CancelActionType.previousBook,previousBook.getTitle()));
     }
   }
   if (ShowPositionsInCancelMenuOption.getValue()) {
     if (Model != null && Model.Book != null) {
-      for (      Bookmark bookmark : myCollection.invisibleBookmarks(Model.Book)) {
+      for (      Bookmark bookmark : Collection.invisibleBookmarks(Model.Book)) {
         myCancelActionsList.add(new BookmarkDescription(bookmark));
       }
     }
