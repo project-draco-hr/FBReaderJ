@@ -6,7 +6,7 @@
   final int maxWidth=maxHeight * 2 / 3;
   coverView.setVisibility(View.GONE);
   coverView.setImageDrawable(null);
-  final ZLImage image=LibraryUtil.getCover(book);
+  final ZLImage image=BookUtil.getCover(book);
   if (image == null) {
     return;
   }
