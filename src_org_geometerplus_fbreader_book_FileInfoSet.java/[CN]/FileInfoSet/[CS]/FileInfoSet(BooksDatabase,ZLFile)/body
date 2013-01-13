@@ -1,0 +1,4 @@
+{
+  myDatabase=database;
+  load(database.loadFileInfos(file));
+}

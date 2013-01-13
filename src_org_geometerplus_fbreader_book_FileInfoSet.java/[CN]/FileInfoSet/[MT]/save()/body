@@ -1,14 +1,13 @@
 {
-  final BooksDatabase database=BooksDatabase.Instance();
-  database.executeAsATransaction(new Runnable(){
+  myDatabase.executeAsATransaction(new Runnable(){
     public void run(){
       for (      FileInfo info : myInfosToRemove) {
-        database.removeFileInfo(info.Id);
+        myDatabase.removeFileInfo(info.Id);
         myInfosByPair.remove(new Pair(info.Name,info.Parent));
       }
       myInfosToRemove.clear();
       for (      FileInfo info : myInfosToSave) {
-        database.saveFileInfo(info);
+        myDatabase.saveFileInfo(info);
       }
       myInfosToSave.clear();
     }

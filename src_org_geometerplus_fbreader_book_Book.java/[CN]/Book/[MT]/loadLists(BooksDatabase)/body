@@ -1,0 +1,6 @@
+{
+  myAuthors=database.loadAuthors(myId);
+  myTags=database.loadTags(myId);
+  mySeriesInfo=database.loadSeriesInfo(myId);
+  myIsSaved=true;
+}

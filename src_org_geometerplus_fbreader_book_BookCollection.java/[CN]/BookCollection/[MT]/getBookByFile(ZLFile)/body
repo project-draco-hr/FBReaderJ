@@ -10,10 +10,10 @@
   if (physicalFile != null && !physicalFile.exists()) {
     return null;
   }
-  final FileInfoSet fileInfos=new FileInfoSet(bookFile);
+  final FileInfoSet fileInfos=new FileInfoSet(myDatabase,bookFile);
   book=myDatabase.loadBookByFile(fileInfos.getId(bookFile),bookFile);
   if (book != null) {
-    book.loadLists();
+    book.loadLists(myDatabase);
   }
   if (book != null && fileInfos.check(physicalFile,physicalFile != bookFile)) {
     addBook(book);

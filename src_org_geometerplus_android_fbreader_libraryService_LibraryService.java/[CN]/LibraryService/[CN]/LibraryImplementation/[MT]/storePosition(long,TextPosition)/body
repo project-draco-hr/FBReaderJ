@@ -1,0 +1,3 @@
+{
+  myCollection.storePosition(bookId,new ZLTextFixedPosition(position.ParagraphIndex,position.ElementIndex,position.CharIndex));
+}

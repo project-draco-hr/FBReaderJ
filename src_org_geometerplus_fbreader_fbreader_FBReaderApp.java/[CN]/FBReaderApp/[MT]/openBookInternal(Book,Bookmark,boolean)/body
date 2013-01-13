@@ -25,7 +25,7 @@
       Collection.saveBook(book,false);
       ZLTextHyphenator.Instance().load(book.getLanguage());
       BookTextView.setModel(Model.getTextModel());
-      BookTextView.gotoPosition(book.getStoredPosition());
+      BookTextView.gotoPosition(Collection.getStoredPosition(book.getId()));
       if (bookmark == null) {
         setView(BookTextView);
       }

@@ -1,0 +1,3 @@
+{
+  return myCollection.isHyperlinkVisited(SerializerUtil.deserializeBook(book),linkId);
+}

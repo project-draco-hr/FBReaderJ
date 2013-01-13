@@ -1,0 +1,11 @@
+{
+  if (myInterface == null) {
+    return false;
+  }
+  try {
+    return myInterface.isHyperlinkVisited(SerializerUtil.serialize(book),linkId);
+  }
+ catch (  RemoteException e) {
+    return false;
+  }
+}

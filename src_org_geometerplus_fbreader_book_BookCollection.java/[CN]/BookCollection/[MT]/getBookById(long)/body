@@ -7,7 +7,7 @@
   if (book == null) {
     return null;
   }
-  book.loadLists();
+  book.loadLists(myDatabase);
   final ZLFile bookFile=book.File;
   final ZLPhysicalFile physicalFile=bookFile.getPhysicalFile();
   if (physicalFile == null) {
@@ -17,7 +17,7 @@
   if (!physicalFile.exists()) {
     return null;
   }
-  FileInfoSet fileInfos=new FileInfoSet(physicalFile);
+  FileInfoSet fileInfos=new FileInfoSet(myDatabase,physicalFile);
   if (fileInfos.check(physicalFile,physicalFile != bookFile)) {
     addBook(book);
     return book;

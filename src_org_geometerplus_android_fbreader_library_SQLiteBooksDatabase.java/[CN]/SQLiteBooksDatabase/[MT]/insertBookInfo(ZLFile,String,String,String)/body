@@ -5,7 +5,7 @@
   SQLiteUtil.bindString(myInsertBookInfoStatement,1,encoding);
   SQLiteUtil.bindString(myInsertBookInfoStatement,2,language);
   myInsertBookInfoStatement.bindString(3,title);
-  final FileInfoSet infoSet=new FileInfoSet(file);
+  final FileInfoSet infoSet=new FileInfoSet(this,file);
   myInsertBookInfoStatement.bindLong(4,infoSet.getId(file));
   return myInsertBookInfoStatement.executeInsert();
 }
