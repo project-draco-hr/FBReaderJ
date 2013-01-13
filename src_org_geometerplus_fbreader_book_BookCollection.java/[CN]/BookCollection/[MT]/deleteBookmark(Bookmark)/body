@@ -1,5 +1,5 @@
 {
   if (bookmark != null && bookmark.getId() != -1) {
-    BooksDatabase.Instance().deleteBookmark(bookmark);
+    myDatabase.deleteBookmark(bookmark);
   }
 }

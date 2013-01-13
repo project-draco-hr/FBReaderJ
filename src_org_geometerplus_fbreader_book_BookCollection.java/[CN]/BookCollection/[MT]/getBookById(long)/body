@@ -3,7 +3,7 @@
   if (book != null) {
     return book;
   }
-  book=BooksDatabase.Instance().loadBook(id);
+  book=myDatabase.loadBook(id);
   if (book == null) {
     return null;
   }

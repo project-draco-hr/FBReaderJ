@@ -25,7 +25,7 @@ synchronized (this) {
         if (!fileInfos.check(file,true)) {
           try {
             book.readMetaInfo();
-            book.save();
+            saveBook(book,false);
           }
  catch (          BookReadingException e) {
             doAdd=false;
@@ -67,7 +67,7 @@ synchronized (this) {
   myDatabase.executeAsATransaction(new Runnable(){
     public void run(){
       for (      Book book : newBooks) {
-        book.save();
+        saveBook(book,false);
         addBookById(book);
       }
     }

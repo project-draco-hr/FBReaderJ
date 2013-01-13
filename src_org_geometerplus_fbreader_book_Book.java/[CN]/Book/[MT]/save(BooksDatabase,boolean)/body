@@ -2,7 +2,6 @@
   if (!force && myIsSaved) {
     return false;
   }
-  final BooksDatabase database=BooksDatabase.Instance();
   database.executeAsATransaction(new Runnable(){
     public void run(){
       if (myId >= 0) {
@@ -11,7 +10,11 @@
       }
  else {
         myId=database.insertBookInfo(File,myEncoding,myLanguage,myTitle);
-        storeAllVisitedHyperinks();
+        if (myId != -1 && myVisitedHyperlinks != null) {
+          for (          String linkId : myVisitedHyperlinks) {
+            database.addVisitedHyperlink(myId,linkId);
+          }
+        }
       }
       long index=0;
       database.deleteAllBookAuthors(myId);

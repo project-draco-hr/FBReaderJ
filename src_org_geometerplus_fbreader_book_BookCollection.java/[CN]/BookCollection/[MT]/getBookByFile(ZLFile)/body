@@ -11,7 +11,7 @@
     return null;
   }
   final FileInfoSet fileInfos=new FileInfoSet(bookFile);
-  book=BooksDatabase.Instance().loadBookByFile(fileInfos.getId(bookFile),bookFile);
+  book=myDatabase.loadBookByFile(fileInfos.getId(bookFile),bookFile);
   if (book != null) {
     book.loadLists();
   }
@@ -31,7 +31,7 @@
  catch (  BookReadingException e) {
     return null;
   }
-  book.save();
+  saveBook(book,false);
   addBook(book);
   return book;
 }
