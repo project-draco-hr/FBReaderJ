@@ -9,32 +9,19 @@
     observer.startWatching();
     myFileObservers.add(observer);
   }
-  final long start=System.currentTimeMillis();
   myCollection.addListener(new BookCollection.Listener(){
     public void onBookEvent(    BookEvent event,    Book book){
-switch (event) {
-case Added:
-        System.err.println("Added " + book.getTitle());
-      break;
+      final Intent intent=new Intent(BOOK_EVENT_ACTION);
+      intent.putExtra("type",event.toString());
+      intent.putExtra("book",SerializerUtil.serialize(book));
+      sendBroadcast(intent);
+    }
+    public void onBuildEvent(    BuildEvent event){
+      final Intent intent=new Intent(BUILD_EVENT_ACTION);
+      intent.putExtra("type",event.toString());
+      sendBroadcast(intent);
+    }
   }
-}
-public void onBuildEvent(BuildEvent event){
-switch (event) {
-case Started:
-    System.err.println("Build started");
-  break;
-case Succeeded:
-System.err.println("Build succeeded");
-break;
-case Failed:
-System.err.println("Build failed");
-break;
-case Completed:
-System.err.println("Build completed with " + myCollection.size() + " books in "+ (System.currentTimeMillis() - start)+ " milliseconds");
-break;
-}
-}
-}
 );
-myCollection.startBuild();
+  myCollection.startBuild();
 }
