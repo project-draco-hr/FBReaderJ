@@ -6,7 +6,6 @@ synchronized (myBooksByFile) {
     if (ids.remove(book.getId())) {
       myDatabase.saveRecentBookIds(ids);
     }
-    myDatabase.deleteFromBookList(book.getId());
     if (deleteFromDisk) {
       book.File.getPhysicalFile().delete();
     }

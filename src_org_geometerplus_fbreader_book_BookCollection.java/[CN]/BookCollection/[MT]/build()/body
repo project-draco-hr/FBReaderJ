@@ -15,7 +15,6 @@ synchronized (this) {
         physicalFiles.add(file);
       }
       if (file != book.File && file != null && file.getPath().endsWith(".epub")) {
-        myDatabase.deleteFromBookList(book.getId());
         continue;
       }
       if (book.File.exists()) {

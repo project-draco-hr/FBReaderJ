@@ -1,0 +1,3 @@
+{
+  myDatabase.execSQL("DROP TABLE BookList");
+}
