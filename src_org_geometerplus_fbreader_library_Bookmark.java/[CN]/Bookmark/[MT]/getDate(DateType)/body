@@ -1,13 +1,13 @@
 {
-switch (timeStamp) {
-default :
-case CREATION:
+switch (type) {
+case Creation:
     return myCreationDate;
-case MODIFICATION:
+case Modification:
   return myModificationDate;
-case ACCESS:
+case Access:
 return myAccessDate;
-case LATEST:
+default :
+case Latest:
 return myLatestDate;
 }
 }
