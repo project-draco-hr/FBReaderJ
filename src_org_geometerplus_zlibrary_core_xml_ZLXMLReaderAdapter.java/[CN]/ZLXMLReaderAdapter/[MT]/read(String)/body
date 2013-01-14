@@ -1,0 +1,3 @@
+{
+  ZLXMLProcessor.read(this,new StringReader(string),65536);
+}
