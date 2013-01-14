@@ -1,0 +1,4 @@
+{
+  final Intent intent=new Intent(BaseActivity.getApplicationContext(),BookmarksActivity.class);
+  OrientationUtil.startActivity(BaseActivity,intent);
+}
