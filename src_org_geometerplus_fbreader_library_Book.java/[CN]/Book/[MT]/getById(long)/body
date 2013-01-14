@@ -12,7 +12,7 @@
   if (!physicalFile.exists()) {
     return null;
   }
-  FileInfoSet fileInfos=new FileInfoSet(physicalFile);
+  FileInfoSet fileInfos=new FileInfoSet(BooksDatabase.Instance(),physicalFile);
   if (fileInfos.check(physicalFile,physicalFile != bookFile)) {
     return book;
   }

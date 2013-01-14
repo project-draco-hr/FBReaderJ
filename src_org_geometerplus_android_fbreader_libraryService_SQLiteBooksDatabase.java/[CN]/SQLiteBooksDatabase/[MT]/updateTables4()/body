@@ -1,5 +1,5 @@
 {
-  final FileInfoSet fileInfos=new FileInfoSet();
+  final FileInfoSet fileInfos=new FileInfoSet(this);
   final Cursor cursor=myDatabase.rawQuery("SELECT file_name FROM Books",null);
   while (cursor.moveToNext()) {
     fileInfos.check(ZLFile.createFileByPath(cursor.getString(0)).getPhysicalFile(),false);

@@ -6,7 +6,7 @@
   if (physicalFile != null && !physicalFile.exists()) {
     return null;
   }
-  final FileInfoSet fileInfos=new FileInfoSet(bookFile);
+  final FileInfoSet fileInfos=new FileInfoSet(BooksDatabase.Instance(),bookFile);
   Book book=BooksDatabase.Instance().loadBookByFile(fileInfos.getId(bookFile),bookFile);
   if (book != null) {
     book.loadLists();

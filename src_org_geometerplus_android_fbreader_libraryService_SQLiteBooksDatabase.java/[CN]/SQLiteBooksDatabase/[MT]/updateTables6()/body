@@ -2,7 +2,7 @@
   myDatabase.execSQL("ALTER TABLE Bookmarks ADD COLUMN model_id TEXT");
   myDatabase.execSQL("ALTER TABLE Books ADD COLUMN file_id INTEGER");
   myDatabase.execSQL("DELETE FROM Files");
-  final FileInfoSet infoSet=new FileInfoSet();
+  final FileInfoSet infoSet=new FileInfoSet(this);
   Cursor cursor=myDatabase.rawQuery("SELECT file_name FROM Books",null);
   while (cursor.moveToNext()) {
     infoSet.check(ZLFile.createFileByPath(cursor.getString(0)).getPhysicalFile(),false);
