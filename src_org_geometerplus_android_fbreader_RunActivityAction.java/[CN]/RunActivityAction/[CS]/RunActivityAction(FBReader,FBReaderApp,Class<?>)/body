@@ -1,4 +1,0 @@
-{
-  super(baseActivity,fbreader);
-  myActivityClass=activityClass;
-}
