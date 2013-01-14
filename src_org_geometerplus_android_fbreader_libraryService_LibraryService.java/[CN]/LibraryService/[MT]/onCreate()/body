@@ -2,5 +2,4 @@
   System.err.println("LibraryService.onCreate()");
   super.onCreate();
   myLibrary=new LibraryImplementation();
-  myLibrary.myBaseLibrary.addChangeListener(this);
 }
