@@ -1,11 +1,11 @@
 {
-  myCollection=collection;
-  myCollection.addListener(new BookCollection.Listener(){
+  Collection=collection;
+  Collection.addListener(new BookCollection.Listener(){
     public void onBookEvent(    BookEvent event,    Book book){
 switch (event) {
 case Added:
         addBookToLibrary(book);
-      if (myCollection.size() % 16 == 0) {
+      if (Collection.size() % 16 == 0) {
         Library.this.fireModelChangedEvent(ChangeListener.Code.BookAdded);
       }
     break;
@@ -15,10 +15,10 @@ public void onBuildEvent(BuildEvent event){
 switch (event) {
 case Started:
   Library.this.fireModelChangedEvent(ChangeListener.Code.StatusChanged);
-for (Book book : myCollection.recentBooks()) {
+for (Book book : Collection.recentBooks()) {
   new BookTree(getFirstLevelTree(ROOT_RECENT),book,true);
 }
-for (Book book : myCollection.favorites()) {
+for (Book book : Collection.favorites()) {
 new BookTree(getFirstLevelTree(ROOT_FAVORITES),book,true);
 }
 setStatus(myStatusMask | STATUS_LOADING);

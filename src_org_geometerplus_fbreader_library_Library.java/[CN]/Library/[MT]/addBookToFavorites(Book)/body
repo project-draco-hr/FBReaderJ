@@ -4,5 +4,5 @@
   }
   final LibraryTree rootFavorites=getFirstLevelTree(ROOT_FAVORITES);
   rootFavorites.getBookSubTree(book,true);
-  myCollection.setBookFavorite(book,true);
+  Collection.setBookFavorite(book,true);
 }
