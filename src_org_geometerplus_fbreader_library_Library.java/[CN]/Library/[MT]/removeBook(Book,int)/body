@@ -10,7 +10,6 @@
   }
   getFirstLevelTree(ROOT_FAVORITES).removeBook(book,false);
   myRootTree.removeBook(book,true);
-  myDatabase.deleteFromBookList(book.getId());
   if ((removeMode & REMOVE_FROM_DISK) != 0) {
     book.File.getPhysicalFile().delete();
   }

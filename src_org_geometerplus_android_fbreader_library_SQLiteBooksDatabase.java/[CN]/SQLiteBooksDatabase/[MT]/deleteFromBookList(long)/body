@@ -1,9 +1,0 @@
-{
-  if (myDeleteFromBookListStatement == null) {
-    myDeleteFromBookListStatement=myDatabase.compileStatement("DELETE FROM BookList WHERE book_id = ?");
-  }
-  myDeleteFromBookListStatement.bindLong(1,bookId);
-  myDeleteFromBookListStatement.execute();
-  deleteVisitedHyperlinks(bookId);
-  return true;
-}
