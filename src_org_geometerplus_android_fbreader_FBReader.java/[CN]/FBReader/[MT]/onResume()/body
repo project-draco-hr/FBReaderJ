@@ -1,10 +1,5 @@
 {
   super.onResume();
-  try {
-    sendBroadcast(new Intent(getApplicationContext(),KillerCallback.class));
-  }
- catch (  Throwable t) {
-  }
   PopupPanel.restoreVisibilities(FBReaderApp.Instance());
   ApiServerImplementation.sendEvent(this,ApiListener.EVENT_READ_MODE_OPENED);
 }

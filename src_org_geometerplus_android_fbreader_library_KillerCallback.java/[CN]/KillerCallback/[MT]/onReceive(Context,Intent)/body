@@ -1,6 +1,0 @@
-{
-  if (LibraryActivity.ourToBeKilled) {
-    System.err.println("kill");
-    Process.killProcess(Process.myPid());
-  }
-}
