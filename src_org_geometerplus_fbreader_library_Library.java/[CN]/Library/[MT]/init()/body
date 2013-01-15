@@ -1,0 +1,8 @@
+{
+  for (  Book book : Collection.recentBooks()) {
+    new BookTree(getFirstLevelTree(ROOT_RECENT),book,true);
+  }
+  for (  Book book : Collection.favorites()) {
+    new BookTree(getFirstLevelTree(ROOT_FAVORITES),book,true);
+  }
+}

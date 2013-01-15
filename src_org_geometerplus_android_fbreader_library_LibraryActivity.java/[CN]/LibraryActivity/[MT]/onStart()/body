@@ -1,0 +1,9 @@
+{
+  super.onStart();
+  ((BookCollectionShadow)myLibrary.Collection).bindToService(new Runnable(){
+    public void run(){
+      myLibrary.init();
+    }
+  }
+);
+}

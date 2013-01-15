@@ -1,14 +1,8 @@
 {
   super.onCreate(icicle);
   if (myLibrary == null) {
-    BooksDatabase db=SQLiteBooksDatabase.Instance();
-    if (db == null) {
-      db=new SQLiteBooksDatabase(this,"LIBRARY");
-    }
-    final BookCollection collection=new BookCollection(db);
-    myLibrary=new Library(collection);
+    myLibrary=new Library(new BookCollectionShadow(this));
     myLibrary.addChangeListener(this);
-    collection.startBuild();
   }
   mySelectedBook=SerializerUtil.deserializeBook(getIntent().getStringExtra(SELECTED_BOOK_KEY));
   new LibraryTreeAdapter(this);
