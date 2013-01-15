@@ -1,0 +1,17 @@
+{
+  if (book == null) {
+    return;
+  }
+synchronized (myBooksByFile) {
+    Listener.BookEvent event=Listener.BookEvent.Added;
+    if (myBooksByFile.containsKey(book.File)) {
+      if (!force) {
+        return;
+      }
+      event=Listener.BookEvent.Updated;
+    }
+    myBooksByFile.put(book.File,book);
+    myBooksById.put(book.getId(),book);
+    fireBookEvent(event,book);
+  }
+}

@@ -2,12 +2,6 @@
   if (book == null) {
     return false;
   }
-synchronized (myBooksByFile) {
-    final boolean replace=myBooksByFile.remove(book.File) != null;
-    myBooksById.remove(book.getId());
-    myBooksByFile.put(book.File,book);
-    addBookById(book);
-    fireBookEvent(replace ? Listener.BookEvent.Updated : Listener.BookEvent.Added,book);
-  }
+  addBook(book,true);
   return book.save(myDatabase,force);
 }

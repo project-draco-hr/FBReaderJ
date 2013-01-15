@@ -9,7 +9,6 @@
       if (doReadMetaInfo) {
         book.readMetaInfo();
       }
-      addBook(book);
       newBooks.add(book);
       return;
     }
@@ -18,7 +17,6 @@
   }
   try {
     final Book book=new Book(file);
-    addBook(book);
     newBooks.add(book);
     return;
   }

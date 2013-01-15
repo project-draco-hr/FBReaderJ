@@ -33,7 +33,7 @@ synchronized (this) {
           file.setCached(false);
         }
         if (doAdd) {
-          addBook(book);
+          addBook(book,false);
         }
       }
  else {
@@ -58,7 +58,7 @@ synchronized (this) {
     if (helpBook == null) {
       helpBook=new Book(helpFile);
     }
-    addBook(helpBook);
+    addBook(helpBook,false);
   }
  catch (  BookReadingException e) {
     e.printStackTrace();
@@ -68,7 +68,7 @@ synchronized (this) {
     public void run(){
       for (      Book book : newBooks) {
         saveBook(book,false);
-        addBookById(book);
+        addBook(book,false);
       }
     }
   }

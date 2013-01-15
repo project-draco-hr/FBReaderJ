@@ -3,6 +3,7 @@
     return;
   }
   Collection.saveBook(book,true);
+  myBooks.remove(book.getId());
   refreshInTree(ROOT_FAVORITES,book);
   refreshInTree(ROOT_RECENT,book);
   removeFromTree(ROOT_FOUND,book);

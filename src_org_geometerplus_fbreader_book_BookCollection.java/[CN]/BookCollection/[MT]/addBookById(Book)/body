@@ -1,6 +1,0 @@
-{
-  final long id=book.getId();
-  if (id != -1) {
-    myBooksById.put(id,book);
-  }
-}
