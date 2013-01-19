@@ -1,4 +1,0 @@
-{
-  ZLApplication.Instance().onWindowClosing();
-  super.onLowMemory();
-}

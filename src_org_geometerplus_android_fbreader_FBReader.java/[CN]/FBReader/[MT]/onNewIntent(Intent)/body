@@ -1,13 +1,17 @@
 {
+  final String action=intent.getAction();
   final Uri data=intent.getData();
   final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
   if ((intent.getFlags() & Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY) != 0) {
     super.onNewIntent(intent);
   }
- else   if (Intent.ACTION_VIEW.equals(intent.getAction()) && data != null && "fbreader-action".equals(data.getScheme())) {
+ else   if (Intent.ACTION_VIEW.equals(action) || "android.fbreader.action.VIEW".equals(action)) {
+    FBReaderApp.Instance().openFile(fileFromIntent(intent),null);
+  }
+ else   if (Intent.ACTION_VIEW.equals(action) && data != null && "fbreader-action".equals(data.getScheme())) {
     fbReader.runAction(data.getEncodedSchemeSpecificPart(),data.getFragment());
   }
- else   if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+ else   if (Intent.ACTION_SEARCH.equals(action)) {
     final String pattern=intent.getStringExtra(SearchManager.QUERY);
     final Runnable runnable=new Runnable(){
       public void run(){
