@@ -1,12 +1,11 @@
 {
-  final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
 switch (resultCode) {
 case RESULT_DO_NOTHING:
     break;
 case RESULT_REPAINT:
 {
     AndroidFontUtil.clearFontCache();
-    final BookModel model=fbReader.Model;
+    final BookModel model=myFBReaderApp.Model;
     if (model != null) {
       final Book book=model.Book;
       if (book != null) {
@@ -14,12 +13,12 @@ case RESULT_REPAINT:
         ZLTextHyphenator.Instance().load(book.getLanguage());
       }
     }
-    fbReader.clearTextCaches();
-    fbReader.getViewWidget().repaint();
+    myFBReaderApp.clearTextCaches();
+    myFBReaderApp.getViewWidget().repaint();
     break;
   }
 case RESULT_RELOAD_BOOK:
-fbReader.reloadBook();
+myFBReaderApp.reloadBook();
 break;
 }
 }

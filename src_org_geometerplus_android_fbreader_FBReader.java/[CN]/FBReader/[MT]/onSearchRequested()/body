@@ -1,17 +1,16 @@
 {
-  final FBReaderApp fbreader=(FBReaderApp)FBReaderApp.Instance();
-  final FBReaderApp.PopupPanel popup=fbreader.getActivePopup();
-  fbreader.hideActivePopup();
+  final FBReaderApp.PopupPanel popup=myFBReaderApp.getActivePopup();
+  myFBReaderApp.hideActivePopup();
   final SearchManager manager=(SearchManager)getSystemService(SEARCH_SERVICE);
   manager.setOnCancelListener(new SearchManager.OnCancelListener(){
     public void onCancel(){
       if (popup != null) {
-        fbreader.showPopup(popup.getId());
+        myFBReaderApp.showPopup(popup.getId());
       }
       manager.setOnCancelListener(null);
     }
   }
 );
-  startSearch(fbreader.TextSearchPatternOption.getValue(),true,null,false);
+  startSearch(myFBReaderApp.TextSearchPatternOption.getValue(),true,null,false);
   return true;
 }

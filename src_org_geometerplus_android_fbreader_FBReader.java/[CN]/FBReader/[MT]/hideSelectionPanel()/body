@@ -1,7 +1,6 @@
 {
-  final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
-  final FBReaderApp.PopupPanel popup=fbReader.getActivePopup();
+  final FBReaderApp.PopupPanel popup=myFBReaderApp.getActivePopup();
   if (popup != null && popup.getId() == SelectionPopup.ID) {
-    fbReader.hideActivePopup();
+    myFBReaderApp.hideActivePopup();
   }
 }

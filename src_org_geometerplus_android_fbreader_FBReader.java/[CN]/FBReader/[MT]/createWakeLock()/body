@@ -9,7 +9,7 @@ synchronized (this) {
     }
   }
   if (myStartTimer) {
-    FBReaderApp.Instance().startTimer();
+    myFBReaderApp.startTimer();
     myStartTimer=false;
   }
 }

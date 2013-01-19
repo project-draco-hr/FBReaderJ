@@ -1,9 +1,8 @@
 {
-  final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
 synchronized (myPluginActions) {
     int index=0;
     while (index < myPluginActions.size()) {
-      fbReader.removeAction(PLUGIN_ACTION_PREFIX + index++);
+      myFBReaderApp.removeAction(PLUGIN_ACTION_PREFIX + index++);
     }
     myPluginActions.clear();
   }
