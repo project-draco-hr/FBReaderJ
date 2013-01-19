@@ -1,5 +1,18 @@
 {
   super.onResume();
+  switchWakeLock(getZLibrary().BatteryLevelToTurnScreenOffOption.getValue() < FBReaderApp.Instance().getBatteryLevel());
+  myStartTimer=true;
+  final int brightnessLevel=getZLibrary().ScreenBrightnessLevelOption.getValue();
+  if (brightnessLevel != 0) {
+    setScreenBrightness(brightnessLevel);
+  }
+ else {
+    setScreenBrightnessAuto();
+  }
+  if (getZLibrary().DisableButtonLightsOption.getValue()) {
+    setButtonLight(false);
+  }
+  registerReceiver(myBatteryInfoReceiver,new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
   PopupPanel.restoreVisibilities(FBReaderApp.Instance());
   ApiServerImplementation.sendEvent(this,ApiListener.EVENT_READ_MODE_OPENED);
 }
