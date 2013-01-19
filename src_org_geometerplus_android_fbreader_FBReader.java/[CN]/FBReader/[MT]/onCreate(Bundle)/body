@@ -1,5 +1,5 @@
 {
-  super.onCreate(state);
+  super.onCreate(icicle);
   Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler(this));
   requestWindowFeature(Window.FEATURE_NO_TITLE);
   setContentView(R.layout.main);
