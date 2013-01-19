@@ -1,15 +1,15 @@
 {
   super.onResume();
-  switchWakeLock(getLibrary().BatteryLevelToTurnScreenOffOption.getValue() < ZLApplication.Instance().getBatteryLevel());
+  switchWakeLock(getZLibrary().BatteryLevelToTurnScreenOffOption.getValue() < ZLApplication.Instance().getBatteryLevel());
   myStartTimer=true;
-  final int brightnessLevel=getLibrary().ScreenBrightnessLevelOption.getValue();
+  final int brightnessLevel=getZLibrary().ScreenBrightnessLevelOption.getValue();
   if (brightnessLevel != 0) {
     setScreenBrightness(brightnessLevel);
   }
  else {
     setScreenBrightnessAuto();
   }
-  if (getLibrary().DisableButtonLightsOption.getValue()) {
+  if (getZLibrary().DisableButtonLightsOption.getValue()) {
     setButtonLight(false);
   }
   registerReceiver(myBatteryInfoReceiver,new IntentFilter(Intent.ACTION_BATTERY_CHANGED));

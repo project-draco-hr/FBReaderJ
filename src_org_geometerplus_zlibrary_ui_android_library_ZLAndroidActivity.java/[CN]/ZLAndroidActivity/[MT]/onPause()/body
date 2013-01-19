@@ -2,7 +2,7 @@
   unregisterReceiver(myBatteryInfoReceiver);
   ZLApplication.Instance().stopTimer();
   switchWakeLock(false);
-  if (getLibrary().DisableButtonLightsOption.getValue()) {
+  if (getZLibrary().DisableButtonLightsOption.getValue()) {
     setButtonLight(true);
   }
   ZLApplication.Instance().onWindowClosing();
