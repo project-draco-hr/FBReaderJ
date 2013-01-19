@@ -2,13 +2,13 @@
   if (file == null) {
     return null;
   }
-  Book book=Collection.getBookByFile(file);
+  Book book=myFBReaderApp.Collection.getBookByFile(file);
   if (book != null) {
     return book;
   }
   if (file.isArchive()) {
     for (    ZLFile child : file.children()) {
-      book=Collection.getBookByFile(child);
+      book=myFBReaderApp.Collection.getBookByFile(child);
       if (book != null) {
         return book;
       }

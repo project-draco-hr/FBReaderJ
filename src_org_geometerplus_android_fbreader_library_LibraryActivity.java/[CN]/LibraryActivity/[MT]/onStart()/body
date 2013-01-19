@@ -1,6 +1,6 @@
 {
   super.onStart();
-  ((BookCollectionShadow)myLibrary.Collection).bindToService(new Runnable(){
+  ((BookCollectionShadow)myLibrary.Collection).bindToService(this,new Runnable(){
     public void run(){
       myLibrary.init();
     }

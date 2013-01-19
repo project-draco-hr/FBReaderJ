@@ -1,7 +1,8 @@
 {
-  if (myInterface != null) {
+  if (myContext != null && myInterface != null) {
+    myContext.unregisterReceiver(myReceiver);
     myContext.unbindService(this);
     myInterface=null;
-    myContext.unregisterReceiver(myReceiver);
+    myContext=null;
   }
 }

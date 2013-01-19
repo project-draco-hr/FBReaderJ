@@ -1,6 +1,6 @@
 {
   super.onStart();
-  myCollection.bindToService(new Runnable(){
+  myCollection.bindToService(this,new Runnable(){
     public void run(){
       if (myAllBooksBookmarks == null) {
         init();

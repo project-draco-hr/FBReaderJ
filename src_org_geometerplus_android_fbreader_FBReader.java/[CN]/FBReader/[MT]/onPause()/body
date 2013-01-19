@@ -1,10 +1,10 @@
 {
   unregisterReceiver(myBatteryInfoReceiver);
-  FBReaderApp.Instance().stopTimer();
+  myFBReaderApp.stopTimer();
   switchWakeLock(false);
   if (getZLibrary().DisableButtonLightsOption.getValue()) {
     setButtonLight(true);
   }
-  FBReaderApp.Instance().onWindowClosing();
+  myFBReaderApp.onWindowClosing();
   super.onPause();
 }

@@ -1,3 +1,0 @@
-{
-  return new FBReaderApp(new BookCollectionShadow(this));
-}

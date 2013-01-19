@@ -1,7 +1,7 @@
 {
   super.onCreate(icicle);
   if (myLibrary == null) {
-    myLibrary=new Library(new BookCollectionShadow(this));
+    myLibrary=new Library(new BookCollectionShadow());
     myLibrary.addChangeListener(this);
   }
   mySelectedBook=SerializerUtil.deserializeBook(getIntent().getStringExtra(SELECTED_BOOK_KEY));

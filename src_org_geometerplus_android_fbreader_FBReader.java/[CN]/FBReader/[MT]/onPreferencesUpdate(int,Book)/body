@@ -1,27 +1,26 @@
 {
   if (book != null) {
-    getCollection().saveBook(book,true);
+    myFBReaderApp.Collection.saveBook(book,true);
   }
-  final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
 switch (resultCode) {
 case RESULT_DO_NOTHING:
     break;
 case RESULT_REPAINT:
 {
     AndroidFontUtil.clearFontCache();
-    final BookModel model=fbReader.Model;
+    final BookModel model=myFBReaderApp.Model;
     if (model != null && book != null) {
       if (model.Book != null) {
         model.Book=book;
         ZLTextHyphenator.Instance().load(model.Book.getLanguage());
       }
     }
-    fbReader.clearTextCaches();
-    fbReader.getViewWidget().repaint();
+    myFBReaderApp.clearTextCaches();
+    myFBReaderApp.getViewWidget().repaint();
     break;
   }
 case RESULT_RELOAD_BOOK:
-fbReader.reloadBook(book);
+myFBReaderApp.reloadBook(book);
 break;
 }
 }

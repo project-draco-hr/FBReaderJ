@@ -1,4 +1,4 @@
 {
-  FBReaderApp.Instance().onWindowClosing();
+  myFBReaderApp.onWindowClosing();
   super.onLowMemory();
 }

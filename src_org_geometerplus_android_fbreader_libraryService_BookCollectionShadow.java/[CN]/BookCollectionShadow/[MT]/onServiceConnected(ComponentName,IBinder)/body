@@ -4,6 +4,8 @@
     myOnBindAction.run();
     myOnBindAction=null;
   }
-  myContext.registerReceiver(myReceiver,new IntentFilter(LibraryService.BOOK_EVENT_ACTION));
-  myContext.registerReceiver(myReceiver,new IntentFilter(LibraryService.BUILD_EVENT_ACTION));
+  if (myContext != null) {
+    myContext.registerReceiver(myReceiver,new IntentFilter(LibraryService.BOOK_EVENT_ACTION));
+    myContext.registerReceiver(myReceiver,new IntentFilter(LibraryService.BUILD_EVENT_ACTION));
+  }
 }

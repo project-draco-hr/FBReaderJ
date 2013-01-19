@@ -1,3 +1,0 @@
-{
-  return (BookCollectionShadow)((FBReaderApp)FBReaderApp.Instance()).Collection;
-}
