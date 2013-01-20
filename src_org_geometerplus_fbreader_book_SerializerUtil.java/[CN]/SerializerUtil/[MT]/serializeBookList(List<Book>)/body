@@ -1,0 +1,7 @@
+{
+  final List<String> serialized=new ArrayList<String>(books.size());
+  for (  Book b : books) {
+    serialized.add(defaultSerializer.serialize(b));
+  }
+  return serialized;
+}

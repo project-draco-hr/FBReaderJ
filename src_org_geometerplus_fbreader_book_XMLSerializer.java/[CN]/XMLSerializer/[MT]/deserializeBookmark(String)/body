@@ -1,0 +1,5 @@
+{
+  final BookmarkDeserializer deserializer=new BookmarkDeserializer();
+  deserializer.readQuietly(xml);
+  return deserializer.getBookmark();
+}

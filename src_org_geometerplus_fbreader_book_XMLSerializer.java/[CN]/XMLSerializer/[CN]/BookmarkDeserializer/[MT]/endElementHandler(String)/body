@@ -1,0 +1,14 @@
+{
+switch (myState) {
+case READ_NOTHING:
+    return true;
+case READ_BOOKMARK:
+  if ("bookmark".equals(tag)) {
+    myState=State.READ_NOTHING;
+  }
+break;
+case READ_TEXT:
+myState=State.READ_BOOKMARK;
+}
+return false;
+}

@@ -1,0 +1,6 @@
+{
+  if (title == null) {
+    return null;
+  }
+  return new SeriesInfo(title,createIndex(index));
+}

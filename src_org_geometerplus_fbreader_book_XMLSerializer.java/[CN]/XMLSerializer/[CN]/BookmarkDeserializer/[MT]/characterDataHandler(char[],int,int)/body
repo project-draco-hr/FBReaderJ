@@ -1,0 +1,5 @@
+{
+  if (myState == State.READ_TEXT) {
+    myText.append(ch,start,length);
+  }
+}

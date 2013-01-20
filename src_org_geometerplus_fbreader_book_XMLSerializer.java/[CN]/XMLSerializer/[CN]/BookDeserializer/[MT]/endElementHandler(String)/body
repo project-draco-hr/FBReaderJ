@@ -1,0 +1,25 @@
+{
+switch (myState) {
+case READ_NOTHING:
+    return true;
+case READ_ENTRY:
+  if ("entry".equals(tag)) {
+    myState=State.READ_NOTHING;
+  }
+break;
+case READ_AUTHOR_URI:
+case READ_AUTHOR_NAME:
+myState=State.READ_AUTHOR;
+break;
+case READ_AUTHOR:
+if (myAuthorSortKey.length() > 0 && myAuthorName.length() > 0) {
+myAuthors.add(new Author(myAuthorName.toString(),myAuthorSortKey.toString()));
+}
+myState=State.READ_ENTRY;
+break;
+default :
+myState=State.READ_ENTRY;
+break;
+}
+return false;
+}

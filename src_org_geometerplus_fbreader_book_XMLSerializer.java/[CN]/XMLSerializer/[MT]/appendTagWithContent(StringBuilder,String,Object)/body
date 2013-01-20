@@ -1,0 +1,5 @@
+{
+  if (content != null) {
+    appendTagWithContent(buffer,tag,String.valueOf(content));
+  }
+}

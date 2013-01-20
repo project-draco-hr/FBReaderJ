@@ -1,0 +1,3 @@
+{
+  return book != null ? defaultSerializer.serialize(book) : null;
+}
