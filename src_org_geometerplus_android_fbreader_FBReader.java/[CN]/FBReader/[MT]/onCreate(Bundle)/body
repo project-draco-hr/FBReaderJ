@@ -9,6 +9,7 @@
   if (myFBReaderApp == null) {
     myFBReaderApp=new FBReaderApp(new BookCollectionShadow());
   }
+  myBook=null;
   final ZLAndroidApplication androidApplication=(ZLAndroidApplication)getApplication();
   if (androidApplication.myMainWindow == null) {
     androidApplication.myMainWindow=new ZLAndroidApplicationWindow(myFBReaderApp);
