@@ -1,0 +1,4 @@
+{
+  detectLanguageAndEncodingNative(book);
+  book.save();
+}
