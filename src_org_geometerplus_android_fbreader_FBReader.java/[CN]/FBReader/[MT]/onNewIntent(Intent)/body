@@ -5,7 +5,7 @@
     super.onNewIntent(intent);
   }
  else   if (Intent.ACTION_VIEW.equals(action) || ACTION_OPEN_BOOK.equals(action)) {
-    myFBReaderApp.openFile(fileFromIntent(intent),null);
+    openBook(intent,null,true);
   }
  else   if (Intent.ACTION_VIEW.equals(action) && data != null && "fbreader-action".equals(data.getScheme())) {
     myFBReaderApp.runAction(data.getEncodedSchemeSpecificPart(),data.getFragment());

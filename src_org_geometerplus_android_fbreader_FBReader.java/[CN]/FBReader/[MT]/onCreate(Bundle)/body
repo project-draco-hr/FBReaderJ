@@ -19,7 +19,7 @@
   }
   new Thread(){
     public void run(){
-      myFBReaderApp.openFile(fileFromIntent(getIntent()),getPostponedInitAction());
+      openBook(getIntent(),getPostponedInitAction(),false);
       myFBReaderApp.getViewWidget().repaint();
     }
   }

@@ -1,0 +1,13 @@
+{
+  if (!force && myBook != null) {
+    return;
+  }
+  myBook=createBookForFile(ZLFile.createFileByPath(intent.getStringExtra(BOOK_PATH_KEY)));
+  if (myBook == null) {
+    final Uri data=intent.getData();
+    if (data != null) {
+      myBook=createBookForFile(ZLFile.createFileByPath(data.getPath()));
+    }
+  }
+  myFBReaderApp.openBook(myBook,null,action);
+}
