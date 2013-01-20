@@ -1,0 +1,23 @@
+{
+  final Queue<ZLFile> dirQueue=new LinkedList<ZLFile>();
+  final HashSet<ZLFile> dirSet=new HashSet<ZLFile>();
+  final LinkedList<ZLPhysicalFile> fileList=new LinkedList<ZLPhysicalFile>();
+  for (  String path : bookDirectories()) {
+    dirQueue.offer(new ZLPhysicalFile(new File(path)));
+  }
+  while (!dirQueue.isEmpty()) {
+    for (    ZLFile file : dirQueue.poll().children()) {
+      if (file.isDirectory()) {
+        if (!dirSet.contains(file)) {
+          dirQueue.add(file);
+          dirSet.add(file);
+        }
+      }
+ else {
+        file.setCached(true);
+        fileList.add((ZLPhysicalFile)file);
+      }
+    }
+  }
+  return fileList;
+}

@@ -1,0 +1,77 @@
+{
+  final FileInfoSet fileInfos=new FileInfoSet(myDatabase);
+  final Map<Long,Book> savedBooksByFileId=myDatabase.loadBooks(fileInfos,true);
+  final Map<Long,Book> savedBooksByBookId=new HashMap<Long,Book>();
+  for (  Book b : savedBooksByFileId.values()) {
+    savedBooksByBookId.put(b.getId(),b);
+  }
+  final Set<Book> orphanedBooks=new HashSet<Book>();
+  final Set<ZLPhysicalFile> physicalFiles=new HashSet<ZLPhysicalFile>();
+  int count=0;
+  for (  Book book : savedBooksByFileId.values()) {
+synchronized (this) {
+      final ZLPhysicalFile file=book.File.getPhysicalFile();
+      if (file != null) {
+        physicalFiles.add(file);
+      }
+      if (file != book.File && file != null && file.getPath().endsWith(".epub")) {
+        continue;
+      }
+      if (book.File.exists()) {
+        boolean doAdd=true;
+        if (file == null) {
+          continue;
+        }
+        if (!fileInfos.check(file,true)) {
+          try {
+            book.readMetaInfo();
+            saveBook(book,false);
+          }
+ catch (          BookReadingException e) {
+            doAdd=false;
+          }
+          file.setCached(false);
+        }
+        if (doAdd) {
+          addBook(book,false);
+        }
+      }
+ else {
+        orphanedBooks.add(book);
+      }
+    }
+  }
+  myDatabase.setExistingFlag(orphanedBooks,false);
+  final Map<Long,Book> orphanedBooksByFileId=myDatabase.loadBooks(fileInfos,false);
+  final Set<Book> newBooks=new HashSet<Book>();
+  final List<ZLPhysicalFile> physicalFilesList=collectPhysicalFiles();
+  for (  ZLPhysicalFile file : physicalFilesList) {
+    if (physicalFiles.contains(file)) {
+      continue;
+    }
+    collectBooks(file,fileInfos,savedBooksByFileId,orphanedBooksByFileId,newBooks,!fileInfos.check(file,true));
+    file.setCached(false);
+  }
+  try {
+    final ZLFile helpFile=getHelpFile();
+    Book helpBook=savedBooksByFileId.get(fileInfos.getId(helpFile));
+    if (helpBook == null) {
+      helpBook=new Book(helpFile);
+    }
+    addBook(helpBook,false);
+  }
+ catch (  BookReadingException e) {
+    e.printStackTrace();
+  }
+  fileInfos.save();
+  myDatabase.executeAsATransaction(new Runnable(){
+    public void run(){
+      for (      Book book : newBooks) {
+        saveBook(book,false);
+        addBook(book,false);
+      }
+    }
+  }
+);
+  myDatabase.setExistingFlag(newBooks,true);
+}

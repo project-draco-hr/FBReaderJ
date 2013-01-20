@@ -1,0 +1,26 @@
+{
+  if (myBuildStatus != BuildStatus.NotStarted) {
+    fireBuildEvent(Listener.BuildEvent.NotStarted);
+    return;
+  }
+  myBuildStatus=BuildStatus.Started;
+  final Thread builder=new Thread("Library.build"){
+    public void run(){
+      try {
+        fireBuildEvent(Listener.BuildEvent.Started);
+        build();
+        fireBuildEvent(Listener.BuildEvent.Succeeded);
+      }
+ catch (      Throwable t) {
+        fireBuildEvent(Listener.BuildEvent.Failed);
+      }
+ finally {
+        fireBuildEvent(Listener.BuildEvent.Completed);
+        myBuildStatus=BuildStatus.Finished;
+      }
+    }
+  }
+;
+  builder.setPriority(Thread.MIN_PRIORITY);
+  builder.start();
+}

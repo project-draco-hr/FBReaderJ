@@ -1,0 +1,9 @@
+{
+  initHyperlinkSet(database);
+  if (!myVisitedHyperlinks.contains(linkId)) {
+    myVisitedHyperlinks.add(linkId);
+    if (myId != -1) {
+      database.addVisitedHyperlink(myId,linkId);
+    }
+  }
+}

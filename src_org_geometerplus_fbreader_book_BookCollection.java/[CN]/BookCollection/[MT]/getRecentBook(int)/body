@@ -1,0 +1,4 @@
+{
+  List<Long> recentIds=myDatabase.loadRecentBookIds();
+  return recentIds.size() > index ? getBookById(recentIds.get(index)) : null;
+}

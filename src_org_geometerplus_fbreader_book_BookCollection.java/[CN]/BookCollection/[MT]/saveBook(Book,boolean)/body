@@ -1,0 +1,7 @@
+{
+  if (book == null) {
+    return false;
+  }
+  addBook(book,true);
+  return book.save(myDatabase,force);
+}

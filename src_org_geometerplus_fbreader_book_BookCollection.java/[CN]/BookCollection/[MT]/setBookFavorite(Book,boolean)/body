@@ -1,0 +1,9 @@
+{
+  if (favorite) {
+    myDatabase.addToFavorites(book.getId());
+  }
+ else {
+    myDatabase.removeFromFavorites(book.getId());
+  }
+  fireBookEvent(Listener.BookEvent.Updated,book);
+}

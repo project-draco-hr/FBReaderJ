@@ -1,4 +1,3 @@
 {
-  initHyperlinkSet();
-  return myVisitedHyperlinks.contains(linkId);
+  return isHyperlinkVisited(BooksDatabase.Instance(),linkId);
 }

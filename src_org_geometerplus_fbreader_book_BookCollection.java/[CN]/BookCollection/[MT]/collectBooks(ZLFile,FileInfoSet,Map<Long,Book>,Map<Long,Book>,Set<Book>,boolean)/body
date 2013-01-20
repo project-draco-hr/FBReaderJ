@@ -1,0 +1,30 @@
+{
+  final long fileId=fileInfos.getId(file);
+  if (savedBooksByFileId.get(fileId) != null) {
+    return;
+  }
+  try {
+    final Book book=orphanedBooksByFileId.get(fileId);
+    if (book != null) {
+      if (doReadMetaInfo) {
+        book.readMetaInfo();
+      }
+      newBooks.add(book);
+      return;
+    }
+  }
+ catch (  BookReadingException e) {
+  }
+  try {
+    final Book book=new Book(file);
+    newBooks.add(book);
+    return;
+  }
+ catch (  BookReadingException e) {
+  }
+  if (file.isArchive()) {
+    for (    ZLFile entry : fileInfos.archiveEntries(file)) {
+      collectBooks(entry,fileInfos,savedBooksByFileId,orphanedBooksByFileId,newBooks,doReadMetaInfo);
+    }
+  }
+}

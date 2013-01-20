@@ -1,0 +1,5 @@
+{
+  if (bookId != -1) {
+    myDatabase.storePosition(bookId,position);
+  }
+}

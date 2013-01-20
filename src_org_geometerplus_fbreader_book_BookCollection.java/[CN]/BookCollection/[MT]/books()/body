@@ -1,0 +1,5 @@
+{
+synchronized (myBooksByFile) {
+    return new ArrayList<Book>(myBooksByFile.values());
+  }
+}

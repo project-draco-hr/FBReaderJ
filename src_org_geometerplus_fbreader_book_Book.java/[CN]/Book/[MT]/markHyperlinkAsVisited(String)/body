@@ -1,9 +1,3 @@
 {
-  initHyperlinkSet();
-  if (!myVisitedHyperlinks.contains(linkId)) {
-    myVisitedHyperlinks.add(linkId);
-    if (myId != -1) {
-      BooksDatabase.Instance().addVisitedHyperlink(myId,linkId);
-    }
-  }
+  markHyperlinkAsVisited(BooksDatabase.Instance(),linkId);
 }

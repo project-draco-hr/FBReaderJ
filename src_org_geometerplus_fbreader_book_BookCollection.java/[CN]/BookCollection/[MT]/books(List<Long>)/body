@@ -1,0 +1,10 @@
+{
+  final List<Book> bookList=new ArrayList<Book>(ids.size());
+  for (  long id : ids) {
+    final Book book=getBookById(id);
+    if (book != null) {
+      bookList.add(book);
+    }
+  }
+  return bookList;
+}

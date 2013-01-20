@@ -1,0 +1,12 @@
+{
+  if (pattern == null || pattern.length() == 0) {
+    return Collections.emptyList();
+  }
+  final LinkedList<Book> filtered=new LinkedList<Book>();
+  for (  Book b : books()) {
+    if (b.matches(pattern)) {
+      filtered.add(b);
+    }
+  }
+  return filtered;
+}
