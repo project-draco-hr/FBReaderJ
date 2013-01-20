@@ -1,7 +1,7 @@
 {
 switch (itemId) {
 case OPEN_BOOK_ITEM_ID:
-    openBook(book);
+    FBReader.openBookActivity(this,book,null);
   return true;
 case SHOW_BOOK_INFO_ITEM_ID:
 showBookInfo(book);

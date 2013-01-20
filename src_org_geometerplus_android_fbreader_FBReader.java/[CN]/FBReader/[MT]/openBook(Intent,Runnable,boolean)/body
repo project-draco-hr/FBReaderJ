@@ -2,12 +2,13 @@
   if (!force && myBook != null) {
     return;
   }
-  myBook=createBookForFile(ZLFile.createFileByPath(intent.getStringExtra(BOOK_PATH_KEY)));
+  myBook=SerializerUtil.deserializeBook(intent.getStringExtra(BOOK_KEY));
+  final Bookmark bookmark=SerializerUtil.deserializeBookmark(intent.getStringExtra(BOOKMARK_KEY));
   if (myBook == null) {
     final Uri data=intent.getData();
     if (data != null) {
       myBook=createBookForFile(ZLFile.createFileByPath(data.getPath()));
     }
   }
-  myFBReaderApp.openBook(myBook,null,action);
+  myFBReaderApp.openBook(myBook,bookmark,action);
 }

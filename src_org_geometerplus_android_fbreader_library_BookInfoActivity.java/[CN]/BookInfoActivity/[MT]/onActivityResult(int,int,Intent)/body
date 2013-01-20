@@ -1,9 +1,10 @@
 {
-  final Book book=Book.getByFile(myFile);
+  final Book book=bookByIntent(data);
   if (book != null) {
+    myBook=book;
     setupBookInfo(book);
     myDontReloadBook=false;
   }
   myResult=Math.max(myResult,resultCode);
-  setResult(myResult);
+  setResult(myResult,data);
 }
