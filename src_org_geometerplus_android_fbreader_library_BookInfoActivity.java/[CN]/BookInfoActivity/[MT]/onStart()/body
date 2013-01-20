@@ -21,7 +21,7 @@
 );
   setupButton(R.id.book_info_button_edit,"editInfo",new View.OnClickListener(){
     public void onClick(    View view){
-      OrientationUtil.startActivityForResult(BookInfoActivity.this,new Intent(getApplicationContext(),EditBookInfoActivity.class).putExtra(CURRENT_BOOK_KEY,SerializerUtil.serialize(myBook)),1);
+      OrientationUtil.startActivityForResult(BookInfoActivity.this,new Intent(getApplicationContext(),EditBookInfoActivity.class).putExtra(FBReader.BOOK_KEY,SerializerUtil.serialize(myBook)),1);
     }
   }
 );

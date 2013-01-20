@@ -1,7 +1,7 @@
 {
   myAllBooksBookmarks=new ArrayList<Bookmark>(myCollection.allBookmarks());
   Collections.sort(myAllBooksBookmarks,new Bookmark.ByTimeComparator());
-  final Book book=SerializerUtil.deserializeBook(getIntent().getStringExtra(CURRENT_BOOK_KEY));
+  final Book book=SerializerUtil.deserializeBook(getIntent().getStringExtra(FBReader.BOOK_KEY));
   if (book != null) {
     final long bookId=book.getId();
     for (    Bookmark bm : myAllBooksBookmarks) {
