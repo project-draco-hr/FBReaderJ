@@ -1,9 +1,8 @@
 {
-  final FBReaderApp fbreader=(FBReaderApp)FBReaderApp.Instance();
-  final Bookmark bookmark=fbreader.addBookmark(20,true);
+  final Bookmark bookmark=SerializerUtil.deserializeBookmark(getIntent().getStringExtra(FBReader.BOOKMARK_KEY));
   if (bookmark != null) {
     myThisBookBookmarks.add(0,bookmark);
-    AllBooksBookmarks.add(0,bookmark);
+    myAllBooksBookmarks.add(0,bookmark);
     invalidateAllViews();
   }
 }
