@@ -1,9 +1,10 @@
 {
+  Collection=null;
   myDatabase=db;
   new FavoritesTree(myRootTree,ROOT_FAVORITES);
   new FirstLevelTree(myRootTree,ROOT_RECENT);
   new FirstLevelTree(myRootTree,ROOT_BY_AUTHOR);
   new FirstLevelTree(myRootTree,ROOT_BY_TITLE);
   new FirstLevelTree(myRootTree,ROOT_BY_TAG);
-  new FileFirstLevelTree(myRootTree,ROOT_FILE_TREE);
+  new FileFirstLevelTree(Collection,myRootTree,ROOT_FILE_TREE);
 }

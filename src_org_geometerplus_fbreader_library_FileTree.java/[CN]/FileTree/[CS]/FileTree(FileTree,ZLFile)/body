@@ -1,5 +1,6 @@
 {
   super(parent);
+  myCollection=parent.myCollection;
   myFile=file;
   myName=null;
   mySummary=null;
