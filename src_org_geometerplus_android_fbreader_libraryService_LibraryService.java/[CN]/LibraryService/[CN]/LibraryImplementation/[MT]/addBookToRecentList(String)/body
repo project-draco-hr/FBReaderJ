@@ -1,0 +1,3 @@
+{
+  myCollection.addBookToRecentList(SerializerUtil.deserializeBook(book));
+}

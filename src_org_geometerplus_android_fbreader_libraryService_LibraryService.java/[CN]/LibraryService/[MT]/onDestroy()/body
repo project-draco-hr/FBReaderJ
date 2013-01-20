@@ -1,5 +1,7 @@
 {
-  System.err.println("LibraryService.onDestroy()");
-  myLibrary=null;
+  if (myLibrary != null) {
+    myLibrary.deactivate();
+    myLibrary=null;
+  }
   super.onDestroy();
 }

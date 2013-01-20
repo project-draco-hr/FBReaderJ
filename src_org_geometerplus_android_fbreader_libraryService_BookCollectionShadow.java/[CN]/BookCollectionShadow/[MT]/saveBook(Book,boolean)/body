@@ -1,0 +1,11 @@
+{
+  if (myInterface == null) {
+    return false;
+  }
+  try {
+    return myInterface.saveBook(SerializerUtil.serialize(book),force);
+  }
+ catch (  RemoteException e) {
+    return false;
+  }
+}

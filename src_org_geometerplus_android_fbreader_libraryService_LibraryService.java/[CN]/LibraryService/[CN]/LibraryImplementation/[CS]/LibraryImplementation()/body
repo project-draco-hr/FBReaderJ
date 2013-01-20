@@ -1,8 +1,17 @@
 {
-  BooksDatabase database=SQLiteBooksDatabase.Instance();
-  if (database == null) {
-    database=new SQLiteBooksDatabase(LibraryService.this,"LIBRARY SERVICE");
+  myCollection=null;
+  myCollection.addListener(new BookCollection.Listener(){
+    public void onBookEvent(    BookEvent event,    Book book){
+      final Intent intent=new Intent(BOOK_EVENT_ACTION);
+      intent.putExtra("type",event.toString());
+      intent.putExtra("book",SerializerUtil.serialize(book));
+      sendBroadcast(intent);
+    }
+    public void onBuildEvent(    BuildEvent event){
+      final Intent intent=new Intent(BUILD_EVENT_ACTION);
+      intent.putExtra("type",event.toString());
+      sendBroadcast(intent);
+    }
   }
-  myBaseLibrary=new Library(database);
-  ((Library)myBaseLibrary).startBuild();
+);
 }

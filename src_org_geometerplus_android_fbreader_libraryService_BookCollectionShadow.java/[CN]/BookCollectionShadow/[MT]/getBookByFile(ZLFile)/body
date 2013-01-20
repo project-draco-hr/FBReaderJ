@@ -1,0 +1,11 @@
+{
+  if (myInterface == null) {
+    return null;
+  }
+  try {
+    return SerializerUtil.deserializeBook(myInterface.getBookByFile(file.getPath()));
+  }
+ catch (  RemoteException e) {
+    return null;
+  }
+}

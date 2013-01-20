@@ -1,3 +1,0 @@
-{
-  return myBaseLibrary.isUpToDate();
-}
