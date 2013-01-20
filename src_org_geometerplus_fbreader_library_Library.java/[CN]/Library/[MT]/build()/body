@@ -15,29 +15,11 @@
     }
     myDoGroupTitlesByFirstLetter=savedBooksByFileId.values().size() > letterSet.size() * 5 / 4;
   }
-  for (  long id : myDatabase.loadRecentBookIds()) {
-    Book book=savedBooksByBookId.get(id);
-    if (book == null) {
-      book=Book.getById(id);
-      if (book != null && !book.File.exists()) {
-        book=null;
-      }
-    }
-    if (book != null) {
-      new BookTree(getFirstLevelTree(ROOT_RECENT),book,true);
-    }
+  for (  Book book : Collection.recentBooks()) {
+    new BookTree(getFirstLevelTree(ROOT_RECENT),book,true);
   }
-  for (  long id : myDatabase.loadFavoriteIds()) {
-    Book book=savedBooksByBookId.get(id);
-    if (book == null) {
-      book=Book.getById(id);
-      if (book != null && !book.File.exists()) {
-        book=null;
-      }
-    }
-    if (book != null) {
-      getFirstLevelTree(ROOT_FAVORITES).getBookSubTree(book,true);
-    }
+  for (  Book book : Collection.favorites()) {
+    getFirstLevelTree(ROOT_FAVORITES).getBookSubTree(book,true);
   }
   fireModelChangedEvent(ChangeListener.Code.BookAdded);
   final Set<Book> orphanedBooks=new HashSet<Book>();
