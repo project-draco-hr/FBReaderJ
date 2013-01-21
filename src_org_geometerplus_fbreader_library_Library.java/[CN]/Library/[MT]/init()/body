@@ -3,15 +3,20 @@
     public void onBookEvent(    BookEvent event,    Book book){
 switch (event) {
 case Added:
-        break;
-    }
-  }
-  public void onBuildEvent(  BuildEvent event){
+        addBookToLibrary(book);
+      if (Collection.size() % 16 == 0) {
+        Library.this.fireModelChangedEvent(ChangeListener.Code.BookAdded);
+      }
+    break;
+}
+}
+public void onBuildEvent(BuildEvent event){
 switch (event) {
 case Started:
-      break;
+  break;
 case Completed:
-    break;
+Library.this.fireModelChangedEvent(ChangeListener.Code.BookAdded);
+break;
 }
 }
 }
@@ -21,18 +26,18 @@ public void run(){
 setStatus(myStatusMask | STATUS_LOADING);
 getFirstLevelTree(ROOT_RECENT).clear();
 for (Book book : Collection.recentBooks()) {
-  new BookTree(getFirstLevelTree(ROOT_RECENT),book,true);
+new BookTree(getFirstLevelTree(ROOT_RECENT),book,true);
 }
 getFirstLevelTree(ROOT_FAVORITES).clear();
 for (Book book : Collection.favorites()) {
-  new BookTree(getFirstLevelTree(ROOT_FAVORITES),book,true);
+new BookTree(getFirstLevelTree(ROOT_FAVORITES),book,true);
 }
 int count=0;
 for (Book book : Collection.books()) {
-  addBookToLibrary(book);
-  if (++count % 16 == 0) {
-    Library.this.fireModelChangedEvent(ChangeListener.Code.BookAdded);
-  }
+addBookToLibrary(book);
+if (++count % 16 == 0) {
+Library.this.fireModelChangedEvent(ChangeListener.Code.BookAdded);
+}
 }
 Library.this.fireModelChangedEvent(ChangeListener.Code.BookAdded);
 setStatus(myStatusMask & ~STATUS_LOADING);
