@@ -1,0 +1,5 @@
+{
+  super(path,MASK);
+  myPrefix=path + '/';
+  myCollection=collection;
+}

@@ -1,0 +1,6 @@
+{
+synchronized (myFilesToRescan) {
+    myFilesToRescan.add(path);
+    processFilesQueue();
+  }
+}

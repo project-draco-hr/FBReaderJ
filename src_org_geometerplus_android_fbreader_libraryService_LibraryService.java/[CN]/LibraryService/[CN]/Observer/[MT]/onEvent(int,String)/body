@@ -5,17 +5,20 @@ switch (event) {
 case MOVE_SELF:
     break;
 case MOVED_TO:
-  break;
+  myCollection.rescan(myPrefix + path);
+break;
 case MOVED_FROM:
 case DELETE:
+myCollection.rescan(myPrefix + path);
 break;
 case DELETE_SELF:
 break;
 case CLOSE_WRITE:
 case ATTRIB:
+myCollection.rescan(myPrefix + path);
 break;
 default :
-System.err.println("Unexpected event " + event + " on "+ path);
+System.err.println("Unexpected event " + event + " on "+ myPrefix+ path);
 break;
 }
 }

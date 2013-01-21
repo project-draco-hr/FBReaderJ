@@ -1,7 +1,7 @@
 {
   myCollection=new BookCollection(SQLiteBooksDatabase.Instance(LibraryService.this));
   for (  String path : myCollection.bookDirectories()) {
-    final Observer observer=new Observer(path);
+    final Observer observer=new Observer(path,myCollection);
     observer.startWatching();
     myFileObservers.add(observer);
   }

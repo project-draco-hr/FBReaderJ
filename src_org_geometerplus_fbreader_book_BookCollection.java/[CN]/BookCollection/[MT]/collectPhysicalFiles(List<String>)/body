@@ -1,0 +1,25 @@
+{
+  final Queue<ZLPhysicalFile> fileQueue=new LinkedList<ZLPhysicalFile>();
+  final HashSet<ZLPhysicalFile> dirSet=new HashSet<ZLPhysicalFile>();
+  final LinkedList<ZLPhysicalFile> fileList=new LinkedList<ZLPhysicalFile>();
+  for (  String path : directories) {
+    fileQueue.offer(new ZLPhysicalFile(new File(path)));
+  }
+  while (!fileQueue.isEmpty()) {
+    final ZLPhysicalFile entry=fileQueue.poll();
+    if (entry.isDirectory()) {
+      if (dirSet.contains(entry)) {
+        continue;
+      }
+      dirSet.add(entry);
+      for (      ZLFile file : entry.children()) {
+        fileQueue.add((ZLPhysicalFile)file);
+      }
+    }
+ else {
+      entry.setCached(true);
+      fileList.add(entry);
+    }
+  }
+  return fileList;
+}
