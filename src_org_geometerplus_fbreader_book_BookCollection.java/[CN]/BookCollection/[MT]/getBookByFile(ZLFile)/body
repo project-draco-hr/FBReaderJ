@@ -2,6 +2,16 @@
   if (bookFile == null) {
     return null;
   }
+  final FormatPlugin plugin=PluginCollection.Instance().getPlugin(bookFile);
+  if (plugin == null) {
+    return null;
+  }
+  try {
+    bookFile=plugin.realBookFile(bookFile);
+  }
+ catch (  BookReadingException e) {
+    return null;
+  }
   Book book=myBooksByFile.get(bookFile);
   if (book != null) {
     return book;
@@ -32,6 +42,5 @@
     return null;
   }
   saveBook(book,false);
-  addBook(book,false);
   return book;
 }
