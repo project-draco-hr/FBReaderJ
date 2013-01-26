@@ -1,0 +1,14 @@
+{
+synchronized (myFilesToRescan) {
+    if (myBuildStatus != BuildStatus.Finished) {
+      return;
+    }
+    for (    ZLFile file : collectPhysicalFiles(myFilesToRescan)) {
+      final Book book=getBookByFile(file);
+      if (book != null) {
+        saveBook(book,false);
+      }
+    }
+    myFilesToRescan.clear();
+  }
+}

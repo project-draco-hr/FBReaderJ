@@ -9,42 +9,40 @@
   final Set<ZLPhysicalFile> physicalFiles=new HashSet<ZLPhysicalFile>();
   int count=0;
   for (  Book book : savedBooksByFileId.values()) {
-synchronized (this) {
-      final ZLPhysicalFile file=book.File.getPhysicalFile();
-      if (file != null) {
-        physicalFiles.add(file);
-      }
-      if (file != book.File && file != null && file.getPath().endsWith(".epub")) {
+    final ZLPhysicalFile file=book.File.getPhysicalFile();
+    if (file != null) {
+      physicalFiles.add(file);
+    }
+    if (file != book.File && file != null && file.getPath().endsWith(".epub")) {
+      continue;
+    }
+    if (book.File.exists()) {
+      boolean doAdd=true;
+      if (file == null) {
         continue;
       }
-      if (book.File.exists()) {
-        boolean doAdd=true;
-        if (file == null) {
-          continue;
+      if (!fileInfos.check(file,true)) {
+        try {
+          book.readMetaInfo();
+          saveBook(book,false);
         }
-        if (!fileInfos.check(file,true)) {
-          try {
-            book.readMetaInfo();
-            saveBook(book,false);
-          }
- catch (          BookReadingException e) {
-            doAdd=false;
-          }
-          file.setCached(false);
+ catch (        BookReadingException e) {
+          doAdd=false;
         }
-        if (doAdd) {
-          addBook(book,false);
-        }
+        file.setCached(false);
       }
+      if (doAdd) {
+        addBook(book,false);
+      }
+    }
  else {
-        orphanedBooks.add(book);
-      }
+      orphanedBooks.add(book);
     }
   }
   myDatabase.setExistingFlag(orphanedBooks,false);
   final Map<Long,Book> orphanedBooksByFileId=myDatabase.loadBooks(fileInfos,false);
   final Set<Book> newBooks=new HashSet<Book>();
-  final List<ZLPhysicalFile> physicalFilesList=collectPhysicalFiles();
+  final List<ZLPhysicalFile> physicalFilesList=collectPhysicalFiles(bookDirectories());
   for (  ZLPhysicalFile file : physicalFilesList) {
     if (physicalFiles.contains(file)) {
       continue;
@@ -68,7 +66,6 @@ synchronized (this) {
     public void run(){
       for (      Book book : newBooks) {
         saveBook(book,false);
-        addBook(book,false);
       }
     }
   }

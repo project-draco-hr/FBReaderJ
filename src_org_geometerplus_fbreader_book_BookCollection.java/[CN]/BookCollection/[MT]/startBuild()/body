@@ -16,7 +16,10 @@
       }
  finally {
         fireBuildEvent(Listener.BuildEvent.Completed);
-        myBuildStatus=BuildStatus.Finished;
+synchronized (myFilesToRescan) {
+          myBuildStatus=BuildStatus.Finished;
+          processFilesQueue();
+        }
       }
     }
   }
