@@ -1,0 +1,3 @@
+{
+  return !myCollection.isFavorite(book) && removeBook(book,false);
+}

@@ -30,10 +30,6 @@ getFirstLevelTree(ROOT_RECENT).clear();
 for (Book book : Collection.recentBooks()) {
 new BookTree(getFirstLevelTree(ROOT_RECENT),book,true);
 }
-getFirstLevelTree(ROOT_FAVORITES).clear();
-for (Book book : Collection.favorites()) {
-new BookTree(getFirstLevelTree(ROOT_FAVORITES),book,true);
-}
 int count=0;
 for (Book book : Collection.books()) {
 addBookToLibrary(book);

@@ -1,8 +1,0 @@
-{
-  if (isBookInFavorites(book)) {
-    return;
-  }
-  final LibraryTree rootFavorites=getFirstLevelTree(ROOT_FAVORITES);
-  rootFavorites.getBookSubTree(book,true);
-  Collection.setBookFavorite(book,true);
-}

@@ -1,0 +1,6 @@
+{
+  if (book == null) {
+    return false;
+  }
+  return myDatabase.isFavorite(book.getId());
+}
