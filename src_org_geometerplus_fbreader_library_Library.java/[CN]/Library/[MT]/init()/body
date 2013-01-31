@@ -26,10 +26,6 @@ break;
 final Thread initializer=new Thread(){
 public void run(){
 setStatus(myStatusMask | STATUS_LOADING);
-getFirstLevelTree(ROOT_RECENT).clear();
-for (Book book : Collection.recentBooks()) {
-new BookTree(getFirstLevelTree(ROOT_RECENT),book,true);
-}
 int count=0;
 for (Book book : Collection.books()) {
 addBookToLibrary(book);
