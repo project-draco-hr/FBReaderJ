@@ -1,6 +1,6 @@
 {
   final NetworkLibrary library=NetworkLibrary.Instance();
-  final NetworkTree tree=(NetworkTree)getCurrentTree();
+  final NetworkTree tree=getCurrentTree();
   final NetworkTree lTree=getLoadableNetworkTree(tree);
   final NetworkTree sTree=RunSearchAction.getSearchTree(tree);
   setProgressBarIndeterminateVisibility(library.isUpdateInProgress() || library.isLoadingInProgress(lTree) || library.isLoadingInProgress(sTree));

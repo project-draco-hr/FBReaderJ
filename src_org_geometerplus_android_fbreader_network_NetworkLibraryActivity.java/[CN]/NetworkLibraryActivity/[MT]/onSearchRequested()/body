@@ -1,5 +1,5 @@
 {
-  final NetworkTree tree=(NetworkTree)getCurrentTree();
+  final NetworkTree tree=getCurrentTree();
   final RunSearchAction action=new RunSearchAction(this,false);
   if (action.isVisible(tree) && action.isEnabled(tree)) {
     action.run(tree);
