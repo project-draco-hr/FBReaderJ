@@ -1,0 +1,6 @@
+{
+  final Cursor cursor=myDatabase.rawQuery("SELECT book_id FROM Favorites WHERE book_id = ? LIMIT 1",new String[]{String.valueOf(bookId)});
+  boolean result=cursor.moveToNext();
+  cursor.close();
+  return result;
+}

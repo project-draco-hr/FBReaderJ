@@ -5,9 +5,7 @@
     }
   }
  else {
-    if (onBindAction != null) {
-      myOnBindAction=onBindAction;
-    }
+    myOnBindAction=combined(myOnBindAction,onBindAction);
     context.bindService(new Intent(context,LibraryService.class),this,LibraryService.BIND_AUTO_CREATE);
     myContext=context;
   }

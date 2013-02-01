@@ -1,0 +1,15 @@
+{
+  if (action0 == null) {
+    return action1;
+  }
+  if (action1 == null) {
+    return action0;
+  }
+  return new Runnable(){
+    public void run(){
+      action0.run();
+      action1.run();
+    }
+  }
+;
+}

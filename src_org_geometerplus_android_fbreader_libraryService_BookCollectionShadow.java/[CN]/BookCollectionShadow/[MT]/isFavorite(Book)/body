@@ -1,0 +1,10 @@
+{
+  if (myInterface != null) {
+    try {
+      return myInterface.isFavorite(SerializerUtil.serialize(book));
+    }
+ catch (    RemoteException e) {
+    }
+  }
+  return false;
+}
