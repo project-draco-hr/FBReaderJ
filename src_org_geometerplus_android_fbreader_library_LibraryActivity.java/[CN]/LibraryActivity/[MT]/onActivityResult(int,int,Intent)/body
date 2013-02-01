@@ -4,7 +4,7 @@
     ((BookCollectionShadow)myLibrary.Collection).bindToService(this,new Runnable(){
       public void run(){
         myLibrary.refreshBookInfo(book);
-        if (((LibraryTree)getCurrentTree()).onBookChanged(book)) {
+        if (getCurrentTree().onBookChanged(book)) {
           getListView().invalidateViews();
         }
       }

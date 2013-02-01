@@ -1,7 +1,7 @@
 {
   final FBTree.Key key=(FBTree.Key)intent.getSerializableExtra(TREE_KEY_KEY);
   final FBTree.Key selectedKey=(FBTree.Key)intent.getSerializableExtra(SELECTED_TREE_KEY_KEY);
-  myCurrentTree=getTreeByKey(key);
+  myCurrentTree=(T)getTreeByKey(key);
   myCurrentKey=myCurrentTree.getUniqueKey();
   final TreeAdapter adapter=getListAdapter();
   adapter.replaceAll(myCurrentTree.subTrees());
