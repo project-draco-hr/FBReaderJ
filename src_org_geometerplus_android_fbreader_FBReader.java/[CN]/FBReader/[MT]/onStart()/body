@@ -1,6 +1,6 @@
 {
   super.onStart();
-  ((BookCollectionShadow)myFBReaderApp.Collection).bindToService(this,new Runnable(){
+  getCollection().bindToService(this,new Runnable(){
     public void run(){
       new Thread(){
         public void run(){

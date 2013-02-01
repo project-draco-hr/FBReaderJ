@@ -1,6 +1,8 @@
 {
 synchronized (myBooks) {
-    if (myBooks.containsKey(book.getId())) {
+    final Book existing=myBooks.get(book.getId());
+    if (existing != null) {
+      existing.updateFrom(book);
       return;
     }
     myBooks.put(book.getId(),book);

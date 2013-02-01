@@ -1,6 +1,5 @@
 {
   myBook=BookInfoActivity.bookByIntent(intent);
-  myStatus=FBReader.RESULT_REPAINT;
   if (myBook == null) {
     finish();
     return;

@@ -1,0 +1,18 @@
+{
+  final BookModel model=myFBReaderApp.Model;
+  if (book == null || model == null || model.Book == null) {
+    return;
+  }
+  final String newEncoding=book.getEncodingNoDetection();
+  final String oldEncoding=model.Book.getEncodingNoDetection();
+  model.Book.updateFrom(book);
+  if (newEncoding != null && !newEncoding.equals(oldEncoding)) {
+    myFBReaderApp.reloadBook();
+  }
+ else {
+    AndroidFontUtil.clearFontCache();
+    ZLTextHyphenator.Instance().load(model.Book.getLanguage());
+    myFBReaderApp.clearTextCaches();
+    myFBReaderApp.getViewWidget().repaint();
+  }
+}

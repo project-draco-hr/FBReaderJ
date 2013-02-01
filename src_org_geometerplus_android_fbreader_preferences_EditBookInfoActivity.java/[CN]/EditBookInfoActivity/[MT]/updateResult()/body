@@ -1,0 +1,3 @@
+{
+  setResult(FBReader.RESULT_REPAINT,BookInfoActivity.intentByBook(myBook));
+}

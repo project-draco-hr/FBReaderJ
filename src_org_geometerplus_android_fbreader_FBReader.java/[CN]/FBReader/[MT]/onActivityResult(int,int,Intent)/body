@@ -2,8 +2,27 @@
 switch (requestCode) {
 case REQUEST_PREFERENCES:
 case REQUEST_BOOK_INFO:
-    onPreferencesUpdate(resultCode,BookInfoActivity.bookByIntent(data));
+    if (resultCode != RESULT_DO_NOTHING) {
+      final Book book=BookInfoActivity.bookByIntent(data);
+      if (book != null) {
+        myFBReaderApp.Collection.saveBook(book,true);
+        onPreferencesUpdate(BookInfoActivity.bookByIntent(data));
+      }
+    }
   break;
+case REQUEST_LIBRARY:
+{
+  getCollection().bindToService(this,new Runnable(){
+    public void run(){
+      final BookModel model=myFBReaderApp.Model;
+      if (model != null && model.Book != null) {
+        onPreferencesUpdate(myFBReaderApp.Collection.getBookById(model.Book.getId()));
+      }
+    }
+  }
+);
+  break;
+}
 case REQUEST_CANCEL_MENU:
 myFBReaderApp.runCancelAction(resultCode - 1);
 break;

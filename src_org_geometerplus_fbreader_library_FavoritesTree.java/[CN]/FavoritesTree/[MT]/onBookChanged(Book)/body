@@ -1,3 +1,8 @@
 {
-  return !myCollection.isFavorite(book) && removeBook(book,false);
+  if (myCollection.isFavorite(book)) {
+    return super.onBookChanged(book);
+  }
+ else {
+    return removeBook(book,false);
+  }
 }
