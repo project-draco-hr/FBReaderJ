@@ -1,0 +1,9 @@
+{
+  final Set<Author> authors=new TreeSet<Author>();
+synchronized (myBooksByFile) {
+    for (    Book book : myBooksByFile.values()) {
+      authors.addAll(book.authors());
+    }
+  }
+  return new ArrayList<Author>(authors);
+}

@@ -1,0 +1,6 @@
+{
+  if (myInterface == null) {
+    return Collections.emptyList();
+  }
+  return Collections.emptyList();
+}

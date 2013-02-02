@@ -1,0 +1,12 @@
+{
+  final Set<String> series=new TreeSet<String>();
+synchronized (myBooksByFile) {
+    for (    Book book : myBooksByFile.values()) {
+      final SeriesInfo info=book.getSeriesInfo();
+      if (info != null) {
+        series.add(info.Title);
+      }
+    }
+  }
+  return new ArrayList<String>(series);
+}
