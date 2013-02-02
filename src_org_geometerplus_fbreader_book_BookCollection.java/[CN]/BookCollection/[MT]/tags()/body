@@ -1,0 +1,9 @@
+{
+  final Set<Tag> tags=new TreeSet<Tag>();
+synchronized (myBooksByFile) {
+    for (    Book book : myBooksByFile.values()) {
+      tags.addAll(book.tags());
+    }
+  }
+  return new ArrayList<Tag>(tags);
+}

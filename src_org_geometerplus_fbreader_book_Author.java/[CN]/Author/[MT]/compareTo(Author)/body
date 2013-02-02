@@ -1,0 +1,4 @@
+{
+  final int byKeys=SortKey.compareTo(other.SortKey);
+  return byKeys != 0 ? byKeys : DisplayName.compareTo(other.DisplayName);
+}
