@@ -7,11 +7,11 @@ synchronized (myBooksByFile) {
     if (existing == null) {
       myBooksByFile.put(book.File,book);
       myBooksById.put(book.getId(),book);
-      fireBookEvent(Listener.BookEvent.Added,book);
+      fireBookEvent(BookEvent.Added,book);
     }
  else     if (force) {
       existing.updateFrom(book);
-      fireBookEvent(Listener.BookEvent.Updated,existing);
+      fireBookEvent(BookEvent.Updated,existing);
       getBookById(book.getId());
     }
   }

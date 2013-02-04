@@ -14,7 +14,7 @@ myLibrary.Collection.setBookFavorite(book,true);
 return true;
 case REMOVE_FROM_FAVORITES_ITEM_ID:
 myLibrary.Collection.setBookFavorite(book,false);
-if (getCurrentTree().onBookChanged(book)) {
+if (getCurrentTree().onBookEvent(BookEvent.Updated,book)) {
 getListAdapter().replaceAll(getCurrentTree().subTrees());
 getListView().invalidateViews();
 }

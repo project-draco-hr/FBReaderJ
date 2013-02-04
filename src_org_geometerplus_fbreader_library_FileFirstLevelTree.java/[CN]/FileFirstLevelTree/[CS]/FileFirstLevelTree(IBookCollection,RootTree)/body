@@ -1,5 +1,5 @@
 {
-  super(root,id);
+  super(root,Library.ROOT_FILE_TREE);
   myCollection=collection;
   addChild(Paths.BooksDirectoryOption().getValue(),"fileTreeLibrary");
   addChild("/","fileTreeRoot");

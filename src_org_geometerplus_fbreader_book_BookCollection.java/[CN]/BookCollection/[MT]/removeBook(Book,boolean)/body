@@ -10,5 +10,5 @@ synchronized (myBooksByFile) {
       book.File.getPhysicalFile().delete();
     }
   }
-  fireBookEvent(Listener.BookEvent.Removed,book);
+  fireBookEvent(BookEvent.Removed,book);
 }

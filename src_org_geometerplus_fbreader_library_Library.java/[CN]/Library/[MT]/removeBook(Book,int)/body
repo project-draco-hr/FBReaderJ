@@ -3,7 +3,5 @@
     return;
   }
   Collection.removeBook(book,(removeMode & REMOVE_FROM_DISK) != 0);
-  getFirstLevelTree(ROOT_RECENT).removeBook(book,false);
-  getFirstLevelTree(ROOT_FAVORITES).removeBook(book,false);
   myRootTree.removeBook(book,true);
 }

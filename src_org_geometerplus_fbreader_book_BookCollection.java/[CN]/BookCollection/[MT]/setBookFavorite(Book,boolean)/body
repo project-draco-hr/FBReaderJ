@@ -5,5 +5,5 @@
  else {
     myDatabase.removeFromFavorites(book.getId());
   }
-  fireBookEvent(Listener.BookEvent.Updated,book);
+  fireBookEvent(BookEvent.Updated,book);
 }
