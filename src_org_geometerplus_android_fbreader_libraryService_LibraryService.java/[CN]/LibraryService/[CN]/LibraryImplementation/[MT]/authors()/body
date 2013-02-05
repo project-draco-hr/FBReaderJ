@@ -4,4 +4,5 @@
   for (  Author a : authors) {
     strings.add(new StringBuilder(a.DisplayName).append('\000').append(a.SortKey).toString());
   }
+  return strings;
 }
