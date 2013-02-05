@@ -1,3 +1,3 @@
 {
-  return (ZLAndroidWidget)myActivity.findViewById(R.id.main_view);
+  return myActivity.getMainView();
 }
