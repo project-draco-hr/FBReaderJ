@@ -2,7 +2,7 @@
   final List<Author> authors=myCollection.authors();
   final List<String> strings=new ArrayList<String>(authors.size());
   for (  Author a : authors) {
-    strings.add(new StringBuilder(a.DisplayName).append('\000').append(a.SortKey).toString());
+    strings.add(Util.authorToString(a));
   }
   return strings;
 }

@@ -1,0 +1,6 @@
+{
+  clear();
+  for (  Author a : myCollection.authors()) {
+    createAuthorSubTree(a);
+  }
+}

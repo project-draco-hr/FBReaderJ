@@ -3,6 +3,7 @@
   if (myLibrary == null) {
     myLibrary=new Library(new BookCollectionShadow());
     myLibrary.addChangeListener(this);
+    myLibrary.Collection.addListener(this);
   }
   mySelectedBook=SerializerUtil.deserializeBook(getIntent().getStringExtra(FBReader.BOOK_KEY));
   new LibraryTreeAdapter(this);

@@ -1,5 +1,5 @@
 {
-  Collection.addListener(new BookCollection.Listener(){
+  Collection.addListener(new IBookCollection.Listener(){
     public void onBookEvent(    BookEvent event,    Book book){
 switch (event) {
 case Added:

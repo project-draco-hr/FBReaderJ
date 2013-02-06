@@ -2,7 +2,7 @@
   Collection=collection;
   new FavoritesTree(collection,myRootTree);
   new RecentBooksTree(collection,myRootTree);
-  new FirstLevelTree(myRootTree,ROOT_BY_AUTHOR);
+  new AuthorListTree(collection,myRootTree);
   new FirstLevelTree(myRootTree,ROOT_BY_TITLE);
   new FirstLevelTree(myRootTree,ROOT_BY_TAG);
   new FileFirstLevelTree(collection,myRootTree);
