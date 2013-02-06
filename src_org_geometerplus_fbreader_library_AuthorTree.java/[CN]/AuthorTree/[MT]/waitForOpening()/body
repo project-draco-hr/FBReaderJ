@@ -3,7 +3,7 @@
   for (  Book book : Collection.books(Author)) {
     final SeriesInfo seriesInfo=book.getSeriesInfo();
     if (seriesInfo == null) {
-      getBookSubTree(book,false);
+      getBookSubTree(book);
     }
  else {
       getSeriesSubTree(seriesInfo.Title).getBookInSeriesSubTree(book);

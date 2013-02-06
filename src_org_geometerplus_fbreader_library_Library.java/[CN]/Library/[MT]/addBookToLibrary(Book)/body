@@ -19,23 +19,23 @@ synchronized (myBooks) {
     final String letter=TitleTree.firstTitleLetter(book);
     if (letter != null) {
       final TitleTree tree=getFirstLevelTree(ROOT_BY_TITLE).getTitleSubTree(letter);
-      tree.getBookSubTree(book,true);
+      tree.getBookWithAuthorsSubTree(book);
     }
   }
  else {
-    getFirstLevelTree(ROOT_BY_TITLE).getBookSubTree(book,true);
+    getFirstLevelTree(ROOT_BY_TITLE).getBookWithAuthorsSubTree(book);
   }
   List<Tag> tags=book.tags();
   if (tags.isEmpty()) {
     tags=(List<Tag>)myNullList;
   }
   for (  Tag t : tags) {
-    getTagTree(t).getBookSubTree(book,true);
+    getTagTree(t).getBookWithAuthorsSubTree(book);
   }
 synchronized (this) {
     final SearchResultsTree found=(SearchResultsTree)getFirstLevelTree(ROOT_FOUND);
     if (found != null && book.matches(found.getPattern())) {
-      found.getBookSubTree(book,true);
+      found.getBookWithAuthorsSubTree(book);
     }
   }
 }

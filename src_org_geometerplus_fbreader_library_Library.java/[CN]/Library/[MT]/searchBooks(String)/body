@@ -19,7 +19,7 @@ synchronized (this) {
         newSearchResults=new SearchResultsTree(myRootTree,ROOT_FOUND,pattern);
         fireModelChangedEvent(ChangeListener.Code.Found);
       }
-      newSearchResults.getBookSubTree(book,true);
+      newSearchResults.getBookWithAuthorsSubTree(book);
       fireModelChangedEvent(ChangeListener.Code.BookAdded);
     }
   }
