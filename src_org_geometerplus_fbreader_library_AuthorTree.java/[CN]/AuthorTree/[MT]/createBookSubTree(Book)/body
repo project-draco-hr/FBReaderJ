@@ -1,0 +1,15 @@
+{
+  final SeriesInfo seriesInfo=book.getSeriesInfo();
+  if (seriesInfo != null) {
+    return getSeriesSubTree(seriesInfo.Title).createBookInSeriesSubTree(book);
+  }
+  final BookTree temp=new BookTree(Collection,book);
+  int position=Collections.binarySearch(subTrees(),temp);
+  if (position >= 0) {
+    return false;
+  }
+ else {
+    new BookTree(this,book,-position - 1);
+    return true;
+  }
+}

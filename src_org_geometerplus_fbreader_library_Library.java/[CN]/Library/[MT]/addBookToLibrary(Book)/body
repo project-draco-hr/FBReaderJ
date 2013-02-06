@@ -13,7 +13,7 @@ synchronized (myBooks) {
     if (seriesRoot == null) {
       seriesRoot=new FirstLevelTree(myRootTree,myRootTree.indexOf(getFirstLevelTree(ROOT_BY_TITLE)) + 1,ROOT_BY_SERIES);
     }
-    seriesRoot.getSeriesSubTree(seriesInfo.Title).getBookInSeriesSubTree(book);
+    seriesRoot.getSeriesSubTree(seriesInfo.Title).createBookInSeriesSubTree(book);
   }
   if (myDoGroupTitlesByFirstLetter) {
     final String letter=TitleTree.firstTitleLetter(book);
