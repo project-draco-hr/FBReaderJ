@@ -1,0 +1,3 @@
+{
+  return new StringBuilder(author.DisplayName).append('\000').append(author.SortKey).toString();
+}

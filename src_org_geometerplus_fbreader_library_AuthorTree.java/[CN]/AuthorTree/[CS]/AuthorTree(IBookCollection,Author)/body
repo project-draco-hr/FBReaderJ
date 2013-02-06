@@ -1,4 +1,4 @@
 {
-  myCollection=collection;
+  super(collection);
   Author=author;
 }

@@ -1,5 +1,0 @@
-{
-  super(parent,position);
-  myCollection=collection;
-  Author=author;
-}

@@ -8,7 +8,7 @@ case Added:
       if (bookAuthors.isEmpty()) {
         changed&=createAuthorSubTree(Author.NULL);
       }
- else       for (      Author a : myCollection.authors()) {
+ else       for (      Author a : Collection.authors()) {
         changed&=createAuthorSubTree(a);
       }
       return changed;

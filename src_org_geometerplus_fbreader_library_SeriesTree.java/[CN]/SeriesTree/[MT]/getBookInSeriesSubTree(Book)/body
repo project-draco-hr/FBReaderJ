@@ -1,5 +1,5 @@
 {
-  final BookInSeriesTree temp=new BookInSeriesTree(book);
+  final BookInSeriesTree temp=new BookInSeriesTree(Collection,book);
   int position=Collections.binarySearch(subTrees(),temp);
   if (position >= 0) {
     return (BookInSeriesTree)subTrees().get(position);

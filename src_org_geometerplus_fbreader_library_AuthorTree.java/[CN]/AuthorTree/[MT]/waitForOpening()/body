@@ -1,6 +1,6 @@
 {
   clear();
-  for (  Book book : myCollection.books(Author)) {
+  for (  Book book : Collection.books(Author)) {
     final SeriesInfo seriesInfo=book.getSeriesInfo();
     if (seriesInfo == null) {
       getBookSubTree(book,false);

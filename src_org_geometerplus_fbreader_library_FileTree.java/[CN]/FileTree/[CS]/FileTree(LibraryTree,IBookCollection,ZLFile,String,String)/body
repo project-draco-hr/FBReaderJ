@@ -1,8 +1,0 @@
-{
-  super(parent);
-  myCollection=collection;
-  myFile=file;
-  myName=name;
-  mySummary=summary;
-  myIsSelectable=false;
-}

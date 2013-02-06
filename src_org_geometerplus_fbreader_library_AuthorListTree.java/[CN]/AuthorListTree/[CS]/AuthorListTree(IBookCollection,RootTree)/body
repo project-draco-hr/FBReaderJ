@@ -1,4 +1,0 @@
-{
-  super(root,Library.ROOT_BY_AUTHOR);
-  myCollection=collection;
-}

@@ -1,5 +1,5 @@
 {
-  if (!myCollection.hasFavorites()) {
+  if (!Collection.hasFavorites()) {
     return Status.CANNOT_OPEN;
   }
   return Status.ALWAYS_RELOAD_BEFORE_OPENING;

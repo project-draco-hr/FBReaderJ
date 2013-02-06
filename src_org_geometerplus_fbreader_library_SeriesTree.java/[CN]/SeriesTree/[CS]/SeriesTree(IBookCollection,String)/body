@@ -1,0 +1,4 @@
+{
+  super(collection);
+  Series=series;
+}

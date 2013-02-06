@@ -1,9 +1,10 @@
 {
   Collection=collection;
-  new FavoritesTree(collection,myRootTree);
-  new RecentBooksTree(collection,myRootTree);
-  new AuthorListTree(collection,myRootTree);
+  myRootTree=new RootTree(collection);
+  new FavoritesTree(myRootTree);
+  new RecentBooksTree(myRootTree);
+  new AuthorListTree(myRootTree);
   new FirstLevelTree(myRootTree,ROOT_BY_TITLE);
   new FirstLevelTree(myRootTree,ROOT_BY_TAG);
-  new FileFirstLevelTree(collection,myRootTree);
+  new FileFirstLevelTree(myRootTree);
 }
