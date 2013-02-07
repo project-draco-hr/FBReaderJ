@@ -1,5 +1,5 @@
 {
-  if (!force && myIsSaved) {
+  if (!force && myId != -1 && myIsSaved) {
     return false;
   }
   database.executeAsATransaction(new Runnable(){

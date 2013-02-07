@@ -1,5 +1,5 @@
 {
-  if (book == null) {
+  if (book == null || book.getId() == -1) {
     return;
   }
 synchronized (myBooksByFile) {
