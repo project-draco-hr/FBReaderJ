@@ -16,7 +16,7 @@
     myDoGroupTitlesByFirstLetter=savedBooksByFileId.values().size() > letterSet.size() * 5 / 4;
   }
   for (  Book book : Collection.favorites()) {
-    getFirstLevelTree(ROOT_FAVORITES).getBookSubTree(book,true);
+    getFirstLevelTree(LibraryTree.ROOT_FAVORITES).getBookSubTree(book,true);
   }
   fireModelChangedEvent(ChangeListener.Code.BookAdded);
   final Set<Book> orphanedBooks=new HashSet<Book>();

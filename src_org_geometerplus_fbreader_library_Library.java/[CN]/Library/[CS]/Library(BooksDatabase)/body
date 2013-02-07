@@ -1,10 +1,11 @@
 {
   myDatabase=db;
   Collection=new BookCollection(db);
-  new FavoritesTree(Collection,myRootTree,ROOT_FAVORITES);
-  new RecentBooksTree(Collection,myRootTree,ROOT_RECENT);
-  new FirstLevelTree(myRootTree,ROOT_BY_AUTHOR);
-  new FirstLevelTree(myRootTree,ROOT_BY_TITLE);
-  new FirstLevelTree(myRootTree,ROOT_BY_TAG);
-  new FileFirstLevelTree(Collection,myRootTree,ROOT_FILE_TREE);
+  myRootTree=new RootTree(Collection);
+  new FavoritesTree(myRootTree);
+  new RecentBooksTree(myRootTree);
+  new FirstLevelTree(myRootTree,LibraryTree.ROOT_BY_AUTHOR);
+  new FirstLevelTree(myRootTree,LibraryTree.ROOT_BY_TITLE);
+  new FirstLevelTree(myRootTree,LibraryTree.ROOT_BY_TAG);
+  new FileFirstLevelTree(myRootTree);
 }

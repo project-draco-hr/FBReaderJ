@@ -1,7 +1,0 @@
-{
-  super(root,id);
-  myCollection=collection;
-  addChild(Paths.BooksDirectoryOption().getValue(),"fileTreeLibrary");
-  addChild("/","fileTreeRoot");
-  addChild(Paths.cardDirectory(),"fileTreeCard");
-}
