@@ -9,21 +9,21 @@ synchronized (myBooks) {
   }
   final SeriesInfo seriesInfo=book.getSeriesInfo();
   if (seriesInfo != null) {
-    FirstLevelTree seriesRoot=getFirstLevelTree(ROOT_BY_SERIES);
+    FirstLevelTree seriesRoot=getFirstLevelTree(LibraryTree.ROOT_BY_SERIES);
     if (seriesRoot == null) {
-      seriesRoot=new FirstLevelTree(myRootTree,myRootTree.indexOf(getFirstLevelTree(ROOT_BY_TITLE)) + 1,ROOT_BY_SERIES);
+      seriesRoot=new FirstLevelTree(myRootTree,myRootTree.indexOf(getFirstLevelTree(LibraryTree.ROOT_BY_TITLE)) + 1,LibraryTree.ROOT_BY_SERIES);
     }
     seriesRoot.getSeriesSubTree(seriesInfo.Title).createBookInSeriesSubTree(book);
   }
   if (myDoGroupTitlesByFirstLetter) {
     final String letter=TitleTree.firstTitleLetter(book);
     if (letter != null) {
-      final TitleTree tree=getFirstLevelTree(ROOT_BY_TITLE).getTitleSubTree(letter);
+      final TitleTree tree=getFirstLevelTree(LibraryTree.ROOT_BY_TITLE).getTitleSubTree(letter);
       tree.getBookWithAuthorsSubTree(book);
     }
   }
  else {
-    getFirstLevelTree(ROOT_BY_TITLE).getBookWithAuthorsSubTree(book);
+    getFirstLevelTree(LibraryTree.ROOT_BY_TITLE).getBookWithAuthorsSubTree(book);
   }
   List<Tag> tags=book.tags();
   if (tags.isEmpty()) {
@@ -33,7 +33,7 @@ synchronized (myBooks) {
     getTagTree(t).getBookWithAuthorsSubTree(book);
   }
 synchronized (this) {
-    final SearchResultsTree found=(SearchResultsTree)getFirstLevelTree(ROOT_FOUND);
+    final SearchResultsTree found=(SearchResultsTree)getFirstLevelTree(LibraryTree.ROOT_FOUND);
     if (found != null && book.matches(found.getPattern())) {
       found.getBookWithAuthorsSubTree(book);
     }

@@ -1,6 +1,6 @@
 {
   if (tag == null || tag.Parent == null) {
-    return getFirstLevelTree(ROOT_BY_TAG).getTagSubTree(tag);
+    return getFirstLevelTree(LibraryTree.ROOT_BY_TAG).getTagSubTree(tag);
   }
  else {
     return getTagTree(tag.Parent).getTagSubTree(tag);
