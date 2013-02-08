@@ -1,0 +1,3 @@
+{
+  getCurrentTree().onBookEvent(event,book);
+}

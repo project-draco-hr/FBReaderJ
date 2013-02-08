@@ -7,6 +7,7 @@
   if (myLibrary == null) {
     myLibrary=Library.Instance();
     myLibrary.addChangeListener(this);
+    myLibrary.Collection.addListener(this);
     myLibrary.startBuild();
   }
   mySelectedBook=SerializerUtil.deserializeBook(getIntent().getStringExtra(FBReader.BOOK_KEY));
