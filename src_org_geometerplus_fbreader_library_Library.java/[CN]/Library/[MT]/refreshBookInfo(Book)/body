@@ -6,7 +6,6 @@
   removeFromTree(LibraryTree.ROOT_FOUND,book);
   removeFromTree(LibraryTree.ROOT_BY_TITLE,book);
   removeFromTree(LibraryTree.ROOT_BY_SERIES,book);
-  removeFromTree(LibraryTree.ROOT_BY_AUTHOR,book);
   removeFromTree(LibraryTree.ROOT_BY_TAG,book);
   addBookToLibrary(book);
   fireModelChangedEvent(ChangeListener.Code.BookAdded);
