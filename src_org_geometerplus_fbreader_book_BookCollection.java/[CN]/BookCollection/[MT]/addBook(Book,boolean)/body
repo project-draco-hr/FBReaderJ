@@ -12,7 +12,6 @@ synchronized (myBooksByFile) {
  else     if (force) {
       existing.updateFrom(book);
       fireBookEvent(BookEvent.Updated,existing);
-      getBookById(book.getId());
     }
   }
 }
