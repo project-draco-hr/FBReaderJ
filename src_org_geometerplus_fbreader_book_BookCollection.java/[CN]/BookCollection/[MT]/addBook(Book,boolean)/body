@@ -1,17 +1,17 @@
 {
-  if (book == null) {
+  if (book == null || book.getId() == -1) {
     return;
   }
 synchronized (myBooksByFile) {
-    Listener.BookEvent event=Listener.BookEvent.Added;
-    if (myBooksByFile.containsKey(book.File)) {
-      if (!force) {
-        return;
-      }
-      event=Listener.BookEvent.Updated;
+    final Book existing=myBooksByFile.get(book.File);
+    if (existing == null) {
+      myBooksByFile.put(book.File,book);
+      myBooksById.put(book.getId(),book);
+      fireBookEvent(BookEvent.Added,book);
     }
-    myBooksByFile.put(book.File,book);
-    myBooksById.put(book.getId(),book);
-    fireBookEvent(event,book);
+ else     if (force) {
+      existing.updateFrom(book);
+      fireBookEvent(BookEvent.Updated,existing);
+    }
   }
 }

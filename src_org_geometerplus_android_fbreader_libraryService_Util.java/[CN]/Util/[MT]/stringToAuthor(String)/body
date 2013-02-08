@@ -1,0 +1,9 @@
+{
+  final String[] splitted=string.split("\000");
+  if (splitted.length == 2) {
+    return new Author(splitted[0],splitted[1]);
+  }
+ else {
+    return Author.NULL;
+  }
+}

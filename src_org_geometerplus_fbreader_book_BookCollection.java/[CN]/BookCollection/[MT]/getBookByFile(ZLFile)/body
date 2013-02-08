@@ -26,6 +26,7 @@
     book.loadLists(myDatabase);
   }
   if (book != null && fileInfos.check(physicalFile,physicalFile != bookFile)) {
+    saveBook(book,false);
     addBook(book,false);
     return book;
   }
