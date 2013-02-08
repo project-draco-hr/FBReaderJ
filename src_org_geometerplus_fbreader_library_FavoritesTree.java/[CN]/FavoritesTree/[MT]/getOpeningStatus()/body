@@ -1,7 +1,6 @@
 {
-  final Status status=super.getOpeningStatus();
-  if (status == Status.READY_TO_OPEN && !hasChildren()) {
+  if (!Collection.hasFavorites()) {
     return Status.CANNOT_OPEN;
   }
-  return status;
+  return Status.ALWAYS_RELOAD_BEFORE_OPENING;
 }

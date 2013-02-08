@@ -1,0 +1,12 @@
+{
+  if (event == BookEvent.Added && Collection.isFavorite(book)) {
+    new BookWithAuthorsTree(this,book);
+    return true;
+  }
+  if (event == BookEvent.Updated && !Collection.isFavorite(book)) {
+    return removeBook(book,false);
+  }
+ else {
+    return super.onBookEvent(event,book);
+  }
+}
