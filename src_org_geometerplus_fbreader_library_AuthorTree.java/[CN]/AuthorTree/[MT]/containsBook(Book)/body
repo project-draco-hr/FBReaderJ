@@ -1,3 +1,7 @@
 {
-  return book != null && book.authors().contains(Author);
+  if (book == null) {
+    return false;
+  }
+  final List<Author> bookAuthors=book.authors();
+  return Author.equals(Author.NULL) ? bookAuthors.isEmpty() : bookAuthors.contains(Author);
 }
