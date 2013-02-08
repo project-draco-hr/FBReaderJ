@@ -1,0 +1,21 @@
+{
+switch (event) {
+default :
+case Added:
+{
+      final List<Author> bookAuthors=book.authors();
+      boolean changed=false;
+      if (bookAuthors.isEmpty()) {
+        changed&=createAuthorSubTree(Author.NULL);
+      }
+ else       for (      Author a : Collection.authors()) {
+        changed&=createAuthorSubTree(a);
+      }
+      return changed;
+    }
+case Removed:
+  return false;
+case Updated:
+return false;
+}
+}
