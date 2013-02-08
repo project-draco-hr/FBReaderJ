@@ -1,6 +1,6 @@
 {
   clear();
   for (  Book book : Collection.recentBooks()) {
-    new BookTree(this,book,true);
+    new BookWithAuthorsTree(this,book);
   }
 }

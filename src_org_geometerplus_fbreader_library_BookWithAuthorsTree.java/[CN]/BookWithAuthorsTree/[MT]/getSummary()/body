@@ -1,7 +1,4 @@
 {
-  if (!myShowAuthors) {
-    return super.getSummary();
-  }
   StringBuilder builder=new StringBuilder();
   int count=0;
   for (  Author author : Book.authors()) {

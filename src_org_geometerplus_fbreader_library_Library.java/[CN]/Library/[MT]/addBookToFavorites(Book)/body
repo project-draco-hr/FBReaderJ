@@ -3,6 +3,6 @@
     return;
   }
   final LibraryTree rootFavorites=getFirstLevelTree(LibraryTree.ROOT_FAVORITES);
-  rootFavorites.getBookSubTree(book,true);
+  rootFavorites.getBookWithAuthorsSubTree(book);
   Collection.setBookFavorite(book,true);
 }

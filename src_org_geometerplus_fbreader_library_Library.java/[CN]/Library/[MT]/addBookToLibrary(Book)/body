@@ -11,7 +11,7 @@
   for (  Author a : authors) {
     final AuthorTree authorTree=getFirstLevelTree(LibraryTree.ROOT_BY_AUTHOR).getAuthorSubTree(a);
     if (seriesInfo == null) {
-      authorTree.getBookSubTree(book,false);
+      authorTree.getBookSubTree(book);
     }
  else {
       authorTree.getSeriesSubTree(seriesInfo.Title).getBookInSeriesSubTree(book);
@@ -28,21 +28,21 @@
     final String letter=TitleTree.firstTitleLetter(book);
     if (letter != null) {
       final TitleTree tree=getFirstLevelTree(LibraryTree.ROOT_BY_TITLE).getTitleSubTree(letter);
-      tree.getBookSubTree(book,true);
+      tree.getBookWithAuthorsSubTree(book);
     }
   }
  else {
-    getFirstLevelTree(LibraryTree.ROOT_BY_TITLE).getBookSubTree(book,true);
+    getFirstLevelTree(LibraryTree.ROOT_BY_TITLE).getBookWithAuthorsSubTree(book);
   }
   List<Tag> tags=book.tags();
   if (tags.isEmpty()) {
     tags=(List<Tag>)myNullList;
   }
   for (  Tag t : tags) {
-    getTagTree(t).getBookSubTree(book,true);
+    getTagTree(t).getBookWithAuthorsSubTree(book);
   }
   final SearchResultsTree found=(SearchResultsTree)getFirstLevelTree(LibraryTree.ROOT_FOUND);
   if (found != null && book.matches(found.getPattern())) {
-    found.getBookSubTree(book,true);
+    found.getBookWithAuthorsSubTree(book);
   }
 }
