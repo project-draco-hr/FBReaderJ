@@ -1,4 +1,3 @@
 {
-  final View view=findViewById(R.id.main_view);
-  return (view != null && view.onKeyDown(keyCode,event)) || super.onKeyDown(keyCode,event);
+  return (myMainView != null && myMainView.onKeyDown(keyCode,event)) || super.onKeyDown(keyCode,event);
 }
