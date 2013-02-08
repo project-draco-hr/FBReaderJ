@@ -10,11 +10,14 @@ case SHARE_BOOK_ITEM_ID:
 FBUtil.shareBook(this,book);
 return true;
 case ADD_TO_FAVORITES_ITEM_ID:
-myLibrary.addBookToFavorites(book);
+myLibrary.Collection.setBookFavorite(book,true);
 return true;
 case REMOVE_FROM_FAVORITES_ITEM_ID:
-myLibrary.removeBookFromFavorites(book);
+myLibrary.Collection.setBookFavorite(book,false);
+if (getCurrentTree().onBookEvent(BookEvent.Updated,book)) {
+getListAdapter().replaceAll(getCurrentTree().subTrees());
 getListView().invalidateViews();
+}
 return true;
 case DELETE_BOOK_ITEM_ID:
 tryToDeleteBook(book);

@@ -3,7 +3,6 @@
     return;
   }
   myBooks.remove(book.File);
-  refreshInTree(LibraryTree.ROOT_FAVORITES,book);
   removeFromTree(LibraryTree.ROOT_FOUND,book);
   removeFromTree(LibraryTree.ROOT_BY_TITLE,book);
   removeFromTree(LibraryTree.ROOT_BY_SERIES,book);
