@@ -4,7 +4,7 @@ default :
 case Added:
     return false;
 case Removed:
-  return removeBook(book,true);
+  return removeBook(book);
 case Updated:
 {
   boolean changed=false;

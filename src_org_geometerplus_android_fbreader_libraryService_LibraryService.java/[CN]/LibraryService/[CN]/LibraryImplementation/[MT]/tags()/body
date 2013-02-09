@@ -1,0 +1,8 @@
+{
+  final List<Tag> tags=myCollection.tags();
+  final List<String> strings=new ArrayList<String>(tags.size());
+  for (  Tag t : tags) {
+    strings.add(Util.tagToString(t));
+  }
+  return strings;
+}
