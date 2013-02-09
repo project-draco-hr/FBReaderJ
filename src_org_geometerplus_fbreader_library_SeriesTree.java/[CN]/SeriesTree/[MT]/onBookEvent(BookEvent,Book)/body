@@ -1,0 +1,10 @@
+{
+switch (event) {
+case Added:
+    return containsBook(book) && createBookInSeriesSubTree(book);
+case Removed:
+case Updated:
+default :
+  return super.onBookEvent(event,book);
+}
+}

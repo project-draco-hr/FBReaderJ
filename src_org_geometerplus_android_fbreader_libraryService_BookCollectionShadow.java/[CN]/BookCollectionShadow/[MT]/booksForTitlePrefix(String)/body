@@ -3,7 +3,7 @@
     return Collections.emptyList();
   }
   try {
-    return myInterface.series();
+    return SerializerUtil.deserializeBookList(myInterface.booksForTitlePrefix(prefix));
   }
  catch (  RemoteException e) {
     return Collections.emptyList();

@@ -1,0 +1,10 @@
+{
+synchronized (myBooksByFile) {
+    for (    Book book : myBooksByFile.values()) {
+      if (book.getSeriesInfo() != null) {
+        return true;
+      }
+    }
+  }
+  return false;
+}

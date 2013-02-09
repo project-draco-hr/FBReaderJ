@@ -1,0 +1,10 @@
+{
+  final LinkedList<Book> filtered=new LinkedList<Book>();
+  for (  Book b : books()) {
+    final SeriesInfo info=b.getSeriesInfo();
+    if (info != null && series.equals(info.Title)) {
+      filtered.add(b);
+    }
+  }
+  return filtered;
+}

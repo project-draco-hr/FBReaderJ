@@ -11,7 +11,7 @@
   }
   FirstLevelTree newSearchResults=null;
 synchronized (this) {
-    for (    Book book : Collection.books(pattern)) {
+    for (    Book book : Collection.booksForPattern(pattern)) {
       if (newSearchResults == null) {
         if (oldSearchResults != null) {
           oldSearchResults.removeSelf();
