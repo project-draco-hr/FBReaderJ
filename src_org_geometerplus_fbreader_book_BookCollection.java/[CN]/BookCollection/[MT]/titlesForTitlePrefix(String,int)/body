@@ -1,0 +1,17 @@
+{
+  if (limit <= 0) {
+    return Collections.emptyList();
+  }
+  final ArrayList<String> titles=new ArrayList<String>(limit);
+synchronized (myBooksByFile) {
+    for (    Book b : myBooksByFile.values()) {
+      if (prefix.equals(TitleUtil.firstTitleLetter(b))) {
+        titles.add(b.getTitle());
+        if (--limit == 0) {
+          break;
+        }
+      }
+    }
+  }
+  return titles;
+}

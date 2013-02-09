@@ -1,7 +1,7 @@
 {
 switch (event) {
 case Added:
-    return Title.equals(TitleUtil.firstTitleLetter(book)) && createBookWithAuthorsSubTree(book);
+    return Prefix.equals(TitleUtil.firstTitleLetter(book)) && createBookWithAuthorsSubTree(book);
 case Removed:
   return false;
 default :

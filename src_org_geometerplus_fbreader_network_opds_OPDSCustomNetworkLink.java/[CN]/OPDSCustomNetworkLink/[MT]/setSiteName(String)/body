@@ -1,4 +1,4 @@
 {
-  myHasChanges=myHasChanges || !ZLMiscUtil.equals(mySiteName,name);
+  myHasChanges=myHasChanges || !MiscUtil.equals(mySiteName,name);
   mySiteName=name;
 }

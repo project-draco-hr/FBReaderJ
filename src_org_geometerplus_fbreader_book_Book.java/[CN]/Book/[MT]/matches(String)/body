@@ -1,25 +1,25 @@
 {
-  if (myTitle != null && ZLMiscUtil.matchesIgnoreCase(myTitle,pattern)) {
+  if (myTitle != null && MiscUtil.matchesIgnoreCase(myTitle,pattern)) {
     return true;
   }
-  if (mySeriesInfo != null && ZLMiscUtil.matchesIgnoreCase(mySeriesInfo.Title,pattern)) {
+  if (mySeriesInfo != null && MiscUtil.matchesIgnoreCase(mySeriesInfo.Title,pattern)) {
     return true;
   }
   if (myAuthors != null) {
     for (    Author author : myAuthors) {
-      if (ZLMiscUtil.matchesIgnoreCase(author.DisplayName,pattern)) {
+      if (MiscUtil.matchesIgnoreCase(author.DisplayName,pattern)) {
         return true;
       }
     }
   }
   if (myTags != null) {
     for (    Tag tag : myTags) {
-      if (ZLMiscUtil.matchesIgnoreCase(tag.Name,pattern)) {
+      if (MiscUtil.matchesIgnoreCase(tag.Name,pattern)) {
         return true;
       }
     }
   }
-  if (ZLMiscUtil.matchesIgnoreCase(File.getLongName(),pattern)) {
+  if (MiscUtil.matchesIgnoreCase(File.getLongName(),pattern)) {
     return true;
   }
   return false;

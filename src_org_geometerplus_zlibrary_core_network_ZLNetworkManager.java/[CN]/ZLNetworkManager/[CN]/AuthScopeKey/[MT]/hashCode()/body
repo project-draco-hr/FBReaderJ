@@ -2,5 +2,5 @@
   if (myScope == null) {
     return 0;
   }
-  return myScope.getPort() + ZLMiscUtil.hashCode(myScope.getHost()) + ZLMiscUtil.hashCode(myScope.getScheme())+ ZLMiscUtil.hashCode(myScope.getRealm());
+  return myScope.getPort() + MiscUtil.hashCode(myScope.getHost()) + MiscUtil.hashCode(myScope.getScheme())+ MiscUtil.hashCode(myScope.getRealm());
 }
