@@ -1,12 +1,12 @@
 {
   if (Model != null && Model.Book != null && b != null) {
-    for (    Bookmark bm : Library.Instance().Collection.invisibleBookmarks(Model.Book)) {
+    for (    Bookmark bm : Collection.invisibleBookmarks(Model.Book)) {
       if (b.equals(bm)) {
         bm.delete();
       }
     }
     b.save();
-    final List<Bookmark> bookmarks=Library.Instance().Collection.invisibleBookmarks(Model.Book);
+    final List<Bookmark> bookmarks=Collection.invisibleBookmarks(Model.Book);
     for (int i=3; i < bookmarks.size(); ++i) {
       bookmarks.get(i).delete();
     }
