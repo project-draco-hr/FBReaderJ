@@ -1,0 +1,25 @@
+{
+  clear();
+  myDoGroupByFirstLetter=false;
+  final TreeSet<String> letterSet=new TreeSet<String>();
+  final List<String> titles=Collection.titles();
+  if (titles.size() > 10) {
+    for (    String t : titles) {
+      final String letter=TitleTree.firstTitleLetter(t);
+      if (letter != null) {
+        letterSet.add(letter);
+      }
+    }
+    myDoGroupByFirstLetter=titles.size() > letterSet.size() * 5 / 4;
+  }
+  if (myDoGroupByFirstLetter) {
+    for (    String letter : letterSet) {
+      createTitleSubTree(letter);
+    }
+  }
+ else {
+    for (    Book b : Collection.books()) {
+      createBookWithAuthorsSubTree(b);
+    }
+  }
+}

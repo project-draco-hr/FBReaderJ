@@ -7,16 +7,6 @@ synchronized (myBooks) {
     }
     myBooks.put(book.getId(),book);
   }
-  if (myDoGroupTitlesByFirstLetter) {
-    final String letter=TitleTree.firstTitleLetter(book);
-    if (letter != null) {
-      final TitleTree tree=getFirstLevelTree(LibraryTree.ROOT_BY_TITLE).getTitleSubTree(letter);
-      tree.createBookWithAuthorsSubTree(book);
-    }
-  }
- else {
-    getFirstLevelTree(LibraryTree.ROOT_BY_TITLE).createBookWithAuthorsSubTree(book);
-  }
 synchronized (this) {
     final SearchResultsTree found=(SearchResultsTree)getFirstLevelTree(LibraryTree.ROOT_FOUND);
     if (found != null && book.matches(found.getPattern())) {

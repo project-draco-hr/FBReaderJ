@@ -1,0 +1,17 @@
+{
+switch (event) {
+case Added:
+    if (myDoGroupByFirstLetter) {
+      final String letter=TitleTree.firstTitleLetter(book);
+      return letter != null && createTitleSubTree(letter);
+    }
+ else {
+      return createBookWithAuthorsSubTree(book);
+    }
+case Removed:
+  return false;
+default :
+case Updated:
+return false;
+}
+}
