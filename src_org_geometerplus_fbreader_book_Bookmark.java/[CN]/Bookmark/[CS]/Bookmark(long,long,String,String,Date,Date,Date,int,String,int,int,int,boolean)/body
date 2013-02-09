@@ -16,5 +16,4 @@
   myAccessCount=accessCount;
   ModelId=modelId;
   IsVisible=isVisible;
-  myIsChanged=false;
 }

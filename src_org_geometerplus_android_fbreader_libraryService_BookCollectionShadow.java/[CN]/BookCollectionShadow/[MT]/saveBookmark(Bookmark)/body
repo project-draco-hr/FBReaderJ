@@ -1,4 +1,9 @@
 {
   if (myInterface != null) {
+    try {
+      bookmark.update(SerializerUtil.deserializeBookmark(myInterface.saveBookmark(SerializerUtil.serialize(bookmark))));
+    }
+ catch (    RemoteException e) {
+    }
   }
 }
