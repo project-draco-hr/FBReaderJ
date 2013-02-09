@@ -1,5 +1,5 @@
 {
-  executeAsATransaction(new Runnable(){
+  executeAsTransaction(new Runnable(){
     public void run(){
       final SQLiteStatement statement;
       if (link.getId() == INetworkLink.INVALID_ID) {

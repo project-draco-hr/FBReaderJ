@@ -63,7 +63,7 @@
     e.printStackTrace();
   }
   fileInfos.save();
-  myDatabase.executeAsATransaction(new Runnable(){
+  myDatabase.executeAsTransaction(new Runnable(){
     public void run(){
       for (      Book book : newBooks) {
         saveBook(book,false);
