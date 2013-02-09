@@ -3,16 +3,6 @@
     return;
   }
   myBooks.put(book.File,book);
-  if (myDoGroupTitlesByFirstLetter) {
-    final String letter=TitleTree.firstTitleLetter(book);
-    if (letter != null) {
-      final TitleTree tree=getFirstLevelTree(LibraryTree.ROOT_BY_TITLE).getTitleSubTree(letter);
-      tree.createBookWithAuthorsSubTree(book);
-    }
-  }
- else {
-    getFirstLevelTree(LibraryTree.ROOT_BY_TITLE).createBookWithAuthorsSubTree(book);
-  }
   final SearchResultsTree found=(SearchResultsTree)getFirstLevelTree(LibraryTree.ROOT_FOUND);
   if (found != null && book.matches(found.getPattern())) {
     found.createBookWithAuthorsSubTree(book);

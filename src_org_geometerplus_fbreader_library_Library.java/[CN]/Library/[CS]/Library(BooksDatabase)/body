@@ -5,7 +5,7 @@
   new FavoritesTree(myRootTree);
   new RecentBooksTree(myRootTree);
   new AuthorListTree(myRootTree);
-  new FirstLevelTree(myRootTree,LibraryTree.ROOT_BY_TITLE);
+  new TitleListTree(myRootTree);
   new SeriesListTree(myRootTree);
   new TagListTree(myRootTree);
   new FileFirstLevelTree(myRootTree);

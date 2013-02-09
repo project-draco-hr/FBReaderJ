@@ -5,17 +5,6 @@
   for (  Book b : savedBooksByFileId.values()) {
     savedBooksByBookId.put(b.getId(),b);
   }
-  if (savedBooksByFileId.size() > 10) {
-    final HashSet<String> letterSet=new HashSet<String>();
-    for (    Book book : savedBooksByFileId.values()) {
-      final String letter=TitleTree.firstTitleLetter(book);
-      if (letter != null) {
-        letterSet.add(letter);
-      }
-    }
-    myDoGroupTitlesByFirstLetter=savedBooksByFileId.values().size() > letterSet.size() * 5 / 4;
-  }
-  fireModelChangedEvent(ChangeListener.Code.BookAdded);
   final Set<Book> orphanedBooks=new HashSet<Book>();
   final Set<ZLPhysicalFile> physicalFiles=new HashSet<ZLPhysicalFile>();
   int count=0;
