@@ -2,7 +2,13 @@
   final Set<Tag> tags=new TreeSet<Tag>();
 synchronized (myBooksByFile) {
     for (    Book book : myBooksByFile.values()) {
-      tags.addAll(book.tags());
+      final List<Tag> bookTags=book.tags();
+      if (bookTags.isEmpty()) {
+        tags.add(Tag.NULL);
+      }
+ else {
+        tags.addAll(book.tags());
+      }
     }
   }
   return new ArrayList<Tag>(tags);

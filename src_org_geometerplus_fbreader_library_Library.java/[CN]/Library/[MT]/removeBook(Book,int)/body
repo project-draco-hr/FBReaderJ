@@ -4,5 +4,4 @@
   }
   myBooks.remove(book.File);
   Collection.removeBook(book,(removeMode & REMOVE_FROM_DISK) != 0);
-  myRootTree.removeBook(book,true);
 }

@@ -2,7 +2,7 @@
   if (book == null) {
     return false;
   }
-  if (Tag == null) {
+  if (Tag.NULL.equals(Tag)) {
     return book.tags().isEmpty();
   }
   for (  Tag t : book.tags()) {

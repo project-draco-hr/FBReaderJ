@@ -1,0 +1,9 @@
+{
+  final String[] splitted=string.split("\000");
+  if (splitted.length > 0) {
+    return Tag.getTag(splitted);
+  }
+ else {
+    return Tag.NULL;
+  }
+}

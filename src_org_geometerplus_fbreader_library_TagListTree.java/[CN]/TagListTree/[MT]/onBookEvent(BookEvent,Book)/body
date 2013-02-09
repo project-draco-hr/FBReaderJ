@@ -1,0 +1,23 @@
+{
+switch (event) {
+case Added:
+{
+      final List<Tag> bookTags=book.tags();
+      boolean changed=false;
+      if (bookTags.isEmpty()) {
+        changed&=createTagSubTree(Tag.NULL);
+      }
+ else       for (      Tag t : bookTags) {
+        if (t.Parent == null) {
+          changed&=createTagSubTree(t);
+        }
+      }
+      return changed;
+    }
+case Removed:
+  return false;
+default :
+case Updated:
+return false;
+}
+}

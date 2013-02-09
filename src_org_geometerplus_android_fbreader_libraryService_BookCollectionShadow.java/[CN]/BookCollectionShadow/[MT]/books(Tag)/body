@@ -1,0 +1,11 @@
+{
+  if (myInterface == null) {
+    return Collections.emptyList();
+  }
+  try {
+    return SerializerUtil.deserializeBookList(myInterface.booksForTag(Util.tagToString(tag)));
+  }
+ catch (  RemoteException e) {
+    return Collections.emptyList();
+  }
+}

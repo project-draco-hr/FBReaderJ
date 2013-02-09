@@ -1,6 +1,5 @@
 {
 switch (event) {
-default :
 case Added:
 {
       final List<Author> bookAuthors=book.authors();
@@ -8,13 +7,14 @@ case Added:
       if (bookAuthors.isEmpty()) {
         changed&=createAuthorSubTree(Author.NULL);
       }
- else       for (      Author a : Collection.authors()) {
+ else       for (      Author a : bookAuthors) {
         changed&=createAuthorSubTree(a);
       }
       return changed;
     }
 case Removed:
   return false;
+default :
 case Updated:
 return false;
 }

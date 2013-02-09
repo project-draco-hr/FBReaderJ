@@ -2,9 +2,10 @@
   final BookWithAuthorsTree temp=new BookWithAuthorsTree(Collection,book);
   int position=Collections.binarySearch(subTrees(),temp);
   if (position >= 0) {
-    return (BookWithAuthorsTree)subTrees().get(position);
+    return false;
   }
  else {
-    return new BookWithAuthorsTree(this,book,-position - 1);
+    new BookWithAuthorsTree(this,book,-position - 1);
+    return true;
   }
 }

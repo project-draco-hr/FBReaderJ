@@ -1,5 +1,5 @@
 {
-  if (Author == null) {
+  if (Author.NULL.equals(Author)) {
     return null;
   }
   return new StringBuilder().append(" Author:").append(Author.SortKey).append(":").append(Author.DisplayName).toString();

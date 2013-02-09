@@ -1,0 +1,13 @@
+{
+  clear();
+  if (!Tag.NULL.equals(Tag)) {
+    for (    Tag t : Collection.tags()) {
+      if (Tag.equals(t.Parent)) {
+        createTagSubTree(t);
+      }
+    }
+  }
+  for (  Book book : Collection.books(Tag)) {
+    createBookWithAuthorsSubTree(book);
+  }
+}

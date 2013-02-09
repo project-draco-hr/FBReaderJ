@@ -2,5 +2,15 @@
   if (myInterface == null) {
     return Collections.emptyList();
   }
-  return Collections.emptyList();
+  try {
+    final List<String> strings=myInterface.tags();
+    final List<Tag> tags=new ArrayList<Tag>(strings.size());
+    for (    String s : strings) {
+      tags.add(Util.stringToTag(s));
+    }
+    return tags;
+  }
+ catch (  RemoteException e) {
+    return Collections.emptyList();
+  }
 }
