@@ -7,7 +7,7 @@
     myCancelActionsList.add(new CancelActionDescription(CancelActionType.networkLibrary,null));
   }
   if (ShowPreviousBookInCancelMenuOption.getValue()) {
-    final Book previousBook=Library.Instance().getPreviousBook();
+    final Book previousBook=Library.Instance().Collection.getRecentBook(1);
     if (previousBook != null) {
       myCancelActionsList.add(new CancelActionDescription(CancelActionType.previousBook,previousBook.getTitle()));
     }

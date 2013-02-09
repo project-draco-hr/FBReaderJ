@@ -1,6 +1,6 @@
 {
   if (book == null) {
-    book=Library.Instance().getRecentBook();
+    book=Library.Instance().Collection.getRecentBook(0);
     if (book == null || !book.File.exists()) {
       book=Book.getByFile(BookCollection.getHelpFile());
     }

@@ -1,3 +1,0 @@
-{
-  return Collection.getRecentBook(0);
-}
