@@ -1,6 +1,7 @@
 {
-  bookmark.onOpen();
-  final Book book=Book.getById(bookmark.getBookId());
+  bookmark.markAsAccessed();
+  myCollection.saveBookmark(bookmark);
+  final Book book=myCollection.getBookById(bookmark.getBookId());
   if (book != null) {
     FBReader.openBookActivity(this,book,bookmark);
   }
