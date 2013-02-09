@@ -1,6 +1,9 @@
 {
   final LinkedList<Book> filtered=new LinkedList<Book>();
   for (  Book b : books()) {
+    if (prefix.equals(TitleUtil.firstTitleLetter(b))) {
+      filtered.add(b);
+    }
   }
   return filtered;
 }

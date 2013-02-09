@@ -3,9 +3,9 @@
   myDoGroupByFirstLetter=false;
   final TreeSet<String> letterSet=new TreeSet<String>();
   final List<String> titles=Collection.titles();
-  if (titles.size() > 10) {
+  if (titles.size() > 9) {
     for (    String t : titles) {
-      final String letter=TitleTree.firstTitleLetter(t);
+      final String letter=TitleUtil.firstLetter(t);
       if (letter != null) {
         letterSet.add(letter);
       }
