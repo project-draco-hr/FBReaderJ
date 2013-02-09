@@ -6,6 +6,7 @@
   new RecentBooksTree(myRootTree);
   new AuthorListTree(myRootTree);
   new FirstLevelTree(myRootTree,LibraryTree.ROOT_BY_TITLE);
+  new SeriesListTree(myRootTree);
   new TagListTree(myRootTree);
   new FileFirstLevelTree(myRootTree);
 }

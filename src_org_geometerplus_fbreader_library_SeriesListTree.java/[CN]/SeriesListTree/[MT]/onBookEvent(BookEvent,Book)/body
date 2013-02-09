@@ -1,0 +1,14 @@
+{
+switch (event) {
+case Added:
+{
+      final SeriesInfo info=book.getSeriesInfo();
+      return info != null && createSeriesSubTree(info.Title);
+    }
+case Removed:
+  return false;
+default :
+case Updated:
+return false;
+}
+}

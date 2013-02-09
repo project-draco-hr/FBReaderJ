@@ -1,0 +1,6 @@
+{
+  final LinkedList<Book> filtered=new LinkedList<Book>();
+  for (  Book b : books()) {
+  }
+  return filtered;
+}
