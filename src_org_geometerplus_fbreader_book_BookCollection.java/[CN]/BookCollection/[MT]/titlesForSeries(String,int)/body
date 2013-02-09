@@ -1,0 +1,18 @@
+{
+  if (limit <= 0) {
+    return Collections.emptyList();
+  }
+  final ArrayList<String> titles=new ArrayList<String>(limit);
+synchronized (myBooksByFile) {
+    for (    Book b : myBooksByFile.values()) {
+      final SeriesInfo info=b.getSeriesInfo();
+      if (info != null && series.equals(info.Title)) {
+        titles.add(b.getTitle());
+        if (--limit == 0) {
+          break;
+        }
+      }
+    }
+  }
+  return titles;
+}

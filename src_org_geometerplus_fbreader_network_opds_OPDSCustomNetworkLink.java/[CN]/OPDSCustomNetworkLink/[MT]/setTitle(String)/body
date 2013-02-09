@@ -1,4 +1,4 @@
 {
-  myHasChanges=myHasChanges || !ZLMiscUtil.equals(myTitle,title);
+  myHasChanges=myHasChanges || !MiscUtil.equals(myTitle,title);
   myTitle=title;
 }

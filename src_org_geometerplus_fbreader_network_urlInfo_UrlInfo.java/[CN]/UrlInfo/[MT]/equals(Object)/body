@@ -6,5 +6,5 @@
     return false;
   }
   final UrlInfo info=(UrlInfo)o;
-  return InfoType == info.InfoType && ZLMiscUtil.equals(Url,info.Url);
+  return InfoType == info.InfoType && MiscUtil.equals(Url,info.Url);
 }

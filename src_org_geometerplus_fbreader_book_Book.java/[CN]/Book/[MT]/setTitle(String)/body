@@ -1,5 +1,5 @@
 {
-  if (!ZLMiscUtil.equals(myTitle,title)) {
+  if (!MiscUtil.equals(myTitle,title)) {
     myTitle=title;
     myIsSaved=false;
   }

@@ -1,4 +1,4 @@
 {
-  myHasChanges=myHasChanges || !ZLMiscUtil.equals(mySummary,summary);
+  myHasChanges=myHasChanges || !MiscUtil.equals(mySummary,summary);
   mySummary=summary;
 }

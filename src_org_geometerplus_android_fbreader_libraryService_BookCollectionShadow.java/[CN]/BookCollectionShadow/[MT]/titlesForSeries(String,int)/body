@@ -1,0 +1,11 @@
+{
+  if (myInterface == null) {
+    return Collections.emptyList();
+  }
+  try {
+    return myInterface.titlesForSeries(series,limit);
+  }
+ catch (  RemoteException e) {
+    return Collections.emptyList();
+  }
+}

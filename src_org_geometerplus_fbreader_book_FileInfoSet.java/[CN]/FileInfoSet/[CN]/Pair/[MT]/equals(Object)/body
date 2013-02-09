@@ -6,5 +6,5 @@
     return false;
   }
   Pair p=(Pair)o;
-  return (myName.equals(p.myName)) && ZLMiscUtil.equals(myParent,p.myParent);
+  return myName.equals(p.myName) && MiscUtil.equals(myParent,p.myParent);
 }

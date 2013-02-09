@@ -9,5 +9,5 @@
   if (Amount.equals(ZERO.Amount)) {
     return m.Amount.equals(ZERO.Amount);
   }
-  return Amount.equals(m.Amount) && ZLMiscUtil.equals(Currency,m.Currency);
+  return Amount.equals(m.Amount) && MiscUtil.equals(Currency,m.Currency);
 }

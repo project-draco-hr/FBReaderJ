@@ -12,5 +12,5 @@
   if (scope == null) {
     return false;
   }
-  return myScope.getPort() == scope.getPort() && ZLMiscUtil.equals(myScope.getHost(),scope.getHost()) && ZLMiscUtil.equals(myScope.getScheme(),scope.getScheme()) && ZLMiscUtil.equals(myScope.getRealm(),scope.getRealm());
+  return myScope.getPort() == scope.getPort() && MiscUtil.equals(myScope.getHost(),scope.getHost()) && MiscUtil.equals(myScope.getScheme(),scope.getScheme()) && MiscUtil.equals(myScope.getRealm(),scope.getRealm());
 }
