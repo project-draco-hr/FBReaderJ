@@ -4,18 +4,16 @@
   if (version >= currentVersion) {
     return;
   }
-  UIUtil.wait(version == 0 ? "creatingBooksDatabase" : "updatingBooksDatabase",new Runnable(){
-    public void run(){
-      myDatabase.beginTransaction();
+  myDatabase.beginTransaction();
 switch (myDatabase.getVersion()) {
 case 0:
-        createTables();
+    createTables();
 case 1:
-      updateTables1();
+  updateTables1();
 case 2:
-    updateTables2();
+updateTables2();
 case 3:
-  updateTables3();
+updateTables3();
 case 4:
 updateTables4();
 case 5:
@@ -53,7 +51,4 @@ myDatabase.setTransactionSuccessful();
 myDatabase.setVersion(currentVersion);
 myDatabase.endTransaction();
 myDatabase.execSQL("VACUUM");
-}
-}
-,context);
 }
