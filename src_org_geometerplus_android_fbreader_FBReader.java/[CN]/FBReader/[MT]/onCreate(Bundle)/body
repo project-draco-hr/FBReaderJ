@@ -9,9 +9,6 @@
   getZLibrary().setActivity(this);
   myFBReaderApp=(FBReaderApp)FBReaderApp.Instance();
   if (myFBReaderApp == null) {
-    if (SQLiteBooksDatabase.Instance() == null) {
-      new SQLiteBooksDatabase(this,"READER");
-    }
     myFBReaderApp=new FBReaderApp(new BookCollectionShadow());
   }
   myBook=null;
