@@ -1,12 +1,4 @@
 {
-synchronized (myBooks) {
-    final Book existing=myBooks.get(book.getId());
-    if (existing != null) {
-      existing.updateFrom(book);
-      return;
-    }
-    myBooks.put(book.getId(),book);
-  }
 synchronized (this) {
     final SearchResultsTree found=(SearchResultsTree)getFirstLevelTree(LibraryTree.ROOT_FOUND);
     if (found != null && book.matches(found.getPattern())) {
