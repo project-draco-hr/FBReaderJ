@@ -2,7 +2,7 @@
   if (link.getId() == INetworkLink.INVALID_ID) {
     return;
   }
-  executeAsATransaction(new Runnable(){
+  executeAsTransaction(new Runnable(){
     public void run(){
       final String stringLinkId=String.valueOf(link.getId());
       myDatabase.delete("Links","link_id = ?",new String[]{stringLinkId});

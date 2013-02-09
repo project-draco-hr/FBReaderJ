@@ -2,7 +2,7 @@
   if (mySaveRecentBookStatement == null) {
     mySaveRecentBookStatement=myDatabase.compileStatement("INSERT OR IGNORE INTO RecentBooks (book_id) VALUES (?)");
   }
-  executeAsATransaction(new Runnable(){
+  executeAsTransaction(new Runnable(){
     public void run(){
       myDatabase.delete("RecentBooks",null,null);
       for (      long id : ids) {
