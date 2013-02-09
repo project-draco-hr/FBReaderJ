@@ -1,7 +1,6 @@
 {
-  myDatabase=db;
-  Collection=new BookCollection(db);
-  myRootTree=new RootTree(Collection);
+  Collection=collection;
+  myRootTree=new RootTree(collection);
   new FavoritesTree(myRootTree);
   new RecentBooksTree(myRootTree);
   new AuthorListTree(myRootTree);
