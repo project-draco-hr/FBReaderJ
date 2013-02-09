@@ -16,7 +16,7 @@ break;
 case returnTo:
 {
 final Bookmark b=((BookmarkDescription)description).Bookmark;
-b.delete();
+Collection.deleteBookmark(b);
 gotoBookmark(b);
 break;
 }

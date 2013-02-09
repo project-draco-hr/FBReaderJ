@@ -18,7 +18,7 @@
       return false;
     }
     final Bookmark b=bookmarks.get(0);
-    b.delete();
+    Collection.deleteBookmark(b);
     gotoBookmark(b);
     return true;
   }
