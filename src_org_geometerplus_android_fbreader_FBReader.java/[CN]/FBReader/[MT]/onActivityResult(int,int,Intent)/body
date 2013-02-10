@@ -2,7 +2,18 @@
 switch (requestCode) {
 case REQUEST_PREFERENCES:
 case REQUEST_BOOK_INFO:
-    onPreferencesUpdate(resultCode);
+    if (resultCode != RESULT_DO_NOTHING) {
+      final Book book=BookInfoActivity.bookByIntent(data);
+      if (book != null) {
+        getCollection().bindToService(this,new Runnable(){
+          public void run(){
+            myFBReaderApp.Collection.saveBook(book,true);
+            onPreferencesUpdate(book);
+          }
+        }
+);
+      }
+    }
   break;
 case REQUEST_CANCEL_MENU:
 myFBReaderApp.runCancelAction(resultCode - 1);
