@@ -1,3 +1,4 @@
 LibraryTree parent
 String series
+Author author
 int position

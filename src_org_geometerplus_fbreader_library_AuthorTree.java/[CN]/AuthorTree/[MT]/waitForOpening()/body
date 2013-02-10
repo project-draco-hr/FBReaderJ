@@ -1,6 +1,6 @@
 {
   clear();
-  for (  Book book : Collection.books(Author)) {
+  for (  Book book : Collection.booksForAuthor(Author)) {
     createBookSubTree(book);
   }
 }
