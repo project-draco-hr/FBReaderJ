@@ -1,5 +1,5 @@
 {
-  final LibraryTree tree=myLibrary.getSearchResultsTree();
+  final LibraryTree tree=myRootTree.getSearchResultsTree();
   if (tree != null) {
     openTree(tree);
   }

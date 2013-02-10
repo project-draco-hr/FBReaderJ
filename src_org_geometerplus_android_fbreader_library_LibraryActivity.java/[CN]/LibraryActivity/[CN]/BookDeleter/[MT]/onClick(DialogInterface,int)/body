@@ -7,5 +7,5 @@
     getListAdapter().replaceAll(getCurrentTree().subTrees());
     getListView().invalidateViews();
   }
-  myLibrary.Collection.removeBook(myBook,true);
+  myRootTree.Collection.removeBook(myBook,true);
 }

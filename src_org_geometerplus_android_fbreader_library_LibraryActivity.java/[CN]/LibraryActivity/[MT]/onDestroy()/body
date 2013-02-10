@@ -1,5 +1,5 @@
 {
-  myLibrary.Collection.removeListener(this);
-  myLibrary=null;
+  myRootTree.Collection.removeListener(this);
+  myRootTree=null;
   super.onDestroy();
 }

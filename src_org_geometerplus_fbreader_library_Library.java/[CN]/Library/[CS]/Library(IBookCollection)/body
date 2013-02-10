@@ -1,11 +1,3 @@
 {
-  Collection=collection;
   RootTree=new RootTree(collection);
-  new FavoritesTree(RootTree);
-  new RecentBooksTree(RootTree);
-  new AuthorListTree(RootTree);
-  new TitleListTree(RootTree);
-  new SeriesListTree(RootTree);
-  new TagListTree(RootTree);
-  new FileFirstLevelTree(RootTree);
 }

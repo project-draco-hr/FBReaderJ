@@ -1,10 +1,10 @@
 {
   if (requestCode == BOOK_INFO_REQUEST) {
     final Book book=BookInfoActivity.bookByIntent(intent);
-    ((BookCollectionShadow)myLibrary.Collection).bindToService(this,new Runnable(){
+    ((BookCollectionShadow)myRootTree.Collection).bindToService(this,new Runnable(){
       public void run(){
         if (book != null) {
-          myLibrary.Collection.saveBook(book,true);
+          myRootTree.Collection.saveBook(book,true);
           if (getCurrentTree().onBookEvent(BookEvent.Updated,book)) {
             getListAdapter().replaceAll(getCurrentTree().subTrees(),true);
             getListView().invalidateViews();

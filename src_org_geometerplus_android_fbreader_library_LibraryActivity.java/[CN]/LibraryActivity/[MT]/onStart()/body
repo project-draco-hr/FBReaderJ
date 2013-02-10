@@ -1,8 +1,8 @@
 {
   super.onStart();
-  ((BookCollectionShadow)myLibrary.Collection).bindToService(this,new Runnable(){
+  ((BookCollectionShadow)myRootTree.Collection).bindToService(this,new Runnable(){
     public void run(){
-      setProgressBarIndeterminateVisibility(!myLibrary.Collection.status().IsCompleted);
+      setProgressBarIndeterminateVisibility(!myRootTree.Collection.status().IsCompleted);
     }
   }
 );

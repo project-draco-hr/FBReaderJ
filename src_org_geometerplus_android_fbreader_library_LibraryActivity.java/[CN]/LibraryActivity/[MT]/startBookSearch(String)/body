@@ -2,15 +2,15 @@
   BookSearchPatternOption.setValue(pattern);
   final Thread searcher=new Thread("Library.searchBooks"){
     public void run(){
-      final SearchResultsTree oldSearchResults=myLibrary.getSearchResultsTree();
+      final SearchResultsTree oldSearchResults=myRootTree.getSearchResultsTree();
       if (oldSearchResults != null && pattern.equals(oldSearchResults.Pattern)) {
         onSearchEvent(true);
       }
- else       if (myLibrary.Collection.hasBooksForPattern(pattern)) {
+ else       if (myRootTree.Collection.hasBooksForPattern(pattern)) {
         if (oldSearchResults != null) {
           oldSearchResults.removeSelf();
         }
-        myLibrary.createSearchResultsTree(pattern);
+        myRootTree.createSearchResultsTree(pattern);
         onSearchEvent(true);
       }
  else {
