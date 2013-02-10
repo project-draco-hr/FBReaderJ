@@ -27,6 +27,6 @@
  catch (  BookReadingException e) {
     return null;
   }
-  book.save();
+  book.save(database,false);
   return book;
 }
