@@ -1,10 +1,11 @@
 {
-  myLibrary.removeBook(book,mode);
   if (getCurrentTree() instanceof FileTree) {
     getListAdapter().remove(new FileTree((FileTree)getCurrentTree(),book.File));
+    getListView().invalidateViews();
   }
- else {
+ else   if (getCurrentTree().onBookEvent(BookEvent.Removed,book)) {
     getListAdapter().replaceAll(getCurrentTree().subTrees());
+    getListView().invalidateViews();
   }
-  getListView().invalidateViews();
+  myLibrary.removeBook(book,mode);
 }
