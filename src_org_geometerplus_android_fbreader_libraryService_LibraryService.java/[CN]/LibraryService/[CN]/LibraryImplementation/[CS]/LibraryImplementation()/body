@@ -1,5 +1,10 @@
 {
   myCollection=null;
+  for (  String path : myCollection.bookDirectories()) {
+    final Observer observer=new Observer(path,myCollection);
+    observer.startWatching();
+    myFileObservers.add(observer);
+  }
   myCollection.addListener(new BookCollection.Listener(){
     public void onBookEvent(    BookEvent event,    Book book){
       final Intent intent=new Intent(BOOK_EVENT_ACTION);
@@ -14,4 +19,5 @@
     }
   }
 );
+  myCollection.startBuild();
 }
