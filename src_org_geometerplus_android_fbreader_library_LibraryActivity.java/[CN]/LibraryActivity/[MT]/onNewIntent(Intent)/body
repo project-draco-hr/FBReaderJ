@@ -2,8 +2,7 @@
   if (START_SEARCH_ACTION.equals(intent.getAction())) {
     final String pattern=intent.getStringExtra(SearchManager.QUERY);
     if (pattern != null && pattern.length() > 0) {
-      BookSearchPatternOption.setValue(pattern);
-      myLibrary.startBookSearch(pattern);
+      startBookSearch(pattern);
     }
   }
  else {

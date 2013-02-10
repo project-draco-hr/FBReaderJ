@@ -1,0 +1,3 @@
+{
+  return (SearchResultsTree)myRootTree.getSubTree(LibraryTree.ROOT_FOUND);
+}

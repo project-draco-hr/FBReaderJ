@@ -1,0 +1,24 @@
+{
+  BookSearchPatternOption.setValue(pattern);
+  final Thread searcher=new Thread("Library.searchBooks"){
+    public void run(){
+      final SearchResultsTree oldSearchResults=myLibrary.getSearchResultsTree();
+      if (oldSearchResults != null && pattern.equals(oldSearchResults.Pattern)) {
+        onSearchEvent(true);
+      }
+ else       if (myLibrary.Collection.hasBooksForPattern(pattern)) {
+        if (oldSearchResults != null) {
+          oldSearchResults.removeSelf();
+        }
+        myLibrary.createSearchResultsTree(pattern);
+        onSearchEvent(true);
+      }
+ else {
+        onSearchEvent(false);
+      }
+    }
+  }
+;
+  searcher.setPriority((Thread.MIN_PRIORITY + Thread.NORM_PRIORITY) / 2);
+  searcher.start();
+}
