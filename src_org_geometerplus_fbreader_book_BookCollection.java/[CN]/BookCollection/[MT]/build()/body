@@ -51,7 +51,7 @@
     file.setCached(false);
   }
   try {
-    final ZLFile helpFile=getHelpFile();
+    final ZLFile helpFile=BookUtil.getHelpFile();
     Book helpBook=savedBooksByFileId.get(fileInfos.getId(helpFile));
     if (helpBook == null) {
       helpBook=new Book(helpFile);
