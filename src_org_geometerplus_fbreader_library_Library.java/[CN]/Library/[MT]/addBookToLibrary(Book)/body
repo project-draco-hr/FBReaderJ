@@ -1,8 +1,0 @@
-{
-synchronized (this) {
-    final SearchResultsTree found=(SearchResultsTree)getFirstLevelTree(LibraryTree.ROOT_FOUND);
-    if (found != null && book.matches(found.getPattern())) {
-      found.createBookWithAuthorsSubTree(book);
-    }
-  }
-}

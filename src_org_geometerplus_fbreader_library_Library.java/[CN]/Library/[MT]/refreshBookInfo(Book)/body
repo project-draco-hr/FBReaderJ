@@ -3,7 +3,5 @@
     return;
   }
   Collection.saveBook(book,true);
-  removeFromTree(LibraryTree.ROOT_FOUND,book);
-  addBookToLibrary(book);
   fireModelChangedEvent(ChangeListener.Code.BookAdded);
 }
