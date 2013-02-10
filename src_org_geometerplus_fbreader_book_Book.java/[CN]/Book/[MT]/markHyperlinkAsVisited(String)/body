@@ -1,3 +1,0 @@
-{
-  markHyperlinkAsVisited(BooksDatabase.Instance(),linkId);
-}
