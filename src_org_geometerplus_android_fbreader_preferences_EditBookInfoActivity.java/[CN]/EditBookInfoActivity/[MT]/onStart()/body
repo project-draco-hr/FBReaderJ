@@ -1,0 +1,11 @@
+{
+  super.onStart();
+  myBook=BookInfoActivity.bookByIntent(getIntent());
+  if (myBook == null) {
+    finish();
+    return;
+  }
+  addPreference(new BookTitlePreference(this,Resource,"title",myBook));
+  addPreference(new LanguagePreference(this,Resource,"language",myBook));
+  addPreference(new EncodingPreference(this,Resource,"encoding",myBook));
+}
