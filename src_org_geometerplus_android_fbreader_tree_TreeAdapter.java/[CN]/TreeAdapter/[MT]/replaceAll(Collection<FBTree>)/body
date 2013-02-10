@@ -1,14 +1,3 @@
 {
-  myActivity.runOnUiThread(new Runnable(){
-    public void run(){
-      if (!myItems.equals(items)) {
-synchronized (myItems) {
-          myItems.clear();
-          myItems.addAll(items);
-        }
-        notifyDataSetChanged();
-      }
-    }
-  }
-);
+  replaceAll(items,false);
 }

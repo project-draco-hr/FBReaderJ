@@ -3,7 +3,11 @@ switch (event) {
 case Added:
     return containsBook(book) && createBookSubTree(book);
 case Updated:
-  return containsBook(book) ? createBookSubTree(book) : removeBook(book);
+{
+    boolean changed=removeBook(book);
+    changed|=containsBook(book) && createBookSubTree(book);
+    return changed;
+  }
 case Removed:
 default :
 return super.onBookEvent(event,book);
