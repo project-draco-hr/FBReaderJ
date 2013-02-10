@@ -3,4 +3,5 @@
   final FormatPlugin plugin=getPlugin(file);
   File=plugin.realBookFile(file);
   readMetaInfo(plugin);
+  myIsSaved=false;
 }
