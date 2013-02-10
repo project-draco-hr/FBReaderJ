@@ -3,5 +3,4 @@
     return;
   }
   Collection.saveBook(book,true);
-  fireModelChangedEvent(ChangeListener.Code.BookAdded);
 }

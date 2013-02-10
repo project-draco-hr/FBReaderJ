@@ -2,15 +2,12 @@
   runOnUiThread(new Runnable(){
     public void run(){
 switch (code) {
-default :
-        getListAdapter().replaceAll(getCurrentTree().subTrees());
-      break;
 case Found:
-    openSearchResults();
-  break;
+        openSearchResults();
+      break;
 case NotFound:
-UIUtil.showErrorMessage(LibraryActivity.this,"bookNotFound");
-break;
+    UIUtil.showErrorMessage(LibraryActivity.this,"bookNotFound");
+  break;
 }
 }
 }
