@@ -1,0 +1,12 @@
+{
+  final boolean isNull=Author.NULL.equals(author);
+  final LinkedList<Book> filtered=new LinkedList<Book>();
+  for (  Book b : books()) {
+    final List<Author> bookAuthors=b.authors();
+    final SeriesInfo info=b.getSeriesInfo();
+    if (info != null && series.equals(info.Title) && (isNull && bookAuthors.isEmpty() || bookAuthors.contains(author))) {
+      filtered.add(b);
+    }
+  }
+  return filtered;
+}

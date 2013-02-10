@@ -1,6 +1,13 @@
 {
   clear();
-  for (  Book book : Collection.booksForSeries(Series)) {
-    createBookInSeriesSubTree(book);
+  if (Author != null) {
+    for (    Book book : Collection.booksForSeriesAndAuthor(Series,Author)) {
+      createBookInSeriesSubTree(book);
+    }
+  }
+ else {
+    for (    Book book : Collection.booksForSeries(Series)) {
+      createBookInSeriesSubTree(book);
+    }
   }
 }
