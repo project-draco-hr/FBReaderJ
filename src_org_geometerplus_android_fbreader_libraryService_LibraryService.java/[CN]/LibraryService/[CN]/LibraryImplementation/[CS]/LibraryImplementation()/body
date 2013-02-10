@@ -12,9 +12,9 @@
       intent.putExtra("book",SerializerUtil.serialize(book));
       sendBroadcast(intent);
     }
-    public void onBuildEvent(    BuildEvent event){
+    public void onBuildEvent(    BookCollection.Status status){
       final Intent intent=new Intent(BUILD_EVENT_ACTION);
-      intent.putExtra("type",event.toString());
+      intent.putExtra("type",status.toString());
       sendBroadcast(intent);
     }
   }

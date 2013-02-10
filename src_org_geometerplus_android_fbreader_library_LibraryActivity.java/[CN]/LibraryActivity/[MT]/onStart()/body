@@ -1,4 +1,9 @@
 {
   super.onStart();
-  ((BookCollectionShadow)myLibrary.Collection).bindToService(this,null);
+  ((BookCollectionShadow)myLibrary.Collection).bindToService(this,new Runnable(){
+    public void run(){
+      setProgressBarIndeterminateVisibility(!myLibrary.Collection.status().IsCompleted);
+    }
+  }
+);
 }

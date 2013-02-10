@@ -1,23 +1,19 @@
 {
-  if (myBuildStatus != BuildStatus.NotStarted) {
-    fireBuildEvent(Listener.BuildEvent.NotStarted);
+  if (myStatus != Status.NotStarted) {
     return;
   }
-  myBuildStatus=BuildStatus.Started;
+  setStatus(Status.Started);
   final Thread builder=new Thread("Library.build"){
     public void run(){
       try {
-        fireBuildEvent(Listener.BuildEvent.Started);
         build();
-        fireBuildEvent(Listener.BuildEvent.Succeeded);
+        setStatus(Status.Succeeded);
       }
  catch (      Throwable t) {
-        fireBuildEvent(Listener.BuildEvent.Failed);
+        setStatus(Status.Failed);
       }
  finally {
-        fireBuildEvent(Listener.BuildEvent.Completed);
 synchronized (myFilesToRescan) {
-          myBuildStatus=BuildStatus.Finished;
           processFilesQueue();
         }
       }

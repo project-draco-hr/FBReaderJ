@@ -1,0 +1,11 @@
+{
+  if (myInterface == null) {
+    return Status.NotStarted;
+  }
+  try {
+    return Status.valueOf(myInterface.status());
+  }
+ catch (  Throwable t) {
+    return Status.NotStarted;
+  }
+}

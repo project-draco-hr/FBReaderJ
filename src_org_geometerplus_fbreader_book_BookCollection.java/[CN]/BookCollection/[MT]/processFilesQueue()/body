@@ -1,6 +1,6 @@
 {
 synchronized (myFilesToRescan) {
-    if (myBuildStatus != BuildStatus.Finished) {
+    if (!myStatus.IsCompleted) {
       return;
     }
     for (    ZLFile file : collectPhysicalFiles(myFilesToRescan)) {

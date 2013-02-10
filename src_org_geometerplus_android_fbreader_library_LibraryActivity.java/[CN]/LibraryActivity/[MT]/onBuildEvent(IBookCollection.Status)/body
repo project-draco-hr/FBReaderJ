@@ -1,0 +1,3 @@
+{
+  setProgressBarIndeterminateVisibility(!status.IsCompleted);
+}

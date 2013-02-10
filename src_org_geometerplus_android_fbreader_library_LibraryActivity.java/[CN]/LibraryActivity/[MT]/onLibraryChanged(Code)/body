@@ -5,12 +5,9 @@ switch (code) {
 default :
         getListAdapter().replaceAll(getCurrentTree().subTrees());
       break;
-case StatusChanged:
-    setProgressBarIndeterminateVisibility(!myLibrary.isUpToDate());
-  break;
 case Found:
-openSearchResults();
-break;
+    openSearchResults();
+  break;
 case NotFound:
 UIUtil.showErrorMessage(LibraryActivity.this,"bookNotFound");
 break;
