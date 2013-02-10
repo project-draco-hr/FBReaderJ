@@ -1,4 +1,5 @@
 {
+  AndroidFontUtil.clearFontCache();
   final BookModel model=myFBReaderApp.Model;
   if (book == null || model == null || model.Book == null) {
     return;
@@ -10,7 +11,6 @@
     myFBReaderApp.reloadBook();
   }
  else {
-    AndroidFontUtil.clearFontCache();
     ZLTextHyphenator.Instance().load(model.Book.getLanguage());
     myFBReaderApp.clearTextCaches();
     myFBReaderApp.getViewWidget().repaint();
