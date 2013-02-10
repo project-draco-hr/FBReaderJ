@@ -1,0 +1,4 @@
+{
+  ((BookCollectionShadow)myLibrary.Collection).unbind();
+  super.onStop();
+}

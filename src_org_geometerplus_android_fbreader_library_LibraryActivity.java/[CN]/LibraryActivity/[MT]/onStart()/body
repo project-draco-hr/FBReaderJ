@@ -1,0 +1,4 @@
+{
+  super.onStart();
+  ((BookCollectionShadow)myLibrary.Collection).bindToService(this,null);
+}

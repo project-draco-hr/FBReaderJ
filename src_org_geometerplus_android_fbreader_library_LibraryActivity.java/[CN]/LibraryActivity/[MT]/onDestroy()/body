@@ -1,4 +1,5 @@
 {
+  myLibrary.Collection.removeListener(this);
   myLibrary.removeChangeListener(this);
   myLibrary=null;
   super.onDestroy();
