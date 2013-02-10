@@ -1,5 +1,5 @@
 {
-  myCollection=null;
+  myCollection=new BookCollection(new SQLiteBooksDatabase(LibraryService.this,"LIBRARY_SERVICE"));
   for (  String path : myCollection.bookDirectories()) {
     final Observer observer=new Observer(path,myCollection);
     observer.startWatching();
