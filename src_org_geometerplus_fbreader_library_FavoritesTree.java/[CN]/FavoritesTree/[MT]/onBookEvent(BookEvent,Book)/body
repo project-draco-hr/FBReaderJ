@@ -1,12 +1,15 @@
 {
-  if (event == BookEvent.Added && Collection.isFavorite(book)) {
-    new BookWithAuthorsTree(this,book);
-    return true;
+switch (event) {
+case Added:
+    return Collection.isFavorite(book) && createBookWithAuthorsSubTree(book);
+case Updated:
+{
+    boolean changed=removeBook(book);
+    changed|=Collection.isFavorite(book) && createBookWithAuthorsSubTree(book);
+    return changed;
   }
-  if (event == BookEvent.Updated && !Collection.isFavorite(book)) {
-    return removeBook(book);
-  }
- else {
-    return super.onBookEvent(event,book);
-  }
+case Removed:
+default :
+return super.onBookEvent(event,book);
+}
 }
