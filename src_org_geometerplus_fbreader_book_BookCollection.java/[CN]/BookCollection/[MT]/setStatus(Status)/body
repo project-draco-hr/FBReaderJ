@@ -1,0 +1,4 @@
+{
+  myStatus=status;
+  fireBuildEvent(status);
+}

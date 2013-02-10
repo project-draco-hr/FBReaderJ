@@ -1,0 +1,13 @@
+{
+  runOnUiThread(new Runnable(){
+    public void run(){
+      if (found) {
+        openSearchResults();
+      }
+ else {
+        UIUtil.showErrorMessage(LibraryActivity.this,"bookNotFound");
+      }
+    }
+  }
+);
+}

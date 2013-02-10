@@ -1,0 +1,12 @@
+{
+  if (pattern == null || pattern.length() == 0) {
+    return false;
+  }
+  pattern=pattern.toLowerCase();
+  for (  Book b : books()) {
+    if (b.matches(pattern)) {
+      return true;
+    }
+  }
+  return false;
+}

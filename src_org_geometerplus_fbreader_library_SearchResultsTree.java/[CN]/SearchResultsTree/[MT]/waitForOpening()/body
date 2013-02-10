@@ -1,0 +1,6 @@
+{
+  clear();
+  for (  Book book : Collection.booksForPattern(Pattern)) {
+    createBookWithAuthorsSubTree(book);
+  }
+}

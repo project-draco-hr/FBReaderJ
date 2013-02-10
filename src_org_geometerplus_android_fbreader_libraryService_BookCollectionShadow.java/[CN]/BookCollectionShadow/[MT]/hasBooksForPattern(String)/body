@@ -1,0 +1,11 @@
+{
+  if (myInterface == null) {
+    return false;
+  }
+  try {
+    return myInterface.hasBooksForPattern(pattern);
+  }
+ catch (  RemoteException e) {
+    return false;
+  }
+}

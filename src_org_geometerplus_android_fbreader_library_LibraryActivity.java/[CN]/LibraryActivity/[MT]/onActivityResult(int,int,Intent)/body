@@ -1,11 +1,14 @@
 {
   if (requestCode == BOOK_INFO_REQUEST) {
     final Book book=BookInfoActivity.bookByIntent(intent);
-    ((BookCollectionShadow)myLibrary.Collection).bindToService(this,new Runnable(){
+    ((BookCollectionShadow)myRootTree.Collection).bindToService(this,new Runnable(){
       public void run(){
-        myLibrary.refreshBookInfo(book);
-        if (getCurrentTree().onBookEvent(BookEvent.Updated,book)) {
-          getListView().invalidateViews();
+        if (book != null) {
+          myRootTree.Collection.saveBook(book,true);
+          if (getCurrentTree().onBookEvent(BookEvent.Updated,book)) {
+            getListAdapter().replaceAll(getCurrentTree().subTrees(),true);
+            getListView().invalidateViews();
+          }
         }
       }
     }

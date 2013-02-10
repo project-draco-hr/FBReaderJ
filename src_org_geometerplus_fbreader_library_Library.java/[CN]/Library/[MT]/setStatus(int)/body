@@ -1,8 +1,0 @@
-{
-synchronized (myStatusLock) {
-    if (myStatusMask != status) {
-      myStatusMask=status;
-      fireModelChangedEvent(ChangeListener.Code.StatusChanged);
-    }
-  }
-}

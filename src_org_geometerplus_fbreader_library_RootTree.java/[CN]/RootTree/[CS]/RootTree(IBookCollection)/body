@@ -1,3 +1,10 @@
 {
   super(collection);
+  new FavoritesTree(this);
+  new RecentBooksTree(this);
+  new AuthorListTree(this);
+  new TitleListTree(this);
+  new SeriesListTree(this);
+  new TagListTree(this);
+  new FileFirstLevelTree(this);
 }

@@ -1,3 +1,6 @@
 {
-  getCurrentTree().onBookEvent(event,book);
+  if (getCurrentTree().onBookEvent(event,book)) {
+    getListAdapter().replaceAll(getCurrentTree().subTrees());
+    getListView().invalidateViews();
+  }
 }

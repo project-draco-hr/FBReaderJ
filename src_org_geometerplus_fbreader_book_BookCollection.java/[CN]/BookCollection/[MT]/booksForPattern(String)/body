@@ -2,6 +2,7 @@
   if (pattern == null || pattern.length() == 0) {
     return Collections.emptyList();
   }
+  pattern=pattern.toLowerCase();
   final LinkedList<Book> filtered=new LinkedList<Book>();
   for (  Book b : books()) {
     if (b.matches(pattern)) {
