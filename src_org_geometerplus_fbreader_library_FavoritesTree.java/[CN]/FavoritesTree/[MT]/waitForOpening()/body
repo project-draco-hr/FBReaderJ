@@ -1,6 +1,6 @@
 {
   clear();
   for (  Book book : Collection.favorites()) {
-    new BookWithAuthorsTree(this,book);
+    createBookWithAuthorsSubTree(book);
   }
 }

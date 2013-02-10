@@ -9,8 +9,7 @@ case Updated:
     return changed;
   }
 case Removed:
-return false;
 default :
-return false;
+return super.onBookEvent(event,book);
 }
 }
