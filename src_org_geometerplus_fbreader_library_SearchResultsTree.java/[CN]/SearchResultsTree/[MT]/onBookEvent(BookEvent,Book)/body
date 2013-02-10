@@ -1,0 +1,10 @@
+{
+switch (event) {
+case Added:
+    return book.matches(myPattern) && createBookWithAuthorsSubTree(book);
+case Updated:
+  return super.onBookEvent(event,book);
+default :
+return super.onBookEvent(event,book);
+}
+}
