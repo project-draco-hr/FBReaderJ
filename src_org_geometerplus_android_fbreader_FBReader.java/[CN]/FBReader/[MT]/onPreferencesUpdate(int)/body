@@ -17,8 +17,5 @@ case RESULT_REPAINT:
     myFBReaderApp.getViewWidget().repaint();
     break;
   }
-case RESULT_RELOAD_BOOK:
-myFBReaderApp.reloadBook();
-break;
 }
 }
