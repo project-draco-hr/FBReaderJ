@@ -17,14 +17,6 @@
     androidApplication.myMainWindow=new ZLAndroidApplicationWindow(myFBReaderApp);
     myFBReaderApp.initWindow();
   }
-  new Thread(){
-    public void run(){
-      openBook(getIntent(),getPostponedInitAction(),false);
-      myFBReaderApp.getViewWidget().repaint();
-    }
-  }
-.start();
-  myFBReaderApp.getViewWidget().repaint();
   final ZLAndroidLibrary zlibrary=(ZLAndroidLibrary)ZLibrary.Instance();
   myFullScreenFlag=zlibrary.ShowStatusBarOption.getValue() ? 0 : WindowManager.LayoutParams.FLAG_FULLSCREEN;
   getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,myFullScreenFlag);

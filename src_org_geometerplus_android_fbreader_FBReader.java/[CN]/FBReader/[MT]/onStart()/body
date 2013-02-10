@@ -1,5 +1,18 @@
 {
   super.onStart();
+  getCollection().bindToService(this,new Runnable(){
+    public void run(){
+      new Thread(){
+        public void run(){
+          openBook(getIntent(),getPostponedInitAction(),false);
+          myFBReaderApp.getViewWidget().repaint();
+        }
+      }
+.start();
+      myFBReaderApp.getViewWidget().repaint();
+    }
+  }
+);
   initPluginActions();
   final ZLAndroidLibrary zlibrary=(ZLAndroidLibrary)ZLibrary.Instance();
   final int fullScreenFlag=zlibrary.ShowStatusBarOption.getValue() ? 0 : WindowManager.LayoutParams.FLAG_FULLSCREEN;
