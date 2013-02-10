@@ -3,6 +3,6 @@
   if (result) {
     final String value=getValue();
     myBook.setLanguage(value.length() > 0 ? value : null);
-    ((EditBookInfoActivity)getContext()).setBookStatus(FBReader.RESULT_REPAINT);
+    ((EditBookInfoActivity)getContext()).updateResult();
   }
 }

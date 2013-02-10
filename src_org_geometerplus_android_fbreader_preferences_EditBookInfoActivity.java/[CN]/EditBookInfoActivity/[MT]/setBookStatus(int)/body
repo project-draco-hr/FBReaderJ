@@ -1,4 +1,0 @@
-{
-  myStatus=Math.max(myStatus,code);
-  setResult(myStatus,BookInfoActivity.intentByBook(myBook));
-}

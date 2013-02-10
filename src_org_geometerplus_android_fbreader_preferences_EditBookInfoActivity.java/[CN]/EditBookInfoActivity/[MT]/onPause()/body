@@ -1,6 +1,0 @@
-{
-  super.onPause();
-  if (myBook != null) {
-    myBook.save();
-  }
-}

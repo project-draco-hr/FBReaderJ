@@ -1,5 +1,5 @@
 {
   super.setValue(value);
   myBook.setTitle(value);
-  ((EditBookInfoActivity)getContext()).setBookStatus(FBReader.RESULT_REPAINT);
+  ((EditBookInfoActivity)getContext()).updateResult();
 }
