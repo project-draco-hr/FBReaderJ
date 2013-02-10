@@ -3,9 +3,6 @@
   Thread.setDefaultUncaughtExceptionHandler(new org.geometerplus.zlibrary.ui.android.library.UncaughtExceptionHandler(this));
   myDontReloadBook=getIntent().getBooleanExtra(FROM_READING_MODE_KEY,false);
   myBook=bookByIntent(getIntent());
-  if (SQLiteBooksDatabase.Instance() == null) {
-    new SQLiteBooksDatabase(this,"LIBRARY");
-  }
   requestWindowFeature(Window.FEATURE_NO_TITLE);
   setContentView(R.layout.book_info);
   myResult=FBReader.RESULT_DO_NOTHING;

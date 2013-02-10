@@ -5,6 +5,6 @@
     setupBookInfo(book);
     myDontReloadBook=false;
   }
-  myResult=Math.max(myResult,resultCode);
+  myResult=FBReader.RESULT_REPAINT;
   setResult(myResult,data);
 }
