@@ -1,8 +1,4 @@
 {
-  if (myBooks.containsKey(book.File)) {
-    return;
-  }
-  myBooks.put(book.File,book);
   final SearchResultsTree found=(SearchResultsTree)getFirstLevelTree(LibraryTree.ROOT_FOUND);
   if (found != null && book.matches(found.getPattern())) {
     found.createBookWithAuthorsSubTree(book);

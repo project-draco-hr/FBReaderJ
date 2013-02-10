@@ -2,7 +2,6 @@
   if (book == null) {
     return;
   }
-  myBooks.remove(book.File);
   removeFromTree(LibraryTree.ROOT_FOUND,book);
   addBookToLibrary(book);
   fireModelChangedEvent(ChangeListener.Code.BookAdded);
