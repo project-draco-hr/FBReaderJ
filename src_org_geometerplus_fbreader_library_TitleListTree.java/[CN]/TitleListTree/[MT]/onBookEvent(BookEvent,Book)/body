@@ -9,9 +9,22 @@ case Added:
       return createBookWithAuthorsSubTree(book);
     }
 case Removed:
-  return false;
+  if (myDoGroupByFirstLetter) {
+    return false;
+  }
+ else {
+    return super.onBookEvent(event,book);
+  }
 default :
 case Updated:
-return false;
+if (myDoGroupByFirstLetter) {
+  final String letter=TitleUtil.firstTitleLetter(book);
+  return letter != null && createTitleSubTree(letter);
+}
+ else {
+  boolean changed=removeBook(book);
+  changed|=containsBook(book) && createBookWithAuthorsSubTree(book);
+  return changed;
+}
 }
 }

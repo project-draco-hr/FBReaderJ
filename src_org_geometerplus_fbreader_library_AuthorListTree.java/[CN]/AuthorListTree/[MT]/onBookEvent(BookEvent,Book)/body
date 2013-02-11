@@ -1,6 +1,7 @@
 {
 switch (event) {
 case Added:
+case Updated:
 {
       final List<Author> bookAuthors=book.authors();
       boolean changed=false;
@@ -15,7 +16,6 @@ case Added:
 case Removed:
   return false;
 default :
-case Updated:
 return false;
 }
 }
