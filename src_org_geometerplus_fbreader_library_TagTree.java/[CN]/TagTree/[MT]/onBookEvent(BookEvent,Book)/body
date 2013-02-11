@@ -20,8 +20,27 @@ case Added:
       return changed;
     }
 case Removed:
-case Updated:
-default :
   return super.onBookEvent(event,book);
+case Updated:
+{
+  boolean changed=removeBook(book);
+  final List<Tag> bookTags=book.tags();
+  if (bookTags.isEmpty()) {
+    changed&=Tag.NULL.equals(Tag) && createBookWithAuthorsSubTree(book);
+  }
+ else {
+    for (    Tag t : bookTags) {
+      if (Tag.equals(t)) {
+        changed&=createBookWithAuthorsSubTree(book);
+      }
+ else       if (Tag.equals(t.Parent)) {
+        changed&=createTagSubTree(t);
+      }
+    }
+  }
+  return changed;
+}
+default :
+return super.onBookEvent(event,book);
 }
 }
