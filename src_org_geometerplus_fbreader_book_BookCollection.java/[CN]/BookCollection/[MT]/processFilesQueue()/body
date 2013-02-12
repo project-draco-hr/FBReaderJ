@@ -3,10 +3,31 @@ synchronized (myFilesToRescan) {
     if (!myStatus.IsCompleted) {
       return;
     }
+    final Set<ZLFile> filesToRemove=new HashSet<ZLFile>();
+    for (    String path : myFilesToRescan) {
+      path=new ZLPhysicalFile(new File(path)).getPath();
+synchronized (myBooksByFile) {
+        for (        ZLFile f : myBooksByFile.keySet()) {
+          if (f.getPath().startsWith(path)) {
+            filesToRemove.add(f);
+          }
+        }
+      }
+    }
     for (    ZLFile file : collectPhysicalFiles(myFilesToRescan)) {
+      filesToRemove.remove(file);
       final Book book=getBookByFile(file);
       if (book != null) {
         saveBook(book,false);
+      }
+    }
+    for (    ZLFile f : filesToRemove) {
+synchronized (myBooksByFile) {
+        final Book book=myBooksByFile.remove(f);
+        if (book != null) {
+          myBooksById.remove(book.getId());
+          fireBookEvent(BookEvent.Removed,book);
+        }
       }
     }
     myFilesToRescan.clear();
