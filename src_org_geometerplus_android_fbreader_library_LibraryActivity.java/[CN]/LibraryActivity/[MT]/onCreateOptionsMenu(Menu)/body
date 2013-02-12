@@ -1,5 +1,6 @@
 {
   super.onCreateOptionsMenu(menu);
   addMenuItem(menu,1,"localSearch",R.drawable.ic_menu_search);
+  addMenuItem(menu,2,"rescan",R.drawable.ic_menu_refresh);
   return true;
 }

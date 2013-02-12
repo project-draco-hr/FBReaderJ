@@ -1,0 +1,28 @@
+{
+  if (!force && myCollection != null && bookDirectories.equals(myCollection.BookDirectories)) {
+    return;
+  }
+  deactivate();
+  myFileObservers.clear();
+  myCollection=new BookCollection(myDatabase,bookDirectories);
+  for (  String path : bookDirectories) {
+    final Observer observer=new Observer(path,myCollection);
+    observer.startWatching();
+    myFileObservers.add(observer);
+  }
+  myCollection.addListener(new BookCollection.Listener(){
+    public void onBookEvent(    BookEvent event,    Book book){
+      final Intent intent=new Intent(BOOK_EVENT_ACTION);
+      intent.putExtra("type",event.toString());
+      intent.putExtra("book",SerializerUtil.serialize(book));
+      sendBroadcast(intent);
+    }
+    public void onBuildEvent(    BookCollection.Status status){
+      final Intent intent=new Intent(BUILD_EVENT_ACTION);
+      intent.putExtra("type",status.toString());
+      sendBroadcast(intent);
+    }
+  }
+);
+  myCollection.startBuild();
+}

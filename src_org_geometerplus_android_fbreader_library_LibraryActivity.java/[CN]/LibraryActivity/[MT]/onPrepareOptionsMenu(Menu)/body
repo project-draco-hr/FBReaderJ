@@ -1,0 +1,5 @@
+{
+  super.onPrepareOptionsMenu(menu);
+  menu.findItem(2).setEnabled(myRootTree.Collection.status().IsCompleted);
+  return true;
+}
