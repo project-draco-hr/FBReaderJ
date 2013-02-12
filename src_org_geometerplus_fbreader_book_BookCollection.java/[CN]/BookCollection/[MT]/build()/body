@@ -42,7 +42,7 @@
   myDatabase.setExistingFlag(orphanedBooks,false);
   final Map<Long,Book> orphanedBooksByFileId=myDatabase.loadBooks(fileInfos,false);
   final Set<Book> newBooks=new HashSet<Book>();
-  final List<ZLPhysicalFile> physicalFilesList=collectPhysicalFiles(bookDirectories());
+  final List<ZLPhysicalFile> physicalFilesList=collectPhysicalFiles(BookDirectories);
   for (  ZLPhysicalFile file : physicalFilesList) {
     if (physicalFiles.contains(file)) {
       continue;

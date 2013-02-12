@@ -1,4 +1,4 @@
 Menu menu
-int index
+int id
 String resourceKey
 int iconId

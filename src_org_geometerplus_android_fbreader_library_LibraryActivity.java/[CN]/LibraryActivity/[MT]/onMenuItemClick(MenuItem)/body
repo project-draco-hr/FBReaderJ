@@ -2,7 +2,12 @@
 switch (item.getItemId()) {
 case 1:
     return onSearchRequested();
+case 2:
+  if (myRootTree.Collection.status().IsCompleted) {
+    ((BookCollectionShadow)myRootTree.Collection).reset(true);
+  }
+return true;
 default :
-  return true;
+return true;
 }
 }

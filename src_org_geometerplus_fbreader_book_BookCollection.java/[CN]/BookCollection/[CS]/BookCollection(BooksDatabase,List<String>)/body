@@ -1,0 +1,4 @@
+{
+  myDatabase=db;
+  BookDirectories=Collections.unmodifiableList(new ArrayList<String>(bookDirectories));
+}

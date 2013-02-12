@@ -4,7 +4,13 @@
   final ZLAndroidLibrary androidLibrary=(ZLAndroidLibrary)ZLAndroidLibrary.Instance();
   final ColorProfile profile=fbReader.getColorProfile();
   final Screen directoriesScreen=createPreferenceScreen("directories");
-  directoriesScreen.addOption(Paths.BooksDirectoryOption(),"books");
+  directoriesScreen.addPreference(new ZLStringOptionPreference(this,Paths.BooksDirectoryOption(),directoriesScreen.Resource,"books"){
+    protected void setValue(    String value){
+      super.setValue(value);
+      myCollection.reset(false);
+    }
+  }
+);
   directoriesScreen.addOption(Paths.FontsDirectoryOption(),"fonts");
   directoriesScreen.addOption(Paths.WallpapersDirectoryOption(),"wallpapers");
   final Screen appearanceScreen=createPreferenceScreen("appearance");
