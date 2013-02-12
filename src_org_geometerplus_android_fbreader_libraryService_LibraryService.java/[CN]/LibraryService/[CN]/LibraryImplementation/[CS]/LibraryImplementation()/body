@@ -1,4 +1,4 @@
 {
-  myDatabase=new SQLiteBooksDatabase.Instance(LibraryService.this);
+  myDatabase=SQLiteBooksDatabase.Instance(LibraryService.this);
   reset(Collections.singletonList(Paths.BooksDirectoryOption().getValue()),true);
 }
