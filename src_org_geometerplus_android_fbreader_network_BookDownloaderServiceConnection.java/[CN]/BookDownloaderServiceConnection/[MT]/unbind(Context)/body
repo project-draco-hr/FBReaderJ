@@ -1,0 +1,4 @@
+{
+  myAction=null;
+  context.unbindService(this);
+}

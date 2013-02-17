@@ -1,5 +1,13 @@
 {
   super.onStart();
   OrientationUtil.setOrientation(this,getIntent());
+  myConnection.bindToService(this,new Runnable(){
+    public void run(){
+      if (!myInitializerStarted) {
+        UIUtil.wait("loadingNetworkBookInfo",myInitializer,NetworkBookInfoActivity.this);
+      }
+    }
+  }
+);
   NetworkLibrary.Instance().addChangeListener(this);
 }

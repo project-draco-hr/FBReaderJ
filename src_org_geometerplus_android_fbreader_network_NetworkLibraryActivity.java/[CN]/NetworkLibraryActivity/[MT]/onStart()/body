@@ -1,4 +1,5 @@
 {
   super.onStart();
+  bindService(new Intent(getApplicationContext(),BookDownloaderService.class),Connection,BIND_AUTO_CREATE);
   NetworkLibrary.Instance().addChangeListener(this);
 }

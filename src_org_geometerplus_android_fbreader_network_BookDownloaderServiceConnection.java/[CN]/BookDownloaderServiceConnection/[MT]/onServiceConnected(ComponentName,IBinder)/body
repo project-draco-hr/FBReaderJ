@@ -1,3 +1,7 @@
 {
   myInterface=BookDownloaderInterface.Stub.asInterface(service);
+  if (myAction != null) {
+    myAction.run();
+    myAction=null;
+  }
 }

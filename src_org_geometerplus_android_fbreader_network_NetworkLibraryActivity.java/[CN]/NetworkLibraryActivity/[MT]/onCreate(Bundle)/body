@@ -2,8 +2,6 @@
   super.onCreate(icicle);
   AuthenticationActivity.initCredentialsCreator(this);
   SQLiteCookieDatabase.init(this);
-  Connection=new BookDownloaderServiceConnection();
-  bindService(new Intent(getApplicationContext(),BookDownloaderService.class),Connection,BIND_AUTO_CREATE);
   setListAdapter(new NetworkLibraryAdapter(this));
   final Intent intent=getIntent();
   init(intent);

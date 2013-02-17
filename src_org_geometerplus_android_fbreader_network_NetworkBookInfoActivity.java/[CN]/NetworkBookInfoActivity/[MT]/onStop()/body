@@ -1,4 +1,5 @@
 {
+  myConnection.unbind(this);
   NetworkLibrary.Instance().removeChangeListener(this);
   super.onStop();
 }

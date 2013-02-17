@@ -1,7 +1,4 @@
 {
   super.onResume();
   NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
-  if (!myInitializerStarted) {
-    UIUtil.wait("loadingNetworkBookInfo",myInitializer,this);
-  }
 }
