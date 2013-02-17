@@ -1,6 +1,8 @@
 {
   if (myInterface != null) {
-    action.run();
+    if (action != null) {
+      action.run();
+    }
   }
  else {
     myAction=action;

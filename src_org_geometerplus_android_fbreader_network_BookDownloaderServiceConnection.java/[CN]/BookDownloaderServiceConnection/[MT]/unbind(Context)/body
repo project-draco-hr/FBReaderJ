@@ -1,4 +1,7 @@
 {
   myAction=null;
-  context.unbindService(this);
+  if (myInterface != null) {
+    context.unbindService(this);
+    myInterface=null;
+  }
 }

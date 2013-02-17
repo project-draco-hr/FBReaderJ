@@ -1,0 +1,8 @@
+{
+  Connection.bindToService(this,new Runnable(){
+    public void run(){
+      getListView().invalidateViews();
+    }
+  }
+);
+}
