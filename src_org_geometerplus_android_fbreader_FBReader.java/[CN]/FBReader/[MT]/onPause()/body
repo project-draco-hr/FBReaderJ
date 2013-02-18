@@ -1,5 +1,9 @@
 {
-  unregisterReceiver(myBatteryInfoReceiver);
+  try {
+    unregisterReceiver(myBatteryInfoReceiver);
+  }
+ catch (  IllegalArgumentException e) {
+  }
   myFBReaderApp.stopTimer();
   switchWakeLock(false);
   if (getZLibrary().DisableButtonLightsOption.getValue()) {
