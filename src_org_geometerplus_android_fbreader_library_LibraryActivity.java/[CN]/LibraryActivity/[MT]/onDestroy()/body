@@ -1,5 +1,4 @@
 {
   myRootTree.Collection.removeListener(this);
-  myRootTree=null;
   super.onDestroy();
 }

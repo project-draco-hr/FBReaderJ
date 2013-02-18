@@ -2,8 +2,8 @@
   super.onCreate(icicle);
   if (myRootTree == null) {
     myRootTree=new RootTree(new BookCollectionShadow());
-    myRootTree.Collection.addListener(this);
   }
+  myRootTree.Collection.addListener(this);
   mySelectedBook=SerializerUtil.deserializeBook(getIntent().getStringExtra(FBReader.BOOK_KEY));
   new LibraryTreeAdapter(this);
   init(getIntent());
