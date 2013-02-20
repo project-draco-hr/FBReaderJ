@@ -1,7 +1,10 @@
 {
   final List<Bookmark> bookmarks=new ArrayList<Bookmark>(xmlList.size());
   for (  String xml : xmlList) {
-    bookmarks.add(defaultSerializer.deserializeBookmark(xml));
+    final Bookmark b=defaultSerializer.deserializeBookmark(xml);
+    if (b != null) {
+      bookmarks.add(b);
+    }
   }
   return bookmarks;
 }
