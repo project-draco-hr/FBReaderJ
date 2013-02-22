@@ -3,6 +3,7 @@
     return;
   }
   myTitle=book.myTitle;
+  mySortKey=null;
   myEncoding=book.myEncoding;
   myLanguage=book.myLanguage;
   myAuthors=book.myAuthors != null ? new ArrayList<Author>(book.myAuthors) : null;

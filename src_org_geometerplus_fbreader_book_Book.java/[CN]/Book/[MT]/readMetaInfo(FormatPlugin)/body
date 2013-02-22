@@ -2,6 +2,7 @@
   myEncoding=null;
   myLanguage=null;
   myTitle=null;
+  mySortKey=null;
   myAuthors=null;
   myTags=null;
   mySeriesInfo=null;
