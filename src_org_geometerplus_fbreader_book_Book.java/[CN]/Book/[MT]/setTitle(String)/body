@@ -2,5 +2,6 @@
   if (!MiscUtil.equals(myTitle,title)) {
     myTitle=title;
     myIsSaved=false;
+    mySortKey=null;
   }
 }
