@@ -1,3 +1,0 @@
-{
-  return bookTree1.Book.getSortKey().compareTo(bookTree2.Book.getSortKey());
-}
