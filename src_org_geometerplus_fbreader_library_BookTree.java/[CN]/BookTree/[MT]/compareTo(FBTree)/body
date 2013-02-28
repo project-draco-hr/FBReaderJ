@@ -1,11 +1,5 @@
 {
-  final int cmp;
-  if (tree instanceof BookTree) {
-    cmp=getComparator().compare(this,(BookTree)tree);
-  }
- else {
-    cmp=super.compareTo(tree);
-  }
+  final int cmp=super.compareTo(tree);
   if (cmp == 0 && tree instanceof BookTree) {
     final Book b=((BookTree)tree).Book;
     if (Book != null && b != null) {

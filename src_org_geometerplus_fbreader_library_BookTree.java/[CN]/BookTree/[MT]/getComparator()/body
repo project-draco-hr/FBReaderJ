@@ -1,6 +1,0 @@
-{
-  if (myComparator == null) {
-    return myComparator=new TitleSort();
-  }
-  return myComparator;
-}
