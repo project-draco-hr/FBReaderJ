@@ -1,4 +1,0 @@
-{
-  super.onCreate();
-  startService(new Intent(this,LibraryService.class));
-}
