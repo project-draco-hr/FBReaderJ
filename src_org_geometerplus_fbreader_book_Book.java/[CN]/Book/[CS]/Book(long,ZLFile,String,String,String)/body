@@ -1,7 +1,7 @@
 {
   myId=id;
   File=file;
-  myTitle=title;
+  myTitle=new Title(title,language);
   myEncoding=encoding;
   myLanguage=language;
   myIsSaved=true;

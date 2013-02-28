@@ -1,6 +1,0 @@
-{
-  if (mySortKey == null) {
-    mySortKey=TitleSort.trim(myTitle,myLanguage);
-  }
-  return mySortKey;
-}

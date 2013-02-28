@@ -1,7 +1,6 @@
 {
   if (!MiscUtil.equals(myTitle,title)) {
-    myTitle=title;
+    myTitle.setTitle(title);
     myIsSaved=false;
-    mySortKey=null;
   }
 }
