@@ -1,12 +1,12 @@
 {
   clear();
   if (Author != null) {
-    for (    Book book : Collection.booksForSeriesAndAuthor(Series,Author)) {
+    for (    Book book : Collection.booksForSeriesAndAuthor(Series.getTitle(),Author)) {
       createBookInSeriesSubTree(book);
     }
   }
  else {
-    for (    Book book : Collection.booksForSeries(Series)) {
+    for (    Book book : Collection.booksForSeries(Series.getTitle())) {
       createBookInSeriesSubTree(book);
     }
   }

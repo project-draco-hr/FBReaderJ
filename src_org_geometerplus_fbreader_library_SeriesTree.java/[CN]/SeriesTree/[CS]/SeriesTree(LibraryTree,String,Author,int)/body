@@ -1,5 +1,5 @@
 {
   super(parent,position);
-  Series=series;
+  Series=new Title(series,null);
   Author=author;
 }

@@ -1,5 +1,5 @@
 {
   super(collection);
-  Series=series;
+  Series=new Title(series,null);
   Author=author;
 }
