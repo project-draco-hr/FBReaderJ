@@ -6,6 +6,5 @@
       return Book.File.getPath().compareTo(b.File.getPath());
     }
   }
-  tree.compareTo(Parent);
   return cmp;
 }

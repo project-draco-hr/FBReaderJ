@@ -40,9 +40,11 @@ final String result=buffer.toString();
 if (result.startsWith("a is")) {
 return result;
 }
-for (String a : ARTICLES.get(language.toLowerCase())) {
+if (null != ARTICLES.get(language)) {
+for (String a : ARTICLES.get(language)) {
 if (result.startsWith(a)) {
 return result.substring(a.length());
+}
 }
 }
 return result;

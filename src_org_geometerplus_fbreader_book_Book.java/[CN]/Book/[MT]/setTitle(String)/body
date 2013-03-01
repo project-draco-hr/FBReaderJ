@@ -1,6 +1,6 @@
 {
-  if (!MiscUtil.equals(myTitle.getTitle(),title)) {
-    myTitle.setTitle(title);
+  if (!MiscUtil.equals(myInfo.getTitle(),title)) {
+    myInfo.setTitle(title);
     myIsSaved=false;
   }
 }

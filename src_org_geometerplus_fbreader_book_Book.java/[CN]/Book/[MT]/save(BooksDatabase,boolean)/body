@@ -6,10 +6,10 @@
     public void run(){
       if (myId >= 0) {
         final FileInfoSet fileInfos=new FileInfoSet(database,File);
-        database.updateBookInfo(myId,fileInfos.getId(File),myEncoding,myLanguage,myTitle.getTitle());
+        database.updateBookInfo(myId,fileInfos.getId(File),myEncoding,myInfo.getLanguage(),myInfo.getTitle());
       }
  else {
-        myId=database.insertBookInfo(File,myEncoding,myLanguage,myTitle.getTitle());
+        myId=database.insertBookInfo(File,myEncoding,myInfo.getLanguage(),myInfo.getTitle());
         if (myId != -1 && myVisitedHyperlinks != null) {
           for (          String linkId : myVisitedHyperlinks) {
             database.addVisitedHyperlink(myId,linkId);

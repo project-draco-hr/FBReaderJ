@@ -2,9 +2,8 @@
   if (myId != book.myId) {
     return;
   }
-  myTitle=book.myTitle;
+  myInfo=book.myInfo;
   myEncoding=book.myEncoding;
-  myLanguage=book.myLanguage;
   myAuthors=book.myAuthors != null ? new ArrayList<Author>(book.myAuthors) : null;
   myTags=book.myTags != null ? new ArrayList<Tag>(book.myTags) : null;
   mySeriesInfo=book.mySeriesInfo;

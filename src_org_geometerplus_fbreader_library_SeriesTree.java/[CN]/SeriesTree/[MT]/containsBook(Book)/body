@@ -3,5 +3,5 @@
     return false;
   }
   final SeriesInfo info=book.getSeriesInfo();
-  return info != null && Series.equals(info.Title);
+  return info != null && Series.getTitle().equals(info.Title);
 }

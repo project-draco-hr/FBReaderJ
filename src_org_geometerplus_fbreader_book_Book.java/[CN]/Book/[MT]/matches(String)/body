@@ -1,5 +1,5 @@
 {
-  if (myTitle.getTitle() != null && MiscUtil.matchesIgnoreCase(myTitle.getTitle(),pattern)) {
+  if (myInfo.getTitle() != null && MiscUtil.matchesIgnoreCase(myInfo.getTitle(),pattern)) {
     return true;
   }
   if (mySeriesInfo != null && MiscUtil.matchesIgnoreCase(mySeriesInfo.Title,pattern)) {

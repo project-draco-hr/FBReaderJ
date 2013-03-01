@@ -1,6 +1,6 @@
 {
-  if (!MiscUtil.equals(myLanguage,language)) {
-    myLanguage=language;
+  if (!MiscUtil.equals(myInfo.getLanguage(),language)) {
+    myInfo.setLanguage(language);
     myIsSaved=false;
   }
 }
