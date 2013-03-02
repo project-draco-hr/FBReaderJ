@@ -1,0 +1,4 @@
+{
+  getCollection().unbind();
+  super.onDestroy();
+}

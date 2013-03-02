@@ -1,4 +1,0 @@
-{
-  ((BookCollectionShadow)myRootTree.Collection).unbind();
-  super.onStop();
-}
