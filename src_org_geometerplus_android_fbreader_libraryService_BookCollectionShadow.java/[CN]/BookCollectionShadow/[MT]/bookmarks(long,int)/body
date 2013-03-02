@@ -3,7 +3,7 @@
     return Collections.emptyList();
   }
   try {
-    return SerializerUtil.deserializeBookmarkList(myInterface.allBookmarks());
+    return SerializerUtil.deserializeBookmarkList(myInterface.bookmarks(fromId,limitCount));
   }
  catch (  RemoteException e) {
     return Collections.emptyList();
