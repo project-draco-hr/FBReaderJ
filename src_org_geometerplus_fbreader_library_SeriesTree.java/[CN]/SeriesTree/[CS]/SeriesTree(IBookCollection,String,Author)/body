@@ -1,5 +1,6 @@
 {
   super(collection);
-  Series=new Title(series,null);
+  String language="en";
+  Series=new Title(series,language);
   Author=author;
 }
