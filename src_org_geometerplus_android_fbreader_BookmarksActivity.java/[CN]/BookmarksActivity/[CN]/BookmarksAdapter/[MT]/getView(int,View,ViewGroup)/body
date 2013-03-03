@@ -13,7 +13,7 @@
  else {
     imageView.setVisibility(View.GONE);
     textView.setText(bookmark.getText());
-    if (myCurrentBook) {
+    if (myShowAddBookmarkItem) {
       bookTitleView.setVisibility(View.GONE);
     }
  else {

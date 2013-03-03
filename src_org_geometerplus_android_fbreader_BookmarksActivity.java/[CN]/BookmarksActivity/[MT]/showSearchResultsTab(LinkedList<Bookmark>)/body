@@ -1,13 +1,13 @@
 {
   if (mySearchResultsView == null) {
     mySearchResultsView=createTab("found",R.id.search_results);
-    new BookmarksAdapter(mySearchResultsView,mySearchResults,false);
+    mySearchResultsAdapter=new BookmarksAdapter(mySearchResultsView,false);
   }
  else {
-    mySearchResults.clear();
+    mySearchResultsAdapter.clear();
   }
-  mySearchResults.addAll(results);
-  mySearchResultsView.invalidateViews();
-  mySearchResultsView.requestLayout();
+  for (  Bookmark b : results) {
+    mySearchResultsAdapter.add(b);
+  }
   getTabHost().setCurrentTabByTag("found");
 }
