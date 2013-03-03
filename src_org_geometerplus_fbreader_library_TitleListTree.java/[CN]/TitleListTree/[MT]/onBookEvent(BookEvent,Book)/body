@@ -23,7 +23,7 @@ if (myDoGroupByFirstLetter) {
 }
  else {
   boolean changed=removeBook(book);
-  changed|=containsBook(book) && createBookWithAuthorsSubTree(book);
+  changed|=createBookWithAuthorsSubTree(book);
   return changed;
 }
 }

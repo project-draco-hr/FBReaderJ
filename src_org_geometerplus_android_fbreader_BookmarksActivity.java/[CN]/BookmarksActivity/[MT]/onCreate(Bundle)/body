@@ -7,4 +7,5 @@
   manager.setOnCancelListener(null);
   final TabHost host=getTabHost();
   LayoutInflater.from(this).inflate(R.layout.bookmarks,host.getTabContentView(),true);
+  myBook=SerializerUtil.deserializeBook(getIntent().getStringExtra(FBReader.BOOK_KEY));
 }

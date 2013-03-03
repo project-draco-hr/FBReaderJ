@@ -1,6 +1,5 @@
 {
   ApiServerImplementation.sendEvent(this,ApiListener.EVENT_READ_MODE_CLOSED);
   PopupPanel.removeAllWindows(myFBReaderApp,this);
-  getCollection().unbind();
   super.onStop();
 }

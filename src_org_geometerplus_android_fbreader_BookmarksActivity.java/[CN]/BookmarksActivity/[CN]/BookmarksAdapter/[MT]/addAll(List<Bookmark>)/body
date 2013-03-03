@@ -1,0 +1,16 @@
+{
+  runOnUiThread(new Runnable(){
+    public void run(){
+synchronized (myBookmarks) {
+        for (        Bookmark b : bookmarks) {
+          final int position=Collections.binarySearch(myBookmarks,b,myComparator);
+          if (position < 0) {
+            myBookmarks.add(-position - 1,b);
+          }
+        }
+      }
+      notifyDataSetChanged();
+    }
+  }
+);
+}

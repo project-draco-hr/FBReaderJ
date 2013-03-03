@@ -1,0 +1,23 @@
+{
+  long id=0;
+  while (true) {
+    final List<Bookmark> allBookmarks=myCollection.bookmarks(id,20);
+    if (allBookmarks.isEmpty()) {
+      break;
+    }
+ else {
+      id=allBookmarks.get(allBookmarks.size() - 1).getId() + 1;
+    }
+    myAllBooksAdapter.addAll(allBookmarks);
+    if (myBook != null) {
+      final List<Bookmark> thisBookBookmarks=new LinkedList<Bookmark>();
+      final long bookId=myBook.getId();
+      for (      Bookmark b : allBookmarks) {
+        if (b.getBookId() == bookId) {
+          thisBookBookmarks.add(b);
+        }
+      }
+      myThisBookAdapter.addAll(thisBookBookmarks);
+    }
+  }
+}

@@ -9,4 +9,10 @@
   init(getIntent());
   getListView().setTextFilterEnabled(true);
   getListView().setOnCreateContextMenuListener(this);
+  ((BookCollectionShadow)myRootTree.Collection).bindToService(this,new Runnable(){
+    public void run(){
+      setProgressBarIndeterminateVisibility(!myRootTree.Collection.status().IsCompleted);
+    }
+  }
+);
 }

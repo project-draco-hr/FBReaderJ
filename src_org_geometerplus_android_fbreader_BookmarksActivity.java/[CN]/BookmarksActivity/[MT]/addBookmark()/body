@@ -2,8 +2,7 @@
   final Bookmark bookmark=SerializerUtil.deserializeBookmark(getIntent().getStringExtra(FBReader.BOOKMARK_KEY));
   if (bookmark != null) {
     myCollection.saveBookmark(bookmark);
-    myThisBookBookmarks.add(0,bookmark);
-    myAllBooksBookmarks.add(0,bookmark);
-    invalidateAllViews();
+    myThisBookAdapter.add(bookmark);
+    myAllBooksAdapter.add(bookmark);
   }
 }

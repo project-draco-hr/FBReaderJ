@@ -1,4 +1,5 @@
 {
   myRootTree.Collection.removeListener(this);
+  ((BookCollectionShadow)myRootTree.Collection).unbind();
   super.onDestroy();
 }
