@@ -5,7 +5,7 @@
       if (myAllBooksAdapter != null) {
         return;
       }
-      if (myBook != null) {
+      if (myBookId != -1) {
         myThisBookAdapter=new BookmarksAdapter(createTab("thisBook",R.id.this_book),true);
       }
  else {

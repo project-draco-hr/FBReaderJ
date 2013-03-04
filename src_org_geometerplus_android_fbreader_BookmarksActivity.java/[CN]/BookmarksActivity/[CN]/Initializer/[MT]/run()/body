@@ -9,11 +9,10 @@
       id=allBookmarks.get(allBookmarks.size() - 1).getId() + 1;
     }
     myAllBooksAdapter.addAll(allBookmarks);
-    if (myBook != null) {
+    if (myBookId != -1) {
       final List<Bookmark> thisBookBookmarks=new LinkedList<Bookmark>();
-      final long bookId=myBook.getId();
       for (      Bookmark b : allBookmarks) {
-        if (b.getBookId() == bookId) {
+        if (b.getBookId() == myBookId) {
           thisBookBookmarks.add(b);
         }
       }
