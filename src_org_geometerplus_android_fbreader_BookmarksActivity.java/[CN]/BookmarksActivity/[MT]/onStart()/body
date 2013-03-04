@@ -6,8 +6,7 @@
         return;
       }
       if (myBook != null) {
-        myThisBookView=createTab("thisBook",R.id.this_book);
-        myThisBookAdapter=new BookmarksAdapter(myThisBookView,true);
+        myThisBookAdapter=new BookmarksAdapter(createTab("thisBook",R.id.this_book),true);
       }
  else {
         findViewById(R.id.this_book).setVisibility(View.GONE);

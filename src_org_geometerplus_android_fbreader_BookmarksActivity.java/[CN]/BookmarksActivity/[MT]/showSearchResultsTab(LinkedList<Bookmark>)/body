@@ -1,7 +1,6 @@
 {
-  if (mySearchResultsView == null) {
-    mySearchResultsView=createTab("found",R.id.search_results);
-    mySearchResultsAdapter=new BookmarksAdapter(mySearchResultsView,false);
+  if (mySearchResultsAdapter == null) {
+    mySearchResultsAdapter=new BookmarksAdapter(createTab("found",R.id.search_results),false);
   }
  else {
     mySearchResultsAdapter.clear();
