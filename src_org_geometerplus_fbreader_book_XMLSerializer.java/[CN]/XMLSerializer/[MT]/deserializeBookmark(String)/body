@@ -1,5 +1,10 @@
 {
-  final BookmarkDeserializer deserializer=new BookmarkDeserializer();
-  deserializer.readQuietly(xml);
-  return deserializer.getBookmark();
+  try {
+    final BookmarkDeserializer deserializer=new BookmarkDeserializer();
+    Xml.parse(xml,deserializer);
+    return deserializer.getBookmark();
+  }
+ catch (  SAXException e) {
+    return null;
+  }
 }

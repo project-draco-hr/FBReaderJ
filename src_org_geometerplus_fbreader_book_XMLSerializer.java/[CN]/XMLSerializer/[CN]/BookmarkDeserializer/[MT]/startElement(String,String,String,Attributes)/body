@@ -1,8 +1,8 @@
 {
 switch (myState) {
 case READ_NOTHING:
-    if (!"bookmark".equals(tag)) {
-      return true;
+    if (!"bookmark".equals(qName)) {
+      throw new SAXException("Unexpected tag " + qName);
     }
   try {
     myId=Long.parseLong(attributes.getValue("id"));
@@ -10,23 +10,23 @@ case READ_NOTHING:
     myState=State.READ_BOOKMARK;
   }
  catch (  Exception e) {
-    return true;
+    throw new SAXException("XML parsing error",e);
   }
 break;
 case READ_BOOKMARK:
-if ("book".equals(tag)) {
+if ("book".equals(qName)) {
 try {
   myBookId=Long.parseLong(attributes.getValue("id"));
   myBookTitle=attributes.getValue("title");
 }
  catch (Exception e) {
-  return true;
+  throw new SAXException("XML parsing error",e);
 }
 }
- else if ("text".equals(tag)) {
+ else if ("text".equals(qName)) {
 myState=State.READ_TEXT;
 }
- else if ("history".equals(tag)) {
+ else if ("history".equals(qName)) {
 try {
   myCreationDate=parseDate(attributes.getValue("date-creation"));
   myModificationDate=parseDate(attributes.getValue("date-modification"));
@@ -34,10 +34,10 @@ try {
   myAccessCount=Integer.parseInt(attributes.getValue("access-count"));
 }
  catch (Exception e) {
-  return true;
+  throw new SAXException("XML parsing error",e);
 }
 }
- else if ("position".equals(tag)) {
+ else if ("position".equals(qName)) {
 try {
   myModelId=attributes.getValue("model");
   myParagraphIndex=Integer.parseInt(attributes.getValue("paragraph"));
@@ -45,15 +45,14 @@ try {
   myCharIndex=Integer.parseInt(attributes.getValue("char"));
 }
  catch (Exception e) {
-  return true;
+  throw new SAXException("XML parsing error",e);
 }
 }
  else {
-return true;
+throw new SAXException("Unexpected tag " + qName);
 }
 break;
 case READ_TEXT:
-return true;
+throw new SAXException("Unexpected tag " + qName);
 }
-return false;
 }
