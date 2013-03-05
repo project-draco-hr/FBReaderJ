@@ -1,6 +1,6 @@
 {
   super(parent,position);
-  String language="en";
+  String language=parent.Collection.booksForSeries(series).get(0).getLanguage();
   Series=new Title(series,language);
   Author=author;
 }
