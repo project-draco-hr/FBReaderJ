@@ -1,11 +1,17 @@
 {
   super.onStart();
+  runOnUiThread(new Runnable(){
+    public void run(){
+      setProgressBarIndeterminateVisibility(true);
+    }
+  }
+);
   myCollection.bindToService(this,new Runnable(){
     public void run(){
       if (myAllBooksAdapter != null) {
         return;
       }
-      if (myBookId != -1) {
+      if (myBook != null) {
         myThisBookAdapter=new BookmarksAdapter(createTab("thisBook",R.id.this_book),true);
       }
  else {
@@ -13,9 +19,7 @@
       }
       myAllBooksAdapter=new BookmarksAdapter(createTab("allBooks",R.id.all_books),false);
       findViewById(R.id.search_results).setVisibility(View.GONE);
-      final Thread initializer=new Thread(new Initializer());
-      initializer.setPriority((Thread.MIN_PRIORITY + Thread.NORM_PRIORITY) / 2);
-      initializer.start();
+      new Thread(new Initializer()).start();
     }
   }
 );
