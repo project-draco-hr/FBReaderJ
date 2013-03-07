@@ -4,13 +4,7 @@
 synchronized (ourLock) {
       if (timeStamp > ourTimeStamp + 1000) {
         ourTimeStamp=timeStamp;
-        final String language=Locale.getDefault().getLanguage();
-        final String country=Locale.getDefault().getCountry();
-        if ((language != null && !language.equals(ourLanguage)) || (country != null && !country.equals(ourCountry))) {
-          ourLanguage=language;
-          ourCountry=country;
-          loadData();
-        }
+        setInterfaceLanguage();
       }
     }
   }

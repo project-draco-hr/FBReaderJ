@@ -1,0 +1,14 @@
+{
+  super(context,rootResource,resourceKey);
+  final int size=languages.size();
+  String[] codes=new String[size];
+  String[] names=new String[size];
+  int index=0;
+  for (  Language l : languages) {
+    codes[index]=l.Code;
+    names[index]=l.Name;
+    ++index;
+  }
+  setLists(codes,names);
+  init();
+}

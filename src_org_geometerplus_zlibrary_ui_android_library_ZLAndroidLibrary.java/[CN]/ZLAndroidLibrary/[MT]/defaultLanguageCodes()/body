@@ -22,5 +22,5 @@
     }
   }
   set.add("multi");
-  return set;
+  return new ArrayList<String>(set);
 }

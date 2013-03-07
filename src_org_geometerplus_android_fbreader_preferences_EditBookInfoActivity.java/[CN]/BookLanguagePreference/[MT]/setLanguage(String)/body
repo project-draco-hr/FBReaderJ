@@ -1,0 +1,4 @@
+{
+  myBook.setLanguage(code.length() > 0 ? code : null);
+  ((EditBookInfoActivity)getContext()).updateResult();
+}

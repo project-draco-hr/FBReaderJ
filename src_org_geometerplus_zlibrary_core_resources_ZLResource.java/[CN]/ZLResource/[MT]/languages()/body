@@ -1,0 +1,16 @@
+{
+  if (ourLanguages.isEmpty()) {
+    final ZLResource resource=ZLResource.resource("language-self");
+    final ZLFile dir=ZLResourceFile.createResourceFile("resources/application");
+    for (    ZLFile file : dir.children()) {
+      final String name=file.getShortName();
+      if (name.endsWith(".xml")) {
+        final String code=name.substring(0,name.length() - 4);
+        ourLanguages.add(new Language(code,resource.getResource(code).getValue()));
+      }
+    }
+    ourLanguages.add(new Language(Language.SYSTEM_CODE));
+    Collections.sort(ourLanguages);
+  }
+  return Collections.unmodifiableList(ourLanguages);
+}

@@ -1,4 +1,5 @@
 {
   reader.readDocument(ourRoot,ZLResourceFile.createResourceFile("resources/zlibrary/" + fileName));
   reader.readDocument(ourRoot,ZLResourceFile.createResourceFile("resources/application/" + fileName));
+  reader.readDocument(ourRoot,ZLResourceFile.createResourceFile("resources/lang.xml"));
 }

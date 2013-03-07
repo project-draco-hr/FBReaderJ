@@ -1,0 +1,26 @@
+{
+  final String custom=LanguageOption.getValue();
+  final String language;
+  final String country;
+  if (Language.SYSTEM_CODE.equals(custom)) {
+    final Locale locale=Locale.getDefault();
+    language=locale.getLanguage();
+    country=locale.getCountry();
+  }
+ else {
+    final int index=custom.indexOf('_');
+    if (index == -1) {
+      language=custom;
+      country=null;
+    }
+ else {
+      language=custom.substring(0,index);
+      country=custom.substring(index + 1);
+    }
+  }
+  if ((language != null && !language.equals(ourLanguage)) || (country != null && !country.equals(ourCountry))) {
+    ourLanguage=language;
+    ourCountry=country;
+    loadData();
+  }
+}
