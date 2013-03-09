@@ -1,0 +1,9 @@
+{
+  myDatabase.execSQL("INSERT OR IGNORE INTO Labels (name) VALUES (?)",new Object[]{label});
+  if (mySetLabelStatement == null) {
+    mySetLabelStatement=myDatabase.compileStatement("INSERT OR IGNORE INTO BookLabel(label_id,book_id)" + " SELECT label_id,? FROM Labels WHERE name=?");
+  }
+  mySetLabelStatement.bindLong(1,bookId);
+  mySetLabelStatement.bindString(2,label);
+  mySetLabelStatement.execute();
+}

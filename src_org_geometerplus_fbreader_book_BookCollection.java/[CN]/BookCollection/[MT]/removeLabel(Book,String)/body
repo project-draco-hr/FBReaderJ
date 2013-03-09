@@ -1,4 +1,4 @@
 {
-  myDatabase.removeFromFavorites(book.getId());
+  myDatabase.removeLabel(book.getId(),label);
   fireBookEvent(BookEvent.Updated,book);
 }

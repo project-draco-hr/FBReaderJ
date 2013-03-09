@@ -1,7 +1,0 @@
-{
-  if (myRemoveFromFavoritesStatement == null) {
-    myRemoveFromFavoritesStatement=myDatabase.compileStatement("DELETE FROM BookLabel WHERE book_id=? AND label_id IN" + " (SELECT label_id FROM Labels WHERE name='favorite')");
-  }
-  myRemoveFromFavoritesStatement.bindLong(1,bookId);
-  myRemoveFromFavoritesStatement.execute();
-}
