@@ -1,0 +1,9 @@
+{
+synchronized (myBooksByFile) {
+    final TreeSet<String> titles=new TreeSet<String>();
+    for (    Book book : myBooksByFile.values()) {
+      titles.add(book.firstTitleLetter());
+    }
+    return new ArrayList<String>(titles);
+  }
+}

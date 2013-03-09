@@ -1,3 +1,0 @@
-{
-  return getSortKey().compareTo(entity.getSortKey());
-}
