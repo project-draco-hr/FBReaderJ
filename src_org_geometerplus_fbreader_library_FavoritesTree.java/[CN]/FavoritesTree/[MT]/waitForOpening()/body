@@ -1,6 +1,6 @@
 {
   clear();
-  for (  Book book : Collection.favorites()) {
+  for (  Book book : Collection.booksForLabel(Book.FAVORITE_LABEL)) {
     createBookWithAuthorsSubTree(book);
   }
 }

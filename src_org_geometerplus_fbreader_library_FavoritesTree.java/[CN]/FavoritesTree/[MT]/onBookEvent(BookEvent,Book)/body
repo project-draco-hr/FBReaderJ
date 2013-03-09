@@ -1,11 +1,11 @@
 {
 switch (event) {
 case Added:
-    return Collection.isFavorite(book) && createBookWithAuthorsSubTree(book);
+    return Collection.labels(book).contains(Book.FAVORITE_LABEL) && createBookWithAuthorsSubTree(book);
 case Updated:
 {
     boolean changed=removeBook(book);
-    changed|=Collection.isFavorite(book) && createBookWithAuthorsSubTree(book);
+    changed|=Collection.labels(book).contains(Book.FAVORITE_LABEL) && createBookWithAuthorsSubTree(book);
     return changed;
   }
 case Removed:

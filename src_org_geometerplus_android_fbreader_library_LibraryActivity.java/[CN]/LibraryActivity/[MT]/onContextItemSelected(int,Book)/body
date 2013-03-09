@@ -10,10 +10,10 @@ case SHARE_BOOK_ITEM_ID:
 FBUtil.shareBook(this,book);
 return true;
 case ADD_TO_FAVORITES_ITEM_ID:
-myRootTree.Collection.setBookFavorite(book,true);
+myRootTree.Collection.setLabel(book,Book.FAVORITE_LABEL);
 return true;
 case REMOVE_FROM_FAVORITES_ITEM_ID:
-myRootTree.Collection.setBookFavorite(book,false);
+myRootTree.Collection.removeLabel(book,Book.FAVORITE_LABEL);
 if (getCurrentTree().onBookEvent(BookEvent.Updated,book)) {
 getListAdapter().replaceAll(getCurrentTree().subTrees());
 getListView().invalidateViews();

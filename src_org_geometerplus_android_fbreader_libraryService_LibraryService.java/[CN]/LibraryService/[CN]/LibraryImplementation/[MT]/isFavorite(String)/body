@@ -1,3 +1,0 @@
-{
-  return myCollection.isFavorite(SerializerUtil.deserializeBook(book));
-}

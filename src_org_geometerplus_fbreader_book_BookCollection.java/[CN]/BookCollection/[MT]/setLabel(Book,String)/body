@@ -1,0 +1,4 @@
+{
+  myDatabase.addToFavorites(book.getId());
+  fireBookEvent(BookEvent.Updated,book);
+}

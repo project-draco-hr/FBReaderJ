@@ -1,0 +1,6 @@
+{
+  if (book == null) {
+    return Collections.<String>emptyList();
+  }
+  return myDatabase.isFavorite(book.getId()) ? Collections.singletonList(Book.FAVORITE_LABEL) : Collections.<String>emptyList();
+}
