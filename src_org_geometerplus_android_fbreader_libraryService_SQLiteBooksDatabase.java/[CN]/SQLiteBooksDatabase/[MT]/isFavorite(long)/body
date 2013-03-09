@@ -1,5 +1,5 @@
 {
-  final Cursor cursor=myDatabase.rawQuery("SELECT book_id FROM Favorites WHERE book_id = ? LIMIT 1",new String[]{String.valueOf(bookId)});
+  final Cursor cursor=myDatabase.rawQuery("SELECT BookLabel.book_id FROM BookLabel" + " INNER JOIN Labels ON BookLabel.label_id=Labels.label_id" + " WHERE BookLabel.book_id=? AND Labels.name='favorite' LIMIT 1",new String[]{String.valueOf(bookId)});
   boolean result=cursor.moveToNext();
   cursor.close();
   return result;

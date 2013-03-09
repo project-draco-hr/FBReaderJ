@@ -1,6 +1,7 @@
 {
+  myDatabase.execSQL("INSERT OR IGNORE INTO Labels (name) VALUES ('favorite')");
   if (myAddToFavoritesStatement == null) {
-    myAddToFavoritesStatement=myDatabase.compileStatement("INSERT OR IGNORE INTO Favorites(book_id) VALUES (?)");
+    myAddToFavoritesStatement=myDatabase.compileStatement("INSERT OR IGNORE INTO BookLabel(label_id,book_id)" + " SELECT label_id,? FROM Labels WHERE name='favorite'");
   }
   myAddToFavoritesStatement.bindLong(1,bookId);
   myAddToFavoritesStatement.execute();
