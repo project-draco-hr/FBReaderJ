@@ -1,6 +1,0 @@
-{
-  super(collection);
-  String language=collection.booksForSeries(series).get(0).getLanguage();
-  Series=new Title(series,language);
-  Author=author;
-}

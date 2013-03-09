@@ -1,6 +1,0 @@
-{
-  if (null == mySortKey) {
-    mySortKey=trim(myText,myLanguage);
-  }
-  return mySortKey;
-}

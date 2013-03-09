@@ -1,0 +1,5 @@
+{
+  super(parent,position);
+  Series=series;
+  Author=author;
+}

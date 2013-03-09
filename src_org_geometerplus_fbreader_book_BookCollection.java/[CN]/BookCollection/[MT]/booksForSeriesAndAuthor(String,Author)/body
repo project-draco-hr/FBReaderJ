@@ -4,7 +4,7 @@
   for (  Book b : books()) {
     final List<Author> bookAuthors=b.authors();
     final SeriesInfo info=b.getSeriesInfo();
-    if (info != null && series.equals(info.Title) && (isNull && bookAuthors.isEmpty() || bookAuthors.contains(author))) {
+    if (info != null && series.equals(info.Series.getTitle()) && (isNull && bookAuthors.isEmpty() || bookAuthors.contains(author))) {
       filtered.add(b);
     }
   }

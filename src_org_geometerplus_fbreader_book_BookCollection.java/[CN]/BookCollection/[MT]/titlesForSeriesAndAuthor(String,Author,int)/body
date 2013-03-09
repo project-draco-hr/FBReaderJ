@@ -8,7 +8,7 @@ synchronized (myBooksByFile) {
     for (    Book b : myBooksByFile.values()) {
       final List<Author> bookAuthors=b.authors();
       final SeriesInfo info=b.getSeriesInfo();
-      if (info != null && series.equals(info.Title) && (isNull && bookAuthors.isEmpty() || bookAuthors.contains(author))) {
+      if (info != null && series.equals(info.Series.getTitle()) && (isNull && bookAuthors.isEmpty() || bookAuthors.contains(author))) {
         titles.add(b.getTitle());
         if (--limit == 0) {
           break;

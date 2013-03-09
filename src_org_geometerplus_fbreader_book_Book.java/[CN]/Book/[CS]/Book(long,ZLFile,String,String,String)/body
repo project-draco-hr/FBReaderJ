@@ -1,7 +1,8 @@
 {
+  super(title);
   myId=id;
   File=file;
-  myInfo=new Title(title,language);
+  myLanguage=language;
   myEncoding=encoding;
   myIsSaved=true;
 }

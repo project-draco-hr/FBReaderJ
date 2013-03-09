@@ -2,7 +2,7 @@
   final LinkedList<Book> filtered=new LinkedList<Book>();
   for (  Book b : books()) {
     final SeriesInfo info=b.getSeriesInfo();
-    if (info != null && series.equals(info.Title)) {
+    if (info != null && series.equals(info.Series.getTitle())) {
       filtered.add(b);
     }
   }

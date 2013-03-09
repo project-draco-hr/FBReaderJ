@@ -1,0 +1,6 @@
+{
+  if (null == mySortKey) {
+    mySortKey=trim(myTitle,getLanguage());
+  }
+  return mySortKey;
+}

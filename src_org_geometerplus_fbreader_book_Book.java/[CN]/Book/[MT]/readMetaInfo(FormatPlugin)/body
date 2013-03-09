@@ -1,12 +1,13 @@
 {
+  setTitle(null);
   myEncoding=null;
-  myInfo=new Title(null,null);
+  myLanguage=null;
   myAuthors=null;
   myTags=null;
   mySeriesInfo=null;
   myIsSaved=false;
   plugin.readMetaInfo(this);
-  if (myInfo.getTitle() == null || myInfo.getTitle().length() == 0) {
+  if (getTitle() == null || getTitle().length() == 0) {
     final String fileName=File.getShortName();
     final int index=fileName.lastIndexOf('.');
     setTitle(index > 0 ? fileName.substring(0,index) : fileName);

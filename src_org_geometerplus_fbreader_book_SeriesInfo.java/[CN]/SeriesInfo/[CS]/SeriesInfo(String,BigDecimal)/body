@@ -1,4 +1,4 @@
 {
-  Title=title;
+  Series=new Series(title);
   Index=index;
 }

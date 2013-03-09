@@ -1,0 +1,9 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (!(o instanceof Series)) {
+    return false;
+  }
+  return MiscUtil.equals(getTitle(),((Series)o).getTitle());
+}

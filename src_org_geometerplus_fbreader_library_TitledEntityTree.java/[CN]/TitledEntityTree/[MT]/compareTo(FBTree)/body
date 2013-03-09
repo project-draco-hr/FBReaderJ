@@ -1,0 +1,6 @@
+{
+  if (tree instanceof TitledEntityTree) {
+    return getTitledEntity().compareTo(((TitledEntityTree)tree).getTitledEntity());
+  }
+  return super.compareTo(tree);
+}

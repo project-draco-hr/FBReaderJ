@@ -1,6 +1,7 @@
 {
-  if (!MiscUtil.equals(myInfo.getLanguage(),language)) {
-    myInfo.setLanguage(language);
+  if (!MiscUtil.equals(myLanguage,language)) {
+    myLanguage=language;
+    resetSortKey();
     myIsSaved=false;
   }
 }

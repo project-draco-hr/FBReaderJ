@@ -1,3 +1,0 @@
-{
-  return title0.getSortKey().compareTo(title1.getSortKey());
-}

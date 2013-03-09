@@ -1,8 +1,8 @@
 {
-  if (myInfo.getTitle() != null && MiscUtil.matchesIgnoreCase(myInfo.getTitle(),pattern)) {
+  if (getTitle() != null && MiscUtil.matchesIgnoreCase(getTitle(),pattern)) {
     return true;
   }
-  if (mySeriesInfo != null && MiscUtil.matchesIgnoreCase(mySeriesInfo.Title,pattern)) {
+  if (mySeriesInfo != null && MiscUtil.matchesIgnoreCase(mySeriesInfo.Series.getTitle(),pattern)) {
     return true;
   }
   if (myAuthors != null) {

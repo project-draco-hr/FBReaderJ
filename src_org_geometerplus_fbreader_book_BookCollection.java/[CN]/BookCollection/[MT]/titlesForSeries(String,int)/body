@@ -6,7 +6,7 @@
 synchronized (myBooksByFile) {
     for (    Book b : myBooksByFile.values()) {
       final SeriesInfo info=b.getSeriesInfo();
-      if (info != null && series.equals(info.Title)) {
+      if (info != null && series.equals(info.Series.getTitle())) {
         titles.add(b.getTitle());
         if (--limit == 0) {
           break;

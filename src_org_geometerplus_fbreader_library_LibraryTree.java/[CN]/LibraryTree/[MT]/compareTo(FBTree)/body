@@ -1,11 +1,5 @@
 {
-  final int cmp;
-  if (tree instanceof LibraryTree && null != getTitle() && null != ((LibraryTree)tree).getTitle()) {
-    cmp=COMPARATOR.compare(getTitle(),((LibraryTree)tree).getTitle());
-  }
- else {
-    cmp=super.compareTo(tree);
-  }
+  final int cmp=super.compareTo(tree);
   if (cmp == 0) {
     return getClass().getSimpleName().compareTo(tree.getClass().getSimpleName());
   }

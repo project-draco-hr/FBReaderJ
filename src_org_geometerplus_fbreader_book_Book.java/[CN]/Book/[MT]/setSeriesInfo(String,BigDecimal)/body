@@ -9,7 +9,7 @@
     mySeriesInfo=null;
     myIsSaved=false;
   }
- else   if (!name.equals(mySeriesInfo.Title) || mySeriesInfo.Index != index) {
+ else   if (!name.equals(mySeriesInfo.Series.getTitle()) || mySeriesInfo.Index != index) {
     mySeriesInfo=new SeriesInfo(name,index);
     myIsSaved=false;
   }

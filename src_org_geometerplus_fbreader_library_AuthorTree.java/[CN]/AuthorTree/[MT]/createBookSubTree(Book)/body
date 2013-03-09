@@ -1,7 +1,7 @@
 {
   final SeriesInfo seriesInfo=book.getSeriesInfo();
   if (seriesInfo != null) {
-    return getSeriesSubTree(seriesInfo.Title).createBookInSeriesSubTree(book);
+    return getSeriesSubTree(seriesInfo.Series).createBookInSeriesSubTree(book);
   }
   final BookTree temp=new BookTree(Collection,book);
   int position=Collections.binarySearch(subTrees(),temp);

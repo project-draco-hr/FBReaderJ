@@ -1,4 +1,5 @@
 {
+  super(null);
   myId=-1;
   final FormatPlugin plugin=getPlugin(file);
   File=plugin.realBookFile(file);
