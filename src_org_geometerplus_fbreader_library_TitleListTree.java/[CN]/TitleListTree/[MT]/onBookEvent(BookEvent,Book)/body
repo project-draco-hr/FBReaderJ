@@ -1,8 +1,11 @@
 {
+  if (book == null) {
+    return false;
+  }
 switch (event) {
 case Added:
     if (myDoGroupByFirstLetter) {
-      final String letter=TitleUtil.firstTitleLetter(book);
+      final String letter=book.firstTitleLetter();
       return letter != null && createTitleSubTree(letter);
     }
  else {
@@ -18,7 +21,7 @@ case Removed:
 default :
 case Updated:
 if (myDoGroupByFirstLetter) {
-  final String letter=TitleUtil.firstTitleLetter(book);
+  final String letter=book.firstTitleLetter();
   return letter != null && createTitleSubTree(letter);
 }
  else {

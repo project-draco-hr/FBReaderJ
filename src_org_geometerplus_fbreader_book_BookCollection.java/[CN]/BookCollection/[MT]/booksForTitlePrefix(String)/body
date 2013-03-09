@@ -1,7 +1,7 @@
 {
   final LinkedList<Book> filtered=new LinkedList<Book>();
   for (  Book b : books()) {
-    if (prefix.equals(TitleUtil.firstTitleLetter(b))) {
+    if (b.getSortKey().startsWith(prefix)) {
       filtered.add(b);
     }
   }

@@ -2,19 +2,15 @@
   clear();
   myDoGroupByFirstLetter=false;
   final TreeSet<String> letterSet=new TreeSet<String>();
-  final List<Book> book=Collection.books();
-  final List<String> keys=new ArrayList<String>();
-  for (  Book b : book) {
-    keys.add(b.getSortKey());
-  }
-  if (keys.size() > 9) {
-    for (    String t : keys) {
-      final String letter=TitleUtil.firstLetter(t);
+  final List<Book> books=Collection.books();
+  if (books.size() > 9) {
+    for (    Book b : books) {
+      final String letter=b.firstTitleLetter();
       if (letter != null) {
         letterSet.add(letter);
       }
     }
-    myDoGroupByFirstLetter=keys.size() > letterSet.size() * 5 / 4;
+    myDoGroupByFirstLetter=books.size() > letterSet.size() * 5 / 4;
   }
   if (myDoGroupByFirstLetter) {
     for (    String letter : letterSet) {
@@ -22,7 +18,7 @@
     }
   }
  else {
-    for (    Book b : Collection.books()) {
+    for (    Book b : books) {
       createBookWithAuthorsSubTree(b);
     }
   }
