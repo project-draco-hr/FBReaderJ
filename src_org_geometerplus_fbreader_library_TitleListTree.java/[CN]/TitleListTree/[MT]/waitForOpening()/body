@@ -1,12 +1,12 @@
 {
   clear();
-  myDoGroupByFirstLetter=false;
+  myGroupByFirstLetter=false;
   List<String> letters=null;
   if (Collection.size() > 9) {
     letters=Collection.firstTitleLetters();
-    myDoGroupByFirstLetter=Collection.size() > letters.size() * 5 / 4;
+    myGroupByFirstLetter=Collection.size() > letters.size() * 5 / 4;
   }
-  if (myDoGroupByFirstLetter) {
+  if (myGroupByFirstLetter) {
     for (    String l : letters) {
       createTitleSubTree(l);
     }
