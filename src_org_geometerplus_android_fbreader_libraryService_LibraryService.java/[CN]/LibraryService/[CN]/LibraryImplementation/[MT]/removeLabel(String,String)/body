@@ -1,0 +1,3 @@
+{
+  myCollection.removeLabel(SerializerUtil.deserializeBook(book),label);
+}

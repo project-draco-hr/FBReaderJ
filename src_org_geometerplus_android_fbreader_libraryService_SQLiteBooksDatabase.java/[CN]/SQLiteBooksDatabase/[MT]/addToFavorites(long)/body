@@ -1,7 +1,0 @@
-{
-  if (myAddToFavoritesStatement == null) {
-    myAddToFavoritesStatement=myDatabase.compileStatement("INSERT OR IGNORE INTO Favorites(book_id) VALUES (?)");
-  }
-  myAddToFavoritesStatement.bindLong(1,bookId);
-  myAddToFavoritesStatement.execute();
-}

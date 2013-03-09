@@ -1,0 +1,3 @@
+{
+  myCollection.setLabel(SerializerUtil.deserializeBook(book),label);
+}

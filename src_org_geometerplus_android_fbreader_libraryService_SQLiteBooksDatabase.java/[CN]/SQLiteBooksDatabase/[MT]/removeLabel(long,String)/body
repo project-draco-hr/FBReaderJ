@@ -1,0 +1,8 @@
+{
+  if (myRemoveLabelStatement == null) {
+    myRemoveLabelStatement=myDatabase.compileStatement("DELETE FROM BookLabel WHERE book_id=? AND label_id IN" + " (SELECT label_id FROM Labels WHERE name=?)");
+  }
+  myRemoveLabelStatement.bindLong(1,bookId);
+  myRemoveLabelStatement.bindString(2,label);
+  myRemoveLabelStatement.execute();
+}

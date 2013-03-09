@@ -1,9 +1,0 @@
-{
-  if (myInterface != null) {
-    try {
-      myInterface.setBookFavorite(SerializerUtil.serialize(book),favorite);
-    }
- catch (    RemoteException e) {
-    }
-  }
-}
