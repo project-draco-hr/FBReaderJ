@@ -1,4 +1,7 @@
 {
+  if (s == null) {
+    return "";
+  }
   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
     s=normalize(s);
   }
