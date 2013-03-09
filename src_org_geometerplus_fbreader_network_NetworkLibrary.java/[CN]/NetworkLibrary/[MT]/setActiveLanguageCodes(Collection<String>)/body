@@ -1,8 +1,16 @@
 {
-  final TreeSet<String> allCodes=new TreeSet<String>(new ZLLanguageUtil.CodeComparator());
+  final TreeSet<String> allCodes=new TreeSet<String>();
   allCodes.addAll(ZLibrary.Instance().defaultLanguageCodes());
   allCodes.removeAll(languageCodes());
   allCodes.addAll(codes);
-  activeLanguageCodesOption().setValue(commaSeparatedString(allCodes));
+  final TreeSet<Language> languages=new TreeSet<Language>();
+  for (  String code : allCodes) {
+    languages.add(new Language(code));
+  }
+  final ArrayList<String> codesList=new ArrayList<String>(languages.size());
+  for (  Language l : languages) {
+    codesList.add(l.Code);
+  }
+  activeLanguageCodesOption().setValue(codesList);
   invalidateChildren();
 }

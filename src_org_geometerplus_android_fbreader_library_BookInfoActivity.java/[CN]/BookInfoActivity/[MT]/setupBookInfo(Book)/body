@@ -31,7 +31,7 @@
   setupInfoPair(R.id.book_tags,"tags",buffer,tagNames.size());
   String language=book.getLanguage();
   if (!ZLLanguageUtil.languageCodes().contains(language)) {
-    language=ZLLanguageUtil.OTHER_LANGUAGE_CODE;
+    language=Language.OTHER_CODE;
   }
-  setupInfoPair(R.id.book_language,"language",ZLLanguageUtil.languageName(language));
+  setupInfoPair(R.id.book_language,"language",new Language(language).Name);
 }

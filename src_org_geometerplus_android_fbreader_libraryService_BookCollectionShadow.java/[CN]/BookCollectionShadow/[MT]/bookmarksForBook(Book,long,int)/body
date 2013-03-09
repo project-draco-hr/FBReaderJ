@@ -1,0 +1,11 @@
+{
+  if (myInterface == null) {
+    return Collections.emptyList();
+  }
+  try {
+    return SerializerUtil.deserializeBookmarkList(myInterface.bookmarksForBook(SerializerUtil.serialize(book),fromId,limitCount));
+  }
+ catch (  RemoteException e) {
+    return Collections.emptyList();
+  }
+}

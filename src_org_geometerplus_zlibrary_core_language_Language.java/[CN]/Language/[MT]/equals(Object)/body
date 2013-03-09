@@ -1,0 +1,9 @@
+{
+  if (this == lang) {
+    return true;
+  }
+  if (!(lang instanceof Language)) {
+    return false;
+  }
+  return Code.equals(((Language)lang).Code);
+}

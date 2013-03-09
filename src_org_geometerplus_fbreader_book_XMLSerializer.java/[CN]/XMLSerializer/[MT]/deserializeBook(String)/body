@@ -1,5 +1,10 @@
 {
-  final BookDeserializer deserializer=new BookDeserializer();
-  deserializer.readQuietly(xml);
-  return deserializer.getBook();
+  try {
+    final BookDeserializer deserializer=new BookDeserializer();
+    Xml.parse(xml,deserializer);
+    return deserializer.getBook();
+  }
+ catch (  SAXException e) {
+    return null;
+  }
 }

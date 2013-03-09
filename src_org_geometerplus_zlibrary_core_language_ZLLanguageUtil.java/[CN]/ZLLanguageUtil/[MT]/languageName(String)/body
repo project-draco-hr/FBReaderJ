@@ -1,3 +1,0 @@
-{
-  return ZLResource.resource("language").getResource(code).getValue();
-}

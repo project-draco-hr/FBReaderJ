@@ -1,0 +1,58 @@
+{
+switch (myState) {
+case READ_NOTHING:
+    if (!"bookmark".equals(qName)) {
+      throw new SAXException("Unexpected tag " + qName);
+    }
+  try {
+    myId=Long.parseLong(attributes.getValue("id"));
+    myIsVisible=Boolean.parseBoolean(attributes.getValue("visible"));
+    myState=State.READ_BOOKMARK;
+  }
+ catch (  Exception e) {
+    throw new SAXException("XML parsing error",e);
+  }
+break;
+case READ_BOOKMARK:
+if ("book".equals(qName)) {
+try {
+  myBookId=Long.parseLong(attributes.getValue("id"));
+  myBookTitle=attributes.getValue("title");
+}
+ catch (Exception e) {
+  throw new SAXException("XML parsing error",e);
+}
+}
+ else if ("text".equals(qName)) {
+myState=State.READ_TEXT;
+}
+ else if ("history".equals(qName)) {
+try {
+  myCreationDate=parseDate(attributes.getValue("date-creation"));
+  myModificationDate=parseDate(attributes.getValue("date-modification"));
+  myAccessDate=parseDate(attributes.getValue("date-access"));
+  myAccessCount=Integer.parseInt(attributes.getValue("access-count"));
+}
+ catch (Exception e) {
+  throw new SAXException("XML parsing error",e);
+}
+}
+ else if ("position".equals(qName)) {
+try {
+  myModelId=attributes.getValue("model");
+  myParagraphIndex=Integer.parseInt(attributes.getValue("paragraph"));
+  myElementIndex=Integer.parseInt(attributes.getValue("element"));
+  myCharIndex=Integer.parseInt(attributes.getValue("char"));
+}
+ catch (Exception e) {
+  throw new SAXException("XML parsing error",e);
+}
+}
+ else {
+throw new SAXException("Unexpected tag " + qName);
+}
+break;
+case READ_TEXT:
+throw new SAXException("Unexpected tag " + qName);
+}
+}

@@ -1,0 +1,3 @@
+String book
+long fromId
+int limitCount

@@ -1,0 +1,3 @@
+Book book
+long fromId
+int limitCount

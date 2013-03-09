@@ -1,0 +1,58 @@
+{
+switch (myState) {
+case READ_NOTHING:
+    if (!"entry".equals(qName)) {
+      throw new SAXException("Unexpected tag " + qName);
+    }
+  myState=State.READ_ENTRY;
+break;
+case READ_ENTRY:
+if ("id".equals(qName)) {
+myState=State.READ_ID;
+}
+ else if ("title".equals(qName)) {
+myState=State.READ_TITLE;
+}
+ else if ("dc:language".equals(qName)) {
+myState=State.READ_LANGUAGE;
+}
+ else if ("dc:encoding".equals(qName)) {
+myState=State.READ_ENCODING;
+}
+ else if ("author".equals(qName)) {
+myState=State.READ_AUTHOR;
+clear(myAuthorName);
+clear(myAuthorSortKey);
+}
+ else if ("category".equals(qName)) {
+final String term=attributes.getValue("term");
+if (term != null) {
+  myTags.add(Tag.getTag(term.split("/")));
+}
+}
+ else if ("calibre:series".equals(qName)) {
+myState=State.READ_SERIES_TITLE;
+}
+ else if ("calibre:series_index".equals(qName)) {
+myState=State.READ_SERIES_INDEX;
+}
+ else if ("link".equals(qName)) {
+myUrl=attributes.getValue("href");
+}
+ else {
+throw new SAXException("Unexpected tag " + qName);
+}
+break;
+case READ_AUTHOR:
+if ("uri".equals(qName)) {
+myState=State.READ_AUTHOR_URI;
+}
+ else if ("name".equals(qName)) {
+myState=State.READ_AUTHOR_NAME;
+}
+ else {
+throw new SAXException("Unexpected tag " + qName);
+}
+break;
+}
+}

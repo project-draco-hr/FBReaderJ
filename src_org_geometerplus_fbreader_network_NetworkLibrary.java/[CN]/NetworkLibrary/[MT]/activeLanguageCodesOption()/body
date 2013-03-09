@@ -1,8 +1,6 @@
 {
   if (myActiveLanguageCodesOption == null) {
-    final TreeSet<String> defaultCodes=new TreeSet<String>(new ZLLanguageUtil.CodeComparator());
-    defaultCodes.addAll(ZLibrary.Instance().defaultLanguageCodes());
-    myActiveLanguageCodesOption=new ZLStringOption("Options","ActiveLanguages",commaSeparatedString(defaultCodes));
+    myActiveLanguageCodesOption=new ZLStringListOption("Options","ActiveLanguages",ZLibrary.Instance().defaultLanguageCodes(),",");
   }
   return myActiveLanguageCodesOption;
 }

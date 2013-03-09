@@ -1,0 +1,13 @@
+{
+switch (myState) {
+case READ_NOTHING:
+    throw new SAXException("Unexpected closing tag " + qName);
+case READ_BOOKMARK:
+  if ("bookmark".equals(qName)) {
+    myState=State.READ_NOTHING;
+  }
+break;
+case READ_TEXT:
+myState=State.READ_BOOKMARK;
+}
+}
