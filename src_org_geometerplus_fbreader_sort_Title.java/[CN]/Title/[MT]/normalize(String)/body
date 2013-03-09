@@ -1,4 +1,3 @@
 {
-  s=Normalizer.normalize(s,Normalizer.Form.NFKD);
-  return s;
+  return Normalizer.normalize(s,Normalizer.Form.NFKD);
 }
