@@ -1,6 +1,5 @@
 {
   super.onResume();
-  switchWakeLock(getZLibrary().BatteryLevelToTurnScreenOffOption.getValue() < myFBReaderApp.getBatteryLevel());
   myStartTimer=true;
   final int brightnessLevel=getZLibrary().ScreenBrightnessLevelOption.getValue();
   if (brightnessLevel != 0) {

@@ -5,7 +5,6 @@
  catch (  IllegalArgumentException e) {
   }
   myFBReaderApp.stopTimer();
-  switchWakeLock(false);
   if (getZLibrary().DisableButtonLightsOption.getValue()) {
     setButtonLight(true);
   }
