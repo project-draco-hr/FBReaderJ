@@ -1,5 +1,5 @@
 {
-  if (!MiscUtil.equals(getTitle(),title)) {
+  if (!getTitle().equals(title)) {
     super.setTitle(title);
     myIsSaved=false;
   }

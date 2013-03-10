@@ -2,7 +2,7 @@
   super(title);
   myId=id;
   File=file;
-  myLanguage=language;
   myEncoding=encoding;
+  myLanguage=language;
   myIsSaved=true;
 }

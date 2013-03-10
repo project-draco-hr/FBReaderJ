@@ -3,8 +3,8 @@
     return;
   }
   setTitle(book.getTitle());
-  myLanguage=book.myLanguage;
   myEncoding=book.myEncoding;
+  myLanguage=book.myLanguage;
   myAuthors=book.myAuthors != null ? new ArrayList<Author>(book.myAuthors) : null;
   myTags=book.myTags != null ? new ArrayList<Tag>(book.myTags) : null;
   mySeriesInfo=book.mySeriesInfo;
