@@ -5,8 +5,7 @@
 switch (event) {
 case Added:
     if (myGroupByFirstLetter) {
-      final String letter=book.firstTitleLetter();
-      return letter != null && createTitleSubTree(letter);
+      return createTitleSubTree(book.firstTitleLetter());
     }
  else {
       return createBookWithAuthorsSubTree(book);
@@ -21,8 +20,7 @@ case Removed:
 default :
 case Updated:
 if (myGroupByFirstLetter) {
-  final String letter=book.firstTitleLetter();
-  return letter != null && createTitleSubTree(letter);
+  return createTitleSubTree(book.firstTitleLetter());
 }
  else {
   boolean changed=removeBook(book);
