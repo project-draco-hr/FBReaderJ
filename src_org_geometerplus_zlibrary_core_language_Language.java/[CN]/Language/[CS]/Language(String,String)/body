@@ -2,7 +2,7 @@
   Code=code;
   Name=name;
   if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
-    mySortKey=Normalizer.normalize(name.toLowerCase(),Normalizer.Form.NFKD);
+    mySortKey=normalize(name);
   }
  else {
     mySortKey=name.toLowerCase();
