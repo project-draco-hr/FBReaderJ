@@ -1,6 +1,11 @@
 {
   if (null == mySortKey) {
-    mySortKey=trim(myTitle,getLanguage());
+    try {
+      mySortKey=trim(myTitle,getLanguage());
+    }
+ catch (    Throwable t) {
+      mySortKey="";
+    }
   }
   return mySortKey;
 }

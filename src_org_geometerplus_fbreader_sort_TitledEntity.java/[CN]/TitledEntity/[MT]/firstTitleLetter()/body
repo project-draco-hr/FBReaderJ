@@ -1,6 +1,6 @@
 {
   final String str=getSortKey();
-  if ("".equals(str)) {
+  if (str == null || "".equals(str)) {
     return null;
   }
   return String.valueOf(Character.toUpperCase(str.charAt(0)));
