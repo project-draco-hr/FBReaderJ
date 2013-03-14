@@ -2,7 +2,7 @@
   try {
     return myFile.getCanonicalPath();
   }
- catch (  IOException e) {
+ catch (  Exception e) {
     return myFile.getPath();
   }
 }

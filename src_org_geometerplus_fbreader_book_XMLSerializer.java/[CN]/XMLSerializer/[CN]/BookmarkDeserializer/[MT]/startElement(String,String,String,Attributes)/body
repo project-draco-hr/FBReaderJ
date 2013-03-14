@@ -1,8 +1,8 @@
 {
 switch (myState) {
 case READ_NOTHING:
-    if (!"bookmark".equals(qName)) {
-      throw new SAXException("Unexpected tag " + qName);
+    if (!"bookmark".equals(localName)) {
+      throw new SAXException("Unexpected tag " + localName);
     }
   try {
     myId=Long.parseLong(attributes.getValue("id"));
@@ -14,7 +14,7 @@ case READ_NOTHING:
   }
 break;
 case READ_BOOKMARK:
-if ("book".equals(qName)) {
+if ("book".equals(localName)) {
 try {
   myBookId=Long.parseLong(attributes.getValue("id"));
   myBookTitle=attributes.getValue("title");
@@ -23,10 +23,10 @@ try {
   throw new SAXException("XML parsing error",e);
 }
 }
- else if ("text".equals(qName)) {
+ else if ("text".equals(localName)) {
 myState=State.READ_TEXT;
 }
- else if ("history".equals(qName)) {
+ else if ("history".equals(localName)) {
 try {
   myCreationDate=parseDate(attributes.getValue("date-creation"));
   myModificationDate=parseDate(attributes.getValue("date-modification"));
@@ -37,7 +37,7 @@ try {
   throw new SAXException("XML parsing error",e);
 }
 }
- else if ("position".equals(qName)) {
+ else if ("position".equals(localName)) {
 try {
   myModelId=attributes.getValue("model");
   myParagraphIndex=Integer.parseInt(attributes.getValue("paragraph"));
@@ -49,10 +49,10 @@ try {
 }
 }
  else {
-throw new SAXException("Unexpected tag " + qName);
+throw new SAXException("Unexpected tag " + localName);
 }
 break;
 case READ_TEXT:
-throw new SAXException("Unexpected tag " + qName);
+throw new SAXException("Unexpected tag " + localName);
 }
 }

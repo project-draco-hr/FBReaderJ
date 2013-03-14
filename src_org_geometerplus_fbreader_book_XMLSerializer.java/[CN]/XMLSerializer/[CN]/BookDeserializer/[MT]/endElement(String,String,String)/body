@@ -1,9 +1,9 @@
 {
 switch (myState) {
 case READ_NOTHING:
-    throw new SAXException("Unexpected closing tag " + qName);
+    throw new SAXException("Unexpected closing tag " + localName);
 case READ_ENTRY:
-  if ("entry".equals(qName)) {
+  if ("entry".equals(localName)) {
     myState=State.READ_NOTHING;
   }
 break;
