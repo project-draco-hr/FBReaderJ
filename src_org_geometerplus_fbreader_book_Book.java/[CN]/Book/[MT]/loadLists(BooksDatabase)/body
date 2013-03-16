@@ -2,5 +2,6 @@
   myAuthors=database.listAuthors(myId);
   myTags=database.listTags(myId);
   mySeriesInfo=database.getSeriesInfo(myId);
+  myUids=database.listUids(myId);
   myIsSaved=true;
 }

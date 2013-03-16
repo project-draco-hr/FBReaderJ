@@ -1,3 +1,4 @@
 {
-  return getReader().Model.Book.getContentHashCode();
+  final UID uid=BookUtil.createSHA256Uid(getReader().Model.Book.File);
+  return uid != null ? uid.Id : null;
 }

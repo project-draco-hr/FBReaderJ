@@ -2,7 +2,7 @@
   InputStream stream=null;
   try {
     final MessageDigest hash=MessageDigest.getInstance("SHA-256");
-    stream=File.getInputStream();
+    stream=file.getInputStream();
     final byte[] buffer=new byte[2048];
     while (true) {
       final int nread=stream.read(buffer);
@@ -15,7 +15,7 @@
     for (    byte b : hash.digest()) {
       f.format("%02X",b & 0xFF);
     }
-    return f.toString();
+    return new UID("SHA256",f.toString());
   }
  catch (  IOException e) {
     return null;

@@ -1,0 +1,10 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (!(o instanceof UID)) {
+    return false;
+  }
+  final UID u=(UID)o;
+  return Type.equals(u.Type) && Id.equals(u.Id);
+}
