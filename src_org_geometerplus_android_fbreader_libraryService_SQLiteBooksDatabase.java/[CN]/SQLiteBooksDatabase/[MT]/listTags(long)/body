@@ -1,5 +1,5 @@
 {
-  final Cursor cursor=myDatabase.rawQuery("SELECT Tags.tag_id FROM BookTag INNER JOIN Tags ON Tags.tag_id = BookTag.tag_id WHERE BookTag.book_id = ?",new String[]{"" + bookId});
+  final Cursor cursor=myDatabase.rawQuery("SELECT Tags.tag_id FROM BookTag INNER JOIN Tags ON Tags.tag_id = BookTag.tag_id WHERE BookTag.book_id = ?",new String[]{String.valueOf(bookId)});
   if (!cursor.moveToNext()) {
     cursor.close();
     return null;

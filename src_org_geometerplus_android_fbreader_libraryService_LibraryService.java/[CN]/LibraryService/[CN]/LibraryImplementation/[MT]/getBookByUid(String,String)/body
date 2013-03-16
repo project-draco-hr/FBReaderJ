@@ -1,0 +1,3 @@
+{
+  return SerializerUtil.serialize(myCollection.getBookByUid(new UID(type,id)));
+}

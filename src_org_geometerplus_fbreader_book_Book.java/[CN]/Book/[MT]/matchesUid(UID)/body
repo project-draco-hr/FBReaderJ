@@ -1,0 +1,3 @@
+{
+  return myUids.contains(uid);
+}

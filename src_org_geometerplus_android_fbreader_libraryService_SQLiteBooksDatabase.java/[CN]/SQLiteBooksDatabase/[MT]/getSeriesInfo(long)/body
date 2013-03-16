@@ -1,5 +1,5 @@
 {
-  final Cursor cursor=myDatabase.rawQuery("SELECT Series.name,BookSeries.book_index FROM BookSeries INNER JOIN Series ON Series.series_id = BookSeries.series_id WHERE BookSeries.book_id = ?",new String[]{"" + bookId});
+  final Cursor cursor=myDatabase.rawQuery("SELECT Series.name,BookSeries.book_index FROM BookSeries INNER JOIN Series ON Series.series_id = BookSeries.series_id WHERE BookSeries.book_id = ?",new String[]{String.valueOf(bookId)});
   SeriesInfo info=null;
   if (cursor.moveToNext()) {
     info=SeriesInfo.createSeriesInfo(cursor.getString(0),cursor.getString(1));

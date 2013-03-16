@@ -1,7 +1,7 @@
 {
   final ArrayList<UID> list=new ArrayList<UID>();
-  final Cursor cursor=myDatabase.rawQuery("SELECT type,uid FROM BookUid WHERE book_id = ?",new String[]{"" + bookId});
-  if (cursor.moveToNext()) {
+  final Cursor cursor=myDatabase.rawQuery("SELECT type,uid FROM BookUid WHERE book_id = ?",new String[]{String.valueOf(bookId)});
+  while (cursor.moveToNext()) {
     list.add(new UID(cursor.getString(0),cursor.getString(1)));
   }
   cursor.close();

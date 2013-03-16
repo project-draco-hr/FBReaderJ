@@ -1,0 +1,9 @@
+{
+  for (  Book book : myBooksById.values()) {
+    if (book.matchesUid(uid)) {
+      return book;
+    }
+  }
+  final Long bookId=myDatabase.bookIdByUid(uid);
+  return bookId != null ? getBookById(bookId) : null;
+}
