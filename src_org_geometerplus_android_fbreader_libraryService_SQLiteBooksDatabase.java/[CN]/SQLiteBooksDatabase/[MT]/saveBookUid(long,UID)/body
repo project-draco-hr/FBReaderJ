@@ -1,11 +1,11 @@
 {
   if (myInsertBookUidStatement == null) {
-    myInsertBookUidStatement=myDatabase.compileStatement("INSERT OR REPLACE INTO BookUid (book_id,type,uid) VALUES (?,?,?)");
+    myInsertBookUidStatement=myDatabase.compileStatement("INSERT OR IGNORE INTO BookUid (book_id,type,uid) VALUES (?,?,?)");
   }
 synchronized (myInsertBookUidStatement) {
     myInsertBookUidStatement.bindLong(1,bookId);
     myInsertBookUidStatement.bindString(2,uid.Type);
-    myInsertBookUidStatement.bindString(2,uid.Id);
-    myInsertBookAuthorStatement.execute();
+    myInsertBookUidStatement.bindString(3,uid.Id);
+    myInsertBookUidStatement.execute();
   }
 }

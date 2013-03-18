@@ -1,0 +1,3 @@
+{
+  return myUids != null ? Collections.unmodifiableList(myUids) : Collections.<UID>emptyList();
+}

@@ -26,6 +26,10 @@
         database.saveBookTagInfo(myId,tag);
       }
       database.saveBookSeriesInfo(myId,mySeriesInfo);
+      database.deleteAllBookUids(myId);
+      for (      UID uid : uids()) {
+        database.saveBookUid(myId,uid);
+      }
     }
   }
 );

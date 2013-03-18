@@ -4,4 +4,15 @@
   mySeriesInfo=database.getSeriesInfo(myId);
   myUids=database.listUids(myId);
   myIsSaved=true;
+  if (myUids == null || myUids.isEmpty()) {
+    try {
+      final FormatPlugin plugin=getPlugin();
+      if (plugin != null) {
+        plugin.readUids(this);
+        save(database,false);
+      }
+    }
+ catch (    BookReadingException e) {
+    }
+  }
 }

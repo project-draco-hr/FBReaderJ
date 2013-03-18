@@ -1,5 +1,4 @@
 {
-  myDatabase.execSQL("CREATE TABLE IF NOT EXISTS BookUid(" + "book_id INTEGER NOT NULL UNIQUE REFERENCES Books(book_id)," + "type TEXT NOT NULL,"+ "uid TEXT NOT NULL)");
   myDatabase.execSQL("CREATE TABLE IF NOT EXISTS Labels(" + "label_id INTEGER PRIMARY KEY," + "name TEXT NOT NULL UNIQUE)");
   myDatabase.execSQL("CREATE TABLE IF NOT EXISTS BookLabel(" + "label_id INTEGER NOT NULL REFERENCES Labels(label_id)," + "book_id INTEGER NOT NULL REFERENCES Books(book_id),"+ "CONSTRAINT BookLabel_Unique UNIQUE (label_id,book_id))");
   final SQLiteStatement insert=myDatabase.compileStatement("INSERT INTO Labels (name) VALUES ('favorite')");

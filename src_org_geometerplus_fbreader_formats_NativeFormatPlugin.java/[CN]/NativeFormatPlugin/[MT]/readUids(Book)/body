@@ -1,0 +1,6 @@
+{
+  readUidsNative(book);
+  if (book.uids().isEmpty()) {
+    book.addUid(BookUtil.createSHA256Uid(book.File));
+  }
+}

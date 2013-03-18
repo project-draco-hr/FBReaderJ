@@ -1,0 +1,9 @@
+{
+  if (myUids == null) {
+    myUids=new ArrayList<UID>();
+  }
+  if (!myUids.contains(uid)) {
+    myUids.add(uid);
+    myIsSaved=false;
+  }
+}
