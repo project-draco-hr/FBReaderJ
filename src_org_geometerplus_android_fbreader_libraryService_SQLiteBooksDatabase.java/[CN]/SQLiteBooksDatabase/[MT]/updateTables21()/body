@@ -1,4 +1,4 @@
 {
   myDatabase.execSQL("DROP TABLE BookUid");
-  myDatabase.execSQL("CREATE TABLE IF NOT EXISTS BookUid(" + "book_id INTEGER NOT NULL UNIQUE REFERENCES Books(book_id)," + "type TEXT NOT NULL,"+ "uid TEXT NOT NULL,"+ "CONSTRAINT BookUid_Unique(book_id,type,uid))");
+  myDatabase.execSQL("CREATE TABLE IF NOT EXISTS BookUid(" + "book_id INTEGER NOT NULL UNIQUE REFERENCES Books(book_id)," + "type TEXT NOT NULL,"+ "uid TEXT NOT NULL,"+ "CONSTRAINT BookUid_Unique UNIQUE (book_id,type,uid))");
 }
