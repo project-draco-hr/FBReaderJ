@@ -1,4 +1,7 @@
 {
+  if (uid == null) {
+    return;
+  }
   if (myUids == null) {
     myUids=new ArrayList<UID>();
   }
