@@ -5,6 +5,8 @@
     return deserializer.getBookmark();
   }
  catch (  SAXException e) {
+    System.err.println(xml);
+    e.printStackTrace();
     return null;
   }
 }
