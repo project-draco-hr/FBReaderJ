@@ -1,4 +1,4 @@
 {
   Type=type;
-  Id=id;
+  Id=id.trim();
 }

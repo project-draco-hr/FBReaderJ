@@ -17,6 +17,11 @@ myAuthors.add(new Author(myAuthorName.toString(),myAuthorSortKey.toString()));
 }
 myState=State.READ_ENTRY;
 break;
+case READ_UID:
+myUidList.add(new UID(myScheme,myUid.toString()));
+clear(myUid);
+myState=State.READ_ENTRY;
+break;
 default :
 myState=State.READ_ENTRY;
 break;

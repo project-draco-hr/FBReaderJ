@@ -9,5 +9,8 @@
   for (  Tag tag : myTags) {
     myBook.addTagWithNoCheck(tag);
   }
+  for (  UID uid : myUidList) {
+    myBook.addUid(uid);
+  }
   myBook.setSeriesInfoWithNoCheck(string(mySeriesTitle),string(mySeriesIndex));
 }

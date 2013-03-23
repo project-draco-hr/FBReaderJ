@@ -5,6 +5,11 @@
   appendTagWithContent(buffer,"title",book.getTitle());
   appendTagWithContent(buffer,"dc:language",book.getLanguage());
   appendTagWithContent(buffer,"dc:encoding",book.getEncodingNoDetection());
+  for (  UID uid : book.uids()) {
+    appendTag(buffer,"dc:identifier",false,"scheme",uid.Type);
+    buffer.append(uid.Id);
+    closeTag(buffer,"id");
+  }
   for (  Author author : book.authors()) {
     appendTag(buffer,"author",false);
     appendTagWithContent(buffer,"uri",author.SortKey);

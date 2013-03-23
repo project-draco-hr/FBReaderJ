@@ -7,6 +7,8 @@
   clear(myEncoding);
   clear(mySeriesTitle);
   clear(mySeriesIndex);
+  clear(myUid);
+  myUidList.clear();
   myAuthors.clear();
   myTags.clear();
   myState=State.READ_NOTHING;

@@ -13,6 +13,10 @@ myState=State.READ_ID;
  else if ("title".equals(localName)) {
 myState=State.READ_TITLE;
 }
+ else if ("identifier".equals(localName) && XMLNamespaces.DublinCore.equals(uri)) {
+myState=State.READ_UID;
+myScheme=attributes.getValue("scheme");
+}
  else if ("language".equals(localName) && XMLNamespaces.DublinCore.equals(uri)) {
 myState=State.READ_LANGUAGE;
 }

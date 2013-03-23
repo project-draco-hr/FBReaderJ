@@ -10,6 +10,9 @@ case READ_ID:
 case READ_TITLE:
 myTitle.append(ch,start,length);
 break;
+case READ_UID:
+myUid.append(ch,start,length);
+break;
 case READ_LANGUAGE:
 myLanguage.append(ch,start,length);
 break;
