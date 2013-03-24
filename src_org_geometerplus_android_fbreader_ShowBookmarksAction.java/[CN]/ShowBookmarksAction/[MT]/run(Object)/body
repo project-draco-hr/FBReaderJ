@@ -1,6 +1,8 @@
 {
-  final Intent intent=new Intent(BaseActivity.getApplicationContext(),BookmarksActivity.class);
-  intent.putExtra(FBReader.BOOK_KEY,SerializerUtil.serialize(Reader.Model.Book));
-  intent.putExtra(FBReader.BOOKMARK_KEY,SerializerUtil.serialize(Reader.createBookmark(20,true)));
-  OrientationUtil.startActivity(BaseActivity,intent);
+  try {
+    startBookmarksActivity(new Intent("android.fbreader.action.EXTERNAL_BOOKMARKS"));
+  }
+ catch (  ActivityNotFoundException e) {
+    startBookmarksActivity(new Intent(BaseActivity.getApplicationContext(),BookmarksActivity.class));
+  }
 }

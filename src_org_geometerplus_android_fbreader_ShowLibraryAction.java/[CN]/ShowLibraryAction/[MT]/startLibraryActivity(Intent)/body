@@ -1,0 +1,6 @@
+{
+  if (Reader.Model != null) {
+    intent.putExtra(FBReader.BOOK_KEY,SerializerUtil.serialize(Reader.Model.Book));
+  }
+  OrientationUtil.startActivity(BaseActivity,intent);
+}
