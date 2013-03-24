@@ -29,5 +29,5 @@
   myDatabase.execSQL("ALTER TABLE Books RENAME TO Books_Obsolete");
   myDatabase.execSQL("CREATE TABLE IF NOT EXISTS Books(" + "book_id INTEGER PRIMARY KEY," + "encoding TEXT,"+ "language TEXT,"+ "title TEXT NOT NULL,"+ "file_id INTEGER UNIQUE NOT NULL REFERENCES Files(file_id))");
   myDatabase.execSQL("INSERT INTO Books (book_id,encoding,language,title,file_id) SELECT book_id,encoding,language,title,file_id FROM Books_Obsolete");
-  myDatabase.execSQL("DROP TABLE Books_Obsolete");
+  myDatabase.execSQL("DROP TABLE IF EXISTS Books_Obsolete");
 }

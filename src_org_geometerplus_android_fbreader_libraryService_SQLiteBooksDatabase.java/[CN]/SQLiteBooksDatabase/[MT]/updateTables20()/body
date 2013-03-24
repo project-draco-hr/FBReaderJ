@@ -4,5 +4,5 @@
   final SQLiteStatement insert=myDatabase.compileStatement("INSERT INTO Labels (name) VALUES ('favorite')");
   final long id=insert.executeInsert();
   myDatabase.execSQL("INSERT INTO BookLabel (label_id,book_id) SELECT " + id + ",book_id FROM Favorites");
-  myDatabase.execSQL("DROP TABLE Favorites");
+  myDatabase.execSQL("DROP TABLE IF EXISTS Favorites");
 }

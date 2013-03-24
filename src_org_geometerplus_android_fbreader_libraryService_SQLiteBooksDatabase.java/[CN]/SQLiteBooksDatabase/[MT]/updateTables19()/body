@@ -1,3 +1,3 @@
 {
-  myDatabase.execSQL("DROP TABLE BookList");
+  myDatabase.execSQL("DROP TABLE IF EXISTS BookList");
 }
