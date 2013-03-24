@@ -15,16 +15,18 @@
   }
  catch (  BookReadingException e) {
   }
-  try {
-    final Book book=new Book(file);
-    newBooks.add(book);
-    return;
-  }
- catch (  BookReadingException e) {
-  }
   if (file.isArchive()) {
     for (    ZLFile entry : fileInfos.archiveEntries(file)) {
       collectBooks(entry,fileInfos,savedBooksByFileId,orphanedBooksByFileId,newBooks,doReadMetaInfo);
+    }
+  }
+ else {
+    try {
+      final Book book=new Book(file);
+      newBooks.add(book);
+      return;
+    }
+ catch (    BookReadingException e) {
     }
   }
 }
