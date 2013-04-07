@@ -1,0 +1,6 @@
+{
+switch (myState) {
+case READ_NOTHING:
+case READ_QUERY:
+  }
+}

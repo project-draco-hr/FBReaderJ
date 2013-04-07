@@ -1,0 +1,56 @@
+{
+  final String type;
+  if (filter instanceof Filter.Empty) {
+    type="empty";
+  }
+ else   if (filter instanceof Filter.And) {
+    type="and";
+  }
+ else   if (filter instanceof Filter.Or) {
+    type="or";
+  }
+ else   if (filter instanceof Filter.ByBook) {
+    type="book";
+  }
+ else   if (filter instanceof Filter.ByAuthor) {
+    type="author";
+  }
+ else   if (filter instanceof Filter.BySeries) {
+    type="series";
+  }
+ else   if (filter instanceof Filter.ByPattern) {
+    type="pattern";
+  }
+ else   if (filter instanceof Filter.ByTitlePrefix) {
+    type="title-prefix";
+  }
+ else   if (filter instanceof Filter.HasBookmark) {
+    type="has-bookmark";
+  }
+ else {
+    throw new RuntimeException("Unsupported filter type: " + filter.getClass());
+  }
+  appendTag(buffer,type,false);
+  if (filter instanceof Filter.And) {
+    serialize(buffer,((Filter.And)filter).First);
+    serialize(buffer,((Filter.And)filter).Second);
+  }
+ else   if (filter instanceof Filter.Or) {
+    serialize(buffer,((Filter.Or)filter).First);
+    serialize(buffer,((Filter.Or)filter).Second);
+  }
+ else   if (filter instanceof Filter.ByBook) {
+    buffer.append(String.valueOf(((Filter.ByBook)filter).Book.getId()));
+  }
+ else   if (filter instanceof Filter.ByAuthor) {
+  }
+ else   if (filter instanceof Filter.BySeries) {
+  }
+ else   if (filter instanceof Filter.ByPattern) {
+    buffer.append(((Filter.ByPattern)filter).Pattern);
+  }
+ else   if (filter instanceof Filter.ByTitlePrefix) {
+    buffer.append(((Filter.ByTitlePrefix)filter).Prefix);
+  }
+  closeTag(buffer,type);
+}

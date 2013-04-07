@@ -1,0 +1,12 @@
+{
+  try {
+    final QueryDeserializer deserializer=new QueryDeserializer();
+    Xml.parse(xml,deserializer);
+    return deserializer.getQuery();
+  }
+ catch (  SAXException e) {
+    System.err.println(xml);
+    e.printStackTrace();
+    return null;
+  }
+}

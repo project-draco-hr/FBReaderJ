@@ -1,0 +1,7 @@
+{
+  final StringBuilder buffer=new StringBuilder();
+  appendTag(buffer,"query",false,"limit",String.valueOf(query.Limit),"page",String.valueOf(query.Page));
+  serialize(buffer,query.Filter);
+  closeTag(buffer,"query");
+  return buffer.toString();
+}
