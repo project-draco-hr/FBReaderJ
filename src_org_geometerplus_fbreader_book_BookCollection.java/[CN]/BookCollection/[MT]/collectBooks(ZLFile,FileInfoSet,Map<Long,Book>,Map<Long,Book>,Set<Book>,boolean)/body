@@ -21,12 +21,9 @@
     }
   }
  else {
-    try {
-      final Book book=new Book(file);
+    final Book book=getBookByFile(file);
+    if (book != null) {
       newBooks.add(book);
-      return;
-    }
- catch (    BookReadingException e) {
     }
   }
 }
