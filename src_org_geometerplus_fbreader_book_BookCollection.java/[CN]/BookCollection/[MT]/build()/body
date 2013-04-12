@@ -50,18 +50,13 @@
     collectBooks(file,fileInfos,savedBooksByFileId,orphanedBooksByFileId,newBooks,!fileInfos.check(file,true));
     file.setCached(false);
   }
-  try {
-    final ZLFile helpFile=BookUtil.getHelpFile();
-    Book helpBook=savedBooksByFileId.get(fileInfos.getId(helpFile));
-    if (helpBook == null) {
-      helpBook=new Book(helpFile);
-    }
-    saveBook(helpBook,false);
-    addBook(helpBook,false);
+  final ZLFile helpFile=BookUtil.getHelpFile();
+  Book helpBook=savedBooksByFileId.get(fileInfos.getId(helpFile));
+  if (helpBook == null) {
+    helpBook=getBookByFile(helpFile);
   }
- catch (  BookReadingException e) {
-    e.printStackTrace();
-  }
+  saveBook(helpBook,false);
+  addBook(helpBook,false);
   fileInfos.save();
   myDatabase.executeAsTransaction(new Runnable(){
     public void run(){
