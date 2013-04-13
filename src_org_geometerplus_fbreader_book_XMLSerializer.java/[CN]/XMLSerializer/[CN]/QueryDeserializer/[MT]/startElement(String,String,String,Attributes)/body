@@ -9,6 +9,28 @@
   }
  else {
     if ("filter".equals(localName)) {
+      final String type=attributes.getValue("type");
+      if ("empty".equals(type)) {
+        myFilter=new Filter.Empty();
+      }
+ else       if ("book".equals(type)) {
+      }
+ else       if ("author".equals(type)) {
+      }
+ else       if ("series".equals(type)) {
+      }
+ else       if ("pattern".equals(type)) {
+        myFilter=new Filter.ByPattern(attributes.getValue("pattern"));
+      }
+ else       if ("title-prefix".equals(type)) {
+        myFilter=new Filter.ByTitlePrefix(attributes.getValue("prefix"));
+      }
+ else       if ("has-bookmark".equals(type)) {
+        myFilter=new Filter.HasBookmark();
+      }
+ else {
+        throw new SAXException("Unexpected filter type: " + type);
+      }
       myStateStack.add(State.READ_FILTER_SIMPLE);
     }
  else     if ("and".equals(localName)) {
