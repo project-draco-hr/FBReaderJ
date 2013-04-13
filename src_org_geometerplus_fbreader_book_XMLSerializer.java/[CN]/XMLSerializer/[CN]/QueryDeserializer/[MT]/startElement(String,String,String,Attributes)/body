@@ -1,6 +1,24 @@
 {
-switch (myState) {
-case READ_NOTHING:
-case READ_QUERY:
+  if (myStateStack.isEmpty()) {
+    if ("query".equals(localName)) {
+      myStateStack.add(State.READ_QUERY);
+    }
+ else {
+      throw new SAXException("Unexpected tag " + localName);
+    }
+  }
+ else {
+    if ("filter".equals(localName)) {
+      myStateStack.add(State.READ_FILTER_SIMPLE);
+    }
+ else     if ("and".equals(localName)) {
+      myStateStack.add(State.READ_FILTER_AND);
+    }
+ else     if ("or".equals(localName)) {
+      myStateStack.add(State.READ_FILTER_OR);
+    }
+ else {
+      throw new SAXException("Unexpected tag " + localName);
+    }
   }
 }

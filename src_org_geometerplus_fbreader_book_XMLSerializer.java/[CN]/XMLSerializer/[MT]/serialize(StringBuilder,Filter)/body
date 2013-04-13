@@ -1,56 +1,39 @@
 {
-  final String type;
   if (filter instanceof Filter.Empty) {
-    type="empty";
+    appendTag(buffer,"filter",true,"type","empty");
   }
  else   if (filter instanceof Filter.And) {
-    type="and";
+    appendTag(buffer,"and",false);
+    serialize(buffer,((Filter.And)filter).First);
+    serialize(buffer,((Filter.And)filter).Second);
+    closeTag(buffer,"and");
   }
  else   if (filter instanceof Filter.Or) {
-    type="or";
+    appendTag(buffer,"or",false);
+    serialize(buffer,((Filter.Or)filter).First);
+    serialize(buffer,((Filter.Or)filter).Second);
+    closeTag(buffer,"or");
   }
  else   if (filter instanceof Filter.ByBook) {
-    type="book";
+    appendTag(buffer,"filter",true,"type","book","id",String.valueOf(((Filter.ByBook)filter).Book.getId()));
   }
  else   if (filter instanceof Filter.ByAuthor) {
-    type="author";
+    final Author author=((Filter.ByAuthor)filter).Author;
+    appendTag(buffer,"filter",true,"type","author","displayName",author.DisplayName,"sorkKey",author.SortKey);
   }
  else   if (filter instanceof Filter.BySeries) {
-    type="series";
+    appendTag(buffer,"filter",true,"type","series","title",((Filter.BySeries)filter).Series.getTitle());
   }
  else   if (filter instanceof Filter.ByPattern) {
-    type="pattern";
+    appendTag(buffer,"filter",true,"type","pattern","pattern",((Filter.ByPattern)filter).Pattern);
   }
  else   if (filter instanceof Filter.ByTitlePrefix) {
-    type="title-prefix";
+    appendTag(buffer,"filter",true,"type","title-prefix","prefix",((Filter.ByPattern)filter).Pattern);
   }
  else   if (filter instanceof Filter.HasBookmark) {
-    type="has-bookmark";
+    appendTag(buffer,"filter",true,"type","has-bookmark");
   }
  else {
     throw new RuntimeException("Unsupported filter type: " + filter.getClass());
   }
-  appendTag(buffer,type,false);
-  if (filter instanceof Filter.And) {
-    serialize(buffer,((Filter.And)filter).First);
-    serialize(buffer,((Filter.And)filter).Second);
-  }
- else   if (filter instanceof Filter.Or) {
-    serialize(buffer,((Filter.Or)filter).First);
-    serialize(buffer,((Filter.Or)filter).Second);
-  }
- else   if (filter instanceof Filter.ByBook) {
-    buffer.append(String.valueOf(((Filter.ByBook)filter).Book.getId()));
-  }
- else   if (filter instanceof Filter.ByAuthor) {
-  }
- else   if (filter instanceof Filter.BySeries) {
-  }
- else   if (filter instanceof Filter.ByPattern) {
-    buffer.append(((Filter.ByPattern)filter).Pattern);
-  }
- else   if (filter instanceof Filter.ByTitlePrefix) {
-    buffer.append(((Filter.ByTitlePrefix)filter).Prefix);
-  }
-  closeTag(buffer,type);
 }

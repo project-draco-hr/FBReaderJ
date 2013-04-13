@@ -1,5 +1,0 @@
-{
-switch (myState) {
-case READ_QUERY:
-  }
-}

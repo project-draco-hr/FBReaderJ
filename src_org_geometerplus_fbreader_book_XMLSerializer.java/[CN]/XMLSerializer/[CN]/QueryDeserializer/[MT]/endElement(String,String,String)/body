@@ -1,6 +1,15 @@
 {
-switch (myState) {
-case READ_NOTHING:
-case READ_QUERY:
+  if (myStateStack.isEmpty()) {
+    throw new SAXException("Unexpected end of tag " + localName);
   }
+switch (myStateStack.removeLast()) {
+case READ_QUERY:
+    break;
+case READ_FILTER_AND:
+  break;
+case READ_FILTER_OR:
+break;
+case READ_FILTER_SIMPLE:
+break;
+}
 }
