@@ -15,7 +15,7 @@
     closeTag(buffer,"or");
   }
  else   if (filter instanceof Filter.ByBook) {
-    appendTag(buffer,"filter",true,"type","book","id",String.valueOf(((Filter.ByBook)filter).Book.getId()));
+    appendTag(buffer,"filter",true,"type","book","id",String.valueOf(((Filter.ByBook)filter).Id));
   }
  else   if (filter instanceof Filter.ByAuthor) {
     final Author author=((Filter.ByAuthor)filter).Author;
