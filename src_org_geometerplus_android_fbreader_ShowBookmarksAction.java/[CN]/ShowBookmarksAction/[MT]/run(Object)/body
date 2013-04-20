@@ -1,8 +1,15 @@
 {
-  try {
-    startBookmarksActivity(new Intent("android.fbreader.action.EXTERNAL_BOOKMARKS"));
+  final Intent externalIntent=new Intent("android.fbreader.action.EXTERNAL_BOOKMARKS");
+  final Intent internalIntent=new Intent(BaseActivity.getApplicationContext(),BookmarksActivity.class);
+  if (PackageUtil.canBeStarted(BaseActivity,externalIntent,true)) {
+    try {
+      startBookmarksActivity(externalIntent);
+    }
+ catch (    ActivityNotFoundException e) {
+      startBookmarksActivity(internalIntent);
+    }
   }
- catch (  ActivityNotFoundException e) {
-    startBookmarksActivity(new Intent(BaseActivity.getApplicationContext(),BookmarksActivity.class));
+ else {
+    startBookmarksActivity(internalIntent);
   }
 }
