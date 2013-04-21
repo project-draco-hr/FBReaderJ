@@ -3,7 +3,7 @@
     return false;
   }
   try {
-    return myInterface.hasBooksForPattern(pattern);
+    return myInterface.hasBooks(SerializerUtil.serialize(query));
   }
  catch (  RemoteException e) {
     return false;
