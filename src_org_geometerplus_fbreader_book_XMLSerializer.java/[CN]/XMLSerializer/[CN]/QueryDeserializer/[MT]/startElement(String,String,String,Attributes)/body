@@ -47,12 +47,17 @@
  else {
         myFilter=new Filter.Empty();
       }
+      if (!myFilterStack.isEmpty() && myFilterStack.getLast() == null) {
+        myFilterStack.set(myFilterStack.size() - 1,myFilter);
+      }
       myStateStack.add(State.READ_FILTER_SIMPLE);
     }
  else     if ("and".equals(localName)) {
+      myFilterStack.add(null);
       myStateStack.add(State.READ_FILTER_AND);
     }
  else     if ("or".equals(localName)) {
+      myFilterStack.add(null);
       myStateStack.add(State.READ_FILTER_OR);
     }
  else {

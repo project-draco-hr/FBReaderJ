@@ -6,8 +6,10 @@ switch (myStateStack.removeLast()) {
 case READ_QUERY:
     break;
 case READ_FILTER_AND:
-  break;
+  myFilter=new Filter.And(myFilterStack.removeLast(),myFilter);
+break;
 case READ_FILTER_OR:
+myFilter=new Filter.Or(myFilterStack.removeLast(),myFilter);
 break;
 case READ_FILTER_SIMPLE:
 break;
