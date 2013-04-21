@@ -1,6 +1,0 @@
-{
-  clear();
-  for (  Book b : Collection.booksForTitlePrefix(Prefix)) {
-    createBookWithAuthorsSubTree(b);
-  }
-}

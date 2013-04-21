@@ -2,6 +2,8 @@
   try {
     final QueryDeserializer deserializer=new QueryDeserializer();
     Xml.parse(xml,deserializer);
+    System.err.println("XML: " + xml);
+    System.err.println("FILTER: " + deserializer.getQuery().Filter);
     return deserializer.getQuery();
   }
  catch (  SAXException e) {

@@ -28,7 +28,7 @@
     appendTag(buffer,"filter",true,"type","pattern","pattern",((Filter.ByPattern)filter).Pattern);
   }
  else   if (filter instanceof Filter.ByTitlePrefix) {
-    appendTag(buffer,"filter",true,"type","title-prefix","prefix",((Filter.ByPattern)filter).Pattern);
+    appendTag(buffer,"filter",true,"type","title-prefix","prefix",((Filter.ByTitlePrefix)filter).Prefix);
   }
  else   if (filter instanceof Filter.HasBookmark) {
     appendTag(buffer,"filter",true,"type","has-bookmark");

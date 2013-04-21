@@ -1,3 +1,0 @@
-{
-  return book != null && Prefix.equals(book.firstTitleLetter());
-}

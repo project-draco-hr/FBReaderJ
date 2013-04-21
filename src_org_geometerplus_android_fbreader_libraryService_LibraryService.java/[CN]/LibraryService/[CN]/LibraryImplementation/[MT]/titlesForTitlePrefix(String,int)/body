@@ -1,3 +1,0 @@
-{
-  return myCollection.titlesForTitlePrefix(prefix,limit);
-}

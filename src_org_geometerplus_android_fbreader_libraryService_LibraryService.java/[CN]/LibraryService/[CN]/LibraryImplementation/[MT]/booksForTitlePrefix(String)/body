@@ -1,3 +1,0 @@
-{
-  return SerializerUtil.serializeBookList(myCollection.booksForTitlePrefix(prefix));
-}
