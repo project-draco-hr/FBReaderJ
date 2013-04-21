@@ -1,9 +1,0 @@
-{
-  if (myInterface != null) {
-    try {
-      myInterface.removeLabel(SerializerUtil.serialize(book),label);
-    }
- catch (    RemoteException e) {
-    }
-  }
-}

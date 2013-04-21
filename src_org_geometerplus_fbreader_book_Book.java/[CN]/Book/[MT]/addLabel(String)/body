@@ -1,0 +1,9 @@
+{
+  if (myLabels == null) {
+    myLabels=new ArrayList<String>();
+  }
+  if (!myLabels.contains(label)) {
+    myLabels.add(label);
+    myIsSaved=false;
+  }
+}

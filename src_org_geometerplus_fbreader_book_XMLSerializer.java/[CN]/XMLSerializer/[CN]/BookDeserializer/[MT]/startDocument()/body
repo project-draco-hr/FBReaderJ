@@ -11,5 +11,6 @@
   myUidList.clear();
   myAuthors.clear();
   myTags.clear();
+  myLabels.clear();
   myState=State.READ_NOTHING;
 }

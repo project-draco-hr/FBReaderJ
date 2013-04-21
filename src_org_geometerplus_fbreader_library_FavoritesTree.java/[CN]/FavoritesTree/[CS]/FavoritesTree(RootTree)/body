@@ -1,3 +1,4 @@
 {
-  super(root,ROOT_FAVORITES);
+  super(root,new Filter.ByLabel(Book.FAVORITE_LABEL),-1);
+  myResource=resource().getResource(ROOT_FAVORITES);
 }

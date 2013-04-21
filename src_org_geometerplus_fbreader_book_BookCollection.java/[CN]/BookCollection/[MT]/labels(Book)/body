@@ -1,6 +1,0 @@
-{
-  if (book == null) {
-    return Collections.<String>emptyList();
-  }
-  return myDatabase.labels(book.getId());
-}

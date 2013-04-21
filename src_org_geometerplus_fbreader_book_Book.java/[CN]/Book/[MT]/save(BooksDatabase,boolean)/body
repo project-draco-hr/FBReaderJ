@@ -25,6 +25,17 @@
       for (      Tag tag : tags()) {
         database.saveBookTagInfo(myId,tag);
       }
+      final List<String> labelsInDb=database.listLabels(myId);
+      for (      String label : labelsInDb) {
+        if (myLabels == null || !myLabels.contains(label)) {
+          database.removeLabel(myId,label);
+        }
+      }
+      if (myLabels != null) {
+        for (        String label : myLabels) {
+          database.setLabel(myId,label);
+        }
+      }
       database.saveBookSeriesInfo(myId,mySeriesInfo);
       database.deleteAllBookUids(myId);
       for (      UID uid : uids()) {

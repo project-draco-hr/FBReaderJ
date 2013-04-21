@@ -1,4 +1,0 @@
-{
-  myDatabase.setLabel(book.getId(),label);
-  fireBookEvent(BookEvent.Updated,book);
-}

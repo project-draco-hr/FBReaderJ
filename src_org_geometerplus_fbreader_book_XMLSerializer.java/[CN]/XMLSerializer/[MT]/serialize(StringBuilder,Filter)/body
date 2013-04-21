@@ -34,6 +34,9 @@
     }
     appendTag(buffer,"filter",true,params);
   }
+ else   if (filter instanceof Filter.ByLabel) {
+    appendTag(buffer,"filter",true,"type","label","name",((Filter.ByLabel)filter).Label);
+  }
  else   if (filter instanceof Filter.BySeries) {
     appendTag(buffer,"filter",true,"type","series","title",((Filter.BySeries)filter).Series.getTitle());
   }

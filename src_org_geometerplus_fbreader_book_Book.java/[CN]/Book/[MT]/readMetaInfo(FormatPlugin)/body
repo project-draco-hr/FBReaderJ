@@ -4,6 +4,7 @@
   setTitle(null);
   myAuthors=null;
   myTags=null;
+  myLabels=null;
   mySeriesInfo=null;
   myUids=null;
   myIsSaved=false;

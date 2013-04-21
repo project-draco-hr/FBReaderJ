@@ -1,6 +1,7 @@
 {
   myAuthors=database.listAuthors(myId);
   myTags=database.listTags(myId);
+  myLabels=database.listLabels(myId);
   mySeriesInfo=database.getSeriesInfo(myId);
   myUids=database.listUids(myId);
   myIsSaved=true;

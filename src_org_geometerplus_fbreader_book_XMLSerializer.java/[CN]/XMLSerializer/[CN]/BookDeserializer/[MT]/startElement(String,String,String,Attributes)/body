@@ -34,6 +34,12 @@ if (term != null) {
   myTags.add(Tag.getTag(term.split("/")));
 }
 }
+ else if ("label".equals(localName)) {
+final String name=attributes.getValue("name");
+if (name != null) {
+  myLabels.add(name);
+}
+}
  else if ("series".equals(localName) && XMLNamespaces.CalibreMetadata.equals(uri)) {
 myState=State.READ_SERIES_TITLE;
 }

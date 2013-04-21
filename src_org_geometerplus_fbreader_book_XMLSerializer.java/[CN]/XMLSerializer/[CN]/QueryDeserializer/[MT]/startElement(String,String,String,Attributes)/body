@@ -32,6 +32,9 @@
         }
         myFilter=new Filter.ByTag(Tag.getTag(names.toArray(new String[names.size()])));
       }
+ else       if ("label".equals(type)) {
+        myFilter=new Filter.ByLabel(attributes.getValue("name"));
+      }
  else       if ("series".equals(type)) {
         myFilter=new Filter.BySeries(new Series(attributes.getValue("title")));
       }

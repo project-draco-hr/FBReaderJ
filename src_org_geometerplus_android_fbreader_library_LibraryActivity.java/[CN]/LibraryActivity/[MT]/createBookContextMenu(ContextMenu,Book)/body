@@ -6,7 +6,7 @@
   if (book.File.getPhysicalFile() != null) {
     menu.add(0,SHARE_BOOK_ITEM_ID,0,resource.getResource("shareBook").getValue());
   }
-  if (myRootTree.Collection.labels(book).contains(Book.FAVORITE_LABEL)) {
+  if (book.labels().contains(Book.FAVORITE_LABEL)) {
     menu.add(0,REMOVE_FROM_FAVORITES_ITEM_ID,0,resource.getResource("removeFromFavorites").getValue());
   }
  else {

@@ -1,0 +1,6 @@
+{
+  if (myLabels == null) {
+    myLabels=new ArrayList<String>();
+  }
+  myLabels.add(label);
+}

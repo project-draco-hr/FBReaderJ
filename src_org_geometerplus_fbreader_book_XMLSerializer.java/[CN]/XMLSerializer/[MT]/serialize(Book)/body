@@ -19,6 +19,9 @@
   for (  Tag tag : book.tags()) {
     appendTag(buffer,"category",true,"term",tag.toString("/"),"label",tag.Name);
   }
+  for (  String label : book.labels()) {
+    appendTag(buffer,"label",true,"name",label);
+  }
   final SeriesInfo seriesInfo=book.getSeriesInfo();
   if (seriesInfo != null) {
     appendTagWithContent(buffer,"calibre:series",seriesInfo.Series.getTitle());
