@@ -32,7 +32,7 @@
         myFilter=new Filter.HasBookmark();
       }
  else {
-        throw new SAXException("Unexpected filter type: " + type);
+        myFilter=new Filter.Empty();
       }
       myStateStack.add(State.READ_FILTER_SIMPLE);
     }

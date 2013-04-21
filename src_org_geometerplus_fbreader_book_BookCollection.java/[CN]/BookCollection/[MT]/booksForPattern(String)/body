@@ -4,7 +4,7 @@
   }
   pattern=pattern.toLowerCase();
   final LinkedList<Book> filtered=new LinkedList<Book>();
-  for (  Book b : books()) {
+  for (  Book b : books(new Query(new Filter.Empty(),1000,0))) {
     if (b.matches(pattern)) {
       filtered.add(b);
     }

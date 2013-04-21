@@ -2,4 +2,6 @@
   super(parent,position);
   Series=series;
   Author=author;
+  final Filter f=new Filter.BySeries(series);
+  Filter=author != null ? new Filter.And(f,new Filter.ByAuthor(author)) : f;
 }

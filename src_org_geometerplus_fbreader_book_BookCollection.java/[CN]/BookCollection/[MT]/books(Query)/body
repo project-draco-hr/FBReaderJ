@@ -1,0 +1,26 @@
+{
+  final List<Book> allBooks;
+synchronized (myBooksByFile) {
+    allBooks=new ArrayList<Book>(myBooksByFile.values());
+  }
+  final int start=query.Page * query.Limit;
+  final int end=start + query.Limit;
+  if (query.Filter instanceof Filter.Empty) {
+    return allBooks.subList(start,end);
+  }
+ else {
+    int count=0;
+    final LinkedList<Book> filtered=new LinkedList<Book>();
+    for (    Book b : allBooks) {
+      if (query.Filter.matches(b)) {
+        if (count >= start) {
+          filtered.add(b);
+        }
+        if (++count == end) {
+          break;
+        }
+      }
+    }
+    return filtered;
+  }
+}

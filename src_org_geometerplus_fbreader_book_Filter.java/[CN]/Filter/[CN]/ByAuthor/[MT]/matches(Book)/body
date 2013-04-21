@@ -1,0 +1,4 @@
+{
+  final List<Author> bookAuthors=book.authors();
+  return Author.NULL.equals(Author) && bookAuthors.isEmpty() || bookAuthors.contains(Author);
+}
