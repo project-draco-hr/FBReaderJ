@@ -1,6 +1,13 @@
 {
   if (myStateStack.isEmpty()) {
     if ("query".equals(localName)) {
+      try {
+        myLimit=Integer.parseInt(attributes.getValue("limit"));
+        myPage=Integer.parseInt(attributes.getValue("page"));
+      }
+ catch (      Exception e) {
+        throw new SAXException("XML parsing error");
+      }
       myStateStack.add(State.READ_QUERY);
     }
  else {

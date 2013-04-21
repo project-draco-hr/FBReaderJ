@@ -1,5 +1,5 @@
 {
-  if (myFilter != null) {
-    myQuery=new Query(myFilter,1000);
+  if (myFilter != null && myLimit > 0 && myPage >= 0) {
+    myQuery=new Query(myFilter,myLimit,myPage);
   }
 }

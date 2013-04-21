@@ -1,0 +1,11 @@
+{
+  for (Query query=new Query(myFilter,20); ; query=query.next()) {
+    final List<Book> books=Collection.books(query);
+    if (books.isEmpty()) {
+      break;
+    }
+    for (    Book b : books) {
+      createSubTree(b);
+    }
+  }
+}

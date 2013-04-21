@@ -1,6 +1,4 @@
 {
   clear();
-  for (  Book book : Collection.books(new Query(myFilter,1000))) {
-    createSubTree(book);
-  }
+  createBookSubTrees();
 }
