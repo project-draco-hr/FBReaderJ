@@ -1,3 +1,0 @@
-{
-  return myCollection.titlesForTag(Util.stringToTag(tag),limit);
-}

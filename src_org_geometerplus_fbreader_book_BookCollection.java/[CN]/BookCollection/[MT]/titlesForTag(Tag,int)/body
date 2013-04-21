@@ -1,3 +1,0 @@
-{
-  return titles(new Query(new Filter.ByTag(tag),limit));
-}

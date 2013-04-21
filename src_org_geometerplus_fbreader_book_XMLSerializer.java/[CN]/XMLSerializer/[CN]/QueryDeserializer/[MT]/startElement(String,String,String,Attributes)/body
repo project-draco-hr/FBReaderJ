@@ -13,11 +13,17 @@
       if ("empty".equals(type)) {
         myFilter=new Filter.Empty();
       }
- else       if ("book".equals(type)) {
-        myFilter=new Filter.ByBook(Long.parseLong(attributes.getValue("id")));
-      }
  else       if ("author".equals(type)) {
         myFilter=new Filter.ByAuthor(new Author(attributes.getValue("displayName"),attributes.getValue("sorkKey")));
+      }
+ else       if ("tag".equals(type)) {
+        final LinkedList<String> names=new LinkedList<String>();
+        int num=0;
+        String n;
+        while ((n=attributes.getValue("name" + num++)) != null) {
+          names.add(n);
+        }
+        myFilter=new Filter.ByTag(Tag.getTag(names.toArray(new String[names.size()])));
       }
  else       if ("series".equals(type)) {
         myFilter=new Filter.BySeries(new Series(attributes.getValue("title")));

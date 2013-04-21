@@ -1,3 +1,0 @@
-{
-  return Status.ALWAYS_RELOAD_BEFORE_OPENING;
-}

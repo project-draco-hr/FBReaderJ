@@ -1,4 +1,4 @@
 {
-  super(parent,position);
+  super(parent,new Filter.ByTag(tag),position);
   Tag=tag;
 }

@@ -1,3 +1,0 @@
-{
-  return books(new Query(new Filter.ByTag(tag),1000));
-}
