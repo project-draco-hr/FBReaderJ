@@ -1,3 +1,0 @@
-{
-  return MiscUtil.join(Collection.titles(new Query(Filter,5,0)),", ");
-}

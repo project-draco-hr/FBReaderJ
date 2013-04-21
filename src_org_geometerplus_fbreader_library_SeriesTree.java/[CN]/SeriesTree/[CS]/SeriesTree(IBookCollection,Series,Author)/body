@@ -1,7 +1,4 @@
 {
-  super(collection);
+  super(collection,filter(series,author));
   Series=series;
-  Author=author;
-  final Filter f=new Filter.BySeries(series);
-  Filter=author != null ? new Filter.And(f,new Filter.ByAuthor(author)) : f;
 }

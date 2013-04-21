@@ -1,6 +1,0 @@
-{
-  clear();
-  for (  Book book : Collection.books(new Query(Filter,1000,0))) {
-    createBookInSeriesSubTree(book);
-  }
-}
