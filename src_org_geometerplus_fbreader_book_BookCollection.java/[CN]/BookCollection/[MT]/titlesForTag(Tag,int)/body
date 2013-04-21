@@ -1,18 +1,3 @@
 {
-  if (limit <= 0) {
-    return Collections.emptyList();
-  }
-  final ArrayList<String> titles=new ArrayList<String>(limit);
-  final boolean isNull=Tag.NULL.equals(tag);
-synchronized (myBooksByFile) {
-    for (    Book b : myBooksByFile.values()) {
-      if (isNull ? b.tags().isEmpty() : b.tags().contains(tag)) {
-        titles.add(b.getTitle());
-        if (--limit == 0) {
-          break;
-        }
-      }
-    }
-  }
-  return titles;
+  return titles(new Query(new Filter.ByTag(tag),1000,0));
 }

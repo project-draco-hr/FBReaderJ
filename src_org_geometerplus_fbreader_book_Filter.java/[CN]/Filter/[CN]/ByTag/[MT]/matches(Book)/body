@@ -1,0 +1,4 @@
+{
+  final List<Tag> bookTags=book.tags();
+  return Tag.NULL.equals(Tag) ? bookTags.isEmpty() : bookTags.contains(Tag);
+}

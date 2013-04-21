@@ -1,11 +1,3 @@
 {
-  final boolean isNull=Tag.NULL.equals(tag);
-  final LinkedList<Book> filtered=new LinkedList<Book>();
-  for (  Book b : books(new Query(new Filter.Empty(),1000,0))) {
-    final List<Tag> bookTags=b.tags();
-    if (isNull && bookTags.isEmpty() || bookTags.contains(tag)) {
-      filtered.add(b);
-    }
-  }
-  return filtered;
+  return books(new Query(new Filter.ByTag(tag),1000,0));
 }
