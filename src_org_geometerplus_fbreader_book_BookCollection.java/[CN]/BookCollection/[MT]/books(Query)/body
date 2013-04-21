@@ -10,7 +10,7 @@ synchronized (myBooksByFile) {
   }
  else {
     int count=0;
-    final LinkedList<Book> filtered=new LinkedList<Book>();
+    final List<Book> filtered=new ArrayList<Book>(query.Limit);
     for (    Book b : allBooks) {
       if (query.Filter.matches(b)) {
         if (count >= start) {

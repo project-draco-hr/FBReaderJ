@@ -1,6 +1,6 @@
 {
   clear();
-  for (  Book book : Collection.books(new Query(new Filter.ByAuthor(Author),1000,0))) {
+  for (  Book book : Collection.books(new Query(Filter,1000,0))) {
     createBookSubTree(book);
   }
 }

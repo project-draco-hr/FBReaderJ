@@ -3,7 +3,7 @@
     return Collections.emptyList();
   }
   try {
-    return myInterface.titlesForSeries(series,limit);
+    return myInterface.titles(SerializerUtil.serialize(query));
   }
  catch (  RemoteException e) {
     return Collections.emptyList();

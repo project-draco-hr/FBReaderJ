@@ -1,3 +1,0 @@
-{
-  return myCollection.titlesForSeriesAndAuthor(series,Util.stringToAuthor(author),limit);
-}

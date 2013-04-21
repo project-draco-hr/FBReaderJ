@@ -1,4 +1,5 @@
 {
   super(parent,position);
   Author=author;
+  Filter=new Filter.ByAuthor(author);
 }
