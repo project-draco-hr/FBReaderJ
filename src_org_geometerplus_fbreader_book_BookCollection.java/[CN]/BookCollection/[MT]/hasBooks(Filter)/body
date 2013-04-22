@@ -1,0 +1,12 @@
+{
+  final List<Book> allBooks;
+synchronized (myBooksByFile) {
+    allBooks=new ArrayList<Book>(myBooksByFile.values());
+  }
+  for (  Book b : allBooks) {
+    if (filter.matches(b)) {
+      return true;
+    }
+  }
+  return false;
+}

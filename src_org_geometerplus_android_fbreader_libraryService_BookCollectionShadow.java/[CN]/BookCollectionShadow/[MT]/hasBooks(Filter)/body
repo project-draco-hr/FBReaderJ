@@ -3,7 +3,7 @@
     return false;
   }
   try {
-    return myInterface.hasBooks(SerializerUtil.serialize(query));
+    return myInterface.hasBooks(SerializerUtil.serialize(new Query(filter,1)));
   }
  catch (  RemoteException e) {
     return false;
