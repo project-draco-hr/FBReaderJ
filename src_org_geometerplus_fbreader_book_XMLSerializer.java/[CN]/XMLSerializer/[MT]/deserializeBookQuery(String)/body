@@ -1,6 +1,6 @@
 {
   try {
-    final QueryDeserializer deserializer=new QueryDeserializer();
+    final BookQueryDeserializer deserializer=new BookQueryDeserializer();
     Xml.parse(xml,deserializer);
     return deserializer.getQuery();
   }

@@ -1,5 +1,5 @@
 {
-  for (Query query=new Query(myFilter,20); ; query=query.next()) {
+  for (BookQuery query=new BookQuery(myFilter,20); ; query=query.next()) {
     final List<Book> books=Collection.books(query);
     if (books.isEmpty()) {
       break;
