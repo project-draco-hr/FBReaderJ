@@ -1,3 +1,0 @@
-{
-  return myDatabase.loadVisibleBookmarks(book.getId(),fromId,limitCount);
-}

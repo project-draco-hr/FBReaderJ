@@ -1,9 +1,0 @@
-{
-  LinkedList<Bookmark> list=new LinkedList<Bookmark>();
-  Cursor cursor=myDatabase.rawQuery("SELECT bm.bookmark_id,bm.book_id,b.title,bm.bookmark_text,bm.creation_time,bm.modification_time,bm.access_time,bm.access_counter,bm.model_id,bm.paragraph,bm.word,bm.char FROM Bookmarks AS bm INNER JOIN Books AS b ON b.book_id = bm.book_id WHERE bm.book_id = ? AND bm.visible = 0",new String[]{String.valueOf(bookId)});
-  while (cursor.moveToNext()) {
-    list.add(createBookmark(cursor.getLong(0),cursor.getLong(1),cursor.getString(2),cursor.getString(3),SQLiteUtil.getDate(cursor,4),SQLiteUtil.getDate(cursor,5),SQLiteUtil.getDate(cursor,6),(int)cursor.getLong(7),cursor.getString(8),(int)cursor.getLong(9),(int)cursor.getLong(10),(int)cursor.getLong(11),false));
-  }
-  cursor.close();
-  return list;
-}

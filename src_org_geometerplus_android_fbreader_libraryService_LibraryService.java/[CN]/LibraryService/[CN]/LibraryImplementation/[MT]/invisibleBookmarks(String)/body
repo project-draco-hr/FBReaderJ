@@ -1,3 +1,0 @@
-{
-  return SerializerUtil.serializeBookmarkList(myCollection.invisibleBookmarks(SerializerUtil.deserializeBook(book)));
-}

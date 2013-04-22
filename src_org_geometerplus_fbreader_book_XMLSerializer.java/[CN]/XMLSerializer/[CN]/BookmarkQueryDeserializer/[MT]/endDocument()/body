@@ -1,0 +1,4 @@
+{
+  myBookDeserializer.endDocument();
+  myQuery=new BookmarkQuery(myBookDeserializer.getBook(),myVisible,myLimit,myPage);
+}

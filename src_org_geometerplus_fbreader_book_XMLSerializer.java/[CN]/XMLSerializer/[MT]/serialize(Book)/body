@@ -1,35 +1,5 @@
 {
   final StringBuilder buffer=new StringBuilder();
-  appendTag(buffer,"entry",false,"xmlns:dc",XMLNamespaces.DublinCore,"xmlns:calibre",XMLNamespaces.CalibreMetadata);
-  appendTagWithContent(buffer,"id",book.getId());
-  appendTagWithContent(buffer,"title",book.getTitle());
-  appendTagWithContent(buffer,"dc:language",book.getLanguage());
-  appendTagWithContent(buffer,"dc:encoding",book.getEncodingNoDetection());
-  for (  UID uid : book.uids()) {
-    appendTag(buffer,"dc:identifier",false,"scheme",uid.Type);
-    buffer.append(uid.Id);
-    closeTag(buffer,"dc:identifier");
-  }
-  for (  Author author : book.authors()) {
-    appendTag(buffer,"author",false);
-    appendTagWithContent(buffer,"uri",author.SortKey);
-    appendTagWithContent(buffer,"name",author.DisplayName);
-    closeTag(buffer,"author");
-  }
-  for (  Tag tag : book.tags()) {
-    appendTag(buffer,"category",true,"term",tag.toString("/"),"label",tag.Name);
-  }
-  for (  String label : book.labels()) {
-    appendTag(buffer,"label",true,"name",label);
-  }
-  final SeriesInfo seriesInfo=book.getSeriesInfo();
-  if (seriesInfo != null) {
-    appendTagWithContent(buffer,"calibre:series",seriesInfo.Series.getTitle());
-    if (seriesInfo.Index != null) {
-      appendTagWithContent(buffer,"calibre:series_index",seriesInfo.Index);
-    }
-  }
-  appendTag(buffer,"link",true,"href",book.File.getUrl(),"type","application/epub+zip","rel","http://opds-spec.org/acquisition");
-  closeTag(buffer,"entry");
+  serialize(buffer,book);
   return buffer.toString();
 }

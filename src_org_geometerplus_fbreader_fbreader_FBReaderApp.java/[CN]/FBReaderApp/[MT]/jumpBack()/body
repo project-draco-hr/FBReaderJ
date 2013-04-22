@@ -13,7 +13,7 @@
     if (!myJumpEndPosition.equals(BookTextView.getStartCursor())) {
       return false;
     }
-    final List<Bookmark> bookmarks=Collection.invisibleBookmarks(Model.Book);
+    final List<Bookmark> bookmarks=invisibleBookmarks();
     if (bookmarks.isEmpty()) {
       return false;
     }

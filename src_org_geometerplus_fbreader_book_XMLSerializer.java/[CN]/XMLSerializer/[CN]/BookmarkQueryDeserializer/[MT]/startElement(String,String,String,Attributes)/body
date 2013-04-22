@@ -1,0 +1,15 @@
+{
+  if ("query".equals(localName)) {
+    try {
+      myVisible=Boolean.parseBoolean(attributes.getValue("visible"));
+      myLimit=Integer.parseInt(attributes.getValue("limit"));
+      myPage=Integer.parseInt(attributes.getValue("page"));
+    }
+ catch (    Exception e) {
+      throw new SAXException("XML parsing error",e);
+    }
+  }
+ else {
+    myBookDeserializer.startElement(uri,localName,qName,attributes);
+  }
+}

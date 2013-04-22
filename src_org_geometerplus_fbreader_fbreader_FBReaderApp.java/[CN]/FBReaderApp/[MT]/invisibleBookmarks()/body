@@ -1,0 +1,5 @@
+{
+  final List<Bookmark> bookmarks=Collection.bookmarks(new BookmarkQuery(Model.Book,false,10));
+  Collections.sort(bookmarks,new Bookmark.ByTimeComparator());
+  return bookmarks;
+}

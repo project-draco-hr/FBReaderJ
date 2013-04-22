@@ -1,0 +1,6 @@
+{
+  Book=book;
+  Visible=visible;
+  Limit=limit;
+  Page=page;
+}

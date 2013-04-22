@@ -1,0 +1,5 @@
+{
+  if (!"query".equals(localName)) {
+    myBookDeserializer.endElement(uri,localName,qName);
+  }
+}

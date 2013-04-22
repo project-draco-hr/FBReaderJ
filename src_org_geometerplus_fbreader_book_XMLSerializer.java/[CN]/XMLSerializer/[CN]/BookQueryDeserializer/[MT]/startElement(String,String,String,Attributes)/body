@@ -6,7 +6,7 @@
         myPage=Integer.parseInt(attributes.getValue("page"));
       }
  catch (      Exception e) {
-        throw new SAXException("XML parsing error");
+        throw new SAXException("XML parsing error",e);
       }
       myStateStack.add(State.READ_QUERY);
     }
