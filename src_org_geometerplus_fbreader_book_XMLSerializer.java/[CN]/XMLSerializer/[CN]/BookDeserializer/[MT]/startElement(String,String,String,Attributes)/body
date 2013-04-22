@@ -46,6 +46,9 @@ myState=State.READ_SERIES_TITLE;
  else if ("series_index".equals(localName) && XMLNamespaces.CalibreMetadata.equals(uri)) {
 myState=State.READ_SERIES_INDEX;
 }
+ else if ("has-bookmark".equals(localName)) {
+myHasBookmark=true;
+}
  else if ("link".equals(localName)) {
 myUrl=attributes.getValue("href");
 }

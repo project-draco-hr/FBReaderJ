@@ -12,5 +12,6 @@
   myAuthors.clear();
   myTags.clear();
   myLabels.clear();
+  myHasBookmark=false;
   myState=State.READ_NOTHING;
 }

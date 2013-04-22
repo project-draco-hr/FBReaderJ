@@ -1,5 +1,11 @@
 {
   if (bookmark != null) {
     bookmark.setId(myDatabase.saveBookmark(bookmark));
+    if (bookmark.IsVisible) {
+      final Book book=getBookById(bookmark.getBookId());
+      if (book != null) {
+        book.HasBookmark=true;
+      }
+    }
   }
 }

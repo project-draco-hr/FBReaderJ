@@ -21,7 +21,7 @@
   cursor.close();
   cursor=myDatabase.rawQuery("SELECT book_id,author_id FROM BookAuthor ORDER BY author_index",null);
   while (cursor.moveToNext()) {
-    Book book=booksById.get(cursor.getLong(0));
+    final Book book=booksById.get(cursor.getLong(0));
     if (book != null) {
       Author author=authorById.get(cursor.getLong(1));
       if (author != null) {
@@ -32,7 +32,7 @@
   cursor.close();
   cursor=myDatabase.rawQuery("SELECT book_id,tag_id FROM BookTag",null);
   while (cursor.moveToNext()) {
-    Book book=booksById.get(cursor.getLong(0));
+    final Book book=booksById.get(cursor.getLong(0));
     if (book != null) {
       addTag(book,getTagById(cursor.getLong(1)));
     }
@@ -46,12 +46,36 @@
   cursor.close();
   cursor=myDatabase.rawQuery("SELECT book_id,series_id,book_index FROM BookSeries",null);
   while (cursor.moveToNext()) {
-    Book book=booksById.get(cursor.getLong(0));
+    final Book book=booksById.get(cursor.getLong(0));
     if (book != null) {
       final String series=seriesById.get(cursor.getLong(1));
       if (series != null) {
         setSeriesInfo(book,series,cursor.getString(2));
       }
+    }
+  }
+  cursor.close();
+  cursor=myDatabase.rawQuery("SELECT book_id,type,uid FROM BookUid",null);
+  while (cursor.moveToNext()) {
+    final Book book=booksById.get(cursor.getLong(0));
+    if (book != null) {
+      book.addUid(cursor.getString(1),cursor.getString(2));
+    }
+  }
+  cursor.close();
+  cursor=myDatabase.rawQuery("SELECT BookLabel.book_id,Labels.name FROM Labels" + " INNER JOIN BookLabel ON BookLabel.label_id=Labels.label_id",null);
+  while (cursor.moveToNext()) {
+    final Book book=booksById.get(cursor.getLong(0));
+    if (book != null) {
+      book.addLabel(cursor.getString(1));
+    }
+  }
+  cursor.close();
+  cursor=myDatabase.rawQuery("SELECT book_id FROM Bookmarks WHERE visible = 1 GROUP by book_id",null);
+  while (cursor.moveToNext()) {
+    final Book book=booksById.get(cursor.getLong(0));
+    if (book != null) {
+      book.HasBookmark=true;
     }
   }
   cursor.close();

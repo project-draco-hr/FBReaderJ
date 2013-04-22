@@ -16,4 +16,5 @@
     myBook.addUid(uid);
   }
   myBook.setSeriesInfoWithNoCheck(string(mySeriesTitle),string(mySeriesIndex));
+  myBook.HasBookmark=myHasBookmark;
 }

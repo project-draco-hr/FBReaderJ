@@ -1,5 +1,11 @@
 {
   if (bookmark != null && bookmark.getId() != -1) {
     myDatabase.deleteBookmark(bookmark);
+    if (bookmark.IsVisible) {
+      final Book book=getBookById(bookmark.getBookId());
+      if (book != null) {
+        book.HasBookmark=myDatabase.hasVisibleBookmark(bookmark.getBookId());
+      }
+    }
   }
 }

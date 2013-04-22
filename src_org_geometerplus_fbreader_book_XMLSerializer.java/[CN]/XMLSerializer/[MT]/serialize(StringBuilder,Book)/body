@@ -28,6 +28,9 @@
       appendTagWithContent(buffer,"calibre:series_index",seriesInfo.Index);
     }
   }
+  if (book.HasBookmark) {
+    appendTag(buffer,"has-bookmark",true);
+  }
   appendTag(buffer,"link",true,"href",book.File.getUrl(),"type","application/epub+zip","rel","http://opds-spec.org/acquisition");
   closeTag(buffer,"entry");
 }
