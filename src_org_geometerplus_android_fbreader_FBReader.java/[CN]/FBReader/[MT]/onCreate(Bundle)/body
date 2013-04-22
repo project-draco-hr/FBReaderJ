@@ -1,6 +1,7 @@
 {
   super.onCreate(icicle);
   Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler(this));
+  myLanguage=ZLResource.LanguageOption.getValue();
   requestWindowFeature(Window.FEATURE_NO_TITLE);
   setContentView(R.layout.main);
   myRootView=(RelativeLayout)findViewById(R.id.root_view);
