@@ -3,6 +3,10 @@
     runWithMessage("loadingBook",new Runnable(){
       public void run(){
         openBookInternal(book,bookmark,false);
+        if (book != null) {
+          book.addLabel(Book.READ_LABEL);
+          Collection.saveBook(book,false);
+        }
       }
     }
 ,postAction);

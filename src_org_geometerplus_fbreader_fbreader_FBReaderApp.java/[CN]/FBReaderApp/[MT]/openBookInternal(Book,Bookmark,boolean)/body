@@ -7,6 +7,8 @@
     if (book == null) {
       return;
     }
+    book.addLabel(Book.READ_LABEL);
+    Collection.saveBook(book,false);
   }
   if (!force && Model != null && book.equals(Model.Book)) {
     if (bookmark != null) {
