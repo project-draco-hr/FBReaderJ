@@ -5,7 +5,6 @@
   mySeriesInfo=database.getSeriesInfo(myId);
   myUids=database.listUids(myId);
   HasBookmark=database.hasVisibleBookmark(myId);
-  System.err.println(myId + ": " + getTitle()+ " :: "+ HasBookmark);
   myIsSaved=true;
   if (myUids == null || myUids.isEmpty()) {
     try {
