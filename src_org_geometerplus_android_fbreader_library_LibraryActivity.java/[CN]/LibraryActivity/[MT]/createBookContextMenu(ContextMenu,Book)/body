@@ -12,6 +12,12 @@
  else {
     menu.add(0,ADD_TO_FAVORITES_ITEM_ID,0,resource.getResource("addToFavorites").getValue());
   }
+  if (book.labels().contains(Book.READ_LABEL)) {
+    menu.add(0,MARK_AS_UNREAD_ITEM_ID,0,resource.getResource("markAsUnread").getValue());
+  }
+ else {
+    menu.add(0,MARK_AS_READ_ITEM_ID,0,resource.getResource("markAsRead").getValue());
+  }
   if (BookUtil.canRemoveBookFile(book)) {
     menu.add(0,DELETE_BOOK_ITEM_ID,0,resource.getResource("deleteBook").getValue());
   }
