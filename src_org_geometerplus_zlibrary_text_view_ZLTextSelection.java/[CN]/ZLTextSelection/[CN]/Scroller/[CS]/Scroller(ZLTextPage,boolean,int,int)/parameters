@@ -1,3 +1,4 @@
+ZLTextPage page
 boolean forward
 int x
 int y

@@ -2,7 +2,7 @@
   if (isEmpty()) {
     return;
   }
-  final ZLTextElementAreaVector vector=myView.myCurrentPage.TextElementMap;
+  final ZLTextElementAreaVector vector=page.TextElementMap;
   final ZLTextElementArea firstArea=vector.getFirstArea();
   final ZLTextElementArea lastArea=vector.getLastArea();
   if (firstArea != null && y < firstArea.YStart) {
@@ -11,7 +11,7 @@
       myScroller=null;
     }
     if (myScroller == null) {
-      myScroller=new Scroller(false,x,y);
+      myScroller=new Scroller(page,false,x,y);
       return;
     }
   }
@@ -21,7 +21,7 @@
       myScroller=null;
     }
     if (myScroller == null) {
-      myScroller=new Scroller(true,x,y);
+      myScroller=new Scroller(page,true,x,y);
       return;
     }
   }
@@ -63,14 +63,14 @@
     }
   }
   if (myCursorInMovement == ZLTextSelectionCursor.Right) {
-    if (hasAPartAfterPage(myView.myCurrentPage)) {
+    if (hasAPartAfterPage(page)) {
       myView.scrollPage(true,ZLTextView.ScrollingMode.SCROLL_LINES,1);
       myView.Application.getViewWidget().reset();
       myView.preparePaintInfo();
     }
   }
  else {
-    if (hasAPartBeforePage(myView.myCurrentPage)) {
+    if (hasAPartBeforePage(page)) {
       myView.scrollPage(false,ZLTextView.ScrollingMode.SCROLL_LINES,1);
       myView.Application.getViewWidget().reset();
       myView.preparePaintInfo();
