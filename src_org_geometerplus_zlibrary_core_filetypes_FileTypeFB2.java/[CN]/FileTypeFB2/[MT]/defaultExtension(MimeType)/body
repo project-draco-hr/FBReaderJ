@@ -1,0 +1,9 @@
+{
+  if (MimeType.TEXT_FB2.equals(mime) || MimeType.TEXT_XML.equals(mime)) {
+    return "fb2";
+  }
+  if (MimeType.APP_FB2_ZIP.equals(mime) || MimeType.APP_ZIP.equals(mime)) {
+    return "fb2.zip";
+  }
+  return "fb2";
+}
