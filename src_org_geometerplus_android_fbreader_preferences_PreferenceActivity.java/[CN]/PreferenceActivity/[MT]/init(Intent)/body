@@ -28,7 +28,7 @@
     }
   }
 );
-  appearanceScreen.addPreference(new ZLStringChoicePreference(this,appearanceScreen.Resource,"screenOrientation",androidLibrary.OrientationOption,androidLibrary.allOrientations()));
+  appearanceScreen.addPreference(new ZLStringChoicePreference(this,appearanceScreen.Resource,"screenOrientation",androidLibrary.getOrientationOption(),androidLibrary.allOrientations()));
   appearanceScreen.addPreference(new ZLBooleanPreference(this,fbReader.AllowScreenBrightnessAdjustmentOption,appearanceScreen.Resource,"allowScreenBrightnessAdjustment"){
     private final int myLevel=androidLibrary.ScreenBrightnessLevelOption.getValue();
     @Override protected void onClick(){

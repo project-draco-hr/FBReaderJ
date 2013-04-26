@@ -1,5 +1,5 @@
 {
   setOrientation(BaseActivity,myOptionValue);
-  ZLibrary.Instance().OrientationOption.setValue(myOptionValue);
+  ZLibrary.Instance().getOrientationOption().setValue(myOptionValue);
   Reader.onRepaintFinished();
 }
