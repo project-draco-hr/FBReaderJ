@@ -1,5 +1,5 @@
 {
-  final ZLPaintContext context=myContext;
+  final ZLPaintContext context=getContext();
   if (mark == null) {
     context.drawString(x,y,str,offset,length);
   }

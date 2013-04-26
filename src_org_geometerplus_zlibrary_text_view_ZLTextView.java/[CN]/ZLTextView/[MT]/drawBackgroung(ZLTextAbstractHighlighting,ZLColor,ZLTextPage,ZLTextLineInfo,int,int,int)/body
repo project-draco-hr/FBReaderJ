@@ -20,8 +20,8 @@
  else {
         right=selectionEndArea.XEnd;
       }
-      myContext.setFillColor(color);
-      myContext.fillRectangle(left,top,right,bottom);
+      getContext().setFillColor(color);
+      getContext().fillRectangle(left,top,right,bottom);
     }
   }
 }

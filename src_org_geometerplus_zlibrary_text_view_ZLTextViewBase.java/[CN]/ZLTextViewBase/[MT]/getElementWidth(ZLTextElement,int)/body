@@ -4,14 +4,14 @@
   }
  else   if (element instanceof ZLTextImageElement) {
     final ZLTextImageElement imageElement=(ZLTextImageElement)element;
-    final ZLPaintContext.Size size=myContext.imageSize(imageElement.ImageData,getTextAreaSize(),getScalingType(imageElement));
+    final ZLPaintContext.Size size=getContext().imageSize(imageElement.ImageData,getTextAreaSize(),getScalingType(imageElement));
     return size != null ? size.Width : 0;
   }
  else   if (element == ZLTextElement.Indent) {
     return myTextStyle.getFirstLineIndentDelta();
   }
  else   if (element instanceof ZLTextFixedHSpaceElement) {
-    return myContext.getSpaceWidth() * ((ZLTextFixedHSpaceElement)element).Length;
+    return getContext().getSpaceWidth() * ((ZLTextFixedHSpaceElement)element).Length;
   }
   return 0;
 }

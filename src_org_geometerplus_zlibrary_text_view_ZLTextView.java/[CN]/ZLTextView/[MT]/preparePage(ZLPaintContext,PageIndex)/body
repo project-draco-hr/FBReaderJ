@@ -1,4 +1,4 @@
 {
-  myContext=context;
+  setContext(context);
   preparePaintInfo(getPage(pageIndex));
 }

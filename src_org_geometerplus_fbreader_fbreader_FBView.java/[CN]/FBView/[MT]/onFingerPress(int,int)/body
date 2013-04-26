@@ -8,7 +8,7 @@
     moveSelectionCursorTo(cursor,x,y);
     return true;
   }
-  if (myReader.AllowScreenBrightnessAdjustmentOption.getValue() && x < myContext.getWidth() / 10) {
+  if (myReader.AllowScreenBrightnessAdjustmentOption.getValue() && x < getContextWidth() / 10) {
     myIsBrightnessAdjustmentInProgress=true;
     myStartY=y;
     myStartBrightness=ZLibrary.Instance().getScreenBrightness();

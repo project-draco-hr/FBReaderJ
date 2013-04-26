@@ -1,5 +1,5 @@
 {
-  final ZLPaintContext context=myContext;
+  final ZLPaintContext context=getContext();
   final ZLTextLineInfo info=new ZLTextLineInfo(paragraphCursor,startIndex,startCharIndex,getTextStyle());
   final ZLTextLineInfo cachedInfo=myLineInfoCache.get(info);
   if (cachedInfo != null) {
