@@ -1,0 +1,30 @@
+{
+  if (myWidth == width && myHeight == height) {
+    return;
+  }
+  myWidth=width;
+  myHeight=height;
+  if (PaintState != PaintStateEnum.NOTHING_TO_PAINT) {
+    LineInfos.clear();
+    if (keepEnd) {
+      if (!EndCursor.isNull()) {
+        StartCursor.reset();
+        PaintState=PaintStateEnum.END_IS_KNOWN;
+      }
+ else       if (!StartCursor.isNull()) {
+        EndCursor.reset();
+        PaintState=PaintStateEnum.START_IS_KNOWN;
+      }
+    }
+ else {
+      if (!StartCursor.isNull()) {
+        EndCursor.reset();
+        PaintState=PaintStateEnum.START_IS_KNOWN;
+      }
+ else       if (!EndCursor.isNull()) {
+        StartCursor.reset();
+        PaintState=PaintStateEnum.END_IS_KNOWN;
+      }
+    }
+  }
+}

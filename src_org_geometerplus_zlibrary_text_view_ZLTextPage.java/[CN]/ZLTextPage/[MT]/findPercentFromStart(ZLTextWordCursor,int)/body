@@ -3,7 +3,7 @@
     cursor.reset();
     return;
   }
-  int height=areaHeight * percent / 100;
+  int height=myHeight * percent / 100;
   boolean visibleLineOccured=false;
   ZLTextLineInfo info=null;
   for (  ZLTextLineInfo i : LineInfos) {

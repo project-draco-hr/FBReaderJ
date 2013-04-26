@@ -14,7 +14,7 @@
         left=selectionStartArea.XStart;
       }
       if (selectionEndArea.compareTo(toArea) > 0) {
-        right=getRightLine();
+        right=getLeftMargin() + getTextAreaWidth() - 1;
         bottom+=info.VSpaceAfter;
       }
  else {

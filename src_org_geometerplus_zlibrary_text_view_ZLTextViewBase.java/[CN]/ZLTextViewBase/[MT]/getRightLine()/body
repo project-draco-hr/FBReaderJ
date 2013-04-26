@@ -1,3 +1,0 @@
-{
-  return myContext.getWidth() - getRightMargin() - 1;
-}
