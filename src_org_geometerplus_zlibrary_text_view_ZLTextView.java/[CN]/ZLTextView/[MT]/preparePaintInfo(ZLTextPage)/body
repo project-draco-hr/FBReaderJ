@@ -12,7 +12,7 @@ switch (page.PaintState) {
 default :
     break;
 case PaintStateEnum.TO_SCROLL_FORWARD:
-  if (!page.EndCursor.getParagraphCursor().isLast() || !page.EndCursor.isEndOfParagraph()) {
+  if (!page.EndCursor.isEndOfText()) {
     final ZLTextWordCursor startCursor=new ZLTextWordCursor();
 switch (myScrollingMode) {
 case ScrollingMode.NO_OVERLAPPING:
@@ -47,7 +47,7 @@ buildInfos(page,page.StartCursor,page.EndCursor);
 }
 break;
 case PaintStateEnum.TO_SCROLL_BACKWARD:
-if (!page.StartCursor.getParagraphCursor().isFirst() || !page.StartCursor.isStartOfParagraph()) {
+if (!page.StartCursor.isStartOfText()) {
 switch (myScrollingMode) {
 case ScrollingMode.NO_OVERLAPPING:
 page.StartCursor.setCursor(findStart(page.StartCursor,SizeUnit.PIXEL_UNIT,getTextAreaHeight()));

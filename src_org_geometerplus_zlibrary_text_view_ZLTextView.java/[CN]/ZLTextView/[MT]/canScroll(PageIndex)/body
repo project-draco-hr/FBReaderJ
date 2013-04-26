@@ -5,12 +5,12 @@ default :
 case next:
 {
     final ZLTextWordCursor cursor=getEndCursor();
-    return cursor != null && !cursor.isNull() && (!cursor.isEndOfParagraph() || !cursor.getParagraphCursor().isLast());
+    return cursor != null && !cursor.isNull() && !cursor.isEndOfText();
   }
 case previous:
 {
   final ZLTextWordCursor cursor=getStartCursor();
-  return cursor != null && !cursor.isNull() && (!cursor.isStartOfParagraph() || !cursor.getParagraphCursor().isFirst());
+  return cursor != null && !cursor.isNull() && !cursor.isStartOfText();
 }
 }
 }
