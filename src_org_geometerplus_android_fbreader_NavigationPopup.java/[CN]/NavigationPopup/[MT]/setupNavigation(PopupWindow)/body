@@ -1,6 +1,6 @@
 {
-  final SeekBar slider=(SeekBar)panel.findViewById(R.id.book_position_slider);
-  final TextView text=(TextView)panel.findViewById(R.id.book_position_text);
+  final SeekBar slider=(SeekBar)panel.findViewById(R.id.navigation_slider);
+  final TextView text=(TextView)panel.findViewById(R.id.navigation_text);
   final ZLTextView textView=getReader().getTextView();
   final ZLTextView.PagePosition pagePosition=textView.pagePosition();
   if (slider.getMax() != pagePosition.Total - 1 || slider.getProgress() != pagePosition.Current - 1) {
