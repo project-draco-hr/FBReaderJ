@@ -1,0 +1,16 @@
+{
+  myEndShowListener=new AnimatorListenerAdapter(){
+    @Override public void onAnimationEnd(    Animator animator){
+      myShowHideAnimator=null;
+      requestLayout();
+    }
+  }
+;
+  myEndHideListener=new AnimatorListenerAdapter(){
+    @Override public void onAnimationEnd(    Animator animator){
+      myShowHideAnimator=null;
+      setVisibility(View.GONE);
+    }
+  }
+;
+}

@@ -1,0 +1,14 @@
+{
+  if (myShowHideAnimator != null) {
+    myShowHideAnimator.end();
+  }
+  if (getVisibility() == View.GONE) {
+    return;
+  }
+  setAlpha(1);
+  final AnimatorSet animator=new AnimatorSet();
+  animator.play(ObjectAnimator.ofFloat(this,"alpha",0));
+  animator.addListener(myEndHideListener);
+  myShowHideAnimator=animator;
+  animator.start();
+}

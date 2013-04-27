@@ -1,3 +1,8 @@
 {
-  setVisibility(View.GONE);
+  if (myAnimated && android.os.Build.VERSION.SDK_INT >= 11) {
+    hideAnimatedInternal();
+  }
+ else {
+    setVisibility(View.GONE);
+  }
 }
