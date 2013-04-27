@@ -1,4 +1,3 @@
 Activity activity
 RelativeLayout root
 Location location
-boolean fillWidth
