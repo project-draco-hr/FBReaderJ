@@ -1,4 +1,5 @@
 int width
 int height
+boolean twoColumnView
 int columnWidth
 boolean keepEndNotStart

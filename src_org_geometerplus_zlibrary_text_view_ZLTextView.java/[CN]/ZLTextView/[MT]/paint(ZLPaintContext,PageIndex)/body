@@ -48,7 +48,7 @@ y+=info.Height + info.Descent + info.VSpaceAfter;
 labels[++index]=page.TextElementMap.size();
 if (index == page.Column0Height) {
 y=getTopMargin();
-x+=getTextColumnWidth() + getIntercolumnSpace();
+x+=getTextColumnWidth() + getSpaceBetweenColumns();
 }
 }
 x=getLeftMargin();
@@ -60,7 +60,7 @@ y+=info.Height + info.Descent + info.VSpaceAfter;
 ++index;
 if (index == page.Column0Height) {
 y=getTopMargin();
-x+=getTextColumnWidth() + getIntercolumnSpace();
+x+=getTextColumnWidth() + getSpaceBetweenColumns();
 }
 }
 final ZLTextRegion selectedElementRegion=getSelectedRegion(page);
