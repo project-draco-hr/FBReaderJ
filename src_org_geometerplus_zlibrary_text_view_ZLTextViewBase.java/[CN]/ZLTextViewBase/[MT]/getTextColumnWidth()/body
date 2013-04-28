@@ -1,0 +1,3 @@
+{
+  return (getContextWidth() - getLeftMargin() - getRightMargin()- getIntercolumnSpace()) / 2;
+}

@@ -39,12 +39,17 @@ return;
 }
 final ArrayList<ZLTextLineInfo> lineInfos=page.LineInfos;
 final int[] labels=new int[lineInfos.size() + 1];
+int x=getLeftMargin();
 int y=getTopMargin();
 int index=0;
 for (ZLTextLineInfo info : lineInfos) {
-prepareTextLine(page,info,y);
+prepareTextLine(page,info,x,y);
 y+=info.Height + info.Descent + info.VSpaceAfter;
 labels[++index]=page.TextElementMap.size();
+if (index == page.Column0Height) {
+y=getTopMargin();
+x+=getTextColumnWidth() + getIntercolumnSpace();
+}
 }
 y=getTopMargin();
 index=0;
@@ -52,6 +57,9 @@ for (ZLTextLineInfo info : lineInfos) {
 drawTextLine(page,info,labels[index],labels[index + 1],y);
 y+=info.Height + info.Descent + info.VSpaceAfter;
 ++index;
+if (index == page.Column0Height) {
+y=getTopMargin();
+}
 }
 final ZLTextRegion selectedElementRegion=getSelectedRegion(page);
 if (selectedElementRegion != null && myHighlightSelectedRegion) {

@@ -2,7 +2,8 @@
   result.setCursor(start);
   int textAreaHeight=getTextAreaHeight();
   page.LineInfos.clear();
-  int counter=0;
+  page.Column0Height=0;
+  int columnCounter=0;
   do {
     resetTextStyle();
     final ZLTextParagraphCursor paragraphCursor=result.getParagraphCursor();
@@ -13,16 +14,30 @@
     while (info.EndElementIndex != endIndex) {
       info=processTextLine(paragraphCursor,info.EndElementIndex,info.EndCharIndex,endIndex);
       textAreaHeight-=info.Height + info.Descent;
-      if (textAreaHeight < 0 && counter > 0) {
-        break;
+      if (textAreaHeight < 0 && page.LineInfos.size() > page.Column0Height) {
+        if (columnCounter == 0) {
+          ++columnCounter;
+          textAreaHeight=getTextAreaHeight();
+          textAreaHeight-=info.Height + info.Descent;
+          page.Column0Height=page.LineInfos.size();
+        }
+ else {
+          break;
+        }
       }
       textAreaHeight-=info.VSpaceAfter;
       result.moveTo(info.EndElementIndex,info.EndCharIndex);
       page.LineInfos.add(info);
       if (textAreaHeight < 0) {
-        break;
+        if (columnCounter == 0) {
+          ++columnCounter;
+          textAreaHeight=getTextAreaHeight();
+          page.Column0Height=page.LineInfos.size();
+        }
+ else {
+          break;
+        }
       }
-      counter++;
     }
   }
  while (result.isEndOfParagraph() && result.nextParagraph() && !result.getParagraphCursor().isEndOfSection()&& (textAreaHeight >= 0));
