@@ -1,12 +1,13 @@
 {
-  if (myWidth == width && myHeight == height) {
+  if (myWidth == width && myHeight == height && myColumnWidth == columnWidth) {
     return;
   }
   myWidth=width;
   myHeight=height;
+  myColumnWidth=columnWidth;
   if (PaintState != PaintStateEnum.NOTHING_TO_PAINT) {
     LineInfos.clear();
-    if (keepEnd) {
+    if (keepEndNotStart) {
       if (!EndCursor.isNull()) {
         StartCursor.reset();
         PaintState=PaintStateEnum.END_IS_KNOWN;
