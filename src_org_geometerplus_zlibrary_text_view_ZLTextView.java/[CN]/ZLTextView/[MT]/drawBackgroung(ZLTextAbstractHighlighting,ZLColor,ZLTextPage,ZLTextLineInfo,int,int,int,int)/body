@@ -8,13 +8,13 @@
       final int top=y + 1;
       int left, right, bottom=y + info.Height + info.Descent;
       if (selectionStartArea.compareTo(fromArea) < 0) {
-        left=getLeftMargin();
+        left=x;
       }
  else {
         left=selectionStartArea.XStart;
       }
       if (selectionEndArea.compareTo(toArea) > 0) {
-        right=getLeftMargin() + getTextAreaWidth() - 1;
+        right=x + getTextColumnWidth() - 1;
         bottom+=info.VSpaceAfter;
       }
  else {

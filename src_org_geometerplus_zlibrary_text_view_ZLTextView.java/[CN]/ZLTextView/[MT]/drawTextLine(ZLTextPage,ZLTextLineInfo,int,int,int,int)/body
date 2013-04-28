@@ -1,6 +1,6 @@
 {
-  drawBackgroung(mySelection,getSelectedBackgroundColor(),page,info,from,to,y);
-  drawBackgroung(myHighlighting,getHighlightingColor(),page,info,from,to,y);
+  drawBackgroung(mySelection,getSelectedBackgroundColor(),page,info,from,to,x,y);
+  drawBackgroung(myHighlighting,getHighlightingColor(),page,info,from,to,x,y);
   final ZLPaintContext context=getContext();
   final ZLTextParagraphCursor paragraph=info.ParagraphCursor;
   int index=from;

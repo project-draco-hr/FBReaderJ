@@ -51,14 +51,16 @@ y=getTopMargin();
 x+=getTextColumnWidth() + getIntercolumnSpace();
 }
 }
+x=getLeftMargin();
 y=getTopMargin();
 index=0;
 for (ZLTextLineInfo info : lineInfos) {
-drawTextLine(page,info,labels[index],labels[index + 1],y);
+drawTextLine(page,info,labels[index],labels[index + 1],x,y);
 y+=info.Height + info.Descent + info.VSpaceAfter;
 ++index;
 if (index == page.Column0Height) {
 y=getTopMargin();
+x+=getTextColumnWidth() + getIntercolumnSpace();
 }
 }
 final ZLTextRegion selectedElementRegion=getSelectedRegion(page);
