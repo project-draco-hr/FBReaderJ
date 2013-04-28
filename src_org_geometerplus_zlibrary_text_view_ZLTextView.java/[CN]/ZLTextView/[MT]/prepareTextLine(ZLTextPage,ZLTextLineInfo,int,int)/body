@@ -8,7 +8,7 @@
   final boolean endOfParagraph=info.isEndOfParagraph();
   boolean wordOccurred=false;
   boolean changeStyle=true;
-  int x=getLeftMargin() + info.LeftIndent;
+  x+=info.LeftIndent;
   final int maxWidth=getTextAreaWidth();
 switch (getTextStyle().getAlignment()) {
 case ZLTextAlignmentType.ALIGN_RIGHT:
