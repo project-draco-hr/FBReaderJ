@@ -47,10 +47,11 @@ prepareTextLine(page,info,x,y);
 y+=info.Height + info.Descent + info.VSpaceAfter;
 labels[++index]=page.TextElementMap.size();
 }
+x=getLeftMargin();
 y=getTopMargin();
 index=0;
 for (ZLTextLineInfo info : lineInfos) {
-drawTextLine(page,info,labels[index],labels[index + 1],y);
+drawTextLine(page,info,labels[index],labels[index + 1],x,y);
 y+=info.Height + info.Descent + info.VSpaceAfter;
 ++index;
 }
