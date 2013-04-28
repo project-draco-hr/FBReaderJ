@@ -9,7 +9,7 @@
   boolean wordOccurred=false;
   boolean changeStyle=true;
   x+=info.LeftIndent;
-  final int maxWidth=getTextAreaWidth();
+  final int maxWidth=getTextColumnWidth();
 switch (getTextStyle().getAlignment()) {
 case ZLTextAlignmentType.ALIGN_RIGHT:
     x+=maxWidth - getTextStyle().getRightIndent() - info.Width;
