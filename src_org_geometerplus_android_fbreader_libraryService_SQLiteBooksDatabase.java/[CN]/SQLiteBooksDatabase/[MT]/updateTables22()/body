@@ -1,0 +1,5 @@
+{
+  myDatabase.execSQL("ALTER TABLE Bookmarks ADD COLUMN end_paragraph INTEGER");
+  myDatabase.execSQL("ALTER TABLE Bookmarks ADD COLUMN end_word INTEGER");
+  myDatabase.execSQL("ALTER TABLE Bookmarks ADD COLUMN end_character INTEGER");
+}

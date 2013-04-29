@@ -1,0 +1,6 @@
+{
+  myDatabase.execSQL("CREATE TABLE IF NOT EXISTS HighlightingStyle(" + "style_id INTEGER PRIMARY KEY," + "bg_color INTEGER NOT NULL)");
+  myDatabase.execSQL("INSERT INTO HighlightingStyle (style_id, bg_color) VALUES (1, 127*256*256 + 127*256 + 127)");
+  myDatabase.execSQL("ALTER TABLE Bookmarks ADD COLUMN style_id INTEGER NOT NULL REFERENCES HighlightingStyle(style_id) DEFAULT 1");
+  myDatabase.execSQL("UPDATE Bookmarks SET end_paragraph = LENGTH(bookmark_text)");
+}
