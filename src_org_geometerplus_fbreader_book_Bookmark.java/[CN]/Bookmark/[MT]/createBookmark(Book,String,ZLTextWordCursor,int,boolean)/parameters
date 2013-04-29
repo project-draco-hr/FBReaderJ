@@ -1,5 +1,5 @@
 Book book
 String modelId
-ZLTextWordCursor cursor
-int maxLength
+ZLTextWordCursor startCursor
+int maxWords
 boolean isVisible

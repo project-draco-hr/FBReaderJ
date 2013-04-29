@@ -1,5 +1,6 @@
 Book book
 String modelId
-ZLTextPosition position
+ZLTextPosition start
+ZLTextPosition end
 String text
 boolean isVisible

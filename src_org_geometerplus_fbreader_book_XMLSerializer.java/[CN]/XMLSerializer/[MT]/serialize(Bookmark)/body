@@ -4,7 +4,14 @@
   appendTag(buffer,"book",true,"id",String.valueOf(bookmark.getBookId()),"title",bookmark.getBookTitle());
   appendTagWithContent(buffer,"text",bookmark.getText());
   appendTag(buffer,"history",true,"date-creation",formatDate(bookmark.getDate(Bookmark.DateType.Creation)),"date-modification",formatDate(bookmark.getDate(Bookmark.DateType.Modification)),"date-access",formatDate(bookmark.getDate(Bookmark.DateType.Access)),"access-count",String.valueOf(bookmark.getAccessCount()));
-  appendTag(buffer,"position",true,"model",bookmark.ModelId,"paragraph",String.valueOf(bookmark.getParagraphIndex()),"element",String.valueOf(bookmark.getElementIndex()),"char",String.valueOf(bookmark.getCharIndex()));
+  appendTag(buffer,"start",true,"model",bookmark.ModelId,"paragraph",String.valueOf(bookmark.getParagraphIndex()),"element",String.valueOf(bookmark.getElementIndex()),"char",String.valueOf(bookmark.getCharIndex()));
+  final ZLTextPosition end=bookmark.getEnd();
+  if (end != null) {
+    appendTag(buffer,"end",true,"paragraph",String.valueOf(end.getParagraphIndex()),"element",String.valueOf(end.getElementIndex()),"char",String.valueOf(end.getCharIndex()));
+  }
+ else {
+    appendTag(buffer,"end",true,"length",String.valueOf(bookmark.getLength()));
+  }
   closeTag(buffer,"bookmark");
   return buffer.toString();
 }

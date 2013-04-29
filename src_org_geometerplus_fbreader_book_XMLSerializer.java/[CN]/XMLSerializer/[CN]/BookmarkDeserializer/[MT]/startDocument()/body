@@ -9,9 +9,12 @@
   myAccessDate=null;
   myAccessCount=0;
   myModelId=null;
-  myParagraphIndex=0;
-  myElementIndex=0;
-  myCharIndex=0;
+  myStartParagraphIndex=0;
+  myStartElementIndex=0;
+  myStartCharIndex=0;
+  myEndParagraphIndex=-1;
+  myEndElementIndex=-1;
+  myEndCharIndex=-1;
   myIsVisible=false;
   myState=State.READ_NOTHING;
 }

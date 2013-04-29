@@ -4,5 +4,5 @@
   if (cursor.isNull()) {
     return null;
   }
-  return new Bookmark(Model.Book,view.getModel().getId(),cursor,maxLength,visible);
+  return Bookmark.createBookmark(Model.Book,view.getModel().getId(),cursor,maxLength,visible);
 }

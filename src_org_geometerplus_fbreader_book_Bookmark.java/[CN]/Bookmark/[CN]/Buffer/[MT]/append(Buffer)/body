@@ -1,0 +1,5 @@
+{
+  Builder.append(buffer.Builder);
+  Cursor.setCursor(buffer.Cursor);
+  buffer.Builder.delete(0,buffer.Builder.length());
+}

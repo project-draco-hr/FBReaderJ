@@ -1,5 +1,5 @@
 {
-  super(paragraphIndex,elementIndex,charIndex);
+  super(start_paragraphIndex,start_elementIndex,start_charIndex);
   myId=id;
   myBookId=bookId;
   myBookTitle=bookTitle;
@@ -16,4 +16,10 @@
   myAccessCount=accessCount;
   ModelId=modelId;
   IsVisible=isVisible;
+  if (end_charIndex >= 0) {
+    myEnd=new ZLTextFixedPosition(end_paragraphIndex,end_elementIndex,end_charIndex);
+  }
+ else {
+    myLength=end_paragraphIndex;
+  }
 }
