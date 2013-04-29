@@ -19,7 +19,7 @@
   if (unit == SizeUnit.PIXEL_UNIT) {
     boolean sameStart=start.samePositionAs(end);
     if (!sameStart && start.isEndOfParagraph() && end.isStartOfParagraph()) {
-      ZLTextWordCursor startCopy=start;
+      ZLTextWordCursor startCopy=new ZLTextWordCursor(start);
       startCopy.nextParagraph();
       sameStart=startCopy.samePositionAs(end);
     }

@@ -50,7 +50,7 @@ case PaintStateEnum.TO_SCROLL_BACKWARD:
 if (!page.StartCursor.isStartOfText()) {
 switch (myScrollingMode) {
 case ScrollingMode.NO_OVERLAPPING:
-page.StartCursor.setCursor(findStart(page.StartCursor,SizeUnit.PIXEL_UNIT,getTextAreaHeight()));
+page.StartCursor.setCursor(findStartOfPrevousPage(page.StartCursor));
 break;
 case ScrollingMode.KEEP_LINES:
 {
@@ -60,16 +60,16 @@ if (!endCursor.isNull() && endCursor.samePositionAs(page.EndCursor)) {
 page.findLineFromEnd(endCursor,1);
 }
 if (!endCursor.isNull()) {
-ZLTextWordCursor startCursor=findStart(endCursor,SizeUnit.PIXEL_UNIT,getTextAreaHeight());
+ZLTextWordCursor startCursor=findStartOfPrevousPage(endCursor);
 if (startCursor.samePositionAs(page.StartCursor)) {
-page.StartCursor.setCursor(findStart(page.StartCursor,SizeUnit.PIXEL_UNIT,getTextAreaHeight()));
+page.StartCursor.setCursor(findStartOfPrevousPage(page.StartCursor));
 }
  else {
 page.StartCursor.setCursor(startCursor);
 }
 }
  else {
-page.StartCursor.setCursor(findStart(page.StartCursor,SizeUnit.PIXEL_UNIT,getTextAreaHeight()));
+page.StartCursor.setCursor(findStartOfPrevousPage(page.StartCursor));
 }
 break;
 }
@@ -91,7 +91,7 @@ case PaintStateEnum.START_IS_KNOWN:
 buildInfos(page,page.StartCursor,page.EndCursor);
 break;
 case PaintStateEnum.END_IS_KNOWN:
-page.StartCursor.setCursor(findStart(page.EndCursor,SizeUnit.PIXEL_UNIT,getTextAreaHeight()));
+page.StartCursor.setCursor(findStartOfPrevousPage(page.EndCursor));
 buildInfos(page,page.StartCursor,page.EndCursor);
 break;
 }
