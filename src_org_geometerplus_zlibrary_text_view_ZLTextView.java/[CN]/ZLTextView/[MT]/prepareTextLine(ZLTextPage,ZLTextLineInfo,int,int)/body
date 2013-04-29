@@ -1,5 +1,5 @@
 {
-  y=Math.min(y + info.Height,getTopMargin() + getTextAreaHeight() - 1);
+  y=Math.min(y + info.Height,getTopMargin() + page.getTextHeight() - 1);
   final ZLPaintContext context=getContext();
   final ZLTextParagraphCursor paragraphCursor=info.ParagraphCursor;
   setTextStyle(info.StartStyle);
@@ -9,7 +9,7 @@
   boolean wordOccurred=false;
   boolean changeStyle=true;
   x+=info.LeftIndent;
-  final int maxWidth=getTextColumnWidth();
+  final int maxWidth=page.getTextWidth();
 switch (getTextStyle().getAlignment()) {
 case ZLTextAlignmentType.ALIGN_RIGHT:
     x+=maxWidth - getTextStyle().getRightIndent() - info.Width;

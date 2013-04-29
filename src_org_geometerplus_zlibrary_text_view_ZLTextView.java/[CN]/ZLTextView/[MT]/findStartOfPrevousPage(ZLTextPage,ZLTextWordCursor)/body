@@ -1,0 +1,7 @@
+{
+  if (twoColumnView()) {
+    end=findStart(page,end,SizeUnit.PIXEL_UNIT,page.getTextHeight());
+  }
+  end=findStart(page,end,SizeUnit.PIXEL_UNIT,page.getTextHeight());
+  return end;
+}

@@ -1,3 +1,4 @@
+ZLTextPage page
 ZLTextWordCursor cursor
 int unit
 int size

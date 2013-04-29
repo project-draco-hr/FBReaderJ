@@ -1,6 +1,6 @@
 {
   final ZLTextWordCursor start=new ZLTextWordCursor(end);
-  size-=paragraphSize(start,true,unit);
+  size-=paragraphSize(page,start,true,unit);
   boolean positionChanged=!start.isStartOfParagraph();
   start.moveToParagraphStart();
   while (size > 0) {
@@ -13,9 +13,9 @@
     if (!start.getParagraphCursor().isEndOfSection()) {
       positionChanged=true;
     }
-    size-=paragraphSize(start,false,unit);
+    size-=paragraphSize(page,start,false,unit);
   }
-  skip(start,unit,-size);
+  skip(page,start,unit,-size);
   if (unit == SizeUnit.PIXEL_UNIT) {
     boolean sameStart=start.samePositionAs(end);
     if (!sameStart && start.isEndOfParagraph() && end.isStartOfParagraph()) {
@@ -24,7 +24,7 @@
       sameStart=startCopy.samePositionAs(end);
     }
     if (sameStart) {
-      start.setCursor(findStart(end,SizeUnit.LINE_UNIT,1));
+      start.setCursor(findStart(page,end,SizeUnit.LINE_UNIT,1));
     }
   }
   return start;

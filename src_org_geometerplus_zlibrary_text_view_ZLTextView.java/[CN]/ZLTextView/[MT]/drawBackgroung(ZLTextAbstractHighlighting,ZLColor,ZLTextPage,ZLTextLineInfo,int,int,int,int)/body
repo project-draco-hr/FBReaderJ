@@ -14,7 +14,7 @@
         left=selectionStartArea.XStart;
       }
       if (selectionEndArea.compareTo(toArea) > 0) {
-        right=x + getTextColumnWidth() - 1;
+        right=x + page.getTextWidth() - 1;
         bottom+=info.VSpaceAfter;
       }
  else {

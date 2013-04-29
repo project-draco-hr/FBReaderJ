@@ -1,5 +1,5 @@
 {
-  page.setSize(getTextAreaWidth(),getTextAreaHeight(),twoColumnView(),getTextColumnWidth(),page == myPreviousPage);
+  page.setSize(getTextColumnWidth(),getTextAreaHeight(),twoColumnView(),page == myPreviousPage);
   if (page.PaintState == PaintStateEnum.NOTHING_TO_PAINT || page.PaintState == PaintStateEnum.READY) {
     return;
   }
@@ -50,7 +50,7 @@ case PaintStateEnum.TO_SCROLL_BACKWARD:
 if (!page.StartCursor.isStartOfText()) {
 switch (myScrollingMode) {
 case ScrollingMode.NO_OVERLAPPING:
-page.StartCursor.setCursor(findStartOfPrevousPage(page.StartCursor));
+page.StartCursor.setCursor(findStartOfPrevousPage(page,page.StartCursor));
 break;
 case ScrollingMode.KEEP_LINES:
 {
@@ -60,29 +60,29 @@ if (!endCursor.isNull() && endCursor.samePositionAs(page.EndCursor)) {
 page.findLineFromEnd(endCursor,1);
 }
 if (!endCursor.isNull()) {
-ZLTextWordCursor startCursor=findStartOfPrevousPage(endCursor);
+ZLTextWordCursor startCursor=findStartOfPrevousPage(page,endCursor);
 if (startCursor.samePositionAs(page.StartCursor)) {
-page.StartCursor.setCursor(findStartOfPrevousPage(page.StartCursor));
+page.StartCursor.setCursor(findStartOfPrevousPage(page,page.StartCursor));
 }
  else {
 page.StartCursor.setCursor(startCursor);
 }
 }
  else {
-page.StartCursor.setCursor(findStartOfPrevousPage(page.StartCursor));
+page.StartCursor.setCursor(findStartOfPrevousPage(page,page.StartCursor));
 }
 break;
 }
 case ScrollingMode.SCROLL_LINES:
-page.StartCursor.setCursor(findStart(page.StartCursor,SizeUnit.LINE_UNIT,myOverlappingValue));
+page.StartCursor.setCursor(findStart(page,page.StartCursor,SizeUnit.LINE_UNIT,myOverlappingValue));
 break;
 case ScrollingMode.SCROLL_PERCENTAGE:
-page.StartCursor.setCursor(findStart(page.StartCursor,SizeUnit.PIXEL_UNIT,getTextAreaHeight() * myOverlappingValue / 100));
+page.StartCursor.setCursor(findStart(page,page.StartCursor,SizeUnit.PIXEL_UNIT,page.getTextHeight() * myOverlappingValue / 100));
 break;
 }
 buildInfos(page,page.StartCursor,page.EndCursor);
 if (page.isEmptyPage()) {
-page.StartCursor.setCursor(findStart(page.StartCursor,SizeUnit.LINE_UNIT,1));
+page.StartCursor.setCursor(findStart(page,page.StartCursor,SizeUnit.LINE_UNIT,1));
 buildInfos(page,page.StartCursor,page.EndCursor);
 }
 }
@@ -91,7 +91,7 @@ case PaintStateEnum.START_IS_KNOWN:
 buildInfos(page,page.StartCursor,page.EndCursor);
 break;
 case PaintStateEnum.END_IS_KNOWN:
-page.StartCursor.setCursor(findStartOfPrevousPage(page.EndCursor));
+page.StartCursor.setCursor(findStartOfPrevousPage(page,page.EndCursor));
 buildInfos(page,page.StartCursor,page.EndCursor);
 break;
 }

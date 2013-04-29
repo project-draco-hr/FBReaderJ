@@ -1,7 +1,0 @@
-{
-  if (twoColumnView()) {
-    end=findStart(end,SizeUnit.PIXEL_UNIT,getTextAreaHeight());
-  }
-  end=findStart(end,SizeUnit.PIXEL_UNIT,getTextAreaHeight());
-  return end;
-}

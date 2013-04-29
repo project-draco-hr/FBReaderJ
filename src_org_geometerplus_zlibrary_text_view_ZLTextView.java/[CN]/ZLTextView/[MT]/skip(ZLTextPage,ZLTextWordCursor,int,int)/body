@@ -7,7 +7,7 @@
   resetTextStyle();
   applyStyleChanges(paragraphCursor,0,cursor.getElementIndex());
   while (!cursor.isEndOfParagraph() && (size > 0)) {
-    ZLTextLineInfo info=processTextLine(paragraphCursor,cursor.getElementIndex(),cursor.getCharIndex(),endElementIndex);
+    ZLTextLineInfo info=processTextLine(page,paragraphCursor,cursor.getElementIndex(),cursor.getCharIndex(),endElementIndex);
     cursor.moveTo(info.EndElementIndex,info.EndCharIndex);
     size-=infoSize(info,unit);
   }

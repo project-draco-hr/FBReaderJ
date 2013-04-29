@@ -1,6 +1,6 @@
 {
   result.setCursor(start);
-  int textAreaHeight=getTextAreaHeight();
+  int textAreaHeight=page.getTextHeight();
   page.LineInfos.clear();
   page.Column0Height=0;
   boolean nextParagraph;
@@ -12,11 +12,11 @@
     ZLTextLineInfo info=new ZLTextLineInfo(paragraphCursor,wordIndex,result.getCharIndex(),getTextStyle());
     final int endIndex=info.ParagraphCursorLength;
     while (info.EndElementIndex != endIndex) {
-      info=processTextLine(paragraphCursor,info.EndElementIndex,info.EndCharIndex,endIndex);
+      info=processTextLine(page,paragraphCursor,info.EndElementIndex,info.EndCharIndex,endIndex);
       textAreaHeight-=info.Height + info.Descent;
       if (textAreaHeight < 0 && page.LineInfos.size() > page.Column0Height) {
         if (page.Column0Height == 0 && page.twoColumnView()) {
-          textAreaHeight=getTextAreaHeight();
+          textAreaHeight=page.getTextHeight();
           textAreaHeight-=info.Height + info.Descent;
           page.Column0Height=page.LineInfos.size();
         }
@@ -29,7 +29,7 @@
       page.LineInfos.add(info);
       if (textAreaHeight < 0) {
         if (page.Column0Height == 0 && page.twoColumnView()) {
-          textAreaHeight=getTextAreaHeight();
+          textAreaHeight=page.getTextHeight();
           page.Column0Height=page.LineInfos.size();
         }
  else {
@@ -40,7 +40,7 @@
     nextParagraph=result.isEndOfParagraph() && result.nextParagraph();
     if (nextParagraph && result.getParagraphCursor().isEndOfSection()) {
       if (page.Column0Height == 0 && page.twoColumnView() && !page.LineInfos.isEmpty()) {
-        textAreaHeight=getTextAreaHeight();
+        textAreaHeight=page.getTextHeight();
         page.Column0Height=page.LineInfos.size();
       }
     }

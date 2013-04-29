@@ -1,11 +1,10 @@
 {
-  if (myWidth == width && myHeight == height && myTwoColumnView == twoColumnView && myColumnWidth == columnWidth) {
+  if (myColumnWidth == columnWidth && myHeight == height && myColumnWidth == columnWidth) {
     return;
   }
-  myWidth=width;
+  myColumnWidth=columnWidth;
   myHeight=height;
   myTwoColumnView=twoColumnView;
-  myColumnWidth=columnWidth;
   if (PaintState != PaintStateEnum.NOTHING_TO_PAINT) {
     LineInfos.clear();
     if (keepEndNotStart) {

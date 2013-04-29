@@ -1,3 +1,3 @@
 {
-  return new ZLPaintContext.Size(getTextAreaWidth(),getTextAreaHeight());
+  return new ZLPaintContext.Size(getTextColumnWidth(),getTextAreaHeight());
 }
