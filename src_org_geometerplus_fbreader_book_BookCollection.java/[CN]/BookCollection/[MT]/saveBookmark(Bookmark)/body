@@ -5,6 +5,7 @@
       final Book book=getBookById(bookmark.getBookId());
       if (book != null) {
         book.HasBookmark=true;
+        fireBookEvent(BookEvent.BookmarksUpdated,book);
       }
     }
   }
