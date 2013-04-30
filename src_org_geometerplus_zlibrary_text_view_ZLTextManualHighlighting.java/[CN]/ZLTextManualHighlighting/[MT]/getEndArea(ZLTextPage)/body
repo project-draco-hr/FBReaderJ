@@ -1,3 +1,0 @@
-{
-  return page.TextElementMap.getLastBefore(myEndPosition);
-}

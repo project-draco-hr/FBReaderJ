@@ -1,0 +1,6 @@
+{
+  myHighlightingsByStart.addAll(hilites);
+  myHighlightingsByEnd.addAll(hilites);
+  Application.getViewWidget().reset();
+  Application.getViewWidget().repaint();
+}

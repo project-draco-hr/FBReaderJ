@@ -1,5 +1,3 @@
 {
-  myView=view;
-  myStartPosition=new ZLTextFixedPosition(start);
-  myEndPosition=new ZLTextFixedPosition(end);
+  super(view,start,end);
 }

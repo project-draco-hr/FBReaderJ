@@ -1,0 +1,6 @@
+{
+  myHighlightingsByStart.add(h);
+  myHighlightingsByEnd.add(h);
+  Application.getViewWidget().reset();
+  Application.getViewWidget().repaint();
+}

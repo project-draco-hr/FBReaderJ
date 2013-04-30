@@ -1,8 +1,4 @@
 {
   removeManualHighlightings();
-  final ZLTextHighlighting h=new ZLTextManualHighlighting(this,start,end);
-  myHighlightingsByStart.add(h);
-  myHighlightingsByEnd.add(h);
-  Application.getViewWidget().reset();
-  Application.getViewWidget().repaint();
+  addHighlighting(new ZLTextManualHighlighting(this,start,end));
 }

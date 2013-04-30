@@ -1,6 +1,6 @@
 {
   final LinkedList<Bookmark> list=new LinkedList<Bookmark>();
-  final StringBuilder sql=new StringBuilder("SELECT").append(" bm.bookmark_id,bm.book_id,b.title,bm.bookmark_text,").append("bm.creation_time,bm.modification_time,bm.access_time,bm.access_counter,").append("bm.model_id,bm.paragraph,bm.word,bm.char,").append("bm.end_paragraph,bm.end_word,bm.end_character,").append(" FROM Bookmarks AS bm INNER JOIN Books AS b ON b.book_id = bm.book_id").append(" WHERE");
+  final StringBuilder sql=new StringBuilder("SELECT").append(" bm.bookmark_id,bm.book_id,b.title,bm.bookmark_text,").append("bm.creation_time,bm.modification_time,bm.access_time,bm.access_counter,").append("bm.model_id,bm.paragraph,bm.word,bm.char,").append("bm.end_paragraph,bm.end_word,bm.end_character").append(" FROM Bookmarks AS bm INNER JOIN Books AS b ON b.book_id = bm.book_id").append(" WHERE");
   if (query.Book != null) {
     sql.append(" b.book_id = " + query.Book.getId() + " AND");
   }
