@@ -7,7 +7,7 @@
   sql.append(" bm.visible = " + (query.Visible ? 1 : 0)).append(" ORDER BY bm.bookmark_id").append(" LIMIT " + query.Limit * query.Page + "," + query.Limit);
   Cursor cursor=myDatabase.rawQuery(sql.toString(),null);
   while (cursor.moveToNext()) {
-    list.add(createBookmark(cursor.getLong(0),cursor.getLong(1),cursor.getString(2),cursor.getString(3),SQLiteUtil.getDate(cursor,4),SQLiteUtil.getDate(cursor,5),SQLiteUtil.getDate(cursor,6),(int)cursor.getLong(7),cursor.getString(8),(int)cursor.getLong(9),(int)cursor.getLong(10),(int)cursor.getLong(11),true));
+    list.add(createBookmark(cursor.getLong(0),cursor.getLong(1),cursor.getString(2),cursor.getString(3),SQLiteUtil.getDate(cursor,4),SQLiteUtil.getDate(cursor,5),SQLiteUtil.getDate(cursor,6),(int)cursor.getLong(7),cursor.getString(8),(int)cursor.getLong(9),(int)cursor.getLong(10),(int)cursor.getLong(11),query.Visible));
   }
   cursor.close();
   return list;
