@@ -1,9 +1,9 @@
 {
-  if (!highligting.isEmpty() && from != to) {
+  if (!highlighting.isEmpty() && from != to) {
     final ZLTextElementArea fromArea=page.TextElementMap.get(from);
     final ZLTextElementArea toArea=page.TextElementMap.get(to - 1);
-    final ZLTextElementArea selectionStartArea=highligting.getStartArea(page);
-    final ZLTextElementArea selectionEndArea=highligting.getEndArea(page);
+    final ZLTextElementArea selectionStartArea=highlighting.getStartArea(page);
+    final ZLTextElementArea selectionEndArea=highlighting.getEndArea(page);
     if (selectionStartArea != null && selectionEndArea != null && selectionStartArea.compareTo(toArea) <= 0 && selectionEndArea.compareTo(fromArea) >= 0) {
       final int top=y + 1;
       int left, right, bottom=y + info.Height + info.Descent;
@@ -20,7 +20,7 @@
  else {
         right=selectionEndArea.XEnd;
       }
-      getContext().setFillColor(color);
+      getContext().setFillColor(highlighting.getBackgroundColor());
       getContext().fillRectangle(left,top,right,bottom);
     }
   }

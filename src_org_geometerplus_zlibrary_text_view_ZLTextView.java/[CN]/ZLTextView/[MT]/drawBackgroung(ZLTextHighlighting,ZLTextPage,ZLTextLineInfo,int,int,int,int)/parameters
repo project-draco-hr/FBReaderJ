@@ -1,5 +1,4 @@
-ZLTextHighlighting highligting
-ZLColor color
+ZLTextHighlighting highlighting
 ZLTextPage page
 ZLTextLineInfo info
 int from

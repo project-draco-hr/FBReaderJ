@@ -21,7 +21,7 @@
         x+=context.getStringWidth(str,offset + pos,endPos - pos);
       }
       if (markStart < length) {
-        context.setFillColor(getHighlightingColor());
+        context.setFillColor(getHighlightingBackgroundColor());
         int endPos=Math.min(markStart + markLen,length);
         final int endX=x + context.getStringWidth(str,offset + markStart,endPos - markStart);
         context.fillRectangle(x,y - context.getStringHeight(),endX - 1,y + context.getDescent());
