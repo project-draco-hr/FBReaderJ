@@ -1,5 +1,15 @@
 {
   Collection=collection;
+  collection.addListener(new IBookCollection.Listener(){
+    public void onBookEvent(    BookEvent event,    Book book){
+      if (event == BookEvent.BookmarksUpdated && Model != null && book.equals(Model.Book)) {
+        setBookmarkHighlightings();
+      }
+    }
+    public void onBuildEvent(    IBookCollection.Status status){
+    }
+  }
+);
   addAction(ActionCode.INCREASE_FONT,new ChangeFontSizeAction(this,+2));
   addAction(ActionCode.DECREASE_FONT,new ChangeFontSizeAction(this,-2));
   addAction(ActionCode.FIND_NEXT,new FindNextAction(this));

@@ -1,5 +1,5 @@
 {
-  if (removeManualHighlightings()) {
+  if (removeHighlightings(ZLTextManualHighlighting.class)) {
     Application.getViewWidget().reset();
     Application.getViewWidget().repaint();
   }

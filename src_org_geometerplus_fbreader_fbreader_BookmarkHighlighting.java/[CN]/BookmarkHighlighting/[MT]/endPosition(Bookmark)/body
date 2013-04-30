@@ -1,0 +1,7 @@
+{
+  final ZLTextPosition end=bookmark.getEnd();
+  if (end != null) {
+    return end;
+  }
+  return bookmark;
+}

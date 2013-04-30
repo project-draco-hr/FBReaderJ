@@ -1,4 +1,4 @@
 {
-  removeManualHighlightings();
+  removeHighlightings(ZLTextManualHighlighting.class);
   addHighlighting(new ZLTextManualHighlighting(this,start,end));
 }
