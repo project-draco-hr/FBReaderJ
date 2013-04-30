@@ -1,6 +1,8 @@
 {
   drawBackgroung(mySelection,page,info,from,to,x,y);
-  drawBackgroung(myHighlighting,page,info,from,to,x,y);
+  for (  ZLTextHighlighting h : myHighlightingsByStart) {
+    drawBackgroung(h,page,info,from,to,x,y);
+  }
   final ZLPaintContext context=getContext();
   final ZLTextParagraphCursor paragraph=info.ParagraphCursor;
   int index=from;

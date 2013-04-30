@@ -1,8 +1,0 @@
-{
-  if (isEmpty()) {
-    return false;
-  }
-  myStartPosition=null;
-  myEndPosition=null;
-  return true;
-}
