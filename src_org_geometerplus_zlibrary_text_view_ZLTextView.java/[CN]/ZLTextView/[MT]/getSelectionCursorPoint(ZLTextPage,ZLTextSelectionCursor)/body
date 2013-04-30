@@ -6,7 +6,7 @@
     return mySelection.getCursorInMovementPoint();
   }
   if (cursor == ZLTextSelectionCursor.Left) {
-    if (mySelection.hasAPartBeforePage(page)) {
+    if (mySelection.hasPartBeforePage(page)) {
       return null;
     }
     final ZLTextElementArea selectionStartArea=mySelection.getStartArea(page);
@@ -15,7 +15,7 @@
     }
   }
  else {
-    if (mySelection.hasAPartAfterPage(page)) {
+    if (mySelection.hasPartAfterPage(page)) {
       return null;
     }
     final ZLTextElementArea selectionEndArea=mySelection.getEndArea(page);

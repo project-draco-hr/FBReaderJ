@@ -6,7 +6,7 @@
   if (selectionStartArea != null) {
     return selectionStartArea.YStart;
   }
-  if (mySelection.hasAPartBeforePage(myCurrentPage)) {
+  if (mySelection.hasPartBeforePage(myCurrentPage)) {
     final ZLTextElementArea firstArea=myCurrentPage.TextElementMap.getFirstArea();
     return firstArea != null ? firstArea.YStart : 0;
   }

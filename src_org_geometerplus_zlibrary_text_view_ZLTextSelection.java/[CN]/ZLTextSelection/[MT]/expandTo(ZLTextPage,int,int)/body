@@ -63,14 +63,14 @@
     }
   }
   if (myCursorInMovement == ZLTextSelectionCursor.Right) {
-    if (hasAPartAfterPage(page)) {
+    if (hasPartAfterPage(page)) {
       myView.scrollPage(true,ZLTextView.ScrollingMode.SCROLL_LINES,1);
       myView.Application.getViewWidget().reset();
       myView.preparePaintInfo();
     }
   }
  else {
-    if (hasAPartBeforePage(page)) {
+    if (hasPartBeforePage(page)) {
       myView.scrollPage(false,ZLTextView.ScrollingMode.SCROLL_LINES,1);
       myView.Application.getViewWidget().reset();
       myView.preparePaintInfo();

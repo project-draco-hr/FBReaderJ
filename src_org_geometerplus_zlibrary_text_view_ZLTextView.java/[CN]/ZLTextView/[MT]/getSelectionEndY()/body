@@ -6,7 +6,7 @@
   if (selectionEndArea != null) {
     return selectionEndArea.YEnd;
   }
-  if (mySelection.hasAPartAfterPage(myCurrentPage)) {
+  if (mySelection.hasPartAfterPage(myCurrentPage)) {
     final ZLTextElementArea lastArea=myCurrentPage.TextElementMap.getLastArea();
     return lastArea != null ? lastArea.YEnd : 0;
   }
