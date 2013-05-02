@@ -1,0 +1,4 @@
+{
+  moveToParagraph(position.getParagraphIndex());
+  moveTo(position.getElementIndex(),position.getCharIndex());
+}
