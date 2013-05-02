@@ -66,6 +66,14 @@ try {
   throw new SAXException("XML parsing error",e);
 }
 }
+ else if ("style".equals(localName)) {
+try {
+  myStyle=Integer.parseInt(attributes.getValue("id"));
+}
+ catch (Exception e) {
+  throw new SAXException("XML parsing error",e);
+}
+}
  else {
 throw new SAXException("Unexpected tag " + localName);
 }

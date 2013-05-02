@@ -12,6 +12,7 @@
  else {
     appendTag(buffer,"end",true,"length",String.valueOf(bookmark.getLength()));
   }
+  appendTag(buffer,"style",true,"id",String.valueOf(bookmark.getStyleId()));
   closeTag(buffer,"bookmark");
   return buffer.toString();
 }

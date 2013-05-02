@@ -16,5 +16,6 @@
   myEndElementIndex=-1;
   myEndCharIndex=-1;
   myIsVisible=false;
+  myStyle=1;
   myState=State.READ_NOTHING;
 }

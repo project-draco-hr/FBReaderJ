@@ -8,4 +8,5 @@
   ModelId=modelId;
   IsVisible=isVisible;
   myEnd=new ZLTextFixedPosition(end);
+  myStyleId=1;
 }

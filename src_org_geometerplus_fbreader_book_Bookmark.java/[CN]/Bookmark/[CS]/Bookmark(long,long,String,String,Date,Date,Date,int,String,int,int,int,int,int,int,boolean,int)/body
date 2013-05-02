@@ -22,4 +22,5 @@
  else {
     myLength=end_paragraphIndex;
   }
+  myStyleId=styleId;
 }

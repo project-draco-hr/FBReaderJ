@@ -5,12 +5,13 @@ String text
 Date creationDate
 Date modificationDate
 Date accessDate
-int accessCounter
+int accessCount
 String modelId
 int start_paragraphIndex
-int start_wordIndex
+int start_elementIndex
 int start_charIndex
 int end_paragraphIndex
-int end_wordIndex
+int end_elementIndex
 int end_charIndex
 boolean isVisible
+int styleId
