@@ -1,0 +1,3 @@
+{
+  return !isEmpty() && !page.StartCursor.isNull() && !page.EndCursor.isNull()&& page.StartCursor.compareTo(getEndPosition()) < 0 && page.EndCursor.compareTo(getStartPosition()) > 0;
+}

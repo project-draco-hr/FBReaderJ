@@ -1,8 +1,7 @@
 {
   ZLTextParagraphCursorCache.clear();
   mySelection.clear();
-  myHighlightingsByStart.clear();
-  myHighlightingsByEnd.clear();
+  myHighlightings.clear();
   myModel=model;
   myCurrentPage.reset();
   myPreviousPage.reset();

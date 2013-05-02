@@ -1,0 +1,4 @@
+{
+  final int cmp=getStartPosition().compareTo(highlighting.getStartPosition());
+  return cmp != 0 ? cmp : getEndPosition().compareTo(highlighting.getEndPosition());
+}
