@@ -1,0 +1,18 @@
+{
+  if ("style".equals(localName)) {
+    try {
+      myId=Integer.parseInt(attributes.getValue("id"));
+    }
+ catch (    Exception e) {
+      throw new SAXException("XML parsing error",e);
+    }
+  }
+ else   if ("bg-color".equals(localName)) {
+    try {
+      myColor=Integer.parseInt(attributes.getValue("value"));
+    }
+ catch (    Exception e) {
+      throw new SAXException("XML parsing error",e);
+    }
+  }
+}

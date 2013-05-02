@@ -1,0 +1,4 @@
+{
+  initStylesTable();
+  return myStyles.get(styleId);
+}

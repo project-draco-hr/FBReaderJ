@@ -1,0 +1,3 @@
+{
+  return style != null ? defaultSerializer.serialize(style) : null;
+}

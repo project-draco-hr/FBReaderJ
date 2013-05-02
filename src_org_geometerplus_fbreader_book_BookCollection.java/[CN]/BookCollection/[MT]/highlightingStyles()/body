@@ -1,0 +1,4 @@
+{
+  initStylesTable();
+  return new ArrayList<HighlightingStyle>(myStyles.values());
+}

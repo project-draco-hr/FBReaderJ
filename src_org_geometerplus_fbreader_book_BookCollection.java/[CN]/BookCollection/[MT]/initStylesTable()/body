@@ -1,0 +1,7 @@
+{
+  if (myStyles.isEmpty()) {
+    for (    HighlightingStyle style : myDatabase.loadStyles()) {
+      myStyles.put(style.Id,style);
+    }
+  }
+}

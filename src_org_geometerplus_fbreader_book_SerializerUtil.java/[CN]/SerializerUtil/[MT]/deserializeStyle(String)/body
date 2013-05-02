@@ -1,0 +1,3 @@
+{
+  return xml != null ? defaultSerializer.deserializeStyle(xml) : null;
+}

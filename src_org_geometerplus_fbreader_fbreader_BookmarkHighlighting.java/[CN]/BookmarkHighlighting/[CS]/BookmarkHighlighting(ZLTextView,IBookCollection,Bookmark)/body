@@ -1,3 +1,5 @@
 {
   super(view,bookmark,endPosition(bookmark));
+  myCollection=collection;
+  myBookmark=bookmark;
 }

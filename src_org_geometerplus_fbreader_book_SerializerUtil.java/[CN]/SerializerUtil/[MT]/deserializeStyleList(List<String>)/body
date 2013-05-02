@@ -1,0 +1,10 @@
+{
+  final List<HighlightingStyle> styles=new ArrayList<HighlightingStyle>(xmlList.size());
+  for (  String xml : xmlList) {
+    final HighlightingStyle s=defaultSerializer.deserializeStyle(xml);
+    if (s != null) {
+      styles.add(s);
+    }
+  }
+  return styles;
+}

@@ -1,0 +1,7 @@
+{
+  final StringBuilder buffer=new StringBuilder();
+  appendTag(buffer,"style",false,"id",String.valueOf(style.Id));
+  appendTag(buffer,"bg-color",true,"value",String.valueOf(style.BackgroundColor.getIntValue()));
+  closeTag(buffer,"style");
+  return buffer.toString();
+}

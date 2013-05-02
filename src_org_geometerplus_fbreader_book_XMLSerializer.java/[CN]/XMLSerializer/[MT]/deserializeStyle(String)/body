@@ -1,0 +1,12 @@
+{
+  try {
+    final StyleDeserializer deserializer=new StyleDeserializer();
+    Xml.parse(xml,deserializer);
+    return deserializer.getStyle();
+  }
+ catch (  SAXException e) {
+    System.err.println(xml);
+    e.printStackTrace();
+    return null;
+  }
+}

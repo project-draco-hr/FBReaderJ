@@ -1,3 +1,4 @@
 {
-  return new ZLColor(0x888A85);
+  final HighlightingStyle bmStyle=myCollection.getHighlightingStyle(myBookmark.getStyleId());
+  return bmStyle != null ? bmStyle.BackgroundColor : new ZLColor(255,255,255);
 }

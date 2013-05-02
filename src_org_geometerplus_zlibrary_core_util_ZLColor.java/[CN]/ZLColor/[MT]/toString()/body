@@ -1,0 +1,3 @@
+{
+  return new StringBuilder("ZLColor(").append(String.valueOf(Red)).append(", ").append(String.valueOf(Green)).append(", ").append(String.valueOf(Blue)).append(")").toString();
+}

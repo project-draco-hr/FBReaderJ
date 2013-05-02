@@ -1,0 +1,11 @@
+{
+  if (myInterface == null) {
+    return null;
+  }
+  try {
+    return SerializerUtil.deserializeStyle(myInterface.getHighlightingStyle(styleId));
+  }
+ catch (  RemoteException e) {
+    return null;
+  }
+}
