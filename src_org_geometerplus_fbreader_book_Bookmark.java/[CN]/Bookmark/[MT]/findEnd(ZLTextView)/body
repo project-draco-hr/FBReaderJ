@@ -9,6 +9,7 @@
   if (cursor.isNull()) {
     return;
   }
+  cursor=new ZLTextWordCursor(cursor);
   cursor.moveTo(this);
   ZLTextWord word=null;
   mainLoop:   for (int count=myLength; count > 0; cursor.nextWord()) {
