@@ -1,5 +1,5 @@
 {
-  BookTextView.removeHighlightings(BookmarkHighlighting.class);
+  view.removeHighlightings(BookmarkHighlighting.class);
   for (BookmarkQuery query=new BookmarkQuery(Model.Book,20); ; query=query.next()) {
     final List<Bookmark> bookmarks=Collection.bookmarks(query);
     if (bookmarks.isEmpty()) {
@@ -7,10 +7,10 @@
     }
     for (    Bookmark b : bookmarks) {
       if (b.getEnd() == null) {
-        b.findEnd(BookTextView);
+        b.findEnd(view);
       }
-      if (b.ModelId == null) {
-        BookTextView.addHighlighting(new BookmarkHighlighting(BookTextView,Collection,b));
+      if (MiscUtil.equals(modelId,b.ModelId)) {
+        view.addHighlighting(new BookmarkHighlighting(view,Collection,b));
       }
     }
   }

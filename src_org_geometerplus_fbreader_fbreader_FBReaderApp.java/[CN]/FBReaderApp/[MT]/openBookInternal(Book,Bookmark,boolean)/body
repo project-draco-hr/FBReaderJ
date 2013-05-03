@@ -29,7 +29,7 @@
     Collection.saveBook(book,false);
     ZLTextHyphenator.Instance().load(book.getLanguage());
     BookTextView.setModel(Model.getTextModel());
-    setBookmarkHighlightings();
+    setBookmarkHighlightings(BookTextView,null);
     BookTextView.gotoPosition(Collection.getStoredPosition(book.getId()));
     if (bookmark == null) {
       setView(BookTextView);

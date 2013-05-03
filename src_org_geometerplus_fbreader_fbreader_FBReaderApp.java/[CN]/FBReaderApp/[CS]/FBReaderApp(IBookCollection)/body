@@ -3,7 +3,12 @@
   collection.addListener(new IBookCollection.Listener(){
     public void onBookEvent(    BookEvent event,    Book book){
       if (event == BookEvent.BookmarksUpdated && Model != null && book.equals(Model.Book)) {
-        setBookmarkHighlightings();
+        if (BookTextView.getModel() != null) {
+          setBookmarkHighlightings(BookTextView,null);
+        }
+        if (FootnoteView.getModel() != null && myFootnoteModelId != null) {
+          setBookmarkHighlightings(FootnoteView,myFootnoteModelId);
+        }
       }
     }
     public void onBuildEvent(    IBookCollection.Status status){

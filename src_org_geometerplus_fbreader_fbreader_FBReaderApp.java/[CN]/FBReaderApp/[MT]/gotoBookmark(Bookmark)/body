@@ -6,7 +6,7 @@
     setView(BookTextView);
   }
  else {
-    FootnoteView.setModel(Model.getFootnoteModel(modelId));
+    setFootnoteModel(modelId);
     FootnoteView.gotoPosition(bookmark);
     setView(FootnoteView);
   }
