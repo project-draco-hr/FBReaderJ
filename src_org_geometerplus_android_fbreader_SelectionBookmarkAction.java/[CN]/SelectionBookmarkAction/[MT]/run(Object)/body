@@ -1,3 +1,4 @@
 {
-  BaseActivity.addSelectionBookmark();
+  final Bookmark bookmark=Reader.addSelectionBookmark();
+  UIUtil.showMessageText(BaseActivity,ZLResource.resource("selection").getResource("bookmarkCreated").getValue().replace("%s",bookmark.getText()));
 }
