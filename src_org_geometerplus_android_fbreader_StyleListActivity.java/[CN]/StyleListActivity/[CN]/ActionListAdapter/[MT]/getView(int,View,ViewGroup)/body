@@ -1,0 +1,18 @@
+{
+  final View view=convertView != null ? convertView : LayoutInflater.from(parent.getContext()).inflate(R.layout.cancel_item,parent,false);
+  final TextView titleView=(TextView)view.findViewById(R.id.cancel_item_title);
+  final TextView summaryView=(TextView)view.findViewById(R.id.cancel_item_summary);
+  final String title=myIntent.getStringExtra(ITEM_TITLE + position);
+  final String summary=myIntent.getStringExtra(ITEM_SUMMARY + position);
+  titleView.setText(title);
+  if (summary != null) {
+    summaryView.setVisibility(View.VISIBLE);
+    summaryView.setText(summary);
+    titleView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
+  }
+ else {
+    summaryView.setVisibility(View.GONE);
+    titleView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT,LinearLayout.LayoutParams.FILL_PARENT));
+  }
+  return view;
+}
