@@ -1,0 +1,31 @@
+{
+  myPreviousPage.reset();
+  myNextPage.reset();
+  boolean doRepaint=false;
+  if (myCurrentPage.StartCursor.isNull()) {
+    doRepaint=true;
+    preparePaintInfo(myCurrentPage);
+  }
+  if (myCurrentPage.StartCursor.isNull()) {
+    return;
+  }
+  if (!highlighting.intersects(myCurrentPage)) {
+    gotoPosition(highlighting.getStartPosition().getParagraphIndex(),0,0);
+    preparePaintInfo(myCurrentPage);
+  }
+  if (myCurrentPage.EndCursor.isNull()) {
+    preparePaintInfo(myCurrentPage);
+  }
+  while (!highlighting.intersects(myCurrentPage)) {
+    doRepaint=true;
+    scrollPage(true,ScrollingMode.NO_OVERLAPPING,0);
+    preparePaintInfo(myCurrentPage);
+  }
+  if (doRepaint) {
+    if (myCurrentPage.StartCursor.isNull()) {
+      preparePaintInfo(myCurrentPage);
+    }
+    Application.getViewWidget().reset();
+    Application.getViewWidget().repaint();
+  }
+}
