@@ -1,7 +1,11 @@
 {
   final View view=convertView != null ? convertView : LayoutInflater.from(parent.getContext()).inflate(R.layout.style_item,parent,false);
+  final HighlightingStyle style=getItem(position);
+  final ImageView colorView=(ImageView)view.findViewById(R.id.style_item_color);
+  colorView.setImageDrawable(new ColorDrawable(ZLAndroidColorUtil.rgb(style.BackgroundColor)));
   final TextView titleView=(TextView)view.findViewById(R.id.style_item_title);
-  final String title="Style " + getItem(position).Id;
+  String title=ZLResource.resource("highlightingStyleMenu").getResource("style").getValue();
+  title=title.replace("%s",String.valueOf(style.Id));
   titleView.setText(title);
   return view;
 }
