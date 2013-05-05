@@ -1,4 +1,7 @@
 {
   final Bookmark bookmark=Reader.addSelectionBookmark();
   UIUtil.showMessageText(BaseActivity,ZLResource.resource("selection").getResource("bookmarkCreated").getValue().replace("%s",bookmark.getText()));
+  final Intent intent=new Intent(BaseActivity.getApplicationContext(),StyleListActivity.class);
+  intent.putExtra(FBReader.BOOKMARK_KEY,SerializerUtil.serialize(bookmark));
+  OrientationUtil.startActivity(BaseActivity,intent);
 }

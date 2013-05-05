@@ -1,0 +1,3 @@
+{
+  myStyles=new ArrayList<HighlightingStyle>(styles);
+}

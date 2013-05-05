@@ -1,4 +1,10 @@
 {
-  setResult((int)id + 1);
-  finish();
+  myCollection.bindToService(StyleListActivity.this,new Runnable(){
+    public void run(){
+      myBookmark.setStyleId(getItem(position).Id);
+      myCollection.saveBookmark(myBookmark);
+      finish();
+    }
+  }
+);
 }
