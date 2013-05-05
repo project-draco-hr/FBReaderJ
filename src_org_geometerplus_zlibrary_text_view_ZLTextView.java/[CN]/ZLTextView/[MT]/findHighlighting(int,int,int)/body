@@ -1,0 +1,12 @@
+{
+  final ZLTextRegion region=findRegion(x,y,maxDistance,ZLTextRegion.AnyRegionFilter);
+  if (region == null) {
+    return null;
+  }
+  for (  ZLTextHighlighting h : myHighlightings) {
+    if (h.intersects(region)) {
+      return h;
+    }
+  }
+  return null;
+}

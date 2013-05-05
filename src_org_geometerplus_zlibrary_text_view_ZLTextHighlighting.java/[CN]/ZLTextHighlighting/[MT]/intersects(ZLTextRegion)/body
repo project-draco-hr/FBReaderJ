@@ -1,0 +1,4 @@
+{
+  final ZLTextRegion.Soul soul=region.getSoul();
+  return !isEmpty() && soul.compareTo(getStartPosition()) >= 0 && soul.compareTo(getEndPosition()) <= 0;
+}

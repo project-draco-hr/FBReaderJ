@@ -1,5 +1,5 @@
 {
   super(view,startPosition(bookmark),endPosition(bookmark));
-  myCollection=collection;
-  myBookmark=bookmark;
+  Collection=collection;
+  Bookmark=bookmark;
 }
