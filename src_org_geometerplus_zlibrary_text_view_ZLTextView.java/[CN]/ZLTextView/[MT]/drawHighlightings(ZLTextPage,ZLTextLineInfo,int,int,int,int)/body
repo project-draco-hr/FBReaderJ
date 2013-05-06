@@ -6,9 +6,11 @@
   if (mySelection.intersects(page)) {
     hilites.add(mySelection);
   }
-  for (  ZLTextHighlighting h : myHighlightings) {
-    if (h.intersects(page)) {
-      hilites.add(h);
+synchronized (myHighlightings) {
+    for (    ZLTextHighlighting h : myHighlightings) {
+      if (h.intersects(page)) {
+        hilites.add(h);
+      }
     }
   }
   if (hilites.isEmpty()) {

@@ -1,10 +1,12 @@
 {
   boolean result=false;
-  for (Iterator<ZLTextHighlighting> it=myHighlightings.iterator(); it.hasNext(); ) {
-    final ZLTextHighlighting h=it.next();
-    if (type.isInstance(h)) {
-      it.remove();
-      result=true;
+synchronized (myHighlightings) {
+    for (Iterator<ZLTextHighlighting> it=myHighlightings.iterator(); it.hasNext(); ) {
+      final ZLTextHighlighting h=it.next();
+      if (type.isInstance(h)) {
+        it.remove();
+        result=true;
+      }
     }
   }
   return result;
