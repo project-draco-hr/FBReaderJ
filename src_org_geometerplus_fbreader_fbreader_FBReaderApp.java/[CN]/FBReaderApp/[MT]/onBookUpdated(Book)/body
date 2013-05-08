@@ -1,0 +1,16 @@
+{
+  if (Model == null || Model.Book == null || !Model.Book.equals(book)) {
+    return;
+  }
+  final String newEncoding=book.getEncodingNoDetection();
+  final String oldEncoding=Model.Book.getEncodingNoDetection();
+  Model.Book.updateFrom(book);
+  if (newEncoding != null && !newEncoding.equals(oldEncoding)) {
+    reloadBook();
+  }
+ else {
+    ZLTextHyphenator.Instance().load(Model.Book.getLanguage());
+    clearTextCaches();
+    getViewWidget().repaint();
+  }
+}

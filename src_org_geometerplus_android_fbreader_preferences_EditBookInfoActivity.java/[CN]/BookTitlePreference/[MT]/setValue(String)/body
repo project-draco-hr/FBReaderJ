@@ -1,5 +1,5 @@
 {
   super.setValue(value);
   myBook.setTitle(value);
-  ((EditBookInfoActivity)getContext()).updateResult();
+  ((EditBookInfoActivity)getContext()).saveBook();
 }

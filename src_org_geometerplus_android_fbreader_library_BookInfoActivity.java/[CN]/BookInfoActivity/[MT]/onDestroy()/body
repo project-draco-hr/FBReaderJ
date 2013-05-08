@@ -1,0 +1,5 @@
+{
+  myCollection.removeListener(this);
+  myCollection.unbind();
+  super.onDestroy();
+}

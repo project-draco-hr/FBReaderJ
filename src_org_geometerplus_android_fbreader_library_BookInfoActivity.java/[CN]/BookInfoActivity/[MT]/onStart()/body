@@ -21,7 +21,7 @@
 );
   setupButton(R.id.book_info_button_edit,"editInfo",new View.OnClickListener(){
     public void onClick(    View view){
-      OrientationUtil.startActivityForResult(BookInfoActivity.this,new Intent(getApplicationContext(),EditBookInfoActivity.class).putExtra(FBReader.BOOK_KEY,SerializerUtil.serialize(myBook)),1);
+      OrientationUtil.startActivity(BookInfoActivity.this,new Intent(getApplicationContext(),EditBookInfoActivity.class).putExtra(FBReader.BOOK_KEY,SerializerUtil.serialize(myBook)));
     }
   }
 );
@@ -31,8 +31,12 @@
         myBook.reloadInfoFromFile();
         setupBookInfo(myBook);
         myDontReloadBook=false;
-        myResult=FBReader.RESULT_REPAINT;
-        setResult(myResult,intentByBook(myBook));
+        myCollection.bindToService(BookInfoActivity.this,new Runnable(){
+          public void run(){
+            myCollection.saveBook(myBook,false);
+          }
+        }
+);
       }
     }
   }
@@ -40,4 +44,6 @@
   final View root=findViewById(R.id.book_info_root);
   root.invalidate();
   root.requestLayout();
+  myCollection.bindToService(this,null);
+  myCollection.addListener(this);
 }

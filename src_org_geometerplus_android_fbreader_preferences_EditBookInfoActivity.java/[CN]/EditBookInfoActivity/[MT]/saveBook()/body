@@ -1,0 +1,8 @@
+{
+  myCollection.bindToService(this,new Runnable(){
+    public void run(){
+      myCollection.saveBook(myBook,false);
+    }
+  }
+);
+}

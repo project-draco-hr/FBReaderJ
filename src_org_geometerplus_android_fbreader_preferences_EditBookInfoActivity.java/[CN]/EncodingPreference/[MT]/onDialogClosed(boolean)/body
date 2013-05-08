@@ -4,7 +4,7 @@
     final String value=getValue();
     if (!value.equalsIgnoreCase(myBook.getEncoding())) {
       myBook.setEncoding(value);
-      ((EditBookInfoActivity)getContext()).updateResult();
+      ((EditBookInfoActivity)getContext()).saveBook();
     }
   }
 }

@@ -1,0 +1,7 @@
+{
+  if (event == BookEvent.Updated && book.equals(myBook)) {
+    myBook.updateFrom(book);
+    setupBookInfo(book);
+    myDontReloadBook=false;
+  }
+}
