@@ -1,5 +1,5 @@
 {
-  final ScrollingPreferences preferences=Reader.ScrollingPreferences;
+  final PageTurningOptions preferences=Reader.PageTurningOptions;
   if (params.length == 2 && params[0] instanceof Integer && params[1] instanceof Integer) {
     final int x=(Integer)params[0];
     final int y=(Integer)params[1];

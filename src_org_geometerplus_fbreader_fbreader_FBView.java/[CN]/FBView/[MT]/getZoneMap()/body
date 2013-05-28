@@ -1,5 +1,5 @@
 {
-  final ScrollingPreferences prefs=myReader.ScrollingPreferences;
+  final PageTurningOptions prefs=myReader.PageTurningOptions;
   String id=prefs.TapZoneMapOption.getValue();
   if ("".equals(id)) {
     id=prefs.HorizontalOption.getValue() ? "right_to_left" : "up";
