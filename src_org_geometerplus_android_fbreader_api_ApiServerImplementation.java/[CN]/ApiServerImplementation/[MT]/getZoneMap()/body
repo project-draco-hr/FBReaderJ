@@ -1,3 +1,3 @@
 {
-  return getReader().PageTurningOptions.TapZoneMapOption.getValue();
+  return getReader().PageTurningOptions.TapZoneMap.getValue();
 }

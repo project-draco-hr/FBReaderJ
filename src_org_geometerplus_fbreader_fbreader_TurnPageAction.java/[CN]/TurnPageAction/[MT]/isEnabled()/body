@@ -1,4 +1,4 @@
 {
-  final PageTurningOptions.FingerScrolling fingerScrolling=Reader.PageTurningOptions.FingerScrollingOption.getValue();
-  return fingerScrolling == PageTurningOptions.FingerScrolling.byTap || fingerScrolling == PageTurningOptions.FingerScrolling.byTapAndFlick;
+  final PageTurningOptions.FingerScrollingType fingerScrolling=Reader.PageTurningOptions.FingerScrolling.getValue();
+  return fingerScrolling == PageTurningOptions.FingerScrollingType.byTap || fingerScrolling == PageTurningOptions.FingerScrollingType.byTapAndFlick;
 }

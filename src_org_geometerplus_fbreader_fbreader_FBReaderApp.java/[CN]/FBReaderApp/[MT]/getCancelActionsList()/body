@@ -1,18 +1,18 @@
 {
   myCancelActionsList.clear();
-  if (ShowLibraryInCancelMenuOption.getValue()) {
+  if (CancelMenuOptions.ShowLibraryItem.getValue()) {
     myCancelActionsList.add(new CancelActionDescription(CancelActionType.library,null));
   }
-  if (ShowNetworkLibraryInCancelMenuOption.getValue()) {
+  if (CancelMenuOptions.ShowNetworkLibraryItem.getValue()) {
     myCancelActionsList.add(new CancelActionDescription(CancelActionType.networkLibrary,null));
   }
-  if (ShowPreviousBookInCancelMenuOption.getValue()) {
+  if (CancelMenuOptions.ShowPreviousBookItem.getValue()) {
     final Book previousBook=Collection.getRecentBook(1);
     if (previousBook != null) {
       myCancelActionsList.add(new CancelActionDescription(CancelActionType.previousBook,previousBook.getTitle()));
     }
   }
-  if (ShowPositionsInCancelMenuOption.getValue()) {
+  if (CancelMenuOptions.ShowPositionItems.getValue()) {
     if (Model != null && Model.Book != null) {
       for (      Bookmark bookmark : invisibleBookmarks()) {
         myCancelActionsList.add(new BookmarkDescription(bookmark));

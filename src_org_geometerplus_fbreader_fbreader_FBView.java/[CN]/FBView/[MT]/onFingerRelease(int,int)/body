@@ -12,7 +12,7 @@
     return true;
   }
   if (isFlickScrollingEnabled()) {
-    myReader.getViewWidget().startAnimatedScrolling(x,y,myReader.PageTurningOptions.AnimationSpeedOption.getValue());
+    myReader.getViewWidget().startAnimatedScrolling(x,y,myReader.PageTurningOptions.AnimationSpeed.getValue());
     return true;
   }
   return true;

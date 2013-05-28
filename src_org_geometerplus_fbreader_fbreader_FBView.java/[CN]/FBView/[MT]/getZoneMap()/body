@@ -1,8 +1,8 @@
 {
   final PageTurningOptions prefs=myReader.PageTurningOptions;
-  String id=prefs.TapZoneMapOption.getValue();
+  String id=prefs.TapZoneMap.getValue();
   if ("".equals(id)) {
-    id=prefs.HorizontalOption.getValue() ? "right_to_left" : "up";
+    id=prefs.Horizontal.getValue() ? "right_to_left" : "up";
   }
   if (myZoneMap == null || !id.equals(myZoneMap.Name)) {
     myZoneMap=TapZoneMap.zoneMap(id);

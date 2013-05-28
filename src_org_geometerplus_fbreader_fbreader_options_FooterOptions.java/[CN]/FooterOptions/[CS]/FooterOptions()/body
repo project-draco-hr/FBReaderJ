@@ -1,0 +1,7 @@
+{
+  ShowTOCMarks=new ZLBooleanOption("Options","FooterShowTOCMarks",true);
+  ShowClock=new ZLBooleanOption("Options","ShowClockInFooter",true);
+  ShowBattery=new ZLBooleanOption("Options","ShowBatteryInFooter",true);
+  ShowProgress=new ZLBooleanOption("Options","ShowProgressInFooter",true);
+  Font=new ZLStringOption("Options","FooterFont","Droid Sans");
+}
