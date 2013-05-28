@@ -146,7 +146,7 @@
   footerPreferences.add(statusLineScreen.addOption(fbReader.FooterShowProgressOption,"showProgress"));
   footerPreferences.add(statusLineScreen.addPreference(new FontOption(this,statusLineScreen.Resource,"font",fbReader.FooterFontOption,false)));
   footerPreferences.setEnabled(fbReader.ScrollbarTypeOption.getValue() == FBView.SCROLLBAR_SHOW_AS_FOOTER);
-  final ScrollingPreferences scrollingPreferences=ScrollingPreferences.Instance();
+  final ScrollingPreferences scrollingPreferences=fbReader.ScrollingPreferences;
   final ZLKeyBindings keyBindings=fbReader.keyBindings();
   final Screen scrollingScreen=createPreferenceScreen("scrolling");
   scrollingScreen.addOption(scrollingPreferences.FingerScrollingOption,"fingerScrolling");

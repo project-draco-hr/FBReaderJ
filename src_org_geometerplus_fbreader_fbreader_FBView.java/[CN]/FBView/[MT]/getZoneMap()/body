@@ -1,8 +1,8 @@
 {
-  final ScrollingPreferences prefs=ScrollingPreferences.Instance();
+  final ScrollingPreferences prefs=myReader.ScrollingPreferences;
   String id=prefs.TapZoneMapOption.getValue();
   if ("".equals(id)) {
-    id=ScrollingPreferences.Instance().HorizontalOption.getValue() ? "right_to_left" : "up";
+    id=prefs.HorizontalOption.getValue() ? "right_to_left" : "up";
   }
   if (myZoneMap == null || !id.equals(myZoneMap.Name)) {
     myZoneMap=TapZoneMap.zoneMap(id);

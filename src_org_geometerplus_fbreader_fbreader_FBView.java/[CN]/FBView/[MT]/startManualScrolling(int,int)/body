@@ -2,7 +2,7 @@
   if (!isFlickScrollingEnabled()) {
     return;
   }
-  final boolean horizontal=ScrollingPreferences.Instance().HorizontalOption.getValue();
+  final boolean horizontal=myReader.ScrollingPreferences.HorizontalOption.getValue();
   final Direction direction=horizontal ? Direction.rightToLeft : Direction.up;
   myReader.getViewWidget().startManualScrolling(x,y,direction);
 }

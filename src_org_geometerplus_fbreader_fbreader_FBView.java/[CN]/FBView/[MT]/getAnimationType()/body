@@ -1,3 +1,3 @@
 {
-  return ScrollingPreferences.Instance().AnimationOption.getValue();
+  return myReader.ScrollingPreferences.AnimationOption.getValue();
 }
