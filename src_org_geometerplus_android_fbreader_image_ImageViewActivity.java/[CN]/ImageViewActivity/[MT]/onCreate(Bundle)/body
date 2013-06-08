@@ -7,7 +7,7 @@
   Thread.setDefaultUncaughtExceptionHandler(new org.geometerplus.zlibrary.ui.android.library.UncaughtExceptionHandler(this));
   setContentView(new ImageView());
   final Intent intent=getIntent();
-  myBgColor=new ZLColor(intent.getIntExtra(BACKGROUND_COLOR_KEY,new ZLColor(127,127,127).getIntValue()));
+  myBgColor=new ZLColor(intent.getIntExtra(BACKGROUND_COLOR_KEY,new ZLColor(127,127,127).intValue()));
   final Uri uri=intent.getData();
   if (ZLFileImage.SCHEME.equals(uri.getScheme())) {
     final ZLFileImage image=ZLFileImage.byUrlPath(uri.getPath());

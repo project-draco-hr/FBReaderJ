@@ -1,0 +1,84 @@
+{
+  this.listener=listener;
+  Color.colorToHSV(color,currentColorHsv);
+  final View view=LayoutInflater.from(context).inflate(R.layout.ambilwarna_dialog,null);
+  viewHue=view.findViewById(R.id.ambilwarna_viewHue);
+  viewSatVal=(AmbilWarnaKotak)view.findViewById(R.id.ambilwarna_viewSatBri);
+  viewCursor=(ImageView)view.findViewById(R.id.ambilwarna_cursor);
+  viewOldColor=view.findViewById(R.id.ambilwarna_warnaLama);
+  viewNewColor=view.findViewById(R.id.ambilwarna_warnaBaru);
+  viewTarget=(ImageView)view.findViewById(R.id.ambilwarna_target);
+  viewContainer=(ViewGroup)view.findViewById(R.id.ambilwarna_viewContainer);
+  viewSatVal.setHue(getHue());
+  viewOldColor.setBackgroundColor(color);
+  viewNewColor.setBackgroundColor(color);
+  viewHue.setOnTouchListener(new View.OnTouchListener(){
+    @Override public boolean onTouch(    View v,    MotionEvent event){
+      if (event.getAction() == MotionEvent.ACTION_MOVE || event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_UP) {
+        float y=event.getY();
+        if (y < 0.f)         y=0.f;
+        if (y > viewHue.getMeasuredHeight())         y=viewHue.getMeasuredHeight() - 0.001f;
+        float hue=360.f - 360.f / viewHue.getMeasuredHeight() * y;
+        if (hue == 360.f)         hue=0.f;
+        setHue(hue);
+        viewSatVal.setHue(getHue());
+        moveCursor();
+        viewNewColor.setBackgroundColor(getColor());
+        return true;
+      }
+      return false;
+    }
+  }
+);
+  viewSatVal.setOnTouchListener(new View.OnTouchListener(){
+    @Override public boolean onTouch(    View v,    MotionEvent event){
+      if (event.getAction() == MotionEvent.ACTION_MOVE || event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_UP) {
+        float x=event.getX();
+        float y=event.getY();
+        if (x < 0.f)         x=0.f;
+        if (x > viewSatVal.getMeasuredWidth())         x=viewSatVal.getMeasuredWidth();
+        if (y < 0.f)         y=0.f;
+        if (y > viewSatVal.getMeasuredHeight())         y=viewSatVal.getMeasuredHeight();
+        setSat(1.f / viewSatVal.getMeasuredWidth() * x);
+        setVal(1.f - (1.f / viewSatVal.getMeasuredHeight() * y));
+        moveTarget();
+        viewNewColor.setBackgroundColor(getColor());
+        return true;
+      }
+      return false;
+    }
+  }
+);
+  dialog=new AlertDialog.Builder(context).setPositiveButton(android.R.string.ok,new DialogInterface.OnClickListener(){
+    @Override public void onClick(    DialogInterface dialog,    int which){
+      if (AmbilWarnaDialog.this.listener != null) {
+        AmbilWarnaDialog.this.listener.onOk(AmbilWarnaDialog.this,getColor());
+      }
+    }
+  }
+).setNegativeButton(android.R.string.cancel,new DialogInterface.OnClickListener(){
+    @Override public void onClick(    DialogInterface dialog,    int which){
+      if (AmbilWarnaDialog.this.listener != null) {
+        AmbilWarnaDialog.this.listener.onCancel(AmbilWarnaDialog.this);
+      }
+    }
+  }
+).setOnCancelListener(new OnCancelListener(){
+    @Override public void onCancel(    DialogInterface paramDialogInterface){
+      if (AmbilWarnaDialog.this.listener != null) {
+        AmbilWarnaDialog.this.listener.onCancel(AmbilWarnaDialog.this);
+      }
+    }
+  }
+).create();
+  dialog.setView(view,0,0,0,0);
+  ViewTreeObserver vto=view.getViewTreeObserver();
+  vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(){
+    @Override public void onGlobalLayout(){
+      moveCursor();
+      moveTarget();
+      view.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+    }
+  }
+);
+}

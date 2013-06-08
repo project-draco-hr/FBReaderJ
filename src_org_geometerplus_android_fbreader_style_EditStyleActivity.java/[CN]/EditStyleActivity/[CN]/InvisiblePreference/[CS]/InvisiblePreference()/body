@@ -1,0 +1,4 @@
+{
+  super(EditStyleActivity.this,myRootResource,"invisible");
+  setChecked(myStyle.getBackgroundColor() == null);
+}

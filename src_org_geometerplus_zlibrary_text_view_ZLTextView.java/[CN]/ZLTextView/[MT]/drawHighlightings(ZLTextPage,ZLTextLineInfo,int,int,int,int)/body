@@ -19,6 +19,10 @@ synchronized (myHighlightings) {
   final ZLTextElementArea fromArea=page.TextElementMap.get(from);
   final ZLTextElementArea toArea=page.TextElementMap.get(to - 1);
   for (  ZLTextHighlighting h : hilites) {
+    final ZLColor bgColor=h.getBackgroundColor();
+    if (bgColor == null) {
+      continue;
+    }
     final ZLTextElementArea selectionStartArea=h.getStartArea(page);
     if (selectionStartArea == null || selectionStartArea.compareTo(toArea) > 0) {
       continue;
@@ -42,7 +46,7 @@ synchronized (myHighlightings) {
  else {
       right=selectionEndArea.XEnd;
     }
-    getContext().setFillColor(h.getBackgroundColor());
+    getContext().setFillColor(bgColor);
     getContext().fillRectangle(left,top,right,bottom);
   }
 }

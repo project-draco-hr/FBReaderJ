@@ -1,0 +1,8 @@
+{
+  float x=getSat() * viewSatVal.getMeasuredWidth();
+  float y=(1.f - getVal()) * viewSatVal.getMeasuredHeight();
+  RelativeLayout.LayoutParams layoutParams=(RelativeLayout.LayoutParams)viewTarget.getLayoutParams();
+  layoutParams.leftMargin=(int)(viewSatVal.getLeft() + x - Math.floor(viewTarget.getMeasuredWidth() / 2) - viewContainer.getPaddingLeft());
+  layoutParams.topMargin=(int)(viewSatVal.getTop() + y - Math.floor(viewTarget.getMeasuredHeight() / 2) - viewContainer.getPaddingTop());
+  viewTarget.setLayoutParams(layoutParams);
+}

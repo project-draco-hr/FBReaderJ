@@ -4,7 +4,7 @@
     if (value != null) {
       try {
         int intValue=Integer.parseInt(value);
-        if (myValue.getIntValue() != intValue) {
+        if (myValue.intValue() != intValue) {
           myValue=new ZLColor(intValue);
         }
       }

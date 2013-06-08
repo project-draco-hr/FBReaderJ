@@ -1,0 +1,4 @@
+{
+  myStyle.setBackgroundColor(color);
+  myCollection.saveHighlightingStyle(myStyle);
+}

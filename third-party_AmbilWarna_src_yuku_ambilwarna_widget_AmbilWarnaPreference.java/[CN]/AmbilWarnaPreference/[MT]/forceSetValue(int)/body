@@ -1,0 +1,5 @@
+{
+  this.value=value;
+  persistInt(value);
+  notifyChanged();
+}

@@ -1,9 +1,9 @@
 {
   final LinkedList<HighlightingStyle> list=new LinkedList<HighlightingStyle>();
-  final String sql="SELECT style_id,bg_color FROM HighlightingStyle";
+  final String sql="SELECT style_id,name,bg_color FROM HighlightingStyle";
   final Cursor cursor=myDatabase.rawQuery(sql,null);
   while (cursor.moveToNext()) {
-    list.add(createStyle((int)cursor.getLong(0),(int)cursor.getLong(1)));
+    list.add(createStyle((int)cursor.getLong(0),cursor.getString(1),(int)cursor.getLong(2)));
   }
   cursor.close();
   return list;

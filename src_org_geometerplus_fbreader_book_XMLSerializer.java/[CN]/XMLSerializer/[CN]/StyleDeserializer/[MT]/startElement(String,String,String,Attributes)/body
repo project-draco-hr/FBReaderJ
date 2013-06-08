@@ -1,18 +1,14 @@
 {
   if ("style".equals(localName)) {
     try {
-      myId=Integer.parseInt(attributes.getValue("id"));
+      final int id=Integer.parseInt(attributes.getValue("id"));
+      if (id != -1) {
+        final int rgb=Integer.parseInt(attributes.getValue("bg-color"));
+        final ZLColor color=rgb != -1 ? new ZLColor(rgb) : null;
+        myStyle=new HighlightingStyle(id,attributes.getValue("name"),color);
+      }
     }
  catch (    Exception e) {
-      throw new SAXException("XML parsing error",e);
-    }
-  }
- else   if ("bg-color".equals(localName)) {
-    try {
-      myColor=Integer.parseInt(attributes.getValue("value"));
-    }
- catch (    Exception e) {
-      throw new SAXException("XML parsing error",e);
     }
   }
 }

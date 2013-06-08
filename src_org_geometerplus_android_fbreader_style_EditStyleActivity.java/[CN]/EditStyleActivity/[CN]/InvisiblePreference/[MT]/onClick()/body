@@ -1,0 +1,13 @@
+{
+  super.onClick();
+  if (isChecked()) {
+    mySavedBgColor=myStyle.getBackgroundColor();
+    myStyle.setBackgroundColor(null);
+    myBgColorPreference.setEnabled(false);
+  }
+ else {
+    myStyle.setBackgroundColor(mySavedBgColor != null ? mySavedBgColor : new ZLColor(127,127,127));
+    myBgColorPreference.setEnabled(true);
+  }
+  myCollection.saveHighlightingStyle(myStyle);
+}

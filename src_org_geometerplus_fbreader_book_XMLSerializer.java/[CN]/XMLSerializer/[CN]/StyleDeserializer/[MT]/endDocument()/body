@@ -1,5 +1,0 @@
-{
-  if (myId != -1) {
-    myStyle=new HighlightingStyle(myId,new ZLColor(myColor));
-  }
-}

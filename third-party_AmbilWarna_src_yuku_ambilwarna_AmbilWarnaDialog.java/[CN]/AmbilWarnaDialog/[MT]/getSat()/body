@@ -1,0 +1,3 @@
+{
+  return currentColorHsv[1];
+}

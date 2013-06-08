@@ -1,0 +1,3 @@
+{
+  myCollection.saveHighlightingStyle(SerializerUtil.deserializeStyle(style));
+}

@@ -1,0 +1,8 @@
+{
+  super.onDraw(canvas);
+  canvas.drawRect(strokeWidth,strokeWidth,rectSize - strokeWidth,rectSize - strokeWidth,paint);
+  if (drawCross) {
+    canvas.drawLine(strokeWidth,strokeWidth,rectSize - strokeWidth,rectSize - strokeWidth,paint);
+    canvas.drawLine(strokeWidth,rectSize - strokeWidth,rectSize - strokeWidth,strokeWidth,paint);
+  }
+}

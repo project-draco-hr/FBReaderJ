@@ -1,7 +1,6 @@
 {
   final StringBuilder buffer=new StringBuilder();
-  appendTag(buffer,"style",false,"id",String.valueOf(style.Id));
-  appendTag(buffer,"bg-color",true,"value",String.valueOf(style.BackgroundColor.getIntValue()));
-  closeTag(buffer,"style");
+  final ZLColor bgColor=style.getBackgroundColor();
+  appendTag(buffer,"style",true,"id",String.valueOf(style.Id),"name",style.getName(),"bg-color",bgColor != null ? String.valueOf(bgColor.intValue()) : "-1");
   return buffer.toString();
 }

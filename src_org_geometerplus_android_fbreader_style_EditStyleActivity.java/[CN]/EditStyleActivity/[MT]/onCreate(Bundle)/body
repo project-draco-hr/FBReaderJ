@@ -1,0 +1,21 @@
+{
+  requestWindowFeature(Window.FEATURE_NO_TITLE);
+  super.onCreate(bundle);
+  Thread.setDefaultUncaughtExceptionHandler(new org.geometerplus.zlibrary.ui.android.library.UncaughtExceptionHandler(this));
+  final PreferenceScreen screen=getPreferenceManager().createPreferenceScreen(this);
+  setPreferenceScreen(screen);
+  myCollection.bindToService(this,new Runnable(){
+    public void run(){
+      myStyle=myCollection.getHighlightingStyle(getIntent().getIntExtra(STYLE_ID_KEY,-1));
+      if (myStyle == null) {
+        finish();
+        return;
+      }
+      screen.addPreference(new NamePreference());
+      screen.addPreference(new InvisiblePreference());
+      myBgColorPreference=new BgColorPreference();
+      screen.addPreference(myBgColorPreference);
+    }
+  }
+);
+}

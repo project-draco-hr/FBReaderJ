@@ -1,0 +1,7 @@
+{
+  super.onBindView(view);
+  final View kotak=view.findViewById(R.id.ambilwarna_pref_widget_kotak);
+  if (kotak != null) {
+    kotak.setBackgroundColor(value);
+  }
+}

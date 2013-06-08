@@ -1,0 +1,10 @@
+{
+  if (restoreValue) {
+    value=getPersistedInt(value);
+  }
+ else {
+    int value=(Integer)defaultValue;
+    this.value=value;
+    persistInt(value);
+  }
+}

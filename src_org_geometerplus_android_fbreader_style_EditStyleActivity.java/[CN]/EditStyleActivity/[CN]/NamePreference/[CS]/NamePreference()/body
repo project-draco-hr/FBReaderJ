@@ -1,0 +1,4 @@
+{
+  super(EditStyleActivity.this,myRootResource,"name");
+  super.setValue(myStyle.getName());
+}

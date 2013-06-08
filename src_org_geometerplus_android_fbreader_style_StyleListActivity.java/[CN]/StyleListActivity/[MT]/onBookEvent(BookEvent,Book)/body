@@ -1,0 +1,5 @@
+{
+  if (event == BookEvent.BookmarkStyleChanged) {
+    ((ActionListAdapter)getListAdapter()).setStyleList(myCollection.highlightingStyles());
+  }
+}
