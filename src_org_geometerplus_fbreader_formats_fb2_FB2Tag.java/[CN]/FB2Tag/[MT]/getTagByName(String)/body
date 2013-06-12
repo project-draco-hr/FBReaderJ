@@ -3,7 +3,7 @@
   Byte num=tagByName.get(name);
   if (num == null) {
     final String upperCaseName=name.toLowerCase().intern();
-    num=(Byte)tagByName.get(upperCaseName);
+    num=tagByName.get(upperCaseName);
     if (num == null) {
       num=ourUnknownTag;
       tagByName.put(upperCaseName,num);
