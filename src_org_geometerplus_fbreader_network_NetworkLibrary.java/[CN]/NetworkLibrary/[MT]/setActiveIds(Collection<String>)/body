@@ -1,0 +1,12 @@
+{
+  final TreeSet<String> allCodes=new TreeSet<String>();
+  allCodes.addAll(ZLibrary.Instance().defaultIds());
+  allCodes.removeAll(linkIds());
+  allCodes.addAll(ids);
+  final ArrayList<String> codesList=new ArrayList<String>(allCodes.size());
+  for (  String l : allCodes) {
+    codesList.add(l);
+  }
+  activeIdsOption().setValue(codesList);
+  invalidateChildren();
+}

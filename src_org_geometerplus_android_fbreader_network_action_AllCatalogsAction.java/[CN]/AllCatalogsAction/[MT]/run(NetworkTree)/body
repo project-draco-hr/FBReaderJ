@@ -1,0 +1,21 @@
+{
+  final NetworkLibrary library=NetworkLibrary.Instance();
+  final List<String> activeIds=library.activeIds();
+  ArrayList<String> ids=new ArrayList<String>();
+  ids.addAll(activeIds);
+  final ArrayList<String> allids=new ArrayList<String>();
+  boolean found=false;
+  for (  String id : library.linkIds()) {
+    for (    String aid : activeIds) {
+      if (id.equals(aid)) {
+        found=true;
+        break;
+      }
+    }
+    if (!found) {
+      allids.add(id);
+    }
+    found=false;
+  }
+  OrientationUtil.startActivity(myActivity,new Intent(myActivity.getApplicationContext(),AllCatalogsActivity.class).putStringArrayListExtra(AllCatalogsActivity.IDS_LIST,ids).putStringArrayListExtra(AllCatalogsActivity.ALL_IDS_LIST,allids));
+}

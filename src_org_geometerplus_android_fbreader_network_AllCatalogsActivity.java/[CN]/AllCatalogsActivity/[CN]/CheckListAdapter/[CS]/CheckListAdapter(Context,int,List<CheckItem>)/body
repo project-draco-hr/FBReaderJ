@@ -1,0 +1,4 @@
+{
+  super(context,textViewResourceId,objects);
+  items.addAll(objects);
+}

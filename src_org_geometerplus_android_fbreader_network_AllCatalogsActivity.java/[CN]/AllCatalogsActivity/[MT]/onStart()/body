@@ -1,0 +1,17 @@
+{
+  super.onStart();
+  ArrayList<CheckItem> idItems=new ArrayList<CheckItem>();
+  idItems.add(new CheckSection("Selected"));
+  for (  String i : ids) {
+    idItems.add(new CheckItem(i,true));
+  }
+  if (allids.size() > 0) {
+    idItems.add(new CheckSection("Unselected"));
+    for (    String i : allids) {
+      idItems.add(new CheckItem(i,false));
+    }
+  }
+  ListView selectedList=(ListView)findViewById(R.id.selectedList);
+  myAdapter=new CheckListAdapter(this,R.layout.checkbox_item,idItems);
+  selectedList.setAdapter(myAdapter);
+}

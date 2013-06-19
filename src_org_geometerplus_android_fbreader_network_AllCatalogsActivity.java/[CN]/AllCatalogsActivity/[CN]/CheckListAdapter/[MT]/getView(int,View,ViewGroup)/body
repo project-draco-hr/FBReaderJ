@@ -1,0 +1,48 @@
+{
+  View v=convertView;
+  CheckItem item=this.getItem(position);
+  if (item != null) {
+    if (item.isSection()) {
+      LayoutInflater vi;
+      vi=LayoutInflater.from(getContext());
+      v=vi.inflate(R.layout.checkbox_section,null);
+      TextView tt=(TextView)v.findViewById(R.id.title);
+      if (tt != null) {
+        tt.setText(item.getId());
+      }
+    }
+ else {
+      LayoutInflater vi;
+      vi=LayoutInflater.from(getContext());
+      v=vi.inflate(R.layout.checkbox_item,null);
+      INetworkLink link=library.getLinkByUrl(item.getId());
+      if (link != null) {
+        TextView tt=(TextView)v.findViewById(R.id.title);
+        if (tt != null) {
+          tt.setText(link.getTitle());
+        }
+        tt=(TextView)v.findViewById(R.id.subtitle);
+        if (tt != null) {
+          tt.setText(link.getSummary());
+        }
+        CheckBox ch=(CheckBox)v.findViewById(R.id.check_item);
+        if (ch != null) {
+          ch.setText("");
+          ch.setChecked(item.isChecked());
+          ch.setTag(item);
+          ch.setOnClickListener(new View.OnClickListener(){
+            public void onClick(            View v){
+              CheckBox cb=(CheckBox)v;
+              CheckItem checkedItem=(CheckItem)cb.getTag();
+              if (checkedItem != null) {
+                checkedItem.setChecked(cb.isChecked());
+              }
+            }
+          }
+);
+        }
+      }
+    }
+  }
+  return v;
+}

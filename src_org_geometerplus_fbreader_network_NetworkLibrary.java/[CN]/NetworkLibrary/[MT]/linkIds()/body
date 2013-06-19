@@ -1,0 +1,9 @@
+{
+  final TreeSet<String> idSet=new TreeSet<String>();
+synchronized (myLinks) {
+    for (    INetworkLink link : myLinks) {
+      idSet.add(link.getUrl(UrlInfo.Type.Catalog));
+    }
+  }
+  return new ArrayList<String>(idSet);
+}
