@@ -1,0 +1,6 @@
+{
+  if (firstLaunchOption == null) {
+    firstLaunchOption=new ZLBooleanOption("Options","firstLaunch",true);
+  }
+  return firstLaunchOption;
+}

@@ -1,0 +1,8 @@
+{
+  List<String> ids=activeIdsOption().getValue();
+  final ArrayList<String> codesList=new ArrayList<String>();
+  codesList.addAll(ids);
+  codesList.add(id);
+  activeIdsOption().setValue(codesList);
+  invalidateChildren();
+}

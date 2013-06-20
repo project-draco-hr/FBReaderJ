@@ -1,0 +1,14 @@
+{
+  if (!myFirstLaunchOption().getValue())   return;
+  ArrayList<String> ids=new ArrayList<String>();
+  final Collection<String> codes=activeLanguageCodes();
+synchronized (myLinks) {
+    for (    INetworkLink link : myLinks) {
+      if (link instanceof ICustomNetworkLink || codes.contains(link.getLanguage())) {
+        ids.add(link.getUrl(UrlInfo.Type.Catalog));
+      }
+    }
+  }
+  setActiveIds(ids);
+  myFirstLaunchOption().setValue(false);
+}
