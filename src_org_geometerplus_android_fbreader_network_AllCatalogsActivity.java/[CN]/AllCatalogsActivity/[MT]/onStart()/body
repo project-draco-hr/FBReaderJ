@@ -1,17 +1,24 @@
 {
   super.onStart();
   ArrayList<CheckItem> idItems=new ArrayList<CheckItem>();
-  idItems.add(new CheckSection(getLabelByKey("active")));
-  for (  String i : ids) {
-    idItems.add(new CheckItem(i,true));
+  if (ids.size() > 0) {
+    idItems.add(new CheckSection(getLabelByKey("active")));
+    final TreeSet<CheckItem> items=new TreeSet<CheckItem>();
+    for (    String i : ids) {
+      items.add(new CheckItem(i,true,library.getCatalogTreeByUrlAll(i)));
+    }
+    for (    CheckItem i : items) {
+      idItems.add(i);
+      System.out.println("-- " + i.getTree().getTreeTitle());
+    }
   }
-  if (allids.size() > 0) {
+  if (inactiveIds.size() > 0) {
     idItems.add(new CheckSection(getLabelByKey("inactive")));
-    for (    String i : allids) {
-      idItems.add(new CheckItem(i,false));
+    for (    String i : inactiveIds) {
+      idItems.add(new CheckItem(i,false,library.getCatalogTreeByUrlAll(i)));
     }
   }
   ListView selectedList=(ListView)findViewById(R.id.selectedList);
-  myAdapter=new CheckListAdapter(this,R.layout.checkbox_item,idItems);
+  myAdapter=new CheckListAdapter(this,R.layout.checkbox_item,idItems,this);
   selectedList.setAdapter(myAdapter);
 }

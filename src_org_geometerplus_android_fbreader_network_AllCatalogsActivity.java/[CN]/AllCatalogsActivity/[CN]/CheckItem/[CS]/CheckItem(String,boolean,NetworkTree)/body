@@ -1,0 +1,10 @@
+{
+  myId=id;
+  isChecked=checked;
+  if (tree instanceof NetworkCatalogRootTree) {
+    myTree=tree;
+  }
+ else {
+    System.out.println("Tree parameter should be an instance of NetworkCatalogRootTree");
+  }
+}

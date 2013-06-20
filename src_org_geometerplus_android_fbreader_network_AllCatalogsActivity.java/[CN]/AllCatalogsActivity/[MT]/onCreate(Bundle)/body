@@ -3,5 +3,5 @@
   setContentView(R.layout.network_library_filter);
   Intent intent=getIntent();
   ids=intent.getStringArrayListExtra(IDS_LIST);
-  allids=intent.getStringArrayListExtra(ALL_IDS_LIST);
+  inactiveIds=intent.getStringArrayListExtra(INACTIVE_IDS_LIST);
 }

@@ -12,11 +12,18 @@
       }
     }
  else {
+      if (myCoverManager == null) {
+        v.measure(ViewGroup.LayoutParams.FILL_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        final int coverHeight=v.getMeasuredHeight();
+        myCoverManager=new CoverManager(myActivity,coverHeight * 15 / 12,coverHeight);
+        v.requestLayout();
+      }
       LayoutInflater vi;
       vi=LayoutInflater.from(getContext());
       v=vi.inflate(R.layout.checkbox_item,null);
-      INetworkLink link=library.getLinkByUrl(item.getId());
-      if (link != null) {
+      NetworkTree t=item.getTree();
+      if (t != null) {
+        INetworkLink link=t.getLink();
         TextView tt=(TextView)v.findViewById(R.id.title);
         if (tt != null) {
           tt.setText(link.getTitle());
@@ -24,6 +31,10 @@
         tt=(TextView)v.findViewById(R.id.subtitle);
         if (tt != null) {
           tt.setText(link.getSummary());
+        }
+        ImageView coverView=(ImageView)v.findViewById(R.id.icon);
+        if (!myCoverManager.trySetCoverImage(coverView,t)) {
+          coverView.setImageResource(R.drawable.ic_list_library_books);
         }
         CheckBox ch=(CheckBox)v.findViewById(R.id.check_item);
         if (ch != null) {
@@ -37,6 +48,7 @@
               if (checkedItem != null) {
                 checkedItem.setChecked(cb.isChecked());
               }
+              isChanged=true;
             }
           }
 );

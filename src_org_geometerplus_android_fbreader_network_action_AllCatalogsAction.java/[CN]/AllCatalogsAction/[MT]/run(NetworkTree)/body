@@ -3,7 +3,7 @@
   final List<String> activeIds=library.activeIds();
   ArrayList<String> ids=new ArrayList<String>();
   ids.addAll(activeIds);
-  final ArrayList<String> allids=new ArrayList<String>();
+  final ArrayList<String> inactiveIds=new ArrayList<String>();
   boolean found=false;
   for (  String id : library.linkIds()) {
     for (    String aid : activeIds) {
@@ -13,9 +13,9 @@
       }
     }
     if (!found) {
-      allids.add(id);
+      inactiveIds.add(id);
     }
     found=false;
   }
-  OrientationUtil.startActivity(myActivity,new Intent(myActivity.getApplicationContext(),AllCatalogsActivity.class).putStringArrayListExtra(AllCatalogsActivity.IDS_LIST,ids).putStringArrayListExtra(AllCatalogsActivity.ALL_IDS_LIST,allids));
+  OrientationUtil.startActivity(myActivity,new Intent(myActivity.getApplicationContext(),AllCatalogsActivity.class).putStringArrayListExtra(AllCatalogsActivity.IDS_LIST,ids).putStringArrayListExtra(AllCatalogsActivity.INACTIVE_IDS_LIST,inactiveIds));
 }

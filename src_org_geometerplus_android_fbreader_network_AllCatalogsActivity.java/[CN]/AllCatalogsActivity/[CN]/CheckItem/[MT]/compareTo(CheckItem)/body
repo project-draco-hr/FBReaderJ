@@ -1,0 +1,3 @@
+{
+  return getTitleLower().compareTo(another.getTitleLower());
+}
