@@ -1,11 +1,9 @@
 {
   super.onStop();
-  System.out.println("Exit!");
   ArrayList<String> ids=new ArrayList<String>();
   ArrayList<CheckItem> items=myAdapter.getItems();
   for (  CheckItem item : items) {
     if (!item.isSection() && item.isChecked()) {
-      System.out.println(">> " + item.getId() + ", "+ item.isChecked());
       ids.add(item.getId());
     }
   }

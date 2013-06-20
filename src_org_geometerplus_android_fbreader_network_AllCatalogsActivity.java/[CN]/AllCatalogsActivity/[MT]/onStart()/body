@@ -1,12 +1,12 @@
 {
   super.onStart();
   ArrayList<CheckItem> idItems=new ArrayList<CheckItem>();
-  idItems.add(new CheckSection("Selected"));
+  idItems.add(new CheckSection(getLabelByKey("active")));
   for (  String i : ids) {
     idItems.add(new CheckItem(i,true));
   }
   if (allids.size() > 0) {
-    idItems.add(new CheckSection("Unselected"));
+    idItems.add(new CheckSection(getLabelByKey("inactive")));
     for (    String i : allids) {
       idItems.add(new CheckItem(i,false));
     }
