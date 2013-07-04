@@ -1,0 +1,37 @@
+{
+  final ZLImage image=BookUtil.getCover(b);
+  if (image == null) {
+    return;
+  }
+  if (image instanceof ZLLoadableImage) {
+    final ZLLoadableImage loadableImage=(ZLLoadableImage)image;
+    if (!loadableImage.isSynchronized()) {
+      loadableImage.synchronize();
+    }
+  }
+  final ZLAndroidImageData data=((ZLAndroidImageManager)ZLAndroidImageManager.Instance()).getImageData(image);
+  if (data == null) {
+    return;
+  }
+  final Bitmap coverBitmap=data.getFullSizeBitmap();
+  if (coverBitmap == null) {
+    return;
+  }
+  String extStorageDirectory=Environment.getExternalStorageDirectory().toString();
+  File myPath=new File(extStorageDirectory,"/FBReaderJ/Covers");
+  myPath.mkdirs();
+  OutputStream outStream=null;
+  File file=new File(myPath,b.getId() + ".PNG");
+  try {
+    outStream=new FileOutputStream(file);
+    coverBitmap.compress(Bitmap.CompressFormat.PNG,100,outStream);
+    outStream.flush();
+    outStream.close();
+  }
+ catch (  FileNotFoundException e) {
+    e.printStackTrace();
+  }
+catch (  IOException e) {
+    e.printStackTrace();
+  }
+}

@@ -1,0 +1,11 @@
+{
+  if (myInterface == null) {
+    return;
+  }
+  try {
+    myInterface.saveCovers();
+  }
+ catch (  RemoteException e) {
+    e.printStackTrace();
+  }
+}
