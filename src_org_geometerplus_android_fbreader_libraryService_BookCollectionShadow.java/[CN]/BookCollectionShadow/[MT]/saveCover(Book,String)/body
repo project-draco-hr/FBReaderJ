@@ -1,0 +1,13 @@
+{
+  if (myInterface == null) {
+    return false;
+  }
+  try {
+    myInterface.saveCover(SerializerUtil.serialize(book),url);
+    return true;
+  }
+ catch (  RemoteException e) {
+    e.printStackTrace();
+    return false;
+  }
+}
