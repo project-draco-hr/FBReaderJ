@@ -16,8 +16,8 @@
   if (data == null) {
     return false;
   }
-  final Bitmap coverBitmap=data.getFullSizeBitmap();
-  if (coverBitmap == null) {
+  final InputStream inputStream=((ZLSingleImage)image).inputStream();
+  if (inputStream == null) {
     return false;
   }
   OutputStream outputStream=null;
@@ -26,19 +26,32 @@
   parent.mkdirs();
   try {
     outputStream=new FileOutputStream(file);
-    coverBitmap.compress(Bitmap.CompressFormat.PNG,100,outputStream);
-    outputStream.flush();
+    int read=0;
+    byte[] bytes=new byte[1024];
+    while ((read=inputStream.read(bytes)) != -1) {
+      outputStream.write(bytes,0,read);
+    }
   }
  catch (  IOException e) {
     e.printStackTrace();
     return false;
   }
  finally {
-    try {
-      outputStream.close();
+    if (inputStream != null) {
+      try {
+        inputStream.close();
+      }
+ catch (      IOException e) {
+        e.printStackTrace();
+      }
     }
- catch (    IOException e) {
-      e.printStackTrace();
+    if (outputStream != null) {
+      try {
+        outputStream.close();
+      }
+ catch (      IOException e) {
+        e.printStackTrace();
+      }
     }
   }
   return true;
