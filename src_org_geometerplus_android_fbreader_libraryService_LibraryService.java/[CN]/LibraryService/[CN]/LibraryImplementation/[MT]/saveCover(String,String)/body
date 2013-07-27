@@ -1,4 +1,3 @@
 {
-  myCollection.saveCover(SerializerUtil.deserializeBook(book),url);
-  return true;
+  return myCollection.saveCover(SerializerUtil.deserializeBook(book),url);
 }
