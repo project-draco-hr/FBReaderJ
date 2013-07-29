@@ -6,9 +6,5 @@
   if (image == null) {
     return false;
   }
-  final ZLAndroidImageData data=((ZLAndroidImageManager)ZLAndroidImageManager.Instance()).getImageData(image);
-  if (data == null) {
-    return false;
-  }
   return image.saveToFile(url);
 }
