@@ -1,0 +1,6 @@
+{
+  if (!isSynchronized()) {
+    synchronize();
+  }
+  return super.saveToFile(url);
+}
