@@ -1,0 +1,10 @@
+{
+  if (getBookById(book.getId()) == null) {
+    return false;
+  }
+  final ZLImage image=BookUtil.getCover(book);
+  if (image == null) {
+    return false;
+  }
+  return image.saveToFile(url);
+}
