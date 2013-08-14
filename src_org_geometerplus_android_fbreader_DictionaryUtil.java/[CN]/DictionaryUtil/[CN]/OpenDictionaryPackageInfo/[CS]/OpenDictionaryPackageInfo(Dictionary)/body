@@ -1,0 +1,4 @@
+{
+  super(dictionary.getUID(),dictionary.getApplicationPackageName(),".Start",dictionary.getName(),null,null,"%s");
+  myDictionary=dictionary;
+}

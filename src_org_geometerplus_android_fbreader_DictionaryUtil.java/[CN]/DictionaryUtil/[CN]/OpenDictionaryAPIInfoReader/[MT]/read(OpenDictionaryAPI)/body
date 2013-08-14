@@ -10,7 +10,7 @@
 );
   dictionariesTreeSet.addAll(new ArrayList<Dictionary>(api.getDictionaries()));
   for (  Dictionary dict : dictionariesTreeSet) {
-    final PackageInfo info=new PackageInfo(dict.getUID(),dict.getApplicationPackageName(),".Start",dict.getName(),Intent.ACTION_VIEW,null,"%s");
+    final PackageInfo info=new OpenDictionaryPackageInfo(dict);
     ourInfos.put(info,FLAG_SHOW_AS_DICTIONARY);
   }
 }

@@ -10,6 +10,11 @@
     text=text.substring(start,end);
   }
   final PackageInfo info=getCurrentDictionaryInfo(singleWord);
+  if (info instanceof OpenDictionaryPackageInfo) {
+    final OpenDictionaryPackageInfo openDictionary=(OpenDictionaryPackageInfo)info;
+    openDictionary.openTextInDictionary(text);
+    return;
+  }
   final Intent intent=getDictionaryIntent(info,text);
   try {
     if ("ColorDict".equals(info.Id)) {
