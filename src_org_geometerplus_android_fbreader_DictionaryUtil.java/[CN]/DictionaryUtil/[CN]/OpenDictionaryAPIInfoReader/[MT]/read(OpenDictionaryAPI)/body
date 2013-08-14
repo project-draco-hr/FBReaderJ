@@ -1,0 +1,16 @@
+{
+  if (api.getDictionaries().isEmpty()) {
+    return;
+  }
+  SortedSet<Dictionary> dictionariesTreeSet=new TreeSet<Dictionary>(new Comparator<Dictionary>(){
+    @Override public int compare(    Dictionary lhs,    Dictionary rhs){
+      return lhs.toString().compareTo(rhs.toString());
+    }
+  }
+);
+  dictionariesTreeSet.addAll(new ArrayList<Dictionary>(api.getDictionaries()));
+  for (  Dictionary dict : dictionariesTreeSet) {
+    final PackageInfo info=new PackageInfo(dict.getUID(),dict.getApplicationPackageName(),".Start",dict.getName(),Intent.ACTION_VIEW,null,"%s");
+    ourInfos.put(info,FLAG_SHOW_AS_DICTIONARY);
+  }
+}
