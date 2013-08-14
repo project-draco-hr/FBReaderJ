@@ -12,7 +12,7 @@
   final PackageInfo info=getCurrentDictionaryInfo(singleWord);
   if (info instanceof OpenDictionaryPackageInfo) {
     final OpenDictionaryPackageInfo openDictionary=(OpenDictionaryPackageInfo)info;
-    openDictionary.openTextInDictionary(text);
+    openDictionary.showTranslation(activity,text);
     return;
   }
   final Intent intent=getDictionaryIntent(info,text);
