@@ -1,0 +1,9 @@
+{
+  float position=0;
+  Cursor cursor=myDatabase.rawQuery("SELECT numerator,denominator FROM Positions WHERE book_id = " + bookId,null);
+  if (cursor.moveToNext()) {
+    position=cursor.getLong(0) / cursor.getLong(1);
+  }
+  cursor.close();
+  return position;
+}

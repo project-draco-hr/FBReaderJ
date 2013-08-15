@@ -1,0 +1,9 @@
+{
+  if (myPositionStatement == null) {
+    myPositionStatement=myDatabase.compileStatement("INSERT OR REPLACE INTO Positions (book_id,numerator,denominator) VALUES (?,?,?)");
+  }
+  myStorePositionStatement.bindLong(1,bookId);
+  myStorePositionStatement.bindLong(2,numerator);
+  myStorePositionStatement.bindLong(3,denominator);
+  myStorePositionStatement.execute();
+}
