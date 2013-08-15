@@ -1,4 +1,4 @@
 {
-  myNumerator=numerator;
-  myDenominator=denominator;
+  Numerator=numerator;
+  Denominator=denominator;
 }
