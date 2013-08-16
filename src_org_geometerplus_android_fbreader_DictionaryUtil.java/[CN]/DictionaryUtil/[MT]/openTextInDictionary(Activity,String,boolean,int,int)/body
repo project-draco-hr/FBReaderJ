@@ -12,7 +12,7 @@
   final PackageInfo info=getCurrentDictionaryInfo(singleWord);
   if (info instanceof OpenDictionaryPackageInfo) {
     final OpenDictionaryPackageInfo openDictionary=(OpenDictionaryPackageInfo)info;
-    openDictionary.showTranslation(activity,text);
+    openDictionary.showTranslation(activity,text,selectionTop,selectionBottom);
     return;
   }
   final Intent intent=getDictionaryIntent(info,text);
@@ -20,15 +20,9 @@
     if ("ColorDict".equals(info.Id)) {
       final DisplayMetrics metrics=new DisplayMetrics();
       activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
-      final int screenHeight=metrics.heightPixels;
-      final int topSpace=selectionTop;
-      final int bottomSpace=metrics.heightPixels - selectionBottom;
-      final boolean showAtBottom=bottomSpace >= topSpace;
-      final int space=(showAtBottom ? bottomSpace : topSpace) - 20;
-      final int maxHeight=Math.min(400,screenHeight * 2 / 3);
-      final int minHeight=Math.min(200,screenHeight * 2 / 3);
-      intent.putExtra(ColorDict3.HEIGHT,Math.max(minHeight,Math.min(maxHeight,space)));
-      intent.putExtra(ColorDict3.GRAVITY,showAtBottom ? Gravity.BOTTOM : Gravity.TOP);
+      PopupFrameMetric frameMetrics=new PopupFrameMetric(metrics,selectionTop,selectionBottom);
+      intent.putExtra(ColorDict3.HEIGHT,frameMetrics.height);
+      intent.putExtra(ColorDict3.GRAVITY,frameMetrics.gravity);
       final ZLAndroidLibrary zlibrary=(ZLAndroidLibrary)ZLAndroidLibrary.Instance();
       intent.putExtra(ColorDict3.FULLSCREEN,!zlibrary.ShowStatusBarOption.getValue());
     }

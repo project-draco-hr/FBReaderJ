@@ -1,0 +1,46 @@
+{
+  if (!myDictionary.isTranslationAsTextSupported())   openTextInDictionary(text);
+  if (popupFrame == null)   popupFrame=createPopup(activity);
+  titleLabel.setText(Title);
+  openDictionaryButton.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      openTextInDictionary(text);
+      popupFrame.dismiss();
+    }
+  }
+);
+  activity.getCurrentFocus().setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View view){
+      popupFrame.dismiss();
+    }
+  }
+);
+  activity.getCurrentFocus().setOnTouchListener(new View.OnTouchListener(){
+    @Override public boolean onTouch(    View view,    MotionEvent motionEvent){
+      if (popupFrame.isShowing()) {
+        popupFrame.dismiss();
+        return true;
+      }
+      return false;
+    }
+  }
+);
+  articleView.loadData("","text/text","UTF-8");
+  showFrame(activity,selectionTop,selectionBottom);
+  myDictionary.getTranslationAsText(text,TranslateMode.SHORT,TranslateFormat.HTML,new Dictionary.TranslateAsTextListener(){
+    @Override public void onComplete(    String s,    TranslateMode translateMode){
+      articleView.loadData(s,"text/html","UTF-8");
+    }
+    @Override public void onWordNotFound(    ArrayList<String> similarWords){
+      popupFrame.dismiss();
+      openTextInDictionary(text);
+    }
+    @Override public void onError(    com.paragon.open.dictionary.api.Error error){
+      popupFrame.dismiss();
+    }
+    @Override public void onIPCError(    String s){
+      popupFrame.dismiss();
+    }
+  }
+);
+}
