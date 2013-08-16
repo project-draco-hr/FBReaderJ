@@ -1,8 +1,19 @@
 {
-  final WebView webView=new WebView(activity);
+  final ScrollView scroller=new ScrollView(activity.getApplicationContext());
   final DisplayMetrics metrics=new DisplayMetrics();
   activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
-  final android.widget.PopupWindow frame=new android.widget.PopupWindow(webView,metrics.widthPixels,metrics.heightPixels / 3);
+  final android.widget.PopupWindow frame=new android.widget.PopupWindow(scroller,metrics.widthPixels,metrics.heightPixels / 3);
+  final View root=activity.getLayoutInflater().inflate(R.layout.dictionary_flyout,scroller);
+  final TextView titleLabel=(TextView)root.findViewById(R.id.dictionary_title_label);
+  titleLabel.setText(Title);
+  final ImageButton openDictionary=(ImageButton)root.findViewById(R.id.dictionary_open_button);
+  openDictionary.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View v){
+      openTextInDictionary(text);
+    }
+  }
+);
+  final WebView webView=(WebView)root.findViewById(R.id.dictionary_article_view);
   frame.showAtLocation(activity.getCurrentFocus(),Gravity.BOTTOM,0,metrics.heightPixels / 2);
   activity.getCurrentFocus().setOnClickListener(new View.OnClickListener(){
     @Override public void onClick(    View view){
