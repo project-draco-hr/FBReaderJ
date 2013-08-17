@@ -1,3 +1,0 @@
-{
-  myProgress=new RationalNumber(numerator,denominator);
-}
