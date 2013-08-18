@@ -4,6 +4,7 @@ case HtmlTag.SCRIPT:
 case HtmlTag.SELECT:
 case HtmlTag.STYLE:
 case HtmlTag.P:
+case HtmlTag.DIV:
     startNewParagraph();
   break;
 case HtmlTag.H1:
@@ -34,6 +35,8 @@ case HtmlTag.CODE:
 case HtmlTag.STRONG:
 case HtmlTag.I:
 closeControl(myStyleTable[tag]);
+break;
+case HtmlTag.FONT:
 break;
 case HtmlTag.OL:
 myOrderedListIsStarted=false;

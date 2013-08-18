@@ -70,6 +70,9 @@ attributes.put(new ZLByteBuffer("href"),new ZLByteBuffer("&filepos" + filePositi
 super.startElementHandler(tag,offset,attributes);
 break;
 }
+case HtmlTag.MBP_PAGEBREAK:
+insertEndOfSectionParagraph();
+break;
 default :
 super.startElementHandler(tag,offset,attributes);
 break;
