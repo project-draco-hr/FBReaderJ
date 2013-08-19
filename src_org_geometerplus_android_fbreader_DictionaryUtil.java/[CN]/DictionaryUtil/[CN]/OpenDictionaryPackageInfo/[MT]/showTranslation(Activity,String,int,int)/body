@@ -29,7 +29,9 @@
   showFrame(activity,selectionTop,selectionBottom);
   myDictionary.getTranslationAsText(text,TranslateMode.SHORT,TranslateFormat.HTML,new Dictionary.TranslateAsTextListener(){
     @Override public void onComplete(    String s,    TranslateMode translateMode){
-      articleView.loadData(s,"text/html","UTF-8");
+      final String url=saveArticle(s,activity.getApplicationContext());
+      if (url == null || url.isEmpty())       openTextInDictionary(text);
+ else       articleView.loadUrl(url);
     }
     @Override public void onWordNotFound(    ArrayList<String> similarWords){
       popupFrame.dismiss();
