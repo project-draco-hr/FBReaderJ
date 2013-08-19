@@ -1,8 +1,8 @@
 {
   final DisplayMetrics metrics=new DisplayMetrics();
   activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
-  PopupFrameMetric frameMetrics=new PopupFrameMetric(metrics,selectionTop,selectionBottom);
-  popupFrame.setHeight(frameMetrics.height);
-  popupFrame.setWidth(metrics.widthPixels);
+  final int height=frameMetrics.height;
+  final int width=Math.min(metrics.widthPixels,metrics.heightPixels);
   popupFrame.showAtLocation(activity.getCurrentFocus(),frameMetrics.gravity | Gravity.CENTER_HORIZONTAL,0,0);
+  popupFrame.update(width,height);
 }

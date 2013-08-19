@@ -9,18 +9,18 @@
     }
     text=text.substring(start,end);
   }
+  final DisplayMetrics metrics=new DisplayMetrics();
+  activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+  final PopupFrameMetric frameMetrics=new PopupFrameMetric(metrics,selectionTop,selectionBottom);
   final PackageInfo info=getCurrentDictionaryInfo(singleWord);
   if (info instanceof OpenDictionaryPackageInfo) {
     final OpenDictionaryPackageInfo openDictionary=(OpenDictionaryPackageInfo)info;
-    openDictionary.showTranslation(activity,text,selectionTop,selectionBottom);
+    openDictionary.myFlyout.showTranslation(activity,text,frameMetrics);
     return;
   }
   final Intent intent=getDictionaryIntent(info,text);
   try {
     if ("ColorDict".equals(info.Id)) {
-      final DisplayMetrics metrics=new DisplayMetrics();
-      activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
-      PopupFrameMetric frameMetrics=new PopupFrameMetric(metrics,selectionTop,selectionBottom);
       intent.putExtra(ColorDict3.HEIGHT,frameMetrics.height);
       intent.putExtra(ColorDict3.GRAVITY,frameMetrics.gravity);
       final ZLAndroidLibrary zlibrary=(ZLAndroidLibrary)ZLAndroidLibrary.Instance();
