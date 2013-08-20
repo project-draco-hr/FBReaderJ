@@ -1,0 +1,14 @@
+{
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.dictionary_flyout);
+  myArticleView=(WebView)findViewById(R.id.dictionary_article_view);
+  myTitleLabel=(TextView)findViewById(R.id.dictionary_title_label);
+  myOpenDictionaryButton=(ImageButton)findViewById(R.id.dictionary_open_button);
+  myOpenDictionaryButton.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View view){
+      finish();
+      openTextInDictionary(myQuery);
+    }
+  }
+);
+}
