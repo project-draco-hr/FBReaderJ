@@ -1,4 +1,5 @@
 {
+  Log.d("FBReader","DictionaryUtil:openTextInDictionary");
   if (singleWord) {
     int start=0;
     int end=text.length();
@@ -14,6 +15,7 @@
   final PopupFrameMetric frameMetrics=new PopupFrameMetric(metrics,selectionTop,selectionBottom);
   final PackageInfo info=getCurrentDictionaryInfo(singleWord);
   if (info instanceof OpenDictionaryPackageInfo) {
+    Log.d("FBReader","DictionaryUtil - work with Open Dictionary API");
     final OpenDictionaryPackageInfo openDictionary=(OpenDictionaryPackageInfo)info;
     openDictionary.myFlyout.showTranslation(activity,text,frameMetrics);
     return;

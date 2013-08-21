@@ -1,4 +1,5 @@
 {
+  Log.d("FBReader","OpenDictionaryFlyout:showTranslation");
   if (!myDictionary.isTranslationAsTextSupported())   myDictionary.showTranslation(text);
  else {
     OpenDictionaryActivity.setDictionary(myDictionary);
