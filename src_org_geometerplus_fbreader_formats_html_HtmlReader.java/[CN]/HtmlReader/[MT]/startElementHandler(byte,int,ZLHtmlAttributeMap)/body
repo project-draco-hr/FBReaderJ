@@ -8,6 +8,7 @@ pushKind(FBTextKind.REGULAR);
 beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
 break;
 case HtmlTag.P:
+case HtmlTag.DIV:
 if (mySectionStarted) {
 mySectionStarted=false;
 }
@@ -53,6 +54,8 @@ case HtmlTag.CITE:
 case HtmlTag.DFN:
 case HtmlTag.I:
 openControl(myStyleTable[tag]);
+break;
+case HtmlTag.FONT:
 break;
 case HtmlTag.H1:
 case HtmlTag.H2:
