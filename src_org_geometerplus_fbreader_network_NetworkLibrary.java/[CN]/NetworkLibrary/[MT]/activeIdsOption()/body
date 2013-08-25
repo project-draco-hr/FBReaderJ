@@ -1,6 +1,6 @@
 {
   if (myActiveIdsOption == null) {
-    myActiveIdsOption=new ZLStringListOption("Options","ActiveIds",ZLibrary.Instance().defaultIds(),",");
+    myActiveIdsOption=new ZLStringListOption("Options","ActiveIds","",",");
   }
   return myActiveIdsOption;
 }
