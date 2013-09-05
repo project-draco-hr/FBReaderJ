@@ -1,8 +1,15 @@
 {
   Log.d("FBReader","OpenDictionaryFlyout:showTranslation");
-  if (!myDictionary.isTranslationAsTextSupported())   myDictionary.showTranslation(text);
+  final Dictionary dictionary=getDictionary(activity);
+  if (dictionary == null) {
+    Log.e("FBReader","OpenDictionaryFlyout:showTranslation - null dictionary received");
+    return;
+  }
+  if (!dictionary.isTranslationAsTextSupported()) {
+    dictionary.showTranslation(text);
+  }
  else {
-    OpenDictionaryActivity.setDictionary(myDictionary);
+    OpenDictionaryActivity.setDictionary(dictionary);
     Intent intent=new Intent(activity,OpenDictionaryActivity.class);
     intent.putExtra(OpenDictionaryActivity.OPEN_DICTIONARY_QUERY_KEY,text);
     intent.putExtra(OpenDictionaryActivity.OPEN_DICTIONARY_HEIGHT_KEY,frameMetrics.height);

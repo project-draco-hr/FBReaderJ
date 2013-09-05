@@ -1,3 +1,4 @@
 {
-  myDictionary=dictionary;
+  myDirection=dictionary.getDirection();
+  myPackageName=dictionary.getApplicationPackageName();
 }
