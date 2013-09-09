@@ -1,8 +1,8 @@
 {
-  if ("dictionary".equals(tag)) {
+  if ("dictionary".equals(tag) || "dictionaryNotTranslator".equals(tag)) {
     final String id=attributes.getValue("id");
     final String title=attributes.getValue("title");
-    int flags=FLAG_SHOW_AS_DICTIONARY | FLAG_SHOW_AS_TRANSLATOR;
+    int flags="dictionary".equals(tag) ? (FLAG_SHOW_AS_DICTIONARY | FLAG_SHOW_AS_TRANSLATOR) : FLAG_SHOW_AS_DICTIONARY;
     if (!"always".equals(attributes.getValue("list"))) {
       flags|=FLAG_INSTALLED_ONLY;
     }

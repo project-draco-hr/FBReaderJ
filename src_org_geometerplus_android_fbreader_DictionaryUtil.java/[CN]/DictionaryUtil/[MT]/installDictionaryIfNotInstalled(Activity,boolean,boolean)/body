@@ -1,5 +1,5 @@
 {
-  if (PackageUtil.canBeStarted(activity,getDictionaryIntent("test",singleWord),false)) {
+  if ((!forceNotCheck) && PackageUtil.canBeStarted(activity,getDictionaryIntent("test",singleWord),false)) {
     return;
   }
   final PackageInfo dictionaryInfo=getCurrentDictionaryInfo(singleWord);
