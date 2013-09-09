@@ -1,0 +1,36 @@
+{
+  super.onResume();
+  myQuery=getIntent().getStringExtra(OPEN_DICTIONARY_QUERY_KEY);
+  if (myQuery == null)   myQuery="";
+  myHeight=getIntent().getIntExtra(OPEN_DICTIONARY_HEIGHT_KEY,-1);
+  myGravity=getIntent().getIntExtra(OPEN_DICTIONARY_GRAVITY_KEY,android.view.Gravity.BOTTOM);
+  setViewSize(myHeight,myGravity);
+  myArticleView.loadData("","text/text","UTF-8");
+  if (ourDictionary != null) {
+    myTitleLabel.setText(ourDictionary.getName());
+    Log.d("FBReader","OpenDictionaryActivity: get translation as text");
+    ourDictionary.getTranslationAsText(myQuery,TranslateMode.SHORT,TranslateFormat.HTML,new Dictionary.TranslateAsTextListener(){
+      @Override public void onComplete(      String s,      TranslateMode translateMode){
+        final String url=saveArticle(s.replace("</BODY>","<br><br></BODY>"),getApplicationContext());
+        if (url == null || url.isEmpty())         openTextInDictionary(myQuery);
+ else         myArticleView.loadUrl(url);
+        Log.d("FBReader","OpenDictionaryActivity: translation ready");
+      }
+      @Override public void onWordNotFound(      ArrayList<String> similarWords){
+        finish();
+        openTextInDictionary(myQuery);
+        Log.d("FBReader","OpenDictionaryActivity: word not found");
+      }
+      @Override public void onError(      com.paragon.open.dictionary.api.Error error){
+        finish();
+        Log.e("FBReader",error.getName());
+        Log.e("FBReader",error.getMessage());
+      }
+      @Override public void onIPCError(      String s){
+        finish();
+        Log.e("FBReader",s);
+      }
+    }
+);
+  }
+}
