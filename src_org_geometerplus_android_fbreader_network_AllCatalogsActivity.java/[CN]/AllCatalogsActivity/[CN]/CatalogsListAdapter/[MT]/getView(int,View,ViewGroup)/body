@@ -5,7 +5,7 @@
     view=convertView;
   }
  else {
-    view=LayoutInflater.from(getContext()).inflate(item instanceof SectionItem ? R.layout.checkbox_section : R.layout.checkbox_item,null);
+    view=getLayoutInflater().inflate(item instanceof SectionItem ? R.layout.checkbox_section : R.layout.checkbox_item,null);
     view.setTag(item.getClass());
   }
   if (item instanceof SectionItem) {
