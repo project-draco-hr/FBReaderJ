@@ -17,6 +17,5 @@
     }
     myAllItems.addAll(cItems);
   }
-  final ListView selectedList=(ListView)findViewById(R.id.selectedList);
-  selectedList.setAdapter(new CatalogsListAdapter());
+  setListAdapter(new CatalogsListAdapter());
 }
