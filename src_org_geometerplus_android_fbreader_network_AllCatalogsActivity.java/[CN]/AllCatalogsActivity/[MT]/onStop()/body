@@ -2,9 +2,12 @@
   super.onStop();
   if (myIsChanged) {
     final ArrayList<String> ids=new ArrayList<String>();
-    for (    CheckItem item : myAdapter.getItems()) {
-      if (item instanceof CatalogItem && ((CatalogItem)item).IsChecked) {
-        ids.add(item.Id);
+    for (    Item item : myAdapter.getItems()) {
+      if (item instanceof CatalogItem) {
+        final CatalogItem catalogItem=(CatalogItem)item;
+        if (catalogItem.IsChecked) {
+          ids.add(catalogItem.Id);
+        }
       }
     }
     myLibrary.setActiveIds(ids);

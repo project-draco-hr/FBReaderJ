@@ -1,5 +1,0 @@
-{
-  super(context,textViewResourceId,objects);
-  myActivity=activity;
-  items.addAll(objects);
-}

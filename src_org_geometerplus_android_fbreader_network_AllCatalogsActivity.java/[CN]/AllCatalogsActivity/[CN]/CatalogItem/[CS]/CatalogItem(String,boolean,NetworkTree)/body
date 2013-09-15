@@ -1,5 +1,5 @@
 {
-  super(id);
+  Id=id;
   IsChecked=checked;
   Tree=tree;
 }

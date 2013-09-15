@@ -1,11 +1,11 @@
 {
   View v=convertView;
-  final CheckItem item=this.getItem(position);
+  final Item item=this.getItem(position);
   if (item instanceof SectionItem) {
     v=LayoutInflater.from(getContext()).inflate(R.layout.checkbox_section,null);
     TextView tt=(TextView)v.findViewById(R.id.title);
     if (tt != null) {
-      tt.setText(item.Id);
+      tt.setText(((SectionItem)item).Title);
     }
   }
  else {
@@ -13,7 +13,7 @@
     if (myCoverManager == null) {
       v.measure(ViewGroup.LayoutParams.FILL_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
       final int coverHeight=v.getMeasuredHeight();
-      myCoverManager=new CoverManager(myActivity,coverHeight * 15 / 12,coverHeight);
+      myCoverManager=new CoverManager(AllCatalogsActivity.this,coverHeight * 15 / 12,coverHeight);
       v.requestLayout();
     }
     v=LayoutInflater.from(getContext()).inflate(R.layout.checkbox_item,null);
