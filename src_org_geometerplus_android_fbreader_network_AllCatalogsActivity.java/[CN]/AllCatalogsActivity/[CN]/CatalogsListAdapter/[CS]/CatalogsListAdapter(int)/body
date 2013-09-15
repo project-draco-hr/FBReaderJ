@@ -1,3 +1,0 @@
-{
-  super(AllCatalogsActivity.this,textViewResourceId,myAllItems);
-}

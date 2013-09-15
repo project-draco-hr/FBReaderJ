@@ -1,0 +1,3 @@
+{
+  super(AllCatalogsActivity.this,R.layout.checkbox_item,myAllItems);
+}
