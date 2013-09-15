@@ -2,7 +2,7 @@
   super.onStop();
   if (myIsChanged) {
     final ArrayList<String> ids=new ArrayList<String>();
-    for (    Item item : myAdapter.getItems()) {
+    for (    Item item : myAllItems) {
       if (item instanceof CatalogItem) {
         final CatalogItem catalogItem=(CatalogItem)item;
         if (catalogItem.IsChecked) {

@@ -1,4 +1,0 @@
-{
-  super(AllCatalogsActivity.this,textViewResourceId,objects);
-  items.addAll(objects);
-}
