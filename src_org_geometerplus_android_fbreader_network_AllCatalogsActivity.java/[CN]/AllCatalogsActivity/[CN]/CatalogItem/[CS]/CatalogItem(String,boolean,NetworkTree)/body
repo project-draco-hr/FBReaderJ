@@ -1,0 +1,5 @@
+{
+  super(id);
+  IsChecked=checked;
+  Tree=tree;
+}

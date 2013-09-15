@@ -1,22 +1,21 @@
 {
   super.onStart();
-  ArrayList<CheckItem> idItems=new ArrayList<CheckItem>();
-  if (ids.size() > 0) {
-    idItems.add(new CheckSection(getLabelByKey("active")));
-    final TreeSet<CheckItem> items=new TreeSet<CheckItem>();
-    for (    String i : ids) {
-      items.add(new CheckItem(i,true,library.getCatalogTreeByUrlAll(i)));
+  final ArrayList<CheckItem> idItems=new ArrayList<CheckItem>();
+  if (myIds.size() > 0) {
+    idItems.add(new SectionItem(getLabelByKey("active")));
+    final TreeSet<CatalogItem> items=new TreeSet<CatalogItem>();
+    for (    String id : myIds) {
+      items.add(new CatalogItem(id,true,myLibrary.getCatalogTreeByUrlAll(id)));
     }
-    for (    CheckItem i : items) {
-      idItems.add(i);
-      System.out.println("-- " + i.getTree().getTreeTitle());
-    }
+    idItems.addAll(items);
   }
-  if (inactiveIds.size() > 0) {
-    idItems.add(new CheckSection(getLabelByKey("inactive")));
-    for (    String i : inactiveIds) {
-      idItems.add(new CheckItem(i,false,library.getCatalogTreeByUrlAll(i)));
+  if (myInactiveIds.size() > 0) {
+    idItems.add(new SectionItem(getLabelByKey("inactive")));
+    final TreeSet<CatalogItem> items=new TreeSet<CatalogItem>();
+    for (    String id : myInactiveIds) {
+      items.add(new CatalogItem(id,false,myLibrary.getCatalogTreeByUrlAll(id)));
     }
+    idItems.addAll(items);
   }
   ListView selectedList=(ListView)findViewById(R.id.selectedList);
   myAdapter=new CheckListAdapter(this,R.layout.checkbox_item,idItems,this);

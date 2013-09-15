@@ -2,6 +2,6 @@
   super.onCreate(icicle);
   setContentView(R.layout.network_library_filter);
   Intent intent=getIntent();
-  ids=intent.getStringArrayListExtra(IDS_LIST);
-  inactiveIds=intent.getStringArrayListExtra(INACTIVE_IDS_LIST);
+  myIds=intent.getStringArrayListExtra(IDS_LIST);
+  myInactiveIds=intent.getStringArrayListExtra(INACTIVE_IDS_LIST);
 }

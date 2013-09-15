@@ -1,60 +1,38 @@
 {
   View v=convertView;
-  CheckItem item=this.getItem(position);
-  if (item != null) {
-    if (item.isSection()) {
-      LayoutInflater vi;
-      vi=LayoutInflater.from(getContext());
-      v=vi.inflate(R.layout.checkbox_section,null);
-      TextView tt=(TextView)v.findViewById(R.id.title);
-      if (tt != null) {
-        tt.setText(item.getId());
-      }
+  final CheckItem item=this.getItem(position);
+  if (item instanceof SectionItem) {
+    v=LayoutInflater.from(getContext()).inflate(R.layout.checkbox_section,null);
+    TextView tt=(TextView)v.findViewById(R.id.title);
+    if (tt != null) {
+      tt.setText(item.Id);
     }
+  }
  else {
-      if (myCoverManager == null) {
-        v.measure(ViewGroup.LayoutParams.FILL_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-        final int coverHeight=v.getMeasuredHeight();
-        myCoverManager=new CoverManager(myActivity,coverHeight * 15 / 12,coverHeight);
-        v.requestLayout();
-      }
-      LayoutInflater vi;
-      vi=LayoutInflater.from(getContext());
-      v=vi.inflate(R.layout.checkbox_item,null);
-      NetworkTree t=item.getTree();
-      if (t != null) {
-        INetworkLink link=t.getLink();
-        TextView tt=(TextView)v.findViewById(R.id.title);
-        if (tt != null) {
-          tt.setText(link.getTitle());
-        }
-        tt=(TextView)v.findViewById(R.id.subtitle);
-        if (tt != null) {
-          tt.setText(link.getSummary());
-        }
-        ImageView coverView=(ImageView)v.findViewById(R.id.icon);
-        if (!myCoverManager.trySetCoverImage(coverView,t)) {
-          coverView.setImageResource(R.drawable.ic_list_library_books);
-        }
-        CheckBox ch=(CheckBox)v.findViewById(R.id.check_item);
-        if (ch != null) {
-          ch.setText("");
-          ch.setChecked(item.isChecked());
-          ch.setTag(item);
-          ch.setOnClickListener(new View.OnClickListener(){
-            public void onClick(            View v){
-              CheckBox cb=(CheckBox)v;
-              CheckItem checkedItem=(CheckItem)cb.getTag();
-              if (checkedItem != null) {
-                checkedItem.setChecked(cb.isChecked());
-              }
-              isChanged=true;
-            }
-          }
-);
-        }
+    final CatalogItem catalogItem=(CatalogItem)item;
+    if (myCoverManager == null) {
+      v.measure(ViewGroup.LayoutParams.FILL_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+      final int coverHeight=v.getMeasuredHeight();
+      myCoverManager=new CoverManager(myActivity,coverHeight * 15 / 12,coverHeight);
+      v.requestLayout();
+    }
+    v=LayoutInflater.from(getContext()).inflate(R.layout.checkbox_item,null);
+    final INetworkLink link=catalogItem.Tree.getLink();
+    ((TextView)v.findViewById(R.id.title)).setText(link.getTitle());
+    ((TextView)v.findViewById(R.id.subtitle)).setText(link.getSummary());
+    final ImageView coverView=(ImageView)v.findViewById(R.id.icon);
+    if (!myCoverManager.trySetCoverImage(coverView,catalogItem.Tree)) {
+      coverView.setImageResource(R.drawable.ic_list_library_books);
+    }
+    final CheckBox checkBox=(CheckBox)v.findViewById(R.id.check_item);
+    checkBox.setChecked(catalogItem.IsChecked);
+    checkBox.setOnClickListener(new View.OnClickListener(){
+      public void onClick(      View v){
+        catalogItem.IsChecked=checkBox.isChecked();
+        myIsChanged=true;
       }
     }
+);
   }
   return v;
 }

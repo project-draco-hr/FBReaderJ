@@ -1,14 +1,13 @@
 {
   super.onStop();
-  if (isChanged) {
-    ArrayList<String> ids=new ArrayList<String>();
-    ArrayList<CheckItem> items=myAdapter.getItems();
-    for (    CheckItem item : items) {
-      if (!item.isSection() && item.isChecked()) {
-        ids.add(item.getId());
+  if (myIsChanged) {
+    final ArrayList<String> ids=new ArrayList<String>();
+    for (    CheckItem item : myAdapter.getItems()) {
+      if (item instanceof CatalogItem && ((CatalogItem)item).IsChecked) {
+        ids.add(item.Id);
       }
     }
-    library.setActiveIds(ids);
-    library.synchronize();
+    myLibrary.setActiveIds(ids);
+    myLibrary.synchronize();
   }
 }
