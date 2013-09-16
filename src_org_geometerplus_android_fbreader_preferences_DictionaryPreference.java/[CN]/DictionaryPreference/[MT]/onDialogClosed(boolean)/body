@@ -1,4 +1,18 @@
 {
   super.onDialogClosed(result);
   myOption.setValue(getValue());
+  if (ourIdsToAskCode.contains(getValue())) {
+    final EditText codeTxt=new EditText(getContext());
+    String code=DictionaryUtil.getPreferredLanguageCode();
+    if (code != null) {
+      codeTxt.setText(code);
+    }
+    new AlertDialog.Builder(getContext()).setMessage(ZLResource.resource("Preferences").getResource("dictionary").getResource("codeSelect").getValue()).setView(codeTxt).setPositiveButton("Ok",new DialogInterface.OnClickListener(){
+      public void onClick(      DialogInterface arg0,      int arg1){
+        String code=codeTxt.getText().toString();
+        DictionaryUtil.setPreferredLanguageCode(code);
+      }
+    }
+).show();
+  }
 }

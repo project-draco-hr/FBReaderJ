@@ -15,7 +15,7 @@
   final PopupFrameMetric frameMetrics=new PopupFrameMetric(metrics,selectionTop,selectionBottom);
   final PackageInfo info=getCurrentDictionaryInfo(singleWord);
   if (info instanceof OpenDictionaryPackageInfo) {
-    Log.d("FBReader","DictionaryUtil - work with Open Dictionary API");
+    Log.d("FBReader","DictionaryUtil - work with Open Dictionary API :" + text);
     final OpenDictionaryPackageInfo openDictionary=(OpenDictionaryPackageInfo)info;
     openDictionary.myFlyout.showTranslation(activity,text,frameMetrics);
     return;
@@ -28,6 +28,11 @@
     intent.putExtra(MinicardContract.EXTRA_FORCE_LEMMATIZATION,true);
     intent.putExtra(MinicardContract.EXTRA_TRANSLATE_VARIANTS,true);
     intent.putExtra(MinicardContract.EXTRA_LIGHT_THEME,true);
+    if (ourPreferredLanguageOption.getValue() == null || ourPreferredLanguageOption.getValue().equals("")) {
+    }
+ else {
+      intent.putExtra(MinicardContract.EXTRA_LANGUAGE_TO,ourPreferredLanguageOption.getValue());
+    }
     try {
       activity.startActivity(intent);
     }
