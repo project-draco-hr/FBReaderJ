@@ -28,8 +28,8 @@
       intent.putExtra(MinicardContract.EXTRA_FORCE_LEMMATIZATION,true);
       intent.putExtra(MinicardContract.EXTRA_TRANSLATE_VARIANTS,true);
       intent.putExtra(MinicardContract.EXTRA_LIGHT_THEME,true);
-      final String preferredLanguage=ourPreferredLanguageOption.getValue();
-      if (preferredLanguage != null && !"".equals(preferredLanguage)) {
+      final String preferredLanguage=PreferredLanguageOption.getValue();
+      if (preferredLanguage != null && !"".equals(preferredLanguage) && !AnyLanguage.equals(preferredLanguage)) {
         intent.putExtra(MinicardContract.EXTRA_LANGUAGE_TO,preferredLanguage);
       }
     }
