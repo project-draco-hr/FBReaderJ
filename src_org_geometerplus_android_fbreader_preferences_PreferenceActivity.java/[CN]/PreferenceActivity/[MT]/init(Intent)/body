@@ -203,7 +203,24 @@
   Collections.sort(codes);
   codes.add(0,DictionaryUtil.AnyLanguage);
   String[] array=codes.toArray(new String[codes.size()]);
-  final ZLStringChoicePreference langCodePref=new ZLStringChoicePreference(this,dictionaryScreen.Resource,"langCode",DictionaryUtil.PreferredLanguageOption,array);
+  final ZLStringChoicePreference langCodePref=new ZLStringChoicePreference(this,dictionaryScreen.Resource,"langCode",DictionaryUtil.PreferredLanguageOption,array){
+    @Override protected void setList(    String[] values){
+      String[] texts=new String[values.length];
+      for (int i=0; i < values.length; ++i) {
+        if (DictionaryUtil.AnyLanguage.equals(values[i])) {
+          texts[i]=ZLResource.resource("language-self").getResource("all").getValue();
+        }
+ else {
+          final ZLResource resource=ZLResource.resource("language-self").getResource(values[i]);
+          texts[i]=resource.hasValue() ? resource.getValue() : values[i];
+          Log.d("WTF",values[i]);
+          Log.d("WTF",texts[i]);
+        }
+      }
+      setLists(values,texts);
+    }
+  }
+;
   try {
     dictionaryScreen.addPreference(new DictionaryPreference(this,dictionaryScreen.Resource,"dictionary",DictionaryUtil.singleWordTranslatorOption(),DictionaryUtil.dictionaryInfos(this,true)){
       @Override protected void onDialogClosed(      boolean result){
