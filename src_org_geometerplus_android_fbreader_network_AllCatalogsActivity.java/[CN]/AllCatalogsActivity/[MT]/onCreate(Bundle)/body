@@ -1,6 +1,6 @@
 {
   super.onCreate(icicle);
-  Intent intent=getIntent();
+  final Intent intent=getIntent();
   myIds=intent.getStringArrayListExtra(IDS_LIST);
   myInactiveIds=intent.getStringArrayListExtra(INACTIVE_IDS_LIST);
 }
