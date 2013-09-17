@@ -1,5 +1,6 @@
 {
-  if (PackageUtil.canBeStarted(activity,getDictionaryIntent("test",singleWord),false)) {
+  final PackageInfo info=getCurrentDictionaryInfo(singleWord);
+  if (PackageUtil.canBeStarted(activity,info.getDictionaryIntent("test"),false)) {
     return;
   }
   final PackageInfo dictionaryInfo=getCurrentDictionaryInfo(singleWord);
