@@ -28,10 +28,9 @@
     intent.putExtra(MinicardContract.EXTRA_FORCE_LEMMATIZATION,true);
     intent.putExtra(MinicardContract.EXTRA_TRANSLATE_VARIANTS,true);
     intent.putExtra(MinicardContract.EXTRA_LIGHT_THEME,true);
-    if (ourPreferredLanguageOption.getValue() == null || ourPreferredLanguageOption.getValue().equals("")) {
-    }
- else {
-      intent.putExtra(MinicardContract.EXTRA_LANGUAGE_TO,ourPreferredLanguageOption.getValue());
+    final String preferredLanguage=ourPreferredLanguageOption.getValue();
+    if (preferredLanguage != null && !"".equals(preferredLanguage)) {
+      intent.putExtra(MinicardContract.EXTRA_LANGUAGE_TO,preferredLanguage);
     }
     try {
       activity.startActivity(intent);

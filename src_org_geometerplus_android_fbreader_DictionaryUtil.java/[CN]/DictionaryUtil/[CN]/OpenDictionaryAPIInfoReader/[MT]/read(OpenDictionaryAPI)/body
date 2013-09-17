@@ -1,14 +1,15 @@
 {
-  if (api.getDictionaries().isEmpty()) {
+  final Set<Dictionary> dictionaries=api.getDictionaries();
+  if (dictionaries.isEmpty()) {
     return;
   }
-  SortedSet<Dictionary> dictionariesTreeSet=new TreeSet<Dictionary>(new Comparator<Dictionary>(){
+  final SortedSet<Dictionary> dictionariesTreeSet=new TreeSet<Dictionary>(new Comparator<Dictionary>(){
     @Override public int compare(    Dictionary lhs,    Dictionary rhs){
       return lhs.toString().compareTo(rhs.toString());
     }
   }
 );
-  dictionariesTreeSet.addAll(new ArrayList<Dictionary>(api.getDictionaries()));
+  dictionariesTreeSet.addAll(dictionaries);
   for (  Dictionary dict : dictionariesTreeSet) {
     final PackageInfo info=new OpenDictionaryPackageInfo(dict);
     ourInfos.put(info,FLAG_SHOW_AS_DICTIONARY);
