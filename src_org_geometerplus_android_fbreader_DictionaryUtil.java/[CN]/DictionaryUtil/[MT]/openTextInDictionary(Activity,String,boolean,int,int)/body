@@ -23,8 +23,8 @@
   final Intent intent=getDictionaryIntent(info,text);
   try {
     if ("ABBYY Lingvo".equals(info.Id)) {
-      intent.putExtra(MinicardContract.EXTRA_GRAVITY,frameMetrics.gravity);
-      intent.putExtra(MinicardContract.EXTRA_HEIGHT,frameMetrics.height);
+      intent.putExtra(MinicardContract.EXTRA_GRAVITY,frameMetrics.Gravity);
+      intent.putExtra(MinicardContract.EXTRA_HEIGHT,frameMetrics.Height);
       intent.putExtra(MinicardContract.EXTRA_FORCE_LEMMATIZATION,true);
       intent.putExtra(MinicardContract.EXTRA_TRANSLATE_VARIANTS,true);
       intent.putExtra(MinicardContract.EXTRA_LIGHT_THEME,true);
@@ -32,17 +32,10 @@
       if (preferredLanguage != null && !"".equals(preferredLanguage)) {
         intent.putExtra(MinicardContract.EXTRA_LANGUAGE_TO,preferredLanguage);
       }
-      try {
-        activity.startActivity(intent);
-      }
- catch (      ActivityNotFoundException e) {
-        installDictionaryIfNotInstalled(activity,singleWord);
-      }
-      return;
     }
  else     if ("ColorDict".equals(info.Id)) {
-      intent.putExtra(ColorDict3.HEIGHT,frameMetrics.height);
-      intent.putExtra(ColorDict3.GRAVITY,frameMetrics.gravity);
+      intent.putExtra(ColorDict3.HEIGHT,frameMetrics.Height);
+      intent.putExtra(ColorDict3.GRAVITY,frameMetrics.Gravity);
       final ZLAndroidLibrary zlibrary=(ZLAndroidLibrary)ZLAndroidLibrary.Instance();
       intent.putExtra(ColorDict3.FULLSCREEN,!zlibrary.ShowStatusBarOption.getValue());
     }
