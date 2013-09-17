@@ -17,7 +17,7 @@
   if (info instanceof OpenDictionaryPackageInfo) {
     Log.d("FBReader","DictionaryUtil - work with Open Dictionary API :" + text);
     final OpenDictionaryPackageInfo openDictionary=(OpenDictionaryPackageInfo)info;
-    openDictionary.myFlyout.showTranslation(activity,text,frameMetrics);
+    openDictionary.Flyout.showTranslation(activity,text,frameMetrics);
     return;
   }
   final Intent intent=getDictionaryIntent(info,text);
