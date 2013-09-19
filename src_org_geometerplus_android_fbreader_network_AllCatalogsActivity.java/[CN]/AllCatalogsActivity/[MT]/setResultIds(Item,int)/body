@@ -2,7 +2,16 @@
   if (item != null && item instanceof CatalogItem) {
     CatalogItem catalogItem=(CatalogItem)item;
     if (catalogItem.IsChecked) {
-      mySelectedItems.add(catalogItem);
+      int insertIndex=index <= 0 ? 0 : (index - 1);
+      if (mySelectedItems.contains(catalogItem)) {
+        mySelectedItems.remove(catalogItem);
+      }
+      if (insertIndex > 0) {
+        mySelectedItems.add(insertIndex,catalogItem);
+      }
+ else {
+        mySelectedItems.add(catalogItem);
+      }
     }
  else {
       mySelectedItems.remove(catalogItem);
