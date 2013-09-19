@@ -194,14 +194,49 @@
   scrollingScreen.addPreference(new AnimationSpeedPreference(this,scrollingScreen.Resource,"animationSpeed",pageTurningOptions.AnimationSpeed));
   scrollingScreen.addOption(pageTurningOptions.Horizontal,"horizontal");
   final Screen dictionaryScreen=createPreferenceScreen("dictionary");
+  ArrayList<String> codes=new ArrayList<String>();
+  for (  Language l : ZLResource.languages()) {
+    if (!"system".equals(l.Code)) {
+      codes.add(l.Code);
+    }
+  }
+  Collections.sort(codes);
+  codes.add(0,DictionaryUtil.AnyLanguage);
+  String[] array=codes.toArray(new String[codes.size()]);
+  final ZLStringChoicePreference langCodePref=new ZLStringChoicePreference(this,dictionaryScreen.Resource,"langCode",DictionaryUtil.PreferredLanguageOption,array){
+    @Override protected void setList(    String[] values){
+      String[] texts=new String[values.length];
+      for (int i=0; i < values.length; ++i) {
+        if (DictionaryUtil.AnyLanguage.equals(values[i])) {
+          texts[i]=ZLResource.resource("language-self").getResource("all").getValue();
+        }
+ else {
+          final ZLResource resource=ZLResource.resource("language-self").getResource(values[i]);
+          texts[i]=resource.hasValue() ? resource.getValue() : values[i];
+          Log.d("WTF",values[i]);
+          Log.d("WTF",texts[i]);
+        }
+      }
+      setLists(values,texts);
+    }
+  }
+;
   try {
-    dictionaryScreen.addPreference(new DictionaryPreference(this,dictionaryScreen.Resource,"dictionary",DictionaryUtil.singleWordTranslatorOption(),DictionaryUtil.dictionaryInfos(this,true)));
+    dictionaryScreen.addPreference(new DictionaryPreference(this,dictionaryScreen.Resource,"dictionary",DictionaryUtil.singleWordTranslatorOption(),DictionaryUtil.dictionaryInfos(this,true)){
+      @Override protected void onDialogClosed(      boolean result){
+        super.onDialogClosed(result);
+        langCodePref.setEnabled(DictionaryUtil.IdsToAskCode.contains(DictionaryUtil.singleWordTranslatorOption().getValue()));
+      }
+    }
+);
     dictionaryScreen.addPreference(new DictionaryPreference(this,dictionaryScreen.Resource,"translator",DictionaryUtil.multiWordTranslatorOption(),DictionaryUtil.dictionaryInfos(this,false)));
   }
  catch (  Exception e) {
   }
   dictionaryScreen.addPreference(new ZLBooleanPreference(this,fbReader.NavigateAllWordsOption,dictionaryScreen.Resource,"navigateOverAllWords"));
   dictionaryScreen.addOption(fbReader.WordTappingActionOption,"tappingAction");
+  dictionaryScreen.addPreference(langCodePref);
+  langCodePref.setEnabled(DictionaryUtil.IdsToAskCode.contains(DictionaryUtil.singleWordTranslatorOption().getValue()));
   final Screen imagesScreen=createPreferenceScreen("images");
   imagesScreen.addOption(fbReader.ImageTappingActionOption,"tappingAction");
   imagesScreen.addOption(fbReader.FitImagesToScreenOption,"fitImagesToScreen");

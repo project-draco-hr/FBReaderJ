@@ -15,22 +15,33 @@
   final PopupFrameMetric frameMetrics=new PopupFrameMetric(metrics,selectionTop,selectionBottom);
   final PackageInfo info=getCurrentDictionaryInfo(singleWord);
   if (info instanceof OpenDictionaryPackageInfo) {
-    Log.d("FBReader","DictionaryUtil - work with Open Dictionary API");
+    Log.d("FBReader","DictionaryUtil - work with Open Dictionary API :" + text);
     final OpenDictionaryPackageInfo openDictionary=(OpenDictionaryPackageInfo)info;
-    openDictionary.myFlyout.showTranslation(activity,text,frameMetrics);
+    openDictionary.Flyout.showTranslation(activity,text,frameMetrics);
     return;
   }
   final Intent intent=info.getDictionaryIntent(text);
   try {
-    if ("ColorDict".equals(info.Id)) {
-      intent.putExtra(ColorDict3.HEIGHT,frameMetrics.height);
-      intent.putExtra(ColorDict3.GRAVITY,frameMetrics.gravity);
+    if ("ABBYY Lingvo".equals(info.Id)) {
+      intent.putExtra(MinicardContract.EXTRA_GRAVITY,frameMetrics.Gravity);
+      intent.putExtra(MinicardContract.EXTRA_HEIGHT,frameMetrics.Height);
+      intent.putExtra(MinicardContract.EXTRA_FORCE_LEMMATIZATION,true);
+      intent.putExtra(MinicardContract.EXTRA_TRANSLATE_VARIANTS,true);
+      intent.putExtra(MinicardContract.EXTRA_LIGHT_THEME,true);
+      final String preferredLanguage=PreferredLanguageOption.getValue();
+      if (preferredLanguage != null && !"".equals(preferredLanguage) && !AnyLanguage.equals(preferredLanguage)) {
+        intent.putExtra(MinicardContract.EXTRA_LANGUAGE_TO,preferredLanguage);
+      }
+    }
+ else     if ("ColorDict".equals(info.Id)) {
+      intent.putExtra(ColorDict3.HEIGHT,frameMetrics.Height);
+      intent.putExtra(ColorDict3.GRAVITY,frameMetrics.Gravity);
       final ZLAndroidLibrary zlibrary=(ZLAndroidLibrary)ZLAndroidLibrary.Instance();
       intent.putExtra(ColorDict3.FULLSCREEN,!zlibrary.ShowStatusBarOption.getValue());
     }
     activity.startActivity(intent);
   }
  catch (  ActivityNotFoundException e) {
-    DictionaryUtil.installDictionaryIfNotInstalled(activity,singleWord);
+    installDictionaryIfNotInstalled(activity,singleWord);
   }
 }
