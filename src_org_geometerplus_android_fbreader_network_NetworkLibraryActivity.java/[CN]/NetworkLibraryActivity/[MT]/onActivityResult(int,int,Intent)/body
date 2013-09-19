@@ -5,4 +5,13 @@
     }
   }
 );
+  if (data != null) {
+    if (requestCode == FBReader.REQUEST_ALL_CATALOGS) {
+      if (resultCode == RESULT_OK) {
+        ArrayList<String> myIds=data.getStringArrayListExtra(FBReader.CATALOGS_ID_LIST);
+        NetworkLibrary.Instance().setActiveIds(myIds);
+        NetworkLibrary.Instance().synchronize();
+      }
+    }
+  }
 }

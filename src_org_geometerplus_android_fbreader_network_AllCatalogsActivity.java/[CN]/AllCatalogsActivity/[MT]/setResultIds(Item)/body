@@ -1,0 +1,22 @@
+{
+  if (item != null && item instanceof CatalogItem) {
+    CatalogItem catalogItem=(CatalogItem)item;
+    if (catalogItem.IsChecked) {
+      mySelectedItems.add(catalogItem);
+    }
+ else {
+      mySelectedItems.remove(catalogItem);
+    }
+    final ArrayList<String> ids=new ArrayList<String>();
+    for (    Item selectedItem : mySelectedItems) {
+      if (selectedItem instanceof CatalogItem) {
+        final CatalogItem ci=(CatalogItem)selectedItem;
+        if (ci.IsChecked) {
+          ids.add(ci.Id);
+        }
+      }
+    }
+    returnIntent.putStringArrayListExtra(FBReader.CATALOGS_ID_LIST,ids);
+    setResult(RESULT_OK,returnIntent);
+  }
+}

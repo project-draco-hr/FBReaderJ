@@ -8,6 +8,7 @@
       cItems.add(new CatalogItem(id,true,myLibrary.getCatalogTreeByUrlAll(id)));
     }
     myAllItems.addAll(cItems);
+    mySelectedItems.addAll(cItems);
   }
   if (myInactiveIds.size() > 0) {
     myAllItems.add(new SectionItem("inactive"));
