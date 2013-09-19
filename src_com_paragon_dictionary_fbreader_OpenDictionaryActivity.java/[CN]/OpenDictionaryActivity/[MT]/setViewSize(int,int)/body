@@ -1,0 +1,27 @@
+{
+  final DisplayMetrics metrics=new DisplayMetrics();
+  getWindowManager().getDefaultDisplay().getMetrics(metrics);
+  if (height < 0)   height=metrics.heightPixels / 3;
+  TableRow bottomRow=(TableRow)findViewById(R.id.bottom_row);
+  TableRow topRow=(TableRow)findViewById(R.id.top_row);
+  View.OnTouchListener touchListener=new View.OnTouchListener(){
+    @Override public boolean onTouch(    View view,    MotionEvent motionEvent){
+      finish();
+      return false;
+    }
+  }
+;
+  topRow.setOnTouchListener(touchListener);
+  bottomRow.setOnTouchListener(touchListener);
+switch (gravity) {
+case android.view.Gravity.TOP:
+    topRow.setMinimumHeight(0);
+  bottomRow.setMinimumHeight(metrics.heightPixels - height);
+break;
+case android.view.Gravity.BOTTOM:
+default :
+bottomRow.setMinimumHeight(0);
+topRow.setMinimumHeight(metrics.heightPixels - height);
+break;
+}
+}

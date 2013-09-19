@@ -1,0 +1,4 @@
+{
+  myDirection=dictionary.getDirection();
+  myPackageName=dictionary.getApplicationPackageName();
+}
