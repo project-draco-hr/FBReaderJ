@@ -10,7 +10,7 @@
     text=text.substring(start,end);
   }
   final PackageInfo info=getCurrentDictionaryInfo(singleWord);
-  final Intent intent=getDictionaryIntent(info,text);
+  final Intent intent=info.getDictionaryIntent(text);
   try {
     if ("ColorDict".equals(info.Id)) {
       final DisplayMetrics metrics=new DisplayMetrics();

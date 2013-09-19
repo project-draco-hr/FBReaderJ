@@ -20,7 +20,7 @@ synchronized (ourInfos) {
         list.add(info);
       }
  else       if (!notInstalledPackages.contains(info.PackageName)) {
-        if (PackageUtil.canBeStarted(context,getDictionaryIntent(info,"test"),false)) {
+        if (PackageUtil.canBeStarted(context,info.getDictionaryIntent("test"),false)) {
           list.add(info);
           installedPackages.add(info.PackageName);
         }
