@@ -16,7 +16,7 @@
     if (!"always".equals(attributes.getValue("list"))) {
       flags|=FLAG_INSTALLED_ONLY;
     }
-    ourInfos.put(new PackageInfo(id,attributes.getValue("package"),attributes.getValue("class"),title != null ? title : id,attributes.getValue("action"),attributes.getValue("dataKey"),attributes.getValue("pattern")),flags);
+    ourInfos.put(new PlainPackageInfo(id,attributes.getValue("package"),attributes.getValue("class"),title != null ? title : id,attributes.getValue("action"),attributes.getValue("dataKey"),attributes.getValue("pattern")),flags);
   }
   return false;
 }
