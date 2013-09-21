@@ -1,3 +1,0 @@
-{
-  Title=NetworkLibrary.resource().getResource("allCatalogs").getResource(key).getValue();
-}

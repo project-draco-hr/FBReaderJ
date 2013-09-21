@@ -1,0 +1,7 @@
+{
+  final NetworkLibrary library=NetworkLibrary.Instance();
+  final ArrayList<String> ids=new ArrayList<String>(library.activeIds());
+  final ArrayList<String> inactiveIds=new ArrayList<String>(library.linkIds());
+  inactiveIds.removeAll(ids);
+  OrientationUtil.startActivityForResult(myActivity,new Intent(myActivity.getApplicationContext(),CatalogManagerActivity.class).putStringArrayListExtra(FBReader.CATALOGS_ID_LIST,ids).putStringArrayListExtra(CatalogManagerActivity.INACTIVE_IDS_LIST,inactiveIds),FBReader.REQUEST_ALL_CATALOGS);
+}

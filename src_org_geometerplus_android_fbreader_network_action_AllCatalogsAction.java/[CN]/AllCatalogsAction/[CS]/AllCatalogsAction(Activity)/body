@@ -1,3 +1,0 @@
-{
-  super(activity,ActionCode.SHOW_CATALOGS_FILTER,"allCatalogs",R.drawable.ic_menu_filter);
-}

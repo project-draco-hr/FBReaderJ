@@ -14,7 +14,7 @@
  else   if (tree instanceof AddCustomCatalogItemTree) {
     coverView.setImageResource(R.drawable.ic_list_plus);
   }
- else   if (tree instanceof AllCatalogsItemTree) {
+ else   if (tree instanceof ManageCatalogsItemTree) {
     coverView.setImageResource(R.drawable.ic_menu_filter);
   }
  else {

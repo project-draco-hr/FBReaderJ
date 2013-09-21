@@ -5,5 +5,5 @@
   myListClickActions.add(new AddCustomCatalogAction(this));
   myListClickActions.add(new TopupAction(this));
   myListClickActions.add(new ShowBookInfoAction(this));
-  myListClickActions.add(new AllCatalogsAction(this));
+  myListClickActions.add(new ManageCatalogsAction(this));
 }
