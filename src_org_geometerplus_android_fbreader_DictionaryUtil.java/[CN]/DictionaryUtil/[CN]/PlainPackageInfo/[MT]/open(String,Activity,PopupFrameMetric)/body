@@ -8,7 +8,7 @@
       intent.putExtra(MinicardContract.EXTRA_TRANSLATE_VARIANTS,true);
       intent.putExtra(MinicardContract.EXTRA_LIGHT_THEME,true);
       final String preferredLanguage=PreferredLanguageOption.getValue();
-      if (preferredLanguage != null && !"".equals(preferredLanguage) && !AnyLanguage.equals(preferredLanguage)) {
+      if (preferredLanguage != null && !"".equals(preferredLanguage) && !Language.ANY_CODE.equals(preferredLanguage)) {
         intent.putExtra(MinicardContract.EXTRA_LANGUAGE_TO,preferredLanguage);
       }
     }
