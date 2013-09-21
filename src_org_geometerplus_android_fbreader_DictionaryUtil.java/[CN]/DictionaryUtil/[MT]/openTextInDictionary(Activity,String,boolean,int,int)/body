@@ -40,6 +40,6 @@
     activity.startActivity(intent);
   }
  catch (  ActivityNotFoundException e) {
-    installDictionaryIfNotInstalled(activity,singleWord);
+    installDictionaryIfNotInstalled(activity,info);
   }
 }
