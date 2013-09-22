@@ -6,4 +6,5 @@
   IntentAction=intentAction;
   IntentKey=intentKey;
   IntentDataPattern=intentDataPattern;
+  SupportsTargetLanguageSetting=supportsTargetLanguageSetting;
 }

@@ -7,9 +7,9 @@
       intent.putExtra(MinicardContract.EXTRA_FORCE_LEMMATIZATION,true);
       intent.putExtra(MinicardContract.EXTRA_TRANSLATE_VARIANTS,true);
       intent.putExtra(MinicardContract.EXTRA_LIGHT_THEME,true);
-      final String preferredLanguage=PreferredLanguageOption.getValue();
-      if (preferredLanguage != null && !"".equals(preferredLanguage) && !Language.ANY_CODE.equals(preferredLanguage)) {
-        intent.putExtra(MinicardContract.EXTRA_LANGUAGE_TO,preferredLanguage);
+      final String targetLanguage=TargetLanguageOption.getValue();
+      if (!Language.ANY_CODE.equals(targetLanguage)) {
+        intent.putExtra(MinicardContract.EXTRA_LANGUAGE_TO,targetLanguage);
       }
     }
  else     if ("ColorDict".equals(Id)) {

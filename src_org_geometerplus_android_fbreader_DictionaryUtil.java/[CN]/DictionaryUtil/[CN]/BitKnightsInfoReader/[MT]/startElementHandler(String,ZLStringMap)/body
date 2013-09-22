@@ -1,6 +1,6 @@
 {
   if ("dictionary".equals(tag)) {
-    final PackageInfo info=new PlainPackageInfo("BK" + myCounter++,attributes.getValue("package"),"com.bitknights.dict.ShareTranslateActivity",attributes.getValue("title"),Intent.ACTION_VIEW,null,"%s");
+    final PackageInfo info=new PlainPackageInfo("BK" + myCounter++,attributes.getValue("package"),"com.bitknights.dict.ShareTranslateActivity",attributes.getValue("title"),Intent.ACTION_VIEW,null,"%s",false);
     if (PackageUtil.canBeStarted(myContext,info.getDictionaryIntent("test"),false)) {
       ourInfos.put(info,FLAG_SHOW_AS_DICTIONARY | FLAG_INSTALLED_ONLY);
     }

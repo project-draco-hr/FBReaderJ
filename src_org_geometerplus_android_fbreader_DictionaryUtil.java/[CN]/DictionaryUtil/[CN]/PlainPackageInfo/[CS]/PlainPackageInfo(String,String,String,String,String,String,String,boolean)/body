@@ -1,0 +1,3 @@
+{
+  super(id,packageName,className,title,intentAction,intentKey,intentDataPattern,supportsTargetLanguageSetting);
+}

@@ -5,3 +5,4 @@ String title
 String intentAction
 String intentKey
 String intentDataPattern
+boolean supportsTargetLanguageSetting
