@@ -1,0 +1,16 @@
+{
+synchronized (ourLanguageCodes) {
+    if (ourLanguageCodes.isEmpty()) {
+      final ZLFile dir=ZLResourceFile.createResourceFile("resources/application");
+      final List<ZLFile> children=dir.children();
+      for (      ZLFile file : children) {
+        final String name=file.getShortName();
+        final String postfix=".xml";
+        if (name.endsWith(postfix)) {
+          ourLanguageCodes.add(name.substring(0,name.length() - postfix.length()));
+        }
+      }
+    }
+  }
+  return Collections.unmodifiableList(ourLanguageCodes);
+}
