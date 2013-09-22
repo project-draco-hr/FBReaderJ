@@ -1,0 +1,19 @@
+{
+  Log.d("FBReader","OpenDictionaryFlyout:showTranslation");
+  final Dictionary dictionary=getDictionary(activity);
+  if (dictionary == null) {
+    Log.e("FBReader","OpenDictionaryFlyout:showTranslation - null dictionary received");
+    return;
+  }
+  if (!dictionary.isTranslationAsTextSupported()) {
+    dictionary.showTranslation(text);
+  }
+ else {
+    OpenDictionaryActivity.setDictionary(dictionary);
+    Intent intent=new Intent(activity,OpenDictionaryActivity.class);
+    intent.putExtra(OpenDictionaryActivity.OPEN_DICTIONARY_QUERY_KEY,text);
+    intent.putExtra(OpenDictionaryActivity.OPEN_DICTIONARY_HEIGHT_KEY,frameMetrics.Height);
+    intent.putExtra(OpenDictionaryActivity.OPEN_DICTIONARY_GRAVITY_KEY,frameMetrics.Gravity);
+    activity.startActivity(intent);
+  }
+}

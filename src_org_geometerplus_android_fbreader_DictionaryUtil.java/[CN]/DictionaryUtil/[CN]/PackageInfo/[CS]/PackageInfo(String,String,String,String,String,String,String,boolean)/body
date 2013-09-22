@@ -1,0 +1,10 @@
+{
+  Id=id;
+  PackageName=packageName;
+  ClassName=className;
+  Title=title;
+  IntentAction=intentAction;
+  IntentKey=intentKey;
+  IntentDataPattern=intentDataPattern;
+  SupportsTargetLanguageSetting=supportsTargetLanguageSetting;
+}
