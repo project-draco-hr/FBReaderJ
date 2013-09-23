@@ -1,0 +1,14 @@
+{
+  final String filename="open_dictionary_article.html";
+  final FileOutputStream outputStream;
+  try {
+    outputStream=context.openFileOutput(filename,Context.MODE_PRIVATE);
+    outputStream.write(data.getBytes());
+    outputStream.close();
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+    return null;
+  }
+  return "file://" + context.getFilesDir().getAbsolutePath() + "/"+ filename;
+}

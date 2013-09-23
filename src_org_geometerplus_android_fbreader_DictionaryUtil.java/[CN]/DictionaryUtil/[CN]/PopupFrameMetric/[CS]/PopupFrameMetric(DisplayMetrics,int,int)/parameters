@@ -1,0 +1,3 @@
+DisplayMetrics metrics
+int selectionTop
+int selectionBottom
