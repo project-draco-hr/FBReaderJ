@@ -1,4 +1,5 @@
 {
+  final String textToTranslate;
   if (singleWord) {
     int start=0;
     int end=text.length();
@@ -7,10 +8,19 @@
     if (start == end) {
       return;
     }
-    text=text.substring(start,end);
+    textToTranslate=text.substring(start,end);
+  }
+ else {
+    textToTranslate=text;
   }
   final DisplayMetrics metrics=new DisplayMetrics();
   activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
   final PopupFrameMetric frameMetrics=new PopupFrameMetric(metrics,selectionTop,selectionBottom);
-  getCurrentDictionaryInfo(singleWord).open(text,activity,frameMetrics);
+  final PackageInfo info=getCurrentDictionaryInfo(singleWord);
+  activity.runOnUiThread(new Runnable(){
+    public void run(){
+      info.open(textToTranslate,activity,frameMetrics);
+    }
+  }
+);
 }
