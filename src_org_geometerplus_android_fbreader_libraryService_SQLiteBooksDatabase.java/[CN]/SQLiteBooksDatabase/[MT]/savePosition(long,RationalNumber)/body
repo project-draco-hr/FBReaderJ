@@ -1,9 +1,0 @@
-{
-  if (myPositionStatement == null) {
-    myPositionStatement=myDatabase.compileStatement("INSERT OR REPLACE INTO BookReadingProgress (book_id,numerator,denominator) VALUES (?,?,?)");
-  }
-  myStorePositionStatement.bindLong(1,bookId);
-  myStorePositionStatement.bindLong(2,progress.Numerator);
-  myStorePositionStatement.bindLong(3,progress.Denominator);
-  myStorePositionStatement.execute();
-}
