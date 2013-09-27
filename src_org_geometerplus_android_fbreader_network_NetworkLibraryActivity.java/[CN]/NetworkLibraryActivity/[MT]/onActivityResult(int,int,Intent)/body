@@ -6,7 +6,7 @@
   }
 );
   if (requestCode == REQUEST_MANAGE_CATALOGS && resultCode == RESULT_OK && data != null) {
-    final ArrayList<String> myIds=data.getStringArrayListExtra(CATALOG_IDS_KEY);
+    final ArrayList<String> myIds=data.getStringArrayListExtra(ENABLED_CATALOG_IDS_KEY);
     NetworkLibrary.Instance().setActiveIds(myIds);
     NetworkLibrary.Instance().synchronize();
   }

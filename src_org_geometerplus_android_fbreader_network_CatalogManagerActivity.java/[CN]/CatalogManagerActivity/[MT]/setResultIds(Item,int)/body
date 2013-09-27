@@ -25,6 +25,6 @@
         }
       }
     }
-    setResult(RESULT_OK,new Intent().putStringArrayListExtra(NetworkLibraryActivity.CATALOG_IDS_KEY,ids));
+    setResult(RESULT_OK,new Intent().putStringArrayListExtra(NetworkLibraryActivity.ENABLED_CATALOG_IDS_KEY,ids));
   }
 }

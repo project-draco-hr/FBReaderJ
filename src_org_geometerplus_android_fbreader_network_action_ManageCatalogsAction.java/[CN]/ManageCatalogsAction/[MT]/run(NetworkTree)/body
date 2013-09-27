@@ -3,5 +3,5 @@
   final ArrayList<String> ids=new ArrayList<String>(library.activeIds());
   final ArrayList<String> inactiveIds=new ArrayList<String>(library.linkIds());
   inactiveIds.removeAll(ids);
-  OrientationUtil.startActivityForResult(myActivity,new Intent(myActivity.getApplicationContext(),CatalogManagerActivity.class).putStringArrayListExtra(NetworkLibraryActivity.CATALOG_IDS_KEY,ids).putStringArrayListExtra(CatalogManagerActivity.INACTIVE_IDS_LIST,inactiveIds),NetworkLibraryActivity.REQUEST_MANAGE_CATALOGS);
+  OrientationUtil.startActivityForResult(myActivity,new Intent(myActivity.getApplicationContext(),CatalogManagerActivity.class).putStringArrayListExtra(NetworkLibraryActivity.ENABLED_CATALOG_IDS_KEY,ids).putStringArrayListExtra(NetworkLibraryActivity.DISABLED_CATALOG_IDS_KEY,inactiveIds),NetworkLibraryActivity.REQUEST_MANAGE_CATALOGS);
 }
