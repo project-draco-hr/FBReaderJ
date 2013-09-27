@@ -25,6 +25,6 @@
         }
       }
     }
-    setResult(RESULT_OK,new Intent().putStringArrayListExtra(FBReader.CATALOGS_ID_LIST,ids));
+    setResult(RESULT_OK,new Intent().putStringArrayListExtra(NetworkLibraryActivity.CATALOG_IDS_KEY,ids));
   }
 }

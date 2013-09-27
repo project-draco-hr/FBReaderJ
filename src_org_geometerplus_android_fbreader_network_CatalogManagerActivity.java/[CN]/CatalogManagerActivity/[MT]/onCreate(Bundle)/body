@@ -1,6 +1,6 @@
 {
   super.onCreate(icicle);
   final Intent intent=getIntent();
-  myIds=intent.getStringArrayListExtra(FBReader.CATALOGS_ID_LIST);
+  myIds=intent.getStringArrayListExtra(NetworkLibraryActivity.CATALOG_IDS_KEY);
   myInactiveIds=intent.getStringArrayListExtra(INACTIVE_IDS_LIST);
 }
