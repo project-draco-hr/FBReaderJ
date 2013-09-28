@@ -1,0 +1,2 @@
+def inState(self, state):
+    return (self.position in state.positions)

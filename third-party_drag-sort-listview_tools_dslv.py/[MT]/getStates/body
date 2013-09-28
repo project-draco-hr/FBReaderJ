@@ -1,0 +1,5 @@
+def getStates(file):
+    tree = ElementTree()
+    tree.parse(file)
+    root = tree.getroot()
+    return map(State, list(root.iter('DSLVState')))

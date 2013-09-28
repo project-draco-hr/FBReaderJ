@@ -1,0 +1,23 @@
+def update(self, position, state):
+    moved = False
+    if (position != self.position):
+        self.position = position
+        self.label.set_text(str(position))
+    indx = state.positions.index(self.position)
+    old_top = self.top
+    self.top = (- state.tops[indx])
+    if (old_top != self.top):
+        self.top_line.set_ydata((2 * [self.top]))
+        moved = True
+    old_bottom = self.bottom
+    self.bottom = (- state.bottoms[indx])
+    if (old_bottom != self.bottom):
+        self.bottom_line.set_ydata((2 * [self.bottom]))
+        moved = True
+    old_edge = self.edge
+    self.edge = (- state.edges[indx])
+    if (old_edge != self.edge):
+        self.edge_line.set_ydata((2 * [self.edge]))
+    if moved:
+        self.label.set_y(((self.top + self.bottom) / 2))
+        self._check_boxes(state)

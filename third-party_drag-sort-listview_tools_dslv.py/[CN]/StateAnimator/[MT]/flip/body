@@ -1,0 +1,20 @@
+def flip(self, event):
+    if (event.key == 'right'):
+        self.curr += 1
+    elif (event.key == 'left'):
+        self.curr -= 1
+    elif (event.key == 'up'):
+        self.curr -= self.page_frames
+    elif (event.key == 'down'):
+        self.curr += self.page_frames
+    else:
+        return
+    if (self.curr >= self.count):
+        print 'reached end of saved motions'
+        self.curr = (self.count - 1)
+    elif (self.curr < 0):
+        print 'reached beginning of saved motions'
+        self.curr = 0
+    else:
+        print ('flipped to frame ' + str(self.curr))
+        self.state_artist.update(self.states[self.curr])

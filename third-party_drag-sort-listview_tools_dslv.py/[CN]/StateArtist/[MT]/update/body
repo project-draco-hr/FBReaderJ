@@ -1,0 +1,28 @@
+def update(self, state):
+    old_float_y = self.float_y
+    self.float_y = (- state.float_y)
+    if (old_float_y != self.float_y):
+        self.float_y_line.set_ydata((2 * [self.float_y]))
+    updatedPos = []
+    toRecycle = []
+    for item in self.items:
+        if item.inState(state):
+            item.update(item.position, state)
+            updatedPos.append(item.position)
+        else:
+            toRecycle.append(item)
+    posSet = set(state.positions)
+    updatedPosSet = set(updatedPos)
+    unupdatedPosSet = posSet.symmetric_difference(updatedPosSet)
+    for position in unupdatedPosSet:
+        if (len(toRecycle) != 0):
+            item = toRecycle.pop((-1))
+            item.update(position, state)
+        else:
+            item = ItemArtist(position, state)
+            self.items.append(item)
+    if (len(toRecycle) != 0):
+        for item in toRecycle:
+            item.remove()
+            self.items.remove(item)
+    self.fig.canvas.draw()
