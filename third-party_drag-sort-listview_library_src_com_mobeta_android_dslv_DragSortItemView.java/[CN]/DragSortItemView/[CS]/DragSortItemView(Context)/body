@@ -1,0 +1,4 @@
+{
+  super(context);
+  setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT));
+}

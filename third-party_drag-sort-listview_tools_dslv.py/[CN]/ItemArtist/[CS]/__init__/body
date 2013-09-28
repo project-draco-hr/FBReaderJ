@@ -1,0 +1,15 @@
+def __init__(self, position, state):
+    self.position = position
+    indx = state.positions.index(position)
+    self.top = (- state.tops[indx])
+    (self.top_line,) = pylab.plot([0, width], (2 * [self.top]), c='b')
+    self.bottom = (- state.bottoms[indx])
+    (self.bottom_line,) = pylab.plot([0, width], (2 * [self.bottom]), c='b')
+    self.edge = (- state.edges[indx])
+    (self.edge_line,) = pylab.plot([0, width], (2 * [self.edge]), c='g')
+    self.label = Text((width / 2), ((self.top + self.bottom) / 2), str(position), va='center', ha='center')
+    self.axes = pylab.gca()
+    self.axes.add_artist(self.label)
+    self.src_box = None
+    self.exp_box = None
+    self._check_boxes(state)

@@ -1,0 +1,9 @@
+from matplotlib.lines import Line2D
+from matplotlib.text import Text
+from matplotlib.patches import Rectangle
+import pylab
+from xml.etree.ElementTree import ElementTree
+width = 300
+if (__name__ == '__main__'):
+    states = getStates('dslv_state.txt')
+    StateAnimator(states, startFrame=(-1))

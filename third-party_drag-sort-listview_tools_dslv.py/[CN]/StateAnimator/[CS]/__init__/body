@@ -1,0 +1,10 @@
+def __init__(self, states, startFrame=0):
+    self.states = states
+    self.count = len(states)
+    if ((startFrame < 0) or (startFrame >= self.count)):
+        self.curr = (self.count - 1)
+    else:
+        self.curr = startFrame
+    self.state_artist = StateArtist(self.states[self.curr])
+    self.state_artist.fig.canvas.mpl_connect('key_press_event', self.flip)
+    pylab.show()

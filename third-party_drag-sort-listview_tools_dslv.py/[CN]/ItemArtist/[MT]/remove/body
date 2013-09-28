@@ -1,0 +1,9 @@
+def remove(self):
+    self.edge_line.remove()
+    self.top_line.remove()
+    self.bottom_line.remove()
+    self.label.remove()
+    if (self.src_box != None):
+        self.src_box.remove()
+    if (self.exp_box != None):
+        self.exp_box.remove()

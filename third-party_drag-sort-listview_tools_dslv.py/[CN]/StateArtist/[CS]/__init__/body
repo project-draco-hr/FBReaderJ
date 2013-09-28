@@ -1,0 +1,11 @@
+def __init__(self, state):
+    self.fig = pylab.figure(figsize=(5, 9))
+    self.axes = self.fig.add_subplot(111)
+    self.axes.set_aspect('equal')
+    self.axes.set_ylim((((- self.ybuff) - state.height), self.ybuff))
+    self.axes.set_xlim(((- self.xbuff), (width + self.xbuff)))
+    self.float_y = (- state.float_y)
+    (self.float_y_line,) = pylab.plot([0, width], (2 * [self.float_y]), c='r', lw=2)
+    self.items = []
+    self.update(state)
+    self.axes.add_patch(Rectangle((0, (- state.height)), width, state.height, fill=False, ls='dashed', ec='0.7'))
