@@ -1,0 +1,5 @@
+{
+  final RSSNetworkLink rssLink=(RSSNetworkLink)Link;
+  myLoadingState=rssLink.createOperationData(loader);
+  doLoadChildren(rssLink.createNetworkData(getCatalogUrl(),MimeType.APP_RSS_XML,myLoadingState));
+}

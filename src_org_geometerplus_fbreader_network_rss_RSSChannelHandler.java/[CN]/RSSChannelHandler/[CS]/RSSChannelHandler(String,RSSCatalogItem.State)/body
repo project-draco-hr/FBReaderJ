@@ -1,0 +1,10 @@
+{
+  myCatalog=result.Loader.getTree().Item;
+  myBaseURL=baseURL;
+  myData=result;
+  mySkipUntilId=myData.LastLoadedId;
+  myFoundNewIds=mySkipUntilId != null;
+  if (!(result.Link instanceof RSSNetworkLink)) {
+    throw new IllegalArgumentException("Parameter `result` has invalid `Link` field value: result.Link must be an instance of OPDSNetworkLink class.");
+  }
+}

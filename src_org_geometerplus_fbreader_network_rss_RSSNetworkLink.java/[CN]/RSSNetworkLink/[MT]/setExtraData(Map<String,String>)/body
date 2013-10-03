@@ -1,0 +1,4 @@
+{
+  myExtraData.clear();
+  myExtraData.putAll(extraData);
+}

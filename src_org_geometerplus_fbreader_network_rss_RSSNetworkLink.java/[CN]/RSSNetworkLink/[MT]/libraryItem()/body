@@ -1,0 +1,7 @@
+{
+  final UrlInfoCollection<UrlInfo> urlMap=new UrlInfoCollection<UrlInfo>();
+  urlMap.addInfo(getUrlInfo(UrlInfo.Type.Catalog));
+  urlMap.addInfo(getUrlInfo(UrlInfo.Type.Image));
+  urlMap.addInfo(getUrlInfo(UrlInfo.Type.Thumbnail));
+  return new RSSCatalogItem(this,getTitle(),getSummary(),urlMap,RSSCatalogItem.Accessibility.ALWAYS,RSSCatalogItem.FLAGS_DEFAULT | RSSCatalogItem.FLAG_ADD_SEARCH_ITEM);
+}

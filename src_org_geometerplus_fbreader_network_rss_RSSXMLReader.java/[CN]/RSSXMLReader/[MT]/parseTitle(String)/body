@@ -1,0 +1,22 @@
+{
+  String[] marks={"~ by:","By"};
+  boolean found=false;
+  for (int i=0; i < marks.length; i++) {
+    int foundIndex=bufferContent.indexOf(marks[i]);
+    if (foundIndex >= 0) {
+      if (myAuthor != null) {
+        String title=bufferContent.substring(0,foundIndex);
+        myItem.Title=title;
+        String authorName=bufferContent.substring(foundIndex + marks[i].length());
+        myAuthor.Name=authorName.trim();
+        myItem.Authors.push(myAuthor);
+        myAuthor=null;
+      }
+      found=true;
+      break;
+    }
+  }
+  if (!found) {
+    myItem.Title=bufferContent;
+  }
+}

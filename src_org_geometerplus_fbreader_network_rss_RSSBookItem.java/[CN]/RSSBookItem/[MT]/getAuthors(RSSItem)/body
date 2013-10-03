@@ -1,0 +1,7 @@
+{
+  final LinkedList<AuthorData> authors=new LinkedList<AuthorData>();
+  for (  ATOMAuthor author : entry.Authors) {
+    authors.add(new AuthorData(author.Name,null));
+  }
+  return authors;
+}

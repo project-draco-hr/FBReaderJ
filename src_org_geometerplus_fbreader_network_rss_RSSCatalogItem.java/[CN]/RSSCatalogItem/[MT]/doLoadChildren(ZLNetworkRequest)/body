@@ -1,0 +1,9 @@
+{
+  try {
+    super.doLoadChildren(myLoadingState,networkRequest);
+  }
+ catch (  ZLNetworkException e) {
+    myLoadingState=null;
+    throw e;
+  }
+}

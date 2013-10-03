@@ -1,0 +1,16 @@
+{
+  if (entry.Id == null) {
+    entry.Id=new ATOMId();
+    entry.Id.Uri="id_" + myIndex;
+  }
+  myData.LastLoadedId=entry.Id.Uri;
+  if (!myFoundNewIds && !myData.LoadedIds.contains(entry.Id.Uri)) {
+    myFoundNewIds=true;
+  }
+  myData.LoadedIds.add(entry.Id.Uri);
+  NetworkItem item=new RSSBookItem((RSSNetworkLink)myData.Link,entry,myBaseURL,myIndex++);
+  if (item != null) {
+    myData.Loader.onNewItem(item);
+  }
+  return false;
+}

@@ -1,0 +1,4 @@
+RSSNetworkLink networkLink
+RSSItem entry
+String baseUrl
+int index

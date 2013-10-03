@@ -1,0 +1,3 @@
+{
+  this(networkLink,entry.Id.Uri,index,entry.Title,getAnnotation(entry),getAuthors(entry),getTags(entry),null,0,null);
+}

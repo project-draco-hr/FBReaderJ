@@ -1,0 +1,81 @@
+{
+switch (myState) {
+case START:
+    break;
+case RSS:
+  if (testTag(TAG_RSS,tag,ns,null)) {
+    myState=START;
+  }
+break;
+case CHANNEL:
+if (testTag(TAG_CHANNEL,tag,ns,null)) {
+myState=RSS;
+}
+break;
+case C_TITLE:
+if (testTag(TAG_TITLE,tag,ns,null)) {
+myState=CHANNEL;
+}
+break;
+case C_LINK:
+if (testTag(TAG_LINK,tag,ns,null)) {
+myState=CHANNEL;
+}
+break;
+case ITEM:
+if (testTag(TAG_ITEM,tag,ns,null)) {
+myFeedHandler.processFeedEntry(myItem);
+myState=CHANNEL;
+}
+case TITLE:
+if (testTag(TAG_TITLE,tag,ns,null)) {
+parseTitle(bufferContent);
+myState=ITEM;
+}
+break;
+case GUID:
+if (testTag(TAG_GUID,tag,ns,null)) {
+if (myId != null) {
+myId.Uri=bufferContent;
+myItem.Id=myId;
+myId=null;
+}
+myState=ITEM;
+}
+break;
+case DESCRIPTION:
+if (testTag(TAG_DESCRIPTION,tag,ns,null)) {
+myFormattedBuffer.reset(FormattedBuffer.Type.Html);
+myFormattedBuffer.appendText(makeFormat(bufferContent));
+myItem.Summary=myFormattedBuffer.getText();
+myState=ITEM;
+}
+break;
+case CATEGORY:
+if (testTag(TAG_CATEGORY,tag,ns,null)) {
+String[] tokens=bufferContent.split(", ");
+for (String str : tokens) {
+ZLStringMap source=new ZLStringMap();
+source.put(RSSCategory.LABEL,str);
+myCategory=new RSSCategory(source);
+if (myCategory != null) {
+myItem.Categories.push(myCategory);
+}
+myCategory=null;
+}
+myState=ITEM;
+}
+break;
+case PUBDATE:
+if (testTag(TAG_PUBDATE,tag,ns,null)) {
+myState=ITEM;
+}
+break;
+case LINK:
+if (testTag(TAG_LINK,tag,ns,null)) {
+myState=ITEM;
+}
+break;
+}
+return false;
+}
