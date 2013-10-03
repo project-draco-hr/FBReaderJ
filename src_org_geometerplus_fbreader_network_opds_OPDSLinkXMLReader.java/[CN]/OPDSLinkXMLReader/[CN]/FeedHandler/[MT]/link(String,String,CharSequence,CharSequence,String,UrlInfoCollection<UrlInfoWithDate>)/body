@@ -1,12 +1,18 @@
 {
   final String titleString=title.toString();
   final String summaryString=summary != null ? summary.toString() : null;
-  OPDSNetworkLink opdsLink=new OPDSPredefinedNetworkLink(OPDSNetworkLink.INVALID_ID,id,siteName,titleString,summaryString,language,infos);
-  opdsLink.setRelationAliases(myRelationAliases);
-  opdsLink.setUrlRewritingRules(myUrlRewritingRules);
-  opdsLink.setExtraData(myExtraData);
-  if (myAuthenticationType == "litres") {
-    opdsLink.setAuthenticationManager(NetworkAuthenticationManager.createManager(opdsLink,LitResAuthenticationManager.class));
+  final UrlInfo catalogInfo=infos.getInfo(UrlInfo.Type.Catalog);
+  if (MimeType.APP_ATOM_XML.weakEquals(catalogInfo.Mime)) {
+    final OPDSNetworkLink opdsLink=new OPDSPredefinedNetworkLink(OPDSNetworkLink.INVALID_ID,id,siteName,titleString,summaryString,language,infos);
+    opdsLink.setRelationAliases(myRelationAliases);
+    opdsLink.setUrlRewritingRules(myUrlRewritingRules);
+    opdsLink.setExtraData(myExtraData);
+    if (myAuthenticationType == "litres") {
+      opdsLink.setAuthenticationManager(NetworkAuthenticationManager.createManager(opdsLink,LitResAuthenticationManager.class));
+    }
+    return opdsLink;
   }
-  return opdsLink;
+ else {
+    return null;
+  }
 }
