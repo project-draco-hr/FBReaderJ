@@ -12,6 +12,9 @@
     }
     return opdsLink;
   }
+ else   if (MimeType.APP_RSS_XML.weakEquals(catalogInfo.Mime)) {
+    return new RSSNetworkLink(OPDSNetworkLink.INVALID_ID,siteName,titleString,summaryString,language,infos);
+  }
  else {
     return null;
   }

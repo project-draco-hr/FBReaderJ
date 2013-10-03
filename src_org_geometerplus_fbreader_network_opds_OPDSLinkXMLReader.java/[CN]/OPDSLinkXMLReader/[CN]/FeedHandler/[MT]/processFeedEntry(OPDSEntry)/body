@@ -23,7 +23,7 @@
       }
     }
  else     if (rel == null) {
-      if (MimeType.APP_ATOM_XML.weakEquals(mime)) {
+      if (MimeType.APP_ATOM_XML.weakEquals(mime) || MimeType.APP_RSS_XML.weakEquals(mime)) {
         infos.addInfo(new UrlInfoWithDate(UrlInfo.Type.Catalog,href,mime));
       }
     }
