@@ -1,5 +1,5 @@
 {
-  if (!myFirstLaunchOption().getValue())   return;
+  if (!firstLaunchOption().getValue())   return;
   ArrayList<String> ids=new ArrayList<String>();
   final Collection<String> codes=activeLanguageCodes();
 synchronized (myLinks) {
@@ -10,5 +10,5 @@ synchronized (myLinks) {
     }
   }
   setActiveIds(ids);
-  myFirstLaunchOption().setValue(false);
+  firstLaunchOption().setValue(false);
 }
