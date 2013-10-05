@@ -1,6 +1,9 @@
 {
-  if (!firstLaunchOption().getValue())   return;
-  ArrayList<String> ids=new ArrayList<String>();
+  final ZLBooleanOption firstLaunchOption=new ZLBooleanOption("Options","firstLaunch",true);
+  if (!firstLaunchOption.getValue()) {
+    return;
+  }
+  final ArrayList<String> ids=new ArrayList<String>();
   final Collection<String> codes=activeLanguageCodes();
 synchronized (myLinks) {
     for (    INetworkLink link : myLinks) {
@@ -10,5 +13,5 @@ synchronized (myLinks) {
     }
   }
   setActiveIds(ids);
-  firstLaunchOption().setValue(false);
+  firstLaunchOption.setValue(false);
 }

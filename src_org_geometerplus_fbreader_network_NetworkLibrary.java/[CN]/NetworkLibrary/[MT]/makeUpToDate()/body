@@ -1,5 +1,5 @@
 {
-  updateActiveIds();
+  firstTimeComputeActiveIds();
   final SortedSet<INetworkLink> linkSet=new TreeSet<INetworkLink>(activeLinks());
   final LinkedList<FBTree> toRemove=new LinkedList<FBTree>();
   for (  FBTree t : myRootTree.subTrees()) {
