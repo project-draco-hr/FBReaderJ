@@ -1,0 +1,5 @@
+{
+  final NetworkLibraryActivity activity=(NetworkLibraryActivity)myActivity;
+  activity.openTree(NetworkLibrary.Instance().getRootTree());
+  activity.clearHistory();
+}

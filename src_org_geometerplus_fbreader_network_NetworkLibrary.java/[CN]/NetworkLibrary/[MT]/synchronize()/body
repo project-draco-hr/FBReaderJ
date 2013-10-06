@@ -8,4 +8,5 @@
     myUpdateVisibility=false;
     updateVisibility();
   }
+  fireModelChangedEvent(ChangeListener.Code.SomeCode);
 }

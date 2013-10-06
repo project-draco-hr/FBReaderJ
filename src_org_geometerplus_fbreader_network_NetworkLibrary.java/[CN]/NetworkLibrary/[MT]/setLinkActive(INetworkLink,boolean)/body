@@ -1,4 +1,11 @@
 {
+  if (link == null) {
+    return;
+  }
+  final String id=link.getUrl(UrlInfo.Type.Catalog);
+  if (id == null) {
+    return;
+  }
   final List<String> oldIds=activeIdsOption().getValue();
   if (oldIds.contains(id) == active) {
     return;

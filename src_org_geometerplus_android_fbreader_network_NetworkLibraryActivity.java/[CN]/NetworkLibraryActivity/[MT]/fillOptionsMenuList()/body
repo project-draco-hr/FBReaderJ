@@ -10,4 +10,5 @@
   myOptionsMenuActions.add(new TopupAction(this));
   myOptionsMenuActions.add(new BuyBasketBooksAction(this));
   myOptionsMenuActions.add(new ClearBasketAction(this));
+  myOptionsMenuActions.add(new OpenRootAction(this));
 }

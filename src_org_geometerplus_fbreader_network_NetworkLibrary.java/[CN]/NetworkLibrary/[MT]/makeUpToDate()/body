@@ -39,7 +39,7 @@
     new NetworkCatalogRootTree(myRootTree,link,index);
   }
   new SearchCatalogTree(myRootTree,mySearchItem,0);
-  new AddCustomCatalogItemTree(myRootTree);
   new ManageCatalogsItemTree(myRootTree);
+  new AddCustomCatalogItemTree(myRootTree);
   fireModelChangedEvent(ChangeListener.Code.SomeCode);
 }

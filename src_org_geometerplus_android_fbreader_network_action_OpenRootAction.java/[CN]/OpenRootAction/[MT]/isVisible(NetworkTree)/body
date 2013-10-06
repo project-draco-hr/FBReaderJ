@@ -1,0 +1,14 @@
+{
+  if (!(myActivity instanceof NetworkLibraryActivity)) {
+    return false;
+  }
+  if (tree instanceof RootTree) {
+    return false;
+  }
+  for (; tree != null; tree=(NetworkTree)tree.Parent) {
+    if (tree instanceof RootTree) {
+      return tree == NetworkLibrary.Instance().getRootTree();
+    }
+  }
+  return false;
+}
