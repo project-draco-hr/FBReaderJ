@@ -1,0 +1,11 @@
+{
+  final List<String> oldIds=activeIdsOption().getValue();
+  if (oldIds.contains(id)) {
+    return;
+  }
+  final ArrayList<String> newIds=new ArrayList<String>(oldIds.size() + 1);
+  newIds.addAll(oldIds);
+  newIds.add(id);
+  activeIdsOption().setValue(newIds);
+  invalidateChildren();
+}

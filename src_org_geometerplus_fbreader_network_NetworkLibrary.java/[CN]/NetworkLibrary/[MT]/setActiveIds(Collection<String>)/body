@@ -1,10 +1,6 @@
 {
-  final TreeSet<String> allCodes=new TreeSet<String>();
-  allCodes.addAll(ids);
-  final ArrayList<String> codesList=new ArrayList<String>(allCodes.size());
-  for (  String l : allCodes) {
-    codesList.add(l);
-  }
+  final TreeSet<String> allCodes=new TreeSet<String>(ids);
+  final ArrayList<String> codesList=new ArrayList<String>(allCodes);
   activeIdsOption().setValue(codesList);
   invalidateChildren();
 }
