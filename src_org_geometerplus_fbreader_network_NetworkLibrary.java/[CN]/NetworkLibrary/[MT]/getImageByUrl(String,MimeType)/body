@@ -1,6 +1,6 @@
 {
 synchronized (myImageMap) {
-    WeakReference<ZLImage> ref=myImageMap.get(url);
+    final WeakReference<ZLImage> ref=myImageMap.get(url);
     if (ref != null) {
       final ZLImage image=ref.get();
       if (image != null) {

@@ -4,7 +4,7 @@
     return;
   }
   final ArrayList<String> ids=new ArrayList<String>();
-  final Collection<String> codes=activeLanguageCodes();
+  final Collection<String> codes=new ZLStringListOption("Options","ActiveLanguages",ZLibrary.Instance().defaultLanguageCodes(),",").getValue();
 synchronized (myLinks) {
     for (    INetworkLink link : myLinks) {
       if (link instanceof ICustomNetworkLink || codes.contains(link.getLanguage())) {

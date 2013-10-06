@@ -1,3 +1,0 @@
-{
-  super(activity,ActionCode.LANGUAGE_FILTER,"languages",R.drawable.ic_menu_filter);
-}

@@ -1,6 +1,0 @@
-{
-  if (myActiveLanguageCodesOption == null) {
-    myActiveLanguageCodesOption=new ZLStringListOption("Options","ActiveLanguages",ZLibrary.Instance().defaultLanguageCodes(),",");
-  }
-  return myActiveLanguageCodesOption;
-}

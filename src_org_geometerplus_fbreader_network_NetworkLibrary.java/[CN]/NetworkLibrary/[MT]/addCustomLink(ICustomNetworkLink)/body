@@ -15,6 +15,6 @@ synchronized (myLinks) {
     }
   }
   NetworkDatabase.Instance().saveLink(link);
-  setActiveSingleId(link.getUrl(UrlInfo.Type.Catalog));
+  setSingleIdActive(link.getUrl(UrlInfo.Type.Catalog),true);
   invalidateChildren();
 }
