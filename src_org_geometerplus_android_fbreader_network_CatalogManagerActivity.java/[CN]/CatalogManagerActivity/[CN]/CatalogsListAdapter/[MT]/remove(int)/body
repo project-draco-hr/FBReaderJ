@@ -1,0 +1,7 @@
+{
+  final Item item=getItem(which);
+  if (item instanceof CatalogItem) {
+    remove(item);
+    getListView().removeCheckState(which);
+  }
+}

@@ -1,0 +1,13 @@
+{
+  to=Math.max(to,1);
+  if (from == to) {
+    return;
+  }
+  final Item item=getItem(from);
+  if (item instanceof CatalogItem) {
+    remove(item);
+    insert(item,to);
+    getListView().moveCheckState(from,to);
+    setResultIds(item,to);
+  }
+}
