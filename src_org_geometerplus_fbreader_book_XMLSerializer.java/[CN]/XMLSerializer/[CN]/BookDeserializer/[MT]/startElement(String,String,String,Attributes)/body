@@ -52,6 +52,13 @@ myHasBookmark=true;
  else if ("link".equals(localName)) {
 myUrl=attributes.getValue("href");
 }
+ else if ("progress".equals(localName)) {
+try {
+  myProgress=RationalNumber.create(Long.parseLong(attributes.getValue("numerator")),Long.parseLong(attributes.getValue("denominator")));
+}
+ catch (NumberFormatException e) {
+}
+}
  else {
 throw new SAXException("Unexpected tag " + localName);
 }

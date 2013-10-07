@@ -13,5 +13,6 @@
   myTags.clear();
   myLabels.clear();
   myHasBookmark=false;
+  myProgress=null;
   myState=State.READ_NOTHING;
 }
