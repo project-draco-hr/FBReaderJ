@@ -13,7 +13,7 @@
     myCoverManager=new CoverManager(getActivity(),coverHeight * 15 / 32,coverHeight);
     view.requestLayout();
   }
-  final ImageView coverView=(ImageView)view.findViewById(R.id.library_tree_item_icon);
+  final ImageView coverView=ViewUtil.findImageView(view,R.id.library_tree_item_icon);
   if (!myCoverManager.trySetCoverImage(coverView,tree)) {
     coverView.setImageResource(getCoverResourceId(tree));
   }

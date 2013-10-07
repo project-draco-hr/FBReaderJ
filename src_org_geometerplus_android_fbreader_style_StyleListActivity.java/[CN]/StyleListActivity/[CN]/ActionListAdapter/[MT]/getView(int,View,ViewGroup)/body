@@ -1,9 +1,9 @@
 {
   final View view=convertView != null ? convertView : LayoutInflater.from(parent.getContext()).inflate(R.layout.style_item,parent,false);
   final HighlightingStyle style=getItem(position);
-  final AmbilWarnaPrefWidgetView colorView=(AmbilWarnaPrefWidgetView)view.findViewById(R.id.style_item_color);
-  final TextView titleView=(TextView)view.findViewById(R.id.style_item_title);
-  final Button button=(Button)view.findViewById(R.id.style_item_edit_button);
+  final AmbilWarnaPrefWidgetView colorView=(AmbilWarnaPrefWidgetView)ViewUtil.findView(view,R.id.style_item_color);
+  final TextView titleView=ViewUtil.findTextView(view,R.id.style_item_title);
+  final Button button=(Button)ViewUtil.findView(view,R.id.style_item_edit_button);
   final ZLResource resource=ZLResource.resource("highlightingStyleMenu");
   if (style != null) {
     String name=style.getName();

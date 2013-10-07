@@ -1,0 +1,8 @@
+{
+  View view=(View)container.getTag(id);
+  if (view == null) {
+    view=container.findViewById(id);
+    container.setTag(id,view);
+  }
+  return view;
+}
