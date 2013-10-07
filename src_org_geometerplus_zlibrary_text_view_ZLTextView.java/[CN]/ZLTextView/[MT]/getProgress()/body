@@ -1,0 +1,4 @@
+{
+  final PagePosition position=pagePosition();
+  return RationalNumber.create(position.Current,position.Total);
+}
