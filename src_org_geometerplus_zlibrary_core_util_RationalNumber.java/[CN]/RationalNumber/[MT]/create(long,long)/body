@@ -1,5 +1,5 @@
 {
-  if (denominator == null) {
+  if (denominator == 0) {
     return null;
   }
   return new RationalNumber(numerator,denominator);
