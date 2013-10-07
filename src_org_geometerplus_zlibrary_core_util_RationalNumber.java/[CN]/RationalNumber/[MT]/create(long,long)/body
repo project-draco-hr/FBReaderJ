@@ -1,0 +1,6 @@
+{
+  if (denominator == null) {
+    return null;
+  }
+  return new RationalNumber(numerator,denominator);
+}
