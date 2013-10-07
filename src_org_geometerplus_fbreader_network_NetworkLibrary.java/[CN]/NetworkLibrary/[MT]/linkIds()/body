@@ -1,9 +1,9 @@
 {
-  final TreeSet<String> idSet=new TreeSet<String>();
+  final ArrayList<String> ids=new ArrayList<String>();
 synchronized (myLinks) {
     for (    INetworkLink link : myLinks) {
-      idSet.add(link.getUrl(UrlInfo.Type.Catalog));
+      ids.add(link.getUrl(UrlInfo.Type.Catalog));
     }
   }
-  return new ArrayList<String>(idSet);
+  return ids;
 }

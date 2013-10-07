@@ -1,12 +1,19 @@
 {
-  final LinkedList<INetworkLink> filteredList=new LinkedList<INetworkLink>();
-  final Collection<String> ids=activeIds();
+  final Map<String,INetworkLink> linksById=new TreeMap<String,INetworkLink>();
 synchronized (myLinks) {
     for (    INetworkLink link : myLinks) {
-      if (ids.contains(link.getUrl(UrlInfo.Type.Catalog))) {
-        filteredList.add(link);
+      final String id=link.getUrl(UrlInfo.Type.Catalog);
+      if (id != null) {
+        linksById.put(id,link);
       }
     }
   }
-  return filteredList;
+  final List<INetworkLink> result=new LinkedList<INetworkLink>();
+  for (  String id : activeIds()) {
+    final INetworkLink link=linksById.get(id);
+    if (link != null) {
+      result.add(link);
+    }
+  }
+  return result;
 }

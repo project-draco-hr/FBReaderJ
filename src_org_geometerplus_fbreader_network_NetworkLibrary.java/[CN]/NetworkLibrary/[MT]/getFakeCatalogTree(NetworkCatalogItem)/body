@@ -1,6 +1,6 @@
 {
   final String id=item.getStringId();
-  for (  FBTree tree : myFakeRootTree.subTrees()) {
+  for (  FBTree tree : myFakeRootTree.subtrees()) {
     if (tree instanceof NetworkCatalogTree && id.equals(tree.getUniqueKey().Id)) {
       return (NetworkCatalogTree)tree;
     }

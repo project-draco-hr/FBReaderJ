@@ -4,7 +4,7 @@
   myCurrentTree=getTreeByKey(key);
   myCurrentKey=myCurrentTree.getUniqueKey();
   final TreeAdapter adapter=getListAdapter();
-  adapter.replaceAll(myCurrentTree.subTrees());
+  adapter.replaceAll(myCurrentTree.subtrees());
   setTitle(myCurrentTree.getTreeTitle());
   final FBTree selectedTree=selectedKey != null ? getTreeByKey(selectedKey) : adapter.getFirstSelectedItem();
   final int index=adapter.getIndex(selectedTree);

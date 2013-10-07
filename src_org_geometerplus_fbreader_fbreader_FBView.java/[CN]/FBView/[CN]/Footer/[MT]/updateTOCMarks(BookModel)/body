@@ -21,7 +21,7 @@
       }
     }
   }
-  for (  TOCTree tocItem : toc.allSubTrees(maxLevel)) {
+  for (  TOCTree tocItem : toc.allSubtrees(maxLevel)) {
     myTOCMarks.add(tocItem);
   }
 }

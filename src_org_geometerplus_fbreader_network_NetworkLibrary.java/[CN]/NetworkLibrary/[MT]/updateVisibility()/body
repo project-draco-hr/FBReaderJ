@@ -1,5 +1,5 @@
 {
-  for (  FBTree tree : myRootTree.subTrees()) {
+  for (  FBTree tree : myRootTree.subtrees()) {
     if (tree instanceof NetworkCatalogTree) {
       ((NetworkCatalogTree)tree).updateVisibility();
     }

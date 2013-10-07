@@ -4,7 +4,7 @@
   }
   final NetworkBookItem bookItem=(NetworkBookItem)i;
   final String id=bookItem.getStringId();
-  for (  FBTree t : subTrees()) {
+  for (  FBTree t : subtrees()) {
     if (t instanceof NetworkBookTree && id.equals(((NetworkBookTree)t).Book.getStringId())) {
       return;
     }

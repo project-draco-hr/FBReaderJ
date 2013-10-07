@@ -1,5 +1,5 @@
 {
-  final int subtreesSize=parent.subTrees().size();
+  final int subtreesSize=parent.subtrees().size();
   if (position == -1) {
     position=subtreesSize;
   }
@@ -28,7 +28,7 @@ case NetworkCatalogItem.FLAG_GROUP_BY_SERIES:
       return new NetworkBookTree(parent,book,position,showAuthors);
     }
  else {
-      final NetworkTree previous=position > 0 ? (NetworkTree)parent.subTrees().get(position - 1) : null;
+      final NetworkTree previous=position > 0 ? (NetworkTree)parent.subtrees().get(position - 1) : null;
       NetworkSeriesTree seriesTree=null;
       if (previous instanceof NetworkSeriesTree) {
         seriesTree=(NetworkSeriesTree)previous;
@@ -43,7 +43,7 @@ case NetworkCatalogItem.FLAG_GROUP_BY_SERIES:
     }
 case NetworkCatalogItem.FLAG_GROUP_MORE_THAN_1_BOOK_BY_SERIES:
   if (position > 0 && book.SeriesTitle != null) {
-    final NetworkTree previous=(NetworkTree)parent.subTrees().get(position - 1);
+    final NetworkTree previous=(NetworkTree)parent.subtrees().get(position - 1);
     if (previous instanceof NetworkSeriesTree) {
       final NetworkSeriesTree seriesTree=(NetworkSeriesTree)previous;
       if (book.SeriesTitle.equals(seriesTree.SeriesTitle)) {
@@ -67,7 +67,7 @@ return new NetworkBookTree(parent,book,position,showAuthors);
 }
  else {
 final NetworkBookItem.AuthorData author=book.Authors.get(0);
-final NetworkTree previous=position > 0 ? (NetworkTree)parent.subTrees().get(position - 1) : null;
+final NetworkTree previous=position > 0 ? (NetworkTree)parent.subtrees().get(position - 1) : null;
 NetworkAuthorTree authorTree=null;
 if (previous instanceof NetworkAuthorTree) {
   authorTree=(NetworkAuthorTree)previous;

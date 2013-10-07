@@ -5,10 +5,10 @@
 switch (event) {
 case Added:
     if (myGroupByFirstLetter) {
-      return createTitleSubTree(book.firstTitleLetter());
+      return createTitleSubtree(book.firstTitleLetter());
     }
  else {
-      return createBookWithAuthorsSubTree(book);
+      return createBookWithAuthorsSubtree(book);
     }
 case Removed:
   if (myGroupByFirstLetter) {
@@ -20,11 +20,11 @@ case Removed:
 default :
 case Updated:
 if (myGroupByFirstLetter) {
-  return createTitleSubTree(book.firstTitleLetter());
+  return createTitleSubtree(book.firstTitleLetter());
 }
  else {
   boolean changed=removeBook(book);
-  changed|=createBookWithAuthorsSubTree(book);
+  changed|=createBookWithAuthorsSubtree(book);
   return changed;
 }
 }

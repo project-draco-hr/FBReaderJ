@@ -4,7 +4,7 @@
     getListView().invalidateViews();
   }
  else   if (getCurrentTree().onBookEvent(BookEvent.Removed,myBook)) {
-    getListAdapter().replaceAll(getCurrentTree().subTrees());
+    getListAdapter().replaceAll(getCurrentTree().subtrees());
     getListView().invalidateViews();
   }
   myRootTree.Collection.removeBook(myBook,true);

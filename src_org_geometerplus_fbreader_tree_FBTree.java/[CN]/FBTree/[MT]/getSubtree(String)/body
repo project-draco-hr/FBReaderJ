@@ -1,0 +1,8 @@
+{
+  for (  FBTree tree : subtrees()) {
+    if (id.equals(tree.getStringId())) {
+      return tree;
+    }
+  }
+  return null;
+}

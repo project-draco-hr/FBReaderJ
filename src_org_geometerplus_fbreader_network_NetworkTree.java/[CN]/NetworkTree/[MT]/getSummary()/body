@@ -1,7 +1,7 @@
 {
   StringBuilder builder=new StringBuilder();
   int count=0;
-  for (  FBTree subtree : subTrees()) {
+  for (  FBTree subtree : subtrees()) {
     if (count++ > 0) {
       builder.append(",  ");
     }

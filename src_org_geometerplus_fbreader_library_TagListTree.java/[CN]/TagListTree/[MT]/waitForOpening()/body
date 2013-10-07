@@ -2,7 +2,7 @@
   clear();
   for (  Tag t : Collection.tags()) {
     if (t.Parent == null) {
-      createTagSubTree(t);
+      createTagSubtree(t);
     }
   }
 }

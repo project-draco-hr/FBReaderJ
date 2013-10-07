@@ -31,7 +31,7 @@
     checkBox.setOnClickListener(new View.OnClickListener(){
       public void onClick(      View v){
         catalogItem.IsChecked=checkBox.isChecked();
-        setResultIds(catalogItem,0);
+        setResultIds();
       }
     }
 );

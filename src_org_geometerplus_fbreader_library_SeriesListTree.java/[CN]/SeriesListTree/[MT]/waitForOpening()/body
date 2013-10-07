@@ -1,6 +1,6 @@
 {
   clear();
   for (  String s : Collection.series()) {
-    createSeriesSubTree(s);
+    createSeriesSubtree(s);
   }
 }

@@ -1,0 +1,14 @@
+{
+  final ArrayList<String> ids=new ArrayList<String>();
+  for (int i=1; i < getCount(); ++i) {
+    final Item item=getItem(i);
+    if (item instanceof SectionItem) {
+      continue;
+    }
+    final CatalogItem catalogItem=(CatalogItem)item;
+    if (catalogItem.IsChecked) {
+      ids.add(catalogItem.Id);
+    }
+  }
+  setResult(RESULT_OK,new Intent().putStringArrayListExtra(NetworkLibraryActivity.ENABLED_CATALOG_IDS_KEY,ids));
+}

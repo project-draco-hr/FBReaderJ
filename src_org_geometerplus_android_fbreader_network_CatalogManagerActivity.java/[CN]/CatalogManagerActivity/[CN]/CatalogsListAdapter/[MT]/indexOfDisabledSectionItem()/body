@@ -1,0 +1,8 @@
+{
+  for (int i=1; i < getCount(); i++) {
+    if (getItem(i) instanceof SectionItem) {
+      return i;
+    }
+  }
+  return 0;
+}

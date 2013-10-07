@@ -2,15 +2,13 @@
   myRootAllTree.clear();
 synchronized (myLinks) {
     for (    INetworkLink link : myLinks) {
-      int index=0;
-      for (      FBTree t : myRootAllTree.subTrees()) {
+      for (      FBTree t : myRootAllTree.subtrees()) {
         final INetworkLink l=((NetworkTree)t).getLink();
         if (l != null && link.compareTo(l) <= 0) {
           break;
         }
-        ++index;
       }
-      new NetworkCatalogRootTree(myRootAllTree,link,index);
+      new NetworkCatalogRootTree(myRootAllTree,link);
     }
   }
 }

@@ -1,0 +1,11 @@
+{
+  final AuthorTree temp=new AuthorTree(Collection,author);
+  int position=Collections.binarySearch(subtrees(),temp);
+  if (position >= 0) {
+    return false;
+  }
+ else {
+    new AuthorTree(this,author,-position - 1);
+    return true;
+  }
+}

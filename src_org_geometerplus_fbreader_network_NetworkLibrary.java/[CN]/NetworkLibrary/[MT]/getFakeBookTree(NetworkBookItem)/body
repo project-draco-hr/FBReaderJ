@@ -1,6 +1,6 @@
 {
   final String id=book.getStringId();
-  for (  FBTree tree : myFakeRootTree.subTrees()) {
+  for (  FBTree tree : myFakeRootTree.subtrees()) {
     if (tree instanceof NetworkBookTree && id.equals(tree.getUniqueKey().Id)) {
       return (NetworkBookTree)tree;
     }

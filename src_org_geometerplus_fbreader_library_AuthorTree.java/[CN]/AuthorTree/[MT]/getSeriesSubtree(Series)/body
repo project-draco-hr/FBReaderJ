@@ -1,0 +1,10 @@
+{
+  final SeriesTree temp=new SeriesTree(Collection,series,Author);
+  int position=Collections.binarySearch(subtrees(),temp);
+  if (position >= 0) {
+    return (SeriesTree)subtrees().get(position);
+  }
+ else {
+    return new SeriesTree(this,series,Author,-position - 1);
+  }
+}

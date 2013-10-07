@@ -15,5 +15,5 @@
   if (parentTree == null) {
     return null;
   }
-  return parentTree != null ? (NetworkTree)parentTree.getSubTree(key.Id) : null;
+  return parentTree != null ? (NetworkTree)parentTree.getSubtree(key.Id) : null;
 }

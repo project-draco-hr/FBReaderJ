@@ -1,5 +1,5 @@
 {
-  for (  FBTree tree : subTrees()) {
+  for (  FBTree tree : subtrees()) {
     if (tree instanceof NetworkBookTree) {
       return ((NetworkBookTree)tree).createCover();
     }

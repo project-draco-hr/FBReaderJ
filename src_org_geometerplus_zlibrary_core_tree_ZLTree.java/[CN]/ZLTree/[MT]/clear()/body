@@ -1,12 +1,12 @@
 {
-  final int subTreesSize=mySize - 1;
-  if (mySubTrees != null) {
-    mySubTrees.clear();
+  final int subtreesSize=mySize - 1;
+  if (mySubtrees != null) {
+    mySubtrees.clear();
   }
   mySize=1;
-  if (subTreesSize > 0) {
+  if (subtreesSize > 0) {
     for (ZLTree<?> parent=Parent; parent != null; parent=parent.Parent) {
-      parent.mySize-=subTreesSize;
+      parent.mySize-=subtreesSize;
     }
   }
 }

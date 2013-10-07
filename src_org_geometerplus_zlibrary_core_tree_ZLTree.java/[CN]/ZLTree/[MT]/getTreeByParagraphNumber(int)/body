@@ -6,9 +6,9 @@
     return (T)this;
   }
   --index;
-  if (mySubTrees != null) {
-synchronized (mySubTrees) {
-      for (      T subtree : mySubTrees) {
+  if (mySubtrees != null) {
+synchronized (mySubtrees) {
+      for (      T subtree : mySubtrees) {
         if (((ZLTree<?>)subtree).mySize <= index) {
           index-=((ZLTree<?>)subtree).mySize;
         }

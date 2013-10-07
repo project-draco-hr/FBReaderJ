@@ -1,0 +1,8 @@
+{
+  if (mySubtrees == null) {
+    return Collections.emptyList();
+  }
+synchronized (mySubtrees) {
+    return new ArrayList<T>(mySubtrees);
+  }
+}

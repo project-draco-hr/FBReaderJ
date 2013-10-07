@@ -1,5 +1,5 @@
 {
-  for (  FBTree tree : getRootAllTree().subTrees()) {
+  for (  FBTree tree : getRootAllTree().subtrees()) {
     if (tree instanceof NetworkCatalogRootTree) {
       final String cUrl=((NetworkCatalogTree)tree).getLink().getUrlInfo(UrlInfo.Type.Catalog).Url;
       if (url.equals(cUrl)) {

@@ -1,0 +1,10 @@
+{
+  if (mySubtrees == null || !mySubtrees.contains(subtree)) {
+    return;
+  }
+  if (index < 0 || index >= mySubtrees.size()) {
+    return;
+  }
+  mySubtrees.remove(subtree);
+  mySubtrees.add(index,subtree);
+}

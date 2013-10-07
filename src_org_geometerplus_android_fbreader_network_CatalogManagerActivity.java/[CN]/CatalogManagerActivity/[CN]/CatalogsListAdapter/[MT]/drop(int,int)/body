@@ -7,7 +7,8 @@
   if (item instanceof CatalogItem) {
     remove(item);
     insert(item,to);
+    ((CatalogItem)item).IsChecked=to < indexOfDisabledSectionItem();
     getListView().moveCheckState(from,to);
-    setResultIds(item,to);
+    setResultIds();
   }
 }

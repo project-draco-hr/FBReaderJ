@@ -1,5 +1,5 @@
 {
-  for (  FileInfo child : info.subTrees()) {
+  for (  FileInfo child : info.subtrees()) {
     if (myInfosToSave.contains(child)) {
       myInfosToSave.remove(child);
     }

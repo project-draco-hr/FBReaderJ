@@ -1,45 +1,41 @@
 {
   firstTimeComputeActiveIds();
-  final SortedSet<INetworkLink> linkSet=new TreeSet<INetworkLink>(activeLinks());
-  final LinkedList<FBTree> toRemove=new LinkedList<FBTree>();
-  for (  FBTree t : myRootTree.subTrees()) {
-    if (t instanceof NetworkCatalogTree) {
-      final INetworkLink link=((NetworkCatalogTree)t).getLink();
+  final Map<INetworkLink,List<NetworkCatalogTree>> linkToTreeMap=new HashMap<INetworkLink,List<NetworkCatalogTree>>();
+  for (  FBTree tree : myRootTree.subtrees()) {
+    if (tree instanceof NetworkCatalogTree) {
+      final NetworkCatalogTree nTree=(NetworkCatalogTree)tree;
+      final INetworkLink link=nTree.getLink();
       if (link != null) {
-        if (!linkSet.contains(link)) {
-          toRemove.add(t);
+        List<NetworkCatalogTree> list=linkToTreeMap.get(link);
+        if (list == null) {
+          list=new LinkedList<NetworkCatalogTree>();
+          linkToTreeMap.put(link,list);
         }
- else         if (link instanceof ICustomNetworkLink && ((ICustomNetworkLink)link).hasChanges()) {
-          toRemove.add(t);
-        }
- else {
-          linkSet.remove(link);
-        }
+        list.add(nTree);
       }
- else {
-        toRemove.add(t);
+    }
+  }
+  if (linkToTreeMap.isEmpty()) {
+    new SearchCatalogTree(myRootTree,mySearchItem,0);
+    new ManageCatalogsItemTree(myRootTree);
+    new AddCustomCatalogItemTree(myRootTree);
+  }
+  int index=1;
+  for (  INetworkLink link : activeLinks()) {
+    final List<NetworkCatalogTree> trees=linkToTreeMap.remove(link);
+    if (trees != null) {
+      for (      NetworkCatalogTree t : trees) {
+        myRootTree.moveSubtree(t,index++);
       }
     }
  else {
-      toRemove.add(t);
+      new NetworkCatalogRootTree(myRootTree,link,index++);
     }
   }
-  for (  FBTree tree : toRemove) {
-    tree.removeSelf();
-  }
-  for (  INetworkLink link : linkSet) {
-    int index=0;
-    for (    FBTree t : myRootTree.subTrees()) {
-      final INetworkLink l=((NetworkTree)t).getLink();
-      if (l != null && link.compareTo(l) <= 0) {
-        break;
-      }
-      ++index;
+  for (  List<NetworkCatalogTree> trees : linkToTreeMap.values()) {
+    for (    NetworkCatalogTree t : trees) {
+      t.removeSelf();
     }
-    new NetworkCatalogRootTree(myRootTree,link,index);
   }
-  new SearchCatalogTree(myRootTree,mySearchItem,0);
-  new ManageCatalogsItemTree(myRootTree);
-  new AddCustomCatalogItemTree(myRootTree);
   fireModelChangedEvent(ChangeListener.Code.SomeCode);
 }

@@ -5,7 +5,7 @@
   StringBuilder builder=new StringBuilder();
   int count=0;
   Set<NetworkBookItem.AuthorData> authorSet=new TreeSet<NetworkBookItem.AuthorData>();
-  for (  FBTree tree : subTrees()) {
+  for (  FBTree tree : subtrees()) {
     if (!(tree instanceof NetworkBookTree)) {
       continue;
     }

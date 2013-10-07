@@ -4,7 +4,7 @@ case Added:
 case Updated:
 {
       final SeriesInfo info=book.getSeriesInfo();
-      return info != null && createSeriesSubTree(info.Series.getTitle());
+      return info != null && createSeriesSubtree(info.Series.getTitle());
     }
 case Removed:
   return false;

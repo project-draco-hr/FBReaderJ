@@ -1,14 +1,14 @@
 {
   if (position == -1) {
-    position=parent == null ? 0 : parent.subTrees().size();
+    position=parent == null ? 0 : parent.subtrees().size();
   }
-  if (parent != null && (position < 0 || position > parent.subTrees().size())) {
-    throw new IndexOutOfBoundsException("`position` value equals " + position + " but must be in range [0; "+ parent.subTrees().size()+ "]");
+  if (parent != null && (position < 0 || position > parent.subtrees().size())) {
+    throw new IndexOutOfBoundsException("`position` value equals " + position + " but must be in range [0; "+ parent.subtrees().size()+ "]");
   }
   Parent=parent;
   if (parent != null) {
     Level=parent.Level + 1;
-    parent.addSubTree((T)this,position);
+    parent.addSubtree((T)this,position);
   }
  else {
     Level=0;

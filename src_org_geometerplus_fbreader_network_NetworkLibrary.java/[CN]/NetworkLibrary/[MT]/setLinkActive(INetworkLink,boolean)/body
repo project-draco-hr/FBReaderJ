@@ -6,7 +6,7 @@
   if (id == null) {
     return;
   }
-  final List<String> oldIds=activeIdsOption().getValue();
+  final List<String> oldIds=activeIds();
   if (oldIds.contains(id) == active) {
     return;
   }

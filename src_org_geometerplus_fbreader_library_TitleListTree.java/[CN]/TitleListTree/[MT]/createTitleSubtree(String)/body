@@ -1,0 +1,14 @@
+{
+  if (prefix == null) {
+    return false;
+  }
+  final TitleTree temp=new TitleTree(Collection,prefix);
+  int position=Collections.binarySearch(subtrees(),temp);
+  if (position >= 0) {
+    return false;
+  }
+ else {
+    new TitleTree(this,prefix,-position - 1);
+    return true;
+  }
+}

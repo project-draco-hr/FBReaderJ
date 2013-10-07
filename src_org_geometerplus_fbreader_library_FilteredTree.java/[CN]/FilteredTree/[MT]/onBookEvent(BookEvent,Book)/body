@@ -1,11 +1,11 @@
 {
 switch (event) {
 case Added:
-    return containsBook(book) && createSubTree(book);
+    return containsBook(book) && createSubtree(book);
 case Updated:
 {
     boolean changed=removeBook(book);
-    changed|=containsBook(book) && createSubTree(book);
+    changed|=containsBook(book) && createSubtree(book);
     return changed;
   }
 case Removed:

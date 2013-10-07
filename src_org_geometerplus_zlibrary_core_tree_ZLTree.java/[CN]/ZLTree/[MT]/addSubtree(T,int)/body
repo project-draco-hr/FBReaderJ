@@ -1,0 +1,16 @@
+{
+  if (mySubtrees == null) {
+    mySubtrees=Collections.synchronizedList(new ArrayList<T>());
+  }
+  final int subtreeSize=subtree.getSize();
+synchronized (mySubtrees) {
+    final int thisSubtreesSize=mySubtrees.size();
+    while (position < thisSubtreesSize) {
+      subtree=mySubtrees.set(position++,subtree);
+    }
+    mySubtrees.add(subtree);
+    for (ZLTree<?> parent=this; parent != null; parent=parent.Parent) {
+      parent.mySize+=subtreeSize;
+    }
+  }
+}

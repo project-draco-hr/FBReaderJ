@@ -1,9 +1,9 @@
 {
-  if (trees.isEmpty() || subTrees().isEmpty()) {
+  if (trees.isEmpty() || subtrees().isEmpty()) {
     return;
   }
   final LinkedList<FBTree> toRemove=new LinkedList<FBTree>();
-  for (  FBTree t : subTrees()) {
+  for (  FBTree t : subtrees()) {
     if (trees.contains(t)) {
       toRemove.add(t);
       trees.remove(t);
@@ -15,7 +15,7 @@
   if (trees.isEmpty()) {
     return;
   }
-  final LinkedList<FBTree> toProcess=new LinkedList<FBTree>(subTrees());
+  final LinkedList<FBTree> toProcess=new LinkedList<FBTree>(subtrees());
   while (!toProcess.isEmpty()) {
     ((NetworkTree)toProcess.remove(toProcess.size() - 1)).removeTrees(trees);
   }

@@ -5,15 +5,15 @@ case Added:
       boolean changed=false;
       final List<Tag> bookTags=book.tags();
       if (bookTags.isEmpty()) {
-        changed&=Tag.NULL.equals(Tag) && createBookWithAuthorsSubTree(book);
+        changed&=Tag.NULL.equals(Tag) && createBookWithAuthorsSubtree(book);
       }
  else {
         for (        Tag t : bookTags) {
           if (Tag.equals(t)) {
-            changed&=createBookWithAuthorsSubTree(book);
+            changed&=createBookWithAuthorsSubtree(book);
           }
  else           if (Tag.equals(t.Parent)) {
-            changed&=createTagSubTree(t);
+            changed&=createTagSubtree(t);
           }
         }
       }
@@ -26,15 +26,15 @@ case Updated:
   boolean changed=removeBook(book);
   final List<Tag> bookTags=book.tags();
   if (bookTags.isEmpty()) {
-    changed&=Tag.NULL.equals(Tag) && createBookWithAuthorsSubTree(book);
+    changed&=Tag.NULL.equals(Tag) && createBookWithAuthorsSubtree(book);
   }
  else {
     for (    Tag t : bookTags) {
       if (Tag.equals(t)) {
-        changed&=createBookWithAuthorsSubTree(book);
+        changed&=createBookWithAuthorsSubtree(book);
       }
  else       if (Tag.equals(t.Parent)) {
-        changed&=createTagSubTree(t);
+        changed&=createTagSubtree(t);
       }
     }
   }

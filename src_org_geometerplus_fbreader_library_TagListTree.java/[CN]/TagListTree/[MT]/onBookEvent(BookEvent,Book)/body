@@ -6,11 +6,11 @@ case Updated:
       final List<Tag> bookTags=book.tags();
       boolean changed=false;
       if (bookTags.isEmpty()) {
-        changed&=createTagSubTree(Tag.NULL);
+        changed&=createTagSubtree(Tag.NULL);
       }
  else       for (      Tag t : bookTags) {
         if (t.Parent == null) {
-          changed&=createTagSubTree(t);
+          changed&=createTagSubtree(t);
         }
       }
       return changed;
