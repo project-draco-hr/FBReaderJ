@@ -67,6 +67,14 @@
           }
           outStream.write(buffer,0,size);
         }
+        final BookCollectionShadow collection=new BookCollectionShadow();
+        collection.bindToService(BookDownloaderService.this,new Runnable(){
+          @Override public void run(){
+            collection.rescan(file.getPath());
+            collection.unbind();
+          }
+        }
+);
       }
   finally {
         outStream.close();
