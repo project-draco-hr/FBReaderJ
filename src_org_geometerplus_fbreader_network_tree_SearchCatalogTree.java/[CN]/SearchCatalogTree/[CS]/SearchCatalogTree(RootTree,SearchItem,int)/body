@@ -1,4 +1,0 @@
-{
-  super(parent,null,item,position);
-  item.setPattern(null);
-}
