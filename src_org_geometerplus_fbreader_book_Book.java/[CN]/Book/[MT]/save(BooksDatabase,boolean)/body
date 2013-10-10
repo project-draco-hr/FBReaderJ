@@ -41,6 +41,9 @@
       for (      UID uid : uids()) {
         database.saveBookUid(myId,uid);
       }
+      if (myProgress != null) {
+        database.saveBookProgress(myId,myProgress);
+      }
     }
   }
 );
