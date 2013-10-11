@@ -1,0 +1,4 @@
+{
+  myProgress=progress;
+  myIsSaved=false;
+}
