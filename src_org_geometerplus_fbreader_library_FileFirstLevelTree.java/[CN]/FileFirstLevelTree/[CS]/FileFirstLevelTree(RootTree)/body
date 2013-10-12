@@ -1,16 +1,8 @@
 {
   super(root,ROOT_FILE_TREE);
-  List<String> directories=Util.splitDirectories(Paths.BooksDirectoryOption().getValue());
-  if (directories.size() == 1)   addChild(directories.get(0),NODE_LIBRARY_DIRECTORY);
- else {
-    FirstLevelTree libraryGroup=new FirstLevelTree(this,NODE_LIBRARY_DIRECTORY);
-    for (    String d : directories) {
-      final ZLFile file=ZLFile.createFileByPath(d);
-      if (file != null) {
-        new FileTree(libraryGroup,file,file.getShortName(),file.getPath());
-      }
-    }
+  for (  String dir : Paths.BookPathOption().getValue()) {
+    addChild(dir,"fileTreeLibrary",dir);
   }
-  addChild("/","fileTreeRoot");
-  addChild(Paths.cardDirectory(),"fileTreeCard");
+  addChild("/","fileTreeRoot",null);
+  addChild(Paths.cardDirectory(),"fileTreeCard",null);
 }

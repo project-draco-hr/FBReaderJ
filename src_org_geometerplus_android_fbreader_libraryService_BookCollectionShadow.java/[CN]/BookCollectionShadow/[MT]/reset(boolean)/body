@@ -1,7 +1,7 @@
 {
   if (myInterface != null) {
     try {
-      myInterface.reset(Util.splitDirectories(Paths.BooksDirectoryOption().getValue()),force);
+      myInterface.reset(Paths.BookPathOption().getValue(),force);
     }
  catch (    RemoteException e) {
     }

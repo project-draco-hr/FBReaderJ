@@ -1,0 +1,6 @@
+{
+  super(context,rootResource,resourceKey);
+  myOption=option;
+  final List<String> optionValues=myOption.getValue();
+  super.setValue(optionValues.isEmpty() ? "" : optionValues.get(0));
+}

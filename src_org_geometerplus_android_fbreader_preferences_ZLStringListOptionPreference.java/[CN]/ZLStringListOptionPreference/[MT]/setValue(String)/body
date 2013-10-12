@@ -1,0 +1,11 @@
+{
+  super.setValue(value);
+  final List<String> optionValues=new ArrayList<String>(myOption.getValue());
+  if (optionValues.isEmpty()) {
+    optionValues.add(value);
+  }
+ else {
+    optionValues.set(0,value);
+  }
+  myOption.setValue(optionValues);
+}
