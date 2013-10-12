@@ -1,4 +1,4 @@
-RootTree parent
+NetworkTree parent
 INetworkLink link
 NetworkCatalogItem item
 int position

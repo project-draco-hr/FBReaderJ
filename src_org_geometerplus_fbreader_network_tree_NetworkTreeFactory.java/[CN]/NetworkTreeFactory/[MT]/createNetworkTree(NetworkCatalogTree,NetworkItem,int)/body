@@ -11,7 +11,7 @@
     if (catalogItem.getVisibility() == ZLBoolean3.B3_FALSE) {
       return null;
     }
-    return new NetworkCatalogTree(parent,catalogItem,position);
+    return new NetworkCatalogTree(parent,parent.getLink(),catalogItem,position);
   }
  else   if (item instanceof NetworkBookItem) {
     if (position != subtreesSize) {

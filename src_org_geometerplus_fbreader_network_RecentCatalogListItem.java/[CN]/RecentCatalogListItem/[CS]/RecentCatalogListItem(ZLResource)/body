@@ -1,0 +1,3 @@
+{
+  super(null,resource.getValue(),resource.getResource("summary").getValue(),new UrlInfoCollection<UrlInfo>(),Accessibility.ALWAYS,FLAGS_DEFAULT);
+}
