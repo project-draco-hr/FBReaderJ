@@ -1,4 +1,6 @@
 {
-  if (myBook == NULL_BOOK)   myBook=Collection.getBookByFile(myFile);
+  if (myBook == NULL_BOOK) {
+    myBook=Collection.getBookByFile(myFile);
+  }
   return (Book)myBook;
 }
