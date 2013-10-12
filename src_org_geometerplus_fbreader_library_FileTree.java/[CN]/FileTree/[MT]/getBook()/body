@@ -1,9 +1,4 @@
 {
-  if (myBook == null) {
-    myBook=Collection.getBookByFile(myFile);
-    if (myBook == null) {
-      myBook=NULL_BOOK;
-    }
-  }
-  return myBook instanceof Book ? (Book)myBook : null;
+  if (myBook == NULL_BOOK)   myBook=Collection.getBookByFile(myFile);
+  return (Book)myBook;
 }
