@@ -1,6 +1,8 @@
 {
   super(root,ROOT_FILE_TREE);
-  addChild(Paths.BooksDirectoryOption().getValue(),"fileTreeLibrary");
-  addChild("/","fileTreeRoot");
-  addChild(Paths.cardDirectory(),"fileTreeCard");
+  for (  String dir : Paths.BookPathOption().getValue()) {
+    addChild(dir,"fileTreeLibrary",dir);
+  }
+  addChild("/","fileTreeRoot",null);
+  addChild(Paths.cardDirectory(),"fileTreeCard",null);
 }
