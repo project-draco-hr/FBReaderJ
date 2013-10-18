@@ -19,7 +19,7 @@
     }
     final long result=inflate(myInflatorId,myInBuffer,myInBufferOffset,myInBufferLength,myOutBuffer);
     if (result <= 0) {
-      final StringBuffer extraInfo=new StringBuffer().append(myStream.offset()).append(":").append(myInBufferOffset).append(":").append(myInBufferLength).append(":").append(myOutBuffer.length).append(":");
+      final StringBuilder extraInfo=new StringBuilder().append(myStream.offset()).append(":").append(myInBufferOffset).append(":").append(myInBufferLength).append(":").append(myOutBuffer.length).append(":");
       for (int i=0; i < Math.min(10,myInBufferLength); ++i) {
         extraInfo.append(myInBuffer[myInBufferOffset + i]).append(",");
       }
