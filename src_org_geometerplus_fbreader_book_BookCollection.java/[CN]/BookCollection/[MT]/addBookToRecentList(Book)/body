@@ -7,4 +7,5 @@
     ids.remove(12);
   }
   myDatabase.saveRecentBookIds(ids);
+  fireBookEvent(BookEvent.CurrentBookChanged,book);
 }
