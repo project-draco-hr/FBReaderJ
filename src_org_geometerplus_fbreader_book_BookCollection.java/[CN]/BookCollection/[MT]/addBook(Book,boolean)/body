@@ -10,8 +10,19 @@ synchronized (myBooksByFile) {
       fireBookEvent(BookEvent.Added,book);
     }
  else     if (force) {
+      final RationalNumber existingProgress=existing.getProgress();
+      final RationalNumber bookProgress=book.getProgress();
       existing.updateFrom(book);
       fireBookEvent(BookEvent.Updated,existing);
+      if (bookProgress == null) {
+        return;
+      }
+      if (existingProgress != null) {
+        if (existingProgress.equals(bookProgress)) {
+          return;
+        }
+      }
+      fireBookEvent(BookEvent.ProgressUpdated,existing);
     }
   }
 }
