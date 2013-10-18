@@ -9,6 +9,7 @@ beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
 break;
 case HtmlTag.P:
 case HtmlTag.DIV:
+case HtmlTag.BLOCKQUOTE:
 if (mySectionStarted) {
 mySectionStarted=false;
 }

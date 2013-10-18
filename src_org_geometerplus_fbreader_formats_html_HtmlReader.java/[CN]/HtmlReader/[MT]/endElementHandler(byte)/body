@@ -5,6 +5,7 @@ case HtmlTag.SELECT:
 case HtmlTag.STYLE:
 case HtmlTag.P:
 case HtmlTag.DIV:
+case HtmlTag.BLOCKQUOTE:
     startNewParagraph();
   break;
 case HtmlTag.H1:
