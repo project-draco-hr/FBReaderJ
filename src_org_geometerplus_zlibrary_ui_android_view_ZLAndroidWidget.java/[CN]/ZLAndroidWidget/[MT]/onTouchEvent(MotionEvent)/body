@@ -7,30 +7,30 @@ case MotionEvent.ACTION_UP:
     if (myPendingDoubleTap) {
       view.onFingerDoubleTap(x,y);
     }
-  if (myLongClickPerformed) {
-    view.onFingerReleaseAfterLongPress(x,y);
-  }
- else {
-    if (myPendingLongClickRunnable != null) {
-      removeCallbacks(myPendingLongClickRunnable);
-      myPendingLongClickRunnable=null;
+ else     if (myLongClickPerformed) {
+      view.onFingerReleaseAfterLongPress(x,y);
     }
-    if (myPendingPress) {
-      if (view.isDoubleTapSupported()) {
-        if (myPendingShortClickRunnable == null) {
-          myPendingShortClickRunnable=new ShortClickRunnable();
+ else {
+      if (myPendingLongClickRunnable != null) {
+        removeCallbacks(myPendingLongClickRunnable);
+        myPendingLongClickRunnable=null;
+      }
+      if (myPendingPress) {
+        if (view.isDoubleTapSupported()) {
+          if (myPendingShortClickRunnable == null) {
+            myPendingShortClickRunnable=new ShortClickRunnable();
+          }
+          postDelayed(myPendingShortClickRunnable,ViewConfiguration.getDoubleTapTimeout());
         }
-        postDelayed(myPendingShortClickRunnable,ViewConfiguration.getDoubleTapTimeout());
+ else {
+          view.onFingerSingleTap(x,y);
+        }
       }
  else {
-        view.onFingerSingleTap(x,y);
+        view.onFingerRelease(x,y);
       }
     }
- else {
-      view.onFingerRelease(x,y);
-    }
-  }
-myPendingDoubleTap=false;
+  myPendingDoubleTap=false;
 myPendingPress=false;
 myScreenIsTouched=false;
 break;
