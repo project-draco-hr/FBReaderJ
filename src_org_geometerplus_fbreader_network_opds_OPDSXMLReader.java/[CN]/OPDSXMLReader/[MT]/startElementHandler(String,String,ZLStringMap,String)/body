@@ -53,12 +53,12 @@ if (ns == XMLNamespaces.Opds && tag == TAG_PRICE) {
   myState=FEL_PRICE;
   return false;
 }
-if (ns == XMLNamespaces.DublinCoreTerms && tag == DC_TAG_FORMAT) {
-myState=FEL_FORMAT;
-return false;
+ else if (ns == XMLNamespaces.DublinCoreTerms && tag == DC_TAG_FORMAT) {
+  myState=FEL_FORMAT;
+  return false;
 }
  else {
-return super.startElementHandler(ns,tag,attributes,bufferContent);
+  return super.startElementHandler(ns,tag,attributes,bufferContent);
 }
 case FE_CONTENT:
 super.startElementHandler(ns,tag,attributes,bufferContent);
