@@ -37,16 +37,14 @@ case '/':
   startPosition=i + 1;
 break;
 case '!':
-{
 switch (buffer[++i]) {
 case '-':
-  state=COMMENT_MINUS;
+state=COMMENT_MINUS;
 i--;
 break;
 default :
 state=COMMENT;
 break;
-}
 }
 case '?':
 state=COMMENT;
@@ -113,7 +111,7 @@ case '>':
 state=TEXT;
 tagName.append(buffer,startPosition,i - startPosition);
 {
-ZLByteBuffer stringTagName=unique(strings,tagName);
+final ZLByteBuffer stringTagName=unique(strings,tagName);
 processStartTag(htmlReader,stringTagName,offset,attributes);
 if (stringTagName.equalsToLCString("script")) {
 scriptOpened=true;
@@ -145,7 +143,7 @@ break mainSwitchLabel;
 case '>':
 tagName.append(buffer,startPosition,i - startPosition);
 {
-ZLByteBuffer stringTagName=unique(strings,tagName);
+final ZLByteBuffer stringTagName=unique(strings,tagName);
 processEndTag(htmlReader,stringTagName);
 if (scriptOpened) {
 }
@@ -167,17 +165,17 @@ case WS_AFTER_START_TAG_NAME:
 switch (buffer[++i]) {
 case '>':
 {
-ZLByteBuffer stringTagName=unique(strings,tagName);
+final ZLByteBuffer stringTagName=unique(strings,tagName);
 processStartTag(htmlReader,stringTagName,offset,attributes);
 if (stringTagName.equalsToLCString("script")) {
 scriptOpened=true;
 state=SCRIPT;
 break mainSwitchLabel;
 }
-}
 state=TEXT;
 startPosition=i + 1;
 break;
+}
 case '/':
 state=SLASH;
 break;
@@ -204,7 +202,6 @@ processEndTag(htmlReader,stringTagName);
 if (stringTagName.equalsToLCString("script")) {
 scriptOpened=false;
 }
-}
 if (scriptOpened) {
 state=SCRIPT;
 }
@@ -213,6 +210,7 @@ state=TEXT;
 startPosition=i + 1;
 }
 break;
+}
 }
 break;
 case ATTRIBUTE_NAME:

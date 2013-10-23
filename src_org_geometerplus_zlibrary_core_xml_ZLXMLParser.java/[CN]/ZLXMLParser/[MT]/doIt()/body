@@ -245,10 +245,10 @@ streamReader.close();
 return;
 }
 currentNamespaceMap=null;
-}
 state=TEXT;
 startPosition=i + 1;
 break;
+}
 case '/':
 state=SLASH;
 if (processFullTag(xmlReader,convertToString(strings,tagName),attributes)) {
