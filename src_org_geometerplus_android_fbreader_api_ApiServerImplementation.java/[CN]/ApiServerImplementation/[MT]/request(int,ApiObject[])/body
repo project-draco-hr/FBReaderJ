@@ -111,6 +111,8 @@ case GET_ZONEMAP_WIDTH:
 return ApiObject.envelope(getZoneMapWidth(((ApiObject.String)parameters[0]).Value));
 case GET_TAPZONE_ACTION:
 return ApiObject.envelope(getTapZoneAction(((ApiObject.String)parameters[0]).Value,((ApiObject.Integer)parameters[1]).Value,((ApiObject.Integer)parameters[2]).Value,((ApiObject.Boolean)parameters[3]).Value));
+case GET_TAP_ACTION_BY_COORDINATES:
+return ApiObject.envelope(getTapActionByCoordinates(((ApiObject.String)parameters[0]).Value,((ApiObject.Integer)parameters[1]).Value,((ApiObject.Integer)parameters[2]).Value,((ApiObject.Integer)parameters[3]).Value,((ApiObject.Integer)parameters[4]).Value,((ApiObject.Boolean)parameters[5]).Value));
 case SET_TAPZONE_ACTION:
 setTapZoneAction(((ApiObject.String)parameters[0]).Value,((ApiObject.Integer)parameters[1]).Value,((ApiObject.Integer)parameters[2]).Value,((ApiObject.Boolean)parameters[3]).Value,((ApiObject.String)parameters[4]).Value);
 return ApiObject.Void.Instance;
