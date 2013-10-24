@@ -1,0 +1,3 @@
+{
+  return requestString(GET_TAP_ACTION_BY_COORDINATES,new ApiObject[]{ApiObject.envelope(name),ApiObject.envelope(x),ApiObject.envelope(y),ApiObject.envelope(width),ApiObject.envelope(height),ApiObject.envelope(singleTap)});
+}
