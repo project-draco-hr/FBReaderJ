@@ -12,7 +12,7 @@
   }
   if (!force && Model != null && book.equals(Model.Book)) {
     if (bookmark != null) {
-      gotoBookmark(bookmark);
+      gotoBookmark(bookmark,false);
     }
     return;
   }
@@ -35,7 +35,7 @@
       setView(BookTextView);
     }
  else {
-      gotoBookmark(bookmark);
+      gotoBookmark(bookmark,false);
     }
     Collection.addBookToRecentList(book);
     final StringBuilder title=new StringBuilder(book.getTitle());
