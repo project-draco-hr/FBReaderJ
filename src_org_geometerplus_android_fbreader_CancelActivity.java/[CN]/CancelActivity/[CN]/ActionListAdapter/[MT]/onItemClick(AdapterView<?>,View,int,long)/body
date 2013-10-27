@@ -5,6 +5,6 @@
   if (item instanceof CancelMenuHelper.BookmarkDescription) {
     data.putExtra(BOOKMARK_KEY,SerializerUtil.serialize(((CancelMenuHelper.BookmarkDescription)item).Bookmark));
   }
-  setResult((int)id + 1,data);
+  setResult(RESULT_FIRST_USER,data);
   finish();
 }
