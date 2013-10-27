@@ -1,8 +1,13 @@
 {
   super.onCreate(icicle);
   requestWindowFeature(Window.FEATURE_NO_TITLE);
-  final ActionListAdapter adapter=new ActionListAdapter(getIntent());
-  setListAdapter(adapter);
-  getListView().setOnItemClickListener(adapter);
-  setResult(-1);
+  myCollection=new BookCollectionShadow();
+  myCollection.bindToService(this,new Runnable(){
+    public void run(){
+      final ActionListAdapter adapter=new ActionListAdapter(new CancelMenuHelper().getActionsList(myCollection));
+      setListAdapter(adapter);
+      getListView().setOnItemClickListener(adapter);
+    }
+  }
+);
 }

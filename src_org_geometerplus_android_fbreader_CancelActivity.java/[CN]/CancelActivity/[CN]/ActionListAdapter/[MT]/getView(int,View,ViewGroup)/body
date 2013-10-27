@@ -1,9 +1,10 @@
 {
   final View view=convertView != null ? convertView : LayoutInflater.from(parent.getContext()).inflate(R.layout.cancel_item,parent,false);
+  final CancelMenuHelper.ActionDescription item=getItem(position);
   final TextView titleView=ViewUtil.findTextView(view,R.id.cancel_item_title);
   final TextView summaryView=ViewUtil.findTextView(view,R.id.cancel_item_summary);
-  final String title=myIntent.getStringExtra(ITEM_TITLE + position);
-  final String summary=myIntent.getStringExtra(ITEM_SUMMARY + position);
+  final String title=item.Title;
+  final String summary=item.Summary;
   titleView.setText(title);
   if (summary != null) {
     summaryView.setVisibility(View.VISIBLE);

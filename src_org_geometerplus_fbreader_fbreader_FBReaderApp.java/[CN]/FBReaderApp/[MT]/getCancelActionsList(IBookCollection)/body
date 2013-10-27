@@ -1,5 +1,0 @@
-{
-  myCancelActionsList.clear();
-  myCancelActionsList.addAll(new CancelMenuHelper().getActionsList(collection));
-  return myCancelActionsList;
-}
