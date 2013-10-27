@@ -1,3 +1,0 @@
-{
-  return new CancelMenuHelper().getActionsList(Collection);
-}
