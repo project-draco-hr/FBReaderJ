@@ -1,9 +1,5 @@
 {
-  if (index < 0 || index >= myCancelActionsList.size()) {
-    return;
-  }
-  final CancelMenuHelper.ActionDescription description=myCancelActionsList.get(index);
-switch (description.Type) {
+switch (type) {
 case library:
     runAction(ActionCode.SHOW_LIBRARY);
   break;
@@ -15,9 +11,16 @@ openBook(Collection.getRecentBook(1),null,null);
 break;
 case returnTo:
 {
+final List<CancelMenuHelper.ActionDescription> list=new CancelMenuHelper().getActionsList(Collection);
+if (index < 0 || index >= list.size()) {
+return;
+}
+final CancelMenuHelper.ActionDescription description=list.get(index);
+if (description instanceof CancelMenuHelper.BookmarkDescription) {
 final Bookmark b=((CancelMenuHelper.BookmarkDescription)description).Bookmark;
 Collection.deleteBookmark(b);
 gotoBookmark(b);
+}
 break;
 }
 case close:

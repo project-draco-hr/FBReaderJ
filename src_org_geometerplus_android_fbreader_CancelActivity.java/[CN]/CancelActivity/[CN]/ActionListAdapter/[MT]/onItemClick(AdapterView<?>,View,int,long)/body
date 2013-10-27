@@ -1,4 +1,9 @@
 {
-  setResult((int)id + 1);
+  final Intent data=new Intent();
+  final CancelMenuHelper.ActionDescription item=getItem(position);
+  data.putExtra(TYPE_KEY,item.Type.name());
+  if (item instanceof CancelMenuHelper.BookmarkDescription) {
+  }
+  setResult((int)id + 1,data);
   finish();
 }
