@@ -3,6 +3,7 @@
   final CancelMenuHelper.ActionDescription item=getItem(position);
   data.putExtra(TYPE_KEY,item.Type.name());
   if (item instanceof CancelMenuHelper.BookmarkDescription) {
+    data.putExtra(BOOKMARK_KEY,SerializerUtil.serialize(((CancelMenuHelper.BookmarkDescription)item).Bookmark));
   }
   setResult((int)id + 1,data);
   finish();

@@ -14,10 +14,16 @@ case REQUEST_PREFERENCES:
     }
   break;
 case REQUEST_CANCEL_MENU:
-{
+try {
   final CancelMenuHelper.ActionType type=CancelMenuHelper.ActionType.valueOf(data.getStringExtra(CancelActivity.TYPE_KEY));
-  myFBReaderApp.runCancelAction(resultCode - 1,type);
-  break;
+  Bookmark bookmark=null;
+  if (type == CancelMenuHelper.ActionType.returnTo) {
+    bookmark=SerializerUtil.deserializeBookmark(data.getStringExtra(CancelActivity.BOOKMARK_KEY));
+  }
+  myFBReaderApp.runCancelAction(type,bookmark);
 }
+ catch (Throwable t) {
+}
+break;
 }
 }
