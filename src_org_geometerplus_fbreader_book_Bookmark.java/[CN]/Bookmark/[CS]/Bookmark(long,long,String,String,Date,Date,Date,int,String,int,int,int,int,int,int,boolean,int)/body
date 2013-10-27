@@ -23,5 +23,4 @@
     myLength=end_paragraphIndex;
   }
   myStyleId=styleId;
-  System.err.println("CREATED BOOKMARK A: " + getParagraphIndex() + "::"+ getElementIndex()+ "::"+ getCharIndex());
 }
