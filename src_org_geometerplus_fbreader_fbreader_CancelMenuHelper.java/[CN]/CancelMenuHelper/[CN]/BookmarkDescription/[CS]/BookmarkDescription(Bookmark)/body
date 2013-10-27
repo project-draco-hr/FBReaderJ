@@ -1,0 +1,4 @@
+{
+  super(ActionType.returnTo,b.getText());
+  Bookmark=b;
+}
