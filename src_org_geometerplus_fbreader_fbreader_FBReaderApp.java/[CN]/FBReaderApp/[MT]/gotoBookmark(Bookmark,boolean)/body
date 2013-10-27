@@ -1,0 +1,24 @@
+{
+  final String modelId=bookmark.ModelId;
+  if (modelId == null) {
+    addInvisibleBookmark();
+    if (exactly) {
+      BookTextView.gotoPosition(bookmark);
+    }
+ else {
+      BookTextView.gotoHighlighting(new BookmarkHighlighting(BookTextView,Collection,bookmark));
+    }
+    setView(BookTextView);
+  }
+ else {
+    setFootnoteModel(modelId);
+    if (exactly) {
+      FootnoteView.gotoPosition(bookmark);
+    }
+ else {
+      FootnoteView.gotoHighlighting(new BookmarkHighlighting(FootnoteView,Collection,bookmark));
+    }
+    setView(FootnoteView);
+  }
+  getViewWidget().repaint();
+}

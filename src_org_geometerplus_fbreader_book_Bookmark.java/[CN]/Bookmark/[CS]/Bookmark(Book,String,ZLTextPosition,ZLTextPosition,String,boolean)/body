@@ -9,4 +9,5 @@
   IsVisible=isVisible;
   myEnd=new ZLTextFixedPosition(end);
   myStyleId=1;
+  System.err.println("CREATED BOOKMARK B: " + getParagraphIndex() + "::"+ getElementIndex()+ "::"+ getCharIndex());
 }

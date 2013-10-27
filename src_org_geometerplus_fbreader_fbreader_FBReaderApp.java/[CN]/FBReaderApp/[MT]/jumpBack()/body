@@ -19,7 +19,7 @@
     }
     final Bookmark b=bookmarks.get(0);
     Collection.deleteBookmark(b);
-    gotoBookmark(b);
+    gotoBookmark(b,true);
     return true;
   }
   finally {
