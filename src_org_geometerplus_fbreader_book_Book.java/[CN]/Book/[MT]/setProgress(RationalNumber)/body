@@ -1,4 +1,6 @@
 {
-  myProgress=progress;
-  myIsSaved=false;
+  if (!MiscUtil.equals(myProgress,progress)) {
+    myProgress=progress;
+    myIsSaved=false;
+  }
 }

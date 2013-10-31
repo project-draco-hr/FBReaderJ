@@ -3,7 +3,7 @@
     return false;
   }
   try {
-    return myInterface.saveBook(SerializerUtil.serialize(book),force);
+    return myInterface.saveBook(SerializerUtil.serialize(book));
   }
  catch (  RemoteException e) {
     return false;

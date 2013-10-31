@@ -5,7 +5,7 @@
         openBookInternal(book,bookmark,false);
         if (book != null) {
           book.addLabel(Book.READ_LABEL);
-          Collection.saveBook(book,false);
+          Collection.saveBook(book);
         }
       }
     }

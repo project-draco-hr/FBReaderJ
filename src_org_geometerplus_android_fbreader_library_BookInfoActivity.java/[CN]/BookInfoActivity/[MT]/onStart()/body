@@ -33,7 +33,7 @@
         myDontReloadBook=false;
         myCollection.bindToService(BookInfoActivity.this,new Runnable(){
           public void run(){
-            myCollection.saveBook(myBook,false);
+            myCollection.saveBook(myBook);
           }
         }
 );

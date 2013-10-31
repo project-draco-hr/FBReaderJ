@@ -1,3 +1,0 @@
-{
-  return myCollection.saveBook(SerializerUtil.deserializeBook(book),force);
-}
