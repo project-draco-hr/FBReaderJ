@@ -1,6 +1,6 @@
 {
   if (book == null || book.getId() == -1) {
-    return;
+    return false;
   }
 synchronized (myBooksByFile) {
     final Book existing=myBooksByFile.get(book.File);
@@ -8,10 +8,15 @@ synchronized (myBooksByFile) {
       myBooksByFile.put(book.File,book);
       myBooksById.put(book.getId(),book);
       fireBookEvent(BookEvent.Added,book);
+      return true;
     }
  else     if (force) {
       existing.updateFrom(book);
-      fireBookEvent(BookEvent.Updated,existing);
+      if (existing.save(myDatabase,false)) {
+        fireBookEvent(BookEvent.Updated,existing);
+        return true;
+      }
     }
+    return false;
   }
 }

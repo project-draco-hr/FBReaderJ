@@ -2,6 +2,6 @@
   if (Model != null && Model.Book != null && BookTextView != null) {
     Collection.storePosition(Model.Book.getId(),BookTextView.getStartCursor());
     Model.Book.setProgress(BookTextView.getProgress());
-    Collection.saveBook(Model.Book,false);
+    Collection.saveBook(Model.Book);
   }
 }

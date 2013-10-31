@@ -18,7 +18,7 @@ synchronized (myBooksByFile) {
       filesToRemove.remove(file);
       final Book book=getBookByFile(file);
       if (book != null) {
-        saveBook(book,false);
+        saveBook(book);
       }
     }
     for (    ZLFile f : filesToRemove) {

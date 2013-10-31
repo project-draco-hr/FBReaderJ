@@ -8,7 +8,7 @@
       return;
     }
     book.addLabel(Book.READ_LABEL);
-    Collection.saveBook(book,false);
+    Collection.saveBook(book);
   }
   if (!force && Model != null && book.equals(Model.Book)) {
     if (bookmark != null) {
@@ -26,7 +26,7 @@
   System.gc();
   try {
     Model=BookModel.createModel(book);
-    Collection.saveBook(book,false);
+    Collection.saveBook(book);
     ZLTextHyphenator.Instance().load(book.getLanguage());
     BookTextView.setModel(Model.getTextModel());
     setBookmarkHighlightings(BookTextView,null);

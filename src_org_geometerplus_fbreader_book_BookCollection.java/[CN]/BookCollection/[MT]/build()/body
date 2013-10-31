@@ -24,7 +24,7 @@
       if (!fileInfos.check(file,true)) {
         try {
           book.readMetaInfo();
-          saveBook(book,false);
+          saveBook(book);
         }
  catch (        BookReadingException e) {
           doAdd=false;
@@ -55,13 +55,12 @@
   if (helpBook == null) {
     helpBook=getBookByFile(helpFile);
   }
-  saveBook(helpBook,false);
-  addBook(helpBook,false);
+  saveBook(helpBook);
   fileInfos.save();
   myDatabase.executeAsTransaction(new Runnable(){
     public void run(){
       for (      Book book : newBooks) {
-        saveBook(book,false);
+        saveBook(book);
       }
     }
   }
