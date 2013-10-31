@@ -1,5 +1,4 @@
 {
-  long id=0;
   if (myBook != null) {
     for (BookmarkQuery query=new BookmarkQuery(myBook,20); ; query=query.next()) {
       final List<Bookmark> thisBookBookmarks=myCollection.bookmarks(query);
@@ -10,7 +9,6 @@
       myAllBooksAdapter.addAll(thisBookBookmarks);
     }
   }
-  id=0;
   for (BookmarkQuery query=new BookmarkQuery(20); ; query=query.next()) {
     final List<Bookmark> allBookmarks=myCollection.bookmarks(query);
     if (allBookmarks.isEmpty()) {
