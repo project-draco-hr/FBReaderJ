@@ -15,7 +15,7 @@
       }
     }
   }
-  if (linkToTreeMap.isEmpty()) {
+  if (!myRootTree.hasChildren()) {
     new SearchCatalogTree(myRootTree,mySearchItem);
     new ManageCatalogsItemTree(myRootTree);
     new AddCustomCatalogItemTree(myRootTree);

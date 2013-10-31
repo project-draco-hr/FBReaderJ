@@ -1,0 +1,9 @@
+{
+  if (myInterface != null) {
+    try {
+      myInterface.rescan(path);
+    }
+ catch (    RemoteException e) {
+    }
+  }
+}
