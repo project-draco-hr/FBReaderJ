@@ -2,11 +2,9 @@
   if (this == other) {
     return true;
   }
-  final RationalNumber rationalNumber=(RationalNumber)other;
-  if (other instanceof RationalNumber) {
-    if ((rationalNumber.Numerator == Numerator) && (rationalNumber.Denominator == Denominator)) {
-      return true;
-    }
+  if (!(other instanceof RationalNumber)) {
+    return false;
   }
-  return false;
+  final RationalNumber otherNumber=(RationalNumber)other;
+  return otherNumber.Numerator == Numerator && otherNumber.Denominator == Denominator;
 }
