@@ -1,0 +1,10 @@
+{
+  if (this == other) {
+    return true;
+  }
+  if (!(other instanceof RationalNumber)) {
+    return false;
+  }
+  final RationalNumber otherNumber=(RationalNumber)other;
+  return otherNumber.Numerator == Numerator && otherNumber.Denominator == Denominator;
+}
