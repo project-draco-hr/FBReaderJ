@@ -108,13 +108,14 @@
   cssScreen.addOption(collection.UseCSSFontSizeOption,"fontSize");
   cssScreen.addOption(collection.UseCSSTextAlignmentOption,"textAlignment");
   final Screen colorsScreen=createPreferenceScreen("colors");
-  colorsScreen.addPreference(new WallpaperPreference(this,profile,colorsScreen.Resource,"background"){
+  final WallpaperPreference wallpaperPreference=new WallpaperPreference(this,profile,colorsScreen.Resource,"background"){
     @Override protected void onDialogClosed(    boolean result){
       super.onDialogClosed(result);
       bgPreferences.setEnabled("".equals(getValue()));
     }
   }
-);
+;
+  colorsScreen.addPreference(wallpaperPreference);
   bgPreferences.add(colorsScreen.addOption(profile.BackgroundOption,"backgroundColor"));
   bgPreferences.setEnabled("".equals(profile.WallpaperOption.getValue()));
   colorsScreen.addOption(profile.HighlightingOption,"highlighting");
