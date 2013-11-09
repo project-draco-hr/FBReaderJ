@@ -1,14 +1,10 @@
 {
   if ("style".equals(localName)) {
-    try {
-      final int id=Integer.parseInt(attributes.getValue("id"));
-      if (id != -1) {
-        final int rgb=Integer.parseInt(attributes.getValue("bg-color"));
-        final ZLColor color=rgb != -1 ? new ZLColor(rgb) : null;
-        myStyle=new HighlightingStyle(id,attributes.getValue("name"),color);
-      }
-    }
- catch (    Exception e) {
+    final int id=parseIntSafe(attributes.getValue("id"),-1);
+    if (id != -1) {
+      final int rgb=parseIntSafe(attributes.getValue("bg-color"),-1);
+      final ZLColor color=rgb != -1 ? new ZLColor(rgb) : null;
+      myStyle=new HighlightingStyle(id,attributes.getValue("name"),color);
     }
   }
 }

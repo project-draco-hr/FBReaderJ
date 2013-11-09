@@ -4,75 +4,45 @@ case READ_NOTHING:
     if (!"bookmark".equals(localName)) {
       throw new SAXException("Unexpected tag " + localName);
     }
-  try {
-    myId=Long.parseLong(attributes.getValue("id"));
-    myIsVisible=Boolean.parseBoolean(attributes.getValue("visible"));
-    myState=State.READ_BOOKMARK;
-  }
- catch (  Exception e) {
-    throw new SAXException("XML parsing error",e);
-  }
+  myId=parseLong(attributes.getValue("id"));
+myIsVisible=parseBoolean(attributes.getValue("visible"));
+myState=State.READ_BOOKMARK;
 break;
 case READ_BOOKMARK:
 if ("book".equals(localName)) {
-try {
-  myBookId=Long.parseLong(attributes.getValue("id"));
-  myBookTitle=attributes.getValue("title");
-}
- catch (Exception e) {
-  throw new SAXException("XML parsing error",e);
-}
+myBookId=parseLong(attributes.getValue("id"));
+myBookTitle=attributes.getValue("title");
 }
  else if ("text".equals(localName)) {
 myState=State.READ_TEXT;
 }
  else if ("history".equals(localName)) {
-try {
-  myCreationDate=parseDate(attributes.getValue("date-creation"));
-  myModificationDate=parseDate(attributes.getValue("date-modification"));
-  myAccessDate=parseDate(attributes.getValue("date-access"));
-  myAccessCount=Integer.parseInt(attributes.getValue("access-count"));
-}
- catch (Exception e) {
-  throw new SAXException("XML parsing error",e);
-}
+myCreationDate=parseDate(attributes.getValue("date-creation"));
+myModificationDate=parseDateSafe(attributes.getValue("date-modification"));
+myAccessDate=parseDateSafe(attributes.getValue("date-access"));
+myAccessCount=parseIntSafe(attributes.getValue("access-count"),0);
 }
  else if ("start".equals(localName)) {
-try {
-  myModelId=attributes.getValue("model");
-  myStartParagraphIndex=Integer.parseInt(attributes.getValue("paragraph"));
-  myStartElementIndex=Integer.parseInt(attributes.getValue("element"));
-  myStartCharIndex=Integer.parseInt(attributes.getValue("char"));
-}
- catch (Exception e) {
-  throw new SAXException("XML parsing error",e);
-}
+myModelId=attributes.getValue("model");
+myStartParagraphIndex=parseInt(attributes.getValue("paragraph"));
+myStartElementIndex=parseInt(attributes.getValue("element"));
+myStartCharIndex=parseInt(attributes.getValue("char"));
 }
  else if ("end".equals(localName)) {
-try {
-  final String para=attributes.getValue("paragraph");
-  if (para != null) {
-    myEndParagraphIndex=Integer.parseInt(para);
-    myEndElementIndex=Integer.parseInt(attributes.getValue("element"));
-    myEndCharIndex=Integer.parseInt(attributes.getValue("char"));
-  }
- else {
-    myEndParagraphIndex=Integer.parseInt(attributes.getValue("length"));
-    myEndElementIndex=-1;
-    myEndCharIndex=-1;
-  }
+final String para=attributes.getValue("paragraph");
+if (para != null) {
+myEndParagraphIndex=parseInt(para);
+myEndElementIndex=parseInt(attributes.getValue("element"));
+myEndCharIndex=parseInt(attributes.getValue("char"));
 }
- catch (Exception e) {
-  throw new SAXException("XML parsing error",e);
+ else {
+myEndParagraphIndex=parseInt(attributes.getValue("length"));
+myEndElementIndex=-1;
+myEndCharIndex=-1;
 }
 }
  else if ("style".equals(localName)) {
-try {
-  myStyle=Integer.parseInt(attributes.getValue("id"));
-}
- catch (Exception e) {
-  throw new SAXException("XML parsing error",e);
-}
+myStyle=parseInt(attributes.getValue("id"));
 }
  else {
 throw new SAXException("Unexpected tag " + localName);
