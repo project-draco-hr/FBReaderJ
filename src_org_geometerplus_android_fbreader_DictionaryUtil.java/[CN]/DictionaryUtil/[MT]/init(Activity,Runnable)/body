@@ -1,0 +1,10 @@
+{
+  if (ourInfos.isEmpty()) {
+    final Thread initThread=new Thread(new Initializer(activity,postAction));
+    initThread.setPriority(Thread.MIN_PRIORITY);
+    initThread.start();
+  }
+ else   if (postAction != null) {
+    postAction.run();
+  }
+}

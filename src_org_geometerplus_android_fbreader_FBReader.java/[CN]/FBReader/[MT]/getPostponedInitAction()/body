@@ -4,7 +4,7 @@
       runOnUiThread(new Runnable(){
         public void run(){
           new TipRunner().start();
-          DictionaryUtil.init(FBReader.this);
+          DictionaryUtil.init(FBReader.this,null);
         }
       }
 );
