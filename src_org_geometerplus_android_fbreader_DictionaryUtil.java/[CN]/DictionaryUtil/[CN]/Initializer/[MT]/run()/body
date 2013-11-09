@@ -1,6 +1,9 @@
 {
 synchronized (ourInfos) {
     if (!ourInfos.isEmpty()) {
+      if (myPostAction != null) {
+        myPostAction.run();
+      }
       return;
     }
     new InfoReader().readQuietly(ZLFile.createFileByPath("dictionaries/main.xml"));
@@ -8,6 +11,9 @@ synchronized (ourInfos) {
     myActivity.runOnUiThread(new Runnable(){
       public void run(){
         collectOpenDictionaries(myActivity);
+        if (myPostAction != null) {
+          myPostAction.run();
+        }
       }
     }
 );

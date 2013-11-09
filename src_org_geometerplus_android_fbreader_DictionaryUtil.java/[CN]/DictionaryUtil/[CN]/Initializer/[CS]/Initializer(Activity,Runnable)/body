@@ -1,3 +1,4 @@
 {
   myActivity=activity;
+  myPostAction=postAction;
 }
