@@ -1,6 +1,6 @@
 {
   try {
-    return str != null ? ourDateFormatter.parse(str) : null;
+    return Integer.parseInt(str);
   }
  catch (  Exception e) {
     throw new SAXException("XML parsing error",e);

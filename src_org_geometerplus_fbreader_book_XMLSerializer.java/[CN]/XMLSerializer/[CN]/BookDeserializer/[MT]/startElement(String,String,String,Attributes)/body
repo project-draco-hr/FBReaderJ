@@ -53,11 +53,7 @@ myHasBookmark=true;
 myUrl=attributes.getValue("href");
 }
  else if ("progress".equals(localName)) {
-try {
-  myProgress=RationalNumber.create(Long.parseLong(attributes.getValue("numerator")),Long.parseLong(attributes.getValue("denominator")));
-}
- catch (NumberFormatException e) {
-}
+myProgress=RationalNumber.create(parseLong(attributes.getValue("numerator")),parseLong(attributes.getValue("denominator")));
 }
  else {
 throw new SAXException("Unexpected tag " + localName);

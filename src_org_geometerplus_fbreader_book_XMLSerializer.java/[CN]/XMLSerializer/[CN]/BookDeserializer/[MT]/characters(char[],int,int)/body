@@ -1,11 +1,7 @@
 {
 switch (myState) {
 case READ_ID:
-    try {
-      myId=Long.parseLong(new String(ch,start,length));
-    }
- catch (    NumberFormatException e) {
-    }
+    myId=parseLongSafe(new String(ch,start,length),-1);
   break;
 case READ_TITLE:
 myTitle.append(ch,start,length);

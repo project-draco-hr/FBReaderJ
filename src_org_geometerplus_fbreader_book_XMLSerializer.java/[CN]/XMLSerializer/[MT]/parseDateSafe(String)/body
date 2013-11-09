@@ -3,6 +3,6 @@
     return str != null ? ourDateFormatter.parse(str) : null;
   }
  catch (  Exception e) {
-    throw new SAXException("XML parsing error",e);
+    return null;
   }
 }
