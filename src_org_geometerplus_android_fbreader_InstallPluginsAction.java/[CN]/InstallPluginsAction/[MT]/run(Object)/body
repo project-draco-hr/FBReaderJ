@@ -1,0 +1,3 @@
+{
+  BaseActivity.startActivity(new Intent(BaseActivity,PluginListActivity.class));
+}

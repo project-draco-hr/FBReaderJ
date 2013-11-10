@@ -1,0 +1,3 @@
+{
+  new Reader(myPlugins).readQuietly(ZLFile.createFileByPath("plugins.xml"));
+}
