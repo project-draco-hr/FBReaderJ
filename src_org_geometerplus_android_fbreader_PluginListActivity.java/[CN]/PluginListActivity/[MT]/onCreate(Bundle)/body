@@ -1,0 +1,7 @@
+{
+  super.onCreate(icicle);
+  setTitle(myResource.getValue());
+  final PluginListAdapter adapter=new PluginListAdapter();
+  setListAdapter(adapter);
+  getListView().setOnItemClickListener(adapter);
+}

@@ -1,0 +1,10 @@
+{
+  final View view=convertView != null ? convertView : LayoutInflater.from(parent.getContext()).inflate(R.layout.plugin_item,parent,false);
+  final TextView titleView=ViewUtil.findTextView(view,R.id.plugin_item_title);
+  final TextView summaryView=ViewUtil.findTextView(view,R.id.plugin_item_summary);
+  final Plugin plugin=getItem(position);
+  final ZLResource resource=myResource.getResource(plugin.Id);
+  titleView.setText(resource.getValue());
+  summaryView.setText(resource.getResource("summary").getValue());
+  return view;
+}

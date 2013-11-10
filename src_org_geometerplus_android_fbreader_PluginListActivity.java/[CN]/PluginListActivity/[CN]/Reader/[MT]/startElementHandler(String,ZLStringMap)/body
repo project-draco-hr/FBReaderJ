@@ -1,0 +1,13 @@
+{
+  if ("plugin".equals(tag)) {
+    final String id=attributes.getValue("id");
+    final String packageName=attributes.getValue("package");
+    try {
+      myPackageManager.getPackageInfo(packageName,PackageManager.GET_ACTIVITIES);
+    }
+ catch (    PackageManager.NameNotFoundException e) {
+      myPlugins.add(new Plugin(id,packageName));
+    }
+  }
+  return false;
+}
