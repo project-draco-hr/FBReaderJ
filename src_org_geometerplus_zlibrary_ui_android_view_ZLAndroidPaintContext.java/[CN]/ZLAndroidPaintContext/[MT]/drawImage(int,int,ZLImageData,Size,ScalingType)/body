@@ -1,6 +1,0 @@
-{
-  final Bitmap bitmap=((ZLAndroidImageData)imageData).getBitmap(maxSize,scaling);
-  if (bitmap != null && !bitmap.isRecycled()) {
-    myCanvas.drawBitmap(bitmap,x,y - bitmap.getHeight(),myFillPaint);
-  }
-}
