@@ -3,3 +3,4 @@ int y
 ZLImageData image
 Size maxSize
 ScalingType scaling
+ColorAdjustingMode adjustingMode
