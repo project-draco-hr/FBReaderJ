@@ -19,7 +19,7 @@
       }
  else       if (element instanceof ZLTextImageElement) {
         final ZLTextImageElement imageElement=(ZLTextImageElement)element;
-        context.drawImage(areaX,areaY,imageElement.ImageData,getTextAreaSize(),getScalingType(imageElement),ZLPaintContext.ColorAdjustingMode.NONE);
+        context.drawImage(areaX,areaY,imageElement.ImageData,getTextAreaSize(),getScalingType(imageElement),getAdjustingModeForImages());
       }
  else       if (element == ZLTextElement.HSpace) {
         final int cw=context.getSpaceWidth();
