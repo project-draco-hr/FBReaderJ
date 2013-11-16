@@ -6,6 +6,7 @@
     return SerializerUtil.deserializeBook(myInterface.getRecentBook(index));
   }
  catch (  RemoteException e) {
+    e.printStackTrace();
     return null;
   }
 }
