@@ -3,5 +3,6 @@
   final LitResNetworkRequest request=new LitResNetworkRequest(LitResUtil.url(Link,query),new LitResXMLReader((OPDSNetworkLink)Link));
   request.addPostParameter("my","1");
   request.addPostParameter("sid",sid);
+  request.addPostParameter("limit",page * BOOKS_PER_PAGE + "," + BOOKS_PER_PAGE);
   return request;
 }

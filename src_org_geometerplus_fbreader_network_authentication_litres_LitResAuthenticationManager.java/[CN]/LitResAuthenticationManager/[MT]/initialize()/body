@@ -10,7 +10,7 @@ synchronized (this) {
     if (sid.equals(myInitializedDataSid) || !isAuthorised(true)) {
       return;
     }
-    purchasedBooksRequest=loadPurchasedBooksRequest(sid);
+    purchasedBooksRequest=loadPurchasedBooksRequest(sid,0);
     accountRequest=loadAccountRequest(sid);
   }
   final LinkedList<ZLNetworkRequest> requests=new LinkedList<ZLNetworkRequest>();
@@ -18,10 +18,22 @@ synchronized (this) {
   requests.add(accountRequest);
   try {
     ZLNetworkManager.Instance().perform(requests);
+    final boolean hasMorePages;
 synchronized (this) {
       myInitializedDataSid=sid;
-      loadPurchasedBooksOnSuccess(purchasedBooksRequest);
+      hasMorePages=loadPurchasedBooksOnSuccess(purchasedBooksRequest,true) == BOOKS_PER_PAGE;
       myAccount=new Money(((LitResPurchaseXMLReader)accountRequest.Reader).Account,"RUB");
+    }
+    if (hasMorePages) {
+      for (int page=1; ; ++page) {
+        final LitResNetworkRequest r=loadPurchasedBooksRequest(sid,page);
+        ZLNetworkManager.Instance().perform(r);
+synchronized (this) {
+          if (loadPurchasedBooksOnSuccess(r,false) < BOOKS_PER_PAGE) {
+            break;
+          }
+        }
+      }
     }
   }
  catch (  ZLNetworkException e) {

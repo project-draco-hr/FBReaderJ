@@ -1,30 +1,34 @@
 {
-  final LitResNetworkRequest networkRequest;
+  for (int page=0; ; ++page) {
+    LitResNetworkRequest networkRequest;
 synchronized (this) {
-    final String sid=mySidOption.getValue();
-    if (sid.length() == 0) {
-      throw new ZLNetworkException(NetworkException.ERROR_AUTHENTICATION_FAILED);
-    }
-    if (!sid.equals(myInitializedDataSid)) {
-      logOut(false);
-      throw new ZLNetworkException(NetworkException.ERROR_AUTHENTICATION_FAILED);
-    }
-    networkRequest=loadPurchasedBooksRequest(sid);
-  }
-  ZLNetworkException exception=null;
-  try {
-    ZLNetworkManager.Instance().perform(networkRequest);
-  }
- catch (  ZLNetworkException e) {
-    exception=e;
-  }
-synchronized (this) {
-    if (exception != null) {
-      if (NetworkException.ERROR_AUTHENTICATION_FAILED.equals(exception.getCode())) {
-        logOut(false);
+      final String sid=mySidOption.getValue();
+      if (sid.length() == 0) {
+        throw new ZLNetworkException(NetworkException.ERROR_AUTHENTICATION_FAILED);
       }
-      throw exception;
+      if (!sid.equals(myInitializedDataSid)) {
+        logOut(false);
+        throw new ZLNetworkException(NetworkException.ERROR_AUTHENTICATION_FAILED);
+      }
+      networkRequest=loadPurchasedBooksRequest(sid,page);
     }
-    loadPurchasedBooksOnSuccess(networkRequest);
+    ZLNetworkException exception=null;
+    try {
+      ZLNetworkManager.Instance().perform(networkRequest);
+    }
+ catch (    ZLNetworkException e) {
+      exception=e;
+    }
+synchronized (this) {
+      if (exception != null) {
+        if (NetworkException.ERROR_AUTHENTICATION_FAILED.equals(exception.getCode())) {
+          logOut(false);
+        }
+        throw exception;
+      }
+      if (loadPurchasedBooksOnSuccess(networkRequest,page == 0) < BOOKS_PER_PAGE) {
+        break;
+      }
+    }
   }
 }

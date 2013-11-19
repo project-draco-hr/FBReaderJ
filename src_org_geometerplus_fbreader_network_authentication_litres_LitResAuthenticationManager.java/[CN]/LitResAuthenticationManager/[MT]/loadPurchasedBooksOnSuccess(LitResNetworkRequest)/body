@@ -1,7 +1,0 @@
-{
-  LitResXMLReader reader=(LitResXMLReader)purchasedBooksRequest.Reader;
-  myPurchasedBooks.clear();
-  for (  NetworkBookItem book : reader.Books) {
-    myPurchasedBooks.addToEnd(book);
-  }
-}

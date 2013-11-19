@@ -1,0 +1,11 @@
+{
+  if (clear) {
+    myPurchasedBooks.clear();
+  }
+  final LitResXMLReader reader=(LitResXMLReader)purchasedBooksRequest.Reader;
+  for (  NetworkBookItem book : reader.Books) {
+    System.err.println("TITLE: " + book.Title);
+    myPurchasedBooks.addToEnd(book);
+  }
+  return reader.Books.size();
+}
