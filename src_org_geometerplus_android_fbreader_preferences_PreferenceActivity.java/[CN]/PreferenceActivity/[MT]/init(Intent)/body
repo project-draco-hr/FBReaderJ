@@ -1,6 +1,7 @@
 {
   setResult(FBReader.RESULT_REPAINT);
   final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
+  final ViewOptions viewOptions=fbReader.ViewOptions;
   final ZLAndroidLibrary androidLibrary=(ZLAndroidLibrary)ZLAndroidLibrary.Instance();
   final ColorProfile profile=fbReader.getColorProfile();
   final String decimalSeparator=String.valueOf(new DecimalFormatSymbols(Locale.getDefault()).getDecimalSeparator());
@@ -30,7 +31,7 @@
   }
 );
   appearanceScreen.addPreference(new ZLStringChoicePreference(this,appearanceScreen.Resource,"screenOrientation",androidLibrary.getOrientationOption(),androidLibrary.allOrientations()));
-  appearanceScreen.addPreference(new ZLBooleanPreference(this,fbReader.TwoColumnViewOption,appearanceScreen.Resource,"twoColumnView"));
+  appearanceScreen.addPreference(new ZLBooleanPreference(this,viewOptions.TwoColumnView,appearanceScreen.Resource,"twoColumnView"));
   appearanceScreen.addPreference(new ZLBooleanPreference(this,fbReader.AllowScreenBrightnessAdjustmentOption,appearanceScreen.Resource,"allowScreenBrightnessAdjustment"){
     private final int myLevel=androidLibrary.ScreenBrightnessLevelOption.getValue();
     @Override protected void onClick(){
@@ -126,11 +127,11 @@
   colorsScreen.addOption(profile.SelectionBackgroundOption,"selectionBackground");
   colorsScreen.addOption(profile.SelectionForegroundOption,"selectionForeground");
   final Screen marginsScreen=createPreferenceScreen("margins");
-  marginsScreen.addPreference(new ZLIntegerRangePreference(this,marginsScreen.Resource.getResource("left"),fbReader.LeftMarginOption));
-  marginsScreen.addPreference(new ZLIntegerRangePreference(this,marginsScreen.Resource.getResource("right"),fbReader.RightMarginOption));
-  marginsScreen.addPreference(new ZLIntegerRangePreference(this,marginsScreen.Resource.getResource("top"),fbReader.TopMarginOption));
-  marginsScreen.addPreference(new ZLIntegerRangePreference(this,marginsScreen.Resource.getResource("bottom"),fbReader.BottomMarginOption));
-  marginsScreen.addPreference(new ZLIntegerRangePreference(this,marginsScreen.Resource.getResource("spaceBetweenColumns"),fbReader.SpaceBetweenColumnsOption));
+  marginsScreen.addPreference(new ZLIntegerRangePreference(this,marginsScreen.Resource.getResource("left"),viewOptions.LeftMargin));
+  marginsScreen.addPreference(new ZLIntegerRangePreference(this,marginsScreen.Resource.getResource("right"),viewOptions.RightMargin));
+  marginsScreen.addPreference(new ZLIntegerRangePreference(this,marginsScreen.Resource.getResource("top"),viewOptions.TopMargin));
+  marginsScreen.addPreference(new ZLIntegerRangePreference(this,marginsScreen.Resource.getResource("bottom"),viewOptions.BottomMargin));
+  marginsScreen.addPreference(new ZLIntegerRangePreference(this,marginsScreen.Resource.getResource("spaceBetweenColumns"),viewOptions.SpaceBetweenColumns));
   final Screen statusLineScreen=createPreferenceScreen("scrollBar");
   final String[] scrollBarTypes={"hide","show","showAsProgress","showAsFooter"};
   statusLineScreen.addPreference(new ZLChoicePreference(this,statusLineScreen.Resource,"scrollbarType",fbReader.ScrollbarTypeOption,scrollBarTypes){
@@ -141,7 +142,7 @@
   }
 );
   final FooterOptions footerOptions=fbReader.FooterOptions;
-  footerPreferences.add(statusLineScreen.addPreference(new ZLIntegerRangePreference(this,statusLineScreen.Resource.getResource("footerHeight"),fbReader.FooterHeightOption)));
+  footerPreferences.add(statusLineScreen.addPreference(new ZLIntegerRangePreference(this,statusLineScreen.Resource.getResource("footerHeight"),viewOptions.FooterHeight)));
   footerPreferences.add(statusLineScreen.addOption(profile.FooterFillOption,"footerColor"));
   footerPreferences.add(statusLineScreen.addOption(footerOptions.ShowTOCMarks,"tocMarks"));
   footerPreferences.add(statusLineScreen.addOption(footerOptions.ShowClock,"showClock"));
