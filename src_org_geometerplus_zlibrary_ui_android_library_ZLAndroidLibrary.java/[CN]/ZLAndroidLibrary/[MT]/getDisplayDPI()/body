@@ -1,10 +1,4 @@
 {
-  if (myMetrics == null) {
-    if (myActivity == null) {
-      return 0;
-    }
-    myMetrics=new DisplayMetrics();
-    myActivity.getWindowManager().getDefaultDisplay().getMetrics(myMetrics);
-  }
-  return (int)(160 * myMetrics.density);
+  final DisplayMetrics metrics=getMetrics();
+  return metrics == null ? 0 : (int)(160 * metrics.density);
 }
