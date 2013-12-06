@@ -1,5 +1,10 @@
 {
-  for (  String name : getFontMap(false).keySet()) {
+  for (  String name : getFontAssetMap().keySet()) {
+    if (name.equalsIgnoreCase(fontFamily)) {
+      return name;
+    }
+  }
+  for (  String name : getFontFileMap(false).keySet()) {
     if (name.equalsIgnoreCase(fontFamily)) {
       return name;
     }

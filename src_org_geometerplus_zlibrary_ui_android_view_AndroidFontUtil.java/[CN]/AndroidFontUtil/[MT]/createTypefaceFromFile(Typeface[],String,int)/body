@@ -1,0 +1,22 @@
+{
+  final File[] files=getFontFileMap(false).get(family);
+  if (files == null) {
+    return null;
+  }
+  try {
+    if (files[style] != null) {
+      return Typeface.createFromFile(files[style]);
+    }
+    for (int i=0; i < 4; ++i) {
+      if (files[i] != null) {
+        if (typefaces[i] == null) {
+          typefaces[i]=Typeface.createFromFile(files[i]);
+        }
+        return typefaces[i];
+      }
+    }
+  }
+ catch (  Throwable e) {
+  }
+  return null;
+}

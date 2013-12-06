@@ -4,7 +4,7 @@
   }
   byte[] buffer;
   try {
-    buffer=readTable(nameInfo);
+    buffer=readTable(stream,nameInfo);
   }
  catch (  Throwable e) {
     return null;

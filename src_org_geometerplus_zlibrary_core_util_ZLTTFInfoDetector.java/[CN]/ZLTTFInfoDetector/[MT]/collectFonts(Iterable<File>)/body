@@ -4,8 +4,10 @@
     return fonts;
   }
   for (  File f : files) {
+    InputStream stream=null;
     try {
-      final ZLTTFInfo info=detectInfo(f);
+      stream=new FileInputStream(f);
+      final ZLTTFInfo info=detectInfo(stream);
       if (info != null && info.FamilyName != null) {
         File[] table=fonts.get(info.FamilyName);
         if (table == null) {
@@ -27,6 +29,15 @@
       }
     }
  catch (    IOException e) {
+    }
+ finally {
+      if (stream != null) {
+        try {
+          stream.close();
+        }
+ catch (        IOException e1) {
+        }
+      }
     }
   }
   return fonts;

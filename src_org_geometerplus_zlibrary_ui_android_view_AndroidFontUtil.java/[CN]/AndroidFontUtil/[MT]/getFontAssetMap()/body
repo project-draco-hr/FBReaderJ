@@ -1,0 +1,15 @@
+{
+  if (ourFontAssetMap == null) {
+    ourFontAssetMap=new HashMap<String,String[]>();
+    new ZLXMLReaderAdapter(){
+      @Override public boolean startElementHandler(      String tag,      ZLStringMap attributes){
+        if ("font".equals(tag)) {
+          ourFontAssetMap.put(attributes.getValue("family"),new String[]{"fonts/" + attributes.getValue("regular"),"fonts/" + attributes.getValue("bold"),"fonts/" + attributes.getValue("italic"),"fonts/" + attributes.getValue("boldItalic")});
+        }
+        return false;
+      }
+    }
+.readQuietly(ZLFile.createFileByPath("fonts/fonts.xml"));
+  }
+  return ourFontAssetMap;
+}

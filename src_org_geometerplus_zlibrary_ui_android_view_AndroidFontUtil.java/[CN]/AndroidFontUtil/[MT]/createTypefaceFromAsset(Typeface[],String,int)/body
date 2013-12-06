@@ -1,0 +1,12 @@
+{
+  final String[] assets=getFontAssetMap().get(family);
+  if (assets == null) {
+    return null;
+  }
+  try {
+    return Typeface.createFromAsset(((ZLAndroidLibrary)ZLAndroidLibrary.Instance()).getAssets(),assets[style]);
+  }
+ catch (  Throwable t) {
+  }
+  return null;
+}

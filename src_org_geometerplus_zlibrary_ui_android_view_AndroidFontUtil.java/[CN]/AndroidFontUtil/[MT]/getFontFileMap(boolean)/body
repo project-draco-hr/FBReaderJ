@@ -24,8 +24,8 @@
     }
     if (!fileSet.equals(ourFileSet)) {
       ourFileSet=fileSet;
-      ourFontMap=new ZLTTFInfoDetector().collectFonts(fileSet);
+      ourFontFileMap=new ZLTTFInfoDetector().collectFontFiles(fileSet);
     }
   }
-  return ourFontMap;
+  return ourFontFileMap;
 }
