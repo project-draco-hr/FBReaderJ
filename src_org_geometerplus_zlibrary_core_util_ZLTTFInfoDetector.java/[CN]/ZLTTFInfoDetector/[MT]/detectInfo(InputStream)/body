@@ -15,5 +15,5 @@
   if (nameInfo == null) {
     return null;
   }
-  return readFontInfo(nameInfo);
+  return readFontInfo(stream,nameInfo);
 }
