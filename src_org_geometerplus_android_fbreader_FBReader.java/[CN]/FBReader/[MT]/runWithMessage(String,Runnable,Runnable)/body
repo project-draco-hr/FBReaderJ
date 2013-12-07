@@ -1,0 +1,3 @@
+{
+  UIUtil.runWithMessage(this,key,action,postAction,false);
+}

@@ -36,6 +36,5 @@ synchronized (myPluginActions) {
       }
     }
   }
-  final ZLAndroidApplication application=(ZLAndroidApplication)getApplication();
-  application.myMainWindow.refresh();
+  refresh();
 }

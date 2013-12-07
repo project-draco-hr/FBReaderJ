@@ -1,4 +1,3 @@
 {
-  final ZLAndroidApplication application=(ZLAndroidApplication)getApplication();
-  application.myMainWindow.addMenuItem(menu,actionId,null,name);
+  addMenuItem(menu,actionId,null,name);
 }

@@ -13,11 +13,8 @@
   }
   getCollection().bindToService(this,null);
   myBook=null;
-  final ZLAndroidApplication androidApplication=(ZLAndroidApplication)getApplication();
-  if (androidApplication.myMainWindow == null) {
-    androidApplication.myMainWindow=new ZLAndroidApplicationWindow(myFBReaderApp);
-    myFBReaderApp.initWindow();
-  }
+  myFBReaderApp.setWindow(this);
+  myFBReaderApp.initWindow();
   myFullScreenFlag=getZLibrary().ShowStatusBarOption.getValue() ? 0 : WindowManager.LayoutParams.FLAG_FULLSCREEN;
   getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,myFullScreenFlag);
   if (myFBReaderApp.getPopupById(TextSearchPopup.ID) == null) {
