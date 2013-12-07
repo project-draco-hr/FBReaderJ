@@ -1,13 +1,12 @@
 {
   exception.printStackTrace();
-  final Activity activity=((ZLAndroidLibrary)ZLAndroidLibrary.Instance()).getActivity();
   final Intent intent=new Intent("android.fbreader.action.ERROR",new Uri.Builder().scheme(exception.getClass().getSimpleName()).build());
   intent.putExtra(ErrorKeys.MESSAGE,exception.getMessage());
   final StringWriter stackTrace=new StringWriter();
   exception.printStackTrace(new PrintWriter(stackTrace));
   intent.putExtra(ErrorKeys.STACKTRACE,stackTrace.toString());
   try {
-    activity.startActivity(intent);
+    startActivity(intent);
   }
  catch (  ActivityNotFoundException e) {
     e.printStackTrace();
