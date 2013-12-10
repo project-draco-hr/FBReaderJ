@@ -1,5 +1,5 @@
 {
-  setTextStyle(ZLTextStyleCollection.Instance().getBaseStyle());
+  setTextStyle(getTextStyleCollection().getBaseStyle());
   final int textWidth=getTextColumnWidth();
   final int textHeight=getTextAreaHeight();
   final int num=myModel.getParagraphsNumber();

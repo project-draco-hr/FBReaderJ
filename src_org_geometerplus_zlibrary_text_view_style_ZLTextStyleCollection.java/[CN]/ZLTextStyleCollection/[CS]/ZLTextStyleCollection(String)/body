@@ -1,0 +1,3 @@
+{
+  new TextStyleReader(name).readQuietly(ZLResourceFile.createResourceFile("default/styles.xml"));
+}

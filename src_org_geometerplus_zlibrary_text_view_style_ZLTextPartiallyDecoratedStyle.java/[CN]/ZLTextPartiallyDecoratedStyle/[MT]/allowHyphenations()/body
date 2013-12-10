@@ -5,6 +5,6 @@ case B3_FALSE:
 case B3_TRUE:
   return true;
 default :
-return Base.allowHyphenations();
+return Parent.allowHyphenations();
 }
 }

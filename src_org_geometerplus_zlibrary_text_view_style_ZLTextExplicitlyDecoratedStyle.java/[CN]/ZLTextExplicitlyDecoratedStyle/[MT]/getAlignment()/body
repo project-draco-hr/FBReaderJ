@@ -1,6 +1,6 @@
 {
-  if (myEntry instanceof ZLTextCSSStyleEntry && !ZLTextStyleCollection.Instance().UseCSSTextAlignmentOption.getValue()) {
-    return Base.getAlignment();
+  if (myEntry instanceof ZLTextCSSStyleEntry && !BaseStyle.UseCSSTextAlignmentOption.getValue()) {
+    return Parent.getAlignment();
   }
-  return myEntry.isFeatureSupported(ALIGNMENT_TYPE) ? myEntry.getAlignmentType() : Base.getAlignment();
+  return myEntry.isFeatureSupported(ALIGNMENT_TYPE) ? myEntry.getAlignmentType() : Parent.getAlignment();
 }

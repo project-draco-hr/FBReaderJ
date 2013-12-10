@@ -2,8 +2,8 @@
   final String BASE="base";
   final String STYLE="style";
   if (BASE.equals(tag)) {
-    myCollection.myDefaultFontSize=intValue(attributes,"fontSize",0);
-    myCollection.myBaseStyle=new ZLTextBaseStyle(attributes.getValue("family"),myCollection.myDefaultFontSize);
+    myDefaultFontSize=intValue(attributes,"fontSize",0);
+    myBaseStyle=new ZLTextBaseStyle(myCollectionName,attributes.getValue("family"),myDefaultFontSize);
   }
  else   if (STYLE.equals(tag)) {
     String idString=attributes.getValue("id");
@@ -47,7 +47,7 @@
         final int lineSpacePercent=intValue(attributes,"lineSpacingPercent",-1);
         decoration=new ZLTextFullStyleDecoration(name,fontFamily,fontSizeDelta,bold,italic,underline,strikeThrough,spaceBefore,spaceAfter,leftIndent,rightIndent,firstLineIndentDelta,verticalShift,alignment,lineSpacePercent,allowHyphenations);
       }
-      myCollection.myDecorationMap[id & 0xFF]=decoration;
+      myDecorationMap[id & 0xFF]=decoration;
     }
   }
   return false;

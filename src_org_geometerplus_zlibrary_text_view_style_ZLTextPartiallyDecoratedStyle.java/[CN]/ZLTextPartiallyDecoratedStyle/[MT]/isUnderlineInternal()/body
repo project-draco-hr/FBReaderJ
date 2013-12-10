@@ -5,6 +5,6 @@ case B3_TRUE:
 case B3_FALSE:
   return false;
 default :
-return Base.isUnderline();
+return Parent.isUnderline();
 }
 }
