@@ -1,4 +1,5 @@
 {
+  Name=name;
   if (NIGHT.equals(name)) {
     WallpaperOption=new ZLStringOption("Colors",name + ":Wallpaper","");
     BackgroundOption=createOption(name,"Background",0,0,0);
