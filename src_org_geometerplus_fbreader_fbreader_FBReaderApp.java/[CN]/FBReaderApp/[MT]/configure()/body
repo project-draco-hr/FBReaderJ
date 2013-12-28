@@ -1,0 +1,7 @@
+{
+  TextStyleCollection=new ZLTextStyleCollection("Base");
+  AllowScreenBrightnessAdjustmentOption=new ZLBooleanOption("LookNFeel","AllowScreenBrightnessAdjustment",true);
+  TextSearchPatternOption=new ZLStringOption("TextSearch","Pattern","");
+  EnableDoubleTapOption=new ZLBooleanOption("Options","EnableDoubleTap",false);
+  NavigateAllWordsOption=new ZLBooleanOption("Options","NavigateAllWords",false);
+}
