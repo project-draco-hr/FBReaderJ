@@ -27,7 +27,7 @@ try {
 final Intent intent=new Intent();
 intent.setClass(BaseActivity,ImageViewActivity.class);
 intent.setData(Uri.parse(url));
-intent.putExtra(ImageViewActivity.BACKGROUND_COLOR_KEY,Reader.ImageViewBackgroundOption.getValue().intValue());
+intent.putExtra(ImageViewActivity.BACKGROUND_COLOR_KEY,Reader.ImageOptions.ImageViewBackground.getValue().intValue());
 OrientationUtil.startActivity(BaseActivity,intent);
 }
  catch (Exception e) {

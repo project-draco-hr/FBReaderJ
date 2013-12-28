@@ -15,7 +15,7 @@
       doRunAction=myReader.WordTappingActionOption.getValue() == FBReaderApp.WordTappingAction.openDictionary;
     }
  else     if (soul instanceof ZLTextImageRegionSoul) {
-      doRunAction=myReader.ImageTappingActionOption.getValue() == FBReaderApp.ImageTappingAction.openImageView;
+      doRunAction=myReader.ImageOptions.TapAction.getValue() == ImageOptions.TapActionEnum.openImageView;
     }
     if (doRunAction) {
       myReader.runAction(ActionCode.PROCESS_HYPERLINK);

@@ -1,5 +1,5 @@
 {
-  if (myReader.ImageMatchBackgroundOption.getValue()) {
+  if (myReader.ImageOptions.MatchBackground.getValue()) {
     if (ColorProfile.DAY.equals(myReader.getColorProfile().Name)) {
       return ZLPaintContext.ColorAdjustingMode.DARKEN_TO_BACKGROUND;
     }

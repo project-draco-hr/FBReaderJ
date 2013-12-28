@@ -23,7 +23,7 @@ break;
 }
 }
  else if (soul instanceof ZLTextImageRegionSoul) {
-doSelectRegion=myReader.ImageTappingActionOption.getValue() != FBReaderApp.ImageTappingAction.doNothing;
+doSelectRegion=myReader.ImageOptions.TapAction.getValue() != ImageOptions.TapActionEnum.doNothing;
 }
  else if (soul instanceof ZLTextHyperlinkRegionSoul) {
 doSelectRegion=true;
