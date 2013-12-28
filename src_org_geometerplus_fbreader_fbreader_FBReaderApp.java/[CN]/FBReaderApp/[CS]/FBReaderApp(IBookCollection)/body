@@ -1,5 +1,4 @@
 {
-  configure();
   Collection=collection;
   collection.addListener(new IBookCollection.Listener(){
     public void onBookEvent(    BookEvent event,    Book book){
