@@ -134,7 +134,7 @@
   marginsScreen.addPreference(new ZLIntegerRangePreference(this,marginsScreen.Resource.getResource("spaceBetweenColumns"),viewOptions.SpaceBetweenColumns));
   final Screen statusLineScreen=createPreferenceScreen("scrollBar");
   final String[] scrollBarTypes={"hide","show","showAsProgress","showAsFooter"};
-  statusLineScreen.addPreference(new ZLChoicePreference(this,statusLineScreen.Resource,"scrollbarType",fbReader.ScrollbarTypeOption,scrollBarTypes){
+  statusLineScreen.addPreference(new ZLChoicePreference(this,statusLineScreen.Resource,"scrollbarType",viewOptions.ScrollbarType,scrollBarTypes){
     @Override protected void onDialogClosed(    boolean result){
       super.onDialogClosed(result);
       footerPreferences.setEnabled(findIndexOfValue(getValue()) == FBView.SCROLLBAR_SHOW_AS_FOOTER);
@@ -149,7 +149,7 @@
   footerPreferences.add(statusLineScreen.addOption(footerOptions.ShowClock,"showClock"));
   footerPreferences.add(statusLineScreen.addOption(footerOptions.ShowBattery,"showBattery"));
   footerPreferences.add(statusLineScreen.addPreference(new FontOption(this,statusLineScreen.Resource,"font",footerOptions.Font,false)));
-  footerPreferences.setEnabled(fbReader.ScrollbarTypeOption.getValue() == FBView.SCROLLBAR_SHOW_AS_FOOTER);
+  footerPreferences.setEnabled(viewOptions.ScrollbarType.getValue() == FBView.SCROLLBAR_SHOW_AS_FOOTER);
   final PageTurningOptions pageTurningOptions=fbReader.PageTurningOptions;
   final ZLKeyBindings keyBindings=fbReader.keyBindings();
   final Screen scrollingScreen=createPreferenceScreen("scrolling");
