@@ -1,7 +1,7 @@
 {
   final FBView fbView=Reader.getTextView();
   ZLTextRegion region=fbView.getSelectedRegion();
-  final ZLTextRegion.Filter filter=(region != null && region.getSoul() instanceof ZLTextWordRegionSoul) || Reader.NavigateAllWordsOption.getValue() ? ZLTextRegion.AnyRegionFilter : ZLTextRegion.ImageOrHyperlinkFilter;
+  final ZLTextRegion.Filter filter=(region != null && region.getSoul() instanceof ZLTextWordRegionSoul) || Reader.MiscOptions.NavigateAllWords.getValue() ? ZLTextRegion.AnyRegionFilter : ZLTextRegion.ImageOrHyperlinkFilter;
   region=fbView.nextRegion(myDirection,filter);
   if (region != null) {
     fbView.selectRegion(region);

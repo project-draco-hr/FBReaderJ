@@ -12,7 +12,7 @@
     final ZLTextRegion.Soul soul=region.getSoul();
     boolean doRunAction=false;
     if (soul instanceof ZLTextWordRegionSoul) {
-      doRunAction=myReader.WordTappingActionOption.getValue() == FBReaderApp.WordTappingAction.openDictionary;
+      doRunAction=myReader.MiscOptions.WordTappingAction.getValue() == MiscOptions.WordTappingActionEnum.openDictionary;
     }
  else     if (soul instanceof ZLTextImageRegionSoul) {
       doRunAction=myReader.ImageOptions.TapAction.getValue() == ImageOptions.TapActionEnum.openImageView;

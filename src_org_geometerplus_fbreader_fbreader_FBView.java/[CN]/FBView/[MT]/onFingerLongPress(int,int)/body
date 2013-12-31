@@ -7,7 +7,7 @@
     final ZLTextRegion.Soul soul=region.getSoul();
     boolean doSelectRegion=false;
     if (soul instanceof ZLTextWordRegionSoul) {
-switch (myReader.WordTappingActionOption.getValue()) {
+switch (myReader.MiscOptions.WordTappingAction.getValue()) {
 case startSelecting:
         myReader.runAction(ActionCode.SELECTION_HIDE_PANEL);
       initSelection(x,y);

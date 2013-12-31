@@ -11,7 +11,7 @@
   if (region != null) {
     ZLTextRegion.Soul soul=region.getSoul();
     if (soul instanceof ZLTextHyperlinkRegionSoul || soul instanceof ZLTextWordRegionSoul) {
-      if (myReader.WordTappingActionOption.getValue() != FBReaderApp.WordTappingAction.doNothing) {
+      if (myReader.MiscOptions.WordTappingAction.getValue() != MiscOptions.WordTappingActionEnum.doNothing) {
         region=findRegion(x,y,MAX_SELECTION_DISTANCE,ZLTextRegion.AnyRegionFilter);
         if (region != null) {
           soul=region.getSoul();

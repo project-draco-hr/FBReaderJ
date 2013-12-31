@@ -11,6 +11,6 @@
     }
   }
 );
-  startSearch(myFBReaderApp.TextSearchPatternOption.getValue(),true,null,false);
+  startSearch(myFBReaderApp.MiscOptions.TextSearchPattern.getValue(),true,null,false);
   return true;
 }

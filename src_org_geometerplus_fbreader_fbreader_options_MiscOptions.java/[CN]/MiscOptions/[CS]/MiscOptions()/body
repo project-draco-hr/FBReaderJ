@@ -1,0 +1,7 @@
+{
+  AllowScreenBrightnessAdjustment=new ZLBooleanOption("LookNFeel","AllowScreenBrightnessAdjustment",true);
+  TextSearchPattern=new ZLStringOption("TextSearch","Pattern","");
+  EnableDoubleTap=new ZLBooleanOption("Options","EnableDoubleTap",false);
+  NavigateAllWords=new ZLBooleanOption("Options","NavigateAllWords",false);
+  WordTappingAction=new ZLEnumOption<WordTappingActionEnum>("Options","WordTappingAction",WordTappingActionEnum.startSelecting);
+}

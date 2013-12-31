@@ -2,6 +2,7 @@
   setResult(FBReader.RESULT_REPAINT);
   final FBReaderApp fbReader=(FBReaderApp)FBReaderApp.Instance();
   final ViewOptions viewOptions=fbReader.ViewOptions;
+  final MiscOptions miscOptions=fbReader.MiscOptions;
   final ZLAndroidLibrary androidLibrary=(ZLAndroidLibrary)ZLAndroidLibrary.Instance();
   final ColorProfile profile=fbReader.getColorProfile();
   final String decimalSeparator=String.valueOf(new DecimalFormatSymbols(Locale.getDefault()).getDecimalSeparator());
@@ -32,7 +33,7 @@
 );
   appearanceScreen.addPreference(new ZLStringChoicePreference(this,appearanceScreen.Resource,"screenOrientation",androidLibrary.getOrientationOption(),androidLibrary.allOrientations()));
   appearanceScreen.addPreference(new ZLBooleanPreference(this,viewOptions.TwoColumnView,appearanceScreen.Resource,"twoColumnView"));
-  appearanceScreen.addPreference(new ZLBooleanPreference(this,fbReader.AllowScreenBrightnessAdjustmentOption,appearanceScreen.Resource,"allowScreenBrightnessAdjustment"){
+  appearanceScreen.addPreference(new ZLBooleanPreference(this,miscOptions.AllowScreenBrightnessAdjustment,appearanceScreen.Resource,"allowScreenBrightnessAdjustment"){
     private final int myLevel=androidLibrary.ScreenBrightnessLevelOption.getValue();
     @Override protected void onClick(){
       super.onClick();
@@ -154,7 +155,7 @@
   final ZLKeyBindings keyBindings=fbReader.keyBindings();
   final Screen scrollingScreen=createPreferenceScreen("scrolling");
   scrollingScreen.addOption(pageTurningOptions.FingerScrolling,"fingerScrolling");
-  scrollingScreen.addOption(fbReader.EnableDoubleTapOption,"enableDoubleTapDetection");
+  scrollingScreen.addOption(miscOptions.EnableDoubleTap,"enableDoubleTapDetection");
   final ZLPreferenceSet volumeKeysPreferences=new ZLPreferenceSet();
   scrollingScreen.addPreference(new ZLCheckBoxPreference(this,scrollingScreen.Resource,"volumeKeys"){
 {
@@ -222,8 +223,8 @@
       }
 );
       dictionaryScreen.addPreference(new DictionaryPreference(PreferenceActivity.this,dictionaryScreen.Resource,"translator",DictionaryUtil.multiWordTranslatorOption(),DictionaryUtil.dictionaryInfos(PreferenceActivity.this,false)));
-      dictionaryScreen.addPreference(new ZLBooleanPreference(PreferenceActivity.this,fbReader.NavigateAllWordsOption,dictionaryScreen.Resource,"navigateOverAllWords"));
-      dictionaryScreen.addOption(fbReader.WordTappingActionOption,"tappingAction");
+      dictionaryScreen.addPreference(new ZLBooleanPreference(PreferenceActivity.this,miscOptions.NavigateAllWords,dictionaryScreen.Resource,"navigateOverAllWords"));
+      dictionaryScreen.addOption(miscOptions.WordTappingAction,"tappingAction");
       dictionaryScreen.addPreference(targetLanguagePreference);
       targetLanguagePreference.setEnabled(DictionaryUtil.getCurrentDictionaryInfo(true).SupportsTargetLanguageSetting);
     }
