@@ -1,4 +1,4 @@
 {
-  Group=group;
-  Name=name;
+  Group=group.intern();
+  Name=name.intern();
 }

@@ -1,5 +1,6 @@
 {
-  myDatabase=context.openOrCreateDatabase("config.db",Context.MODE_PRIVATE,null);
+  myService=service;
+  myDatabase=service.openOrCreateDatabase("config.db",Context.MODE_PRIVATE,null);
 switch (myDatabase.getVersion()) {
 case 0:
     myDatabase.execSQL("CREATE TABLE config (groupName VARCHAR, name VARCHAR, value VARCHAR, PRIMARY KEY(groupName, name) )");

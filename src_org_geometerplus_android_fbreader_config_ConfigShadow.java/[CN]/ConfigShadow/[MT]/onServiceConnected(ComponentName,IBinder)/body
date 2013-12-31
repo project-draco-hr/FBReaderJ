@@ -1,3 +1,4 @@
 {
   myInterface=ConfigInterface.Stub.asInterface(service);
+  myContext.registerReceiver(myReceiver,new IntentFilter(SQLiteConfig.OPTION_CHANGE_EVENT_ACTION));
 }

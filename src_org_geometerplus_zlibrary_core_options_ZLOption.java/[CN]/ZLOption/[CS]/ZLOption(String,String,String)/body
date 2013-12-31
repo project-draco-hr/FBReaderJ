@@ -1,4 +1,4 @@
 {
-  myId=new StringPair(group.intern(),optionName.intern());
+  myId=new StringPair(group,optionName);
   myDefaultStringValue=defaultStringValue != null ? defaultStringValue : "";
 }
