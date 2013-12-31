@@ -1,0 +1,6 @@
+{
+  if (myConfig != null) {
+    myConfig=null;
+  }
+  super.onDestroy();
+}
