@@ -1,2 +1,6 @@
 {
+  TipsAreInitializedOption=new ZLBooleanOption("tips","tipsAreInitialized",false);
+  ShowTipsOption=new ZLBooleanOption("tips","showTips",false);
+  myLastShownOption=new ZLIntegerOption("tips","shownAt",0);
+  myIndexOption=new ZLIntegerOption("tips","index",0);
 }
