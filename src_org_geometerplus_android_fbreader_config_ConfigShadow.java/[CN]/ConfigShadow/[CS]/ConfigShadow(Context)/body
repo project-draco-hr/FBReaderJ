@@ -1,2 +1,3 @@
 {
+  context.bindService(new Intent(context,ConfigService.class),this,ConfigService.BIND_AUTO_CREATE);
 }
