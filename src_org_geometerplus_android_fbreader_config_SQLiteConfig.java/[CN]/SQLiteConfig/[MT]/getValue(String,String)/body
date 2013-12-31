@@ -5,6 +5,6 @@
     return myGetValueStatement.simpleQueryForString();
   }
  catch (  SQLException e) {
-    return defaultValue;
+    return null;
   }
 }

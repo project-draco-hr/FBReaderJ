@@ -1,21 +1,12 @@
 {
-  if (!myIsSynchronized) {
-    String value=getConfigValue(null);
-    if (value != null) {
-      try {
-        int intValue=Integer.parseInt(value);
-        if (intValue < MinValue) {
-          intValue=MinValue;
-        }
- else         if (intValue > MaxValue) {
-          intValue=MaxValue;
-        }
-        myValue=intValue;
-      }
- catch (      NumberFormatException e) {
-      }
+  final String stringValue=getConfigValue();
+  if (!stringValue.equals(myStringValue)) {
+    myStringValue=stringValue;
+    try {
+      myValue=valueInRange(Integer.parseInt(stringValue),MinValue,MaxValue);
     }
-    myIsSynchronized=true;
+ catch (    NumberFormatException e) {
+    }
   }
   return myValue;
 }

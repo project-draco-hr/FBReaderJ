@@ -1,5 +1,0 @@
-{
-  myGroup=group.intern();
-  myOptionName=optionName.intern();
-  myIsSynchronized=false;
-}

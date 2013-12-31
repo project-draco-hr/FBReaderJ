@@ -1,15 +1,3 @@
 {
-  if (!myIsSynchronized) {
-    String value=getConfigValue(null);
-    if (value != null) {
-      if ("true".equals(value)) {
-        myValue=true;
-      }
- else       if ("false".equals(value)) {
-        myValue=false;
-      }
-    }
-    myIsSynchronized=true;
-  }
-  return myValue;
+  return "true".equals(getConfigValue());
 }

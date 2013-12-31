@@ -1,13 +1,5 @@
 {
-  if (myIsSynchronized && (myValue == value)) {
-    return;
-  }
   myValue=value;
-  myIsSynchronized=true;
-  if (value == myDefaultValue) {
-    unsetConfigValue();
-  }
- else {
-    setConfigValue("" + value);
-  }
+  myStringValue=String.valueOf(value);
+  setConfigValue(myStringValue);
 }

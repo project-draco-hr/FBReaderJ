@@ -1,13 +1,6 @@
 {
-  if (myIsSynchronized && (myValue == value)) {
+  if (value == null) {
     return;
   }
-  myValue=value;
-  myIsSynchronized=true;
-  if (myValue == myDefaultValue) {
-    unsetConfigValue();
-  }
- else {
-    setConfigValue(myValue.Name);
-  }
+  setConfigValue(value.Name);
 }

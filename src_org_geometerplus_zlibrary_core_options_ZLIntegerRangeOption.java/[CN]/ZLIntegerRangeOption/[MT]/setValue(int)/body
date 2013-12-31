@@ -1,19 +1,6 @@
 {
-  if (value < MinValue) {
-    value=MinValue;
-  }
- else   if (value > MaxValue) {
-    value=MaxValue;
-  }
-  if (myIsSynchronized && (myValue == value)) {
-    return;
-  }
+  value=valueInRange(value,MinValue,MaxValue);
   myValue=value;
-  myIsSynchronized=true;
-  if (value == myDefaultValue) {
-    unsetConfigValue();
-  }
- else {
-    setConfigValue("" + value);
-  }
+  myStringValue=String.valueOf(value);
+  setConfigValue(myStringValue);
 }

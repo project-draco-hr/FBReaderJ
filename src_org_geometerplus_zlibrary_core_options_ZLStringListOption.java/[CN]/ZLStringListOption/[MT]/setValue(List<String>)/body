@@ -2,15 +2,10 @@
   if (value == null) {
     value=Collections.emptyList();
   }
-  if (myIsSynchronized && (myValue.equals(value))) {
+  if (value.equals(myValue)) {
     return;
   }
   myValue=new ArrayList<String>(value);
-  if (value.equals(myDefaultValue)) {
-    unsetConfigValue();
-  }
- else {
-    setConfigValue(MiscUtil.join(value,myDelimiter));
-  }
-  myIsSynchronized=true;
+  myStringValue=MiscUtil.join(value,myDelimiter);
+  setConfigValue(myStringValue);
 }

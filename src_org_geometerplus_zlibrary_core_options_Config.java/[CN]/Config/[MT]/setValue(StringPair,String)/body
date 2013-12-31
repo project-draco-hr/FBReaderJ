@@ -1,0 +1,8 @@
+{
+  final String oldValue=myCache.get(id);
+  if (oldValue != null && oldValue.equals(value)) {
+    return;
+  }
+  myCache.put(id,value);
+  setValueInternal(id.Group,id.Name,value);
+}

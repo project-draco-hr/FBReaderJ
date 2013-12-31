@@ -1,18 +1,8 @@
 {
-  if (colorValue != null) {
-    final boolean sameValue=myValue.equals(colorValue);
-    if (myIsSynchronized && sameValue) {
-      return;
-    }
-    if (!sameValue) {
-      myValue=colorValue;
-    }
-    myIsSynchronized=true;
-    if (colorValue.equals(myDefaultValue)) {
-      unsetConfigValue();
-    }
- else {
-      setConfigValue(String.valueOf(colorValue.intValue()));
-    }
+  if (value == null) {
+    return;
   }
+  myValue=value;
+  myStringValue=String.valueOf(value.intValue());
+  setConfigValue(myStringValue);
 }

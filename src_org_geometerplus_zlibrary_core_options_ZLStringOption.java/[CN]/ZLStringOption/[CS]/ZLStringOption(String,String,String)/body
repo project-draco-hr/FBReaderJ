@@ -1,5 +1,3 @@
 {
-  super(group,optionName);
-  myDefaultValue=defaultValue != null ? defaultValue.intern() : "";
-  myValue=myDefaultValue;
+  super(group,optionName,defaultValue);
 }

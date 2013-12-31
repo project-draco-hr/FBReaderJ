@@ -1,6 +1,0 @@
-{
-  final Config config=Config.Instance();
-  if (config != null) {
-    config.unsetValue(myGroup,myOptionName);
-  }
-}

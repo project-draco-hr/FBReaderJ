@@ -1,0 +1,12 @@
+{
+  if (other == this) {
+    return true;
+  }
+  try {
+    final StringPair pair=(StringPair)other;
+    return Group.equals(pair.Group) && Name.equals(pair.Name);
+  }
+ catch (  ClassCastException e) {
+    return false;
+  }
+}

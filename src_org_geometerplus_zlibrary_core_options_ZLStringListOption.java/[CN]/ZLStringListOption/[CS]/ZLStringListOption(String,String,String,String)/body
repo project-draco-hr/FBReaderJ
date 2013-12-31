@@ -1,6 +1,3 @@
 {
-  super(group,optionName);
-  myDefaultValue=(defaultValue != null) ? Collections.singletonList(defaultValue) : Collections.<String>emptyList();
-  myValue=myDefaultValue;
-  myDelimiter=delimiter;
+  this(group,optionName,defaultValue != null ? Collections.singletonList(defaultValue) : Collections.<String>emptyList(),delimiter);
 }

@@ -1,0 +1,4 @@
+{
+  final Config config=Config.Instance();
+  return config != null ? config.getValue(myId,myDefaultStringValue) : myDefaultStringValue;
+}

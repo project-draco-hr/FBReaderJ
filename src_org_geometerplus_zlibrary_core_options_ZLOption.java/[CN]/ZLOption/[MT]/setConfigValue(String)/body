@@ -1,6 +1,11 @@
 {
   final Config config=Config.Instance();
   if (config != null) {
-    config.setValue(myGroup,myOptionName,value);
+    if (!myDefaultStringValue.equals(value)) {
+      config.setValue(myId,value);
+    }
+ else {
+      config.unsetValue(myId);
+    }
   }
 }

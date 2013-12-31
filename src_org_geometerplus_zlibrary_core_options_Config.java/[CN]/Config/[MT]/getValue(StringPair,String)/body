@@ -1,0 +1,11 @@
+{
+  String value=myCache.get(id);
+  if (value == null) {
+    value=getValueInternal(id.Group,id.Name);
+    if (value == null) {
+      return defaultValue;
+    }
+    myCache.put(id,value);
+  }
+  return value;
+}

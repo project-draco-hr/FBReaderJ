@@ -1,14 +1,12 @@
 {
-  if (!myIsSynchronized) {
-    String value=getConfigValue(null);
-    if (value != null) {
-      try {
-        myValue=Integer.parseInt(value);
-      }
- catch (      NumberFormatException e) {
-      }
+  final String stringValue=getConfigValue();
+  if (!stringValue.equals(myStringValue)) {
+    myStringValue=stringValue;
+    try {
+      myValue=Integer.parseInt(stringValue);
     }
-    myIsSynchronized=true;
+ catch (    NumberFormatException e) {
+    }
   }
   return myValue;
 }

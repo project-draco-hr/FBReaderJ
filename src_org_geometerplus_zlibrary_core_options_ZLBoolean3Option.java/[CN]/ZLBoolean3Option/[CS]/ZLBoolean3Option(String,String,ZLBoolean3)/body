@@ -1,5 +1,3 @@
 {
-  super(group,optionName);
-  myDefaultValue=defaultValue;
-  myValue=myDefaultValue;
+  super(group,optionName,defaultValue.Name);
 }

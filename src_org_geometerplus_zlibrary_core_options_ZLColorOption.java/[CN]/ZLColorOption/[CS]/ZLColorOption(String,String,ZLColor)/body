@@ -1,5 +1,3 @@
 {
-  super(group,optionName);
-  myDefaultValue=(defaultValue != null) ? defaultValue : new ZLColor(0);
-  myValue=myDefaultValue;
+  super(group,optionName,String.valueOf(defaultValue.intValue()));
 }

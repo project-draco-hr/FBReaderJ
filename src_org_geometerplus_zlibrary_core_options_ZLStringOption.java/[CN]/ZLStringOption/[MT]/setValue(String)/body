@@ -2,16 +2,5 @@
   if (value == null) {
     return;
   }
-  value=value.intern();
-  if (myIsSynchronized && (myValue == value)) {
-    return;
-  }
-  myValue=value;
-  if (value == myDefaultValue) {
-    unsetConfigValue();
-  }
- else {
-    setConfigValue(value);
-  }
-  myIsSynchronized=true;
+  setConfigValue(value);
 }

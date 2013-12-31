@@ -1,4 +1,0 @@
-{
-  final Config config=Config.Instance();
-  return (config != null) ? config.getValue(myGroup,myOptionName,defaultValue) : defaultValue;
-}

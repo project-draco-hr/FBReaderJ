@@ -1,13 +1,5 @@
 {
-  super(group,optionName);
+  super(group,optionName,String.valueOf(valueInRange(defaultValue,minValue,maxValue)));
   MinValue=minValue;
   MaxValue=maxValue;
-  if (defaultValue < MinValue) {
-    defaultValue=MinValue;
-  }
- else   if (defaultValue > MaxValue) {
-    defaultValue=MaxValue;
-  }
-  myDefaultValue=defaultValue;
-  myValue=defaultValue;
 }

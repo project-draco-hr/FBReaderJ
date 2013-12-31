@@ -1,5 +1,4 @@
 {
-  super(group,optionName);
-  myDefaultValue=defaultValue;
-  myValue=defaultValue;
+  super(group,optionName,String.valueOf(defaultValue));
+  myEnumClass=defaultValue.getDeclaringClass();
 }

@@ -1,17 +1,12 @@
 {
-  if (!myIsSynchronized) {
-    String value=getConfigValue(null);
-    if (value != null) {
-      try {
-        int intValue=Integer.parseInt(value);
-        if (myValue.intValue() != intValue) {
-          myValue=new ZLColor(intValue);
-        }
-      }
- catch (      NumberFormatException e) {
-      }
+  final String stringValue=getConfigValue();
+  if (!stringValue.equals(myStringValue)) {
+    myStringValue=stringValue;
+    try {
+      myValue=new ZLColor(Integer.parseInt(stringValue));
     }
-    myIsSynchronized=true;
+ catch (    NumberFormatException e) {
+    }
   }
   return myValue;
 }

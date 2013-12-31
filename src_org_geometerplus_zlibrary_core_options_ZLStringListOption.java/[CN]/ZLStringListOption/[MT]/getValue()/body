@@ -1,10 +1,8 @@
 {
-  if (!myIsSynchronized) {
-    final String value=getConfigValue(MiscUtil.join(myDefaultValue,myDelimiter));
-    if (value != null) {
-      myValue=MiscUtil.split(value,myDelimiter);
-    }
-    myIsSynchronized=true;
+  final String stringValue=getConfigValue();
+  if (!stringValue.equals(myStringValue)) {
+    myStringValue=stringValue;
+    myValue=MiscUtil.split(stringValue,myDelimiter);
   }
-  return Collections.unmodifiableList(myValue);
+  return myValue;
 }
