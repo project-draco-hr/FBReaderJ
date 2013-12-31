@@ -1,5 +1,5 @@
 {
-  ZLConfig config=ZLConfig.Instance();
+  final Config config=Config.Instance();
   if (config != null) {
     config.setValue(myGroup,myOptionName,value);
   }

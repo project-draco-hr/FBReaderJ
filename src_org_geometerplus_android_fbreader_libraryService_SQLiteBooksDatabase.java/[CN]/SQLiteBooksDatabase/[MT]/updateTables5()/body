@@ -17,7 +17,7 @@
       statement.bindLong(4,chr);
       statement.execute();
     }
-    ZLConfig.Instance().removeGroup(fileName);
+    Config.Instance().removeGroup(fileName);
   }
   cursor.close();
 }

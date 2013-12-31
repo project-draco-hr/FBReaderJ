@@ -1,3 +1,3 @@
 {
-  return ZLConfig.Instance().getValue(group,name,null);
+  return Config.Instance().getValue(group,name,null);
 }
