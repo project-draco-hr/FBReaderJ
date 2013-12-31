@@ -10,6 +10,7 @@
   if (model == null) {
     return;
   }
+  final FooterOptions footerOptions=myReader.FooterOptions;
   final ZLColor fgColor=getTextColor(ZLTextHyperlink.NO_LINK);
   final ZLColor fillColor=myReader.getColorProfile().FooterFillOption.getValue();
   final int left=getLeftMargin();
@@ -17,21 +18,21 @@
   final int height=getHeight();
   final int lineWidth=height <= 10 ? 1 : 2;
   final int delta=height <= 10 ? 0 : 1;
-  context.setFont(myReader.FooterOptions.Font.getValue(),height <= 10 ? height + 3 : height + 1,height > 10,false,false,false);
+  context.setFont(footerOptions.Font.getValue(),height <= 10 ? height + 3 : height + 1,height > 10,false,false,false);
   final PagePosition pagePosition=FBView.this.pagePosition();
   final StringBuilder info=new StringBuilder();
-  if (myReader.FooterOptions.ShowProgress.getValue()) {
+  if (footerOptions.ShowProgress.getValue()) {
     info.append(pagePosition.Current);
     info.append("/");
     info.append(pagePosition.Total);
   }
-  if (myReader.FooterOptions.ShowClock.getValue()) {
+  if (footerOptions.ShowClock.getValue()) {
     if (info.length() > 0) {
       info.append(" ");
     }
     info.append(ZLibrary.Instance().getCurrentTimeString());
   }
-  if (myReader.FooterOptions.ShowBattery.getValue()) {
+  if (footerOptions.ShowBattery.getValue()) {
     if (info.length() > 0) {
       info.append(" ");
     }
@@ -53,7 +54,7 @@
   final int gaugeInternalRight=left + lineWidth + (int)(1.0 * myGaugeWidth * pagePosition.Current / pagePosition.Total);
   context.setFillColor(fillColor);
   context.fillRectangle(left + 1,height - 2 * lineWidth,gaugeInternalRight,lineWidth + 1);
-  if (myReader.FooterOptions.ShowTOCMarks.getValue()) {
+  if (footerOptions.ShowTOCMarks.getValue()) {
     if (myTOCMarks == null) {
       updateTOCMarks(model);
     }
