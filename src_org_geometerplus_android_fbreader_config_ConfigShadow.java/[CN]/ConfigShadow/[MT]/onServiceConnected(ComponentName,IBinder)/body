@@ -1,0 +1,3 @@
+{
+  myInterface=ConfigInterface.Stub.asInterface(service);
+}

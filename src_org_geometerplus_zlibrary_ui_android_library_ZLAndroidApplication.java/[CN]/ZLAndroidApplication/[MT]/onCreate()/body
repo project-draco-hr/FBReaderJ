@@ -1,6 +1,6 @@
 {
   super.onCreate();
-  new ShadowConfig(this);
+  new ConfigShadow(this);
   new ZLAndroidImageManager();
   new ZLAndroidLibrary(this);
 }

@@ -1,0 +1,11 @@
+{
+  if (myInterface == null) {
+    return defaultValue;
+  }
+  try {
+    return myInterface.getValue(group,name,defaultValue);
+  }
+ catch (  RemoteException e) {
+    return defaultValue;
+  }
+}

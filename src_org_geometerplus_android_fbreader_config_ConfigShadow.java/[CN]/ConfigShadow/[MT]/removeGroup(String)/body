@@ -1,0 +1,9 @@
+{
+  if (myInterface != null) {
+    try {
+      myInterface.removeGroup(name);
+    }
+ catch (    RemoteException e) {
+    }
+  }
+}

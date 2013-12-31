@@ -1,0 +1,9 @@
+{
+  if (myInterface != null) {
+    try {
+      myInterface.setValue(group,name,value);
+    }
+ catch (    RemoteException e) {
+    }
+  }
+}
