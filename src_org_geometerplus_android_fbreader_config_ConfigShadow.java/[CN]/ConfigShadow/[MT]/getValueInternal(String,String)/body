@@ -1,11 +1,11 @@
 {
   if (myInterface == null) {
-    throw new NotAvailableException();
+    throw new NotAvailableException("Config is not initialized for " + group + ":"+ name);
   }
   try {
     return myInterface.getValue(group,name);
   }
  catch (  RemoteException e) {
-    throw new NotAvailableException();
+    throw new NotAvailableException("RemoteException for " + group + ":"+ name);
   }
 }

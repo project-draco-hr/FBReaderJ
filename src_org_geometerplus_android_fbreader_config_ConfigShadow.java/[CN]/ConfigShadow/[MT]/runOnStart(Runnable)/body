@@ -1,0 +1,8 @@
+{
+  if (myInterface != null) {
+    runnable.run();
+  }
+ else {
+    myDeferredActions.add(runnable);
+  }
+}
