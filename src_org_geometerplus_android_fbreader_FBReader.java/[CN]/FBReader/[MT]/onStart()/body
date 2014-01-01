@@ -15,12 +15,18 @@
 );
   initPluginActions();
   final ZLAndroidLibrary zlibrary=getZLibrary();
-  final int fullScreenFlag=zlibrary.ShowStatusBarOption.getValue() ? 0 : WindowManager.LayoutParams.FLAG_FULLSCREEN;
-  if (fullScreenFlag != myFullScreenFlag) {
-    finish();
-    startActivity(new Intent(this,getClass()));
+  Config.Instance().runOnStart(new Runnable(){
+    public void run(){
+      final boolean showStatusBar=zlibrary.ShowStatusBarOption.getValue();
+      if (showStatusBar != myShowStatusBarFlag) {
+        finish();
+        startActivity(new Intent(FBReader.this,FBReader.class));
+      }
+      getSharedPreferences("fbreader.ui",MODE_PRIVATE).edit().putBoolean("statusBar",showStatusBar).apply();
+      SetScreenOrientationAction.setOrientation(FBReader.this,zlibrary.getOrientationOption().getValue());
+    }
   }
-  SetScreenOrientationAction.setOrientation(this,zlibrary.getOrientationOption().getValue());
+);
   ((PopupPanel)myFBReaderApp.getPopupById(TextSearchPopup.ID)).setPanelInfo(this,myRootView);
   ((PopupPanel)myFBReaderApp.getPopupById(NavigationPopup.ID)).setPanelInfo(this,myRootView);
   ((PopupPanel)myFBReaderApp.getPopupById(SelectionPopup.ID)).setPanelInfo(this,myRootView);

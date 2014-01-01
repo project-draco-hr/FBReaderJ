@@ -1,12 +1,18 @@
 {
   super.onCreate(icicle);
   Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler(this));
+  final ZLAndroidLibrary zlibrary=getZLibrary();
+  myShowStatusBarFlag=zlibrary.ShowStatusBarOption.getValue();
+  if (!Config.Instance().isInitialized()) {
+    final SharedPreferences preferences=getSharedPreferences("fbreader.ui",MODE_PRIVATE);
+    myShowStatusBarFlag=preferences.getBoolean("statusBar",myShowStatusBarFlag);
+  }
   requestWindowFeature(Window.FEATURE_NO_TITLE);
   setContentView(R.layout.main);
   myRootView=(RelativeLayout)findViewById(R.id.root_view);
   myMainView=(ZLAndroidWidget)findViewById(R.id.main_view);
   setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
-  getZLibrary().setActivity(this);
+  zlibrary.setActivity(this);
   myFBReaderApp=(FBReaderApp)FBReaderApp.Instance();
   if (myFBReaderApp == null) {
     myFBReaderApp=new FBReaderApp(new BookCollectionShadow());
@@ -15,8 +21,7 @@
   myBook=null;
   myFBReaderApp.setWindow(this);
   myFBReaderApp.initWindow();
-  myFullScreenFlag=getZLibrary().ShowStatusBarOption.getValue() ? 0 : WindowManager.LayoutParams.FLAG_FULLSCREEN;
-  getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,myFullScreenFlag);
+  getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,myShowStatusBarFlag ? 0 : WindowManager.LayoutParams.FLAG_FULLSCREEN);
   if (myFBReaderApp.getPopupById(TextSearchPopup.ID) == null) {
     new TextSearchPopup(myFBReaderApp);
   }

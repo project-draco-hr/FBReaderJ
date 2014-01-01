@@ -1,16 +1,21 @@
 {
   super.onResume();
   myStartTimer=true;
-  final int brightnessLevel=getZLibrary().ScreenBrightnessLevelOption.getValue();
-  if (brightnessLevel != 0) {
-    setScreenBrightness(brightnessLevel);
-  }
+  Config.Instance().runOnStart(new Runnable(){
+    public void run(){
+      final int brightnessLevel=getZLibrary().ScreenBrightnessLevelOption.getValue();
+      if (brightnessLevel != 0) {
+        setScreenBrightness(brightnessLevel);
+      }
  else {
-    setScreenBrightnessAuto();
+        setScreenBrightnessAuto();
+      }
+      if (getZLibrary().DisableButtonLightsOption.getValue()) {
+        setButtonLight(false);
+      }
+    }
   }
-  if (getZLibrary().DisableButtonLightsOption.getValue()) {
-    setButtonLight(false);
-  }
+);
   registerReceiver(myBatteryInfoReceiver,new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
   PopupPanel.restoreVisibilities(myFBReaderApp);
   ApiServerImplementation.sendEvent(this,ApiListener.EVENT_READ_MODE_OPENED);
