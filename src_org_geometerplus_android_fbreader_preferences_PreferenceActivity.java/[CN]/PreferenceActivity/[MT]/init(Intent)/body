@@ -8,7 +8,7 @@
   final ImageOptions imageOptions=new ImageOptions();
   final ColorProfile profile=fbReader.getColorProfile();
   final ZLTextStyleCollection collection=fbReader.TextStyleCollection;
-  final ZLKeyBindings keyBindings=fbReader.keyBindings();
+  final ZLKeyBindings keyBindings=new ZLKeyBindings();
   final ZLAndroidLibrary androidLibrary=(ZLAndroidLibrary)ZLAndroidLibrary.Instance();
   final String decimalSeparator=String.valueOf(new DecimalFormatSymbols(Locale.getDefault()).getDecimalSeparator());
   final Screen directoriesScreen=createPreferenceScreen("directories");
