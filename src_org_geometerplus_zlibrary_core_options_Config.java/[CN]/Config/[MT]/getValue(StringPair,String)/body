@@ -3,9 +3,9 @@
   if (value == null) {
     value=getValueInternal(id.Group,id.Name);
     if (value == null) {
-      return defaultValue;
+      value=myNullString;
     }
     myCache.put(id,value);
   }
-  return value;
+  return value != myNullString ? value : defaultValue;
 }

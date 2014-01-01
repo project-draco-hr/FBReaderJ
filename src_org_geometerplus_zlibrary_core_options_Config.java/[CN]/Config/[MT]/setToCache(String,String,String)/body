@@ -1,9 +1,3 @@
 {
-  final StringPair id=new StringPair(group,name);
-  if (value != null) {
-    myCache.put(id,value);
-  }
- else {
-    myCache.remove(id);
-  }
+  myCache.put(new StringPair(group,name),value != null ? value : myNullString);
 }

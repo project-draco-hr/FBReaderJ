@@ -1,4 +1,4 @@
 {
-  myCache.remove(id);
+  myCache.put(id,myNullString);
   unsetValueInternal(id.Group,id.Name);
 }
