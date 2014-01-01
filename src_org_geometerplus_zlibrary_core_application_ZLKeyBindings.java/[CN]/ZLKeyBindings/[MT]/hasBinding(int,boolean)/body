@@ -1,0 +1,3 @@
+{
+  return !ZLApplication.NoAction.equals(getBinding(key,longPress));
+}

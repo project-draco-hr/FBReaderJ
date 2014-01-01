@@ -160,7 +160,7 @@
   final ZLPreferenceSet volumeKeysPreferences=new ZLPreferenceSet();
   scrollingScreen.addPreference(new ZLCheckBoxPreference(this,scrollingScreen.Resource,"volumeKeys"){
 {
-      setChecked(fbReader.hasActionForKey(KeyEvent.KEYCODE_VOLUME_UP,false));
+      setChecked(keyBindings.hasBinding(KeyEvent.KEYCODE_VOLUME_UP,false));
     }
     @Override protected void onClick(){
       super.onClick();
@@ -193,7 +193,7 @@
     }
   }
 ));
-  volumeKeysPreferences.setEnabled(fbReader.hasActionForKey(KeyEvent.KEYCODE_VOLUME_UP,false));
+  volumeKeysPreferences.setEnabled(keyBindings.hasBinding(KeyEvent.KEYCODE_VOLUME_UP,false));
   scrollingScreen.addOption(pageTurningOptions.Animation,"animation");
   scrollingScreen.addPreference(new AnimationSpeedPreference(this,scrollingScreen.Resource,"animationSpeed",pageTurningOptions.AnimationSpeed));
   scrollingScreen.addOption(pageTurningOptions.Horizontal,"horizontal");

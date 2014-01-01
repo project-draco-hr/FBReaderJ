@@ -1,6 +1,7 @@
 {
   final ZLApplication application=ZLApplication.Instance();
-  if (application.hasActionForKey(keyCode,true) || application.hasActionForKey(keyCode,false)) {
+  final ZLKeyBindings bindings=application.keyBindings();
+  if (bindings.hasBinding(keyCode,true) || bindings.hasBinding(keyCode,false)) {
     if (myKeyUnderTracking != -1) {
       if (myKeyUnderTracking == keyCode) {
         return true;
@@ -9,7 +10,7 @@
         myKeyUnderTracking=-1;
       }
     }
-    if (application.hasActionForKey(keyCode,true)) {
+    if (bindings.hasBinding(keyCode,true)) {
       myKeyUnderTracking=keyCode;
       myTrackingStartTime=System.currentTimeMillis();
       return true;

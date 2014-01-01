@@ -8,7 +8,7 @@
     return true;
   }
  else {
-    final ZLApplication application=ZLApplication.Instance();
-    return application.hasActionForKey(keyCode,false) || application.hasActionForKey(keyCode,true);
+    final ZLKeyBindings bindings=ZLApplication.Instance().keyBindings();
+    return bindings.hasBinding(keyCode,false) || bindings.hasBinding(keyCode,true);
   }
 }
