@@ -1,7 +1,12 @@
 {
   String value=myCache.get(id);
   if (value == null) {
-    value=getValueInternal(id.Group,id.Name);
+    try {
+      value=getValueInternal(id.Group,id.Name);
+    }
+ catch (    NotAvailableException e) {
+      return defaultValue;
+    }
     if (value == null) {
       value=myNullString;
     }
