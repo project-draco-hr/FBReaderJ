@@ -1,8 +1,13 @@
 {
   super(root,ROOT_FILE_TREE);
-  for (  String dir : Paths.BookPathOption().getValue()) {
-    addChild(dir,"fileTreeLibrary",dir);
+  Config.Instance().runOnStart(new Runnable(){
+    public void run(){
+      for (      String dir : Paths.BookPathOption().getValue()) {
+        addChild(dir,"fileTreeLibrary",dir);
+      }
+      addChild("/","fileTreeRoot",null);
+      addChild(Paths.cardDirectory(),"fileTreeCard",null);
+    }
   }
-  addChild("/","fileTreeRoot",null);
-  addChild(Paths.cardDirectory(),"fileTreeCard",null);
+);
 }
