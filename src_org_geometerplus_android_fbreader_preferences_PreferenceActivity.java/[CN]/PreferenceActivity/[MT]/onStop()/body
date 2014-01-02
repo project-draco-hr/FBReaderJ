@@ -1,4 +1,0 @@
-{
-  myCollection.unbind();
-  super.onStop();
-}

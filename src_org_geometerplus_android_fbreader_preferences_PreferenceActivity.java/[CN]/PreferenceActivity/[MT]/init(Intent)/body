@@ -15,7 +15,14 @@
   directoriesScreen.addPreference(new ZLStringListOptionPreference(this,Paths.BookPathOption(),directoriesScreen.Resource,"books"){
     protected void setValue(    String value){
       super.setValue(value);
-      myCollection.reset(false);
+      final BookCollectionShadow collection=new BookCollectionShadow();
+      collection.bindToService(PreferenceActivity.this,new Runnable(){
+        public void run(){
+          collection.reset(false);
+          collection.unbind();
+        }
+      }
+);
     }
   }
 );
