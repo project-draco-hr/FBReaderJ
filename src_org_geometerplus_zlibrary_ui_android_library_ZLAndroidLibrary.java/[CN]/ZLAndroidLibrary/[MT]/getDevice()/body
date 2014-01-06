@@ -1,0 +1,11 @@
+{
+  if (myDevice == null) {
+    if ("YotaPhone".equals(Build.BRAND)) {
+      myDevice=Device.YOTA_PHONE;
+    }
+ else {
+      myDevice=Device.GENERIC;
+    }
+  }
+  return myDevice;
+}

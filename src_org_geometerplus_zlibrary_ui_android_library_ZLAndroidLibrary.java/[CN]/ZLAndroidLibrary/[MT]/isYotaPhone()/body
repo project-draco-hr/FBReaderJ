@@ -1,3 +1,0 @@
-{
-  return "YotaPhone".equals(Build.BRAND);
-}
