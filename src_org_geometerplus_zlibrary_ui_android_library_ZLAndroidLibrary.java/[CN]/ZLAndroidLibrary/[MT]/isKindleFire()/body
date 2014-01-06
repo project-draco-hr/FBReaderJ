@@ -1,4 +1,0 @@
-{
-  final String KINDLE_MODEL_REGEXP=".*kindle(\\s+)fire.*";
-  return Build.MODEL != null && Build.MODEL.toLowerCase().matches(KINDLE_MODEL_REGEXP);
-}

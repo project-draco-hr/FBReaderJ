@@ -6,6 +6,9 @@
  else     if ("GT-S5830".equals(Build.MODEL)) {
       myDevice=Device.SAMSUNG_GT_S5830;
     }
+ else     if ("Amazon".equals(Build.MANUFACTURER)) {
+      myDevice=Device.KINDLE_FIRE;
+    }
  else     if (Build.DISPLAY != null && Build.DISPLAY.contains("simenxie")) {
       myDevice=Device.EKEN_M001;
     }
