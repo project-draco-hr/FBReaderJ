@@ -1,0 +1,3 @@
+{
+  return this == NOOK || this == NOOK12;
+}
