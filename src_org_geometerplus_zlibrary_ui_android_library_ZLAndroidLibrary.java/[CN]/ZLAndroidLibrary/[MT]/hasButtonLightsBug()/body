@@ -1,3 +1,3 @@
 {
-  return "GT-S5830".equals(Build.MODEL);
+  return this == SAMSUNG_GT_S5830;
 }
