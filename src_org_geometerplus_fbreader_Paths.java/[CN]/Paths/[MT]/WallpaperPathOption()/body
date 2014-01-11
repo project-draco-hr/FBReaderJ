@@ -1,3 +1,3 @@
 {
-  return new ZLStringListOption("Files","WallpapersDirectory",cardDirectory() + "/Wallpapers","\n");
+  return directoryOption("WallpapersDirectory",cardDirectory() + "/Wallpapers");
 }

@@ -1,0 +1,7 @@
+{
+  final ZLStringListOption option=new ZLStringListOption("Files",key,Collections.<String>emptyList(),"\n");
+  if (option.getValue().isEmpty()) {
+    option.setValue(Collections.singletonList(defaultDirectory));
+  }
+  return option;
+}

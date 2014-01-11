@@ -1,3 +1,40 @@
 {
+  if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
+    return Environment.getExternalStorageDirectory().getPath();
+  }
+  final List<String> dirNames=new LinkedList<String>();
+  BufferedReader reader=null;
+  try {
+    reader=new BufferedReader(new FileReader("/proc/self/mounts"));
+    String line;
+    while ((line=reader.readLine()) != null) {
+      final String[] parts=line.split("\\s+");
+      if (parts.length >= 4 && parts[2].toLowerCase().indexOf("fat") >= 0 && parts[3].indexOf("rw") >= 0) {
+        final File fsDir=new File(parts[1]);
+        if (fsDir.isDirectory() && fsDir.canWrite()) {
+          dirNames.add(fsDir.getPath());
+        }
+      }
+    }
+  }
+ catch (  Throwable e) {
+  }
+ finally {
+    if (reader != null) {
+      try {
+        reader.close();
+      }
+ catch (      IOException e) {
+      }
+    }
+  }
+  for (  String dir : dirNames) {
+    if (dir.toLowerCase().indexOf("media") > 0) {
+      return dir;
+    }
+  }
+  if (dirNames.size() > 0) {
+    return dirNames.get(0);
+  }
   return Environment.getExternalStorageDirectory().getPath();
 }
