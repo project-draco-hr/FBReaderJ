@@ -3,19 +3,25 @@
     return;
   }
   myDownloadInProgress=true;
-  new File(Paths.networkCacheDirectory() + "/tips").mkdirs();
-  new Thread(new Runnable(){
+  Config.Instance().runOnStart(new Runnable(){
     public void run(){
-      try {
-        ZLNetworkManager.Instance().downloadToFile(getUrl(),new File(getLocalFilePath()));
-      }
- catch (      ZLNetworkException e) {
-        e.printStackTrace();
-      }
+      final File tipsFile=new File(getLocalFilePath());
+      tipsFile.getParentFile().mkdirs();
+      new Thread(new Runnable(){
+        public void run(){
+          try {
+            ZLNetworkManager.Instance().downloadToFile(getUrl(),tipsFile);
+          }
+ catch (          ZLNetworkException e) {
+            e.printStackTrace();
+          }
  finally {
-        myDownloadInProgress=false;
+            myDownloadInProgress=false;
+          }
+        }
       }
+).start();
     }
   }
-).start();
+);
 }

@@ -1,3 +1,0 @@
-{
-  return directoryOption("FontPathOption",cardDirectory() + "/Fonts");
-}

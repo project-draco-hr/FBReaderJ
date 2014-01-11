@@ -1,7 +1,7 @@
 {
   if (myInterface != null) {
     try {
-      myInterface.reset(Paths.BookPathOption().getValue(),force);
+      myInterface.reset(force);
     }
  catch (    RemoteException e) {
     }

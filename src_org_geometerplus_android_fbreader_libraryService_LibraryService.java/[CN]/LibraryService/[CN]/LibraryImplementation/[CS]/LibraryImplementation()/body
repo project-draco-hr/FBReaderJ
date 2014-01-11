@@ -1,9 +1,4 @@
 {
   myDatabase=SQLiteBooksDatabase.Instance(LibraryService.this);
-  Config.Instance().runOnStart(new Runnable(){
-    public void run(){
-      reset(Paths.BookPathOption().getValue(),true);
-    }
-  }
-);
+  reset(true);
 }

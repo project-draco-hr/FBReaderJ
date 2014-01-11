@@ -1,0 +1,8 @@
+{
+  Config.Instance().runOnStart(new Runnable(){
+    public void run(){
+      resetInternal(force);
+    }
+  }
+);
+}

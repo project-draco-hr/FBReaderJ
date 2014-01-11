@@ -16,7 +16,7 @@
       }
     }
 ;
-    for (    String dir : Paths.FontPathOption().getValue()) {
+    for (    String dir : Paths.FontPathOption.getValue()) {
       final File[] fileList=new File(dir).listFiles(filter);
       if (fileList != null) {
         fileSet.addAll(Arrays.asList(fileList));

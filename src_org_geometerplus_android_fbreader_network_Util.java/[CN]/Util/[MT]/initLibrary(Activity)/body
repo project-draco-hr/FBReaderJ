@@ -3,13 +3,18 @@
   if (library.isInitialized()) {
     return;
   }
-  UIUtil.wait("loadingNetworkLibrary",new Runnable(){
+  Config.Instance().runOnStart(new Runnable(){
     public void run(){
-      if (SQLiteNetworkDatabase.Instance() == null) {
-        new SQLiteNetworkDatabase(activity.getApplication());
+      UIUtil.wait("loadingNetworkLibrary",new Runnable(){
+        public void run(){
+          if (SQLiteNetworkDatabase.Instance() == null) {
+            new SQLiteNetworkDatabase(activity.getApplication());
+          }
+          library.initialize();
+        }
       }
-      library.initialize();
+,activity);
     }
   }
-,activity);
+);
 }

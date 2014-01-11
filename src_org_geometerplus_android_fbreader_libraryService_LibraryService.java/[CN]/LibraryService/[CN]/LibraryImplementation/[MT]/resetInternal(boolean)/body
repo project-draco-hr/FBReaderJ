@@ -1,4 +1,5 @@
 {
+  final List<String> bookDirectories=Paths.BookPathOption.getValue();
   if (!force && myCollection != null && bookDirectories.equals(myCollection.BookDirectories)) {
     return;
   }

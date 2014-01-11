@@ -1,4 +1,7 @@
 {
+  if (myKeysOption == null) {
+    return;
+  }
   final String stringKey=String.valueOf(key);
   List<String> keys=myKeysOption.getValue();
   if (!keys.contains(stringKey)) {

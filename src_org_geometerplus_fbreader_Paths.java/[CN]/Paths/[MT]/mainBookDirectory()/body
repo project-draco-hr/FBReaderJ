@@ -1,4 +1,4 @@
 {
-  final List<String> bookPath=BookPathOption().getValue();
+  final List<String> bookPath=BookPathOption.getValue();
   return bookPath.isEmpty() ? defaultBookDirectory() : bookPath.get(0);
 }

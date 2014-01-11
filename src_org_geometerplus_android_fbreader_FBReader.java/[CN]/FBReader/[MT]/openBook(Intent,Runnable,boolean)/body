@@ -10,5 +10,10 @@
       myBook=createBookForFile(ZLFile.createFileByPath(data.getPath()));
     }
   }
-  myFBReaderApp.openBook(myBook,bookmark,action);
+  Config.Instance().runOnStart(new Runnable(){
+    public void run(){
+      myFBReaderApp.openBook(myBook,bookmark,action);
+    }
+  }
+);
 }
