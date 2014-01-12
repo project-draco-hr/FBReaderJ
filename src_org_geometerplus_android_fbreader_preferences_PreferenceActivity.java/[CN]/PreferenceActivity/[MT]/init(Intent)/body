@@ -56,6 +56,22 @@
   appearanceScreen.addPreference(new BatteryLevelToTurnScreenOffPreference(this,androidLibrary.BatteryLevelToTurnScreenOffOption,appearanceScreen.Resource,"dontTurnScreenOff"));
   appearanceScreen.addOption(androidLibrary.ShowStatusBarOption,"showStatusBar");
   appearanceScreen.addOption(androidLibrary.DisableButtonLightsOption,"disableButtonLights");
+  if (DeviceType.Instance().isEInk()) {
+    final EInkOptions einkOptions=new EInkOptions();
+    final Screen einkScreen=createPreferenceScreen("eink");
+    final ZLPreferenceSet einkPreferences=new ZLPreferenceSet();
+    einkScreen.addPreference(new ZLBooleanPreference(this,einkOptions.EnableFastRefresh,einkScreen.Resource,"enableFastRefresh"){
+      @Override protected void onClick(){
+        super.onClick();
+        einkPreferences.setEnabled(einkOptions.EnableFastRefresh.getValue());
+      }
+    }
+);
+    final ZLIntegerRangePreference updateIntervalPreference=new ZLIntegerRangePreference(this,einkScreen.Resource.getResource("interval"),einkOptions.UpdateInterval);
+    einkScreen.addPreference(updateIntervalPreference);
+    einkPreferences.add(updateIntervalPreference);
+    einkPreferences.setEnabled(einkOptions.EnableFastRefresh.getValue());
+  }
   final Screen textScreen=createPreferenceScreen("text");
   final Screen fontPropertiesScreen=textScreen.createPreferenceScreen("fontProperties");
   fontPropertiesScreen.addOption(ZLAndroidPaintContext.AntiAliasOption,"antiAlias");
