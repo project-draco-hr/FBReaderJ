@@ -1,3 +1,0 @@
-{
-  return this == EKEN_M001 || this == PAN_DIGITAL;
-}
