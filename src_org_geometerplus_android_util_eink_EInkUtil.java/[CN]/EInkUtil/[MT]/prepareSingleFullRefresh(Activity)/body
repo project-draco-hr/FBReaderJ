@@ -1,0 +1,6 @@
+{
+  final DeviceType deviceType=DeviceType.Instance();
+  if (deviceType == DeviceType.NOOK || deviceType == DeviceType.NOOK12) {
+    Nook2Util.setGL16Mode(a);
+  }
+}
