@@ -1,5 +1,5 @@
 {
-  myBase=new ZLInputStreamWithOffset(file.getInputStream());
+  myBase=new InputStreamWithOffset(file.getInputStream());
   myHeader=new PdbHeader(myBase);
   myBase.skip(myHeader.Offsets[0] - myHeader.length());
   myBufferLength=0;
