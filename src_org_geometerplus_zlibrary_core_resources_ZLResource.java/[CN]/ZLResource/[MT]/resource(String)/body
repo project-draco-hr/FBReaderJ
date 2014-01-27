@@ -3,5 +3,9 @@
   if (ZLTreeResource.ourRoot == null) {
     return ZLMissingResource.Instance;
   }
-  return ZLTreeResource.ourRoot.getResource(key);
+  try {
+    return ZLTreeResource.ourRoot.getResource(key);
+  }
+  finally {
+  }
 }
