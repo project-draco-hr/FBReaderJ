@@ -1,4 +1,8 @@
 {
-  startSearch(BookSearchPatternOption.getValue(),true,null,false);
+  if (DeviceType.Instance().hasStandardSearchDialog()) {
+    startSearch(BookSearchPatternOption.getValue(),true,null,false);
+  }
+ else {
+  }
   return true;
 }

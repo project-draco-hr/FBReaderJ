@@ -1,4 +1,8 @@
 {
-  startSearch(myBookmarkSearchPatternOption.getValue(),true,null,false);
+  if (DeviceType.Instance().hasStandardSearchDialog()) {
+    startSearch(myBookmarkSearchPatternOption.getValue(),true,null,false);
+  }
+ else {
+  }
   return true;
 }
