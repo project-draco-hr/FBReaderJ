@@ -1,0 +1,3 @@
+Activity activity
+Class<? extends Activity> clazz
+String initialPattern

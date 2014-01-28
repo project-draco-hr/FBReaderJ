@@ -1,0 +1,22 @@
+{
+  final AlertDialog.Builder builder=new AlertDialog.Builder(activity);
+  builder.setTitle(ZLResource.resource("menu").getResource("search").getValue());
+  final EditText input=new EditText(activity);
+  input.setInputType(InputType.TYPE_CLASS_TEXT);
+  input.setText(initialPattern);
+  builder.setView(input);
+  final ZLResource dialogResource=ZLResource.resource("dialog").getResource("button");
+  builder.setPositiveButton(dialogResource.getResource("ok").getValue(),new DialogInterface.OnClickListener(){
+    @Override public void onClick(    DialogInterface dialog,    int which){
+      activity.startActivity(new Intent(Intent.ACTION_SEARCH).setClass(activity,clazz).putExtra(SearchManager.QUERY,input.getText().toString()).putExtra(SearchManager.APP_DATA,bundle));
+    }
+  }
+);
+  builder.setNegativeButton(dialogResource.getResource("cancel").getValue(),new DialogInterface.OnClickListener(){
+    @Override public void onClick(    DialogInterface dialog,    int which){
+      dialog.cancel();
+    }
+  }
+);
+  return builder;
+}
