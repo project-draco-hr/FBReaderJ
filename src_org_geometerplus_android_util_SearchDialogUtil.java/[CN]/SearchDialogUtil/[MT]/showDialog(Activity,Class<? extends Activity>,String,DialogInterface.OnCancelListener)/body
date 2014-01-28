@@ -1,0 +1,3 @@
+{
+  showDialog(activity,clazz,initialPattern,listener,null);
+}

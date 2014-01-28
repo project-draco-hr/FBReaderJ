@@ -18,5 +18,10 @@
     }
   }
 );
-  return builder;
+  if (listener != null) {
+    builder.setOnCancelListener(listener);
+  }
+  AlertDialog dialog=builder.create();
+  dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+  dialog.show();
 }

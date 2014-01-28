@@ -1,4 +1,4 @@
 Activity activity
 Class<? extends Activity> clazz
 String initialPattern
-Bundle bundle
+DialogInterface.OnCancelListener listener

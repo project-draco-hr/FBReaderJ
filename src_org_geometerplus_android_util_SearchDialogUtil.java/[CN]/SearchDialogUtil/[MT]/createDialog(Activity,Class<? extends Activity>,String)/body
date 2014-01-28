@@ -1,3 +1,0 @@
-{
-  return createDialog(activity,clazz,initialPattern,null);
-}
