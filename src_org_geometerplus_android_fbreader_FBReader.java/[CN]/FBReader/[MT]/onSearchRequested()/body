@@ -1,9 +1,7 @@
 {
   final FBReaderApp.PopupPanel popup=myFBReaderApp.getActivePopup();
   myFBReaderApp.hideActivePopup();
-  if (DeviceType.Instance().standardSearchDialogIsMissing()) {
-  }
- else {
+  if (DeviceType.Instance().hasStandardSearchDialog()) {
     final SearchManager manager=(SearchManager)getSystemService(SEARCH_SERVICE);
     manager.setOnCancelListener(new SearchManager.OnCancelListener(){
       public void onCancel(){
@@ -15,6 +13,8 @@
     }
 );
     startSearch(myFBReaderApp.MiscOptions.TextSearchPattern.getValue(),true,null,false);
+  }
+ else {
   }
   return true;
 }
