@@ -4,7 +4,7 @@
     return book;
   }
   book=myDatabase.loadBook(id);
-  if (book == null || !book.File.exists()) {
+  if (book == null || book.File == null || !book.File.exists()) {
     return null;
   }
   book.loadLists(myDatabase);
@@ -17,7 +17,7 @@
   if (!physicalFile.exists()) {
     return null;
   }
-  FileInfoSet fileInfos=new FileInfoSet(myDatabase,physicalFile);
+  final FileInfoSet fileInfos=new FileInfoSet(myDatabase,physicalFile);
   if (fileInfos.check(physicalFile,physicalFile != bookFile)) {
     addBook(book,false);
     return book;
