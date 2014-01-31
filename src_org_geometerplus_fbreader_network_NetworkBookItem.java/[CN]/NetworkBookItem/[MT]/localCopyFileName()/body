@@ -8,7 +8,7 @@
     }
     final BookUrlInfo br=(BookUrlInfo)r;
     final UrlInfo.Type type=br.InfoType;
-    if ((type == UrlInfo.Type.Book || type == UrlInfo.Type.BookConditional || (!hasBuyReference && type == UrlInfo.Type.BookFullOrDemo)) && (reference == null || br.BookFormat > reference.BookFormat)) {
+    if ((type == UrlInfo.Type.Book || type == UrlInfo.Type.BookConditional || (!hasBuyReference && type == UrlInfo.Type.BookFullOrDemo)) && (reference == null || br.BookFormat.compareTo(reference.BookFormat) > 0)) {
       String name=br.localCopyFileName(UrlInfo.Type.Book);
       if (name != null) {
         reference=br;

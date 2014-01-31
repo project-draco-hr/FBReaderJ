@@ -5,7 +5,7 @@
       continue;
     }
     final BookUrlInfo br=(BookUrlInfo)r;
-    if (reference == null || br.BookFormat > reference.BookFormat) {
+    if (reference == null || br.BookFormat.compareTo(reference.BookFormat) > 0) {
       reference=br;
     }
   }

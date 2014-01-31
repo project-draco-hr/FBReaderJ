@@ -1,4 +1,4 @@
 Type type
-int format
+Format format
 String url
 MimeType mime
