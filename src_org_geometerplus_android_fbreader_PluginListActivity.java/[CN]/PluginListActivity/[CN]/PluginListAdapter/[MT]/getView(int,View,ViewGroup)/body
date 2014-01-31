@@ -3,8 +3,15 @@
   final TextView titleView=ViewUtil.findTextView(view,R.id.plugin_item_title);
   final TextView summaryView=ViewUtil.findTextView(view,R.id.plugin_item_summary);
   final Plugin plugin=getItem(position);
-  final ZLResource resource=myResource.getResource(plugin.Id);
-  titleView.setText(resource.getValue());
-  summaryView.setText(resource.getResource("summary").getValue());
+  if (plugin != null) {
+    final ZLResource resource=myResource.getResource(plugin.Id);
+    titleView.setText(resource.getValue());
+    summaryView.setText(resource.getResource("summary").getValue());
+  }
+ else {
+    final ZLResource resource=myResource.getResource("noMorePlugins");
+    titleView.setText(resource.getValue());
+    summaryView.setVisibility(View.GONE);
+  }
   return view;
 }
