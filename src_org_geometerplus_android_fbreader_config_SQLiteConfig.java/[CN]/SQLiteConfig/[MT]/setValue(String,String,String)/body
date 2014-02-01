@@ -4,8 +4,8 @@
   mySetValueStatement.bindString(3,value);
   try {
     mySetValueStatement.execute();
+    sendChangeEvent(group,name,value);
   }
  catch (  SQLException e) {
   }
-  sendChangeEvent(group,name,value);
 }

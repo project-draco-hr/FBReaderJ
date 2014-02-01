@@ -3,6 +3,7 @@
   myUnsetValueStatement.bindString(2,name);
   try {
     myUnsetValueStatement.execute();
+    sendChangeEvent(group,name,null);
   }
  catch (  SQLException e) {
   }
