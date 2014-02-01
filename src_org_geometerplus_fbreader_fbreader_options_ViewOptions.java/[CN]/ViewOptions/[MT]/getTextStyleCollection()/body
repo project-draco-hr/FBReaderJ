@@ -1,0 +1,6 @@
+{
+  if (myTextStyleCollection == null) {
+    myTextStyleCollection=new ZLTextStyleCollection("Base");
+  }
+  return myTextStyleCollection;
+}
