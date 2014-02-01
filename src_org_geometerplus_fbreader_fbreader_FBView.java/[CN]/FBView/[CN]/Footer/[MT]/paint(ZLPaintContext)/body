@@ -10,9 +10,9 @@
   if (model == null) {
     return;
   }
-  final FooterOptions footerOptions=myReader.FooterOptions;
+  final FooterOptions footerOptions=myViewOptions.getFooterOptions();
   final ZLColor fgColor=getTextColor(ZLTextHyperlink.NO_LINK);
-  final ZLColor fillColor=myReader.ViewOptions.getColorProfile().FooterFillOption.getValue();
+  final ZLColor fillColor=myViewOptions.getColorProfile().FooterFillOption.getValue();
   final int left=getLeftMargin();
   final int right=context.getWidth() - getRightMargin();
   final int height=getHeight();

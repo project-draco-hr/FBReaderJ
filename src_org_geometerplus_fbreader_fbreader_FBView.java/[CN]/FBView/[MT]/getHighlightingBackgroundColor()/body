@@ -1,3 +1,3 @@
 {
-  return myReader.ViewOptions.getColorProfile().HighlightingOption.getValue();
+  return myViewOptions.getColorProfile().HighlightingOption.getValue();
 }

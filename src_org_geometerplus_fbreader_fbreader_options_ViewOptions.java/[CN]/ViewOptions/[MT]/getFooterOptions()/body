@@ -1,0 +1,6 @@
+{
+  if (myFooterOptions == null) {
+    myFooterOptions=new FooterOptions();
+  }
+  return myFooterOptions;
+}

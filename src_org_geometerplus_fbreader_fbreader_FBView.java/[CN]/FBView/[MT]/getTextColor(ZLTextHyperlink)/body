@@ -1,5 +1,5 @@
 {
-  final ColorProfile profile=myReader.ViewOptions.getColorProfile();
+  final ColorProfile profile=myViewOptions.getColorProfile();
 switch (hyperlink.Type) {
 default :
 case FBHyperlinkType.NONE:

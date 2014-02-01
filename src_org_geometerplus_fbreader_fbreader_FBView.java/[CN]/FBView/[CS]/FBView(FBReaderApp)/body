@@ -1,4 +1,5 @@
 {
   super(reader);
   myReader=reader;
+  myViewOptions=reader.ViewOptions;
 }

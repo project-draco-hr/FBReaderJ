@@ -1,5 +1,5 @@
 {
-  final String filePath=myReader.ViewOptions.getColorProfile().WallpaperOption.getValue();
+  final String filePath=myViewOptions.getColorProfile().WallpaperOption.getValue();
   if ("".equals(filePath)) {
     return null;
   }

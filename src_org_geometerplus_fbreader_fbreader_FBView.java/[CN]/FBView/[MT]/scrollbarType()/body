@@ -1,3 +1,3 @@
 {
-  return myReader.ViewOptions.ScrollbarType.getValue();
+  return myViewOptions.ScrollbarType.getValue();
 }

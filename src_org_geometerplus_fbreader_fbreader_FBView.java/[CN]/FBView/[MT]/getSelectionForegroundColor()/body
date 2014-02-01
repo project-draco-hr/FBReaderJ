@@ -1,3 +1,3 @@
 {
-  return myReader.ViewOptions.getColorProfile().SelectionForegroundOption.getValue();
+  return myViewOptions.getColorProfile().SelectionForegroundOption.getValue();
 }
