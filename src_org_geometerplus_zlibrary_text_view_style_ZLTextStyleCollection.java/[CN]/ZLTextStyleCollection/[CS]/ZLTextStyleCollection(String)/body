@@ -1,3 +1,4 @@
 {
-  new TextStyleReader(name).readQuietly(ZLResourceFile.createResourceFile("default/styles.xml"));
+  Screen=screen;
+  new TextStyleReader().readQuietly(ZLResourceFile.createResourceFile("default/styles.xml"));
 }

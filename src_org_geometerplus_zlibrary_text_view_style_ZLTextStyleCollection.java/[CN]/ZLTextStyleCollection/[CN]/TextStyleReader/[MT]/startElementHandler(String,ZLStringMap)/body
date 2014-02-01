@@ -2,9 +2,9 @@
   final String BASE="base";
   final String STYLE="style";
   if (BASE.equals(tag)) {
-    if (myCollectionName.equals(attributes.getValue("screen"))) {
+    if (Screen.equals(attributes.getValue("screen"))) {
       myDefaultFontSize=intValue(attributes,"fontSize",0);
-      myBaseStyle=new ZLTextBaseStyle(myCollectionName,attributes.getValue("family"),myDefaultFontSize);
+      myBaseStyle=new ZLTextBaseStyle(Screen,attributes.getValue("family"),myDefaultFontSize);
     }
   }
  else   if (STYLE.equals(tag)) {
