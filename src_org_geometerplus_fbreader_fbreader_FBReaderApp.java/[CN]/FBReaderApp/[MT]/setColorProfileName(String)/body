@@ -1,4 +1,3 @@
 {
   ViewOptions.ColorProfileName.setValue(name);
-  myColorProfile=null;
 }

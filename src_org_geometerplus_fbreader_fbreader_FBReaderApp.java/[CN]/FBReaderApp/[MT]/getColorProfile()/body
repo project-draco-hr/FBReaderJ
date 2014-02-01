@@ -1,6 +1,7 @@
 {
-  if (myColorProfile == null) {
-    myColorProfile=ColorProfile.get(getColorProfileName());
+  final String name=getColorProfileName();
+  if (myColorProfile == null || !name.equals(myColorProfile.Name)) {
+    myColorProfile=ColorProfile.get(name);
   }
   return myColorProfile;
 }
