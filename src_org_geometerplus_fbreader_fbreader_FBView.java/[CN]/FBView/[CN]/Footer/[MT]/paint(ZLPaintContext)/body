@@ -12,7 +12,7 @@
   }
   final FooterOptions footerOptions=myReader.FooterOptions;
   final ZLColor fgColor=getTextColor(ZLTextHyperlink.NO_LINK);
-  final ZLColor fillColor=myReader.getColorProfile().FooterFillOption.getValue();
+  final ZLColor fillColor=myReader.ViewOptions.getColorProfile().FooterFillOption.getValue();
   final int left=getLeftMargin();
   final int right=context.getWidth() - getRightMargin();
   final int height=getHeight();
