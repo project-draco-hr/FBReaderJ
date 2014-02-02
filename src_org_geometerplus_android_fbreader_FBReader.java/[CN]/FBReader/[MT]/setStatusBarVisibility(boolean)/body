@@ -1,6 +1,6 @@
 {
   final ZLAndroidLibrary zlibrary=getZLibrary();
-  if (DeviceType.Instance() != DeviceType.KINDLE_FIRE_1ST_GENERATION && !zlibrary.ShowStatusBarOption.getValue()) {
+  if (DeviceType.Instance() != DeviceType.KINDLE_FIRE_1ST_GENERATION && !myShowStatusBarFlag) {
     if (visible) {
       getWindow().addFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
     }
