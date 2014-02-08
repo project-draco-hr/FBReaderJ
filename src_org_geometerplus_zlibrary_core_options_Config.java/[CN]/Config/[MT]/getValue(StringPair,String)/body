@@ -1,14 +1,19 @@
 {
   String value=myCache.get(id);
   if (value == null) {
-    try {
-      value=getValueInternal(id.Group,id.Name);
-    }
- catch (    NotAvailableException e) {
-      return defaultValue;
-    }
-    if (value == null) {
+    if (myCachedGroups.contains(id.Group)) {
       value=myNullString;
+    }
+ else {
+      try {
+        value=getValueInternal(id.Group,id.Name);
+      }
+ catch (      NotAvailableException e) {
+        return defaultValue;
+      }
+      if (value == null) {
+        value=myNullString;
+      }
     }
     myCache.put(id,value);
   }

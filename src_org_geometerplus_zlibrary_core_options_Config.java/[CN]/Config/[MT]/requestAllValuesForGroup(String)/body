@@ -1,0 +1,18 @@
+{
+synchronized (myCachedGroups) {
+    if (myCachedGroups.contains(group)) {
+      return;
+    }
+    final Map<String,String> values;
+    try {
+      values=requestAllValuesForGroupInternal(group);
+    }
+ catch (    NotAvailableException e) {
+      return;
+    }
+    for (    Map.Entry<String,String> entry : values.entrySet()) {
+      setToCache(group,entry.getKey(),entry.getValue());
+    }
+    myCachedGroups.add(group);
+  }
+}

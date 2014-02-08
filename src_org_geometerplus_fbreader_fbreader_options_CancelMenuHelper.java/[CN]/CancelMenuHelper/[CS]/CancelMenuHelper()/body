@@ -1,0 +1,3 @@
+{
+  Config.Instance().requestAllValuesForGroup(GROUP_NAME);
+}

@@ -1,5 +1,3 @@
 {
-  final boolean value=myContext.getSharedPreferences("fbreader.ui",Context.MODE_PRIVATE).getBoolean(name,defaultValue);
-  System.err.println("SPECIAL GET: (" + name + ","+ defaultValue+ ") = "+ value);
-  return value;
+  return myContext.getSharedPreferences("fbreader.ui",Context.MODE_PRIVATE).getBoolean(name,defaultValue);
 }

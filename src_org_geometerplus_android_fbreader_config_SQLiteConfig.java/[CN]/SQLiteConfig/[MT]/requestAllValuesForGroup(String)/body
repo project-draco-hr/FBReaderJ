@@ -1,0 +1,14 @@
+{
+  try {
+    final List<String> pairs=new LinkedList<String>();
+    final Cursor cursor=myDatabase.rawQuery("SELECT name,value FROM config WHERE groupName = ?",new String[]{group});
+    while (cursor.moveToNext()) {
+      pairs.add(cursor.getString(0) + "\000" + cursor.getString(1));
+    }
+    cursor.close();
+    return pairs;
+  }
+ catch (  SQLException e) {
+    return Collections.emptyList();
+  }
+}
