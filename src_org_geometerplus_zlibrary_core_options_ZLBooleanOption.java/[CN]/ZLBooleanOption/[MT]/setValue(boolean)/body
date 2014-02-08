@@ -1,3 +1,6 @@
 {
+  if (mySpecialName != null) {
+    Config.Instance().setSpecialBooleanValue(mySpecialName,value);
+  }
   setConfigValue(value ? "true" : "false");
 }

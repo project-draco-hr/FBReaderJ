@@ -1,0 +1,5 @@
+{
+  if (mySpecialName != null && Config.Instance().isInitialized()) {
+    Config.Instance().setSpecialBooleanValue(mySpecialName,getValue());
+  }
+}

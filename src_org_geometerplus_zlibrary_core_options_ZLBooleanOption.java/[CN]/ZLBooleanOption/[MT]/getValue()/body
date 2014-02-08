@@ -1,3 +1,8 @@
 {
-  return "true".equals(getConfigValue());
+  if (mySpecialName != null && !Config.Instance().isInitialized()) {
+    return Config.Instance().getSpecialBooleanValue(mySpecialName,myDefaultValue);
+  }
+ else {
+    return "true".equals(getConfigValue());
+  }
 }

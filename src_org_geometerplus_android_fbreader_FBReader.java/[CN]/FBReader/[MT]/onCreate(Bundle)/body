@@ -3,13 +3,6 @@
   Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler(this));
   final ZLAndroidLibrary zlibrary=getZLibrary();
   myShowStatusBarFlag=zlibrary.ShowStatusBarOption.getValue();
-  if (!Config.Instance().isInitialized()) {
-    final SharedPreferences preferences=getSharedPreferences("fbreader.ui",MODE_PRIVATE);
-    myShowStatusBarFlag=preferences.getBoolean("statusBar",myShowStatusBarFlag);
-  }
- else {
-    myShowStatusBarFlag=zlibrary.ShowStatusBarOption.getValue();
-  }
   requestWindowFeature(Window.FEATURE_NO_TITLE);
   setContentView(R.layout.main);
   myRootView=(RelativeLayout)findViewById(R.id.root_view);

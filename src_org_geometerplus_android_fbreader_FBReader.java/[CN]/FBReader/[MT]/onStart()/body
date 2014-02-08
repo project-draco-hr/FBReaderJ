@@ -22,7 +22,7 @@
         finish();
         startActivity(new Intent(FBReader.this,FBReader.class));
       }
-      getSharedPreferences("fbreader.ui",MODE_PRIVATE).edit().putBoolean("statusBar",showStatusBar).commit();
+      zlibrary.ShowStatusBarOption.saveSpecialValue();
       SetScreenOrientationAction.setOrientation(FBReader.this,zlibrary.getOrientationOption().getValue());
     }
   }
