@@ -1,3 +1,8 @@
 {
-  return getConfigValue();
+  if (mySpecialName != null && !Config.Instance().isInitialized()) {
+    return Config.Instance().getSpecialStringValue(mySpecialName,myDefaultStringValue);
+  }
+ else {
+    return getConfigValue();
+  }
 }

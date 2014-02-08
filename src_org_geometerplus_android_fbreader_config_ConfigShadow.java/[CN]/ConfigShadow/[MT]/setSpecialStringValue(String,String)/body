@@ -1,0 +1,4 @@
+{
+  System.err.println("SPECIAL PUT: " + name + " => "+ value);
+  myContext.getSharedPreferences("fbreader.ui",Context.MODE_PRIVATE).edit().putString(name,value).commit();
+}

@@ -1,0 +1,5 @@
+{
+  final String value=myContext.getSharedPreferences("fbreader.ui",Context.MODE_PRIVATE).getString(name,defaultValue);
+  System.err.println("SPECIAL GET: (" + name + ","+ defaultValue+ ") = "+ value);
+  return value;
+}

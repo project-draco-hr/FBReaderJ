@@ -23,6 +23,7 @@
         startActivity(new Intent(FBReader.this,FBReader.class));
       }
       zlibrary.ShowStatusBarOption.saveSpecialValue();
+      myFBReaderApp.ViewOptions.ColorProfileName.saveSpecialValue();
       SetScreenOrientationAction.setOrientation(FBReader.this,zlibrary.getOrientationOption().getValue());
     }
   }
