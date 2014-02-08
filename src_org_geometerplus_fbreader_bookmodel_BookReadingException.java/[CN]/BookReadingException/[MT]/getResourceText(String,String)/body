@@ -1,0 +1,7 @@
+{
+  String message=ZLResource.resource("errorMessage").getResource(resourceId).getValue();
+  for (  String p : params) {
+    message=message.replaceFirst("%s",p);
+  }
+  return message;
+}

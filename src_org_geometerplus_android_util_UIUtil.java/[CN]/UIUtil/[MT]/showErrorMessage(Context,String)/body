@@ -1,3 +1,0 @@
-{
-  showMessageText(context,ZLResource.resource("errorMessage").getResource(resourceKey).getValue());
-}

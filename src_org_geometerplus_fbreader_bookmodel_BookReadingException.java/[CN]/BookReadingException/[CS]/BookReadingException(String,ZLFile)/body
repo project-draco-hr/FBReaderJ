@@ -1,4 +1,3 @@
 {
-  super(getResourceText(resourceId).replace("%s",file.getPath()));
-  File=file;
+  this(resourceId,file,new String[]{file.getPath()});
 }

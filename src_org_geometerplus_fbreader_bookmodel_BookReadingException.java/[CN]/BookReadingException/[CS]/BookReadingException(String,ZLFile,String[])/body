@@ -1,0 +1,4 @@
+{
+  super(getResourceText(resourceId,params));
+  File=file;
+}

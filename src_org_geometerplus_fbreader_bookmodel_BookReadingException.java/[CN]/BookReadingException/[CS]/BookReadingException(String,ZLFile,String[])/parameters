@@ -1,3 +1,3 @@
 String resourceId
-String param
 ZLFile file
+String[] params

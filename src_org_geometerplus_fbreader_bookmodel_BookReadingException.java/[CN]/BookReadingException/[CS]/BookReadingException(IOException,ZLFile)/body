@@ -1,4 +1,4 @@
 {
-  super(getResourceText(e instanceof ZipException ? "errorReadingZip" : "errorReadingFile").replace("%s",file.getPath()),e);
+  super(getResourceText(e instanceof ZipException ? "errorReadingZip" : "errorReadingFile",file.getPath()),e);
   File=file;
 }

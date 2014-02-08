@@ -1,3 +1,0 @@
-{
-  return ZLResource.resource("bookReadingException").getResource(resourceId).getValue();
-}

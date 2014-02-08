@@ -1,0 +1,3 @@
+{
+  showMessageText(activity,ZLResource.resource("errorMessage").getResource(resourceKey).getValue().replace("%s",parameter));
+}
