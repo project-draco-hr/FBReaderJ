@@ -1,6 +1,5 @@
 {
   final int code=readModelNative(model);
-  System.err.println("ENCRYPTION TYPE = " + readEncryptionType(model.Book));
   if (code != 0) {
     throw new BookReadingException("nativeCodeFailure",model.Book.File,new String[]{String.valueOf(code),model.Book.File.getPath()});
   }

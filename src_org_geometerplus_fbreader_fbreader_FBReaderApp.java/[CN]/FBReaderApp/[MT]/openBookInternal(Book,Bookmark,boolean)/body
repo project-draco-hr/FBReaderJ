@@ -55,4 +55,11 @@
   }
   getViewWidget().reset();
   getViewWidget().repaint();
+  try {
+    if (!FormatPlugin.EncryptionMethod.NONE.equals(book.getPlugin().readEncryptionMethod(book))) {
+      System.err.println("UNSUPPORTED ALGORITHM");
+    }
+  }
+ catch (  BookReadingException e) {
+  }
 }
