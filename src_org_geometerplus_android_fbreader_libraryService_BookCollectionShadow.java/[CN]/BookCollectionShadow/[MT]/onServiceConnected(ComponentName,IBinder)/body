@@ -1,8 +1,7 @@
 {
   myInterface=LibraryInterface.Stub.asInterface(service);
-  if (myOnBindAction != null) {
-    myOnBindAction.run();
-    myOnBindAction=null;
+  while (!myOnBindActions.isEmpty()) {
+    Config.Instance().runOnStart(myOnBindActions.remove(0));
   }
   if (myContext != null) {
     myContext.registerReceiver(myReceiver,new IntentFilter(LibraryService.BOOK_EVENT_ACTION));

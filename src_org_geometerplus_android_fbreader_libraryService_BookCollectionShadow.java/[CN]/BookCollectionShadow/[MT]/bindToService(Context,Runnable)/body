@@ -1,11 +1,13 @@
 {
   if (myInterface != null && myContext == context) {
     if (onBindAction != null) {
-      onBindAction.run();
+      Config.Instance().runOnStart(onBindAction);
     }
   }
  else {
-    myOnBindAction=combined(myOnBindAction,onBindAction);
+    if (onBindAction != null) {
+      myOnBindActions.add(onBindAction);
+    }
     context.bindService(new Intent(context,LibraryService.class),this,LibraryService.BIND_AUTO_CREATE);
     myContext=context;
   }
