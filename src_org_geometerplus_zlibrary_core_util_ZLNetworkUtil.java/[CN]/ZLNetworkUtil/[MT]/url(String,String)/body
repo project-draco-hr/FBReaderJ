@@ -2,6 +2,11 @@
   if (relativePath == null || relativePath.length() == 0) {
     return relativePath;
   }
+  try {
+    return new URL(new URL(baseUrl),relativePath).toExternalForm();
+  }
+ catch (  MalformedURLException e) {
+  }
   if (relativePath.contains("://") || relativePath.matches("(?s)^[a-zA-Z][a-zA-Z0-9+-.]*:.*$")) {
     return relativePath;
   }
