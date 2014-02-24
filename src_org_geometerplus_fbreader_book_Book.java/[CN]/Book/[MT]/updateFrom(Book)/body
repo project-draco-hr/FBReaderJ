@@ -1,5 +1,5 @@
 {
-  if (myId != book.myId) {
+  if (book == null || myId != book.myId) {
     return;
   }
   setTitle(book.getTitle());
