@@ -65,6 +65,10 @@
       wordOccurred=true;
       isVisible=true;
     }
+ else     if (element instanceof ZLTextVideoElement) {
+      wordOccurred=true;
+      isVisible=true;
+    }
  else     if (isStyleChangeElement(element)) {
       applyStyleChangeElement(element);
     }
