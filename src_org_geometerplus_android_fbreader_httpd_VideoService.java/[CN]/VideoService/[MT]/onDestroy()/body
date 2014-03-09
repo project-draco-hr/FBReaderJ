@@ -1,0 +1,11 @@
+{
+  if (myServer != null) {
+    new Thread(new Runnable(){
+      public void run(){
+        myServer.stop();
+      }
+    }
+).start();
+  }
+  super.onDestroy();
+}

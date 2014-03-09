@@ -1,0 +1,15 @@
+{
+  final Method method=session.getMethod();
+  final String uri=session.getUri();
+  System.out.println(method + " '" + uri+ "' ");
+  final StringBuilder msg=new StringBuilder("<html><body><h1>Hello server</h1>\n");
+  final String username=session.getParms().get("username");
+  if (username == null) {
+    msg.append("<form action='?' method='get'>\n" + "  <p>Your name: <input type='text' name='username'></p>\n" + "</form>\n");
+  }
+ else {
+    msg.append("<p>Hello, " + username + "!</p>");
+  }
+  msg.append("</body></html>\n");
+  return new NanoHTTPD.Response(msg.toString());
+}

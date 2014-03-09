@@ -1,0 +1,14 @@
+{
+  new Thread(new Runnable(){
+    public void run(){
+      try {
+        myServer=new VideoServer();
+      }
+ catch (      Exception e) {
+        e.printStackTrace();
+      }
+    }
+  }
+).start();
+  return START_STICKY;
+}
