@@ -3,6 +3,7 @@
     public void run(){
       try {
         myServer=new VideoServer();
+        myServer.start();
       }
  catch (      Exception e) {
         e.printStackTrace();
