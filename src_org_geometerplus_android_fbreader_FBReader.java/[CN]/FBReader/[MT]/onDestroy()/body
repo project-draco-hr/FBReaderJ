@@ -1,4 +1,5 @@
 {
   getCollection().unbind();
+  stopService(new Intent(this,org.geometerplus.android.fbreader.httpd.VideoService.class));
   super.onDestroy();
 }
