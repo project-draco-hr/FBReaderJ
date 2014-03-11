@@ -13,7 +13,7 @@
         i=item;
         path.append((char)Short.parseShort(item,16));
       }
-      final Response res=new Response(Response.Status.OK,MimeType.VIDEO_MP4.toString(),ZLFile.createFileByPath(path.toString()).getInputStream());
+      final Response res=new Response(Response.Status.OK,MimeType.VIDEO_WEBM.toString(),ZLFile.createFileByPath(path.toString()).getInputStream());
       res.addHeader("Accept-Ranges","bytes");
       return res;
     }
