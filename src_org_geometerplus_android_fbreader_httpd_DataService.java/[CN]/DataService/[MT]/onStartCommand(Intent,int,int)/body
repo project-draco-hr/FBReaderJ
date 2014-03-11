@@ -2,7 +2,7 @@
   new Thread(new Runnable(){
     public void run(){
       try {
-        myServer=new VideoServer();
+        myServer=new DataServer();
         myServer.start();
       }
  catch (      Exception e) {

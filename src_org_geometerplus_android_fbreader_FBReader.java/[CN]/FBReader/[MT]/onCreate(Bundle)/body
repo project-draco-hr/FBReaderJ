@@ -1,7 +1,7 @@
 {
   super.onCreate(icicle);
   Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler(this));
-  startService(new Intent(this,org.geometerplus.android.fbreader.httpd.VideoService.class));
+  startService(new Intent(this,org.geometerplus.android.fbreader.httpd.DataService.class));
   final Config config=Config.Instance();
   config.runOnStart(new Runnable(){
     public void run(){
@@ -57,6 +57,7 @@
   myFBReaderApp.addAction(ActionCode.SELECTION_TRANSLATE,new SelectionTranslateAction(this,myFBReaderApp));
   myFBReaderApp.addAction(ActionCode.SELECTION_BOOKMARK,new SelectionBookmarkAction(this,myFBReaderApp));
   myFBReaderApp.addAction(ActionCode.PROCESS_HYPERLINK,new ProcessHyperlinkAction(this,myFBReaderApp));
+  myFBReaderApp.addAction(ActionCode.OPEN_VIDEO,new OpenVideoAction(this,myFBReaderApp));
   myFBReaderApp.addAction(ActionCode.SHOW_CANCEL_MENU,new ShowCancelMenuAction(this,myFBReaderApp));
   myFBReaderApp.addAction(ActionCode.SET_SCREEN_ORIENTATION_SYSTEM,new SetScreenOrientationAction(this,myFBReaderApp,ZLibrary.SCREEN_ORIENTATION_SYSTEM));
   myFBReaderApp.addAction(ActionCode.SET_SCREEN_ORIENTATION_SENSOR,new SetScreenOrientationAction(this,myFBReaderApp,ZLibrary.SCREEN_ORIENTATION_SENSOR));
