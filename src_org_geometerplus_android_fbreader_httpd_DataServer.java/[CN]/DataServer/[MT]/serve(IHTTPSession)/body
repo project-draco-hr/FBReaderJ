@@ -13,12 +13,10 @@
         i=item;
         path.append((char)Short.parseShort(item,16));
       }
-      final Response res=new Response(Response.Status.OK,MimeType.VIDEO_WEBM.toString(),ZLFile.createFileByPath(path.toString()).getInputStream());
-      res.addHeader("Accept-Ranges","bytes");
-      return res;
+      return serveFile(ZLFile.createFileByPath(path.toString()),MimeType.VIDEO_WEBM.toString(),session.getHeaders());
     }
  catch (    Exception e) {
-      return new Response(Response.Status.NOT_FOUND,MimeType.TEXT_HTML.toString(),"<html><body><h1>" + e.getMessage() + "</h1>\n("+ uri+ ")\n("+ encodedPath+ ")</body></html>");
+      return new Response(Response.Status.FORBIDDEN,MimeType.TEXT_HTML.toString(),"<html><body><h1>" + e.getMessage() + "</h1>\n("+ uri+ ")\n("+ encodedPath+ ")</body></html>");
     }
   }
   return new Response(Response.Status.NOT_FOUND,MimeType.TEXT_HTML.toString(),"<html><body><h1>Not found: " + uri + "</h1></body></html>");
