@@ -1,5 +1,5 @@
 {
-  if ((family != null) && !myFontFamily.equals(family)) {
+  if (family != null && !myFontFamily.equals(family)) {
     myFontFamily=family;
     myResetFont=true;
   }
