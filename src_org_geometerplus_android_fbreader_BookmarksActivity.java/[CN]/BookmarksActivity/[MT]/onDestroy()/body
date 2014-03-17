@@ -1,4 +1,4 @@
 {
   myCollection.unbind();
-  super.onStop();
+  super.onDestroy();
 }
