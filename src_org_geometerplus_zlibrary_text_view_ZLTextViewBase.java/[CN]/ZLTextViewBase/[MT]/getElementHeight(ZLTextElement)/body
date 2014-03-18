@@ -8,7 +8,7 @@
     return (size != null ? size.Height : 0) + Math.max(getContext().getStringHeight() * (myTextStyle.getLineSpacePercent() - 100) / 100,3);
   }
  else   if (element instanceof ZLTextVideoElement) {
-    return 200;
+    return Math.min(Math.min(200,getTextAreaHeight()),getTextColumnWidth() * 2 / 3);
   }
   return 0;
 }

@@ -8,7 +8,7 @@
     return size != null ? size.Width : 0;
   }
  else   if (element instanceof ZLTextVideoElement) {
-    return 300;
+    return Math.min(300,getTextColumnWidth());
   }
  else   if (element == ZLTextElement.Indent) {
     return myTextStyle.getFirstLineIndentDelta();
