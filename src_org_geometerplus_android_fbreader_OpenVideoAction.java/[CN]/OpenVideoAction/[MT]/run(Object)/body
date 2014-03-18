@@ -11,6 +11,11 @@
     }
     final Intent intent=new Intent(Intent.ACTION_VIEW);
     intent.setDataAndType(Uri.parse(url.toString()),MimeType.VIDEO_WEBM.toString());
-    BaseActivity.startActivity(intent);
+    try {
+      BaseActivity.startActivity(intent);
+    }
+ catch (    ActivityNotFoundException e) {
+      UIUtil.showErrorMessage(BaseActivity,"videoPlayerNotFound");
+    }
   }
 }
