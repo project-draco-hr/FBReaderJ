@@ -6,6 +6,9 @@
   if (plugin == null) {
     return null;
   }
+  if (!plugin.type().Builtin && bookFile != bookFile.getPhysicalFile()) {
+    return null;
+  }
   try {
     bookFile=plugin.realBookFile(bookFile);
   }
