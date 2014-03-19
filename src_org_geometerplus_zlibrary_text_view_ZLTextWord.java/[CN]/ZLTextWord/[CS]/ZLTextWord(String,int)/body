@@ -1,0 +1,3 @@
+{
+  this(word.toCharArray(),0,word.length(),paragraphOffset);
+}
