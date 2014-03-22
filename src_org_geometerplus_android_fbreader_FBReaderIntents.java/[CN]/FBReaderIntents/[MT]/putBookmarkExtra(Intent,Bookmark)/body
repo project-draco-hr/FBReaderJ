@@ -1,0 +1,3 @@
+{
+  putBookmarkExtra(intent,Key.BOOK,bookmark);
+}

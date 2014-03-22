@@ -1,8 +1,8 @@
 {
 switch (requestCode) {
 case REQUEST_PREFERENCES:
-    if (resultCode != RESULT_DO_NOTHING) {
-      final Book book=BookInfoActivity.bookByIntent(data);
+    if (resultCode != RESULT_DO_NOTHING && data != null) {
+      final Book book=FBReaderIntents.getBookExtra(data);
       if (book != null) {
         getCollection().bindToService(this,new Runnable(){
           public void run(){

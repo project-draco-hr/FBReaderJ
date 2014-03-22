@@ -1,3 +1,0 @@
-{
-  return new Intent().putExtra(FBReader.BOOK_KEY,SerializerUtil.serialize(book));
-}

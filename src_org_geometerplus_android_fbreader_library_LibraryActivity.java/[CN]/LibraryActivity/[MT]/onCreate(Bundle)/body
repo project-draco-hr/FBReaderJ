@@ -4,7 +4,7 @@
     myRootTree=new RootTree(new BookCollectionShadow());
   }
   myRootTree.Collection.addListener(this);
-  mySelectedBook=SerializerUtil.deserializeBook(getIntent().getStringExtra(FBReader.BOOK_KEY));
+  mySelectedBook=FBReaderIntents.getBookExtra(getIntent());
   new LibraryTreeAdapter(this);
   init(getIntent());
   getListView().setTextFilterEnabled(true);

@@ -1,3 +1,5 @@
 {
-  OrientationUtil.startActivity(this,new Intent(getApplicationContext(),BookInfoActivity.class).putExtra(FBReader.BOOK_KEY,SerializerUtil.serialize(book)));
+  final Intent intent=new Intent(getApplicationContext(),BookInfoActivity.class);
+  FBReaderIntents.putBookExtra(intent,book);
+  OrientationUtil.startActivity(this,intent);
 }

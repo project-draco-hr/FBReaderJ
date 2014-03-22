@@ -1,3 +1,5 @@
 {
-  OrientationUtil.startActivity(BaseActivity,new Intent(BaseActivity.getApplicationContext(),BookInfoActivity.class).putExtra(FBReader.BOOK_KEY,SerializerUtil.serialize(Reader.Model.Book)).putExtra(BookInfoActivity.FROM_READING_MODE_KEY,true));
+  final Intent intent=new Intent(BaseActivity.getApplicationContext(),BookInfoActivity.class).putExtra(BookInfoActivity.FROM_READING_MODE_KEY,true);
+  FBReaderIntents.putBookExtra(intent,Reader.Model.Book);
+  OrientationUtil.startActivity(BaseActivity,intent);
 }

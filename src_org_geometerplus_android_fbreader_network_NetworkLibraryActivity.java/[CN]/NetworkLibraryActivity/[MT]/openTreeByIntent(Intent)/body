@@ -1,5 +1,5 @@
 {
-  if (OPEN_CATALOG_ACTION.equals(intent.getAction())) {
+  if (FBReaderIntents.Action.OPEN_NETWORK_CATALOG.equals(intent.getAction())) {
     final Uri uri=intent.getData();
     if (uri != null) {
       final NetworkTree tree=NetworkLibrary.Instance().getCatalogTreeByUrl(uri.toString());

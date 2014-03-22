@@ -1,6 +1,6 @@
 {
   exception.printStackTrace();
-  final Intent intent=new Intent("android.fbreader.action.ERROR",new Uri.Builder().scheme(exception.getClass().getSimpleName()).build());
+  final Intent intent=new Intent(FBReaderIntents.Action.ERROR,new Uri.Builder().scheme(exception.getClass().getSimpleName()).build());
   intent.putExtra(ErrorKeys.MESSAGE,exception.getMessage());
   final StringWriter stackTrace=new StringWriter();
   exception.printStackTrace(new PrintWriter(stackTrace));

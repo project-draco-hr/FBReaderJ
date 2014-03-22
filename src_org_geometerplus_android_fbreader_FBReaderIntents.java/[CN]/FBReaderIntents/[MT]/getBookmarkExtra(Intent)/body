@@ -1,0 +1,3 @@
+{
+  return getBookmarkExtra(intent,Key.BOOK);
+}

@@ -1,19 +1,15 @@
 {
   final CancelMenuHelper.ActionType type;
   try {
-    type=CancelMenuHelper.ActionType.valueOf(intent.getStringExtra(CancelActivity.TYPE_KEY));
+    type=CancelMenuHelper.ActionType.valueOf(intent.getStringExtra(FBReaderIntents.Key.TYPE));
   }
  catch (  Exception e) {
     return;
   }
-  Bookmark bookmark=null;
   if (type == CancelMenuHelper.ActionType.returnTo) {
-    try {
-      bookmark=SerializerUtil.deserializeBookmark(intent.getStringExtra(CancelActivity.BOOKMARK_KEY));
-    }
- catch (    Exception e) {
-      return;
+    final Bookmark bookmark=FBReaderIntents.getBookmarkExtra(intent);
+    if (bookmark != null) {
+      myFBReaderApp.runCancelAction(type,bookmark);
     }
   }
-  myFBReaderApp.runCancelAction(type,bookmark);
 }

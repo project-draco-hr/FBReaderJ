@@ -1,5 +1,5 @@
 {
-  final Intent externalIntent=new Intent("android.fbreader.action.EXTERNAL_LIBRARY");
+  final Intent externalIntent=new Intent(FBReaderIntents.Action.EXTERNAL_LIBRARY);
   final Intent internalIntent=new Intent(BaseActivity.getApplicationContext(),LibraryActivity.class);
   if (PackageUtil.canBeStarted(BaseActivity,externalIntent,true)) {
     try {

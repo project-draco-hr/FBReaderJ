@@ -1,5 +1,5 @@
 {
-  final Bookmark bookmark=SerializerUtil.deserializeBookmark(getIntent().getStringExtra(FBReader.BOOKMARK_KEY));
+  final Bookmark bookmark=FBReaderIntents.getBookmarkExtra(getIntent());
   if (bookmark != null) {
     myCollection.saveBookmark(bookmark);
     myThisBookAdapter.add(bookmark);

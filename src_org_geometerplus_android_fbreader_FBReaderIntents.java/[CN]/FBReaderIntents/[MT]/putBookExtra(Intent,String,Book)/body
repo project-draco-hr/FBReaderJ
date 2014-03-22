@@ -1,0 +1,3 @@
+{
+  intent.putExtra(key,SerializerUtil.serialize(book));
+}

@@ -1,6 +1,6 @@
 {
   super.onStart();
-  myBook=BookInfoActivity.bookByIntent(getIntent());
+  myBook=FBReaderIntents.getBookExtra(getIntent());
   if (myBook == null) {
     finish();
     return;

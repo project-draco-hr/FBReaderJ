@@ -3,7 +3,7 @@
   myCollection.bindToService(this,new Runnable(){
     public void run(){
       myExistingBookmark=getIntent().getBooleanExtra(EXISTING_BOOKMARK_KEY,false);
-      myBookmark=SerializerUtil.deserializeBookmark(getIntent().getStringExtra(FBReader.BOOKMARK_KEY));
+      myBookmark=FBReaderIntents.getBookmarkExtra(getIntent());
       if (myBookmark == null) {
         finish();
         return;

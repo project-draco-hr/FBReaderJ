@@ -6,7 +6,7 @@
           new TipRunner().start();
           DictionaryUtil.init(FBReader.this,null);
           final Intent intent=getIntent();
-          if (intent != null && ACTION_OPEN_PLUGIN.equals(intent.getAction())) {
+          if (intent != null && FBReaderIntents.Action.PLUGIN.equals(intent.getAction())) {
             new RunPluginAction(FBReader.this,myFBReaderApp,intent.getData()).run();
           }
         }

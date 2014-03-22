@@ -7,7 +7,7 @@
  else   if (Intent.ACTION_VIEW.equals(action) && data != null && "fbreader-action".equals(data.getScheme())) {
     myFBReaderApp.runAction(data.getEncodedSchemeSpecificPart(),data.getFragment());
   }
- else   if (Intent.ACTION_VIEW.equals(action) || ACTION_OPEN_BOOK.equals(action)) {
+ else   if (Intent.ACTION_VIEW.equals(action) || FBReaderIntents.Action.VIEW.equals(action)) {
     getCollection().bindToService(this,new Runnable(){
       public void run(){
         openBook(intent,null,true);
@@ -15,7 +15,7 @@
     }
 );
   }
- else   if (ACTION_OPEN_PLUGIN.equals(action)) {
+ else   if (FBReaderIntents.Action.PLUGIN.equals(action)) {
     new RunPluginAction(this,myFBReaderApp,data).run();
   }
  else   if (Intent.ACTION_SEARCH.equals(action)) {

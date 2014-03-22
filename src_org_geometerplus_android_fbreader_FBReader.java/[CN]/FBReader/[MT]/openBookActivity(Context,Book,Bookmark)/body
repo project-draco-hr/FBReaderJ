@@ -1,3 +1,6 @@
 {
-  context.startActivity(new Intent(context,FBReader.class).setAction(ACTION_OPEN_BOOK).putExtra(BOOK_KEY,SerializerUtil.serialize(book)).putExtra(BOOKMARK_KEY,SerializerUtil.serialize(bookmark)).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+  final Intent intent=new Intent(context,FBReader.class).setAction(FBReaderIntents.Action.VIEW).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+  FBReaderIntents.putBookExtra(intent,book);
+  FBReaderIntents.putBookmarkExtra(intent,bookmark);
+  context.startActivity(intent);
 }
