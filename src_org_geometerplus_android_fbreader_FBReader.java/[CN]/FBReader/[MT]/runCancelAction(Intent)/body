@@ -6,10 +6,12 @@
  catch (  Exception e) {
     return;
   }
+  Bookmark bookmark=null;
   if (type == CancelMenuHelper.ActionType.returnTo) {
-    final Bookmark bookmark=FBReaderIntents.getBookmarkExtra(intent);
-    if (bookmark != null) {
-      myFBReaderApp.runCancelAction(type,bookmark);
+    bookmark=FBReaderIntents.getBookmarkExtra(intent);
+    if (bookmark == null) {
+      return;
     }
   }
+  myFBReaderApp.runCancelAction(type,bookmark);
 }
