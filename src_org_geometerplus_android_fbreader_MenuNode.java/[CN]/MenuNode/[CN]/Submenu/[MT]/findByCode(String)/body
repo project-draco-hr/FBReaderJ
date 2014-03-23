@@ -1,0 +1,12 @@
+{
+  if (Code.equals(code)) {
+    return this;
+  }
+  for (  MenuNode node : Children) {
+    MenuNode candidate=node.findByCode(code);
+    if (candidate != null) {
+      return candidate;
+    }
+  }
+  return null;
+}
