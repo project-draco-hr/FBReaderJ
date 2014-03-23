@@ -23,6 +23,8 @@ case GET_PARAGRAPH_WORDS:
 return ApiObject.envelopeStringList(getParagraphWords(((ApiObject.Integer)parameters[0]).Value));
 case GET_PARAGRAPH_WORD_INDICES:
 return ApiObject.envelopeIntegerList(getParagraphWordIndices(((ApiObject.Integer)parameters[0]).Value));
+case GET_MAIN_MENU_CONTENT:
+return ApiObject.envelopeSerializableList(getMainMenuContent());
 default :
 return Collections.<ApiObject>singletonList(unsupportedMethodError(method));
 }

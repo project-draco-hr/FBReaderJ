@@ -1,0 +1,3 @@
+{
+  return requestSerializableList(GET_MAIN_MENU_CONTENT,EMPTY_PARAMETERS);
+}

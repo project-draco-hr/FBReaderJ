@@ -1,0 +1,11 @@
+{
+  final List<ApiObject> list=requestList(method,params);
+  final ArrayList<T> serializableList=new ArrayList<T>(list.size());
+  for (  ApiObject object : list) {
+    if (!(object instanceof ApiObject.Serializable)) {
+      throw new ApiException("Cannot cast an element returned from method " + method + " to Serializable");
+    }
+    serializableList.add((T)((ApiObject.Serializable)object).Value);
+  }
+  return serializableList;
+}
