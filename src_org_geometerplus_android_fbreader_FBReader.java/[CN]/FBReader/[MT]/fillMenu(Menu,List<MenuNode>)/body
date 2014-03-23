@@ -1,0 +1,17 @@
+{
+  for (  MenuNode n : nodes) {
+    if (n instanceof MenuNode.Item) {
+      final Integer iconId=((MenuNode.Item)n).IconId;
+      if (iconId != null) {
+        addMenuItem(menu,n.Code,iconId);
+      }
+ else {
+        addMenuItem(menu,n.Code);
+      }
+    }
+ else {
+      final Menu subMenu=addSubMenu(menu,n.Code);
+      fillMenu(subMenu,((MenuNode.Submenu)n).Children);
+    }
+  }
+}
