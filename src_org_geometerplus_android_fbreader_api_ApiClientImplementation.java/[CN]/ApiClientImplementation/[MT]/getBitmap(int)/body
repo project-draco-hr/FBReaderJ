@@ -1,0 +1,3 @@
+{
+  return requestParcelable(GET_BITMAP,envelope(resourceId));
+}
