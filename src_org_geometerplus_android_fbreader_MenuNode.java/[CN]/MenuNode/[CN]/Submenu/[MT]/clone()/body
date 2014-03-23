@@ -1,0 +1,7 @@
+{
+  final Submenu copy=new Submenu(Code);
+  for (  MenuNode node : Children) {
+    copy.Children.add(node.clone());
+  }
+  return copy;
+}

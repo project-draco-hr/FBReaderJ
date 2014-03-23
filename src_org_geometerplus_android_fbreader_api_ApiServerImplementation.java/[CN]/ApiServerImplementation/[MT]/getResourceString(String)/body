@@ -1,5 +1,4 @@
 {
-  System.err.println("getResourceString: " + keys);
   ZLResource resource=ZLResource.resource(keys[0]);
   for (int i=1; i < keys.length; ++i) {
     resource=resource.getResource(keys[i]);

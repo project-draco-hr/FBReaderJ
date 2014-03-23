@@ -1,0 +1,8 @@
+{
+  for (  MenuNode n : nodes) {
+    n.OptionalTitle=menuResource.getResource(n.Code);
+    if (n instanceof MenuNode.Submenu) {
+      setMenuTitles(((MenuNode.Submenu)n).Children);
+    }
+  }
+}
