@@ -10,8 +10,8 @@
       }
     }
  else {
-      final Menu subMenu=addSubMenu(menu,n.Code);
-      fillMenu(subMenu,((MenuNode.Submenu)n).Children);
+      final Menu submenu=addSubmenu(menu,n.Code);
+      fillMenu(submenu,((MenuNode.Submenu)n).Children);
     }
   }
 }

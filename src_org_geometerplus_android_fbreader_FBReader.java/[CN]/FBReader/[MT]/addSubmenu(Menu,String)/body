@@ -1,0 +1,3 @@
+{
+  return menu.addSubmenu(ZLResource.resource("menu").getResource(id).getValue());
+}
