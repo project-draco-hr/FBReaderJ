@@ -124,6 +124,14 @@ return ApiObject.envelope(isZoneMapCustom(((ApiObject.String)parameters[0]).Valu
 case DELETE_ZONEMAP:
 deleteZoneMap(((ApiObject.String)parameters[0]).Value);
 return ApiObject.Void.Instance;
+case GET_RESOURCE_STRING:
+{
+final String[] stringParams=new String[parameters.length];
+for (int i=0; i < parameters.length; ++i) {
+stringParams[i]=((ApiObject.String)parameters[i]).Value;
+}
+return ApiObject.envelope(getResourceString(stringParams));
+}
 default :
 return unsupportedMethodError(method);
 }

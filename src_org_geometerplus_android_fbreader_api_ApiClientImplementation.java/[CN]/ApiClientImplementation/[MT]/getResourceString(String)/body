@@ -1,0 +1,3 @@
+{
+  return requestString(GET_RESOURCE_STRING,envelope(keys));
+}
