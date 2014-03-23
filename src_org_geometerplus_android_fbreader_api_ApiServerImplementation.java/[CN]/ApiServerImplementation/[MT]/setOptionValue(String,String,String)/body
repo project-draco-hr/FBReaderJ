@@ -1,2 +1,3 @@
 {
+  new ZLStringOption(group,name,null).setValue(value);
 }

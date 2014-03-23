@@ -132,6 +132,8 @@ stringParams[i]=((ApiObject.String)parameters[i]).Value;
 }
 return ApiObject.envelope(getResourceString(stringParams));
 }
+case GET_BITMAP:
+return ApiObject.envelope(getBitmap(((ApiObject.Integer)parameters[0]).Value));
 default :
 return unsupportedMethodError(method);
 }
