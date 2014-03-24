@@ -3,7 +3,7 @@
     return;
   }
   try {
-    OrientationUtil.startActivity(BaseActivity,new Intent("android.fbreader.action.plugin.RUN",myUri));
+    OrientationUtil.startActivity(BaseActivity,new Intent(PluginApi.ACTION_RUN,myUri));
   }
  catch (  ActivityNotFoundException e) {
   }
