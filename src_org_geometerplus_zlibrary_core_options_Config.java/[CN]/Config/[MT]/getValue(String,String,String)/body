@@ -1,3 +1,0 @@
-{
-  return getValue(new StringPair(name,id),defaultValue);
-}
