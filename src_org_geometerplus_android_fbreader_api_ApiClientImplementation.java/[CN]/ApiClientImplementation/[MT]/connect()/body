@@ -1,6 +1,6 @@
 {
   if (myInterface == null) {
-    myContext.bindService(new Intent(FBReaderIntents.Action.API),this,Context.BIND_AUTO_CREATE);
+    myContext.bindService(FBReaderIntents.defaultIntent(FBReaderIntents.Action.API),this,Context.BIND_AUTO_CREATE);
     myContext.registerReceiver(myEventReceiver,new IntentFilter(FBReaderIntents.Action.API_CALLBACK));
   }
 }

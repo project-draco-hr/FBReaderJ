@@ -1,0 +1,3 @@
+{
+  return new Intent(action).addCategory(Intent.CATEGORY_DEFAULT).setPackage("org.geometerplus.zlibrary.ui.android");
+}
