@@ -1,0 +1,6 @@
+{
+  Uri=uri;
+  Method=method;
+  Algorithm=algorithm;
+  ContentId=contentId;
+}
