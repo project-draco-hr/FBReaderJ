@@ -1,5 +1,8 @@
 {
   try {
+    if (myEncryptionInfo != null) {
+      return null;
+    }
     final InputStream stream;
     if (myOffsets.length == 1) {
       final int offset=myOffsets[0];

@@ -8,7 +8,7 @@
       offsets[i]=Integer.parseInt(data[3 + i]);
       lengths[i]=Integer.parseInt(data[3 + count + i]);
     }
-    return new ZLFileImage(MimeType.IMAGE_AUTO,ZLFile.createFileByPath(data[0]),data[1],offsets,lengths);
+    return new ZLFileImage(MimeType.IMAGE_AUTO,ZLFile.createFileByPath(data[0]),data[1],offsets,lengths,null);
   }
  catch (  Exception e) {
     e.printStackTrace();
