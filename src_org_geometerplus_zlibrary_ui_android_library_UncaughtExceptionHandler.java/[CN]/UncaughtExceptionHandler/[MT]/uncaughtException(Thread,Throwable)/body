@@ -2,7 +2,8 @@
   final StringWriter stackTrace=new StringWriter();
   exception.printStackTrace(new PrintWriter(stackTrace));
   System.err.println(stackTrace);
-  Intent intent=new Intent("android.fbreader.action.CRASH",new Uri.Builder().scheme(exception.getClass().getSimpleName()).build());
+  Intent intent=new Intent(FBReaderIntents.Action.CRASH,new Uri.Builder().scheme(exception.getClass().getSimpleName()).build());
+  intent.setPackage(FBReaderIntents.DEFAULT_PACKAGE);
   try {
     myContext.startActivity(intent);
   }
