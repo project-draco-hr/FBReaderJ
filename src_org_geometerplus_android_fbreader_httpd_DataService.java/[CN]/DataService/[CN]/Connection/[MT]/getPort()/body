@@ -1,0 +1,8 @@
+{
+  try {
+    return myDataInterface != null ? myDataInterface.getPort() : -1;
+  }
+ catch (  RemoteException e) {
+    return -1;
+  }
+}

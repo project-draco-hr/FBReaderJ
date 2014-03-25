@@ -2,8 +2,10 @@
   if (myServer != null) {
     new Thread(new Runnable(){
       public void run(){
-        myServer.stop();
-        myServer=null;
+        if (myServer != null) {
+          myServer.stop();
+          myServer=null;
+        }
       }
     }
 ).start();

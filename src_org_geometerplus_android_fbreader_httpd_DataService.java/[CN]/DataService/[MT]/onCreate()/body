@@ -1,0 +1,18 @@
+{
+  new Thread(new Runnable(){
+    public void run(){
+      for (int port=12000; port < 12500; ++port) {
+        try {
+          myServer=new DataServer(port);
+          myServer.start();
+          myPort=port;
+          break;
+        }
+ catch (        IOException e) {
+          myServer=null;
+        }
+      }
+    }
+  }
+).start();
+}
