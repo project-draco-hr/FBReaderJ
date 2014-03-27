@@ -1,5 +1,5 @@
 {
-  if (myLength >= offset()) {
+  if (offset() >= myLength) {
     return -1;
   }
   return super.read();
