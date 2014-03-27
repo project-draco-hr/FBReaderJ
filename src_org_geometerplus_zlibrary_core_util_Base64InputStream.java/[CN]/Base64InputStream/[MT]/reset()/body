@@ -1,8 +1,0 @@
-{
-  myBaseStream.reset();
-  myBufferOffset=0;
-  myBufferLength=0;
-  myDecoded0=-1;
-  myDecoded1=-1;
-  myDecoded2=-1;
-}
