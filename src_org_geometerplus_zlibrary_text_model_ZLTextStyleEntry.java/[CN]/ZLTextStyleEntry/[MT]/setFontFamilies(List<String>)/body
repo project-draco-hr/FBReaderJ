@@ -1,0 +1,4 @@
+{
+  myFeatureMask|=1 << Feature.FONT_FAMILY;
+  myFontFamilies=new ArrayList<String>(fontFamilies);
+}

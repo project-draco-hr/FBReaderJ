@@ -1,5 +1,6 @@
 {
   if (myEntry.isFeatureSupported(FONT_FAMILY)) {
+    System.err.println(myEntry.getFontFamilies());
   }
   return Parent.getFontFamily();
 }
