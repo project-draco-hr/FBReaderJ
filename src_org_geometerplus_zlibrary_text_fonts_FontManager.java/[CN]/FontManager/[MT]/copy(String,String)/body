@@ -1,0 +1,32 @@
+{
+  InputStream is=null;
+  OutputStream os=null;
+  try {
+    is=ZLFile.createFileByPath(from).getInputStream();
+    os=new FileOutputStream(to);
+    final byte[] buffer=new byte[8192];
+    while (true) {
+      final int len=is.read(buffer);
+      if (len <= 0) {
+        break;
+      }
+      os.write(buffer,0,len);
+    }
+    return true;
+  }
+ catch (  IOException e) {
+    return false;
+  }
+ finally {
+    try {
+      os.close();
+    }
+ catch (    Throwable t) {
+    }
+    try {
+      is.close();
+    }
+ catch (    Throwable t) {
+    }
+  }
+}

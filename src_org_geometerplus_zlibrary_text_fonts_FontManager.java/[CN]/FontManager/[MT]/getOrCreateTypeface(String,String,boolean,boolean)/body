@@ -1,0 +1,18 @@
+{
+  if (file == null) {
+    return null;
+  }
+  final String realFileName=alias(family,bold,italic);
+  Object cached=myCachedTypefaces.get(realFileName);
+  if (cached == null) {
+    if (copy(file,realFileName)) {
+      try {
+        cached=Typeface.createFromFile(realFileName);
+      }
+ catch (      Throwable t) {
+      }
+    }
+    myCachedTypefaces.put(realFileName,cached != null ? cached : NULL_OBJECT);
+  }
+  return cached instanceof Typeface ? (Typeface)cached : null;
+}
