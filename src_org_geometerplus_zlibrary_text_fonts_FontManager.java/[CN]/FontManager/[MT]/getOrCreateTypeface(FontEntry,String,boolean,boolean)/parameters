@@ -1,4 +1,4 @@
-String file
+FontEntry entry
 String family
 boolean bold
 boolean italic

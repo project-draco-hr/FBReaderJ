@@ -1,3 +1,10 @@
 {
-  return "FontEntry[" + Files[0] + ";"+ Files[1]+ ";"+ Files[2]+ ";"+ Files[3]+ "]";
+  final StringBuilder builder=new StringBuilder("FontEntry[");
+  builder.append(Family);
+  if (myFiles != null) {
+    for (int i=0; i < 4; ++i) {
+      builder.append(";").append(myFiles[i]);
+    }
+  }
+  return builder.append("]").toString();
 }

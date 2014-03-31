@@ -1,11 +1,12 @@
 {
-  if (file == null) {
+  final String fileName=entry.fileName(bold,italic);
+  if (fileName == null) {
     return null;
   }
   final String realFileName=alias(family,bold,italic);
   Object cached=myCachedTypefaces.get(realFileName);
   if (cached == null) {
-    if (copy(file,realFileName)) {
+    if (copy(fileName,realFileName)) {
       try {
         cached=Typeface.createFromFile(realFileName);
       }

@@ -1,7 +1,8 @@
 {
   if (myEntry.isFeatureSupported(FONT_FAMILY)) {
-    for (    String family : myEntry.getFontFamilies()) {
-      System.err.println("FAMILY = " + family + " => "+ myEntry.getFontManager().getTypeface(family,true,true));
+    final List<String> families=myEntry.getFontFamilies();
+    if (!families.isEmpty()) {
+      return families.get(0);
     }
   }
   return Parent.getFontFamily();
