@@ -1,0 +1,10 @@
+{
+  if (other == this) {
+    return true;
+  }
+  if (!(other instanceof FontEntry)) {
+    return false;
+  }
+  final FontEntry entry=(FontEntry)other;
+  return Family.equals(entry.Family) && (myFiles == null ? entry.myFiles == null : myFiles.equals(entry.myFiles));
+}

@@ -1,0 +1,10 @@
+{
+synchronized (ourSystemEntries) {
+    FontEntry entry=ourSystemEntries.get(family);
+    if (entry == null) {
+      entry=new FontEntry(family);
+      ourSystemEntries.put(family,entry);
+    }
+    return entry;
+  }
+}

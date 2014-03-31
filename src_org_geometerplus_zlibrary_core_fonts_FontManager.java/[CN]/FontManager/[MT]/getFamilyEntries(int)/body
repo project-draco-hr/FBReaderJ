@@ -1,0 +1,14 @@
+{
+  try {
+    final List<String> families=myFamilyLists.get(index);
+    final ArrayList<FontEntry> entries=new ArrayList<FontEntry>(families.size());
+    for (    String f : families) {
+      final FontEntry e=Entries.get(f);
+      entries.add(e != null ? e : FontEntry.systemEntry(f));
+    }
+    return entries;
+  }
+ catch (  Exception e) {
+    return Collections.emptyList();
+  }
+}

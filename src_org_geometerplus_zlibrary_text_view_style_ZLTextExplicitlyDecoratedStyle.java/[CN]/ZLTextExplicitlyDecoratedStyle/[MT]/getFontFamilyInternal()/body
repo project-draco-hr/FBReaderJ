@@ -1,8 +1,8 @@
 {
   if (myEntry.isFeatureSupported(FONT_FAMILY)) {
-    final List<String> families=myEntry.getFontFamilies();
-    if (!families.isEmpty()) {
-      return families.get(0);
+    final List<FontEntry> entries=myEntry.getFontEntries();
+    if (!entries.isEmpty()) {
+      return entries.get(0);
     }
   }
   return Parent.getFontFamily();

@@ -1,5 +1,4 @@
 {
   myFeatureMask|=1 << Feature.FONT_FAMILY;
-  myFontManager=fontManager;
-  myFontFamilies=fontManager.getFamilyList(fontFamiliesIndex);
+  myFontEntries=fontManager.getFamilyEntries(fontFamiliesIndex);
 }

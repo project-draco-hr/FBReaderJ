@@ -1,0 +1,8 @@
+{
+  if (entry.isSystem()) {
+    return typefaceSystem(entry.Family,bold,italic);
+  }
+ else {
+    return null;
+  }
+}

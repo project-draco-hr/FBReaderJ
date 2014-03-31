@@ -2,5 +2,5 @@
   if (myIsNotCached) {
     initCache();
   }
-  return myFontFamily;
+  return myFontEntry;
 }

@@ -1,6 +1,6 @@
-String family
+FontEntry family
 int size
 boolean bold
 boolean italic
 boolean underline
-boolean strikeThrough
+boolean strikeThrought
