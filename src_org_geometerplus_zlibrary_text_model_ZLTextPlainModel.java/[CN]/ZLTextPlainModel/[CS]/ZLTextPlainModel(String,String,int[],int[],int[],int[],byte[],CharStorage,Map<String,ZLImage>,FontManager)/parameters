@@ -1,12 +1,10 @@
 String id
 String language
-int paragraphsNumber
 int[] entryIndices
 int[] entryOffsets
-int[] paragraphLengths
+int[] paragraphLenghts
 int[] textSizes
 byte[] paragraphKinds
-String directoryName
-String fileExtension
-int blocksNumber
+CharStorage storage
 Map<String,ZLImage> imageMap
+FontManager fontManager

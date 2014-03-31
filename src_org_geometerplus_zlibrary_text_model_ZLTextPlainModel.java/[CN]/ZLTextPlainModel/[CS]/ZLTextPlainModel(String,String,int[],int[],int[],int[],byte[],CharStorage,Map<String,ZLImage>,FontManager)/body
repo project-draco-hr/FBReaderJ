@@ -8,4 +8,5 @@
   myParagraphKinds=paragraphKinds;
   myStorage=storage;
   myImageMap=imageMap;
+  myFontManager=fontManager;
 }

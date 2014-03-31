@@ -5,3 +5,4 @@ int dataBlockSize
 String directoryName
 String extension
 Map<String,ZLImage> imageMap
+FontManager fontManager

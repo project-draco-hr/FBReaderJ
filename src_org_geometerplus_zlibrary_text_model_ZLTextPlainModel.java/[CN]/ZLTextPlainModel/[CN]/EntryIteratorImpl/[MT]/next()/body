@@ -74,7 +74,7 @@ final short value=(short)data[dataOffset++];
 entry.setAlignmentType((byte)(value & 0xFF));
 }
 if (ZLTextStyleEntry.isFeatureSupported(mask,FONT_FAMILY)) {
-entry.setFontFamiliesIndex((short)data[dataOffset++]);
+entry.setFontFamilies(myFontManager,(short)data[dataOffset++]);
 }
 if (ZLTextStyleEntry.isFeatureSupported(mask,FONT_STYLE_MODIFIER)) {
 final short value=(short)data[dataOffset++];

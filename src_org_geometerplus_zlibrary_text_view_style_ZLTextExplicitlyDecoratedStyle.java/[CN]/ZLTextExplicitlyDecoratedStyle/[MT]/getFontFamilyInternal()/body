@@ -1,6 +1,6 @@
 {
   if (myEntry.isFeatureSupported(FONT_FAMILY)) {
-    System.err.println("FONT FAMILIES INDEX = " + myEntry.getFontFamiliesIndex());
+    System.err.println("FONT FAMILIES LIST = " + myEntry.getFontFamilies());
   }
   return Parent.getFontFamily();
 }
