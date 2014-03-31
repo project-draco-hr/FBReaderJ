@@ -1,8 +1,8 @@
 {
   if (entry.isSystem()) {
-    return typefaceSystem(entry.Family,bold,italic);
+    return systemTypeface(entry.Family,bold,italic);
   }
  else {
-    return null;
+    return embeddedTypeface(entry,bold,italic);
   }
 }

@@ -1,0 +1,16 @@
+{
+{
+    final int index=(bold ? 1 : 0) + (italic ? 2 : 0);
+    final Typeface tf=getOrCreateEmbeddedTypeface(entry,bold,italic);
+    if (tf != null) {
+      return tf;
+    }
+  }
+  for (int i=0; i < 4; ++i) {
+    final Typeface tf=getOrCreateEmbeddedTypeface(entry,(i & 1) == 1,(i & 2) == 2);
+    if (tf != null) {
+      return tf;
+    }
+  }
+  return null;
+}

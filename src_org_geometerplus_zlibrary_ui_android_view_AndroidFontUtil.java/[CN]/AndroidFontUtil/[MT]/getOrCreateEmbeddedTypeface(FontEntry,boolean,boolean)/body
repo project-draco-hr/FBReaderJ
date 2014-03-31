@@ -3,8 +3,8 @@
   if (fileName == null) {
     return null;
   }
-  final String realFileName=alias(family,bold,italic);
-  Object cached=myCachedTypefaces.get(realFileName);
+  final String realFileName=alias(entry.Family,bold,italic);
+  Object cached=ourCachedEmbeddedTypefaces.get(realFileName);
   if (cached == null) {
     if (copy(fileName,realFileName)) {
       try {
@@ -13,7 +13,7 @@
  catch (      Throwable t) {
       }
     }
-    myCachedTypefaces.put(realFileName,cached != null ? cached : NULL_OBJECT);
+    ourCachedEmbeddedTypefaces.put(realFileName,cached != null ? cached : NULL_OBJECT);
   }
   return cached instanceof Typeface ? (Typeface)cached : null;
 }
