@@ -1,0 +1,9 @@
+{
+  for (int i=0; i < myFamilyLists.size(); ++i) {
+    if (myFamilyLists.get(i).equals(families)) {
+      return i;
+    }
+  }
+  myFamilyLists.add(new ArrayList<String>(families));
+  return myFamilyLists.size() - 1;
+}
