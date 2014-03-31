@@ -1,4 +1,7 @@
 {
+  if (myEntry instanceof ZLTextCSSStyleEntry && !BaseStyle.UseCSSFontFamilyOption.getValue()) {
+    return Parent.getFontFamily();
+  }
   if (myEntry.isFeatureSupported(FONT_FAMILY)) {
     final List<FontEntry> entries=myEntry.getFontEntries();
     if (!entries.isEmpty()) {
