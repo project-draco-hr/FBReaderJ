@@ -1,0 +1,3 @@
+{
+  FontManager.Entries.put(family,entry);
+}

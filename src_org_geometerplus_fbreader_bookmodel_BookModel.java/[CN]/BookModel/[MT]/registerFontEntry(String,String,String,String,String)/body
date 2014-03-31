@@ -1,0 +1,3 @@
+{
+  registerFontEntry(family,new FontEntry(normal,bold,italic,boldItalic));
+}
