@@ -1,0 +1,3 @@
+{
+  return 4 * Entry.hashCode() + (Bold ? 2 : 0) + (Italic ? 1 : 0);
+}

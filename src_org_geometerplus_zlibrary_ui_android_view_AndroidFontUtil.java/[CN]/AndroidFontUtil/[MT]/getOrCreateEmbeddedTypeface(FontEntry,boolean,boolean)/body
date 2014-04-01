@@ -1,5 +1,6 @@
 {
-  Object cached=ourCachedEmbeddedTypefaces.get(entry);
+  final Spec spec=new Spec(entry,bold,italic);
+  Object cached=ourCachedEmbeddedTypefaces.get(spec);
   if (cached == null) {
     final String fileName=entry.fileName(bold,italic);
     if (fileName != null) {
@@ -12,7 +13,7 @@
         }
       }
     }
-    ourCachedEmbeddedTypefaces.put(entry,cached != null ? cached : NULL_OBJECT);
+    ourCachedEmbeddedTypefaces.put(spec,cached != null ? cached : NULL_OBJECT);
   }
   return cached instanceof Typeface ? (Typeface)cached : null;
 }
