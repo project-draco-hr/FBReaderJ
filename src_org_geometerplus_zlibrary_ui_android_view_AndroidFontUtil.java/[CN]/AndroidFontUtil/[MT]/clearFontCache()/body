@@ -1,5 +1,4 @@
 {
   ourTypefaces.clear();
-  ourCachedEmbeddedTypefaces.clear();
   ourFileSet=null;
 }
