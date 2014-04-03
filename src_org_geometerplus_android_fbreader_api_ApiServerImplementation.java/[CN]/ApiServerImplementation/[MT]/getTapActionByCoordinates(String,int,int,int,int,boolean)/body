@@ -1,3 +1,0 @@
-{
-  return TapZoneMap.zoneMap(name).getActionByCoordinates(x,y,width,height,singleTap ? TapZoneMap.Tap.singleNotDoubleTap : TapZoneMap.Tap.doubleTap);
-}

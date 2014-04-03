@@ -1,0 +1,10 @@
+{
+  TapZoneMap.Tap id;
+  try {
+    id=TapZoneMap.Tap.valueOf(tap);
+  }
+ catch (  Exception e) {
+    id=TapZoneMap.Tap.singleTap;
+  }
+  return TapZoneMap.zoneMap(name).getActionByCoordinates(x,y,width,height,id);
+}
