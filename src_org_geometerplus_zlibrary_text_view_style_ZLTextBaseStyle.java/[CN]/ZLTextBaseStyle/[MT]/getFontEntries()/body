@@ -1,0 +1,7 @@
+{
+  final String family=FontFamilyOption.getValue();
+  if (myFontEntries == null || !family.equals(myFontFamily)) {
+    myFontEntries=Collections.singletonList(FontEntry.systemEntry(family));
+  }
+  return myFontEntries;
+}

@@ -1,3 +1,0 @@
-{
-  return FontEntry.systemEntry(FontFamilyOption.getValue());
-}

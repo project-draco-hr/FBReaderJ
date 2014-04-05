@@ -1,0 +1,22 @@
+{
+  final List<FontEntry> parentEntries=Parent.getFontEntries();
+  if (myEntry instanceof ZLTextCSSStyleEntry && !BaseStyle.UseCSSFontFamilyOption.getValue()) {
+    return parentEntries;
+  }
+  if (!myEntry.isFeatureSupported(FONT_FAMILY)) {
+    return parentEntries;
+  }
+  final List<FontEntry> entries=myEntry.getFontEntries();
+  final int lSize=entries.size();
+  if (lSize == 0) {
+    return parentEntries;
+  }
+  final int pSize=parentEntries.size();
+  if (pSize > lSize && entries.equals(parentEntries.subList(pSize - lSize,pSize - 1))) {
+    return parentEntries;
+  }
+  final List<FontEntry> allEntries=new ArrayList<FontEntry>(pSize + lSize);
+  allEntries.addAll(entries);
+  allEntries.addAll(parentEntries);
+  return allEntries;
+}

@@ -1,0 +1,13 @@
+{
+  Typeface typeface=null;
+  for (  FontEntry e : entries) {
+    typeface=AndroidFontUtil.typeface(e,bold,italic);
+    if (typeface != null) {
+      break;
+    }
+  }
+  myTextPaint.setTypeface(typeface);
+  myTextPaint.setTextSize(size);
+  myTextPaint.setUnderlineText(underline);
+  myTextPaint.setStrikeThruText(strikeThrought);
+}

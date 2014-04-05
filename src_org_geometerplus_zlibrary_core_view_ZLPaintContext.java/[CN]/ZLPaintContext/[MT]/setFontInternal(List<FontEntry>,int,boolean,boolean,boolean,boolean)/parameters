@@ -1,6 +1,6 @@
-FontEntry family
+List<FontEntry> entries
 int size
 boolean bold
 boolean italic
 boolean underline
-boolean strikeThrought
+boolean strikeThrough

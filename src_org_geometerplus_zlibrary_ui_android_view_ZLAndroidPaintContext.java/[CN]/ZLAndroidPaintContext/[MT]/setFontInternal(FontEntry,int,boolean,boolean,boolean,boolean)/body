@@ -1,6 +1,0 @@
-{
-  myTextPaint.setTypeface(AndroidFontUtil.typeface(entry,bold,italic));
-  myTextPaint.setTextSize(size);
-  myTextPaint.setUnderlineText(underline);
-  myTextPaint.setStrikeThruText(strikeThrought);
-}

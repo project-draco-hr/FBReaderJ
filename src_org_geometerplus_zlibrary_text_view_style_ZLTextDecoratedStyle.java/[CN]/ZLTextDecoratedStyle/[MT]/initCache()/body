@@ -1,5 +1,5 @@
 {
-  myFontEntry=getFontFamilyInternal();
+  myFontEntries=getFontEntriesInternal();
   myIsItalic=isItalicInternal();
   myIsBold=isBoldInternal();
   myIsUnderline=isUnderlineInternal();
