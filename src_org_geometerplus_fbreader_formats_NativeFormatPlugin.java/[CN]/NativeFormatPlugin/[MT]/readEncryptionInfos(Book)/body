@@ -1,0 +1,4 @@
+{
+  final FileEncryptionInfo[] infos=readEncryptionInfosNative(book);
+  return infos != null ? Arrays.<FileEncryptionInfo>asList(infos) : Collections.<FileEncryptionInfo>emptyList();
+}
