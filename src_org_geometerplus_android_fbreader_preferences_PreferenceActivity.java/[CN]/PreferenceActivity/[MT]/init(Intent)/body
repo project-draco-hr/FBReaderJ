@@ -19,7 +19,7 @@
   final ZLAndroidLibrary androidLibrary=(ZLAndroidLibrary)ZLAndroidLibrary.Instance();
   final String decimalSeparator=String.valueOf(new DecimalFormatSymbols(Locale.getDefault()).getDecimalSeparator());
   final Screen directoriesScreen=createPreferenceScreen("directories");
-  directoriesScreen.addPreference(new ZLStringListOptionPreference(this,Paths.BookPathOption,directoriesScreen.Resource,"books"){
+  directoriesScreen.addPreference(new ZLStringListOptionPreference(this,Paths.BookPathOption,directoriesScreen.Resource,"bookPath"){
     protected void setValue(    String value){
       super.setValue(value);
       final BookCollectionShadow collection=new BookCollectionShadow();
@@ -33,8 +33,8 @@
     }
   }
 );
-  directoriesScreen.addPreference(new ZLStringListOptionPreference(this,Paths.FontPathOption,directoriesScreen.Resource,"fonts"));
-  directoriesScreen.addPreference(new ZLStringListOptionPreference(this,Paths.WallpaperPathOption,directoriesScreen.Resource,"wallpapers"));
+  directoriesScreen.addPreference(new ZLStringListOptionPreference(this,Paths.FontPathOption,directoriesScreen.Resource,"fontPath"));
+  directoriesScreen.addPreference(new ZLStringListOptionPreference(this,Paths.WallpaperPathOption,directoriesScreen.Resource,"wallpaperPath"));
   final Screen appearanceScreen=createPreferenceScreen("appearance");
   appearanceScreen.addPreference(new LanguagePreference(this,appearanceScreen.Resource,"language",ZLResource.interfaceLanguages()){
     @Override protected void init(){
