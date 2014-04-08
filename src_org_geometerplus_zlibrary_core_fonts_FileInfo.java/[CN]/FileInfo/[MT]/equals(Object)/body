@@ -1,0 +1,10 @@
+{
+  if (this == other) {
+    return true;
+  }
+  if (!(other instanceof FileInfo)) {
+    return false;
+  }
+  final FileInfo oInfo=(FileInfo)other;
+  return Path.equals(oInfo.Path) && MiscUtil.equals(EncryptionInfo,oInfo.EncryptionInfo);
+}
