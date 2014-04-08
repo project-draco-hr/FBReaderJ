@@ -9,14 +9,14 @@
   if (!Family.equals(entry.Family)) {
     return false;
   }
-  if (myFiles == null) {
-    return entry.myFiles == null;
+  if (myFileInfos == null) {
+    return entry.myFileInfos == null;
   }
-  if (entry.myFiles == null || entry.myFiles.length != myFiles.length) {
+  if (entry.myFileInfos == null) {
     return false;
   }
-  for (int i=0; i < myFiles.length; ++i) {
-    if (!MiscUtil.equals(myFiles[i],entry.myFiles[i])) {
+  for (int i=0; i < myFileInfos.length; ++i) {
+    if (!MiscUtil.equals(myFileInfos[i],entry.myFileInfos[i])) {
       return false;
     }
   }

@@ -1,9 +1,10 @@
 {
   final StringBuilder builder=new StringBuilder("FontEntry[");
   builder.append(Family);
-  if (myFiles != null) {
+  if (myFileInfos != null) {
     for (int i=0; i < 4; ++i) {
-      builder.append(";").append(myFiles[i]);
+      final FileInfo info=myFileInfos[i];
+      builder.append(";").append(info != null ? info.Path : null);
     }
   }
   return builder.append("]").toString();

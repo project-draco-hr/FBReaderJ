@@ -2,10 +2,10 @@
   final Spec spec=new Spec(entry,bold,italic);
   Object cached=ourCachedEmbeddedTypefaces.get(spec);
   if (cached == null) {
-    final String fileName=entry.fileName(bold,italic);
-    if (fileName != null) {
+    final FileInfo fileInfo=entry.fileInfo(bold,italic);
+    if (fileInfo != null) {
       final String realFileName=alias(entry.Family,bold,italic);
-      if (copy(fileName,realFileName)) {
+      if (copy(fileInfo,realFileName)) {
         try {
           cached=Typeface.createFromFile(realFileName);
         }

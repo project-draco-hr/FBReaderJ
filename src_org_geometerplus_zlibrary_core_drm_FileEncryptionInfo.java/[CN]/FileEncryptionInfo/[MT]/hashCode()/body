@@ -1,0 +1,3 @@
+{
+  return MiscUtil.hashCode(Uri) + 23 * (MiscUtil.hashCode(Method) + 23 * (MiscUtil.hashCode(Algorithm) + 23 * MiscUtil.hashCode(ContentId)));
+}

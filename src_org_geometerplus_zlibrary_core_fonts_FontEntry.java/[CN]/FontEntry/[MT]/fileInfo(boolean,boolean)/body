@@ -1,0 +1,3 @@
+{
+  return myFileInfos != null ? myFileInfos[(bold ? 1 : 0) + (italic ? 2 : 0)] : null;
+}

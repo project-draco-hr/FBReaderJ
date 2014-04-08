@@ -1,0 +1,6 @@
+{
+  if (encryptionInfo == null) {
+    return getInputStream();
+  }
+  throw new IOException("Encryption method " + encryptionInfo.Method + " is not supported");
+}

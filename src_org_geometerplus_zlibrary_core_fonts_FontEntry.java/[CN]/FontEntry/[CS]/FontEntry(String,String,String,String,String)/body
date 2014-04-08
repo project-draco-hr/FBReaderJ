@@ -1,8 +1,0 @@
-{
-  Family=family;
-  myFiles=new String[4];
-  myFiles[0]=normal;
-  myFiles[1]=bold;
-  myFiles[2]=italic;
-  myFiles[3]=boldItalic;
-}

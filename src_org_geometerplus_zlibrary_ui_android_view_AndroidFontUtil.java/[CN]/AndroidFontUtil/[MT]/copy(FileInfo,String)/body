@@ -2,7 +2,7 @@
   InputStream is=null;
   OutputStream os=null;
   try {
-    is=ZLFile.createFileByPath(from).getInputStream();
+    is=ZLFile.createFileByPath(from.Path).getInputStream(from.EncryptionInfo);
     os=new FileOutputStream(to);
     final byte[] buffer=new byte[8192];
     while (true) {

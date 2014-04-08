@@ -1,0 +1,8 @@
+{
+  Family=family;
+  myFileInfos=new FileInfo[4];
+  myFileInfos[0]=normal;
+  myFileInfos[1]=bold;
+  myFileInfos[2]=italic;
+  myFileInfos[3]=boldItalic;
+}
