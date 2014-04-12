@@ -1,6 +1,6 @@
 {
   super(mimeType);
-  myDirName=Paths.cacheDirectory();
+  myDirName=Paths.tempDirectory();
   new File(myDirName).mkdirs();
   myFileNumber=ourCounter++;
   myNamePostfix=namePostfix;

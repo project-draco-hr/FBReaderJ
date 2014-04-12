@@ -1,0 +1,7 @@
+{
+  final ZLStringOption option=new ZLStringOption("Files","tmp","");
+  if (option.getValue().isEmpty()) {
+    option.setValue(mainBookDirectory() + "/.FBReader");
+  }
+  return option;
+}

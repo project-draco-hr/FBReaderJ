@@ -35,6 +35,7 @@
 );
   directoriesScreen.addPreference(new ZLStringListOptionPreference(this,Paths.FontPathOption,directoriesScreen.Resource,"fontPath"));
   directoriesScreen.addPreference(new ZLStringListOptionPreference(this,Paths.WallpaperPathOption,directoriesScreen.Resource,"wallpaperPath"));
+  directoriesScreen.addOption(Paths.TempDirectoryOption(),"tempDir");
   final Screen appearanceScreen=createPreferenceScreen("appearance");
   appearanceScreen.addPreference(new LanguagePreference(this,appearanceScreen.Resource,"language",ZLResource.interfaceLanguages()){
     @Override protected void init(){

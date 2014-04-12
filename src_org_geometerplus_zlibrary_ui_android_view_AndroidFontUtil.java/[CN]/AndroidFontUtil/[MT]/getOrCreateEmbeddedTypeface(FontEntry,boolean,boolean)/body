@@ -12,6 +12,7 @@
  catch (        Throwable t) {
         }
       }
+      new File(realFileName).delete();
     }
     ourCachedEmbeddedTypefaces.put(spec,cached != null ? cached : NULL_OBJECT);
   }
