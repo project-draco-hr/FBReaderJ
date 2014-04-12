@@ -1,7 +1,9 @@
 {
   if (myLibrary != null) {
-    myLibrary.deactivate();
+    final LibraryImplementation l=myLibrary;
     myLibrary=null;
+    l.deactivate();
+    l.close();
   }
   super.onDestroy();
 }
