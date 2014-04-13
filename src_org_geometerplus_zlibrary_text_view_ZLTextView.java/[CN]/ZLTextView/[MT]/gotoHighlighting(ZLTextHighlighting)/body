@@ -18,7 +18,7 @@
   }
   while (!highlighting.intersects(myCurrentPage)) {
     doRepaint=true;
-    scrollPage(true,ScrollingMode.NO_OVERLAPPING,0);
+    turnPage(true,ScrollingMode.NO_OVERLAPPING,0);
     preparePaintInfo(myCurrentPage);
   }
   if (doRepaint) {

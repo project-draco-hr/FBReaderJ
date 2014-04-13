@@ -22,7 +22,7 @@
   }
   while (mark.compareTo(myCurrentPage.EndCursor.getMark()) > 0) {
     doRepaint=true;
-    scrollPage(true,ScrollingMode.NO_OVERLAPPING,0);
+    turnPage(true,ScrollingMode.NO_OVERLAPPING,0);
     preparePaintInfo(myCurrentPage);
   }
   if (doRepaint) {

@@ -19,6 +19,7 @@
         FootnoteView.gotoPosition(label.ParagraphIndex,0,0);
       }
       getViewWidget().repaint();
+      storePosition();
     }
   }
 }

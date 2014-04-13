@@ -6,7 +6,7 @@
     myNextPage.reset();
     preparePaintInfo(myCurrentPage);
     if (myCurrentPage.isEmptyPage()) {
-      scrollPage(true,ScrollingMode.NO_OVERLAPPING,0);
+      turnPage(true,ScrollingMode.NO_OVERLAPPING,0);
     }
   }
 }

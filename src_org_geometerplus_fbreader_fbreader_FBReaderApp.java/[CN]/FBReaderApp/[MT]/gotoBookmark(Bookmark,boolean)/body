@@ -21,4 +21,5 @@
     setView(FootnoteView);
   }
   getViewWidget().repaint();
+  storePosition();
 }

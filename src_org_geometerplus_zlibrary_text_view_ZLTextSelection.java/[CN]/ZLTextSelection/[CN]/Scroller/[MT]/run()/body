@@ -1,5 +1,5 @@
 {
-  myView.scrollPage(myScrollForward,ZLTextView.ScrollingMode.SCROLL_LINES,1);
+  myView.turnPage(myScrollForward,ZLTextView.ScrollingMode.SCROLL_LINES,1);
   myView.preparePaintInfo();
   expandTo(myPage,myX,myY);
   myView.Application.getViewWidget().reset();
