@@ -1,0 +1,5 @@
+Context context
+IFileProvider fileProvider
+History<IFile> history
+IFile currentLocation
+TaskListener listener

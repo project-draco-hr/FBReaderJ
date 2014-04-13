@@ -1,0 +1,14 @@
+{
+  if (!isDisplayHiddenFiles() && pathname.getName().startsWith("."))   return false;
+switch (getFilterMode()) {
+case FilesOnly:
+    if (getRegexFilenameFilter() != null && pathname.isFile())     return pathname.getName().matches(getRegexFilenameFilter());
+  return true;
+case AnyDirectories:
+case DirectoriesOnly:
+return pathname.isDirectory();
+default :
+if (getRegexFilenameFilter() != null && pathname.isFile()) return pathname.getName().matches(getRegexFilenameFilter());
+return true;
+}
+}

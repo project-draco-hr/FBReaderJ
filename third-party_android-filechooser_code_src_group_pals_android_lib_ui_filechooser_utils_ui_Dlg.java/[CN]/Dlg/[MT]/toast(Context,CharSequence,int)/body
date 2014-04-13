@@ -1,0 +1,5 @@
+{
+  if (mToast != null)   mToast.cancel();
+  mToast=android.widget.Toast.makeText(context,msg,duration);
+  mToast.show();
+}

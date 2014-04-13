@@ -1,0 +1,28 @@
+{
+switch (DisplayPrefs.getViewType(this)) {
+case Grid:
+    mViewFiles=(AbsListView)getLayoutInflater().inflate(R.layout.afc_gridview_files,null);
+  break;
+case List:
+mViewFiles=(AbsListView)getLayoutInflater().inflate(R.layout.afc_listview_files,null);
+break;
+}
+mViewFilesContainer.removeAllViews();
+mViewFilesContainer.addView(mViewFiles,new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT,1));
+mViewFiles.setOnItemClickListener(mViewFilesOnItemClickListener);
+mViewFiles.setOnItemLongClickListener(mViewFilesOnItemLongClickListener);
+mViewFiles.setOnTouchListener(new View.OnTouchListener(){
+@Override public boolean onTouch(View v,MotionEvent event){
+return mListviewFilesGestureDetector.onTouchEvent(event);
+}
+}
+);
+createIFileAdapter();
+mFooterView.setOnLongClickListener(new View.OnLongClickListener(){
+@Override public boolean onLongClick(View v){
+E.show(FileChooserActivity.this);
+return false;
+}
+}
+);
+}

@@ -1,0 +1,5 @@
+{
+  List<IFile> list=new ArrayList<IFile>();
+  for (  IFile f : files)   list.add(f);
+  doFinish((ArrayList<IFile>)list);
+}

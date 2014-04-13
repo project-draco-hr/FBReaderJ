@@ -1,0 +1,3 @@
+{
+  showInfo(context,context.getString(msgId));
+}

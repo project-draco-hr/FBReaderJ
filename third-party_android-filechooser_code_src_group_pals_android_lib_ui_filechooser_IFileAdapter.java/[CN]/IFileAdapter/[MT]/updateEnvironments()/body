@@ -1,0 +1,4 @@
+{
+  mFileTimeDisplay.setShowTimeForOldDaysThisYear(DisplayPrefs.isShowTimeForOldDaysThisYear(mContext));
+  mFileTimeDisplay.setShowTimeForOldDays(DisplayPrefs.isShowTimeForOldDays(mContext));
+}

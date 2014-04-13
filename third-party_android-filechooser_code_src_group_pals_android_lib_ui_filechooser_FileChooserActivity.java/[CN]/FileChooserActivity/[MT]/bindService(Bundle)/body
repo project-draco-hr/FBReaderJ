@@ -1,0 +1,78 @@
+{
+  if (startService(new Intent(this,mFileProviderServiceClass)) == null) {
+    doShowCannotConnectToServiceAndFinish();
+    return;
+  }
+  mServiceConnection=new ServiceConnection(){
+    public void onServiceConnected(    ComponentName className,    IBinder service){
+      try {
+        mFileProvider=((FileProviderService.LocalBinder)service).getService();
+      }
+ catch (      Throwable t) {
+        Log.e(_ClassName,"mServiceConnection.onServiceConnected() -> " + t);
+      }
+    }
+    public void onServiceDisconnected(    ComponentName className){
+      mFileProvider=null;
+    }
+  }
+;
+  bindService(new Intent(this,mFileProviderServiceClass),mServiceConnection,Context.BIND_AUTO_CREATE);
+  new LoadingDialog(this,R.string.afc_msg_loading,false){
+    private static final int _WaitTime=200;
+    private static final int _MaxWaitTime=3000;
+    @Override protected Object doInBackground(    Void... params){
+      int totalWaitTime=0;
+      while (mFileProvider == null) {
+        try {
+          totalWaitTime+=_WaitTime;
+          Thread.sleep(_WaitTime);
+          if (totalWaitTime >= _MaxWaitTime)           break;
+        }
+ catch (        InterruptedException e) {
+          break;
+        }
+      }
+      return null;
+    }
+    @Override protected void onPostExecute(    Object result){
+      super.onPostExecute(result);
+      if (mFileProvider == null) {
+        doShowCannotConnectToServiceAndFinish();
+      }
+ else {
+        setupService();
+        setupHeader();
+        setupViewFiles();
+        setupFooter();
+        IFile path=savedInstanceState != null ? (IFile)savedInstanceState.get(_CurrentLocation) : null;
+        IFile selectedFile=null;
+        if (path == null) {
+          selectedFile=(IFile)getIntent().getParcelableExtra(_SelectFile);
+          if (selectedFile != null && selectedFile.exists())           path=selectedFile.parentFile();
+          if (path == null)           selectedFile=null;
+        }
+        if (path == null && DisplayPrefs.isRememberLastLocation(FileChooserActivity.this)) {
+          String lastLocation=DisplayPrefs.getLastLocation(FileChooserActivity.this);
+          if (lastLocation != null)           path=mFileProvider.fromPath(lastLocation);
+        }
+        final IFile _selectedFile=selectedFile;
+        setLocation(path != null && path.isDirectory() ? path : mRoot,new TaskListener(){
+          @Override public void onFinish(          boolean ok,          Object any){
+            if (ok && _selectedFile != null && _selectedFile.isFile() && mIsSaveDialog)             mTxtSaveas.setText(_selectedFile.getName());
+            boolean isCurrentLocation=savedInstanceState != null && any.equals(savedInstanceState.get(_CurrentLocation));
+            if (isCurrentLocation) {
+              mHistory.notifyHistoryChanged();
+            }
+ else {
+              mHistory.push((IFile)any);
+              mFullHistory.push((IFile)any);
+            }
+          }
+        }
+,selectedFile);
+      }
+    }
+  }
+.execute();
+}

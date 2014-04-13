@@ -1,0 +1,5 @@
+{
+  MenuInflater inflater=getMenuInflater();
+  inflater.inflate(R.menu.afc_file_chooser_activity,menu);
+  return true;
+}

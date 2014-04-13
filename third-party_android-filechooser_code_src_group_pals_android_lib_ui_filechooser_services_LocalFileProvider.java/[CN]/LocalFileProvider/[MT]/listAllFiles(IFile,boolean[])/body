@@ -1,0 +1,30 @@
+{
+  if (!(dir instanceof File) || !dir.canRead())   return null;
+  if (hasMoreFiles != null && hasMoreFiles.length > 0)   hasMoreFiles[0]=false;
+  final List<IFile> _files=new ArrayList<IFile>();
+  try {
+    IFile root=dir.parentFile();
+    if (root.parentFile() == null && LocalFileProvider.this.accept(root))     _files.add(root);
+    File[] files=((File)dir).listFiles(new FileFilter(){
+      @Override public boolean accept(      File pathname){
+        LocalFile file=new LocalFile(pathname);
+        if (!LocalFileProvider.this.accept(file))         return false;
+        if (_files.size() >= getMaxFileCount()) {
+          if (hasMoreFiles != null && hasMoreFiles.length > 0)           hasMoreFiles[0]=true;
+          return false;
+        }
+        _files.add(file);
+        return false;
+      }
+    }
+);
+    if (files != null) {
+      Collections.sort(_files,new FileComparator(getSortType(),getSortOrder()));
+      return _files;
+    }
+    return null;
+  }
+ catch (  Throwable t) {
+    return null;
+  }
+}

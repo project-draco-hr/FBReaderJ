@@ -1,0 +1,10 @@
+{
+  HistoryFilter<IFile> historyFilter=new HistoryFilter<IFile>(){
+    @Override public boolean accept(    IFile item){
+      return !item.isDirectory();
+    }
+  }
+;
+  mHistory.removeAll(historyFilter);
+  mFullHistory.removeAll(historyFilter);
+}

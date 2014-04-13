@@ -1,0 +1,4 @@
+{
+  doFinish();
+  super.onCancelled();
+}

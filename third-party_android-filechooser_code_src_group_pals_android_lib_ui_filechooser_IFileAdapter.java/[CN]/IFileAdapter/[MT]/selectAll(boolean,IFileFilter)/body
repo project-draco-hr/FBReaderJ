@@ -1,0 +1,7 @@
+{
+  for (int i=0; i < getCount(); i++) {
+    IFileDataModel item=getItem(i);
+    item.setSelected(filter == null ? true : filter.accept(item.getFile()));
+  }
+  if (notifyDataSetChanged)   notifyDataSetChanged();
+}

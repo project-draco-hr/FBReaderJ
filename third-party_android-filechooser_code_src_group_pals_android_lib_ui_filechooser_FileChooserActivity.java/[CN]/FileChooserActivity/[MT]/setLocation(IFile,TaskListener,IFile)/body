@@ -1,0 +1,84 @@
+{
+  new LoadingDialog(this,R.string.afc_msg_loading,true){
+    List<IFile> files;
+    boolean hasMoreFiles=false;
+    int shouldBeSelectedIdx=-1;
+    /** 
+ * Used to focus last directory on list view.
+ */
+    String mLastPath=getLocation() != null ? getLocation().getAbsolutePath() : null;
+    @Override protected Object doInBackground(    Void... params){
+      try {
+        if (path.isDirectory() && path.canRead()) {
+          files=new ArrayList<IFile>();
+          mFileProvider.listAllFiles(path,new IFileFilter(){
+            @Override public boolean accept(            IFile pathname){
+              if (mFileProvider.accept(pathname)) {
+                if (files.size() < mFileProvider.getMaxFileCount())                 files.add(pathname);
+ else                 hasMoreFiles=true;
+              }
+              return false;
+            }
+          }
+);
+        }
+ else         files=null;
+        if (files != null) {
+          Collections.sort(files,new FileComparator(mFileProvider.getSortType(),mFileProvider.getSortOrder()));
+          if (selectedFile != null && selectedFile.exists() && selectedFile.parentFile().equalsToPath(path)) {
+            for (int i=0; i < files.size(); i++) {
+              if (files.get(i).equalsToPath(selectedFile)) {
+                shouldBeSelectedIdx=i;
+                break;
+              }
+            }
+          }
+ else           if (mLastPath != null && mLastPath.length() >= path.getAbsolutePath().length()) {
+            for (int i=0; i < files.size(); i++) {
+              IFile f=files.get(i);
+              if (f.isDirectory() && mLastPath.startsWith(f.getAbsolutePath())) {
+                shouldBeSelectedIdx=i;
+                break;
+              }
+            }
+          }
+        }
+      }
+ catch (      Throwable t) {
+        setLastException(t);
+        cancel(false);
+      }
+      return null;
+    }
+    @Override protected void onCancelled(){
+      super.onCancelled();
+      Dlg.toast(FileChooserActivity.this,R.string.afc_msg_cancelled,Dlg._LengthShort);
+    }
+    @Override protected void onPostExecute(    Object result){
+      super.onPostExecute(result);
+      if (files == null) {
+        Dlg.toast(FileChooserActivity.this,getString(R.string.afc_pmsg_cannot_access_dir,path.getName()),Dlg._LengthShort);
+        if (listener != null)         listener.onFinish(false,path);
+        return;
+      }
+      createIFileAdapter();
+      for (      IFile f : files)       mFileAdapter.add(new IFileDataModel(f));
+      mFileAdapter.notifyDataSetChanged();
+      mFooterView.setVisibility(hasMoreFiles || mFileAdapter.isEmpty() ? View.VISIBLE : View.GONE);
+      if (hasMoreFiles)       mFooterView.setText(getString(R.string.afc_pmsg_max_file_count_allowed,mFileProvider.getMaxFileCount()));
+ else       if (mFileAdapter.isEmpty())       mFooterView.setText(R.string.afc_msg_empty);
+      mViewFiles.post(new Runnable(){
+        @Override public void run(){
+          if (shouldBeSelectedIdx >= 0 && shouldBeSelectedIdx < mFileAdapter.getCount()) {
+            mViewFiles.setSelection(shouldBeSelectedIdx);
+          }
+ else           if (!mFileAdapter.isEmpty())           mViewFiles.setSelection(0);
+        }
+      }
+);
+      createLocationButtons(path);
+      if (listener != null)       listener.onFinish(true,path);
+    }
+  }
+.execute();
+}

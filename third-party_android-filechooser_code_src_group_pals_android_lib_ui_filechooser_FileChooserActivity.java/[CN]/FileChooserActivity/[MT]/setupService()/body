@@ -1,0 +1,16 @@
+{
+  if (getIntent().getParcelableExtra(_Rootpath) != null)   mRoot=(IFile)getIntent().getSerializableExtra(_Rootpath);
+  if (mRoot == null || !mRoot.isDirectory())   mRoot=mFileProvider.defaultPath();
+  IFileProvider.FilterMode filterMode=(FilterMode)getIntent().getSerializableExtra(_FilterMode);
+  if (filterMode == null) {
+    filterMode=IFileProvider.FilterMode.DirectoriesOnly;
+  }
+  IFileProvider.SortType sortType=DisplayPrefs.getSortType(this);
+  boolean sortAscending=DisplayPrefs.isSortAscending(this);
+  mFileProvider.setDisplayHiddenFiles(getIntent().getBooleanExtra(_DisplayHiddenFiles,false));
+  mFileProvider.setFilterMode(mIsSaveDialog ? IFileProvider.FilterMode.FilesOnly : filterMode);
+  mFileProvider.setMaxFileCount(getIntent().getIntExtra(_MaxFileCount,1024));
+  mFileProvider.setRegexFilenameFilter(getIntent().getStringExtra(_RegexFilenameFilter));
+  mFileProvider.setSortOrder(sortAscending ? IFileProvider.SortOrder.Ascending : IFileProvider.SortOrder.Descending);
+  mFileProvider.setSortType(sortType);
+}

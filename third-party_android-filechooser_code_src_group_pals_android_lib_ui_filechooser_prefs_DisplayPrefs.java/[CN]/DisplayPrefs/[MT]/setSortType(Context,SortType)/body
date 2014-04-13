@@ -1,0 +1,5 @@
+{
+  String key=c.getString(R.string.afc_pkey_display_sort_type);
+  if (v == null)   p(c).edit().putInt(key,c.getResources().getInteger(R.integer.afc_pkey_display_sort_type_def)).commit();
+ else   p(c).edit().putInt(key,v.ordinal()).commit();
+}

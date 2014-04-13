@@ -1,0 +1,6 @@
+{
+  if (!dir.canRead())   return null;
+  List<IFile> files=listAllFiles(dir,hasMoreFiles);
+  if (files == null)   return null;
+  return files.toArray(new IFile[files.size()]);
+}

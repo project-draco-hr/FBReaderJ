@@ -1,0 +1,3 @@
+{
+  return String.format("%s_%s",context.getString(R.string.afc_lib_name),_Uid);
+}

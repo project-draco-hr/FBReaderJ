@@ -1,0 +1,8 @@
+{
+  AlertDialog dlg=newDlg(context);
+  dlg.setIcon(android.R.drawable.ic_dialog_alert);
+  dlg.setTitle(R.string.afc_title_error);
+  dlg.setMessage(msg);
+  dlg.setOnCancelListener(listener);
+  dlg.show();
+}

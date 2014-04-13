@@ -1,0 +1,18 @@
+{
+  IFileDataModel data=getItem(position);
+  Bag bag;
+  if (convertView == null) {
+    convertView=mInflater.inflate(R.layout.afc_file_item,null);
+    bag=new Bag();
+    bag.mImageIcon=(ImageView)convertView.findViewById(R.id.afc_file_item_imageview_icon);
+    bag.mTxtFileName=(TextView)convertView.findViewById(R.id.afc_file_item_textview_filename);
+    bag.mTxtFileInfo=(TextView)convertView.findViewById(R.id.afc_file_item_textview_file_info);
+    bag.mCheckboxSelection=(CheckBox)convertView.findViewById(R.id.afc_file_item_checkbox_selection);
+    convertView.setTag(bag);
+  }
+ else {
+    bag=(Bag)convertView.getTag();
+  }
+  updateView(parent,convertView,bag,data,data.getFile());
+  return convertView;
+}

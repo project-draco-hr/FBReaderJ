@@ -1,0 +1,4 @@
+{
+  for (int i=0; i < getCount(); i++)   getItem(i).setSelected(false);
+  if (notifyDataSetChanged)   notifyDataSetChanged();
+}

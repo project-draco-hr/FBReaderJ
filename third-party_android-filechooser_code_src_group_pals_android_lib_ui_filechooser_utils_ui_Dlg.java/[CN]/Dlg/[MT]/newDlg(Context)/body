@@ -1,0 +1,5 @@
+{
+  AlertDialog res=newDlgBuilder(context).create();
+  res.setCanceledOnTouchOutside(true);
+  return res;
+}

@@ -1,0 +1,4 @@
+{
+  data.setTobeDeleted(false);
+  mFileAdapter.notifyDataSetChanged();
+}

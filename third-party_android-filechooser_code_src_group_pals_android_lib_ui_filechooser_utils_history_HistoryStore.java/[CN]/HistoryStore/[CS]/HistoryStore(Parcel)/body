@@ -1,0 +1,5 @@
+{
+  mMaxSize=in.readInt();
+  int count=in.readInt();
+  for (int i=0; i < count; i++)   mHistoryList.add((A)in.readParcelable(null));
+}

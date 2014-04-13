@@ -1,0 +1,5 @@
+{
+  ArrayList<IFileDataModel> res=new ArrayList<IFileDataModel>();
+  for (int i=0; i < getCount(); i++)   if (getItem(i).isSelected())   res.add(getItem(i));
+  return res;
+}

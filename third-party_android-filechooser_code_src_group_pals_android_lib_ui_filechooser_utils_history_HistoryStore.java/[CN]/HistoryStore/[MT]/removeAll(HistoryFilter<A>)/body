@@ -1,0 +1,10 @@
+{
+  boolean changed=false;
+  for (int i=mHistoryList.size() - 1; i >= 0; i--) {
+    if (filter.accept(mHistoryList.get(i))) {
+      mHistoryList.remove(i);
+      if (!changed)       changed=true;
+    }
+  }
+  if (changed)   notifyHistoryChanged();
+}

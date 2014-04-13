@@ -1,0 +1,9 @@
+{
+  mFinished=true;
+  try {
+    mDialog.dismiss();
+  }
+ catch (  Throwable t) {
+    Log.e(_ClassName,"doFinish() - dismiss dialog: " + t);
+  }
+}

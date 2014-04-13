@@ -1,0 +1,5 @@
+{
+  int idx=mHistoryList.indexOf(a);
+  if (idx > 0)   return mHistoryList.get(idx - 1);
+  return null;
+}

@@ -1,0 +1,5 @@
+{
+  outState.putParcelable(_CurrentLocation,getLocation());
+  outState.putParcelable(_History,mHistory);
+  outState.putParcelable(_FullHistory,mFullHistory);
+}

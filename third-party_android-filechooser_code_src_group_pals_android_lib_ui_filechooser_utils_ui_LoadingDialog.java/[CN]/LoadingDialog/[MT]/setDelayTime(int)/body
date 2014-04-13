@@ -1,0 +1,4 @@
+{
+  mDelayTime=delayTime >= 0 ? delayTime : 0;
+  return this;
+}

@@ -1,0 +1,4 @@
+Context context
+List<IFileDataModel> objects
+IFileProvider.FilterMode filterMode
+boolean multiSelection

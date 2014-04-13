@@ -1,0 +1,15 @@
+{
+  new Handler().postDelayed(new Runnable(){
+    @Override public void run(){
+      if (!mFinished) {
+        try {
+          mDialog.show();
+        }
+ catch (        Throwable t) {
+          Log.e(_ClassName,"onPreExecute() - show dialog: " + t);
+        }
+      }
+    }
+  }
+,getDelayTime());
+}

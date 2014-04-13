@@ -1,0 +1,23 @@
+{
+  if (filename.length() == 0) {
+    Dlg.toast(this,R.string.afc_msg_filename_is_empty,Dlg._LengthShort);
+  }
+ else {
+    final IFile _file=mFileProvider.fromPath(getLocation().getAbsolutePath() + File.separator + filename);
+    if (!FileUtils.isFilenameValid(filename)) {
+      Dlg.toast(this,getString(R.string.afc_pmsg_filename_is_invalid,filename),Dlg._LengthShort);
+    }
+ else     if (_file.isFile()) {
+      Dlg.confirmYesno(FileChooserActivity.this,getString(R.string.afc_pmsg_confirm_replace_file,_file.getName()),new DialogInterface.OnClickListener(){
+        @Override public void onClick(        DialogInterface dialog,        int which){
+          doFinish(_file);
+        }
+      }
+);
+    }
+ else     if (_file.isDirectory()) {
+      Dlg.toast(this,getString(R.string.afc_pmsg_filename_is_directory,_file.getName()),Dlg._LengthShort);
+    }
+ else     doFinish(_file);
+  }
+}

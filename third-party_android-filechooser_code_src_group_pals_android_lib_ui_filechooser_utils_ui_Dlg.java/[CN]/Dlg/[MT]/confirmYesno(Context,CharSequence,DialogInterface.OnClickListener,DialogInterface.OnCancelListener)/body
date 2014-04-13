@@ -1,0 +1,9 @@
+{
+  AlertDialog dlg=newDlg(context);
+  dlg.setIcon(android.R.drawable.ic_dialog_alert);
+  dlg.setTitle(R.string.afc_title_confirmation);
+  dlg.setMessage(msg);
+  dlg.setButton(DialogInterface.BUTTON_POSITIVE,context.getString(android.R.string.yes),onYes);
+  dlg.setOnCancelListener(onNo);
+  dlg.show();
+}

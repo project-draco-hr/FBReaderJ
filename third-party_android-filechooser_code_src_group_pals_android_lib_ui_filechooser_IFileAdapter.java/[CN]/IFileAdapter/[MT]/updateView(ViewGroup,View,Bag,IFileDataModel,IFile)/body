@@ -1,0 +1,28 @@
+{
+  bag.mTxtFileName.setSingleLine(parent instanceof GridView);
+  bag.mImageIcon.setImageResource(FileUtils.getResIcon(file,mFilterMode));
+  bag.mTxtFileName.setText(file.getSecondName());
+  if (data.isTobeDeleted())   bag.mTxtFileName.setPaintFlags(bag.mTxtFileName.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+ else   bag.mTxtFileName.setPaintFlags(bag.mTxtFileName.getPaintFlags() & ~Paint.STRIKE_THRU_TEXT_FLAG);
+  String time=DateUtils.formatDate(mContext,file.lastModified(),mFileTimeDisplay);
+  if (file.isDirectory())   bag.mTxtFileInfo.setText(time);
+ else   bag.mTxtFileInfo.setText(String.format("%s, %s",Converter.sizeToStr(file.length()),time));
+  if (mMultiSelection) {
+    if (FilterMode.FilesOnly.equals(mFilterMode) && file.isDirectory()) {
+      bag.mCheckboxSelection.setVisibility(View.GONE);
+    }
+ else {
+      bag.mCheckboxSelection.setVisibility(View.VISIBLE);
+      bag.mCheckboxSelection.setFocusable(false);
+      bag.mCheckboxSelection.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+        @Override public void onCheckedChanged(        CompoundButton buttonView,        boolean isChecked){
+          data.setSelected(isChecked);
+        }
+      }
+);
+      bag.mCheckboxSelection.setOnLongClickListener(mCheckboxSelectionOnLongClickListener);
+      bag.mCheckboxSelection.setChecked(data.isSelected());
+    }
+  }
+ else   bag.mCheckboxSelection.setVisibility(View.GONE);
+}

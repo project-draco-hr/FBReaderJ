@@ -1,0 +1,3 @@
+{
+  this.mMaxSize=maxSize > 0 ? maxSize : 100;
+}

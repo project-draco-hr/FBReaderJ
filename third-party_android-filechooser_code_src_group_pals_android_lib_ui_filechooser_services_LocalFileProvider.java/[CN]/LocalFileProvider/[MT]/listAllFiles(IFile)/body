@@ -1,0 +1,20 @@
+{
+  if (!(dir instanceof File) || !dir.canRead())   return null;
+  try {
+    final List<IFile> _files=new ArrayList<IFile>();
+    IFile root=dir.parentFile();
+    if (root.parentFile() == null)     _files.add(root);
+    File[] files=((File)dir).listFiles(new FileFilter(){
+      @Override public boolean accept(      File pathname){
+        _files.add(new LocalFile(pathname));
+        return false;
+      }
+    }
+);
+    if (files != null)     return _files;
+    return null;
+  }
+ catch (  Throwable t) {
+    return null;
+  }
+}

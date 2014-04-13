@@ -1,0 +1,59 @@
+{
+  if (mFileProvider instanceof LocalFileProvider && !Utils.hasPermissions(this,Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+    Dlg.toast(this,R.string.afc_msg_app_doesnot_have_permission_to_create_files,Dlg._LengthShort);
+    return;
+  }
+  if ((getLocation() instanceof File)) {
+    if (!((File)getLocation()).canWrite()) {
+      Dlg.toast(this,R.string.afc_msg_app_cant_create_folder,Dlg._LengthShort);
+      return;
+    }
+  }
+  final AlertDialog _dlg=Dlg.newDlg(this);
+  View view=getLayoutInflater().inflate(R.layout.afc_simple_text_input_view,null);
+  final EditText _textFile=(EditText)view.findViewById(R.id.afc_simple_text_input_view_text1);
+  _textFile.setHint(R.string.afc_hint_folder_name);
+  _textFile.setOnEditorActionListener(new TextView.OnEditorActionListener(){
+    @Override public boolean onEditorAction(    TextView v,    int actionId,    KeyEvent event){
+      if (actionId == EditorInfo.IME_ACTION_DONE) {
+        Ui.hideSoftKeyboard(FileChooserActivity.this,_textFile.getWindowToken());
+        _dlg.getButton(DialogInterface.BUTTON_POSITIVE).performClick();
+        return true;
+      }
+      return false;
+    }
+  }
+);
+  _dlg.setView(view);
+  _dlg.setTitle(R.string.afc_cmd_new_folder);
+  _dlg.setIcon(android.R.drawable.ic_menu_add);
+  _dlg.setButton(DialogInterface.BUTTON_POSITIVE,getString(android.R.string.ok),new DialogInterface.OnClickListener(){
+    @Override public void onClick(    DialogInterface dialog,    int which){
+      String name=_textFile.getText().toString().trim();
+      if (!FileUtils.isFilenameValid(name)) {
+        Dlg.toast(FileChooserActivity.this,getString(R.string.afc_pmsg_filename_is_invalid,name),Dlg._LengthShort);
+        return;
+      }
+      IFile dir=mFileProvider.fromPath(String.format("%s/%s",getLocation().getAbsolutePath(),name));
+      if (dir.mkdir()) {
+        Dlg.toast(FileChooserActivity.this,getString(R.string.afc_msg_done),Dlg._LengthShort);
+        setLocation(getLocation(),null);
+      }
+ else       Dlg.toast(FileChooserActivity.this,getString(R.string.afc_pmsg_cannot_create_folder,name),Dlg._LengthShort);
+    }
+  }
+);
+  _dlg.show();
+  final Button _btnOk=_dlg.getButton(DialogInterface.BUTTON_POSITIVE);
+  _btnOk.setEnabled(false);
+  _textFile.addTextChangedListener(new TextWatcher(){
+    @Override public void onTextChanged(    CharSequence s,    int start,    int before,    int count){
+    }
+    @Override public void beforeTextChanged(    CharSequence s,    int start,    int count,    int after){
+    }
+    @Override public void afterTextChanged(    Editable s){
+      _btnOk.setEnabled(FileUtils.isFilenameValid(s.toString().trim()));
+    }
+  }
+);
+}

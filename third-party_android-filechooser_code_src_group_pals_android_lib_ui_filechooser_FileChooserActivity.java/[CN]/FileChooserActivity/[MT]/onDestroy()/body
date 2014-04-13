@@ -1,0 +1,16 @@
+{
+  if (mFileProvider != null) {
+    try {
+      unbindService(mServiceConnection);
+    }
+ catch (    Throwable t) {
+      Log.e(_ClassName,"onDestroy() - unbindService() - exception: " + t);
+    }
+    try {
+      stopService(new Intent(this,mFileProviderServiceClass));
+    }
+ catch (    SecurityException e) {
+    }
+  }
+  super.onDestroy();
+}

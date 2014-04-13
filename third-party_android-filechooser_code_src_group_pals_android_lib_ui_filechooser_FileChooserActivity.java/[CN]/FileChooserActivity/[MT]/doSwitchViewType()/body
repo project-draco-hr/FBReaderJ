@@ -1,0 +1,22 @@
+{
+  new LoadingDialog(this,R.string.afc_msg_loading,false){
+    @Override protected void onPreExecute(){
+      super.onPreExecute();
+switch (DisplayPrefs.getViewType(FileChooserActivity.this)) {
+case Grid:
+        DisplayPrefs.setViewType(FileChooserActivity.this,ViewType.List);
+      break;
+case List:
+    DisplayPrefs.setViewType(FileChooserActivity.this,ViewType.Grid);
+  break;
+}
+setupViewFiles();
+if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) ActivityCompat.invalidateOptionsMenu(FileChooserActivity.this);
+doReloadCurrentLocation();
+}
+@Override protected Object doInBackground(Void... params){
+return null;
+}
+}
+.execute();
+}

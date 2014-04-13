@@ -1,0 +1,6 @@
+{
+  if (newItem == null)   return;
+  if (!mHistoryList.isEmpty() && mHistoryList.indexOf(newItem) == mHistoryList.size() - 1)   return;
+  mHistoryList.add(newItem);
+  notifyHistoryChanged();
+}

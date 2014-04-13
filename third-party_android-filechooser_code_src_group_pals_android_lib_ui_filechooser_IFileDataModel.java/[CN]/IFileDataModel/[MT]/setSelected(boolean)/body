@@ -1,0 +1,3 @@
+{
+  if (mSelected != selected)   mSelected=selected;
+}

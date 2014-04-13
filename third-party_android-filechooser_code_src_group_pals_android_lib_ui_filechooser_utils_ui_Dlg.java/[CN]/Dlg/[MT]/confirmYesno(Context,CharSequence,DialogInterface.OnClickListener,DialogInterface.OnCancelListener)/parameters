@@ -1,0 +1,4 @@
+Context context
+CharSequence msg
+DialogInterface.OnClickListener onYes
+DialogInterface.OnCancelListener onNo

@@ -1,0 +1,4 @@
+{
+  File res=Environment.getExternalStorageDirectory();
+  return res == null ? fromPath("/") : new LocalFile(res);
+}

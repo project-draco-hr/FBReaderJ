@@ -1,0 +1,3 @@
+{
+  return file == null ? false : getAbsolutePath().equals(file.getAbsolutePath());
+}

@@ -1,0 +1,4 @@
+{
+  mSortType=sortType;
+  mSortOrder=sortOrder;
+}

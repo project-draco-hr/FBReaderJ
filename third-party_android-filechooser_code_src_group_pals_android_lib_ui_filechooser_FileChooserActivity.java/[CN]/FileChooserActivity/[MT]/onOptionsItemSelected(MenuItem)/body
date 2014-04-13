@@ -1,0 +1,9 @@
+{
+  if (item.getItemId() == R.id.afc_filechooser_activity_menuitem_home) {
+    doGoHome();
+  }
+ else   if (item.getItemId() == R.id.afc_filechooser_activity_menuitem_reload) {
+    doReloadCurrentLocation();
+  }
+  return true;
+}

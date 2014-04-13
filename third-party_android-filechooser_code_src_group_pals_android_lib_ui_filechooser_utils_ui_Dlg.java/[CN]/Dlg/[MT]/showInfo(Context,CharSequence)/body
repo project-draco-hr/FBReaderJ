@@ -1,0 +1,7 @@
+{
+  AlertDialog dlg=newDlg(context);
+  dlg.setIcon(android.R.drawable.ic_dialog_info);
+  dlg.setTitle(R.string.afc_title_info);
+  dlg.setMessage(msg);
+  dlg.show();
+}

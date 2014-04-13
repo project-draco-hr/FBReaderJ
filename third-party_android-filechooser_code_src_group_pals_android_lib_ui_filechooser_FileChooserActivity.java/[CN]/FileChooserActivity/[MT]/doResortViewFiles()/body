@@ -1,0 +1,68 @@
+{
+  final AlertDialog _dialog=Dlg.newDlg(this);
+  int btnCurrentSortTypeIdx=0;
+switch (DisplayPrefs.getSortType(this)) {
+case SortByName:
+    btnCurrentSortTypeIdx=0;
+  break;
+case SortBySize:
+btnCurrentSortTypeIdx=2;
+break;
+case SortByDate:
+btnCurrentSortTypeIdx=4;
+break;
+}
+if (!DisplayPrefs.isSortAscending(this)) btnCurrentSortTypeIdx++;
+View.OnClickListener listener=new View.OnClickListener(){
+@Override public void onClick(View v){
+_dialog.dismiss();
+Context c=FileChooserActivity.this;
+if (v.getId() == R.id.afc_settings_sort_view_button_sort_by_name_asc) {
+DisplayPrefs.setSortType(c,SortType.SortByName);
+DisplayPrefs.setSortAscending(c,true);
+}
+ else if (v.getId() == R.id.afc_settings_sort_view_button_sort_by_name_desc) {
+DisplayPrefs.setSortType(c,SortType.SortByName);
+DisplayPrefs.setSortAscending(c,false);
+}
+ else if (v.getId() == R.id.afc_settings_sort_view_button_sort_by_size_asc) {
+DisplayPrefs.setSortType(c,SortType.SortBySize);
+DisplayPrefs.setSortAscending(c,true);
+}
+ else if (v.getId() == R.id.afc_settings_sort_view_button_sort_by_size_desc) {
+DisplayPrefs.setSortType(c,SortType.SortBySize);
+DisplayPrefs.setSortAscending(c,false);
+}
+ else if (v.getId() == R.id.afc_settings_sort_view_button_sort_by_date_asc) {
+DisplayPrefs.setSortType(c,SortType.SortByDate);
+DisplayPrefs.setSortAscending(c,true);
+}
+ else if (v.getId() == R.id.afc_settings_sort_view_button_sort_by_date_desc) {
+DisplayPrefs.setSortType(c,SortType.SortByDate);
+DisplayPrefs.setSortAscending(c,false);
+}
+resortViewFiles();
+if (DisplayPrefs.isSortAscending(c)) {
+mViewSort.setImageDrawable(getResources().getDrawable(R.drawable.afc_selector_button_sort_as));
+mViewSort.setId(R.drawable.afc_selector_button_sort_as);
+}
+ else {
+mViewSort.setImageDrawable(getResources().getDrawable(R.drawable.afc_selector_button_sort_de));
+mViewSort.setId(R.drawable.afc_selector_button_sort_de);
+}
+}
+}
+;
+View view=getLayoutInflater().inflate(R.layout.afc_settings_sort_view,null);
+for (int i=0; i < _BtnSortIds.length; i++) {
+Button btn=(Button)view.findViewById(_BtnSortIds[i]);
+btn.setOnClickListener(listener);
+if (i == btnCurrentSortTypeIdx) {
+btn.setEnabled(false);
+if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) btn.setText(R.string.afc_ellipsize);
+}
+}
+_dialog.setTitle(R.string.afc_title_sort_by);
+_dialog.setView(view);
+_dialog.show();
+}

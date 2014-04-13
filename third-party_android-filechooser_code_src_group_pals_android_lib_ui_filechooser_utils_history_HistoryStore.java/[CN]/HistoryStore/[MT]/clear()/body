@@ -1,0 +1,4 @@
+{
+  mHistoryList.clear();
+  notifyHistoryChanged();
+}

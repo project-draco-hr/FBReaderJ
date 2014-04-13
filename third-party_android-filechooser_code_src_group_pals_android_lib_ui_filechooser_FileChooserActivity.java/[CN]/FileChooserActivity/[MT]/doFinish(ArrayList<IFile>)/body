@@ -1,0 +1,41 @@
+{
+  String returnPath=null;
+switch (mFileProvider.getFilterMode()) {
+case FilesOnly:
+    if (files == null || files.isEmpty()) {
+      setResult(RESULT_CANCELED);
+      finish();
+      return;
+    }
+  break;
+case DirectoriesOnly:
+if (((File)getLocation()).canWrite()) {
+  returnPath=getLocation().getAbsolutePath();
+}
+break;
+case FilesAndDirectories:
+if (files == null || files.isEmpty()) {
+returnPath=getLocation().getAbsolutePath();
+}
+break;
+default :
+returnPath=getLocation().getAbsolutePath();
+break;
+}
+Intent intent=new Intent();
+if (returnPath != null) intent.putExtra(_FolderPath,returnPath);
+if (files != null) {
+intent.putExtra(_Results,files);
+}
+ else {
+intent.putExtra(_Results,new ArrayList<IFile>());
+}
+intent.putExtra(_FilterMode,mFileProvider.getFilterMode());
+intent.putExtra(_SaveDialog,mIsSaveDialog);
+setResult(RESULT_OK,intent);
+if (DisplayPrefs.isRememberLastLocation(this) && getLocation() != null) {
+DisplayPrefs.setLastLocation(this,getLocation().getAbsolutePath());
+}
+ else DisplayPrefs.setLastLocation(this,null);
+finish();
+}

@@ -1,0 +1,3 @@
+{
+  return p(c).getBoolean(c.getString(R.string.afc_pkey_display_show_time_for_old_days),c.getResources().getBoolean(R.bool.afc_pkey_display_show_time_for_old_days_def));
+}

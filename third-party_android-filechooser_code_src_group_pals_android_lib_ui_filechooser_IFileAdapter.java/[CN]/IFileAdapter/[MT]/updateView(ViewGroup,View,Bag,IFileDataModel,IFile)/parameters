@@ -1,0 +1,5 @@
+ViewGroup parent
+View childView
+Bag bag
+IFileDataModel data
+IFile file

@@ -1,0 +1,3 @@
+{
+  return context.getApplicationContext().getSharedPreferences(genPreferenceFilename(context),Context.MODE_MULTI_PROCESS);
+}

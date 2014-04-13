@@ -1,0 +1,38 @@
+{
+  return new Thread(){
+    @Override public void run(){
+      deleteFile(file);
+    }
+    private void deleteFile(    IFile file){
+      if (isInterrupted())       return;
+      if (file.isFile()) {
+        file.delete();
+        return;
+      }
+ else       if (!file.isDirectory())       return;
+      if (!recursive) {
+        file.delete();
+        return;
+      }
+      try {
+        List<IFile> files=fileProvider.listAllFiles(file);
+        if (files == null) {
+          file.delete();
+          return;
+        }
+        for (        IFile f : files) {
+          if (isInterrupted())           return;
+          if (f.isFile())           f.delete();
+ else           if (f.isDirectory()) {
+            if (recursive)             deleteFile(f);
+ else             f.delete();
+          }
+        }
+        file.delete();
+      }
+ catch (      Throwable t) {
+      }
+    }
+  }
+;
+}

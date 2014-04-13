@@ -1,0 +1,3 @@
+{
+  p(c).edit().putString(c.getString(R.string.afc_pkey_display_last_location),v).commit();
+}

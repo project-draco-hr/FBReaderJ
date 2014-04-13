@@ -1,0 +1,8 @@
+{
+  if (convertView == null) {
+    convertView=LayoutInflater.from(mContext).inflate(R.layout.afc_context_menu_tiem,null);
+  }
+  ((TextView)convertView).setText(mItems[position]);
+  convertView.setPadding(mItemPaddingLeft,mPadding,mPadding,mPadding);
+  return convertView;
+}

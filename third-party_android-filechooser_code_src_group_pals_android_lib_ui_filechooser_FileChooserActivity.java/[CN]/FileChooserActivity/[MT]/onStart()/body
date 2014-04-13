@@ -1,0 +1,4 @@
+{
+  super.onStart();
+  if (!mIsMultiSelection && !mIsSaveDialog && mDoubleTapToChooseFiles)   Dlg.toast(this,R.string.afc_hint_double_tap_to_select_file,Dlg._LengthShort);
+}

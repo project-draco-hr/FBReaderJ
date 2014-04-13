@@ -1,0 +1,8 @@
+{
+  if (item == null)   return;
+  int idx=mHistoryList.indexOf(item);
+  if (idx >= 0 && idx < mHistoryList.size() - 1) {
+    mHistoryList.subList(idx + 1,mHistoryList.size()).clear();
+    notifyHistoryChanged();
+  }
+}

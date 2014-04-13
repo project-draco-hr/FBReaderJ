@@ -1,0 +1,21 @@
+{
+  if (!(dir instanceof File))   return null;
+  final List<IFile> _res=new ArrayList<IFile>();
+  try {
+    IFile root=dir.parentFile();
+    if (root == null || filter == null || filter.accept(root))     _res.add(root);
+    File[] files=((File)dir).listFiles(new FileFilter(){
+      @Override public boolean accept(      File pathname){
+        LocalFile file=new LocalFile(pathname);
+        if (filter == null || filter.accept(file))         _res.add(file);
+        return false;
+      }
+    }
+);
+    if (files != null)     return _res;
+    return null;
+  }
+ catch (  Throwable t) {
+    return null;
+  }
+}

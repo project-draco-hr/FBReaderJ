@@ -1,0 +1,4 @@
+{
+  for (  SortType s : SortType.values())   if (s.ordinal() == p(c).getInt(c.getString(R.string.afc_pkey_display_sort_type),c.getResources().getInteger(R.integer.afc_pkey_display_sort_type_def)))   return s;
+  return SortType.SortByName;
+}

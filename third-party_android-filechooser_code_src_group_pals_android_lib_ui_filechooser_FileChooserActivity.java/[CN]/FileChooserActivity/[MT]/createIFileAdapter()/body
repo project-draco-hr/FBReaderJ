@@ -1,0 +1,6 @@
+{
+  if (mFileAdapter != null)   mFileAdapter.clear();
+  mFileAdapter=new IFileAdapter(FileChooserActivity.this,new ArrayList<IFileDataModel>(),mFileProvider.getFilterMode(),mIsMultiSelection);
+  if (mViewFiles instanceof ListView)   ((ListView)mViewFiles).setAdapter(mFileAdapter);
+ else   ((GridView)mViewFiles).setAdapter(mFileAdapter);
+}

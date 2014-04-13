@@ -1,0 +1,3 @@
+{
+  for (  HistoryListener<A> listener : mListeners)   listener.onChanged(this);
+}

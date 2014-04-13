@@ -1,0 +1,33 @@
+{
+  mViewLocations.setTag(path);
+  mViewLocations.removeAllViews();
+  LinearLayout.LayoutParams lpBtnLoc=new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+  lpBtnLoc.gravity=Gravity.CENTER;
+  LinearLayout.LayoutParams lpDivider=null;
+  LayoutInflater inflater=getLayoutInflater();
+  int count=0;
+  while (path != null) {
+    TextView btnLoc=(TextView)inflater.inflate(R.layout.afc_button_location,null);
+    btnLoc.setText(path.parentFile() != null ? "/" + path.getName() : getString(R.string.afc_root));
+    btnLoc.setTag(path);
+    btnLoc.setOnClickListener(mBtnLocationOnClickListener);
+    btnLoc.setOnLongClickListener(mBtnLocationOnLongClickListener);
+    mViewLocations.addView(btnLoc,0,lpBtnLoc);
+    if (count++ == 0) {
+      Rect r=new Rect();
+      btnLoc.getPaint().getTextBounds(path.getName(),0,path.getName().length(),r);
+      if (r.width() >= getResources().getDimensionPixelSize(R.dimen.afc_button_location_max_width) - btnLoc.getPaddingLeft() - btnLoc.getPaddingRight()) {
+        mTxtFullDirName.setText(path.getName());
+        mTxtFullDirName.setVisibility(View.VISIBLE);
+      }
+ else       mTxtFullDirName.setVisibility(View.GONE);
+    }
+    path=path.parentFile();
+  }
+  mViewLocationsContainer.postDelayed(new Runnable(){
+    public void run(){
+      mViewLocationsContainer.fullScroll(HorizontalScrollView.FOCUS_RIGHT);
+    }
+  }
+,100);
+}

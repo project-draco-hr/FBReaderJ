@@ -1,0 +1,27 @@
+{
+  if (file == null || !file.exists())   return 0;
+  if (file.isFile()) {
+    String filename=file.getName();
+    for (    String r : _MapFileIcons.keySet())     if (filename.matches(r))     return _MapFileIcons.get(r);
+    return R.drawable.afc_file;
+  }
+ else   if (file.isDirectory()) {
+    if (filterMode != IFileProvider.FilterMode.AnyDirectories) {
+      if (file instanceof File && !((File)file).canWrite()) {
+        if (file instanceof ParentFile) {
+          return R.drawable.afc_folder;
+        }
+ else {
+          return R.drawable.afc_folder_locked;
+        }
+      }
+ else {
+        return R.drawable.afc_folder;
+      }
+    }
+ else {
+      return R.drawable.afc_folder;
+    }
+  }
+  return 0;
+}

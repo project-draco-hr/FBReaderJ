@@ -1,0 +1,4 @@
+{
+  pm.setSharedPreferencesMode(Context.MODE_MULTI_PROCESS);
+  pm.setSharedPreferencesName(genPreferenceFilename(c));
+}

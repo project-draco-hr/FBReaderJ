@@ -1,0 +1,11 @@
+{
+  IFile currentLoc=getLocation();
+  IFile preLoc=null;
+  while (currentLoc.equalsToPath(preLoc=mHistory.prevOf(currentLoc)))   mHistory.remove(preLoc);
+  if (preLoc != null) {
+    goTo(preLoc);
+  }
+ else {
+    super.onBackPressed();
+  }
+}

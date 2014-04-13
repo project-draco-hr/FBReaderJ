@@ -1,0 +1,7 @@
+{
+  if (mFileProvider.getSortType().equals(DisplayPrefs.getSortType(this)) && mFileProvider.getSortOrder().isAsc() == (DisplayPrefs.isSortAscending(this)))   return;
+  mFileProvider.setSortType(DisplayPrefs.getSortType(this));
+  mFileProvider.setSortOrder(DisplayPrefs.isSortAscending(this) ? SortOrder.Ascending : SortOrder.Descending);
+  doReloadCurrentLocation();
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)   ActivityCompat.invalidateOptionsMenu(this);
+}

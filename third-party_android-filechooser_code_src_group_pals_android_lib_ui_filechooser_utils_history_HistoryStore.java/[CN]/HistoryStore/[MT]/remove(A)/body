@@ -1,0 +1,3 @@
+{
+  if (mHistoryList.remove(item))   notifyHistoryChanged();
+}
