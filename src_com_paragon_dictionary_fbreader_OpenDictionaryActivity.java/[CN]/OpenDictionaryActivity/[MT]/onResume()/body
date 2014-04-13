@@ -12,8 +12,12 @@
     ourDictionary.getTranslationAsText(myQuery,TranslateMode.SHORT,TranslateFormat.HTML,new Dictionary.TranslateAsTextListener(){
       @Override public void onComplete(      String s,      TranslateMode translateMode){
         final String url=saveArticle(s.replace("</BODY>","<br><br></BODY>"),getApplicationContext());
-        if (url == null || url.isEmpty())         openTextInDictionary(myQuery);
- else         myArticleView.loadUrl(url);
+        if (MiscUtil.isEmptyString(url)) {
+          openTextInDictionary(myQuery);
+        }
+ else {
+          myArticleView.loadUrl(url);
+        }
         Log.d("FBReader","OpenDictionaryActivity: translation ready");
       }
       @Override public void onWordNotFound(      ArrayList<String> similarWords){
