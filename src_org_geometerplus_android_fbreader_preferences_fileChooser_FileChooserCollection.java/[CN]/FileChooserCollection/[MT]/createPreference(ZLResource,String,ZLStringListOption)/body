@@ -1,0 +1,3 @@
+{
+  return createPreference(rootResource,resourceKey,option,null);
+}

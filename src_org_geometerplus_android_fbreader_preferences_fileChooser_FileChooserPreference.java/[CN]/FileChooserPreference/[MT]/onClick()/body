@@ -1,0 +1,8 @@
+{
+  final Intent intent=new Intent(getContext(),FileChooserActivity.class);
+  intent.putExtra(FileChooserActivity._Rootpath,(Parcelable)new LocalFile(getStringValue()));
+  intent.putExtra(FileChooserActivity._ActionBar,true);
+  intent.putExtra(FileChooserActivity._SaveLastLocation,false);
+  intent.putExtra(FileChooserActivity._FilterMode,IFileProvider.FilterMode.DirectoriesOnly);
+  ((Activity)getContext()).startActivityForResult(intent,myRegCode);
+}

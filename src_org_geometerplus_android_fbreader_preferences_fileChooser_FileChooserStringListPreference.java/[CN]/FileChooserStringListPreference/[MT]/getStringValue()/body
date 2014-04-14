@@ -1,0 +1,4 @@
+{
+  final List<String> values=myOption.getValue();
+  return values.isEmpty() ? "" : values.get(0);
+}
