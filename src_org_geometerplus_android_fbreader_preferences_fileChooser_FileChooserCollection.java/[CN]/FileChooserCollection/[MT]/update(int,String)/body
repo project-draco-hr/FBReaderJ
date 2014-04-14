@@ -1,7 +1,0 @@
-{
-  try {
-    myPreferences.get(index).setValue(value);
-  }
- catch (  Exception e) {
-  }
-}
