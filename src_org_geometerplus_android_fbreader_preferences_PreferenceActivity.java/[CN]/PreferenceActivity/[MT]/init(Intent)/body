@@ -19,9 +19,8 @@
   final ZLAndroidLibrary androidLibrary=(ZLAndroidLibrary)ZLAndroidLibrary.Instance();
   final String decimalSeparator=String.valueOf(new DecimalFormatSymbols(Locale.getDefault()).getDecimalSeparator());
   final Screen directoriesScreen=createPreferenceScreen("directories");
-  directoriesScreen.addPreference(new ZLStringListOptionPreference(this,Paths.BookPathOption,directoriesScreen.Resource,"bookPath"){
-    protected void setValue(    String value){
-      super.setValue(value);
+  directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"bookPath",Paths.BookPathOption,new Runnable(){
+    public void run(){
       final BookCollectionShadow collection=new BookCollectionShadow();
       collection.bindToService(PreferenceActivity.this,new Runnable(){
         public void run(){
@@ -32,10 +31,10 @@
 );
     }
   }
-);
-  directoriesScreen.addPreference(new ZLStringListOptionPreference(this,Paths.FontPathOption,directoriesScreen.Resource,"fontPath"));
-  directoriesScreen.addPreference(new ZLStringListOptionPreference(this,Paths.WallpaperPathOption,directoriesScreen.Resource,"wallpaperPath"));
-  directoriesScreen.addOption(Paths.TempDirectoryOption(),"tempDir");
+));
+  directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"fontPath",Paths.FontPathOption));
+  directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"wallpaperPath",Paths.WallpaperPathOption));
+  directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"tempDir",Paths.TempDirectoryOption()));
   final Screen appearanceScreen=createPreferenceScreen("appearance");
   appearanceScreen.addPreference(new LanguagePreference(this,appearanceScreen.Resource,"language",ZLResource.interfaceLanguages()){
     @Override protected void init(){
