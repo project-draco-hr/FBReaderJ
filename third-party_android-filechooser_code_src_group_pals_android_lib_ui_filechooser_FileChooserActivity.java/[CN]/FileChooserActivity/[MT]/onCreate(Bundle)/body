@@ -18,6 +18,7 @@
   mIsSaveLastLocation=getIntent().getBooleanExtra(_SaveLastLocation,true);
   if (!mIsSaveLastLocation)   DisplayPrefs.setRememberLastLocation(this,false);
   mDoubleTapToChooseFiles=getIntent().getBooleanExtra(_DoubleTapToChooseFiles,false);
+  mTextResources=(HashMap<String,String>)getIntent().getSerializableExtra(_TextResources);
   mViewSort=(ImageView)findViewById(R.id.afc_filechooser_activity_button_sort);
   mViewFoldersView=(ImageView)findViewById(R.id.afc_filechooser_activity_button_folders_view);
   mViewCreateFolder=(ImageView)findViewById(R.id.afc_filechooser_activity_button_create_folder);

@@ -1,5 +1,7 @@
 {
   super(context);
   myRegCode=regCode;
-  setTitle(rootResource.getResource(resourceKey).getValue());
+  myRootResource=rootResource;
+  myResourceName="fileChooser";
+  setTitle(myRootResource.getResource(resourceKey).getValue());
 }

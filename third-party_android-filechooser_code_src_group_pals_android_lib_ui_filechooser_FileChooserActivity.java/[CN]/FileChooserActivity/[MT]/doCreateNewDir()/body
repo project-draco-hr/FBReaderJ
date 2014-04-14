@@ -12,7 +12,7 @@
   final AlertDialog _dlg=Dlg.newDlg(this);
   View view=getLayoutInflater().inflate(R.layout.afc_simple_text_input_view,null);
   final EditText _textFile=(EditText)view.findViewById(R.id.afc_simple_text_input_view_text1);
-  _textFile.setHint(R.string.afc_hint_folder_name);
+  _textFile.setHint(mTextResources.get("folderName"));
   _textFile.setOnEditorActionListener(new TextView.OnEditorActionListener(){
     @Override public boolean onEditorAction(    TextView v,    int actionId,    KeyEvent event){
       if (actionId == EditorInfo.IME_ACTION_DONE) {
@@ -25,7 +25,7 @@
   }
 );
   _dlg.setView(view);
-  _dlg.setTitle(R.string.afc_cmd_new_folder);
+  _dlg.setTitle(mTextResources.get("newFolder"));
   _dlg.setIcon(android.R.drawable.ic_menu_add);
   _dlg.setButton(DialogInterface.BUTTON_POSITIVE,getString(android.R.string.ok),new DialogInterface.OnClickListener(){
     @Override public void onClick(    DialogInterface dialog,    int which){

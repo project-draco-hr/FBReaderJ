@@ -54,6 +54,12 @@ mViewSort.setId(R.drawable.afc_selector_button_sort_de);
 }
 ;
 View view=getLayoutInflater().inflate(R.layout.afc_settings_sort_view,null);
+TextView sortTitle=(TextView)view.findViewById(R.id.afc_settings_sort_view_textview_sort_by_name);
+sortTitle.setText(mTextResources.get("sortByName"));
+sortTitle=(TextView)view.findViewById(R.id.afc_settings_sort_view_textview_sort_by_size);
+sortTitle.setText(mTextResources.get("sortBySize"));
+sortTitle=(TextView)view.findViewById(R.id.afc_settings_sort_view_textview_sort_by_date);
+sortTitle.setText(mTextResources.get("sortByDate"));
 for (int i=0; i < _BtnSortIds.length; i++) {
 Button btn=(Button)view.findViewById(_BtnSortIds[i]);
 btn.setOnClickListener(listener);
@@ -62,7 +68,7 @@ btn.setEnabled(false);
 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) btn.setText(R.string.afc_ellipsize);
 }
 }
-_dialog.setTitle(R.string.afc_title_sort_by);
+_dialog.setTitle(mTextResources.get("sortBy"));
 _dialog.setView(view);
 _dialog.show();
 }

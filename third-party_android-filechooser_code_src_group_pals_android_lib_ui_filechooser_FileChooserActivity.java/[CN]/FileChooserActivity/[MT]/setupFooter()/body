@@ -29,6 +29,8 @@
     }
     mBtnCancel.setVisibility(View.VISIBLE);
     mBtnCancel.setOnClickListener(mBtnCancel_ActionBar_OnClickListener);
+    mBtnOk.setText(mTextResources.get("ok"));
+    mBtnCancel.setText(mTextResources.get("cancel"));
   }
   if (mIsMultiSelection) {
     viewGroupFooterContainer.setVisibility(View.VISIBLE);

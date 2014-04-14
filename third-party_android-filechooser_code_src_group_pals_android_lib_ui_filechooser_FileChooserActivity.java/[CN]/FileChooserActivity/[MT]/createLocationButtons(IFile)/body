@@ -8,7 +8,7 @@
   int count=0;
   while (path != null) {
     TextView btnLoc=(TextView)inflater.inflate(R.layout.afc_button_location,null);
-    btnLoc.setText(path.parentFile() != null ? "/" + path.getName() : getString(R.string.afc_root));
+    btnLoc.setText(path.parentFile() != null ? "/" + path.getName() : mTextResources.get("root"));
     btnLoc.setTag(path);
     btnLoc.setOnClickListener(mBtnLocationOnClickListener);
     btnLoc.setOnLongClickListener(mBtnLocationOnLongClickListener);

@@ -11,7 +11,7 @@ case FilesAndDirectories:
   setTitle(R.string.afc_title_choose_files_and_directories);
 break;
 case DirectoriesOnly:
-setTitle(R.string.afc_title_choose_directories);
+setTitle(mTextResources.get("chooseFolder"));
 break;
 }
 }
