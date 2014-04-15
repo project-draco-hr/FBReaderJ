@@ -1,5 +1,5 @@
 {
   myDatabase=new SQLiteBooksDatabase(LibraryService.this);
-  myCollection=new BookCollection(myDatabase,Paths.BookPathOption.getValue());
+  myCollection=new BookCollection(myDatabase,Paths.bookPath());
   reset(true);
 }
