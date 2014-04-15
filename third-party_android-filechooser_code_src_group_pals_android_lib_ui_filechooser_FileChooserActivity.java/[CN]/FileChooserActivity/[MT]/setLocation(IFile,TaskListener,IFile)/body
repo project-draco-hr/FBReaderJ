@@ -57,7 +57,7 @@
     @Override protected void onPostExecute(    Object result){
       super.onPostExecute(result);
       if (files == null) {
-        Dlg.toast(FileChooserActivity.this,getString(R.string.afc_pmsg_cannot_access_dir,path.getName()),Dlg._LengthShort);
+        Dlg.toast(FileChooserActivity.this,mTextResources.get("permissionDenied"),Dlg._LengthShort);
         if (listener != null)         listener.onFinish(false,path);
         return;
       }

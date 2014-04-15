@@ -2,7 +2,7 @@
   MenuInflater inflater=getMenuInflater();
   inflater.inflate(R.menu.afc_file_chooser_activity,menu);
   MenuItem item=menu.findItem(R.id.afc_filechooser_activity_menuitem_home);
-  if (item != null)   item.setTitle(mTextResources.get("menuHome"));
+  if (item != null)   item.setTitle(mTextResources.get("menuOrigin"));
   item=menu.findItem(R.id.afc_filechooser_activity_menuitem_reload);
   if (item != null)   item.setTitle(mTextResources.get("menuReload"));
   return true;

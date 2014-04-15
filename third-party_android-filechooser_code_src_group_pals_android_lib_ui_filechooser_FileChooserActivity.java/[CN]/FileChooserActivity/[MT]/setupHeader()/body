@@ -1,34 +1,19 @@
 {
-  if (mIsSaveDialog) {
-    setTitle(R.string.afc_title_save_as);
+  setTitle(mTextResources.get("title"));
+  mViewSort.setOnClickListener(mBtnSortOnClickListener);
+  if (DisplayPrefs.isSortAscending(this)) {
+    mViewSort.setImageDrawable(getResources().getDrawable(R.drawable.afc_selector_button_sort_as));
+    mViewSort.setId(R.drawable.afc_selector_button_sort_as);
   }
  else {
-switch (mFileProvider.getFilterMode()) {
-case FilesOnly:
-      setTitle(R.string.afc_title_choose_files);
-    break;
-case FilesAndDirectories:
-  setTitle(R.string.afc_title_choose_files_and_directories);
-break;
-case DirectoriesOnly:
-setTitle(mTextResources.get("chooseFolder"));
-break;
-}
-}
-mViewSort.setOnClickListener(mBtnSortOnClickListener);
-if (DisplayPrefs.isSortAscending(this)) {
-mViewSort.setImageDrawable(getResources().getDrawable(R.drawable.afc_selector_button_sort_as));
-mViewSort.setId(R.drawable.afc_selector_button_sort_as);
-}
- else {
-mViewSort.setImageDrawable(getResources().getDrawable(R.drawable.afc_selector_button_sort_de));
-mViewSort.setId(R.drawable.afc_selector_button_sort_de);
-}
-mViewFoldersView.setOnClickListener(mBtnFoldersViewOnClickListener);
+    mViewSort.setImageDrawable(getResources().getDrawable(R.drawable.afc_selector_button_sort_de));
+    mViewSort.setId(R.drawable.afc_selector_button_sort_de);
+  }
+  mViewFoldersView.setOnClickListener(mBtnFoldersViewOnClickListener);
 switch (DisplayPrefs.getViewType(this)) {
 case List:
-mViewFoldersView.setImageDrawable(getResources().getDrawable(R.drawable.afc_selector_button_folders_view_grid));
-mViewFoldersView.setId(R.drawable.afc_selector_button_folders_view_grid);
+    mViewFoldersView.setImageDrawable(getResources().getDrawable(R.drawable.afc_selector_button_folders_view_grid));
+  mViewFoldersView.setId(R.drawable.afc_selector_button_folders_view_grid);
 break;
 case Grid:
 mViewFoldersView.setImageDrawable(getResources().getDrawable(R.drawable.afc_selector_button_folders_view_list));

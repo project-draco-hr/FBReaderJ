@@ -1,5 +1,6 @@
 {
   super(context);
   myRegCode=regCode;
-  setTitle(rootResource.getResource(resourceKey).getValue());
+  myResource=rootResource.getResource(resourceKey);
+  setTitle(myResource.getValue());
 }

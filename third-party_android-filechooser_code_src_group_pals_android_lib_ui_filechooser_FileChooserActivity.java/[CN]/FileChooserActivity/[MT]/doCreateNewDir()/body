@@ -12,7 +12,7 @@
   final AlertDialog _dlg=Dlg.newDlg(this);
   View view=getLayoutInflater().inflate(R.layout.afc_simple_text_input_view,null);
   final EditText _textFile=(EditText)view.findViewById(R.id.afc_simple_text_input_view_text1);
-  _textFile.setHint(mTextResources.get("folderName"));
+  _textFile.setHint(mTextResources.get("folderNameHint"));
   _textFile.setOnEditorActionListener(new TextView.OnEditorActionListener(){
     @Override public boolean onEditorAction(    TextView v,    int actionId,    KeyEvent event){
       if (actionId == EditorInfo.IME_ACTION_DONE) {
