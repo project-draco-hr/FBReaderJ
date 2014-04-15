@@ -1,0 +1,8 @@
+{
+  final List<String> path=new ArrayList<String>(Paths.BookPathOption.getValue());
+  final String downloadsDirectory=Paths.DownloadsDirectoryOption().getValue();
+  if (!"".equals(downloadsDirectory) && !path.contains(downloadsDirectory)) {
+    path.add(downloadsDirectory);
+  }
+  return path;
+}
