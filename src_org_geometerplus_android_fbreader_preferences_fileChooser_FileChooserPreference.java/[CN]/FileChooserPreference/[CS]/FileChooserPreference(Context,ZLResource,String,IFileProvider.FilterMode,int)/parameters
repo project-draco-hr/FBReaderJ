@@ -1,4 +1,5 @@
 Context context
 ZLResource rootResource
 String resourceKey
+IFileProvider.FilterMode filterMode
 int regCode

@@ -24,6 +24,6 @@
   intent.putExtra(FileChooserActivity._ActionBar,true);
   intent.putExtra(FileChooserActivity._SaveLastLocation,false);
   intent.putExtra(FileChooserActivity._DisplayHiddenFiles,true);
-  intent.putExtra(FileChooserActivity._FilterMode,IFileProvider.FilterMode.DirectoriesOnly);
+  intent.putExtra(FileChooserActivity._FilterMode,myFilterMode);
   ((Activity)getContext()).startActivityForResult(intent,myRegCode);
 }
