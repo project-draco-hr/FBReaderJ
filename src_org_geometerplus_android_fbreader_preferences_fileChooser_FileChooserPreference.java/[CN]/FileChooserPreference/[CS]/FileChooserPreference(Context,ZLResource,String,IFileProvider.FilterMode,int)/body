@@ -1,6 +1,7 @@
 {
   super(context);
   myRegCode=regCode;
+  myFilterMode=filterMode;
   myResource=rootResource.getResource(resourceKey);
   setTitle(myResource.getValue());
 }

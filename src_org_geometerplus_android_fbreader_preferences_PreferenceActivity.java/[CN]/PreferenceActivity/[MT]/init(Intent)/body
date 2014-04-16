@@ -32,6 +32,7 @@
     }
   }
 ));
+  directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"downloadDir",Paths.DownloadsDirectoryOption()));
   directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"fontPath",Paths.FontPathOption));
   directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"wallpaperPath",Paths.WallpaperPathOption));
   directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"tempDir",Paths.TempDirectoryOption()));

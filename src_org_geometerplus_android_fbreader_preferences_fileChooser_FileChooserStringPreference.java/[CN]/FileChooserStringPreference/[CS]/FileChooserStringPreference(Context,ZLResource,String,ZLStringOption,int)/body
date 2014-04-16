@@ -1,5 +1,5 @@
 {
-  super(context,rootResource,resourceKey,regCode);
+  super(context,rootResource,resourceKey,IFileProvider.FilterMode.DirectoriesOnly,regCode);
   myOption=option;
   setSummary(getStringValue());
 }

@@ -1,13 +1,13 @@
 {
-  final List<String> bookDirectories=Paths.BookPathOption.getValue();
+  final List<String> bookDirectories=Paths.bookPath();
   if (!force && myCollection.status() != BookCollection.Status.NotStarted && bookDirectories.equals(myCollection.BookDirectories)) {
     return;
   }
   deactivate();
   myFileObservers.clear();
   myCollection=new BookCollection(myDatabase,bookDirectories);
-  for (  String path : bookDirectories) {
-    final Observer observer=new Observer(path,myCollection);
+  for (  String dir : bookDirectories) {
+    final Observer observer=new Observer(dir,myCollection);
     observer.startWatching();
     myFileObservers.add(observer);
   }
