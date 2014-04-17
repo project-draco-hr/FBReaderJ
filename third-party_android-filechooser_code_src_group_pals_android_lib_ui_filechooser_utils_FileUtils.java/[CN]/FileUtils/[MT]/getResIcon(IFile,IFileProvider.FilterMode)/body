@@ -11,7 +11,7 @@
         if (file instanceof ParentFile) {
           return R.drawable.afc_folder;
         }
- else         if (!((File)file).canExecute()) {
+ else         if (accessDenied(file)) {
           return R.drawable.afc_folder_no_access;
         }
  else {
@@ -23,7 +23,7 @@
       }
     }
  else {
-      if (file instanceof File && !((File)file).canExecute()) {
+      if (accessDenied(file)) {
         return R.drawable.afc_folder_no_access;
       }
  else {

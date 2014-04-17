@@ -1,0 +1,8 @@
+{
+  if (android.os.Build.VERSION.SDK_INT >= 9) {
+    return file instanceof File && !((File)file).canExecute();
+  }
+ else {
+    return false;
+  }
+}
