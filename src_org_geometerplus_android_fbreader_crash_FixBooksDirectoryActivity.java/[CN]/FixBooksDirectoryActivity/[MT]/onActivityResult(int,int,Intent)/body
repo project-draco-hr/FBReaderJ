@@ -1,0 +1,5 @@
+{
+  if (requestCode == 1 && resultCode == RESULT_OK) {
+    myDirectoryView.setText(FileChooserUtil.pathFromData(data));
+  }
+}

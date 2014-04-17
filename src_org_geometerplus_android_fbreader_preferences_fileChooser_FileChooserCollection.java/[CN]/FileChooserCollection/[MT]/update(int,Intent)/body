@@ -1,6 +1,6 @@
 {
   try {
-    myPreferences.get(index).setValue(data.getStringExtra(FileChooserActivity._FolderPath));
+    myPreferences.get(index).setValue(FileChooserUtil.pathFromData(data));
   }
  catch (  Exception e) {
   }

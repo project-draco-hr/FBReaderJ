@@ -1,7 +1,7 @@
 {
   super(context);
   myRegCode=regCode;
-  myFilterMode=filterMode;
+  myChooseWritableDirectoriesOnly=chooseWritableDirectoriesOnly;
   myResource=rootResource.getResource(resourceKey);
   setTitle(myResource.getValue());
 }

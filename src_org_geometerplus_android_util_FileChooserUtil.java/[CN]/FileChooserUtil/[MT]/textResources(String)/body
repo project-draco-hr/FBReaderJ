@@ -1,0 +1,22 @@
+{
+  final HashMap<String,String> map=new HashMap<String,String>();
+  map.put("title",title);
+  final ZLResource dialogResource=ZLResource.resource("dialog");
+  final ZLResource buttonResource=dialogResource.getResource("button");
+  map.put("ok",buttonResource.getResource("ok").getValue());
+  map.put("cancel",buttonResource.getResource("cancel").getValue());
+  final ZLResource resource=dialogResource.getResource("fileChooser");
+  map.put("root",resource.getResource("root").getValue());
+  map.put("newFolder",resource.getResource("newFolder").getValue());
+  map.put("folderNameHint",resource.getResource("folderNameHint").getValue());
+  final ZLResource menuResource=resource.getResource("menu");
+  map.put("menuOrigin",menuResource.getResource("origin").getValue());
+  map.put("menuReload",menuResource.getResource("reload").getValue());
+  final ZLResource sortResource=resource.getResource("sortBy");
+  map.put("sortBy",sortResource.getValue());
+  map.put("sortByName",sortResource.getResource("name").getValue());
+  map.put("sortBySize",sortResource.getResource("size").getValue());
+  map.put("sortByDate",sortResource.getResource("date").getValue());
+  map.put("permissionDenied",resource.getResource("permissionDenied").getValue());
+  return map;
+}
