@@ -1,6 +1,0 @@
-{
-  if ("".equals(ourDownloadsDirectoryOption.getValue())) {
-    ourDownloadsDirectoryOption.setValue(mainBookDirectory());
-  }
-  return ourDownloadsDirectoryOption;
-}

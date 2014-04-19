@@ -1,6 +1,0 @@
-{
-  if ("".equals(ourTempDirectoryOption.getValue())) {
-    ourTempDirectoryOption.setValue(mainBookDirectory() + "/.FBReader");
-  }
-  return ourTempDirectoryOption;
-}

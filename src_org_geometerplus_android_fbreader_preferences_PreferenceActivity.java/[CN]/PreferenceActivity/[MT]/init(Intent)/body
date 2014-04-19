@@ -33,10 +33,10 @@
   }
 ;
   directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"bookPath",Paths.BookPathOption,libraryUpdater));
-  directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"downloadDir",Paths.DownloadsDirectoryOption(),libraryUpdater));
+  directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"downloadDir",Paths.DownloadsDirectoryOption,libraryUpdater));
   directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"fontPath",Paths.FontPathOption,null));
   directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"wallpaperPath",Paths.WallpaperPathOption,null));
-  directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"tempDir",Paths.TempDirectoryOption(),null));
+  directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"tempDir",Paths.TempDirectoryOption,null));
   final Screen appearanceScreen=createPreferenceScreen("appearance");
   appearanceScreen.addPreference(new LanguagePreference(this,appearanceScreen.Resource,"language",ZLResource.interfaceLanguages()){
     @Override protected void init(){
