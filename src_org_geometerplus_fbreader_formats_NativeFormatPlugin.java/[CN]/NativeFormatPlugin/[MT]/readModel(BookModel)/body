@@ -1,6 +1,11 @@
 {
   final int code=readModelNative(model);
-  if (code != 0) {
-    throw new BookReadingException("nativeCodeFailure",model.Book.File,new String[]{String.valueOf(code),model.Book.File.getPath()});
-  }
+switch (code) {
+case 0:
+    return;
+case 3:
+  throw new CachedCharStorageException("Cannot write file from native code");
+default :
+throw new BookReadingException("nativeCodeFailure",model.Book.File,new String[]{String.valueOf(code),model.Book.File.getPath()});
+}
 }
