@@ -11,18 +11,18 @@
   final View buttonsView=findViewById(R.id.books_directory_fix_buttons);
   final Button okButton=(Button)buttonsView.findViewById(R.id.ok_button);
   okButton.setText(buttonResource.getResource("ok").getValue());
-  final View selectArea=findViewById(R.id.books_directory_fix_select_area);
+  final View selectButton=findViewById(R.id.books_directory_fix_select_button);
   Config.Instance().runOnStart(new Runnable(){
     public void run(){
       final ZLStringOption tempDirectoryOption=Paths.TempDirectoryOption();
       myDirectoryView.setText(tempDirectoryOption.getValue());
-      selectArea.setOnClickListener(new View.OnClickListener(){
+      selectButton.setOnClickListener(new View.OnClickListener(){
         public void onClick(        View v){
           FileChooserUtil.runDirectoryChooser(FixBooksDirectoryActivity.this,1,title,tempDirectoryOption.getValue(),true);
         }
       }
 );
-      okButton.setOnClickListener(new Button.OnClickListener(){
+      okButton.setOnClickListener(new View.OnClickListener(){
         public void onClick(        View v){
           final String newDirectory=myDirectoryView.getText().toString();
           tempDirectoryOption.setValue(newDirectory);
@@ -36,7 +36,7 @@
 );
   final Button cancelButton=(Button)buttonsView.findViewById(R.id.cancel_button);
   cancelButton.setText(buttonResource.getResource("cancel").getValue());
-  cancelButton.setOnClickListener(new Button.OnClickListener(){
+  cancelButton.setOnClickListener(new View.OnClickListener(){
     public void onClick(    View v){
       finish();
     }
