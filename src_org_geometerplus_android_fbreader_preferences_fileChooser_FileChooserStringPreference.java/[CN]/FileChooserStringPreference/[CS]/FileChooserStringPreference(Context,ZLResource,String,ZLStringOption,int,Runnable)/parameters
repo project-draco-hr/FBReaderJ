@@ -3,3 +3,4 @@ ZLResource rootResource
 String resourceKey
 ZLStringOption option
 int regCode
+Runnable onValueSetAction

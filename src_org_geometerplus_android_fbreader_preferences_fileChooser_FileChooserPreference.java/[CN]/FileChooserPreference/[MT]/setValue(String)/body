@@ -1,0 +1,9 @@
+{
+  if (MiscUtil.isEmptyString(value)) {
+    return;
+  }
+  setValueInternal(value);
+  if (myOnValueSetAction != null) {
+    myOnValueSetAction.run();
+  }
+}

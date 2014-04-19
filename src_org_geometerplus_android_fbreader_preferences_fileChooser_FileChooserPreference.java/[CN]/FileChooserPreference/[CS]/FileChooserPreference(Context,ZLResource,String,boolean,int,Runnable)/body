@@ -1,7 +1,8 @@
 {
   super(context);
   myRegCode=regCode;
-  myChooseWritableDirectoriesOnly=chooseWritableDirectoriesOnly;
   myResource=rootResource.getResource(resourceKey);
   setTitle(myResource.getValue());
+  myChooseWritableDirectoriesOnly=chooseWritableDirectoriesOnly;
+  myOnValueSetAction=onValueSetAction;
 }

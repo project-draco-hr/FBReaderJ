@@ -1,7 +1,4 @@
 {
-  if (MiscUtil.isEmptyString(value)) {
-    return;
-  }
   final String currentValue=myOption.getValue();
   if (!currentValue.equals(value)) {
     myOption.setValue(value);

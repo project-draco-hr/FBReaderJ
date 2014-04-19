@@ -19,7 +19,7 @@
   final ZLAndroidLibrary androidLibrary=(ZLAndroidLibrary)ZLAndroidLibrary.Instance();
   final String decimalSeparator=String.valueOf(new DecimalFormatSymbols(Locale.getDefault()).getDecimalSeparator());
   final Screen directoriesScreen=createPreferenceScreen("directories");
-  directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"bookPath",Paths.BookPathOption,new Runnable(){
+  final Runnable libraryUpdater=new Runnable(){
     public void run(){
       final BookCollectionShadow collection=new BookCollectionShadow();
       collection.bindToService(PreferenceActivity.this,new Runnable(){
@@ -31,11 +31,12 @@
 );
     }
   }
-));
-  directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"downloadDir",Paths.DownloadsDirectoryOption()));
-  directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"fontPath",Paths.FontPathOption));
-  directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"wallpaperPath",Paths.WallpaperPathOption));
-  directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"tempDir",Paths.TempDirectoryOption()));
+;
+  directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"bookPath",Paths.BookPathOption,libraryUpdater));
+  directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"downloadDir",Paths.DownloadsDirectoryOption(),libraryUpdater));
+  directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"fontPath",Paths.FontPathOption,null));
+  directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"wallpaperPath",Paths.WallpaperPathOption,null));
+  directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"tempDir",Paths.TempDirectoryOption(),null));
   final Screen appearanceScreen=createPreferenceScreen("appearance");
   appearanceScreen.addPreference(new LanguagePreference(this,appearanceScreen.Resource,"language",ZLResource.interfaceLanguages()){
     @Override protected void init(){

@@ -1,3 +1,4 @@
 ZLResource rootResource
 String resourceKey
 ZLStringOption option
+Runnable onValueSetAction

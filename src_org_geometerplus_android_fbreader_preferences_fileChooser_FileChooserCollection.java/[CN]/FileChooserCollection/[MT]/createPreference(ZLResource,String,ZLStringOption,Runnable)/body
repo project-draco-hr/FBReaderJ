@@ -1,0 +1,5 @@
+{
+  final FileChooserPreference preference=new FileChooserStringPreference(myContext,rootResource,resourceKey,option,myPreferences.size(),onValueSetAction);
+  myPreferences.add(preference);
+  return preference;
+}
