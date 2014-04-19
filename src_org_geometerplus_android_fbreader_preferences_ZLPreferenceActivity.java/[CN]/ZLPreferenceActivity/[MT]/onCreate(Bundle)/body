@@ -3,7 +3,7 @@
   Thread.setDefaultUncaughtExceptionHandler(new org.geometerplus.zlibrary.ui.android.library.UncaughtExceptionHandler(this));
   myScreen=getPreferenceManager().createPreferenceScreen(this);
   final Intent intent=getIntent();
-  Config.Instance().runOnStart(new Runnable(){
+  Config.Instance().runOnConnect(new Runnable(){
     public void run(){
       init(intent);
     }

@@ -3,7 +3,7 @@
   Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler(this));
   bindService(new Intent(this,DataService.class),DataConnection,DataService.BIND_AUTO_CREATE);
   final Config config=Config.Instance();
-  config.runOnStart(new Runnable(){
+  config.runOnConnect(new Runnable(){
     public void run(){
       config.requestAllValuesForGroup("Options");
       config.requestAllValuesForGroup("Style");

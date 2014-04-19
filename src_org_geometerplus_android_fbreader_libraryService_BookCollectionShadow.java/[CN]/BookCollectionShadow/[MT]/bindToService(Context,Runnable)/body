@@ -1,7 +1,7 @@
 {
   if (myInterface != null && myContext == context) {
     if (onBindAction != null) {
-      Config.Instance().runOnStart(onBindAction);
+      Config.Instance().runOnConnect(onBindAction);
     }
   }
  else {
