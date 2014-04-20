@@ -1,0 +1,9 @@
+{
+  super(base);
+  try {
+    myKey=MessageDigest.getInstance("SHA").digest(uid.getBytes("utf-8"));
+  }
+ catch (  Exception e) {
+    throw new IOException(e);
+  }
+}

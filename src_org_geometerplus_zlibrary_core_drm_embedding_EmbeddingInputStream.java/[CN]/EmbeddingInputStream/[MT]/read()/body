@@ -1,0 +1,8 @@
+{
+  final int o=offset();
+  final int bt=super.read();
+  if (bt == -1) {
+    return -1;
+  }
+  return o > 1040 ? bt : ((bt ^ myKey[o % myKey.length]) & 0xFF);
+}

@@ -2,5 +2,8 @@
   if (encryptionInfo == null) {
     return getInputStream();
   }
+  if (EncryptionMethod.EMBEDDING.equals(encryptionInfo.Method)) {
+    return new EmbeddingInputStream(getInputStream(),encryptionInfo.ContentId);
+  }
   throw new IOException("Encryption method " + encryptionInfo.Method + " is not supported");
 }

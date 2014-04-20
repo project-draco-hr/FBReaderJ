@@ -1,0 +1,11 @@
+{
+  final int o=offset();
+  final int len=super.read(buffer,bOffset,bCount);
+  if (o < 1040) {
+    final int e=Math.min(1040 - o,len);
+    for (int c=0; c < e; ++c) {
+      buffer[bOffset + c]^=myKey[(o + c) % myKey.length];
+    }
+  }
+  return len;
+}
