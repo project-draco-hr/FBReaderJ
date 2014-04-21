@@ -1,5 +1,3 @@
 {
-  myLength=myParagraphLengths[index];
-  myDataIndex=myStartEntryIndices[index];
-  myDataOffset=myStartEntryOffsets[index];
+  reset(index);
 }

@@ -12,8 +12,7 @@
   final EntryIteratorImpl it=new EntryIteratorImpl(index);
   while (true) {
     int offset=0;
-    while (it.hasNext()) {
-      it.next();
+    while (it.next()) {
       if (it.getType() == ZLTextParagraph.Entry.TEXT) {
         char[] textData=it.getTextData();
         int textOffset=it.getTextOffset();
