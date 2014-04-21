@@ -1,0 +1,18 @@
+{
+  super(context,null);
+  setTitle(resource.getResource(key).getValue());
+  setNegativeButtonText(null);
+  setPositiveButtonText(ZLResource.resource("dialog").getResource("button").getResource("ok").getValue());
+  final StringBuilder html=new StringBuilder();
+  try {
+    final BufferedReader reader=new BufferedReader(new InputStreamReader(ZLFile.createFileByPath("data/licences.html").getInputStream()));
+    String line;
+    while ((line=reader.readLine()) != null) {
+      html.append(line);
+    }
+    reader.close();
+  }
+ catch (  IOException e) {
+  }
+  setDialogMessage(Html.fromHtml(html.toString()));
+}
