@@ -6,7 +6,7 @@
     return false;
   }
   final FontEntry entry=(FontEntry)other;
-  if (!Family.equals(entry.Family)) {
+  if (!MiscUtil.equals(Family,entry.Family)) {
     return false;
   }
   if (myFileInfos == null) {
