@@ -59,7 +59,7 @@ ZLStringMap source=new ZLStringMap();
 source.put(RSSCategory.LABEL,str);
 myCategory=new RSSCategory(source);
 if (myCategory != null) {
-myItem.Categories.push(myCategory);
+myItem.Categories.add(myCategory);
 }
 myCategory=null;
 }

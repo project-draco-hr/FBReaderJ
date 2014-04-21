@@ -9,7 +9,7 @@
         myItem.Title=title;
         String authorName=bufferContent.substring(foundIndex + marks[i].length());
         myAuthor.Name=authorName.trim();
-        myItem.Authors.push(myAuthor);
+        myItem.Authors.add(myAuthor);
         myAuthor=null;
       }
       found=true;
