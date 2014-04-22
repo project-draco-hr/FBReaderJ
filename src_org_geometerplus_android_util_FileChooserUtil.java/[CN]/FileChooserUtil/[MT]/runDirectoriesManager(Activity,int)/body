@@ -1,0 +1,4 @@
+{
+  final Intent intent=new Intent(activity,DirectoriesManagerActivity.class);
+  activity.startActivityForResult(intent,requestCode);
+}

@@ -1,4 +1,5 @@
 {
+  System.out.println("PreferenceActivity::onActivityResult() " + requestCode);
   if (resultCode == RESULT_OK) {
     myChooserCollection.update(requestCode,data);
   }
