@@ -1,0 +1,14 @@
+{
+  while (true) {
+synchronized (myTasks) {
+      while (!myTasks.isEmpty()) {
+        myTasks.remove(0).run();
+      }
+    }
+    try {
+      sleep(500);
+    }
+ catch (    InterruptedException e) {
+    }
+  }
+}

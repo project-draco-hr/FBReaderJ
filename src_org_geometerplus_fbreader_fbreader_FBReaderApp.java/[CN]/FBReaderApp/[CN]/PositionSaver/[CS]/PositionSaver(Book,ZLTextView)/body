@@ -1,0 +1,5 @@
+{
+  myBook=book;
+  myPosition=new ZLTextFixedPosition(view.getStartCursor());
+  myProgress=view.getProgress();
+}
