@@ -1,6 +1,6 @@
 {
   if (android.os.Build.VERSION.SDK_INT >= 9) {
-    return file instanceof File && !((File)file).canExecute();
+    return file instanceof File && (!((File)file).canExecute() || !((File)file).canRead());
   }
  else {
     return false;
