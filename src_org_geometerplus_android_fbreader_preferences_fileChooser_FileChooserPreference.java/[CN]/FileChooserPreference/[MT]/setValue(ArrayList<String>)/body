@@ -1,0 +1,9 @@
+{
+  if (value.isEmpty()) {
+    return;
+  }
+  setValueInternal(value);
+  if (myOnValueSetAction != null) {
+    myOnValueSetAction.run();
+  }
+}

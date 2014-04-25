@@ -1,0 +1,11 @@
+{
+  if (resultCode == RESULT_OK) {
+    System.out.println("DirectoriesManagerActivity::onActivityResult() " + requestCode);
+    if (requestCode != ADD_NEW_DIR_POSITION) {
+      updateDirs(requestCode,data);
+    }
+ else {
+      addNewDir(data);
+    }
+  }
+}

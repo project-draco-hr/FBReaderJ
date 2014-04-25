@@ -1,0 +1,11 @@
+{
+  String path=FileChooserUtil.pathFromData(data);
+  if (!myDirList.contains(path)) {
+    myDirList.remove(index);
+    myDirList.add(index,path);
+    myAdapter.notifyDataSetChanged();
+  }
+ else {
+    showMessage("Cannot add the duplicate directory " + path);
+  }
+}

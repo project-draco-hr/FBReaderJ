@@ -1,0 +1,6 @@
+{
+  final List<String> values=myOption.getValue();
+  ArrayList<String> resList=new ArrayList<String>();
+  resList.addAll(values);
+  return resList;
+}

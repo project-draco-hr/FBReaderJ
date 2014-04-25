@@ -1,0 +1,3 @@
+{
+  FileChooserUtil.runDirectoriesManager((Activity)getContext(),myRegCode,getStringListValue());
+}

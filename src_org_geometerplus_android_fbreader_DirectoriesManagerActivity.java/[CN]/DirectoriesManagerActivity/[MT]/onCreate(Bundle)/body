@@ -1,5 +1,11 @@
 {
   super.onCreate(savedInstanceState);
   setContentView(R.layout.dir_manager);
+  myResultIntent=new Intent();
+  myDirList=getIntent().getStringArrayListExtra(DIR_LIST);
+  System.out.println(ZLResource.resource("dialog").getResource("waitMessage").getResource("search").getValue());
   setupActionButtons();
+  myListView=(ListView)findViewById(R.id.directories);
+  myDirList.add(ADD_NEW_DIR_POSITION,"Add a new dir");
+  setupDirectoriesAdapter(myDirList);
 }

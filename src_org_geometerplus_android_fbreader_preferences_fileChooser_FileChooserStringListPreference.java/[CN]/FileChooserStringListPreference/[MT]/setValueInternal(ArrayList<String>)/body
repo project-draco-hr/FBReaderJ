@@ -1,0 +1,7 @@
+{
+  System.out.println("FileChooserStringListPreference::setValueInternal() " + value);
+  if (value.size() > 0) {
+    myOption.setValue(value);
+    setSummary(value.get(0));
+  }
+}

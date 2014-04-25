@@ -1,0 +1,28 @@
+{
+  final View view=LayoutInflater.from(getContext()).inflate(R.layout.dir_list,parent,false);
+  final String dirName=(String)getItem(position);
+  TextView title=(TextView)view.findViewById(R.id.title);
+  title.setText(dirName);
+  ImageView deleteButton=(ImageView)view.findViewById(R.id.delete);
+  if (position != ADD_NEW_DIR_POSITION) {
+    deleteButton.setVisibility(View.VISIBLE);
+    deleteButton.setOnClickListener(new View.OnClickListener(){
+      public void onClick(      View v){
+        System.out.println("DELETE: " + dirName);
+        view.animate().setDuration(300).alpha(0).setListener(new AnimatorListenerAdapter(){
+          @Override public void onAnimationEnd(          Animator animation){
+            myDirList.remove(position);
+            myAdapter.notifyDataSetChanged();
+            view.setAlpha(1);
+          }
+        }
+);
+      }
+    }
+);
+  }
+ else {
+    deleteButton.setVisibility(View.INVISIBLE);
+  }
+  return view;
+}

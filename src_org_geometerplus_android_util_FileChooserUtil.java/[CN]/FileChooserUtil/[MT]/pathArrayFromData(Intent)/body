@@ -1,0 +1,3 @@
+{
+  return data.getStringArrayListExtra(DirectoriesManagerActivity.DIR_LIST);
+}
