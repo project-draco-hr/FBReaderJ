@@ -1,15 +1,18 @@
 {
   final Button okButton=(Button)findViewById(R.id.button_ok);
+  okButton.setText(myResource.getResource("ok").getValue());
   okButton.setOnClickListener(new View.OnClickListener(){
     public void onClick(    View v){
       myDirList.remove(0);
-      myResultIntent.putStringArrayListExtra(DIR_LIST,myDirList);
-      setResult(RESULT_OK,myResultIntent);
+      Intent result=new Intent();
+      result.putStringArrayListExtra(DIR_LIST,myDirList);
+      setResult(RESULT_OK,result);
       finish();
     }
   }
 );
   final Button cancelButton=(Button)findViewById(R.id.button_cancel);
+  cancelButton.setText(myResource.getResource("cancel").getValue());
   cancelButton.setOnClickListener(new View.OnClickListener(){
     public void onClick(    View v){
       setResult(RESULT_CANCELED);
