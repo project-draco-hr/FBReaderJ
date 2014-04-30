@@ -6,6 +6,6 @@
     myAdapter.notifyDataSetChanged();
   }
  else {
-    showMessage("Cannot add the duplicate directory " + path);
+    showMessage(myResource.getResource("duplicateDirectoryWarning").getValue().replace("%s",path));
   }
 }

@@ -7,15 +7,18 @@
   if (position != ADD_NEW_DIR_POSITION) {
     deleteButton.setVisibility(View.VISIBLE);
     deleteButton.setOnClickListener(new View.OnClickListener(){
-      public void onClick(      View v){
-        view.animate().setDuration(300).alpha(0).setListener(new AnimatorListenerAdapter(){
-          @Override public void onAnimationEnd(          Animator animation){
-            myDirList.remove(position);
-            myAdapter.notifyDataSetChanged();
-            view.setAlpha(1);
+      public void onClick(      final View v){
+        new AlertDialog.Builder(getContext()).setCancelable(false).setTitle(myResource.getResource("deleteDialog").getValue()).setMessage(myResource.getResource("deleteDialog").getResource("message").getValue().replace("%s",dirName)).setPositiveButton(myResource.getResource("yes").getValue(),new DialogInterface.OnClickListener(){
+          public void onClick(          DialogInterface dialog,          int id){
+            removeItemView(v,position);
           }
         }
-);
+).setNegativeButton(myResource.getResource("cancel").getValue(),new DialogInterface.OnClickListener(){
+          public void onClick(          DialogInterface dialog,          int id){
+            dialog.cancel();
+          }
+        }
+).create().show();
       }
     }
 );
