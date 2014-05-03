@@ -1,7 +1,7 @@
 {
-  String path=FileChooserUtil.pathFromData(data);
+  final String path=FileChooserUtil.pathFromData(data);
   if (!myDirList.contains(path)) {
-    myDirList.add(FileChooserUtil.pathFromData(data));
+    myDirList.add(path);
     myAdapter.notifyDataSetChanged();
   }
  else {
