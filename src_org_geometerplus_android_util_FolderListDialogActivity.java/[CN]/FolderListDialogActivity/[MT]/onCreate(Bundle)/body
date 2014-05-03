@@ -1,6 +1,6 @@
 {
   super.onCreate(savedInstanceState);
-  setContentView(R.layout.dir_manager);
+  setContentView(R.layout.folder_list_dialog);
   myTitle=getIntent().getStringExtra(TITLE);
   myChooserTitle=getIntent().getStringExtra(CHOOSER_TITLE);
   myDirList=getIntent().getStringArrayListExtra(DIR_LIST);
