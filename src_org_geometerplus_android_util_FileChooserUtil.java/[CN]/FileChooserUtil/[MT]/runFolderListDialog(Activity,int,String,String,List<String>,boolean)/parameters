@@ -2,5 +2,5 @@ Activity activity
 int requestCode
 String title
 String fileChooserTitle
-ArrayList<String> initialValue
+List<String> initialValue
 boolean chooseWritableDirsOnly
