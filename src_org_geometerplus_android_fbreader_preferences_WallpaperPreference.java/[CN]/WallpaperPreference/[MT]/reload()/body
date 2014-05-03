@@ -1,2 +1,23 @@
 {
+  final List<ZLFile> predefined=WallpapersUtil.predefinedWallpaperFiles();
+  final List<ZLFile> external=WallpapersUtil.externalWallpaperFiles();
+  final int size=1 + predefined.size() + external.size();
+  final String[] values=new String[size];
+  final String[] texts=new String[size];
+  values[0]="";
+  texts[0]=myResource.getResource("solidColor").getValue();
+  int index=1;
+  for (  ZLFile f : predefined) {
+    values[index]=f.getPath();
+    final String name=f.getShortName();
+    texts[index]=myResource.getResource(name.substring(0,name.indexOf("."))).getValue();
+    ++index;
+  }
+  for (  ZLFile f : external) {
+    values[index]=f.getPath();
+    texts[index]=f.getShortName();
+    ++index;
+  }
+  setLists(values,texts);
+  setInitialValue(myOption.getValue());
 }
