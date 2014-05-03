@@ -1,4 +1,3 @@
 {
-  final List<String> values=myOption.getValue();
-  return values.isEmpty() ? "" : values.get(0);
+  return MiscUtil.join(myOption.getValue(),", ");
 }
