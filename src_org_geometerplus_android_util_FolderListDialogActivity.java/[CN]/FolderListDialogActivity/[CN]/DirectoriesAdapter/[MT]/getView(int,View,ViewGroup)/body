@@ -1,9 +1,8 @@
 {
   final View view=LayoutInflater.from(getContext()).inflate(R.layout.folder_list,parent,false);
   final String dirName=(String)getItem(position);
-  TextView title=(TextView)view.findViewById(R.id.title);
-  title.setText(dirName);
-  ImageView deleteButton=(ImageView)view.findViewById(R.id.delete);
+  ((TextView)view.findViewById(R.id.folder_list_title)).setText(dirName);
+  final ImageView deleteButton=(ImageView)view.findViewById(R.id.folder_list_remove);
   if (position != ADD_NEW_DIR_POSITION) {
     deleteButton.setVisibility(View.VISIBLE);
     deleteButton.setOnClickListener(new View.OnClickListener(){
