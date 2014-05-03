@@ -7,7 +7,7 @@
         mHistory.truncateAfter(mLastPath);
         mHistory.push(dir);
         mFullHistory.push(dir);
-        checkUIForFolderCreation(dir);
+        updateUI(dir);
       }
     }
   }
