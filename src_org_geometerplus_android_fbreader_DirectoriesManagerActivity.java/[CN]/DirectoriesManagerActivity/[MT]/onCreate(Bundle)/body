@@ -6,7 +6,7 @@
   myDirList=getIntent().getStringArrayListExtra(DIR_LIST);
   myChooseWritableDirectoriesOnly=getIntent().getBooleanExtra(WRITABLE_DIRS_ONLY,true);
   setTitle(myTitle);
-  myResource=ZLResource.resource("dialog").getResource("dirManager");
+  myResource=ZLResource.resource("dialog").getResource("folderList");
   setupActionButtons();
   myListView=(ListView)findViewById(R.id.directories);
   myDirList.add(ADD_NEW_DIR_POSITION,myResource.getResource("addNewFolder").getValue());

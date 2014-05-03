@@ -5,6 +5,6 @@
     myAdapter.notifyDataSetChanged();
   }
  else {
-    showMessage(myResource.getResource("duplicateDirectoryWarning").getValue().replace("%s",path));
+    showMessage(myResource.getResource("duplicate").getValue().replace("%s",path));
   }
 }
