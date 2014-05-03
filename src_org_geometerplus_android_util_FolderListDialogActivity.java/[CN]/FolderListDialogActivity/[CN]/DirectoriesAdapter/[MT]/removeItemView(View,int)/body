@@ -1,6 +1,6 @@
 {
   if (view != null && position < getCount()) {
-    myDirList.remove(position);
+    myFolderList.remove(position);
     myAdapter.notifyDataSetChanged();
   }
 }

@@ -4,10 +4,8 @@
   okButton.setText(buttonResource.getResource("ok").getValue());
   okButton.setOnClickListener(new View.OnClickListener(){
     public void onClick(    View v){
-      myDirList.remove(0);
-      final Intent result=new Intent();
-      result.putExtra(Key.FOLDER_LIST,myDirList);
-      setResult(RESULT_OK,result);
+      myFolderList.remove(0);
+      setResult(RESULT_OK,new Intent().putExtra(Key.FOLDER_LIST,myFolderList));
       finish();
     }
   }

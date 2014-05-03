@@ -1,10 +1,11 @@
 {
   final String path=FileChooserUtil.pathFromData(data);
-  if (!myDirList.contains(path)) {
-    myDirList.set(index,path);
+  final int existing=myFolderList.indexOf(path);
+  if (existing == -1) {
+    myFolderList.set(index,path);
     myAdapter.notifyDataSetChanged();
   }
- else   if (!path.equals(myDirList.get(index))) {
+ else   if (existing != index) {
     showMessage(myResource.getResource("duplicate").getValue().replace("%s",path));
   }
 }
