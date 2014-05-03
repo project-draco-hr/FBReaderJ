@@ -1,0 +1,6 @@
+{
+  final T state=detectState();
+  for (  Preference preference : myPreferences) {
+    update(preference,state);
+  }
+}

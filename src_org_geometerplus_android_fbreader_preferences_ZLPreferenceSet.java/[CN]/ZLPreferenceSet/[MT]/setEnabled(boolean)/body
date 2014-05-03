@@ -1,5 +1,0 @@
-{
-  for (  Preference preference : myPreferences) {
-    preference.setEnabled(enable);
-  }
-}
