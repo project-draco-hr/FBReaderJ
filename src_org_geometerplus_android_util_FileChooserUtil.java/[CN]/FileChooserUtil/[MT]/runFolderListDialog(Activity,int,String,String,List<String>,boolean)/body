@@ -1,0 +1,8 @@
+{
+  final Intent intent=new Intent(activity,FolderListDialogActivity.class);
+  intent.putExtra(FolderListDialogActivity.Key.ACTIVITY_TITLE,title);
+  intent.putExtra(FolderListDialogActivity.Key.CHOOSER_TITLE,fileChooserTitle);
+  intent.putExtra(FolderListDialogActivity.Key.FOLDER_LIST,new ArrayList<String>(initialValue));
+  intent.putExtra(FolderListDialogActivity.Key.WRITABLE_FOLDERS_ONLY,chooseWritableDirsOnly);
+  activity.startActivityForResult(intent,requestCode);
+}
