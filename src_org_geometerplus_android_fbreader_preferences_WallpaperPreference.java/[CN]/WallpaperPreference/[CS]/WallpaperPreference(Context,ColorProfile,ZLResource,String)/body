@@ -6,14 +6,13 @@
   final int size=1 + predefined.size() + external.size();
   final String[] values=new String[size];
   final String[] texts=new String[size];
-  final ZLResource optionResource=resource.getResource(resourceKey);
   values[0]="";
-  texts[0]=optionResource.getResource("solidColor").getValue();
+  texts[0]=myResource.getResource("solidColor").getValue();
   int index=1;
   for (  ZLFile f : predefined) {
     values[index]=f.getPath();
     final String name=f.getShortName();
-    texts[index]=optionResource.getResource(name.substring(0,name.indexOf("."))).getValue();
+    texts[index]=myResource.getResource(name.substring(0,name.indexOf("."))).getValue();
     ++index;
   }
   for (  ZLFile f : external) {
