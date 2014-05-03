@@ -1,6 +1,6 @@
 {
   try {
-    myPreferences.get(index).setValue(FileChooserUtil.pathFromData(data));
+    myPreferences.get(index).setValueFromIntent(data);
   }
  catch (  Exception e) {
   }
