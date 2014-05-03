@@ -1,3 +1,0 @@
-{
-  super(context,R.layout.folder_list_item,dirs);
-}

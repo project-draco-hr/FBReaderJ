@@ -1,3 +1,0 @@
-{
-  FileChooserUtil.runDirectoryChooser(this,index,myChooserTitle,dirName,myChooseWritableDirectoriesOnly);
-}

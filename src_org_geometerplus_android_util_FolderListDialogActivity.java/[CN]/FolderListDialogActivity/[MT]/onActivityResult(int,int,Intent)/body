@@ -1,10 +1,18 @@
 {
   if (resultCode == RESULT_OK) {
-    if (requestCode != ADD_NEW_DIR_POSITION) {
-      updateDirs(requestCode,data);
-    }
+    final String path=FileChooserUtil.pathFromData(data);
+    final int existing=myFolderList.indexOf(path);
+    if (existing == -1) {
+      if (index == 0) {
+        myFolderList.add(path);
+      }
  else {
-      addNewDir(data);
+        myFolderList.set(index - 1,path);
+      }
+      ((DirectoriesAdapter)getListAdapter()).notifyDataSetChanged();
+    }
+ else     if (existing != index - 1) {
+      UIUtil.showMessageText(this,myResource.getResource("duplicate").getValue().replace("%s",path));
     }
   }
 }

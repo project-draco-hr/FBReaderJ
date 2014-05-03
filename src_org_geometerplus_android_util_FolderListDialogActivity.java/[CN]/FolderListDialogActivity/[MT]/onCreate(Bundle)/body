@@ -7,8 +7,27 @@
   myChooserTitle=intent.getStringExtra(Key.CHOOSER_TITLE);
   myChooseWritableDirectoriesOnly=intent.getBooleanExtra(Key.WRITABLE_FOLDERS_ONLY,true);
   myResource=ZLResource.resource("dialog").getResource("folderList");
-  setupActionButtons();
-  myFolderList.add(ADD_NEW_DIR_POSITION,myResource.getResource("addFolder").getValue());
-  setupDirectoriesAdapter(myFolderList);
+  final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
+  final Button okButton=(Button)findViewById(R.id.folder_list_dialog_button_ok);
+  okButton.setText(buttonResource.getResource("ok").getValue());
+  okButton.setOnClickListener(new View.OnClickListener(){
+    public void onClick(    View v){
+      setResult(RESULT_OK,new Intent().putExtra(Key.FOLDER_LIST,myFolderList));
+      finish();
+    }
+  }
+);
+  final Button cancelButton=(Button)findViewById(R.id.folder_list_dialog_button_cancel);
+  cancelButton.setText(buttonResource.getResource("cancel").getValue());
+  cancelButton.setOnClickListener(new View.OnClickListener(){
+    public void onClick(    View v){
+      setResult(RESULT_CANCELED);
+      finish();
+    }
+  }
+);
+  final DirectoriesAdapter adapter=new DirectoriesAdapter();
+  setListAdapter(adapter);
+  getListView().setOnItemClickListener(adapter);
   setResult(RESULT_CANCELED);
 }

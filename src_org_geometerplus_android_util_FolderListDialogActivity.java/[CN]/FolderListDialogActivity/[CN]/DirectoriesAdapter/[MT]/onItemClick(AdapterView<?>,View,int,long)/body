@@ -1,0 +1,3 @@
+{
+  FileChooserUtil.runDirectoryChooser(FolderListDialogActivity.this,position,myChooserTitle,position == 0 ? "/" : myFolderList.get(position - 1),myChooseWritableDirectoriesOnly);
+}
