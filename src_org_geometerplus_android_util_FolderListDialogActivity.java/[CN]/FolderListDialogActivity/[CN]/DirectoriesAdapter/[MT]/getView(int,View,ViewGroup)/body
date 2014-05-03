@@ -1,6 +1,6 @@
 {
-  final View view=LayoutInflater.from(getContext()).inflate(R.layout.folder_list_item,parent,false);
-  final String dirName=(String)getItem(position);
+  final View view=convertView != null ? convertView : LayoutInflater.from(getContext()).inflate(R.layout.folder_list_item,parent,false);
+  final String dirName=getItem(position);
   ((TextView)view.findViewById(R.id.folder_list_item_title)).setText(dirName);
   final ImageView deleteButton=(ImageView)view.findViewById(R.id.folder_list_item_remove);
   if (position != ADD_NEW_DIR_POSITION) {
