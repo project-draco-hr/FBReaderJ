@@ -1,7 +1,0 @@
-{
-  final String currentValue=myOption.getValue();
-  if (!currentValue.equals(value)) {
-    myOption.setValue(value);
-    setSummary(value);
-  }
-}

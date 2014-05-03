@@ -1,3 +1,14 @@
 {
-  setValue(FileChooserUtil.pathFromData(data));
+  final String value=FileChooserUtil.pathFromData(data);
+  if (MiscUtil.isEmptyString(value)) {
+    return;
+  }
+  final List<String> currentValues=myOption.getValue();
+  if (currentValues.size() != 1 || !currentValues.get(0).equals(value)) {
+    myOption.setValue(Collections.singletonList(value));
+    setSummary(getStringValue());
+  }
+  if (myOnValueSetAction != null) {
+    myOnValueSetAction.run();
+  }
 }
