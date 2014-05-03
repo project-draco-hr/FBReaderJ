@@ -1,12 +1,6 @@
 {
   try {
-    final FileChooserPreference preference=myPreferences.get(index);
-    if (preference instanceof FileChooserStringPreference) {
-      ((FileChooserStringPreference)preference).setValue(FileChooserUtil.pathFromData(data));
-    }
- else {
-      ((FileChooserStringListPreference)preference).setValue(FileChooserUtil.pathArrayFromData(data));
-    }
+    myPreferences.get(index).setValueFromIntent(data);
   }
  catch (  Exception e) {
   }
