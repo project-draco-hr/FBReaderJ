@@ -2,7 +2,8 @@
   if (value.isEmpty()) {
     return;
   }
-  setValueInternal(value);
+  myOption.setValue(value);
+  setSummary(getStringValue());
   if (myOnValueSetAction != null) {
     myOnValueSetAction.run();
   }

@@ -1,11 +1,11 @@
 {
   try {
-    String path=FileChooserUtil.pathFromData(data);
-    if (path != null) {
-      myPreferences.get(index).setValue(path);
+    final FileChooserPreference preference=myPreferences.get(index);
+    if (preference instanceof FileChooserStringPreference) {
+      ((FileChooserStringPreference)preference).setValue(FileChooserUtil.pathFromData(data));
     }
  else {
-      myPreferences.get(index).setValue(FileChooserUtil.pathArrayFromData(data));
+      ((FileChooserStringListPreference)preference).setValue(FileChooserUtil.pathArrayFromData(data));
     }
   }
  catch (  Exception e) {

@@ -1,5 +1,0 @@
-{
-  if (value.size() > 0) {
-    setValueInternal(value.get(0));
-  }
-}
