@@ -5,8 +5,8 @@
   okButton.setOnClickListener(new View.OnClickListener(){
     public void onClick(    View v){
       myDirList.remove(0);
-      Intent result=new Intent();
-      result.putStringArrayListExtra(DIR_LIST,myDirList);
+      final Intent result=new Intent();
+      result.putExtra(Key.FOLDER_LIST,myDirList);
       setResult(RESULT_OK,result);
       finish();
     }
