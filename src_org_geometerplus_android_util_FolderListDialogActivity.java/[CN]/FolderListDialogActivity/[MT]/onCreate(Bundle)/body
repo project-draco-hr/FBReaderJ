@@ -8,7 +8,7 @@
   setTitle(myTitle);
   myResource=ZLResource.resource("dialog").getResource("folderList");
   setupActionButtons();
-  myListView=(ListView)findViewById(R.id.directories);
+  myListView=(ListView)findViewById(R.id.folder_list_dialog_directories);
   myDirList.add(ADD_NEW_DIR_POSITION,myResource.getResource("addFolder").getValue());
   setupDirectoriesAdapter(myDirList);
 }
