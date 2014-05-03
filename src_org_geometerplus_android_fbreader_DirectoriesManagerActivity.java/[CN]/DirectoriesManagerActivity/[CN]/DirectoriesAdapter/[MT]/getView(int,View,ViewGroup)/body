@@ -8,12 +8,13 @@
     deleteButton.setVisibility(View.VISIBLE);
     deleteButton.setOnClickListener(new View.OnClickListener(){
       public void onClick(      final View v){
-        new AlertDialog.Builder(getContext()).setCancelable(false).setTitle(myResource.getResource("deleteDialog").getValue()).setMessage(myResource.getResource("deleteDialog").getResource("message").getValue().replace("%s",dirName)).setPositiveButton(myResource.getResource("yes").getValue(),new DialogInterface.OnClickListener(){
+        final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
+        new AlertDialog.Builder(getContext()).setCancelable(false).setTitle(myResource.getResource("deleteDialog").getValue()).setMessage(myResource.getResource("deleteDialog").getResource("message").getValue().replace("%s",dirName)).setPositiveButton(buttonResource.getResource("yes").getValue(),new DialogInterface.OnClickListener(){
           public void onClick(          DialogInterface dialog,          int id){
             removeItemView(v,position);
           }
         }
-).setNegativeButton(myResource.getResource("cancel").getValue(),new DialogInterface.OnClickListener(){
+).setNegativeButton(buttonResource.getResource("cancel").getValue(),new DialogInterface.OnClickListener(){
           public void onClick(          DialogInterface dialog,          int id){
             dialog.cancel();
           }
