@@ -1,3 +1,8 @@
 {
   super.onCreate(savedInstanceState);
+  setContentView(R.layout.folder_list_dialog);
+  final Intent intent=getIntent();
+  myFolderList=intent.getStringArrayListExtra(Key.FOLDER_LIST);
+  setTitle(intent.getStringExtra(Key.ACTIVITY_TITLE));
+  setResult(RESULT_CANCELED);
 }
