@@ -1,11 +1,10 @@
 {
   super.onCreate(savedInstanceState);
   setContentView(R.layout.folder_list_dialog);
-  myTitle=getIntent().getStringExtra(TITLE);
+  setTitle(getIntent().getStringExtra(TITLE));
   myChooserTitle=getIntent().getStringExtra(CHOOSER_TITLE);
   myDirList=getIntent().getStringArrayListExtra(DIR_LIST);
   myChooseWritableDirectoriesOnly=getIntent().getBooleanExtra(WRITABLE_DIRS_ONLY,true);
-  setTitle(myTitle);
   myResource=ZLResource.resource("dialog").getResource("folderList");
   setupActionButtons();
   myDirList.add(ADD_NEW_DIR_POSITION,myResource.getResource("addFolder").getValue());
