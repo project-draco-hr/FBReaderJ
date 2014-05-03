@@ -1,5 +1,5 @@
 {
-  final View view=LayoutInflater.from(getContext()).inflate(R.layout.dir_list,parent,false);
+  final View view=LayoutInflater.from(getContext()).inflate(R.layout.folder_list,parent,false);
   final String dirName=(String)getItem(position);
   TextView title=(TextView)view.findViewById(R.id.title);
   title.setText(dirName);
