@@ -8,7 +8,6 @@
  else   if (file.isDirectory()) {
     if (filterMode != IFileProvider.FilterMode.AnyDirectories) {
       if (file instanceof File && !((File)file).canWrite()) {
-        System.out.println(">> " + file.getName());
         if (file instanceof ParentFile) {
           return R.drawable.afc_folder;
         }
