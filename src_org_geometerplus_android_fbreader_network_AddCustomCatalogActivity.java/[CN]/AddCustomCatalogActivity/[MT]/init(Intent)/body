@@ -1,0 +1,38 @@
+{
+  final String action=intent.getAction();
+  Uri uri=null;
+  if (myEditNotAdd || Intent.ACTION_VIEW.equals(action) || Util.ADD_CATALOG_URL_ACTION.equals(action)) {
+    uri=intent.getData();
+    if (uri != null) {
+      final String scheme=uri.getScheme();
+      if ("opds".equals(scheme)) {
+        uri=Uri.parse("http" + uri.toString().substring(scheme.length()));
+      }
+ else       if ("opds-fbreader".equals(scheme)) {
+        uri=Uri.parse("https" + uri.toString().substring(scheme.length()));
+      }
+      final INetworkLink link=NetworkLibrary.Instance().getLinkByUrl(uri.toString());
+      if (link instanceof ICustomNetworkLink) {
+        myLink=(ICustomNetworkLink)link;
+      }
+    }
+    myType=INetworkLink.Type.byIndex(intent.getIntExtra(TYPE,myType.Index));
+  }
+  if (myLink != null) {
+    if (myEditNotAdd) {
+      setTextById(R.id.add_custom_catalog_url,myLink.getUrl(UrlInfo.Type.Catalog));
+      setTextById(R.id.add_custom_catalog_title,myLink.getTitle());
+      setTextById(R.id.add_custom_catalog_summary,myLink.getSummary());
+      setExtraFieldsVisibility(true);
+    }
+ else {
+      openCatalog(uri);
+    }
+  }
+ else   if (uri != null) {
+    loadInfoByUri(uri);
+  }
+ else {
+    setExtraFieldsVisibility(false);
+  }
+}
