@@ -16,7 +16,8 @@
   }
   tree.startItemsLoader(new Authenticator(){
     public void run(    String url){
-      OrientationUtil.startActivity(myActivity,new Intent(myActivity,AuthorisationScreen.class));
+      System.err.println("URL 0: " + url);
+      OrientationUtil.startActivity(myActivity,new Intent(Intent.ACTION_VIEW,Uri.parse(url),myActivity,AuthorisationScreen.class));
     }
   }
 ,resumeNotLoad);

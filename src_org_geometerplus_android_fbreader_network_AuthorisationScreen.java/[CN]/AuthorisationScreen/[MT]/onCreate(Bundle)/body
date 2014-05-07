@@ -1,7 +1,9 @@
 {
   super.onCreate(icicle);
+  OrientationUtil.setOrientation(this,getIntent());
   final WebView view=new WebView(this);
   view.getSettings().setJavaScriptEnabled(true);
   setContentView(view);
-  view.loadUrl("http://fbreader.org/");
+  System.err.println("URL 1: " + getIntent().getData().toString());
+  view.loadUrl(getIntent().getData().toString());
 }
