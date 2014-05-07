@@ -1,6 +1,5 @@
 {
   super(tree);
   myAuthenticator=authenticator;
-  myCheckAuthentication=checkAuthentication;
   myResumeNotLoad=resumeNotLoad;
 }

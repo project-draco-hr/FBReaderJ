@@ -1,4 +1,0 @@
-NetworkCatalogTree tree
-Authenticator authenticator
-boolean checkAuthentication
-boolean resumeNotLoad

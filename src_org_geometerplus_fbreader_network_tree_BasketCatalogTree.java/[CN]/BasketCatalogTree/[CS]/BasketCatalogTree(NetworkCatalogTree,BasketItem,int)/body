@@ -1,6 +1,6 @@
 {
   super(parent,parent.getLink(),item,position);
   if (!item.bookIds().isEmpty()) {
-    startItemsLoader(null,false,false);
+    startItemsLoader(null,false);
   }
 }
