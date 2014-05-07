@@ -12,13 +12,13 @@
     setTitle(resource.getResource("title").getValue());
   }
 switch (state) {
-case NotAuthorized:
-    textArea.setText(resource.getResource("notAuthorized").getValue());
-  okButton.setText(buttonResource.getResource("authorize").getValue());
+case NotAuthorised:
+    textArea.setText(resource.getResource("notAuthorised").getValue());
+  okButton.setText(buttonResource.getResource("authorise").getValue());
 cancelButton.setText(buttonResource.getResource("cancel").getValue());
 okButton.setOnClickListener(new View.OnClickListener(){
 public void onClick(View v){
-  AuthorizationMenuActivity.runMenu(BuyBooksActivity.this,myLink);
+  AuthorisationMenuActivity.runMenu(BuyBooksActivity.this,myLink);
 }
 }
 );
@@ -29,7 +29,7 @@ finish();
 }
 );
 break;
-case Authorized:
+case Authorised:
 if (myAccount == null) {
 textArea.setText(resource.getResource("noAccountInformation").getValue());
 okButton.setText(buttonResource.getResource("refresh").getValue());
