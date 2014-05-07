@@ -23,6 +23,9 @@
       if (MimeType.APP_ATOM_XML.weakEquals(mime) && "next".equals(rel)) {
         myNextURL=ZLNetworkUtil.url(myBaseURL,link.getHref());
       }
+ else       if (MimeType.TEXT_HTML.weakEquals(mime) && "auth".equals(rel)) {
+        myAuthURL=ZLNetworkUtil.url(myBaseURL,link.getHref());
+      }
     }
   }
   return false;

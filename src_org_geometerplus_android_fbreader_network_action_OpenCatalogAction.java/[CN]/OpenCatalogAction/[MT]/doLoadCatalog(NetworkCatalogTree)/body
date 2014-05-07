@@ -14,7 +14,12 @@
       tree.clearCatalog();
     }
   }
-  tree.startItemsLoader(true,resumeNotLoad);
+  tree.startItemsLoader(new Authenticator(){
+    public void run(    String url){
+      OrientationUtil.startActivity(myActivity,new Intent(myActivity,AuthorisationScreen.class));
+    }
+  }
+,true,resumeNotLoad);
   processExtraData(tree.Item.extraData(),new Runnable(){
     public void run(){
       doOpenTree(tree);

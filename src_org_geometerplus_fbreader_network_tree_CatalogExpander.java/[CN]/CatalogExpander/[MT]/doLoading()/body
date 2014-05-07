@@ -1,8 +1,0 @@
-{
-  if (myResumeNotLoad) {
-    getTree().Item.resumeLoading(this);
-  }
- else {
-    getTree().Item.loadChildren(this);
-  }
-}

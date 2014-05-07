@@ -17,7 +17,7 @@ synchronized (library) {
       return;
     }
     try {
-      doLoading();
+      load();
       onFinish(null,isLoadingInterrupted());
     }
  catch (    ZLNetworkException e) {
