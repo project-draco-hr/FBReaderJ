@@ -1,0 +1,7 @@
+{
+  super.onCreate(icicle);
+  final WebView view=new WebView(this);
+  view.getSettings().setJavaScriptEnabled(true);
+  setContentView(view);
+  view.loadUrl("http://fbreader.org/");
+}
