@@ -5,9 +5,20 @@
     }
   }
 );
-  if (requestCode == REQUEST_MANAGE_CATALOGS && resultCode == RESULT_OK && data != null) {
-    final ArrayList<String> myIds=data.getStringArrayListExtra(ENABLED_CATALOG_IDS_KEY);
-    NetworkLibrary.Instance().setActiveIds(myIds);
-    NetworkLibrary.Instance().synchronize();
+  if (resultCode != RESULT_OK || data == null) {
+    return;
   }
+switch (requestCode) {
+case REQUEST_MANAGE_CATALOGS:
+{
+      final ArrayList<String> myIds=data.getStringArrayListExtra(ENABLED_CATALOG_IDS_KEY);
+      NetworkLibrary.Instance().setActiveIds(myIds);
+      NetworkLibrary.Instance().synchronize();
+      break;
+    }
+case REQUEST_AUTHORISATION_SCREEN:
+{
+    break;
+  }
+}
 }
