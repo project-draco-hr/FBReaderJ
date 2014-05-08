@@ -5,9 +5,42 @@
     }
   }
 );
-  if (requestCode == REQUEST_MANAGE_CATALOGS && resultCode == RESULT_OK && data != null) {
-    final ArrayList<String> myIds=data.getStringArrayListExtra(ENABLED_CATALOG_IDS_KEY);
-    NetworkLibrary.Instance().setActiveIds(myIds);
-    NetworkLibrary.Instance().synchronize();
+  if (resultCode != RESULT_OK || data == null) {
+    return;
   }
+switch (requestCode) {
+case REQUEST_MANAGE_CATALOGS:
+{
+      final ArrayList<String> myIds=data.getStringArrayListExtra(ENABLED_CATALOG_IDS_KEY);
+      NetworkLibrary.Instance().setActiveIds(myIds);
+      NetworkLibrary.Instance().synchronize();
+      break;
+    }
+case REQUEST_AUTHORISATION_SCREEN:
+{
+    final String cookies=data.getStringExtra(COOKIES_KEY);
+    if (cookies == null) {
+      break;
+    }
+    final CookieStore store=ZLNetworkManager.Instance().cookieStore();
+    for (    String pair : cookies.split(";")) {
+      final String[] parts=pair.split("=",2);
+      if (parts.length != 2) {
+        continue;
+      }
+      final String name=parts[0].trim();
+      final String value=parts[1].trim();
+      final BasicClientCookie2 c=new BasicClientCookie2(name,value);
+      c.setDomain("demo.fbreader.org");
+      c.setPath("/");
+      final Calendar date=Calendar.getInstance();
+      date.add(Calendar.YEAR,1);
+      c.setExpiryDate(date.getTime());
+      c.setSecure(true);
+      c.setDiscard(false);
+      store.addCookie(c);
+    }
+    break;
+  }
+}
 }
