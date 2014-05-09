@@ -8,9 +8,6 @@
       if ("opds".equals(scheme)) {
         uri=Uri.parse("http" + uri.toString().substring(scheme.length()));
       }
- else       if ("opds-fbreader".equals(scheme)) {
-        uri=Uri.parse("https" + uri.toString().substring(scheme.length()));
-      }
       final INetworkLink link=NetworkLibrary.Instance().getLinkByUrl(uri.toString());
       if (link instanceof ICustomNetworkLink) {
         myLink=(ICustomNetworkLink)link;
