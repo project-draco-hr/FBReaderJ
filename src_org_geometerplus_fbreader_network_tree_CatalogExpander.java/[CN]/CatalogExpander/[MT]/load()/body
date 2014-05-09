@@ -1,4 +1,5 @@
 {
+  myAuthenticationRequested=false;
   if (myResumeNotLoad) {
     getTree().Item.resumeLoading(this);
   }
