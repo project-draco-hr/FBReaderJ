@@ -4,7 +4,7 @@
   }
  else {
     getTree().removeUnconfirmedItems();
-    if (!interrupted) {
+    if (!interrupted && !myAuthenticationRequested) {
       if (exception != null) {
         NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.NetworkError,exception.getMessage());
       }

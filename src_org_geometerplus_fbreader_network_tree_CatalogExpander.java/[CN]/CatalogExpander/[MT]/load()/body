@@ -7,6 +7,7 @@
       getTree().Item.loadChildren(this);
     }
  catch (    NetworkCatalogItem.AuthorisationFailed f) {
+      myAuthenticationRequested=true;
       if (myAuthenticator != null) {
         myAuthenticator.run(f.URL);
       }
