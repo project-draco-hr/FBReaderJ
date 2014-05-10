@@ -1,5 +1,5 @@
 {
-  if (myLoadingState != null) {
+  if (canResumeLoading()) {
     myLoadingState.Loader=loader;
     ZLNetworkRequest networkRequest=myLoadingState.resume();
     doLoadChildren(networkRequest);
