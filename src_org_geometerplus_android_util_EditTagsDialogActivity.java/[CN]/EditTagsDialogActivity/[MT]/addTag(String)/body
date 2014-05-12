@@ -1,0 +1,6 @@
+{
+  if (!tag.equals("")) {
+    myTagList.add(tag);
+    ((TagsAdapter)getListAdapter()).notifyDataSetChanged();
+  }
+}
