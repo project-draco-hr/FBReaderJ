@@ -1,0 +1,8 @@
+{
+  if (tags.size() == 0)   return;
+  myBook.removeAllTags();
+  for (  String s : tags) {
+    myBook.addTag(s);
+  }
+  ((EditBookInfoActivity)getContext()).saveBook();
+}

@@ -1,5 +1,6 @@
 {
-  super(context,rootResource,resourceKey);
+  super(context);
   myBook=book;
-  System.out.println("EditTagsPreference: " + myBook.getTitle());
+  myResource=rootResource.getResource(resourceKey);
+  setTitle(myResource.getValue());
 }
