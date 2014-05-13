@@ -1,7 +1,7 @@
 {
   if (resultCode == RESULT_OK) {
 switch (reqCode) {
-case EditTagsDialogActivity.Key.REQ_CODE:
+case EditTagsDialogActivity.REQ_CODE:
       myEditTagsPreference.saveTags(data.getStringArrayListExtra(EditTagsDialogActivity.Key.TAG_LIST));
     break;
 }

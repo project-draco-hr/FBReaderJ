@@ -6,5 +6,5 @@
     myInitTags.add(tag.Name);
   }
   intent.putExtra(EditTagsDialogActivity.Key.TAG_LIST,myInitTags);
-  ((EditBookInfoActivity)getContext()).startActivityForResult(intent,EditTagsDialogActivity.Key.REQ_CODE);
+  ((EditBookInfoActivity)getContext()).startActivityForResult(intent,EditTagsDialogActivity.REQ_CODE);
 }
