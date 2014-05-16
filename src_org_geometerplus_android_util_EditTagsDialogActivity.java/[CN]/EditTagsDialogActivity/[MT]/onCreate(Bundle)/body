@@ -4,7 +4,7 @@
   final Intent intent=getIntent();
   myTagList=intent.getStringArrayListExtra(Key.TAG_LIST);
   setTitle(intent.getStringExtra(Key.ACTIVITY_TITLE));
-  myResource=ZLResource.resource("dialog").getResource("folderList");
+  myResource=ZLResource.resource("dialog").getResource("editTags");
   final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
   final Button okButton=(Button)findViewById(R.id.edit_tags_dialog_button_ok);
   okButton.setText(buttonResource.getResource("ok").getValue());
@@ -25,6 +25,7 @@
   }
 );
   final EditText inputField=(EditText)findViewById(R.id.edit_tags_input_field);
+  inputField.setHint(myResource.getResource("addTag").getValue());
   inputField.setOnEditorActionListener(new TextView.OnEditorActionListener(){
     public boolean onEditorAction(    TextView v,    int actionId,    KeyEvent event){
       System.out.println(actionId);

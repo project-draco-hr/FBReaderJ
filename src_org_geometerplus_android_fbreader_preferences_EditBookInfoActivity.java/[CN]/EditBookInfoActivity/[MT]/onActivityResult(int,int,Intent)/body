@@ -1,7 +1,9 @@
 {
-  System.out.println("EditBookInfoActivity::onActivityResult() " + resultCode);
   if (resultCode == RESULT_OK) {
-    ArrayList<String> tagList=new ArrayList<String>(data.getStringArrayListExtra(EditTagsDialogActivity.Key.TAG_LIST));
-    System.out.println("EditBookInfoActivity::onActivityResult() " + tagList);
-  }
+switch (reqCode) {
+case EditTagsDialogActivity.REQ_CODE:
+      myEditTagsPreference.saveTags(data.getStringArrayListExtra(EditTagsDialogActivity.Key.TAG_LIST));
+    break;
+}
+}
 }

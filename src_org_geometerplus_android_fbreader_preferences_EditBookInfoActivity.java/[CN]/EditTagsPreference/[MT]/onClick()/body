@@ -1,11 +1,10 @@
 {
-  System.out.println("EditTagsPreference::onClick()");
   Intent intent=new Intent(getContext(),EditTagsDialogActivity.class);
-  intent.putExtra(EditTagsDialogActivity.Key.ACTIVITY_TITLE,"Edit Tags");
-  ArrayList<String> initValues=new ArrayList<String>();
+  intent.putExtra(EditTagsDialogActivity.Key.ACTIVITY_TITLE,myResource.getValue());
+  myInitTags=new ArrayList<String>();
   for (  Tag tag : myBook.tags()) {
-    initValues.add(tag.Name);
+    myInitTags.add(tag.Name);
   }
-  intent.putExtra(EditTagsDialogActivity.Key.TAG_LIST,initValues);
-  ((EditBookInfoActivity)getContext()).startActivityForResult(intent,001);
+  intent.putExtra(EditTagsDialogActivity.Key.TAG_LIST,myInitTags);
+  ((EditBookInfoActivity)getContext()).startActivityForResult(intent,EditTagsDialogActivity.REQ_CODE);
 }
