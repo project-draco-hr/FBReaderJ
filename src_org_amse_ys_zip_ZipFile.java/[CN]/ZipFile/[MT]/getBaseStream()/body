@@ -1,4 +1,3 @@
 {
-  MyBufferedInputStream baseStream=myStoredStreams.poll();
-  return (baseStream != null) ? baseStream : new MyBufferedInputStream(myStreamHolder);
+  return new MyBufferedInputStream(myStreamHolder);
 }
