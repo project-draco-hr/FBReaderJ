@@ -1,12 +1,6 @@
 {
-  try {
-    InputStream stream=myApplication.getAssets().open(getPath());
-    if (stream != null) {
-      stream.close();
-      return true;
-    }
-  }
- catch (  IOException e) {
+  if (streamStatus() == StreamStatus.OK) {
+    return true;
   }
   try {
     String[] names=myApplication.getAssets().list(getPath());

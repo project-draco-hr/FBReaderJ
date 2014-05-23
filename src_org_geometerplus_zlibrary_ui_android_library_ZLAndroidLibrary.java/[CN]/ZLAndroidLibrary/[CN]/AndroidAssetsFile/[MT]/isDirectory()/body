@@ -1,13 +1,3 @@
 {
-  try {
-    InputStream stream=myApplication.getAssets().open(getPath());
-    if (stream == null) {
-      return true;
-    }
-    stream.close();
-    return false;
-  }
- catch (  IOException e) {
-    return true;
-  }
+  return streamStatus() != StreamStatus.OK;
 }

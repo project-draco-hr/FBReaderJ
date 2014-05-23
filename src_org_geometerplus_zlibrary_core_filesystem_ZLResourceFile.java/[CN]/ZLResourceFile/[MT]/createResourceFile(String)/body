@@ -1,3 +1,8 @@
 {
-  return ZLibrary.Instance().createResourceFile(path);
+  ZLResourceFile file=ourCache.get(path);
+  if (file == null) {
+    file=ZLibrary.Instance().createResourceFile(path);
+    ourCache.put(path,file);
+  }
+  return file;
 }
