@@ -1,8 +1,11 @@
 {
-  try {
-    return myFile.getCanonicalPath();
+  if (myPath == null) {
+    try {
+      myPath=myFile.getCanonicalPath();
+    }
+ catch (    Exception e) {
+      myPath=myFile.getPath();
+    }
   }
- catch (  Exception e) {
-    return myFile.getPath();
-  }
+  return myPath;
 }
