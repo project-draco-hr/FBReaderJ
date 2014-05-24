@@ -1,0 +1,3 @@
+{
+  return ParagraphIndex == other.ParagraphIndex && ElementIndex == other.ElementIndex && CharIndex == other.CharIndex && MiscUtil.equals(myText,other.myText);
+}

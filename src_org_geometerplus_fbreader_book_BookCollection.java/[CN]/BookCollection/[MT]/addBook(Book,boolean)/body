@@ -8,9 +8,19 @@ synchronized (myBooksByFile) {
       if (book.getId() == -1 && !book.save(myDatabase,true)) {
         return false;
       }
-      myBooksByFile.put(book.File,book);
-      myBooksById.put(book.getId(),book);
-      fireBookEvent(BookEvent.Added,book);
+      final ZLFile duplicate=myDuplicateResolver.findDuplicate(book.File);
+      final Book original=duplicate != null ? myBooksByFile.get(duplicate) : null;
+      if (original != null) {
+        if (new BookMergeHelper(this).merge(original,book)) {
+          fireBookEvent(BookEvent.Updated,original);
+        }
+      }
+ else {
+        myBooksByFile.put(book.File,book);
+        myDuplicateResolver.addFile(book.File);
+        myBooksById.put(book.getId(),book);
+        fireBookEvent(BookEvent.Added,book);
+      }
       return true;
     }
  else     if (force) {

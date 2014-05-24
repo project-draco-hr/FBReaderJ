@@ -1,0 +1,14 @@
+{
+  if (base.hasSameMetainfoAs(duplicate)) {
+    return false;
+  }
+  final Book vanilla;
+  try {
+    vanilla=new Book(base.File);
+  }
+ catch (  BookReadingException e) {
+    return false;
+  }
+  base.merge(duplicate,vanilla);
+  return true;
+}

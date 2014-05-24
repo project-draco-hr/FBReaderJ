@@ -1,0 +1,4 @@
+{
+  final long bookId=book.getId();
+  return bookId != -1 ? new Bookmark(bookId,this) : null;
+}

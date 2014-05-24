@@ -1,0 +1,11 @@
+{
+  if (base.getProgress() != null) {
+    return false;
+  }
+  final RationalNumber progress=duplicate.getProgress();
+  if (progress == null) {
+    return false;
+  }
+  base.setProgress(progress);
+  return true;
+}

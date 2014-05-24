@@ -1,0 +1,5 @@
+{
+  final String path=file.getPath();
+  final int index=path.indexOf(":");
+  return index == -1 ? null : path.substring(index + 1);
+}

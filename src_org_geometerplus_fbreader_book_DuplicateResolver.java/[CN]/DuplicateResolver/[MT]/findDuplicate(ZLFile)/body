@@ -1,0 +1,28 @@
+{
+  final ZLPhysicalFile pFile=file.getPhysicalFile();
+  if (pFile == null) {
+    return null;
+  }
+  final List<ZLFile> list=myMap.get(file.getShortName());
+  if (list == null || list.isEmpty()) {
+    return null;
+  }
+  final List<ZLFile> copy;
+synchronized (list) {
+    copy=new ArrayList<ZLFile>(list);
+  }
+  final String entryName=entryName(file);
+  final String shortName=pFile.getShortName();
+  final long size=pFile.size();
+  final long lastModified=pFile.javaFile().lastModified();
+  for (  ZLFile candidate : copy) {
+    if (file.equals(candidate)) {
+      return candidate;
+    }
+    final ZLPhysicalFile pCandidate=candidate.getPhysicalFile();
+    if (pCandidate != null && MiscUtil.equals(entryName,entryName(candidate)) && shortName.equals(pCandidate.getShortName()) && size == pCandidate.size() && lastModified == pCandidate.javaFile().lastModified()) {
+      return candidate;
+    }
+  }
+  return null;
+}

@@ -1,0 +1,8 @@
+{
+  final List<ZLFile> list=myMap.get(file.getShortName());
+  if (list != null) {
+synchronized (list) {
+      list.remove(file);
+    }
+  }
+}

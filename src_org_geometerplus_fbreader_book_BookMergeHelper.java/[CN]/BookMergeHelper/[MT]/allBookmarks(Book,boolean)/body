@@ -1,0 +1,16 @@
+{
+  List<Bookmark> result=null;
+  for (BookmarkQuery query=new BookmarkQuery(book,visible,20); ; query=query.next()) {
+    final List<Bookmark> portion=myCollection.bookmarks(query);
+    if (portion.isEmpty()) {
+      break;
+    }
+    if (result == null) {
+      result=new ArrayList<Bookmark>(portion);
+    }
+ else {
+      result.addAll(portion);
+    }
+  }
+  return result != null ? result : Collections.<Bookmark>emptyList();
+}
