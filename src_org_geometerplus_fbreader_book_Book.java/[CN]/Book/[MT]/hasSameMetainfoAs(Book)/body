@@ -1,0 +1,3 @@
+{
+  return MiscUtil.equals(getTitle(),other.getTitle()) && MiscUtil.equals(myEncoding,other.myEncoding) && MiscUtil.equals(myLanguage,other.myLanguage)&& MiscUtil.equals(myAuthors,other.myAuthors)&& MiscUtil.listsEquals(myTags,other.myTags)&& MiscUtil.equals(mySeriesInfo,other.mySeriesInfo)&& MiscUtil.equals(myUids,other.myUids);
+}

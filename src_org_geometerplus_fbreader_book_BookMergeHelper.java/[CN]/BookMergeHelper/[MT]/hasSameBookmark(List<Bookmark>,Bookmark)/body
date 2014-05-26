@@ -1,0 +1,8 @@
+{
+  for (  Bookmark b : original) {
+    if (b.sameAs(bookmark)) {
+      return true;
+    }
+  }
+  return false;
+}

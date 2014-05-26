@@ -1,0 +1,3 @@
+{
+  return 23 * MiscUtil.hashCode(Series) + 31 * MiscUtil.hashCode(Index);
+}

@@ -13,12 +13,16 @@
     myTags=book.myTags != null ? new ArrayList<Tag>(book.myTags) : null;
     myIsSaved=false;
   }
-  if (!MiscUtil.equals(myLabels,book.myLabels)) {
+  if (!MiscUtil.listsEquals(myLabels,book.myLabels)) {
     myLabels=book.myLabels != null ? new ArrayList<String>(book.myLabels) : null;
     myIsSaved=false;
   }
   if (!MiscUtil.equals(mySeriesInfo,book.mySeriesInfo)) {
     mySeriesInfo=book.mySeriesInfo;
+    myIsSaved=false;
+  }
+  if (!MiscUtil.listsEquals(myUids,book.myUids)) {
+    myUids=book.myUids != null ? new ArrayList<UID>(book.myUids) : null;
     myIsSaved=false;
   }
   setProgress(book.myProgress);

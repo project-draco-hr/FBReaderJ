@@ -1,0 +1,10 @@
+{
+  if (this == other) {
+    return true;
+  }
+  if (!(other instanceof SeriesInfo)) {
+    return false;
+  }
+  final SeriesInfo info=(SeriesInfo)other;
+  return MiscUtil.equals(Series,info.Series) && MiscUtil.equals(Index,info.Index);
+}

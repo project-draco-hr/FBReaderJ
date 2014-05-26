@@ -1,3 +1,6 @@
 {
-  return myFile.isDirectory();
+  if (myIsDirectory == null) {
+    myIsDirectory=myFile.isDirectory();
+  }
+  return myIsDirectory;
 }
