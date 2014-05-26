@@ -1,11 +1,7 @@
 {
-  if (tag.length() != 0) {
-    String[] tags=tag.split(",");
-    for (    String s : tags) {
-      s=s.trim();
-      if (!myAuthorList.contains(s)) {
-        myAuthorList.add(s);
-      }
+  if (author.length() != 0) {
+    if (!myAuthorList.contains(author)) {
+      myAuthorList.add(author);
     }
     ((AuthorsAdapter)getListAdapter()).notifyDataSetChanged();
   }

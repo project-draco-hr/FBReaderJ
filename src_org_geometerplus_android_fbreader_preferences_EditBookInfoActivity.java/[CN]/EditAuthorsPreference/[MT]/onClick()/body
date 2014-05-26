@@ -5,6 +5,12 @@
   for (  Author author : myBook.authors()) {
     authors.add(author.DisplayName);
   }
+  ((EditBookInfoActivity)getContext()).saveBook();
+  ArrayList<String> allAuthors=new ArrayList<String>();
+  for (  Author author : ((EditBookInfoActivity)getContext()).authors()) {
+    allAuthors.add(author.DisplayName);
+  }
   intent.putExtra(EditAuthorsDialogActivity.Key.AUTHOR_LIST,authors);
+  intent.putExtra(EditAuthorsDialogActivity.Key.ALL_AUTHOR_LIST,allAuthors);
   ((EditBookInfoActivity)getContext()).startActivityForResult(intent,EditAuthorsDialogActivity.REQ_CODE);
 }
