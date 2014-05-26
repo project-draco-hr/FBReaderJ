@@ -1,0 +1,11 @@
+{
+  final ZLResource resource=myResource.getResource("removeDialog");
+  final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
+  new AlertDialog.Builder(EditAuthorsDialogActivity.this).setCancelable(false).setTitle(resource.getValue()).setMessage(resource.getResource("message").getValue().replace("%s",myAuthorList.get(index))).setPositiveButton(buttonResource.getResource("yes").getValue(),new DialogInterface.OnClickListener(){
+    public void onClick(    DialogInterface dialog,    int id){
+      myAuthorList.remove(index);
+      ((AuthorsAdapter)getListAdapter()).notifyDataSetChanged();
+    }
+  }
+).setNegativeButton(buttonResource.getResource("cancel").getValue(),null).create().show();
+}

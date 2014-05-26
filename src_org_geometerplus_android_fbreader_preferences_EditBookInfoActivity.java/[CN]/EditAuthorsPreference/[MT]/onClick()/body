@@ -1,0 +1,10 @@
+{
+  Intent intent=new Intent(getContext(),EditAuthorsDialogActivity.class);
+  intent.putExtra(EditAuthorsDialogActivity.Key.ACTIVITY_TITLE,myResource.getValue());
+  ArrayList<String> authors=new ArrayList<String>();
+  for (  Author author : myBook.authors()) {
+    authors.add(author.DisplayName);
+  }
+  intent.putExtra(EditAuthorsDialogActivity.Key.AUTHOR_LIST,authors);
+  ((EditBookInfoActivity)getContext()).startActivityForResult(intent,EditAuthorsDialogActivity.REQ_CODE);
+}

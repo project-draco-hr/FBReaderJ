@@ -1,0 +1,47 @@
+{
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.edit_authors_dialog);
+  final Intent intent=getIntent();
+  myAuthorList=intent.getStringArrayListExtra(Key.AUTHOR_LIST);
+  setTitle(intent.getStringExtra(Key.ACTIVITY_TITLE));
+  myResource=ZLResource.resource("dialog").getResource("editAuthors");
+  final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
+  final Button okButton=(Button)findViewById(R.id.edit_authors_dialog_button_ok);
+  okButton.setText(buttonResource.getResource("ok").getValue());
+  okButton.setOnClickListener(new View.OnClickListener(){
+    public void onClick(    View v){
+      setResult(RESULT_OK,new Intent().putExtra(Key.AUTHOR_LIST,myAuthorList));
+      finish();
+    }
+  }
+);
+  final Button cancelButton=(Button)findViewById(R.id.edit_authors_dialog_button_cancel);
+  cancelButton.setText(buttonResource.getResource("cancel").getValue());
+  cancelButton.setOnClickListener(new View.OnClickListener(){
+    public void onClick(    View v){
+      setResult(RESULT_CANCELED);
+      finish();
+    }
+  }
+);
+  final AutoCompleteTextView inputField=(AutoCompleteTextView)findViewById(R.id.edit_authors_input_field);
+  inputField.setHint(myResource.getResource("addAuthor").getValue());
+  inputField.setOnEditorActionListener(new TextView.OnEditorActionListener(){
+    public boolean onEditorAction(    TextView v,    int actionId,    KeyEvent event){
+      System.out.println(actionId);
+      if (actionId == EditorInfo.IME_ACTION_DONE) {
+        addAuthor(inputField.getText().toString());
+        inputField.setText("");
+        return false;
+      }
+      return true;
+    }
+  }
+);
+  String[] authorsSuggestions={};
+  inputField.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,authorsSuggestions));
+  final AuthorsAdapter adapter=new AuthorsAdapter();
+  setListAdapter(adapter);
+  getListView().setOnItemClickListener(adapter);
+  setResult(RESULT_CANCELED);
+}

@@ -1,10 +1,10 @@
 {
   Intent intent=new Intent(getContext(),EditTagsDialogActivity.class);
   intent.putExtra(EditTagsDialogActivity.Key.ACTIVITY_TITLE,myResource.getValue());
-  myInitTags=new ArrayList<String>();
+  ArrayList<String> tags=new ArrayList<String>();
   for (  Tag tag : myBook.tags()) {
-    myInitTags.add(tag.Name);
+    tags.add(tag.Name);
   }
-  intent.putExtra(EditTagsDialogActivity.Key.TAG_LIST,myInitTags);
+  intent.putExtra(EditTagsDialogActivity.Key.TAG_LIST,tags);
   ((EditBookInfoActivity)getContext()).startActivityForResult(intent,EditTagsDialogActivity.REQ_CODE);
 }

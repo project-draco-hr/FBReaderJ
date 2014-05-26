@@ -1,0 +1,18 @@
+{
+  final View view=convertView != null ? convertView : LayoutInflater.from(EditAuthorsDialogActivity.this).inflate(R.layout.edit_authors_item,parent,false);
+  ((TextView)view.findViewById(R.id.edit_authors_item_title)).setText(getItem(position));
+  final View deleteButton=view.findViewById(R.id.edit_authors_item_remove);
+  if (myAuthorList.size() > 1) {
+    deleteButton.setVisibility(View.VISIBLE);
+    deleteButton.setOnClickListener(new View.OnClickListener(){
+      public void onClick(      final View v){
+        showItemRemoveDialog(position);
+      }
+    }
+);
+  }
+ else {
+    deleteButton.setVisibility(View.INVISIBLE);
+  }
+  return view;
+}
