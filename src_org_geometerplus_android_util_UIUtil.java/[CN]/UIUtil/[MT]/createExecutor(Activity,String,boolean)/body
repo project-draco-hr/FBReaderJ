@@ -1,0 +1,57 @@
+{
+  return new ZLApplication.SynchronousExecutor(){
+    private final ZLResource myResource=ZLResource.resource("dialog").getResource("waitMessage");
+    private final String myMessage=myResource.getResource(key).getValue();
+    private volatile ProgressDialog myProgress;
+    public void execute(    final Runnable action,    final Runnable uiPostAction){
+      activity.runOnUiThread(new Runnable(){
+        public void run(){
+          myProgress=ProgressDialog.show(activity,null,myMessage,true,false);
+          final Thread runner=new Thread(){
+            public void run(){
+              action.run();
+              activity.runOnUiThread(new Runnable(){
+                public void run(){
+                  try {
+                    myProgress.dismiss();
+                    myProgress=null;
+                  }
+ catch (                  Exception e) {
+                    e.printStackTrace();
+                  }
+                  if (uiPostAction != null) {
+                    uiPostAction.run();
+                  }
+                }
+              }
+);
+            }
+          }
+;
+          if (minPriority) {
+            runner.setPriority(Thread.MIN_PRIORITY);
+          }
+          runner.start();
+        }
+      }
+);
+    }
+    private void setMessage(    final ProgressDialog progress,    final String message){
+      if (progress == null) {
+        return;
+      }
+      activity.runOnUiThread(new Runnable(){
+        public void run(){
+          progress.setMessage(message);
+        }
+      }
+);
+    }
+    public void executeAux(    String key,    Runnable runnable){
+      setMessage(myProgress,myResource.getResource(key).getValue());
+      runnable.run();
+      setMessage(myProgress,myMessage);
+    }
+  }
+;
+}

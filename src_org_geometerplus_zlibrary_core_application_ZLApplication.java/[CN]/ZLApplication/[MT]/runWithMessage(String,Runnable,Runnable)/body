@@ -1,8 +1,0 @@
-{
-  if (myWindow != null) {
-    myWindow.runWithMessage(key,action,postAction);
-  }
- else {
-    action.run();
-  }
-}
