@@ -1,0 +1,5 @@
+{
+  final View view=convertView != null ? convertView : LayoutInflater.from(EditListDialogActivity.this).inflate(R.layout.edit_list_dialog_item,parent,false);
+  ((TextView)view.findViewById(R.id.edit_item_title)).setText(getItem(position));
+  return view;
+}

@@ -3,10 +3,10 @@
     String[] tags=tag.split(",");
     for (    String s : tags) {
       s=s.trim();
-      if (!myTagList.contains(s)) {
-        myTagList.add(s);
+      if (!myEditList.contains(s)) {
+        myEditList.add(s);
       }
     }
-    ((TagsAdapter)getListAdapter()).notifyDataSetChanged();
+    ((BaseAdapter)getListAdapter()).notifyDataSetChanged();
   }
 }

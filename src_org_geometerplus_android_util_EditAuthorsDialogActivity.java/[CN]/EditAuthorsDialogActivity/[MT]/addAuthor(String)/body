@@ -1,8 +1,8 @@
 {
   if (author.length() != 0) {
-    if (!myAuthorList.contains(author)) {
-      myAuthorList.add(author);
+    if (!myEditList.contains(author)) {
+      myEditList.add(author);
     }
-    ((AuthorsAdapter)getListAdapter()).notifyDataSetChanged();
+    ((BaseAdapter)getListAdapter()).notifyDataSetChanged();
   }
 }

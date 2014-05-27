@@ -2,8 +2,11 @@
   if (resultCode == RESULT_OK) {
 switch (reqCode) {
 case EditTagsDialogActivity.REQ_CODE:
-      myEditTagsPreference.saveTags(data.getStringArrayListExtra(EditTagsDialogActivity.Key.TAG_LIST));
+      myEditTagsPreference.saveTags(data.getStringArrayListExtra(EditListDialogActivity.Key.LIST));
     break;
+case EditAuthorsDialogActivity.REQ_CODE:
+  myEditAuthorsPreference.saveAuthors(data.getStringArrayListExtra(EditListDialogActivity.Key.LIST));
+break;
 }
 }
 }

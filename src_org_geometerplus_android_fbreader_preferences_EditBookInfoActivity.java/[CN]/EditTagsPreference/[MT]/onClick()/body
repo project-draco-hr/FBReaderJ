@@ -5,6 +5,6 @@
   for (  Tag tag : myBook.tags()) {
     tags.add(tag.Name);
   }
-  intent.putExtra(EditTagsDialogActivity.Key.TAG_LIST,tags);
+  intent.putExtra(EditListDialogActivity.Key.LIST,tags);
   ((EditBookInfoActivity)getContext()).startActivityForResult(intent,EditTagsDialogActivity.REQ_CODE);
 }

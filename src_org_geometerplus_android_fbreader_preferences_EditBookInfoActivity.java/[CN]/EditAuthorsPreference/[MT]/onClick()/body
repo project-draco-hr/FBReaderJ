@@ -1,6 +1,6 @@
 {
   Intent intent=new Intent(getContext(),EditAuthorsDialogActivity.class);
-  intent.putExtra(EditAuthorsDialogActivity.Key.ACTIVITY_TITLE,myResource.getValue());
+  intent.putExtra(EditListDialogActivity.Key.ACTIVITY_TITLE,myResource.getValue());
   ArrayList<String> authors=new ArrayList<String>();
   for (  Author author : myBook.authors()) {
     authors.add(author.DisplayName);
@@ -10,7 +10,7 @@
   for (  Author author : ((EditBookInfoActivity)getContext()).authors()) {
     allAuthors.add(author.DisplayName);
   }
-  intent.putExtra(EditAuthorsDialogActivity.Key.AUTHOR_LIST,authors);
+  intent.putExtra(EditListDialogActivity.Key.LIST,authors);
   intent.putExtra(EditAuthorsDialogActivity.Key.ALL_AUTHOR_LIST,allAuthors);
   ((EditBookInfoActivity)getContext()).startActivityForResult(intent,EditAuthorsDialogActivity.REQ_CODE);
 }

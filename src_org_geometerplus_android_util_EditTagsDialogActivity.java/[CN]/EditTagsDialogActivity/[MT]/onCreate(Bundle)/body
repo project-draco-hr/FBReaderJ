@@ -1,29 +1,7 @@
 {
   super.onCreate(savedInstanceState);
   setContentView(R.layout.edit_tags_dialog);
-  final Intent intent=getIntent();
-  myTagList=intent.getStringArrayListExtra(Key.TAG_LIST);
-  setTitle(intent.getStringExtra(Key.ACTIVITY_TITLE));
   myResource=ZLResource.resource("dialog").getResource("editTags");
-  final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
-  final Button okButton=(Button)findViewById(R.id.edit_tags_dialog_button_ok);
-  okButton.setText(buttonResource.getResource("ok").getValue());
-  okButton.setOnClickListener(new View.OnClickListener(){
-    public void onClick(    View v){
-      setResult(RESULT_OK,new Intent().putExtra(Key.TAG_LIST,myTagList));
-      finish();
-    }
-  }
-);
-  final Button cancelButton=(Button)findViewById(R.id.edit_tags_dialog_button_cancel);
-  cancelButton.setText(buttonResource.getResource("cancel").getValue());
-  cancelButton.setOnClickListener(new View.OnClickListener(){
-    public void onClick(    View v){
-      setResult(RESULT_CANCELED);
-      finish();
-    }
-  }
-);
   final EditText inputField=(EditText)findViewById(R.id.edit_tags_input_field);
   inputField.setHint(myResource.getResource("addTag").getValue());
   inputField.setOnEditorActionListener(new TextView.OnEditorActionListener(){
@@ -38,6 +16,7 @@
     }
   }
 );
+  parseUIElements();
   final TagsAdapter adapter=new TagsAdapter();
   setListAdapter(adapter);
   getListView().setOnItemClickListener(adapter);

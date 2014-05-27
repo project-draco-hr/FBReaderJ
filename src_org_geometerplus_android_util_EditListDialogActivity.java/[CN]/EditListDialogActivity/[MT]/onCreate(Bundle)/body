@@ -1,0 +1,8 @@
+{
+  super.onCreate(savedInstanceState);
+  final Intent intent=getIntent();
+  myEditList=intent.getStringArrayListExtra(Key.LIST);
+  setTitle(intent.getStringExtra(Key.ACTIVITY_TITLE));
+  myResource=ZLResource.resource("dialog").getResource("editAuthors");
+  setResult(RESULT_CANCELED);
+}

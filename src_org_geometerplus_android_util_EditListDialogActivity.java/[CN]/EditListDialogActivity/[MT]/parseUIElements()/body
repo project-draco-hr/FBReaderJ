@@ -1,0 +1,25 @@
+{
+  final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
+  final Button okButton=(Button)findViewById(R.id.edit_dialog_button_ok);
+  if (okButton != null) {
+    okButton.setText(buttonResource.getResource("ok").getValue());
+    okButton.setOnClickListener(new View.OnClickListener(){
+      public void onClick(      View v){
+        setResult(RESULT_OK,new Intent().putExtra(Key.LIST,myEditList));
+        finish();
+      }
+    }
+);
+  }
+  final Button cancelButton=(Button)findViewById(R.id.edit_dialog_button_cancel);
+  if (cancelButton != null) {
+    cancelButton.setText(buttonResource.getResource("cancel").getValue());
+    cancelButton.setOnClickListener(new View.OnClickListener(){
+      public void onClick(      View v){
+        setResult(RESULT_CANCELED);
+        finish();
+      }
+    }
+);
+  }
+}
