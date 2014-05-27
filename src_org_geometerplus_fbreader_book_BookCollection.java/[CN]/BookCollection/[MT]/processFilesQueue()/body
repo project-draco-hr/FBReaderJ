@@ -24,6 +24,7 @@ synchronized (myBooksByFile) {
     for (    ZLFile f : filesToRemove) {
 synchronized (myBooksByFile) {
         final Book book=myBooksByFile.remove(f);
+        myDuplicateResolver.removeFile(f);
         if (book != null) {
           myBooksById.remove(book.getId());
           fireBookEvent(BookEvent.Removed,book);

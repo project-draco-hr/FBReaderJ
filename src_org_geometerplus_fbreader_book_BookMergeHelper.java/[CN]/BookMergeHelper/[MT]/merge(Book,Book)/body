@@ -1,0 +1,14 @@
+{
+  boolean result=false;
+  result|=mergeMetainfo(base,duplicate);
+  result|=mergeBookmarks(base,duplicate,true);
+  result|=mergeBookmarks(base,duplicate,false);
+  result|=mergeLabels(base,duplicate);
+  result|=mergePositions(base,duplicate);
+  result|=mergeProgress(base,duplicate);
+  if (result) {
+    myCollection.saveBook(base);
+  }
+  myCollection.removeBook(duplicate,false);
+  return result;
+}

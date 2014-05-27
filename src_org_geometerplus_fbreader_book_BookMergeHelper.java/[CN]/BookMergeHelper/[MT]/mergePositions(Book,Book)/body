@@ -1,0 +1,11 @@
+{
+  if (myCollection.getStoredPosition(base.getId()) != null) {
+    return false;
+  }
+  final ZLTextPosition position=myCollection.getStoredPosition(duplicate.getId());
+  if (position == null) {
+    return false;
+  }
+  myCollection.storePosition(base.getId(),position);
+  return true;
+}
