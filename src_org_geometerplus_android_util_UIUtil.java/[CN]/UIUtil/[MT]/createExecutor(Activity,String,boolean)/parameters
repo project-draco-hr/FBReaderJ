@@ -1,5 +1,3 @@
 Activity activity
 String key
-Runnable action
-Runnable postAction
 boolean minPriority

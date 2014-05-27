@@ -1,0 +1,8 @@
+{
+  if (myWindow != null) {
+    return myWindow.createExecutor(key);
+  }
+ else {
+    return myDummyExecutor;
+  }
+}
