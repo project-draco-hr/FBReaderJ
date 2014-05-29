@@ -28,9 +28,7 @@
             }
           }
 ;
-          if (minPriority) {
-            runner.setPriority(Thread.MIN_PRIORITY);
-          }
+          runner.setPriority(Thread.MAX_PRIORITY);
           runner.start();
         }
       }
