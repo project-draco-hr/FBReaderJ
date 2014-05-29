@@ -1,5 +1,5 @@
 Activity activity
 int requestCode
 String title
-String initinalValue
+String initialValue
 boolean chooseWritableDirsOnly

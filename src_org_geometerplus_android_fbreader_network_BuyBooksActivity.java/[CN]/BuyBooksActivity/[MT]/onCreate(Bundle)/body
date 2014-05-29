@@ -28,7 +28,7 @@
   try {
     if (!mgr.isAuthorised(true)) {
       findViewById(R.id.buy_book_buttons).setVisibility(View.GONE);
-      AuthorizationMenuActivity.runMenu(this,myLink,1);
+      AuthorisationMenuActivity.runMenu(this,myLink,1);
     }
   }
  catch (  ZLNetworkException e) {
@@ -39,6 +39,6 @@
     return;
   }
   myAccount=mgr.currentAccount();
-  setupUI(AuthorizationState.Authorized);
+  setupUI(AuthorisationState.Authorised);
   NetworkLibrary.Instance().addChangeListener(this);
 }

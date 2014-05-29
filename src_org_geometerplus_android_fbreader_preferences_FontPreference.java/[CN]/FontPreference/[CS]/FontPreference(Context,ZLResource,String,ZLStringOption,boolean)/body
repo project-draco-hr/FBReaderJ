@@ -1,0 +1,6 @@
+{
+  super(context,resource,resourceKey);
+  myOption=option;
+  myIncludeDummyValue=includeDummyValue;
+  reload();
+}

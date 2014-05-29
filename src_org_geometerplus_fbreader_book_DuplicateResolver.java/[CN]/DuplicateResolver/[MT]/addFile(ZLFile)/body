@@ -1,0 +1,16 @@
+{
+  final String key=file.getShortName();
+  List<ZLFile> list;
+synchronized (myMap) {
+    list=myMap.get(key);
+    if (list == null) {
+      list=new LinkedList<ZLFile>();
+      myMap.put(key,list);
+    }
+  }
+synchronized (list) {
+    if (!list.contains(file)) {
+      list.add(file);
+    }
+  }
+}

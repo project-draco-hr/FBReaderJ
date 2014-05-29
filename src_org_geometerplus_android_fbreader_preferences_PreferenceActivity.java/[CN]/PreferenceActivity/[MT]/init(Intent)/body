@@ -34,8 +34,10 @@
 ;
   directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"bookPath",Paths.BookPathOption,libraryUpdater));
   directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"downloadDir",Paths.DownloadsDirectoryOption,libraryUpdater));
-  directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"fontPath",Paths.FontPathOption,null));
-  directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"wallpaperPath",Paths.WallpaperPathOption,null));
+  final PreferenceSet fontReloader=new PreferenceSet.Reloader();
+  directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"fontPath",Paths.FontPathOption,fontReloader));
+  final PreferenceSet wallpaperReloader=new PreferenceSet.Reloader();
+  directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"wallpaperPath",Paths.WallpaperPathOption,wallpaperReloader));
   directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"tempDir",Paths.TempDirectoryOption,null));
   final Screen appearanceScreen=createPreferenceScreen("appearance");
   appearanceScreen.addPreference(new LanguagePreference(this,appearanceScreen.Resource,"language",ZLResource.interfaceLanguages()){
@@ -68,18 +70,23 @@
   if (DeviceType.Instance().isEInk()) {
     final EInkOptions einkOptions=new EInkOptions();
     final Screen einkScreen=createPreferenceScreen("eink");
-    final ZLPreferenceSet einkPreferences=new ZLPreferenceSet();
+    final PreferenceSet einkPreferences=new PreferenceSet.Enabler(){
+      @Override protected Boolean detectState(){
+        return einkOptions.EnableFastRefresh.getValue();
+      }
+    }
+;
     einkScreen.addPreference(new ZLBooleanPreference(this,einkOptions.EnableFastRefresh,einkScreen.Resource,"enableFastRefresh"){
       @Override protected void onClick(){
         super.onClick();
-        einkPreferences.setEnabled(einkOptions.EnableFastRefresh.getValue());
+        einkPreferences.run();
       }
     }
 );
     final ZLIntegerRangePreference updateIntervalPreference=new ZLIntegerRangePreference(this,einkScreen.Resource.getResource("interval"),einkOptions.UpdateInterval);
     einkScreen.addPreference(updateIntervalPreference);
     einkPreferences.add(updateIntervalPreference);
-    einkPreferences.setEnabled(einkOptions.EnableFastRefresh.getValue());
+    einkPreferences.run();
   }
   final Screen textScreen=createPreferenceScreen("text");
   final Screen fontPropertiesScreen=textScreen.createPreferenceScreen("fontProperties");
@@ -88,7 +95,9 @@
   fontPropertiesScreen.addOption(ZLAndroidPaintContext.DitheringOption,"dithering");
   fontPropertiesScreen.addOption(ZLAndroidPaintContext.SubpixelOption,"subpixel");
   final ZLTextBaseStyle baseStyle=collection.getBaseStyle();
-  textScreen.addPreference(new FontOption(this,textScreen.Resource,"font",baseStyle.FontFamilyOption,false));
+  final FontPreference fontPreference=new FontPreference(this,textScreen.Resource,"font",baseStyle.FontFamilyOption,false);
+  textScreen.addPreference(fontPreference);
+  fontReloader.add(fontPreference);
   textScreen.addPreference(new ZLIntegerRangePreference(this,textScreen.Resource.getResource("fontSize"),baseStyle.FontSizeOption));
   textScreen.addPreference(new FontStylePreference(this,textScreen.Resource,"fontStyle",baseStyle.BoldOption,baseStyle.ItalicOption));
   final ZLIntegerRangeOption spaceOption=baseStyle.LineSpaceOption;
@@ -110,7 +119,7 @@
     }
     ZLTextFullStyleDecoration fullDecoration=decoration instanceof ZLTextFullStyleDecoration ? (ZLTextFullStyleDecoration)decoration : null;
     final Screen formatScreen=moreStylesScreen.createPreferenceScreen(decoration.getName());
-    formatScreen.addPreference(new FontOption(this,textScreen.Resource,"font",decoration.FontFamilyOption,true));
+    formatScreen.addPreference(new FontPreference(this,textScreen.Resource,"font",decoration.FontFamilyOption,true));
     formatScreen.addPreference(new ZLIntegerRangePreference(this,textScreen.Resource.getResource("fontSizeDifference"),decoration.FontSizeDeltaOption));
     formatScreen.addPreference(new ZLBoolean3Preference(this,textScreen.Resource,"bold",decoration.BoldOption));
     formatScreen.addPreference(new ZLBoolean3Preference(this,textScreen.Resource,"italic",decoration.ItalicOption));
@@ -140,8 +149,18 @@
       formatScreen.addPreference(new ZLIntegerChoicePreference(this,textScreen.Resource,"lineSpacing",spacePercentOption,spacingValues,spacingKeys));
     }
   }
-  final ZLPreferenceSet footerPreferences=new ZLPreferenceSet();
-  final ZLPreferenceSet bgPreferences=new ZLPreferenceSet();
+  final PreferenceSet footerPreferences=new PreferenceSet.Enabler(){
+    @Override protected Boolean detectState(){
+      return viewOptions.ScrollbarType.getValue() == FBView.SCROLLBAR_SHOW_AS_FOOTER;
+    }
+  }
+;
+  final PreferenceSet bgPreferences=new PreferenceSet.Enabler(){
+    @Override protected Boolean detectState(){
+      return "".equals(profile.WallpaperOption.getValue());
+    }
+  }
+;
   final Screen cssScreen=createPreferenceScreen("css");
   cssScreen.addOption(baseStyle.UseCSSFontFamilyOption,"fontFamily");
   cssScreen.addOption(baseStyle.UseCSSFontSizeOption,"fontSize");
@@ -150,13 +169,14 @@
   final WallpaperPreference wallpaperPreference=new WallpaperPreference(this,profile,colorsScreen.Resource,"background"){
     @Override protected void onDialogClosed(    boolean result){
       super.onDialogClosed(result);
-      bgPreferences.setEnabled("".equals(getValue()));
+      bgPreferences.run();
     }
   }
 ;
   colorsScreen.addPreference(wallpaperPreference);
+  wallpaperReloader.add(wallpaperPreference);
   bgPreferences.add(colorsScreen.addOption(profile.BackgroundOption,"backgroundColor"));
-  bgPreferences.setEnabled("".equals(profile.WallpaperOption.getValue()));
+  bgPreferences.run();
   colorsScreen.addOption(profile.HighlightingOption,"highlighting");
   colorsScreen.addOption(profile.RegularTextOption,"text");
   colorsScreen.addOption(profile.HyperlinkTextOption,"hyperlink");
@@ -175,7 +195,7 @@
   statusLineScreen.addPreference(new ZLChoicePreference(this,statusLineScreen.Resource,"scrollbarType",viewOptions.ScrollbarType,scrollBarTypes){
     @Override protected void onDialogClosed(    boolean result){
       super.onDialogClosed(result);
-      footerPreferences.setEnabled(findIndexOfValue(getValue()) == FBView.SCROLLBAR_SHOW_AS_FOOTER);
+      footerPreferences.run();
     }
   }
 );
@@ -185,12 +205,17 @@
   footerPreferences.add(statusLineScreen.addOption(footerOptions.ShowProgress,"showProgress"));
   footerPreferences.add(statusLineScreen.addOption(footerOptions.ShowClock,"showClock"));
   footerPreferences.add(statusLineScreen.addOption(footerOptions.ShowBattery,"showBattery"));
-  footerPreferences.add(statusLineScreen.addPreference(new FontOption(this,statusLineScreen.Resource,"font",footerOptions.Font,false)));
-  footerPreferences.setEnabled(viewOptions.ScrollbarType.getValue() == FBView.SCROLLBAR_SHOW_AS_FOOTER);
+  footerPreferences.add(statusLineScreen.addPreference(new FontPreference(this,statusLineScreen.Resource,"font",footerOptions.Font,false)));
+  footerPreferences.run();
   final Screen scrollingScreen=createPreferenceScreen("scrolling");
   scrollingScreen.addOption(pageTurningOptions.FingerScrolling,"fingerScrolling");
   scrollingScreen.addOption(miscOptions.EnableDoubleTap,"enableDoubleTapDetection");
-  final ZLPreferenceSet volumeKeysPreferences=new ZLPreferenceSet();
+  final PreferenceSet volumeKeysPreferences=new PreferenceSet.Enabler(){
+    @Override protected Boolean detectState(){
+      return keyBindings.hasBinding(KeyEvent.KEYCODE_VOLUME_UP,false);
+    }
+  }
+;
   scrollingScreen.addPreference(new ZLCheckBoxPreference(this,scrollingScreen.Resource,"volumeKeys"){
 {
       setChecked(keyBindings.hasBinding(KeyEvent.KEYCODE_VOLUME_UP,false));
@@ -205,7 +230,7 @@
         keyBindings.bindKey(KeyEvent.KEYCODE_VOLUME_DOWN,false,FBReaderApp.NoAction);
         keyBindings.bindKey(KeyEvent.KEYCODE_VOLUME_UP,false,FBReaderApp.NoAction);
       }
-      volumeKeysPreferences.setEnabled(isChecked());
+      volumeKeysPreferences.run();
     }
   }
 );
@@ -226,7 +251,7 @@
     }
   }
 ));
-  volumeKeysPreferences.setEnabled(keyBindings.hasBinding(KeyEvent.KEYCODE_VOLUME_UP,false));
+  volumeKeysPreferences.run();
   scrollingScreen.addOption(pageTurningOptions.Animation,"animation");
   scrollingScreen.addPreference(new AnimationSpeedPreference(this,scrollingScreen.Resource,"animationSpeed",pageTurningOptions.AnimationSpeed));
   scrollingScreen.addOption(pageTurningOptions.Horizontal,"horizontal");

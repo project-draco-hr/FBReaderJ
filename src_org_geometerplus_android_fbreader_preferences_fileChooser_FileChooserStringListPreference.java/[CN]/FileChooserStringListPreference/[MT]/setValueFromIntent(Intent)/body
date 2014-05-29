@@ -1,0 +1,11 @@
+{
+  final List<String> value=FileChooserUtil.pathListFromData(data);
+  if (value.isEmpty()) {
+    return;
+  }
+  myOption.setValue(value);
+  setSummary(getStringValue());
+  if (myOnValueSetAction != null) {
+    myOnValueSetAction.run();
+  }
+}

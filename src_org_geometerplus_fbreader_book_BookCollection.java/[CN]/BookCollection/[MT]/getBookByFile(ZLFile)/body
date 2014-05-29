@@ -19,6 +19,13 @@
   if (book != null) {
     return book;
   }
+  final ZLFile otherFile=myDuplicateResolver.findDuplicate(bookFile);
+  if (otherFile != null) {
+    book=myBooksByFile.get(otherFile);
+    if (book != null) {
+      return book;
+    }
+  }
   final ZLPhysicalFile physicalFile=bookFile.getPhysicalFile();
   if (physicalFile != null && !physicalFile.exists()) {
     return null;

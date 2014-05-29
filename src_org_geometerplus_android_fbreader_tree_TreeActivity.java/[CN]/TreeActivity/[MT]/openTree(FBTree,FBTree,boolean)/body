@@ -4,7 +4,7 @@ case WAIT_FOR_OPEN:
 case ALWAYS_RELOAD_BEFORE_OPENING:
     final String messageKey=tree.getOpeningStatusMessage();
   if (messageKey != null) {
-    UIUtil.runWithMessage(TreeActivity.this,messageKey,new Runnable(){
+    UIUtil.createExecutor(TreeActivity.this,messageKey).execute(new Runnable(){
       public void run(){
         tree.waitForOpening();
       }
@@ -14,7 +14,7 @@ case ALWAYS_RELOAD_BEFORE_OPENING:
         openTreeInternal(tree,treeToSelect,storeInHistory);
       }
     }
-,true);
+);
   }
  else {
     tree.waitForOpening();

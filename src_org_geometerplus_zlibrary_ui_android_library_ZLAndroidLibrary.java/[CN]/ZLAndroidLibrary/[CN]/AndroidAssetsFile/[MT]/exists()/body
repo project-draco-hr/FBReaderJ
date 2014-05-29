@@ -1,12 +1,13 @@
 {
-  try {
-    InputStream stream=myApplication.getAssets().open(getPath());
-    if (stream != null) {
-      stream.close();
-      return true;
-    }
+  if (streamStatus() == StreamStatus.OK) {
+    return true;
   }
- catch (  IOException e) {
+  final String path=getPath();
+  if ("".equals(path)) {
+    return true;
+  }
+  if (path.endsWith(".fb2")) {
+    return false;
   }
   try {
     String[] names=myApplication.getAssets().list(getPath());

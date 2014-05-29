@@ -2,12 +2,7 @@
 synchronized (ourZipFileMap) {
     ZipFile zf=file.isCached() ? ourZipFileMap.get(file) : null;
     if (zf == null) {
-      zf=new ZipFile(new ZipFile.InputStreamHolder(){
-        public InputStream getInputStream() throws IOException {
-          return file.getInputStream();
-        }
-      }
-);
+      zf=new ZipFile(file);
       if (file.isCached()) {
         ourZipFileMap.put(file,zf);
       }

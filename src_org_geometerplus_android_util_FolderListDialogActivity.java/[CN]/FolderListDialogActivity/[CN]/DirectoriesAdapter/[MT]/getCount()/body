@@ -1,0 +1,3 @@
+{
+  return myFolderList.size() + 1;
+}

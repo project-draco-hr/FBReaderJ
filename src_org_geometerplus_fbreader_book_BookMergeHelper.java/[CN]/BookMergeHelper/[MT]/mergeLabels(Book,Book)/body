@@ -1,0 +1,10 @@
+{
+  final List<String> labels=duplicate.labels();
+  if (MiscUtil.listsEquals(labels,base.labels())) {
+    return false;
+  }
+  for (  String l : labels) {
+    base.addLabel(l);
+  }
+  return true;
+}

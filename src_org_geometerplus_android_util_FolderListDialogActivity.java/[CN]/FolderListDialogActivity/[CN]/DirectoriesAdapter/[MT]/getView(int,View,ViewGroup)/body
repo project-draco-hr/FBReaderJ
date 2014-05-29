@@ -1,0 +1,18 @@
+{
+  final View view=convertView != null ? convertView : LayoutInflater.from(FolderListDialogActivity.this).inflate(R.layout.folder_list_item,parent,false);
+  ((TextView)view.findViewById(R.id.folder_list_item_title)).setText(getItem(position));
+  final View deleteButton=view.findViewById(R.id.folder_list_item_remove);
+  if (position > 0 && myFolderList.size() > 1) {
+    deleteButton.setVisibility(View.VISIBLE);
+    deleteButton.setOnClickListener(new View.OnClickListener(){
+      public void onClick(      final View v){
+        showItemRemoveDialog(position - 1);
+      }
+    }
+);
+  }
+ else {
+    deleteButton.setVisibility(View.INVISIBLE);
+  }
+  return view;
+}

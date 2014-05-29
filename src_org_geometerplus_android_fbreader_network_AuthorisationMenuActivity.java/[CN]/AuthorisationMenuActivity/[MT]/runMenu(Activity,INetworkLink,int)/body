@@ -1,0 +1,3 @@
+{
+  activity.startActivityForResult(Util.intentByLink(new Intent(activity,AuthorisationMenuActivity.class),link),code);
+}

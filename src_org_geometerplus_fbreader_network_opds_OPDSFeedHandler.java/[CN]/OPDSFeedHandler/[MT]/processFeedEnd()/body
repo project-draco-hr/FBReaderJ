@@ -3,5 +3,6 @@
     myNextURL=null;
   }
   myData.ResumeURI=myFoundNewIds ? myNextURL : null;
+  myData.AuthURI=myAuthURL;
   myData.LastLoadedId=null;
 }

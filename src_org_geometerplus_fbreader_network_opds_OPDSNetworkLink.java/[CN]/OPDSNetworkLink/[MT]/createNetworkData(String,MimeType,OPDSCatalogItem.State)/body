@@ -3,20 +3,20 @@
     return null;
   }
   final NetworkLibrary library=NetworkLibrary.Instance();
-  final NetworkCatalogItem catalogItem=result.Loader.getTree().Item;
+  final NetworkCatalogItem catalogItem=state.Loader.getTree().Item;
   library.startLoading(catalogItem);
   url=rewriteUrl(url,false);
   return new ZLNetworkRequest(url,mime,null,false){
     @Override public void handleStream(    InputStream inputStream,    int length) throws IOException, ZLNetworkException {
-      if (result.Loader.confirmInterruption()) {
+      if (state.Loader.confirmInterruption()) {
         return;
       }
-      new OPDSXMLReader(new OPDSFeedHandler(getURL(),result),false).read(inputStream);
-      if (result.Loader.confirmInterruption() && result.LastLoadedId != null) {
-        result.LastLoadedId=null;
+      new OPDSXMLReader(new OPDSFeedHandler(getURL(),state),false).read(inputStream);
+      if (state.Loader.confirmInterruption() && state.LastLoadedId != null) {
+        state.LastLoadedId=null;
       }
  else {
-        result.Loader.getTree().confirmAllItems();
+        state.Loader.getTree().confirmAllItems();
       }
     }
     @Override public void doAfter(    boolean success){

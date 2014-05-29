@@ -1,0 +1,18 @@
+{
+  if (myStreamStatus == StreamStatus.UNKNOWN) {
+    try {
+      final InputStream stream=myApplication.getAssets().open(getPath());
+      if (stream == null) {
+        myStreamStatus=StreamStatus.NULL;
+      }
+ else {
+        stream.close();
+        myStreamStatus=StreamStatus.OK;
+      }
+    }
+ catch (    IOException e) {
+      myStreamStatus=StreamStatus.EXCEPTION;
+    }
+  }
+  return myStreamStatus;
+}

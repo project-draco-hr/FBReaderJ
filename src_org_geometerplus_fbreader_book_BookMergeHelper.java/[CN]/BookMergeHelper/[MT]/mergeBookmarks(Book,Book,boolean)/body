@@ -1,0 +1,18 @@
+{
+  final List<Bookmark> duplicateBookmarks=allBookmarks(duplicate,visible);
+  if (duplicateBookmarks.isEmpty()) {
+    return false;
+  }
+  final List<Bookmark> baseBookmarks=allBookmarks(base,visible);
+  boolean result=false;
+  for (  Bookmark b : duplicateBookmarks) {
+    if (!hasSameBookmark(baseBookmarks,b)) {
+      final Bookmark clone=b.transferToBook(base);
+      if (clone != null) {
+        myCollection.saveBookmark(clone);
+      }
+      result=true;
+    }
+  }
+  return result;
+}

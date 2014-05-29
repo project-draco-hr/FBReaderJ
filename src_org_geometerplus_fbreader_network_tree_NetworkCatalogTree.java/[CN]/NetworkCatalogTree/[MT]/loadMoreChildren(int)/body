@@ -1,6 +1,6 @@
 {
-  if (currentTotal == subtrees().size() && myLastTotalChildren < currentTotal && !NetworkLibrary.Instance().isLoadingInProgress(this)) {
+  if (currentTotal == subtrees().size() && myLastTotalChildren < currentTotal && !NetworkLibrary.Instance().isLoadingInProgress(this) && Item.canResumeLoading()) {
     myLastTotalChildren=currentTotal;
-    startItemsLoader(false,true);
+    startItemsLoader(null,true);
   }
 }

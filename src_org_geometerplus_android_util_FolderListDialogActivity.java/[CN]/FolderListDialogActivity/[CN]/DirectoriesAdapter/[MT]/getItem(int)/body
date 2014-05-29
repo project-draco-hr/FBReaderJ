@@ -1,0 +1,3 @@
+{
+  return position != 0 ? myFolderList.get(position - 1) : myResource.getResource("addFolder").getValue();
+}

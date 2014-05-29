@@ -5,9 +5,38 @@
     }
   }
 );
-  if (requestCode == REQUEST_MANAGE_CATALOGS && resultCode == RESULT_OK && data != null) {
-    final ArrayList<String> myIds=data.getStringArrayListExtra(ENABLED_CATALOG_IDS_KEY);
-    NetworkLibrary.Instance().setActiveIds(myIds);
-    NetworkLibrary.Instance().synchronize();
+  if (resultCode != RESULT_OK || data == null) {
+    return;
   }
+switch (requestCode) {
+case REQUEST_MANAGE_CATALOGS:
+{
+      final ArrayList<String> myIds=data.getStringArrayListExtra(ENABLED_CATALOG_IDS_KEY);
+      NetworkLibrary.Instance().setActiveIds(myIds);
+      NetworkLibrary.Instance().synchronize();
+      break;
+    }
+case REQUEST_AUTHORISATION_SCREEN:
+{
+    final CookieStore store=ZLNetworkManager.Instance().cookieStore();
+    final Map<String,String> cookies=(Map<String,String>)data.getSerializableExtra(COOKIES_KEY);
+    if (cookies == null) {
+      break;
+    }
+    for (    Map.Entry<String,String> entry : cookies.entrySet()) {
+      final BasicClientCookie2 c=new BasicClientCookie2(entry.getKey(),entry.getValue());
+      c.setDomain(data.getData().getHost());
+      c.setPath("/");
+      final Calendar expire=Calendar.getInstance();
+      expire.add(Calendar.YEAR,1);
+      c.setExpiryDate(expire.getTime());
+      c.setSecure(true);
+      c.setDiscard(false);
+      store.addCookie(c);
+    }
+    final NetworkTree tree=getTreeByKey((FBTree.Key)data.getSerializableExtra(TREE_KEY_KEY));
+    new ReloadCatalogAction(this).run(tree);
+    break;
+  }
+}
 }
