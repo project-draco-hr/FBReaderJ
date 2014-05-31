@@ -5,14 +5,14 @@
     if (cached != null) {
       return cached;
     }
-    if (!name.startsWith("/")) {
+    if (name.length() == 0 || name.charAt(0) != '/') {
       return ZLResourceFile.createResourceFile(name);
     }
  else {
       return new ZLPhysicalFile(name);
     }
   }
- else   if ((parent instanceof ZLPhysicalFile) && (parent.getParent() == null)) {
+ else   if (parent instanceof ZLPhysicalFile && (parent.getParent() == null)) {
     file=new ZLPhysicalFile(parent.getPath() + '/' + name);
   }
  else   if (parent instanceof ZLResourceFile) {
@@ -21,7 +21,7 @@
  else {
     file=ZLArchiveEntryFile.createArchiveEntryFile(parent,name);
   }
-  if (!ourCachedFiles.isEmpty() && (file != null)) {
+  if (!ourCachedFiles.isEmpty() && file != null) {
     ZLFile cached=ourCachedFiles.get(file.getPath());
     if (cached != null) {
       return cached;

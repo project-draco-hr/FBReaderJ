@@ -2,6 +2,13 @@
   if (streamStatus() == StreamStatus.OK) {
     return true;
   }
+  final String path=getPath();
+  if ("".equals(path)) {
+    return true;
+  }
+  if (path.endsWith(".fb2")) {
+    return false;
+  }
   try {
     String[] names=myApplication.getAssets().list(getPath());
     if (names != null && names.length != 0) {
