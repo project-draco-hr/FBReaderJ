@@ -10,7 +10,7 @@
   final float effectiveWidth=textWidth - (indentWidth + 0.5f * textWidth) / charsPerParagraph;
   float charsPerLine=Math.min(effectiveWidth / charWidth,charsPerParagraph * 1.2f);
   final int strHeight=getWordHeight() + getContext().getDescent();
-  final int effectiveHeight=(int)(textHeight - (getTextStyle().getSpaceBefore() + getTextStyle().getSpaceAfter()) / charsPerParagraph);
+  final int effectiveHeight=(int)(textHeight - (getTextStyle().getSpaceBefore(metrics()) + getTextStyle().getSpaceAfter(metrics())) / charsPerParagraph);
   final int linesPerPage=effectiveHeight / strHeight;
   return charsPerLine * linesPerPage;
 }

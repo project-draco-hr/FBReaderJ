@@ -1,4 +1,6 @@
 {
   myMetrics=metrics;
   myFontSize=getFontSizeInternal(metrics);
+  mySpaceBefore=getSpaceBeforeInternal(metrics);
+  mySpaceAfter=getSpaceAfterInternal(metrics);
 }
