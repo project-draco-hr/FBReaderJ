@@ -6,5 +6,5 @@
     return false;
   }
   final ZLTextMetrics oo=(ZLTextMetrics)o;
-  return FontSize == oo.FontSize && FontXHeight == oo.FontXHeight && FullWidth == oo.FullWidth && FullHeight == oo.FullHeight;
+  return DPI == oo.DPI && DefaultFontSize == oo.DefaultFontSize && FullWidth == oo.FullWidth && FullHeight == oo.FullHeight;
 }

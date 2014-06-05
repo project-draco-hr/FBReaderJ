@@ -1,0 +1,4 @@
+int dpi
+int defaultFontSize
+int fullWidth
+int fullHeight

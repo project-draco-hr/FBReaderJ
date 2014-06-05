@@ -1,0 +1,10 @@
+{
+switch (myDescription.isStrikedThrough()) {
+case B3_TRUE:
+    return true;
+case B3_FALSE:
+  return false;
+default :
+return Parent.isStrikeThrough();
+}
+}

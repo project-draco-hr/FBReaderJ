@@ -1,0 +1,6 @@
+{
+  DPI=dpi;
+  DefaultFontSize=defaultFontSize;
+  FullWidth=fullWidth;
+  FullHeight=fullHeight;
+}
