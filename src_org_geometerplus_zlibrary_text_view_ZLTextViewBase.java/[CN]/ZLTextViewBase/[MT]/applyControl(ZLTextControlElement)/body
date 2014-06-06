@@ -1,11 +1,13 @@
 {
   if (control.IsStart) {
-    final ZLTextStyleDecoration decoration=getTextStyleCollection().getDecoration(control.Kind);
-    if (control instanceof ZLTextHyperlinkControlElement) {
-      setTextStyle(decoration.createDecoratedStyle(myTextStyle,((ZLTextHyperlinkControlElement)control).Hyperlink));
+    final ZLTextHyperlink hyperlink=control instanceof ZLTextHyperlinkControlElement ? ((ZLTextHyperlinkControlElement)control).Hyperlink : null;
+    final ZLTextNGStyleDescription description=getTextStyleCollection().getDescription(control.Kind);
+    if (description != null) {
+      setTextStyle(new ZLTextNGStyle(myTextStyle,description,hyperlink));
     }
  else {
-      setTextStyle(decoration.createDecoratedStyle(myTextStyle));
+      final ZLTextStyleDecoration decoration=getTextStyleCollection().getDecoration(control.Kind);
+      setTextStyle(new ZLTextSimpleDecoratedStyle(myTextStyle,decoration,hyperlink));
     }
   }
  else {

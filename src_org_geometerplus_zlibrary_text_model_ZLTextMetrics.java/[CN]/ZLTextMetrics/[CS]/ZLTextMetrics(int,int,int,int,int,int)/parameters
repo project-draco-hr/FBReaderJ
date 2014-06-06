@@ -1,6 +1,0 @@
-int dpi
-int defaultFontSize
-int fontSize
-int fontXHeight
-int fullWidth
-int fullHeight

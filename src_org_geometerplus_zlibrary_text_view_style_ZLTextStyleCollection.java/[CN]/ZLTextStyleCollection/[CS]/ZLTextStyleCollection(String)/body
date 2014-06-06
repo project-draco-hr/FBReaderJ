@@ -1,4 +1,8 @@
 {
   Screen=screen;
+  final Map<Integer,ZLTextNGStyleDescription> descriptions=new SimpleCSSReader().read(ZLResourceFile.createResourceFile("default/styles.css"));
+  for (  Map.Entry<Integer,ZLTextNGStyleDescription> entry : descriptions.entrySet()) {
+    myDescriptionMap[entry.getKey() & 0xFF]=entry.getValue();
+  }
   new TextStyleReader().readQuietly(ZLResourceFile.createResourceFile("default/styles.xml"));
 }

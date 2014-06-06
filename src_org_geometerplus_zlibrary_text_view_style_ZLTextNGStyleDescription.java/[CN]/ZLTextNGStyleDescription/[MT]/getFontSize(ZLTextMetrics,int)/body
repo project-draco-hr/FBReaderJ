@@ -1,0 +1,7 @@
+{
+  final ZLTextStyleEntry.Length length=parseLength(FontSizeOption.getValue());
+  if (length == null) {
+    return baseFontSize;
+  }
+  return ZLTextStyleEntry.compute(length,metrics,baseFontSize,ZLTextStyleEntry.Feature.LENGTH_FONT_SIZE);
+}

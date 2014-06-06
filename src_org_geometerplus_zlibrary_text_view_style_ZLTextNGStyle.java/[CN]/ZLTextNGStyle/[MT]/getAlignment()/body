@@ -1,0 +1,7 @@
+{
+  final byte defined=myDescription.getAlignment();
+  if (defined != ZLTextAlignmentType.ALIGN_UNDEFINED) {
+    return defined;
+  }
+  return Parent.getAlignment();
+}

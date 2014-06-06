@@ -4,6 +4,5 @@
   myIsBold=isBoldInternal();
   myIsUnderline=isUnderlineInternal();
   myIsStrikeThrough=isStrikeThroughInternal();
-  myVerticalShift=getVerticalShiftInternal();
   myIsNotCached=false;
 }

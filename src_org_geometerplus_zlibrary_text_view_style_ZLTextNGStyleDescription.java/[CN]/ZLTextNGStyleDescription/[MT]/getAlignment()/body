@@ -1,0 +1,21 @@
+{
+  final String alignment=AlignmentOption.getValue();
+  if (alignment.length() == 0) {
+    return ZLTextAlignmentType.ALIGN_UNDEFINED;
+  }
+ else   if ("center".equals(alignment)) {
+    return ZLTextAlignmentType.ALIGN_CENTER;
+  }
+ else   if ("left".equals(alignment)) {
+    return ZLTextAlignmentType.ALIGN_LEFT;
+  }
+ else   if ("right".equals(alignment)) {
+    return ZLTextAlignmentType.ALIGN_RIGHT;
+  }
+ else   if ("justify".equals(alignment)) {
+    return ZLTextAlignmentType.ALIGN_JUSTIFY;
+  }
+ else {
+    return ZLTextAlignmentType.ALIGN_UNDEFINED;
+  }
+}
