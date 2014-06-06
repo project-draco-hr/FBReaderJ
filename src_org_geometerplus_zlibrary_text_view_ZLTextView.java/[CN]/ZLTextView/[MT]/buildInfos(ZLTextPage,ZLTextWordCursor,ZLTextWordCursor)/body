@@ -4,15 +4,17 @@
   page.LineInfos.clear();
   page.Column0Height=0;
   boolean nextParagraph;
+  ZLTextLineInfo info=null;
   do {
+    final ZLTextLineInfo previousInfo=info;
     resetTextStyle();
     final ZLTextParagraphCursor paragraphCursor=result.getParagraphCursor();
     final int wordIndex=result.getElementIndex();
     applyStyleChanges(paragraphCursor,0,wordIndex);
-    ZLTextLineInfo info=new ZLTextLineInfo(paragraphCursor,wordIndex,result.getCharIndex(),getTextStyle());
+    info=new ZLTextLineInfo(paragraphCursor,wordIndex,result.getCharIndex(),getTextStyle());
     final int endIndex=info.ParagraphCursorLength;
     while (info.EndElementIndex != endIndex) {
-      info=processTextLine(page,paragraphCursor,info.EndElementIndex,info.EndCharIndex,endIndex);
+      info=processTextLine(page,paragraphCursor,info.EndElementIndex,info.EndCharIndex,endIndex,previousInfo);
       textAreaHeight-=info.Height + info.Descent;
       if (textAreaHeight < 0 && page.LineInfos.size() > page.Column0Height) {
         if (page.Column0Height == 0 && page.twoColumnView()) {

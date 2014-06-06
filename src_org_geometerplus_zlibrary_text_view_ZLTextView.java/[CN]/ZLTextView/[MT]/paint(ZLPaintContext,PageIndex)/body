@@ -42,7 +42,9 @@ final int[] labels=new int[lineInfos.size() + 1];
 int x=getLeftMargin();
 int y=getTopMargin();
 int index=0;
+ZLTextLineInfo previousInfo=null;
 for (ZLTextLineInfo info : lineInfos) {
+info.adjust(previousInfo);
 prepareTextLine(page,info,x,y);
 y+=info.Height + info.Descent + info.VSpaceAfter;
 labels[++index]=page.TextElementMap.size();
@@ -50,6 +52,7 @@ if (index == page.Column0Height) {
 y=getTopMargin();
 x+=page.getTextWidth() + getSpaceBetweenColumns();
 }
+previousInfo=info;
 }
 x=getLeftMargin();
 y=getTopMargin();

@@ -3,6 +3,7 @@
   final ZLTextLineInfo info=new ZLTextLineInfo(paragraphCursor,startIndex,startCharIndex,getTextStyle());
   final ZLTextLineInfo cachedInfo=myLineInfoCache.get(info);
   if (cachedInfo != null) {
+    cachedInfo.adjust(previousInfo);
     applyStyleChanges(paragraphCursor,startIndex,cachedInfo.EndElementIndex);
     return cachedInfo;
   }
@@ -154,7 +155,15 @@
   }
   setTextStyle(storedStyle);
   if (isFirstLine) {
-    info.Height+=info.StartStyle.getSpaceBefore(metrics());
+    info.VSpaceBefore=info.StartStyle.getSpaceBefore(metrics());
+    if (previousInfo != null) {
+      info.PreviousInfoUsed=true;
+      info.Height+=Math.max(0,info.VSpaceBefore - previousInfo.VSpaceAfter);
+    }
+ else {
+      info.PreviousInfoUsed=false;
+      info.Height+=info.VSpaceBefore;
+    }
   }
   if (info.isEndOfParagraph()) {
     info.VSpaceAfter=getTextStyle().getSpaceAfter(metrics());
