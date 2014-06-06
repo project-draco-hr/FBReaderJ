@@ -1,3 +1,0 @@
-{
-  return Parent.getRightIndent() + myDecoration.RightIndentOption.getValue();
-}

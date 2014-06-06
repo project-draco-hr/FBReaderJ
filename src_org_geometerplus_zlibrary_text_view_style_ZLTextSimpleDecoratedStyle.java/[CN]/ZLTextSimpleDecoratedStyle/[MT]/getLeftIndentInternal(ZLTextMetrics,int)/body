@@ -1,0 +1,3 @@
+{
+  return Parent.getLeftIndent(metrics) + myDecoration.LeftIndentOption.getValue();
+}

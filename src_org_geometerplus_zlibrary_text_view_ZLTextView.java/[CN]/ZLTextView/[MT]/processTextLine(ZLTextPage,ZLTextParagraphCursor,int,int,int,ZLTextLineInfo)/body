@@ -26,9 +26,9 @@
     info.RealStartCharIndex=currentCharIndex;
   }
   ZLTextStyle storedStyle=getTextStyle();
-  info.LeftIndent=getTextStyle().getLeftIndent();
+  info.LeftIndent=getTextStyle().getLeftIndent(metrics());
   if (isFirstLine) {
-    info.LeftIndent+=getTextStyle().getFirstLineIndentDelta();
+    info.LeftIndent=getTextStyle().getFirstLineIndent(metrics());
   }
   info.Width=info.LeftIndent;
   if (info.RealStartElementIndex == endIndex) {
