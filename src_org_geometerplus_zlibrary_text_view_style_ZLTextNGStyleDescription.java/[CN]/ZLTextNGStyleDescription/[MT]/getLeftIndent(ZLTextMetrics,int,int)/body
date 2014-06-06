@@ -3,5 +3,5 @@
   if (length == null) {
     return base;
   }
-  return ZLTextStyleEntry.compute(length,metrics,fontSize,ZLTextStyleEntry.Feature.LENGTH_FONT_SIZE);
+  return ZLTextStyleEntry.compute(length,metrics,fontSize,ZLTextStyleEntry.Feature.LENGTH_LEFT_INDENT);
 }
