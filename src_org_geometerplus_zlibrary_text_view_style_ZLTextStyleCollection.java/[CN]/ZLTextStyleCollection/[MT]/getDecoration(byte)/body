@@ -1,3 +1,0 @@
-{
-  return myDecorationMap[kind & 0xFF];
-}

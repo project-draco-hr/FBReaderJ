@@ -111,39 +111,6 @@
   textScreen.addPreference(new ZLChoicePreference(this,textScreen.Resource,"alignment",baseStyle.AlignmentOption,alignments));
   textScreen.addOption(baseStyle.AutoHyphenationOption,"autoHyphenations");
   final Screen moreStylesScreen=textScreen.createPreferenceScreen("more");
-  byte styles[]={FBTextKind.REGULAR,FBTextKind.ANNOTATION,FBTextKind.EPIGRAPH,FBTextKind.AUTHOR,FBTextKind.POEM_TITLE,FBTextKind.VERSE};
-  for (int i=0; i < styles.length; ++i) {
-    final ZLTextStyleDecoration decoration=collection.getDecoration(styles[i]);
-    if (decoration == null) {
-      continue;
-    }
-    final Screen formatScreen=moreStylesScreen.createPreferenceScreen(decoration.Name);
-    formatScreen.addPreference(new FontPreference(this,textScreen.Resource,"font",decoration.FontFamilyOption,true));
-    formatScreen.addPreference(new ZLIntegerRangePreference(this,textScreen.Resource.getResource("fontSizeDifference"),decoration.FontSizeDeltaOption));
-    formatScreen.addPreference(new ZLBoolean3Preference(this,textScreen.Resource,"bold",decoration.BoldOption));
-    formatScreen.addPreference(new ZLBoolean3Preference(this,textScreen.Resource,"italic",decoration.ItalicOption));
-    formatScreen.addPreference(new ZLBoolean3Preference(this,textScreen.Resource,"underlined",decoration.UnderlineOption));
-    formatScreen.addPreference(new ZLBoolean3Preference(this,textScreen.Resource,"strikedThrough",decoration.StrikeThroughOption));
-    final String[] allAlignments={"unchanged","left","right","center","justify"};
-    formatScreen.addPreference(new ZLChoicePreference(this,textScreen.Resource,"alignment",decoration.AlignmentOption,allAlignments));
-    formatScreen.addPreference(new ZLBoolean3Preference(this,textScreen.Resource,"allowHyphenations",decoration.AllowHyphenationsOption));
-    formatScreen.addPreference(new ZLIntegerRangePreference(this,textScreen.Resource.getResource("spaceBefore"),decoration.SpaceBeforeOption));
-    formatScreen.addPreference(new ZLIntegerRangePreference(this,textScreen.Resource.getResource("spaceAfter"),decoration.SpaceAfterOption));
-    formatScreen.addPreference(new ZLIntegerRangePreference(this,textScreen.Resource.getResource("leftIndent"),decoration.LeftIndentOption));
-    formatScreen.addPreference(new ZLIntegerRangePreference(this,textScreen.Resource.getResource("rightIndent"),decoration.RightIndentOption));
-    formatScreen.addPreference(new ZLIntegerRangePreference(this,textScreen.Resource.getResource("firstLineIndent"),decoration.FirstLineIndentDeltaOption));
-    final ZLIntegerOption spacePercentOption=decoration.LineSpacePercentOption;
-    final int[] spacingValues=new int[17];
-    final String[] spacingKeys=new String[17];
-    spacingValues[0]=-1;
-    spacingKeys[0]="unchanged";
-    for (int j=1; j < spacingValues.length; ++j) {
-      final int val=4 + j;
-      spacingValues[j]=10 * val;
-      spacingKeys[j]=(char)(val / 10 + '0') + decimalSeparator + (char)(val % 10 + '0');
-    }
-    formatScreen.addPreference(new ZLIntegerChoicePreference(this,textScreen.Resource,"lineSpacing",spacePercentOption,spacingValues,spacingKeys));
-  }
   for (  ZLTextNGStyleDescription description : collection.getDescriptionList()) {
     final Screen ngScreen=moreStylesScreen.createPreferenceScreen(description.Name);
     ngScreen.addPreference(new FontPreference(this,textScreen.Resource,"font",description.FontFamilyOption,true));

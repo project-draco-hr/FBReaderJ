@@ -1,3 +1,0 @@
-{
-  return Parent.getVerticalAlign(metrics) + myDecoration.VerticalAlignOption.getValue();
-}
