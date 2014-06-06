@@ -38,7 +38,7 @@
         }
       }
       final int lineSpacePercent=intValue(attributes,"lineSpacingPercent",-1);
-      myDecorationMap[id & 0xFF]=new ZLTextFullStyleDecoration(name,null,fontSizeDelta,bold,italic,ZLBoolean3.B3_UNDEFINED,ZLBoolean3.B3_UNDEFINED,spaceBefore,spaceAfter,leftIndent,rightIndent,firstLineIndentDelta,0,alignment,lineSpacePercent,allowHyphenations);
+      myDecorationMap[id & 0xFF]=new ZLTextStyleDecoration(name,null,fontSizeDelta,bold,italic,ZLBoolean3.B3_UNDEFINED,ZLBoolean3.B3_UNDEFINED,spaceBefore,spaceAfter,leftIndent,rightIndent,firstLineIndentDelta,0,alignment,lineSpacePercent,allowHyphenations);
     }
   }
   return false;

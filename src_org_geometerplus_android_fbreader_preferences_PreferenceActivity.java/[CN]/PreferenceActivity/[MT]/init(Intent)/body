@@ -119,11 +119,11 @@
       ngScreen.addPreference(new FontPreference(this,textScreen.Resource,"font",description.FontFamilyOption,true));
       continue;
     }
-    final ZLTextFullStyleDecoration decoration=collection.getDecoration(styles[i]);
+    final ZLTextStyleDecoration decoration=collection.getDecoration(styles[i]);
     if (decoration == null) {
       continue;
     }
-    final Screen formatScreen=moreStylesScreen.createPreferenceScreen(decoration.getName());
+    final Screen formatScreen=moreStylesScreen.createPreferenceScreen(decoration.Name);
     formatScreen.addPreference(new FontPreference(this,textScreen.Resource,"font",decoration.FontFamilyOption,true));
     formatScreen.addPreference(new ZLIntegerRangePreference(this,textScreen.Resource.getResource("fontSizeDifference"),decoration.FontSizeDeltaOption));
     formatScreen.addPreference(new ZLBoolean3Preference(this,textScreen.Resource,"bold",decoration.BoldOption));

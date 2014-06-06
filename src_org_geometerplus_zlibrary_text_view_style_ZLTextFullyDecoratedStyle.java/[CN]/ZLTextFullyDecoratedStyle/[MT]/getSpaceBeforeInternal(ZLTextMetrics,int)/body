@@ -1,3 +1,0 @@
-{
-  return myFullDecoration.SpaceBeforeOption.getValue();
-}

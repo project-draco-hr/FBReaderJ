@@ -1,9 +1,0 @@
-String name
-String fontFamily
-int fontSizeDelta
-ZLBoolean3 bold
-ZLBoolean3 italic
-ZLBoolean3 underline
-ZLBoolean3 strikeThrough
-int verticalAlign
-ZLBoolean3 allowHyphenations
