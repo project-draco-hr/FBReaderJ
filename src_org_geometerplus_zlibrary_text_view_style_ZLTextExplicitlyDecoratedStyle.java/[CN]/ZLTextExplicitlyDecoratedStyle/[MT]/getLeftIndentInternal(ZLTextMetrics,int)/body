@@ -1,3 +1,9 @@
 {
-  return Parent.getLeftIndent(metrics);
+  if (myEntry instanceof ZLTextCSSStyleEntry && !BaseStyle.UseCSSMarginsOption.getValue()) {
+    return Parent.getLeftIndent(metrics);
+  }
+  if (!myEntry.isFeatureSupported(LENGTH_LEFT_INDENT)) {
+    return Parent.getLeftIndent(metrics);
+  }
+  return myEntry.getLength(LENGTH_LEFT_INDENT,metrics,fontSize);
 }
