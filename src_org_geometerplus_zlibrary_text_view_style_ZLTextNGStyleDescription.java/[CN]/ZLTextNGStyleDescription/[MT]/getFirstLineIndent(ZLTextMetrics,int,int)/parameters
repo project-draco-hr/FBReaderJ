@@ -1,0 +1,3 @@
+ZLTextMetrics metrics
+int base
+int fontSize

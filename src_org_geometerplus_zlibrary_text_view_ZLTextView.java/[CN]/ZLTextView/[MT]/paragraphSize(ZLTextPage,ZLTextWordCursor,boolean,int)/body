@@ -1,18 +1,24 @@
 {
+  final ParagraphSize size=new ParagraphSize();
   final ZLTextParagraphCursor paragraphCursor=cursor.getParagraphCursor();
   if (paragraphCursor == null) {
-    return 0;
+    return size;
   }
   final int endElementIndex=beforeCurrentPosition ? cursor.getElementIndex() : paragraphCursor.getParagraphLength();
   resetTextStyle();
-  int size=0;
   int wordIndex=0;
   int charIndex=0;
+  ZLTextLineInfo info=null;
   while (wordIndex != endElementIndex) {
-    ZLTextLineInfo info=processTextLine(page,paragraphCursor,wordIndex,charIndex,endElementIndex);
+    final ZLTextLineInfo prev=info;
+    info=processTextLine(page,paragraphCursor,wordIndex,charIndex,endElementIndex,prev);
     wordIndex=info.EndElementIndex;
     charIndex=info.EndCharIndex;
-    size+=infoSize(info,unit);
+    size.Height+=infoSize(info,unit);
+    if (prev == null) {
+      size.TopMargin=info.VSpaceBefore;
+    }
+    size.BottomMargin=info.VSpaceAfter;
   }
   return size;
 }

@@ -12,14 +12,14 @@
   final int maxWidth=page.getTextWidth();
 switch (getTextStyle().getAlignment()) {
 case ZLTextAlignmentType.ALIGN_RIGHT:
-    x+=maxWidth - getTextStyle().getRightIndent() - info.Width;
+    x+=maxWidth - getTextStyle().getRightIndent(metrics()) - info.Width;
   break;
 case ZLTextAlignmentType.ALIGN_CENTER:
-x+=(maxWidth - getTextStyle().getRightIndent() - info.Width) / 2;
+x+=(maxWidth - getTextStyle().getRightIndent(metrics()) - info.Width) / 2;
 break;
 case ZLTextAlignmentType.ALIGN_JUSTIFY:
 if (!endOfParagraph && (paragraphCursor.getElement(info.EndElementIndex) != ZLTextElement.AfterParagraph)) {
-fullCorrection=maxWidth - getTextStyle().getRightIndent() - info.Width;
+fullCorrection=maxWidth - getTextStyle().getRightIndent(metrics()) - info.Width;
 }
 break;
 case ZLTextAlignmentType.ALIGN_LEFT:

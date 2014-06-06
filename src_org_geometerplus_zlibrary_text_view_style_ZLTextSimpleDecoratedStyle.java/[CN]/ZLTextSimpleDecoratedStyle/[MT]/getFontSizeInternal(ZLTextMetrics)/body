@@ -1,3 +1,0 @@
-{
-  return Parent.getFontSize(metrics) + myDecoration.FontSizeDeltaOption.getValue();
-}

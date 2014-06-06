@@ -6,8 +6,9 @@
   final int endElementIndex=paragraphCursor.getParagraphLength();
   resetTextStyle();
   applyStyleChanges(paragraphCursor,0,cursor.getElementIndex());
-  while (!cursor.isEndOfParagraph() && (size > 0)) {
-    ZLTextLineInfo info=processTextLine(page,paragraphCursor,cursor.getElementIndex(),cursor.getCharIndex(),endElementIndex);
+  ZLTextLineInfo info=null;
+  while (!cursor.isEndOfParagraph() && size > 0) {
+    info=processTextLine(page,paragraphCursor,cursor.getElementIndex(),cursor.getCharIndex(),endElementIndex,info);
     cursor.moveTo(info.EndElementIndex,info.EndCharIndex);
     size-=infoSize(info,unit);
   }
