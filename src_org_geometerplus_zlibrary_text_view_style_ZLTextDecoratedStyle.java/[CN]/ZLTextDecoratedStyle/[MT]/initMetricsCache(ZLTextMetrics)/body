@@ -3,4 +3,5 @@
   myFontSize=getFontSizeInternal(metrics);
   mySpaceBefore=getSpaceBeforeInternal(metrics,myFontSize);
   mySpaceAfter=getSpaceAfterInternal(metrics,myFontSize);
+  myVerticalAlign=getVerticalAlignInternal(metrics,myFontSize);
 }

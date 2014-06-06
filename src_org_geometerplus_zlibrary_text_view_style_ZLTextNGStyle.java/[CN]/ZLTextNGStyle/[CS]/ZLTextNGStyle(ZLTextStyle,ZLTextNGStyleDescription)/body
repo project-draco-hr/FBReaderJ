@@ -1,4 +1,0 @@
-{
-  super(parent,parent.Hyperlink);
-  myDescription=description;
-}

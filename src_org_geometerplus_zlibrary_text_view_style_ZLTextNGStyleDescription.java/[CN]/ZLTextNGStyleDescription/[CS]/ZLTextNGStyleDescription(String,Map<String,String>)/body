@@ -9,4 +9,5 @@
   MarginTopOption=createOption(selector,"margin-top",valueMap);
   MarginBottomOption=createOption(selector,"margin-bottom",valueMap);
   AlignmentOption=createOption(selector,"text-align",valueMap);
+  VerticalAlignOption=createOption(selector,"vertical-align",valueMap);
 }

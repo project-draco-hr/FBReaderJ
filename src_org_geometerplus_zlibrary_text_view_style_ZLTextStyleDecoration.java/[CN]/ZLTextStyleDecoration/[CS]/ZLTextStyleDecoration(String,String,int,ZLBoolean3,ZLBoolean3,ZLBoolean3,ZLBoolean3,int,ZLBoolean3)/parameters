@@ -5,5 +5,5 @@ ZLBoolean3 bold
 ZLBoolean3 italic
 ZLBoolean3 underline
 ZLBoolean3 strikeThrough
-int verticalShift
+int verticalAlign
 ZLBoolean3 allowHyphenations

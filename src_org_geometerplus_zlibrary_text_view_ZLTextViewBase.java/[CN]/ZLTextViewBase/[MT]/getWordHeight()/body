@@ -1,7 +1,7 @@
 {
   if (myWordHeight == -1) {
     final ZLTextStyle textStyle=myTextStyle;
-    myWordHeight=getContext().getStringHeight() * textStyle.getLineSpacePercent() / 100 + textStyle.getVerticalShift();
+    myWordHeight=getContext().getStringHeight() * textStyle.getLineSpacePercent() / 100 + textStyle.getVerticalAlign(metrics());
   }
   return myWordHeight;
 }
