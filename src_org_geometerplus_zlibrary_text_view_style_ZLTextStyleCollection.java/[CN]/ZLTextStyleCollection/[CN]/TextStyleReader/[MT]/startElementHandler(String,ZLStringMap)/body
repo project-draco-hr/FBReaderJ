@@ -1,7 +1,6 @@
 {
   if ("base".equals(tag) && Screen.equals(attributes.getValue("screen"))) {
-    myDefaultFontSize=intValue(attributes,"fontSize",0);
-    myBaseStyle=new ZLTextBaseStyle(Screen,attributes.getValue("family"),myDefaultFontSize);
+    myBaseStyle=new ZLTextBaseStyle(Screen,attributes.getValue("family"),intValue(attributes,"fontSize",0));
   }
   return false;
 }

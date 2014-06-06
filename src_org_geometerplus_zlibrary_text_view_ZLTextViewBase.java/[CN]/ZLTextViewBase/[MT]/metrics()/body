@@ -1,7 +1,7 @@
 {
   ZLTextMetrics m=myMetrics;
   if (m == null) {
-    m=new ZLTextMetrics(ZLibrary.Instance().getDisplayDPI(),getTextStyleCollection().getDefaultFontSize(),100,100);
+    m=new ZLTextMetrics(ZLibrary.Instance().getDisplayDPI(),100,100);
     myMetrics=m;
   }
   return m;
