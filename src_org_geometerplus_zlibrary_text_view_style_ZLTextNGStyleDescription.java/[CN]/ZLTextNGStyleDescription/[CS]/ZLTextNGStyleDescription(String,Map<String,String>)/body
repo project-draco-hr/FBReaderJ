@@ -13,4 +13,5 @@
   TextIndentOption=createOption(selector,"text-indent",valueMap);
   AlignmentOption=createOption(selector,"text-align",valueMap);
   VerticalAlignOption=createOption(selector,"vertical-align",valueMap);
+  LineHeightOption=createOption(selector,"line-height",valueMap);
 }
