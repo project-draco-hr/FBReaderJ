@@ -4,5 +4,6 @@
   myIsBold=isBoldInternal();
   myIsUnderline=isUnderlineInternal();
   myIsStrikeThrough=isStrikeThroughInternal();
+  myLineSpacePercent=getLineSpacePercentInternal();
   myIsNotCached=false;
 }
