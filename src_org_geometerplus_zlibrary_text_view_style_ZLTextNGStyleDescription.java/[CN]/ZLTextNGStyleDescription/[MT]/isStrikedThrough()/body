@@ -3,7 +3,7 @@
   if ("line-through".equals(textDecoration)) {
     return ZLBoolean3.B3_TRUE;
   }
- else   if ("".equals(textDecoration)) {
+ else   if ("".equals(textDecoration) || "inherit".equals(textDecoration)) {
     return ZLBoolean3.B3_UNDEFINED;
   }
  else {

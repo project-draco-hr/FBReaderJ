@@ -115,6 +115,11 @@
     final Screen ngScreen=moreStylesScreen.createPreferenceScreen(description.Name);
     ngScreen.addPreference(new FontPreference(this,textScreen.Resource,"font",description.FontFamilyOption,true));
     ngScreen.addPreference(new StringPreference(this,description.FontSizeOption,StringPreference.Constraint.POSITIVE_LENGTH,textScreen.Resource,"fontSize"));
+    ngScreen.addPreference(new ZLStringChoicePreference(this,textScreen.Resource,"bold",description.FontWeightOption,new String[]{"inherit","normal","bold"}));
+    ngScreen.addPreference(new ZLStringChoicePreference(this,textScreen.Resource,"italic",description.FontStyleOption,new String[]{"inherit","normal","italic"}));
+    ngScreen.addPreference(new ZLStringChoicePreference(this,textScreen.Resource,"textDecoration",description.TextDecorationOption,new String[]{"inherit","none","underline","line-through"}));
+    ngScreen.addPreference(new ZLStringChoicePreference(this,textScreen.Resource,"allowHyphenations",description.HyphenationOption,new String[]{"inherit","none","auto"}));
+    ngScreen.addPreference(new ZLStringChoicePreference(this,textScreen.Resource,"alignment",description.AlignmentOption,new String[]{"inherit","left","right","center","justify"}));
     ngScreen.addPreference(new StringPreference(this,description.MarginTopOption,StringPreference.Constraint.LENGTH,textScreen.Resource,"spaceBefore"));
     ngScreen.addPreference(new StringPreference(this,description.MarginBottomOption,StringPreference.Constraint.LENGTH,textScreen.Resource,"spaceAfter"));
     ngScreen.addPreference(new StringPreference(this,description.MarginLeftOption,StringPreference.Constraint.LENGTH,textScreen.Resource,"leftIndent"));
