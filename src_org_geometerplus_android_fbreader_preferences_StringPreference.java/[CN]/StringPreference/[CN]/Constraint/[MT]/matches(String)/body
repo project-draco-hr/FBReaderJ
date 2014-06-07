@@ -1,0 +1,3 @@
+{
+  return myPattern.matcher(text).matches();
+}
