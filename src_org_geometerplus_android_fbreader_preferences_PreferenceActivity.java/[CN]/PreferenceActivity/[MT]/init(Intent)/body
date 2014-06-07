@@ -114,6 +114,13 @@
   for (  ZLTextNGStyleDescription description : collection.getDescriptionList()) {
     final Screen ngScreen=moreStylesScreen.createPreferenceScreen(description.Name);
     ngScreen.addPreference(new FontPreference(this,textScreen.Resource,"font",description.FontFamilyOption,true));
+    ngScreen.addPreference(new StringPreference(this,description.FontSizeOption,StringPreference.Constraint.POSITIVE_LENGTH,textScreen.Resource,"fontSize"));
+    ngScreen.addPreference(new StringPreference(this,description.MarginTopOption,StringPreference.Constraint.LENGTH,textScreen.Resource,"spaceBefore"));
+    ngScreen.addPreference(new StringPreference(this,description.MarginBottomOption,StringPreference.Constraint.LENGTH,textScreen.Resource,"spaceAfter"));
+    ngScreen.addPreference(new StringPreference(this,description.MarginLeftOption,StringPreference.Constraint.LENGTH,textScreen.Resource,"leftIndent"));
+    ngScreen.addPreference(new StringPreference(this,description.MarginRightOption,StringPreference.Constraint.LENGTH,textScreen.Resource,"rightIndent"));
+    ngScreen.addPreference(new StringPreference(this,description.TextIndentOption,StringPreference.Constraint.LENGTH,textScreen.Resource,"firstLineIndent"));
+    ngScreen.addPreference(new StringPreference(this,description.VerticalAlignOption,StringPreference.Constraint.LENGTH,textScreen.Resource,"verticalAlignment"));
   }
   final PreferenceSet footerPreferences=new PreferenceSet.Enabler(){
     @Override protected Boolean detectState(){

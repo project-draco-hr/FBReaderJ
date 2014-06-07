@@ -1,3 +1,0 @@
-{
-  return addPreference(new ZLStringOptionPreference(ZLPreferenceActivity.this,option,Resource,resourceKey));
-}

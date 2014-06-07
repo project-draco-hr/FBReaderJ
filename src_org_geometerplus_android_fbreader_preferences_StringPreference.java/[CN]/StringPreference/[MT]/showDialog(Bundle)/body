@@ -1,0 +1,6 @@
+{
+  super.showDialog(state);
+  myEditor.removeTextChangedListener(myWatcher);
+  myEditor.addTextChangedListener(myWatcher);
+  myWatcher.afterTextChanged(null);
+}

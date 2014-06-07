@@ -1,0 +1,6 @@
+{
+  if (result) {
+    setValue(myEditor.getText().toString());
+  }
+  super.onDialogClosed(result);
+}

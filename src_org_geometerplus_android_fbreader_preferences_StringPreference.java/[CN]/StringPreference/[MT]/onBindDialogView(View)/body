@@ -1,0 +1,6 @@
+{
+  myEditor=(EditText)view.findViewById(R.id.string_preference_editor);
+  myEditor.setText(myOption.getValue());
+  ((TextView)view.findViewById(R.id.string_preference_hint)).setText(ZLResource.resource("hint").getResource(myConstraint.HintKey).getValue());
+  super.onBindDialogView(view);
+}
