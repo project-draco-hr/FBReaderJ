@@ -1,8 +1,18 @@
 {
+  if (myState != State.READ_COMMENT && token.startsWith("/*")) {
+    mySavedState=myState;
+    myState=State.READ_COMMENT;
+    return;
+  }
 switch (myState) {
+case READ_COMMENT:
+    if (token.endsWith("*/")) {
+      myState=mySavedState;
+    }
+  break;
 case EXPECT_SELECTOR:
-    mySelector=token;
-  myState=State.EXPECT_OPEN_BRACKET;
+mySelector=token;
+myState=State.EXPECT_OPEN_BRACKET;
 break;
 case EXPECT_OPEN_BRACKET:
 if ("{".equals(token)) {
