@@ -6,6 +6,6 @@
   myId=-1;
   final FormatPlugin plugin=getPlugin(file);
   File=plugin.realBookFile(file);
-  readMetaInfo(plugin);
+  readMetainfo(plugin);
   myIsSaved=false;
 }
