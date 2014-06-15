@@ -7,7 +7,7 @@
   mySeriesInfo=null;
   myUids=null;
   myIsSaved=false;
-  plugin.readMetaInfo(this);
+  plugin.readMetainfo(this);
   if (myUids == null || myUids.isEmpty()) {
     plugin.readUids(this);
   }

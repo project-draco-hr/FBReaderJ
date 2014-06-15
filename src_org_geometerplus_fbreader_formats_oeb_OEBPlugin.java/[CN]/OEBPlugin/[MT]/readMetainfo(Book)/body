@@ -1,0 +1,3 @@
+{
+  new OEBMetaInfoReader(book).readMetainfo(getOpfFile(book.File));
+}
