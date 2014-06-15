@@ -1,10 +1,10 @@
 {
   final Intent intent=new Intent();
-  intent.setClass(myContext,AuthenticationActivity.class);
+  intent.setClass(myActivity,AuthenticationActivity.class);
   intent.putExtra(HOST_KEY,host);
   intent.putExtra(AREA_KEY,area);
   intent.putExtra(SCHEME_KEY,scheme);
   intent.putExtra(USERNAME_KEY,username);
   intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-  myContext.startActivity(intent);
+  myActivity.startActivity(intent);
 }
