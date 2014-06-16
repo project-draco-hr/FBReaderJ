@@ -36,7 +36,7 @@
           cookies.put(parts[0].trim(),parts[1].trim());
         }
       }
-      AuthorisationScreen.this.setResult(RESULT_OK,intent.putExtra(NetworkLibraryActivity.COOKIES_KEY,cookies));
+      WebAuthorisationScreen.this.setResult(RESULT_OK,intent.putExtra(NetworkLibraryActivity.COOKIES_KEY,cookies));
       finish();
     }
   }
