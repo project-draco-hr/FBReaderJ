@@ -1,3 +1,15 @@
 {
-  return false;
+  System.err.println("+++ WEB AUTH +++");
+  final String authUrl=params.get("auth-url-web");
+  final String completeUrl=params.get("complete-url-web");
+  if (authUrl == null || completeUrl == null) {
+    return false;
+  }
+  final Intent intent=new Intent(myActivity,WebAuthorisationScreen.class);
+  intent.setData(Uri.parse(authUrl));
+  intent.putExtra(NetworkLibraryActivity.COMPLETE_URL_KEY,completeUrl);
+  OrientationUtil.startActivityForResult(myActivity,intent,NetworkLibraryActivity.REQUEST_WEB_AUTHORISATION_SCREEN);
+  startWaiting();
+  System.err.println("--- WEB AUTH ---");
+  return true;
 }
