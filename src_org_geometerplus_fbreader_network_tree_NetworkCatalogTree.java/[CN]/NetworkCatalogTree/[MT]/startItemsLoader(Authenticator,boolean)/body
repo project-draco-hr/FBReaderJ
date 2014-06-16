@@ -1,3 +1,0 @@
-{
-  new CatalogExpander(this,authenticator,resumeNotLoad).start();
-}
