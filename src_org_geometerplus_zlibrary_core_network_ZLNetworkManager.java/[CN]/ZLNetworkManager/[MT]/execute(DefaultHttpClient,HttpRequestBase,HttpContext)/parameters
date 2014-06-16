@@ -1,0 +1,3 @@
+DefaultHttpClient client
+HttpRequestBase request
+HttpContext context
