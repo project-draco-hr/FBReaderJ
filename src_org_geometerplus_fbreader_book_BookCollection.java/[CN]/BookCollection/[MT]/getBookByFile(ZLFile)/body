@@ -45,7 +45,7 @@
       book=new Book(bookFile);
     }
  else {
-      book.readMetaInfo();
+      book.readMetainfo();
     }
   }
  catch (  BookReadingException e) {

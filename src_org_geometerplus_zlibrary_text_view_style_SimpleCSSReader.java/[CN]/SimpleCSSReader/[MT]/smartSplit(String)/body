@@ -1,8 +1,0 @@
-{
-  final List<String> tokens=new LinkedList<String>();
-  final Matcher m=Pattern.compile("([^\"\\s:;]+|\".+?\")").matcher(line);
-  while (m.find()) {
-    tokens.add(m.group(1).replace("\"",""));
-  }
-  return tokens;
-}

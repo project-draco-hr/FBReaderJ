@@ -16,7 +16,7 @@ case REQUEST_MANAGE_CATALOGS:
       NetworkLibrary.Instance().synchronize();
       break;
     }
-case REQUEST_AUTHORISATION_SCREEN:
+case REQUEST_WEB_AUTHORISATION_SCREEN:
 {
     final CookieStore store=ZLNetworkManager.Instance().cookieStore();
     final Map<String,String> cookies=(Map<String,String>)data.getSerializableExtra(COOKIES_KEY);

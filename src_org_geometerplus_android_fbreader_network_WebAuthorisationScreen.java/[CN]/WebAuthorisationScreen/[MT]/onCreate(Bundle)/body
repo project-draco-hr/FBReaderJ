@@ -1,0 +1,46 @@
+{
+  super.onCreate(icicle);
+  requestWindowFeature(Window.FEATURE_PROGRESS);
+  CookieSyncManager.createInstance(getApplicationContext());
+  final Intent intent=getIntent();
+  final Uri data=intent.getData();
+  if (data == null || data.getHost() == null) {
+    finish();
+    return;
+  }
+  OrientationUtil.setOrientation(this,intent);
+  final WebView view=new WebView(this);
+  view.getSettings().setJavaScriptEnabled(true);
+  view.setWebChromeClient(new WebChromeClient(){
+    @Override public void onProgressChanged(    WebView view,    int progress){
+      setProgress(progress * 100);
+    }
+  }
+);
+  view.setWebViewClient(new WebViewClient(){
+    @Override public void onPageStarted(    WebView view,    String url,    Bitmap favicon){
+      setTitle(url);
+    }
+    @Override public void onPageFinished(    WebView view,    String url){
+      if (!data.getHost().equals(Uri.parse(url).getHost())) {
+        return;
+      }
+      final HashMap<String,String> cookies=new HashMap<String,String>();
+      final String cookieString=CookieManager.getInstance().getCookie(url);
+      if (cookieString != null) {
+        for (        String pair : cookieString.split(";")) {
+          final String[] parts=pair.split("=",2);
+          if (parts.length != 2) {
+            continue;
+          }
+          cookies.put(parts[0].trim(),parts[1].trim());
+        }
+      }
+      WebAuthorisationScreen.this.setResult(RESULT_OK,intent.putExtra(NetworkLibraryActivity.COOKIES_KEY,cookies));
+      finish();
+    }
+  }
+);
+  setContentView(view);
+  view.loadUrl(intent.getDataString());
+}
