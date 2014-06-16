@@ -1,0 +1,3 @@
+{
+  ZLNetworkManager.Instance().setBearerAuthenticator(new BearerAuthenticator(activity));
+}
