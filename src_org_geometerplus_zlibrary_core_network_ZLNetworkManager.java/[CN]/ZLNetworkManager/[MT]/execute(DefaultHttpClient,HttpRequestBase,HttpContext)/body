@@ -3,7 +3,7 @@
     return client.execute(request,context);
   }
  catch (  BearerAuthenticationException e) {
-    if (myBearerAuthenticator != null && myBearerAuthenticator.authenticate(e.Params)) {
+    if (myBearerAuthenticator != null && myBearerAuthenticator.authenticate(request.getURI(),e.Params)) {
       return client.execute(request,context);
     }
     throw e;

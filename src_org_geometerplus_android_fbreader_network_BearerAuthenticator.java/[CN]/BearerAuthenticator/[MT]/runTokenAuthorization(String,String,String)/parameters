@@ -1,0 +1,3 @@
+String authUrl
+String authToken
+String accessToken
