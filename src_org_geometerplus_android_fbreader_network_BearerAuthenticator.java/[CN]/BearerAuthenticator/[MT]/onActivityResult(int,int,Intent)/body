@@ -1,25 +1,26 @@
 {
   final BearerAuthenticator ba=(BearerAuthenticator)ZLNetworkManager.Instance().getBearerAuthenticator();
+  boolean processed=true;
+  try {
 switch (requestCode) {
+default :
+      processed=false;
+    break;
 case NetworkLibraryActivity.REQUEST_ACCOUNT_PICKER:
-    if (resultCode != NetworkLibraryActivity.RESULT_OK || data == null) {
-      return true;
-    }
-synchronized (ba) {
+  if (resultCode == Activity.RESULT_OK && data != null) {
     ba.myAccount=data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
-    ba.notifyAll();
   }
-return true;
-case NetworkLibraryActivity.REQUEST_WEB_AUTHORISATION_SCREEN:
-if (resultCode != NetworkLibraryActivity.RESULT_OK || data == null) {
-return true;
+break;
+case NetworkLibraryActivity.REQUEST_AUTHORISATION:
+if (resultCode == Activity.RESULT_OK) {
+ba.myAuthorizationConfirmed=true;
 }
-synchronized (ba) {
+break;
+case NetworkLibraryActivity.REQUEST_WEB_AUTHORISATION_SCREEN:
+if (resultCode == Activity.RESULT_OK && data != null) {
 final CookieStore store=ZLNetworkManager.Instance().cookieStore();
 final Map<String,String> cookies=(Map<String,String>)data.getSerializableExtra(NetworkLibraryActivity.COOKIES_KEY);
-if (cookies == null) {
-return true;
-}
+if (cookies != null) {
 for (Map.Entry<String,String> entry : cookies.entrySet()) {
 final BasicClientCookie2 c=new BasicClientCookie2(entry.getKey(),entry.getValue());
 c.setDomain(data.getData().getHost());
@@ -31,9 +32,17 @@ c.setSecure(true);
 c.setDiscard(false);
 store.addCookie(c);
 }
+}
+}
+break;
+}
+}
+  finally {
+if (processed) {
+synchronized (ba) {
 ba.notifyAll();
 }
-return true;
 }
-return false;
+return processed;
+}
 }
