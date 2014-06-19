@@ -1,0 +1,9 @@
+{
+synchronized (this) {
+    try {
+      wait();
+    }
+ catch (    InterruptedException e) {
+    }
+  }
+}
