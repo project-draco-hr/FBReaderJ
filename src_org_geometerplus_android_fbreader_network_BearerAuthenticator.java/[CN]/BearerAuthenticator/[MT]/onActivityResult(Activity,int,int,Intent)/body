@@ -1,5 +1,5 @@
 {
-  final BearerAuthenticator ba=(BearerAuthenticator)ZLNetworkManager.Instance().getBearerAuthenticator();
+  final BearerAuthenticator ba=ourAuthenticators.get(activity);
   boolean processed=true;
   try {
 switch (requestCode) {

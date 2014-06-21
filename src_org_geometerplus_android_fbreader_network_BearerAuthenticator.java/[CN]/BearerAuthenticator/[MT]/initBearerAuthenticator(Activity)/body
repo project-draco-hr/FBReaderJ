@@ -1,3 +1,10 @@
 {
-  ZLNetworkManager.Instance().setBearerAuthenticator(new BearerAuthenticator(activity));
+synchronized (ourAuthenticators) {
+    BearerAuthenticator ba=ourAuthenticators.get(activity);
+    if (ba == null) {
+      ba=new BearerAuthenticator(activity);
+      ourAuthenticators.put(activity,ba);
+    }
+    ZLNetworkManager.Instance().setBearerAuthenticator(ba);
+  }
 }
