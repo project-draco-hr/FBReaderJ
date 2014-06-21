@@ -8,7 +8,7 @@
   }
 ;
   request.addPostParameter("auth",authToken);
-  request.addPostParameter("access",accessToken);
+  request.addPostParameter("code",code);
   try {
     ZLNetworkManager.Instance().perform(request);
   }

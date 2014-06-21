@@ -1,4 +1,5 @@
 {
+  System.err.println("AUTHENTICATE FOR " + uri);
   if (!"https".equalsIgnoreCase(uri.getScheme())) {
     return false;
   }
