@@ -1,0 +1,4 @@
+{
+  myCollection.bindToService(this,this);
+  return null;
+}
