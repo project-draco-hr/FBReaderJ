@@ -86,7 +86,7 @@
     public void run(){
       boolean success=false;
       try {
-        ZLNetworkManager.Instance().perform(request);
+        myNetworkContext.perform(request);
         success=true;
       }
  catch (      ZLNetworkException e) {

@@ -1,0 +1,3 @@
+ZLNetworkContext nc
+boolean urlsOnly
+boolean quietly

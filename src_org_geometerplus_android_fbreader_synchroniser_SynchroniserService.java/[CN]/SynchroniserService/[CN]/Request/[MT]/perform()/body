@@ -1,8 +1,0 @@
-{
-  try {
-    ZLNetworkManager.Instance().perform(this);
-  }
- catch (  ZLNetworkException e) {
-    e.printStackTrace();
-  }
-}

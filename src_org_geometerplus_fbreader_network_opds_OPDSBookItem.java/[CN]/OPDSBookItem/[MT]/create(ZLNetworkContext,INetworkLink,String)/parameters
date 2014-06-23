@@ -1,0 +1,3 @@
+ZLNetworkContext nc
+INetworkLink link
+String url

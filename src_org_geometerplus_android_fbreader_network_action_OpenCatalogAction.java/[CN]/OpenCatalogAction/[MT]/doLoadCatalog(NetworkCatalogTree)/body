@@ -14,7 +14,7 @@
       tree.clearCatalog();
     }
   }
-  tree.startItemsLoader(true,resumeNotLoad);
+  tree.startItemsLoader(myNetworkContext,true,resumeNotLoad);
   processExtraData(tree.Item.extraData(),new Runnable(){
     public void run(){
       doOpenTree(tree);
