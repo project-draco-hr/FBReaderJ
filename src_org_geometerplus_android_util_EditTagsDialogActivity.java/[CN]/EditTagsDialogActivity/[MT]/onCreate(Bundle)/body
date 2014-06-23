@@ -2,14 +2,15 @@
   super.onCreate(savedInstanceState);
   setContentView(R.layout.edit_tags_dialog);
   myResource=ZLResource.resource("dialog").getResource("editTags");
-  final EditText inputField=(EditText)findViewById(R.id.edit_tags_input_field);
-  inputField.setHint(myResource.getResource("addTag").getValue());
-  inputField.setOnEditorActionListener(new TextView.OnEditorActionListener(){
+  myInputField=(EditText)findViewById(R.id.edit_tags_input_field);
+  myInputField.setHint(myResource.getResource("addTag").getValue());
+  myInputField.setOnEditorActionListener(new TextView.OnEditorActionListener(){
     public boolean onEditorAction(    TextView v,    int actionId,    KeyEvent event){
       System.out.println(actionId);
       if (actionId == EditorInfo.IME_ACTION_DONE) {
-        addTag(inputField.getText().toString());
-        inputField.setText("");
+        addTag(myInputField.getText().toString(),myEditPosition);
+        myInputField.setText("");
+        myEditPosition=-1;
         return false;
       }
       return true;
@@ -20,5 +21,6 @@
   final TagsAdapter adapter=new TagsAdapter();
   setListAdapter(adapter);
   getListView().setOnItemClickListener(adapter);
+  getListView().setOnItemLongClickListener(adapter);
   setResult(RESULT_CANCELED);
 }

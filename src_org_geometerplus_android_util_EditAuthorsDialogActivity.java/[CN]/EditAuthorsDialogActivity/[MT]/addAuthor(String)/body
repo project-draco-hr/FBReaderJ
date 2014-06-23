@@ -1,8 +1,0 @@
-{
-  if (author.length() != 0) {
-    if (!myEditList.contains(author)) {
-      myEditList.add(author);
-    }
-    ((BaseAdapter)getListAdapter()).notifyDataSetChanged();
-  }
-}
