@@ -18,7 +18,7 @@
     public void run(){
       try {
         myError=null;
-        myLink.reloadInfo(false,false);
+        myLink.reloadInfo(myNetworkContext,false,false);
       }
  catch (      ZLNetworkException e) {
         myError=e.getMessage();

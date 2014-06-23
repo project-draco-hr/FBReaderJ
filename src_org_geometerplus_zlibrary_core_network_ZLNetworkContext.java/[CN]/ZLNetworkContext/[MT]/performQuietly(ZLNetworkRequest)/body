@@ -1,0 +1,9 @@
+{
+  try {
+    perform(request);
+    return true;
+  }
+ catch (  ZLNetworkException e) {
+    return false;
+  }
+}

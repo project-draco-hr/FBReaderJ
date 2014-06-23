@@ -1,7 +1,8 @@
 {
+  final ZLNetworkContext quietContext=new QuietNetworkContext();
 synchronized (myUpdateLock) {
     final OPDSLinkReader.CacheMode mode=force ? OPDSLinkReader.CacheMode.CLEAR : OPDSLinkReader.CacheMode.UPDATE;
-    final List<INetworkLink> loadedLinks=OPDSLinkReader.loadOPDSLinks(mode);
+    final List<INetworkLink> loadedLinks=OPDSLinkReader.loadOPDSLinks(quietContext,mode);
     if (!loadedLinks.isEmpty()) {
       removeAllLoadedLinks();
       myLinks.addAll(loadedLinks);
@@ -13,7 +14,7 @@ synchronized (myUpdateLock) {
         final ICustomNetworkLink customLink=(ICustomNetworkLink)link;
         if (force || customLink.isObsolete(12 * 60 * 60* 1000)) {
           try {
-            customLink.reloadInfo(true,true);
+            customLink.reloadInfo(quietContext,true,true);
             NetworkDatabase.Instance().saveLink(customLink);
           }
  catch (          Throwable t) {

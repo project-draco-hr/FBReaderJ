@@ -1,6 +1,6 @@
 {
   if (networkRequest != null) {
-    ZLNetworkManager.Instance().perform(networkRequest);
+    data.Loader.NetworkContext.perform(networkRequest);
     data.Loader.confirmInterruption();
   }
 }

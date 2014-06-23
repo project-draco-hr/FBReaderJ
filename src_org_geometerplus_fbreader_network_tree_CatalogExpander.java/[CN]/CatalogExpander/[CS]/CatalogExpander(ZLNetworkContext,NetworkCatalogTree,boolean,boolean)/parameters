@@ -1,0 +1,4 @@
+ZLNetworkContext nc
+NetworkCatalogTree tree
+boolean authenticate
+boolean resumeNotLoad

@@ -13,7 +13,7 @@
   new Thread(new Runnable(){
     public void run(){
       if (!url.startsWith("fbreader-action:")) {
-        nLibrary.initialize();
+        nLibrary.initialize(new QuietNetworkContext());
       }
       intent.setData(Uri.parse(nLibrary.rewriteUrl(url,externalUrl)));
       BaseActivity.runOnUiThread(new Runnable(){

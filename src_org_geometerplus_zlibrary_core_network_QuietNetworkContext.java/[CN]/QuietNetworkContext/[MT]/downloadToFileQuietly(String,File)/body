@@ -1,0 +1,9 @@
+{
+  try {
+    downloadToFile(url,outFile);
+    return true;
+  }
+ catch (  ZLNetworkException e) {
+    return false;
+  }
+}

@@ -1,5 +1,5 @@
 {
-  myContextMenuActions.add(new OpenCatalogAction(this));
+  myContextMenuActions.add(new OpenCatalogAction(this,myNetworkContext));
   myContextMenuActions.add(new OpenInBrowserAction(this));
   myContextMenuActions.add(new RunSearchAction(this,true));
   myContextMenuActions.add(new AddCustomCatalogAction(this));

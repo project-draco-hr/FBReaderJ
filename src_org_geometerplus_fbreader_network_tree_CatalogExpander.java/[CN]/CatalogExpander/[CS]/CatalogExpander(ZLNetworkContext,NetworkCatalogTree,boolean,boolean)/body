@@ -1,0 +1,5 @@
+{
+  super(nc,tree);
+  myAuthenticate=authenticate;
+  myResumeNotLoad=resumeNotLoad;
+}

@@ -15,7 +15,7 @@ synchronized (this) {
   try {
     final LitResNetworkRequest request=new LitResNetworkRequest(reference.Url,xmlReader);
     request.addPostParameter("sid",sid);
-    ZLNetworkManager.Instance().perform(request);
+    myNetworkContext.perform(request);
   }
  catch (  ZLNetworkException e) {
     exception=e;
