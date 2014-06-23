@@ -1,4 +1,5 @@
 {
+  myCollection.removeListener(this);
   myCollection.unbind();
   System.err.println("SYNCHRONIZER UNBINDED FROM LIBRARY");
   super.onDestroy();
