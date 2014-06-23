@@ -1,0 +1,14 @@
+{
+  final UID uid=BookUtil.createUid(book.File.getPhysicalFile(),"SHA-1");
+  if (uid == null) {
+    System.err.println("Failed: SHA-1 checksum not computed");
+    return;
+  }
+  System.err.println("SHA-1: " + uid.Id);
+  myNetworkContext.performQuietly(new Request("books.by.hash",Collections.singletonMap("sha1",uid.Id)){
+    public void processResponse(    Object response){
+      System.err.println("RESPONSE = " + response);
+    }
+  }
+);
+}

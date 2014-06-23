@@ -1,0 +1,4 @@
+ZLNetworkRequest request
+BearerAuthenticator authenticator
+int socketTimeout
+int connectionTimeout

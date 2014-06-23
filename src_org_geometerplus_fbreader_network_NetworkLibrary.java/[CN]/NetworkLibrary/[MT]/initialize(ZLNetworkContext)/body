@@ -1,0 +1,20 @@
+{
+  if (myIsInitialized) {
+    return;
+  }
+  try {
+    myLinks.addAll(OPDSLinkReader.loadOPDSLinks(nc,OPDSLinkReader.CacheMode.LOAD));
+  }
+ catch (  ZLNetworkException e) {
+    removeAllLoadedLinks();
+    fireModelChangedEvent(ChangeListener.Code.InitializationFailed,e.getMessage());
+    return;
+  }
+  final NetworkDatabase db=NetworkDatabase.Instance();
+  if (db != null) {
+    myLinks.addAll(db.listLinks());
+  }
+  synchronize();
+  myIsInitialized=true;
+  fireModelChangedEvent(ChangeListener.Code.InitializationFinished);
+}

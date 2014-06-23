@@ -1,0 +1,11 @@
+{
+  try {
+    return client.execute(request,context);
+  }
+ catch (  BearerAuthenticationException e) {
+    if (authenticator.authenticate(request.getURI(),e.Params)) {
+      return client.execute(request,context);
+    }
+    throw e;
+  }
+}

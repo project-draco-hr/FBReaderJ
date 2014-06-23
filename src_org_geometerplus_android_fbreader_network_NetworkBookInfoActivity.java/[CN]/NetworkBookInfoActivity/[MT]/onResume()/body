@@ -1,5 +1,4 @@
 {
   super.onResume();
-  BearerAuthenticator.initBearerAuthenticator(this);
   NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
 }

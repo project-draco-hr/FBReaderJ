@@ -1,0 +1,3 @@
+ZLNetworkContext nc
+boolean authenticate
+boolean resumeNotLoad
