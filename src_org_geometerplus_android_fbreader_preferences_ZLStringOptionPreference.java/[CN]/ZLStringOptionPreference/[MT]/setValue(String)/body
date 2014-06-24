@@ -1,4 +1,0 @@
-{
-  super.setValue(value);
-  myOption.setValue(value);
-}

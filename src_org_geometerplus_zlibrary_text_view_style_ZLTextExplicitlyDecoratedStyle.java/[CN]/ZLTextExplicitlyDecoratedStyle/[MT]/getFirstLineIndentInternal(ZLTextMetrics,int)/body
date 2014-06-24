@@ -1,0 +1,9 @@
+{
+  if (myEntry instanceof ZLTextCSSStyleEntry && !BaseStyle.UseCSSMarginsOption.getValue()) {
+    return Parent.getFirstLineIndent(metrics);
+  }
+  if (!myEntry.isFeatureSupported(LENGTH_FIRST_LINE_INDENT)) {
+    return Parent.getFirstLineIndent(metrics);
+  }
+  return myEntry.getLength(LENGTH_FIRST_LINE_INDENT,metrics,fontSize);
+}

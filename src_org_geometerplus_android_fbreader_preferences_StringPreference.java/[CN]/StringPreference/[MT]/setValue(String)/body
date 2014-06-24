@@ -1,0 +1,4 @@
+{
+  setSummary(value);
+  myOption.setValue(value);
+}

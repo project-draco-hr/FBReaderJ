@@ -1,0 +1,4 @@
+{
+  super(activity,ActionCode.RELOAD_CATALOG,"reload",R.drawable.ic_menu_refresh);
+  myNetworkContext=nc;
+}

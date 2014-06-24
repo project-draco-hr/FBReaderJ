@@ -1,0 +1,27 @@
+{
+  myDescriptionMap=new LinkedHashMap<Integer,ZLTextNGStyleDescription>();
+  myState=State.EXPECT_SELECTOR;
+  InputStream stream=null;
+  try {
+    stream=file.getInputStream();
+    final BufferedReader reader=new BufferedReader(new InputStreamReader(stream));
+    String line;
+    while ((line=reader.readLine()) != null) {
+      for (      String token : MiscUtil.smartSplit(line)) {
+        processToken(token);
+      }
+    }
+  }
+ catch (  IOException e) {
+  }
+ finally {
+    if (stream != null) {
+      try {
+        stream.close();
+      }
+ catch (      IOException e) {
+      }
+    }
+  }
+  return myDescriptionMap;
+}

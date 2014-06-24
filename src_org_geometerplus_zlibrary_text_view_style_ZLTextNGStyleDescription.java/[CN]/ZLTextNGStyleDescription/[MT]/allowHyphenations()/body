@@ -1,0 +1,12 @@
+{
+  final String hyphen=HyphenationOption.getValue();
+  if ("auto".equals(hyphen)) {
+    return ZLBoolean3.B3_TRUE;
+  }
+ else   if ("none".equals(hyphen)) {
+    return ZLBoolean3.B3_FALSE;
+  }
+ else {
+    return ZLBoolean3.B3_UNDEFINED;
+  }
+}

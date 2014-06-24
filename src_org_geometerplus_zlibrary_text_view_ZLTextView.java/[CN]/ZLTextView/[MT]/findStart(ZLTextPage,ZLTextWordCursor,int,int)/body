@@ -1,9 +1,11 @@
 {
   final ZLTextWordCursor start=new ZLTextWordCursor(end);
-  size-=paragraphSize(page,start,true,unit);
+  ParagraphSize size=paragraphSize(page,start,true,unit);
+  height-=size.Height;
   boolean positionChanged=!start.isStartOfParagraph();
   start.moveToParagraphStart();
-  while (size > 0) {
+  while (height > 0) {
+    final ParagraphSize previousSize=size;
     if (positionChanged && start.getParagraphCursor().isEndOfSection()) {
       break;
     }
@@ -13,9 +15,13 @@
     if (!start.getParagraphCursor().isEndOfSection()) {
       positionChanged=true;
     }
-    size-=paragraphSize(page,start,false,unit);
+    size=paragraphSize(page,start,false,unit);
+    height-=size.Height;
+    if (previousSize != null) {
+      height+=Math.min(size.BottomMargin,previousSize.TopMargin);
+    }
   }
-  skip(page,start,unit,-size);
+  skip(page,start,unit,-height);
   if (unit == SizeUnit.PIXEL_UNIT) {
     boolean sameStart=start.samePositionAs(end);
     if (!sameStart && start.isEndOfParagraph() && end.isStartOfParagraph()) {

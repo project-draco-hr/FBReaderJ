@@ -1,0 +1,46 @@
+{
+  if (myState != State.READ_COMMENT && token.startsWith("/*")) {
+    mySavedState=myState;
+    myState=State.READ_COMMENT;
+    return;
+  }
+switch (myState) {
+case READ_COMMENT:
+    if (token.endsWith("*/")) {
+      myState=mySavedState;
+    }
+  break;
+case EXPECT_SELECTOR:
+mySelector=token;
+myState=State.EXPECT_OPEN_BRACKET;
+break;
+case EXPECT_OPEN_BRACKET:
+if ("{".equals(token)) {
+myCurrentMap=new HashMap<String,String>();
+myState=State.EXPECT_NAME;
+}
+break;
+case EXPECT_NAME:
+if ("}".equals(token)) {
+if (mySelector != null) {
+try {
+myDescriptionMap.put(Integer.valueOf(myCurrentMap.get("fbreader-id")),new ZLTextNGStyleDescription(mySelector,myCurrentMap));
+}
+ catch (Exception e) {
+}
+}
+myState=State.EXPECT_SELECTOR;
+}
+ else {
+myName=token;
+myState=State.EXPECT_VALUE;
+}
+break;
+case EXPECT_VALUE:
+if (myCurrentMap != null && myName != null) {
+myCurrentMap.put(myName,token);
+}
+myState=State.EXPECT_NAME;
+break;
+}
+}

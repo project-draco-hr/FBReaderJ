@@ -1,0 +1,30 @@
+{
+  System.err.println("+++ TOKEN AUTH +++");
+  try {
+    final String authUrl=url(uri,params,"auth-url-token");
+    final String clientId=params.get("client-id");
+    if (authUrl == null || clientId == null) {
+      return false;
+    }
+    final Intent intent=AccountManager.newChooseAccountIntent(null,null,new String[]{"com.google"},false,null,null,null,null);
+    startActivityAndWait(intent,NetworkLibraryActivity.REQUEST_ACCOUNT_PICKER);
+    if (myAccount == null) {
+      return false;
+    }
+    final String authToken=GoogleAuthUtil.getToken(myActivity,myAccount,String.format("audience:server:client_id:%s",clientId));
+    System.err.println("AUTH TOKEN = " + authToken);
+    final String result=runTokenAuthorization(authUrl,authToken,null);
+    System.err.println("AUTHENTICATION RESULT 1 = " + result);
+    if ("SUCCESS".equals(result)) {
+      return true;
+    }
+    return registerAccessToken(clientId,authUrl,authToken);
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+    return false;
+  }
+ finally {
+    System.err.println("--- TOKEN AUTH ---");
+  }
+}

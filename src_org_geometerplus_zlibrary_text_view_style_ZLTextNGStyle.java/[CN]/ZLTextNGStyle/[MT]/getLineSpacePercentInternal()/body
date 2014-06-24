@@ -1,0 +1,7 @@
+{
+  final String lineHeight=myDescription.LineHeightOption.getValue();
+  if (!lineHeight.matches("[1-9][0-9]*%")) {
+    return Parent.getLineSpacePercent();
+  }
+  return Integer.valueOf(lineHeight.substring(0,lineHeight.length() - 1));
+}

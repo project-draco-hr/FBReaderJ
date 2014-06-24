@@ -3,5 +3,5 @@
     return;
   }
   ((NetworkCatalogTree)tree).clearCatalog();
-  ((NetworkCatalogTree)tree).startItemsLoader(null,false);
+  ((NetworkCatalogTree)tree).startItemsLoader(myNetworkContext,false,false);
 }

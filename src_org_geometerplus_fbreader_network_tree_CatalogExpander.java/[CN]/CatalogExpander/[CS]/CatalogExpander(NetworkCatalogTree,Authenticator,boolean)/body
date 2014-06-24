@@ -1,5 +1,0 @@
-{
-  super(tree);
-  myAuthenticator=authenticator;
-  myResumeNotLoad=resumeNotLoad;
-}

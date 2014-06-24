@@ -1,0 +1,9 @@
+{
+switch (event) {
+default :
+    break;
+case Added:
+  addBook(book);
+break;
+}
+}

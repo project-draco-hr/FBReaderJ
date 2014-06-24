@@ -1,0 +1,6 @@
+{
+  if (!PreviousInfoUsed && previous != null) {
+    Height-=Math.min(previous.VSpaceAfter,VSpaceBefore);
+    PreviousInfoUsed=true;
+  }
+}

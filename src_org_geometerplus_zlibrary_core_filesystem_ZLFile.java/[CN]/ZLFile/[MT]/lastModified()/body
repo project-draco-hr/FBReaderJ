@@ -1,0 +1,4 @@
+{
+  final ZLFile physicalFile=getPhysicalFile();
+  return physicalFile != null ? physicalFile.lastModified() : 0;
+}

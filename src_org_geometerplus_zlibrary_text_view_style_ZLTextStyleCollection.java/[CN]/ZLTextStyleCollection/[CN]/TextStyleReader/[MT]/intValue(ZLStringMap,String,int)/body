@@ -1,22 +1,11 @@
 {
-  int i=defaultValue;
-  String value=attributes.getValue(name);
+  final String value=attributes.getValue(name);
   if (value != null) {
-    if (value.startsWith("dpi*")) {
-      try {
-        final float coe=Float.parseFloat(value.substring(4));
-        i=(int)(coe * myDpi + .5f);
-      }
- catch (      NumberFormatException e) {
-      }
+    try {
+      return Integer.parseInt(value);
     }
- else {
-      try {
-        i=Integer.parseInt(value);
-      }
- catch (      NumberFormatException e) {
-      }
+ catch (    NumberFormatException e) {
     }
   }
-  return i;
+  return defaultValue;
 }

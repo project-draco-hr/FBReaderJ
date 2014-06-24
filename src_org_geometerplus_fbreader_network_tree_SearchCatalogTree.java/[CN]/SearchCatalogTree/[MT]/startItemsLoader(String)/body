@@ -1,3 +1,0 @@
-{
-  new Searcher(this,pattern).start();
-}

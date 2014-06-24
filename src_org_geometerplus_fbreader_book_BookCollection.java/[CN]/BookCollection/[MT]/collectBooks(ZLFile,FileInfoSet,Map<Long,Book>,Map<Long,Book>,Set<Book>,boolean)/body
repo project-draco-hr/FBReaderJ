@@ -7,7 +7,7 @@
     final Book book=orphanedBooksByFileId.get(fileId);
     if (book != null) {
       if (doReadMetaInfo) {
-        book.readMetaInfo();
+        book.readMetainfo();
       }
       newBooks.add(book);
       return;

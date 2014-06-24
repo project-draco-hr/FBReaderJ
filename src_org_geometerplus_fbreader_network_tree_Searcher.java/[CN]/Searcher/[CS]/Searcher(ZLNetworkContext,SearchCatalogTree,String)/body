@@ -1,0 +1,4 @@
+{
+  super(nc,tree);
+  myPattern=pattern;
+}

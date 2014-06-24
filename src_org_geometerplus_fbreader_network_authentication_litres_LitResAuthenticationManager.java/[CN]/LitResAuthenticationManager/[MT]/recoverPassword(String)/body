@@ -6,5 +6,5 @@
   final LitResPasswordRecoveryXMLReader xmlReader=new LitResPasswordRecoveryXMLReader(Link.getSiteName());
   final LitResNetworkRequest request=new LitResNetworkRequest(url,xmlReader);
   request.addPostParameter("mail",email);
-  ZLNetworkManager.Instance().perform(request);
+  myNetworkContext.perform(request);
 }

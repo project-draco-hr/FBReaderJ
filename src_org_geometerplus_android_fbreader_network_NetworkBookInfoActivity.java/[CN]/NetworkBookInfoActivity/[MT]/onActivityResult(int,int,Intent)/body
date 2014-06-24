@@ -1,0 +1,3 @@
+{
+  myNetworkContext.onActivityResult(requestCode,resultCode,data);
+}

@@ -1,0 +1,17 @@
+{
+  Name=valueMap.get("fbreader-name");
+  FontFamilyOption=createOption(selector,"font-family",valueMap);
+  FontSizeOption=createOption(selector,"font-size",valueMap);
+  FontWeightOption=createOption(selector,"font-weight",valueMap);
+  FontStyleOption=createOption(selector,"font-style",valueMap);
+  TextDecorationOption=createOption(selector,"text-decoration",valueMap);
+  HyphenationOption=createOption(selector,"hyphens",valueMap);
+  MarginTopOption=createOption(selector,"margin-top",valueMap);
+  MarginBottomOption=createOption(selector,"margin-bottom",valueMap);
+  MarginLeftOption=createOption(selector,"margin-left",valueMap);
+  MarginRightOption=createOption(selector,"margin-right",valueMap);
+  TextIndentOption=createOption(selector,"text-indent",valueMap);
+  AlignmentOption=createOption(selector,"text-align",valueMap);
+  VerticalAlignOption=createOption(selector,"vertical-align",valueMap);
+  LineHeightOption=createOption(selector,"line-height",valueMap);
+}
