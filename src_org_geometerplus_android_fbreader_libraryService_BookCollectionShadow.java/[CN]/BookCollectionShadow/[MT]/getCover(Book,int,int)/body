@@ -3,7 +3,7 @@
     return null;
   }
   try {
-    return myInterface.getCover(SerializerUtil.serialize(book));
+    return myInterface.getCover(SerializerUtil.serialize(book),width,height);
   }
  catch (  RemoteException e) {
     e.printStackTrace();

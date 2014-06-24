@@ -1,3 +1,0 @@
-{
-  return myCollection.getCover(SerializerUtil.deserializeBook(book));
-}

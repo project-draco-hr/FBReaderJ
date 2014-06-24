@@ -1,6 +1,0 @@
-{
-  if (getBookById(book.getId()) == null) {
-    return null;
-  }
-  return BookUtil.getCover(book).getBitmap();
-}
