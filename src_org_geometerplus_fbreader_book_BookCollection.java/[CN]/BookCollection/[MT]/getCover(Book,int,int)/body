@@ -6,5 +6,5 @@
   if (rawBitmap == null) {
     return null;
   }
-  return Bitmap.createScaledBitmap(rawBitmap,width,height,false);
+  return getResizedBitmap(rawBitmap,maxWidth,maxHeight);
 }
