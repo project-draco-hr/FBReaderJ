@@ -1,0 +1,37 @@
+{
+  final UID uid=BookUtil.createUid(file,"SHA-1");
+  if (uid == null) {
+    System.err.println("Failed: SHA-1 checksum not computed");
+    return;
+  }
+  final Map<String,Object> result=new HashMap<String,Object>();
+  final JsonRequest verificationRequest=new JsonRequest("books.by.hash",Collections.singletonMap("sha1",uid.Id)){
+    @Override public void processResponse(    Object response){
+      result.put("result",response);
+    }
+  }
+;
+  myNetworkContext.performQuietly(verificationRequest);
+  final String csrfToken=myNetworkContext.getCookieValue(DOMAIN,"csrftoken");
+  final Object response=result.get("result");
+  if (response == null) {
+    System.err.println("UNEXPECTED ERROR: NO RESPONSE");
+  }
+ else   if (!(response instanceof List)) {
+    System.err.println("UNEXPECTED RESPONSE: " + response);
+  }
+ else   if (!((List)response).isEmpty()) {
+    System.err.println("BOOK ALREADY UPLOADED");
+  }
+ else {
+    try {
+      final UploadRequest uploadRequest=new UploadRequest(file.javaFile());
+      uploadRequest.addHeader("Referer",verificationRequest.getURL());
+      uploadRequest.addHeader("X-CSRFToken",csrfToken);
+      myNetworkContext.perform(uploadRequest);
+    }
+ catch (    ZLNetworkException e) {
+      e.printStackTrace();
+    }
+  }
+}
