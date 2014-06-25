@@ -1,0 +1,15 @@
+{
+  final BufferedReader reader=new BufferedReader(new InputStreamReader(stream));
+  final StringBuilder buffer=new StringBuilder();
+  String line;
+  while ((line=reader.readLine()) != null) {
+    buffer.append(line);
+  }
+  final Object response=JSONValue.parse(buffer.toString());
+  if (response instanceof Map && ((Map)response).isEmpty()) {
+    System.err.println("UPLOADED SUCCESSFULLY");
+  }
+ else {
+    System.err.println("UPLOAD FAILURE: " + response);
+  }
+}

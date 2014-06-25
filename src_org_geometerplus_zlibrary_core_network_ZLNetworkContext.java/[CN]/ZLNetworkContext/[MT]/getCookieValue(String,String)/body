@@ -1,0 +1,8 @@
+{
+  for (  Cookie c : cookieStore().getCookies()) {
+    if (domain.equals(c.getDomain()) && name.equals(c.getName())) {
+      return c.getValue();
+    }
+  }
+  return null;
+}

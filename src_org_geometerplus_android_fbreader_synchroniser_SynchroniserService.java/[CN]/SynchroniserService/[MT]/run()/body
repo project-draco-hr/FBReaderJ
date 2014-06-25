@@ -27,7 +27,7 @@
           }
           myProcessed.add(book);
           System.err.println("Processing " + book.getTitle() + " ["+ book.File.getPath()+ "]");
-          uploadBookToServer(book);
+          uploadBookToServer(book.File.getPhysicalFile());
         }
         System.err.println("BYE-BYE THREAD");
         ourSynchronizationThread=null;
