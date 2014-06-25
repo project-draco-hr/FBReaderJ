@@ -1,3 +1,3 @@
 String url
-String postData
+String body
 boolean quiet

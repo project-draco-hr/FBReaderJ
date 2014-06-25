@@ -5,7 +5,7 @@
     return;
   }
   System.err.println("SHA-1: " + uid.Id);
-  myNetworkContext.performQuietly(new Request("books.by.hash",Collections.singletonMap("sha1",uid.Id)){
+  myNetworkContext.performQuietly(new JsonRequest("books.by.hash",Collections.singletonMap("sha1",uid.Id)){
     public void processResponse(    Object response){
       System.err.println("RESPONSE = " + response);
     }
