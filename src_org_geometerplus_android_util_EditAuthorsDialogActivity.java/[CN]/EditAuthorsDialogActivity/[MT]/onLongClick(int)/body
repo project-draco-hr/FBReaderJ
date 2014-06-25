@@ -1,0 +1,9 @@
+{
+  myEditPosition=position;
+  String s=(String)getListAdapter().getItem(position);
+  myInputField.setText(s);
+  myInputField.setSelection(myInputField.getText().length());
+  myInputField.requestFocus();
+  InputMethodManager imm=(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+  imm.showSoftInput(myInputField,InputMethodManager.SHOW_IMPLICIT);
+}
