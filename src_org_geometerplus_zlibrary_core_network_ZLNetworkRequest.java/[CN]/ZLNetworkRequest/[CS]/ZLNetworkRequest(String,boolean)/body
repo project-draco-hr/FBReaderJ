@@ -1,3 +1,4 @@
 {
-  this(url,null,quiet);
+  URL=url;
+  myIsQuiet=quiet;
 }

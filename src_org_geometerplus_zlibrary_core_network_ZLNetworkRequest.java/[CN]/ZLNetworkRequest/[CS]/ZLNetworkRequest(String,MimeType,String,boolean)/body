@@ -1,6 +1,0 @@
-{
-  URL=url;
-  Mime=mime;
-  PostData=postData;
-  myIsQuiet=quiet;
-}

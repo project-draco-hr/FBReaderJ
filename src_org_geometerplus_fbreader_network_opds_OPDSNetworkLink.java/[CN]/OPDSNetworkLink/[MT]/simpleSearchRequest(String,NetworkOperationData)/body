@@ -1,6 +1,6 @@
 {
   final UrlInfo info=getUrlInfo(UrlInfo.Type.Search);
-  if (info == null || info.Url == null) {
+  if (info == null || info.Url == null || !MimeType.APP_ATOM_XML.weakEquals(info.Mime)) {
     return null;
   }
   try {
@@ -8,5 +8,5 @@
   }
  catch (  UnsupportedEncodingException e) {
   }
-  return createNetworkData(info.Url.replace("%s",pattern),info.Mime,(OPDSCatalogItem.State)data);
+  return createNetworkData(info.Url.replace("%s",pattern),(OPDSCatalogItem.State)data);
 }
