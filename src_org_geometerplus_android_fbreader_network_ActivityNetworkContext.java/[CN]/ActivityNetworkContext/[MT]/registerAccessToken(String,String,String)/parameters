@@ -1,0 +1,3 @@
+String clientId
+String authUrl
+String authToken

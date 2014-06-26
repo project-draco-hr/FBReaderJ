@@ -1,0 +1,4 @@
+{
+  super(activity,ActionCode.OPEN_CATALOG,"openCatalog",-1);
+  myNetworkContext=nc;
+}

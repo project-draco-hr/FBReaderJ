@@ -17,7 +17,7 @@ synchronized (this) {
   requests.add(purchasedBooksRequest);
   requests.add(accountRequest);
   try {
-    ZLNetworkManager.Instance().perform(requests);
+    myNetworkContext.perform(requests);
     final boolean hasMorePages;
 synchronized (this) {
       myInitializedDataSid=sid;
@@ -27,7 +27,7 @@ synchronized (this) {
     if (hasMorePages) {
       for (int page=1; ; ++page) {
         final LitResNetworkRequest r=loadPurchasedBooksRequest(sid,page);
-        ZLNetworkManager.Instance().perform(r);
+        myNetworkContext.perform(r);
 synchronized (this) {
           if (loadPurchasedBooksOnSuccess(r,false) < BOOKS_PER_PAGE) {
             break;

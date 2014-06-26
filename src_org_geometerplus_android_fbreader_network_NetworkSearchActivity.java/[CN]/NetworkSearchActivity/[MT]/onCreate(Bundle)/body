@@ -13,7 +13,7 @@
         final String pattern=intent.getStringExtra(SearchManager.QUERY);
         final MimeType mime=searchTree.getMimeType();
         if (MimeType.APP_ATOM_XML.weakEquals(mime)) {
-          searchTree.startItemsLoader(pattern);
+          searchTree.startItemsLoader(new QuietNetworkContext(),pattern);
         }
  else         if (MimeType.TEXT_HTML.weakEquals(mime)) {
           Util.openInBrowser(this,searchTree.getUrl(pattern));

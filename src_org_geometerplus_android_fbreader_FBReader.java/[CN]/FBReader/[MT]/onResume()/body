@@ -1,5 +1,6 @@
 {
   super.onResume();
+  bindService(new Intent(this,SynchroniserService.class),mySynchroniserConnection,SynchroniserService.BIND_AUTO_CREATE);
   myStartTimer=true;
   Config.Instance().runOnConnect(new Runnable(){
     public void run(){

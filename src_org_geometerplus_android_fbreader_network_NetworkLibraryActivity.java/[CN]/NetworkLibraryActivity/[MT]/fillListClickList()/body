@@ -1,9 +1,9 @@
 {
-  myListClickActions.add(new OpenCatalogAction(this));
+  myListClickActions.add(new OpenCatalogAction(this,myNetworkContext));
   myListClickActions.add(new OpenInBrowserAction(this));
   myListClickActions.add(new RunSearchAction(this,true));
   myListClickActions.add(new AddCustomCatalogAction(this));
   myListClickActions.add(new TopupAction(this));
-  myListClickActions.add(new ShowBookInfoAction(this));
+  myListClickActions.add(new ShowBookInfoAction(this,myNetworkContext));
   myListClickActions.add(new ManageCatalogsAction(this));
 }

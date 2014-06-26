@@ -35,7 +35,7 @@
     }
   }
 ;
-  final ZLNetworkRequest request=new ZLNetworkRequest(urlString){
+  final ZLNetworkRequest request=new ZLNetworkRequest.Get(urlString){
     public void handleStream(    InputStream inputStream,    int length) throws IOException, ZLNetworkException {
       final int updateIntervalMillis=1000;
       int downloadedPart=0;
@@ -86,7 +86,7 @@
     public void run(){
       boolean success=false;
       try {
-        ZLNetworkManager.Instance().perform(request);
+        myNetworkContext.perform(request);
         success=true;
       }
  catch (      ZLNetworkException e) {

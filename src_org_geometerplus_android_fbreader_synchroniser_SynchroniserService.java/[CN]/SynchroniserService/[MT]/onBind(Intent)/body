@@ -1,0 +1,5 @@
+{
+  SQLiteCookieDatabase.init(this);
+  myCollection.bindToService(this,this);
+  return null;
+}

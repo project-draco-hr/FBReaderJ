@@ -1,4 +1,5 @@
 {
+  super("Authentication failed");
   if (challenge != null && "bearer".equalsIgnoreCase(challenge.substring(0,6))) {
     for (    String param : challenge.substring(6).split(",")) {
       final int index=param.indexOf("=");

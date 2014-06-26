@@ -1,0 +1,5 @@
+{
+  if (!myProcessed.contains(book) && book.File.getPhysicalFile() != null) {
+    myQueue.add(book);
+  }
+}

@@ -1,0 +1,3 @@
+{
+  new Searcher(nc,this,pattern).start();
+}

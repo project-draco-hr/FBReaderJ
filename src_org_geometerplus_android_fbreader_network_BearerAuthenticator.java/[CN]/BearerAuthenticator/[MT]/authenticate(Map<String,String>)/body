@@ -1,3 +1,0 @@
-{
-  return GooglePlayServicesUtil.isGooglePlayServicesAvailable(myActivity) == ConnectionResult.SUCCESS ? authenticateToken(params) : authenticateWeb(params);
-}

@@ -5,12 +5,7 @@
  else {
     UIUtil.wait("loadInfo",new Runnable(){
       public void run(){
-        try {
-          getBook(tree).loadFullInformation();
-        }
- catch (        ZLNetworkException e) {
-          e.printStackTrace();
-        }
+        getBook(tree).loadFullInformation(myNetworkContext);
         myActivity.runOnUiThread(new Runnable(){
           public void run(){
             showBookInfo(tree);

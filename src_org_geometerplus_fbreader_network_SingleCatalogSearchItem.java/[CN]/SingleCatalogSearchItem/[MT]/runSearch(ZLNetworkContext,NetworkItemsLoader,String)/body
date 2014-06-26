@@ -1,0 +1,11 @@
+{
+  final NetworkOperationData data=Link.createOperationData(loader);
+  ZLNetworkRequest request=Link.simpleSearchRequest(pattern,data);
+  while (request != null) {
+    nc.perform(request);
+    if (loader.confirmInterruption()) {
+      return;
+    }
+    request=data.resume();
+  }
+}

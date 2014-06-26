@@ -1,0 +1,10 @@
+{
+synchronized (this) {
+    OrientationUtil.startActivityForResult(myActivity,intent,requestCode);
+    try {
+      wait();
+    }
+ catch (    InterruptedException e) {
+    }
+  }
+}

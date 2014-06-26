@@ -5,7 +5,7 @@
     }
   }
 );
-  if (BearerAuthenticator.onActivityResult(requestCode,resultCode,data)) {
+  if (myNetworkContext.onActivityResult(requestCode,resultCode,data)) {
     return;
   }
   if (resultCode != RESULT_OK || data == null) {
