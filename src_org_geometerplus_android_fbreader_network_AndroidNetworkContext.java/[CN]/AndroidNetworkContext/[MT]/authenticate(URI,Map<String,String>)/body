@@ -1,8 +1,4 @@
 {
-  System.err.println("REQUESTED AUTH FOR " + uri);
-  for (  Object o : cookieStore().getCookies()) {
-    System.err.println("AUTH COOKIE: " + o);
-  }
   if (!"https".equalsIgnoreCase(uri.getScheme())) {
     return false;
   }
