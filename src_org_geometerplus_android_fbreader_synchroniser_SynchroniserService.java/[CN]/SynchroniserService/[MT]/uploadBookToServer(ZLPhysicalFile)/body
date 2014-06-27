@@ -14,24 +14,25 @@
   myNetworkContext.performQuietly(verificationRequest);
   final String csrfToken=myNetworkContext.getCookieValue(DOMAIN,"csrftoken");
   final Object response=result.get("result");
-  if (response == null) {
-    System.err.println("UNEXPECTED ERROR: NO RESPONSE");
-  }
- else   if (!(response instanceof List)) {
-    System.err.println("UNEXPECTED RESPONSE: " + response);
-  }
- else   if (!((List)response).isEmpty()) {
-    System.err.println("BOOK ALREADY UPLOADED");
-  }
+  try {
+    final List responseList=(List)response;
+    if (responseList.isEmpty()) {
+      try {
+        final UploadRequest uploadRequest=new UploadRequest(file.javaFile());
+        uploadRequest.addHeader("Referer",verificationRequest.getURL());
+        uploadRequest.addHeader("X-CSRFToken",csrfToken);
+        myNetworkContext.perform(uploadRequest);
+      }
+ catch (      ZLNetworkException e) {
+        e.printStackTrace();
+      }
+    }
  else {
-    try {
-      final UploadRequest uploadRequest=new UploadRequest(file.javaFile());
-      uploadRequest.addHeader("Referer",verificationRequest.getURL());
-      uploadRequest.addHeader("X-CSRFToken",csrfToken);
-      myNetworkContext.perform(uploadRequest);
+      final Map<String,String> firstBookInfo=(Map<String,String>)responseList.get(0);
+      System.err.println("BOOK ALREADY UPLOADED: " + firstBookInfo.get("id"));
     }
- catch (    ZLNetworkException e) {
-      e.printStackTrace();
-    }
+  }
+ catch (  Exception e) {
+    System.err.println("UNEXPECTED RESPONSE: " + response);
   }
 }
