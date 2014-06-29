@@ -1,6 +1,0 @@
-{
-  if (!isSynchronized()) {
-    synchronize();
-  }
-  return super.getBitmap();
-}
