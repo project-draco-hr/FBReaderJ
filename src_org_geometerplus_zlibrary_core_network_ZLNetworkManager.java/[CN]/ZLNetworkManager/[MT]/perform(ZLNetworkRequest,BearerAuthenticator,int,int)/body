@@ -57,7 +57,7 @@
       final ZLNetworkRequest.FileUpload uploadRequest=(ZLNetworkRequest.FileUpload)request;
       final File file=((ZLNetworkRequest.FileUpload)request).File;
       httpRequest=new HttpPost(request.URL);
-      final MultipartEntity data=new MultipartEntity(HttpMultipartMode.BROWSER_COMPATIBLE);
+      final MultipartEntity data=new MultipartEntity(HttpMultipartMode.BROWSER_COMPATIBLE,null,Charset.forName("utf-8"));
       data.addPart("file",new FileBody(uploadRequest.File));
       ((HttpPost)httpRequest).setEntity(data);
     }

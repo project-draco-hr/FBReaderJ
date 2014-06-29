@@ -49,6 +49,12 @@ getOPDSEntry().DCPublisher=bufferContent;
 myState=F_ENTRY;
 }
 return false;
+case FE_DC_IDENTIFIER:
+if (ns == XMLNamespaces.DublinCoreTerms && tag == DC_TAG_IDENTIFIER) {
+getOPDSEntry().DCIdentifiers.add(bufferContent);
+myState=F_ENTRY;
+}
+return false;
 case FE_CALIBRE_SERIES:
 if (ns == XMLNamespaces.CalibreMetadata && tag == CALIBRE_TAG_SERIES) {
 getOPDSEntry().SeriesTitle=bufferContent;

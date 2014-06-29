@@ -6,10 +6,26 @@
     buffer.append(line);
   }
   final Object response=JSONValue.parse(buffer.toString());
-  if (response instanceof Map && ((Map)response).isEmpty()) {
-    System.err.println("UPLOADED SUCCESSFULLY");
+  String id=null;
+  List<String> hashes=null;
+  String error=null;
+  try {
+    if (response instanceof Map) {
+      id=(String)((Map)response).get("id");
+      hashes=(List<String>)((Map)response).get("hashes");
+      error=(String)((Map)response).get("error");
+    }
+  }
+ catch (  Exception e) {
+  }
+  if (error != null) {
+    System.err.println("UPLOAD FAILURE: " + error);
+  }
+ else   if (id != null && hashes != null) {
+    System.err.println("UPLOADED SUCCESSFULLY: " + id);
+    myHashesFromServer.addAll(hashes);
   }
  else {
-    System.err.println("UPLOAD FAILURE: " + response);
+    System.err.println("UNEXPECED RESPONSE: " + response);
   }
 }
