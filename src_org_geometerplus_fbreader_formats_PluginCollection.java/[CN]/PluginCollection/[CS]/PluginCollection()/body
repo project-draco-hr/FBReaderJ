@@ -1,5 +1,3 @@
 {
-  addPlugin(new FB2Plugin());
   addPlugin(new MobipocketPlugin());
-  addPlugin(new OEBPlugin());
 }

@@ -1,15 +1,12 @@
 {
-switch (FB2Tag.getTagByName(tagName)) {
-case FB2Tag.BODY:
+  if ("body".equalsIgnoreCase(tag)) {
     return true;
-case FB2Tag.ANNOTATION:
-  myReadState=READ_ANNOTATION;
-break;
-default :
-if (myReadState == READ_ANNOTATION) {
-myBuffer.append(" ");
-}
-break;
-}
-return false;
+  }
+ else   if ("annotation".equalsIgnoreCase(tag)) {
+    myReadState=READ_ANNOTATION;
+  }
+ else   if (myReadState == READ_ANNOTATION) {
+    myBuffer.append(" ");
+  }
+  return false;
 }

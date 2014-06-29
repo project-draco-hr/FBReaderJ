@@ -1,3 +1,0 @@
-{
-  return testTag(DublinCore,name,tag) || testTag(DublinCoreLegacy,name,tag);
-}

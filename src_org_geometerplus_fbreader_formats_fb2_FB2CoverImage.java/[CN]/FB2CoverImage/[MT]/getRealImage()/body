@@ -1,3 +1,0 @@
-{
-  return new BackgroundReader().readCover(myFile);
-}
