@@ -1,0 +1,11 @@
+{
+  final int realWidth=bitmap.getWidth();
+  final int realHeight=bitmap.getHeight();
+  if (realWidth <= maxWidth && realHeight <= maxHeight) {
+    return bitmap;
+  }
+  float aspect=Math.max((float)realWidth / maxWidth,(float)realHeight / maxHeight);
+  final int scaledWidth=(int)(realWidth / aspect);
+  final int scaledHeight=(int)(realHeight / aspect);
+  return Bitmap.createScaledBitmap(bitmap,scaledWidth,scaledHeight,false);
+}

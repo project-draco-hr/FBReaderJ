@@ -6,5 +6,5 @@
   if (rawBitmap == null) {
     return null;
   }
-  return getResizedBitmap(rawBitmap,maxWidth,maxHeight);
+  return resized(rawBitmap,maxWidth,maxHeight);
 }
