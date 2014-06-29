@@ -1,4 +1,4 @@
 {
-  super(mimeType);
+  myMimeType=mimeType;
   new File(makeImagesDir()).mkdirs();
 }

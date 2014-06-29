@@ -1,7 +1,0 @@
-{
-  final InputStream inputStream=inputStream();
-  if (inputStream == null) {
-    return null;
-  }
-  return BitmapFactory.decodeStream(inputStream);
-}

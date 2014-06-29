@@ -1,3 +1,0 @@
-{
-  return myImage != null ? myImage.inputStream() : null;
-}

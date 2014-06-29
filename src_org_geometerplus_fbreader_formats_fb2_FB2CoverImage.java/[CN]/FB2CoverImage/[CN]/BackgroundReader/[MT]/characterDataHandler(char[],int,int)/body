@@ -1,5 +1,0 @@
-{
-  if (length > 0 && myImage != null) {
-    myImage.addData(data,start,length);
-  }
-}

@@ -1,5 +1,5 @@
 {
-  super(mimeType);
+  myMimeType=mimeType;
   myFile=file;
   myEncoding=encoding != null ? encoding : ENCODING_NONE;
   myOffsets=offsets;

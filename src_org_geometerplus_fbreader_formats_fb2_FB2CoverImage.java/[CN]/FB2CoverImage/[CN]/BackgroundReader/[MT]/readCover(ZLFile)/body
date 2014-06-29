@@ -1,6 +1,0 @@
-{
-  myReadCoverPage=false;
-  myImageReference=null;
-  readQuietly(file);
-  return myImage;
-}

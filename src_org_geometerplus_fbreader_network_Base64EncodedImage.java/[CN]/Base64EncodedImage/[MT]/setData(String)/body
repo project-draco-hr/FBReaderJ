@@ -1,10 +1,9 @@
 {
   myDecodedFileName=makeImagesDir() + File.separator + Integer.toHexString(data.hashCode());
-  final MimeType type=mimeType();
-  if (MimeType.IMAGE_PNG.equals(type)) {
+  if (MimeType.IMAGE_PNG.equals(myMimeType)) {
     myDecodedFileName+=".png";
   }
- else   if (MimeType.IMAGE_JPEG.equals(type)) {
+ else   if (MimeType.IMAGE_JPEG.equals(myMimeType)) {
     myDecodedFileName+=".jpg";
   }
   if (isCacheValid(new File(myDecodedFileName))) {
