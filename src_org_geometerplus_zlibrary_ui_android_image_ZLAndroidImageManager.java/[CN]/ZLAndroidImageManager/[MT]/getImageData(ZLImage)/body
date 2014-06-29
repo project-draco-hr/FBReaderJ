@@ -3,7 +3,7 @@
     return new InputStreamImageData((ZLStreamImage)image);
   }
  else   if (image instanceof ZLBitmapImage) {
-    return null;
+    return BitmapImageData.get((ZLBitmapImage)image);
   }
  else   if (image instanceof ZLImageProxy) {
     return getImageData(((ZLImageProxy)image).getRealImage());
