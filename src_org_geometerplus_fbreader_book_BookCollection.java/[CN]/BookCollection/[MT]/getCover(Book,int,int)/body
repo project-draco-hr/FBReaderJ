@@ -1,0 +1,10 @@
+{
+  if (getBookById(book.getId()) == null) {
+    return null;
+  }
+  final Bitmap rawBitmap=BookUtil.getCover(book).getBitmap();
+  if (rawBitmap == null) {
+    return null;
+  }
+  return resized(rawBitmap,maxWidth,maxHeight);
+}
