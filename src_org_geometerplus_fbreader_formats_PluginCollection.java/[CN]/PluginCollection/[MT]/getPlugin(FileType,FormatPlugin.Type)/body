@@ -1,5 +1,5 @@
 {
-  if (fileType == null) {
+  if (fileType == null || formatType == null) {
     return null;
   }
 switch (formatType) {
