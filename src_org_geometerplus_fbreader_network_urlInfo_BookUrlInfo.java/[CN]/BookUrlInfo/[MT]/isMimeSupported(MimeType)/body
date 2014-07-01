@@ -1,3 +1,10 @@
 {
-  return MimeType.TYPES_FB2.contains(mime) || MimeType.TYPES_FB2_ZIP.contains(mime) || MimeType.TYPES_EPUB.contains(mime)|| MimeType.TYPES_MOBIPOCKET.contains(mime);
+  if (mime == null) {
+    return false;
+  }
+  final FileType type=FileTypeCollection.Instance.typeForMime(mime);
+  if (type == null) {
+    return false;
+  }
+  return PluginCollection.Instance().getPlugin(type,FormatPlugin.Type.ANY) != null;
 }

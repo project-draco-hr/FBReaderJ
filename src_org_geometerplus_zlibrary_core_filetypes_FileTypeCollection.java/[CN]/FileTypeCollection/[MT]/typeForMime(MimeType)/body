@@ -1,4 +1,7 @@
 {
+  if (mime == null) {
+    return null;
+  }
   for (  FileType type : types()) {
     if (type.mimeTypes().contains(mime)) {
       return type;
