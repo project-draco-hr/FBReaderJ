@@ -1,0 +1,18 @@
+{
+  if (mime == null) {
+    return -1;
+  }
+ else   if (MimeType.TYPES_MOBIPOCKET.contains(mime)) {
+    return 1;
+  }
+ else   if (MimeType.TYPES_FB2.contains(mime)) {
+    return 2;
+  }
+ else   if (MimeType.TYPES_FB2_ZIP.contains(mime)) {
+    return 3;
+  }
+ else   if (MimeType.TYPES_EPUB.contains(mime)) {
+    return 4;
+  }
+  return 0;
+}

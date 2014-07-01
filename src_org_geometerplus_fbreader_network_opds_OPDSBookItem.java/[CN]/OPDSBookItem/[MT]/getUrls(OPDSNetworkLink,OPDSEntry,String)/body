@@ -44,9 +44,8 @@
       urls.addInfo(new UrlInfo(referenceType,href,mime));
     }
  else     if (referenceType != null) {
-      final BookUrlInfo.Format format=formatByMimeType(mime);
-      if (!BookUrlInfo.Format.NONE.equals(format)) {
-        urls.addInfo(new BookUrlInfo(referenceType,format,href,mime));
+      if (BookUrlInfo.isMimeSupported(mime)) {
+        urls.addInfo(new BookUrlInfo(referenceType,href,mime));
       }
     }
   }
