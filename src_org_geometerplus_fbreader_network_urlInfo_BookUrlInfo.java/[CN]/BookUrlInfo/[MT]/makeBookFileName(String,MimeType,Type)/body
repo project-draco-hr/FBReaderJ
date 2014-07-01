@@ -36,10 +36,8 @@
     }
     ++index;
   }
-  String ext=null;
-  if (format != null && !MiscUtil.isEmptyString(format.Extension)) {
-    ext="." + format.Extension;
-  }
+  final FileType type=mime != null ? FileTypeCollection.Instance.typeForMime(mime) : null;
+  String ext=type != null ? "." + type.defaultExtension(mime) : null;
   if (ext == null) {
     int j=path.indexOf(".",nameIndex);
     if (j != -1) {

@@ -1,0 +1,3 @@
+{
+  return MimeType.TYPES_FB2.contains(mime) || MimeType.TYPES_FB2_ZIP.contains(mime) || MimeType.TYPES_EPUB.contains(mime)|| MimeType.TYPES_MOBIPOCKET.contains(mime);
+}

@@ -1,7 +1,7 @@
 {
   final String lName=file.getShortName().toLowerCase();
   if (lName.endsWith(".fb2")) {
-    return MimeType.TEXT_FB2;
+    return MimeType.APP_FB2_XML;
   }
  else   if (lName.endsWith(".fb2.zip")) {
     return MimeType.APP_FB2_ZIP;
