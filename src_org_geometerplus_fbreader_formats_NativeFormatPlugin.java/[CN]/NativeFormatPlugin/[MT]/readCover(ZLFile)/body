@@ -1,7 +1,7 @@
 {
   return new ZLImageProxy(){
-    @Override public int sourceType(){
-      return SourceType.DISK;
+    @Override public SourceType sourceType(){
+      return SourceType.FILE;
     }
     @Override public String getId(){
       return file.getPath();
