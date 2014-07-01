@@ -1,4 +1,11 @@
 {
+  if (title == null) {
+    return;
+  }
+  title=title.trim();
+  if (title.length() == 0) {
+    return;
+  }
   if (!getTitle().equals(title)) {
     super.setTitle(title);
     myIsSaved=false;
