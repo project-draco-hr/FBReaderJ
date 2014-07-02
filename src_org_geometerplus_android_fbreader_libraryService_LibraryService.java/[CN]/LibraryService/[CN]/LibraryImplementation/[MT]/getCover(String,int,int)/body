@@ -1,0 +1,3 @@
+{
+  return myCollection.getCover(SerializerUtil.deserializeBook(book),maxWidth,maxHeight);
+}

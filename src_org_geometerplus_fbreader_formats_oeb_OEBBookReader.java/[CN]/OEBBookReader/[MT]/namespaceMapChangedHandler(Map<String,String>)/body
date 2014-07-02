@@ -1,9 +1,0 @@
-{
-  myOPFSchemePrefix=null;
-  for (  Map.Entry<String,String> entry : namespaceMap.entrySet()) {
-    if (OpenPackagingFormat.equals(entry.getValue())) {
-      myOPFSchemePrefix=entry.getKey() + ":";
-      break;
-    }
-  }
-}

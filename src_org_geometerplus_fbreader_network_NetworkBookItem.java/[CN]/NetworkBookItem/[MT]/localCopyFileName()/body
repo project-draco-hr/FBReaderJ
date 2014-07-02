@@ -1,4 +1,10 @@
 {
+  System.err.println("Looking for file name");
+  for (  String identifier : Identifiers) {
+    if (identifier.startsWith(HASH_PREFIX)) {
+      System.err.println("hash: " + identifier.substring(HASH_PREFIX.length()));
+    }
+  }
   final boolean hasBuyReference=buyInfo() != null;
   BookUrlInfo reference=null;
   String fileName=null;
@@ -8,7 +14,7 @@
     }
     final BookUrlInfo br=(BookUrlInfo)r;
     final UrlInfo.Type type=br.InfoType;
-    if ((type == UrlInfo.Type.Book || type == UrlInfo.Type.BookConditional || (!hasBuyReference && type == UrlInfo.Type.BookFullOrDemo)) && (reference == null || br.BookFormat.compareTo(reference.BookFormat) > 0)) {
+    if ((type == UrlInfo.Type.Book || type == UrlInfo.Type.BookConditional || (!hasBuyReference && type == UrlInfo.Type.BookFullOrDemo)) && (reference == null || BookUrlInfo.isMimeBetterThan(br.Mime,reference.Mime))) {
       String name=br.localCopyFileName(UrlInfo.Type.Book);
       if (name != null) {
         reference=br;

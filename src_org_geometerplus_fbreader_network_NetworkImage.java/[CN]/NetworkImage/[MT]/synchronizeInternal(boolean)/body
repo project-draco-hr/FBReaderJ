@@ -21,7 +21,7 @@
     final File imageFile=new File(path);
     if (imageFile.exists()) {
       final long diff=System.currentTimeMillis() - imageFile.lastModified();
-      final long valid=7 * 24 * 60* 60* 1000;
+      final long valid=24 * 60 * 60* 1000;
       if (diff >= 0 && diff <= valid) {
         return;
       }

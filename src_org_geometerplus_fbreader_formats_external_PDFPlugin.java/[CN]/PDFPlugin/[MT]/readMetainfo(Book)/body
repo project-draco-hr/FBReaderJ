@@ -1,0 +1,16 @@
+{
+  final ZLFile file=book.File;
+  if (file != file.getPhysicalFile()) {
+    System.err.println("Only physical PDF files are supported");
+    return;
+  }
+  try {
+    final PDFDocument doc=new PDFDocument(book.File.getPath());
+    final PDFDocInfo info=doc.getDocumentInfo();
+    book.setTitle(info.getTitle());
+    book.addAuthor(info.getAuthor());
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

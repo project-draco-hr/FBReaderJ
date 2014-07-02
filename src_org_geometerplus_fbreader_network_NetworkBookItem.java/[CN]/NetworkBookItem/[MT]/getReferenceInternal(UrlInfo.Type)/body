@@ -5,7 +5,7 @@
       continue;
     }
     final BookUrlInfo br=(BookUrlInfo)r;
-    if (reference == null || br.BookFormat.compareTo(reference.BookFormat) > 0) {
+    if (reference == null || BookUrlInfo.isMimeBetterThan(br.Mime,reference.Mime)) {
       reference=br;
     }
   }

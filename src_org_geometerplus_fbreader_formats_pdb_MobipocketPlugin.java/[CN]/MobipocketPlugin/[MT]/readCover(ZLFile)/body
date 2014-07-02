@@ -3,10 +3,10 @@
     @Override public String getId(){
       return file.getPath();
     }
-    @Override public int sourceType(){
-      return SourceType.DISK;
+    @Override public SourceType sourceType(){
+      return SourceType.FILE;
     }
-    @Override public ZLSingleImage getRealImage(){
+    @Override public ZLImage getRealImage(){
       return readCoverInternal(file);
     }
   }

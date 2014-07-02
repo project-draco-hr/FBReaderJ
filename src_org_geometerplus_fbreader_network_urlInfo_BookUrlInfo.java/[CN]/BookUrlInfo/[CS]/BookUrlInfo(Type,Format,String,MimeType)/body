@@ -1,4 +1,0 @@
-{
-  super(type,url,mime);
-  BookFormat=format;
-}

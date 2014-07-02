@@ -11,7 +11,7 @@
     if (file == null) {
       return null;
     }
-    myFileImage=new ZLFileImage(mimeType(),file);
+    myFileImage=new ZLFileImage(myMimeType,file);
   }
   return myFileImage.inputStream();
 }
