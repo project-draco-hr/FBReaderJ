@@ -37,6 +37,14 @@
         finish();
       }
     }
+    public void onReceivedSslError(    WebView view,    SslErrorHandler handler,    SslError error){
+      if (android.os.Build.VERSION.SDK_INT == android.os.Build.VERSION_CODES.ECLAIR_MR1) {
+        handler.proceed();
+      }
+ else {
+        super.onReceivedSslError(view,handler,error);
+      }
+    }
   }
 );
   setContentView(view);
