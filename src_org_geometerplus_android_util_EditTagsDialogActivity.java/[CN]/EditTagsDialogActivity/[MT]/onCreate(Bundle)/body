@@ -2,7 +2,9 @@
   super.onCreate(savedInstanceState);
   setContentView(R.layout.edit_tags_dialog);
   myResource=ZLResource.resource("dialog").getResource("editTags");
-  myInputField=(EditText)findViewById(R.id.edit_tags_input_field);
+  final Intent intent=getIntent();
+  ArrayList<String> allTagsList=intent.getStringArrayListExtra(EditListDialogActivity.Key.ALL_ITEMS_LIST);
+  myInputField=(AutoCompleteTextView)findViewById(R.id.edit_tags_input_field);
   myInputField.setHint(myResource.getResource("addTag").getValue());
   myInputField.setOnEditorActionListener(new TextView.OnEditorActionListener(){
     public boolean onEditorAction(    TextView v,    int actionId,    KeyEvent event){
@@ -17,6 +19,7 @@
     }
   }
 );
+  myInputField.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,allTagsList));
   parseUIElements();
   final TagsAdapter adapter=new TagsAdapter();
   setListAdapter(adapter);

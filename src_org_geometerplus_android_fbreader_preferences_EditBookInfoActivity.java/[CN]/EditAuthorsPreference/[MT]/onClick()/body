@@ -11,6 +11,6 @@
     allAuthors.add(author.DisplayName);
   }
   intent.putExtra(EditListDialogActivity.Key.LIST,authors);
-  intent.putExtra(EditAuthorsDialogActivity.Key.ALL_AUTHOR_LIST,allAuthors);
+  intent.putExtra(EditListDialogActivity.Key.ALL_ITEMS_LIST,allAuthors);
   ((EditBookInfoActivity)getContext()).startActivityForResult(intent,EditAuthorsDialogActivity.REQ_CODE);
 }

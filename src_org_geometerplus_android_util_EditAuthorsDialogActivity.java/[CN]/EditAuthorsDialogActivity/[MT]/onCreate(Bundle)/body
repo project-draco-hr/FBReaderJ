@@ -2,7 +2,7 @@
   super.onCreate(savedInstanceState);
   setContentView(R.layout.edit_authors_dialog);
   final Intent intent=getIntent();
-  ArrayList<String> allAuthorList=intent.getStringArrayListExtra(Key.ALL_AUTHOR_LIST);
+  ArrayList<String> allAuthorList=intent.getStringArrayListExtra(EditListDialogActivity.Key.ALL_ITEMS_LIST);
   myInputField=(AutoCompleteTextView)findViewById(R.id.edit_authors_input_field);
   myInputField.setHint(myResource.getResource("addAuthor").getValue());
   myInputField.setOnEditorActionListener(new TextView.OnEditorActionListener(){
