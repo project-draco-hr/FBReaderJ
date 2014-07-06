@@ -1,0 +1,10 @@
+{
+switch (index) {
+case 0:
+    editAuthor(itemPosition);
+  break;
+case 1:
+deleteItem(itemPosition);
+break;
+}
+}

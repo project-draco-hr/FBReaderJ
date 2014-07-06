@@ -3,7 +3,7 @@
   final View deleteButton=view.findViewById(R.id.edit_item_remove);
   deleteButton.setOnClickListener(new View.OnClickListener(){
     public void onClick(    final View v){
-      showItemRemoveDialog(position);
+      deleteItem(position);
     }
   }
 );

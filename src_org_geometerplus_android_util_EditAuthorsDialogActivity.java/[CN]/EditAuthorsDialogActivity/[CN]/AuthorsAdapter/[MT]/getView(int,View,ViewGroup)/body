@@ -5,7 +5,7 @@
     deleteButton.setVisibility(View.VISIBLE);
     deleteButton.setOnClickListener(new View.OnClickListener(){
       public void onClick(      final View v){
-        showItemRemoveDialog(position);
+        deleteItem(position);
       }
     }
 );

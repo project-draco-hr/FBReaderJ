@@ -3,6 +3,8 @@
   final Intent intent=getIntent();
   myEditList=intent.getStringArrayListExtra(Key.LIST);
   setTitle(intent.getStringExtra(Key.ACTIVITY_TITLE));
-  myResource=ZLResource.resource("dialog").getResource("editAuthors");
   setResult(RESULT_CANCELED);
+  ZLResource editListResource=ZLResource.resource("dialog").getResource("editList");
+  myContextMenuItems.add(editListResource.getResource("edit").getValue());
+  myContextMenuItems.add(editListResource.getResource("remove").getValue());
 }

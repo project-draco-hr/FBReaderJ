@@ -1,4 +1,5 @@
 {
+  if (index < 0 || myResource == null)   return;
   final ZLResource resource=myResource.getResource("removeDialog");
   final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
   new AlertDialog.Builder(EditListDialogActivity.this).setCancelable(false).setTitle(resource.getValue()).setMessage(resource.getResource("message").getValue().replace("%s",myEditList.get(index))).setPositiveButton(buttonResource.getResource("yes").getValue(),new DialogInterface.OnClickListener(){

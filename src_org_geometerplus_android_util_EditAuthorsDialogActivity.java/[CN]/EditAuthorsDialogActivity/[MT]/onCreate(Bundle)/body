@@ -1,6 +1,7 @@
 {
   super.onCreate(savedInstanceState);
   setContentView(R.layout.edit_authors_dialog);
+  myResource=ZLResource.resource("dialog").getResource("editAuthors");
   final Intent intent=getIntent();
   ArrayList<String> allAuthorList=intent.getStringArrayListExtra(EditListDialogActivity.Key.ALL_ITEMS_LIST);
   myInputField=(AutoCompleteTextView)findViewById(R.id.edit_authors_input_field);
