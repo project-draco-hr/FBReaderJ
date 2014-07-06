@@ -1,0 +1,3 @@
+{
+  super(type,url,mime);
+}

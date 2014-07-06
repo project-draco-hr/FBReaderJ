@@ -1,0 +1,12 @@
+{
+  final int scaleFactor=options.inSampleSize;
+  if (scaleFactor <= 1) {
+    return myBitmap;
+  }
+  try {
+    return Bitmap.createScaledBitmap(myBitmap,myBitmap.getWidth() / scaleFactor,myBitmap.getHeight() / scaleFactor,false);
+  }
+ catch (  Exception e) {
+    return null;
+  }
+}

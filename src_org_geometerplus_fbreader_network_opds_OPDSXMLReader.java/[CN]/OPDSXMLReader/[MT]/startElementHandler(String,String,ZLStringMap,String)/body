@@ -33,6 +33,9 @@ case F_ENTRY:
  else     if (tag == DC_TAG_PUBLISHER) {
       myState=FE_DC_PUBLISHER;
     }
+ else     if (tag == DC_TAG_IDENTIFIER) {
+      myState=FE_DC_IDENTIFIER;
+    }
     return false;
   }
  else   if (ns == XMLNamespaces.CalibreMetadata) {

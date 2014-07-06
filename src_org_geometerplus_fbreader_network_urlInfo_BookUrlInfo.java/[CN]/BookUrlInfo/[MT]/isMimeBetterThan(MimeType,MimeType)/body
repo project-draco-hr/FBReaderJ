@@ -1,0 +1,3 @@
+{
+  return mimePriority(mime0) > mimePriority(mime1);
+}

@@ -1,3 +1,0 @@
-{
-  return MiscUtil.hashCode(Extension);
-}
