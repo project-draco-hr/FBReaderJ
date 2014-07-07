@@ -1,5 +1,5 @@
 {
-  if (author.length() != 0 && author.matches("[A-Za-z0-9_\\- ]*")) {
+  if (author.length() != 0 && author.matches(AUTHOR_NAME_FILTER)) {
     if (position < 0) {
       if (!myEditList.contains(author)) {
         myEditList.add(author);
