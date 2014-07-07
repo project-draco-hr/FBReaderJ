@@ -9,7 +9,7 @@
     return;
   }
   final Map<String,Object> result=new HashMap<String,Object>();
-  final JsonRequest verificationRequest=new JsonRequest("books.by.hash",Collections.singletonMap("sha1",uid.Id)){
+  final PostRequest verificationRequest=new PostRequest("books.by.hash",Collections.singletonMap("sha1",uid.Id)){
     @Override public void processResponse(    Object response){
       result.put("result",response);
     }
