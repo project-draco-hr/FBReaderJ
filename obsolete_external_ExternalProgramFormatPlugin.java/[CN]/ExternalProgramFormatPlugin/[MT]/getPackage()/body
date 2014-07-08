@@ -1,0 +1,3 @@
+{
+  return Formats.filetypeOption(supportedFileType()).getValue();
+}
