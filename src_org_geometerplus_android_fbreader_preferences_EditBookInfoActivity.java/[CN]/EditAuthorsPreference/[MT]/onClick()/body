@@ -1,12 +1,12 @@
 {
-  Intent intent=new Intent(getContext(),EditAuthorsDialogActivity.class);
+  final Intent intent=new Intent(getContext(),EditAuthorsDialogActivity.class);
   intent.putExtra(EditListDialogActivity.Key.ACTIVITY_TITLE,myResource.getValue());
-  ArrayList<String> authors=new ArrayList<String>();
+  final ArrayList<String> authors=new ArrayList<String>();
   for (  Author author : myBook.authors()) {
     authors.add(author.DisplayName);
   }
   ((EditBookInfoActivity)getContext()).saveBook();
-  ArrayList<String> allAuthors=new ArrayList<String>();
+  final ArrayList<String> allAuthors=new ArrayList<String>();
   for (  Author author : ((EditBookInfoActivity)getContext()).authors()) {
     allAuthors.add(author.DisplayName);
   }
