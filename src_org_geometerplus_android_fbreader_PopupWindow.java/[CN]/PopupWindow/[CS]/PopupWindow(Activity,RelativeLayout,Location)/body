@@ -27,7 +27,7 @@ p.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 p.addRule(RelativeLayout.CENTER_HORIZONTAL);
 root.addView(this,p);
 setVisibility(View.GONE);
-if (android.os.Build.VERSION.SDK_INT >= 11) {
+if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
 initAnimator();
 }
 }
