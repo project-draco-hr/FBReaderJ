@@ -1,0 +1,8 @@
+{
+  if (filetype == null)   return false;
+  if (filetype.equals(""))   return false;
+  if (filetype.contains(";"))   return false;
+  if (filetype.contains(" "))   return false;
+  if (filetype.contains("."))   return false;
+  return true;
+}

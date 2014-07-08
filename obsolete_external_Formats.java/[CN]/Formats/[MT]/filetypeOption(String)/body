@@ -1,0 +1,25 @@
+{
+  filetype=filetype.toLowerCase();
+  if ("fb2.zip".equals(filetype)) {
+    return filetypeOption("fb2");
+  }
+  if (getPredefinedFormats().contains(filetype)) {
+    FormatPlugin p=PluginCollection.Instance().getPlugin(FileTypeCollection.Instance.typeById(filetype),FormatPlugin.Type.ANY);
+    if (p instanceof JavaFormatPlugin) {
+      return new ZLStringOption("Formats",filetypeToOption(filetype),JAVA_OPTION);
+    }
+    if (p instanceof NativeFormatPlugin) {
+      return new ZLStringOption("Formats",filetypeToOption(filetype),NATIVE_OPTION);
+    }
+    if (p instanceof ExternalFormatPlugin) {
+      return new ZLStringOption("Formats",filetypeToOption(filetype),PLUGIN_OPTION);
+    }
+    return new ZLStringOption("Formats",filetypeToOption(filetype),"");
+  }
+ else   if (getCustomFormats().contains(filetype)) {
+    return new ZLStringOption("Formats",filetypeToOption(filetype),"");
+  }
+ else {
+    return null;
+  }
+}
