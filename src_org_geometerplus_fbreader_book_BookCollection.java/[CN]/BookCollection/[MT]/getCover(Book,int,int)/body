@@ -1,8 +1,3 @@
 {
-  if (getBookById(book.getId()) == null) {
-    return null;
-  }
-  final ZLAndroidImageManager manager=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
-  final ZLAndroidImageData data=manager.getImageData(BookUtil.getCover(book));
-  return data != null ? data.getBitmap(maxWidth,maxHeight) : null;
+  return BookUtil.getCover(book);
 }
