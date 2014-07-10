@@ -1,4 +1,4 @@
 {
-  myImage=getRealImage();
+  myImage=retrieveRealImage();
   setSynchronized();
 }
