@@ -1,6 +1,6 @@
 {
   if (myImage == null) {
-    myImage=retrieveRealImage();
+    myImage=retrieveRealImage(synchronizer);
     setSynchronized();
   }
 }

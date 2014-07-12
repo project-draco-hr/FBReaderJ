@@ -1,4 +1,4 @@
 {
   final ZLAndroidImageManager manager=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
-  manager.startImageLoading(image,postAction);
+  manager.startImageLoading(this,image,postAction);
 }

@@ -6,7 +6,7 @@
     @Override public SourceType sourceType(){
       return SourceType.FILE;
     }
-    @Override protected ZLImage retrieveRealImage(){
+    @Override protected ZLImage retrieveRealImage(    Synchronizer synchronizer){
       return readCoverInternal(file);
     }
   }

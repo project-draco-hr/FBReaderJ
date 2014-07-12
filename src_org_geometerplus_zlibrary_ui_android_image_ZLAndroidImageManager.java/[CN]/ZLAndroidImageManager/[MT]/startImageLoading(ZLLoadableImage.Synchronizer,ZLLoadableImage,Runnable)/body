@@ -2,5 +2,5 @@
   if (myLoader == null) {
     myLoader=new ZLAndroidImageLoader();
   }
-  myLoader.startImageLoading(image,postLoadingRunnable);
+  myLoader.startImageLoading(syncronizer,image,postLoadingRunnable);
 }

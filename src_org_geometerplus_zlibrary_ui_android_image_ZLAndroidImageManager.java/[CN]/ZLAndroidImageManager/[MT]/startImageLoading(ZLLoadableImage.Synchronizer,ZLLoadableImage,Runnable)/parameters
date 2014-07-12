@@ -1,2 +1,3 @@
+ZLLoadableImage.Synchronizer syncronizer
 ZLLoadableImage image
 Runnable postLoadingRunnable
