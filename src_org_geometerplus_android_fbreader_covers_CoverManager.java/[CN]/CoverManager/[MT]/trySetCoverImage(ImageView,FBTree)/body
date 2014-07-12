@@ -15,7 +15,7 @@
         setCoverForView(holder,img);
       }
  else {
-        img.startSynchronization(holder.new CoverSyncRunnable(img));
+        img.startSynchronization(myImageSynchronizer,holder.new CoverSyncRunnable(img));
       }
     }
  else     if (cover != null) {

@@ -1,5 +1,6 @@
 {
   myActivity=activity;
+  myImageSynchronizer=synchronizer;
   myCoverWidth=coverWidth;
   myCoverHeight=coverHeight;
 }

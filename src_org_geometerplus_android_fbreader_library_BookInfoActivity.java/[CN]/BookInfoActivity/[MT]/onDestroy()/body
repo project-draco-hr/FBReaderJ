@@ -1,5 +1,6 @@
 {
   myCollection.removeListener(this);
   myCollection.unbind();
+  myImageSynchronizer.clear();
   super.onDestroy();
 }

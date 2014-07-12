@@ -1,0 +1,4 @@
+{
+  ImageSynchronizer.clear();
+  super.onDestroy();
+}
