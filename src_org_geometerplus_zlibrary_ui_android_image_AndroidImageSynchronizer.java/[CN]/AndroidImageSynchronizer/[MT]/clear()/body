@@ -1,2 +1,6 @@
 {
+  for (  ServiceConnection connection : myConnections) {
+    myContext.unbindService(connection);
+  }
+  myConnections.clear();
 }
