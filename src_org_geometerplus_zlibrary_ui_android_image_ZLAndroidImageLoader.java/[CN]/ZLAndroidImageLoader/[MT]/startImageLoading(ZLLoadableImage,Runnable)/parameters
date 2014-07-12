@@ -1,2 +1,2 @@
 ZLLoadableImage image
-Runnable postLoadingRunnable
+Runnable postAction
