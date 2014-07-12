@@ -1,0 +1,11 @@
+{
+  return new Runnable(){
+    public void run(){
+      synchronizeInternal(false);
+      if (postAction != null) {
+        postAction.run();
+      }
+    }
+  }
+;
+}

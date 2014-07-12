@@ -1,0 +1,16 @@
+{
+  return new Runnable(){
+    public void run(){
+synchronized (ZLImageProxy.this) {
+        if (myImage == null) {
+          myImage=retrieveRealImage();
+          setSynchronized();
+        }
+        if (postAction != null) {
+          postAction.run();
+        }
+      }
+    }
+  }
+;
+}
