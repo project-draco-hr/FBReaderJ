@@ -1,5 +1,0 @@
-{
-  if (synchronizer instanceof Synchronizer) {
-    ((Synchronizer)synchronizer).setRealImage(this);
-  }
-}

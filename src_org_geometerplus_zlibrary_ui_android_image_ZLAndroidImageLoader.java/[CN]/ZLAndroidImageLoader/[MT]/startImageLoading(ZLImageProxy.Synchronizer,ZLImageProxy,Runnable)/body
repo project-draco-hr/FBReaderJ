@@ -16,7 +16,7 @@ synchronized (myOnImageSyncRunnables) {
   final ExecutorService pool=image.sourceType() == ZLImageProxy.SourceType.FILE ? mySinglePool : myPool;
   pool.execute(new Runnable(){
     public void run(){
-      image.synchronize(synchronizer);
+      synchronizer.synchronize(image);
       myImageSynchronizedHandler.fireMessage(image.getId());
     }
   }
