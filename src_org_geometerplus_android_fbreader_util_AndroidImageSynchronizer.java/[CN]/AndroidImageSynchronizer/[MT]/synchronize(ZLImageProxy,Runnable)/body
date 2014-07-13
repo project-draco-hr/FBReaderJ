@@ -7,7 +7,20 @@
     postAction.run();
   }
  else   if (image instanceof PluginImage) {
-    postAction.run();
+    final PluginImage pluginImage=(PluginImage)image;
+    final Connection connection=getConnection(pluginImage.Plugin);
+    connection.runOrAddAction(new Runnable(){
+      public void run(){
+        try {
+          pluginImage.setRealImage(new ZLBitmapImage(connection.Reader.readBitmap(pluginImage.File.getPath())));
+        }
+ catch (        Exception e) {
+          e.printStackTrace();
+        }
+        postAction.run();
+      }
+    }
+);
   }
  else {
     throw new RuntimeException("Cannot synchronize " + image.getClass());
