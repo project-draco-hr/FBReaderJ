@@ -1,4 +1,4 @@
 {
-  myFile=file;
-  myPlugin=plugin;
+  File=file;
+  Plugin=plugin;
 }
