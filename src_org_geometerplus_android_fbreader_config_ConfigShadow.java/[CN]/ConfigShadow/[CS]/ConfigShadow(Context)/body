@@ -1,4 +1,4 @@
 {
   myContext=context;
-  context.bindService(FBReaderIntents.defaultIntent(FBReaderIntents.Action.CONFIG_SERVICE),this,Service.BIND_AUTO_CREATE);
+  context.bindService(FBReaderIntents.serviceIntent(FBReaderIntents.Action.CONFIG_SERVICE),this,Service.BIND_AUTO_CREATE);
 }
