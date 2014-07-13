@@ -4,4 +4,8 @@
   }
  else   if (image instanceof PluginImage) {
   }
+ else {
+    throw new RuntimeException("Cannot synchronize " + image.getClass());
+  }
+  postAction.run();
 }
