@@ -1,3 +1,0 @@
-{
-  return myImage != null ? myImage.getURI() : "image proxy";
-}

@@ -1,0 +1,3 @@
+{
+  this(file,encoding,new int[]{offset},new int[]{length},null);
+}

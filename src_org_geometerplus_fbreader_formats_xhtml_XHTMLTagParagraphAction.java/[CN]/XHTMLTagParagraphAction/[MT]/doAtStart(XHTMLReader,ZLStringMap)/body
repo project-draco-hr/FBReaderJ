@@ -1,3 +1,0 @@
-{
-  reader.getModelReader().beginParagraph();
-}

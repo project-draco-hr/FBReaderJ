@@ -1,14 +1,8 @@
 {
-  return new ZLImageProxy(){
-    @Override public SourceType sourceType(){
-      return SourceType.FILE;
-    }
-    @Override public String getId(){
-      return file.getPath();
-    }
-    @Override protected ZLImage retrieveRealImage(    Synchronizer synchronizer){
+  return new ZLImageFileProxy(file){
+    @Override protected ZLImage retrieveRealImage(){
       final ZLImage[] box=new ZLImage[1];
-      readCoverInternal(file,box);
+      readCoverInternal(File,box);
       return box[0];
     }
   }
