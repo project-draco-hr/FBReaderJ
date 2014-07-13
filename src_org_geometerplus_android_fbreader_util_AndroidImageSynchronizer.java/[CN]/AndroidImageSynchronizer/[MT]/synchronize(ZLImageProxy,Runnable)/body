@@ -1,11 +1,15 @@
 {
-  if (image instanceof ZLImageSelfSynchronizableProxy) {
+  if (image.isSynchronized()) {
+    postAction.run();
+  }
+ else   if (image instanceof ZLImageSelfSynchronizableProxy) {
     ((ZLImageSelfSynchronizableProxy)image).synchronize();
+    postAction.run();
   }
  else   if (image instanceof PluginImage) {
+    postAction.run();
   }
  else {
     throw new RuntimeException("Cannot synchronize " + image.getClass());
   }
-  postAction.run();
 }
