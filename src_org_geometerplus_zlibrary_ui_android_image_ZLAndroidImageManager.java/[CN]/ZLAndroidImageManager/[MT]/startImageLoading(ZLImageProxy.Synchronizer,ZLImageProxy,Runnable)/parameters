@@ -1,0 +1,3 @@
+ZLImageProxy.Synchronizer syncronizer
+ZLImageProxy image
+Runnable postLoadingRunnable

@@ -6,8 +6,8 @@
   if (image == null) {
     return;
   }
-  if (image instanceof ZLLoadableImage) {
-    ((ZLLoadableImage)image).startSynchronization(myImageSynchronizer,new Runnable(){
+  if (image instanceof ZLImageProxy) {
+    ((ZLImageProxy)image).startSynchronization(myImageSynchronizer,new Runnable(){
       public void run(){
         runOnUiThread(new Runnable(){
           public void run(){

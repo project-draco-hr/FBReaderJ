@@ -1,4 +1,4 @@
 Activity activity
-ZLLoadableImage.Synchronizer synchronizer
+ZLImageProxy.Synchronizer synchronizer
 int coverWidth
 int coverHeight
