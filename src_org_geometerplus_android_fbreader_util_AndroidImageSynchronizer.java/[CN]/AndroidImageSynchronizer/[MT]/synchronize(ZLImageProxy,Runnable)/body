@@ -1,10 +1,14 @@
 {
   if (image.isSynchronized()) {
-    postAction.run();
+    if (postAction != null) {
+      postAction.run();
+    }
   }
  else   if (image instanceof ZLImageSelfSynchronizableProxy) {
     ((ZLImageSelfSynchronizableProxy)image).synchronize();
-    postAction.run();
+    if (postAction != null) {
+      postAction.run();
+    }
   }
  else   if (image instanceof PluginImage) {
     final PluginImage pluginImage=(PluginImage)image;
@@ -17,7 +21,9 @@
  catch (        Exception e) {
           e.printStackTrace();
         }
-        postAction.run();
+        if (postAction != null) {
+          postAction.run();
+        }
       }
     }
 );
