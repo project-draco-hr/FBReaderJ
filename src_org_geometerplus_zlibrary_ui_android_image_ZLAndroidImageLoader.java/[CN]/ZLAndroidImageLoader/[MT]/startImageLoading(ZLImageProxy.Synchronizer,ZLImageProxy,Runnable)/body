@@ -1,0 +1,28 @@
+{
+synchronized (myOnImageSyncRunnables) {
+    LinkedList<Runnable> runnables=myOnImageSyncRunnables.get(image.getId());
+    if (runnables != null) {
+      if (postAction != null && !runnables.contains(postAction)) {
+        runnables.add(postAction);
+      }
+      return;
+    }
+    runnables=new LinkedList<Runnable>();
+    if (postAction != null) {
+      runnables.add(postAction);
+    }
+    myOnImageSyncRunnables.put(image.getId(),runnables);
+  }
+  final ExecutorService pool=image.sourceType() == ZLImageProxy.SourceType.FILE ? mySinglePool : myPool;
+  pool.execute(new Runnable(){
+    public void run(){
+      synchronizer.synchronize(image,new Runnable(){
+        public void run(){
+          myImageSynchronizedHandler.fireMessage(image.getId());
+        }
+      }
+);
+    }
+  }
+);
+}

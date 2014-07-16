@@ -1,0 +1,4 @@
+{
+  filetype=filetype.toLowerCase();
+  return "FILETYPE_" + filetype;
+}

@@ -1,0 +1,13 @@
+{
+  if (author.length() != 0 && author.matches(AUTHOR_NAME_FILTER)) {
+    if (position < 0) {
+      if (!myEditList.contains(author)) {
+        myEditList.add(author);
+      }
+    }
+ else {
+      myEditList.set(position,author);
+    }
+    ((BaseAdapter)getListAdapter()).notifyDataSetChanged();
+  }
+}

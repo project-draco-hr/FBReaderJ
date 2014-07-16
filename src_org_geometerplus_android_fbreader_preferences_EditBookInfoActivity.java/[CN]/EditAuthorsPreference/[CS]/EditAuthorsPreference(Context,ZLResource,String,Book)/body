@@ -1,0 +1,6 @@
+{
+  super(context);
+  myBook=book;
+  myResource=rootResource.getResource(resourceKey);
+  setTitle(myResource.getValue());
+}

@@ -1,0 +1,8 @@
+{
+  if (Reader != null) {
+    action.run();
+  }
+ else {
+    myPostActions.add(action);
+  }
+}

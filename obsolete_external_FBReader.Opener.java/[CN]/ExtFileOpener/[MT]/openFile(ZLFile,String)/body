@@ -1,0 +1,23 @@
+{
+  if (f == null) {
+    showErrorDialog("unzipFailed");
+    return false;
+  }
+  String extension=f.getExtension();
+  Uri uri=Uri.parse("file://" + f.getPath());
+  Intent launchIntent=new Intent(Intent.ACTION_VIEW);
+  launchIntent.setPackage(appData);
+  launchIntent.setData(uri);
+  FileType ft=FileTypeCollection.Instance.typeForFile(f);
+  for (  MimeType type : ft.mimeTypes()) {
+    launchIntent.setDataAndType(uri,type.Name);
+    try {
+      startActivity(launchIntent);
+      return true;
+    }
+ catch (    ActivityNotFoundException e) {
+    }
+  }
+  showErrorDialog("externalNotFound");
+  return false;
+}

@@ -1,0 +1,18 @@
+{
+  final ZLAndroidImageData data=((ZLAndroidImageManager)ZLAndroidImageManager.Instance()).getImageData(image);
+  if (data == null) {
+    return;
+  }
+  final DisplayMetrics metrics=new DisplayMetrics();
+  getWindowManager().getDefaultDisplay().getMetrics(metrics);
+  final int maxHeight=metrics.heightPixels * 2 / 3;
+  final int maxWidth=maxHeight * 2 / 3;
+  final Bitmap coverBitmap=data.getBitmap(2 * maxWidth,2 * maxHeight);
+  if (coverBitmap == null) {
+    return;
+  }
+  coverView.setVisibility(View.VISIBLE);
+  coverView.getLayoutParams().width=maxWidth;
+  coverView.getLayoutParams().height=maxHeight;
+  coverView.setImageBitmap(coverBitmap);
+}

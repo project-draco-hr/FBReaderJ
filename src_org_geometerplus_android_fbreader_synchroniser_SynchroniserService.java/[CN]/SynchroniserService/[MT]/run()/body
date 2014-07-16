@@ -8,7 +8,7 @@
           System.err.println("HELLO THREAD");
           myHashesFromServer.clear();
           try {
-            myNetworkContext.perform(new JsonRequest("all.hashes",null){
+            myNetworkContext.perform(new PostRequest("all.hashes",null){
               @Override public void processResponse(              Object response){
                 myHashesFromServer.addAll((List)response);
               }

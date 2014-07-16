@@ -1,0 +1,5 @@
+{
+  final WindowManager.LayoutParams attrs=getWindow().getAttributes();
+  attrs.buttonBrightness=enabled ? -1.0f : 0.0f;
+  getWindow().setAttributes(attrs);
+}

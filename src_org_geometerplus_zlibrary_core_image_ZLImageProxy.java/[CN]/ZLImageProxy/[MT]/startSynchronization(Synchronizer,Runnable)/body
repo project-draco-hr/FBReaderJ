@@ -1,0 +1,3 @@
+{
+  synchronizer.startImageLoading(this,postAction);
+}

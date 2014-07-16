@@ -1,6 +1,0 @@
-{
-  reader.myPreformatted=true;
-  final BookReader modelReader=reader.getModelReader();
-  modelReader.beginParagraph();
-  modelReader.addControl(FBTextKind.CODE,true);
-}

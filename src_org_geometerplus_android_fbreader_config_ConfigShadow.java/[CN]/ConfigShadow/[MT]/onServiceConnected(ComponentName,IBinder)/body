@@ -1,6 +1,6 @@
 {
   myInterface=ConfigInterface.Stub.asInterface(service);
-  myContext.registerReceiver(myReceiver,new IntentFilter(SQLiteConfig.OPTION_CHANGE_EVENT_ACTION));
+  myContext.registerReceiver(myReceiver,new IntentFilter(OPTION_CHANGE_EVENT_ACTION));
   while (!myDeferredActions.isEmpty()) {
     myDeferredActions.remove(0).run();
   }

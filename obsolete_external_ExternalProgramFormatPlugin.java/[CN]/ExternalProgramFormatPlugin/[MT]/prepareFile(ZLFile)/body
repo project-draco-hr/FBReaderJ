@@ -1,0 +1,26 @@
+{
+  if (f.getPath().contains(":")) {
+    try {
+      String filepath=f.getPath();
+      int p1=filepath.lastIndexOf(":");
+      String filename=filepath.substring(p1 + 1);
+      final File dirFile=new File(Paths.tempDirectory());
+      dirFile.mkdirs();
+      String path=Paths.tempDirectory() + "/" + filename;
+      OutputStream out=new FileOutputStream(path);
+      int read=0;
+      byte[] bytes=new byte[1024];
+      InputStream inp=f.getInputStream();
+      while ((read=inp.read(bytes)) > 0) {
+        out.write(bytes,0,read);
+      }
+      out.flush();
+      out.close();
+      f=new ZLPhysicalFile(new File(path));
+    }
+ catch (    IOException e) {
+      f=null;
+    }
+  }
+  return f;
+}

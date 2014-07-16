@@ -1,0 +1,3 @@
+{
+  return listFromString(PREDEFINED_FILETYPES.toLowerCase());
+}

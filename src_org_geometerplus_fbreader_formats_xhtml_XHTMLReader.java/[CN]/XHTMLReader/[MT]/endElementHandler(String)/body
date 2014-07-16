@@ -1,7 +1,0 @@
-{
-  final XHTMLTagAction action=getTagAction(tag);
-  if (action != null) {
-    action.doAtEnd(this);
-  }
-  return false;
-}

@@ -1,0 +1,20 @@
+{
+  if (tag.length() != 0) {
+    String[] tags=tag.split(",");
+    if (position < 0) {
+      for (      String s : tags) {
+        s=s.trim();
+        if (!myEditList.contains(s) && s.matches(TAG_NAME_FILTER)) {
+          myEditList.add(s);
+        }
+      }
+    }
+ else {
+      String s=tags[0].trim();
+      if (s.matches(TAG_NAME_FILTER)) {
+        myEditList.set(position,s);
+      }
+    }
+    ((BaseAdapter)getListAdapter()).notifyDataSetChanged();
+  }
+}

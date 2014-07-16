@@ -1,3 +1,9 @@
 {
-  return myCollection.getCover(SerializerUtil.deserializeBook(book),maxWidth,maxHeight);
+  final ZLImage image=myCollection.getCover(SerializerUtil.deserializeBook(book),maxWidth,maxHeight);
+  if (image == null) {
+    return null;
+  }
+  final ZLAndroidImageManager manager=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
+  final ZLAndroidImageData data=manager.getImageData(image);
+  return data != null ? data.getBitmap(maxWidth,maxHeight) : null;
 }

@@ -1,0 +1,6 @@
+{
+  if (myInfoReader != null) {
+    return myInfoReader.readAnnotation(file);
+  }
+  return null;
+}
