@@ -1,0 +1,4 @@
+{
+  final String message=exception.getMessage();
+  return errorMap(message != null ? message : exception.getClass().getName());
+}

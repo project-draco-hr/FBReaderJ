@@ -3,12 +3,12 @@
   final String authUrl=url(uri,params,"auth-url-web");
   final String completeUrl=url(uri,params,"complete-url-web");
   if (authUrl == null || completeUrl == null) {
-    return false;
+    return errorMap("No data for web authentication");
   }
   final Intent intent=new Intent(myActivity,WebAuthorisationScreen.class);
   intent.setData(Uri.parse(authUrl));
   intent.putExtra(NetworkLibraryActivity.COMPLETE_URL_KEY,completeUrl);
   startActivityAndWait(intent,NetworkLibraryActivity.REQUEST_WEB_AUTHORISATION_SCREEN);
   System.err.println("--- WEB AUTH ---");
-  return true;
+  return Collections.singletonMap("user","unknown@mail");
 }

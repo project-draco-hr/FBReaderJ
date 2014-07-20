@@ -10,5 +10,5 @@
   request.addPostParameter("auth",authToken);
   request.addPostParameter("code",code);
   performQuietly(request);
-  return response.containsKey("user");
+  return response;
 }
