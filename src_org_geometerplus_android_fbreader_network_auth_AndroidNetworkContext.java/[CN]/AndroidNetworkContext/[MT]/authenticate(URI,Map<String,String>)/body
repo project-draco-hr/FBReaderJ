@@ -1,6 +1,0 @@
-{
-  if (!"https".equalsIgnoreCase(uri.getScheme())) {
-    return Collections.singletonMap("error","Connection is not secure");
-  }
-  return GooglePlayServicesUtil.isGooglePlayServicesAvailable(getContext()) == ConnectionResult.SUCCESS ? authenticateToken(uri,params) : authenticateWeb(uri,params);
-}

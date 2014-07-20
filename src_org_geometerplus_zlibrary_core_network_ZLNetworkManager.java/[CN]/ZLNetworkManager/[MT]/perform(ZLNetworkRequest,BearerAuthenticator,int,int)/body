@@ -26,7 +26,18 @@
  catch (            AuthenticationException e) {
               final Header bearerHeader=challenges.get("bearer");
               if (bearerHeader != null) {
-                throw new BearerAuthenticationException(response.getEntity());
+                String realm=null;
+                for (                HeaderElement elt : bearerHeader.getElements()) {
+                  final String name=elt.getName();
+                  if (name == null) {
+                    continue;
+                  }
+                  if ("realm".equals(name) || name.endsWith(" realm")) {
+                    realm=elt.getValue();
+                    break;
+                  }
+                }
+                throw new BearerAuthenticationException(realm,response.getEntity());
               }
               throw e;
             }

@@ -3,9 +3,9 @@
     return client.execute(request,context);
   }
  catch (  BearerAuthenticationException e) {
-    final Map<String,String> response=authenticator.authenticate(request.getURI(),e.Params);
+    final Map<String,String> response=authenticator.authenticate(request.getURI(),e.Realm,e.Params);
     if (!response.containsKey("error")) {
-      System.err.println("AUTHENTICATED AS " + response.get("user"));
+      authenticator.setAccountName(request.getURI().getHost(),e.Realm,response.get("user"));
       return client.execute(request,context);
     }
     throw e;

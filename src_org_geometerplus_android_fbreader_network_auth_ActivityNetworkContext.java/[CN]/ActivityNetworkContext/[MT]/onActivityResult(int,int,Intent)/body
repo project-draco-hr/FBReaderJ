@@ -7,7 +7,7 @@ default :
     break;
 case NetworkLibraryActivity.REQUEST_ACCOUNT_PICKER:
   if (resultCode == Activity.RESULT_OK && data != null) {
-    myAccount=data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
+    myAccountName=data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
   }
 break;
 case NetworkLibraryActivity.REQUEST_AUTHORISATION:
