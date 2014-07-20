@@ -1,9 +1,3 @@
 {
-  final BufferedReader reader=new BufferedReader(new InputStreamReader(stream));
-  final StringBuilder buffer=new StringBuilder();
-  String line;
-  while ((line=reader.readLine()) != null) {
-    buffer.append(line);
-  }
-  processResponse(JSONValue.parse(buffer.toString()));
+  processResponse(JSONValue.parse(new InputStreamReader(stream)));
 }

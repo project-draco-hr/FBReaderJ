@@ -1,0 +1,8 @@
+{
+  super("Authentication failed");
+  try {
+    Params.putAll((Map)JSONValue.parse(new InputStreamReader(entity.getContent())));
+  }
+ catch (  Exception e) {
+  }
+}

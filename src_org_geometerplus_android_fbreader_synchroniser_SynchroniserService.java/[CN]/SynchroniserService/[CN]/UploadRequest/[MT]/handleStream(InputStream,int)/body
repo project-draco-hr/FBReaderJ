@@ -1,11 +1,5 @@
 {
-  final BufferedReader reader=new BufferedReader(new InputStreamReader(stream));
-  final StringBuilder buffer=new StringBuilder();
-  String line;
-  while ((line=reader.readLine()) != null) {
-    buffer.append(line);
-  }
-  final Object response=JSONValue.parse(buffer.toString());
+  final Object response=JSONValue.parse(new InputStreamReader(stream));
   String id=null;
   List<String> hashes=null;
   String error=null;
