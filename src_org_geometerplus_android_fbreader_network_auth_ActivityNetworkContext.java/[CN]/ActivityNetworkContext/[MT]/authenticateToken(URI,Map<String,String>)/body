@@ -14,7 +14,6 @@
     final String authToken=GoogleAuthUtil.getToken(myActivity,myAccount,String.format("audience:server:client_id:%s",clientId));
     System.err.println("AUTH TOKEN = " + authToken);
     final Map<String,String> result=runTokenAuthorization(authUrl,authToken,null);
-    System.err.println("AUTHENTICATION RESULT 1 = " + result);
     if (result.containsKey("user")) {
       return result;
     }

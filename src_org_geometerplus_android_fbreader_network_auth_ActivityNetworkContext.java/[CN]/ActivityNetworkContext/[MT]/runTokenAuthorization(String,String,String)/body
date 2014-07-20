@@ -10,5 +10,6 @@
   request.addPostParameter("auth",authToken);
   request.addPostParameter("code",code);
   performQuietly(request);
+  System.err.println("AUTHORIZATION RESULT = " + response);
   return response;
 }
