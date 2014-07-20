@@ -1,15 +1,14 @@
 {
-  final Map<String,String> response=new HashMap<String,String>();
-  final StringBuilder buffer=new StringBuilder();
-  final ZLNetworkRequest.PostWithMap request=new ZLNetworkRequest.PostWithMap(authUrl){
-    public void handleStream(    InputStream stream,    int length) throws IOException {
-      response.putAll((Map)JSONValue.parse(new InputStreamReader(stream)));
+  final Map<String,String> result=new HashMap<String,String>();
+  final JsonRequest request=new JsonRequest(authUrl){
+    public void processResponse(    Object response){
+      result.putAll((Map)response);
     }
   }
 ;
   request.addPostParameter("auth",authToken);
   request.addPostParameter("code",code);
   performQuietly(request);
-  System.err.println("AUTHORIZATION RESULT = " + response);
-  return response;
+  System.err.println("AUTHORIZATION RESULT = " + result);
+  return result;
 }

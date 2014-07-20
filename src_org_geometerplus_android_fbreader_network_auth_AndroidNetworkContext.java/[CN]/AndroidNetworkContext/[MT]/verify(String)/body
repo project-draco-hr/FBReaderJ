@@ -1,0 +1,10 @@
+{
+  final Map<String,String> result=new HashMap<String,String>();
+  performQuietly(new JsonRequest(verificationUrl){
+    public void processResponse(    Object response){
+      result.putAll((Map)response);
+    }
+  }
+);
+  return result;
+}
