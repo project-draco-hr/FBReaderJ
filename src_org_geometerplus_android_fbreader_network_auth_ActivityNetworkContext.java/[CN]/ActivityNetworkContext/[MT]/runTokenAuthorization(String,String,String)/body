@@ -10,5 +10,5 @@
   request.addPostParameter("auth",authToken);
   request.addPostParameter("code",code);
   performQuietly(request);
-  return buffer.toString().trim();
+  return "SUCCESS".equals(buffer.toString().trim());
 }
