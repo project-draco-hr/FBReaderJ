@@ -1,0 +1,3 @@
+{
+  return myCollection.getHash(SerializerUtil.deserializeBook(book));
+}

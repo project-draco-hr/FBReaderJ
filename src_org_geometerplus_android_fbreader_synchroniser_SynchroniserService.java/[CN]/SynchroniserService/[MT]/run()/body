@@ -38,7 +38,7 @@
             }
             myProcessed.add(book);
             System.err.println("Processing " + book.getTitle() + " ["+ book.File.getPath()+ "]");
-            uploadBookToServer(book.File.getPhysicalFile());
+            uploadBookToServer(book);
           }
         }
   finally {
