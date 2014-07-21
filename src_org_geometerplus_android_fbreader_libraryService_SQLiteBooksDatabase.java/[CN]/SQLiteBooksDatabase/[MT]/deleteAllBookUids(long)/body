@@ -1,7 +1,5 @@
 {
-  if (myDeleteBookUidsStatement == null) {
-    myDeleteBookUidsStatement=myDatabase.compileStatement("DELETE FROM BookUid WHERE book_id = ?");
-  }
-  myDeleteBookUidsStatement.bindLong(1,bookId);
-  myDeleteBookUidsStatement.execute();
+  final SQLiteStatement statement=get("DELETE FROM BookUid WHERE book_id = ?");
+  statement.bindLong(1,bookId);
+  statement.execute();
 }

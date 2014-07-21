@@ -1,13 +1,11 @@
 {
-  if (mySaveRecentBookStatement == null) {
-    mySaveRecentBookStatement=myDatabase.compileStatement("INSERT OR IGNORE INTO RecentBooks (book_id) VALUES (?)");
-  }
+  final SQLiteStatement statement=get("INSERT OR IGNORE INTO RecentBooks (book_id) VALUES (?)");
   executeAsTransaction(new Runnable(){
     public void run(){
       myDatabase.delete("RecentBooks",null,null);
       for (      long id : ids) {
-        mySaveRecentBookStatement.bindLong(1,id);
-        mySaveRecentBookStatement.execute();
+        statement.bindLong(1,id);
+        statement.execute();
       }
     }
   }

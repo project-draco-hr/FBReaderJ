@@ -1,8 +1,6 @@
 {
-  if (myGetHashStatement == null) {
-    myGetHashStatement=myDatabase.compileStatement("SELECT hash FROM BookHash WHERE bookId = ? AND timestamp > ?");
-  }
-  myGetHashStatement.bindLong(1,bookId);
-  myGetHashStatement.bindLong(2,lastModified);
-  return myGetHashStatement.simpleQueryForString();
+  final SQLiteStatement statement=get("SELECT hash FROM BookHash WHERE bookId=? AND timestamp>?");
+  statement.bindLong(1,bookId);
+  statement.bindLong(2,lastModified);
+  return statement.simpleQueryForString();
 }

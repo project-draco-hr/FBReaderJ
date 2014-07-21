@@ -1,7 +1,5 @@
 {
-  if (myDeleteBookmarkStatement == null) {
-    myDeleteBookmarkStatement=myDatabase.compileStatement("DELETE FROM Bookmarks WHERE bookmark_id = ?");
-  }
-  myDeleteBookmarkStatement.bindLong(1,bookmark.getId());
-  myDeleteBookmarkStatement.execute();
+  final SQLiteStatement statement=get("DELETE FROM Bookmarks WHERE bookmark_id=?");
+  statement.bindLong(1,bookmark.getId());
+  statement.execute();
 }

@@ -1,10 +1,8 @@
 {
-  if (myStorePositionStatement == null) {
-    myStorePositionStatement=myDatabase.compileStatement("INSERT OR REPLACE INTO BookState (book_id,paragraph,word,char) VALUES (?,?,?,?)");
-  }
-  myStorePositionStatement.bindLong(1,bookId);
-  myStorePositionStatement.bindLong(2,position.getParagraphIndex());
-  myStorePositionStatement.bindLong(3,position.getElementIndex());
-  myStorePositionStatement.bindLong(4,position.getCharIndex());
-  myStorePositionStatement.executeInsert();
+  final SQLiteStatement statement=get("INSERT OR REPLACE INTO BookState (book_id,paragraph,word,char) VALUES (?,?,?,?)");
+  statement.bindLong(1,bookId);
+  statement.bindLong(2,position.getParagraphIndex());
+  statement.bindLong(3,position.getElementIndex());
+  statement.bindLong(4,position.getCharIndex());
+  statement.executeInsert();
 }

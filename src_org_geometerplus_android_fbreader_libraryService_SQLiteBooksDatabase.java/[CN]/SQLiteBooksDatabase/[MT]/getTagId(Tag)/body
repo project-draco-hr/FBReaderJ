@@ -1,8 +1,5 @@
 {
-  if (myGetTagIdStatement == null) {
-    myGetTagIdStatement=myDatabase.compileStatement("SELECT tag_id FROM Tags WHERE parent_id = ? AND name = ?");
-    myCreateTagIdStatement=myDatabase.compileStatement("INSERT OR IGNORE INTO Tags (parent_id,name) VALUES (?,?)");
-  }
+  final SQLiteStatement getTagIdStatement=get("SELECT tag_id FROM Tags WHERE parent_id=? AND name=?");
 {
     final Long id=myIdByTag.get(tag);
     if (id != null) {
@@ -10,25 +7,26 @@
     }
   }
   if (tag.Parent != null) {
-    myGetTagIdStatement.bindLong(1,getTagId(tag.Parent));
+    getTagIdStatement.bindLong(1,getTagId(tag.Parent));
   }
  else {
-    myGetTagIdStatement.bindNull(1);
+    getTagIdStatement.bindNull(1);
   }
-  myGetTagIdStatement.bindString(2,tag.Name);
+  getTagIdStatement.bindString(2,tag.Name);
   long id;
   try {
-    id=myGetTagIdStatement.simpleQueryForLong();
+    id=getTagIdStatement.simpleQueryForLong();
   }
  catch (  SQLException e) {
+    final SQLiteStatement createTagIdStatement=get("INSERT OR IGNORE INTO Tags (parent_id,name) VALUES (?,?)");
     if (tag.Parent != null) {
-      myCreateTagIdStatement.bindLong(1,getTagId(tag.Parent));
+      createTagIdStatement.bindLong(1,getTagId(tag.Parent));
     }
  else {
-      myCreateTagIdStatement.bindNull(1);
+      createTagIdStatement.bindNull(1);
     }
-    myCreateTagIdStatement.bindString(2,tag.Name);
-    id=myCreateTagIdStatement.executeInsert();
+    createTagIdStatement.bindString(2,tag.Name);
+    id=createTagIdStatement.executeInsert();
   }
   myIdByTag.put(tag,id);
   myTagById.put(id,tag);

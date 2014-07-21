@@ -1,0 +1,8 @@
+{
+  SQLiteStatement statement=myStatements.get(sql);
+  if (statement == null) {
+    statement=myDatabase.compileStatement(sql);
+    myStatements.put(sql,statement);
+  }
+  return statement;
+}

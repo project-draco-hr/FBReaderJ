@@ -1,22 +1,20 @@
 {
-  if (myGetAuthorIdStatement == null) {
-    myGetAuthorIdStatement=myDatabase.compileStatement("SELECT author_id FROM Authors WHERE name = ? AND sort_key = ?");
-    myInsertAuthorStatement=myDatabase.compileStatement("INSERT OR IGNORE INTO Authors (name,sort_key) VALUES (?,?)");
-    myInsertBookAuthorStatement=myDatabase.compileStatement("INSERT OR REPLACE INTO BookAuthor (book_id,author_id,author_index) VALUES (?,?,?)");
-  }
+  final SQLiteStatement getAuthorIdStatement=get("SELECT author_id FROM Authors WHERE name=? AND sort_key=?");
+  final SQLiteStatement insertAuthorStatement=get("INSERT OR IGNORE INTO Authors (name,sort_key) VALUES (?,?)");
+  final SQLiteStatement insertBookAuthorStatement=get("INSERT OR REPLACE INTO BookAuthor (book_id,author_id,author_index) VALUES (?,?,?)");
   long authorId;
   try {
-    myGetAuthorIdStatement.bindString(1,author.DisplayName);
-    myGetAuthorIdStatement.bindString(2,author.SortKey);
-    authorId=myGetAuthorIdStatement.simpleQueryForLong();
+    getAuthorIdStatement.bindString(1,author.DisplayName);
+    getAuthorIdStatement.bindString(2,author.SortKey);
+    authorId=getAuthorIdStatement.simpleQueryForLong();
   }
  catch (  SQLException e) {
-    myInsertAuthorStatement.bindString(1,author.DisplayName);
-    myInsertAuthorStatement.bindString(2,author.SortKey);
-    authorId=myInsertAuthorStatement.executeInsert();
+    insertAuthorStatement.bindString(1,author.DisplayName);
+    insertAuthorStatement.bindString(2,author.SortKey);
+    authorId=insertAuthorStatement.executeInsert();
   }
-  myInsertBookAuthorStatement.bindLong(1,bookId);
-  myInsertBookAuthorStatement.bindLong(2,authorId);
-  myInsertBookAuthorStatement.bindLong(3,index);
-  myInsertBookAuthorStatement.execute();
+  insertBookAuthorStatement.bindLong(1,bookId);
+  insertBookAuthorStatement.bindLong(2,authorId);
+  insertBookAuthorStatement.bindLong(3,index);
+  insertBookAuthorStatement.execute();
 }

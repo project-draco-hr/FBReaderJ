@@ -2,9 +2,7 @@
   if (fileId == -1) {
     return;
   }
-  if (myRemoveFileInfoStatement == null) {
-    myRemoveFileInfoStatement=myDatabase.compileStatement("DELETE FROM Files WHERE file_id = ?");
-  }
-  myRemoveFileInfoStatement.bindLong(1,fileId);
-  myRemoveFileInfoStatement.execute();
+  final SQLiteStatement statement=get("DELETE FROM Files WHERE file_id=?");
+  statement.bindLong(1,fileId);
+  statement.execute();
 }

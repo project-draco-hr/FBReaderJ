@@ -1,6 +1,6 @@
 {
   final RationalNumber progress;
-  final Cursor cursor=myDatabase.rawQuery("SELECT numerator,denominator FROM BookReadingProgress WHERE book_id = " + bookId,null);
+  final Cursor cursor=myDatabase.rawQuery("SELECT numerator,denominator FROM BookReadingProgress WHERE book_id=" + bookId,null);
   if (cursor.moveToNext()) {
     progress=RationalNumber.create(cursor.getLong(0),cursor.getLong(1));
   }
