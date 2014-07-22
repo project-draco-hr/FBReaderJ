@@ -1,0 +1,3 @@
+NetworkBookItem book
+IBookCollection collection
+BookDownloaderServiceConnection connection

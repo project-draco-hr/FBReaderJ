@@ -1,5 +1,6 @@
 {
   super.onCreate(icicle);
+  BookCollection.bindToService(this,null);
   AuthenticationActivity.initCredentialsCreator(this);
   SQLiteCookieDatabase.init(this);
   setListAdapter(new NetworkLibraryAdapter(this));
