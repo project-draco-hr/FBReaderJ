@@ -4,33 +4,47 @@
   if (ourSynchronizationThread == null) {
     ourSynchronizationThread=new Thread(){
       public void run(){
-        System.err.println("HELLO THREAD");
         try {
-          ourSynchronizationThread.sleep(5000);
-        }
- catch (        InterruptedException e) {
-        }
-        System.err.println("START SYNCRONIZING");
-        for (BookQuery q=new BookQuery(new Filter.Empty(),20); ; q=q.next()) {
-          final List<Book> books=myCollection.books(q);
-          if (books.isEmpty()) {
-            break;
+          System.err.println("HELLO THREAD");
+          myHashesFromServer.clear();
+          try {
+            myNetworkContext.perform(new PostRequest("all.hashes",null){
+              @Override public void processResponse(              Object response){
+                myHashesFromServer.addAll((List)response);
+              }
+            }
+);
+            System.err.println("RECEIVED: " + myHashesFromServer.size() + " HASHES");
           }
-          for (          Book b : books) {
-            addBook(b);
+ catch (          Exception e) {
+            e.printStackTrace();
+            System.err.println("DO NOT SYNCHRONIZE: ALL HASHES REQUEST FAILED");
+            return;
+          }
+          System.err.println("START SYNCRONIZATION");
+          for (BookQuery q=new BookQuery(new Filter.Empty(),20); ; q=q.next()) {
+            final List<Book> books=myCollection.books(q);
+            if (books.isEmpty()) {
+              break;
+            }
+            for (            Book b : books) {
+              addBook(b);
+            }
+          }
+          while (!myQueue.isEmpty()) {
+            final Book book=myQueue.remove(0);
+            if (myProcessed.contains(book)) {
+              continue;
+            }
+            myProcessed.add(book);
+            System.err.println("Processing " + book.getTitle() + " ["+ book.File.getPath()+ "]");
+            uploadBookToServer(book);
           }
         }
-        while (!myQueue.isEmpty()) {
-          final Book book=myQueue.remove(0);
-          if (myProcessed.contains(book)) {
-            continue;
-          }
-          myProcessed.add(book);
-          System.err.println("Processing " + book.getTitle() + " ["+ book.File.getPath()+ "]");
-          uploadBookToServer(book.File.getPhysicalFile());
+  finally {
+          System.err.println("BYE-BYE THREAD");
+          ourSynchronizationThread=null;
         }
-        System.err.println("BYE-BYE THREAD");
-        ourSynchronizationThread=null;
       }
     }
 ;

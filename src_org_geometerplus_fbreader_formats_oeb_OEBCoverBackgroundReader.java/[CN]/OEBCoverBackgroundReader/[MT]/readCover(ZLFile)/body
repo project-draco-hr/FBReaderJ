@@ -1,8 +1,0 @@
-{
-  myPathPrefix=MiscUtil.htmlDirectoryPrefix(file);
-  myReadState=READ_NOTHING;
-  myCoverId=null;
-  myImage=null;
-  readQuietly(file);
-  return myImage;
-}

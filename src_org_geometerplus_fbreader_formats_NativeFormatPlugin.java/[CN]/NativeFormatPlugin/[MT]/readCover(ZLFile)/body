@@ -1,15 +1,9 @@
 {
-  return new ZLImageProxy(){
-    @Override public int sourceType(){
-      return SourceType.DISK;
-    }
-    @Override public String getId(){
-      return file.getPath();
-    }
-    @Override public ZLSingleImage getRealImage(){
+  return new ZLImageFileProxy(file){
+    @Override protected ZLImage retrieveRealImage(){
       final ZLImage[] box=new ZLImage[1];
-      readCoverInternal(file,box);
-      return (ZLSingleImage)box[0];
+      readCoverInternal(File,box);
+      return box[0];
     }
   }
 ;

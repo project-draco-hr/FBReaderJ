@@ -1,0 +1,17 @@
+{
+  final View view=super.getView(position,convertView,parent);
+  final View deleteButton=view.findViewById(R.id.edit_item_remove);
+  if (myEditList.size() > 1) {
+    deleteButton.setVisibility(View.VISIBLE);
+    deleteButton.setOnClickListener(new View.OnClickListener(){
+      public void onClick(      final View v){
+        deleteItem(position);
+      }
+    }
+);
+  }
+ else {
+    deleteButton.setVisibility(View.INVISIBLE);
+  }
+  return view;
+}

@@ -1,0 +1,15 @@
+{
+  filetype=filetype.toLowerCase();
+  if (!isValid(filetype)) {
+    return false;
+  }
+  ZLStringOption formats=new ZLStringOption("Formats","ExternalFormats","");
+  if (formats.getValue().equals("")) {
+    formats.setValue(filetype);
+    return true;
+  }
+ else {
+    formats.setValue(formats.getValue() + ";" + filetype);
+    return true;
+  }
+}

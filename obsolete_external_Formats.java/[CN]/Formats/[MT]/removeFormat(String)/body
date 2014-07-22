@@ -1,0 +1,22 @@
+{
+  filetype=filetype.toLowerCase();
+  ZLStringOption formats=new ZLStringOption("Formats","ExternalFormats","");
+  String s=formats.getValue();
+  if (s.equals(filetype)) {
+    s="";
+    formats.setValue(s);
+    return;
+  }
+  if (s.startsWith(filetype + ";")) {
+    s=s.substring(filetype.length() + 1);
+    formats.setValue(s);
+    return;
+  }
+  if (s.endsWith(";" + filetype)) {
+    s=s.substring(0,s.length() - filetype.length() - 1);
+    formats.setValue(s);
+    return;
+  }
+  s=s.replace(";" + filetype + ";",";");
+  formats.setValue(s);
+}

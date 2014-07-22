@@ -1,0 +1,6 @@
+{
+  if (myInfoReader != null) {
+    return myInfoReader.readCover(file);
+  }
+  return null;
+}

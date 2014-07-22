@@ -1,3 +1,0 @@
-{
-  entityMap.put("FBReaderVersion",ZLibrary.Instance().getVersionName().toCharArray());
-}

@@ -1,0 +1,54 @@
+{
+  if (tree == null) {
+    throw new IllegalArgumentException("tree == null");
+  }
+  final NetworkBookItem book=tree.Book;
+  List<NBAction> actions=new LinkedList<NBAction>();
+  if (useFullReferences(book)) {
+    final BookUrlInfo reference=book.reference(UrlInfo.Type.Book);
+    if (reference != null && connection != null && connection.isBeingDownloaded(reference.Url)) {
+      actions.add(new NBAction(activity,collection,ActionCode.TREE_NO_ACTION,"alreadyDownloading"));
+    }
+ else     if (book.localCopyFileName(collection) != null) {
+      actions.add(new NBAction(activity,collection,ActionCode.READ_BOOK,"read"));
+      actions.add(new NBAction(activity,collection,ActionCode.DELETE_BOOK,"delete"));
+    }
+ else     if (reference != null) {
+      actions.add(new NBAction(activity,collection,ActionCode.DOWNLOAD_BOOK,"download"));
+    }
+  }
+  if (useDemoReferences(book,collection)) {
+    final BookUrlInfo reference=book.reference(UrlInfo.Type.BookDemo);
+    if (connection != null && connection.isBeingDownloaded(reference.Url)) {
+      actions.add(new NBAction(activity,collection,ActionCode.TREE_NO_ACTION,"alreadyDownloadingDemo"));
+    }
+ else     if (reference.localCopyFileName(UrlInfo.Type.BookDemo) != null) {
+      actions.add(new NBAction(activity,collection,ActionCode.READ_DEMO,"readDemo"));
+      actions.add(new NBAction(activity,collection,ActionCode.DELETE_DEMO,"deleteDemo"));
+    }
+ else {
+      actions.add(new NBAction(activity,collection,ActionCode.DOWNLOAD_DEMO,"downloadDemo"));
+    }
+  }
+  if (book.getStatus(collection) == NetworkBookItem.Status.CanBePurchased) {
+    final BookBuyUrlInfo reference=book.buyInfo();
+    final int id=reference.InfoType == UrlInfo.Type.BookBuy ? ActionCode.BUY_DIRECTLY : ActionCode.BUY_IN_BROWSER;
+    final String priceString=reference.Price != null ? String.valueOf(reference.Price) : "";
+    actions.add(new NBAction(activity,collection,id,"buy",priceString));
+    final BasketItem basketItem=book.Link.getBasketItem();
+    if (basketItem != null) {
+      if (basketItem.contains(book)) {
+        if (tree.Parent instanceof BasketCatalogTree || activity instanceof NetworkLibraryActivity) {
+          actions.add(new NBAction(activity,collection,ActionCode.REMOVE_BOOK_FROM_BASKET,"removeFromBasket"));
+        }
+ else {
+          actions.add(new NBAction(activity,collection,ActionCode.OPEN_BASKET,"openBasket"));
+        }
+      }
+ else {
+        actions.add(new NBAction(activity,collection,ActionCode.ADD_BOOK_TO_BASKET,"addToBasket"));
+      }
+    }
+  }
+  return actions;
+}

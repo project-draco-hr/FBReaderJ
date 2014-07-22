@@ -12,6 +12,6 @@ break;
 default :
 throw new BookReadingException("unknownPluginType",null,new String[]{plugin.type().toString()});
 }
-plugin.readModel(model);
+((BuiltinFormatPlugin)plugin).readModel(model);
 return model;
 }

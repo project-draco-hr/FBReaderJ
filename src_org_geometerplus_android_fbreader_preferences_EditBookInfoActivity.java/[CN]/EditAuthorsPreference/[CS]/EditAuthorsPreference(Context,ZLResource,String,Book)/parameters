@@ -1,0 +1,4 @@
+Context context
+ZLResource rootResource
+String resourceKey
+Book book

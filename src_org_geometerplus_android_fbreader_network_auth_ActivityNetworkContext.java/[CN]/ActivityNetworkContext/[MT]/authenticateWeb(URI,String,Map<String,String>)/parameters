@@ -1,0 +1,3 @@
+URI uri
+String realm
+Map<String,String> params

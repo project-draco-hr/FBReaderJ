@@ -1,0 +1,12 @@
+{
+  if (path == null) {
+    return null;
+  }
+  try {
+    final URI relative=new URI(path);
+    return relative.isAbsolute() ? null : base.resolve(relative).toString();
+  }
+ catch (  URISyntaxException e) {
+    return null;
+  }
+}

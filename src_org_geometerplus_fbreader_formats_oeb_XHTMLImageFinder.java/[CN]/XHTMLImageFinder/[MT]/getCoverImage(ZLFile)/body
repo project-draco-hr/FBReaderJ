@@ -4,7 +4,7 @@
   }
   final String ext=coverFile.getExtension();
   if ("gif".equals(ext) || "jpg".equals(ext) || "jpeg".equals(ext)) {
-    return new ZLFileImage(MimeType.IMAGE_AUTO,coverFile);
+    return new ZLFileImage(coverFile);
   }
  else {
     return new XHTMLImageFinder().readImage(coverFile);

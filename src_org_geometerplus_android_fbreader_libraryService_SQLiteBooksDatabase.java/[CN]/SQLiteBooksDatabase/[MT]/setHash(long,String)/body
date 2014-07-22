@@ -1,0 +1,7 @@
+{
+  final SQLiteStatement statement=get("INSERT OR REPLACE INTO BookHash (book_id,timestamp,hash) VALUES (?,?,?)");
+  statement.bindLong(1,bookId);
+  statement.bindLong(2,System.currentTimeMillis());
+  statement.bindString(3,hash);
+  statement.execute();
+}

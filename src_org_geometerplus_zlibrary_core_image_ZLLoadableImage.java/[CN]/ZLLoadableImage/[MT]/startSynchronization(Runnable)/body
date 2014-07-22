@@ -1,3 +1,0 @@
-{
-  ZLImageManager.Instance().startImageLoading(this,postSynchronizationAction);
-}

@@ -1,0 +1,14 @@
+{
+  final Map<String,String> result=new HashMap<String,String>();
+  final JsonRequest request=new JsonRequest(authUrl){
+    public void processResponse(    Object response){
+      result.putAll((Map)response);
+    }
+  }
+;
+  request.addPostParameter("auth",authToken);
+  request.addPostParameter("code",code);
+  performQuietly(request);
+  System.err.println("AUTHORIZATION RESULT = " + result);
+  return result;
+}

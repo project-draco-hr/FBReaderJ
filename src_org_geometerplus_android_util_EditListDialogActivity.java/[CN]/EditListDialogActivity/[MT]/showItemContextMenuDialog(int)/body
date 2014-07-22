@@ -1,0 +1,8 @@
+{
+  new AlertDialog.Builder(EditListDialogActivity.this).setTitle(myEditList.get(position)).setItems(myContextMenuItems.toArray(new String[myContextMenuItems.size()]),new DialogInterface.OnClickListener(){
+    public void onClick(    DialogInterface dialog,    int which){
+      onChooseContextMenu(which,position);
+    }
+  }
+).create().show();
+}

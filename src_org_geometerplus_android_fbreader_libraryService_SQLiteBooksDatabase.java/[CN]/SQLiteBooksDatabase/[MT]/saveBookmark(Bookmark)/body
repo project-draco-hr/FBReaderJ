@@ -1,16 +1,10 @@
 {
   SQLiteStatement statement;
   if (bookmark.getId() == -1) {
-    if (myInsertBookmarkStatement == null) {
-      myInsertBookmarkStatement=myDatabase.compileStatement("INSERT OR IGNORE INTO Bookmarks (book_id,bookmark_text,creation_time,modification_time,access_time,access_counter,model_id,paragraph,word,char,end_paragraph,end_word,end_character,visible,style_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-    }
-    statement=myInsertBookmarkStatement;
+    statement=get("INSERT OR IGNORE INTO Bookmarks (book_id,bookmark_text,creation_time,modification_time,access_time,access_counter,model_id,paragraph,word,char,end_paragraph,end_word,end_character,visible,style_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
   }
  else {
-    if (myUpdateBookmarkStatement == null) {
-      myUpdateBookmarkStatement=myDatabase.compileStatement("UPDATE Bookmarks SET book_id = ?, bookmark_text = ?, creation_time =?, modification_time = ?,access_time = ?, access_counter = ?, model_id = ?, paragraph = ?, word = ?, char = ?, end_paragraph = ?, end_word = ?, end_character = ?, visible = ?, style_id = ? WHERE bookmark_id = ?");
-    }
-    statement=myUpdateBookmarkStatement;
+    statement=get("UPDATE Bookmarks SET book_id = ?, bookmark_text = ?, creation_time =?, modification_time = ?,access_time = ?, access_counter = ?, model_id = ?, paragraph = ?, word = ?, char = ?, end_paragraph = ?, end_word = ?, end_character = ?, visible = ?, style_id = ? WHERE bookmark_id = ?");
   }
   statement.bindLong(1,bookmark.getBookId());
   statement.bindString(2,bookmark.getText());
@@ -35,7 +29,7 @@
   }
   statement.bindLong(14,bookmark.IsVisible ? 1 : 0);
   statement.bindLong(15,bookmark.getStyleId());
-  if (statement == myInsertBookmarkStatement) {
+  if (bookmark.getId() == -1) {
     return statement.executeInsert();
   }
  else {

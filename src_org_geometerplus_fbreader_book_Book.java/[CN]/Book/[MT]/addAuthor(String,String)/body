@@ -1,11 +1,12 @@
 {
-  String strippedName=name;
-  strippedName.trim();
+  if (name == null) {
+    return;
+  }
+  String strippedName=name.trim();
   if (strippedName.length() == 0) {
     return;
   }
-  String strippedKey=sortKey;
-  strippedKey.trim();
+  String strippedKey=sortKey != null ? sortKey.trim() : "";
   if (strippedKey.length() == 0) {
     int index=strippedName.lastIndexOf(' ');
     if (index == -1) {

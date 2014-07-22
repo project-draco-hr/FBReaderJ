@@ -1,3 +1,0 @@
-{
-  myBookReader=new BookReader(model);
-}

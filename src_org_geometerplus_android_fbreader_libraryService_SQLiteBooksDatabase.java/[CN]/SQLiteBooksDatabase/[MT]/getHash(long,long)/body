@@ -1,0 +1,11 @@
+{
+  final SQLiteStatement statement=get("SELECT hash FROM BookHash WHERE book_id=? AND timestamp>?");
+  statement.bindLong(1,bookId);
+  statement.bindLong(2,lastModified);
+  try {
+    return statement.simpleQueryForString();
+  }
+ catch (  SQLiteDoneException e) {
+    return null;
+  }
+}

@@ -1,0 +1,4 @@
+{
+  final String accountName=getAccountOption(host,realm).getValue();
+  return "".equals(accountName) ? null : accountName;
+}

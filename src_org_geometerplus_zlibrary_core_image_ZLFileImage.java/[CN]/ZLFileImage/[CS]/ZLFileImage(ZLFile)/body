@@ -1,0 +1,3 @@
+{
+  this(file,ENCODING_NONE,0,(int)file.size());
+}

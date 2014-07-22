@@ -1,0 +1,8 @@
+{
+  if (!s.equals("")) {
+    return new ArrayList<String>(Arrays.asList(s.split(";")));
+  }
+ else {
+    return new ArrayList<String>();
+  }
+}

@@ -1,4 +1,0 @@
-{
-  final ZLImage image=getRealImage();
-  return image != null ? image.getURI() : "image proxy";
-}

@@ -1,11 +1,9 @@
 {
-  if (myInsertStyleStatement == null) {
-    myInsertStyleStatement=myDatabase.compileStatement("INSERT OR REPLACE INTO HighlightingStyle (style_id,name,bg_color) VALUES (?,?,?)");
-  }
-  myInsertStyleStatement.bindLong(1,style.Id);
+  final SQLiteStatement statement=get("INSERT OR REPLACE INTO HighlightingStyle (style_id,name,bg_color) VALUES (?,?,?)");
+  statement.bindLong(1,style.Id);
   final String name=style.getName();
-  myInsertStyleStatement.bindString(2,name != null ? name : "");
+  statement.bindString(2,name != null ? name : "");
   final ZLColor bgColor=style.getBackgroundColor();
-  myInsertStyleStatement.bindLong(3,bgColor != null ? bgColor.intValue() : -1);
-  myInsertStyleStatement.executeInsert();
+  statement.bindLong(3,bgColor != null ? bgColor.intValue() : -1);
+  statement.execute();
 }

@@ -1,27 +1,25 @@
 {
-  if (myGetSeriesIdStatement == null) {
-    myGetSeriesIdStatement=myDatabase.compileStatement("SELECT series_id FROM Series WHERE name = ?");
-    myInsertSeriesStatement=myDatabase.compileStatement("INSERT OR IGNORE INTO Series (name) VALUES (?)");
-    myInsertBookSeriesStatement=myDatabase.compileStatement("INSERT OR REPLACE INTO BookSeries (book_id,series_id,book_index) VALUES (?,?,?)");
-    myDeleteBookSeriesStatement=myDatabase.compileStatement("DELETE FROM BookSeries WHERE book_id = ?");
-  }
   if (seriesInfo == null) {
-    myDeleteBookSeriesStatement.bindLong(1,bookId);
-    myDeleteBookSeriesStatement.execute();
+    final SQLiteStatement statement=get("DELETE FROM BookSeries WHERE book_id=?");
+    statement.bindLong(1,bookId);
+    statement.execute();
   }
  else {
     long seriesId;
     try {
-      myGetSeriesIdStatement.bindString(1,seriesInfo.Series.getTitle());
-      seriesId=myGetSeriesIdStatement.simpleQueryForLong();
+      final SQLiteStatement getSeriesIdStatement=get("SELECT series_id FROM Series WHERE name = ?");
+      getSeriesIdStatement.bindString(1,seriesInfo.Series.getTitle());
+      seriesId=getSeriesIdStatement.simpleQueryForLong();
     }
  catch (    SQLException e) {
-      myInsertSeriesStatement.bindString(1,seriesInfo.Series.getTitle());
-      seriesId=myInsertSeriesStatement.executeInsert();
+      final SQLiteStatement insertSeriesStatement=get("INSERT OR IGNORE INTO Series (name) VALUES (?)");
+      insertSeriesStatement.bindString(1,seriesInfo.Series.getTitle());
+      seriesId=insertSeriesStatement.executeInsert();
     }
-    myInsertBookSeriesStatement.bindLong(1,bookId);
-    myInsertBookSeriesStatement.bindLong(2,seriesId);
-    SQLiteUtil.bindString(myInsertBookSeriesStatement,3,seriesInfo.Index != null ? seriesInfo.Index.toPlainString() : null);
-    myInsertBookSeriesStatement.execute();
+    final SQLiteStatement insertBookSeriesStatement=get("INSERT OR REPLACE INTO BookSeries (book_id,series_id,book_index) VALUES (?,?,?)");
+    insertBookSeriesStatement.bindLong(1,bookId);
+    insertBookSeriesStatement.bindLong(2,seriesId);
+    SQLiteUtil.bindString(insertBookSeriesStatement,3,seriesInfo.Index != null ? seriesInfo.Index.toPlainString() : null);
+    insertBookSeriesStatement.execute();
   }
 }

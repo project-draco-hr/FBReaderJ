@@ -1,0 +1,34 @@
+{
+  if (image.isSynchronized()) {
+    if (postAction != null) {
+      postAction.run();
+    }
+  }
+ else   if (image instanceof ZLImageSelfSynchronizableProxy) {
+    ((ZLImageSelfSynchronizableProxy)image).synchronize();
+    if (postAction != null) {
+      postAction.run();
+    }
+  }
+ else   if (image instanceof PluginImage) {
+    final PluginImage pluginImage=(PluginImage)image;
+    final Connection connection=getConnection(pluginImage.Plugin);
+    connection.runOrAddAction(new Runnable(){
+      public void run(){
+        try {
+          pluginImage.setRealImage(new ZLBitmapImage(connection.Reader.readBitmap(pluginImage.File.getPath(),Integer.MAX_VALUE,Integer.MAX_VALUE)));
+        }
+ catch (        Exception e) {
+          e.printStackTrace();
+        }
+        if (postAction != null) {
+          postAction.run();
+        }
+      }
+    }
+);
+  }
+ else {
+    throw new RuntimeException("Cannot synchronize " + image.getClass());
+  }
+}

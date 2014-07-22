@@ -1,3 +1,5 @@
 {
+  myImageSynchronizer.clear();
+  myBookCollection.unbind();
   super.onDestroy();
 }

@@ -1,3 +1,0 @@
-{
-  return book.reference(UrlInfo.Type.BookDemo) != null && book.localCopyFileName() == null && book.reference(UrlInfo.Type.Book) == null;
-}

@@ -1,0 +1,10 @@
+{
+  if (authors.size() == 0) {
+    return;
+  }
+  myBook.removeAllAuthors();
+  for (  String a : authors) {
+    myBook.addAuthor(a);
+  }
+  ((EditBookInfoActivity)getContext()).saveBook();
+}

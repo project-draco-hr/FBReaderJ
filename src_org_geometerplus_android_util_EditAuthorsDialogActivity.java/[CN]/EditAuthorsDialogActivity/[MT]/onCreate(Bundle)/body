@@ -1,0 +1,28 @@
+{
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.edit_authors_dialog);
+  myResource=ZLResource.resource("dialog").getResource("editAuthors");
+  final Intent intent=getIntent();
+  ArrayList<String> allAuthorList=intent.getStringArrayListExtra(EditListDialogActivity.Key.ALL_ITEMS_LIST);
+  myInputField=(AutoCompleteTextView)findViewById(R.id.edit_authors_input_field);
+  myInputField.setHint(myResource.getResource("addAuthor").getValue());
+  myInputField.setOnEditorActionListener(new TextView.OnEditorActionListener(){
+    public boolean onEditorAction(    TextView v,    int actionId,    KeyEvent event){
+      if (actionId == EditorInfo.IME_ACTION_DONE) {
+        addAuthor(myInputField.getText().toString().trim(),myEditPosition);
+        myInputField.setText("");
+        myEditPosition=-1;
+        return false;
+      }
+      return true;
+    }
+  }
+);
+  myInputField.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,allAuthorList));
+  parseUIElements();
+  final AuthorsAdapter adapter=new AuthorsAdapter();
+  setListAdapter(adapter);
+  getListView().setOnItemClickListener(adapter);
+  getListView().setOnItemLongClickListener(adapter);
+  setResult(RESULT_CANCELED);
+}

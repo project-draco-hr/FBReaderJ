@@ -1,0 +1,5 @@
+ZLFile file
+String encoding
+int[] offsets
+int[] lengths
+FileEncryptionInfo encryptionInfo

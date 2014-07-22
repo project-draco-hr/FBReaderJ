@@ -1,0 +1,4 @@
+{
+  final Bitmap bitmap=image.getBitmap();
+  return bitmap != null ? new BitmapImageData(bitmap) : null;
+}

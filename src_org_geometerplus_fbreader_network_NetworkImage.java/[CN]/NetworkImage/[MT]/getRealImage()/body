@@ -1,0 +1,17 @@
+{
+  if (myFileImage == null) {
+    if (!isSynchronized()) {
+      return null;
+    }
+    final String path=getFilePath();
+    if (path == null) {
+      return null;
+    }
+    final ZLFile file=ZLFile.createFileByPath(path);
+    if (file == null) {
+      return null;
+    }
+    myFileImage=new ZLFileImage(file);
+  }
+  return myFileImage;
+}

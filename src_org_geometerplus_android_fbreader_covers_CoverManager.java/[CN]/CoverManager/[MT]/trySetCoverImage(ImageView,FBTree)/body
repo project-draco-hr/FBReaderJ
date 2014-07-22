@@ -9,13 +9,13 @@
   }
   if (coverBitmap == null) {
     final ZLImage cover=tree.getCover();
-    if (cover instanceof ZLLoadableImage) {
-      final ZLLoadableImage img=(ZLLoadableImage)cover;
+    if (cover instanceof ZLImageProxy) {
+      final ZLImageProxy img=(ZLImageProxy)cover;
       if (img.isSynchronized()) {
         setCoverForView(holder,img);
       }
  else {
-        img.startSynchronization(holder.new CoverSyncRunnable(img));
+        img.startSynchronization(myImageSynchronizer,holder.new CoverSyncRunnable(img));
       }
     }
  else     if (cover != null) {

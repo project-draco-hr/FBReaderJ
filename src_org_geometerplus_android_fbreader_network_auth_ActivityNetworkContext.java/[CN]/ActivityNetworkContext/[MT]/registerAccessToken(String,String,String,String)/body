@@ -1,0 +1,20 @@
+{
+  String code=null;
+  try {
+    code=GoogleAuthUtil.getToken(myActivity,account,String.format("oauth2:server:client_id:%s:api_scope:%s",clientId,TextUtils.join(" ",new Object[]{Scopes.DRIVE_FILE,Scopes.PROFILE})),null);
+    return runTokenAuthorization(authUrl,authToken,code);
+  }
+ catch (  UserRecoverableAuthException e) {
+    myAuthorizationConfirmed=false;
+    startActivityAndWait(e.getIntent(),NetworkLibraryActivity.REQUEST_AUTHORISATION);
+    if (myAuthorizationConfirmed) {
+      return registerAccessToken(account,clientId,authUrl,authToken);
+    }
+ else {
+      return errorMap("Authorization failed");
+    }
+  }
+catch (  Exception e) {
+    return errorMap(e);
+  }
+}

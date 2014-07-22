@@ -1,15 +1,27 @@
 {
-  final BufferedReader reader=new BufferedReader(new InputStreamReader(stream));
-  final StringBuilder buffer=new StringBuilder();
-  String line;
-  while ((line=reader.readLine()) != null) {
-    buffer.append(line);
+  final Object response=JSONValue.parse(new InputStreamReader(stream));
+  String id=null;
+  List<String> hashes=null;
+  String error=null;
+  try {
+    final List<Map> responseList=(List<Map>)response;
+    if (responseList.size() == 1) {
+      final Map resultMap=(Map)responseList.get(0).get("result");
+      id=(String)resultMap.get("id");
+      hashes=(List<String>)resultMap.get("hashes");
+      error=(String)resultMap.get("error");
+    }
   }
-  final Object response=JSONValue.parse(buffer.toString());
-  if (response instanceof Map && ((Map)response).isEmpty()) {
-    System.err.println("UPLOADED SUCCESSFULLY");
+ catch (  Exception e) {
+  }
+  if (error != null) {
+    System.err.println("UPLOAD FAILURE: " + error);
+  }
+ else   if (id != null && hashes != null) {
+    System.err.println("UPLOADED SUCCESSFULLY: " + id);
+    myHashesFromServer.addAll(hashes);
   }
  else {
-    System.err.println("UPLOAD FAILURE: " + response);
+    System.err.println("UNEXPECED RESPONSE: " + response);
   }
 }

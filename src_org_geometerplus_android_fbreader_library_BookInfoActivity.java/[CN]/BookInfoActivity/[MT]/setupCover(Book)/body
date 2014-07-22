@@ -1,31 +1,25 @@
 {
   final ImageView coverView=(ImageView)findViewById(R.id.book_cover);
-  final DisplayMetrics metrics=new DisplayMetrics();
-  getWindowManager().getDefaultDisplay().getMetrics(metrics);
-  final int maxHeight=metrics.heightPixels * 2 / 3;
-  final int maxWidth=maxHeight * 2 / 3;
   coverView.setVisibility(View.GONE);
   coverView.setImageDrawable(null);
   final ZLImage image=BookUtil.getCover(book);
   if (image == null) {
     return;
   }
-  if (image instanceof ZLLoadableImage) {
-    final ZLLoadableImage loadableImage=(ZLLoadableImage)image;
-    if (!loadableImage.isSynchronized()) {
-      loadableImage.synchronize();
+  if (image instanceof ZLImageProxy) {
+    ((ZLImageProxy)image).startSynchronization(myImageSynchronizer,new Runnable(){
+      public void run(){
+        runOnUiThread(new Runnable(){
+          public void run(){
+            setCover(coverView,image);
+          }
+        }
+);
+      }
     }
+);
   }
-  final ZLAndroidImageData data=((ZLAndroidImageManager)ZLAndroidImageManager.Instance()).getImageData(image);
-  if (data == null) {
-    return;
+ else {
+    setCover(coverView,image);
   }
-  final Bitmap coverBitmap=data.getBitmap(2 * maxWidth,2 * maxHeight);
-  if (coverBitmap == null) {
-    return;
-  }
-  coverView.setVisibility(View.VISIBLE);
-  coverView.getLayoutParams().width=maxWidth;
-  coverView.getLayoutParams().height=maxHeight;
-  coverView.setImageBitmap(coverBitmap);
 }
