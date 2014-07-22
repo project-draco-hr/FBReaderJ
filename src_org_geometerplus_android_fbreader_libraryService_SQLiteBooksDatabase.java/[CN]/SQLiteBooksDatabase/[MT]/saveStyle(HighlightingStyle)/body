@@ -5,5 +5,5 @@
   statement.bindString(2,name != null ? name : "");
   final ZLColor bgColor=style.getBackgroundColor();
   statement.bindLong(3,bgColor != null ? bgColor.intValue() : -1);
-  statement.executeInsert();
+  statement.execute();
 }

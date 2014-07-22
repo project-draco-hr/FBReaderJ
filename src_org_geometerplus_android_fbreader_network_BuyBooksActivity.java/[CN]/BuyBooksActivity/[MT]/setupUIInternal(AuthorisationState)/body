@@ -87,7 +87,7 @@ textArea.setText(resource.getResource("confirmSeveralBooks").getValue().replace(
 okButton.setText(buttonResource.getResource("buy").getValue());
 cancelButton.setText(buttonResource.getResource("cancel").getValue());
 }
- else if (myBooks.get(0).getStatus() == NetworkBookItem.Status.CanBePurchased) {
+ else if (myBooks.get(0).getStatus(myBookCollection) == NetworkBookItem.Status.CanBePurchased) {
 textArea.setText(resource.getResource("confirm").getValue().replace("%s",myBooks.get(0).Title));
 okButton.setText(buttonResource.getResource("buy").getValue());
 cancelButton.setText(buttonResource.getResource("cancel").getValue());

@@ -1,0 +1,6 @@
+{
+  super(activity,id,key);
+  myCollection=collection;
+  myId=id;
+  myArg=arg;
+}

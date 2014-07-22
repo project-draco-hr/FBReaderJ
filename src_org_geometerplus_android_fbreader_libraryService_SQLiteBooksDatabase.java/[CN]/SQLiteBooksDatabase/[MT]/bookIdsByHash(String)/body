@@ -1,0 +1,9 @@
+{
+  final Cursor cursor=myDatabase.rawQuery("SELECT book_id FROM BookHash WHERE hash=?",new String[]{hash});
+  final List<Long> bookIds=new LinkedList<Long>();
+  while (cursor.moveToNext()) {
+    bookIds.add(cursor.getLong(0));
+  }
+  cursor.close();
+  return bookIds;
+}
