@@ -4,11 +4,14 @@
   if (hash == null) {
     return SyncStatus.HashNotComputed;
   }
-  if (myActualHashesFromServer.contains(hash)) {
+ else   if (myActualHashesFromServer.contains(hash)) {
     return SyncStatus.AlreadyUploaded;
   }
-  if (myDeletedHashesFromServer.contains(hash)) {
+ else   if (myDeletedHashesFromServer.contains(hash)) {
     return SyncStatus.ToBeDeleted;
+  }
+ else   if (book.labels().contains(Book.SYNC_FAILURE_LABEL)) {
+    return SyncStatus.FailedPreviuousTime;
   }
   final Map<String,Object> result=new HashMap<String,Object>();
   final PostRequest verificationRequest=new PostRequest("book.status.by.hash",Collections.singletonMap("sha1",hash)){

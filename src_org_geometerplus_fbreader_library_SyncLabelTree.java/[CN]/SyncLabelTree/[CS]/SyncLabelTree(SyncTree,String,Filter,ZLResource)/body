@@ -1,0 +1,5 @@
+{
+  super(parent,filter,-1);
+  myLabel=label;
+  myResource=resource;
+}

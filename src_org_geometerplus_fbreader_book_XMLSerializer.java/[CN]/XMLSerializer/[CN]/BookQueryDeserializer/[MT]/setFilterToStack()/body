@@ -1,0 +1,5 @@
+{
+  if (!myFilterStack.isEmpty() && myFilterStack.getLast() == null) {
+    myFilterStack.set(myFilterStack.size() - 1,myFilter);
+  }
+}

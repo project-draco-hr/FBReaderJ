@@ -42,6 +42,17 @@
             myProcessed.add(book);
             ++count;
             final SyncStatus status=uploadBookToServer(book);
+            if (status.Label != null) {
+              for (              String label : SyncStatus.AllLabels) {
+                if (status.Label.equals(label)) {
+                  book.addLabel(label);
+                }
+ else {
+                  book.removeLabel(label);
+                }
+              }
+              myCollection.saveBook(book);
+            }
             final Integer sc=statusCounts.get(status);
             statusCounts.put(status,sc != null ? sc + 1 : 1);
           }
