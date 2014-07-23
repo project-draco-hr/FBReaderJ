@@ -1,0 +1,47 @@
+{
+  boolean processed=true;
+  try {
+switch (requestCode) {
+default :
+      processed=false;
+    break;
+case NetworkLibraryActivity.REQUEST_ACCOUNT_PICKER:
+  if (resultCode == Activity.RESULT_OK && data != null) {
+    myAccountName=data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
+  }
+break;
+case NetworkLibraryActivity.REQUEST_AUTHORISATION:
+if (resultCode == Activity.RESULT_OK) {
+myAuthorizationConfirmed=true;
+}
+break;
+case NetworkLibraryActivity.REQUEST_WEB_AUTHORISATION_SCREEN:
+if (resultCode == Activity.RESULT_OK && data != null) {
+final CookieStore store=cookieStore();
+final Map<String,String> cookies=(Map<String,String>)data.getSerializableExtra(NetworkLibraryActivity.COOKIES_KEY);
+if (cookies != null) {
+for (Map.Entry<String,String> entry : cookies.entrySet()) {
+final BasicClientCookie2 c=new BasicClientCookie2(entry.getKey(),entry.getValue());
+c.setDomain(data.getData().getHost());
+c.setPath("/");
+final Calendar expire=Calendar.getInstance();
+expire.add(Calendar.YEAR,1);
+c.setExpiryDate(expire.getTime());
+c.setSecure(true);
+c.setDiscard(false);
+store.addCookie(c);
+}
+}
+}
+break;
+}
+}
+  finally {
+if (processed) {
+synchronized (this) {
+notifyAll();
+}
+}
+return processed;
+}
+}

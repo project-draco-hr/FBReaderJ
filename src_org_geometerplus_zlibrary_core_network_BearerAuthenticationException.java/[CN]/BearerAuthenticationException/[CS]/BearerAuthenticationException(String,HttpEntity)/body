@@ -1,0 +1,9 @@
+{
+  super("Authentication failed");
+  Realm=realm;
+  try {
+    Params.putAll((Map)JSONValue.parse(new InputStreamReader(entity.getContent())));
+  }
+ catch (  Exception e) {
+  }
+}

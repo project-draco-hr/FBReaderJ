@@ -3,6 +3,9 @@
   if (image == null) {
     return null;
   }
+  if (image instanceof ZLImageProxy) {
+    myImageSynchronizer.synchronize((ZLImageProxy)image,null);
+  }
   final ZLAndroidImageManager manager=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
   final ZLAndroidImageData data=manager.getImageData(image);
   return data != null ? data.getBitmap(maxWidth,maxHeight) : null;

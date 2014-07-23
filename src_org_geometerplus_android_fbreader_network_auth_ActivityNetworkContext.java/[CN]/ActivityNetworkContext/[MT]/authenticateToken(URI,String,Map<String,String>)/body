@@ -1,0 +1,31 @@
+{
+  System.err.println("+++ TOKEN AUTH +++");
+  try {
+    final String authUrl=url(uri,params,"auth-url-token");
+    final String clientId=params.get("client-id");
+    if (authUrl == null || clientId == null) {
+      return errorMap("No data for token authentication");
+    }
+    String account=getAccountName(uri.getHost(),realm);
+    if (account == null) {
+      final Intent intent=AccountManager.newChooseAccountIntent(null,null,new String[]{"com.google"},false,null,null,null,null);
+      startActivityAndWait(intent,NetworkLibraryActivity.REQUEST_ACCOUNT_PICKER);
+      account=myAccountName;
+    }
+    if (account == null) {
+      return errorMap("No selected account");
+    }
+    final String authToken=GoogleAuthUtil.getToken(myActivity,account,String.format("audience:server:client_id:%s",clientId));
+    final Map<String,String> result=runTokenAuthorization(authUrl,authToken,null);
+    if (result.containsKey("user")) {
+      return result;
+    }
+    return registerAccessToken(account,clientId,authUrl,authToken);
+  }
+ catch (  Exception e) {
+    return errorMap(e);
+  }
+ finally {
+    System.err.println("--- TOKEN AUTH ---");
+  }
+}

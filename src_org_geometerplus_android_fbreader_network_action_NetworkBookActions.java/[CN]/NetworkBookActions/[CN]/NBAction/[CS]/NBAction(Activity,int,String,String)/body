@@ -1,5 +1,0 @@
-{
-  super(activity,id,key);
-  myId=id;
-  myArg=arg;
-}

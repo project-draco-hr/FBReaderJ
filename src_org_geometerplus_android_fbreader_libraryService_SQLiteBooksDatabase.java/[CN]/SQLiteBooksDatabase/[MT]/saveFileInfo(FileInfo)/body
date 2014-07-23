@@ -2,16 +2,10 @@
   final long id=fileInfo.Id;
   SQLiteStatement statement;
   if (id == -1) {
-    if (myInsertFileInfoStatement == null) {
-      myInsertFileInfoStatement=myDatabase.compileStatement("INSERT OR IGNORE INTO Files (name,parent_id,size) VALUES (?,?,?)");
-    }
-    statement=myInsertFileInfoStatement;
+    statement=get("INSERT OR IGNORE INTO Files (name,parent_id,size) VALUES (?,?,?)");
   }
  else {
-    if (myUpdateFileInfoStatement == null) {
-      myUpdateFileInfoStatement=myDatabase.compileStatement("UPDATE Files SET name = ?, parent_id = ?, size = ? WHERE file_id = ?");
-    }
-    statement=myUpdateFileInfoStatement;
+    statement=get("UPDATE Files SET name=?, parent_id=?, size=? WHERE file_id=?");
   }
   statement.bindString(1,fileInfo.Name);
   final FileInfo parent=fileInfo.Parent;

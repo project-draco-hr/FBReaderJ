@@ -1,6 +1,0 @@
-{
-  if (!"https".equalsIgnoreCase(uri.getScheme())) {
-    return false;
-  }
-  return GooglePlayServicesUtil.isGooglePlayServicesAvailable(getContext()) == ConnectionResult.SUCCESS ? authenticateToken(uri,params) : authenticateWeb(uri,params);
-}

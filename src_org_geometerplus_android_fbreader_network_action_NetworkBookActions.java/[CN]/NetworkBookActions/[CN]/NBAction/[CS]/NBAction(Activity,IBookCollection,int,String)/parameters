@@ -1,0 +1,4 @@
+Activity activity
+IBookCollection collection
+int id
+String key

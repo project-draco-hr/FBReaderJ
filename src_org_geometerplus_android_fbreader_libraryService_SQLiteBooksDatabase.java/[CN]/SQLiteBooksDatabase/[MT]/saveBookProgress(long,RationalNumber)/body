@@ -1,9 +1,7 @@
 {
-  if (mySaveProgessStatement == null) {
-    mySaveProgessStatement=myDatabase.compileStatement("INSERT OR REPLACE INTO BookReadingProgress (book_id,numerator,denominator) VALUES (?,?,?)");
-  }
-  mySaveProgessStatement.bindLong(1,bookId);
-  mySaveProgessStatement.bindLong(2,progress.Numerator);
-  mySaveProgessStatement.bindLong(3,progress.Denominator);
-  mySaveProgessStatement.execute();
+  final SQLiteStatement statement=get("INSERT OR REPLACE INTO BookReadingProgress (book_id,numerator,denominator) VALUES (?,?,?)");
+  statement.bindLong(1,bookId);
+  statement.bindLong(2,progress.Numerator);
+  statement.bindLong(3,progress.Denominator);
+  statement.execute();
 }

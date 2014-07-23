@@ -1,6 +1,6 @@
 {
   try {
-    startActivity(new Intent(getAction(),info.getId()));
+    startActivity(FBReaderIntents.defaultIntent(getAction()).setData(info.getId()));
   }
  catch (  ActivityNotFoundException e) {
   }

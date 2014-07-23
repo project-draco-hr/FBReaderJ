@@ -1,6 +1,6 @@
 {
   myDatabase.beginTransaction();
-  myDatabase.execSQL("DELETE FROM BookSynchronizationInfo WHERE book_id=" + bookId);
+  myDatabase.execSQL("DELETE FROM BookHash WHERE book_id=" + bookId);
   myDatabase.execSQL("DELETE FROM BookAuthor WHERE book_id=" + bookId);
   myDatabase.execSQL("DELETE FROM BookLabel WHERE book_id=" + bookId);
   myDatabase.execSQL("DELETE FROM BookReadingProgress WHERE book_id=" + bookId);
