@@ -19,7 +19,7 @@
   }
  else   if (id != null && hashes != null) {
     System.err.println("UPLOADED SUCCESSFULLY: " + id);
-    myHashesFromServer.addAll(hashes);
+    myActualHashesFromServer.addAll(hashes);
   }
  else {
     System.err.println("UNEXPECED RESPONSE: " + response);

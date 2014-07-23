@@ -8,14 +8,18 @@
     System.err.println("Failed: checksum not computed");
     return;
   }
-  if (myHashesFromServer.contains(hash)) {
-    System.err.println("HASH ALREADY IN THE TABLE");
+  if (myActualHashesFromServer.contains(hash)) {
+    System.err.println("BOOK ALREADY UPLOADED");
+    return;
+  }
+  if (myDeletedHashesFromServer.contains(hash)) {
+    System.err.println("BOOK ALREADY UPLOADED AND DELETED");
     return;
   }
   final Map<String,Object> result=new HashMap<String,Object>();
-  final PostRequest verificationRequest=new PostRequest("books.by.hash",Collections.singletonMap("sha1",hash)){
+  final PostRequest verificationRequest=new PostRequest("book.status.by.hash",Collections.singletonMap("sha1",hash)){
     @Override public void processResponse(    Object response){
-      result.put("result",response);
+      result.putAll((Map)response);
     }
   }
 ;
@@ -26,10 +30,9 @@
     e.printStackTrace();
   }
   final String csrfToken=myNetworkContext.getCookieValue(DOMAIN,"csrftoken");
-  final Object response=result.get("result");
   try {
-    final List<Map<String,Object>> responseList=(List<Map<String,Object>>)response;
-    if (responseList.isEmpty()) {
+    final String status=(String)result.get("status");
+    if ("not found".equals(status)) {
       try {
         final UploadRequest uploadRequest=new UploadRequest(file.javaFile());
         uploadRequest.addHeader("Referer",verificationRequest.getURL());
@@ -41,13 +44,18 @@
       }
     }
  else {
-      for (      Map<String,Object> bookInfo : responseList) {
-        System.err.println("BOOK ALREADY UPLOADED: " + bookInfo.get("id"));
-        myHashesFromServer.addAll((List<String>)bookInfo.get("hashes"));
+      final List<String> hashes=(List<String>)result.get("hashes");
+      if ("found".equals(status)) {
+        System.err.println("BOOK ALREADY UPLOADED");
+        myActualHashesFromServer.addAll(hashes);
+      }
+ else {
+        System.err.println("BOOK ALREADY UPLOADED AND DELETED");
+        myDeletedHashesFromServer.addAll(hashes);
       }
     }
   }
  catch (  Exception e) {
-    System.err.println("UNEXPECTED RESPONSE: " + response);
+    System.err.println("UNEXPECTED RESPONSE: " + result);
   }
 }
