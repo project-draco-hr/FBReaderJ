@@ -20,6 +20,7 @@
  else   if (id != null && hashes != null) {
     System.err.println("UPLOADED SUCCESSFULLY: " + id);
     myActualHashesFromServer.addAll(hashes);
+    Success=true;
   }
  else {
     System.err.println("UNEXPECED RESPONSE: " + response);

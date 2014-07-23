@@ -1,20 +1,14 @@
 {
   final ZLPhysicalFile file=book.File.getPhysicalFile();
-  if (file == null) {
-    return;
-  }
   final String hash=myCollection.getHash(book);
   if (hash == null) {
-    System.err.println("Failed: checksum not computed");
-    return;
+    return SyncStatus.HashNotComputed;
   }
   if (myActualHashesFromServer.contains(hash)) {
-    System.err.println("BOOK ALREADY UPLOADED");
-    return;
+    return SyncStatus.AlreadyUploaded;
   }
   if (myDeletedHashesFromServer.contains(hash)) {
-    System.err.println("BOOK ALREADY UPLOADED AND DELETED");
-    return;
+    return SyncStatus.ToBeDeleted;
   }
   final Map<String,Object> result=new HashMap<String,Object>();
   final PostRequest verificationRequest=new PostRequest("book.status.by.hash",Collections.singletonMap("sha1",hash)){
@@ -28,6 +22,7 @@
   }
  catch (  ZLNetworkException e) {
     e.printStackTrace();
+    return SyncStatus.Failure;
   }
   final String csrfToken=myNetworkContext.getCookieValue(DOMAIN,"csrftoken");
   try {
@@ -38,24 +33,27 @@
         uploadRequest.addHeader("Referer",verificationRequest.getURL());
         uploadRequest.addHeader("X-CSRFToken",csrfToken);
         myNetworkContext.perform(uploadRequest);
+        return uploadRequest.Success ? SyncStatus.Uploaded : SyncStatus.Failure;
       }
  catch (      ZLNetworkException e) {
         e.printStackTrace();
+        return SyncStatus.Failure;
       }
     }
  else {
       final List<String> hashes=(List<String>)result.get("hashes");
       if ("found".equals(status)) {
-        System.err.println("BOOK ALREADY UPLOADED");
         myActualHashesFromServer.addAll(hashes);
+        return SyncStatus.AlreadyUploaded;
       }
  else {
-        System.err.println("BOOK ALREADY UPLOADED AND DELETED");
         myDeletedHashesFromServer.addAll(hashes);
+        return SyncStatus.ToBeDeleted;
       }
     }
   }
  catch (  Exception e) {
     System.err.println("UNEXPECTED RESPONSE: " + result);
+    return SyncStatus.Failure;
   }
 }
