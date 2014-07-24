@@ -3,7 +3,7 @@
     return null;
   }
   try {
-    return new ZLBitmapImage(myInterface.getCover(SerializerUtil.serialize(book),maxWidth,maxHeight));
+    return new ZLBitmapImage(myInterface.getCover(SerializerUtil.serialize(book),maxWidth,maxHeight,delayed));
   }
  catch (  RemoteException e) {
     return null;
