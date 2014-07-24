@@ -3,5 +3,5 @@
   statement.bindLong(1,bookId);
   statement.bindLong(2,System.currentTimeMillis());
   statement.bindString(3,hash);
-  statement.executeInsert();
+  statement.execute();
 }

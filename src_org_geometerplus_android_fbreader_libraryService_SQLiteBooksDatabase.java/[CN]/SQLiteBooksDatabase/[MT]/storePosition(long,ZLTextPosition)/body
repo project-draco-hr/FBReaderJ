@@ -4,5 +4,5 @@
   statement.bindLong(2,position.getParagraphIndex());
   statement.bindLong(3,position.getElementIndex());
   statement.bindLong(4,position.getCharIndex());
-  statement.executeInsert();
+  statement.execute();
 }

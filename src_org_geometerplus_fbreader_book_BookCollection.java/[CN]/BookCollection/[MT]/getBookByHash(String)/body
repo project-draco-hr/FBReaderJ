@@ -1,0 +1,9 @@
+{
+  for (  long id : myDatabase.bookIdsByHash(hash)) {
+    final Book book=getBookById(id);
+    if (book.File.exists()) {
+      return book;
+    }
+  }
+  return null;
+}

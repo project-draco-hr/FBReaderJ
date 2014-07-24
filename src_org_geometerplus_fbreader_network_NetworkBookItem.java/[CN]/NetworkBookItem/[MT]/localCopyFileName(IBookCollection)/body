@@ -1,0 +1,34 @@
+{
+  if (collection != null) {
+    for (    String identifier : Identifiers) {
+      if (identifier.startsWith(HASH_PREFIX)) {
+        final String hash=identifier.substring(HASH_PREFIX.length());
+        final Book book=collection.getBookByHash(hash);
+        if (book != null) {
+          final ZLPhysicalFile file=book.File.getPhysicalFile();
+          if (file != null) {
+            return file.getPath();
+          }
+        }
+      }
+    }
+  }
+  final boolean hasBuyReference=buyInfo() != null;
+  BookUrlInfo reference=null;
+  String fileName=null;
+  for (  UrlInfo r : getAllInfos()) {
+    if (!(r instanceof BookUrlInfo)) {
+      continue;
+    }
+    final BookUrlInfo br=(BookUrlInfo)r;
+    final UrlInfo.Type type=br.InfoType;
+    if ((type == UrlInfo.Type.Book || type == UrlInfo.Type.BookConditional || (!hasBuyReference && type == UrlInfo.Type.BookFullOrDemo)) && (reference == null || BookUrlInfo.isMimeBetterThan(br.Mime,reference.Mime))) {
+      String name=br.localCopyFileName(UrlInfo.Type.Book);
+      if (name != null) {
+        reference=br;
+        fileName=name;
+      }
+    }
+  }
+  return fileName;
+}

@@ -1,7 +1,7 @@
 {
   Money cost=Money.ZERO;
   for (  NetworkBookItem b : myBooks) {
-    if (b.getStatus() != NetworkBookItem.Status.CanBePurchased) {
+    if (b.getStatus(myBookCollection) != NetworkBookItem.Status.CanBePurchased) {
       continue;
     }
     final BookBuyUrlInfo info=b.buyInfo();
