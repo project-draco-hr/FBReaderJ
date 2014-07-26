@@ -2,6 +2,11 @@
   if (filter instanceof Filter.Empty) {
     appendTag(buffer,"filter",true,"type","empty");
   }
+ else   if (filter instanceof Filter.Not) {
+    appendTag(buffer,"not",false);
+    serialize(buffer,((Filter.Not)filter).Base);
+    closeTag(buffer,"not");
+  }
  else   if (filter instanceof Filter.And) {
     appendTag(buffer,"and",false);
     serialize(buffer,((Filter.And)filter).First);
