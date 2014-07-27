@@ -7,6 +7,7 @@
   config.requestAllValuesForGroup("Files");
   config.requestAllValuesForGroup("Scrolling");
   config.requestAllValuesForGroup("Colors");
+  config.requestAllValuesForGroup("Sync");
   setResult(FBReader.RESULT_REPAINT);
   final ViewOptions viewOptions=new ViewOptions();
   final MiscOptions miscOptions=new MiscOptions();
@@ -56,8 +57,7 @@
 );
   syncPreferences.add(syncScreen.addOption(syncOptions.UploadAllBooks,"uploadAllBooks"));
   syncPreferences.add(syncScreen.addOption(syncOptions.Positions,"positions"));
-  syncPreferences.add(syncScreen.addOption(syncOptions.Metainfo,"metainfo"));
-  syncPreferences.add(syncScreen.addOption(syncOptions.Bookmarks,"bookmarks"));
+  syncPreferences.run();
   final Screen appearanceScreen=createPreferenceScreen("appearance");
   appearanceScreen.addPreference(new LanguagePreference(this,appearanceScreen.Resource,"language",ZLResource.interfaceLanguages()){
     @Override protected void init(){
