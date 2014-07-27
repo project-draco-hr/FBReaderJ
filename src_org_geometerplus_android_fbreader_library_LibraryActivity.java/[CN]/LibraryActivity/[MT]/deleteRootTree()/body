@@ -1,0 +1,7 @@
+{
+  if (myRootTree != null) {
+    myRootTree.Collection.removeListener(this);
+    ((BookCollectionShadow)myRootTree.Collection).unbind();
+    myRootTree=null;
+  }
+}
