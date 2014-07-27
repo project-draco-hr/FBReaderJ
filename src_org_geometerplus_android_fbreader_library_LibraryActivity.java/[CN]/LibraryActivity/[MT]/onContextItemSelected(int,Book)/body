@@ -1,37 +1,46 @@
 {
 switch (itemId) {
-case OPEN_BOOK_ITEM_ID:
+case ItemId.OpenBook:
     FBReader.openBookActivity(this,book,null);
   return true;
-case SHOW_BOOK_INFO_ITEM_ID:
+case ItemId.ShowBookInfo:
 showBookInfo(book);
 return true;
-case SHARE_BOOK_ITEM_ID:
+case ItemId.ShareBook:
 FBUtil.shareBook(this,book);
 return true;
-case ADD_TO_FAVORITES_ITEM_ID:
+case ItemId.AddToFavorites:
 book.addLabel(Book.FAVORITE_LABEL);
 myRootTree.Collection.saveBook(book);
 return true;
-case REMOVE_FROM_FAVORITES_ITEM_ID:
+case ItemId.RemoveFromFavorites:
 book.removeLabel(Book.FAVORITE_LABEL);
 myRootTree.Collection.saveBook(book);
 if (getCurrentTree().onBookEvent(BookEvent.Updated,book)) {
 getListAdapter().replaceAll(getCurrentTree().subtrees(),true);
 }
 return true;
-case MARK_AS_READ_ITEM_ID:
+case ItemId.MarkAsRead:
 book.addLabel(Book.READ_LABEL);
 myRootTree.Collection.saveBook(book);
 getListView().invalidateViews();
 return true;
-case MARK_AS_UNREAD_ITEM_ID:
+case ItemId.MarkAsUnread:
 book.removeLabel(Book.READ_LABEL);
 myRootTree.Collection.saveBook(book);
 getListView().invalidateViews();
 return true;
-case DELETE_BOOK_ITEM_ID:
+case ItemId.DeleteBook:
 tryToDeleteBook(book);
+return true;
+case ItemId.SyncAgain:
+book.removeLabel(Book.SYNC_FAILURE_LABEL);
+book.removeLabel(Book.SYNC_DELETED_LABEL);
+book.addLabel(Book.SYNC_TOSYNC_LABEL);
+myRootTree.Collection.saveBook(book);
+if (getCurrentTree().onBookEvent(BookEvent.Updated,book)) {
+getListAdapter().replaceAll(getCurrentTree().subtrees(),true);
+}
 return true;
 }
 return false;
