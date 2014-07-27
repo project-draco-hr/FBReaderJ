@@ -1,5 +1,20 @@
 {
   super.onPrepareOptionsMenu(menu);
-  menu.findItem(2).setEnabled(myRootTree.Collection.status().IsCompleted);
+  boolean enableSyncAgain=false;
+  boolean enableDeleteAll=false;
+  final LibraryTree tree=getCurrentTree();
+  if (tree instanceof SyncLabelTree) {
+    final String label=((SyncLabelTree)tree).Label;
+    if (Book.SYNC_DELETED_LABEL.equals(label)) {
+      enableSyncAgain=true;
+      enableDeleteAll=true;
+    }
+ else     if (Book.SYNC_FAILURE_LABEL.equals(label)) {
+      enableSyncAgain=true;
+    }
+  }
+  menu.findItem(OptionsItemId.Rescan).setEnabled(myRootTree.Collection.status().IsCompleted);
+  menu.findItem(OptionsItemId.SyncAgain).setVisible(enableSyncAgain);
+  menu.findItem(OptionsItemId.DeleteAll).setVisible(enableDeleteAll);
   return true;
 }

@@ -1,0 +1,6 @@
+{
+  book.removeLabel(Book.SYNC_FAILURE_LABEL);
+  book.removeLabel(Book.SYNC_DELETED_LABEL);
+  book.addLabel(Book.SYNC_TOSYNC_LABEL);
+  myRootTree.Collection.saveBook(book);
+}

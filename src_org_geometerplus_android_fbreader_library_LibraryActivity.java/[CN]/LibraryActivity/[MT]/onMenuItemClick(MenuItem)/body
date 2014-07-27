@@ -1,13 +1,31 @@
 {
 switch (item.getItemId()) {
-case 1:
+case OptionsItemId.Search:
     return onSearchRequested();
-case 2:
+case OptionsItemId.Rescan:
   if (myRootTree.Collection.status().IsCompleted) {
     ((BookCollectionShadow)myRootTree.Collection).reset(true);
     openTree(myRootTree);
   }
 return true;
+case OptionsItemId.SyncAgain:
+for (FBTree tree : getCurrentTree().subtrees()) {
+if (tree instanceof BookTree) {
+  syncAgain(((BookTree)tree).Book);
+}
+}
+getListAdapter().replaceAll(getCurrentTree().subtrees(),true);
+return true;
+case OptionsItemId.DeleteAll:
+{
+final List<Book> books=new LinkedList<Book>();
+for (FBTree tree : getCurrentTree().subtrees()) {
+if (tree instanceof BookTree) {
+books.add(((BookTree)tree).Book);
+}
+}
+tryToDeleteBooks(books);
+}
 default :
 return true;
 }

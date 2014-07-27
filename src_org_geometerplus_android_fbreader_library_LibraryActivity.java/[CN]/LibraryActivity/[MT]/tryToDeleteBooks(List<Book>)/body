@@ -1,0 +1,12 @@
+{
+  final int size=books.size();
+  if (size == 0) {
+    return;
+  }
+  final ZLResource dialogResource=ZLResource.resource("dialog");
+  final ZLResource buttonResource=dialogResource.getResource("button");
+  final ZLResource boxResource=dialogResource.getResource(size == 1 ? "deleteBookBox" : "deleteMultipleBookBox");
+  final String title=size == 1 ? books.get(0).getTitle() : boxResource.getResource("title").getValue();
+  final String message=boxResource.getResource("message").getValue(size).replaceAll("%s",String.valueOf(size));
+  new AlertDialog.Builder(this).setTitle(title).setMessage(message).setIcon(0).setPositiveButton(buttonResource.getResource("yes").getValue(),new BookDeleter(books)).setNegativeButton(buttonResource.getResource("no").getValue(),null).create().show();
+}
