@@ -33,7 +33,8 @@ return true;
 case ContextItemId.DeleteBook:
 tryToDeleteBook(book);
 return true;
-case ContextItemId.SyncAgain:
+case ContextItemId.UploadAgain:
+case ContextItemId.TryAgain:
 syncAgain(book);
 if (getCurrentTree().onBookEvent(BookEvent.Updated,book)) {
 getListAdapter().replaceAll(getCurrentTree().subtrees(),true);

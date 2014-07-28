@@ -22,7 +22,10 @@
   if (BookUtil.canRemoveBookFile(book)) {
     menu.add(0,ContextItemId.DeleteBook,0,resource.getResource("deleteBook").getValue());
   }
-  if (labels.contains(Book.SYNC_FAILURE_LABEL) || labels.contains(Book.SYNC_DELETED_LABEL)) {
-    menu.add(0,ContextItemId.SyncAgain,0,resource.getResource("syncAgain").getValue());
+  if (labels.contains(Book.SYNC_DELETED_LABEL)) {
+    menu.add(0,ContextItemId.UploadAgain,0,resource.getResource("uploadAgain").getValue());
+  }
+  if (labels.contains(Book.SYNC_FAILURE_LABEL)) {
+    menu.add(0,ContextItemId.TryAgain,0,resource.getResource("tryAgain").getValue());
   }
 }

@@ -8,7 +8,8 @@ case OptionsItemId.Rescan:
     openTree(myRootTree);
   }
 return true;
-case OptionsItemId.SyncAgain:
+case OptionsItemId.UploadAgain:
+case OptionsItemId.TryAgain:
 for (FBTree tree : getCurrentTree().subtrees()) {
 if (tree instanceof BookTree) {
   syncAgain(((BookTree)tree).Book);
