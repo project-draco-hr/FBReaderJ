@@ -1,5 +1,5 @@
 {
-  myManager.perform(new ZLNetworkRequest.Get(url){
+  perform(new ZLNetworkRequest.Get(url){
     public void handleStream(    InputStream inputStream,    int length) throws IOException, ZLNetworkException {
       OutputStream outStream=new FileOutputStream(outFile);
       try {
@@ -17,5 +17,5 @@
       }
     }
   }
-,this,0,0);
+,0,0);
 }

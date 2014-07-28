@@ -7,24 +7,7 @@
         int count=0;
         final Map<SyncStatus,Integer> statusCounts=new HashMap<SyncStatus,Integer>();
         try {
-          myActualHashesFromServer.clear();
-          myDeletedHashesFromServer.clear();
-          try {
-            myNetworkContext.perform(new PostRequest("all.hashes",null){
-              @Override public void processResponse(              Object response){
-                final Map<String,List<String>> map=(Map<String,List<String>>)response;
-                myActualHashesFromServer.addAll(map.get("actual"));
-                myDeletedHashesFromServer.addAll(map.get("deleted"));
-              }
-            }
-);
-            System.err.println(String.format("RECEIVED: %s/%s HASHES",myActualHashesFromServer.size(),myDeletedHashesFromServer.size()));
-          }
- catch (          Exception e) {
-            e.printStackTrace();
-            System.err.println("DO NOT SYNCHRONIZE: ALL HASHES REQUEST FAILED");
-            return;
-          }
+          clearHashTables();
           for (BookQuery q=new BookQuery(new Filter.Empty(),20); ; q=q.next()) {
             final List<Book> books=myCollection.books(q);
             if (books.isEmpty()) {
