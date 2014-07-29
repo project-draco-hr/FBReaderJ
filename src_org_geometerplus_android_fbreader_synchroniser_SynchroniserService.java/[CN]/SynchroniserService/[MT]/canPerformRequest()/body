@@ -1,0 +1,24 @@
+{
+  if (!mySyncOptions.Enabled.getValue()) {
+    return false;
+  }
+switch (mySyncOptions.UploadAllBooks.getValue()) {
+default :
+case never:
+    return false;
+case always:
+{
+    final ConnectivityManager cm=(ConnectivityManager)getSystemService(CONNECTIVITY_SERVICE);
+    return cm != null && cm.getActiveNetworkInfo().isConnected();
+  }
+case viaWifi:
+{
+  final ConnectivityManager cm=(ConnectivityManager)getSystemService(CONNECTIVITY_SERVICE);
+  if (cm == null) {
+    return false;
+  }
+  final NetworkInfo info=cm.getActiveNetworkInfo();
+  return info != null && info.isConnected() && info.getType() == ConnectivityManager.TYPE_WIFI;
+}
+}
+}

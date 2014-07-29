@@ -1,0 +1,8 @@
+{
+  super(context,resource,languages());
+  myBook=book;
+  final String language=myBook.getLanguage();
+  if (language == null || !setInitialValue(language)) {
+    setInitialValue(Language.OTHER_CODE);
+  }
+}

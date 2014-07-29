@@ -1,0 +1,3 @@
+{
+  myBooks=new ArrayList<Book>(books);
+}

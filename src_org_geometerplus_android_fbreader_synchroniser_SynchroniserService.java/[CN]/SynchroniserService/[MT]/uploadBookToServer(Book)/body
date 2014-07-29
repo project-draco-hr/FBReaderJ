@@ -1,62 +1,8 @@
 {
-  final ZLPhysicalFile file=book.File.getPhysicalFile();
-  final String hash=myCollection.getHash(book);
-  if (hash == null) {
-    return SyncStatus.HashNotComputed;
-  }
- else   if (myActualHashesFromServer.contains(hash)) {
-    return SyncStatus.AlreadyUploaded;
-  }
- else   if (myDeletedHashesFromServer.contains(hash)) {
-    return SyncStatus.ToBeDeleted;
-  }
- else   if (book.labels().contains(Book.SYNC_FAILURE_LABEL)) {
-    return SyncStatus.FailedPreviuousTime;
-  }
-  final Map<String,Object> result=new HashMap<String,Object>();
-  final PostRequest verificationRequest=new PostRequest("book.status.by.hash",Collections.singletonMap("sha1",hash)){
-    @Override public void processResponse(    Object response){
-      result.putAll((Map)response);
-    }
-  }
-;
   try {
-    myNetworkContext.perform(verificationRequest);
+    return uploadBookToServerInternal(book);
   }
- catch (  ZLNetworkException e) {
-    e.printStackTrace();
-    return SyncStatus.Failure;
-  }
-  final String csrfToken=myNetworkContext.getCookieValue(DOMAIN,"csrftoken");
-  try {
-    final String status=(String)result.get("status");
-    if ("not found".equals(status)) {
-      try {
-        final UploadRequest uploadRequest=new UploadRequest(file.javaFile());
-        uploadRequest.addHeader("Referer",verificationRequest.getURL());
-        uploadRequest.addHeader("X-CSRFToken",csrfToken);
-        myNetworkContext.perform(uploadRequest);
-        return uploadRequest.Success ? SyncStatus.Uploaded : SyncStatus.Failure;
-      }
- catch (      ZLNetworkException e) {
-        e.printStackTrace();
-        return SyncStatus.Failure;
-      }
-    }
- else {
-      final List<String> hashes=(List<String>)result.get("hashes");
-      if ("found".equals(status)) {
-        myActualHashesFromServer.addAll(hashes);
-        return SyncStatus.AlreadyUploaded;
-      }
- else {
-        myDeletedHashesFromServer.addAll(hashes);
-        return SyncStatus.ToBeDeleted;
-      }
-    }
-  }
- catch (  Exception e) {
-    System.err.println("UNEXPECTED RESPONSE: " + result);
-    return SyncStatus.Failure;
+ catch (  SyncronizationDisabledException e) {
+    return SyncStatus.SyncronizationDisabled;
   }
 }

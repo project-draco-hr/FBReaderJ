@@ -5,12 +5,12 @@
   final String[] values=new String[size];
   final String[] texts=new String[size];
   values[0]="";
-  texts[0]=myResource.getResource("solidColor").getValue();
+  texts[0]=myValuesResource.getResource("solidColor").getValue();
   int index=1;
   for (  ZLFile f : predefined) {
     values[index]=f.getPath();
     final String name=f.getShortName();
-    texts[index]=myResource.getResource(name.substring(0,name.indexOf("."))).getValue();
+    texts[index]=myValuesResource.getResource(name.substring(0,name.indexOf("."))).getValue();
     ++index;
   }
   for (  ZLFile f : external) {

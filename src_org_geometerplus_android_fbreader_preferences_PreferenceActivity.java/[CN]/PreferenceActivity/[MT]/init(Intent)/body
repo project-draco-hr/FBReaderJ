@@ -7,12 +7,14 @@
   config.requestAllValuesForGroup("Files");
   config.requestAllValuesForGroup("Scrolling");
   config.requestAllValuesForGroup("Colors");
+  config.requestAllValuesForGroup("Sync");
   setResult(FBReader.RESULT_REPAINT);
   final ViewOptions viewOptions=new ViewOptions();
   final MiscOptions miscOptions=new MiscOptions();
   final FooterOptions footerOptions=viewOptions.getFooterOptions();
   final PageTurningOptions pageTurningOptions=new PageTurningOptions();
   final ImageOptions imageOptions=new ImageOptions();
+  final SyncOptions syncOptions=new SyncOptions();
   final ColorProfile profile=viewOptions.getColorProfile();
   final ZLTextStyleCollection collection=viewOptions.getTextStyleCollection();
   final ZLKeyBindings keyBindings=new ZLKeyBindings();
@@ -39,8 +41,25 @@
   final PreferenceSet wallpaperReloader=new PreferenceSet.Reloader();
   directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"wallpaperPath",Paths.WallpaperPathOption,wallpaperReloader));
   directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"tempDir",Paths.TempDirectoryOption,null));
+  final Screen syncScreen=createPreferenceScreen("sync");
+  final PreferenceSet syncPreferences=new PreferenceSet.Enabler(){
+    @Override protected Boolean detectState(){
+      return syncOptions.Enabled.getValue();
+    }
+  }
+;
+  syncScreen.addPreference(new ZLBooleanPreference(this,syncOptions.Enabled,syncScreen.Resource,"enable"){
+    @Override protected void onClick(){
+      super.onClick();
+      syncPreferences.run();
+    }
+  }
+);
+  syncPreferences.add(syncScreen.addOption(syncOptions.UploadAllBooks,"uploadAllBooks","values"));
+  syncPreferences.add(syncScreen.addOption(syncOptions.Positions,"positions","values"));
+  syncPreferences.run();
   final Screen appearanceScreen=createPreferenceScreen("appearance");
-  appearanceScreen.addPreference(new LanguagePreference(this,appearanceScreen.Resource,"language",ZLResource.interfaceLanguages()){
+  appearanceScreen.addPreference(new LanguagePreference(this,appearanceScreen.Resource.getResource("language"),ZLResource.interfaceLanguages()){
     @Override protected void init(){
       setInitialValue(ZLResource.getLanguageOption().getValue());
     }
@@ -54,7 +73,7 @@
     }
   }
 );
-  appearanceScreen.addPreference(new ZLStringChoicePreference(this,appearanceScreen.Resource,"screenOrientation",androidLibrary.getOrientationOption(),androidLibrary.allOrientations()));
+  appearanceScreen.addPreference(new ZLStringChoicePreference(this,appearanceScreen.Resource.getResource("screenOrientation"),androidLibrary.getOrientationOption(),androidLibrary.allOrientations()));
   appearanceScreen.addPreference(new ZLBooleanPreference(this,viewOptions.TwoColumnView,appearanceScreen.Resource,"twoColumnView"));
   appearanceScreen.addPreference(new ZLBooleanPreference(this,miscOptions.AllowScreenBrightnessAdjustment,appearanceScreen.Resource,"allowScreenBrightnessAdjustment"){
     private final int myLevel=androidLibrary.ScreenBrightnessLevelOption.getValue();
@@ -64,7 +83,7 @@
     }
   }
 );
-  appearanceScreen.addPreference(new BatteryLevelToTurnScreenOffPreference(this,androidLibrary.BatteryLevelToTurnScreenOffOption,appearanceScreen.Resource,"dontTurnScreenOff"));
+  appearanceScreen.addPreference(new BatteryLevelToTurnScreenOffPreference(this,androidLibrary.BatteryLevelToTurnScreenOffOption,appearanceScreen.Resource.getResource("dontTurnScreenOff")));
   appearanceScreen.addOption(androidLibrary.ShowStatusBarOption,"showStatusBar");
   appearanceScreen.addOption(androidLibrary.DisableButtonLightsOption,"disableButtonLights");
   if (DeviceType.Instance().isEInk()) {
@@ -95,31 +114,29 @@
   fontPropertiesScreen.addOption(ZLAndroidPaintContext.DitheringOption,"dithering");
   fontPropertiesScreen.addOption(ZLAndroidPaintContext.SubpixelOption,"subpixel");
   final ZLTextBaseStyle baseStyle=collection.getBaseStyle();
-  final FontPreference fontPreference=new FontPreference(this,textScreen.Resource,"font",baseStyle.FontFamilyOption,false);
-  textScreen.addPreference(fontPreference);
-  fontReloader.add(fontPreference);
+  fontReloader.add(textScreen.addPreference(new FontPreference(this,textScreen.Resource.getResource("font"),baseStyle.FontFamilyOption,false)));
   textScreen.addPreference(new ZLIntegerRangePreference(this,textScreen.Resource.getResource("fontSize"),baseStyle.FontSizeOption));
-  textScreen.addPreference(new FontStylePreference(this,textScreen.Resource,"fontStyle",baseStyle.BoldOption,baseStyle.ItalicOption));
+  textScreen.addPreference(new FontStylePreference(this,textScreen.Resource.getResource("fontStyle"),baseStyle.BoldOption,baseStyle.ItalicOption));
   final ZLIntegerRangeOption spaceOption=baseStyle.LineSpaceOption;
   final String[] spacings=new String[spaceOption.MaxValue - spaceOption.MinValue + 1];
   for (int i=0; i < spacings.length; ++i) {
     final int val=spaceOption.MinValue + i;
     spacings[i]=(char)(val / 10 + '0') + decimalSeparator + (char)(val % 10 + '0');
   }
-  textScreen.addPreference(new ZLChoicePreference(this,textScreen.Resource,"lineSpacing",spaceOption,spacings));
+  textScreen.addPreference(new ZLChoicePreference(this,textScreen.Resource.getResource("lineSpacing"),spaceOption,spacings));
   final String[] alignments={"left","right","center","justify"};
-  textScreen.addPreference(new ZLChoicePreference(this,textScreen.Resource,"alignment",baseStyle.AlignmentOption,alignments));
+  textScreen.addPreference(new ZLChoicePreference(this,textScreen.Resource.getResource("alignment"),baseStyle.AlignmentOption,alignments));
   textScreen.addOption(baseStyle.AutoHyphenationOption,"autoHyphenations");
   final Screen moreStylesScreen=textScreen.createPreferenceScreen("more");
   for (  ZLTextNGStyleDescription description : collection.getDescriptionList()) {
     final Screen ngScreen=moreStylesScreen.createPreferenceScreen(description.Name);
-    ngScreen.addPreference(new FontPreference(this,textScreen.Resource,"font",description.FontFamilyOption,true));
+    ngScreen.addPreference(new FontPreference(this,textScreen.Resource.getResource("font"),description.FontFamilyOption,true));
     ngScreen.addPreference(new StringPreference(this,description.FontSizeOption,StringPreference.Constraint.POSITIVE_LENGTH,textScreen.Resource,"fontSize"));
-    ngScreen.addPreference(new ZLStringChoicePreference(this,textScreen.Resource,"bold",description.FontWeightOption,new String[]{"inherit","normal","bold"}));
-    ngScreen.addPreference(new ZLStringChoicePreference(this,textScreen.Resource,"italic",description.FontStyleOption,new String[]{"inherit","normal","italic"}));
-    ngScreen.addPreference(new ZLStringChoicePreference(this,textScreen.Resource,"textDecoration",description.TextDecorationOption,new String[]{"inherit","none","underline","line-through"}));
-    ngScreen.addPreference(new ZLStringChoicePreference(this,textScreen.Resource,"allowHyphenations",description.HyphenationOption,new String[]{"inherit","none","auto"}));
-    ngScreen.addPreference(new ZLStringChoicePreference(this,textScreen.Resource,"alignment",description.AlignmentOption,new String[]{"inherit","left","right","center","justify"}));
+    ngScreen.addPreference(new ZLStringChoicePreference(this,textScreen.Resource.getResource("bold"),description.FontWeightOption,new String[]{"inherit","normal","bold"}));
+    ngScreen.addPreference(new ZLStringChoicePreference(this,textScreen.Resource.getResource("italic"),description.FontStyleOption,new String[]{"inherit","normal","italic"}));
+    ngScreen.addPreference(new ZLStringChoicePreference(this,textScreen.Resource.getResource("textDecoration"),description.TextDecorationOption,new String[]{"inherit","none","underline","line-through"}));
+    ngScreen.addPreference(new ZLStringChoicePreference(this,textScreen.Resource.getResource("allowHyphenations"),description.HyphenationOption,new String[]{"inherit","none","auto"}));
+    ngScreen.addPreference(new ZLStringChoicePreference(this,textScreen.Resource.getResource("alignment"),description.AlignmentOption,new String[]{"inherit","left","right","center","justify"}));
     ngScreen.addPreference(new StringPreference(this,description.LineHeightOption,StringPreference.Constraint.PERCENT,textScreen.Resource,"lineSpacing"));
     ngScreen.addPreference(new StringPreference(this,description.MarginTopOption,StringPreference.Constraint.LENGTH,textScreen.Resource,"spaceBefore"));
     ngScreen.addPreference(new StringPreference(this,description.MarginBottomOption,StringPreference.Constraint.LENGTH,textScreen.Resource,"spaceAfter"));
@@ -146,7 +163,7 @@
   cssScreen.addOption(baseStyle.UseCSSTextAlignmentOption,"textAlignment");
   cssScreen.addOption(baseStyle.UseCSSMarginsOption,"margins");
   final Screen colorsScreen=createPreferenceScreen("colors");
-  final WallpaperPreference wallpaperPreference=new WallpaperPreference(this,profile,colorsScreen.Resource,"background"){
+  final WallpaperPreference wallpaperPreference=new WallpaperPreference(this,profile,colorsScreen.Resource.getResource("background")){
     @Override protected void onDialogClosed(    boolean result){
       super.onDialogClosed(result);
       bgPreferences.run();
@@ -172,7 +189,7 @@
   marginsScreen.addPreference(new ZLIntegerRangePreference(this,marginsScreen.Resource.getResource("spaceBetweenColumns"),viewOptions.SpaceBetweenColumns));
   final Screen statusLineScreen=createPreferenceScreen("scrollBar");
   final String[] scrollBarTypes={"hide","show","showAsProgress","showAsFooter"};
-  statusLineScreen.addPreference(new ZLChoicePreference(this,statusLineScreen.Resource,"scrollbarType",viewOptions.ScrollbarType,scrollBarTypes){
+  statusLineScreen.addPreference(new ZLChoicePreference(this,statusLineScreen.Resource.getResource("scrollbarType"),viewOptions.ScrollbarType,scrollBarTypes){
     @Override protected void onDialogClosed(    boolean result){
       super.onDialogClosed(result);
       footerPreferences.run();
@@ -185,7 +202,7 @@
   footerPreferences.add(statusLineScreen.addOption(footerOptions.ShowProgress,"showProgress"));
   footerPreferences.add(statusLineScreen.addOption(footerOptions.ShowClock,"showClock"));
   footerPreferences.add(statusLineScreen.addOption(footerOptions.ShowBattery,"showBattery"));
-  footerPreferences.add(statusLineScreen.addPreference(new FontPreference(this,statusLineScreen.Resource,"font",footerOptions.Font,false)));
+  footerPreferences.add(statusLineScreen.addPreference(new FontPreference(this,statusLineScreen.Resource.getResource("font"),footerOptions.Font,false)));
   footerPreferences.run();
   final Screen scrollingScreen=createPreferenceScreen("scrolling");
   scrollingScreen.addOption(pageTurningOptions.FingerScrolling,"fingerScrolling");
@@ -243,7 +260,7 @@
   }
   Collections.sort(languages);
   languages.add(0,new Language(Language.ANY_CODE,dictionaryScreen.Resource.getResource("targetLanguage")));
-  final LanguagePreference targetLanguagePreference=new LanguagePreference(this,dictionaryScreen.Resource,"targetLanguage",languages){
+  final LanguagePreference targetLanguagePreference=new LanguagePreference(this,dictionaryScreen.Resource.getResource("targetLanguage"),languages){
     @Override protected void init(){
       setInitialValue(DictionaryUtil.TargetLanguageOption.getValue());
     }
@@ -254,14 +271,14 @@
 ;
   DictionaryUtil.init(this,new Runnable(){
     public void run(){
-      dictionaryScreen.addPreference(new DictionaryPreference(PreferenceActivity.this,dictionaryScreen.Resource,"dictionary",DictionaryUtil.singleWordTranslatorOption(),DictionaryUtil.dictionaryInfos(PreferenceActivity.this,true)){
+      dictionaryScreen.addPreference(new DictionaryPreference(PreferenceActivity.this,dictionaryScreen.Resource.getResource("dictionary"),DictionaryUtil.singleWordTranslatorOption(),DictionaryUtil.dictionaryInfos(PreferenceActivity.this,true)){
         @Override protected void onDialogClosed(        boolean result){
           super.onDialogClosed(result);
           targetLanguagePreference.setEnabled(DictionaryUtil.getCurrentDictionaryInfo(true).SupportsTargetLanguageSetting);
         }
       }
 );
-      dictionaryScreen.addPreference(new DictionaryPreference(PreferenceActivity.this,dictionaryScreen.Resource,"translator",DictionaryUtil.multiWordTranslatorOption(),DictionaryUtil.dictionaryInfos(PreferenceActivity.this,false)));
+      dictionaryScreen.addPreference(new DictionaryPreference(PreferenceActivity.this,dictionaryScreen.Resource.getResource("translator"),DictionaryUtil.multiWordTranslatorOption(),DictionaryUtil.dictionaryInfos(PreferenceActivity.this,false)));
       dictionaryScreen.addPreference(new ZLBooleanPreference(PreferenceActivity.this,miscOptions.NavigateAllWords,dictionaryScreen.Resource,"navigateOverAllWords"));
       dictionaryScreen.addOption(miscOptions.WordTappingAction,"tappingAction");
       dictionaryScreen.addPreference(targetLanguagePreference);
@@ -281,9 +298,9 @@
   cancelMenuScreen.addOption(cancelMenuHelper.ShowPreviousBookItemOption,"previousBook");
   cancelMenuScreen.addOption(cancelMenuHelper.ShowPositionItemsOption,"positions");
   final String[] backKeyActions={ActionCode.EXIT,ActionCode.SHOW_CANCEL_MENU};
-  cancelMenuScreen.addPreference(new ZLStringChoicePreference(this,cancelMenuScreen.Resource,"backKeyAction",keyBindings.getOption(KeyEvent.KEYCODE_BACK,false),backKeyActions));
+  cancelMenuScreen.addPreference(new ZLStringChoicePreference(this,cancelMenuScreen.Resource.getResource("backKeyAction"),keyBindings.getOption(KeyEvent.KEYCODE_BACK,false),backKeyActions));
   final String[] backKeyLongPressActions={ActionCode.EXIT,ActionCode.SHOW_CANCEL_MENU,FBReaderApp.NoAction};
-  cancelMenuScreen.addPreference(new ZLStringChoicePreference(this,cancelMenuScreen.Resource,"backKeyLongPressAction",keyBindings.getOption(KeyEvent.KEYCODE_BACK,true),backKeyLongPressActions));
+  cancelMenuScreen.addPreference(new ZLStringChoicePreference(this,cancelMenuScreen.Resource.getResource("backKeyLongPressAction"),keyBindings.getOption(KeyEvent.KEYCODE_BACK,true),backKeyLongPressActions));
   final Screen tipsScreen=createPreferenceScreen("tips");
   tipsScreen.addOption(TipsManager.Instance().ShowTipsOption,"showTips");
   final Screen aboutScreen=createPreferenceScreen("about");

@@ -1,0 +1,23 @@
+{
+  if (myHashTablesAreInitialized) {
+    return;
+  }
+  try {
+    myNetworkContext.perform(new PostRequest("all.hashes",null){
+      @Override public void processResponse(      Object response){
+        final Map<String,List<String>> map=(Map<String,List<String>>)response;
+        myActualHashesFromServer.addAll(map.get("actual"));
+        myDeletedHashesFromServer.addAll(map.get("deleted"));
+        myHashTablesAreInitialized=true;
+      }
+    }
+);
+    System.err.println(String.format("RECEIVED: %s/%s HASHES",myActualHashesFromServer.size(),myDeletedHashesFromServer.size()));
+  }
+ catch (  SyncronizationDisabledException e) {
+    throw e;
+  }
+catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

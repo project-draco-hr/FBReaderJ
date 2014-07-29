@@ -1,0 +1,5 @@
+{
+  myActualHashesFromServer.clear();
+  myDeletedHashesFromServer.clear();
+  myHashTablesAreInitialized=false;
+}

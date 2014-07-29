@@ -1,6 +1,9 @@
 {
   super.onCreateOptionsMenu(menu);
-  addMenuItem(menu,1,"localSearch",R.drawable.ic_menu_search);
-  addMenuItem(menu,2,"rescan",R.drawable.ic_menu_refresh);
+  addMenuItem(menu,OptionsItemId.Search,"localSearch",R.drawable.ic_menu_search);
+  addMenuItem(menu,OptionsItemId.Rescan,"rescan",R.drawable.ic_menu_refresh);
+  addMenuItem(menu,OptionsItemId.UploadAgain,"uploadAgain",-1);
+  addMenuItem(menu,OptionsItemId.TryAgain,"tryAgain",-1);
+  addMenuItem(menu,OptionsItemId.DeleteAll,"deleteAll",-1);
   return true;
 }

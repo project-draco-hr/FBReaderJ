@@ -1,0 +1,14 @@
+{
+  super(context,resource);
+  myOption=dictionaryOption;
+  final String[] values=new String[infos.size()];
+  final String[] texts=new String[infos.size()];
+  int index=0;
+  for (  DictionaryUtil.PackageInfo i : infos) {
+    values[index]=i.Id;
+    texts[index]=i.Title;
+    ++index;
+  }
+  setLists(values,texts);
+  setInitialValue(myOption.getValue());
+}

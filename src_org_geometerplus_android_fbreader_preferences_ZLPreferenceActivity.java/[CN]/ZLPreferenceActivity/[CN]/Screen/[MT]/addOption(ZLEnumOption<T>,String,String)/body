@@ -1,0 +1,3 @@
+{
+  return addPreference(new ZLEnumPreference<T>(ZLPreferenceActivity.this,option,Resource.getResource(key),Resource.getResource(valuesKey)));
+}

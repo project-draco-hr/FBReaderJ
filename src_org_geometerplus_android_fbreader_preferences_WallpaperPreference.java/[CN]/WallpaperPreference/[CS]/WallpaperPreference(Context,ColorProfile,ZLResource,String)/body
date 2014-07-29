@@ -1,5 +1,0 @@
-{
-  super(context,resource,resourceKey);
-  myOption=profile.WallpaperOption;
-  reload();
-}
