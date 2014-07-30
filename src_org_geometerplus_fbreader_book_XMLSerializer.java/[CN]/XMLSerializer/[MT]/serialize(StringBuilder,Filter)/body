@@ -54,6 +54,9 @@
  else   if (filter instanceof Filter.HasBookmark) {
     appendTag(buffer,"filter",true,"type","has-bookmark");
   }
+ else   if (filter instanceof Filter.HasPhysicalFile) {
+    appendTag(buffer,"filter",true,"type","has-physical-file");
+  }
  else {
     throw new RuntimeException("Unsupported filter type: " + filter.getClass());
   }
