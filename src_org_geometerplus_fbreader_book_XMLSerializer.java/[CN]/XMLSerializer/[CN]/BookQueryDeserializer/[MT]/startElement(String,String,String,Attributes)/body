@@ -42,6 +42,9 @@
  else       if ("has-bookmark".equals(type)) {
         myFilter=new Filter.HasBookmark();
       }
+ else       if ("has-physical-file".equals(type)) {
+        myFilter=new Filter.HasPhysicalFile();
+      }
  else {
         myFilter=new Filter.Empty();
       }
