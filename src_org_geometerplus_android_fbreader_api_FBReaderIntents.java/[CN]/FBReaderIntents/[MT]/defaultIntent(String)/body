@@ -1,3 +1,0 @@
-{
-  return new Intent(action).addCategory(Intent.CATEGORY_DEFAULT).setPackage(DEFAULT_PACKAGE);
-}

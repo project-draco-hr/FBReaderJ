@@ -1,8 +1,7 @@
 {
   if (!Reader.jumpBack()) {
     if (Reader.hasCancelActions()) {
-      final Intent intent=new Intent(BaseActivity,CancelActivity.class);
-      BaseActivity.startActivityForResult(intent,FBReader.REQUEST_CANCEL_MENU);
+      BaseActivity.startActivityForResult(FBReaderIntents.defaultInternalIntent(FBReaderIntents.Action.CANCEL_MENU),FBReader.REQUEST_CANCEL_MENU);
     }
  else {
       Reader.closeWindow();
