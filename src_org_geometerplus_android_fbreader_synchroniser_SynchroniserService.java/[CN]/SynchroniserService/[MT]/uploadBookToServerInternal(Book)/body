@@ -27,7 +27,7 @@
   }
  catch (  ZLNetworkException e) {
     e.printStackTrace();
-    return SyncStatus.Failure;
+    return SyncStatus.ServerError;
   }
   final String csrfToken=myNetworkContext.getCookieValue(DOMAIN,"csrftoken");
   try {
@@ -42,7 +42,7 @@
       }
  catch (      ZLNetworkException e) {
         e.printStackTrace();
-        return SyncStatus.Failure;
+        return SyncStatus.ServerError;
       }
     }
  else {
@@ -59,6 +59,6 @@
   }
  catch (  Exception e) {
     System.err.println("UNEXPECTED RESPONSE: " + result);
-    return SyncStatus.Failure;
+    return SyncStatus.ServerError;
   }
 }
