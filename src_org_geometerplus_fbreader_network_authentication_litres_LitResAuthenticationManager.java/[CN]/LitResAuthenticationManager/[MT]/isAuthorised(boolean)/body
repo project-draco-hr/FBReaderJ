@@ -16,7 +16,7 @@ synchronized (this) {
     final Map<String,String> params=new HashMap<String,String>();
     final String url=parseUrl(Link.getUrl(UrlInfo.Type.SignIn),params);
     if (url == null) {
-      throw new ZLNetworkException(NetworkException.ERROR_UNSUPPORTED_OPERATION);
+      throw ZLNetworkException.forCode(NetworkException.ERROR_UNSUPPORTED_OPERATION);
     }
     final LitResNetworkRequest request=new LitResNetworkRequest(url,xmlReader);
     for (    Map.Entry<String,String> entry : params.entrySet()) {
@@ -27,10 +27,10 @@ synchronized (this) {
     initUser(null,xmlReader.Sid,xmlReader.UserId,xmlReader.CanRebill);
     return true;
   }
- catch (  ZLNetworkException e) {
-    if (NetworkException.ERROR_AUTHENTICATION_FAILED.equals(e.getCode())) {
-      throw e;
-    }
+ catch (  ZLNetworkAuthenticationException e) {
+    throw e;
+  }
+catch (  ZLNetworkException e) {
     logOut(false);
     return false;
   }

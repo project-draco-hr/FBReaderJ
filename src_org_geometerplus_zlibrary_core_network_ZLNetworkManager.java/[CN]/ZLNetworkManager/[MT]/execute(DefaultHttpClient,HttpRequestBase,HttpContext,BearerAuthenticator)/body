@@ -6,7 +6,7 @@
     final Map<String,String> response=authenticator.authenticate(request.getURI(),e.Realm,e.Params);
     final String error=response.get("error");
     if (error != null) {
-      throw new ZLNetworkException(true,error);
+      throw new ZLNetworkAuthenticationException(error,e);
     }
     authenticator.setAccountName(request.getURI().getHost(),e.Realm,response.get("user"));
     return client.execute(request,context);

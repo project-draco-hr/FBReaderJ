@@ -1,0 +1,3 @@
+{
+  super(errorMessage(ERROR_AUTHENTICATION_FAILED));
+}

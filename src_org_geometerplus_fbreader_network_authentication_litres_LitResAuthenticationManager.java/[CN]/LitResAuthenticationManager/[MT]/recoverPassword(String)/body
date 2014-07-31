@@ -1,7 +1,7 @@
 {
   final String url=Link.getUrl(UrlInfo.Type.RecoverPassword);
   if (url == null) {
-    throw new ZLNetworkException(NetworkException.ERROR_UNSUPPORTED_OPERATION);
+    throw ZLNetworkException.forCode(NetworkException.ERROR_UNSUPPORTED_OPERATION);
   }
   final LitResPasswordRecoveryXMLReader xmlReader=new LitResPasswordRecoveryXMLReader(Link.getSiteName());
   final LitResNetworkRequest request=new LitResNetworkRequest(url,xmlReader);
