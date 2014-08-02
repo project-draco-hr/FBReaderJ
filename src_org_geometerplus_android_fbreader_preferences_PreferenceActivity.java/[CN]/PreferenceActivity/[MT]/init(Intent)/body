@@ -48,40 +48,48 @@
     }
   }
 ;
-  syncScreen.addPreference(new ZLBooleanPreference(this,syncOptions.Enabled,syncScreen.Resource,"enable"){
+  syncScreen.addPreference(new ZLBooleanPreference(this,syncOptions.Enabled,syncScreen.Resource.getResource("enable")){
+{
+      setOnSummary(myNetworkContext.getAccountName(SyncOptions.DOMAIN,SyncOptions.REALM));
+    }
     @Override protected void onClick(){
       super.onClick();
       syncPreferences.run();
       if (!isChecked()) {
         return;
       }
-      new Thread(){
+      UIUtil.createExecutor(PreferenceActivity.this,"tryConnect").execute(new Runnable(){
         public void run(){
-          UIUtil.createExecutor(PreferenceActivity.this,"tryConnect").execute(new Runnable(){
-            public void run(){
-              try {
-                myNetworkContext.perform(new JsonRequest(SyncOptions.URL + "login/test"){
-                  @Override public void processResponse(                  Object response){
-                  }
-                }
-);
-              }
- catch (              ZLNetworkException e) {
-                e.printStackTrace();
-                runOnUiThread(new Runnable(){
-                  public void run(){
-                    forceValue(false);
-                    syncPreferences.run();
-                  }
-                }
-);
+          try {
+            myNetworkContext.perform(new JsonRequest(SyncOptions.URL + "login/test"){
+              @Override public void processResponse(              Object response){
+                setOnSummary((String)((Map)response).get("user"));
               }
             }
+);
           }
-,null);
+ catch (          ZLNetworkException e) {
+            e.printStackTrace();
+            runOnUiThread(new Runnable(){
+              public void run(){
+                forceValue(false);
+                syncPreferences.run();
+              }
+            }
+);
+          }
         }
       }
-.start();
+,null);
+    }
+    private void setOnSummary(    String account){
+      final String summary=account != null ? Resource.getResource("summaryOnWithAccount").getValue().replace("%s",account) : Resource.getResource("summaryOn").getValue();
+      runOnUiThread(new Runnable(){
+        public void run(){
+          setSummaryOn(summary);
+        }
+      }
+);
     }
   }
 );
@@ -104,8 +112,8 @@
   }
 );
   appearanceScreen.addPreference(new ZLStringChoicePreference(this,appearanceScreen.Resource.getResource("screenOrientation"),androidLibrary.getOrientationOption(),androidLibrary.allOrientations()));
-  appearanceScreen.addPreference(new ZLBooleanPreference(this,viewOptions.TwoColumnView,appearanceScreen.Resource,"twoColumnView"));
-  appearanceScreen.addPreference(new ZLBooleanPreference(this,miscOptions.AllowScreenBrightnessAdjustment,appearanceScreen.Resource,"allowScreenBrightnessAdjustment"){
+  appearanceScreen.addPreference(new ZLBooleanPreference(this,viewOptions.TwoColumnView,appearanceScreen.Resource.getResource("twoColumnView")));
+  appearanceScreen.addPreference(new ZLBooleanPreference(this,miscOptions.AllowScreenBrightnessAdjustment,appearanceScreen.Resource.getResource("allowScreenBrightnessAdjustment")){
     private final int myLevel=androidLibrary.ScreenBrightnessLevelOption.getValue();
     @Override protected void onClick(){
       super.onClick();
@@ -125,7 +133,7 @@
       }
     }
 ;
-    einkScreen.addPreference(new ZLBooleanPreference(this,einkOptions.EnableFastRefresh,einkScreen.Resource,"enableFastRefresh"){
+    einkScreen.addPreference(new ZLBooleanPreference(this,einkOptions.EnableFastRefresh,einkScreen.Resource.getResource("enableFastRefresh")){
       @Override protected void onClick(){
         super.onClick();
         einkPreferences.run();
@@ -243,7 +251,7 @@
     }
   }
 ;
-  scrollingScreen.addPreference(new ZLCheckBoxPreference(this,scrollingScreen.Resource,"volumeKeys"){
+  scrollingScreen.addPreference(new ZLCheckBoxPreference(this,scrollingScreen.Resource.getResource("volumeKeys")){
 {
       setChecked(keyBindings.hasBinding(KeyEvent.KEYCODE_VOLUME_UP,false));
     }
@@ -261,7 +269,7 @@
     }
   }
 );
-  volumeKeysPreferences.add(scrollingScreen.addPreference(new ZLCheckBoxPreference(this,scrollingScreen.Resource,"invertVolumeKeys"){
+  volumeKeysPreferences.add(scrollingScreen.addPreference(new ZLCheckBoxPreference(this,scrollingScreen.Resource.getResource("invertVolumeKeys")){
 {
       setChecked(ActionCode.VOLUME_KEY_SCROLL_FORWARD.equals(keyBindings.getBinding(KeyEvent.KEYCODE_VOLUME_UP,false)));
     }
@@ -309,7 +317,7 @@
       }
 );
       dictionaryScreen.addPreference(new DictionaryPreference(PreferenceActivity.this,dictionaryScreen.Resource.getResource("translator"),DictionaryUtil.multiWordTranslatorOption(),DictionaryUtil.dictionaryInfos(PreferenceActivity.this,false)));
-      dictionaryScreen.addPreference(new ZLBooleanPreference(PreferenceActivity.this,miscOptions.NavigateAllWords,dictionaryScreen.Resource,"navigateOverAllWords"));
+      dictionaryScreen.addPreference(new ZLBooleanPreference(PreferenceActivity.this,miscOptions.NavigateAllWords,dictionaryScreen.Resource.getResource("navigateOverAllWords")));
       dictionaryScreen.addOption(miscOptions.WordTappingAction,"tappingAction");
       dictionaryScreen.addPreference(targetLanguagePreference);
       targetLanguagePreference.setEnabled(DictionaryUtil.getCurrentDictionaryInfo(true).SupportsTargetLanguageSetting);

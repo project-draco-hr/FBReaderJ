@@ -1,5 +1,5 @@
 {
-  super(context,rootResource,resourceKey);
+  super(context,resource);
   myOption=option;
   setChecked(option.getValue());
 }
