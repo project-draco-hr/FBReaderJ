@@ -17,7 +17,7 @@ myAuthorizationConfirmed=true;
 break;
 case NetworkLibraryActivity.REQUEST_WEB_AUTHORISATION_SCREEN:
 if (resultCode == Activity.RESULT_OK && data != null) {
-final CookieStore store=cookieStore();
+final ZLNetworkManager.CookieStore store=cookieStore();
 final Map<String,String> cookies=(Map<String,String>)data.getSerializableExtra(NetworkLibraryActivity.COOKIES_KEY);
 if (cookies != null) {
 for (Map.Entry<String,String> entry : cookies.entrySet()) {
