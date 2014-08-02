@@ -50,6 +50,23 @@
 ;
   syncScreen.addPreference(new ZLBooleanPreference(this,syncOptions.Enabled,syncScreen.Resource,"enable"){
     @Override protected void onClick(){
+      if (isChecked()) {
+        new Thread(){
+          public void run(){
+            try {
+              myNetworkContext.perform(new JsonRequest("https://demo.fbreader.org/login/test"){
+                @Override public void processResponse(                Object response){
+                }
+              }
+);
+            }
+ catch (            ZLNetworkException e) {
+              e.printStackTrace();
+            }
+          }
+        }
+.start();
+      }
       super.onClick();
       syncPreferences.run();
     }

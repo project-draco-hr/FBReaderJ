@@ -1,4 +1,7 @@
 {
+  if (myNetworkContext.onActivityResult(requestCode,resultCode,data)) {
+    return;
+  }
   if (resultCode == RESULT_OK) {
     myChooserCollection.update(requestCode,data);
   }

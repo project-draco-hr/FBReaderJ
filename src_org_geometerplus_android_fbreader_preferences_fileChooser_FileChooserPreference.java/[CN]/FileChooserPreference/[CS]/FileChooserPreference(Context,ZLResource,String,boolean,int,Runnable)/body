@@ -1,6 +1,6 @@
 {
   super(context);
-  myRegCode=regCode;
+  myRequestCode=requestCode;
   myResource=rootResource.getResource(resourceKey);
   setTitle(myResource.getValue());
   myChooseWritableDirectoriesOnly=chooseWritableDirectoriesOnly;

@@ -2,5 +2,5 @@ Context context
 ZLResource rootResource
 String resourceKey
 boolean chooseWritableDirectoriesOnly
-int regCode
+int requestCode
 Runnable onValueSetAction
