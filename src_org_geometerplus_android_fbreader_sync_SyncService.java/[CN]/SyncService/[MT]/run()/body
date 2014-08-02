@@ -10,7 +10,7 @@
         }
         final long start=System.currentTimeMillis();
         int count=0;
-        final Map<SyncStatus,Integer> statusCounts=new HashMap<SyncStatus,Integer>();
+        final Map<Status,Integer> statusCounts=new HashMap<Status,Integer>();
         try {
           clearHashTables();
           for (BookQuery q=new BookQuery(new Filter.Empty(),20); ; q=q.next()) {
@@ -29,9 +29,9 @@
             }
             myProcessed.add(book);
             ++count;
-            final SyncStatus status=uploadBookToServer(book);
+            final Status status=uploadBookToServer(book);
             if (status.Label != null) {
-              for (              String label : SyncStatus.AllLabels) {
+              for (              String label : Status.AllLabels) {
                 if (status.Label.equals(label)) {
                   book.addLabel(label);
                 }
@@ -48,7 +48,7 @@
   finally {
           System.err.println("SYNCHRONIZATION FINISHED IN " + (System.currentTimeMillis() - start) + "msecs");
           System.err.println("TOTAL BOOKS PROCESSED: " + count);
-          for (          SyncStatus value : SyncStatus.values()) {
+          for (          Status value : Status.values()) {
             System.err.println("STATUS " + value + ": "+ statusCounts.get(value));
           }
           ourSynchronizationThread=null;

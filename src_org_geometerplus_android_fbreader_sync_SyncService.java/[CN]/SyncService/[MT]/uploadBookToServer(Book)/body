@@ -3,6 +3,6 @@
     return uploadBookToServerInternal(book);
   }
  catch (  SyncronizationDisabledException e) {
-    return SyncStatus.SyncronizationDisabled;
+    return Status.SyncronizationDisabled;
   }
 }
