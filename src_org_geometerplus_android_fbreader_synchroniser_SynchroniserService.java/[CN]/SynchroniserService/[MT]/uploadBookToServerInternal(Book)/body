@@ -32,7 +32,7 @@
     e.printStackTrace();
     return SyncStatus.ServerError;
   }
-  final String csrfToken=myNetworkContext.getCookieValue(DOMAIN,"csrftoken");
+  final String csrfToken=myNetworkContext.getCookieValue(SyncOptions.DOMAIN,"csrftoken");
   try {
     final String status=(String)result.get("status");
     if ((force && !"found".equals(status)) || "not found".equals(status)) {
