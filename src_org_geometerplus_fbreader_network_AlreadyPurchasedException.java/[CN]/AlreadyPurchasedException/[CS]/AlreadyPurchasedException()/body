@@ -1,0 +1,3 @@
+{
+  super(errorMessage(ERROR_PURCHASE_ALREADY_PURCHASED));
+}

@@ -1,5 +1,5 @@
 {
-  super(context,rootResource,resourceKey,true,regCode,onValueSetAction);
+  super(context,rootResource,resourceKey,true,requestCode,onValueSetAction);
   myOption=option;
   setSummary(getStringValue());
 }

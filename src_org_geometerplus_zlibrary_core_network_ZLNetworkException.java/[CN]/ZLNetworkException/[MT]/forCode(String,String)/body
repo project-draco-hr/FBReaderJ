@@ -1,0 +1,3 @@
+{
+  return forCode(code,arg,null);
+}

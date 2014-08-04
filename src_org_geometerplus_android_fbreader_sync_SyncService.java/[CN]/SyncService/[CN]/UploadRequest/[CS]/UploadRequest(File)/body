@@ -1,0 +1,3 @@
+{
+  super(SyncOptions.URL + "app/book.upload",file,false);
+}

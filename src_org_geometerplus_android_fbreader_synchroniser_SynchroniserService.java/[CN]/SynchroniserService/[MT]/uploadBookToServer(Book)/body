@@ -1,8 +1,0 @@
-{
-  try {
-    return uploadBookToServerInternal(book);
-  }
- catch (  SyncronizationDisabledException e) {
-    return SyncStatus.SyncronizationDisabled;
-  }
-}

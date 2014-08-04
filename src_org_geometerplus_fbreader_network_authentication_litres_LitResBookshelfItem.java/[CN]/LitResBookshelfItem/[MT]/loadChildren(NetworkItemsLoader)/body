@@ -1,7 +1,7 @@
 {
   final LitResAuthenticationManager mgr=(LitResAuthenticationManager)Link.authenticationManager();
   if (!mgr.mayBeAuthorised(true)) {
-    throw new ZLNetworkException(NetworkException.ERROR_AUTHENTICATION_FAILED);
+    throw new ZLNetworkAuthenticationException();
   }
   try {
     if (myForceReload) {
