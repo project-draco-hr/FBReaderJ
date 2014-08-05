@@ -51,14 +51,13 @@
   syncScreen.addPreference(new ZLBooleanPreference(this,syncOptions.Enabled,syncScreen.Resource.getResource("enable")){
 {
       if (isChecked()) {
-        setOnSummary(myNetworkContext.getAccountName(SyncOptions.DOMAIN,SyncOptions.REALM));
+        setOnSummary(SyncUtil.getAccountName(myNetworkContext));
       }
     }
     @Override protected void onClick(){
       super.onClick();
       syncPreferences.run();
-      myNetworkContext.removeCookiesForDomain(SyncOptions.DOMAIN);
-      myNetworkContext.setAccountName(SyncOptions.DOMAIN,SyncOptions.REALM,null);
+      SyncUtil.logout(myNetworkContext);
       if (!isChecked()) {
         setOnSummary(null);
         return;
@@ -66,7 +65,7 @@
       UIUtil.createExecutor(PreferenceActivity.this,"tryConnect").execute(new Runnable(){
         public void run(){
           try {
-            myNetworkContext.perform(new JsonRequest(SyncOptions.URL + "login/test"){
+            myNetworkContext.perform(new JsonRequest(SyncOptions.BASE_URL + "login/test"){
               @Override public void processResponse(              Object response){
                 setOnSummary((String)((Map)response).get("user"));
               }
@@ -344,8 +343,6 @@
   cancelMenuScreen.addPreference(new ZLStringChoicePreference(this,cancelMenuScreen.Resource.getResource("backKeyAction"),keyBindings.getOption(KeyEvent.KEYCODE_BACK,false),backKeyActions));
   final String[] backKeyLongPressActions={ActionCode.EXIT,ActionCode.SHOW_CANCEL_MENU,FBReaderApp.NoAction};
   cancelMenuScreen.addPreference(new ZLStringChoicePreference(this,cancelMenuScreen.Resource.getResource("backKeyLongPressAction"),keyBindings.getOption(KeyEvent.KEYCODE_BACK,true),backKeyLongPressActions));
-  final Screen tipsScreen=createPreferenceScreen("tips");
-  tipsScreen.addOption(TipsManager.Instance().ShowTipsOption,"showTips");
   final Screen aboutScreen=createPreferenceScreen("about");
   aboutScreen.addPreference(new InfoPreference(this,aboutScreen.Resource.getResource("version").getValue(),androidLibrary.getFullVersionName()));
   aboutScreen.addPreference(new UrlPreference(this,aboutScreen.Resource,"site"));

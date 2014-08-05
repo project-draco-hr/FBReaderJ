@@ -1,5 +1,5 @@
 {
-  super(SyncOptions.URL + "app/" + app,false);
+  super(SyncOptions.BASE_URL + "app/" + app,false);
   if (data != null) {
     for (    Map.Entry<String,String> entry : data.entrySet()) {
       addPostParameter(entry.getKey(),entry.getValue());

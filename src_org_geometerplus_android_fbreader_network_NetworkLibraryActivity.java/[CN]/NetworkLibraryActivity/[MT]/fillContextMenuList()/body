@@ -3,7 +3,7 @@
   myContextMenuActions.add(new OpenInBrowserAction(this));
   myContextMenuActions.add(new RunSearchAction(this,true));
   myContextMenuActions.add(new AddCustomCatalogAction(this));
-  myContextMenuActions.add(new SignOutAction(this));
+  myContextMenuActions.add(new SignOutAction(this,myNetworkContext));
   myContextMenuActions.add(new TopupAction(this));
   myContextMenuActions.add(new SignInAction(this));
   myContextMenuActions.add(new EditCustomCatalogAction(this));

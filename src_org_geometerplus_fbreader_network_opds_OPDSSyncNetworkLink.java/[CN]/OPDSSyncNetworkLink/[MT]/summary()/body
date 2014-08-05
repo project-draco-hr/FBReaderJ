@@ -1,0 +1,4 @@
+{
+  final String account=accountName(new QuietNetworkContext());
+  return account != null ? account : resource().getResource("summary").getValue();
+}

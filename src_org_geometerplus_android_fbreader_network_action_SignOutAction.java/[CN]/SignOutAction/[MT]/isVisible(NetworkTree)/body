@@ -2,6 +2,10 @@
   if (!(tree instanceof NetworkCatalogRootTree)) {
     return false;
   }
-  final NetworkAuthenticationManager mgr=tree.getLink().authenticationManager();
+  final INetworkLink link=tree.getLink();
+  if (link instanceof ISyncNetworkLink) {
+    return ((ISyncNetworkLink)link).isLoggedIn(myNetworkContext);
+  }
+  final NetworkAuthenticationManager mgr=link.authenticationManager();
   return mgr != null && mgr.mayBeAuthorised(false);
 }

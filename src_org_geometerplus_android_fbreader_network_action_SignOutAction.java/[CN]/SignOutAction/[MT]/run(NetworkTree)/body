@@ -1,5 +1,10 @@
 {
-  final NetworkAuthenticationManager mgr=tree.getLink().authenticationManager();
+  final INetworkLink link=tree.getLink();
+  if (link instanceof ISyncNetworkLink) {
+    ((ISyncNetworkLink)link).logout(myNetworkContext);
+    return;
+  }
+  final NetworkAuthenticationManager mgr=link.authenticationManager();
   final Runnable runnable=new Runnable(){
     public void run(){
       if (mgr.mayBeAuthorised(false)) {

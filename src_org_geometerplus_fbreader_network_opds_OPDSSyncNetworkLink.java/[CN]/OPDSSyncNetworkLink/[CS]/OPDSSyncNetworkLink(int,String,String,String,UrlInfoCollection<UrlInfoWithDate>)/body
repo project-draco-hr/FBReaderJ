@@ -1,0 +1,3 @@
+{
+  super(id,SyncOptions.DOMAIN,title,summary,language,infos);
+}
