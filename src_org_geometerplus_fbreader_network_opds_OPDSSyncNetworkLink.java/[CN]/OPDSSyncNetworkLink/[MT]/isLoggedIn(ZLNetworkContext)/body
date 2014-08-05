@@ -1,0 +1,3 @@
+{
+  return SyncUtil.getAccountName(context) != null;
+}

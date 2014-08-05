@@ -6,7 +6,7 @@
   myOptionsMenuActions.add(new ReloadCatalogAction(this,myNetworkContext));
   myOptionsMenuActions.add(new SignInAction(this));
   myOptionsMenuActions.add(new SignUpAction(this));
-  myOptionsMenuActions.add(new SignOutAction(this));
+  myOptionsMenuActions.add(new SignOutAction(this,myNetworkContext));
   myOptionsMenuActions.add(new TopupAction(this));
   myOptionsMenuActions.add(new BuyBasketBooksAction(this));
   myOptionsMenuActions.add(new ClearBasketAction(this));

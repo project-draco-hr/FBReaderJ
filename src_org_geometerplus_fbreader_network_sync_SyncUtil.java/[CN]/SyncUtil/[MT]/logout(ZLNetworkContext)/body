@@ -1,0 +1,4 @@
+{
+  context.removeCookiesForDomain(SyncOptions.DOMAIN);
+  context.setAccountName(SyncOptions.DOMAIN,SyncOptions.REALM,null);
+}

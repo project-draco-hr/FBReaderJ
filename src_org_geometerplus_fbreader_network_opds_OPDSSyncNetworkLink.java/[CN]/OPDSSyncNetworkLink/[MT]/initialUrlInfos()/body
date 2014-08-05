@@ -1,0 +1,8 @@
+{
+  final UrlInfoCollection<UrlInfoWithDate> infos=new UrlInfoCollection<UrlInfoWithDate>();
+  infos.addInfo(new UrlInfoWithDate(UrlInfo.Type.Catalog,SyncOptions.OPDS_URL,MimeType.OPDS));
+  infos.addInfo(new UrlInfoWithDate(UrlInfo.Type.Search,SyncOptions.BASE_URL + "opds/search/%s",MimeType.OPDS));
+  infos.addInfo(new UrlInfoWithDate(UrlInfo.Type.Image,SyncOptions.BASE_URL + "static/images/logo-120x120.png",MimeType.IMAGE_PNG));
+  infos.addInfo(new UrlInfoWithDate(UrlInfo.Type.SearchIcon,SyncOptions.BASE_URL + "static/images/folders-light/search.png",MimeType.IMAGE_PNG));
+  return infos;
+}
