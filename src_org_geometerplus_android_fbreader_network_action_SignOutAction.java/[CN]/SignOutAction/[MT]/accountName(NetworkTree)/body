@@ -1,0 +1,8 @@
+{
+  final INetworkLink link=tree.getLink();
+  if (link instanceof ISyncNetworkLink) {
+    return SyncUtil.getAccountName(myNetworkContext);
+  }
+  final NetworkAuthenticationManager mgr=link.authenticationManager();
+  return mgr != null && mgr.mayBeAuthorised(false) ? mgr.getVisibleUserName() : null;
+}

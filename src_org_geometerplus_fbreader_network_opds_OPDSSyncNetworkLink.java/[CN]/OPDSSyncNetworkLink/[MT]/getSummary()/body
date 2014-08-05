@@ -1,4 +1,4 @@
 {
-  final String account=accountName(new QuietNetworkContext());
+  final String account=SyncUtil.getAccountName(new QuietNetworkContext());
   return account != null ? account : resource().getResource("summary").getValue();
 }
