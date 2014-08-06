@@ -5,5 +5,4 @@
     throw new IllegalArgumentException("item cannot be null");
   }
   Item=item;
-  addSpecialTrees();
 }
