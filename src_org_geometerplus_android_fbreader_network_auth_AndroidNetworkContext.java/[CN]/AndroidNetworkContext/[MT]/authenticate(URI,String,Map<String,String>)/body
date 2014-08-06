@@ -2,5 +2,15 @@
   if (!"https".equalsIgnoreCase(uri.getScheme())) {
     return Collections.singletonMap("error","Connection is not secure");
   }
-  return GooglePlayServicesUtil.isGooglePlayServicesAvailable(getContext()) == ConnectionResult.SUCCESS ? authenticateToken(uri,realm,params) : authenticateWeb(uri,realm,params);
+  if (GooglePlayServicesUtil.isGooglePlayServicesAvailable(getContext()) == ConnectionResult.SUCCESS) {
+    final String authUrl=url(uri,params,"auth-url-token");
+    final String clientId=params.get("client-id");
+    if (authUrl == null || clientId == null) {
+      return errorMap("No data for token authentication");
+    }
+    return authenticateToken(uri,realm,authUrl,clientId);
+  }
+ else {
+    return authenticateWeb(uri,realm,params);
+  }
 }

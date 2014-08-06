@@ -1,11 +1,6 @@
 {
   System.err.println("+++ TOKEN AUTH +++");
   try {
-    final String authUrl=url(uri,params,"auth-url-token");
-    final String clientId=params.get("client-id");
-    if (authUrl == null || clientId == null) {
-      return errorMap("No data for token authentication");
-    }
     String account=getAccountName(uri.getHost(),realm);
     if (account == null) {
       final Intent intent=AccountManager.newChooseAccountIntent(null,null,new String[]{"com.google"},false,null,null,null,null);
