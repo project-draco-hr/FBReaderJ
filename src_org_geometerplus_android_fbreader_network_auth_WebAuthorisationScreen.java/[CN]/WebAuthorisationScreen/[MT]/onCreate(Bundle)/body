@@ -1,6 +1,7 @@
 {
   super.onCreate(icicle);
   requestWindowFeature(Window.FEATURE_PROGRESS);
+  SQLiteCookieDatabase.init(this);
   CookieSyncManager.createInstance(getApplicationContext());
   CookieManager.getInstance().removeAllCookie();
   final Intent intent=getIntent();
