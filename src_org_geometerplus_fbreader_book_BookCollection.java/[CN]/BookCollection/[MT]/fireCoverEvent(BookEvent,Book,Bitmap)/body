@@ -1,3 +1,0 @@
-{
-  super.fireCoverEvent(coversynchronized,deserializeBook,realImage);
-}

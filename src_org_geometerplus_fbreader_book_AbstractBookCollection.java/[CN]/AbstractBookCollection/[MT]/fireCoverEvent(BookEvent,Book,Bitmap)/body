@@ -1,7 +1,0 @@
-{
-synchronized (myListeners) {
-    for (    Listener l : myListeners) {
-      l.onCoverEvent(event,book,cover);
-    }
-  }
-}

@@ -8,8 +8,9 @@
       @Override public void run(){
         final ZLAndroidImageManager manager=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
         final ZLAndroidImageData data=manager.getImageData(image);
-        final Bitmap cover=data.getBitmap(410,640);
-        myCollection.fireCoverEvent(BookEvent.CoverSynchronized,SerializerUtil.deserializeBook(book),cover);
+        final Bitmap cover=data.getBitmap(maxWidth,maxHeight);
+        covers.put(book,cover);
+        myCollection.fireBookEvent(BookEvent.CoverSynchronized,SerializerUtil.deserializeBook(book));
       }
     }
 );

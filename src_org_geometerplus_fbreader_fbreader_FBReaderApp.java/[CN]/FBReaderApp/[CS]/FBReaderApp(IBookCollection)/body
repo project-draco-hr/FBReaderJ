@@ -21,8 +21,6 @@ case Updated:
 }
 public void onBuildEvent(IBookCollection.Status status){
 }
-@Override public void onCoverEvent(BookEvent event,Book book,Bitmap cover){
-}
 }
 );
 addAction(ActionCode.INCREASE_FONT,new ChangeFontSizeAction(this,+2));
