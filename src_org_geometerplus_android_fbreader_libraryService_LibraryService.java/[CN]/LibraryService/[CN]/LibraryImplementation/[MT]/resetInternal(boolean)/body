@@ -18,6 +18,13 @@
       intent.putExtra("book",SerializerUtil.serialize(book));
       sendBroadcast(intent);
     }
+    @Override public void onCoverEvent(    BookEvent event,    Book book,    Bitmap cover){
+      final Intent intent=new Intent(COVER_EVENT_ACTION);
+      intent.putExtra("type",event.toString());
+      intent.putExtra("book",SerializerUtil.serialize(book));
+      intent.putExtra("cover",cover);
+      sendBroadcast(intent);
+    }
     public void onBuildEvent(    BookCollection.Status status){
       final Intent intent=new Intent(BUILD_EVENT_ACTION);
       intent.putExtra("type",status.toString());

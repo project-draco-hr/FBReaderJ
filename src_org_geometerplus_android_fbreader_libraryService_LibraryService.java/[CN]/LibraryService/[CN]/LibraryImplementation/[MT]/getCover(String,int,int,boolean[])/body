@@ -1,5 +1,5 @@
 {
-  final ZLImage image=myCollection.getCover(SerializerUtil.deserializeBook(book),maxWidth,maxHeight,delayed);
+  final ZLImage image=myCollection.getCover(SerializerUtil.deserializeBook(book),maxWidth,maxHeight);
   if (image == null) {
     return null;
   }

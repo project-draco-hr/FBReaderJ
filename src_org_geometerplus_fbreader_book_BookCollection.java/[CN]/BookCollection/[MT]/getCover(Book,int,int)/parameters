@@ -1,4 +1,3 @@
 Book book
 int maxWidth
 int maxHeight
-boolean[] delayed
