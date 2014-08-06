@@ -1,3 +1,8 @@
 {
-  NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
+  BookCollection.bindToService(this,new Runnable(){
+    public void run(){
+      onLibraryChanged(NetworkLibrary.ChangeListener.Code.SomeCode,new Object[0]);
+    }
+  }
+);
 }

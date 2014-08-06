@@ -1,3 +1,6 @@
 {
+  if (myIsSynchronized && isOutdated()) {
+    myIsSynchronized=false;
+  }
   return myIsSynchronized;
 }

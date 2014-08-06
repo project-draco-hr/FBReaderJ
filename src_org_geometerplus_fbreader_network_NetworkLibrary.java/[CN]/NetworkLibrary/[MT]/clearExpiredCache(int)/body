@@ -1,0 +1,27 @@
+{
+  final Queue<File> toVisit=new LinkedList<File>();
+  final Set<File> processedDirs=new HashSet<File>();
+  final File root=new File(Paths.networkCacheDirectory());
+  toVisit.add(root);
+  processedDirs.add(root);
+  while (!toVisit.isEmpty()) {
+    final File[] children=toVisit.remove().listFiles();
+    if (children == null) {
+      continue;
+    }
+    for (    File child : children) {
+      if (child.isDirectory()) {
+        if (!processedDirs.contains(child)) {
+          toVisit.add(child);
+          processedDirs.add(child);
+        }
+      }
+ else {
+        final long age=System.currentTimeMillis() - child.lastModified();
+        if (age / 1000 / 60/ 60 >= hours) {
+          child.delete();
+        }
+      }
+    }
+  }
+}
