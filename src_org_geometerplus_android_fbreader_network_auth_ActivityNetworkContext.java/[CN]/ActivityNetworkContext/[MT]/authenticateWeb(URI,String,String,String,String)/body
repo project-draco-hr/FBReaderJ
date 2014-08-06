@@ -1,0 +1,9 @@
+{
+  System.err.println("+++ WEB AUTH +++");
+  final Intent intent=new Intent(myActivity,WebAuthorisationScreen.class);
+  intent.setData(Uri.parse(authUrl));
+  intent.putExtra(WebAuthorisationScreen.COMPLETE_URL_KEY,completeUrl);
+  startActivityAndWait(intent,NetworkLibraryActivity.REQUEST_WEB_AUTHORISATION_SCREEN);
+  System.err.println("--- WEB AUTH ---");
+  return verify(verificationUrl);
+}

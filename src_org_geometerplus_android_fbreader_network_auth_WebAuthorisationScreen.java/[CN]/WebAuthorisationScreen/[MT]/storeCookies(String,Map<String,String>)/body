@@ -1,0 +1,14 @@
+{
+  final ZLNetworkManager.CookieStore store=new QuietNetworkContext().cookieStore();
+  for (  Map.Entry<String,String> entry : cookies.entrySet()) {
+    final BasicClientCookie2 c=new BasicClientCookie2(entry.getKey(),entry.getValue());
+    c.setDomain(host);
+    c.setPath("/");
+    final Calendar expire=Calendar.getInstance();
+    expire.add(Calendar.YEAR,1);
+    c.setExpiryDate(expire.getTime());
+    c.setSecure(true);
+    c.setDiscard(false);
+    store.addCookie(c);
+  }
+}

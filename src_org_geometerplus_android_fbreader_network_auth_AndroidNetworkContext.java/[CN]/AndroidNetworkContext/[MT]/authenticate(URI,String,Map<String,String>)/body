@@ -2,5 +2,31 @@
   if (!"https".equalsIgnoreCase(uri.getScheme())) {
     return Collections.singletonMap("error","Connection is not secure");
   }
-  return GooglePlayServicesUtil.isGooglePlayServicesAvailable(getContext()) == ConnectionResult.SUCCESS ? authenticateToken(uri,realm,params) : authenticateWeb(uri,realm,params);
+  if (GooglePlayServicesUtil.isGooglePlayServicesAvailable(getContext()) == ConnectionResult.SUCCESS) {
+    final String authUrl=url(uri,params,"auth-url-token");
+    final String clientId=params.get("client-id");
+    if (authUrl == null || clientId == null) {
+      return errorMap("No data for token authentication");
+    }
+    return authenticateToken(uri,realm,authUrl,clientId);
+  }
+ else {
+    String authUrl=null;
+    final String account=getAccountName(uri.getHost(),realm);
+    if (account != null) {
+      final String urlWithAccount=params.get("auth-url-web-with-email");
+      if (urlWithAccount != null) {
+        authUrl=url(uri,urlWithAccount.replace("{email}",account));
+      }
+    }
+ else {
+      authUrl=url(uri,params,"auth-url-web");
+    }
+    final String completeUrl=url(uri,params,"complete-url-web");
+    final String verificationUrl=url(uri,params,"verification-url");
+    if (authUrl == null || completeUrl == null || verificationUrl == null) {
+      return errorMap("No data for web authentication");
+    }
+    return authenticateWeb(uri,realm,authUrl,completeUrl,verificationUrl);
+  }
 }

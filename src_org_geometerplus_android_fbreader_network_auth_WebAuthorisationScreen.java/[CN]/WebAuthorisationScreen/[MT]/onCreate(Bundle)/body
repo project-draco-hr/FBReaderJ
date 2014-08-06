@@ -1,6 +1,7 @@
 {
   super.onCreate(icicle);
   requestWindowFeature(Window.FEATURE_PROGRESS);
+  SQLiteCookieDatabase.init(this);
   CookieSyncManager.createInstance(getApplicationContext());
   CookieManager.getInstance().removeAllCookie();
   final Intent intent=getIntent();
@@ -9,7 +10,7 @@
     finish();
     return;
   }
-  final String completeUrl=intent.getStringExtra(NetworkLibraryActivity.COMPLETE_URL_KEY);
+  final String completeUrl=intent.getStringExtra(COMPLETE_URL_KEY);
   OrientationUtil.setOrientation(this,intent);
   final WebView view=new WebView(this);
   view.getSettings().setJavaScriptEnabled(true);
@@ -34,7 +35,8 @@
             cookies.put(parts[0].trim(),parts[1].trim());
           }
         }
-        WebAuthorisationScreen.this.setResult(RESULT_OK,intent.putExtra(NetworkLibraryActivity.COOKIES_KEY,cookies));
+        storeCookies(data.getHost(),cookies);
+        WebAuthorisationScreen.this.setResult(RESULT_OK);
         finish();
       }
     }
