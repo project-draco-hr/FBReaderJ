@@ -1,5 +1,4 @@
 {
   super.onStart();
   Connection.bindToService(this,null);
-  NetworkLibrary.Instance().addChangeListener(this);
 }
