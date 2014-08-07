@@ -24,10 +24,6 @@
           }
           while (!myQueue.isEmpty()) {
             final Book book=myQueue.remove(0);
-            if (myProcessed.contains(book)) {
-              continue;
-            }
-            myProcessed.add(book);
             ++count;
             final Status status=uploadBookToServer(book);
             if (status.Label != null) {
