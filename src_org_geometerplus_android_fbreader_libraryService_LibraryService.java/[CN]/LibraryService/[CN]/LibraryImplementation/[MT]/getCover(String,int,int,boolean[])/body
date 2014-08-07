@@ -7,7 +7,16 @@
     return null;
   }
   if (image instanceof ZLImageProxy) {
-    myImageSynchronizer.synchronize((ZLImageProxy)image,null);
+    myImageSynchronizer.synchronize((ZLImageProxy)image,new Runnable(){
+      @Override public void run(){
+        final ZLAndroidImageManager manager=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
+        final ZLAndroidImageData data=manager.getImageData(image);
+        final Bitmap cover=data.getBitmap(maxWidth,maxHeight);
+        covers.put(book,cover);
+        myCollection.fireBookEvent(BookEvent.CoverSynchronized,SerializerUtil.deserializeBook(book));
+      }
+    }
+);
   }
   final ZLAndroidImageManager manager=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
   if (((ZLImageProxy)image).isSynchronized()) {
