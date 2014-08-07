@@ -1,6 +1,7 @@
 {
   final Bitmap bitmap=covers.get(book);
   if (bitmap != null) {
+    delayed[0]=true;
     return bitmap;
   }
   final ZLImage image=myCollection.getCover(SerializerUtil.deserializeBook(book),maxWidth,maxHeight);
