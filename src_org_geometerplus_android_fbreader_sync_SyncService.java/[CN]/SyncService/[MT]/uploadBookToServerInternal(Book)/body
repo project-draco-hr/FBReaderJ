@@ -41,7 +41,7 @@
         uploadRequest.addHeader("Referer",verificationRequest.getURL());
         uploadRequest.addHeader("X-CSRFToken",csrfToken);
         myNetworkContext.perform(uploadRequest);
-        return uploadRequest.Success ? Status.Uploaded : Status.Failure;
+        return uploadRequest.Result;
       }
  catch (      ZLNetworkException e) {
         e.printStackTrace();

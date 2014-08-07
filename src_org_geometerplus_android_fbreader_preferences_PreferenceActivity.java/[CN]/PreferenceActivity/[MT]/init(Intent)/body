@@ -48,10 +48,14 @@
     }
   }
 ;
-  syncScreen.addPreference(new ZLBooleanPreference(this,syncOptions.Enabled,syncScreen.Resource.getResource("enable")){
+  syncScreen.addPreference(new ZLCheckBoxPreference(this,syncScreen.Resource.getResource("enable")){
 {
-      if (isChecked()) {
+      if (syncOptions.Enabled.getValue()) {
+        setChecked(true);
         setOnSummary(SyncUtil.getAccountName(myNetworkContext));
+      }
+ else {
+        setChecked(false);
       }
     }
     @Override protected void onClick(){
@@ -59,7 +63,9 @@
       syncPreferences.run();
       SyncUtil.logout(myNetworkContext);
       if (!isChecked()) {
+        syncOptions.Enabled.setValue(false);
         setOnSummary(null);
+        syncPreferences.run();
         return;
       }
       UIUtil.createExecutor(PreferenceActivity.this,"tryConnect").execute(new Runnable(){
@@ -67,7 +73,15 @@
           try {
             myNetworkContext.perform(new JsonRequest(SyncOptions.BASE_URL + "login/test"){
               @Override public void processResponse(              Object response){
-                setOnSummary((String)((Map)response).get("user"));
+                final String account=(String)((Map)response).get("user");
+                syncOptions.Enabled.setValue(account != null);
+                runOnUiThread(new Runnable(){
+                  public void run(){
+                    setOnSummary(account);
+                    syncPreferences.run();
+                  }
+                }
+);
               }
             }
 );
@@ -76,8 +90,7 @@
             e.printStackTrace();
             runOnUiThread(new Runnable(){
               public void run(){
-                forceValue(false);
-                syncPreferences.run();
+                setChecked(false);
               }
             }
 );

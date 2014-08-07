@@ -1,4 +1,0 @@
-{
-  setChecked(value);
-  myOption.setValue(value);
-}

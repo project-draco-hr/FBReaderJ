@@ -19,6 +19,7 @@ myAuthorizationConfirmed=true;
 }
 break;
 case NetworkLibraryActivity.REQUEST_WEB_AUTHORISATION_SCREEN:
+cookieStore().reset();
 break;
 }
 }
