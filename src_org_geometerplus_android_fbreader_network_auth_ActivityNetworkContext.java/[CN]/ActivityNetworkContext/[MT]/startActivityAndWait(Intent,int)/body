@@ -2,7 +2,7 @@
 synchronized (this) {
     OrientationUtil.startActivityForResult(myActivity,intent,requestCode);
     try {
-      wait(30000);
+      wait();
     }
  catch (    InterruptedException e) {
     }
