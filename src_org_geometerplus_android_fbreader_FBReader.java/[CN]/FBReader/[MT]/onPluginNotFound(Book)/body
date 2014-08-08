@@ -1,0 +1,14 @@
+{
+  getCollection().bindToService(this,new Runnable(){
+    public void run(){
+      final Book recent=getCollection().getRecentBook(0);
+      if (recent != null && !recent.equals(book)) {
+        myFBReaderApp.openBook(recent,null,null);
+      }
+ else {
+        myFBReaderApp.openHelpBook();
+      }
+    }
+  }
+);
+}

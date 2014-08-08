@@ -28,6 +28,11 @@
   }
 );
   registerReceiver(myBatteryInfoReceiver,new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+  IsPaused=false;
+  if (OnResumeAction != null) {
+    OnResumeAction.run();
+    OnResumeAction=null;
+  }
   PopupPanel.restoreVisibilities(myFBReaderApp);
   ApiServerImplementation.sendEvent(this,ApiListener.EVENT_READ_MODE_OPENED);
 }
