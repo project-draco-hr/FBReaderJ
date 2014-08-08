@@ -5,22 +5,26 @@
   final AlertDialog.Builder builder=new AlertDialog.Builder(myReader).setTitle(title).setIcon(0).setPositiveButton(buttonResource.getResource("yes").getValue(),new DialogInterface.OnClickListener(){
     @Override public void onClick(    DialogInterface dialog,    int which){
       PackageUtil.installFromMarket(myReader,plugin.packageName());
+      myDialog=null;
     }
   }
 ).setNegativeButton(buttonResource.getResource("no").getValue(),new DialogInterface.OnClickListener(){
     @Override public void onClick(    DialogInterface dialog,    int which){
       myReader.onPluginNotFound(book);
+      myDialog=null;
     }
   }
 ).setOnCancelListener(new DialogInterface.OnCancelListener(){
     @Override public void onCancel(    DialogInterface dialog){
       myReader.onPluginNotFound(book);
+      myDialog=null;
     }
   }
 );
   final Runnable showDialog=new Runnable(){
     public void run(){
-      builder.create().show();
+      myDialog=builder.create();
+      myDialog.show();
     }
   }
 ;

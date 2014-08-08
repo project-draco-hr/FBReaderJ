@@ -1,4 +1,8 @@
 {
+  if (myDialog != null) {
+    myDialog.dismiss();
+    myDialog=null;
+  }
   final Intent intent=PluginUtil.createIntent(plugin,PluginUtil.ACTION_VIEW);
   FBReaderIntents.putBookExtra(intent,book);
   FBReaderIntents.putBookmarkExtra(intent,bookmark);
