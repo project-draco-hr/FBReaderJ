@@ -1,4 +1,5 @@
 {
+  IsPaused=true;
   try {
     unregisterReceiver(myBatteryInfoReceiver);
   }

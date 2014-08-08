@@ -1,0 +1,3 @@
+{
+  openBook(Collection.getBookByFile(BookUtil.getHelpFile()),null,null);
+}

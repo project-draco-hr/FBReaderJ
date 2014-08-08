@@ -22,6 +22,7 @@
   FootnoteView.setModel(null);
   clearTextCaches();
   Model=null;
+  ExternalBook=null;
   System.gc();
   System.gc();
   try {
