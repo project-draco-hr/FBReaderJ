@@ -1,6 +1,8 @@
 {
-  if (book == null && Model != null) {
-    return;
+  if (Model != null) {
+    if (book == null || bookmark == null && book.File.equals(Model.Book.File)) {
+      return;
+    }
   }
   final SynchronousExecutor executor=createExecutor("loadingBook");
   executor.execute(new Runnable(){
