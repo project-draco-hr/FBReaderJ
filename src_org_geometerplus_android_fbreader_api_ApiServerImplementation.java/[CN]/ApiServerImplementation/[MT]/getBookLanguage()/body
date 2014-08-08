@@ -1,3 +1,4 @@
 {
-  return getReader().Model.Book.getLanguage();
+  final Book book=getReader().getCurrentBook();
+  return book != null ? book.getLanguage() : null;
 }
