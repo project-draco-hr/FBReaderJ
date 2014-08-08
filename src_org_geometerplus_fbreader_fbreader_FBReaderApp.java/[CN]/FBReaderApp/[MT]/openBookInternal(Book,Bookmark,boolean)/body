@@ -25,6 +25,23 @@
   ExternalBook=null;
   System.gc();
   System.gc();
+  final FormatPlugin plugin=book.getPluginOrNull();
+  if (plugin instanceof ExternalFormatPlugin) {
+    ExternalBook=book;
+    final Bookmark bm;
+    if (bookmark != null) {
+      bm=bookmark;
+    }
+ else {
+      ZLTextPosition pos=Collection.getStoredPosition(book.getId());
+      if (pos == null) {
+        pos=new ZLTextFixedPosition(0,0,0);
+      }
+      bm=new Bookmark(book,"",pos,pos,"",false);
+    }
+    myExternalFileOpener.openFile((ExternalFormatPlugin)plugin,book,bm);
+    return;
+  }
   try {
     Model=BookModel.createModel(book);
     Collection.saveBook(book);
