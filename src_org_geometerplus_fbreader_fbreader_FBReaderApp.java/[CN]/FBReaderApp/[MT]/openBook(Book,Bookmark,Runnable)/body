@@ -4,10 +4,22 @@
       return;
     }
   }
+  if (book == null) {
+    book=Collection.getRecentBook(0);
+    if (book == null || !book.File.exists()) {
+      book=Collection.getBookByFile(BookUtil.getHelpFile());
+    }
+    if (book == null) {
+      return;
+    }
+  }
+  final Book bookToOpen=book;
+  bookToOpen.addLabel(Book.READ_LABEL);
+  Collection.saveBook(bookToOpen);
   final SynchronousExecutor executor=createExecutor("loadingBook");
   executor.execute(new Runnable(){
     public void run(){
-      openBookInternal(book,bookmark,false);
+      openBookInternal(bookToOpen,bookmark,false);
     }
   }
 ,postAction);

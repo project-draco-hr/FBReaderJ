@@ -1,15 +1,4 @@
 {
-  if (book == null) {
-    book=Collection.getRecentBook(0);
-    if (book == null || !book.File.exists()) {
-      book=Collection.getBookByFile(BookUtil.getHelpFile());
-    }
-    if (book == null) {
-      return;
-    }
-  }
-  book.addLabel(Book.READ_LABEL);
-  Collection.saveBook(book);
   if (!force && Model != null && book.equals(Model.Book)) {
     if (bookmark != null) {
       gotoBookmark(bookmark,false);
