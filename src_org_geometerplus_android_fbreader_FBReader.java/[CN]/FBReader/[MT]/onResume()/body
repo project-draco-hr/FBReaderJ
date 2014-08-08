@@ -34,6 +34,7 @@
     OnResumeAction=null;
     action.run();
   }
+  SetScreenOrientationAction.setOrientation(this,ZLibrary.Instance().getOrientationOption().getValue());
   if (myCancelIntent != null) {
     final Intent intent=myCancelIntent;
     myCancelIntent=null;
