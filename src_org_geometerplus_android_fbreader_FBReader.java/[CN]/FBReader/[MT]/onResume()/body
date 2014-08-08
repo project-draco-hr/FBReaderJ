@@ -30,8 +30,9 @@
   registerReceiver(myBatteryInfoReceiver,new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
   IsPaused=false;
   if (OnResumeAction != null) {
-    OnResumeAction.run();
+    final Runnable action=OnResumeAction;
     OnResumeAction=null;
+    action.run();
   }
   PopupPanel.restoreVisibilities(myFBReaderApp);
   ApiServerImplementation.sendEvent(this,ApiListener.EVENT_READ_MODE_OPENED);
