@@ -2,7 +2,7 @@
   if (getCurrentTree() instanceof FileTree) {
     for (    Book book : myBooks) {
       getListAdapter().remove(new FileTree((FileTree)getCurrentTree(),book.File));
-      myRootTree.Collection.removeBook(book,true);
+      myCollection.removeBook(book,true);
     }
     getListView().invalidateViews();
   }
@@ -10,7 +10,7 @@
     boolean doReplace=false;
     for (    Book book : myBooks) {
       doReplace|=getCurrentTree().onBookEvent(BookEvent.Removed,book);
-      myRootTree.Collection.removeBook(book,true);
+      myCollection.removeBook(book,true);
     }
     if (doReplace) {
       getListAdapter().replaceAll(getCurrentTree().subtrees(),true);

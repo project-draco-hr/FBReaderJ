@@ -5,12 +5,11 @@
   getListView().setTextFilterEnabled(true);
   getListView().setOnCreateContextMenuListener(this);
   deleteRootTree();
-  final BookCollectionShadow collection=new BookCollectionShadow();
-  collection.bindToService(this,new Runnable(){
+  myCollection.bindToService(this,new Runnable(){
     public void run(){
-      setProgressBarIndeterminateVisibility(!collection.status().IsCompleted);
-      myRootTree=new RootTree(collection);
-      collection.addListener(LibraryActivity.this);
+      setProgressBarIndeterminateVisibility(!myCollection.status().IsCompleted);
+      myRootTree=new RootTree(myCollection);
+      myCollection.addListener(LibraryActivity.this);
       init(getIntent());
     }
   }
