@@ -3,8 +3,8 @@
     return;
   }
   try {
-    myNetworkContext.reloadCookie();
-    myNetworkContext.perform(new PostRequest("all.hashes",null){
+    myBookUploadContext.reloadCookie();
+    myBookUploadContext.perform(new PostRequest("all.hashes",null){
       @Override public void processResponse(      Object response){
         final Map<String,List<String>> map=(Map<String,List<String>>)response;
         myActualHashesFromServer.addAll(map.get("actual"));
