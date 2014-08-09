@@ -1,3 +1,0 @@
-{
-  processResponse(JSONValue.parse(new InputStreamReader(stream)));
-}
