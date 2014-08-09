@@ -10,6 +10,5 @@
     setButtonLight(true);
   }
   myFBReaderApp.onWindowClosing();
-  unbindService(mySyncConnection);
   super.onPause();
 }

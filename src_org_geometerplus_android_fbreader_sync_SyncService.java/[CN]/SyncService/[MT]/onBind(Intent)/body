@@ -1,6 +1,3 @@
 {
-  SQLiteCookieDatabase.init(this);
-  myCollection.bindToService(this,this);
-  myNetworkContext.cookieStore().reset();
   return null;
 }

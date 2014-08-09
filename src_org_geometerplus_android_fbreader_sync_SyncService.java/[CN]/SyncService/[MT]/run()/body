@@ -1,13 +1,12 @@
 {
+  if (!mySyncOptions.Enabled.getValue()) {
+    return;
+  }
+  myNetworkContext.cookieStore().reset();
   myCollection.addListener(this);
   if (ourSynchronizationThread == null) {
     ourSynchronizationThread=new Thread(){
       public void run(){
-        try {
-          sleep(10000);
-        }
- catch (        InterruptedException e) {
-        }
         final long start=System.currentTimeMillis();
         int count=0;
         final Map<Status,Integer> statusCounts=new HashMap<Status,Integer>();
