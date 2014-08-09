@@ -3,7 +3,7 @@
     return;
   }
   try {
-    myNetworkContext.cookieStore().reset();
+    myNetworkContext.reloadCookie();
     myNetworkContext.perform(new PostRequest("all.hashes",null){
       @Override public void processResponse(      Object response){
         final Map<String,List<String>> map=(Map<String,List<String>>)response;

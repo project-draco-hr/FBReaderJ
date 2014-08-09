@@ -2,7 +2,7 @@
   if (!mySyncOptions.Enabled.getValue()) {
     return;
   }
-  myNetworkContext.cookieStore().reset();
+  myNetworkContext.reloadCookie();
   myCollection.addListener(this);
   if (ourSynchronizationThread == null) {
     ourSynchronizationThread=new Thread(){
