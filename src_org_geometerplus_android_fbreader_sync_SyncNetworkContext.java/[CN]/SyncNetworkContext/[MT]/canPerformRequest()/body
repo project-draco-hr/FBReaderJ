@@ -2,18 +2,18 @@
   if (!mySyncOptions.Enabled.getValue()) {
     return false;
   }
-switch (mySyncOptions.UploadAllBooks.getValue()) {
+switch (myFeatureOption.getValue()) {
 default :
 case never:
     return false;
 case always:
 {
-    final ConnectivityManager cm=(ConnectivityManager)getSystemService(CONNECTIVITY_SERVICE);
+    final ConnectivityManager cm=getConnectivityManager();
     return cm != null && cm.getActiveNetworkInfo().isConnected();
   }
 case viaWifi:
 {
-  final ConnectivityManager cm=(ConnectivityManager)getSystemService(CONNECTIVITY_SERVICE);
+  final ConnectivityManager cm=getConnectivityManager();
   if (cm == null) {
     return false;
   }
