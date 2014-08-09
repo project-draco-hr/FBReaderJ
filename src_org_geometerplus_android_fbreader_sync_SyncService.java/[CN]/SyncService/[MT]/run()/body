@@ -41,10 +41,10 @@
           }
         }
   finally {
-          System.err.println("SYNCHRONIZATION FINISHED IN " + (System.currentTimeMillis() - start) + "msecs");
-          System.err.println("TOTAL BOOKS PROCESSED: " + count);
+          log("SYNCHRONIZATION FINISHED IN " + (System.currentTimeMillis() - start) + "msecs");
+          log("TOTAL BOOKS PROCESSED: " + count);
           for (          Status value : Status.values()) {
-            System.err.println("STATUS " + value + ": "+ statusCounts.get(value));
+            log("STATUS " + value + ": "+ statusCounts.get(value));
           }
           ourSynchronizationThread=null;
         }

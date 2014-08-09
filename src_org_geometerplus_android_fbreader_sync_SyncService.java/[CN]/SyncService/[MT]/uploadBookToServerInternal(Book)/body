@@ -61,7 +61,7 @@
     }
   }
  catch (  Exception e) {
-    System.err.println("UNEXPECTED RESPONSE: " + result);
+    log("UNEXPECTED RESPONSE: " + result);
     return Status.ServerError;
   }
 }

@@ -13,7 +13,7 @@
       }
     }
 );
-    System.err.println(String.format("RECEIVED: %s/%s HASHES",myActualHashesFromServer.size(),myDeletedHashesFromServer.size()));
+    log(String.format("RECEIVED: %s/%s HASHES",myActualHashesFromServer.size(),myDeletedHashesFromServer.size()));
   }
  catch (  SyncronizationDisabledException e) {
     throw e;

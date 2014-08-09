@@ -6,8 +6,10 @@
     Config.Instance().runOnConnect(new Runnable(){
       public void run(){
         if (!mySyncOptions.Enabled.getValue()) {
+          log("disabled");
           return;
         }
+        log("enabled");
         alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME,SystemClock.elapsedRealtime(),10 * 1000,syncIntent());
       }
     }
@@ -16,9 +18,9 @@
  else   if (Action.STOP.equals(action)) {
     final AlarmManager alarmManager=(AlarmManager)getSystemService(ALARM_SERVICE);
     alarmManager.cancel(syncIntent());
+    log("stopped");
   }
  else   if (Action.SYNC.equals(action)) {
-    System.err.println("SYNC-SYNC-SYNC " + new Date());
     SQLiteCookieDatabase.init(this);
     myCollection.bindToService(this,this);
   }
