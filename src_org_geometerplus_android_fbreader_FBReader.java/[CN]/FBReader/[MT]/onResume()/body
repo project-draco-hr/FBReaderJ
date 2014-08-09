@@ -1,6 +1,6 @@
 {
   super.onResume();
-  SyncService.enableSync(this,true);
+  SyncOperations.enableSync(this,true);
   myStartTimer=true;
   Config.Instance().runOnConnect(new Runnable(){
     public void run(){
