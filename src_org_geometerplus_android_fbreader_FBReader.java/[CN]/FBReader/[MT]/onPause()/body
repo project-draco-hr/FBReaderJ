@@ -1,4 +1,5 @@
 {
+  SyncOperations.quickSync(this);
   IsPaused=true;
   try {
     unregisterReceiver(myBatteryInfoReceiver);
