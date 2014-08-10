@@ -1,0 +1,8 @@
+{
+  try {
+    return Long.parseLong(myCurrentBookTimestamp.getValue());
+  }
+ catch (  Exception e) {
+    return -1L;
+  }
+}

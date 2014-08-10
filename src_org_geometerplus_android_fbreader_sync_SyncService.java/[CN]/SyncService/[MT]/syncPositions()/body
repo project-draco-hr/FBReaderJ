@@ -1,13 +1,14 @@
 {
   System.err.println("syncPositions");
+  mySyncData.update(myCollection);
   final Map<String,Object> data=new HashMap<String,Object>();
-  data.put("generation",mySyncOptions.Generation.getValue());
+  data.put("generation",mySyncData.Generation.getValue());
   try {
-    final String currentBookHash=myCurrentBookHash;
+    final String currentBookHash=mySyncData.CurrentBookHash.getValue();
     if (currentBookHash != null) {
       final Map<String,Object> currentBook=new HashMap<String,Object>();
       currentBook.put("hash",currentBookHash);
-      currentBook.put("timestamp",myCurrentBookTimestamp);
+      currentBook.put("timestamp",mySyncData.currentBookTimestamp());
       data.put("currentbook",currentBook);
     }
     System.err.println("DATA = " + data);
@@ -16,10 +17,7 @@
         final Map map=(Map)response;
         System.err.println("RESPONSE = " + map);
         final int generation=(int)(long)(Long)map.get("generation");
-        mySyncOptions.Generation.setValue(generation);
-        if (currentBookHash != null && currentBookHash.equals(myCurrentBookHash)) {
-          myCurrentBookHash=null;
-        }
+        mySyncData.Generation.setValue(generation);
       }
     }
 );

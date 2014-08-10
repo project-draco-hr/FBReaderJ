@@ -3,14 +3,17 @@
   if (SyncOperations.Action.START.equals(action)) {
     final AlarmManager alarmManager=(AlarmManager)getSystemService(ALARM_SERVICE);
     alarmManager.cancel(syncIntent());
-    Config.Instance().runOnConnect(new Runnable(){
+    final Config config=Config.Instance();
+    config.runOnConnect(new Runnable(){
       public void run(){
+        config.requestAllValuesForGroup("Sync");
+        config.requestAllValuesForGroup("SyncData");
         if (!mySyncOptions.Enabled.getValue()) {
           log("disabled");
           return;
         }
         log("enabled");
-        alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME,SystemClock.elapsedRealtime(),AlarmManager.INTERVAL_FIFTEEN_MINUTES,syncIntent());
+        alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME,SystemClock.elapsedRealtime(),10 * 1000,syncIntent());
       }
     }
 );

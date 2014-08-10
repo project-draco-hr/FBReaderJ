@@ -1,0 +1,10 @@
+{
+  final String oldHash=CurrentBookHash.getValue();
+  final String newHash=collection.getHash(collection.getRecentBook(0));
+  if (newHash != null && !newHash.equals(oldHash)) {
+    CurrentBookHash.setValue(newHash);
+    if (oldHash.length() != 0) {
+      myCurrentBookTimestamp.setValue(String.valueOf(System.currentTimeMillis()));
+    }
+  }
+}

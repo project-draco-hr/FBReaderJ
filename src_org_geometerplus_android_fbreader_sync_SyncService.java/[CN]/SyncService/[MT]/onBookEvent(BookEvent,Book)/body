@@ -5,9 +5,5 @@ default :
 case Added:
   addBook(book);
 break;
-case Opened:
-myCurrentBookHash=myCollection.getHash(myCollection.getRecentBook(0));
-myCurrentBookTimestamp=System.currentTimeMillis();
-break;
 }
 }
