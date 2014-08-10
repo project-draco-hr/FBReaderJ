@@ -21,6 +21,7 @@
     log("stopped");
   }
  else   if (SyncOperations.Action.SYNC.equals(action)) {
+    System.err.println("SYNC-SYNC-SYNC");
     SQLiteCookieDatabase.init(this);
     myCollection.bindToService(this,this);
   }

@@ -3,7 +3,7 @@
     return null;
   }
   try {
-    final TextPosition position=myInterface.getStoredPosition(bookId);
+    final PositionWithTimestamp position=myInterface.getStoredPosition(bookId);
     if (position == null) {
       return null;
     }

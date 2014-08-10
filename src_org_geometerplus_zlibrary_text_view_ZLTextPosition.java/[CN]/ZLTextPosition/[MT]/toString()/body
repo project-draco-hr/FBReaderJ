@@ -1,3 +1,3 @@
 {
-  return getClass().getName() + " " + getParagraphIndex()+ " "+ getElementIndex()+ " "+ getCharIndex();
+  return getClass().getSimpleName() + " [" + getParagraphIndex()+ ","+ getElementIndex()+ ","+ getCharIndex()+ "]";
 }

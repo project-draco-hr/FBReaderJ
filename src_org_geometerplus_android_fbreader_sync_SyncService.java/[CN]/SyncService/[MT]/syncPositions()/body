@@ -1,2 +1,30 @@
 {
+  System.err.println("syncPositions");
+  final Map<String,Object> data=new HashMap<String,Object>();
+  data.put("generation",mySyncOptions.Generation.getValue());
+  try {
+    final String currentBookHash=myCurrentBookHash;
+    if (currentBookHash != null) {
+      final Map<String,Object> currentBook=new HashMap<String,Object>();
+      currentBook.put("hash",currentBookHash);
+      currentBook.put("timestamp",myCurrentBookTimestamp);
+      data.put("currentbook",currentBook);
+    }
+    System.err.println("DATA = " + data);
+    mySyncPositionsContext.perform(new JsonRequest2(SyncOptions.BASE_URL + "sync/position.exchange",data){
+      @Override public void processResponse(      Object response){
+        final Map map=(Map)response;
+        System.err.println("RESPONSE = " + map);
+        final int generation=(int)(long)(Long)map.get("generation");
+        mySyncOptions.Generation.setValue(generation);
+        if (currentBookHash != null && currentBookHash.equals(myCurrentBookHash)) {
+          myCurrentBookHash=null;
+        }
+      }
+    }
+);
+  }
+ catch (  Throwable t) {
+    t.printStackTrace();
+  }
 }

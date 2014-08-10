@@ -1,0 +1,4 @@
+{
+  super(paragraphIndex,elementIndex,charIndex);
+  Timestamp=stamp != null ? stamp : -1;
+}

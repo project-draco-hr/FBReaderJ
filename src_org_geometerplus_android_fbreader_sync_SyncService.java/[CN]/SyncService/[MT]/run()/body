@@ -9,6 +9,7 @@
       public void run(){
         final long start=System.currentTimeMillis();
         int count=0;
+        syncPositions();
         final Map<Status,Integer> statusCounts=new HashMap<Status,Integer>();
         try {
           clearHashTables();

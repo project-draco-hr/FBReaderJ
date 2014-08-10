@@ -1,0 +1,4 @@
+int paragraphIndex
+int elementIndex
+int charIndex
+Long stamp

@@ -1,0 +1,3 @@
+{
+  this(pos.getParagraphIndex(),pos.getElementIndex(),pos.getCharIndex(),(pos instanceof ZLTextFixedPosition.WithTimestamp) ? ((ZLTextFixedPosition.WithTimestamp)pos).Timestamp : -1);
+}
