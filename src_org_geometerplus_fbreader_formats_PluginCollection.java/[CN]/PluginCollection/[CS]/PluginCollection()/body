@@ -1,4 +1,6 @@
 {
   addPlugin(new MobipocketPlugin());
-  addPlugin(new PDFPlugin());
+  if (Build.VERSION.SDK_INT >= 8) {
+    addPlugin(new PDFPlugin());
+  }
 }
