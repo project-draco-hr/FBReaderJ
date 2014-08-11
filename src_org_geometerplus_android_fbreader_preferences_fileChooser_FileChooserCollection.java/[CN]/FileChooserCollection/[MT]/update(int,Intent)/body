@@ -1,6 +1,6 @@
 {
   try {
-    myPreferences.get(index).setValueFromIntent(data);
+    myPreferences.get(requestCode - myBaseRequestCode).setValueFromIntent(data);
   }
  catch (  Exception e) {
   }

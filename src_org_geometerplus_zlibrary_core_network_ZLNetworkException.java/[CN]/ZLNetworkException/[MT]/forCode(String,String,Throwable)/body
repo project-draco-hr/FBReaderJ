@@ -1,0 +1,13 @@
+{
+  final String message;
+  if (code == null) {
+    message="null";
+  }
+ else {
+    if (arg == null) {
+      arg="null";
+    }
+    message=getResource().getResource(code).getValue().replace("%s",arg);
+  }
+  return new ZLNetworkException(message,cause);
+}

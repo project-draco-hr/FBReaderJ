@@ -1,8 +1,9 @@
 {
-  final SQLiteStatement statement=get("INSERT OR REPLACE INTO BookState (book_id,paragraph,word,char) VALUES (?,?,?,?)");
+  final SQLiteStatement statement=get("INSERT OR REPLACE INTO BookState (book_id,paragraph,word,char,timestamp) VALUES (?,?,?,?,?)");
   statement.bindLong(1,bookId);
   statement.bindLong(2,position.getParagraphIndex());
   statement.bindLong(3,position.getElementIndex());
   statement.bindLong(4,position.getCharIndex());
+  statement.bindLong(5,System.currentTimeMillis());
   statement.execute();
 }

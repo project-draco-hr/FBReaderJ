@@ -1,0 +1,3 @@
+{
+  return Model != null ? Model.Book : ExternalBook;
+}

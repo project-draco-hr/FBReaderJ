@@ -1,0 +1,5 @@
+{
+  super(service);
+  mySyncOptions=syncOptions;
+  myFeatureOption=featureOption;
+}

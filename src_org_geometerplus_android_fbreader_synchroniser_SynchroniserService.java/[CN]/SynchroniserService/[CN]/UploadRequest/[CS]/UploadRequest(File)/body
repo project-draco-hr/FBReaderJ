@@ -1,3 +1,0 @@
-{
-  super(BASE_URL + "book.upload",file,false);
-}

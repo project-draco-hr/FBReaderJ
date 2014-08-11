@@ -1,3 +1,3 @@
 {
-  FileChooserUtil.runFolderListDialog((Activity)getContext(),myRegCode,myResource.getValue(),myResource.getResource("chooserTitle").getValue(),myOption.getValue(),myChooseWritableDirectoriesOnly);
+  FileChooserUtil.runFolderListDialog((Activity)getContext(),myRequestCode,myResource.getValue(),myResource.getResource("chooserTitle").getValue(),myOption.getValue(),myChooseWritableDirectoriesOnly);
 }

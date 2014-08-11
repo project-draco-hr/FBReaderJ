@@ -1,3 +1,4 @@
 {
-  return getReader().Model.Book.getTitle();
+  final Book book=getReader().getCurrentBook();
+  return book != null ? book.getTitle() : null;
 }

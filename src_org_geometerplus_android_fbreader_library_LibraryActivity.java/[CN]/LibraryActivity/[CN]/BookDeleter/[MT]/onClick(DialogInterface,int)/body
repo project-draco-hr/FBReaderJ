@@ -1,10 +1,19 @@
 {
   if (getCurrentTree() instanceof FileTree) {
-    getListAdapter().remove(new FileTree((FileTree)getCurrentTree(),myBook.File));
+    for (    Book book : myBooks) {
+      getListAdapter().remove(new FileTree((FileTree)getCurrentTree(),book.File));
+      myCollection.removeBook(book,true);
+    }
     getListView().invalidateViews();
   }
- else   if (getCurrentTree().onBookEvent(BookEvent.Removed,myBook)) {
-    getListAdapter().replaceAll(getCurrentTree().subtrees(),true);
+ else {
+    boolean doReplace=false;
+    for (    Book book : myBooks) {
+      doReplace|=getCurrentTree().onBookEvent(BookEvent.Removed,book);
+      myCollection.removeBook(book,true);
+    }
+    if (doReplace) {
+      getListAdapter().replaceAll(getCurrentTree().subtrees(),true);
+    }
   }
-  myRootTree.Collection.removeBook(myBook,true);
 }

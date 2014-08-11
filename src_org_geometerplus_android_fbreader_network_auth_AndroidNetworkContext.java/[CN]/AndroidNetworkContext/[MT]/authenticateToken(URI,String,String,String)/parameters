@@ -1,0 +1,4 @@
+URI uri
+String realm
+String authUrl
+String clientId

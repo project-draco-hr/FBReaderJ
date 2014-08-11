@@ -1,17 +1,16 @@
 {
   super.onCreate(icicle);
-  if (myRootTree == null) {
-    myRootTree=new RootTree(new BookCollectionShadow());
-  }
-  myRootTree.Collection.addListener(this);
   mySelectedBook=FBReaderIntents.getBookExtra(getIntent());
   new LibraryTreeAdapter(this);
-  init(getIntent());
   getListView().setTextFilterEnabled(true);
   getListView().setOnCreateContextMenuListener(this);
-  ((BookCollectionShadow)myRootTree.Collection).bindToService(this,new Runnable(){
+  deleteRootTree();
+  myCollection.bindToService(this,new Runnable(){
     public void run(){
-      setProgressBarIndeterminateVisibility(!myRootTree.Collection.status().IsCompleted);
+      setProgressBarIndeterminateVisibility(!myCollection.status().IsCompleted);
+      myRootTree=new RootTree(myCollection);
+      myCollection.addListener(LibraryActivity.this);
+      init(getIntent());
     }
   }
 );

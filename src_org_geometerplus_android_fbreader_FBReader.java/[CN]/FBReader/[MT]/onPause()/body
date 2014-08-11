@@ -1,4 +1,6 @@
 {
+  SyncOperations.quickSync(this);
+  IsPaused=true;
   try {
     unregisterReceiver(myBatteryInfoReceiver);
   }
@@ -9,6 +11,5 @@
     setButtonLight(true);
   }
   myFBReaderApp.onWindowClosing();
-  unbindService(mySynchroniserConnection);
   super.onPause();
 }

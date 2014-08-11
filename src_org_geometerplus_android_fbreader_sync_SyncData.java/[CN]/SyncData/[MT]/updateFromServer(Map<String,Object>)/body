@@ -1,0 +1,4 @@
+{
+  System.err.println("RESPONSE = " + data);
+  myGeneration.setValue((int)(long)(Long)data.get("generation"));
+}

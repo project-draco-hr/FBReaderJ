@@ -1,0 +1,5 @@
+{
+  if (book.File.getPhysicalFile() != null) {
+    myQueue.add(book);
+  }
+}

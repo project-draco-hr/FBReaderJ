@@ -3,7 +3,9 @@
     try {
       myContext.unregisterReceiver(myReceiver);
     }
- catch (    Exception e) {
+ catch (    IllegalArgumentException e) {
+    }
+catch (    Exception e) {
       e.printStackTrace();
     }
     try {

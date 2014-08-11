@@ -2,6 +2,11 @@
   if (filter instanceof Filter.Empty) {
     appendTag(buffer,"filter",true,"type","empty");
   }
+ else   if (filter instanceof Filter.Not) {
+    appendTag(buffer,"not",false);
+    serialize(buffer,((Filter.Not)filter).Base);
+    closeTag(buffer,"not");
+  }
  else   if (filter instanceof Filter.And) {
     appendTag(buffer,"and",false);
     serialize(buffer,((Filter.And)filter).First);
@@ -48,6 +53,9 @@
   }
  else   if (filter instanceof Filter.HasBookmark) {
     appendTag(buffer,"filter",true,"type","has-bookmark");
+  }
+ else   if (filter instanceof Filter.HasPhysicalFile) {
+    appendTag(buffer,"filter",true,"type","has-physical-file");
   }
  else {
     throw new RuntimeException("Unsupported filter type: " + filter.getClass());

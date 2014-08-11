@@ -1,0 +1,3 @@
+ZLNetworkRequest request
+int socketTimeout
+int connectionTimeout

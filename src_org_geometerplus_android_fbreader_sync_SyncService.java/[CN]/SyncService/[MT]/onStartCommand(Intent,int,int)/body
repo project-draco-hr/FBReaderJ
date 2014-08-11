@@ -1,0 +1,38 @@
+{
+  final String action=intent.getAction();
+  if (SyncOperations.Action.START.equals(action)) {
+    final AlarmManager alarmManager=(AlarmManager)getSystemService(ALARM_SERVICE);
+    alarmManager.cancel(syncIntent());
+    final Config config=Config.Instance();
+    config.runOnConnect(new Runnable(){
+      public void run(){
+        config.requestAllValuesForGroup("Sync");
+        config.requestAllValuesForGroup("SyncData");
+        if (!mySyncOptions.Enabled.getValue()) {
+          log("disabled");
+          return;
+        }
+        log("enabled");
+        alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME,SystemClock.elapsedRealtime(),AlarmManager.INTERVAL_HALF_HOUR,syncIntent());
+        SQLiteCookieDatabase.init(SyncService.this);
+        myCollection.bindToService(SyncService.this,myQuickSynchroniser);
+      }
+    }
+);
+  }
+ else   if (SyncOperations.Action.STOP.equals(action)) {
+    final AlarmManager alarmManager=(AlarmManager)getSystemService(ALARM_SERVICE);
+    alarmManager.cancel(syncIntent());
+    log("stopped");
+  }
+ else   if (SyncOperations.Action.SYNC.equals(action)) {
+    SQLiteCookieDatabase.init(this);
+    myCollection.bindToService(this,myQuickSynchroniser);
+    myCollection.bindToService(this,myStandardSynchroniser);
+  }
+ else   if (SyncOperations.Action.QUICK_SYNC.equals(action)) {
+    SQLiteCookieDatabase.init(this);
+    myCollection.bindToService(this,myQuickSynchroniser);
+  }
+  return START_STICKY;
+}

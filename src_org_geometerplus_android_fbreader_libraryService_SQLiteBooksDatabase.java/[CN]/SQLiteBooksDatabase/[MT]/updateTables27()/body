@@ -1,0 +1,3 @@
+{
+  myDatabase.execSQL("ALTER TABLE BookState ADD COLUMN timestamp INTEGER");
+}

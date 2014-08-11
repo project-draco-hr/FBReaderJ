@@ -1,0 +1,13 @@
+{
+  try {
+    mySyncPositionsContext.perform(new JsonRequest2(SyncOptions.BASE_URL + "sync/position.exchange",mySyncData.data(myCollection)){
+      @Override public void processResponse(      Object response){
+        mySyncData.updateFromServer((Map<String,Object>)response);
+      }
+    }
+);
+  }
+ catch (  Throwable t) {
+    t.printStackTrace();
+  }
+}

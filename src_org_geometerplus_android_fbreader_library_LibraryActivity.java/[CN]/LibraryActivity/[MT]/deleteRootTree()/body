@@ -1,0 +1,7 @@
+{
+  if (myRootTree != null) {
+    myCollection.removeListener(this);
+    myCollection.unbind();
+    myRootTree=null;
+  }
+}

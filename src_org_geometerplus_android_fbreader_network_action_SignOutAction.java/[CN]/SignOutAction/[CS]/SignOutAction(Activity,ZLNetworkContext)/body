@@ -1,0 +1,4 @@
+{
+  super(activity,ActionCode.SIGNOUT,"signOut",-1);
+  myNetworkContext=context;
+}

@@ -1,9 +1,0 @@
-{
-  if (key == null) {
-    return "null";
-  }
-  if (arg == null) {
-    arg="null";
-  }
-  return getResource().getResource(key).getValue().replace("%s",arg);
-}

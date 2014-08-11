@@ -1,0 +1,3 @@
+{
+  return PendingIntent.getService(this,0,new Intent(this,getClass()).setAction(SyncOperations.Action.SYNC),0);
+}

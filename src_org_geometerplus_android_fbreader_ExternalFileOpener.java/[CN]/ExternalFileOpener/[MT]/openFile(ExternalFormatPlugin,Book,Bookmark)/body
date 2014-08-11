@@ -1,0 +1,24 @@
+{
+  if (myDialog != null) {
+    myDialog.dismiss();
+    myDialog=null;
+  }
+  final Intent intent=PluginUtil.createIntent(plugin,PluginUtil.ACTION_VIEW);
+  FBReaderIntents.putBookExtra(intent,book);
+  FBReaderIntents.putBookmarkExtra(intent,bookmark);
+  intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+  new ZLStringOption("PluginCode",plugin.packageName(),"").setValue(myPluginCode);
+  intent.putExtra("PLUGIN_CODE",myPluginCode);
+  Config.Instance().runOnConnect(new Runnable(){
+    public void run(){
+      try {
+        myReader.startActivity(intent);
+        myReader.overridePendingTransition(0,0);
+      }
+ catch (      ActivityNotFoundException e) {
+        showErrorDialog(plugin,book);
+      }
+    }
+  }
+);
+}

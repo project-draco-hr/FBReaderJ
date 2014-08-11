@@ -1,9 +1,10 @@
 {
-  if (Model != null && Model.Book != null) {
+  final Book book=getCurrentBook();
+  if (book != null) {
     final SynchronousExecutor executor=createExecutor("loadingBook");
     executor.execute(new Runnable(){
       public void run(){
-        openBookInternal(Model.Book,null,true);
+        openBookInternal(book,null,true);
       }
     }
 ,null);

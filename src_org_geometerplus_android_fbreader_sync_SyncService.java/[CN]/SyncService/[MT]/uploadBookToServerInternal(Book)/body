@@ -1,0 +1,67 @@
+{
+  final File file=book.File.getPhysicalFile().javaFile();
+  if (file.length() > 20 * 1024 * 1024) {
+    return Status.Failure;
+  }
+  final String hash=myCollection.getHash(book);
+  final boolean force=book.labels().contains(Book.SYNC_TOSYNC_LABEL);
+  if (hash == null) {
+    return Status.HashNotComputed;
+  }
+ else   if (myActualHashesFromServer.contains(hash)) {
+    return Status.AlreadyUploaded;
+  }
+ else   if (!force && myDeletedHashesFromServer.contains(hash)) {
+    return Status.ToBeDeleted;
+  }
+ else   if (!force && book.labels().contains(Book.SYNC_FAILURE_LABEL)) {
+    return Status.FailedPreviuousTime;
+  }
+  initHashTables();
+  final Map<String,Object> result=new HashMap<String,Object>();
+  final PostRequest verificationRequest=new PostRequest("book.status.by.hash",Collections.singletonMap("sha1",hash)){
+    @Override public void processResponse(    Object response){
+      result.putAll((Map)response);
+    }
+  }
+;
+  try {
+    myBookUploadContext.perform(verificationRequest);
+  }
+ catch (  ZLNetworkException e) {
+    e.printStackTrace();
+    return Status.ServerError;
+  }
+  final String csrfToken=myBookUploadContext.getCookieValue(SyncOptions.DOMAIN,"csrftoken");
+  try {
+    final String status=(String)result.get("status");
+    if ((force && !"found".equals(status)) || "not found".equals(status)) {
+      try {
+        final UploadRequest uploadRequest=new UploadRequest(file);
+        uploadRequest.addHeader("Referer",verificationRequest.getURL());
+        uploadRequest.addHeader("X-CSRFToken",csrfToken);
+        myBookUploadContext.perform(uploadRequest);
+        return uploadRequest.Result;
+      }
+ catch (      ZLNetworkException e) {
+        e.printStackTrace();
+        return Status.ServerError;
+      }
+    }
+ else {
+      final List<String> hashes=(List<String>)result.get("hashes");
+      if ("found".equals(status)) {
+        myActualHashesFromServer.addAll(hashes);
+        return Status.AlreadyUploaded;
+      }
+ else {
+        myDeletedHashesFromServer.addAll(hashes);
+        return Status.ToBeDeleted;
+      }
+    }
+  }
+ catch (  Exception e) {
+    log("UNEXPECTED RESPONSE: " + result);
+    return Status.ServerError;
+  }
+}

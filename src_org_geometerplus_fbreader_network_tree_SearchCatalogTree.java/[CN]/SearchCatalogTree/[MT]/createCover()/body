@@ -1,0 +1,8 @@
+{
+  final INetworkLink link=getLink();
+  if (link == null) {
+    return null;
+  }
+  final UrlInfo info=link.getUrlInfo(UrlInfo.Type.SearchIcon);
+  return info != null ? createCover(info.Url,info.Mime) : null;
+}

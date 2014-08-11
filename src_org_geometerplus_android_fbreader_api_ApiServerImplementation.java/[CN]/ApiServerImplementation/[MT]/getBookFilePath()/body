@@ -1,3 +1,4 @@
 {
-  return getReader().Model.Book.File.getPath();
+  final Book book=getReader().getCurrentBook();
+  return book != null ? book.File.getPath() : null;
 }

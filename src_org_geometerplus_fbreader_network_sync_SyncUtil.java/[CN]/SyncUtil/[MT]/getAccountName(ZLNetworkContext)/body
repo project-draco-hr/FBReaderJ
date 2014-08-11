@@ -1,0 +1,3 @@
+{
+  return context.getAccountName(SyncOptions.DOMAIN,SyncOptions.REALM);
+}

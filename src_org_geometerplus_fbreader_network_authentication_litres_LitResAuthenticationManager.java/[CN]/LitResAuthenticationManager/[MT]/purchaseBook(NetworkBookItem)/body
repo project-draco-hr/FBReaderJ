@@ -4,11 +4,11 @@ synchronized (this) {
     sid=mySidOption.getValue();
   }
   if (sid.length() == 0) {
-    throw new ZLNetworkException(NetworkException.ERROR_AUTHENTICATION_FAILED);
+    throw new ZLNetworkAuthenticationException();
   }
   final BookUrlInfo reference=book.reference(UrlInfo.Type.BookBuy);
   if (reference == null) {
-    throw new ZLNetworkException(NetworkException.ERROR_BOOK_NOT_PURCHASED);
+    throw ZLNetworkException.forCode(NetworkException.ERROR_BOOK_NOT_PURCHASED);
   }
   final LitResPurchaseXMLReader xmlReader=new LitResPurchaseXMLReader(Link.getSiteName());
   ZLNetworkException exception=null;
@@ -25,17 +25,16 @@ synchronized (this) {
       myAccount=new Money(xmlReader.Account,"RUB");
     }
     if (exception != null) {
-      final String code=exception.getCode();
-      if (NetworkException.ERROR_AUTHENTICATION_FAILED.equals(code)) {
+      if (exception instanceof ZLNetworkAuthenticationException) {
         logOut(false);
       }
- else       if (NetworkException.ERROR_PURCHASE_ALREADY_PURCHASED.equals(code)) {
+ else       if (exception instanceof AlreadyPurchasedException) {
         myPurchasedBooks.addToStart(book);
       }
       throw exception;
     }
     if (xmlReader.BookId == null || !xmlReader.BookId.equals(book.Id)) {
-      throw new ZLNetworkException(NetworkException.ERROR_SOMETHING_WRONG,Link.getSiteName());
+      throw ZLNetworkException.forCode(NetworkException.ERROR_SOMETHING_WRONG,Link.getSiteName());
     }
     myPurchasedBooks.addToStart(book);
     final BasketItem basket=book.Link.getBasketItem();

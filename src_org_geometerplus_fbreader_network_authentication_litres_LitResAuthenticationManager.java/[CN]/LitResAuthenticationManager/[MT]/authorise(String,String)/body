@@ -2,7 +2,7 @@
   final Map<String,String> params=new HashMap<String,String>();
   final String url=parseUrl(Link.getUrl(UrlInfo.Type.SignIn),params);
   if (url == null) {
-    throw new ZLNetworkException(NetworkException.ERROR_UNSUPPORTED_OPERATION);
+    throw ZLNetworkException.forCode(NetworkException.ERROR_UNSUPPORTED_OPERATION);
   }
 synchronized (this) {
     UserNameOption.setValue(username);

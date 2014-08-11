@@ -2,6 +2,5 @@
   myChildrenItems.clear();
   myLastTotalChildren=-1;
   clear();
-  addSpecialTrees();
   NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
 }

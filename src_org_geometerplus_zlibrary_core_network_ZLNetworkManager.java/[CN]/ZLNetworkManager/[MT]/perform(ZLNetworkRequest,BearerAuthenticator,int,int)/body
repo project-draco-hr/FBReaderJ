@@ -73,7 +73,7 @@
       ((HttpPost)httpRequest).setEntity(data);
     }
  else {
-      throw new ZLNetworkException(true,"Unknown request type");
+      throw new ZLNetworkException("Unknown request type");
     }
     httpRequest.setHeader("User-Agent",ZLNetworkUtil.getUserAgent());
     if (!request.isQuiet()) {
@@ -116,10 +116,10 @@
     }
  else {
       if (responseCode == HttpURLConnection.HTTP_UNAUTHORIZED) {
-        throw new ZLNetworkException(ZLNetworkException.ERROR_AUTHENTICATION_FAILED);
+        throw new ZLNetworkAuthenticationException();
       }
  else {
-        throw new ZLNetworkException(true,response.getStatusLine().toString());
+        throw new ZLNetworkException(response.getStatusLine().toString());
       }
     }
   }
@@ -135,11 +135,11 @@ catch (  IOException e) {
  else {
       code=ZLNetworkException.ERROR_CONNECT_TO_HOST;
     }
-    throw new ZLNetworkException(code,ZLNetworkUtil.hostFromUrl(request.URL),e);
+    throw ZLNetworkException.forCode(code,ZLNetworkUtil.hostFromUrl(request.URL),e);
   }
 catch (  Exception e) {
     e.printStackTrace();
-    throw new ZLNetworkException(true,e.getMessage(),e);
+    throw new ZLNetworkException(e.getMessage(),e);
   }
  finally {
     request.doAfter(success);

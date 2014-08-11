@@ -1,2 +1,2 @@
 ZLEnumOption<T> option
-String resourceKey
+String key

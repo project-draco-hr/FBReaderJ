@@ -1,6 +1,3 @@
 {
-  if (key == null) {
-    return "null";
-  }
-  return getResource().getResource(key).getValue();
+  return code != null ? getResource().getResource(code).getValue() : "null";
 }

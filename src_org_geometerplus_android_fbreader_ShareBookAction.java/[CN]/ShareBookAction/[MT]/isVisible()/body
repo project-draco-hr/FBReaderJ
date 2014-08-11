@@ -1,3 +1,4 @@
 {
-  return Reader.Model != null && Reader.Model.Book.File.getPhysicalFile() != null;
+  final Book book=Reader.getCurrentBook();
+  return book != null && book.File.getPhysicalFile() != null;
 }

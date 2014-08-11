@@ -5,8 +5,11 @@
 switch (myStateStack.removeLast()) {
 case READ_QUERY:
     break;
+case READ_FILTER_NOT:
+  myFilter=new Filter.Not(myFilterStack.removeLast());
+break;
 case READ_FILTER_AND:
-  myFilter=new Filter.And(myFilterStack.removeLast(),myFilter);
+myFilter=new Filter.And(myFilterStack.removeLast(),myFilter);
 break;
 case READ_FILTER_OR:
 myFilter=new Filter.Or(myFilterStack.removeLast(),myFilter);
@@ -14,4 +17,5 @@ break;
 case READ_FILTER_SIMPLE:
 break;
 }
+setFilterToStack();
 }
