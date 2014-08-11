@@ -64,6 +64,9 @@
     }
 );
   }
+ else {
+    myFBReaderApp.gotoStoredPosition();
+  }
   PopupPanel.restoreVisibilities(myFBReaderApp);
   ApiServerImplementation.sendEvent(this,ApiListener.EVENT_READ_MODE_OPENED);
 }

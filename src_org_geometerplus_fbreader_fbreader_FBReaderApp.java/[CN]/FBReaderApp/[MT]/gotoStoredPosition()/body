@@ -1,0 +1,18 @@
+{
+  myStoredPositionBook=Model != null ? Model.Book : null;
+  if (myStoredPositionBook == null) {
+    return;
+  }
+  final ZLTextFixedPosition.WithTimestamp fromServer=mySyncData.getPosition(Collection.getHash(myStoredPositionBook));
+  final ZLTextFixedPosition.WithTimestamp local=Collection.getStoredPosition(myStoredPositionBook.getId());
+  if (local == null) {
+    myStoredPosition=fromServer != null ? fromServer : new ZLTextFixedPosition(0,0,0);
+  }
+ else   if (fromServer == null) {
+    myStoredPosition=local;
+  }
+ else {
+    myStoredPosition=fromServer.Timestamp >= local.Timestamp ? fromServer : local;
+  }
+  BookTextView.gotoPosition(myStoredPosition);
+}

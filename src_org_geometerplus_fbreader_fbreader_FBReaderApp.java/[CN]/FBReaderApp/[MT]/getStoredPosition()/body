@@ -1,9 +1,0 @@
-{
-  myPositionBook=Model != null ? Model.Book : null;
-  if (myPositionBook == null) {
-    return null;
-  }
-  final ZLTextPosition pos=Collection.getStoredPosition(myPositionBook.getId());
-  myPosition=new ZLTextFixedPosition(pos);
-  return pos;
-}

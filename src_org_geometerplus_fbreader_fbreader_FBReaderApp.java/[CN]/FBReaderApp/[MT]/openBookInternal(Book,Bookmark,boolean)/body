@@ -37,7 +37,7 @@
     ZLTextHyphenator.Instance().load(book.getLanguage());
     BookTextView.setModel(Model.getTextModel());
     setBookmarkHighlightings(BookTextView,null);
-    BookTextView.gotoPosition(getStoredPosition());
+    gotoStoredPosition();
     if (bookmark == null) {
       setView(BookTextView);
     }
