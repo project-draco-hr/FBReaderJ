@@ -1,4 +1,13 @@
 {
   System.err.println("RESPONSE = " + data);
   myGeneration.setValue((int)(long)(Long)data.get("generation"));
+  final List<Map> positions=(List<Map>)data.get("positions");
+  if (positions != null) {
+    for (    Map<String,Object> map : positions) {
+      final ZLTextFixedPosition.WithTimestamp pos=map2Position(map);
+      for (      String hash : (List<String>)map.get("all_hashes")) {
+        savePosition(hash,pos);
+      }
+    }
+  }
 }

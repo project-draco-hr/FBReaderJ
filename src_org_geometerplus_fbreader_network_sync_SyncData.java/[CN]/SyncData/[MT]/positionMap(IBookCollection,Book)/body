@@ -3,5 +3,5 @@
     return null;
   }
   final ZLTextFixedPosition.WithTimestamp pos=collection.getStoredPosition(book.getId());
-  return pos != null ? positionMap(pos) : null;
+  return pos != null ? position2Map(pos) : null;
 }
