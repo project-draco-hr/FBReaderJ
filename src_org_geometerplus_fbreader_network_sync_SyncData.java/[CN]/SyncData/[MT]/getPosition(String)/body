@@ -1,0 +1,9 @@
+{
+  try {
+    final Map<String,Long> map=(Map)JSONValue.parse(positionOption(hash).getValue());
+    return new ZLTextFixedPosition.WithTimestamp((int)(long)map.get("para"),(int)(long)map.get("elmt"),(int)(long)map.get("char"),map.get("timestamp"));
+  }
+ catch (  Throwable t) {
+    return null;
+  }
+}

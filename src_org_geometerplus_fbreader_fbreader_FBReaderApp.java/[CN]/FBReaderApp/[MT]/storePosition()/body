@@ -1,9 +1,15 @@
 {
-  if (Model != null && Model.Book != null && BookTextView != null) {
+  final Book bk=Model != null ? Model.Book : null;
+  if (bk != null && bk == myPositionBook && myPosition != null && BookTextView != null) {
     if (mySaverThread == null) {
       mySaverThread=new SaverThread();
       mySaverThread.start();
     }
-    mySaverThread.add(new PositionSaver(Model.Book,BookTextView));
+    final ZLTextPosition position=new ZLTextFixedPosition(BookTextView.getStartCursor());
+    if (!myPosition.equals(position)) {
+      myPosition=position;
+      final RationalNumber progress=BookTextView.getProgress();
+      mySaverThread.add(new PositionSaver(bk,position,progress));
+    }
   }
 }
