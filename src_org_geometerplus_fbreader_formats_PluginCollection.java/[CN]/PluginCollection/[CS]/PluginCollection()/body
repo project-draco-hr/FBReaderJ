@@ -1,5 +1,4 @@
 {
   addPlugin(new MobipocketPlugin());
-  addPlugin(new DjVuPlugin());
   addPlugin(new PDFPlugin());
 }
