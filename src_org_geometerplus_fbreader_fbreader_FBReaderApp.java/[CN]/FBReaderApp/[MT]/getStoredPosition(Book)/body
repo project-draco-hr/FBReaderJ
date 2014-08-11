@@ -1,0 +1,13 @@
+{
+  final ZLTextFixedPosition.WithTimestamp fromServer=mySyncData.getAndCleanPosition(Collection.getHash(book));
+  final ZLTextFixedPosition.WithTimestamp local=Collection.getStoredPosition(book.getId());
+  if (local == null) {
+    return fromServer != null ? fromServer : new ZLTextFixedPosition(0,0,0);
+  }
+ else   if (fromServer == null) {
+    return local;
+  }
+ else {
+    return fromServer.Timestamp >= local.Timestamp ? fromServer : local;
+  }
+}

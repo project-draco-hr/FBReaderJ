@@ -22,7 +22,7 @@
       bm=bookmark;
     }
  else {
-      ZLTextPosition pos=Collection.getStoredPosition(book.getId());
+      ZLTextPosition pos=getStoredPosition(book);
       if (pos == null) {
         pos=new ZLTextFixedPosition(0,0,0);
       }
