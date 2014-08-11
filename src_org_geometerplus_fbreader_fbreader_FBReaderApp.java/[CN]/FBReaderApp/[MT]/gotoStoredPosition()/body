@@ -3,7 +3,7 @@
   if (myStoredPositionBook == null) {
     return;
   }
-  final ZLTextFixedPosition.WithTimestamp fromServer=mySyncData.getPosition(Collection.getHash(myStoredPositionBook));
+  final ZLTextFixedPosition.WithTimestamp fromServer=mySyncData.getAndCleanPosition(Collection.getHash(myStoredPositionBook));
   final ZLTextFixedPosition.WithTimestamp local=Collection.getStoredPosition(myStoredPositionBook.getId());
   if (local == null) {
     myStoredPosition=fromServer != null ? fromServer : new ZLTextFixedPosition(0,0,0);

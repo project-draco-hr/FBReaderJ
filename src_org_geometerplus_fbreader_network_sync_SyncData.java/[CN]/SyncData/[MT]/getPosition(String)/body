@@ -1,8 +1,0 @@
-{
-  try {
-    return map2Position((Map)JSONValue.parse(positionOption(hash).getValue()));
-  }
- catch (  Throwable t) {
-    return null;
-  }
-}

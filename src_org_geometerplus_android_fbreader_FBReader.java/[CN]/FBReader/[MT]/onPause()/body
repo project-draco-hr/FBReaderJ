@@ -2,6 +2,11 @@
   SyncOperations.quickSync(this);
   IsPaused=true;
   try {
+    unregisterReceiver(mySyncUpdateReceiver);
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  try {
     unregisterReceiver(myBatteryInfoReceiver);
   }
  catch (  IllegalArgumentException e) {

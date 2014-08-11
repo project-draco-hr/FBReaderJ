@@ -1,0 +1,12 @@
+{
+  final ZLStringOption option=positionOption(hash);
+  try {
+    return map2Position((Map)JSONValue.parse(option.getValue()));
+  }
+ catch (  Throwable t) {
+    return null;
+  }
+ finally {
+    option.setValue("");
+  }
+}

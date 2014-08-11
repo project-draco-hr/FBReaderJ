@@ -1,6 +1,10 @@
 {
   System.err.println("RESPONSE = " + data);
-  myGeneration.setValue((int)(long)(Long)data.get("generation"));
+  final int generation=(int)(long)(Long)data.get("generation");
+  if (myGeneration.getValue() == generation) {
+    return false;
+  }
+  myGeneration.setValue(generation);
   final List<Map> positions=(List<Map>)data.get("positions");
   if (positions != null) {
     for (    Map<String,Object> map : positions) {
@@ -10,4 +14,5 @@
       }
     }
   }
+  return true;
 }

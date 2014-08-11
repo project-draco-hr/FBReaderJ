@@ -1,6 +1,7 @@
 {
   final Map<String,Object> map=new HashMap<String,Object>();
   map.put("generation",myGeneration.getValue());
+  map.put("timestamp",System.currentTimeMillis());
   final Book currentBook=collection.getRecentBook(0);
   if (currentBook != null) {
     final String oldHash=myCurrentBookHash.getValue();
@@ -21,13 +22,15 @@
     }
     map.put("currentbook",currentBookMap);
     final List<Map<String,Object>> lst=new ArrayList<Map<String,Object>>();
-    Map<String,Object> posMap=positionMap(collection,currentBook);
-    if (posMap != null) {
-      posMap.put("hash",currentBookHash);
-      lst.add(posMap);
+    if (positionOption(currentBookHash).getValue().length() == 0) {
+      final Map<String,Object> posMap=positionMap(collection,currentBook);
+      if (posMap != null) {
+        posMap.put("hash",currentBookHash);
+        lst.add(posMap);
+      }
     }
-    if (!currentBookHash.equals(oldHash)) {
-      posMap=positionMap(collection,collection.getBookByHash(oldHash));
+    if (!currentBookHash.equals(oldHash) && positionOption(oldHash).getValue().length() == 0) {
+      final Map<String,Object> posMap=positionMap(collection,collection.getBookByHash(oldHash));
       if (posMap != null) {
         posMap.put("hash",oldHash);
         lst.add(posMap);
