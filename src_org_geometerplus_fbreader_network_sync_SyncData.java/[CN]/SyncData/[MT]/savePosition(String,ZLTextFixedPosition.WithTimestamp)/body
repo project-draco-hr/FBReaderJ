@@ -1,0 +1,3 @@
+{
+  positionOption(hash).setValue(pos != null ? JSONValue.toJSONString(positionMap(pos)) : "");
+}

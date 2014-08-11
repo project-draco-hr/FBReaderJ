@@ -1,11 +1,4 @@
 {
-  if (book == null) {
-    return null;
-  }
-  final ZLTextFixedPosition.WithTimestamp pos=collection.getStoredPosition(book.getId());
-  if (pos == null) {
-    return null;
-  }
   final Map<String,Object> map=new HashMap<String,Object>();
   map.put("para",pos.ParagraphIndex);
   map.put("elmt",pos.ElementIndex);
