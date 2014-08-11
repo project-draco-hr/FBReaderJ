@@ -15,6 +15,7 @@
     final String currentBookHash=newHash != null ? newHash : oldHash;
     final Map<String,Object> currentBookMap=new HashMap<String,Object>();
     currentBookMap.put("hash",currentBookHash);
+    currentBookMap.put("title",currentBook.getTitle());
     try {
       currentBookMap.put("timestamp",Long.parseLong(myCurrentBookTimestamp.getValue()));
     }
