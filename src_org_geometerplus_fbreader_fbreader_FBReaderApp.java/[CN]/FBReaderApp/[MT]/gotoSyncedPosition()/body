@@ -1,5 +1,0 @@
-{
-  if (myStoredPositionBook != null && mySyncData.hasPosition(Collection.getHash(myStoredPositionBook))) {
-    gotoStoredPosition();
-  }
-}

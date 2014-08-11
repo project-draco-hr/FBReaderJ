@@ -69,6 +69,7 @@
         syncOptions.Enabled.setValue(false);
         enableSynchronisation();
         syncPreferences.run();
+        new SyncData().reset();
         return;
       }
       UIUtil.createExecutor(PreferenceActivity.this,"tryConnect").execute(new Runnable(){

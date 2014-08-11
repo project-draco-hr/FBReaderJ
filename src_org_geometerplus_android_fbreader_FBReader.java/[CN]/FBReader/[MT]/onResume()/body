@@ -29,6 +29,7 @@
 );
   registerReceiver(myBatteryInfoReceiver,new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
   IsPaused=false;
+  myResumeTimestamp=System.currentTimeMillis();
   if (OnResumeAction != null) {
     final Runnable action=OnResumeAction;
     OnResumeAction=null;
@@ -66,7 +67,12 @@
 );
   }
  else {
-    myFBReaderApp.gotoSyncedPosition();
+    getCollection().bindToService(this,new Runnable(){
+      public void run(){
+        myFBReaderApp.useSyncInfo(true);
+      }
+    }
+);
   }
   PopupPanel.restoreVisibilities(myFBReaderApp);
   ApiServerImplementation.sendEvent(this,ApiListener.EVENT_READ_MODE_OPENED);

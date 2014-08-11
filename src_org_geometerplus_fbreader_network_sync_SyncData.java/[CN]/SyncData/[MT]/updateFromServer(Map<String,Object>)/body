@@ -1,10 +1,9 @@
 {
   System.err.println("RESPONSE = " + data);
-  final int generation=(int)(long)(Long)data.get("generation");
-  if (myGeneration.getValue() == generation) {
+  myGeneration.setValue((int)(long)(Long)data.get("generation"));
+  if (data.size() == 1) {
     return false;
   }
-  myGeneration.setValue(generation);
   final List<Map> positions=(List<Map>)data.get("positions");
   if (positions != null) {
     for (    Map<String,Object> map : positions) {
@@ -14,5 +13,7 @@
       }
     }
   }
+  final Map<String,Object> currentBook=(Map<String,Object>)data.get("currentbook");
+  myServerBookHashes.setValue(currentBook != null ? (List<String>)currentBook.get("all_hashes") : Collections.<String>emptyList());
   return true;
 }
