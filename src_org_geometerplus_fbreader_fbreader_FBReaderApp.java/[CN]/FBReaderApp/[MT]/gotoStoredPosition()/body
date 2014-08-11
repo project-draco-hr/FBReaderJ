@@ -15,4 +15,5 @@
     myStoredPosition=fromServer.Timestamp >= local.Timestamp ? fromServer : local;
   }
   BookTextView.gotoPosition(myStoredPosition);
+  savePosition();
 }

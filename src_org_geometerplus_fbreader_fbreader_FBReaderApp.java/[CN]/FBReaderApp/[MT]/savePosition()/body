@@ -1,0 +1,8 @@
+{
+  final RationalNumber progress=BookTextView.getProgress();
+  if (mySaverThread == null) {
+    mySaverThread=new SaverThread();
+    mySaverThread.start();
+  }
+  mySaverThread.add(new PositionSaver(myStoredPositionBook,myStoredPosition,progress));
+}
