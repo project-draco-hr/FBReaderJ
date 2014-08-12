@@ -1,5 +1,5 @@
 {
-  final String action=intent != null ? intent.getAction() : Action.SYNC;
+  final String action=intent != null ? intent.getAction() : SyncOperations.Action.SYNC;
   if (SyncOperations.Action.START.equals(action)) {
     final AlarmManager alarmManager=(AlarmManager)getSystemService(ALARM_SERVICE);
     alarmManager.cancel(syncIntent());
