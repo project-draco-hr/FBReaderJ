@@ -1,0 +1,16 @@
+{
+  if (openOtherBook) {
+    final Book fromServer=getCurrentServerBook();
+    if (fromServer == null) {
+      showBookNotFoundMessage();
+    }
+    if (fromServer != null && !fromServer.equals(Collection.getRecentBook(0))) {
+      openBook(fromServer,null,null);
+      return;
+    }
+  }
+  if (myStoredPositionBook != null && mySyncData.hasPosition(Collection.getHash(myStoredPositionBook))) {
+    gotoStoredPosition();
+    storePosition();
+  }
+}

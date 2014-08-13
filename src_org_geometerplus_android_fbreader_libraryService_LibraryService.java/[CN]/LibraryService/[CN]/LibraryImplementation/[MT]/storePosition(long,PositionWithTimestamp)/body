@@ -1,0 +1,6 @@
+{
+  if (pos == null) {
+    return;
+  }
+  myCollection.storePosition(bookId,new ZLTextFixedPosition.WithTimestamp(pos.ParagraphIndex,pos.ElementIndex,pos.CharIndex,pos.Timestamp));
+}

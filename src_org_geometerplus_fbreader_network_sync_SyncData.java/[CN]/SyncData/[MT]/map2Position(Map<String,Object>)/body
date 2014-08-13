@@ -1,0 +1,3 @@
+{
+  return new ZLTextFixedPosition.WithTimestamp((int)(long)(Long)map.get("para"),(int)(long)(Long)map.get("elmt"),(int)(long)(Long)map.get("char"),(Long)map.get("timestamp"));
+}

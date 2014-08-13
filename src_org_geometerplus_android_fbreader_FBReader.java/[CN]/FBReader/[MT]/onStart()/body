@@ -4,8 +4,7 @@
     public void run(){
       new Thread(){
         public void run(){
-          openBook(getIntent(),getPostponedInitAction(),false);
-          myFBReaderApp.getViewWidget().repaint();
+          getPostponedInitAction().run();
         }
       }
 .start();

@@ -1,0 +1,6 @@
+{
+  ParagraphIndex=paragraphIndex;
+  ElementIndex=elementIndex;
+  CharIndex=charIndex;
+  Timestamp=stamp;
+}

@@ -1,0 +1,9 @@
+{
+  myStoredPositionBook=Model != null ? Model.Book : null;
+  if (myStoredPositionBook == null) {
+    return;
+  }
+  myStoredPosition=getStoredPosition(myStoredPositionBook);
+  BookTextView.gotoPosition(myStoredPosition);
+  savePosition();
+}

@@ -1,6 +1,6 @@
 {
   final File file=book.File.getPhysicalFile().javaFile();
-  if (file.length() > 20 * 1024 * 1024) {
+  if (file.length() > 30 * 1024 * 1024) {
     return Status.Failure;
   }
   final String hash=myCollection.getHash(book);
@@ -26,13 +26,13 @@
   }
 ;
   try {
-    myNetworkContext.perform(verificationRequest);
+    myBookUploadContext.perform(verificationRequest);
   }
  catch (  ZLNetworkException e) {
     e.printStackTrace();
     return Status.ServerError;
   }
-  final String csrfToken=myNetworkContext.getCookieValue(SyncOptions.DOMAIN,"csrftoken");
+  final String csrfToken=myBookUploadContext.getCookieValue(SyncOptions.DOMAIN,"csrftoken");
   try {
     final String status=(String)result.get("status");
     if ((force && !"found".equals(status)) || "not found".equals(status)) {
@@ -40,7 +40,7 @@
         final UploadRequest uploadRequest=new UploadRequest(file);
         uploadRequest.addHeader("Referer",verificationRequest.getURL());
         uploadRequest.addHeader("X-CSRFToken",csrfToken);
-        myNetworkContext.perform(uploadRequest);
+        myBookUploadContext.perform(uploadRequest);
         return uploadRequest.Result;
       }
  catch (      ZLNetworkException e) {
@@ -61,7 +61,7 @@
     }
   }
  catch (  Exception e) {
-    System.err.println("UNEXPECTED RESPONSE: " + result);
+    log("UNEXPECTED RESPONSE: " + result);
     return Status.ServerError;
   }
 }

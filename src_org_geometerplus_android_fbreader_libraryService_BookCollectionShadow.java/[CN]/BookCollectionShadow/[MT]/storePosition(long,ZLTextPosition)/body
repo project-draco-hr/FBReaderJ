@@ -1,7 +1,7 @@
 {
   if (position != null && myInterface != null) {
     try {
-      myInterface.storePosition(bookId,new TextPosition(position.getParagraphIndex(),position.getElementIndex(),position.getCharIndex()));
+      myInterface.storePosition(bookId,new PositionWithTimestamp(position));
     }
  catch (    RemoteException e) {
     }

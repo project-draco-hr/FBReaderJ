@@ -1,0 +1,8 @@
+{
+  final Map<String,Object> map=new HashMap<String,Object>();
+  map.put("para",pos.ParagraphIndex);
+  map.put("elmt",pos.ElementIndex);
+  map.put("char",pos.CharIndex);
+  map.put("timestamp",pos.Timestamp);
+  return map;
+}

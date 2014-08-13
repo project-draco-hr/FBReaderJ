@@ -1,0 +1,11 @@
+{
+  if (!canPerformRequest()) {
+    throw new SyncronizationDisabledException();
+  }
+  final String accountName=SyncUtil.getAccountName(this);
+  if (!MiscUtil.equals(myAccountName,accountName)) {
+    reloadCookie();
+    myAccountName=accountName;
+  }
+  super.perform(request,socketTimeout,connectionTimeout);
+}

@@ -58,14 +58,18 @@
         setChecked(false);
       }
     }
+    private void enableSynchronisation(){
+      SyncOperations.enableSync(PreferenceActivity.this,syncOptions.Enabled.getValue());
+    }
     @Override protected void onClick(){
       super.onClick();
       syncPreferences.run();
       SyncUtil.logout(myNetworkContext);
       if (!isChecked()) {
         syncOptions.Enabled.setValue(false);
-        setOnSummary(null);
+        enableSynchronisation();
         syncPreferences.run();
+        new SyncData().reset();
         return;
       }
       UIUtil.createExecutor(PreferenceActivity.this,"tryConnect").execute(new Runnable(){
@@ -75,6 +79,7 @@
               @Override public void processResponse(              Object response){
                 final String account=(String)((Map)response).get("user");
                 syncOptions.Enabled.setValue(account != null);
+                enableSynchronisation();
                 runOnUiThread(new Runnable(){
                   public void run(){
                     setOnSummary(account);

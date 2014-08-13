@@ -1,5 +1,11 @@
 {
+  SyncOperations.quickSync(this);
   IsPaused=true;
+  try {
+    unregisterReceiver(mySyncUpdateReceiver);
+  }
+ catch (  IllegalArgumentException e) {
+  }
   try {
     unregisterReceiver(myBatteryInfoReceiver);
   }
@@ -10,6 +16,5 @@
     setButtonLight(true);
   }
   myFBReaderApp.onWindowClosing();
-  unbindService(mySyncConnection);
   super.onPause();
 }

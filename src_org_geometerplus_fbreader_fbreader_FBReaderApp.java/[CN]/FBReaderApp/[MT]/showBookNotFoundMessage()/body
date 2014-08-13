@@ -1,0 +1,5 @@
+{
+  if (mySyncData.getServerBookHashes().size() > 0) {
+    showErrorMessage("bookIsMissing",mySyncData.getServerBookTitle());
+  }
+}

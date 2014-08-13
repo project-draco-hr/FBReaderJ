@@ -1,0 +1,6 @@
+{
+  parcel.writeInt(ParagraphIndex);
+  parcel.writeInt(ElementIndex);
+  parcel.writeInt(CharIndex);
+  parcel.writeLong(Timestamp);
+}

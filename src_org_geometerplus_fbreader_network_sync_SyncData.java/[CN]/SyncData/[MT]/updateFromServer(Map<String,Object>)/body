@@ -1,0 +1,22 @@
+{
+  System.err.println("RESPONSE = " + data);
+  myGeneration.setValue((int)(long)(Long)data.get("generation"));
+  final List<Map> positions=(List<Map>)data.get("positions");
+  if (positions != null) {
+    for (    Map<String,Object> map : positions) {
+      final ZLTextFixedPosition.WithTimestamp pos=map2Position(map);
+      for (      String hash : (List<String>)map.get("all_hashes")) {
+        savePosition(hash,pos);
+      }
+    }
+  }
+  final Map<String,Object> currentBook=(Map<String,Object>)data.get("currentbook");
+  if (currentBook != null) {
+    myServerBookHashes.setValue((List<String>)currentBook.get("all_hashes"));
+    myServerBookTitle.setValue((String)currentBook.get("title"));
+  }
+ else {
+    myServerBookHashes.setValue(Collections.<String>emptyList());
+  }
+  return data.size() > 1;
+}

@@ -1,6 +1,6 @@
 {
   super.onResume();
-  bindService(new Intent(this,SyncService.class),mySyncConnection,SyncService.BIND_AUTO_CREATE);
+  SyncOperations.enableSync(this,true);
   myStartTimer=true;
   Config.Instance().runOnConnect(new Runnable(){
     public void run(){
@@ -29,10 +29,58 @@
 );
   registerReceiver(myBatteryInfoReceiver,new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
   IsPaused=false;
+  myResumeTimestamp=System.currentTimeMillis();
   if (OnResumeAction != null) {
     final Runnable action=OnResumeAction;
     OnResumeAction=null;
     action.run();
+  }
+  registerReceiver(mySyncUpdateReceiver,new IntentFilter(SyncOperations.UPDATED));
+  SetScreenOrientationAction.setOrientation(this,ZLibrary.Instance().getOrientationOption().getValue());
+  if (myCancelIntent != null) {
+    final Intent intent=myCancelIntent;
+    myCancelIntent=null;
+    getCollection().bindToService(this,new Runnable(){
+      public void run(){
+        runCancelAction(intent);
+      }
+    }
+);
+    return;
+  }
+ else   if (myOpenBookIntent != null) {
+    final Intent intent=myOpenBookIntent;
+    myOpenBookIntent=null;
+    getCollection().bindToService(this,new Runnable(){
+      public void run(){
+        openBook(intent,null,true);
+      }
+    }
+);
+  }
+ else   if (myFBReaderApp.getCurrentServerBook() != null) {
+    getCollection().bindToService(this,new Runnable(){
+      public void run(){
+        myFBReaderApp.useSyncInfo(true);
+      }
+    }
+);
+  }
+ else   if (myFBReaderApp.Model == null && myFBReaderApp.ExternalBook != null) {
+    getCollection().bindToService(this,new Runnable(){
+      public void run(){
+        myFBReaderApp.openBook(myFBReaderApp.ExternalBook,null,null);
+      }
+    }
+);
+  }
+ else {
+    getCollection().bindToService(this,new Runnable(){
+      public void run(){
+        myFBReaderApp.useSyncInfo(true);
+      }
+    }
+);
   }
   PopupPanel.restoreVisibilities(myFBReaderApp);
   ApiServerImplementation.sendEvent(this,ApiListener.EVENT_READ_MODE_OPENED);
