@@ -19,6 +19,7 @@ synchronized (myBooksByFile) {
       final Book book=getBookByFile(file);
       if (book != null) {
         saveBook(book);
+        getHash(book);
       }
     }
     for (    ZLFile f : filesToRemove) {
