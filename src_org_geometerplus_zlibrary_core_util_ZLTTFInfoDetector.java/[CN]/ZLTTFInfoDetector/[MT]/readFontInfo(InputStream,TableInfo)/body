@@ -24,12 +24,12 @@
 switch (nameId) {
 case 1:
       if ((fontInfo.FamilyName == null || languageId == 1033) && stringOffset + offset + length <= buffer.length) {
-        fontInfo.FamilyName=new String(buffer,stringOffset + offset,length,platformId == 1 ? "windows-1252" : "UTF-16BE");
+        fontInfo.FamilyName=new String(buffer,stringOffset + offset,length,platformId == 1 ? "ISO-8859-1" : "UTF-16BE");
       }
     break;
 case 2:
   if ((fontInfo.FamilyName == null || languageId == 1033) && stringOffset + offset + length <= buffer.length) {
-    fontInfo.SubFamilyName=new String(buffer,stringOffset + offset,length,platformId == 1 ? "windows-1252" : "UTF-16BE");
+    fontInfo.SubFamilyName=new String(buffer,stringOffset + offset,length,platformId == 1 ? "ISO-8859-1" : "UTF-16BE");
   }
 break;
 }
