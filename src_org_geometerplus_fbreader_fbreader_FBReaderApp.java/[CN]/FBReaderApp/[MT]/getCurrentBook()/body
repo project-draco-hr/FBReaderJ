@@ -1,3 +1,4 @@
 {
-  return Model != null ? Model.Book : ExternalBook;
+  final BookModel m=Model;
+  return m != null ? m.Book : ExternalBook;
 }
