@@ -3,7 +3,7 @@
     return null;
   }
   try {
-    return myInterface.getHash(SerializerUtil.serialize(book));
+    return myInterface.getHash(SerializerUtil.serialize(book),force);
   }
  catch (  RemoteException e) {
     return null;
