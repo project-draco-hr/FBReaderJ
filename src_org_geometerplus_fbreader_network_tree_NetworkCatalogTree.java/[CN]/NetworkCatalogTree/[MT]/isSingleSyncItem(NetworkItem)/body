@@ -1,0 +1,10 @@
+{
+  if (!(item instanceof NetworkBookItem)) {
+    return false;
+  }
+  final INetworkLink link=getLink();
+  if (!(link instanceof ISyncNetworkLink)) {
+    return false;
+  }
+  return "fbreader:book:network:description".equals(((NetworkBookItem)item).Id);
+}

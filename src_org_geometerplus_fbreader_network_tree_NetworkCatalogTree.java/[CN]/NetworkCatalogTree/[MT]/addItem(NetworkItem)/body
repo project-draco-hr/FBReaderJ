@@ -1,5 +1,5 @@
 {
-  if (!hasChildren()) {
+  if (!hasChildren() && !isSingleSyncItem(item)) {
     addSpecialTrees();
   }
   if (item instanceof NetworkCatalogItem) {
