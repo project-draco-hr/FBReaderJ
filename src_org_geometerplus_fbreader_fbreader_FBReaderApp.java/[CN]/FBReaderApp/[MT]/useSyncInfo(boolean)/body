@@ -9,7 +9,7 @@
       return;
     }
   }
-  if (myStoredPositionBook != null && mySyncData.hasPosition(Collection.getHash(myStoredPositionBook))) {
+  if (myStoredPositionBook != null && mySyncData.hasPosition(Collection.getHash(myStoredPositionBook,true))) {
     gotoStoredPosition();
     storePosition();
   }
