@@ -223,6 +223,7 @@
   cssScreen.addOption(baseStyle.UseCSSTextAlignmentOption,"textAlignment");
   cssScreen.addOption(baseStyle.UseCSSMarginsOption,"margins");
   final Screen colorsScreen=createPreferenceScreen("colors");
+  colorsScreen.addPreference(new BackgroundPreference(this,profile,colorsScreen.Resource.getResource("background")));
   final WallpaperPreference wallpaperPreference=new WallpaperPreference(this,profile,colorsScreen.Resource.getResource("background")){
     @Override protected void onDialogClosed(    boolean result){
       super.onDialogClosed(result);
@@ -361,6 +362,8 @@
   cancelMenuScreen.addPreference(new ZLStringChoicePreference(this,cancelMenuScreen.Resource.getResource("backKeyAction"),keyBindings.getOption(KeyEvent.KEYCODE_BACK,false),backKeyActions));
   final String[] backKeyLongPressActions={ActionCode.EXIT,ActionCode.SHOW_CANCEL_MENU,FBReaderApp.NoAction};
   cancelMenuScreen.addPreference(new ZLStringChoicePreference(this,cancelMenuScreen.Resource.getResource("backKeyLongPressAction"),keyBindings.getOption(KeyEvent.KEYCODE_BACK,true),backKeyLongPressActions));
+  final Screen tipsScreen=createPreferenceScreen("tips");
+  tipsScreen.addOption(TipsManager.Instance().ShowTipsOption,"showTips");
   final Screen aboutScreen=createPreferenceScreen("about");
   aboutScreen.addPreference(new InfoPreference(this,aboutScreen.Resource.getResource("version").getValue(),androidLibrary.getFullVersionName()));
   aboutScreen.addPreference(new UrlPreference(this,aboutScreen.Resource,"site"));

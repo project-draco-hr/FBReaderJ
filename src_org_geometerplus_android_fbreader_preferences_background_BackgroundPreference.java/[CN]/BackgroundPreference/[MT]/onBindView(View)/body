@@ -1,0 +1,26 @@
+{
+  super.onBindView(view);
+  final TextView titleView=(TextView)view.findViewById(R.id.background_preference_title);
+  titleView.setText(myResource.getValue());
+  final TextView summaryView=(TextView)view.findViewById(R.id.background_preference_summary);
+  final View previewWidget=view.findViewById(R.id.background_preference_widget);
+  final String value=myProfile.WallpaperOption.getValue();
+  if (value.length() == 0) {
+    summaryView.setText(myResource.getResource("solidColor").getValue());
+    previewWidget.setBackgroundColor(ZLAndroidColorUtil.rgb(myProfile.BackgroundOption.getValue()));
+  }
+ else {
+    if (value.startsWith("/")) {
+      summaryView.setText(value.substring(value.lastIndexOf("/") + 1));
+    }
+ else {
+      final String key=value.substring(value.lastIndexOf("/") + 1,value.lastIndexOf("."));
+      summaryView.setText(myResource.getResource(key).getValue());
+    }
+    try {
+      previewWidget.setBackgroundDrawable(new BitmapDrawable(getContext().getResources(),ZLFile.createFileByPath(value).getInputStream()));
+    }
+ catch (    Throwable t) {
+    }
+  }
+}
