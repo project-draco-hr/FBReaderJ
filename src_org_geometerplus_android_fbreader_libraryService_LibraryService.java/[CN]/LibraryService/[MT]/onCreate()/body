@@ -1,4 +1,9 @@
 {
   super.onCreate();
-  myLibrary=new LibraryImplementation();
+synchronized (ourDatabaseLock) {
+    if (ourDatabase == null) {
+      ourDatabase=new SQLiteBooksDatabase(LibraryService.this);
+    }
+  }
+  myLibrary=new LibraryImplementation(ourDatabase);
 }

@@ -3,7 +3,6 @@
     final LibraryImplementation l=myLibrary;
     myLibrary=null;
     l.deactivate();
-    l.close();
   }
   myImageSynchronizer.clear();
   super.onDestroy();

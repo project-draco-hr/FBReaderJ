@@ -1,0 +1,4 @@
+{
+  final String lang=getLanguageOption().getValue();
+  return Language.SYSTEM_CODE.equals(lang) ? Locale.getDefault().getLanguage() : lang;
+}
