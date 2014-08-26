@@ -1,7 +1,7 @@
 {
   final WeakReference<Object> ref=myCoversMap.get(book);
   if (ref != null) {
-    if (!clearCoversMap(ref)) {
+    if (!isCoverDeleted(ref)) {
       final Object bitmap=ref.get();
       if (bitmap != null) {
         delayed[0]=false;
