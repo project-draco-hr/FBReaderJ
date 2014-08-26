@@ -1,10 +1,12 @@
 {
   final WeakReference<Object> ref=myCoversMap.get(book);
   if (ref != null) {
-    final Object bitmap=ref.get();
-    if (bitmap != null) {
-      delayed[0]=false;
-      return bitmap instanceof Bitmap ? (Bitmap)bitmap : null;
+    if (!clearCoversMap(ref)) {
+      final Object bitmap=ref.get();
+      if (bitmap != null) {
+        delayed[0]=false;
+        return bitmap instanceof Bitmap ? (Bitmap)bitmap : null;
+      }
     }
   }
   final ZLImage image=myCollection.getCover(SerializerUtil.deserializeBook(book),maxWidth,maxHeight);
@@ -20,10 +22,10 @@
         final ZLAndroidImageData data=manager.getImageData(image);
         if (data != null) {
           final Bitmap cover=data.getBitmap(maxWidth,maxHeight);
-          myCoversMap.put(book,new WeakReference<Object>(cover));
+          myCoversMap.put(book,new WeakReference<Object>(cover,myReferenceQueue));
         }
  else {
-          myCoversMap.put(book,new WeakReference<Object>(NULL_COVER));
+          myCoversMap.put(book,new WeakReference<Object>(NULL_COVER,myReferenceQueue));
         }
         myCollection.fireBookEvent(BookEvent.CoverSynchronized,SerializerUtil.deserializeBook(book));
       }

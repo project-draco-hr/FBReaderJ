@@ -1,0 +1,11 @@
+{
+  Reference<? extends Object> reference=myReferenceQueue.poll();
+  while (reference != null) {
+    if (reference == ref) {
+      myCoversMap.remove(reference);
+      return true;
+    }
+    reference=myReferenceQueue.poll();
+  }
+  return false;
+}
