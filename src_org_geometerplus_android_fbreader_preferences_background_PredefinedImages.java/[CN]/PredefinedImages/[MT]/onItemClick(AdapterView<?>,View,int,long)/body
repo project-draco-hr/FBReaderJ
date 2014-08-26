@@ -1,0 +1,11 @@
+{
+  System.err.println("CLICKED:" + position);
+switch (position) {
+case 0:
+    break;
+case 1:
+  break;
+case 2:
+break;
+}
+}

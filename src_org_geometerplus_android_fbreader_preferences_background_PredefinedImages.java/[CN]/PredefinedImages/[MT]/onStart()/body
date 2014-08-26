@@ -1,0 +1,11 @@
+{
+  super.onStart();
+  setTitle(myResource.getValue());
+  final ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,R.layout.background_chooser_item,R.id.background_chooser_item_title);
+  for (  ZLFile f : WallpapersUtil.predefinedWallpaperFiles()) {
+    final String name=f.getShortName();
+    adapter.add(myResource.getResource(name.substring(0,name.indexOf("."))).getValue());
+  }
+  setListAdapter(adapter);
+  getListView().setOnItemClickListener(this);
+}
