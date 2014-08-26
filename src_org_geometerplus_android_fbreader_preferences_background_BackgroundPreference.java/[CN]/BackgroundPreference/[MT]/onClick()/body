@@ -1,3 +1,3 @@
 {
-  ((Activity)getContext()).startActivity(new Intent(getContext(),Chooser.class));
+  ((Activity)getContext()).startActivityForResult(new Intent(getContext(),Chooser.class),myRequestCode);
 }

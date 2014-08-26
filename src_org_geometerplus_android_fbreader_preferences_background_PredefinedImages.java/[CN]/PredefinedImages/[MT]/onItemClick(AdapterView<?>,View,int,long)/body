@@ -1,11 +1,4 @@
 {
-  System.err.println("CLICKED:" + position);
-switch (position) {
-case 0:
-    break;
-case 1:
-  break;
-case 2:
-break;
-}
+  setResult(RESULT_OK,new Intent().putExtra(BackgroundPreference.VALUE_KEY,((ZLFile)getListAdapter().getItem(position)).getPath()));
+  finish();
 }

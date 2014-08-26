@@ -223,7 +223,8 @@
   cssScreen.addOption(baseStyle.UseCSSTextAlignmentOption,"textAlignment");
   cssScreen.addOption(baseStyle.UseCSSMarginsOption,"margins");
   final Screen colorsScreen=createPreferenceScreen("colors");
-  colorsScreen.addPreference(new BackgroundPreference(this,profile,colorsScreen.Resource.getResource("background")));
+  myBackgroundPreference=new BackgroundPreference(this,profile,colorsScreen.Resource.getResource("background"),BACKGROUND_REQUEST_CODE);
+  colorsScreen.addPreference(myBackgroundPreference);
   final WallpaperPreference wallpaperPreference=new WallpaperPreference(this,profile,colorsScreen.Resource.getResource("background")){
     @Override protected void onDialogClosed(    boolean result){
       super.onDialogClosed(result);

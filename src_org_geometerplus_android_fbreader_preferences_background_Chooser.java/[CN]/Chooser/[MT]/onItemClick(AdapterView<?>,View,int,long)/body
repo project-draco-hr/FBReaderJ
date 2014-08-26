@@ -1,10 +1,11 @@
 {
-  System.err.println("CLICKED:" + position);
 switch (position) {
 case 0:
-    break;
+    setResult(RESULT_OK,new Intent().putExtra(BackgroundPreference.VALUE_KEY,""));
+  finish();
+break;
 case 1:
-  startActivityForResult(new Intent(this,PredefinedImages.class),1);
+startActivityForResult(new Intent(this,PredefinedImages.class),1);
 break;
 case 2:
 FileChooserUtil.runFileChooser(this,2,myResource.getValue(),"");

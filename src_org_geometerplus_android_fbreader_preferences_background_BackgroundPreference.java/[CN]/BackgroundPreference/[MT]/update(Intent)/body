@@ -1,0 +1,7 @@
+{
+  final String value=data.getStringExtra(VALUE_KEY);
+  if (value != null) {
+    myProfile.WallpaperOption.setValue(value);
+  }
+  notifyChanged();
+}
