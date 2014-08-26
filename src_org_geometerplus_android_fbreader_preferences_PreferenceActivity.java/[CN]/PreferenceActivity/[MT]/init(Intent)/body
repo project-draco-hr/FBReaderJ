@@ -211,12 +211,6 @@
     }
   }
 ;
-  final PreferenceSet bgPreferences=new PreferenceSet.Enabler(){
-    @Override protected Boolean detectState(){
-      return "".equals(profile.WallpaperOption.getValue());
-    }
-  }
-;
   final Screen cssScreen=createPreferenceScreen("css");
   cssScreen.addOption(baseStyle.UseCSSFontFamilyOption,"fontFamily");
   cssScreen.addOption(baseStyle.UseCSSFontSizeOption,"fontSize");
@@ -225,17 +219,9 @@
   final Screen colorsScreen=createPreferenceScreen("colors");
   myBackgroundPreference=new BackgroundPreference(this,profile,colorsScreen.Resource.getResource("background"),BACKGROUND_REQUEST_CODE);
   colorsScreen.addPreference(myBackgroundPreference);
-  final WallpaperPreference wallpaperPreference=new WallpaperPreference(this,profile,colorsScreen.Resource.getResource("background")){
-    @Override protected void onDialogClosed(    boolean result){
-      super.onDialogClosed(result);
-      bgPreferences.run();
-    }
-  }
-;
+  final WallpaperPreference wallpaperPreference=new WallpaperPreference(this,profile,colorsScreen.Resource.getResource("background"));
   colorsScreen.addPreference(wallpaperPreference);
   wallpaperReloader.add(wallpaperPreference);
-  bgPreferences.add(colorsScreen.addOption(profile.BackgroundOption,"backgroundColor"));
-  bgPreferences.run();
   colorsScreen.addOption(profile.HighlightingOption,"highlighting");
   colorsScreen.addOption(profile.RegularTextOption,"text");
   colorsScreen.addOption(profile.HyperlinkTextOption,"hyperlink");
