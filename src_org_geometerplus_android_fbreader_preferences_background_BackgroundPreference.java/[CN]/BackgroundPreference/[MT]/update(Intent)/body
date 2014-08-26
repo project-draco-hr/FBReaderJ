@@ -3,5 +3,9 @@
   if (value != null) {
     myProfile.WallpaperOption.setValue(value);
   }
+  final int color=data.getIntExtra(COLOR_KEY,-1);
+  if (color != -1) {
+    myProfile.BackgroundOption.setValue(new ZLColor(color));
+  }
   notifyChanged();
 }

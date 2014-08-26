@@ -1,9 +1,8 @@
 {
 switch (position) {
 case 0:
-    setResult(RESULT_OK,new Intent().putExtra(BackgroundPreference.VALUE_KEY,""));
-  finish();
-break;
+    new AmbilWarnaDialog(this,getIntent().getIntExtra(BackgroundPreference.COLOR_KEY,0),myColorChooserListener).show();
+  break;
 case 1:
 startActivityForResult(new Intent(this,PredefinedImages.class),1);
 break;
