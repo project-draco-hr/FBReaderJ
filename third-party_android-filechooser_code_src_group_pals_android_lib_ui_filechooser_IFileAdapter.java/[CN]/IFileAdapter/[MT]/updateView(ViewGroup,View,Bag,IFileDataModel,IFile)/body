@@ -1,6 +1,17 @@
 {
   bag.mTxtFileName.setSingleLine(parent instanceof GridView);
   bag.mImageIcon.setImageResource(FileUtils.getResIcon(file,mFilterMode));
+  final ColorMatrix matrix=new ColorMatrix();
+  if (!FileUtils.isAccessible(file,mFilterMode)) {
+    final ColorMatrix scaleMatrix=new ColorMatrix();
+    scaleMatrix.setScale(.7f,.7f,.7f,1f);
+    final ColorMatrix saturationMatrix=new ColorMatrix();
+    saturationMatrix.setSaturation(0f);
+    matrix.setConcat(saturationMatrix,scaleMatrix);
+    bag.mTxtFileName.setEnabled(false);
+    bag.mTxtFileInfo.setEnabled(false);
+  }
+  bag.mImageIcon.setColorFilter(new ColorMatrixColorFilter(matrix));
   bag.mTxtFileName.setText(file.getSecondName());
   if (data.isTobeDeleted())   bag.mTxtFileName.setPaintFlags(bag.mTxtFileName.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
  else   bag.mTxtFileName.setPaintFlags(bag.mTxtFileName.getPaintFlags() & ~Paint.STRIKE_THRU_TEXT_FLAG);
