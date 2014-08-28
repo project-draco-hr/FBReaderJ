@@ -1,0 +1,4 @@
+{
+  setResult(RESULT_OK,new Intent().putExtra(BackgroundPreference.VALUE_KEY,((ZLFile)getListAdapter().getItem(position)).getPath()));
+  finish();
+}

@@ -2,7 +2,14 @@
   if (myNetworkContext.onActivityResult(requestCode,resultCode,data)) {
     return;
   }
-  if (resultCode == RESULT_OK) {
-    myChooserCollection.update(requestCode,data);
+  if (resultCode != RESULT_OK) {
+    return;
   }
+  if (BACKGROUND_REQUEST_CODE == requestCode) {
+    if (myBackgroundPreference != null) {
+      myBackgroundPreference.update(data);
+    }
+    return;
+  }
+  myChooserCollection.update(requestCode,data);
 }

@@ -1,0 +1,7 @@
+{
+  super(context);
+  setWidgetLayoutResource(R.layout.background_preference);
+  myResource=resource;
+  myProfile=profile;
+  myRequestCode=requestCode;
+}

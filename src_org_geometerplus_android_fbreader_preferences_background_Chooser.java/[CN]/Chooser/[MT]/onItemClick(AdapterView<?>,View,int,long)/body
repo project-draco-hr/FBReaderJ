@@ -1,0 +1,13 @@
+{
+switch (position) {
+case 0:
+    new AmbilWarnaDialog(this,getIntent().getIntExtra(BackgroundPreference.COLOR_KEY,0),myColorChooserListener).show();
+  break;
+case 1:
+startActivityForResult(new Intent(this,PredefinedImages.class),1);
+break;
+case 2:
+FileChooserUtil.runFileChooser(this,2,myResource.getValue(),"");
+break;
+}
+}
