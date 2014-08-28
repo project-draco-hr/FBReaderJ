@@ -6,7 +6,11 @@ case 1:
     finish();
   break;
 case 2:
-System.err.println("FILE DATA: " + data);
+final List<String> paths=FileChooserUtil.filePathsFromData(data);
+if (paths.size() == 1) {
+setResult(RESULT_OK,new Intent().putExtra(BackgroundPreference.VALUE_KEY,paths.get(0)));
+finish();
+}
 break;
 }
 }

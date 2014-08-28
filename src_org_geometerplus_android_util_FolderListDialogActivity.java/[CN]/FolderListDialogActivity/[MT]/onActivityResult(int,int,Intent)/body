@@ -1,6 +1,6 @@
 {
   if (resultCode == RESULT_OK) {
-    final String path=FileChooserUtil.pathFromData(data);
+    final String path=FileChooserUtil.folderPathFromData(data);
     final int existing=myFolderList.indexOf(path);
     if (existing == -1) {
       if (index == 0) {
