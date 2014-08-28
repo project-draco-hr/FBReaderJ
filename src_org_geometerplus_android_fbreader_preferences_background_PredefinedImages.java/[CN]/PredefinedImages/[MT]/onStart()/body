@@ -18,7 +18,9 @@
     }
   }
 ;
-  adapter.addAll(WallpapersUtil.predefinedWallpaperFiles());
+  for (  ZLFile file : WallpapersUtil.predefinedWallpaperFiles()) {
+    adapter.add(file);
+  }
   setListAdapter(adapter);
   getListView().setOnItemClickListener(this);
 }
