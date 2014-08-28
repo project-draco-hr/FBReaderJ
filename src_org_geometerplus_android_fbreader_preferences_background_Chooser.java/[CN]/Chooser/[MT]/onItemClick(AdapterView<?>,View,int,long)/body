@@ -7,7 +7,7 @@ case 1:
 startActivityForResult(new Intent(this,PredefinedImages.class),1);
 break;
 case 2:
-FileChooserUtil.runFileChooser(this,2,myResource.getValue(),"");
+FileChooserUtil.runFileChooser(this,2,myResource.getValue(),"",".+\\.(jpe?g|png)");
 break;
 }
 }

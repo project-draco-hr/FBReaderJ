@@ -1,4 +1,5 @@
 Activity activity
 int requestCode
 String title
-String initialValue
+String initialDir
+String regexp

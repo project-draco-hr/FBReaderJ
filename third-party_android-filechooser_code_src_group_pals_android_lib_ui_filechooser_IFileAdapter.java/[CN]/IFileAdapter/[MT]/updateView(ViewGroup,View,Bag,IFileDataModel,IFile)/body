@@ -1,15 +1,14 @@
 {
   bag.mTxtFileName.setSingleLine(parent instanceof GridView);
+  final boolean isAccessible=FileUtils.isAccessible(file,mFilenameRegexp);
   bag.mImageIcon.setImageResource(FileUtils.getResIcon(file,mFilterMode));
   final ColorMatrix matrix=new ColorMatrix();
-  if (!FileUtils.isAccessible(file,mFilterMode)) {
+  if (!isAccessible) {
     final ColorMatrix scaleMatrix=new ColorMatrix();
     scaleMatrix.setScale(.7f,.7f,.7f,1f);
     final ColorMatrix saturationMatrix=new ColorMatrix();
     saturationMatrix.setSaturation(0f);
     matrix.setConcat(saturationMatrix,scaleMatrix);
-    bag.mTxtFileName.setEnabled(false);
-    bag.mTxtFileInfo.setEnabled(false);
   }
   bag.mImageIcon.setColorFilter(new ColorMatrixColorFilter(matrix));
   bag.mTxtFileName.setText(file.getSecondName());
@@ -18,6 +17,8 @@
   String time=DateUtils.formatDate(mContext,file.lastModified(),mFileTimeDisplay);
   if (file.isDirectory())   bag.mTxtFileInfo.setText(time);
  else   bag.mTxtFileInfo.setText(String.format("%s, %s",Converter.sizeToStr(file.length()),time));
+  bag.mTxtFileName.setEnabled(isAccessible);
+  bag.mTxtFileInfo.setEnabled(isAccessible);
   if (mMultiSelection) {
     if (FilterMode.FilesOnly.equals(mFilterMode) && file.isDirectory()) {
       bag.mCheckboxSelection.setVisibility(View.GONE);

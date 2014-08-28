@@ -3,6 +3,7 @@
   mData=objects;
   mInflater=LayoutInflater.from(mContext);
   mFilterMode=filterMode;
+  mFilenameRegexp=filenameRegexp;
   mMultiSelection=multiSelection;
 switch (mFilterMode) {
 case DirectoriesOnly:

@@ -1,6 +1,13 @@
 {
   if (resultCode == RESULT_OK) {
-    setResult(RESULT_OK,data);
+switch (requestCode) {
+case 1:
+      setResult(RESULT_OK,data);
     finish();
-  }
+  break;
+case 2:
+System.err.println("FILE DATA: " + data);
+break;
+}
+}
 }

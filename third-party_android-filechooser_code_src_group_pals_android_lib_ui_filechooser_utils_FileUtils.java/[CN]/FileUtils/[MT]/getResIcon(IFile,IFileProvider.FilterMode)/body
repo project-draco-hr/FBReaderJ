@@ -6,7 +6,7 @@
     return R.drawable.afc_file;
   }
  else   if (file.isDirectory()) {
-    if (filterMode != IFileProvider.FilterMode.AnyDirectories) {
+    if (filterMode == IFileProvider.FilterMode.DirectoriesOnly) {
       if (file instanceof File && !((File)file).canWrite()) {
         if (file instanceof ParentFile) {
           return R.drawable.afc_folder;

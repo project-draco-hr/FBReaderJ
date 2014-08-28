@@ -1,0 +1,15 @@
+{
+  if (file == null || !file.exists()) {
+    return false;
+  }
+  if (accessDenied(file)) {
+    return false;
+  }
+  if (file.isFile()) {
+    return regexp == null || file.getName().matches(regexp);
+  }
+ else   if (file.isDirectory()) {
+    return true;
+  }
+  return false;
+}
