@@ -1,4 +1,5 @@
 {
+  final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
   new AmbilWarnaDialog(getContext(),ZLAndroidColorUtil.rgb(getSavedColor()),new AmbilWarnaDialog.OnAmbilWarnaListener(){
     @Override public void onOk(    AmbilWarnaDialog dialog,    int color){
       if (!callChangeListener(color)) {
@@ -10,5 +11,5 @@
     @Override public void onCancel(    AmbilWarnaDialog dialog){
     }
   }
-).show();
+,buttonResource.getResource("ok").getValue(),buttonResource.getResource("cancel").getValue()).show();
 }
