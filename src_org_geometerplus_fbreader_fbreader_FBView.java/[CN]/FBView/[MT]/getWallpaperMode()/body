@@ -1,3 +1,0 @@
-{
-  return getWallpaperFile() instanceof ZLResourceFile ? ZLPaintContext.WallpaperMode.TILE_MIRROR : ZLPaintContext.WallpaperMode.TILE;
-}

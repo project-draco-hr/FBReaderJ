@@ -5,7 +5,7 @@
     try {
       final Bitmap fileBitmap=BitmapFactory.decodeStream(wallpaperFile.getInputStream());
 switch (mode) {
-case TILE_MIRROR:
+case tileMirror:
 {
           final int w=fileBitmap.getWidth();
           final int h=fileBitmap.getHeight();
@@ -26,7 +26,7 @@ case TILE_MIRROR:
           ourWallpaper=wallpaper;
           break;
         }
-case TILE:
+case tile:
       ourWallpaper=fileBitmap;
     break;
 }
@@ -40,7 +40,7 @@ myBackgroundColor=ZLAndroidColorUtil.getAverageColor(ourWallpaper);
 final int w=ourWallpaper.getWidth();
 final int h=ourWallpaper.getHeight();
 for (int cw=0, iw=1; cw < myWidth; cw+=w, ++iw) {
-for (int ch=0, ih=1; ch < myHeight; ch+=h, ++ih) {
+for (int ch=0, ih=1; ch < myHeight + 100; ch+=h, ++ih) {
   myCanvas.drawBitmap(ourWallpaper,cw,ch,myFillPaint);
 }
 }
