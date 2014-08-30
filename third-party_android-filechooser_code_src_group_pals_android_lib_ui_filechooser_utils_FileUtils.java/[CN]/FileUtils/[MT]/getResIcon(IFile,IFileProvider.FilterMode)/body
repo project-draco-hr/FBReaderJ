@@ -1,9 +1,7 @@
 {
-  if (file == null || !file.exists())   return R.drawable.afc_file;
+  if (file == null || !file.exists())   return R.drawable.afc_item_file;
   if (file.isFile()) {
-    String filename=file.getName();
-    for (    String r : _MapFileIcons.keySet())     if (filename.matches(r))     return _MapFileIcons.get(r);
-    return R.drawable.afc_file;
+    return R.drawable.afc_item_file;
   }
  else   if (file.isDirectory()) {
     if (filterMode == IFileProvider.FilterMode.DirectoriesOnly) {
@@ -26,5 +24,5 @@
       return R.drawable.afc_item_folder;
     }
   }
-  return R.drawable.afc_file;
+  return R.drawable.afc_item_file;
 }

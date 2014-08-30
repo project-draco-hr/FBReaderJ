@@ -1,4 +1,7 @@
 {
+  if (f.isFile()) {
+    return !f.canRead();
+  }
   if (!(f instanceof File)) {
     return false;
   }
