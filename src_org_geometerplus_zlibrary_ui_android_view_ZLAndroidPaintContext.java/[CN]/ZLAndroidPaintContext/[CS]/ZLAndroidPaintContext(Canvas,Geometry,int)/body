@@ -1,7 +1,6 @@
 {
   myCanvas=canvas;
-  myWidth=width - scrollbarWidth;
-  myHeight=height;
+  myGeometry=geometry;
   myScrollbarWidth=scrollbarWidth;
   myTextPaint.setLinearText(false);
   myTextPaint.setAntiAlias(AntiAliasOption.getValue());

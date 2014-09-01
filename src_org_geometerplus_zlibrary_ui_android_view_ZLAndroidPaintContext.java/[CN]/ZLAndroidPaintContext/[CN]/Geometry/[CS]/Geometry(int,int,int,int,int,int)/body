@@ -1,0 +1,6 @@
+{
+  ScreenSize=new Size(screenWidth,screenHeight);
+  AreaSize=new Size(width,height);
+  LeftMargin=leftMargin;
+  TopMargin=topMargin;
+}

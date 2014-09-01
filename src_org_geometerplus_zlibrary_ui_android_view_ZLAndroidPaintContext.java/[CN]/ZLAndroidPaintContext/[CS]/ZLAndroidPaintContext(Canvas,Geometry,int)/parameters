@@ -1,4 +1,3 @@
 Canvas canvas
-int width
-int height
+Geometry geometry
 int scrollbarWidth
