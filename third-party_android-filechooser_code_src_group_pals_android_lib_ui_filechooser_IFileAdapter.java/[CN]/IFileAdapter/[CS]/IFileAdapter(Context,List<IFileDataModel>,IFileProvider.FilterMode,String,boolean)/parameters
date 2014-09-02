@@ -1,0 +1,5 @@
+Context context
+List<IFileDataModel> objects
+IFileProvider.FilterMode filterMode
+String filenameRegexp
+boolean multiSelection

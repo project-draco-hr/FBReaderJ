@@ -1,0 +1,6 @@
+int screenWidth
+int screenHeight
+int width
+int height
+int leftMargin
+int topMargin

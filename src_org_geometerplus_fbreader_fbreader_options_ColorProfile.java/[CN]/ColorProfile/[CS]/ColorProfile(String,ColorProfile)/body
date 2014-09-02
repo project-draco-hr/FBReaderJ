@@ -1,5 +1,7 @@
 {
   this(name);
+  WallpaperOption.setValue(base.WallpaperOption.getValue());
+  FillModeOption.setValue(base.FillModeOption.getValue());
   BackgroundOption.setValue(base.BackgroundOption.getValue());
   SelectionBackgroundOption.setValue(base.SelectionBackgroundOption.getValue());
   SelectionForegroundOption.setValue(base.SelectionForegroundOption.getValue());

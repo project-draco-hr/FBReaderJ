@@ -1,6 +1,17 @@
 {
   if (resultCode == RESULT_OK) {
-    setResult(RESULT_OK,data);
+switch (requestCode) {
+case 1:
+      setResult(RESULT_OK,data);
     finish();
-  }
+  break;
+case 2:
+final List<String> paths=FileChooserUtil.filePathsFromData(data);
+if (paths.size() == 1) {
+setResult(RESULT_OK,new Intent().putExtra(BackgroundPreference.VALUE_KEY,paths.get(0)));
+finish();
+}
+break;
+}
+}
 }

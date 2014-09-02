@@ -7,6 +7,10 @@
   String time=DateUtils.formatDate(mContext,file.lastModified(),mFileTimeDisplay);
   if (file.isDirectory())   bag.mTxtFileInfo.setText(time);
  else   bag.mTxtFileInfo.setText(String.format("%s, %s",Converter.sizeToStr(file.length()),time));
+  final boolean isAccessible=FileUtils.isAccessible(file,mFilenameRegexp);
+  bag.mImageIcon.setEnabled(isAccessible);
+  bag.mTxtFileName.setEnabled(isAccessible);
+  bag.mTxtFileInfo.setEnabled(isAccessible);
   if (mMultiSelection) {
     if (FilterMode.FilesOnly.equals(mFilterMode) && file.isDirectory()) {
       bag.mCheckboxSelection.setVisibility(View.GONE);

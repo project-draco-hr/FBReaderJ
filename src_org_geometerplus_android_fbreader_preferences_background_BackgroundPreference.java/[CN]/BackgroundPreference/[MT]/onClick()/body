@@ -2,7 +2,7 @@
   final Intent call=new Intent(getContext(),Chooser.class).putExtra(VALUE_KEY,myProfile.WallpaperOption.getValue());
   final ZLColor color=myProfile.BackgroundOption.getValue();
   if (color != null) {
-    call.putExtra(COLOR_KEY,color.intValue());
+    call.putExtra(COLOR_KEY,ZLAndroidColorUtil.rgb(color));
   }
   ((Activity)getContext()).startActivityForResult(call,myRequestCode);
 }

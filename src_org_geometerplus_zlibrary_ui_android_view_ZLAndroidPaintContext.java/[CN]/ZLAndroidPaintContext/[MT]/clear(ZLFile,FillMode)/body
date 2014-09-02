@@ -1,0 +1,119 @@
+{
+  if (!wallpaperFile.equals(ourWallpaperFile) || mode != ourFillMode) {
+    ourWallpaperFile=wallpaperFile;
+    ourFillMode=mode;
+    ourWallpaper=null;
+    try {
+      final Bitmap fileBitmap=BitmapFactory.decodeStream(wallpaperFile.getInputStream());
+switch (mode) {
+default :
+        ourWallpaper=fileBitmap;
+      break;
+case tileMirror:
+{
+      final int w=fileBitmap.getWidth();
+      final int h=fileBitmap.getHeight();
+      final Bitmap wallpaper=Bitmap.createBitmap(2 * w,2 * h,fileBitmap.getConfig());
+      final Canvas wallpaperCanvas=new Canvas(wallpaper);
+      final Paint wallpaperPaint=new Paint();
+      Matrix m=new Matrix();
+      wallpaperCanvas.drawBitmap(fileBitmap,m,wallpaperPaint);
+      m.preScale(-1,1);
+      m.postTranslate(2 * w,0);
+      wallpaperCanvas.drawBitmap(fileBitmap,m,wallpaperPaint);
+      m.preScale(1,-1);
+      m.postTranslate(0,2 * h);
+      wallpaperCanvas.drawBitmap(fileBitmap,m,wallpaperPaint);
+      m.preScale(-1,1);
+      m.postTranslate(-2 * w,0);
+      wallpaperCanvas.drawBitmap(fileBitmap,m,wallpaperPaint);
+      ourWallpaper=wallpaper;
+      break;
+    }
+}
+}
+ catch (Throwable t) {
+t.printStackTrace();
+}
+}
+if (ourWallpaper != null) {
+myBackgroundColor=ZLAndroidColorUtil.getAverageColor(ourWallpaper);
+final int w=ourWallpaper.getWidth();
+final int h=ourWallpaper.getHeight();
+final Geometry g=myGeometry;
+switch (mode) {
+case fullscreen:
+{
+  final Matrix m=new Matrix();
+  m.preScale(1f * g.ScreenSize.Width / w,1f * g.ScreenSize.Height / h);
+  m.postTranslate(-g.LeftMargin,-g.TopMargin);
+  myCanvas.drawBitmap(ourWallpaper,m,myFillPaint);
+  break;
+}
+case stretch:
+{
+final Matrix m=new Matrix();
+final float sw=1f * g.ScreenSize.Width / w;
+final float sh=1f * g.ScreenSize.Height / h;
+final float scale;
+float dx=g.LeftMargin;
+float dy=g.TopMargin;
+if (sw < sh) {
+  scale=sh;
+  dx+=(scale * w - g.ScreenSize.Width) / 2;
+}
+ else {
+  scale=sw;
+  dy+=(scale * h - g.ScreenSize.Height) / 2;
+}
+m.preScale(scale,scale);
+m.postTranslate(-dx,-dy);
+myCanvas.drawBitmap(ourWallpaper,m,myFillPaint);
+break;
+}
+case tileVertically:
+{
+final Matrix m=new Matrix();
+final int dx=g.LeftMargin;
+final int dy=g.TopMargin - g.TopMargin / h * h;
+m.preScale(1f * g.ScreenSize.Width / w,1);
+m.postTranslate(-dx,-dy);
+for (int ch=g.AreaSize.Height + dy; ch > 0; ch-=h) {
+myCanvas.drawBitmap(ourWallpaper,m,myFillPaint);
+m.postTranslate(0,h);
+}
+break;
+}
+case tileHorizontally:
+{
+final Matrix m=new Matrix();
+final int dx=g.LeftMargin - g.LeftMargin / w * w;
+final int dy=g.TopMargin;
+m.preScale(1,1f * g.ScreenSize.Height / h);
+m.postTranslate(-dx,-dy);
+for (int cw=g.AreaSize.Width + dx; cw > 0; cw-=w) {
+myCanvas.drawBitmap(ourWallpaper,m,myFillPaint);
+m.postTranslate(w,0);
+}
+break;
+}
+case tile:
+case tileMirror:
+{
+final int dx=g.LeftMargin - g.LeftMargin / w * w;
+final int dy=g.TopMargin - g.TopMargin / h * h;
+final int fullw=g.AreaSize.Width + dx;
+final int fullh=g.AreaSize.Height + dy;
+for (int cw=0; cw < fullw; cw+=w) {
+for (int ch=0; ch < fullh; ch+=h) {
+myCanvas.drawBitmap(ourWallpaper,cw - dx,ch - dy,myFillPaint);
+}
+}
+break;
+}
+}
+}
+ else {
+clear(new ZLColor(128,128,128));
+}
+}

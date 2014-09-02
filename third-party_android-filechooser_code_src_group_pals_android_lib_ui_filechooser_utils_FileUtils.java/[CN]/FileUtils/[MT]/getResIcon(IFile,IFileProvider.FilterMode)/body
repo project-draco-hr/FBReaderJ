@@ -1,18 +1,16 @@
 {
-  if (file == null || !file.exists())   return 0;
+  if (file == null || !file.exists())   return R.drawable.afc_item_file;
   if (file.isFile()) {
-    String filename=file.getName();
-    for (    String r : _MapFileIcons.keySet())     if (filename.matches(r))     return _MapFileIcons.get(r);
-    return R.drawable.afc_file;
+    return R.drawable.afc_item_file;
   }
  else   if (file.isDirectory()) {
-    if (filterMode != IFileProvider.FilterMode.AnyDirectories) {
+    if (filterMode == IFileProvider.FilterMode.DirectoriesOnly) {
       if (file instanceof File && !((File)file).canWrite()) {
         if (file instanceof ParentFile) {
-          return R.drawable.afc_folder;
+          return R.drawable.afc_item_folder;
         }
  else         if (accessDenied(file)) {
-          return R.drawable.afc_folder_no_access;
+          return R.drawable.afc_item_folder;
         }
  else {
           return R.drawable.afc_folder_locked;
@@ -23,13 +21,8 @@
       }
     }
  else {
-      if (accessDenied(file)) {
-        return R.drawable.afc_folder_no_access;
-      }
- else {
-        return R.drawable.afc_folder;
-      }
+      return R.drawable.afc_item_folder;
     }
   }
-  return 0;
+  return R.drawable.afc_item_file;
 }

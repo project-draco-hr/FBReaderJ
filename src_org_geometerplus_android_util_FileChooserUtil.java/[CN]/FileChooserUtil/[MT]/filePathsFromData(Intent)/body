@@ -1,0 +1,8 @@
+{
+  final List<IFile> files=data.getParcelableArrayListExtra(FileChooserActivity._Results);
+  final List<String> paths=new ArrayList<String>(files.size());
+  for (  IFile f : files) {
+    paths.add(f.getAbsolutePath());
+  }
+  return paths;
+}

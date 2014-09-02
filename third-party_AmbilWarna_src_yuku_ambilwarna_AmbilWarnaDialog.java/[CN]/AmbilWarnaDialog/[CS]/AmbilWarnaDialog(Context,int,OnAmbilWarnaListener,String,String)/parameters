@@ -1,0 +1,5 @@
+Context context
+int color
+OnAmbilWarnaListener listener
+String positiveButtonText
+String negativeButtonText
