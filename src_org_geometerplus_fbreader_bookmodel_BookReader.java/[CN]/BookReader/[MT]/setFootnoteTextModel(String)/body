@@ -1,6 +1,0 @@
-{
-  if (myCurrentTextModel != null && myCurrentTextModel != Model.BookTextModel) {
-    myCurrentTextModel.stopReading();
-  }
-  myCurrentTextModel=(ZLTextWritableModel)Model.getFootnoteModel(id);
-}

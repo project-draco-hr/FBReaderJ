@@ -1,9 +1,0 @@
-{
-  if (myTextBufferLength > 0) {
-    myCurrentTextModel.addText(myTextBuffer,0,myTextBufferLength);
-    myTextBufferLength=0;
-    if (myByteDecoder != null) {
-      myByteDecoder.reset();
-    }
-  }
-}

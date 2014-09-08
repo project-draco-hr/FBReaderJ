@@ -1,9 +1,0 @@
-{
-  if (myTextParagraphExists) {
-    flushTextBufferToParagraph();
-    myCurrentTextModel.addControl(kind,start);
-  }
-  if (!start && myHyperlinkReference.length() != 0 && kind == myHyperlinkKind) {
-    myHyperlinkReference="";
-  }
-}

@@ -1,3 +1,0 @@
-{
-  return (kind == FBTextKind.EXTERNAL_HYPERLINK) ? FBHyperlinkType.EXTERNAL : FBHyperlinkType.INTERNAL;
-}

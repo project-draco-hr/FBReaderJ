@@ -1,3 +1,0 @@
-{
-  return myContentsBuffer.length() > 0;
-}

@@ -1,8 +1,0 @@
-{
-  ZLTextModel model=myFootnotes.get(id);
-  if (model == null) {
-    model=new ZLTextWritablePlainModel(id,Book.getLanguage(),8,512,Paths.tempDirectory(),"cache" + myFootnotes.size(),myImageMap,FontManager);
-    myFootnotes.put(id,model);
-  }
-  return model;
-}

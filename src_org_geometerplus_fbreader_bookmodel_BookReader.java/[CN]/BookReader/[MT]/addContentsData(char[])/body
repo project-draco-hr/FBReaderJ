@@ -1,3 +1,0 @@
-{
-  addContentsData(data,0,data.length);
-}

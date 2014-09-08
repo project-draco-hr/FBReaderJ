@@ -1,5 +1,0 @@
-{
-  super(book);
-  myInternalHyperlinks=new CachedCharStorage(32768,Paths.tempDirectory(),"links");
-  BookTextModel=new ZLTextWritablePlainModel(null,book.getLanguage(),1024,65536,Paths.tempDirectory(),"cache",myImageMap,FontManager);
-}
