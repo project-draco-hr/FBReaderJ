@@ -1,9 +1,0 @@
-{
-  final FormatPlugin.Type type=plugin.type();
-  List<FormatPlugin> list=myPlugins.get(type);
-  if (list == null) {
-    list=new ArrayList<FormatPlugin>();
-    myPlugins.put(type,list);
-  }
-  list.add(plugin);
-}

@@ -1,0 +1,16 @@
+{
+  if (fileType == null) {
+    return null;
+  }
+  for (  FormatPlugin p : myBuiltinPlugins) {
+    if (fileType.Id.equalsIgnoreCase(p.supportedFileType())) {
+      return p;
+    }
+  }
+  for (  FormatPlugin p : myExternalPlugins) {
+    if (fileType.Id.equalsIgnoreCase(p.supportedFileType())) {
+      return p;
+    }
+  }
+  return null;
+}

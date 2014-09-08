@@ -1,3 +1,8 @@
 {
-  return getPlugin(file,FormatPlugin.Type.ANY);
+  final FileType fileType=FileTypeCollection.Instance.typeForFile(file);
+  final FormatPlugin plugin=getPlugin(fileType);
+  if (plugin instanceof ExternalFormatPlugin) {
+    return file == file.getPhysicalFile() ? plugin : null;
+  }
+  return plugin;
 }
