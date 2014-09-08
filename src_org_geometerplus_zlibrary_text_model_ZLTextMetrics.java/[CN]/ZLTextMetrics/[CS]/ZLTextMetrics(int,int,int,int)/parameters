@@ -1,3 +1,4 @@
 int dpi
 int fullWidth
 int fullHeight
+int fontSize

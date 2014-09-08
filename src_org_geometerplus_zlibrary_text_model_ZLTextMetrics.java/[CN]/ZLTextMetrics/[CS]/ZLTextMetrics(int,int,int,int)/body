@@ -2,4 +2,5 @@
   DPI=dpi;
   FullWidth=fullWidth;
   FullHeight=fullHeight;
+  FontSize=fontSize;
 }

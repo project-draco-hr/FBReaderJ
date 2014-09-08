@@ -7,6 +7,8 @@ case SizeUnit.POINT:
   return length.Size * metrics.DPI / 72;
 case SizeUnit.EM_100:
 return (length.Size * fontSize + 50) / 100;
+case SizeUnit.REM_100:
+return (length.Size * metrics.FontSize + 50) / 100;
 case SizeUnit.EX_100:
 return (length.Size * fontSize / 2 + 50) / 100;
 case SizeUnit.PERCENT:
