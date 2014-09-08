@@ -1,4 +1,4 @@
 Length length
 ZLTextMetrics metrics
-int baseFontSize
+int fontSize
 int featureId
