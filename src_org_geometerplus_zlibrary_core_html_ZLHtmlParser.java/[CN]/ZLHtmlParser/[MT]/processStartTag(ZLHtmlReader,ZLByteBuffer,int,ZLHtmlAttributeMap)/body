@@ -1,4 +1,0 @@
-{
-  htmlReader.startElementHandler(tagName.toString(),offset,attributes);
-  attributes.clear();
-}

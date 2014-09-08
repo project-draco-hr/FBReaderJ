@@ -1,8 +1,0 @@
-{
-  try {
-    new MobipocketHtmlBookReader(model).readBook();
-  }
- catch (  IOException e) {
-    throw new BookReadingException(e,model.Book.File);
-  }
-}

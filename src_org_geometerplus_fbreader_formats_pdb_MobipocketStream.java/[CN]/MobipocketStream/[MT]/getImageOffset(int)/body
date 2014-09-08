@@ -1,8 +1,0 @@
-{
-  try {
-    return myHeader.Offsets[index + myImageStartIndex];
-  }
- catch (  ArrayIndexOutOfBoundsException e) {
-    return -1;
-  }
-}

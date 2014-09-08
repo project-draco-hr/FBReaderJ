@@ -1,4 +1,0 @@
-{
-  myKeys=new ZLByteBuffer[8];
-  myValues=new ZLByteBuffer[8];
-}

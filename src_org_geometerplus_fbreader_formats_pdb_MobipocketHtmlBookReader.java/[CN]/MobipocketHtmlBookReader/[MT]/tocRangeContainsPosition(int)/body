@@ -1,3 +1,0 @@
-{
-  return (myTocStartOffset <= position) && (position < myTocEndOffset);
-}

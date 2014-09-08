@@ -1,6 +1,0 @@
-{
-  myXHTMLPathPrefix=MiscUtil.htmlDirectoryPrefix(file);
-  myImage=null;
-  readQuietly(file);
-  return myImage;
-}

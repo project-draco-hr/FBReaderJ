@@ -1,6 +1,0 @@
-{
-  if (ourExternalDTDs.isEmpty()) {
-    ourExternalDTDs.add("formats/xhtml/xhtml-merged.ent");
-  }
-  return ourExternalDTDs;
-}
