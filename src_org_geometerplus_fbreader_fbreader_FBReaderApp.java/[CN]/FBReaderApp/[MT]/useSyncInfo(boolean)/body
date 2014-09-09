@@ -1,5 +1,5 @@
 {
-  if (openOtherBook) {
+  if (openOtherBook && SyncOptions.ChangeCurrentBook.getValue()) {
     final Book fromServer=getCurrentServerBook();
     if (fromServer == null) {
       showBookNotFoundMessage();
