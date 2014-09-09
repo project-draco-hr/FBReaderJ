@@ -1,8 +1,0 @@
-{
-  if (offset > 0) {
-    read(null,0,offset);
-  }
- else {
-    throw new IOException("Cannot skip: " + offset + " bytes");
-  }
-}

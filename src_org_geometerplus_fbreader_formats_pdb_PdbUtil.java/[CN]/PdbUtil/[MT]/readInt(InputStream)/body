@@ -1,5 +1,0 @@
-{
-  final byte[] tmp=new byte[4];
-  stream.read(tmp,0,4);
-  return (((long)(tmp[0] & 0xFF)) << 24) + +((tmp[1] & 0xFF) << 16) + +((tmp[2] & 0xFF) << 8)+ +(tmp[3] & 0xFF);
-}

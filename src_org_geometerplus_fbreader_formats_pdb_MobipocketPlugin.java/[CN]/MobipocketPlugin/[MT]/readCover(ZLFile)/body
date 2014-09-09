@@ -1,8 +1,0 @@
-{
-  return new ZLImageFileProxy(file){
-    @Override protected ZLImage retrieveRealImage(){
-      return readCoverInternal(File);
-    }
-  }
-;
-}

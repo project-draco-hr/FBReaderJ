@@ -1,3 +1,0 @@
-{
-  Model.addHyperlinkLabel(label,myCurrentTextModel,paragraphIndex);
-}

@@ -1,7 +1,0 @@
-{
-  addControl(control,true);
-  if (myControlsNumber == myControls.length) {
-    myControls=ZLArrayUtils.createCopy(myControls,myControlsNumber,2 * myControlsNumber);
-  }
-  myControls[myControlsNumber++]=control;
-}

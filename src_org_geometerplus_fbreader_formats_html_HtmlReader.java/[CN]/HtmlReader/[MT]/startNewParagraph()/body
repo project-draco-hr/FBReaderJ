@@ -1,4 +1,0 @@
-{
-  endParagraph();
-  beginParagraph(ZLTextParagraph.Kind.TEXT_PARAGRAPH);
-}

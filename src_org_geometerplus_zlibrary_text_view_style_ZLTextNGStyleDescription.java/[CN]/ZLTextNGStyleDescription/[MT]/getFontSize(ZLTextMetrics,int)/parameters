@@ -1,2 +1,2 @@
 ZLTextMetrics metrics
-int baseFontSize
+int parentFontSize

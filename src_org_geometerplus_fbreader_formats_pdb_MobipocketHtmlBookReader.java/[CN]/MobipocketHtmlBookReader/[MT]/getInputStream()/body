@@ -1,4 +1,0 @@
-{
-  myMobipocketStream=new MobipocketStream(Model.Book.File);
-  return myMobipocketStream;
-}

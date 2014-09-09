@@ -1,4 +1,0 @@
-ZLHtmlReader htmlReader
-ZLByteBuffer tagName
-int offset
-ZLHtmlAttributeMap attributes

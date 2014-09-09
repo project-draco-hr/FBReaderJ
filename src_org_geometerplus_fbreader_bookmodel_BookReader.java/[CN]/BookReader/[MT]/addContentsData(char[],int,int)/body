@@ -1,5 +1,0 @@
-{
-  if (length != 0 && myCurrentContentsTree != null) {
-    myContentsBuffer.append(data,offset,length);
-  }
-}

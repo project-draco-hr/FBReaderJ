@@ -1,5 +1,0 @@
-{
-  final byte[] tmp=new byte[2];
-  stream.read(tmp,0,2);
-  return (tmp[1] & 0xFF) + ((tmp[0] & 0xFF) << 8);
-}

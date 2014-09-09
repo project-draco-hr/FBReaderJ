@@ -1,3 +1,0 @@
-{
-  return 78 + Offsets.length * 8;
-}

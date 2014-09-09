@@ -1,5 +1,0 @@
-{
-  if (myTextParagraphExists) {
-    myCurrentTextModel.addFixedHSpace(length);
-  }
-}

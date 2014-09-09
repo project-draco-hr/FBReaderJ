@@ -1,3 +1,0 @@
-{
-  endElementHandler(HtmlTag.getTagByName(tagName));
-}

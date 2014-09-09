@@ -1,5 +1,0 @@
-{
-  if (book.uids().isEmpty()) {
-    book.addUid(BookUtil.createUid(book.File,"SHA-256"));
-  }
-}

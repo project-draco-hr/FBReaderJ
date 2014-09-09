@@ -1,9 +1,0 @@
-{
-  myLocalPathPrefix=MiscUtil.archiveEntryName(MiscUtil.htmlDirectoryPrefix(file));
-  try {
-    read(file);
-  }
- catch (  IOException e) {
-    throw new BookReadingException(e,file);
-  }
-}

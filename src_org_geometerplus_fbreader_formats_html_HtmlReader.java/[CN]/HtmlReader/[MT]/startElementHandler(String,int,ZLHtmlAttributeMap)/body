@@ -1,3 +1,0 @@
-{
-  startElementHandler(HtmlTag.getTagByName(tagName),offset,attributes);
-}

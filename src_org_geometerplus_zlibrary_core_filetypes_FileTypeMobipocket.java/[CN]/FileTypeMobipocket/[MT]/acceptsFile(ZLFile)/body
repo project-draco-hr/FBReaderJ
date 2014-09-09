@@ -2,6 +2,5 @@
   if (super.acceptsFile(file)) {
     return true;
   }
-  final String extension=file.getExtension();
-  return ("mobi".equalsIgnoreCase(extension) || "azw3".equalsIgnoreCase(extension)) && "BOOKMOBI".equals(palmFileType(file));
+  return Arrays.asList("mobi","azw","azw3").contains(file.getExtension().toLowerCase()) && "BOOKMOBI".equals(palmFileType(file));
 }

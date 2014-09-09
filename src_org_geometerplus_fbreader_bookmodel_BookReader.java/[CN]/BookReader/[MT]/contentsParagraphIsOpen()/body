@@ -1,3 +1,0 @@
-{
-  return myCurrentContentsTree.Level > 0;
-}

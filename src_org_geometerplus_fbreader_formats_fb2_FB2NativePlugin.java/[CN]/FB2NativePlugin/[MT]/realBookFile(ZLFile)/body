@@ -1,5 +1,5 @@
 {
-  final ZLFile realFile=FB2Util.getRealFB2File(file);
+  final ZLFile realFile=getRealFB2File(file);
   if (realFile == null) {
     throw new BookReadingException("incorrectFb2ZipFile",file);
   }

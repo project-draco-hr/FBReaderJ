@@ -1,6 +1,0 @@
-{
-  if (myCurrentTocPosition != -1) {
-    myTocBuffer.append(data,start,length);
-  }
-  super.byteDataHandler(data,start,length);
-}

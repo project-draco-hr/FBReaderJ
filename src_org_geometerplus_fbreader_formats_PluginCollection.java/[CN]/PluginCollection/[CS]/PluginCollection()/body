@@ -1,7 +1,6 @@
 {
-  addPlugin(new MobipocketPlugin());
   if (Build.VERSION.SDK_INT >= 8) {
-    addPlugin(new DjVuPlugin());
-    addPlugin(new PDFPlugin());
+    myExternalPlugins.add(new DjVuPlugin());
+    myExternalPlugins.add(new PDFPlugin());
   }
 }
