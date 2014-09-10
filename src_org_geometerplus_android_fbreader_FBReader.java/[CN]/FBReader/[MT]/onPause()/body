@@ -1,5 +1,5 @@
 {
-  SyncOperations.quickSync(this);
+  SyncOperations.quickSync(this,myFBReaderApp.SyncOptions);
   IsPaused=true;
   try {
     unregisterReceiver(mySyncUpdateReceiver);

@@ -1,0 +1,5 @@
+{
+  if (options.Enabled.getValue()) {
+    context.startService(new Intent(context,SyncService.class).setAction(Action.QUICK_SYNC));
+  }
+}
