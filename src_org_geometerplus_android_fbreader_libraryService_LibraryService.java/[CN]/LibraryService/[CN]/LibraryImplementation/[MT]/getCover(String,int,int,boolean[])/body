@@ -1,10 +1,16 @@
 {
   if (myCoversCache.snapshot().containsKey(book)) {
-    final Bitmap bitmap=myCoversCache.get(book);
+    Bitmap bitmap=myCoversCache.get(book);
     if (bitmap.getWidth() == 1) {
       return null;
     }
-    return bitmap;
+    bitmap=getResizedBitmap(bitmap,maxWidth,maxHeight);
+    if (bitmap != null) {
+      return bitmap;
+    }
+ else {
+      myCoversCache.remove(book);
+    }
   }
   final ZLImage image=myCollection.getCover(SerializerUtil.deserializeBook(book),maxWidth,maxHeight);
   if (image == null) {
