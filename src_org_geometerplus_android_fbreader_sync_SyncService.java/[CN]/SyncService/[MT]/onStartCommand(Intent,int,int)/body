@@ -24,6 +24,7 @@
     final AlarmManager alarmManager=(AlarmManager)getSystemService(ALARM_SERVICE);
     alarmManager.cancel(syncIntent());
     log("stopped");
+    stopSelf();
   }
  else   if (SyncOperations.Action.SYNC.equals(action)) {
     SQLiteCookieDatabase.init(this);

@@ -6,7 +6,7 @@ case Added:
   addBook(book);
 break;
 case Opened:
-SyncOperations.quickSync(this);
+SyncOperations.quickSync(this,mySyncOptions);
 break;
 }
 }
