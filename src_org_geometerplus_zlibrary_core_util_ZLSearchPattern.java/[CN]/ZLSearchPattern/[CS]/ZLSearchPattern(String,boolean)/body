@@ -1,4 +1,5 @@
 {
+  pattern=pattern.replace("\u200b","");
   IgnoreCase=ignoreCase;
   if (IgnoreCase) {
     LowerCasePattern=pattern.toLowerCase().toCharArray();
