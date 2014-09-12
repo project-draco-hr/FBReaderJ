@@ -2,7 +2,7 @@
   Name=name;
   if (NIGHT.equals(name)) {
     WallpaperOption=new ZLStringOption("Colors",name + ":Wallpaper","");
-    FillModeOption=new ZLEnumOption<ZLPaintContext.FillMode>(name,"FillMode",ZLPaintContext.FillMode.tile);
+    FillModeOption=new ZLEnumOption<ZLPaintContext.FillMode>("Colors",name + ":FillMode",ZLPaintContext.FillMode.tile);
     BackgroundOption=createOption(name,"Background",0,0,0);
     SelectionBackgroundOption=createOption(name,"SelectionBackground",82,131,194);
     SelectionForegroundOption=createOption(name,"SelectionForeground",255,255,220);
