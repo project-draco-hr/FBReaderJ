@@ -1,0 +1,6 @@
+{
+  if (myIsOldVersion) {
+    return myOldLryCache.snapshot();
+  }
+  return myNewLryCache.snapshot();
+}

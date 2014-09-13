@@ -1,0 +1,4 @@
+{
+  final int maxMemory=(int)(Runtime.getRuntime().maxMemory());
+  return maxMemory / 8;
+}
