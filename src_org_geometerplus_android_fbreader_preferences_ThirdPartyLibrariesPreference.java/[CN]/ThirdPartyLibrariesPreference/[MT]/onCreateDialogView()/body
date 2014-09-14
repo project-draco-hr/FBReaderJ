@@ -1,0 +1,18 @@
+{
+  final TextView textView=new TextView(getContext());
+  final StringBuilder html=new StringBuilder();
+  try {
+    final BufferedReader reader=new BufferedReader(new InputStreamReader(ZLFile.createFileByPath("data/licences.html").getInputStream()));
+    String line;
+    while ((line=reader.readLine()) != null) {
+      html.append(line);
+    }
+    reader.close();
+  }
+ catch (  IOException e) {
+  }
+  textView.setText(Html.fromHtml(html.toString()));
+  textView.setPadding(10,10,10,10);
+  textView.setMovementMethod(new LinkMovementMethod());
+  return textView;
+}
