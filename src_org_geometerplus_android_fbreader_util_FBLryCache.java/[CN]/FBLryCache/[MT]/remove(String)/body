@@ -1,7 +1,0 @@
-{
-  if (myIsOldVersion) {
-    myOldLryCache.remove(book);
-    return;
-  }
-  myNewLryCache.remove(book);
-}

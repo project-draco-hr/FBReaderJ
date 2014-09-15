@@ -3,8 +3,8 @@
     bitmap=Bitmap.createBitmap(1,1,Bitmap.Config.ALPHA_8);
   }
   if (myIsOldVersion) {
-    myOldLryCache.put(book,bitmap);
+    myOldLruCache.put(book,bitmap);
     return;
   }
-  myNewLryCache.put(book,bitmap);
+  myNewLruCache.put(book,bitmap);
 }

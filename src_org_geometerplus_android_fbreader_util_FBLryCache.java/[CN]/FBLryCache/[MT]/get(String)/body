@@ -1,6 +1,0 @@
-{
-  if (myIsOldVersion) {
-    return myOldLryCache.get(book);
-  }
-  return myNewLryCache.get(book);
-}
