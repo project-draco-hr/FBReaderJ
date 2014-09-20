@@ -365,6 +365,7 @@
   aboutScreen.addPreference(new InfoPreference(this,aboutScreen.Resource.getResource("version").getValue(),androidLibrary.getFullVersionName()));
   aboutScreen.addPreference(new UrlPreference(this,aboutScreen.Resource,"site"));
   aboutScreen.addPreference(new UrlPreference(this,aboutScreen.Resource,"email"));
+  aboutScreen.addPreference(new UrlPreference(this,aboutScreen.Resource,"googleplus"));
   aboutScreen.addPreference(new UrlPreference(this,aboutScreen.Resource,"twitter"));
   aboutScreen.addPreference(new UrlPreference(this,aboutScreen.Resource,"facebook"));
   aboutScreen.addPreference(new ThirdPartyLibrariesPreference(this,aboutScreen.Resource,"thirdParty"));
