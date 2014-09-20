@@ -1,11 +1,8 @@
 {
   if (openOtherBook && SyncOptions.ChangeCurrentBook.getValue()) {
-    final Book fromServer=getCurrentServerBook();
-    if (fromServer == null) {
-      showBookNotFoundMessage();
-    }
+    final Book fromServer=getCurrentServerBook(notifier);
     if (fromServer != null && !fromServer.equals(Collection.getRecentBook(0))) {
-      openBook(fromServer,null,null);
+      openBook(fromServer,null,null,notifier);
       return;
     }
   }

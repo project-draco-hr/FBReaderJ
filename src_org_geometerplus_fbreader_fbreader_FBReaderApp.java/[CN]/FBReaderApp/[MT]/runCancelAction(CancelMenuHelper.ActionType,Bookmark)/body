@@ -7,7 +7,7 @@ case networkLibrary:
 runAction(ActionCode.SHOW_NETWORK_LIBRARY);
 break;
 case previousBook:
-openBook(Collection.getRecentBook(1),null,null);
+openBook(Collection.getRecentBook(1),null,null,null);
 break;
 case returnTo:
 Collection.deleteBookmark(bookmark);

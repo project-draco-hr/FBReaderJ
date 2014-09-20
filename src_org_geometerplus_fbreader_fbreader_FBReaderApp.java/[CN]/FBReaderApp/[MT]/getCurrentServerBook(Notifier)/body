@@ -1,0 +1,16 @@
+{
+  final SyncData.ServerBookInfo info=mySyncData.getServerBookInfo();
+  if (info == null) {
+    return null;
+  }
+  for (  String hash : info.Hashes) {
+    final Book book=Collection.getBookByHash(hash);
+    if (book != null) {
+      return book;
+    }
+  }
+  if (notifier != null) {
+    notifier.showMissingBookNotification(info);
+  }
+  return null;
+}
