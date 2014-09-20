@@ -1,6 +1,3 @@
 {
-  if (myIsOldVersion) {
-    return myOldLruCache.get(book);
-  }
-  return myNewLruCache.get(book);
+  return myLruCache.get(book);
 }

@@ -2,6 +2,7 @@
   if (myCoversCache.snapshot().containsKey(book)) {
     Bitmap bitmap=myCoversCache.get(book);
     if (bitmap.getWidth() == 1) {
+      delayed[0]=false;
       return null;
     }
     bitmap=getResizedBitmap(bitmap,maxWidth,maxHeight);
@@ -35,7 +36,7 @@
 );
   }
   final ZLAndroidImageManager manager=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
-  if (((ZLImageProxy)image).isSynchronized()) {
+  if (!((ZLImageProxy)image).isSynchronized()) {
     delayed[0]=true;
     return null;
   }

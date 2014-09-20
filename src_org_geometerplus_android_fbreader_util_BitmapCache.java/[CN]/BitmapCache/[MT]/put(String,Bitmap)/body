@@ -2,9 +2,5 @@
   if (bitmap == null) {
     bitmap=Bitmap.createBitmap(1,1,Bitmap.Config.ALPHA_8);
   }
-  if (myIsOldVersion) {
-    myOldLruCache.put(book,bitmap);
-    return;
-  }
-  myNewLruCache.put(book,bitmap);
+  myLruCache.put(book,bitmap);
 }

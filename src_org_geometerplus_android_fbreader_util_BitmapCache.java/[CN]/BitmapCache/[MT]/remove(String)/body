@@ -1,7 +1,3 @@
 {
-  if (myIsOldVersion) {
-    myOldLruCache.remove(book);
-    return;
-  }
-  myNewLruCache.remove(book);
+  myLruCache.remove(book);
 }

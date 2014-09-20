@@ -1,6 +1,3 @@
 {
-  if (myIsOldVersion) {
-    return myOldLruCache.snapshot();
-  }
-  return myNewLruCache.snapshot();
+  return myLruCache.snapshot();
 }
