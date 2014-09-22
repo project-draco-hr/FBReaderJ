@@ -1,0 +1,3 @@
+List<String> hashes
+String title
+boolean downloadable

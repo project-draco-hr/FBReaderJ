@@ -1,9 +1,0 @@
-{
-  for (  String hash : mySyncData.getServerBookHashes()) {
-    final Book book=Collection.getBookByHash(hash);
-    if (book != null) {
-      return book;
-    }
-  }
-  return null;
-}

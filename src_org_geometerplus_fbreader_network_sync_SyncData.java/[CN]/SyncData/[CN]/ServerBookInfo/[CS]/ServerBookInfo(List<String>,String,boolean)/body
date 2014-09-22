@@ -1,0 +1,5 @@
+{
+  Hashes=Collections.unmodifiableList(hashes);
+  Title=title;
+  Downloadable=downloadable;
+}
