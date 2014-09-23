@@ -1,6 +1,3 @@
 {
-  if (bitmap == null) {
-    bitmap=Bitmap.createBitmap(1,1,Bitmap.Config.ALPHA_8);
-  }
-  myLruCache.put(book,bitmap);
+  myLruCache.put(book,bitmap != null ? bitmap : NULL);
 }
