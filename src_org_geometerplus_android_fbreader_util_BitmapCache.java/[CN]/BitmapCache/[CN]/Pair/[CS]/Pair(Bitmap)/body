@@ -1,0 +1,10 @@
+{
+  if (bitmap != NULL) {
+    Bitmap=bitmap;
+    Presented=bitmap != null;
+  }
+ else {
+    Bitmap=null;
+    Presented=true;
+  }
+}
