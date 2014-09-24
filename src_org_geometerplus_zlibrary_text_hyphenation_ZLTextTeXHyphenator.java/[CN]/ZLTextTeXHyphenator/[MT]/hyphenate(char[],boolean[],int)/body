@@ -1,5 +1,4 @@
 {
-  System.err.println("++ hyphenate " + length);
   if (myPatternTable.isEmpty()) {
     for (int i=0; i < length - 1; i++) {
       mask[i]=false;
@@ -23,5 +22,4 @@
   for (int i=0; i < length - 1; i++) {
     mask[i]=(values[i + 1] % 2) == 1;
   }
-  System.err.println("-- hyphenate " + length);
 }
