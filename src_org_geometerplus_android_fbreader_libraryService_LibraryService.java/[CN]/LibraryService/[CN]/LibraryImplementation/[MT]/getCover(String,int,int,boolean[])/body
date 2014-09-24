@@ -1,11 +1,11 @@
 {
-  final BitmapCache.Pair pair=myCoversCache.get(book);
-  if (pair.Presented) {
+  final BitmapCache.Container container=myCoversCache.get(book);
+  if (container != null) {
     delayed[0]=false;
-    if (pair.Bitmap == null) {
+    if (container.Bitmap == null) {
       return null;
     }
-    final Bitmap bitmap=getResizedBitmap(pair.Bitmap,maxWidth,maxHeight);
+    final Bitmap bitmap=getResizedBitmap(container.Bitmap,maxWidth,maxHeight);
     if (bitmap != null) {
       return bitmap;
     }

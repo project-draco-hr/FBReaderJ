@@ -1,0 +1,11 @@
+{
+  if (Build.VERSION.SDK_INT >= 19) {
+    return Bitmap.getAllocationByteCount();
+  }
+ else   if (Build.VERSION.SDK_INT >= 12) {
+    return Bitmap.getByteCount();
+  }
+ else {
+    return Bitmap.getRowBytes() * Bitmap.getHeight();
+  }
+}
