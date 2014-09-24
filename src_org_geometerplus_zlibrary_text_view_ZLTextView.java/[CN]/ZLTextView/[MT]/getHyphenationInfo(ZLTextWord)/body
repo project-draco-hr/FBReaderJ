@@ -1,0 +1,7 @@
+{
+  if (myCachedWord != word) {
+    myCachedWord=word;
+    myCachedInfo=ZLTextHyphenator.Instance().getInfo(word);
+  }
+  return myCachedInfo;
+}

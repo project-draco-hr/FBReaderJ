@@ -1,4 +1,5 @@
 {
+  final long startTime=System.currentTimeMillis();
   result.setCursor(start);
   int textAreaHeight=page.getTextHeight();
   page.LineInfos.clear();
