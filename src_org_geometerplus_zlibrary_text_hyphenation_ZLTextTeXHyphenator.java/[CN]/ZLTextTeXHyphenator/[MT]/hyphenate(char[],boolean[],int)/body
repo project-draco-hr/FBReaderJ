@@ -9,11 +9,10 @@
   final HashMap<ZLTextTeXHyphenationPattern,ZLTextTeXHyphenationPattern> table=myPatternTable;
   ZLTextTeXHyphenationPattern pattern=new ZLTextTeXHyphenationPattern(stringToHyphenate,0,length,false);
   for (int offset=0; offset < length - 1; offset++) {
-    int len=length - offset + 1;
+    int len=Math.min(length - offset,myMaxPatternLength) + 1;
     pattern.update(stringToHyphenate,offset,len - 1);
     while (--len > 0) {
-      pattern.myLength=len;
-      pattern.myHashCode=0;
+      pattern.reset(len);
       ZLTextTeXHyphenationPattern toApply=(ZLTextTeXHyphenationPattern)table.get(pattern);
       if (toApply != null) {
         toApply.apply(values,offset);

@@ -1,3 +1,6 @@
 {
   myPatternTable.put(pattern,pattern);
+  if (myMaxPatternLength < pattern.length()) {
+    myMaxPatternLength=pattern.length();
+  }
 }
