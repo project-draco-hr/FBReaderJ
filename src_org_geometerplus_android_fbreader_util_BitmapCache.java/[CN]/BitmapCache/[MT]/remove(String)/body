@@ -1,0 +1,3 @@
+{
+  myLruCache.remove(key);
+}

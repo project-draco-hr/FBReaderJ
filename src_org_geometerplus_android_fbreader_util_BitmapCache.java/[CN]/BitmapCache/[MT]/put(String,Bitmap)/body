@@ -1,0 +1,3 @@
+{
+  myLruCache.put(key,bitmap != null ? new Container(bitmap) : NULL);
+}
