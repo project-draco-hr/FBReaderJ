@@ -40,7 +40,5 @@
     }
     return myCoversCache.get(book).Bitmap;
   }
-  final ZLAndroidImageManager manager=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
-  final ZLAndroidImageData data=manager.getImageData(image);
-  return data != null ? data.getBitmap(maxWidth,maxHeight) : null;
+  return null;
 }
