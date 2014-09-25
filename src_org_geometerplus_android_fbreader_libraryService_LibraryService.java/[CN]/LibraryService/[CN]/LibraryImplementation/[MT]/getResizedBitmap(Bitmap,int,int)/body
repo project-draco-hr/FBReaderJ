@@ -2,6 +2,7 @@
   final int bWidth=bitmap.getWidth();
   final int bHeight=bitmap.getHeight();
   if (bWidth <= 0 || bWidth < newWidth || bHeight <= 0 || bHeight < newHeight) {
+    System.err.println("3333333333333333333333");
     return null;
   }
   if (bWidth == newWidth && bHeight == newHeight) {

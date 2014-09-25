@@ -1,4 +1,5 @@
 {
+  System.err.println(SerializerUtil.deserializeBook(book).getTitle() + i++);
   delayed[0]=false;
   final BitmapCache.Container container=myCoversCache.get(book);
   if (container != null) {
