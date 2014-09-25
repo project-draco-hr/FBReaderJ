@@ -1,7 +1,7 @@
 {
+  delayed[0]=false;
   final BitmapCache.Container container=myCoversCache.get(book);
   if (container != null) {
-    delayed[0]=false;
     if (container.Bitmap == null) {
       return null;
     }
@@ -16,7 +16,6 @@
   final ZLImage image=myCollection.getCover(SerializerUtil.deserializeBook(book),maxWidth,maxHeight);
   if (image == null) {
     myCoversCache.put(book,null);
-    delayed[0]=false;
     return null;
   }
   if (image instanceof ZLImageProxy) {
@@ -38,9 +37,9 @@
       delayed[0]=true;
       return null;
     }
+    return myCoversCache.get(book).Bitmap;
   }
   final ZLAndroidImageManager manager=(ZLAndroidImageManager)ZLAndroidImageManager.Instance();
-  delayed[0]=false;
   final ZLAndroidImageData data=manager.getImageData(image);
   return data != null ? data.getBitmap(maxWidth,maxHeight) : null;
 }
