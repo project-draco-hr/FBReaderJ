@@ -6,7 +6,8 @@
     BackgroundOption=createOption(name,"Background",0,0,0);
     SelectionBackgroundOption=createOption(name,"SelectionBackground",82,131,194);
     SelectionForegroundOption=createOption(name,"SelectionForeground",255,255,220);
-    HighlightingOption=createOption(name,"Highlighting",96,96,128);
+    HighlightingBackgroundOption=createOption(name,"Highlighting",96,96,128);
+    HighlightingForegroundOption=createOption(name,"HighlightingForeground",192,192,192);
     RegularTextOption=createOption(name,"Text",192,192,192);
     HyperlinkTextOption=createOption(name,"Hyperlink",60,142,224);
     VisitedHyperlinkTextOption=createOption(name,"VisitedHyperlink",200,139,255);
@@ -18,7 +19,8 @@
     BackgroundOption=createOption(name,"Background",255,255,255);
     SelectionBackgroundOption=createOption(name,"SelectionBackground",82,131,194);
     SelectionForegroundOption=createOption(name,"SelectionForeground",255,255,220);
-    HighlightingOption=createOption(name,"Highlighting",255,192,128);
+    HighlightingBackgroundOption=createOption(name,"Highlighting",255,192,128);
+    HighlightingForegroundOption=createOption(name,"HighlightingForeground",0,0,0);
     RegularTextOption=createOption(name,"Text",0,0,0);
     HyperlinkTextOption=createOption(name,"Hyperlink",60,139,255);
     VisitedHyperlinkTextOption=createOption(name,"VisitedHyperlink",200,139,255);

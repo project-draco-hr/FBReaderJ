@@ -1,3 +1,3 @@
 {
-  return myViewOptions.getColorProfile().HighlightingOption.getValue();
+  return myViewOptions.getColorProfile().HighlightingBackgroundOption.getValue();
 }
