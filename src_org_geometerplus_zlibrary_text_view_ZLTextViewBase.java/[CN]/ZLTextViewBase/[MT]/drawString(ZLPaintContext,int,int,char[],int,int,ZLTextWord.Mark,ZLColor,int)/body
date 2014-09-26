@@ -1,6 +1,6 @@
 {
-  final ZLPaintContext context=getContext();
   if (mark == null) {
+    context.setTextColor(color);
     context.drawString(x,y,str,offset,length);
   }
  else {
@@ -17,6 +17,7 @@
       }
       if (markStart > pos) {
         int endPos=Math.min(markStart,length);
+        context.setTextColor(color);
         context.drawString(x,y,str,offset + pos,endPos - pos);
         x+=context.getStringWidth(str,offset + pos,endPos - pos);
       }
@@ -32,6 +33,7 @@
       pos=markStart + markLen;
     }
     if (pos < length) {
+      context.setTextColor(color);
       context.drawString(x,y,str,offset + pos,length - pos);
     }
   }

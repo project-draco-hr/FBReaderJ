@@ -1,7 +1,9 @@
+ZLPaintContext context
 int x
 int y
 char[] str
 int offset
 int length
 ZLTextWord.Mark mark
+ZLColor color
 int shift
