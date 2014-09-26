@@ -1,0 +1,8 @@
+{
+  for (  ZLTextHighlighting h : hilites) {
+    if (h.getStartPosition().compareToIgnoreChar(pos) <= 0 && pos.compareToIgnoreChar(h.getEndPosition()) <= 0) {
+      return h;
+    }
+  }
+  return null;
+}

@@ -2,9 +2,9 @@
   if ("style".equals(localName)) {
     final int id=parseIntSafe(attributes.getValue("id"),-1);
     if (id != -1) {
-      final int rgb=parseIntSafe(attributes.getValue("bg-color"),-1);
-      final ZLColor color=rgb != -1 ? new ZLColor(rgb) : null;
-      myStyle=new HighlightingStyle(id,attributes.getValue("name"),color);
+      final int bg=parseIntSafe(attributes.getValue("bg-color"),-1);
+      final int fg=parseIntSafe(attributes.getValue("fg-color"),-1);
+      myStyle=new HighlightingStyle(id,attributes.getValue("name"),bg != -1 ? new ZLColor(bg) : null,fg != -1 ? new ZLColor(fg) : null);
     }
   }
 }

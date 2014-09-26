@@ -1,0 +1,3 @@
+{
+  return new HighlightingStyle(id,name,bgColor != -1 ? new ZLColor(bgColor) : null,fgColor != -1 ? new ZLColor(fgColor) : null);
+}

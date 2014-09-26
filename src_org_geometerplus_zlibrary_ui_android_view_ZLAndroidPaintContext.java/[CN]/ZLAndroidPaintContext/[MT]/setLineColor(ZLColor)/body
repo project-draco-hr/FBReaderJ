@@ -1,3 +1,5 @@
 {
-  myLinePaint.setColor(ZLAndroidColorUtil.rgb(color));
+  if (color != null) {
+    myLinePaint.setColor(ZLAndroidColorUtil.rgb(color));
+  }
 }

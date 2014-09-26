@@ -3,7 +3,8 @@
   if (!stringValue.equals(myStringValue)) {
     myStringValue=stringValue;
     try {
-      myValue=new ZLColor(Integer.parseInt(stringValue));
+      final int intValue=Integer.parseInt(stringValue);
+      myValue=intValue != -1 ? new ZLColor(intValue) : null;
     }
  catch (    NumberFormatException e) {
     }
