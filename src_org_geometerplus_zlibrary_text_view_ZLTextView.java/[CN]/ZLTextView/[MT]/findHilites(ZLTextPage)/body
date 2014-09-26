@@ -1,0 +1,14 @@
+{
+  final LinkedList<ZLTextHighlighting> hilites=new LinkedList<ZLTextHighlighting>();
+  if (mySelection.intersects(page)) {
+    hilites.add(mySelection);
+  }
+synchronized (myHighlightings) {
+    for (    ZLTextHighlighting h : myHighlightings) {
+      if (h.intersects(page)) {
+        hilites.add(h);
+      }
+    }
+  }
+  return hilites;
+}
