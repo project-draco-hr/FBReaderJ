@@ -54,11 +54,13 @@ x+=page.getTextWidth() + getSpaceBetweenColumns();
 }
 previousInfo=info;
 }
+final List<ZLTextHighlighting> hilites=findHilites(page);
+if (!hilites.isEmpty()) {
 x=getLeftMargin();
 y=getTopMargin();
 index=0;
 for (ZLTextLineInfo info : lineInfos) {
-drawHighlightings(page,info,labels[index],labels[index + 1],x,y);
+drawHighlightings(page,hilites,info,labels[index],labels[index + 1],x,y);
 y+=info.Height + info.Descent + info.VSpaceAfter;
 ++index;
 if (index == page.Column0Height) {
@@ -66,11 +68,12 @@ y=getTopMargin();
 x+=page.getTextWidth() + getSpaceBetweenColumns();
 }
 }
+}
 x=getLeftMargin();
 y=getTopMargin();
 index=0;
 for (ZLTextLineInfo info : lineInfos) {
-drawTextLine(page,info,labels[index],labels[index + 1]);
+drawTextLine(page,hilites,info,labels[index],labels[index + 1]);
 y+=info.Height + info.Descent + info.VSpaceAfter;
 ++index;
 if (index == page.Column0Height) {
