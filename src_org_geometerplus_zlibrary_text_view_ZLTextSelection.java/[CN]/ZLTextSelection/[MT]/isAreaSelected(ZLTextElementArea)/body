@@ -1,3 +1,0 @@
-{
-  return !isEmpty() && myLeftMostRegionSoul.compareTo(area) <= 0 && myRightMostRegionSoul.compareTo(area) >= 0;
-}
