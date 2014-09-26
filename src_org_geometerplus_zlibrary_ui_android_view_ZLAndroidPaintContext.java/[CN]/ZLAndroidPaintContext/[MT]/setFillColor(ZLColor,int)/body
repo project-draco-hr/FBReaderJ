@@ -1,3 +1,5 @@
 {
-  myFillPaint.setColor(ZLAndroidColorUtil.rgba(color,alpha));
+  if (color != null) {
+    myFillPaint.setColor(ZLAndroidColorUtil.rgba(color,alpha));
+  }
 }

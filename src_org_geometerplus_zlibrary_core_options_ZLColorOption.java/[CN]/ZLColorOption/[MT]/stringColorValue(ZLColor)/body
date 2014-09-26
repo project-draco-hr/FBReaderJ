@@ -1,0 +1,3 @@
+{
+  return String.valueOf(color != null ? color.intValue() : -1);
+}

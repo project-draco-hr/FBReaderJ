@@ -3,6 +3,6 @@
     return;
   }
   myValue=value;
-  myStringValue=String.valueOf(value.intValue());
+  myStringValue=stringColorValue(value);
   setConfigValue(myStringValue);
 }

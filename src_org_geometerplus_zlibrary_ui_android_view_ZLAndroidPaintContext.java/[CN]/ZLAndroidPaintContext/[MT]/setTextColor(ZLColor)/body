@@ -1,3 +1,5 @@
 {
-  myTextPaint.setColor(ZLAndroidColorUtil.rgb(color));
+  if (color != null) {
+    myTextPaint.setColor(ZLAndroidColorUtil.rgb(color));
+  }
 }
