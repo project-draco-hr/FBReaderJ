@@ -1,11 +1,14 @@
 {
-  final int bWidth=bitmap.getWidth();
-  final int bHeight=bitmap.getHeight();
-  if (bHeight < newHeight && bWidth < newWidth || bWidth <= 0 || bHeight <= 0) {
+  if (newWidth <= 0 || newHeight <= 0) {
     return null;
   }
-  if (bWidth == newWidth && bHeight == newHeight) {
+  final int bWidth=bitmap.getWidth();
+  final int bHeight=bitmap.getHeight();
+  if (newWidth == bWidth && newHeight == bHeight) {
     return bitmap;
+  }
+  if (newWidth > bWidth && newHeight > bHeight) {
+    return null;
   }
   final int w, h;
   if (bWidth * newHeight > bHeight * newWidth) {
