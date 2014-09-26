@@ -1,4 +1,5 @@
 ZLTextPage page
+List<ZLTextHighlighting> hilites
 ZLTextLineInfo info
 int from
 int to
