@@ -2,20 +2,6 @@
   if (from == to) {
     return;
   }
-  final LinkedList<ZLTextHighlighting> hilites=new LinkedList<ZLTextHighlighting>();
-  if (mySelection.intersects(page)) {
-    hilites.add(mySelection);
-  }
-synchronized (myHighlightings) {
-    for (    ZLTextHighlighting h : myHighlightings) {
-      if (h.intersects(page)) {
-        hilites.add(h);
-      }
-    }
-  }
-  if (hilites.isEmpty()) {
-    return;
-  }
   final ZLTextElementArea fromArea=page.TextElementMap.get(from);
   final ZLTextElementArea toArea=page.TextElementMap.get(to - 1);
   for (  ZLTextHighlighting h : hilites) {
