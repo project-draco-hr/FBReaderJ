@@ -1,0 +1,5 @@
+{
+  Id=id;
+  myName=name;
+  myForegroundColor=fgColor;
+}

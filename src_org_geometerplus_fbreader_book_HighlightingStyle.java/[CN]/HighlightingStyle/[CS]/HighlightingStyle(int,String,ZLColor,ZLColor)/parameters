@@ -1,3 +1,4 @@
 int id
 String name
 ZLColor bgColor
+ZLColor fgColor

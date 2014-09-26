@@ -1,0 +1,3 @@
+{
+  myDatabase.execSQL("ALTER TABLE HighlightingStyle ADD COLUMN fg_color INTEGER NOT NULL DEFAULT -1");
+}
