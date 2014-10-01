@@ -8,7 +8,15 @@
     final ZLResource resource=myResource.getResource(plugin.Id);
     titleView.setText(resource.getValue());
     summaryView.setText(resource.getResource("summary").getValue());
-    iconView.setImageResource(R.drawable.fbreader);
+    int iconId=R.drawable.fbreader;
+    try {
+      final Field f=R.drawable.class.getField("plugin_" + plugin.Id);
+      iconId=f.getInt(R.drawable.class);
+    }
+ catch (    Throwable t) {
+      t.printStackTrace();
+    }
+    iconView.setImageResource(iconId);
   }
  else {
     final ZLResource resource=myResource.getResource("noMorePlugins");
