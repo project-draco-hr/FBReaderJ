@@ -1,5 +1,12 @@
 {
   if ("plugin".equals(tag)) {
+    try {
+      if (Integer.valueOf(attributes.getValue("min-api")) > Build.VERSION.SDK_INT) {
+        return false;
+      }
+    }
+ catch (    Throwable t) {
+    }
     final String id=attributes.getValue("id");
     final String packageName=attributes.getValue("package");
     try {
