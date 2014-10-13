@@ -8,6 +8,7 @@ case Feature.LENGTH_FIRST_LINE_INDENT:
 case Feature.LENGTH_SPACE_BEFORE:
 case Feature.LENGTH_SPACE_AFTER:
   return metrics.FullHeight;
+case Feature.LENGTH_VERTICAL_ALIGN:
 case Feature.LENGTH_FONT_SIZE:
 return fontSize;
 }

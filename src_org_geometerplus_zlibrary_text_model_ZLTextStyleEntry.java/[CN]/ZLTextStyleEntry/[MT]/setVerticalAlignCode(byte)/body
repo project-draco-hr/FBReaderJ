@@ -1,0 +1,4 @@
+{
+  myFeatureMask|=1 << Feature.NON_LENGTH_VERTICAL_ALIGN;
+  myVerticalAlignCode=code;
+}
