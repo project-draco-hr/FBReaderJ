@@ -1,3 +1,18 @@
 {
-  return Parent.getVerticalAlign(metrics);
+  if (myEntry.isFeatureSupported(LENGTH_VERTICAL_ALIGN)) {
+    return myEntry.getLength(LENGTH_VERTICAL_ALIGN,metrics,fontSize);
+  }
+ else   if (myEntry.isFeatureSupported(NON_LENGTH_VERTICAL_ALIGN)) {
+switch (myEntry.getVerticalAlignCode()) {
+default :
+      return Parent.getVerticalAlign(metrics);
+case 0:
+    return ZLTextStyleEntry.compute(new ZLTextStyleEntry.Length((short)-50,ZLTextStyleEntry.SizeUnit.EM_100),metrics,fontSize,LENGTH_VERTICAL_ALIGN);
+case 1:
+  return ZLTextStyleEntry.compute(new ZLTextStyleEntry.Length((short)50,ZLTextStyleEntry.SizeUnit.EM_100),metrics,fontSize,LENGTH_VERTICAL_ALIGN);
+}
+}
+ else {
+return Parent.getVerticalAlign(metrics);
+}
 }
