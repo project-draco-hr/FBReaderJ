@@ -1,4 +1,0 @@
-{
-  activeIdsOption().setValue(new ArrayList<String>(ids));
-  invalidateChildren();
-}

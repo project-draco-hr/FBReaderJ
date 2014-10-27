@@ -2,24 +2,5 @@
   if (link == null) {
     return;
   }
-  final String id=link.getUrl(UrlInfo.Type.Catalog);
-  if (id == null) {
-    return;
-  }
-  final List<String> oldIds=activeIds();
-  if (oldIds.contains(id) == active) {
-    return;
-  }
-  final List<String> newIds;
-  if (active) {
-    newIds=new ArrayList<String>(oldIds.size() + 1);
-    newIds.add(id);
-    newIds.addAll(oldIds);
-  }
- else {
-    newIds=new ArrayList<String>(oldIds);
-    newIds.remove(id);
-  }
-  activeIdsOption().setValue(newIds);
-  invalidateChildren();
+  setLinkActive(link.getUrl(UrlInfo.Type.Catalog),active);
 }

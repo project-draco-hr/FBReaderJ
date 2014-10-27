@@ -16,5 +16,4 @@ synchronized (myLinks) {
   }
   NetworkDatabase.Instance().saveLink(link);
   setLinkActive(link,true);
-  invalidateChildren();
 }
