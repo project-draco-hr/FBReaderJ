@@ -1,0 +1,7 @@
+{
+  final NetworkInfo info=getActiveNetworkInfo();
+  if (info == null || info.isConnected()) {
+    throw ZLNetworkException.forCode("networkNotAvailable");
+  }
+  super.perform(request,socketTimeout,connectionTimeout);
+}
