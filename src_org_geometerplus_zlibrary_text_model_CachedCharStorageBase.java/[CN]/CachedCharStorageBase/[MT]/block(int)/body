@@ -1,5 +1,5 @@
 {
-  if (index < 0 && index >= myArray.size()) {
+  if (index < 0 || index >= myArray.size()) {
     return null;
   }
   char[] block=myArray.get(index).get();
