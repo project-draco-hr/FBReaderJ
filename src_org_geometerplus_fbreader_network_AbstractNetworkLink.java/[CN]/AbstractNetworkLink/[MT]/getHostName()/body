@@ -1,0 +1,8 @@
+{
+  final String catalogUrl=getUrl(UrlInfo.Type.Catalog);
+  if (catalogUrl == null) {
+    return null;
+  }
+  final Matcher m=Pattern.compile("^[a-zA-Z]+://([^/]+).*").matcher(catalogUrl);
+  return m.matches() ? m.group(1) : null;
+}
