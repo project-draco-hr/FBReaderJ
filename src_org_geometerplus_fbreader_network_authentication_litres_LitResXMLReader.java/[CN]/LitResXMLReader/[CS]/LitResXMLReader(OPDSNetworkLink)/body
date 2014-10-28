@@ -1,4 +1,3 @@
 {
-  super(link.getSiteName());
   Link=link;
 }

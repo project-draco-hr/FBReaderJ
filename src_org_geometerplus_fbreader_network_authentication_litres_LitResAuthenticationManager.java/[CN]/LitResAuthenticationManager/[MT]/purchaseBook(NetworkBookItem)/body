@@ -10,7 +10,7 @@ synchronized (this) {
   if (reference == null) {
     throw ZLNetworkException.forCode(NetworkException.ERROR_BOOK_NOT_PURCHASED);
   }
-  final LitResPurchaseXMLReader xmlReader=new LitResPurchaseXMLReader(Link.getSiteName());
+  final LitResPurchaseXMLReader xmlReader=new LitResPurchaseXMLReader();
   ZLNetworkException exception=null;
   try {
     final LitResNetworkRequest request=new LitResNetworkRequest(reference.Url,xmlReader);
@@ -34,7 +34,7 @@ synchronized (this) {
       throw exception;
     }
     if (xmlReader.BookId == null || !xmlReader.BookId.equals(book.Id)) {
-      throw ZLNetworkException.forCode(NetworkException.ERROR_SOMETHING_WRONG,Link.getSiteName());
+      throw ZLNetworkException.forCode(NetworkException.ERROR_SOMETHING_WRONG,LitResUtil.HOST_NAME);
     }
     myPurchasedBooks.addToStart(book);
     final BasketItem basket=book.Link.getBasketItem();

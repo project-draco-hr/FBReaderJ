@@ -24,7 +24,7 @@
       }
     }
  else {
-      setException(ZLNetworkException.forCode(NetworkException.ERROR_SOMETHING_WRONG,HostName));
+      setException(ZLNetworkException.forCode(NetworkException.ERROR_SOMETHING_WRONG,LitResUtil.HOST_NAME));
     }
   }
   return true;

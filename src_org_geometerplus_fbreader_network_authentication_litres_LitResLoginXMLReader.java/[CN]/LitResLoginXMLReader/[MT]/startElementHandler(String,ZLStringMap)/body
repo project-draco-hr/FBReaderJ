@@ -15,7 +15,7 @@
     CanRebill=stringCanRebill != null && !"0".equals(stringCanRebill) && !"no".equalsIgnoreCase(stringCanRebill);
   }
  else {
-    setException(ZLNetworkException.forCode(ZLNetworkException.ERROR_SOMETHING_WRONG,HostName));
+    setException(ZLNetworkException.forCode(ZLNetworkException.ERROR_SOMETHING_WRONG,LitResUtil.HOST_NAME));
   }
   return true;
 }

@@ -3,7 +3,7 @@
   if (url == null) {
     throw ZLNetworkException.forCode(NetworkException.ERROR_UNSUPPORTED_OPERATION);
   }
-  final LitResPasswordRecoveryXMLReader xmlReader=new LitResPasswordRecoveryXMLReader(Link.getSiteName());
+  final LitResPasswordRecoveryXMLReader xmlReader=new LitResPasswordRecoveryXMLReader();
   final LitResNetworkRequest request=new LitResNetworkRequest(url,xmlReader);
   request.addPostParameter("mail",email);
   myNetworkContext.perform(request);
