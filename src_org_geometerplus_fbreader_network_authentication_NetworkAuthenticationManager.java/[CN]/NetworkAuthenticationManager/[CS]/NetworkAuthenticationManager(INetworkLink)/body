@@ -1,4 +1,4 @@
 {
   Link=link;
-  UserNameOption=new ZLStringOption(link.getSiteName(),"userName","");
+  UserNameOption=new ZLStringOption(link.getStringId(),"userName","");
 }
