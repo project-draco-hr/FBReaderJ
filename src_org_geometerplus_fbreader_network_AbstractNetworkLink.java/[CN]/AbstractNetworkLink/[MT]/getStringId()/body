@@ -1,7 +1,4 @@
 {
-  if (mySiteName != null) {
-    return mySiteName;
-  }
   final String hostName=getHostName();
   if (hostName != null) {
     return hostName;

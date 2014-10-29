@@ -3,7 +3,7 @@
   final String summaryString=summary != null ? summary.toString() : null;
   final UrlInfo catalogInfo=infos.getInfo(UrlInfo.Type.Catalog);
   if (MimeType.APP_ATOM_XML.weakEquals(catalogInfo.Mime)) {
-    final OPDSNetworkLink opdsLink=new OPDSPredefinedNetworkLink(OPDSNetworkLink.INVALID_ID,id,siteName,titleString,summaryString,language,infos);
+    final OPDSNetworkLink opdsLink=new OPDSPredefinedNetworkLink(OPDSNetworkLink.INVALID_ID,id,titleString,summaryString,language,infos);
     opdsLink.setRelationAliases(myRelationAliases);
     opdsLink.setUrlRewritingRules(myUrlRewritingRules);
     opdsLink.setExtraData(myExtraData);

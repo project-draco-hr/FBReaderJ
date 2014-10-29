@@ -6,6 +6,6 @@ switch (type) {
 default :
     return new OPDSCustomNetworkLink(id,type,siteName,title,summary,language,infos);
 case Predefined:
-  return new OPDSPredefinedNetworkLink(id,predefinedId,siteName,title,summary,language,infos);
+  return new OPDSPredefinedNetworkLink(id,predefinedId,title,summary,language,infos);
 }
 }

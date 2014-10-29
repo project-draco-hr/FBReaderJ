@@ -1,0 +1,6 @@
+{
+  if (predefinedId.startsWith(ID_PREFIX)) {
+    return predefinedId.substring(ID_PREFIX.length());
+  }
+  return predefinedId;
+}
