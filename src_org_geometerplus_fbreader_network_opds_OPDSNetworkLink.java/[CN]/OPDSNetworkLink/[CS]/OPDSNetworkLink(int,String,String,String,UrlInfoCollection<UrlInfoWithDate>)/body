@@ -1,4 +1,3 @@
 {
   super(id,title,summary,language,infos);
-  myPredefinedId=predefinedId;
 }

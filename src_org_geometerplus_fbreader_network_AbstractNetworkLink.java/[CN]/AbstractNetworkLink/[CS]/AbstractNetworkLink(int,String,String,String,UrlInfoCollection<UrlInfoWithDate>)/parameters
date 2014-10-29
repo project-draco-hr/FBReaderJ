@@ -1,6 +1,4 @@
 int id
-Type type
-String siteName
 String title
 String summary
 String language

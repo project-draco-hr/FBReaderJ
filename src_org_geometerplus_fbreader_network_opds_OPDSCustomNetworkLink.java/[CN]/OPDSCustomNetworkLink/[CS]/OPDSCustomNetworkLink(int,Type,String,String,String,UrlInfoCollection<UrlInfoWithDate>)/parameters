@@ -1,7 +1,5 @@
 int id
-INetworkLink.Type type
-String predefinedId
-String siteName
+Type type
 String title
 String summary
 String language

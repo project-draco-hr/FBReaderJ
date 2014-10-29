@@ -1,6 +1,5 @@
-int id
-String siteName
-String title
-String summary
+String id
+CharSequence title
+CharSequence summary
 String language
 UrlInfoCollection<UrlInfoWithDate> infos
