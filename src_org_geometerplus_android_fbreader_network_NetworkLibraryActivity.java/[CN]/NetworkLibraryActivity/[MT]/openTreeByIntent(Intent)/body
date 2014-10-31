@@ -1,17 +1,24 @@
 {
   if (FBReaderIntents.Action.OPEN_NETWORK_CATALOG.equals(intent.getAction())) {
     final Uri uri=intent.getData();
-    if (uri != null) {
-      final String id=uri.toString();
-      final NetworkLibrary library=NetworkLibrary.Instance();
-      library.setLinkActive(id,true);
-      library.synchronize();
-      final NetworkTree tree=library.getCatalogTreeByUrl(id);
-      if (tree != null) {
-        checkAndRun(new OpenCatalogAction(this,myNetworkContext),tree);
-        return true;
+    if (uri == null) {
+      return false;
+    }
+    final String id=uri.toString();
+    addCustomLink(id,new Runnable(){
+      public void run(){
+        final NetworkLibrary library=NetworkLibrary.Instance();
+        library.setLinkActive(id,true);
+        library.synchronize();
+        onLibraryChanged(NetworkLibrary.ChangeListener.Code.SomeCode,new Object[0]);
+        final NetworkTree tree=library.getCatalogTreeByUrl(id);
+        if (tree != null) {
+          checkAndRun(new OpenCatalogAction(NetworkLibraryActivity.this,myNetworkContext),tree);
+        }
       }
     }
+);
+    return true;
   }
   return false;
 }

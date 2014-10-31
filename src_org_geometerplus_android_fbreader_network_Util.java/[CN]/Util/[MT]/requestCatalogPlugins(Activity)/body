@@ -1,3 +1,0 @@
-{
-  activity.sendOrderedBroadcast(new Intent(EXTRA_CATALOG_ACTION),null,catalogInfoReceiver,null,Activity.RESULT_OK,null,null);
-}

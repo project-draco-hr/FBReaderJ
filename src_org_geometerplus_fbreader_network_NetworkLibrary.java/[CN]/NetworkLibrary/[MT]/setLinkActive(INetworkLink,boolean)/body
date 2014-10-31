@@ -3,4 +3,5 @@
     return;
   }
   setLinkActive(link.getUrl(UrlInfo.Type.Catalog),active);
+  myChildrenAreInvalid=true;
 }

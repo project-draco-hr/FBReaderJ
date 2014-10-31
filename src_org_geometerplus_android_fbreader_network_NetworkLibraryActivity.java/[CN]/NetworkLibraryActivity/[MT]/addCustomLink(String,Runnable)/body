@@ -1,0 +1,26 @@
+{
+  final NetworkLibrary library=NetworkLibrary.Instance();
+  if (library.getLinkByUrl(url) != null) {
+    if (postAction != null) {
+      runOnUiThread(postAction);
+    }
+    return;
+  }
+  final ICustomNetworkLink link=new OPDSCustomNetworkLink(INetworkLink.INVALID_ID,INetworkLink.Type.Custom,null,null,null,new UrlInfoCollection<UrlInfoWithDate>(new UrlInfoWithDate(UrlInfo.Type.Catalog,url,MimeType.APP_ATOM_XML)));
+  final Runnable loader=new Runnable(){
+    public void run(){
+      try {
+        link.reloadInfo(myNetworkContext,false,false);
+        library.addCustomLink(link);
+        if (postAction != null) {
+          runOnUiThread(postAction);
+        }
+      }
+ catch (      ZLNetworkException e) {
+        e.printStackTrace();
+      }
+    }
+  }
+;
+  new Thread(loader).start();
+}

@@ -1,7 +1,17 @@
 {
   final int id=link.getId();
   if (id == ICustomNetworkLink.INVALID_ID) {
-    myLinks.add(link);
+synchronized (myLinks) {
+      final INetworkLink existing=getLinkByUrl(link.getUrl(UrlInfo.Type.Catalog));
+      if (existing == null) {
+        myLinks.add(link);
+      }
+ else {
+        setLinkActive(existing,true);
+        fireModelChangedEvent(ChangeListener.Code.SomeCode);
+        return;
+      }
+    }
   }
  else {
 synchronized (myLinks) {
@@ -16,4 +26,5 @@ synchronized (myLinks) {
   }
   NetworkDatabase.Instance().saveLink(link);
   setLinkActive(link,true);
+  fireModelChangedEvent(ChangeListener.Code.SomeCode);
 }
