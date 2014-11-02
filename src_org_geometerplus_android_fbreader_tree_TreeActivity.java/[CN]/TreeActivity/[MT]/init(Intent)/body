@@ -17,9 +17,10 @@
     }
 );
   }
-  myHistory=(ArrayList<FBTree.Key>)intent.getSerializableExtra(HISTORY_KEY);
-  if (myHistory == null) {
-    myHistory=new ArrayList<FBTree.Key>();
+  myHistory.clear();
+  final ArrayList<FBTree.Key> history=(ArrayList<FBTree.Key>)intent.getSerializableExtra(HISTORY_KEY);
+  if (history != null) {
+    myHistory.addAll(history);
   }
   onCurrentTreeChanged();
 }
