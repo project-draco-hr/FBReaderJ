@@ -1,5 +1,6 @@
 {
   if (code == NetworkLibrary.ChangeListener.Code.InitializationFailed) {
+    UIUtil.showMessageText(this,(String)params[0]);
     return;
   }
   if (myBook == null || myTree == null) {
