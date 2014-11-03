@@ -8,7 +8,7 @@ synchronized (this) {
     UserNameOption.setValue(username);
   }
   try {
-    final LitResLoginXMLReader xmlReader=new LitResLoginXMLReader(Link.getSiteName());
+    final LitResLoginXMLReader xmlReader=new LitResLoginXMLReader();
     final LitResNetworkRequest request=new LitResNetworkRequest(url,xmlReader);
     for (    Map.Entry<String,String> entry : params.entrySet()) {
       request.addPostParameter(entry.getKey(),entry.getValue());

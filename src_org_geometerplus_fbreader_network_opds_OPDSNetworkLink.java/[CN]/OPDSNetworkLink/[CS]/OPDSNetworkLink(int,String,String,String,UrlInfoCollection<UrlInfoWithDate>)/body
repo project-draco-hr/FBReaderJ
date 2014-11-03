@@ -1,0 +1,3 @@
+{
+  super(id,title,summary,language,infos);
+}

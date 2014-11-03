@@ -1,4 +1,4 @@
 {
   final INetworkLink link=getLink();
-  return link != null ? getName() + " - " + link.getSiteName() : getName();
+  return link != null ? getName() + " - " + link.getTitle() : getName();
 }

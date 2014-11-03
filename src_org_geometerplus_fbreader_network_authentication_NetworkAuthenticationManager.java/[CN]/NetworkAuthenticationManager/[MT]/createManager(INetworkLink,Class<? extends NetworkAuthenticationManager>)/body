@@ -1,11 +1,11 @@
 {
-  NetworkAuthenticationManager mgr=ourManagers.get(link.getSiteName());
+  NetworkAuthenticationManager mgr=ourManagers.get(link.getStringId());
   if (mgr == null) {
     if (managerClass == LitResAuthenticationManager.class) {
       mgr=new LitResAuthenticationManager((OPDSNetworkLink)link);
     }
     if (mgr != null) {
-      ourManagers.put(link.getSiteName(),mgr);
+      ourManagers.put(link.getStringId(),mgr);
     }
   }
   return mgr;

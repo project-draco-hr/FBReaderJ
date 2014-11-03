@@ -12,7 +12,7 @@ synchronized (this) {
     sid=mySidOption.getValue();
   }
   try {
-    final LitResLoginXMLReader xmlReader=new LitResLoginXMLReader(Link.getSiteName());
+    final LitResLoginXMLReader xmlReader=new LitResLoginXMLReader();
     final Map<String,String> params=new HashMap<String,String>();
     final String url=parseUrl(Link.getUrl(UrlInfo.Type.SignIn),params);
     if (url == null) {

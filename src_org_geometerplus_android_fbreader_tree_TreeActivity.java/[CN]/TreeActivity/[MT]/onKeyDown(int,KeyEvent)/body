@@ -1,8 +1,10 @@
 {
   if (keyCode == KeyEvent.KEYCODE_BACK) {
     FBTree parent=null;
-    while (parent == null && !myHistory.isEmpty()) {
-      parent=getTreeByKey(myHistory.remove(myHistory.size() - 1));
+synchronized (myHistory) {
+      while (parent == null && !myHistory.isEmpty()) {
+        parent=getTreeByKey(myHistory.remove(myHistory.size() - 1));
+      }
     }
     if (parent == null) {
       parent=myCurrentTree.Parent;

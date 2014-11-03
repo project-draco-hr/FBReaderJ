@@ -1,4 +1,0 @@
-{
-  super(id,removeWWWPrefix(siteName),title,summary,language,infos);
-  myType=type;
-}

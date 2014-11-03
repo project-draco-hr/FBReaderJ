@@ -1,0 +1,4 @@
+{
+  super(id,title,summary,language,infos);
+  myType=type;
+}

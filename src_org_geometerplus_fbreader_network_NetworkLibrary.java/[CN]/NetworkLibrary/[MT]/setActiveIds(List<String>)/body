@@ -1,0 +1,4 @@
+{
+  activeIdsOption().setValue(ids);
+  invalidateChildren();
+}

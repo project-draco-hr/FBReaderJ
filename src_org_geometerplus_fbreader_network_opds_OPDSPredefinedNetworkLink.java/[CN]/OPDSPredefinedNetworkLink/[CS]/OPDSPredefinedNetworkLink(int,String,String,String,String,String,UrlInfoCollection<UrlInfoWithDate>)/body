@@ -1,4 +1,0 @@
-{
-  super(id,siteName,title,summary,language,infos);
-  myPredefinedId=predifinedId;
-}

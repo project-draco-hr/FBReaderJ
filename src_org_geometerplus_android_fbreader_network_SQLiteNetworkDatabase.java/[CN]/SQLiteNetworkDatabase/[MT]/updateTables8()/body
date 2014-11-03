@@ -1,0 +1,6 @@
+{
+  myDatabase.execSQL("ALTER TABLE Links RENAME TO Links_Obsolete");
+  myDatabase.execSQL("CREATE TABLE Links(" + "link_id INTEGER PRIMARY KEY," + "title TEXT NOT NULL,"+ "summary TEXT,"+ "language TEXT,"+ "predefined_id TEXT,"+ "is_enabled INTEGER,"+ "type INTEGER)");
+  myDatabase.execSQL("INSERT INTO Links (link_id,title,summary,language,predefined_id,is_enabled,type) SELECT link_id,title,summary,language,predefined_id,is_enabled,type FROM Links_Obsolete");
+  myDatabase.execSQL("DROP TABLE Links_Obsolete");
+}

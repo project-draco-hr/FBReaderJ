@@ -6,5 +6,5 @@
     }
     icon=icon.replaceAll("\n","");
   }
-  return "AbstractNetworkLink: {" + "siteName=" + mySiteName + "; title="+ myTitle+ "; summary="+ mySummary+ "; icon="+ icon+ "; infos="+ myInfos+ "}";
+  return "AbstractNetworkLink: {" + "id=" + getStringId() + "; title="+ myTitle+ "; summary="+ mySummary+ "; icon="+ icon+ "; infos="+ myInfos+ "}";
 }

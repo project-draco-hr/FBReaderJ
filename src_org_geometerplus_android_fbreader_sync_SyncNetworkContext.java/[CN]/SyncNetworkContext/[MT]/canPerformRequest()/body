@@ -8,20 +8,12 @@ case never:
     return false;
 case always:
 {
-    final ConnectivityManager cm=getConnectivityManager();
-    if (cm == null) {
-      return false;
-    }
-    final NetworkInfo info=cm.getActiveNetworkInfo();
+    final NetworkInfo info=getActiveNetworkInfo();
     return info != null && info.isConnected();
   }
 case viaWifi:
 {
-  final ConnectivityManager cm=getConnectivityManager();
-  if (cm == null) {
-    return false;
-  }
-  final NetworkInfo info=cm.getActiveNetworkInfo();
+  final NetworkInfo info=getActiveNetworkInfo();
   return info != null && info.isConnected() && info.getType() == ConnectivityManager.TYPE_WIFI;
 }
 }

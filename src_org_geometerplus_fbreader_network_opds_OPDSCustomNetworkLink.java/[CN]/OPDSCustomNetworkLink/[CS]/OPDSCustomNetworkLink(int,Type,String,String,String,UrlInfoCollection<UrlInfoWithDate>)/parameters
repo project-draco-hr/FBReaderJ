@@ -1,0 +1,6 @@
+int id
+Type type
+String title
+String summary
+String language
+UrlInfoCollection<UrlInfoWithDate> infos

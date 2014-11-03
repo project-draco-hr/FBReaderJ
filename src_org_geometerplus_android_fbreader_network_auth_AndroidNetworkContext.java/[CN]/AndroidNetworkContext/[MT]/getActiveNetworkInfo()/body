@@ -1,0 +1,6 @@
+{
+  if (myConnectivityManager == null) {
+    myConnectivityManager=(ConnectivityManager)getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+  }
+  return myConnectivityManager != null ? myConnectivityManager.getActiveNetworkInfo() : null;
+}

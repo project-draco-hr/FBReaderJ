@@ -1,4 +1,0 @@
-{
-  myHasChanges=myHasChanges || !MiscUtil.equals(mySiteName,name);
-  mySiteName=name;
-}
