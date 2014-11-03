@@ -3,16 +3,11 @@
     return null;
   }
   final CreateBookHandler handler=new CreateBookHandler(link,url);
-  try {
-    nc.perform(new ZLNetworkRequest.Get(url){
-      @Override public void handleStream(      InputStream inputStream,      int length) throws IOException, ZLNetworkException {
-        new OPDSXMLReader(handler,true).read(inputStream);
-      }
+  nc.perform(new ZLNetworkRequest.Get(url){
+    @Override public void handleStream(    InputStream inputStream,    int length) throws IOException, ZLNetworkException {
+      new OPDSXMLReader(handler,true).read(inputStream);
     }
+  }
 );
-  }
- catch (  ZLNetworkException e) {
-    e.printStackTrace();
-  }
   return handler.getBook();
 }

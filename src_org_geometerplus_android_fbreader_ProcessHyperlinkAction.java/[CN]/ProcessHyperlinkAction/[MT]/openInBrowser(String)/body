@@ -15,7 +15,7 @@
       if (!url.startsWith("fbreader-action:")) {
         nLibrary.initialize(new QuietNetworkContext());
       }
-      intent.setData(Uri.parse(nLibrary.rewriteUrl(url,externalUrl)));
+      intent.setData(Util.rewriteUri(Uri.parse(nLibrary.rewriteUrl(url,externalUrl))));
       BaseActivity.runOnUiThread(new Runnable(){
         public void run(){
           try {
