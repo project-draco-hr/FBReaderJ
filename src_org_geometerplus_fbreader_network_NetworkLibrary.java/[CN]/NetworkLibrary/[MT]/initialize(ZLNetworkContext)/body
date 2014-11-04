@@ -8,7 +8,7 @@
  catch (  ZLNetworkException e) {
     removeAllLoadedLinks();
     fireModelChangedEvent(ChangeListener.Code.InitializationFailed,e.getMessage());
-    return;
+    throw e;
   }
   final NetworkDatabase db=NetworkDatabase.Instance();
   if (db != null) {

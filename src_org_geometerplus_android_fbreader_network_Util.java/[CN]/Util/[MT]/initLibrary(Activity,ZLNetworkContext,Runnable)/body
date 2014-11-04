@@ -8,7 +8,11 @@
           }
           final NetworkLibrary library=NetworkLibrary.Instance();
           if (!library.isInitialized()) {
-            library.initialize(nc);
+            try {
+              library.initialize(nc);
+            }
+ catch (            ZLNetworkException e) {
+            }
           }
           if (action != null) {
             action.run();
