@@ -1,5 +1,5 @@
 {
-  final ZLNetworkManager.CookieStore store=new QuietNetworkContext().cookieStore();
+  final ZLNetworkManager.CookieStore store=myNetworkContext.cookieStore();
   for (  Map.Entry<String,String> entry : cookies.entrySet()) {
     final BasicClientCookie2 c=new BasicClientCookie2(entry.getKey(),entry.getValue());
     c.setDomain(host);

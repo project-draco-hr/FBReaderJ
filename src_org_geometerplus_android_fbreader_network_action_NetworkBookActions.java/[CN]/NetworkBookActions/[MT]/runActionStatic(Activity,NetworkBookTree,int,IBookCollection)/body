@@ -32,7 +32,7 @@ case ActionCode.REMOVE_BOOK_FROM_BASKET:
 book.Link.getBasketItem().remove(book);
 return true;
 case ActionCode.OPEN_BASKET:
-new OpenCatalogAction(activity,new QuietNetworkContext()).run(NetworkLibrary.Instance().getFakeBasketTree(book.Link.getBasketItem()));
+new OpenCatalogAction(activity,new ActivityNetworkContext(activity)).run(NetworkLibrary.Instance().getFakeBasketTree(book.Link.getBasketItem()));
 return true;
 }
 return false;
