@@ -2,7 +2,7 @@
   if (myEntry instanceof ZLTextCSSStyleEntry && !BaseStyle.UseCSSFontSizeOption.getValue()) {
     return Parent.getFontSize(metrics);
   }
-  final int baseFontSize=Parent.Parent.getFontSize(metrics);
+  final int baseFontSize=getTreeParent().getFontSize(metrics);
   if (myEntry.isFeatureSupported(FONT_STYLE_MODIFIER)) {
     if (myEntry.getFontModifier(FONT_MODIFIER_INHERIT) == ZLBoolean3.B3_TRUE) {
       return baseFontSize;

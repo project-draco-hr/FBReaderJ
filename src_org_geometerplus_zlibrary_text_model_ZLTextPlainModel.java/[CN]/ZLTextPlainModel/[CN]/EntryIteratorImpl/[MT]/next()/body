@@ -14,14 +14,16 @@
     }
     dataOffset=0;
   }
-  byte type=(byte)data[dataOffset];
+  short first=(short)data[dataOffset];
+  byte type=(byte)first;
   if (type == 0) {
     data=myStorage.block(++myDataIndex);
     if (data == null) {
       return false;
     }
     dataOffset=0;
-    type=(byte)data[0];
+    first=(short)data[0];
+    type=(byte)first;
   }
   myType=type;
   ++dataOffset;
@@ -72,7 +74,8 @@ break;
 case ZLTextParagraph.Entry.STYLE_CSS:
 case ZLTextParagraph.Entry.STYLE_OTHER:
 {
-final ZLTextStyleEntry entry=type == ZLTextParagraph.Entry.STYLE_CSS ? new ZLTextCSSStyleEntry() : new ZLTextOtherStyleEntry();
+final short depth=(short)((first >> 8) & 0xFF);
+final ZLTextStyleEntry entry=type == ZLTextParagraph.Entry.STYLE_CSS ? new ZLTextCSSStyleEntry(depth) : new ZLTextOtherStyleEntry();
 final short mask=(short)data[dataOffset++];
 for (int i=0; i < NUMBER_OF_LENGTHS; ++i) {
 if (ZLTextStyleEntry.isFeatureSupported(mask,i)) {

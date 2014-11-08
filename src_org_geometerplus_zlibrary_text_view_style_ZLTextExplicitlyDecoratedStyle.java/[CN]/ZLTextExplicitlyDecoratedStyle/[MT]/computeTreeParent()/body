@@ -1,0 +1,20 @@
+{
+  if (myEntry.Depth == 0) {
+    return Parent.Parent;
+  }
+  int count=0;
+  ZLTextStyle p=Parent;
+  for (; p != p.Parent; p=p.Parent) {
+    if (p instanceof ZLTextExplicitlyDecoratedStyle) {
+      if (((ZLTextExplicitlyDecoratedStyle)p).myEntry.Depth != myEntry.Depth) {
+        return p;
+      }
+    }
+ else {
+      if (++count > 1) {
+        return p;
+      }
+    }
+  }
+  return p;
+}

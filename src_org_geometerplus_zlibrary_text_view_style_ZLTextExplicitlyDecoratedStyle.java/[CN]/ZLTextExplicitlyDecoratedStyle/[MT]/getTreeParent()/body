@@ -1,0 +1,6 @@
+{
+  if (myTreeParent == null) {
+    myTreeParent=computeTreeParent();
+  }
+  return myTreeParent;
+}

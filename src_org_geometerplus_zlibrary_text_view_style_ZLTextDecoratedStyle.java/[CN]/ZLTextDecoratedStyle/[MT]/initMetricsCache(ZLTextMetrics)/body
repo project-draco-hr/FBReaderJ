@@ -4,7 +4,9 @@
   mySpaceBefore=getSpaceBeforeInternal(metrics,myFontSize);
   mySpaceAfter=getSpaceAfterInternal(metrics,myFontSize);
   myVerticalAlign=getVerticalAlignInternal(metrics,myFontSize);
-  myLeftIndent=getLeftIndentInternal(metrics,myFontSize);
-  myRightIndent=getRightIndentInternal(metrics,myFontSize);
+  myLeftMargin=getLeftMarginInternal(metrics,myFontSize);
+  myRightMargin=getRightMarginInternal(metrics,myFontSize);
+  myLeftPadding=getLeftPaddingInternal(metrics,myFontSize);
+  myRightPadding=getRightPaddingInternal(metrics,myFontSize);
   myFirstLineIndent=getFirstLineIndentInternal(metrics,myFontSize);
 }

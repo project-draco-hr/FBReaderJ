@@ -1,6 +1,0 @@
-{
-  if (!metrics.equals(myMetrics)) {
-    initMetricsCache(metrics);
-  }
-  return myLeftIndent;
-}

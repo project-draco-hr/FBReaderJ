@@ -1,0 +1,3 @@
+{
+  return getRightMargin(metrics) + getRightPadding(metrics);
+}

@@ -1,7 +1,0 @@
-{
-  final ZLTextStyleEntry.Length length=parseLength(MarginRightOption.getValue());
-  if (length == null) {
-    return base;
-  }
-  return ZLTextStyleEntry.compute(length,metrics,fontSize,ZLTextStyleEntry.Feature.LENGTH_RIGHT_INDENT);
-}

@@ -1,0 +1,9 @@
+{
+  if (myEntry instanceof ZLTextCSSStyleEntry && !BaseStyle.UseCSSMarginsOption.getValue()) {
+    return Parent.getRightPadding(metrics);
+  }
+  if (!myEntry.isFeatureSupported(LENGTH_PADDING_RIGHT)) {
+    return Parent.getRightPadding(metrics);
+  }
+  return getTreeParent().getRightPadding(metrics) + myEntry.getLength(LENGTH_PADDING_RIGHT,metrics,fontSize);
+}

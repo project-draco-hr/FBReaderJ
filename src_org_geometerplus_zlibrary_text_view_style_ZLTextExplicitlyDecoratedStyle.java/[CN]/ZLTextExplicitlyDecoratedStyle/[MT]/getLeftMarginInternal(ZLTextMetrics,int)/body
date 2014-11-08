@@ -1,0 +1,9 @@
+{
+  if (myEntry instanceof ZLTextCSSStyleEntry && !BaseStyle.UseCSSMarginsOption.getValue()) {
+    return Parent.getLeftMargin(metrics);
+  }
+  if (!myEntry.isFeatureSupported(LENGTH_MARGIN_LEFT)) {
+    return Parent.getLeftMargin(metrics);
+  }
+  return getTreeParent().getLeftMargin(metrics) + myEntry.getLength(LENGTH_MARGIN_LEFT,metrics,fontSize);
+}
