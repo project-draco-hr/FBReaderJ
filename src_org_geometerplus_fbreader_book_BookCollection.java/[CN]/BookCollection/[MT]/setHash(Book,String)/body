@@ -1,0 +1,7 @@
+{
+  try {
+    myDatabase.setHash(book.getId(),hash);
+  }
+ catch (  BooksDatabase.NotAvailable e) {
+  }
+}

@@ -1,3 +1,5 @@
 {
   super(SyncOptions.BASE_URL + "app/book.upload",file,false);
+  myBook=book;
+  myHash=hash;
 }

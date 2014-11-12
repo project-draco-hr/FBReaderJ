@@ -1,0 +1,10 @@
+{
+  if (myInterface == null) {
+    return;
+  }
+  try {
+    myInterface.setHash(SerializerUtil.serialize(book),hash);
+  }
+ catch (  RemoteException e) {
+  }
+}

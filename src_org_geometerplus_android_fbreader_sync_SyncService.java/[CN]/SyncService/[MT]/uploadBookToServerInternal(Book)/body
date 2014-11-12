@@ -37,7 +37,7 @@
     final String status=(String)result.get("status");
     if ((force && !"found".equals(status)) || "not found".equals(status)) {
       try {
-        final UploadRequest uploadRequest=new UploadRequest(file);
+        final UploadRequest uploadRequest=new UploadRequest(file,book,hash);
         uploadRequest.addHeader("Referer",verificationRequest.getURL());
         uploadRequest.addHeader("X-CSRFToken",csrfToken);
         myBookUploadContext.perform(uploadRequest);
