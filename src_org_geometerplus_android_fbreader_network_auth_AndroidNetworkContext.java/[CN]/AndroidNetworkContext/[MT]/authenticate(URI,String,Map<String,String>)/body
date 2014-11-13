@@ -1,6 +1,6 @@
 {
   if (!"https".equalsIgnoreCase(uri.getScheme())) {
-    return Collections.singletonMap("error","Connection is not secure");
+    return errorMap("Connection is not secure");
   }
   String authUrl=null;
   final String account=getAccountName(uri.getHost(),realm);
