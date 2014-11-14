@@ -3,5 +3,5 @@
   if (hashes.size() == 0) {
     return null;
   }
-  return new ServerBookInfo(hashes,myServerBookTitle.getValue(),true);
+  return new ServerBookInfo(hashes,myServerBookTitle.getValue(),myServerBookUrl.getValue(),myServerBookSize.getValue());
 }

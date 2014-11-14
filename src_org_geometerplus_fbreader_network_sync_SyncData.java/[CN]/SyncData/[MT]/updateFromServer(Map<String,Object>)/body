@@ -14,6 +14,11 @@
   if (currentBook != null) {
     myServerBookHashes.setValue((List<String>)currentBook.get("all_hashes"));
     myServerBookTitle.setValue((String)currentBook.get("title"));
+    myServerBookUrl.setValue((String)currentBook.get("url"));
+    final Long size=(Long)currentBook.get("size");
+    if (size != null) {
+      myServerBookSize.setValue((int)(long)size);
+    }
   }
  else {
     myServerBookHashes.setValue(Collections.<String>emptyList());

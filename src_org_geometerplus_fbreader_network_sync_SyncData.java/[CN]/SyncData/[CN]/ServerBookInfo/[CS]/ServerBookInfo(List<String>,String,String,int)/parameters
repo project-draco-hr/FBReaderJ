@@ -1,3 +1,4 @@
 List<String> hashes
 String title
-boolean downloadable
+String url
+int size
