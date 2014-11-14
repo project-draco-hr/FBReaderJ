@@ -1,0 +1,8 @@
+{
+  if (actual != null) {
+    Actual.addAll(actual);
+  }
+  if (deleted != null) {
+    Deleted.addAll(deleted);
+  }
+}

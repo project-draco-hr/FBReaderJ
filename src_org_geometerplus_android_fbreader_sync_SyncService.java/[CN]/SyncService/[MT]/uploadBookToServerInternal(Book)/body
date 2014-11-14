@@ -8,10 +8,10 @@
   if (hash == null) {
     return Status.HashNotComputed;
   }
- else   if (myActualHashesFromServer.contains(hash)) {
+ else   if (myHashesFromServer.Actual.contains(hash)) {
     return Status.AlreadyUploaded;
   }
- else   if (!force && myDeletedHashesFromServer.contains(hash)) {
+ else   if (!force && myHashesFromServer.Actual.contains(hash)) {
     return Status.ToBeDeleted;
   }
  else   if (!force && book.labels().contains(Book.SYNC_FAILURE_LABEL)) {
@@ -51,11 +51,11 @@
  else {
       final List<String> hashes=(List<String>)result.get("hashes");
       if ("found".equals(status)) {
-        myActualHashesFromServer.addAll(hashes);
+        myHashesFromServer.addAll(hashes,null);
         return Status.AlreadyUploaded;
       }
  else {
-        myDeletedHashesFromServer.addAll(hashes);
+        myHashesFromServer.addAll(null,hashes);
         return Status.ToBeDeleted;
       }
     }

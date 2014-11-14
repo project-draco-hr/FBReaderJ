@@ -1,5 +1,5 @@
 {
-  if (myHashTablesAreInitialized) {
+  if (myHashesFromServer.Initialised) {
     return;
   }
   try {
@@ -7,30 +7,29 @@
     final int pageSize=500;
     final Map<String,String> data=new HashMap<String,String>();
     data.put("page_size",String.valueOf(pageSize));
-    for (int pageNo=0; !myHashTablesAreInitialized; ++pageNo) {
+    for (int pageNo=0; !myHashesFromServer.Initialised; ++pageNo) {
       data.put("page_no",String.valueOf(pageNo));
       myBookUploadContext.perform(new PostRequest("all.hashes.paged",data){
         @Override public void processResponse(        Object response){
           final Map<String,List<String>> map=(Map<String,List<String>>)response;
           final List<String> actualHashes=map.get("actual");
           final List<String> deletedHashes=map.get("deleted");
-          myActualHashesFromServer.addAll(actualHashes);
-          myDeletedHashesFromServer.addAll(deletedHashes);
+          myHashesFromServer.addAll(actualHashes,deletedHashes);
           if (actualHashes.size() < pageSize && deletedHashes.size() < pageSize) {
-            myHashTablesAreInitialized=true;
+            myHashesFromServer.Initialised=true;
           }
         }
       }
 );
-      log(String.format("RECEIVED: %s/%s HASHES (%s)",myActualHashesFromServer.size(),myDeletedHashesFromServer.size(),myHashTablesAreInitialized ? "complete" : "partial"));
+      log("RECEIVED: " + myHashesFromServer.toString());
     }
   }
  catch (  SyncronizationDisabledException e) {
-    clearHashTables();
+    myHashesFromServer.clear();
     throw e;
   }
 catch (  Exception e) {
-    clearHashTables();
+    myHashesFromServer.clear();
     e.printStackTrace();
   }
 }
