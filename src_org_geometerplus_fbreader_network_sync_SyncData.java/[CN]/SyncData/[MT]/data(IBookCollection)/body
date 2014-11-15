@@ -10,7 +10,7 @@
       myCurrentBookHash.setValue(newHash);
       if (oldHash.length() != 0) {
         myCurrentBookTimestamp.setValue(String.valueOf(System.currentTimeMillis()));
-        myServerBookHashes.setValue(Collections.<String>emptyList());
+        myServerBook.reset();
       }
     }
     final String currentBookHash=newHash != null ? newHash : oldHash;

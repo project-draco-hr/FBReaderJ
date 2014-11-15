@@ -1,0 +1,6 @@
+{
+  Hashes.setValue(Collections.<String>emptyList());
+  Title.setValue("");
+  Url.setValue("");
+  Size.setValue(0);
+}
