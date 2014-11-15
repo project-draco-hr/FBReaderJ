@@ -1,0 +1,6 @@
+{
+  if (myTextView == null) {
+    myTextView=(TextView)findViewById(R.id.simple_dialog_text);
+  }
+  return myTextView;
+}

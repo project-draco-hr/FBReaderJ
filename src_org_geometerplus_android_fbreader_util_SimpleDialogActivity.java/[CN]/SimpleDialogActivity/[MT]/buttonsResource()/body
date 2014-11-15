@@ -1,0 +1,6 @@
+{
+  if (myButtonsResource == null) {
+    myButtonsResource=ZLResource.resource("dialog").getResource("button");
+  }
+  return myButtonsResource;
+}

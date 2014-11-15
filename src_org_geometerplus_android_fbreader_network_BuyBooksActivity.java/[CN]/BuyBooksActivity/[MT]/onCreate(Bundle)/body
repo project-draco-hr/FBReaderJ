@@ -25,10 +25,10 @@
     finish();
     return;
   }
-  setContentView(R.layout.buy_book);
+  setSimpleContentView(true);
   try {
     if (!mgr.isAuthorised(true)) {
-      findViewById(R.id.buy_book_buttons).setVisibility(View.GONE);
+      buttonsView().setVisibility(View.GONE);
       AuthorisationMenuActivity.runMenu(this,myLink,1);
     }
   }

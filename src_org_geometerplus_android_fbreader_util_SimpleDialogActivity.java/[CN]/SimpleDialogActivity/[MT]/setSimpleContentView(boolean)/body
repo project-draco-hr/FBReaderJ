@@ -1,0 +1,7 @@
+{
+  myTextView=null;
+  myButtonsView=null;
+  myOkButton=null;
+  myCancelButton=null;
+  setContentView(med ? R.layout.simple_dialog_medium_text : R.layout.simple_dialog);
+}

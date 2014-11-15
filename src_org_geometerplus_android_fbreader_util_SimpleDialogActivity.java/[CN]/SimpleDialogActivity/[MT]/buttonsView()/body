@@ -1,0 +1,6 @@
+{
+  if (myButtonsView == null) {
+    myButtonsView=findViewById(R.id.simple_dialog_buttons);
+  }
+  return myButtonsView;
+}

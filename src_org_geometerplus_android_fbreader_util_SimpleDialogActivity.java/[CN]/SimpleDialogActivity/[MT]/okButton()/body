@@ -1,0 +1,6 @@
+{
+  if (myOkButton == null) {
+    myOkButton=(Button)buttonsView().findViewById(R.id.ok_button);
+  }
+  return myOkButton;
+}

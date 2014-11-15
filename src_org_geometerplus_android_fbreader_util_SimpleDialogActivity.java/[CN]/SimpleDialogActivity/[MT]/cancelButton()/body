@@ -1,0 +1,6 @@
+{
+  if (myCancelButton == null) {
+    myCancelButton=(Button)buttonsView().findViewById(R.id.cancel_button);
+  }
+  return myCancelButton;
+}

@@ -1,0 +1,16 @@
+{
+  if (okKey != null) {
+    okButton().setText(buttonsResource().getResource(okKey).getValue());
+    okButton().setVisibility(View.VISIBLE);
+  }
+ else {
+    okButton().setVisibility(View.GONE);
+  }
+  if (cancelKey != null) {
+    cancelButton().setText(buttonsResource().getResource(cancelKey).getValue());
+    cancelButton().setVisibility(View.VISIBLE);
+  }
+ else {
+    cancelButton().setVisibility(View.GONE);
+  }
+}
