@@ -83,7 +83,7 @@
       myOpenBookIntent=null;
       getCollection().bindToService(this,new Runnable(){
         public void run(){
-          myFBReaderApp.openBook(null,null,null,FBReader.this);
+          myFBReaderApp.openBook(null,null,null,myNotifier);
         }
       }
 );

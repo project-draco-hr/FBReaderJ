@@ -22,7 +22,7 @@
   }
   Config.Instance().runOnConnect(new Runnable(){
     public void run(){
-      myFBReaderApp.openBook(myBook,bookmark,action,FBReader.this);
+      myFBReaderApp.openBook(myBook,bookmark,action,myNotifier);
       AndroidFontUtil.clearFontCache();
     }
   }

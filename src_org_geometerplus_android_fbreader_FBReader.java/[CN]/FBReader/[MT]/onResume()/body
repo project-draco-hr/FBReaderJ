@@ -61,7 +61,7 @@
  else   if (myFBReaderApp.getCurrentServerBook(null) != null) {
     getCollection().bindToService(this,new Runnable(){
       public void run(){
-        myFBReaderApp.useSyncInfo(true,FBReader.this);
+        myFBReaderApp.useSyncInfo(true,myNotifier);
       }
     }
 );
@@ -69,7 +69,7 @@
  else   if (myFBReaderApp.Model == null && myFBReaderApp.ExternalBook != null) {
     getCollection().bindToService(this,new Runnable(){
       public void run(){
-        myFBReaderApp.openBook(myFBReaderApp.ExternalBook,null,null,FBReader.this);
+        myFBReaderApp.openBook(myFBReaderApp.ExternalBook,null,null,myNotifier);
       }
     }
 );
@@ -77,7 +77,7 @@
  else {
     getCollection().bindToService(this,new Runnable(){
       public void run(){
-        myFBReaderApp.useSyncInfo(true,FBReader.this);
+        myFBReaderApp.useSyncInfo(true,myNotifier);
       }
     }
 );
