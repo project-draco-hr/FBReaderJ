@@ -1,5 +1,4 @@
 {
-  myMimeType=mimeType;
   Url=url;
   new File(Paths.networkCacheDirectory()).mkdirs();
 }

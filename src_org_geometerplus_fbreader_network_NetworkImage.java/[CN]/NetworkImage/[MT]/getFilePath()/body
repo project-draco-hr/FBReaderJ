@@ -1,6 +1,6 @@
 {
   if (myStoredFilePath == null) {
-    myStoredFilePath=makeImageFilePath(Url,myMimeType);
+    myStoredFilePath=makeImageFilePath(Url);
   }
   return myStoredFilePath;
 }
