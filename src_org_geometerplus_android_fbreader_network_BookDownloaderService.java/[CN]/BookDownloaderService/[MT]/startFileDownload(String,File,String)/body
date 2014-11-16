@@ -86,6 +86,7 @@
     public void run(){
       boolean success=false;
       try {
+        SQLiteCookieDatabase.init(BookDownloaderService.this);
         myNetworkContext.perform(request);
         success=true;
       }
