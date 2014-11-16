@@ -5,7 +5,7 @@
     }
     return;
   }
-  onViewChanged();
+  hideActivePopup();
   storePosition();
   BookTextView.setModel(null);
   FootnoteView.setModel(null);

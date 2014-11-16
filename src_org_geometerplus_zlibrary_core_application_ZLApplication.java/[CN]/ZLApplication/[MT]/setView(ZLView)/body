@@ -6,6 +6,6 @@
       widget.reset();
       widget.repaint();
     }
-    onViewChanged();
+    hideActivePopup();
   }
 }
