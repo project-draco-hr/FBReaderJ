@@ -7,8 +7,6 @@
   intent.setClass(this,BookDownloaderService.class);
   okButton().setOnClickListener(new View.OnClickListener(){
     public void onClick(    View v){
-      final NotificationManager notificationManager=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
-      notificationManager.cancel(NetworkNotifications.MISSING_BOOK_ID);
       startService(intent);
       finish();
     }

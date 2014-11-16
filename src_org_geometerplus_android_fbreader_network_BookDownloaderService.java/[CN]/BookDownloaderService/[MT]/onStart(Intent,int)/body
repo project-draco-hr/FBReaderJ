@@ -7,14 +7,14 @@
     return;
   }
   intent.setData(null);
-  final int notifications=intent.getIntExtra(SHOW_NOTIFICATIONS_KEY,0);
+  final int notifications=intent.getIntExtra(Key.SHOW_NOTIFICATIONS,0);
   final String url=uri.toString();
   final MimeType mime=MimeType.get(intent.getStringExtra(Key.BOOK_MIME));
-  UrlInfo.Type referenceType=(UrlInfo.Type)intent.getSerializableExtra(REFERENCE_TYPE_KEY);
+  UrlInfo.Type referenceType=(UrlInfo.Type)intent.getSerializableExtra(Key.BOOK_KIND);
   if (referenceType == null) {
     referenceType=UrlInfo.Type.Book;
   }
-  String cleanURL=intent.getStringExtra(CLEAN_URL_KEY);
+  String cleanURL=intent.getStringExtra(Key.CLEAN_URL);
   if (cleanURL == null) {
     cleanURL=url;
   }
