@@ -1,6 +1,5 @@
 {
   super.onCreate(bundle);
-  setSimpleContentView(false);
   final ZLResource resource=ZLResource.resource("crash").getResource("missingNativeLibrary");
   setTitle(resource.getResource("title").getValue());
   textView().setText(resource.getResource("text").getValue());

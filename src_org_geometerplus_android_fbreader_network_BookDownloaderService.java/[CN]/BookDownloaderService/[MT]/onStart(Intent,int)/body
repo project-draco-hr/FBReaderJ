@@ -9,7 +9,7 @@
   intent.setData(null);
   final int notifications=intent.getIntExtra(SHOW_NOTIFICATIONS_KEY,0);
   final String url=uri.toString();
-  final MimeType mime=MimeType.get(intent.getStringExtra(BOOK_MIME));
+  final MimeType mime=MimeType.get(intent.getStringExtra(Key.BOOK_MIME));
   UrlInfo.Type referenceType=(UrlInfo.Type)intent.getSerializableExtra(REFERENCE_TYPE_KEY);
   if (referenceType == null) {
     referenceType=UrlInfo.Type.Book;
@@ -56,7 +56,7 @@
     startActivity(getFBReaderIntent(fileFile));
     return;
   }
-  String title=intent.getStringExtra(TITLE_KEY);
+  String title=intent.getStringExtra(Key.BOOK_TITLE);
   if (title == null || title.length() == 0) {
     title=fileFile.getName();
   }

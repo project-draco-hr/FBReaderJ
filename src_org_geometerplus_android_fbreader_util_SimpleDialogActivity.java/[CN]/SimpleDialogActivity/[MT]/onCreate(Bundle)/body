@@ -1,7 +1,8 @@
 {
+  super.onCreate(bundle);
   myTextView=null;
   myButtonsView=null;
   myOkButton=null;
   myCancelButton=null;
-  setContentView(med ? R.layout.simple_dialog_medium_text : R.layout.simple_dialog);
+  setContentView(R.layout.simple_dialog);
 }

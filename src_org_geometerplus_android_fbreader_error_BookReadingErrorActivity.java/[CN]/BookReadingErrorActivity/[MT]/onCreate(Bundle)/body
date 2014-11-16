@@ -1,6 +1,5 @@
 {
   super.onCreate(bundle);
-  setSimpleContentView(false);
   final ZLResource resource=ZLResource.resource("error").getResource("bookReading");
   setTitle(resource.getResource("title").getValue());
   textView().setText(getIntent().getStringExtra(MESSAGE));

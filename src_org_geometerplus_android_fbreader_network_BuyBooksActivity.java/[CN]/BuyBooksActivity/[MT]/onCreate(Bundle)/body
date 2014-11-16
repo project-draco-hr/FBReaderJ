@@ -25,7 +25,6 @@
     finish();
     return;
   }
-  setSimpleContentView(true);
   try {
     if (!mgr.isAuthorised(true)) {
       buttonsView().setVisibility(View.GONE);

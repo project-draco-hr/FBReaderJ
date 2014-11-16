@@ -1,0 +1,19 @@
+{
+  super.onCreate(bundle);
+  final Intent intent=getIntent();
+  final String title=intent.getStringExtra(BookDownloaderService.Key.BOOK_TITLE);
+  setTitle(title);
+  textView().setText(errorMessage(title));
+  intent.setClass(this,BookDownloaderService.class);
+  okButton().setOnClickListener(new View.OnClickListener(){
+    public void onClick(    View v){
+      final NotificationManager notificationManager=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+      notificationManager.cancel(NetworkNotifications.MISSING_BOOK_ID);
+      startService(intent);
+      finish();
+    }
+  }
+);
+  cancelButton().setOnClickListener(finishListener());
+  setButtonTexts("download","cancel");
+}
