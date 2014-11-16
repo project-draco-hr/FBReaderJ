@@ -2,7 +2,7 @@
   super.onCreate(bundle);
   final Intent intent=getIntent();
   final String title=intent.getStringExtra(BookDownloaderService.Key.BOOK_TITLE);
-  setTitle(title);
+  setTitle(errorTitle());
   textView().setText(errorMessage(title));
   intent.setClass(this,BookDownloaderService.class);
   okButton().setOnClickListener(new View.OnClickListener(){
