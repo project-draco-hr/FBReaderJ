@@ -1,4 +1,12 @@
 {
+synchronized (this) {
+    myLatestHashes.retainAll(info.Hashes);
+    if (!myLatestHashes.isEmpty() && myLatestNotificationStamp > System.currentTimeMillis() - 5 * 60 * 1000) {
+      return;
+    }
+    myLatestHashes.addAll(info.Hashes);
+    myLatestNotificationStamp=System.currentTimeMillis();
+  }
   new Thread(){
     public void run(){
       showMissingBookNotificationInternal(info);
