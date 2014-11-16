@@ -1,6 +1,6 @@
 {
   final String errorTitle=MissingBookActivity.errorTitle();
-  final NotificationManager notificationManager=(NotificationManager)myActivity.getSystemService(NOTIFICATION_SERVICE);
+  final NotificationManager notificationManager=(NotificationManager)myActivity.getSystemService(Activity.NOTIFICATION_SERVICE);
   final NotificationCompat.Builder builder=new NotificationCompat.Builder(myActivity).setSmallIcon(R.drawable.fbreader).setTicker(errorTitle).setContentTitle(errorTitle).setContentText(info.Title).setAutoCancel(false);
   if (info.ThumbnailUrl != null) {
     SQLiteCookieDatabase.init(myActivity);
