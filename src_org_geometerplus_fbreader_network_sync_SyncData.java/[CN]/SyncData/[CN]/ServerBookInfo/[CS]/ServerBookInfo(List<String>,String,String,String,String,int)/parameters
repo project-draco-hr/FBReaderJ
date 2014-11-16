@@ -1,0 +1,6 @@
+List<String> hashes
+String title
+String downloadUrl
+String mimetype
+String thumbnailUrl
+int size

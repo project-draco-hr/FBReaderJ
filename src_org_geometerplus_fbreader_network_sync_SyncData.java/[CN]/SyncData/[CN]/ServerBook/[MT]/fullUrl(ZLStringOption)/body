@@ -1,0 +1,4 @@
+{
+  final String value=option.getValue();
+  return !"".equals(value) ? SyncOptions.BASE_URL + value : null;
+}

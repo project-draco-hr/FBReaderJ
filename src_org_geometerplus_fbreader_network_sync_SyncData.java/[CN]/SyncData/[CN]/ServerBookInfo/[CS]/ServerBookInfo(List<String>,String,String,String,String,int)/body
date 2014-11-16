@@ -1,6 +1,8 @@
 {
   Hashes=Collections.unmodifiableList(hashes);
   Title=title;
-  Url=url;
+  DownloadUrl=downloadUrl;
+  Mimetype=mimetype;
+  ThumbnailUrl=thumbnailUrl;
   Size=size;
 }

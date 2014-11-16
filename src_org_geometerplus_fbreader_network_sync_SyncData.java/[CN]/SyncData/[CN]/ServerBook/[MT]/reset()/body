@@ -1,6 +1,8 @@
 {
   Hashes.setValue(Collections.<String>emptyList());
   Title.setValue("");
-  Url.setValue("");
+  DownloadUrl.setValue("");
+  Mimetype.setValue("");
+  ThumbnailUrl.setValue("");
   Size.setValue(0);
 }

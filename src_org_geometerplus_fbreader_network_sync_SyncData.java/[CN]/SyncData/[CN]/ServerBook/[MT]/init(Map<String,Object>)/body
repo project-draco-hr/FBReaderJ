@@ -5,8 +5,12 @@
  else {
     Hashes.setValue((List<String>)book.get("all_hashes"));
     Title.setValue((String)book.get("title"));
-    final String url=(String)book.get("url");
-    Url.setValue(url != null ? url : "");
+    final String downloadUrl=(String)book.get("download_url");
+    DownloadUrl.setValue(downloadUrl != null ? downloadUrl : "");
+    final String mimetype=(String)book.get("mimetype");
+    Mimetype.setValue(mimetype != null ? mimetype : "");
+    final String thumbnailUrl=(String)book.get("thumbnail_url");
+    ThumbnailUrl.setValue(thumbnailUrl != null ? thumbnailUrl : "");
     final Long size=(Long)book.get("size");
     Size.setValue(size != null ? (int)(long)size : 0);
   }
