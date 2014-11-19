@@ -1,0 +1,4 @@
+{
+  final String extension=file.getExtension();
+  return "cbz".equalsIgnoreCase(extension);
+}
