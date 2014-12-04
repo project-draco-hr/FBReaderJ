@@ -1,0 +1,3 @@
+{
+  canvas.drawBitmap(bm,new Rect(left,0,right,height),new Rect(left,voffset,right,voffset + height),paint);
+}

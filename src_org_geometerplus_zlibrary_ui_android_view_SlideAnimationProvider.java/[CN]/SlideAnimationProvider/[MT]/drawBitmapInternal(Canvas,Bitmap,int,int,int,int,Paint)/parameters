@@ -1,0 +1,7 @@
+Canvas canvas
+Bitmap bm
+int left
+int right
+int height
+int voffset
+Paint paint
