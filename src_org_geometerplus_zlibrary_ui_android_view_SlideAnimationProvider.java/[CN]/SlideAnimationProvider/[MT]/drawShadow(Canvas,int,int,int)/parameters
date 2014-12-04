@@ -1,0 +1,4 @@
+Canvas canvas
+int top
+int bottom
+int dX
