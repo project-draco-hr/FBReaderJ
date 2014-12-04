@@ -8,7 +8,7 @@
     if (animator.getMode().Auto) {
       postInvalidate();
     }
-    drawFooter(canvas);
+    drawFooter(canvas,animator);
   }
  else {
 switch (oldMode) {

@@ -1,0 +1,3 @@
+{
+  canvas.drawBitmap(footerBitmap,0,voffset,myPaint);
+}

@@ -1,5 +1,4 @@
 {
-  myPaint.setColor(Color.rgb(127,127,127));
   if (myDirection.IsHorizontal) {
     final int dX=myEndX - myStartX;
     canvas.drawBitmap(getBitmapTo(),dX > 0 ? dX - myWidth : dX + myWidth,0,myPaint);
