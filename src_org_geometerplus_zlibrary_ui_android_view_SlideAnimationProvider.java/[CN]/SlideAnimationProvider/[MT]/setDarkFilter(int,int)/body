@@ -1,0 +1,4 @@
+{
+  final int color=145 + 100 * Math.abs(visible) / full;
+  myDarkPaint.setColorFilter(new PorterDuffColorFilter(Color.rgb(color,color,color),PorterDuff.Mode.MULTIPLY));
+}
