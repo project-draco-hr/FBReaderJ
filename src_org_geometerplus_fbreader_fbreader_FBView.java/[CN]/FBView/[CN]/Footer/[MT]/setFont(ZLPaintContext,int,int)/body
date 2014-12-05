@@ -1,0 +1,7 @@
+{
+  final String family=myViewOptions.getFooterOptions().Font.getValue();
+  if (myFontEntry == null || !family.equals(myFontEntry.get(0).Family)) {
+    myFontEntry=Collections.singletonList(FontEntry.systemEntry(family));
+  }
+  context.setFont(myFontEntry,height <= boldLimit ? height + 3 : height + 1,height > boldLimit,false,false,false);
+}

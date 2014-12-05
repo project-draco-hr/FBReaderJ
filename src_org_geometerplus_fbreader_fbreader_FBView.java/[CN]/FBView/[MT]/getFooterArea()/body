@@ -1,15 +1,29 @@
 {
-  if (myViewOptions.ScrollbarType.getValue() == SCROLLBAR_SHOW_AS_FOOTER) {
-    if (myFooter == null) {
-      myFooter=new Footer();
+switch (myViewOptions.ScrollbarType.getValue()) {
+case SCROLLBAR_SHOW_AS_FOOTER:
+    if (!(myFooter instanceof FooterNewStyle)) {
+      if (myFooter != null) {
+        myReader.removeTimerTask(myFooter.UpdateTask);
+      }
+      myFooter=new FooterNewStyle();
       myReader.addTimerTask(myFooter.UpdateTask,15000);
     }
+  break;
+case SCROLLBAR_SHOW_AS_FOOTER_OLD_STYLE:
+if (!(myFooter instanceof FooterOldStyle)) {
+  if (myFooter != null) {
+    myReader.removeTimerTask(myFooter.UpdateTask);
   }
- else {
-    if (myFooter != null) {
-      myReader.removeTimerTask(myFooter.UpdateTask);
-      myFooter=null;
-    }
-  }
-  return myFooter;
+  myFooter=new FooterOldStyle();
+  myReader.addTimerTask(myFooter.UpdateTask,15000);
+}
+break;
+default :
+if (myFooter != null) {
+myReader.removeTimerTask(myFooter.UpdateTask);
+myFooter=null;
+}
+break;
+}
+return myFooter;
 }

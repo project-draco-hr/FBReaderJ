@@ -1,0 +1,51 @@
+{
+  context.clear(new ZLColor(0x44,0x44,0x44));
+  final BookModel model=myReader.Model;
+  if (model == null) {
+    return;
+  }
+  final ZLColor textColor=new ZLColor(0xBB,0xBB,0xBB);
+  final ZLColor readColor=new ZLColor(0xBB,0xBB,0xBB);
+  final ZLColor unreadColor=new ZLColor(0x77,0x77,0x77);
+  final int left=getLeftMargin();
+  final int right=context.getWidth() - getRightMargin();
+  final int height=getHeight();
+  final int lineWidth=height <= 12 ? 1 : 2;
+  final int delta=height <= 12 ? 0 : 1;
+  setFont(context,height,12);
+  final PagePosition pagePosition=FBView.this.pagePosition();
+  final String infoString=buildInfoString(pagePosition,"  ");
+  final int infoWidth=context.getStringWidth(infoString);
+  context.setTextColor(textColor);
+  context.drawString(right - infoWidth,height - delta,infoString);
+  final int gaugeRight=right - (infoWidth == 0 ? 0 : infoWidth + 10);
+  final int gaugeInternalRight=left + (int)(1.0 * (gaugeRight - left) * pagePosition.Current / pagePosition.Total + 0.5);
+  final int v=height / 2;
+  context.setLineWidth(lineWidth);
+  context.setLineColor(readColor);
+  context.drawLine(left,v,gaugeInternalRight,v);
+  if (gaugeInternalRight < gaugeRight) {
+    context.setLineColor(unreadColor);
+    context.drawLine(gaugeInternalRight + 1,v,gaugeRight,v);
+  }
+  final TreeSet<Integer> labels=new TreeSet<Integer>();
+  labels.add(left);
+  labels.add(gaugeRight);
+  if (myViewOptions.getFooterOptions().ShowTOCMarks.getValue()) {
+    if (myTOCMarks == null) {
+      updateTOCMarks(model);
+    }
+    final int fullLength=sizeOfFullText();
+    for (    TOCTree tocItem : myTOCMarks) {
+      TOCTree.Reference reference=tocItem.getReference();
+      if (reference != null) {
+        final int refCoord=sizeOfTextBeforeParagraph(reference.ParagraphIndex);
+        labels.add(left + (int)(1.0 * (gaugeRight - left) * refCoord / fullLength + 0.5));
+      }
+    }
+  }
+  for (  int l : labels) {
+    context.setLineColor(l <= gaugeInternalRight ? readColor : unreadColor);
+    context.drawLine(l,v + 3,l,v - lineWidth - 2);
+  }
+}

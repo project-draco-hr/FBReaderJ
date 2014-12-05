@@ -10,7 +10,6 @@
   if (model == null) {
     return;
   }
-  final FooterOptions footerOptions=myViewOptions.getFooterOptions();
   final ZLColor fgColor=getTextColor(ZLTextHyperlink.NO_LINK);
   final ZLColor fillColor=myViewOptions.getColorProfile().FooterFillOption.getValue();
   final int left=getLeftMargin();
@@ -18,47 +17,24 @@
   final int height=getHeight();
   final int lineWidth=height <= 10 ? 1 : 2;
   final int delta=height <= 10 ? 0 : 1;
-  final String family=footerOptions.Font.getValue();
-  if (myFontEntry == null || !family.equals(myFontEntry.get(0).Family)) {
-    myFontEntry=Collections.singletonList(FontEntry.systemEntry(family));
-  }
-  context.setFont(myFontEntry,height <= 10 ? height + 3 : height + 1,height > 10,false,false,false);
+  setFont(context,height,10);
   final PagePosition pagePosition=FBView.this.pagePosition();
-  final StringBuilder info=new StringBuilder();
-  if (footerOptions.ShowProgress.getValue()) {
-    info.append(pagePosition.Current);
-    info.append("/");
-    info.append(pagePosition.Total);
-  }
-  if (footerOptions.ShowClock.getValue()) {
-    if (info.length() > 0) {
-      info.append(" ");
-    }
-    info.append(ZLibrary.Instance().getCurrentTimeString());
-  }
-  if (footerOptions.ShowBattery.getValue()) {
-    if (info.length() > 0) {
-      info.append(" ");
-    }
-    info.append(myReader.getBatteryLevel());
-    info.append("%");
-  }
-  final String infoString=info.toString();
+  final String infoString=buildInfoString(pagePosition," ");
   final int infoWidth=context.getStringWidth(infoString);
   context.setTextColor(fgColor);
   context.drawString(right - infoWidth,height - delta,infoString);
   final int gaugeRight=right - (infoWidth == 0 ? 0 : infoWidth + 10);
-  myGaugeWidth=gaugeRight - left - 2 * lineWidth;
+  final int gaugeWidth=gaugeRight - left - 2 * lineWidth;
   context.setLineColor(fgColor);
   context.setLineWidth(lineWidth);
   context.drawLine(left,lineWidth,left,height - lineWidth);
   context.drawLine(left,height - lineWidth,gaugeRight,height - lineWidth);
   context.drawLine(gaugeRight,height - lineWidth,gaugeRight,lineWidth);
   context.drawLine(gaugeRight,lineWidth,left,lineWidth);
-  final int gaugeInternalRight=left + lineWidth + (int)(1.0 * myGaugeWidth * pagePosition.Current / pagePosition.Total);
+  final int gaugeInternalRight=left + lineWidth + (int)(1.0 * gaugeWidth * pagePosition.Current / pagePosition.Total);
   context.setFillColor(fillColor);
   context.fillRectangle(left + 1,height - 2 * lineWidth,gaugeInternalRight,lineWidth + 1);
-  if (footerOptions.ShowTOCMarks.getValue()) {
+  if (myViewOptions.getFooterOptions().ShowTOCMarks.getValue()) {
     if (myTOCMarks == null) {
       updateTOCMarks(model);
     }
@@ -67,7 +43,7 @@
       TOCTree.Reference reference=tocItem.getReference();
       if (reference != null) {
         final int refCoord=sizeOfTextBeforeParagraph(reference.ParagraphIndex);
-        final int xCoord=left + 2 * lineWidth + (int)(1.0 * myGaugeWidth * refCoord / fullLength);
+        final int xCoord=left + 2 * lineWidth + (int)(1.0 * gaugeWidth * refCoord / fullLength);
         context.drawLine(xCoord,height - lineWidth,xCoord,lineWidth);
       }
     }
