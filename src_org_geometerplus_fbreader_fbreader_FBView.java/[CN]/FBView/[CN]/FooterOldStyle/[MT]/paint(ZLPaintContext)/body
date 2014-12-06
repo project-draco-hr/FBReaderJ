@@ -17,7 +17,7 @@
   final int height=getHeight();
   final int lineWidth=height <= 10 ? 1 : 2;
   final int delta=height <= 10 ? 0 : 1;
-  setFont(context,height,10);
+  setFont(context,height,height > 10);
   final PagePosition pagePosition=FBView.this.pagePosition();
   final String infoString=buildInfoString(pagePosition," ");
   final int infoWidth=context.getStringWidth(infoString);

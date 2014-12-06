@@ -1,0 +1,9 @@
+{
+  final Integer h=myCharHeights.get(chr);
+  if (h != null) {
+    return h;
+  }
+  final int he=getCharHeightInternal(chr);
+  myCharHeights.put(chr,he);
+  return he;
+}

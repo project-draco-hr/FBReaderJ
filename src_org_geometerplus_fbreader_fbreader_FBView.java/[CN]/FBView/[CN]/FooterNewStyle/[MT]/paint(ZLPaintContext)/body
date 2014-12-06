@@ -11,12 +11,12 @@
   final int right=context.getWidth() - getRightMargin();
   final int height=getHeight();
   final int lineWidth=height <= 12 ? 1 : 2;
-  setFont(context,height,12);
+  final int charHeight=setFont(context,height,height > 12);
   final PagePosition pagePosition=FBView.this.pagePosition();
   final String infoString=buildInfoString(pagePosition,"  ");
   final int infoWidth=context.getStringWidth(infoString);
   context.setTextColor(textColor);
-  context.drawString(right - infoWidth,height - 1,infoString);
+  context.drawString(right - infoWidth,(height + charHeight + 1) / 2,infoString);
   final int gaugeRight=right - (infoWidth == 0 ? 0 : infoWidth + 10);
   final int gaugeInternalRight=left + (int)(1.0 * (gaugeRight - left) * pagePosition.Current / pagePosition.Total + 0.5);
   final int v=height / 2;

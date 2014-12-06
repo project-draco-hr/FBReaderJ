@@ -1,0 +1,6 @@
+{
+  final Rect r=new Rect();
+  final char[] txt=new char[]{chr};
+  myTextPaint.getTextBounds(txt,0,1,r);
+  return r.bottom - r.top;
+}

@@ -29,5 +29,6 @@
     mySpaceWidth=-1;
     myStringHeight=-1;
     myDescent=-1;
+    myCharHeights.clear();
   }
 }

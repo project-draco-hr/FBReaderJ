@@ -1,0 +1,28 @@
+{
+  final String family=myViewOptions.getFooterOptions().Font.getValue();
+  if (myFontEntry == null || !family.equals(myFontEntry.get(0).Family)) {
+    myFontEntry=Collections.singletonList(FontEntry.systemEntry(family));
+  }
+  final String key=family + (bold ? "N" : "B") + height;
+  final Integer cached=myHeightMap.get(key);
+  if (cached != null) {
+    context.setFont(myFontEntry,cached,bold,false,false,false);
+    final Integer charHeight=myCharHeightMap.get(key);
+    return charHeight != null ? charHeight : height;
+  }
+ else {
+    int h=height + 2;
+    int charHeight=height;
+    final int max=height < 9 ? height - 1 : height - 2;
+    for (; h > 5; --h) {
+      context.setFont(myFontEntry,h,bold,false,false,false);
+      charHeight=context.getCharHeight('H');
+      if (charHeight <= max) {
+        break;
+      }
+    }
+    myHeightMap.put(key,h);
+    myCharHeightMap.put(key,charHeight);
+    return charHeight;
+  }
+}
