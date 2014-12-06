@@ -7,11 +7,11 @@
 switch (myDirection) {
 case up:
 case rightToLeft:
-    mySpeed=pageIndex == ZLView.PageIndex.next ? -15 : 15;
+    mySpeed=pageIndex == ZLViewEnums.PageIndex.next ? -15 : 15;
   break;
 case leftToRight:
 case down:
-mySpeed=pageIndex == ZLView.PageIndex.next ? 15 : -15;
+mySpeed=pageIndex == ZLViewEnums.PageIndex.next ? 15 : -15;
 break;
 }
 setupAnimatedScrollingStart(x,y);

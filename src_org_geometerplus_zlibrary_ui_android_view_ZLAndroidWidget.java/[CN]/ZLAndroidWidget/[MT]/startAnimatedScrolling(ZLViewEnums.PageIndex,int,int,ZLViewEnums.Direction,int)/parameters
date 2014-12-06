@@ -1,0 +1,5 @@
+ZLViewEnums.PageIndex pageIndex
+int x
+int y
+ZLViewEnums.Direction direction
+int speed
