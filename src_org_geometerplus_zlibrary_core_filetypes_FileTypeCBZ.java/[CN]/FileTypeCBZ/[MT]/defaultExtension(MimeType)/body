@@ -1,3 +1,9 @@
 {
+  if (MimeType.APP_CBZ.equals(mime) || MimeType.APP_ZIP.equals(mime)) {
+    return "cbz";
+  }
+  if (MimeType.APP_CBR.equals(mime) || MimeType.APP_RAR.equals(mime)) {
+    return "cbr";
+  }
   return "cbz";
 }
