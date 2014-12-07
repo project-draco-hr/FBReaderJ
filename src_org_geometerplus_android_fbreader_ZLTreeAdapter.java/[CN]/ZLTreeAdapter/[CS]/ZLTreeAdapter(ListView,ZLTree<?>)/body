@@ -1,8 +1,8 @@
 {
   myParent=parent;
-  myTree=tree;
-  myItems=new ZLTree[tree.getSize() - 1];
-  myOpenItems.add(tree);
+  Root=root;
+  myItems=new ZLTree[root.getSize() - 1];
+  myOpenItems.add(root);
   parent.setAdapter(this);
   parent.setOnItemClickListener(this);
   parent.setOnCreateContextMenuListener(this);

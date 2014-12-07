@@ -1,4 +1,4 @@
 {
-  myItems=new ZLTree[myTree.getSize() - 1];
+  myItems=new ZLTree[Root.getSize() - 1];
   notifyDataSetChanged();
 }

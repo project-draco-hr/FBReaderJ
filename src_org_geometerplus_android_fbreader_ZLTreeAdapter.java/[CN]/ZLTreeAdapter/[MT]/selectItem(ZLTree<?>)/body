@@ -1,4 +1,5 @@
 {
+  mySelectedTree=tree;
   if (tree == null) {
     return;
   }
@@ -21,4 +22,5 @@
   if (index > 0) {
     myParent.setSelection(index - 1);
   }
+  myParent.invalidateViews();
 }
