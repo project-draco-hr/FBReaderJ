@@ -14,14 +14,14 @@
 switch (oldMode) {
 case AnimatedScrollingForward:
 {
-        final ZLView.PageIndex index=animator.getPageToScrollTo();
-        myBitmapManager.shift(index == ZLView.PageIndex.next);
+        final ZLViewEnums.PageIndex index=animator.getPageToScrollTo();
+        myBitmapManager.shift(index == ZLViewEnums.PageIndex.next);
         view.onScrollingFinished(index);
         ZLApplication.Instance().onRepaintFinished();
         break;
       }
 case AnimatedScrollingBackward:
-    view.onScrollingFinished(ZLView.PageIndex.current);
+    view.onScrollingFinished(ZLViewEnums.PageIndex.current);
   break;
 }
 onDrawStatic(canvas);

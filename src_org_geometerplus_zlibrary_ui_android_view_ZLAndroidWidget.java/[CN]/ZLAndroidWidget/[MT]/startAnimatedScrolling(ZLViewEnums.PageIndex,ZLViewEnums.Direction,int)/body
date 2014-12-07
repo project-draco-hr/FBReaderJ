@@ -1,11 +1,11 @@
 {
   final ZLView view=ZLApplication.Instance().getCurrentView();
-  if (pageIndex == ZLView.PageIndex.current || !view.canScroll(pageIndex)) {
+  if (pageIndex == ZLViewEnums.PageIndex.current || !view.canScroll(pageIndex)) {
     return;
   }
   final AnimationProvider animator=getAnimationProvider();
   animator.setup(direction,getWidth(),getMainAreaHeight());
-  animator.startAnimatedScrolling(pageIndex,x,y,speed);
+  animator.startAnimatedScrolling(pageIndex,null,null,speed);
   if (animator.getMode().Auto) {
     postInvalidate();
   }

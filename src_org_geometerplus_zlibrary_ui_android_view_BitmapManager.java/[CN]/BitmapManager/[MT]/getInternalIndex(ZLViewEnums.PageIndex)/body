@@ -5,7 +5,7 @@
     }
   }
   for (int i=0; i < SIZE; ++i) {
-    if (myIndexes[i] != ZLView.PageIndex.current) {
+    if (myIndexes[i] != ZLViewEnums.PageIndex.current) {
       return i;
     }
   }

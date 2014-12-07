@@ -1,4 +1,4 @@
 {
   final PageTurningOptions preferences=Reader.PageTurningOptions;
-  Reader.getViewWidget().startAnimatedScrolling(myForward ? FBView.PageIndex.next : FBView.PageIndex.previous,preferences.Horizontal.getValue() ? FBView.Direction.rightToLeft : FBView.Direction.up,preferences.AnimationSpeed.getValue());
+  Reader.getViewWidget().startAnimatedScrolling(myForward ? ZLViewEnums.PageIndex.next : ZLViewEnums.PageIndex.previous,preferences.Horizontal.getValue() ? ZLViewEnums.Direction.rightToLeft : ZLViewEnums.Direction.up,preferences.AnimationSpeed.getValue());
 }
