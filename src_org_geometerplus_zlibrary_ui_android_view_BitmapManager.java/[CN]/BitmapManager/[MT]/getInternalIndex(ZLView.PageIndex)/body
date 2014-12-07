@@ -1,0 +1,13 @@
+{
+  for (int i=0; i < SIZE; ++i) {
+    if (myIndexes[i] == null) {
+      return i;
+    }
+  }
+  for (int i=0; i < SIZE; ++i) {
+    if (myIndexes[i] != ZLView.PageIndex.current) {
+      return i;
+    }
+  }
+  throw new RuntimeException("That's impossible");
+}

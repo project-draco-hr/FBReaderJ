@@ -1,5 +1,5 @@
 {
-  final ZLViewEnums.Animation type=ZLApplication.Instance().getCurrentView().getAnimationType();
+  final ZLView.Animation type=ZLApplication.Instance().getCurrentView().getAnimationType();
   if (myAnimationProvider == null || myAnimationType != type) {
     myAnimationType=type;
 switch (type) {

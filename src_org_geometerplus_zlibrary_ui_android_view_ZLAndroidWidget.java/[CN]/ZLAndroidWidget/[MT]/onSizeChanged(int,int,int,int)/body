@@ -4,6 +4,6 @@
   if (myScreenIsTouched) {
     final ZLView view=ZLApplication.Instance().getCurrentView();
     myScreenIsTouched=false;
-    view.onScrollingFinished(ZLViewEnums.PageIndex.current);
+    view.onScrollingFinished(ZLView.PageIndex.current);
   }
 }

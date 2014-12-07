@@ -2,7 +2,7 @@
   if (myMode != Mode.ManualScrolling) {
     return;
   }
-  if (getPageToScrollTo(x,y) == ZLViewEnums.PageIndex.current) {
+  if (getPageToScrollTo(x,y) == ZLView.PageIndex.current) {
     return;
   }
   final int diff=myDirection.IsHorizontal ? x - myStartX : y - myStartY;
@@ -32,7 +32,7 @@
     velocity=Math.min(100,Math.max(15,velocity));
   }
   myDrawInfos.clear();
-  if (getPageToScrollTo() == ZLViewEnums.PageIndex.previous) {
+  if (getPageToScrollTo() == ZLView.PageIndex.previous) {
     forward=!forward;
   }
 switch (myDirection) {

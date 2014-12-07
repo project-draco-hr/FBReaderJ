@@ -1,0 +1,3 @@
+ZLTextRegion currentRegion
+ZLTextView.Direction direction
+ZLTextRegion.Filter filter

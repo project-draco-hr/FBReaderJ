@@ -5,12 +5,12 @@
   }
   final AnimationProvider animator=getAnimationProvider();
   if (animator.inProgress()) {
-    final int from=view.getScrollbarThumbLength(ZLViewEnums.PageIndex.current);
+    final int from=view.getScrollbarThumbLength(ZLView.PageIndex.current);
     final int to=view.getScrollbarThumbLength(animator.getPageToScrollTo());
     final int percent=animator.getScrolledPercent();
     return (from * (100 - percent) + to * percent) / 100;
   }
  else {
-    return view.getScrollbarThumbLength(ZLViewEnums.PageIndex.current);
+    return view.getScrollbarThumbLength(ZLView.PageIndex.current);
   }
 }
