@@ -1,10 +1,10 @@
 {
   final String lName=file.getShortName().toLowerCase();
   if (lName.endsWith(".cbz")) {
-    return MimeType.APP_CBZ;
+    return MimeType.APP_ZIP;
   }
  else   if (lName.endsWith(".cbr")) {
-    return MimeType.APP_CBR;
+    return MimeType.APP_RAR;
   }
  else {
     return MimeType.NULL;
