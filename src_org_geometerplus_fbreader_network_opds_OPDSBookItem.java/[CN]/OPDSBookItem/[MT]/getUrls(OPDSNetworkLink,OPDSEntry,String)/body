@@ -5,6 +5,8 @@
     final MimeType mime=MimeType.get(link.getType());
     final String rel=networkLink.relation(link.getRel(),mime);
     final UrlInfo.Type referenceType=typeByRelation(rel);
+    System.err.println("href = " + href);
+    System.err.println("rel = " + rel + "; referenceType = "+ referenceType);
     if (REL_IMAGE_THUMBNAIL.equals(rel) || REL_THUMBNAIL.equals(rel)) {
       urls.addInfo(new UrlInfo(UrlInfo.Type.Thumbnail,href,mime));
     }
