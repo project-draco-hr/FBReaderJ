@@ -1,3 +1,3 @@
 {
-  return hostname != null && hostname.matches(getShortName());
+  return hostname != null && hostname.indexOf(getShortName()) != -1;
 }
