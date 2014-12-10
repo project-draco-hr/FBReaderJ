@@ -1,5 +1,5 @@
 {
-  ZLTextParagraphCursorCache.clear();
+  myCursorCache.clear();
   mySelection.clear();
   myHighlightings.clear();
   myModel=model;
@@ -9,7 +9,7 @@
   if (myModel != null) {
     final int paragraphsNumber=myModel.getParagraphsNumber();
     if (paragraphsNumber > 0) {
-      myCurrentPage.moveStartCursor(ZLTextParagraphCursor.cursor(myModel,0));
+      myCurrentPage.moveStartCursor(cursor(0));
     }
   }
   Application.getViewWidget().reset();

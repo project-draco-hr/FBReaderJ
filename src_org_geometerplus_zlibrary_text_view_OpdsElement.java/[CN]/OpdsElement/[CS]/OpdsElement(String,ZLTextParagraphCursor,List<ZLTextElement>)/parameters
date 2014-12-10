@@ -1,0 +1,3 @@
+String url
+ZLTextParagraphCursor cursor
+List<ZLTextElement> container

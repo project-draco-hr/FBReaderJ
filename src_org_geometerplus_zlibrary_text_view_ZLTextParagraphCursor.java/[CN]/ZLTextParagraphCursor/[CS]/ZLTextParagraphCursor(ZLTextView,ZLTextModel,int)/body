@@ -1,4 +1,5 @@
 {
+  View=view;
   Model=model;
   Index=Math.min(index,Model.getParagraphsNumber() - 1);
   fill();

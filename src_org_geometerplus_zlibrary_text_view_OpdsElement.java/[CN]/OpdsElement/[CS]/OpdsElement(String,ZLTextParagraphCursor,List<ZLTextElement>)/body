@@ -1,0 +1,26 @@
+{
+  Url=url;
+  myCursor=cursor;
+  myContainer=container;
+  new Thread(){
+    public void run(){
+      try {
+        sleep(2000);
+      }
+ catch (      InterruptedException e) {
+      }
+synchronized (myContainer) {
+        final int index=myContainer.indexOf(OpdsElement.this);
+        if (index != -1) {
+          myContainer.remove(index);
+          myContainer.add(index,new BookElement(null,null));
+          myContainer.add(index,new BookElement(null,null));
+          myContainer.add(index,new BookElement(null,null));
+          myCursor.View.clearCaches(false);
+          ZLApplication.Instance().getViewWidget().repaint();
+        }
+      }
+    }
+  }
+.start();
+}
