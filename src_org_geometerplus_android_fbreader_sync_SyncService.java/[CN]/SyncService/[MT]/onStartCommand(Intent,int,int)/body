@@ -13,7 +13,7 @@
           return;
         }
         log("enabled");
-        alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME,SystemClock.elapsedRealtime(),AlarmManager.INTERVAL_HALF_HOUR,syncIntent());
+        alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME,SystemClock.elapsedRealtime(),AlarmManager.INTERVAL_HOUR,syncIntent());
         SQLiteCookieDatabase.init(SyncService.this);
         myCollection.bindToService(SyncService.this,myQuickSynchroniser);
       }

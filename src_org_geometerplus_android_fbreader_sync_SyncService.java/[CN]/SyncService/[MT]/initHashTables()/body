@@ -24,7 +24,7 @@
       log("RECEIVED: " + myHashesFromServer.toString());
     }
   }
- catch (  SyncronizationDisabledException e) {
+ catch (  SynchronizationDisabledException e) {
     myHashesFromServer.clear();
     throw e;
   }
