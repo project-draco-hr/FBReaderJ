@@ -8,13 +8,7 @@
       if ("".equals(Paths.TempDirectoryOption.getValue())) {
         String dir=null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.FROYO) {
-          final File d=getExternalCacheDir();
-          if (d != null) {
-            d.mkdirs();
-            if (d.exists() && d.isDirectory()) {
-              dir=d.getPath();
-            }
-          }
+          dir=getExternalCacheDirPath();
         }
         if (dir == null) {
           dir=Paths.mainBookDirectory() + "/.FBReader";
