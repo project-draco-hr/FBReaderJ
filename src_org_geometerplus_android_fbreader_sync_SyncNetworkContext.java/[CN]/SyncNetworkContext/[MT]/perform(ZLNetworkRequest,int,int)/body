@@ -1,6 +1,6 @@
 {
   if (!canPerformRequest()) {
-    throw new SyncronizationDisabledException();
+    throw new SynchronizationDisabledException();
   }
   final String accountName=SyncUtil.getAccountName(this);
   if (!MiscUtil.equals(myAccountName,accountName)) {

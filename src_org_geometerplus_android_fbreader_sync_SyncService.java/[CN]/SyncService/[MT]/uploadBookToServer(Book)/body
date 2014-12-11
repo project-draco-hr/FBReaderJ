@@ -2,7 +2,7 @@
   try {
     return uploadBookToServerInternal(book);
   }
- catch (  SyncronizationDisabledException e) {
-    return Status.SyncronizationDisabled;
+ catch (  SynchronizationDisabledException e) {
+    return Status.SynchronizationDisabled;
   }
 }

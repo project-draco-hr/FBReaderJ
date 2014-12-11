@@ -28,7 +28,11 @@
   try {
     myBookUploadContext.perform(verificationRequest);
   }
- catch (  ZLNetworkException e) {
+ catch (  ZLNetworkAuthenticationException e) {
+    e.printStackTrace();
+    return Status.AuthenticationError;
+  }
+catch (  ZLNetworkException e) {
     e.printStackTrace();
     return Status.ServerError;
   }
@@ -43,7 +47,11 @@
         myBookUploadContext.perform(uploadRequest);
         return uploadRequest.Result;
       }
- catch (      ZLNetworkException e) {
+ catch (      ZLNetworkAuthenticationException e) {
+        e.printStackTrace();
+        return Status.AuthenticationError;
+      }
+catch (      ZLNetworkException e) {
         e.printStackTrace();
         return Status.ServerError;
       }
