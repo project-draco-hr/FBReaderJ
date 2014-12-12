@@ -1,7 +1,7 @@
 {
   final ZLPhysicalFile file=book.File.getPhysicalFile();
   if (file == null) {
-    return null;
+    return ZERO_HASH;
   }
   String hash=null;
   try {
