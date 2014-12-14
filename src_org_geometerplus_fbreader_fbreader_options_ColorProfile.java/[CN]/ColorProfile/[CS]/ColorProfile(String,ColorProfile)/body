@@ -11,4 +11,7 @@
   HyperlinkTextOption.setValue(base.HyperlinkTextOption.getValue());
   VisitedHyperlinkTextOption.setValue(base.VisitedHyperlinkTextOption.getValue());
   FooterFillOption.setValue(base.FooterFillOption.getValue());
+  FooterNGBackgroundOption.setValue(base.FooterNGBackgroundOption.getValue());
+  FooterNGForegroundOption.setValue(base.FooterNGForegroundOption.getValue());
+  FooterNGForegroundUnreadOption.setValue(base.FooterNGForegroundUnreadOption.getValue());
 }
