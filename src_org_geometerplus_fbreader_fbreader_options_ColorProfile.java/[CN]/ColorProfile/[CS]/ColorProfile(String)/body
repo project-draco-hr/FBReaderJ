@@ -12,6 +12,9 @@
     HyperlinkTextOption=createOption(name,"Hyperlink",60,142,224);
     VisitedHyperlinkTextOption=createOption(name,"VisitedHyperlink",200,139,255);
     FooterFillOption=createOption(name,"FooterFillOption",85,85,85);
+    FooterNGBackgroundOption=createOption(name,"FooterNGBackgroundOption",68,68,68);
+    FooterNGForegroundOption=createOption(name,"FooterNGForegroundOption",187,187,187);
+    FooterNGForegroundUnreadOption=createOption(name,"FooterNGForegroundUnreadOption",119,119,119);
   }
  else {
     WallpaperOption=new ZLStringOption("Colors",name + ":Wallpaper","wallpapers/sepia.jpg");
@@ -25,5 +28,8 @@
     HyperlinkTextOption=createOption(name,"Hyperlink",60,139,255);
     VisitedHyperlinkTextOption=createOption(name,"VisitedHyperlink",200,139,255);
     FooterFillOption=createOption(name,"FooterFillOption",170,170,170);
+    FooterNGBackgroundOption=createOption(name,"FooterNGBackgroundOption",68,68,68);
+    FooterNGForegroundOption=createOption(name,"FooterNGForegroundOption",187,187,187);
+    FooterNGForegroundUnreadOption=createOption(name,"FooterNGForegroundUnreadOption",119,119,119);
   }
 }

@@ -216,6 +216,28 @@ default :
 }
 }
 ;
+final PreferenceSet oldStyleFooterPreferences=new PreferenceSet.Enabler(){
+@Override protected Boolean detectState(){
+switch (viewOptions.ScrollbarType.getValue()) {
+case FBView.SCROLLBAR_SHOW_AS_FOOTER_OLD_STYLE:
+    return true;
+default :
+  return false;
+}
+}
+}
+;
+final PreferenceSet newStyleFooterPreferences=new PreferenceSet.Enabler(){
+@Override protected Boolean detectState(){
+switch (viewOptions.ScrollbarType.getValue()) {
+case FBView.SCROLLBAR_SHOW_AS_FOOTER:
+return true;
+default :
+return false;
+}
+}
+}
+;
 final Screen cssScreen=createPreferenceScreen("css");
 cssScreen.addOption(baseStyle.UseCSSFontFamilyOption,"fontFamily");
 cssScreen.addOption(baseStyle.UseCSSFontSizeOption,"fontSize");
@@ -224,14 +246,14 @@ cssScreen.addOption(baseStyle.UseCSSMarginsOption,"margins");
 final Screen colorsScreen=createPreferenceScreen("colors");
 final PreferenceSet backgroundSet=new PreferenceSet.Enabler(){
 @Override protected Boolean detectState(){
-  return profile.WallpaperOption.getValue().startsWith("/");
+return profile.WallpaperOption.getValue().startsWith("/");
 }
 }
 ;
 myBackgroundPreference=new BackgroundPreference(this,profile,colorsScreen.Resource.getResource("background"),BACKGROUND_REQUEST_CODE){
 @Override public void update(Intent data){
-  super.update(data);
-  backgroundSet.run();
+super.update(data);
+backgroundSet.run();
 }
 }
 ;
@@ -241,7 +263,10 @@ backgroundSet.run();
 colorsScreen.addOption(profile.RegularTextOption,"text");
 colorsScreen.addOption(profile.HyperlinkTextOption,"hyperlink");
 colorsScreen.addOption(profile.VisitedHyperlinkTextOption,"hyperlinkVisited");
-colorsScreen.addOption(profile.FooterFillOption,"footer");
+colorsScreen.addOption(profile.FooterFillOption,"footerOldStyle");
+colorsScreen.addOption(profile.FooterNGBackgroundOption,"footerBackground");
+colorsScreen.addOption(profile.FooterNGForegroundOption,"footerForeground");
+colorsScreen.addOption(profile.FooterNGForegroundUnreadOption,"footerForegroundUnread");
 colorsScreen.addOption(profile.SelectionBackgroundOption,"selectionBackground");
 colorsScreen.addOption(profile.SelectionForegroundOption,"selectionForeground");
 colorsScreen.addOption(profile.HighlightingForegroundOption,"highlightingForeground");
@@ -256,60 +281,67 @@ final Screen statusLineScreen=createPreferenceScreen("scrollBar");
 final String[] scrollBarTypes={"hide","show","showAsProgress","showAsFooter","showAsFooterOldStyle"};
 statusLineScreen.addPreference(new ZLChoicePreference(this,statusLineScreen.Resource.getResource("scrollbarType"),viewOptions.ScrollbarType,scrollBarTypes){
 @Override protected void onDialogClosed(boolean result){
-  super.onDialogClosed(result);
-  footerPreferences.run();
+super.onDialogClosed(result);
+footerPreferences.run();
+oldStyleFooterPreferences.run();
+newStyleFooterPreferences.run();
 }
 }
 );
 footerPreferences.add(statusLineScreen.addPreference(new ZLIntegerRangePreference(this,statusLineScreen.Resource.getResource("footerHeight"),viewOptions.FooterHeight)));
-footerPreferences.add(statusLineScreen.addOption(profile.FooterFillOption,"footerColor"));
+oldStyleFooterPreferences.add(statusLineScreen.addOption(profile.FooterFillOption,"footerOldStyleColor"));
+newStyleFooterPreferences.add(statusLineScreen.addOption(profile.FooterNGBackgroundOption,"footerBackgroundColor"));
+newStyleFooterPreferences.add(statusLineScreen.addOption(profile.FooterNGForegroundOption,"footerForegroundColor"));
+newStyleFooterPreferences.add(statusLineScreen.addOption(profile.FooterNGForegroundUnreadOption,"footerForegroundUnreadColor"));
 footerPreferences.add(statusLineScreen.addOption(footerOptions.ShowTOCMarks,"tocMarks"));
 footerPreferences.add(statusLineScreen.addOption(footerOptions.ShowProgress,"showProgress"));
 footerPreferences.add(statusLineScreen.addOption(footerOptions.ShowClock,"showClock"));
 footerPreferences.add(statusLineScreen.addOption(footerOptions.ShowBattery,"showBattery"));
 footerPreferences.add(statusLineScreen.addPreference(new FontPreference(this,statusLineScreen.Resource.getResource("font"),footerOptions.Font,false)));
 footerPreferences.run();
+oldStyleFooterPreferences.run();
+newStyleFooterPreferences.run();
 final Screen scrollingScreen=createPreferenceScreen("scrolling");
 scrollingScreen.addOption(pageTurningOptions.FingerScrolling,"fingerScrolling");
 scrollingScreen.addOption(miscOptions.EnableDoubleTap,"enableDoubleTapDetection");
 final PreferenceSet volumeKeysPreferences=new PreferenceSet.Enabler(){
 @Override protected Boolean detectState(){
-  return keyBindings.hasBinding(KeyEvent.KEYCODE_VOLUME_UP,false);
+return keyBindings.hasBinding(KeyEvent.KEYCODE_VOLUME_UP,false);
 }
 }
 ;
 scrollingScreen.addPreference(new ZLCheckBoxPreference(this,scrollingScreen.Resource.getResource("volumeKeys")){
 {
-  setChecked(keyBindings.hasBinding(KeyEvent.KEYCODE_VOLUME_UP,false));
+setChecked(keyBindings.hasBinding(KeyEvent.KEYCODE_VOLUME_UP,false));
 }
 @Override protected void onClick(){
-  super.onClick();
-  if (isChecked()) {
-    keyBindings.bindKey(KeyEvent.KEYCODE_VOLUME_DOWN,false,ActionCode.VOLUME_KEY_SCROLL_FORWARD);
-    keyBindings.bindKey(KeyEvent.KEYCODE_VOLUME_UP,false,ActionCode.VOLUME_KEY_SCROLL_BACK);
-  }
+super.onClick();
+if (isChecked()) {
+keyBindings.bindKey(KeyEvent.KEYCODE_VOLUME_DOWN,false,ActionCode.VOLUME_KEY_SCROLL_FORWARD);
+keyBindings.bindKey(KeyEvent.KEYCODE_VOLUME_UP,false,ActionCode.VOLUME_KEY_SCROLL_BACK);
+}
  else {
-    keyBindings.bindKey(KeyEvent.KEYCODE_VOLUME_DOWN,false,FBReaderApp.NoAction);
-    keyBindings.bindKey(KeyEvent.KEYCODE_VOLUME_UP,false,FBReaderApp.NoAction);
-  }
-  volumeKeysPreferences.run();
+keyBindings.bindKey(KeyEvent.KEYCODE_VOLUME_DOWN,false,FBReaderApp.NoAction);
+keyBindings.bindKey(KeyEvent.KEYCODE_VOLUME_UP,false,FBReaderApp.NoAction);
+}
+volumeKeysPreferences.run();
 }
 }
 );
 volumeKeysPreferences.add(scrollingScreen.addPreference(new ZLCheckBoxPreference(this,scrollingScreen.Resource.getResource("invertVolumeKeys")){
 {
-  setChecked(ActionCode.VOLUME_KEY_SCROLL_FORWARD.equals(keyBindings.getBinding(KeyEvent.KEYCODE_VOLUME_UP,false)));
+setChecked(ActionCode.VOLUME_KEY_SCROLL_FORWARD.equals(keyBindings.getBinding(KeyEvent.KEYCODE_VOLUME_UP,false)));
 }
 @Override protected void onClick(){
-  super.onClick();
-  if (isChecked()) {
-    keyBindings.bindKey(KeyEvent.KEYCODE_VOLUME_DOWN,false,ActionCode.VOLUME_KEY_SCROLL_BACK);
-    keyBindings.bindKey(KeyEvent.KEYCODE_VOLUME_UP,false,ActionCode.VOLUME_KEY_SCROLL_FORWARD);
-  }
+super.onClick();
+if (isChecked()) {
+keyBindings.bindKey(KeyEvent.KEYCODE_VOLUME_DOWN,false,ActionCode.VOLUME_KEY_SCROLL_BACK);
+keyBindings.bindKey(KeyEvent.KEYCODE_VOLUME_UP,false,ActionCode.VOLUME_KEY_SCROLL_FORWARD);
+}
  else {
-    keyBindings.bindKey(KeyEvent.KEYCODE_VOLUME_DOWN,false,ActionCode.VOLUME_KEY_SCROLL_FORWARD);
-    keyBindings.bindKey(KeyEvent.KEYCODE_VOLUME_UP,false,ActionCode.VOLUME_KEY_SCROLL_BACK);
-  }
+keyBindings.bindKey(KeyEvent.KEYCODE_VOLUME_DOWN,false,ActionCode.VOLUME_KEY_SCROLL_FORWARD);
+keyBindings.bindKey(KeyEvent.KEYCODE_VOLUME_UP,false,ActionCode.VOLUME_KEY_SCROLL_BACK);
+}
 }
 }
 ));
@@ -327,27 +359,27 @@ Collections.sort(languages);
 languages.add(0,new Language(Language.ANY_CODE,dictionaryScreen.Resource.getResource("targetLanguage")));
 final LanguagePreference targetLanguagePreference=new LanguagePreference(this,dictionaryScreen.Resource.getResource("targetLanguage"),languages){
 @Override protected void init(){
-  setInitialValue(DictionaryUtil.TargetLanguageOption.getValue());
+setInitialValue(DictionaryUtil.TargetLanguageOption.getValue());
 }
 @Override protected void setLanguage(String code){
-  DictionaryUtil.TargetLanguageOption.setValue(code);
+DictionaryUtil.TargetLanguageOption.setValue(code);
 }
 }
 ;
 DictionaryUtil.init(this,new Runnable(){
 public void run(){
-  dictionaryScreen.addPreference(new DictionaryPreference(PreferenceActivity.this,dictionaryScreen.Resource.getResource("dictionary"),DictionaryUtil.singleWordTranslatorOption(),DictionaryUtil.dictionaryInfos(PreferenceActivity.this,true)){
-    @Override protected void onDialogClosed(    boolean result){
-      super.onDialogClosed(result);
-      targetLanguagePreference.setEnabled(DictionaryUtil.getCurrentDictionaryInfo(true).SupportsTargetLanguageSetting);
-    }
-  }
+dictionaryScreen.addPreference(new DictionaryPreference(PreferenceActivity.this,dictionaryScreen.Resource.getResource("dictionary"),DictionaryUtil.singleWordTranslatorOption(),DictionaryUtil.dictionaryInfos(PreferenceActivity.this,true)){
+@Override protected void onDialogClosed(boolean result){
+super.onDialogClosed(result);
+targetLanguagePreference.setEnabled(DictionaryUtil.getCurrentDictionaryInfo(true).SupportsTargetLanguageSetting);
+}
+}
 );
-  dictionaryScreen.addPreference(new DictionaryPreference(PreferenceActivity.this,dictionaryScreen.Resource.getResource("translator"),DictionaryUtil.multiWordTranslatorOption(),DictionaryUtil.dictionaryInfos(PreferenceActivity.this,false)));
-  dictionaryScreen.addPreference(new ZLBooleanPreference(PreferenceActivity.this,miscOptions.NavigateAllWords,dictionaryScreen.Resource.getResource("navigateOverAllWords")));
-  dictionaryScreen.addOption(miscOptions.WordTappingAction,"tappingAction");
-  dictionaryScreen.addPreference(targetLanguagePreference);
-  targetLanguagePreference.setEnabled(DictionaryUtil.getCurrentDictionaryInfo(true).SupportsTargetLanguageSetting);
+dictionaryScreen.addPreference(new DictionaryPreference(PreferenceActivity.this,dictionaryScreen.Resource.getResource("translator"),DictionaryUtil.multiWordTranslatorOption(),DictionaryUtil.dictionaryInfos(PreferenceActivity.this,false)));
+dictionaryScreen.addPreference(new ZLBooleanPreference(PreferenceActivity.this,miscOptions.NavigateAllWords,dictionaryScreen.Resource.getResource("navigateOverAllWords")));
+dictionaryScreen.addOption(miscOptions.WordTappingAction,"tappingAction");
+dictionaryScreen.addPreference(targetLanguagePreference);
+targetLanguagePreference.setEnabled(DictionaryUtil.getCurrentDictionaryInfo(true).SupportsTargetLanguageSetting);
 }
 }
 );
