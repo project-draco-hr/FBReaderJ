@@ -73,10 +73,6 @@
       wordOccurred=true;
       isVisible=true;
     }
- else     if (element instanceof OpdsElement) {
-      wordOccurred=true;
-      isVisible=true;
-    }
  else     if (element instanceof BookElement) {
       wordOccurred=true;
       isVisible=true;
