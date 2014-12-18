@@ -1,0 +1,2 @@
+def collect_languages(proto_dir):
+    return [os.path.splitext(name)[0] for name in os.listdir(proto_dir) if name.endswith('.html')]
