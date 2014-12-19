@@ -50,11 +50,7 @@ case ZLTextParagraph.Entry.FBREADER_SPECIAL:
 final FBReaderSpecialEntry entry=it.getFBReaderSpecialEntry();
 if ("opds".equals(entry.Type)) {
 try {
-final String src=entry.Data.get("src");
-final int count=Integer.valueOf(entry.Data.get("size"));
-final BookHolder holder=HOLDER != null ? HOLDER : new BookHolder(src,count);
-HOLDER=holder;
-elements.addAll(holder.Elements);
+elements.addAll(BookHolder.get(entry.Data).Elements);
 }
  catch (Exception e) {
 }
