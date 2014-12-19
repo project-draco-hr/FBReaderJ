@@ -1,0 +1,11 @@
+def string_from_template(template_path, data):
+    result = ''
+    pattern = re.compile('(.*)\\$([^$]*)\\$(.*\\n)')
+    with open(template_path, 'r') as istream:
+        for line in istream:
+            match = pattern.match(line)
+            if match:
+                result += ((match.group(1) + data[match.group(2)]) + match.group(3))
+            else:
+                result += line
+    return result

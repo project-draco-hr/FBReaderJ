@@ -1,0 +1,8 @@
+def find_title(path):
+    pattern = re.compile('<h2>(.*)<\\/h2>')
+    with open(path, 'r') as stream:
+        for line in stream:
+            match = pattern.match(line)
+            if match:
+                return match.group(1)
+    return None

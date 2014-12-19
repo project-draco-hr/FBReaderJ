@@ -1,0 +1,13 @@
+def generate_epub(proto_dir, html_dir, epub, lang):
+    html_file = os.path.join(html_dir, (lang + '.html'))
+    title = find_title(html_file)
+    if (not title):
+        raise Exception(('Title not found in %s' % htmlfile))
+    data = {'TITLE': title, 'LANG': lang, 'ID': ('fbreader:intro:%s:%d' % (lang, time.time())), }
+    with zipfile.ZipFile(epub, 'w', zipfile.ZIP_DEFLATED) as zip_file:
+        zip_file.writestr('mimetype', 'application/epub+zip', zipfile.ZIP_STORED)
+        zip_file.write(os.path.join(proto_dir, 'container.xml'), arcname='META-INF/container.xml')
+        zip_file.write(os.path.join(proto_dir, 'style.css'), arcname='style.css')
+        zip_file.writestr('main.html', string_from_template(html_file, data))
+        zip_file.writestr('content.opf', string_from_template(os.path.join(proto_dir, 'content.opf'), data))
+        zip_file.write(os.path.join(proto_dir, 'fbreader.png'), arcname='fbreader.png')
