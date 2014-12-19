@@ -1,0 +1,8 @@
+{
+  ZLTextParagraphCursor result=myCursorCache.get(myModel,index);
+  if (result == null) {
+    result=new ZLTextParagraphCursor(this,myModel,index);
+    myCursorCache.put(myModel,index,result);
+  }
+  return result;
+}

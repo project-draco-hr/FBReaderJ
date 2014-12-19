@@ -1,8 +1,0 @@
-{
-  ZLTextParagraphCursor result=ZLTextParagraphCursorCache.get(model,index);
-  if (result == null) {
-    result=new ZLTextParagraphCursor(model,index);
-    ZLTextParagraphCursorCache.put(model,index,result);
-  }
-  return result;
-}
