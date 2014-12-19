@@ -49,12 +49,15 @@ case ZLTextParagraph.Entry.FBREADER_SPECIAL:
 {
 final FBReaderSpecialEntry entry=it.getFBReaderSpecialEntry();
 if ("opds".equals(entry.Type)) {
-System.err.println("OPDS DATA = " + entry.Data);
-elements.add(new BookElement(null,null));
-elements.add(new BookElement(null,null));
-elements.add(new BookElement(null,null));
-elements.add(new BookElement(null,null));
-elements.add(new BookElement(null,null));
+try {
+final String src=entry.Data.get("src");
+final int count=Integer.valueOf(entry.Data.get("size"));
+final BookHolder holder=HOLDER != null ? HOLDER : new BookHolder(src,count);
+HOLDER=holder;
+elements.addAll(holder.Elements);
+}
+ catch (Exception e) {
+}
 }
 break;
 }
