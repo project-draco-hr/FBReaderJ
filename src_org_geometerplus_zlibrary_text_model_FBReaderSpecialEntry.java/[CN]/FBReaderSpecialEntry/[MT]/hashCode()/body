@@ -1,0 +1,3 @@
+{
+  return Type.hashCode() + 23 * Data.hashCode();
+}
