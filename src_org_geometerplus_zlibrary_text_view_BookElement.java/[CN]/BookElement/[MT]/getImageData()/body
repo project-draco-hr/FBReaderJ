@@ -1,6 +1,6 @@
 {
-  if (myThumbnail == null) {
+  if (myCover == null) {
     return null;
   }
-  return ZLImageManager.Instance().getImageData(myThumbnail);
+  return ZLImageManager.Instance().getImageData(myCover);
 }

@@ -1,0 +1,3 @@
+{
+  return myItem != null && myCover != null;
+}

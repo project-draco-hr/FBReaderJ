@@ -1,0 +1,7 @@
+{
+  int left=Integer.MAX_VALUE;
+  for (  ZLTextElementArea area : textAreas()) {
+    left=Math.min(area.XStart,left);
+  }
+  return left;
+}

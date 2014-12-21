@@ -1,0 +1,15 @@
+{
+  final String bookUrl=item.getUrl(UrlInfo.Type.Book);
+  String coverUrl=item.getUrl(UrlInfo.Type.Image);
+  if (coverUrl == null) {
+    coverUrl=item.getUrl(UrlInfo.Type.Thumbnail);
+  }
+  if (bookUrl == null || coverUrl == null) {
+    setFailed();
+  }
+ else {
+    myItem=item;
+    myCover=new NetworkImage(coverUrl);
+    myCover.synchronize();
+  }
+}
