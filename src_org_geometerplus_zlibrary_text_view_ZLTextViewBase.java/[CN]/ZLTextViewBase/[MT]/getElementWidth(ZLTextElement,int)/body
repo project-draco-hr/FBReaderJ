@@ -11,6 +11,7 @@
     return Math.min(300,getTextColumnWidth());
   }
  else   if (element instanceof BookElement) {
+    return Math.min(ZLibrary.Instance().getDisplayDPI() * 818 / 1000,getTextColumnWidth());
   }
  else   if (element == ZLTextElement.Indent) {
     return myTextStyle.getFirstLineIndent(metrics());
