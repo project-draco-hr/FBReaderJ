@@ -12,6 +12,9 @@
       if (link instanceof ICustomNetworkLink) {
         myLink=(ICustomNetworkLink)link;
       }
+ else {
+        openCatalog(uri);
+      }
     }
     myType=INetworkLink.Type.byIndex(intent.getIntExtra(TYPE,myType.Index));
   }

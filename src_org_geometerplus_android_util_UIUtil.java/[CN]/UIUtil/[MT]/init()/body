@@ -18,6 +18,8 @@ synchronized (ourMonitor) {
           }
         }
  catch (        Exception e) {
+          e.printStackTrace();
+          ourProgress=null;
         }
       }
     }
