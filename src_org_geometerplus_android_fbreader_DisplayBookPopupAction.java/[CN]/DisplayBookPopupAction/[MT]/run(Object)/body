@@ -15,7 +15,6 @@
   final PopupWindow popup=new PopupWindow(bookView,4 * inch,3 * inch);
   popup.setFocusable(true);
   popup.setOutsideTouchable(true);
-  popup.setElevation(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,14,BaseActivity.getResources().getDisplayMetrics()));
   popup.setTouchInterceptor(new View.OnTouchListener(){
     public boolean onTouch(    View v,    MotionEvent event){
       popup.dismiss();
@@ -54,7 +53,6 @@
 );
   popup.setOnDismissListener(new PopupWindow.OnDismissListener(){
     public void onDismiss(){
-      BaseActivity.hideBars();
     }
   }
 );
