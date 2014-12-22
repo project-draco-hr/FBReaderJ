@@ -11,13 +11,13 @@
       final List<OPDSBookItem> items=handler.books();
       if (items.size() > 0) {
         int index=0;
-        for (        BookElement book : Elements) {
+        for (        BookElement book : elements) {
           book.setData(items.get(index));
           index=(index + 1) % items.size();
         }
       }
  else {
-        for (        BookElement book : Elements) {
+        for (        BookElement book : elements) {
           book.setFailed();
         }
       }

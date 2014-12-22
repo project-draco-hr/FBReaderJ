@@ -1,6 +1,0 @@
-{
-  startLoading(url);
-  for (int i=0; i < count; ++i) {
-    Elements.add(new BookElement());
-  }
-}

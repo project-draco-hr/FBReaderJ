@@ -1,8 +1,0 @@
-{
-  BookHolder holder=ourCache.get(data);
-  if (holder == null) {
-    holder=new BookHolder(data.get("src"),Integer.valueOf(data.get("size")));
-    ourCache.put(data,holder);
-  }
-  return holder;
-}
