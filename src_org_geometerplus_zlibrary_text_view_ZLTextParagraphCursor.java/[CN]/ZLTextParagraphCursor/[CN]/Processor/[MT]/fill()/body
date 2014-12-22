@@ -49,11 +49,7 @@ case ZLTextParagraph.Entry.FBREADER_SPECIAL:
 {
 final FBReaderSpecialEntry entry=it.getFBReaderSpecialEntry();
 if ("opds".equals(entry.Type)) {
-try {
 elements.addAll(BookElementsHolder.getElements(entry.Data));
-}
- catch (Exception e) {
-}
 }
 break;
 }
