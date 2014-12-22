@@ -1,3 +1,6 @@
 {
-  clearCaches(true);
+  resetMetrics();
+  rebuildPaintInfo();
+  Application.getViewWidget().reset();
+  myCharWidth=-1;
 }

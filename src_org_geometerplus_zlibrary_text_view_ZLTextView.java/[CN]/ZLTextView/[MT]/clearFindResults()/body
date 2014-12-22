@@ -1,7 +1,7 @@
 {
   if (!findResultsAreEmpty()) {
     myModel.removeAllMarks();
-    rebuildPaintInfo(true);
+    rebuildPaintInfo();
     Application.getViewWidget().reset();
     Application.getViewWidget().repaint();
   }

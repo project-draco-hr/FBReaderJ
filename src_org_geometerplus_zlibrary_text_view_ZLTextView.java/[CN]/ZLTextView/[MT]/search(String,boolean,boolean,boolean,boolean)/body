@@ -10,7 +10,7 @@
   myPreviousPage.reset();
   myNextPage.reset();
   if (!myCurrentPage.StartCursor.isNull()) {
-    rebuildPaintInfo(true);
+    rebuildPaintInfo();
     if (count > 0) {
       ZLTextMark mark=myCurrentPage.StartCursor.getMark();
       gotoMark(wholeText ? (backward ? myModel.getLastMark() : myModel.getFirstMark()) : (backward ? myModel.getPreviousMark(mark) : myModel.getNextMark(mark)));

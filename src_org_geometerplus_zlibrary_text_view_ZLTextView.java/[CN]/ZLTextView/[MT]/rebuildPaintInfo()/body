@@ -1,9 +1,7 @@
 {
   myPreviousPage.reset();
   myNextPage.reset();
-  if (full) {
-    myCursorCache.clear();
-  }
+  myCursorCache.clear();
   if (myCurrentPage.PaintState != PaintStateEnum.NOTHING_TO_PAINT) {
     myCurrentPage.LineInfos.clear();
     if (!myCurrentPage.StartCursor.isNull()) {
