@@ -16,13 +16,6 @@
   final PopupWindow popup=new PopupWindow(bookView,Math.min(4 * inch,mainView.getWidth() * 9 / 10),Math.min(3 * inch,mainView.getHeight() * 9 / 10));
   popup.setFocusable(true);
   popup.setOutsideTouchable(true);
-  popup.setTouchInterceptor(new View.OnTouchListener(){
-    public boolean onTouch(    View v,    MotionEvent event){
-      popup.dismiss();
-      return true;
-    }
-  }
-);
   final ImageView coverView=(ImageView)bookView.findViewById(R.id.book_popup_cover);
   if (coverView != null) {
     final ZLAndroidImageData imageData=(ZLAndroidImageData)element.getImageData();
