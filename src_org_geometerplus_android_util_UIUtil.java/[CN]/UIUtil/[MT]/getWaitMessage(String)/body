@@ -1,0 +1,3 @@
+{
+  return ZLResource.resource("dialog").getResource("waitMessage").getResource(key).getValue();
+}
