@@ -23,7 +23,6 @@
     }
   }
 );
-  popup.showAtLocation(BaseActivity.getCurrentFocus(),Gravity.CENTER,0,0);
   final ImageView coverView=(ImageView)bookView.findViewById(R.id.book_popup_cover);
   if (coverView != null) {
     final ZLAndroidImageData imageData=(ZLAndroidImageData)element.getImageData();
@@ -46,6 +45,12 @@
   final View buttonsView=bookView.findViewById(R.id.book_popup_buttons);
   final Button downloadButton=(Button)buttonsView.findViewById(R.id.ok_button);
   downloadButton.setText(buttonResource.getResource("download").getValue());
+  downloadButton.setOnClickListener(new Button.OnClickListener(){
+    public void onClick(    View v){
+      popup.dismiss();
+    }
+  }
+);
   final Button cancelButton=(Button)buttonsView.findViewById(R.id.cancel_button);
   cancelButton.setText(buttonResource.getResource("cancel").getValue());
   cancelButton.setOnClickListener(new Button.OnClickListener(){
@@ -59,5 +64,5 @@
     }
   }
 );
-  System.err.println("Hello, BOOK: " + region.getLeft() + ", "+ region.getTop()+ ", "+ region.getRight()+ ", "+ region.getBottom());
+  popup.showAtLocation(BaseActivity.getCurrentFocus(),Gravity.CENTER,0,0);
 }
