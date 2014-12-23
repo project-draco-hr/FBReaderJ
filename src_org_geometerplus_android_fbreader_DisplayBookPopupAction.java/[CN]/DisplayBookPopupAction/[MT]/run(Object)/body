@@ -65,7 +65,7 @@
       }
       downloadButton.setOnClickListener(new Button.OnClickListener(){
         public void onClick(        View v){
-          UIUtil.wait("downloadingBook",item.Title,new Runnable(){
+          UIUtil.wait("downloadingBook",item.Title.toString(),new Runnable(){
             public void run(){
               try {
                 new QuietNetworkContext().downloadToFile(bookInfo.Url,file);
