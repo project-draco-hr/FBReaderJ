@@ -1,0 +1,3 @@
+{
+  return getBookByFile(ZLFile.createFileByPath(path));
+}
