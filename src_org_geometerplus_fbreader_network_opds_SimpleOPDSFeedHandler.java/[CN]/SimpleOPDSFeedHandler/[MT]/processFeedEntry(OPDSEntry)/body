@@ -1,0 +1,8 @@
+{
+  final OPDSBookItem item=new OPDSBookItem(null,entry,myBaseURL,myIndex++);
+  for (  String identifier : entry.DCIdentifiers) {
+    ((OPDSBookItem)item).Identifiers.add(identifier);
+  }
+  myBooks.add(item);
+  return false;
+}
