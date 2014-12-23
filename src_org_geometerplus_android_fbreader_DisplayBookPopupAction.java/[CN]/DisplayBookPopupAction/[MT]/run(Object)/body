@@ -11,7 +11,7 @@
     return;
   }
   final View mainView=(View)BaseActivity.getViewWidget();
-  final View bookView=BaseActivity.getLayoutInflater().inflate(R.layout.book_popup,null);
+  final View bookView=BaseActivity.getLayoutInflater().inflate(ColorProfile.NIGHT.equals(Reader.ViewOptions.ColorProfileName.getValue()) ? R.layout.book_popup_night : R.layout.book_popup,null);
   final int inch=(int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_IN,1,BaseActivity.getResources().getDisplayMetrics());
   final PopupWindow popup=new PopupWindow(bookView,Math.min(4 * inch,mainView.getWidth() * 9 / 10),Math.min(3 * inch,mainView.getHeight() * 9 / 10));
   popup.setFocusable(true);
@@ -90,6 +90,8 @@
     }
   }
 );
+  downloadButton.setTextColor(0xFF777777);
+  cancelButton.setTextColor(0xFF777777);
   popup.setOnDismissListener(new PopupWindow.OnDismissListener(){
     public void onDismiss(){
     }
