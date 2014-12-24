@@ -72,6 +72,7 @@
                 openBook(popup,Reader.Collection.getBookByFile(fileName));
               }
  catch (              ZLNetworkException e) {
+                UIUtil.showErrorMessage(BaseActivity,"downloadFailed");
                 e.printStackTrace();
               }
             }
