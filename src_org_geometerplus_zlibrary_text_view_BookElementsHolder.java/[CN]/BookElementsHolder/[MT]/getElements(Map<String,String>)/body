@@ -1,5 +1,5 @@
 {
-  List<BookElement> elements=ourCache.get(data);
+  List<BookElement> elements=myCache.get(data);
   if (elements == null) {
     try {
       final int count=Integer.valueOf(data.get("size"));
@@ -12,7 +12,7 @@
  catch (    Throwable t) {
       return Collections.emptyList();
     }
-    ourCache.put(data,elements);
+    myCache.put(data,elements);
   }
   return Collections.unmodifiableList(elements);
 }
