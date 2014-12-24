@@ -1,0 +1,12 @@
+{
+  if (book == null) {
+    return;
+  }
+  BaseActivity.runOnUiThread(new Runnable(){
+    public void run(){
+      popup.dismiss();
+      Reader.openBook(book,null,null,null);
+    }
+  }
+);
+}
