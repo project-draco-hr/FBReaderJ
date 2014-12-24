@@ -1,5 +1,5 @@
 {
-  myCursor=cursor;
+  myView=view;
   myParagraph=paragraph;
   myLineBreaker=lineBreaker;
   myElements=elements;

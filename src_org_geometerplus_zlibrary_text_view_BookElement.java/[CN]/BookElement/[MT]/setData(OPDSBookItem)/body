@@ -5,7 +5,8 @@
     coverUrl=item.getUrl(UrlInfo.Type.Thumbnail);
   }
   if (bookUrl == null || coverUrl == null) {
-    setFailed();
+    myItem=null;
+    myCover=null;
   }
  else {
     myItem=item;

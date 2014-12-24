@@ -1,4 +1,4 @@
-ZLTextParagraphCursor cursor
+ZLTextView view
 ZLTextParagraph paragraph
 LineBreaker lineBreaker
 List<ZLTextMark> marks
