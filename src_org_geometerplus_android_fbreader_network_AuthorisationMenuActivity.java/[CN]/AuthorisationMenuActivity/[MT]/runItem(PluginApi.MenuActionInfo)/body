@@ -4,12 +4,6 @@
     if (info.getId().toString().endsWith("/signIn")) {
       Util.runAuthenticationDialog(AuthorisationMenuActivity.this,myLink,null);
     }
- else {
-      final Intent intent=Util.authorisationIntent(myLink,info.getId());
-      if (PackageUtil.canBeStarted(AuthorisationMenuActivity.this,intent,true)) {
-        startActivity(intent);
-      }
-    }
   }
  catch (  Exception e) {
   }
