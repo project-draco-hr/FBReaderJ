@@ -4,5 +4,5 @@
   }
   final INetworkLink link=tree.getLink();
   final NetworkAuthenticationManager mgr=link.authenticationManager();
-  return mgr != null && !mgr.mayBeAuthorised(false) && Util.isRegistrationSupported(myActivity,link);
+  return mgr != null && !mgr.mayBeAuthorised(false);
 }
