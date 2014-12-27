@@ -1,3 +1,8 @@
 {
-  Util.runRegistrationDialog(myActivity,tree.getLink());
+  final INetworkLink link=tree.getLink();
+  try {
+    myActivity.startActivity(Util.authorisationIntent(link,myActivity,UserRegistrationActivity.class));
+  }
+ catch (  ActivityNotFoundException e) {
+  }
 }

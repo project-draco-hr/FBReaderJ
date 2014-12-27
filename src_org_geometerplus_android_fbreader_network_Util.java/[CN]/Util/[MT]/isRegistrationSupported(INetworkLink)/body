@@ -1,3 +1,0 @@
-{
-  return "litres.ru".equals(link.getHostName());
-}
