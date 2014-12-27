@@ -1,0 +1,19 @@
+{
+  getTextArea().setVisibility(View.VISIBLE);
+  getTextArea().setText(myResource.getResource("email").getValue());
+  getActionSignIn().setVisibility(View.GONE);
+  getActionAnotherEmail().setVisibility(View.GONE);
+  getActionRecover().setVisibility(View.GONE);
+  getEmailControl().setVisibility(View.VISIBLE);
+  setupEmailControl(getEmailControl(),email);
+  getButtons().setVisibility(View.VISIBLE);
+  getOkButton().setVisibility(View.VISIBLE);
+  getOkButton().setOnClickListener(new View.OnClickListener(){
+    public void onClick(    View view){
+      runAutoLogin(getEmailTextView().getText().toString().trim());
+    }
+  }
+);
+  getCancelButton().setVisibility(View.VISIBLE);
+  getCancelButton().setOnClickListener(myFinishListener);
+}

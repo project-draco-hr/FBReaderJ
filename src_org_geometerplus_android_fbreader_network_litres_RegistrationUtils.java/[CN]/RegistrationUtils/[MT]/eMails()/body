@@ -1,0 +1,4 @@
+{
+  collectEMails();
+  return myEMails;
+}

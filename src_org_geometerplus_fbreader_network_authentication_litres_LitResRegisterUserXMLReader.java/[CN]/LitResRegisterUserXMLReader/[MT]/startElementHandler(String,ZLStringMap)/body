@@ -1,0 +1,40 @@
+{
+  tag=tag.toLowerCase().intern();
+  if (TAG_REGISTRATION_FAILED == tag) {
+    final String error=attributes.getValue("error");
+    if ("1".equals(error)) {
+      setException(new AlreadyInUseException("usernameAlreadyInUse"));
+    }
+ else     if ("2".equals(error)) {
+      setException(ZLNetworkException.forCode("usernameNotSpecified"));
+    }
+ else     if ("3".equals(error)) {
+      setException(ZLNetworkException.forCode("passwordNotSpecified"));
+    }
+ else     if ("4".equals(error)) {
+      setException(ZLNetworkException.forCode("invalidEMail"));
+    }
+ else     if ("5".equals(error)) {
+      setException(ZLNetworkException.forCode("tooManyRegistrations"));
+    }
+ else     if ("6".equals(error)) {
+      setException(new AlreadyInUseException("emailAlreadyInUse"));
+    }
+ else {
+      final String comment=attributes.getValue("coment");
+      if (comment != null) {
+        setException(new ZLNetworkException(comment));
+      }
+ else {
+        setException(ZLNetworkException.forCode(NetworkException.ERROR_INTERNAL));
+      }
+    }
+  }
+ else   if (TAG_AUTHORIZATION_OK == tag) {
+    Sid=attributes.getValue("sid");
+  }
+ else {
+    setException(ZLNetworkException.forCode("somethingWrongMessage",LitResUtil.HOST_NAME));
+  }
+  return true;
+}

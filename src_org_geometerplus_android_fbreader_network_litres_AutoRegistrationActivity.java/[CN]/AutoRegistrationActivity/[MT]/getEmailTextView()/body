@@ -1,0 +1,3 @@
+{
+  return (TextView)getEmailControl().findViewById(R.id.lr_email_edit);
+}

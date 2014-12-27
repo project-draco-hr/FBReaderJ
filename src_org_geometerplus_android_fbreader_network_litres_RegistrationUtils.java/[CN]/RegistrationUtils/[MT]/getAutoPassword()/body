@@ -1,0 +1,12 @@
+{
+  try {
+    final WifiManager wifi=(WifiManager)myContext.getSystemService(Context.WIFI_SERVICE);
+    final String mac=wifi.getConnectionInfo().getMacAddress();
+    if (mac.length() > 3) {
+      return "XXX" + mac;
+    }
+  }
+ catch (  Exception e) {
+  }
+  return new BigInteger(50,new SecureRandom()).toString(32);
+}

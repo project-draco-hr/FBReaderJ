@@ -1,0 +1,3 @@
+{
+  setErrorMessage(ZLResource.resource("dialog").getResource("networkError").getResource(resourceKey).getValue());
+}

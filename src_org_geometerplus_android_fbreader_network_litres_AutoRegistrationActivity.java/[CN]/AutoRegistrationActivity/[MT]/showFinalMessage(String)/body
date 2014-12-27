@@ -1,0 +1,12 @@
+{
+  getTextArea().setVisibility(View.VISIBLE);
+  getTextArea().setText(message);
+  getActionSignIn().setVisibility(View.GONE);
+  getActionAnotherEmail().setVisibility(View.GONE);
+  getActionRecover().setVisibility(View.GONE);
+  getEmailControl().setVisibility(View.GONE);
+  getButtons().setVisibility(View.VISIBLE);
+  getOkButton().setVisibility(View.VISIBLE);
+  getOkButton().setOnClickListener(myFinishListener);
+  getCancelButton().setVisibility(View.GONE);
+}

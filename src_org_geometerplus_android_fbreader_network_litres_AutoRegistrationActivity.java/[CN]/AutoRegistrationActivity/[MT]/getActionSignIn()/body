@@ -1,0 +1,3 @@
+{
+  return (RadioButton)findViewById(R.id.lr_auto_registration_action_signin);
+}

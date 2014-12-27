@@ -1,0 +1,3 @@
+{
+  return email != null ? "fbreader-auto-" + email.replace(".","-").replace("@","-at-") : null;
+}

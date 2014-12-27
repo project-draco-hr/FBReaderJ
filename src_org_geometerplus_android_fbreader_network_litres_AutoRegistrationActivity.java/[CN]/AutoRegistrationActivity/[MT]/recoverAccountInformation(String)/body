@@ -1,0 +1,30 @@
+{
+  System.err.println("recoverAccountInformation 0");
+  final LitResPasswordRecoveryXMLReader xmlReader=new LitResPasswordRecoveryXMLReader();
+  final NetworkRunnable runnable=new NetworkRunnable(){
+    public void run() throws ZLNetworkException {
+      System.err.println("recoverAccountInformation 1");
+      final LitResNetworkRequest request=new LitResNetworkRequest(myRecoverPasswordURL,xmlReader);
+      request.addPostParameter("mail",email);
+      myNetworkContext.perform(request);
+    }
+  }
+;
+  final PostRunnable post=new PostRunnable(){
+    public void run(    ZLNetworkException e){
+      System.err.println("recoverAccountInformation 2");
+      if (e == null) {
+        System.err.println("recoverAccountInformation 3");
+        showFinalMessage(myResource.getResource("passwordSent").getValue().replace("%s",email));
+      }
+ else {
+        System.err.println("recoverAccountInformation 4");
+        showErrorMessage(e);
+      }
+    }
+  }
+;
+  System.err.println("recoverAccountInformation 5");
+  runWithMessage("recoverPassword",runnable,post);
+  System.err.println("recoverAccountInformation 6");
+}

@@ -1,0 +1,3 @@
+{
+  findTextView(resourceId).setText(text);
+}

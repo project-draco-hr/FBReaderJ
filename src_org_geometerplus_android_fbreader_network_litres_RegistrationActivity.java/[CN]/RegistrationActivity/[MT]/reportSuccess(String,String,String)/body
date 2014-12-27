@@ -1,0 +1,8 @@
+{
+  final Intent data=new Intent("android.fbreader.action.network.SIGNIN");
+  data.putExtra(USER_REGISTRATION_USERNAME,username);
+  data.putExtra(USER_REGISTRATION_PASSWORD,password);
+  data.putExtra(USER_REGISTRATION_LITRES_SID,sid);
+  data.putExtra(CATALOG_URL,myCatalogURL);
+  sendBroadcast(data);
+}

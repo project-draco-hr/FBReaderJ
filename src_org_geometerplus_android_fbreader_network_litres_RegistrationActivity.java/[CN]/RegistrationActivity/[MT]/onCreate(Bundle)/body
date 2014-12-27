@@ -1,0 +1,8 @@
+{
+  super.onCreate(icicle);
+  final Intent intent=getIntent();
+  myCatalogURL=intent.getStringExtra(CATALOG_URL);
+  mySignInURL=intent.getStringExtra(SIGNIN_URL);
+  mySignUpURL=intent.getStringExtra(SIGNUP_URL);
+  myRecoverPasswordURL=intent.getStringExtra(RECOVER_PASSWORD_URL);
+}

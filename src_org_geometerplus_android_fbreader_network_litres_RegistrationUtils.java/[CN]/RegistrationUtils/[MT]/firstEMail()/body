@@ -1,0 +1,4 @@
+{
+  collectEMails();
+  return myEMails.size() > 0 ? myEMails.get(0) : null;
+}

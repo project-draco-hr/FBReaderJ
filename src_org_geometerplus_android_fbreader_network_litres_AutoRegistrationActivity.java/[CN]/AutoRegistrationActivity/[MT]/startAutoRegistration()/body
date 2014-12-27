@@ -1,0 +1,9 @@
+{
+  final String email=myUtil.firstEMail();
+  if (email != null) {
+    runAutoLogin(email);
+  }
+ else {
+    runEmailSelectionDialog(null);
+  }
+}
