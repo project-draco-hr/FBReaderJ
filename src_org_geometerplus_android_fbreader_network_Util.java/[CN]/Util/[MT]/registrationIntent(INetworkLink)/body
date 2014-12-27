@@ -1,3 +1,0 @@
-{
-  return authorisationIntent(link,Uri.parse(link.getUrl(UrlInfo.Type.Catalog) + "/register"));
-}
