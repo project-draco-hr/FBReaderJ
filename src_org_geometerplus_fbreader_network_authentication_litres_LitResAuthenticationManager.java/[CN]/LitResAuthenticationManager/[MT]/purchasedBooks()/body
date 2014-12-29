@@ -1,3 +1,5 @@
 {
-  return myPurchasedBooks.list();
+synchronized (InitialisationLock) {
+    return myPurchasedBooks.list();
+  }
 }
