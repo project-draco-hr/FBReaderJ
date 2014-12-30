@@ -2,9 +2,9 @@
   if (this == other) {
     return true;
   }
-  if (!(other instanceof FBReaderSpecialEntry)) {
+  if (!(other instanceof ExtensionEntry)) {
     return false;
   }
-  final FBReaderSpecialEntry entry=(FBReaderSpecialEntry)other;
+  final ExtensionEntry entry=(ExtensionEntry)other;
   return Type.equals(entry.Type) && Data.equals(entry.Data);
 }
