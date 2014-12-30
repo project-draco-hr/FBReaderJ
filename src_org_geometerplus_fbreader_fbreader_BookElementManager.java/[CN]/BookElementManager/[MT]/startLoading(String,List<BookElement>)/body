@@ -13,6 +13,13 @@
           throw new RuntimeException();
         }
         myTimer=null;
+        final List<OPDSBookItem> items=handler.books();
+        int index=0;
+        for (        BookElement book : elements) {
+          book.setData(items.get(index));
+          index=(index + 1) % items.size();
+          myScreenRefresher.run();
+        }
       }
  catch (      Exception e) {
         if (myTimer == null) {
@@ -25,14 +32,6 @@
         }
 ,10000);
         e.printStackTrace();
-        return;
-      }
-      final List<OPDSBookItem> items=handler.books();
-      int index=0;
-      for (      BookElement book : elements) {
-        book.setData(items.get(index));
-        index=(index + 1) % items.size();
-        myScreenRefresher.run();
       }
     }
   }
