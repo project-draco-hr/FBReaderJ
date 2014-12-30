@@ -1,4 +1,7 @@
 {
+  if (!"opds".equals(type)) {
+    return Collections.emptyList();
+  }
   List<BookElement> elements=myCache.get(data);
   if (elements == null) {
     try {
