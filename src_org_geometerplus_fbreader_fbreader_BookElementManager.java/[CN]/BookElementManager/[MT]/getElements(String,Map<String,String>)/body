@@ -8,7 +8,7 @@
       final int count=Integer.valueOf(data.get("size"));
       elements=new ArrayList<BookElement>(count);
       for (int i=0; i < count; ++i) {
-        elements.add(new BookElement());
+        elements.add(new BookElement(myView));
       }
       startLoading(data.get("src"),elements);
     }
