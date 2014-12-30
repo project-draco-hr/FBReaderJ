@@ -1,0 +1,3 @@
+{
+  return Math.min(ZLibrary.Instance().getDisplayDPI() * 818 / 1000,view.getTextColumnWidth());
+}
