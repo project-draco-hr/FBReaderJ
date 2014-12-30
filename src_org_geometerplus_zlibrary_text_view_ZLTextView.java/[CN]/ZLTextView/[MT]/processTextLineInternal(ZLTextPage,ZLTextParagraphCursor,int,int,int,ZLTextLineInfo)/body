@@ -73,7 +73,7 @@
       wordOccurred=true;
       isVisible=true;
     }
- else     if (element instanceof BookElement) {
+ else     if (element instanceof ExtensionElement) {
       wordOccurred=true;
       isVisible=true;
     }

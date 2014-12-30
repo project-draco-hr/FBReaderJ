@@ -10,8 +10,8 @@
  else   if (element instanceof ZLTextVideoElement) {
     return Math.min(Math.min(200,getTextAreaHeight()),getTextColumnWidth() * 2 / 3);
   }
- else   if (element instanceof BookElement) {
-    return ZLibrary.Instance().getDisplayDPI() * 17 / 15;
+ else   if (element instanceof ExtensionElement) {
+    return ((ExtensionElement)element).getHeight(this);
   }
   return 0;
 }
