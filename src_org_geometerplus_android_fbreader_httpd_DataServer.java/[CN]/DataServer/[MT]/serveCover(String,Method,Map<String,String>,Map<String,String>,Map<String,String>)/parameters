@@ -1,0 +1,5 @@
+String uri
+Method method
+Map<String,String> headers
+Map<String,String> params
+Map<String,String> files
