@@ -11,7 +11,7 @@
     return Math.min(Math.min(200,getTextAreaHeight()),getTextColumnWidth() * 2 / 3);
   }
  else   if (element instanceof ExtensionElement) {
-    return ((ExtensionElement)element).getHeight(this);
+    return ((ExtensionElement)element).getHeight();
   }
   return 0;
 }

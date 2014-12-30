@@ -1,9 +1,0 @@
-{
-  myScreenRefresher=new Runnable(){
-    public void run(){
-      reader.getViewWidget().reset();
-      reader.getViewWidget().repaint();
-    }
-  }
-;
-}
