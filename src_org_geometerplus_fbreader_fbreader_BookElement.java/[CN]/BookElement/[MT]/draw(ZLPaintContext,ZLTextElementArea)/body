@@ -6,8 +6,9 @@
     context.drawImage(area.XStart + hMargin,area.YEnd - vMargin,imageData,new ZLPaintContext.Size(area.XEnd - area.XStart - 2 * hMargin + 1,area.YEnd - area.YStart - 2 * vMargin + 1),ZLPaintContext.ScalingType.FitMaximum,ZLPaintContext.ColorAdjustingMode.NONE);
   }
  else {
-    context.setLineColor(view.getTextColor(ZLTextHyperlink.NO_LINK));
-    context.setFillColor(view.getTextColor(ZLTextHyperlink.NO_LINK),0x33);
+    final ZLColor color=myView.getTextColor(ZLTextHyperlink.NO_LINK);
+    context.setLineColor(color);
+    context.setFillColor(color,0x33);
     final int xStart=area.XStart + hMargin;
     final int xEnd=area.XEnd - hMargin;
     final int yStart=area.YStart + vMargin;
