@@ -11,7 +11,7 @@
     return notFound(uri);
   }
   try {
-    return serveFile(fileFromEncodedPath(uri.substring(mime.length() + 2)),mime,headers);
+    return serveFile(DataUtil.fileFromEncodedPath(uri.substring(mime.length() + 2)),mime,headers);
   }
  catch (  Exception e) {
     return forbidden(uri,e);
