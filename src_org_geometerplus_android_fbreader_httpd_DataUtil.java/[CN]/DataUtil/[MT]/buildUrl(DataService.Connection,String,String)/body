@@ -1,4 +1,8 @@
 {
+  final int port=connection.getPort();
+  if (port == -1) {
+    return null;
+  }
   final StringBuilder url=new StringBuilder("http://127.0.0.1:").append(port).append("/").append(prefix).append("/");
   for (int i=0; i < path.length(); ++i) {
     url.append(String.format("X%X",(short)path.charAt(i)));
