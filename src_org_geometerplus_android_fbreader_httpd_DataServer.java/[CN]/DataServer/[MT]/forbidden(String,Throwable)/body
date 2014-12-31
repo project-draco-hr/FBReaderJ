@@ -1,0 +1,4 @@
+{
+  t.printStackTrace();
+  return new Response(Response.Status.FORBIDDEN,MimeType.TEXT_HTML.toString(),"<html><body><h1>" + t.getMessage() + "</h1>\n("+ uri+ ")</body></html>");
+}
