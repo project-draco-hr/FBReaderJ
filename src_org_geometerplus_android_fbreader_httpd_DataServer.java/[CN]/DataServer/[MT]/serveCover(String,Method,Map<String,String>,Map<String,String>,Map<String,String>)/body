@@ -1,3 +1,9 @@
 {
+  try {
+    final ZLImage image=BookUtil.getCover(fileFromEncodedPath(uri.substring(7)));
+  }
+ catch (  Exception e) {
+    return forbidden(uri,e);
+  }
   return notFound(uri);
 }
