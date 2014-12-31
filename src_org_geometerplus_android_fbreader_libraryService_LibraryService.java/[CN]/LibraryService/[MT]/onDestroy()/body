@@ -1,4 +1,5 @@
 {
+  unbindService(DataConnection);
   if (myLibrary != null) {
     final LibraryImplementation l=myLibrary;
     myLibrary=null;
