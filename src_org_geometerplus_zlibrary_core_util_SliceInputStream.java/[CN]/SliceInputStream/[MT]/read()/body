@@ -1,6 +1,8 @@
 {
-  if (offset() >= myLength) {
-    return -1;
+  if (myCreated) {
+    if (offset() >= myLength) {
+      return -1;
+    }
   }
   return super.read();
 }

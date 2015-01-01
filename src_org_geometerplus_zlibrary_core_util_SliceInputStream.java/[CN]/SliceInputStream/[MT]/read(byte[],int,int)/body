@@ -1,7 +1,10 @@
 {
-  final int maxbytes=myLength - offset();
-  if (maxbytes <= 0) {
-    return -1;
+  if (myCreated) {
+    int maxbytes=myLength - offset();
+    if (maxbytes <= 0) {
+      return -1;
+    }
+    len=Math.min(len,maxbytes);
   }
-  return super.read(b,off,Math.min(len,maxbytes));
+  return super.read(b,off,len);
 }

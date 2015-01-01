@@ -3,4 +3,5 @@
   super.skip(start);
   myStart=start;
   myLength=length;
+  myCreated=true;
 }
