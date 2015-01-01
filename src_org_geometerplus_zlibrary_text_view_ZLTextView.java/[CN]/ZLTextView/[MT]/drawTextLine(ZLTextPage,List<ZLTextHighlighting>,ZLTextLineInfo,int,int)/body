@@ -44,6 +44,9 @@
         context.setFillColor(new ZLColor(196,196,196));
         context.fillPolygon(new int[]{l,l,r},new int[]{t,b,c});
       }
+ else       if (element instanceof ExtensionElement) {
+        ((ExtensionElement)element).draw(context,area);
+      }
  else       if (element == ZLTextElement.HSpace) {
         final int cw=context.getSpaceWidth();
         for (int len=0; len < area.XEnd - area.XStart; len+=cw) {

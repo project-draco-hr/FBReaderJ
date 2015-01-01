@@ -4,7 +4,7 @@
     throw new IllegalArgumentException("Creating book with no file");
   }
   myId=-1;
-  final FormatPlugin plugin=getPlugin(file);
+  final FormatPlugin plugin=BookUtil.getPlugin(file);
   File=plugin.realBookFile(file);
   readMetainfo(plugin);
   myIsSaved=false;

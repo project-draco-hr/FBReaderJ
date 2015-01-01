@@ -123,7 +123,7 @@ myVideoEntry.addSource(mime,src);
 }
 break;
 }
-case ZLTextParagraph.Entry.FBREADER_SPECIAL:
+case ZLTextParagraph.Entry.EXTENSION:
 {
 final short kindLength=(short)data[dataOffset++];
 final String kind=new String(data,dataOffset,kindLength);
@@ -138,7 +138,7 @@ final short valueLength=(short)data[dataOffset++];
 map.put(key,new String(data,dataOffset,valueLength));
 dataOffset+=valueLength;
 }
-myFBReaderSpecialEntry=new FBReaderSpecialEntry(kind,map);
+myExtensionEntry=new ExtensionEntry(kind,map);
 break;
 }
 }

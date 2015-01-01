@@ -1,0 +1,10 @@
+{
+  if (this == other) {
+    return true;
+  }
+  if (!(other instanceof ExtensionEntry)) {
+    return false;
+  }
+  final ExtensionEntry entry=(ExtensionEntry)other;
+  return Type.equals(entry.Type) && Data.equals(entry.Data);
+}

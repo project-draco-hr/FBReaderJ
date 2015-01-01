@@ -1,0 +1,39 @@
+{
+  new Thread(){
+    public void run(){
+      final SimpleOPDSFeedHandler handler=new SimpleOPDSFeedHandler(url);
+      try {
+        new QuietNetworkContext().perform(new ZLNetworkRequest.Get(url,true){
+          @Override public void handleStream(          InputStream inputStream,          int length) throws IOException, ZLNetworkException {
+            new OPDSXMLReader(handler,false).read(inputStream);
+          }
+        }
+);
+        if (handler.books().isEmpty()) {
+          throw new RuntimeException();
+        }
+        myTimer=null;
+        final List<OPDSBookItem> items=handler.books();
+        int index=0;
+        for (        BookElement book : elements) {
+          book.setData(items.get(index));
+          index=(index + 1) % items.size();
+          myScreenRefresher.run();
+        }
+      }
+ catch (      Exception e) {
+        if (myTimer == null) {
+          myTimer=new Timer();
+        }
+        myTimer.schedule(new TimerTask(){
+          @Override public void run(){
+            startLoading(url,elements);
+          }
+        }
+,10000);
+        e.printStackTrace();
+      }
+    }
+  }
+.start();
+}

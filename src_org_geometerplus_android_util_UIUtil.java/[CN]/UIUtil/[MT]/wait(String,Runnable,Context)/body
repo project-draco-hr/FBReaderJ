@@ -1,34 +1,3 @@
 {
-  if (!init()) {
-    action.run();
-    return;
-  }
-synchronized (ourMonitor) {
-    final String message=ZLResource.resource("dialog").getResource("waitMessage").getResource(key).getValue();
-    ourTaskQueue.offer(new Pair(action,message));
-    if (ourProgress == null) {
-      ourProgress=ProgressDialog.show(context,null,message,true,false);
-    }
- else {
-      return;
-    }
-  }
-  final ProgressDialog currentProgress=ourProgress;
-  new Thread(new Runnable(){
-    public void run(){
-      while (ourProgress == currentProgress && !ourTaskQueue.isEmpty()) {
-        Pair p=ourTaskQueue.poll();
-        p.Action.run();
-synchronized (ourMonitor) {
-          ourProgressHandler.sendEmptyMessage(0);
-          try {
-            ourMonitor.wait();
-          }
- catch (          InterruptedException e) {
-          }
-        }
-      }
-    }
-  }
-).start();
+  waitInternal(getWaitMessage(key),action,context);
 }

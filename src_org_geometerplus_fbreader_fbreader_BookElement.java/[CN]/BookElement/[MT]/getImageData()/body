@@ -1,0 +1,6 @@
+{
+  if (myCover == null) {
+    return null;
+  }
+  return ZLImageManager.Instance().getImageData(myCover);
+}

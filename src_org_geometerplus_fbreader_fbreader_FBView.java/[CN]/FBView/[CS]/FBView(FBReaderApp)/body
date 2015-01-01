@@ -2,4 +2,5 @@
   super(reader);
   myReader=reader;
   myViewOptions=reader.ViewOptions;
+  myBookElementManager=new BookElementManager(this);
 }

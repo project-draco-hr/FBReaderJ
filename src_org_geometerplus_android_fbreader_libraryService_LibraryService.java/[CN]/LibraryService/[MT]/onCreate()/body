@@ -6,4 +6,5 @@ synchronized (ourDatabaseLock) {
     }
   }
   myLibrary=new LibraryImplementation(ourDatabase);
+  bindService(new Intent(this,DataService.class),DataConnection,DataService.BIND_AUTO_CREATE);
 }

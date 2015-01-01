@@ -1,12 +1,12 @@
 {
-  if (image instanceof ZLStreamImage) {
+  if (image instanceof ZLImageProxy) {
+    return getImageData(((ZLImageProxy)image).getRealImage());
+  }
+ else   if (image instanceof ZLStreamImage) {
     return new InputStreamImageData((ZLStreamImage)image);
   }
  else   if (image instanceof ZLBitmapImage) {
     return BitmapImageData.get((ZLBitmapImage)image);
-  }
- else   if (image instanceof ZLImageProxy) {
-    return getImageData(((ZLImageProxy)image).getRealImage());
   }
  else {
     return null;

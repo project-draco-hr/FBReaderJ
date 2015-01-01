@@ -1,0 +1,20 @@
+{
+  try {
+    final ZLImage image=BookUtil.getCover(DataUtil.fileFromEncodedPath(uri.substring(7)));
+    if (image instanceof ZLFileImageProxy) {
+      final ZLFileImageProxy proxy=(ZLFileImageProxy)image;
+      proxy.synchronize();
+      final InputStream stream=proxy.getRealImage().inputStream();
+      if (stream == null) {
+        return notFound(uri);
+      }
+      return new Response(Response.Status.OK,MimeType.IMAGE_PNG.toString(),stream);
+    }
+ else {
+      return notFound(uri);
+    }
+  }
+ catch (  Exception e) {
+    return forbidden(uri,e);
+  }
+}

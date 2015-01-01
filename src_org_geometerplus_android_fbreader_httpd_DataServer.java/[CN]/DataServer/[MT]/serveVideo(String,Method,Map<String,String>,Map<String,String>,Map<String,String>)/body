@@ -1,0 +1,19 @@
+{
+  String mime=null;
+  for (  MimeType mimeType : MimeType.TYPES_VIDEO) {
+    final String m=mimeType.toString();
+    if (uri.startsWith("/" + m + "/")) {
+      mime=m;
+      break;
+    }
+  }
+  if (mime == null) {
+    return notFound(uri);
+  }
+  try {
+    return serveFile(DataUtil.fileFromEncodedPath(uri.substring(mime.length() + 2)),mime,headers);
+  }
+ catch (  Exception e) {
+    return forbidden(uri,e);
+  }
+}

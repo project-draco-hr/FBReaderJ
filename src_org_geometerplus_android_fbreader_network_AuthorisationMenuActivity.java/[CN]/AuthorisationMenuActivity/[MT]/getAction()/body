@@ -1,3 +1,3 @@
 {
-  return Util.AUTHORIZATION_ACTION;
+  return Util.AUTHORISATION_ACTION;
 }
