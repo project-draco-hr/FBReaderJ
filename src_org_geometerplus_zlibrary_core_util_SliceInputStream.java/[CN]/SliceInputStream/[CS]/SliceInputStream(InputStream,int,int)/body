@@ -1,6 +1,6 @@
 {
   super(base);
-  super.skip(start);
+  baseSkip(start);
   myStart=start;
   myLength=length;
 }
