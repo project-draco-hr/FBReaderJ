@@ -1,0 +1,8 @@
+{
+  long shift=myDecoratedStream.skip(n);
+  while (shift < n && myDecoratedStream.read() != -1) {
+    ++shift;
+  }
+  myOffset+=shift;
+  return shift;
+}
