@@ -12,6 +12,6 @@
     }
   }
   setValueIndex(index);
-  setSummary(getEntry());
+  setSummary(getEntry().toString().replace("%","%%"));
   return found;
 }
