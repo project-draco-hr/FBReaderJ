@@ -1,0 +1,3 @@
+{
+  return BookUtil.getAnnotation(SerializerUtil.deserializeBook(book));
+}
