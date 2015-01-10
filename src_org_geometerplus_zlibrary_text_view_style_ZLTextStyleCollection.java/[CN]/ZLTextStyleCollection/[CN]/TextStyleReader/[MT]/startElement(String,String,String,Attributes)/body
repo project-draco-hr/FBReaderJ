@@ -1,6 +1,5 @@
 {
-  if ("base".equals(tag) && Screen.equals(attributes.getValue("screen"))) {
+  if ("base".equals(localName) && Screen.equals(attributes.getValue("screen"))) {
     myBaseStyle=new ZLTextBaseStyle(Screen,attributes.getValue("family"),intValue(attributes,"fontSize",0));
   }
-  return false;
 }

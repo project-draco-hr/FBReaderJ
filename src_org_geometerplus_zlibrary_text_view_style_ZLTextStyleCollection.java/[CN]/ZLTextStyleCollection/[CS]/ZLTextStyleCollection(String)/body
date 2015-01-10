@@ -5,5 +5,5 @@
   for (  Map.Entry<Integer,ZLTextNGStyleDescription> entry : descriptions.entrySet()) {
     myDescriptionMap[entry.getKey() & 0xFF]=entry.getValue();
   }
-  new TextStyleReader().readQuietly(ZLResourceFile.createResourceFile("default/styles.xml"));
+  XmlUtil.parseQuietly(ZLResourceFile.createResourceFile("default/styles.xml"),new TextStyleReader());
 }
