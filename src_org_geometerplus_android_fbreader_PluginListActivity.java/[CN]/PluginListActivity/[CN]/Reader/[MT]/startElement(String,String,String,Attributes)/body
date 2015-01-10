@@ -1,8 +1,8 @@
 {
-  if ("plugin".equals(tag)) {
+  if ("plugin".equals(localName)) {
     try {
       if (Integer.valueOf(attributes.getValue("min-api")) > Build.VERSION.SDK_INT) {
-        return false;
+        return;
       }
     }
  catch (    Throwable t) {
@@ -16,5 +16,4 @@
       myPlugins.add(new Plugin(id,packageName));
     }
   }
-  return false;
 }
