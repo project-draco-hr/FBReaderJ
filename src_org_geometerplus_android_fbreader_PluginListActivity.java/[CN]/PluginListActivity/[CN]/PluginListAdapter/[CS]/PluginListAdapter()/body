@@ -1,3 +1,3 @@
 {
-  new Reader(myPlugins).readQuietly(ZLFile.createFileByPath("default/plugins.xml"));
+  XmlUtil.parseQuietly(ZLFile.createFileByPath("default/plugins.xml"),new Reader(myPlugins));
 }
