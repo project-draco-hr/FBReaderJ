@@ -1,0 +1,5 @@
+{
+  final BigDecimal i0=Index != null ? Index : BigDecimal.ZERO;
+  final BigDecimal i1=other.Index != null ? other.Index : BigDecimal.ZERO;
+  return i0.compareTo(i1);
+}
