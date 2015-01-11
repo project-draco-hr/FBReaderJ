@@ -4,7 +4,11 @@
     if (image instanceof ZLFileImageProxy) {
       final ZLFileImageProxy proxy=(ZLFileImageProxy)image;
       proxy.synchronize();
-      final InputStream stream=proxy.getRealImage().inputStream();
+      final ZLStreamImage realImage=proxy.getRealImage();
+      if (realImage == null) {
+        return notFound(uri);
+      }
+      final InputStream stream=realImage.inputStream();
       if (stream == null) {
         return notFound(uri);
       }
