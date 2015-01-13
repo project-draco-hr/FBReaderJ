@@ -1,0 +1,9 @@
+{
+  if (myInterface != null) {
+    try {
+      myInterface.removeFromRecentlyOpened(SerializerUtil.serialize(book));
+    }
+ catch (    RemoteException e) {
+    }
+  }
+}

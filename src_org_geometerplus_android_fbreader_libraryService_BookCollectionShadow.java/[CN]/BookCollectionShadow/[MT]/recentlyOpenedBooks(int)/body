@@ -3,7 +3,7 @@
     return Collections.emptyList();
   }
   try {
-    return SerializerUtil.deserializeBookList(myInterface.recentBooks());
+    return SerializerUtil.deserializeBookList(myInterface.recentlyOpenedBooks(count));
   }
  catch (  RemoteException e) {
     return Collections.emptyList();
