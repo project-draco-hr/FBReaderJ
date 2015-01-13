@@ -1,7 +1,7 @@
 {
   if (myInterface != null) {
     try {
-      myInterface.addBookToRecentList(SerializerUtil.serialize(book));
+      myInterface.addToRecentlyOpened(SerializerUtil.serialize(book));
     }
  catch (    RemoteException e) {
     }
