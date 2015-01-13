@@ -1,4 +1,4 @@
 {
-  final List<Long> recentIds=myDatabase.loadRecentBookIds();
+  final List<Long> recentIds=myDatabase.loadRecentBookIds(BooksDatabase.HistoryEvent.Opened,index + 1);
   return recentIds.size() > index ? getBookById(recentIds.get(index)) : null;
 }

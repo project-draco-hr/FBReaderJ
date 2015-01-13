@@ -1,0 +1,8 @@
+{
+  final SQLiteStatement statement=get("DELETE FROM BookHistory WHERE book_id=? and event=?");
+synchronized (statement) {
+    statement.bindLong(1,bookId);
+    statement.bindLong(2,event);
+    statement.executeInsert();
+  }
+}

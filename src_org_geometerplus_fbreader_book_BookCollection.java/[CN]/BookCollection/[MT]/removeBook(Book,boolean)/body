@@ -3,10 +3,6 @@ synchronized (myBooksByFile) {
     myBooksByFile.remove(book.File);
     myDuplicateResolver.removeFile(book.File);
     myBooksById.remove(book.getId());
-    final List<Long> ids=myDatabase.loadRecentBookIds();
-    if (ids.remove(book.getId())) {
-      myDatabase.saveRecentBookIds(ids);
-    }
     if (deleteFromDisk) {
       book.File.getPhysicalFile().delete();
     }

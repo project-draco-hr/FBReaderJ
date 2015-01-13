@@ -1,3 +1,0 @@
-{
-  return recentlyOpenedBooks(12);
-}

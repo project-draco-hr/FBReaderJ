@@ -1,4 +1,3 @@
 {
-  myDatabase.execSQL("DROP TABLE IF EXISTS BookSynchronizationInfo");
   myDatabase.execSQL("CREATE TABLE IF NOT EXISTS BookHash(" + "book_id INTEGER PRIMARY KEY REFERENCES Books(book_id)," + "timestamp INTEGER NOT NULL,"+ "hash TEXT(40) NOT NULL)");
 }
