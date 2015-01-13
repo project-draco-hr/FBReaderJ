@@ -1,0 +1,9 @@
+{
+  final SQLiteStatement statement=get("INSERT INTO BookHistory (book_id,timestamp,event) VALUES (?,?,?)");
+synchronized (statement) {
+    statement.bindLong(1,bookId);
+    statement.bindLong(2,System.currentTimeMillis());
+    statement.bindLong(3,event);
+    statement.executeInsert();
+  }
+}

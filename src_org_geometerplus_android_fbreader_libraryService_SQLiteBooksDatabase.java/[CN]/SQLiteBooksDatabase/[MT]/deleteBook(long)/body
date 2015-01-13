@@ -1,5 +1,6 @@
 {
   myDatabase.beginTransaction();
+  myDatabase.execSQL("DELETE FROM BookHistory WHERE book_id=" + bookId);
   myDatabase.execSQL("DELETE FROM BookHash WHERE book_id=" + bookId);
   myDatabase.execSQL("DELETE FROM BookAuthor WHERE book_id=" + bookId);
   myDatabase.execSQL("DELETE FROM BookLabel WHERE book_id=" + bookId);
@@ -9,7 +10,6 @@
   myDatabase.execSQL("DELETE FROM BookTag WHERE book_id=" + bookId);
   myDatabase.execSQL("DELETE FROM BookUid WHERE book_id=" + bookId);
   myDatabase.execSQL("DELETE FROM Bookmarks WHERE book_id=" + bookId);
-  myDatabase.execSQL("DELETE FROM RecentBooks WHERE book_id=" + bookId);
   myDatabase.execSQL("DELETE FROM VisitedHyperlinks WHERE book_id=" + bookId);
   myDatabase.execSQL("DELETE FROM Books WHERE book_id=" + bookId);
   myDatabase.setTransactionSuccessful();
