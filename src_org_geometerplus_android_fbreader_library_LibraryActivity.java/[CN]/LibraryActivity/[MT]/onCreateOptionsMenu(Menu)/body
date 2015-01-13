@@ -5,5 +5,12 @@
   addMenuItem(menu,OptionsItemId.UploadAgain,"uploadAgain",-1);
   addMenuItem(menu,OptionsItemId.TryAgain,"tryAgain",-1);
   addMenuItem(menu,OptionsItemId.DeleteAll,"deleteAll",-1);
+  if (myIsExternalViewSupported == null) {
+    final Intent externalIntent=new Intent(FBReaderIntents.Action.EXTERNAL_LIBRARY);
+    myIsExternalViewSupported=PackageUtil.canBeStarted(this,externalIntent,true);
+  }
+  if (myIsExternalViewSupported) {
+    addMenuItem(menu,OptionsItemId.ExternalView,"materialView",-1);
+  }
   return true;
 }

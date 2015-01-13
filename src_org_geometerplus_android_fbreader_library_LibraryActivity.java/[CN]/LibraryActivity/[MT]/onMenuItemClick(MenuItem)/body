@@ -27,6 +27,17 @@ books.add(((BookTree)tree).Book);
 }
 tryToDeleteBooks(books);
 }
+case OptionsItemId.ExternalView:
+{
+final Intent externalIntent=new Intent(FBReaderIntents.Action.EXTERNAL_LIBRARY);
+try {
+startActivity(externalIntent);
+finish();
+}
+ catch (ActivityNotFoundException e) {
+}
+return true;
+}
 default :
 return true;
 }
