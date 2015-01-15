@@ -3,12 +3,16 @@
     if (onBindAction != null) {
       Config.Instance().runOnConnect(onBindAction);
     }
+    return true;
   }
  else {
     if (onBindAction != null) {
       myOnBindActions.add(onBindAction);
     }
-    context.bindService(FBReaderIntents.internalIntent(FBReaderIntents.Action.LIBRARY_SERVICE),this,LibraryService.BIND_AUTO_CREATE);
-    myContext=context;
+    final boolean result=context.bindService(FBReaderIntents.internalIntent(FBReaderIntents.Action.LIBRARY_SERVICE),this,LibraryService.BIND_AUTO_CREATE);
+    if (result) {
+      myContext=context;
+    }
+    return result;
   }
 }
