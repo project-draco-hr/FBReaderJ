@@ -214,8 +214,12 @@ myFormattedBuffer.appendEndTag(tag);
 break;
 case FE_UPDATED:
 if (ns == XMLNamespaces.Atom && tag == TAG_UPDATED) {
+try {
 if (ATOMDateConstruct.parse(bufferContent,myUpdated)) {
 myEntry.Updated=myUpdated;
+}
+}
+ catch (Exception e) {
 }
 myUpdated=null;
 myState=F_ENTRY;
