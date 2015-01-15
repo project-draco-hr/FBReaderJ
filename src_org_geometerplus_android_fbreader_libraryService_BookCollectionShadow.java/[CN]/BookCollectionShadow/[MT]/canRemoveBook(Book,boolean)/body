@@ -1,0 +1,11 @@
+{
+  if (myInterface == null) {
+    return false;
+  }
+  try {
+    return myInterface.canRemoveBook(SerializerUtil.serialize(book),deleteFromDisk);
+  }
+ catch (  RemoteException e) {
+    return false;
+  }
+}
