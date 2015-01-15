@@ -29,12 +29,12 @@ tryToDeleteBooks(books);
 }
 case OptionsItemId.ExternalView:
 {
-final Intent externalIntent=new Intent(FBReaderIntents.Action.EXTERNAL_LIBRARY);
 try {
-startActivity(externalIntent);
+startActivity(new Intent(FBReaderIntents.Action.EXTERNAL_LIBRARY));
 finish();
 }
  catch (ActivityNotFoundException e) {
+PackageUtil.installFromMarket(this,"org.fbreader.plugin.library");
 }
 return true;
 }
