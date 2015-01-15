@@ -1,3 +1,4 @@
 {
   myDatabase.removeBookHistoryEvents(book.getId(),BooksDatabase.HistoryEvent.Opened);
+  fireBookEvent(BookEvent.Updated,book);
 }
