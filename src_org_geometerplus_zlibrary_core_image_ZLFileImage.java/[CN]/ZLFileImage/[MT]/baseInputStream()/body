@@ -1,0 +1,16 @@
+{
+  if (myOffsets.length == 1) {
+    final int offset=myOffsets[0];
+    final int length=myLengths[0];
+    return new SliceInputStream(myFile.getInputStream(),offset,length != 0 ? length : Integer.MAX_VALUE);
+  }
+ else {
+    final InputStream[] streams=new InputStream[myOffsets.length];
+    for (int i=0; i < myOffsets.length; ++i) {
+      final int offset=myOffsets[i];
+      final int length=myLengths[i];
+      streams[i]=new SliceInputStream(myFile.getInputStream(),offset,length != 0 ? length : Integer.MAX_VALUE);
+    }
+    return new MergedInputStream(streams);
+  }
+}
