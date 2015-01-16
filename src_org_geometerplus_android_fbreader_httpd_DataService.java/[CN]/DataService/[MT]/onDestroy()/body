@@ -10,5 +10,6 @@
     }
 ).start();
   }
+  ImageSynchronizer.clear();
   super.onDestroy();
 }

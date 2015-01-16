@@ -1,0 +1,3 @@
+{
+  return new Response(Response.Status.NO_CONTENT,MimeType.TEXT_HTML.toString(),"<html><body><h1>No content: " + uri + "</h1></body></html>");
+}

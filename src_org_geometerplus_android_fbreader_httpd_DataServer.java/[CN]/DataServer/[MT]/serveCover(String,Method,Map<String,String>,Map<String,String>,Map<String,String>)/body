@@ -14,11 +14,24 @@
       }
       return new Response(Response.Status.OK,MimeType.IMAGE_PNG.toString(),stream);
     }
+ else     if (image instanceof PluginImage) {
+      final PluginImage pluginImage=(PluginImage)image;
+      if (myService.ImageSynchronizer.synchronizeImmediately(pluginImage)) {
+        final Bitmap bitmap=((ZLBitmapImage)pluginImage.getRealImage()).getBitmap();
+        final ByteArrayOutputStream os=new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG,85,os);
+        final InputStream is=new ByteArrayInputStream(os.toByteArray());
+        return new Response(Response.Status.OK,MimeType.IMAGE_JPEG.toString(),is);
+      }
+ else {
+        return noContent(uri);
+      }
+    }
  else {
       return notFound(uri);
     }
   }
- catch (  Exception e) {
-    return forbidden(uri,e);
+ catch (  Throwable t) {
+    return forbidden(uri,t);
   }
 }
