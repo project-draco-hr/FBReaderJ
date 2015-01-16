@@ -3,7 +3,7 @@
     public void run(){
       for (int port=12000; port < 12500; ++port) {
         try {
-          myServer=new DataServer(port);
+          myServer=new DataServer(DataService.this,port);
           myServer.start();
           myPort=port;
           break;

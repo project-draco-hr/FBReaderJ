@@ -1,0 +1,9 @@
+{
+  if (Reader != null) {
+    action.run();
+    return true;
+  }
+ else {
+    return false;
+  }
+}
