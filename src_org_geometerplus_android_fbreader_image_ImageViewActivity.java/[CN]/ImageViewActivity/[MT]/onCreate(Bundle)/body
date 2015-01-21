@@ -8,9 +8,10 @@
   setContentView(new ImageView());
   final Intent intent=getIntent();
   myBgColor=new ZLColor(intent.getIntExtra(BACKGROUND_COLOR_KEY,new ZLColor(127,127,127).intValue()));
-  final Uri uri=intent.getData();
-  if (ZLFileImage.SCHEME.equals(uri.getScheme())) {
-    final ZLFileImage image=ZLFileImage.byUrlPath(uri.getPath());
+  final String url=intent.getStringExtra(URL_KEY);
+  final String prefix=ZLFileImage.SCHEME + "://";
+  if (url != null && url.startsWith(prefix)) {
+    final ZLFileImage image=ZLFileImage.byUrlPath(url.substring(prefix.length()));
     if (image == null) {
       finish();
     }
