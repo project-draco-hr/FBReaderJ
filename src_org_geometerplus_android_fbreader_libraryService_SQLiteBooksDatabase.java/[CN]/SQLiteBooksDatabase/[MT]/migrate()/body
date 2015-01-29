@@ -1,6 +1,6 @@
 {
   final int version=myDatabase.getVersion();
-  final int currentVersion=31;
+  final int currentVersion=32;
   if (version >= currentVersion) {
     return;
   }
@@ -68,6 +68,8 @@ case 29:
 updateTables29();
 case 30:
 updateTables30();
+case 31:
+updateTables31();
 }
 myDatabase.setTransactionSuccessful();
 myDatabase.setVersion(currentVersion);
