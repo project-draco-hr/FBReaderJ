@@ -1,0 +1,4 @@
+{
+  myDatabase.execSQL("ALTER TABLE BookLabel ADD COLUMN timestamp INTEGER NOT NULL DEFAULT -1");
+  myDatabase.execSQL("ALTER TABLE BookLabel ADD COLUMN comment TEXT DEFAULT NULL");
+}
