@@ -35,7 +35,7 @@
     }
  else     if (image instanceof PluginImage) {
       final PluginImage pluginImage=(PluginImage)image;
-      if (myService.ImageSynchronizer.synchronizeImmediately(pluginImage)) {
+      if (pluginImage.isSynchronized()) {
         try {
           final Bitmap bitmap=((ZLBitmapImage)pluginImage.getRealImage()).getBitmap();
           final ByteArrayOutputStream os=new ByteArrayOutputStream();
@@ -51,6 +51,7 @@
         }
       }
  else {
+        myService.ImageSynchronizer.synchronize(pluginImage,null);
         return noContent(uri);
       }
     }
