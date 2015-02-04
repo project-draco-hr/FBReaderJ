@@ -1,0 +1,9 @@
+{
+  try {
+    startActivity(new Intent(FBReaderIntents.Action.EXTERNAL_LIBRARY));
+    finish();
+  }
+ catch (  ActivityNotFoundException e) {
+    PackageUtil.installFromMarket(this,"org.fbreader.plugin.library");
+  }
+}

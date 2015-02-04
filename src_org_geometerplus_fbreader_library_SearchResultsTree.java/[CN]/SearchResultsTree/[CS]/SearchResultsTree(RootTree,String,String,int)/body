@@ -1,5 +1,5 @@
 {
-  super(root,new Filter.ByPattern(pattern),0);
+  super(root,new Filter.ByPattern(pattern),position);
   myId=id;
   myResource=resource().getResource(myId);
   Pattern=pattern != null ? pattern : "";

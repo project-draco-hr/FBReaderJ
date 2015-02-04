@@ -1,3 +1,11 @@
 {
-  return new SearchResultsTree(this,LibraryTree.ROOT_FOUND,pattern);
+  final int position;
+  final List<FBTree> children=subtrees();
+  if (children.isEmpty()) {
+    position=0;
+  }
+ else {
+    position=children.get(0) instanceof ExternalViewTree ? 1 : 0;
+  }
+  return new SearchResultsTree(this,LibraryTree.ROOT_FOUND,pattern,position);
 }

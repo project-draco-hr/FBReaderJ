@@ -1,10 +1,15 @@
 {
   final LibraryTree tree=(LibraryTree)getListAdapter().getItem(position);
-  final Book book=tree.getBook();
-  if (book != null) {
-    showBookInfo(book);
+  if (tree instanceof ExternalViewTree) {
+    runOrInstallExternalView();
   }
  else {
-    openTree(tree);
+    final Book book=tree.getBook();
+    if (book != null) {
+      showBookInfo(book);
+    }
+ else {
+      openTree(tree);
+    }
   }
 }
