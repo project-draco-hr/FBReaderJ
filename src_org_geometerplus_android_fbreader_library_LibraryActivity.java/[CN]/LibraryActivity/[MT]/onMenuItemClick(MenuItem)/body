@@ -28,16 +28,8 @@ books.add(((BookTree)tree).Book);
 tryToDeleteBooks(books);
 }
 case OptionsItemId.ExternalView:
-{
-try {
-startActivity(new Intent(FBReaderIntents.Action.EXTERNAL_LIBRARY));
-finish();
-}
- catch (ActivityNotFoundException e) {
-PackageUtil.installFromMarket(this,"org.fbreader.plugin.library");
-}
+runOrInstallExternalView();
 return true;
-}
 default :
 return true;
 }
