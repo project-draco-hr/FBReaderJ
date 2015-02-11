@@ -1,4 +1,7 @@
 {
+  if (query == null) {
+    return Collections.emptyList();
+  }
   final List<Book> allBooks;
 synchronized (myBooksByFile) {
     allBooks=new ArrayList<Book>(myBooksByFile.values());
