@@ -1,10 +1,9 @@
 {
   final FormatPlugin plugin=book.getPlugin();
-  System.err.println("using plugin: " + plugin.supportedFileType() + "/"+ plugin.type());
   if (plugin instanceof BuiltinFormatPlugin) {
     final BookModel model=new NativeBookModel(book);
     ((BuiltinFormatPlugin)plugin).readModel(model);
     return model;
   }
-  throw new BookReadingException("unknownPluginType",null,new String[]{plugin.type().toString()});
+  throw new BookReadingException("unknownPluginType",null,new String[]{String.valueOf(plugin)});
 }
