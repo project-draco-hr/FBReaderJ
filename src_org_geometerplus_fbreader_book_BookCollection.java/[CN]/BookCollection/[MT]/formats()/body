@@ -1,8 +1,12 @@
 {
   final List<FormatPlugin> plugins=PluginCollection.Instance().plugins();
-  final List<String> ids=new ArrayList<String>(plugins.size());
+  final List<FormatDescriptor> descriptors=new ArrayList<FormatDescriptor>(plugins.size());
   for (  FormatPlugin p : plugins) {
-    ids.add(p.supportedFileType());
+    final FormatDescriptor d=new FormatDescriptor();
+    d.Id=p.supportedFileType();
+    d.Name=p.name();
+    d.IsActive=true;
+    descriptors.add(d);
   }
-  return ids;
+  return descriptors;
 }

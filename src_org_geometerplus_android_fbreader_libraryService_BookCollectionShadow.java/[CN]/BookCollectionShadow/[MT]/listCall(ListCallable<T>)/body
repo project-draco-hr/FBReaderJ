@@ -3,9 +3,12 @@
     return Collections.emptyList();
   }
   try {
-    return myInterface.formats();
+    return callable.call();
   }
- catch (  RemoteException e) {
+ catch (  Exception e) {
+    return Collections.emptyList();
+  }
+catch (  Throwable e) {
     return Collections.emptyList();
   }
 }

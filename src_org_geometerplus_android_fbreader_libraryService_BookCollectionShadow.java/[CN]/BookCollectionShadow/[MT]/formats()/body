@@ -1,11 +1,13 @@
 {
-  if (myInterface == null) {
-    return Collections.emptyList();
+  return listCall(new ListCallable<FormatDescriptor>(){
+    public List<FormatDescriptor> call() throws RemoteException {
+      final List<String> serialized=myInterface.formats();
+      final List<FormatDescriptor> formats=new ArrayList<FormatDescriptor>(serialized.size());
+      for (      String s : serialized) {
+        formats.add(Util.stringToFormatDescriptor(s));
+      }
+      return formats;
+    }
   }
-  try {
-    return myInterface.formats();
-  }
- catch (  RemoteException e) {
-    return Collections.emptyList();
-  }
+);
 }
