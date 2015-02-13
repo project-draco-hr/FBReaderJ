@@ -1,11 +1,8 @@
 {
-  if (myInterface == null) {
-    return Collections.emptyList();
+  return listCall(new ListCallable<String>(){
+    public List<String> call() throws RemoteException {
+      return myInterface.series();
+    }
   }
-  try {
-    return myInterface.series();
-  }
- catch (  RemoteException e) {
-    return Collections.emptyList();
-  }
+);
 }

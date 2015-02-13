@@ -1,11 +1,8 @@
 {
-  if (myInterface == null) {
-    return Collections.emptyList();
+  return listCall(new ListCallable<HighlightingStyle>(){
+    public List<HighlightingStyle> call() throws RemoteException {
+      return SerializerUtil.deserializeStyleList(myInterface.highlightingStyles());
+    }
   }
-  try {
-    return SerializerUtil.deserializeStyleList(myInterface.highlightingStyles());
-  }
- catch (  RemoteException e) {
-    return Collections.emptyList();
-  }
+);
 }

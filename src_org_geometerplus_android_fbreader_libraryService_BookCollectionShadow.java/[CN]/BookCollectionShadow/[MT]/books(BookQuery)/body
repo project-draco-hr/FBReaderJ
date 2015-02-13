@@ -1,11 +1,8 @@
 {
-  if (myInterface == null) {
-    return Collections.emptyList();
+  return listCall(new ListCallable<Book>(){
+    public List<Book> call() throws RemoteException {
+      return SerializerUtil.deserializeBookList(myInterface.books(SerializerUtil.serialize(query)));
+    }
   }
-  try {
-    return SerializerUtil.deserializeBookList(myInterface.books(SerializerUtil.serialize(query)));
-  }
- catch (  RemoteException e) {
-    return Collections.emptyList();
-  }
+);
 }

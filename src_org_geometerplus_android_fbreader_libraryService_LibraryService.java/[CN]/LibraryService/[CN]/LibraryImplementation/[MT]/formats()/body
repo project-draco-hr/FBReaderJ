@@ -1,3 +1,8 @@
 {
-  return myCollection.formats();
+  final List<IBookCollection.FormatDescriptor> descriptors=myCollection.formats();
+  final List<String> serialized=new ArrayList<String>(descriptors.size());
+  for (  IBookCollection.FormatDescriptor d : descriptors) {
+    serialized.add(Util.formatDescriptorToString(d));
+  }
+  return serialized;
 }
