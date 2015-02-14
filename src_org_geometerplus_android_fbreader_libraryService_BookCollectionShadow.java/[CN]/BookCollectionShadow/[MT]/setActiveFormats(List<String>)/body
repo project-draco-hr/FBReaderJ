@@ -1,9 +1,10 @@
 {
   if (myInterface != null) {
     try {
-      myInterface.setActiveFormats(formats);
+      return myInterface.setActiveFormats(formats);
     }
  catch (    RemoteException e) {
     }
   }
+  return false;
 }
