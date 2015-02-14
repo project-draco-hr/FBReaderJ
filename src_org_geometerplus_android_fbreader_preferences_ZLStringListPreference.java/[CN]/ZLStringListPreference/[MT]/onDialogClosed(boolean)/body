@@ -1,6 +1,6 @@
 {
   super.onDialogClosed(result);
   if (result) {
-    setSummary(getEntry().toString().replace("%","%%"));
+    setSummary(myValuesResource.getResource(getValue()).getValue());
   }
 }
