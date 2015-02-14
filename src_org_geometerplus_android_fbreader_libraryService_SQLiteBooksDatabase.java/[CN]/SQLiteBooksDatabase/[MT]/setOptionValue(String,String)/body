@@ -1,0 +1,8 @@
+{
+  final SQLiteStatement statement=get("INSERT OR REPLACE INTO Options (name,value) VALUES (?,?)");
+synchronized (statement) {
+    SQLiteUtil.bindString(statement,1,name);
+    SQLiteUtil.bindString(statement,2,value);
+    statement.execute();
+  }
+}

@@ -1,3 +1,9 @@
 {
-  myCollection.setActiveFormats(formatIds);
+  if (myCollection.setActiveFormats(formatIds)) {
+    reset(true);
+    return true;
+  }
+ else {
+    return false;
+  }
 }

@@ -1,3 +1,9 @@
 {
-  myActiveFormats=new HashSet<String>(formatIds);
+  final Set<String> activeFormats=new HashSet<String>(formatIds);
+  if (activeFormats.equals(myActiveFormats)) {
+    return false;
+  }
+  myActiveFormats=activeFormats;
+  myDatabase.setOptionValue("formats",MiscUtil.join(formatIds,"\000"));
+  return true;
 }

@@ -5,7 +5,7 @@
     final FormatDescriptor d=new FormatDescriptor();
     d.Id=p.supportedFileType();
     d.Name=p.name();
-    d.IsActive=true;
+    d.IsActive=myActiveFormats == null || myActiveFormats.contains(d.Id);
     descriptors.add(d);
   }
   return descriptors;

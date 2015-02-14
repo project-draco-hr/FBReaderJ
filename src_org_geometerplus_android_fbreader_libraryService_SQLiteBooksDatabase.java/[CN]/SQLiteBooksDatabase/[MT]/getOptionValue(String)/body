@@ -1,0 +1,9 @@
+{
+  final Cursor cursor=myDatabase.rawQuery("SELECT value FROM Options WHERE name=?",new String[]{name});
+  try {
+    return cursor.moveToNext() ? cursor.getString(0) : null;
+  }
+  finally {
+    cursor.close();
+  }
+}
