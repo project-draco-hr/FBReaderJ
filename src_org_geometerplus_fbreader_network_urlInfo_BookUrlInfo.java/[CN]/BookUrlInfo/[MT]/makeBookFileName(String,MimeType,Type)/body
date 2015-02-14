@@ -10,8 +10,8 @@
   }
   path.insert(0,File.separator);
   final int port=uri.getPort();
-  if (true && port != -1) {
-    path.append(":" + port);
+  if (port != -1) {
+    path.append("_").append(port);
     path.insert(0,File.separator);
   }
   if (resolvedReferenceType == Type.BookDemo) {
