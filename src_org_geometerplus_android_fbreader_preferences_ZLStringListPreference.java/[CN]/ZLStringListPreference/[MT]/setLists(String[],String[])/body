@@ -1,10 +1,14 @@
 {
   assert(values.length == texts.length);
   setEntryValues(values);
-  myEntries=texts;
   final String[] entries=new String[texts.length];
   for (int i=0; i < texts.length; ++i) {
-    entries[i]=texts[i].replace("%%","%");
+    try {
+      entries[i]=String.format(texts[i]);
+    }
+ catch (    Exception e) {
+      entries[i]=texts[i];
+    }
   }
   setEntries(entries);
 }
