@@ -1,3 +1,5 @@
 {
-  setSummary(getEntry().toString().replace("%","%%"));
+  if (myEntries != null) {
+    setSummary(myEntries[findIndexOfValue(getValue())]);
+  }
 }
