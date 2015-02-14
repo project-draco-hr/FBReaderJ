@@ -11,9 +11,9 @@
   }
   ZLImage image=null;
   try {
-    image=getPlugin(file).readCover(file);
+    image=PluginCollection.Instance().getPlugin(file).readCover(file);
   }
- catch (  BookReadingException e) {
+ catch (  Exception e) {
   }
   ourCovers.put(file,image != null ? new WeakReference<ZLImage>(image) : NULL_IMAGE);
   return image;

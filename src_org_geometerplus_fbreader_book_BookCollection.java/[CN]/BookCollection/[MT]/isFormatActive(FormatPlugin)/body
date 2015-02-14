@@ -1,0 +1,3 @@
+{
+  return myActiveFormats == null || myActiveFormats.contains(plugin.supportedFileType());
+}

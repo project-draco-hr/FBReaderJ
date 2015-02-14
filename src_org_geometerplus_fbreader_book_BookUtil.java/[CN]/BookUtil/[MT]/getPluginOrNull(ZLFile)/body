@@ -1,3 +1,0 @@
-{
-  return PluginCollection.Instance().getPlugin(file);
-}

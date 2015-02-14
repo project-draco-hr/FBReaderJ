@@ -3,6 +3,10 @@
   if (savedBooksByFileId.get(fileId) != null) {
     return;
   }
+  final FormatPlugin plugin=PluginCollection.Instance().getPlugin(file);
+  if (plugin != null && !isFormatActive(plugin)) {
+    return;
+  }
   try {
     final Book book=orphanedBooksByFileId.get(fileId);
     if (book != null) {
@@ -15,7 +19,7 @@
   }
  catch (  BookReadingException e) {
   }
-  final Book book=getBookByFile(file);
+  final Book book=getBookByFile(file,plugin);
   if (book != null) {
     newBooks.add(book);
   }

@@ -1,3 +1,7 @@
 {
-  return BookUtil.getPlugin(File);
+  final FormatPlugin plugin=PluginCollection.Instance().getPlugin(File);
+  if (plugin == null) {
+    throw new BookReadingException("pluginNotFound",File);
+  }
+  return plugin;
 }
