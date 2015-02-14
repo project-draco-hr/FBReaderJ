@@ -12,6 +12,6 @@
     }
   }
   setValueIndex(index);
-  setSummary(getEntry());
+  setSummary(myValuesResource.getResource(getValue()).getValue());
   return found;
 }
