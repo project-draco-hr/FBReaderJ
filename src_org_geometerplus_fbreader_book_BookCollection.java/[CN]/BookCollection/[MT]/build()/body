@@ -1,10 +1,6 @@
 {
   final FileInfoSet fileInfos=new FileInfoSet(myDatabase);
   final Map<Long,Book> savedBooksByFileId=myDatabase.loadBooks(fileInfos,true);
-  final Map<Long,Book> savedBooksByBookId=new HashMap<Long,Book>();
-  for (  Book b : savedBooksByFileId.values()) {
-    savedBooksByBookId.put(b.getId(),b);
-  }
   final Set<Book> orphanedBooks=new HashSet<Book>();
   final Set<ZLPhysicalFile> physicalFiles=new HashSet<ZLPhysicalFile>();
   int count=0;
@@ -12,9 +8,12 @@
     final ZLPhysicalFile file=book.File.getPhysicalFile();
     if (file != null) {
       physicalFiles.add(file);
-    }
-    if (file != book.File && file != null && file.getPath().endsWith(".epub")) {
-      continue;
+      if (!isBookFormatActive(book)) {
+        continue;
+      }
+      if (file != book.File && file.getPath().endsWith(".epub")) {
+        continue;
+      }
     }
     if (book.File.exists()) {
       boolean doAdd=true;

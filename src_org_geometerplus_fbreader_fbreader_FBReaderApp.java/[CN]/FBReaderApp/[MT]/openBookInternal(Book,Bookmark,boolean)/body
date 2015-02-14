@@ -14,7 +14,12 @@
   ExternalBook=null;
   System.gc();
   System.gc();
-  final FormatPlugin plugin=book.getPluginOrNull();
+  FormatPlugin plugin=null;
+  try {
+    plugin=book.getPlugin();
+  }
+ catch (  BookReadingException e) {
+  }
   if (plugin instanceof ExternalFormatPlugin) {
     ExternalBook=book;
     final Bookmark bm;

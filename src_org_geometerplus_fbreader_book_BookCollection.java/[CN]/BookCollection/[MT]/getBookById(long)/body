@@ -4,7 +4,7 @@
     return book;
   }
   book=myDatabase.loadBook(id);
-  if (book == null || book.File == null || !book.File.exists()) {
+  if (book == null || book.File == null || !book.File.exists() || !isBookFormatActive(book)) {
     return null;
   }
   book.loadLists(myDatabase);

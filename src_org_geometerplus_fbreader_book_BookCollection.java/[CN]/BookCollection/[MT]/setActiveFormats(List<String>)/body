@@ -1,2 +1,3 @@
 {
+  myActiveFormats=new HashSet<String>(formatIds);
 }
