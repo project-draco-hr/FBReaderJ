@@ -12,6 +12,5 @@
     }
   }
   setValueIndex(index);
-  updateSummary();
   return found;
 }

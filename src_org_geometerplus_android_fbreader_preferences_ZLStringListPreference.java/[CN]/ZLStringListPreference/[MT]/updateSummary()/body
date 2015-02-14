@@ -1,5 +1,0 @@
-{
-  if (myEntries != null) {
-    setSummary(myEntries[findIndexOfValue(getValue())]);
-  }
-}
