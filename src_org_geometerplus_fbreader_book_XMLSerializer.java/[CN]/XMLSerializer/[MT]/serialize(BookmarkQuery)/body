@@ -1,5 +1,5 @@
 {
-  final StringBuilder buffer=new StringBuilder();
+  final StringBuilder buffer=builder();
   appendTag(buffer,"query",false,"visible",String.valueOf(query.Visible),"limit",String.valueOf(query.Limit),"page",String.valueOf(query.Page));
   if (query.Book != null) {
     serialize(buffer,query.Book);
