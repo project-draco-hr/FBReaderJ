@@ -1,5 +1,5 @@
 {
-  final StringBuilder buffer=new StringBuilder();
+  final StringBuilder buffer=builder();
   serialize(buffer,book);
   return buffer.toString();
 }

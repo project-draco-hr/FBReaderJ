@@ -1,5 +1,5 @@
 {
-  final StringBuilder buffer=new StringBuilder();
+  final StringBuilder buffer=builder();
   appendTag(buffer,"bookmark",false,"id",String.valueOf(bookmark.getId()),"visible",String.valueOf(bookmark.IsVisible));
   appendTag(buffer,"book",true,"id",String.valueOf(bookmark.getBookId()),"title",bookmark.getBookTitle());
   appendTagWithContent(buffer,"text",bookmark.getText());
