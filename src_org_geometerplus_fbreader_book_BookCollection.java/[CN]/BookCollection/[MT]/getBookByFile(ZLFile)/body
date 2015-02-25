@@ -2,9 +2,5 @@
   if (bookFile == null) {
     return null;
   }
-  final FormatPlugin plugin=PluginCollection.Instance().getPlugin(bookFile);
-  if (plugin == null || !isFormatActive(plugin)) {
-    return null;
-  }
-  return getBookByFile(bookFile,plugin);
+  return getBookByFile(bookFile,PluginCollection.Instance().getPlugin(bookFile));
 }
