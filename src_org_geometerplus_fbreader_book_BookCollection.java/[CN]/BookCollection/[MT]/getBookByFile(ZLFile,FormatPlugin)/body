@@ -1,4 +1,7 @@
 {
+  if (plugin == null || !isFormatActive(plugin)) {
+    return null;
+  }
   try {
     bookFile=plugin.realBookFile(bookFile);
   }

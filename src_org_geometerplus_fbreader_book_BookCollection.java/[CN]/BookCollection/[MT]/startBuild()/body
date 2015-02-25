@@ -11,6 +11,7 @@
       }
  catch (      Throwable t) {
         setStatus(Status.Failed);
+        t.printStackTrace();
       }
  finally {
 synchronized (myFilesToRescan) {
