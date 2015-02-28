@@ -1,0 +1,9 @@
+{
+  if (ourInstance == null) {
+    ourInstance=new PluginCollection();
+    for (    NativeFormatPlugin p : ourInstance.nativePlugins()) {
+      ourInstance.myBuiltinPlugins.add(p);
+      System.err.println("native plugin: " + p);
+    }
+  }
+}
