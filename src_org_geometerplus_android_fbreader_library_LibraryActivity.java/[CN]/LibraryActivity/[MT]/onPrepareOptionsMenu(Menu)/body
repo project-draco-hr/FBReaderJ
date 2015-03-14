@@ -17,7 +17,7 @@
   final MenuItem rescanItem=menu.findItem(OptionsItemId.Rescan);
   myCollection.bindToService(this,new Runnable(){
     public void run(){
-      rescanItem.setEnabled(myCollection.status().IsCompleted);
+      rescanItem.setEnabled(myCollection.status().IsComplete);
     }
   }
 );

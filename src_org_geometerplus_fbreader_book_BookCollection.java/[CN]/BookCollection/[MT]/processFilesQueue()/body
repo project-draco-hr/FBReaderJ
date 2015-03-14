@@ -1,6 +1,6 @@
 {
 synchronized (myFilesToRescan) {
-    if (!myStatus.IsCompleted) {
+    if (!myStatus.IsComplete) {
       return;
     }
     final Set<ZLFile> filesToRemove=new HashSet<ZLFile>();
