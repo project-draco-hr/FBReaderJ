@@ -3,7 +3,7 @@ switch (item.getItemId()) {
 case OptionsItemId.Search:
     return onSearchRequested();
 case OptionsItemId.Rescan:
-  if (myCollection.status().IsCompleted) {
+  if (myCollection.status().IsComplete) {
     myCollection.reset(true);
     openTree(myRootTree);
   }
