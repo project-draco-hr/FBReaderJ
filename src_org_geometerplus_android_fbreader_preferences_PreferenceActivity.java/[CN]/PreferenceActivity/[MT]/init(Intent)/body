@@ -46,6 +46,7 @@
     }
   }
 ;
+  syncScreen.addPreference(new UrlPreference(this,syncScreen.Resource,"site"));
   syncScreen.addPreference(new ZLCheckBoxPreference(this,syncScreen.Resource.getResource("enable")){
 {
       if (syncOptions.Enabled.getValue()) {
