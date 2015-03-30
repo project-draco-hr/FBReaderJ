@@ -5,7 +5,6 @@ String text
 Date creationDate
 Date modificationDate
 Date accessDate
-int accessCounter
 String modelId
 int start_paragraphIndex
 int start_wordIndex

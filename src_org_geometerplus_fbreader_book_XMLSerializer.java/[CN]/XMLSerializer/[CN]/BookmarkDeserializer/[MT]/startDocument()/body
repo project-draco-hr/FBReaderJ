@@ -7,7 +7,6 @@
   myCreationDate=null;
   myModificationDate=null;
   myAccessDate=null;
-  myAccessCount=0;
   myModelId=null;
   myStartParagraphIndex=0;
   myStartElementIndex=0;

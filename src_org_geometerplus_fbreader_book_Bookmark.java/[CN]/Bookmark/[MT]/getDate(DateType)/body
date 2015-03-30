@@ -8,6 +8,17 @@ case Access:
 return myAccessDate;
 default :
 case Latest:
-return myLatestDate;
+{
+Date latest=myModificationDate;
+if (latest == null) {
+  latest=myCreationDate;
+}
+if (myAccessDate != null && latest.compareTo(myAccessDate) < 0) {
+  return myAccessDate;
+}
+ else {
+  return latest;
+}
+}
 }
 }

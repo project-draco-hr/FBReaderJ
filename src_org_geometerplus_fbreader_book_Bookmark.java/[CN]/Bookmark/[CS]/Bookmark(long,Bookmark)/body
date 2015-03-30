@@ -7,8 +7,6 @@
   myCreationDate=original.myCreationDate;
   myModificationDate=original.myModificationDate;
   myAccessDate=original.myAccessDate;
-  myAccessCount=original.myAccessCount;
-  myLatestDate=original.myLatestDate;
   myEnd=original.myEnd;
   myLength=original.myLength;
   myStyleId=original.myStyleId;
