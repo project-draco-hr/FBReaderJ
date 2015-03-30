@@ -1,3 +1,6 @@
 {
-  myStyleId=styleId;
+  if (styleId != myStyleId) {
+    myStyleId=styleId;
+    myModificationDate=new Date();
+  }
 }
