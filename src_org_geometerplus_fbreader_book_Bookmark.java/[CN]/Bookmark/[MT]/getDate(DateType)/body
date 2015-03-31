@@ -1,7 +1,7 @@
 {
 switch (type) {
 case Creation:
-    return myCreationDate;
+    return CreationDate;
 case Modification:
   return myModificationDate;
 case Access:
@@ -11,7 +11,7 @@ case Latest:
 {
 Date latest=myModificationDate;
 if (latest == null) {
-  latest=myCreationDate;
+  latest=CreationDate;
 }
 if (myAccessDate != null && latest.compareTo(myAccessDate) < 0) {
   return myAccessDate;

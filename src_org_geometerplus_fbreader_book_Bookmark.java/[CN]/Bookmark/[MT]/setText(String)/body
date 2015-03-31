@@ -1,6 +1,6 @@
 {
   if (!text.equals(myText)) {
     myText=text;
-    myModificationDate=new Date();
+    onModification();
   }
 }

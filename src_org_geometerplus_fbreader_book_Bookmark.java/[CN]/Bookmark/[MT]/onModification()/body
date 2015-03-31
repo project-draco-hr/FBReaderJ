@@ -1,0 +1,4 @@
+{
+  myVersionUid=newUUID();
+  myModificationDate=new Date();
+}

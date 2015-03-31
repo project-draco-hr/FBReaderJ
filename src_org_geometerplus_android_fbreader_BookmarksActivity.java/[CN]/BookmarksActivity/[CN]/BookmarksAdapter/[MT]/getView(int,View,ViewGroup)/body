@@ -18,7 +18,7 @@
     }
  else {
       bookTitleView.setVisibility(View.VISIBLE);
-      bookTitleView.setText(bookmark.getBookTitle());
+      bookTitleView.setText(bookmark.BookTitle);
     }
   }
   return view;

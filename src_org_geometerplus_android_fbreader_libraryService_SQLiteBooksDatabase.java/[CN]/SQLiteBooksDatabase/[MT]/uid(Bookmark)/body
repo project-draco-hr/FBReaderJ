@@ -1,0 +1,18 @@
+{
+  if (bookmark.Uid != null) {
+    return bookmark.Uid;
+  }
+  if (bookmark.getId() == -1) {
+    return UUID.randomUUID().toString();
+  }
+  final Cursor cursor=myDatabase.rawQuery("SELECT uid FROM Bookmarks WHERE bookmark_id = " + bookmark.getId(),null);
+  try {
+    if (cursor.moveToNext()) {
+      return cursor.getString(0);
+    }
+  }
+  finally {
+    cursor.close();
+  }
+  return UUID.randomUUID().toString();
+}

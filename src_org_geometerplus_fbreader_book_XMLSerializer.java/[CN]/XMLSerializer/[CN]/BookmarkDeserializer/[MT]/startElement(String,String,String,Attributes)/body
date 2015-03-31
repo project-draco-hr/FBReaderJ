@@ -5,6 +5,8 @@ case READ_NOTHING:
       throw new SAXException("Unexpected tag " + localName);
     }
   myId=parseLong(attributes.getValue("id"));
+myUid=attributes.getValue("uid");
+myVersionUid=attributes.getValue("versionUid");
 myIsVisible=parseBoolean(attributes.getValue("visible"));
 myState=State.READ_BOOKMARK;
 break;

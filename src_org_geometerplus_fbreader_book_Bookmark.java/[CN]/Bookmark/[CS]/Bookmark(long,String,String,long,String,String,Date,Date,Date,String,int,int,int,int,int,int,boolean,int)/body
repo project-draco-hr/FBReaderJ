@@ -1,10 +1,12 @@
 {
   super(start_paragraphIndex,start_elementIndex,start_charIndex);
   myId=id;
-  myBookId=bookId;
-  myBookTitle=bookTitle;
+  Uid=verifiedUUID(uid);
+  myVersionUid=verifiedUUID(versionUid);
+  BookId=bookId;
+  BookTitle=bookTitle;
   myText=text;
-  myCreationDate=creationDate;
+  CreationDate=creationDate;
   myModificationDate=modificationDate;
   ModelId=modelId;
   IsVisible=isVisible;

@@ -1,40 +1,29 @@
 {
-  SQLiteStatement statement;
-  if (bookmark.getId() == -1) {
-    statement=get("INSERT OR IGNORE INTO Bookmarks (book_id,bookmark_text,creation_time,modification_time,access_time,model_id,paragraph,word,char,end_paragraph,end_word,end_character,visible,style_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-  }
- else {
-    statement=get("UPDATE Bookmarks SET book_id = ?, bookmark_text = ?, creation_time = ?, modification_time = ?,access_time = ?, model_id = ?, paragraph = ?, word = ?, char = ?, end_paragraph = ?, end_word = ?, end_character = ?, visible = ?, style_id = ? WHERE bookmark_id = ?");
-  }
-  statement.bindLong(1,bookmark.getBookId());
-  statement.bindString(2,bookmark.getText());
-  SQLiteUtil.bindDate(statement,3,bookmark.getDate(Bookmark.DateType.Creation));
-  SQLiteUtil.bindDate(statement,4,bookmark.getDate(Bookmark.DateType.Modification));
-  SQLiteUtil.bindDate(statement,5,bookmark.getDate(Bookmark.DateType.Access));
-  SQLiteUtil.bindString(statement,6,bookmark.ModelId);
-  statement.bindLong(7,bookmark.ParagraphIndex);
-  statement.bindLong(8,bookmark.ElementIndex);
-  statement.bindLong(9,bookmark.CharIndex);
+  SQLiteStatement statement=get("INSERT OR REPLACE INTO Bookmarks (uid,version_uid,book_id,bookmark_text,creation_time,modification_time,access_time,model_id,paragraph,word,char,end_paragraph,end_word,end_character,visible,style_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+  int fieldCount=0;
+  SQLiteUtil.bindString(statement,++fieldCount,uid(bookmark));
+  SQLiteUtil.bindString(statement,++fieldCount,bookmark.getVersionUid());
+  statement.bindLong(++fieldCount,bookmark.BookId);
+  statement.bindString(++fieldCount,bookmark.getText());
+  SQLiteUtil.bindDate(statement,++fieldCount,bookmark.getDate(Bookmark.DateType.Creation));
+  SQLiteUtil.bindDate(statement,++fieldCount,bookmark.getDate(Bookmark.DateType.Modification));
+  SQLiteUtil.bindDate(statement,++fieldCount,bookmark.getDate(Bookmark.DateType.Access));
+  SQLiteUtil.bindString(statement,++fieldCount,bookmark.ModelId);
+  statement.bindLong(++fieldCount,bookmark.ParagraphIndex);
+  statement.bindLong(++fieldCount,bookmark.ElementIndex);
+  statement.bindLong(++fieldCount,bookmark.CharIndex);
   final ZLTextPosition end=bookmark.getEnd();
   if (end != null) {
-    statement.bindLong(10,end.getParagraphIndex());
-    statement.bindLong(11,end.getElementIndex());
-    statement.bindLong(12,end.getCharIndex());
+    statement.bindLong(++fieldCount,end.getParagraphIndex());
+    statement.bindLong(++fieldCount,end.getElementIndex());
+    statement.bindLong(++fieldCount,end.getCharIndex());
   }
  else {
-    statement.bindLong(10,bookmark.getLength());
-    statement.bindNull(11);
-    statement.bindNull(12);
+    statement.bindLong(++fieldCount,bookmark.getLength());
+    statement.bindNull(++fieldCount);
+    statement.bindNull(++fieldCount);
   }
-  statement.bindLong(13,bookmark.IsVisible ? 1 : 0);
-  statement.bindLong(14,bookmark.getStyleId());
-  if (bookmark.getId() == -1) {
-    return statement.executeInsert();
-  }
- else {
-    final long id=bookmark.getId();
-    statement.bindLong(15,id);
-    statement.execute();
-    return id;
-  }
+  statement.bindLong(++fieldCount,bookmark.IsVisible ? 1 : 0);
+  statement.bindLong(++fieldCount,bookmark.getStyleId());
+  return statement.executeInsert();
 }

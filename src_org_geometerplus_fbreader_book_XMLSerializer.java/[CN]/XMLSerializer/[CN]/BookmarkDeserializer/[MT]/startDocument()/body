@@ -1,6 +1,8 @@
 {
   myBookmark=null;
   myId=-1;
+  myUid=null;
+  myVersionUid=null;
   myBookId=-1;
   myBookTitle=null;
   clear(myText);

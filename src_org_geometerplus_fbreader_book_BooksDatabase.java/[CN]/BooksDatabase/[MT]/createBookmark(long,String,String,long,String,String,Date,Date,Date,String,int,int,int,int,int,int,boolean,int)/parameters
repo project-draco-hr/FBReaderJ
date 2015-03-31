@@ -1,4 +1,6 @@
 long id
+String uid
+String versionUid
 long bookId
 String bookTitle
 String text
@@ -7,10 +9,10 @@ Date modificationDate
 Date accessDate
 String modelId
 int start_paragraphIndex
-int start_elementIndex
+int start_wordIndex
 int start_charIndex
 int end_paragraphIndex
-int end_elementIndex
+int end_wordIndex
 int end_charIndex
 boolean isVisible
 int styleId

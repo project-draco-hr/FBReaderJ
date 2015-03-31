@@ -2,7 +2,7 @@
   if (bookmark != null) {
     bookmark.setId(myDatabase.saveBookmark(bookmark));
     if (bookmark.IsVisible) {
-      final Book book=getBookById(bookmark.getBookId());
+      final Book book=getBookById(bookmark.BookId);
       if (book != null) {
         book.HasBookmark=true;
         fireBookEvent(BookEvent.BookmarksUpdated,book);
