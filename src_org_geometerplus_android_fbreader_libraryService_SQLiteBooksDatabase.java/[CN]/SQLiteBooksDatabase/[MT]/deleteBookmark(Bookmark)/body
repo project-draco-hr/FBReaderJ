@@ -1,5 +1,5 @@
 {
-  final SQLiteStatement statement=get("DELETE FROM Bookmarks WHERE bookmark_id=?");
-  statement.bindLong(1,bookmark.getId());
+  final SQLiteStatement statement=get("DELETE FROM Bookmarks WHERE uid=?");
+  statement.bindString(1,uid(bookmark));
   statement.execute();
 }

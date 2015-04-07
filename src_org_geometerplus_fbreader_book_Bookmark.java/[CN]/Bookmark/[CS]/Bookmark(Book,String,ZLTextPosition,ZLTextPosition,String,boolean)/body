@@ -1,10 +1,11 @@
 {
   super(start);
   myId=-1;
-  myBookId=book.getId();
-  myBookTitle=book.getTitle();
+  Uid=newUUID();
+  BookId=book.getId();
+  BookTitle=book.getTitle();
   myText=text;
-  myCreationDate=new Date();
+  CreationDate=new Date();
   ModelId=modelId;
   IsVisible=isVisible;
   myEnd=new ZLTextFixedPosition(end);

@@ -1,47 +1,5 @@
 {
-  final String sid;
-  final LitResNetworkRequest purchasedBooksRequest;
-  final LitResNetworkRequest accountRequest;
-synchronized (this) {
-    sid=mySidOption.getValue();
-    if (sid.length() == 0) {
-      throw new ZLNetworkAuthenticationException();
-    }
-    if (sid.equals(myInitializedDataSid) || !isAuthorised(true)) {
-      return;
-    }
-    purchasedBooksRequest=loadPurchasedBooksRequest(sid,0);
-    accountRequest=loadAccountRequest(sid);
-  }
-  final LinkedList<ZLNetworkRequest> requests=new LinkedList<ZLNetworkRequest>();
-  requests.add(purchasedBooksRequest);
-  requests.add(accountRequest);
-  try {
-    myNetworkContext.perform(requests);
-    final boolean hasMorePages;
-synchronized (this) {
-      myInitializedDataSid=sid;
-      hasMorePages=loadPurchasedBooksOnSuccess(purchasedBooksRequest,true) == BOOKS_PER_PAGE;
-      myAccount=new Money(((LitResPurchaseXMLReader)accountRequest.Reader).Account,"RUB");
-    }
-    if (hasMorePages) {
-      for (int page=1; ; ++page) {
-        final LitResNetworkRequest r=loadPurchasedBooksRequest(sid,page);
-        myNetworkContext.perform(r);
-synchronized (this) {
-          if (loadPurchasedBooksOnSuccess(r,false) < BOOKS_PER_PAGE) {
-            break;
-          }
-        }
-      }
-    }
-  }
- catch (  ZLNetworkException e) {
-synchronized (this) {
-      myInitializedDataSid=null;
-      loadPurchasedBooksOnError();
-      myAccount=null;
-    }
-    throw e;
+synchronized (InitialisationLock) {
+    initializeInternal();
   }
 }

@@ -1,0 +1,25 @@
+{
+  final String message=ZLResource.resource("dialog").getResource("waitMessage").getResource(key).getValue();
+  final ProgressDialog progress=ProgressDialog.show(this,null,message,true,false);
+  new Thread(new Runnable(){
+    public void run(){
+      try {
+        action.run();
+        postRun(null);
+      }
+ catch (      ZLNetworkException e) {
+        postRun(e);
+      }
+    }
+    private void postRun(    final ZLNetworkException e){
+      runOnUiThread(new Runnable(){
+        public void run(){
+          progress.dismiss();
+          postAction.run(e);
+        }
+      }
+);
+    }
+  }
+).start();
+}

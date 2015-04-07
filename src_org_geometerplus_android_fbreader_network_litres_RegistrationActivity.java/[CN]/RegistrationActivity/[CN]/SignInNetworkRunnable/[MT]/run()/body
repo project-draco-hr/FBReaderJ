@@ -1,0 +1,6 @@
+{
+  final LitResNetworkRequest request=new LitResNetworkRequest(mySignInURL,XmlReader);
+  request.addPostParameter("login",Username);
+  request.addPostParameter("pwd",Password);
+  myNetworkContext.perform(request);
+}

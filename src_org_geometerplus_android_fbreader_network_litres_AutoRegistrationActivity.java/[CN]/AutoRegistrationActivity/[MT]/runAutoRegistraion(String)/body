@@ -1,0 +1,21 @@
+{
+  final String username=myUtil.getAutoLogin(email);
+  final String password=myUtil.getAutoPassword();
+  final RegistrationNetworkRunnable runnable=new RegistrationNetworkRunnable(username,password,email);
+  final PostRunnable post=new PostRunnable(){
+    public void run(    ZLNetworkException e){
+      if (e == null) {
+        reportSuccess(username,password,runnable.XmlReader.Sid);
+        showFinalMessage(myResource.getResource("registrationSuccessful").getValue().replace("%s",email));
+      }
+ else       if (e instanceof LitResRegisterUserXMLReader.AlreadyInUseException) {
+        runEmailAlreadyInUseDialog(email);
+      }
+ else {
+        showErrorMessage(e);
+      }
+    }
+  }
+;
+  runWithMessage("autoSignIn",runnable,post);
+}

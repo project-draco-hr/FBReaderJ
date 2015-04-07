@@ -1,7 +1,7 @@
 {
   final INetworkLink link=tree.getLink();
   try {
-    myActivity.startActivity(Util.authorisationIntent(link,Uri.parse(link.getUrl(UrlInfo.Type.Catalog) + "/signUp")));
+    myActivity.startActivity(Util.authorisationIntent(link,myActivity,UserRegistrationActivity.class));
   }
  catch (  ActivityNotFoundException e) {
   }

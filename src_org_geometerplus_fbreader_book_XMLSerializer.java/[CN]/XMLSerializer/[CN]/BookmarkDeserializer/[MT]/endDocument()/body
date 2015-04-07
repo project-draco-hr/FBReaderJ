@@ -2,5 +2,5 @@
   if (myBookId == -1) {
     return;
   }
-  myBookmark=new Bookmark(myId,myBookId,myBookTitle,myText.toString(),myCreationDate,myModificationDate,myAccessDate,myAccessCount,myModelId,myStartParagraphIndex,myStartElementIndex,myStartCharIndex,myEndParagraphIndex,myEndElementIndex,myEndCharIndex,myIsVisible,myStyle);
+  myBookmark=new Bookmark(myId,myUid,myVersionUid,myBookId,myBookTitle,myText.toString(),myCreationDate,myModificationDate,myAccessDate,myModelId,myStartParagraphIndex,myStartElementIndex,myStartCharIndex,myEndParagraphIndex,myEndElementIndex,myEndCharIndex,myIsVisible,myStyle);
 }

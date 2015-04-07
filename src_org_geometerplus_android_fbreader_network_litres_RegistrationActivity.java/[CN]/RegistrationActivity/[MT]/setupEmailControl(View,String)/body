@@ -1,0 +1,34 @@
+{
+  final Button emailListButton=(Button)emailControl.findViewById(R.id.lr_email_button);
+  final TextView emailTextView=(TextView)emailControl.findViewById(R.id.lr_email_edit);
+  final List<String> emails=new RegistrationUtils(getApplicationContext()).eMails();
+  emailListButton.setVisibility(emails.size() > 1 ? View.VISIBLE : View.GONE);
+  if (!emails.isEmpty()) {
+    emailTextView.setText(emails.get(0));
+    for (    String e : emails) {
+      if (!e.equals(eMailToSkip)) {
+        emailTextView.setText(e);
+        break;
+      }
+    }
+    final DialogInterface.OnClickListener listener=new DialogInterface.OnClickListener(){
+      public void onClick(      DialogInterface dialog,      int which){
+        if (which >= 0 && which < emails.size()) {
+          emailTextView.setText(emails.get(which));
+        }
+        dialog.dismiss();
+      }
+    }
+;
+    emailListButton.setOnClickListener(new View.OnClickListener(){
+      public void onClick(      View v){
+        final String selectedEmail=emailTextView.getText().toString().trim();
+        final int selected=emails.indexOf(selectedEmail);
+        final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
+        final AlertDialog dialog=new AlertDialog.Builder(RegistrationActivity.this).setSingleChoiceItems(emails.toArray(new String[emails.size()]),selected,listener).setTitle(myResource.getResource("email").getValue()).setNegativeButton(buttonResource.getResource("cancel").getValue(),null).create();
+        dialog.show();
+      }
+    }
+);
+  }
+}

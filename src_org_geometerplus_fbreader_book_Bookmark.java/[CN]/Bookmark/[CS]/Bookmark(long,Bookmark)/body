@@ -1,14 +1,13 @@
 {
   super(original);
   myId=-1;
-  myBookId=bookId;
-  myBookTitle=original.myBookTitle;
+  Uid=newUUID();
+  BookId=bookId;
+  BookTitle=original.BookTitle;
   myText=original.myText;
-  myCreationDate=original.myCreationDate;
+  CreationDate=original.CreationDate;
   myModificationDate=original.myModificationDate;
   myAccessDate=original.myAccessDate;
-  myAccessCount=original.myAccessCount;
-  myLatestDate=original.myLatestDate;
   myEnd=original.myEnd;
   myLength=original.myLength;
   myStyleId=original.myStyleId;

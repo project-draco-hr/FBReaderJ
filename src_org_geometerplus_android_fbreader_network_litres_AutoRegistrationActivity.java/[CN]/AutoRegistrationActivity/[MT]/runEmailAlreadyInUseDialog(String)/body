@@ -1,0 +1,42 @@
+{
+  final ZLResource actionResource=myResource.getResource("actions");
+  getTextArea().setVisibility(View.VISIBLE);
+  getTextArea().setText(actionResource.getResource("title").getValue().replace("%s",email));
+  final View.OnClickListener rbListener=new View.OnClickListener(){
+    public void onClick(    View view){
+      final RadioButton rb=(RadioButton)view;
+      getActionSignIn().setChecked(false);
+      getActionAnotherEmail().setChecked(false);
+      getActionRecover().setChecked(false);
+      rb.setChecked(true);
+      getOkButton().setEnabled(true);
+    }
+  }
+;
+  getActionSignIn().setVisibility(View.GONE);
+  getActionAnotherEmail().setVisibility(View.VISIBLE);
+  getActionAnotherEmail().setText(actionResource.getResource("anotherEmail").getValue());
+  getActionAnotherEmail().setOnClickListener(rbListener);
+  getActionRecover().setVisibility(View.VISIBLE);
+  getActionRecover().setText(actionResource.getResource("recover").getValue());
+  getActionRecover().setOnClickListener(rbListener);
+  getEmailControl().setVisibility(View.GONE);
+  getButtons().setVisibility(View.VISIBLE);
+  getOkButton().setVisibility(View.VISIBLE);
+  getOkButton().setEnabled(false);
+  getOkButton().setOnClickListener(new View.OnClickListener(){
+    public void onClick(    View view){
+      if (getActionSignIn().isChecked()) {
+      }
+ else       if (getActionAnotherEmail().isChecked()) {
+        runEmailSelectionDialog(email);
+      }
+ else       if (getActionRecover().isChecked()) {
+        recoverAccountInformation(email);
+      }
+    }
+  }
+);
+  getCancelButton().setVisibility(View.VISIBLE);
+  getCancelButton().setOnClickListener(myFinishListener);
+}

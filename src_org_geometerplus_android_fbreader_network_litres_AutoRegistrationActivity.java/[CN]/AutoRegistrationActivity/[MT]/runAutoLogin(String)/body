@@ -1,0 +1,21 @@
+{
+  final String username=myUtil.getAutoLogin(email);
+  final String password=myUtil.getAutoPassword();
+  final SignInNetworkRunnable runnable=new SignInNetworkRunnable(username,password);
+  final PostRunnable post=new PostRunnable(){
+    public void run(    ZLNetworkException e){
+      if (e == null) {
+        reportSuccess(username,password,runnable.XmlReader.Sid);
+        showFinalMessage(myResource.getResource("signedIn").getValue().replace("%s",email));
+      }
+ else       if (e instanceof ZLNetworkAuthenticationException) {
+        runAutoRegistraion(email);
+      }
+ else {
+        showErrorMessage(e);
+      }
+    }
+  }
+;
+  runWithMessage("autoSignIn",runnable,post);
+}

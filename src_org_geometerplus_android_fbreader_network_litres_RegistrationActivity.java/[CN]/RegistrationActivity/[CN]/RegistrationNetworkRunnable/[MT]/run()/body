@@ -1,0 +1,7 @@
+{
+  final LitResNetworkRequest request=new LitResNetworkRequest(mySignUpURL,XmlReader);
+  request.addPostParameter("new_login",Username);
+  request.addPostParameter("new_pwd1",Password);
+  request.addPostParameter("mail",Email);
+  myNetworkContext.perform(request);
+}

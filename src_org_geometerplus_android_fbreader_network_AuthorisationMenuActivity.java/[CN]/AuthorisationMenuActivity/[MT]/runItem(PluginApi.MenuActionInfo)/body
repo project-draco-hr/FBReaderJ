@@ -4,6 +4,12 @@
     if (info.getId().toString().endsWith("/signIn")) {
       Util.runAuthenticationDialog(AuthorisationMenuActivity.this,myLink,null);
     }
+ else     if (info.getId().toString().endsWith("/signUp")) {
+      startActivity(Util.authorisationIntent(myLink,this,UserRegistrationActivity.class));
+    }
+ else     if (info.getId().toString().endsWith("/quickBuy")) {
+      startActivity(Util.authorisationIntent(myLink,this,AutoRegistrationActivity.class));
+    }
   }
  catch (  Exception e) {
   }

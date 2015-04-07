@@ -1,0 +1,6 @@
+{
+  if (uid == null || uid.length() == 36) {
+    return uid;
+  }
+  throw new RuntimeException("INVALID UUID: " + uid);
+}
