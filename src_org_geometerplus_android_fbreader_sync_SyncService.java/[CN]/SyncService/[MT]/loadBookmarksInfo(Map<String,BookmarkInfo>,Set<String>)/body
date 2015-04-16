@@ -1,0 +1,28 @@
+{
+  final Map<String,Object> data=new HashMap<String,Object>();
+  final int pageSize=100;
+  data.put("page_size",pageSize);
+  final Map<String,Object> responseMap=new HashMap<String,Object>();
+  ZLNetworkRequest infoRequest=null;
+  for (int pageNo=0; ; ++pageNo) {
+    data.put("page_no",pageNo);
+    data.put("timestamp",System.currentTimeMillis());
+    infoRequest=new JsonRequest2(SyncOptions.BASE_URL + "sync/bookmarks.lite.paged",data){
+      @Override public void processResponse(      Object response){
+        System.err.println("BMK RESPONSE = " + response);
+        responseMap.putAll((Map<String,Object>)response);
+      }
+    }
+;
+    mySyncBookmarksContext.perform(infoRequest);
+    for (    Map<String,Object> info : (List<Map<String,Object>>)responseMap.get("actual")) {
+      final BookmarkInfo bmk=new BookmarkInfo(info);
+      actualInfos.put(bmk.Uid,bmk);
+    }
+    deletedUids.addAll((List<String>)responseMap.get("deleted"));
+    if ((Long)responseMap.get("count") <= (pageNo + 1L) * pageSize) {
+      break;
+    }
+  }
+  return infoRequest;
+}

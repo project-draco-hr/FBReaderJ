@@ -1,5 +1,6 @@
 {
   Uid=(String)data.get("uid");
   VersionUid=(String)data.get("version_uid");
-  ModificationTimestamp=(Long)data.get("modification_timestamp");
+  final Long timestamp=(Long)data.get("modification_timestamp");
+  ModificationTimestamp=timestamp != null ? timestamp : 0L;
 }

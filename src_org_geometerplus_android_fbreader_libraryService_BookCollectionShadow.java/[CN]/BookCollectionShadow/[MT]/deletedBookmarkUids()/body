@@ -1,0 +1,8 @@
+{
+  return listCall(new ListCallable<String>(){
+    public List<String> call() throws RemoteException {
+      return myInterface.deletedBookmarkUids();
+    }
+  }
+);
+}
