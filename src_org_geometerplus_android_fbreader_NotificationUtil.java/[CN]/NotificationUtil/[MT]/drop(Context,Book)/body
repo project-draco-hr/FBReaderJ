@@ -1,0 +1,10 @@
+{
+  if (book == null) {
+    return;
+  }
+  final ZLPhysicalFile file=book.File.getPhysicalFile();
+  if (file == null) {
+    return;
+  }
+  drop(context,getDownloadId(file.getPath()));
+}

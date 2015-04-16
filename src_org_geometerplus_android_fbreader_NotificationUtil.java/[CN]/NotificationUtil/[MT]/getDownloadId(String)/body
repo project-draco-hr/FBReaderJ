@@ -1,0 +1,3 @@
+{
+  return DOWNLOAD_ID_MIN + Math.abs(file.hashCode()) % (DOWNLOAD_ID_MAX - DOWNLOAD_ID_MIN + 1);
+}
