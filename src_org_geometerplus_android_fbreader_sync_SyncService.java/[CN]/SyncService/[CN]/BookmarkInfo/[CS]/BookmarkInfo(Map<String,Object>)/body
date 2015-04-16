@@ -1,0 +1,5 @@
+{
+  Uid=(String)data.get("uid");
+  VersionUid=(String)data.get("version_uid");
+  ModificationTimestamp=(Long)data.get("modification_timestamp");
+}
