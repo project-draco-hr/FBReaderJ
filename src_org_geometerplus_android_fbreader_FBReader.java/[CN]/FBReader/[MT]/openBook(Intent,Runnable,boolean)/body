@@ -19,6 +19,9 @@
       UIUtil.showErrorMessage(this,"fileNotFound",file.getPath());
       myBook=null;
     }
+ else {
+      NotificationUtil.drop(this,myBook);
+    }
   }
   Config.Instance().runOnConnect(new Runnable(){
     public void run(){
