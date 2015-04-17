@@ -1,2 +1,0 @@
-Map<String,BookmarkInfo> actualInfos
-Set<String> deletedUids

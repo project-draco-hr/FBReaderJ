@@ -1,16 +1,40 @@
 {
   try {
-    final Map<String,BookmarkInfo> actualServerInfos=new HashMap<String,BookmarkInfo>();
+    final Map<String,Info> actualServerInfos=new HashMap<String,Info>();
     final Set<String> deletedOnServerUids=new HashSet<String>();
-    final ZLNetworkRequest infoRequest=loadBookmarksInfo(actualServerInfos,deletedOnServerUids);
+    JsonRequest2 infoRequest=null;
+    final Map<String,Object> data=new HashMap<String,Object>();
+    final int pageSize=100;
+    data.put("page_size",pageSize);
+    final Map<String,Object> responseMap=new HashMap<String,Object>();
+    for (int pageNo=0; ; ++pageNo) {
+      data.put("page_no",pageNo);
+      data.put("timestamp",System.currentTimeMillis());
+      infoRequest=new JsonRequest2(SyncOptions.BASE_URL + "sync/bookmarks.lite.paged",data){
+        @Override public void processResponse(        Object response){
+          System.err.println("BMK RESPONSE = " + response);
+          responseMap.putAll((Map<String,Object>)response);
+        }
+      }
+;
+      context.perform(infoRequest);
+      for (      Map<String,Object> info : (List<Map<String,Object>>)responseMap.get("actual")) {
+        final Info bmk=new Info(info);
+        actualServerInfos.put(bmk.Uid,bmk);
+      }
+      deletedOnServerUids.addAll((List<String>)responseMap.get("deleted"));
+      if ((Long)responseMap.get("count") <= (pageNo + 1L) * pageSize) {
+        break;
+      }
+    }
     System.err.println("BMK ACTUAL = " + actualServerInfos);
     System.err.println("BMK DELETED = " + deletedOnServerUids);
-    final Set<String> deletedOnClientUids=new HashSet<String>(myCollection.deletedBookmarkUids());
+    final Set<String> deletedOnClientUids=new HashSet<String>(collection.deletedBookmarkUids());
     if (!deletedOnClientUids.isEmpty()) {
       final List<String> toPurge=new ArrayList<String>(deletedOnClientUids);
       toPurge.removeAll(actualServerInfos.keySet());
       if (!toPurge.isEmpty()) {
-        myCollection.purgeBookmarks(toPurge);
+        collection.purgeBookmarks(toPurge);
       }
     }
     final List<Bookmark> toSendToServer=new LinkedList<Bookmark>();
@@ -20,12 +44,12 @@
     final List<String> toGetFromServer=new LinkedList<String>();
     final List<String> toDeleteOnServer=new LinkedList<String>();
     for (BookmarkQuery q=new BookmarkQuery(20); ; q=q.next()) {
-      final List<Bookmark> bmks=myCollection.bookmarks(q);
+      final List<Bookmark> bmks=collection.bookmarks(q);
       if (bmks.isEmpty()) {
         break;
       }
       for (      Bookmark b : bmks) {
-        final BookmarkInfo info=actualServerInfos.remove(b.Uid);
+        final Info info=actualServerInfos.remove(b.Uid);
         if (info != null) {
           if (info.VersionUid == null) {
             if (b.getVersionUid() != null) {
@@ -68,13 +92,28 @@
     System.err.println("BMK TO UPDATE ON SERVER = " + ids(toUpdateOnServer));
     System.err.println("BMK TO UPDATE ON CLIENT = " + ids(toUpdateOnClient));
     System.err.println("BMK TO GET FROM SERVER = " + toGetFromServer);
+    for (    Bookmark b : toDeleteOnClient) {
+      collection.deleteBookmark(b);
+    }
+    context.perform(new JsonRequest2(SyncOptions.BASE_URL + "sync/bookmarks",toGetFromServer){
+      @Override public void processResponse(      Object response){
+        System.err.println("BMK TO BE INSERTED: " + response);
+      }
+    }
+);
+    context.perform(new JsonRequest2(SyncOptions.BASE_URL + "sync/bookmarks",ids(toUpdateOnClient)){
+      @Override public void processResponse(      Object response){
+        System.err.println("BMK TO BE UPDATED: " + response);
+      }
+    }
+);
 class HashCache {
       final Map<Long,String> myHashByBookId=new HashMap<Long,String>();
       String getHash(      Bookmark b){
         String hash=myHashByBookId.get(b.BookId);
         if (hash == null) {
-          final Book book=myCollection.getBookById(b.BookId);
-          hash=book != null ? myCollection.getHash(book,false) : "";
+          final Book book=collection.getBookById(b.BookId);
+          hash=book != null ? collection.getHash(book,false) : "";
           myHashByBookId.put(b.BookId,hash);
         }
         return "".equals(hash) ? null : hash;
@@ -82,50 +121,35 @@ class HashCache {
     }
     ;
     final HashCache cache=new HashCache();
-    final List<BookmarkSync.Request> requests=new ArrayList<BookmarkSync.Request>();
+    final List<Request> requests=new ArrayList<Request>();
     for (    Bookmark b : toSendToServer) {
       final String hash=cache.getHash(b);
       if (hash != null) {
-        requests.add(new BookmarkSync.AddRequest(b,hash));
+        requests.add(new AddRequest(b,hash));
       }
     }
     for (    Bookmark b : toUpdateOnServer) {
       final String hash=cache.getHash(b);
       if (hash != null) {
-        requests.add(new BookmarkSync.UpdateRequest(b,hash));
+        requests.add(new UpdateRequest(b,hash));
       }
     }
     for (    String uid : toDeleteOnServer) {
-      requests.add(new BookmarkSync.DeleteRequest(uid));
+      requests.add(new DeleteRequest(uid));
     }
     final Map<String,Object> dataForSending=new HashMap<String,Object>();
     dataForSending.put("requests",requests);
     dataForSending.put("timestamp",System.currentTimeMillis());
-    final ZLNetworkRequest serverUpdateRequest=new JsonRequest2(SyncOptions.BASE_URL + "sync/update.bookmarks",dataForSending){
+    final JsonRequest2 serverUpdateRequest=new JsonRequest2(SyncOptions.BASE_URL + "sync/update.bookmarks",dataForSending){
       @Override public void processResponse(      Object response){
         System.err.println("UPDATED: " + response);
       }
     }
 ;
-    final String csrfToken=mySyncBookmarksContext.getCookieValue(SyncOptions.DOMAIN,"csrftoken");
+    final String csrfToken=context.getCookieValue(SyncOptions.DOMAIN,"csrftoken");
     serverUpdateRequest.addHeader("Referer",infoRequest.getURL());
     serverUpdateRequest.addHeader("X-CSRFToken",csrfToken);
-    mySyncBookmarksContext.perform(serverUpdateRequest);
-    for (    Bookmark b : toDeleteOnClient) {
-      myCollection.deleteBookmark(b);
-    }
-    mySyncBookmarksContext.perform(new JsonRequest2(SyncOptions.BASE_URL + "sync/bookmarks",toGetFromServer){
-      @Override public void processResponse(      Object response){
-        System.err.println("BMK TO BE INSERTED: " + response);
-      }
-    }
-);
-    mySyncBookmarksContext.perform(new JsonRequest2(SyncOptions.BASE_URL + "sync/bookmarks",ids(toUpdateOnClient)){
-      @Override public void processResponse(      Object response){
-        System.err.println("BMK TO BE UPDATED: " + response);
-      }
-    }
-);
+    context.perform(serverUpdateRequest);
   }
  catch (  Throwable t) {
     t.printStackTrace();
