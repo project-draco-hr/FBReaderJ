@@ -114,10 +114,18 @@ class HashCache {
     for (    Bookmark b : toDeleteOnClient) {
       myCollection.deleteBookmark(b);
     }
-    for (    Bookmark b : toUpdateOnClient) {
+    mySyncBookmarksContext.perform(new JsonRequest2(SyncOptions.BASE_URL + "sync/bookmarks",toGetFromServer){
+      @Override public void processResponse(      Object response){
+        System.err.println("BMK TO BE INSERTED: " + response);
+      }
     }
-    for (    String b : toGetFromServer) {
+);
+    mySyncBookmarksContext.perform(new JsonRequest2(SyncOptions.BASE_URL + "sync/bookmarks",ids(toUpdateOnClient)){
+      @Override public void processResponse(      Object response){
+        System.err.println("BMK TO BE UPDATED: " + response);
+      }
     }
+);
   }
  catch (  Throwable t) {
     t.printStackTrace();
