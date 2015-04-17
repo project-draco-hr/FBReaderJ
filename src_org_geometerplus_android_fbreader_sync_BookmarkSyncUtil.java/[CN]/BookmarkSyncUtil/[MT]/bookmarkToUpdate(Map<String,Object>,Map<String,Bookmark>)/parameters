@@ -1,0 +1,2 @@
+Map<String,Object> data
+Map<String,Bookmark> bookmarksMap

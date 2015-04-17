@@ -106,15 +106,25 @@
       @Override public void processResponse(      Object response){
         for (        Map<String,Object> info : (List<Map<String,Object>>)response) {
           final Bookmark bookmark=bookmarkFromData(info,booksByHash);
-          System.err.println("BMK TO BE INSERTED: " + bookmark);
-          collection.saveBookmark(bookmark);
+          if (bookmark != null) {
+            collection.saveBookmark(bookmark);
+          }
         }
       }
     }
 );
+    final Map<String,Bookmark> bookmarksMap=new HashMap<String,Bookmark>();
+    for (    Bookmark b : toUpdateOnClient) {
+      bookmarksMap.put(b.Uid,b);
+    }
     context.perform(new JsonRequest2(SyncOptions.BASE_URL + "sync/bookmarks",ids(toUpdateOnClient)){
       @Override public void processResponse(      Object response){
-        System.err.println("BMK TO BE UPDATED: " + response);
+        for (        Map<String,Object> info : (List<Map<String,Object>>)response) {
+          final Bookmark bookmark=bookmarkToUpdate(info,bookmarksMap);
+          if (bookmark != null) {
+            collection.saveBookmark(bookmark);
+          }
+        }
       }
     }
 );
