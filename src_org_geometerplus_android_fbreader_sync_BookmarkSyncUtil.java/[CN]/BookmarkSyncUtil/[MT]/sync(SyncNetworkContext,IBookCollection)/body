@@ -86,6 +86,13 @@
       toDeleteOnServer.addAll(leftUids);
       toDeleteOnServer.retainAll(deletedOnClientUids);
     }
+    final BooksByHash booksByHash=new BooksByHash(collection);
+    for (ListIterator<String> iter=toGetFromServer.listIterator(); iter.hasNext(); ) {
+      final Info info=actualServerInfos.get(iter.next());
+      if (booksByHash.getBook(info.BookHashes) == null) {
+        iter.remove();
+      }
+    }
     System.err.println("BMK TO SEND TO SERVER = " + ids(toSendToServer));
     System.err.println("BMK TO DELETE ON SERVER = " + toDeleteOnServer);
     System.err.println("BMK TO DELETE ON CLIENT = " + ids(toDeleteOnClient));
@@ -97,7 +104,11 @@
     }
     context.perform(new JsonRequest2(SyncOptions.BASE_URL + "sync/bookmarks",toGetFromServer){
       @Override public void processResponse(      Object response){
-        System.err.println("BMK TO BE INSERTED: " + response);
+        for (        Map<String,Object> info : (List<Map<String,Object>>)response) {
+          final Bookmark bookmark=bookmarkFromData(info,booksByHash);
+          System.err.println("BMK TO BE INSERTED: " + bookmark);
+          collection.saveBookmark(bookmark);
+        }
       }
     }
 );
