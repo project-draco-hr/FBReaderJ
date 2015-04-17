@@ -102,32 +102,36 @@
     for (    Bookmark b : toDeleteOnClient) {
       collection.deleteBookmark(b);
     }
-    context.perform(new JsonRequest2(SyncOptions.BASE_URL + "sync/bookmarks",toGetFromServer){
-      @Override public void processResponse(      Object response){
-        for (        Map<String,Object> info : (List<Map<String,Object>>)response) {
-          final Bookmark bookmark=bookmarkFromData(info,booksByHash);
-          if (bookmark != null) {
-            collection.saveBookmark(bookmark);
+    if (!toGetFromServer.isEmpty()) {
+      context.perform(new JsonRequest2(SyncOptions.BASE_URL + "sync/bookmarks",fullRequestData(toGetFromServer)){
+        @Override public void processResponse(        Object response){
+          for (          Map<String,Object> info : (List<Map<String,Object>>)response) {
+            final Bookmark bookmark=bookmarkFromData(info,booksByHash);
+            if (bookmark != null) {
+              collection.saveBookmark(bookmark);
+            }
           }
         }
       }
-    }
 );
-    final Map<String,Bookmark> bookmarksMap=new HashMap<String,Bookmark>();
-    for (    Bookmark b : toUpdateOnClient) {
-      bookmarksMap.put(b.Uid,b);
     }
-    context.perform(new JsonRequest2(SyncOptions.BASE_URL + "sync/bookmarks",ids(toUpdateOnClient)){
-      @Override public void processResponse(      Object response){
-        for (        Map<String,Object> info : (List<Map<String,Object>>)response) {
-          final Bookmark bookmark=bookmarkToUpdate(info,bookmarksMap);
-          if (bookmark != null) {
-            collection.saveBookmark(bookmark);
+    if (!toUpdateOnClient.isEmpty()) {
+      final Map<String,Bookmark> bookmarksMap=new HashMap<String,Bookmark>();
+      for (      Bookmark b : toUpdateOnClient) {
+        bookmarksMap.put(b.Uid,b);
+      }
+      context.perform(new JsonRequest2(SyncOptions.BASE_URL + "sync/bookmarks",fullRequestData(ids(toUpdateOnClient))){
+        @Override public void processResponse(        Object response){
+          for (          Map<String,Object> info : (List<Map<String,Object>>)response) {
+            final Bookmark bookmark=bookmarkToUpdate(info,bookmarksMap);
+            if (bookmark != null) {
+              collection.saveBookmark(bookmark);
+            }
           }
         }
       }
-    }
 );
+    }
 class HashCache {
       final Map<Long,String> myHashByBookId=new HashMap<Long,String>();
       String getHash(      Bookmark b){
@@ -158,19 +162,21 @@ class HashCache {
     for (    String uid : toDeleteOnServer) {
       requests.add(new DeleteRequest(uid));
     }
-    final Map<String,Object> dataForSending=new HashMap<String,Object>();
-    dataForSending.put("requests",requests);
-    dataForSending.put("timestamp",System.currentTimeMillis());
-    final JsonRequest2 serverUpdateRequest=new JsonRequest2(SyncOptions.BASE_URL + "sync/update.bookmarks",dataForSending){
-      @Override public void processResponse(      Object response){
-        System.err.println("UPDATED: " + response);
+    if (!requests.isEmpty()) {
+      final Map<String,Object> dataForSending=new HashMap<String,Object>();
+      dataForSending.put("requests",requests);
+      dataForSending.put("timestamp",System.currentTimeMillis());
+      final JsonRequest2 serverUpdateRequest=new JsonRequest2(SyncOptions.BASE_URL + "sync/update.bookmarks",dataForSending){
+        @Override public void processResponse(        Object response){
+          System.err.println("BMK UPDATED: " + response);
+        }
       }
-    }
 ;
-    final String csrfToken=context.getCookieValue(SyncOptions.DOMAIN,"csrftoken");
-    serverUpdateRequest.addHeader("Referer",infoRequest.getURL());
-    serverUpdateRequest.addHeader("X-CSRFToken",csrfToken);
-    context.perform(serverUpdateRequest);
+      final String csrfToken=context.getCookieValue(SyncOptions.DOMAIN,"csrftoken");
+      serverUpdateRequest.addHeader("Referer",infoRequest.getURL());
+      serverUpdateRequest.addHeader("X-CSRFToken",csrfToken);
+      context.perform(serverUpdateRequest);
+    }
   }
  catch (  Throwable t) {
     t.printStackTrace();
