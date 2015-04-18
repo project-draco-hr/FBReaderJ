@@ -1,0 +1,52 @@
+{
+  SuperCardToast superCardToast;
+  if (referenceHolder.mType == Type.BUTTON) {
+    superCardToast=new SuperCardToast(activity,Type.BUTTON);
+    superCardToast.setButtonText(referenceHolder.mButtonText);
+    superCardToast.setButtonTextSizeFloat(referenceHolder.mButtonTextSize);
+    superCardToast.setButtonTextColor(referenceHolder.mButtonTextColor);
+    superCardToast.setButtonIcon(referenceHolder.mButtonIcon);
+    superCardToast.setDividerColor(referenceHolder.mButtonDivider);
+    superCardToast.setButtonTypefaceStyle(referenceHolder.mButtonTypefaceStyle);
+    if (wrappers != null) {
+      for (      OnClickWrapper onClickWrapper : wrappers.getOnClickWrappers()) {
+        if (onClickWrapper.getTag().equalsIgnoreCase(referenceHolder.mClickListenerTag)) {
+          superCardToast.setOnClickWrapper(onClickWrapper,referenceHolder.mToken);
+        }
+      }
+    }
+  }
+ else   if (referenceHolder.mType == Type.PROGRESS) {
+    return;
+  }
+ else   if (referenceHolder.mType == Type.PROGRESS_HORIZONTAL) {
+    return;
+  }
+ else {
+    superCardToast=new SuperCardToast(activity);
+  }
+  if (wrappers != null) {
+    for (    OnDismissWrapper onDismissListenerWrapper : wrappers.getOnDismissWrappers()) {
+      if (onDismissListenerWrapper.getTag().equalsIgnoreCase(referenceHolder.mDismissListenerTag)) {
+        superCardToast.setOnDismissWrapper(onDismissListenerWrapper);
+      }
+    }
+  }
+  superCardToast.setAnimations(referenceHolder.mAnimations);
+  superCardToast.setText(referenceHolder.mText);
+  superCardToast.setTypefaceStyle(referenceHolder.mTypefaceStyle);
+  superCardToast.setDuration(referenceHolder.mDuration);
+  superCardToast.setTextColor(referenceHolder.mTextColor);
+  superCardToast.setTextSizeFloat(referenceHolder.mTextSize);
+  superCardToast.setIndeterminate(referenceHolder.mIsIndeterminate);
+  superCardToast.setIcon(referenceHolder.mIcon,referenceHolder.mIconPosition);
+  superCardToast.setBackground(referenceHolder.mBackground);
+  if (referenceHolder.mIsTouchDismissible) {
+    superCardToast.setTouchToDismiss(true);
+  }
+ else   if (referenceHolder.mIsSwipeDismissible) {
+    superCardToast.setSwipeToDismiss(true);
+  }
+  superCardToast.setShowImmediate(true);
+  superCardToast.show();
+}

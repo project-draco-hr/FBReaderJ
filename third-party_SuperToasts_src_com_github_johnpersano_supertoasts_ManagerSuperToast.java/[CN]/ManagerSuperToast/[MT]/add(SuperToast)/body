@@ -1,0 +1,4 @@
+{
+  mQueue.add(superToast);
+  this.showNextSuperToast();
+}

@@ -1,0 +1,16 @@
+{
+  this.mIcon=icon;
+  this.mIconPosition=iconPosition;
+  if (iconPosition == IconPosition.BOTTOM) {
+    mMessageTextView.setCompoundDrawablesWithIntrinsicBounds(null,null,null,mActivity.getResources().getDrawable(icon));
+  }
+ else   if (iconPosition == IconPosition.LEFT) {
+    mMessageTextView.setCompoundDrawablesWithIntrinsicBounds(mActivity.getResources().getDrawable(icon),null,null,null);
+  }
+ else   if (iconPosition == IconPosition.RIGHT) {
+    mMessageTextView.setCompoundDrawablesWithIntrinsicBounds(null,null,mActivity.getResources().getDrawable(icon),null);
+  }
+ else   if (iconPosition == IconPosition.TOP) {
+    mMessageTextView.setCompoundDrawablesWithIntrinsicBounds(null,mActivity.getResources().getDrawable(icon),null,null);
+  }
+}

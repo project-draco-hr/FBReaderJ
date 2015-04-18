@@ -1,0 +1,9 @@
+{
+  if (mType != Type.BUTTON) {
+    Log.e(TAG,"setButtonIcon()" + ERROR_NOTBUTTONTYPE);
+  }
+  this.mButtonIcon=buttonIcon;
+  if (mButton != null) {
+    mButton.setCompoundDrawablesWithIntrinsicBounds(mActivity.getResources().getDrawable(buttonIcon),null,null,null);
+  }
+}

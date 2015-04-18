@@ -1,0 +1,9 @@
+{
+  if (mProgressBar != null) {
+    return mProgressBar.getMax();
+  }
+ else {
+    Log.e(TAG,"getMaxProgress()" + ERROR_NOTPROGRESSHORIZONTALTYPE);
+    return mProgressBar.getMax();
+  }
+}

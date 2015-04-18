@@ -1,0 +1,58 @@
+{
+  SuperActivityToast superActivityToast;
+  if (referenceHolder.mType == Type.BUTTON) {
+    superActivityToast=new SuperActivityToast(activity,Type.BUTTON);
+    superActivityToast.setButtonText(referenceHolder.mButtonText);
+    superActivityToast.setButtonTextSizeFloat(referenceHolder.mButtonTextSize);
+    superActivityToast.setButtonTextColor(referenceHolder.mButtonTextColor);
+    superActivityToast.setButtonIcon(referenceHolder.mButtonIcon);
+    superActivityToast.setDividerColor(referenceHolder.mDivider);
+    superActivityToast.setButtonTypefaceStyle(referenceHolder.mButtonTypefaceStyle);
+    int screenSize=activity.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK;
+    if (screenSize >= Configuration.SCREENLAYOUT_SIZE_LARGE) {
+      FrameLayout.LayoutParams layoutParams=new FrameLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+      layoutParams.gravity=Gravity.BOTTOM | Gravity.RIGHT;
+      layoutParams.bottomMargin=(int)activity.getResources().getDimension(R.dimen.buttontoast_hover);
+      layoutParams.rightMargin=(int)activity.getResources().getDimension(R.dimen.buttontoast_x_padding);
+      layoutParams.leftMargin=(int)activity.getResources().getDimension(R.dimen.buttontoast_x_padding);
+      superActivityToast.getRootLayout().setLayoutParams(layoutParams);
+    }
+    if (wrappers != null) {
+      for (      OnClickWrapper onClickWrapper : wrappers.getOnClickWrappers()) {
+        if (onClickWrapper.getTag().equalsIgnoreCase(referenceHolder.mClickListenerTag)) {
+          superActivityToast.setOnClickWrapper(onClickWrapper,referenceHolder.mToken);
+        }
+      }
+    }
+  }
+ else   if (referenceHolder.mType == Type.PROGRESS) {
+    return;
+  }
+ else   if (referenceHolder.mType == Type.PROGRESS_HORIZONTAL) {
+    return;
+  }
+ else {
+    superActivityToast=new SuperActivityToast(activity);
+  }
+  if (wrappers != null) {
+    for (    OnDismissWrapper onDismissWrapper : wrappers.getOnDismissWrappers()) {
+      if (onDismissWrapper.getTag().equalsIgnoreCase(referenceHolder.mDismissListenerTag)) {
+        superActivityToast.setOnDismissWrapper(onDismissWrapper);
+      }
+    }
+  }
+  superActivityToast.setAnimations(referenceHolder.mAnimations);
+  superActivityToast.setText(referenceHolder.mText);
+  superActivityToast.setTypefaceStyle(referenceHolder.mTypefaceStyle);
+  superActivityToast.setDuration(referenceHolder.mDuration);
+  superActivityToast.setTextColor(referenceHolder.mTextColor);
+  superActivityToast.setTextSizeFloat(referenceHolder.mTextSize);
+  superActivityToast.setIndeterminate(referenceHolder.mIsIndeterminate);
+  superActivityToast.setIcon(referenceHolder.mIcon,referenceHolder.mIconPosition);
+  superActivityToast.setBackground(referenceHolder.mBackground);
+  superActivityToast.setTouchToDismiss(referenceHolder.mIsTouchDismissible);
+  if (position == 1) {
+    superActivityToast.setShowImmediate(true);
+  }
+  superActivityToast.show();
+}

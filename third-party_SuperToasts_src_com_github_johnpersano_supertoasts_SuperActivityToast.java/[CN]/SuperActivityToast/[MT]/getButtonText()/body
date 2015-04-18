@@ -1,0 +1,9 @@
+{
+  if (mButton != null) {
+    return mButton.getText();
+  }
+ else {
+    Log.e(TAG,"getButtonText()" + ERROR_NOTBUTTONTYPE);
+    return "";
+  }
+}

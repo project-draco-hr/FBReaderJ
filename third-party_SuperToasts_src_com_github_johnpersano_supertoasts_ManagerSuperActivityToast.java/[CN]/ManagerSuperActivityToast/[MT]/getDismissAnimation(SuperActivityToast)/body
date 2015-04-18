@@ -1,0 +1,38 @@
+{
+  if (superActivityToast.getAnimations() == SuperToast.Animations.FLYIN) {
+    TranslateAnimation translateAnimation=new TranslateAnimation(Animation.RELATIVE_TO_SELF,0.0f,Animation.RELATIVE_TO_SELF,.75f,Animation.RELATIVE_TO_SELF,0.0f,Animation.RELATIVE_TO_SELF,0.0f);
+    AlphaAnimation alphaAnimation=new AlphaAnimation(1f,0f);
+    AnimationSet animationSet=new AnimationSet(true);
+    animationSet.addAnimation(translateAnimation);
+    animationSet.addAnimation(alphaAnimation);
+    animationSet.setInterpolator(new AccelerateInterpolator());
+    animationSet.setDuration(250);
+    return animationSet;
+  }
+ else   if (superActivityToast.getAnimations() == SuperToast.Animations.SCALE) {
+    ScaleAnimation scaleAnimation=new ScaleAnimation(1.0f,0.9f,1.0f,0.9f,Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
+    AlphaAnimation alphaAnimation=new AlphaAnimation(1f,0f);
+    AnimationSet animationSet=new AnimationSet(true);
+    animationSet.addAnimation(scaleAnimation);
+    animationSet.addAnimation(alphaAnimation);
+    animationSet.setInterpolator(new DecelerateInterpolator());
+    animationSet.setDuration(250);
+    return animationSet;
+  }
+ else   if (superActivityToast.getAnimations() == SuperToast.Animations.POPUP) {
+    TranslateAnimation translateAnimation=new TranslateAnimation(Animation.RELATIVE_TO_SELF,0.0f,Animation.RELATIVE_TO_SELF,0.0f,Animation.RELATIVE_TO_SELF,0.0f,Animation.RELATIVE_TO_SELF,0.1f);
+    AlphaAnimation alphaAnimation=new AlphaAnimation(1f,0f);
+    AnimationSet animationSet=new AnimationSet(true);
+    animationSet.addAnimation(translateAnimation);
+    animationSet.addAnimation(alphaAnimation);
+    animationSet.setInterpolator(new DecelerateInterpolator());
+    animationSet.setDuration(250);
+    return animationSet;
+  }
+ else {
+    AlphaAnimation alphaAnimation=new AlphaAnimation(1f,0f);
+    alphaAnimation.setDuration(500);
+    alphaAnimation.setInterpolator(new AccelerateInterpolator());
+    return alphaAnimation;
+  }
+}

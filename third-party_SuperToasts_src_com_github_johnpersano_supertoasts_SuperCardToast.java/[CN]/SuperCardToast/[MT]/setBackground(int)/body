@@ -1,0 +1,4 @@
+{
+  this.mBackground=checkForKitKatBackgrounds(background);
+  mRootLayout.setBackgroundResource(mBackground);
+}

@@ -1,0 +1,10 @@
+{
+  this.setAnimations(style.animations);
+  this.setTypefaceStyle(style.typefaceStyle);
+  this.setTextColor(style.textColor);
+  this.setBackground(style.background);
+  if (this.mType == Type.BUTTON) {
+    this.setDividerColor(style.dividerColor);
+    this.setButtonTextColor(style.buttonTextColor);
+  }
+}

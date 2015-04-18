@@ -1,0 +1,12 @@
+{
+  final WindowManager windowManager=superToast.getWindowManager();
+  final View toastView=superToast.getView();
+  if (windowManager != null) {
+    mQueue.poll();
+    windowManager.removeView(toastView);
+    sendMessageDelayed(superToast,Messages.DISPLAY_SUPERTOAST,500);
+    if (superToast.getOnDismissListener() != null) {
+      superToast.getOnDismissListener().onDismiss(superToast.getView());
+    }
+  }
+}

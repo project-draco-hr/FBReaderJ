@@ -1,0 +1,4 @@
+{
+  mList.add(superActivityToast);
+  this.showNextSuperToast();
+}

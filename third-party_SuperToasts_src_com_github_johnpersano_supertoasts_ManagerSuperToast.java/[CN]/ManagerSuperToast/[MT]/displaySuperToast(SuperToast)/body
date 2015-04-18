@@ -1,0 +1,12 @@
+{
+  if (superToast.isShowing()) {
+    return;
+  }
+  final WindowManager windowManager=superToast.getWindowManager();
+  final View toastView=superToast.getView();
+  final WindowManager.LayoutParams params=superToast.getWindowManagerParams();
+  if (windowManager != null) {
+    windowManager.addView(toastView,params);
+  }
+  sendMessageDelayed(superToast,Messages.REMOVE_SUPERTOAST,superToast.getDuration() + 500);
+}

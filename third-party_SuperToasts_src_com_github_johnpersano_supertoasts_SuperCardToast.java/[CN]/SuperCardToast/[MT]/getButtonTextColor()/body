@@ -1,0 +1,9 @@
+{
+  if (mButton != null) {
+    return mButton.getCurrentTextColor();
+  }
+ else {
+    Log.e(TAG,"getButtonTextColor()" + ERROR_NOTBUTTONTYPE);
+    return 0;
+  }
+}

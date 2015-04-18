@@ -1,0 +1,4 @@
+Activity activity
+CharSequence textCharSequence
+int durationInteger
+Style style

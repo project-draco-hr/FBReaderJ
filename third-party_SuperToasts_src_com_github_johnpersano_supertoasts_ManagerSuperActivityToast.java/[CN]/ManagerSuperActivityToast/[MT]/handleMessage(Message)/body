@@ -1,0 +1,16 @@
+{
+  final SuperActivityToast superActivityToast=(SuperActivityToast)message.obj;
+switch (message.what) {
+case Messages.DISPLAY:
+    displaySuperToast(superActivityToast);
+  break;
+case Messages.REMOVE:
+removeSuperToast(superActivityToast);
+break;
+default :
+{
+super.handleMessage(message);
+break;
+}
+}
+}

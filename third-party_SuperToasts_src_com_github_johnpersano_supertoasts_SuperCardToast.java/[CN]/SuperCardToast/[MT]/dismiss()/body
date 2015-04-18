@@ -1,0 +1,4 @@
+{
+  ManagerSuperCardToast.getInstance().remove(this);
+  dismissWithAnimation();
+}

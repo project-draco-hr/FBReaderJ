@@ -1,0 +1,23 @@
+{
+  ManagerSuperCardToast.getInstance().add(this);
+  if (!mIsIndeterminate) {
+    mHandler=new Handler();
+    mHandler.postDelayed(mHideRunnable,mDuration);
+  }
+  mViewGroup.addView(mToastView);
+  if (!showImmediate) {
+    final Animation animation=this.getShowAnimation();
+    animation.setAnimationListener(new Animation.AnimationListener(){
+      @Override public void onAnimationEnd(      Animation arg0){
+        Handler mHandler=new Handler();
+        mHandler.post(mInvalidateRunnable);
+      }
+      @Override public void onAnimationRepeat(      Animation arg0){
+      }
+      @Override public void onAnimationStart(      Animation arg0){
+      }
+    }
+);
+    mToastView.startAnimation(animation);
+  }
+}

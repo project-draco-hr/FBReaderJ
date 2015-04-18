@@ -1,0 +1,19 @@
+{
+  final ViewGroup.LayoutParams lp=mView.getLayoutParams();
+  final int originalHeight=mView.getHeight();
+  ValueAnimator animator=ValueAnimator.ofInt(originalHeight,1).setDuration(mAnimationTime);
+  animator.addListener(new AnimatorListenerAdapter(){
+    @Override public void onAnimationEnd(    Animator animation){
+      mCallback.onDismiss(mView);
+    }
+  }
+);
+  animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(){
+    @Override public void onAnimationUpdate(    ValueAnimator valueAnimator){
+      lp.height=(Integer)valueAnimator.getAnimatedValue();
+      mView.setLayoutParams(lp);
+    }
+  }
+);
+  animator.start();
+}

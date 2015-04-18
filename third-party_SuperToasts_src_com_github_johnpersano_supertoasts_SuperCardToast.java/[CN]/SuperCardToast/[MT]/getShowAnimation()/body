@@ -1,0 +1,38 @@
+{
+  if (this.getAnimations() == Animations.FLYIN) {
+    TranslateAnimation translateAnimation=new TranslateAnimation(Animation.RELATIVE_TO_SELF,0.75f,Animation.RELATIVE_TO_SELF,0.0f,Animation.RELATIVE_TO_SELF,0.0f,Animation.RELATIVE_TO_SELF,0.0f);
+    AlphaAnimation alphaAnimation=new AlphaAnimation(0f,1f);
+    AnimationSet animationSet=new AnimationSet(true);
+    animationSet.addAnimation(translateAnimation);
+    animationSet.addAnimation(alphaAnimation);
+    animationSet.setInterpolator(new DecelerateInterpolator());
+    animationSet.setDuration(250);
+    return animationSet;
+  }
+ else   if (this.getAnimations() == Animations.SCALE) {
+    ScaleAnimation scaleAnimation=new ScaleAnimation(0.9f,1.0f,0.9f,1.0f,Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
+    AlphaAnimation alphaAnimation=new AlphaAnimation(0f,1f);
+    AnimationSet animationSet=new AnimationSet(true);
+    animationSet.addAnimation(scaleAnimation);
+    animationSet.addAnimation(alphaAnimation);
+    animationSet.setInterpolator(new DecelerateInterpolator());
+    animationSet.setDuration(250);
+    return animationSet;
+  }
+ else   if (this.getAnimations() == Animations.POPUP) {
+    TranslateAnimation translateAnimation=new TranslateAnimation(Animation.RELATIVE_TO_SELF,0.0f,Animation.RELATIVE_TO_SELF,0.0f,Animation.RELATIVE_TO_SELF,0.1f,Animation.RELATIVE_TO_SELF,0.0f);
+    AlphaAnimation alphaAnimation=new AlphaAnimation(0f,1f);
+    AnimationSet animationSet=new AnimationSet(true);
+    animationSet.addAnimation(translateAnimation);
+    animationSet.addAnimation(alphaAnimation);
+    animationSet.setInterpolator(new DecelerateInterpolator());
+    animationSet.setDuration(250);
+    return animationSet;
+  }
+ else {
+    Animation animation=new AlphaAnimation(0f,1f);
+    animation.setDuration(500);
+    animation.setInterpolator(new DecelerateInterpolator());
+    return animation;
+  }
+}

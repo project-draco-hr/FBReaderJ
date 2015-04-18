@@ -1,0 +1,8 @@
+{
+  if (mType != Type.BUTTON) {
+    Log.e(TAG,"setButtonTextSize()" + ERROR_NOTBUTTONTYPE);
+  }
+  if (mButton != null) {
+    mButton.setTextSize(buttonTextSize);
+  }
+}

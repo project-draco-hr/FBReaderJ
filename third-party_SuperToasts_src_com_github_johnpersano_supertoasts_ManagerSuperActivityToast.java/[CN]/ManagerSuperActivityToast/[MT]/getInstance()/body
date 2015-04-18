@@ -1,0 +1,9 @@
+{
+  if (mManagerSuperActivityToast != null) {
+    return mManagerSuperActivityToast;
+  }
+ else {
+    mManagerSuperActivityToast=new ManagerSuperActivityToast();
+    return mManagerSuperActivityToast;
+  }
+}

@@ -1,0 +1,8 @@
+{
+  if (mType != Type.PROGRESS_HORIZONTAL) {
+    Log.e(TAG,"setMaxProgress()" + ERROR_NOTPROGRESSHORIZONTALTYPE);
+  }
+  if (mProgressBar != null) {
+    mProgressBar.setMax(maxProgress);
+  }
+}

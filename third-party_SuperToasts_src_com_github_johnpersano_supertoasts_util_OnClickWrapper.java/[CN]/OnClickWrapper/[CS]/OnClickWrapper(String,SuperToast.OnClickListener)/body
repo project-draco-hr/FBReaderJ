@@ -1,0 +1,4 @@
+{
+  this.mTag=tag;
+  this.mOnClickListener=onClickListener;
+}

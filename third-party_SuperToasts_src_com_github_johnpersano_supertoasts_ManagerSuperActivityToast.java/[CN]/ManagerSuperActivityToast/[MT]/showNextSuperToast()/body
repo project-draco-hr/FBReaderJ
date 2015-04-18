@@ -1,0 +1,11 @@
+{
+  final SuperActivityToast superActivityToast=mList.peek();
+  if (mList.isEmpty() || superActivityToast.getActivity() == null) {
+    return;
+  }
+  if (!superActivityToast.isShowing()) {
+    final Message message=obtainMessage(Messages.DISPLAY);
+    message.obj=superActivityToast;
+    sendMessage(message);
+  }
+}

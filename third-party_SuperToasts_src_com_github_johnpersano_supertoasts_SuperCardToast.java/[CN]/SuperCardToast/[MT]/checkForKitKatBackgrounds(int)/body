@@ -1,0 +1,29 @@
+{
+  if (background == R.drawable.background_kitkat_black) {
+    return (R.drawable.background_standard_black);
+  }
+ else   if (background == R.drawable.background_kitkat_blue) {
+    return (R.drawable.background_standard_blue);
+  }
+ else   if (background == R.drawable.background_kitkat_gray) {
+    return (R.drawable.background_standard_gray);
+  }
+ else   if (background == R.drawable.background_kitkat_green) {
+    return (R.drawable.background_standard_green);
+  }
+ else   if (background == R.drawable.background_kitkat_orange) {
+    return (R.drawable.background_standard_orange);
+  }
+ else   if (background == R.drawable.background_kitkat_purple) {
+    return (R.drawable.background_standard_purple);
+  }
+ else   if (background == R.drawable.background_kitkat_red) {
+    return (R.drawable.background_standard_red);
+  }
+ else   if (background == R.drawable.background_kitkat_white) {
+    return (R.drawable.background_standard_white);
+  }
+ else {
+    return background;
+  }
+}

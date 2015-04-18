@@ -1,0 +1,23 @@
+{
+  if (superActivityToast.isShowing()) {
+    return;
+  }
+  final ViewGroup viewGroup=superActivityToast.getViewGroup();
+  final View toastView=superActivityToast.getView();
+  if (viewGroup != null) {
+    try {
+      viewGroup.addView(toastView);
+      if (!superActivityToast.getShowImmediate()) {
+        toastView.startAnimation(getShowAnimation(superActivityToast));
+      }
+    }
+ catch (    IllegalStateException e) {
+      this.cancelAllSuperActivityToastsForActivity(superActivityToast.getActivity());
+    }
+  }
+  if (!superActivityToast.isIndeterminate()) {
+    Message message=obtainMessage(Messages.REMOVE);
+    message.obj=superActivityToast;
+    sendMessageDelayed(message,superActivityToast.getDuration() + getShowAnimation(superActivityToast).getDuration());
+  }
+}

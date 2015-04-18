@@ -1,0 +1,28 @@
+{
+  mType=superCardToast.getType();
+  if (mType == Type.BUTTON) {
+    mButtonText=superCardToast.getButtonText().toString();
+    mButtonTextSize=superCardToast.getButtonTextSize();
+    mButtonTextColor=superCardToast.getButtonTextColor();
+    mButtonIcon=superCardToast.getButtonIcon();
+    mButtonDivider=superCardToast.getDividerColor();
+    mClickListenerTag=superCardToast.getOnClickWrapperTag();
+    mButtonTypefaceStyle=superCardToast.getButtonTypefaceStyle();
+    mToken=superCardToast.getToken();
+  }
+  if (superCardToast.getIconResource() != 0 && superCardToast.getIconPosition() != null) {
+    mIcon=superCardToast.getIconResource();
+    mIconPosition=superCardToast.getIconPosition();
+  }
+  mDismissListenerTag=superCardToast.getDismissListenerTag();
+  mAnimations=superCardToast.getAnimations();
+  mText=superCardToast.getText().toString();
+  mTypefaceStyle=superCardToast.getTypefaceStyle();
+  mDuration=superCardToast.getDuration();
+  mTextColor=superCardToast.getTextColor();
+  mTextSize=superCardToast.getTextSize();
+  mIsIndeterminate=superCardToast.isIndeterminate();
+  mBackground=superCardToast.getBackgroundResource();
+  mIsTouchDismissible=superCardToast.isTouchDismissible();
+  mIsSwipeDismissible=superCardToast.isSwipeDismissible();
+}

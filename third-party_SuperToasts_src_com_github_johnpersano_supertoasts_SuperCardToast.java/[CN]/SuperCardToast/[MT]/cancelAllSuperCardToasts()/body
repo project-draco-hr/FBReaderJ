@@ -1,0 +1,3 @@
+{
+  ManagerSuperCardToast.getInstance().cancelAllSuperActivityToasts();
+}

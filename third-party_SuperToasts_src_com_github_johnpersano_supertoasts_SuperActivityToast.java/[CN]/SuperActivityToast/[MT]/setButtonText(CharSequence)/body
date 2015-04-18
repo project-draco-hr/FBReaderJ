@@ -1,0 +1,8 @@
+{
+  if (mType != Type.BUTTON) {
+    Log.e(TAG,"setButtonText()" + ERROR_NOTBUTTONTYPE);
+  }
+  if (mButton != null) {
+    mButton.setText(buttonText);
+  }
+}

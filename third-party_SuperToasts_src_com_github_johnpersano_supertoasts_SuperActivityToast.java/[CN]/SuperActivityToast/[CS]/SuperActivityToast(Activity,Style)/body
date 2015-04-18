@@ -1,0 +1,12 @@
+{
+  if (activity == null) {
+    throw new IllegalArgumentException(TAG + ERROR_ACTIVITYNULL);
+  }
+  this.mActivity=activity;
+  mLayoutInflater=(LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+  mViewGroup=(ViewGroup)activity.findViewById(android.R.id.content);
+  mToastView=mLayoutInflater.inflate(R.layout.supertoast,mViewGroup,false);
+  mMessageTextView=(TextView)mToastView.findViewById(R.id.message_textview);
+  mRootLayout=(LinearLayout)mToastView.findViewById(R.id.root_layout);
+  this.setStyle(style);
+}

@@ -1,0 +1,9 @@
+{
+  if (mManagerSuperCardToast != null) {
+    return mManagerSuperCardToast;
+  }
+ else {
+    mManagerSuperCardToast=new ManagerSuperCardToast();
+    return mManagerSuperCardToast;
+  }
+}

@@ -1,0 +1,4 @@
+{
+  this.mOnDismissWrapper=onDismissWrapper;
+  this.mOnDismissWrapperTag=onDismissWrapper.getTag();
+}

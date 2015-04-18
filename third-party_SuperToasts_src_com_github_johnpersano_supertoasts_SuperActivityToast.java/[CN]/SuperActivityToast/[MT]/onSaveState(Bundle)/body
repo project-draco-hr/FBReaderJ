@@ -1,0 +1,9 @@
+{
+  ReferenceHolder[] list=new ReferenceHolder[ManagerSuperActivityToast.getInstance().getList().size()];
+  LinkedList<SuperActivityToast> lister=ManagerSuperActivityToast.getInstance().getList();
+  for (int i=0; i < list.length; i++) {
+    list[i]=new ReferenceHolder(lister.get(i));
+  }
+  bundle.putParcelableArray(BUNDLE_TAG,list);
+  SuperActivityToast.cancelAllSuperActivityToasts();
+}

@@ -2,7 +2,6 @@
   super.onStart();
   myCollection.bindToService(this,new Runnable(){
     public void run(){
-      myExistingBookmark=getIntent().getBooleanExtra(EXISTING_BOOKMARK_KEY,false);
       myBookmark=FBReaderIntents.getBookmarkExtra(getIntent());
       if (myBookmark == null) {
         finish();

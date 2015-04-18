@@ -1,0 +1,9 @@
+{
+  if (mButton != null) {
+    return mButton.getTextSize();
+  }
+ else {
+    Log.e(TAG,"getButtonTextSize()" + ERROR_NOTBUTTONTYPE);
+    return 0.0f;
+  }
+}

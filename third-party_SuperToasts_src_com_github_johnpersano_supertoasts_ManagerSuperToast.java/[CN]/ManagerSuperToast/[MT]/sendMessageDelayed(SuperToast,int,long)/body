@@ -1,0 +1,5 @@
+{
+  Message message=obtainMessage(messageId);
+  message.obj=superToast;
+  sendMessageDelayed(message,delay);
+}

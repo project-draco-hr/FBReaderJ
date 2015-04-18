@@ -1,0 +1,15 @@
+{
+  if (activity == null) {
+    throw new IllegalArgumentException(TAG + ERROR_ACTIVITYNULL);
+  }
+  this.mActivity=activity;
+  this.mType=Type.STANDARD;
+  mLayoutInflater=(LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+  mViewGroup=(LinearLayout)activity.findViewById(R.id.card_container);
+  if (mViewGroup == null) {
+    throw new IllegalArgumentException(TAG + ERROR_CONTAINERNULL);
+  }
+  mToastView=mLayoutInflater.inflate(R.layout.supercardtoast,mViewGroup,false);
+  mMessageTextView=(TextView)mToastView.findViewById(R.id.message_textview);
+  mRootLayout=(LinearLayout)mToastView.findViewById(R.id.root_layout);
+}

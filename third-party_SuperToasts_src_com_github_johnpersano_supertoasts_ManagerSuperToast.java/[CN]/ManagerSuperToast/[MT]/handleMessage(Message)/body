@@ -1,0 +1,19 @@
+{
+  final SuperToast superToast=(SuperToast)message.obj;
+switch (message.what) {
+case Messages.DISPLAY_SUPERTOAST:
+    showNextSuperToast();
+  break;
+case Messages.ADD_SUPERTOAST:
+displaySuperToast(superToast);
+break;
+case Messages.REMOVE_SUPERTOAST:
+removeSuperToast(superToast);
+break;
+default :
+{
+super.handleMessage(message);
+break;
+}
+}
+}

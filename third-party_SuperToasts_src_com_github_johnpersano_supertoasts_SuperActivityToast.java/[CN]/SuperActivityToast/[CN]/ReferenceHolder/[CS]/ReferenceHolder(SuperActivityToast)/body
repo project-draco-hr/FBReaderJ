@@ -1,0 +1,27 @@
+{
+  mType=superActivityToast.getType();
+  if (mType == Type.BUTTON) {
+    mButtonText=superActivityToast.getButtonText().toString();
+    mButtonTextSize=superActivityToast.getButtonTextSize();
+    mButtonTextColor=superActivityToast.getButtonTextColor();
+    mButtonIcon=superActivityToast.getButtonIcon();
+    mDivider=superActivityToast.getDividerColor();
+    mClickListenerTag=superActivityToast.getOnClickWrapperTag();
+    mButtonTypefaceStyle=superActivityToast.getButtonTypefaceStyle();
+    mToken=superActivityToast.getToken();
+  }
+  if (superActivityToast.getIconResource() != 0 && superActivityToast.getIconPosition() != null) {
+    mIcon=superActivityToast.getIconResource();
+    mIconPosition=superActivityToast.getIconPosition();
+  }
+  mDismissListenerTag=superActivityToast.getOnDismissWrapperTag();
+  mAnimations=superActivityToast.getAnimations();
+  mText=superActivityToast.getText().toString();
+  mTypefaceStyle=superActivityToast.getTypefaceStyle();
+  mDuration=superActivityToast.getDuration();
+  mTextColor=superActivityToast.getTextColor();
+  mTextSize=superActivityToast.getTextSize();
+  mIsIndeterminate=superActivityToast.isIndeterminate();
+  mBackground=superActivityToast.getBackground();
+  mIsTouchDismissible=superActivityToast.isTouchDismissible();
+}

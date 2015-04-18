@@ -1,0 +1,14 @@
+{
+  if (mQueue.isEmpty()) {
+    return;
+  }
+  final SuperToast superToast=mQueue.peek();
+  if (!superToast.isShowing()) {
+    final Message message=obtainMessage(Messages.ADD_SUPERTOAST);
+    message.obj=superToast;
+    sendMessage(message);
+  }
+ else {
+    sendMessageDelayed(superToast,Messages.DISPLAY_SUPERTOAST,getDuration(superToast));
+  }
+}

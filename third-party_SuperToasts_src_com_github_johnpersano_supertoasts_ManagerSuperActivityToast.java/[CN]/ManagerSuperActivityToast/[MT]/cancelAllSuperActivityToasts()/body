@@ -1,0 +1,11 @@
+{
+  removeMessages(Messages.DISPLAY);
+  removeMessages(Messages.REMOVE);
+  for (  SuperActivityToast superActivityToast : mList) {
+    if (superActivityToast.isShowing()) {
+      superActivityToast.getViewGroup().removeView(superActivityToast.getView());
+      superActivityToast.getViewGroup().invalidate();
+    }
+  }
+  mList.clear();
+}

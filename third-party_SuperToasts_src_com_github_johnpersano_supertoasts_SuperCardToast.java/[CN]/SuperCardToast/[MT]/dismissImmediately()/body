@@ -1,0 +1,18 @@
+{
+  ManagerSuperCardToast.getInstance().remove(this);
+  if (mHandler != null) {
+    mHandler.removeCallbacks(mHideRunnable);
+    mHandler.removeCallbacks(mHideWithAnimationRunnable);
+    mHandler=null;
+  }
+  if (mToastView != null && mViewGroup != null) {
+    mViewGroup.removeView(mToastView);
+    if (mOnDismissWrapper != null) {
+      mOnDismissWrapper.onDismiss(getView());
+    }
+    mToastView=null;
+  }
+ else {
+    Log.e(TAG,ERROR_VIEWCONTAINERNULL);
+  }
+}
