@@ -16,6 +16,16 @@
   addTab(tabHost,"text",R.id.edit_bookmark_content_text);
   addTab(tabHost,"style",R.id.edit_bookmark_content_style);
   addTab(tabHost,"delete",R.id.edit_bookmark_content_delete);
+  final ZLStringOption currentTabOption=new ZLStringOption("LookNFeel","EditBookmark","text");
+  tabHost.setCurrentTabByTag(currentTabOption.getValue());
+  tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener(){
+    public void onTabChanged(    String tag){
+      if (!"delete".equals(tag)) {
+        currentTabOption.setValue(tag);
+      }
+    }
+  }
+);
   final EditText editor=(EditText)findViewById(R.id.edit_bookmark_text);
   editor.setText(myBookmark.getText());
   final int len=editor.getText().length();
