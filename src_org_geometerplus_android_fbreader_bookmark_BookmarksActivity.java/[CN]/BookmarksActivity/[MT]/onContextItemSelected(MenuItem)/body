@@ -7,7 +7,7 @@ case OPEN_ITEM_ID:
     gotoBookmark(bookmark);
   return true;
 case EDIT_ITEM_ID:
-final Intent intent=new Intent(this,BookmarkEditActivity.class);
+final Intent intent=new Intent(this,EditBookmarkActivity.class);
 OrientationUtil.startActivityForResult(this,intent,1);
 return true;
 case DELETE_ITEM_ID:
