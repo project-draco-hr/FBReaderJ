@@ -1,6 +1,41 @@
 {
   super.onCreate(bundle);
   requestWindowFeature(Window.FEATURE_NO_TITLE);
-  final SimpleContainer container=new SimpleContainer(this);
-  setContentView(container);
+  setContentView(R.layout.edit_bookmark);
+  myBookmark=FBReaderIntents.getBookmarkExtra(getIntent());
+  if (myBookmark == null) {
+    finish();
+    return;
+  }
+  final TabHost tabHost=(TabHost)findViewById(R.id.edit_bookmark_tabhost);
+  tabHost.setup();
+  final TabHost.TabSpec textSpec=tabHost.newTabSpec("text");
+  textSpec.setIndicator("Text");
+  textSpec.setContent(R.id.edit_bookmark_content_text);
+  tabHost.addTab(textSpec);
+  final TabHost.TabSpec styleSpec=tabHost.newTabSpec("style");
+  styleSpec.setIndicator("Style");
+  styleSpec.setContent(R.id.edit_bookmark_content_style);
+  tabHost.addTab(styleSpec);
+  final TabHost.TabSpec deleteSpec=tabHost.newTabSpec("delete");
+  deleteSpec.setIndicator("Delete");
+  deleteSpec.setContent(R.id.edit_bookmark_content_delete);
+  tabHost.addTab(deleteSpec);
+  final EditText editor=(EditText)findViewById(R.id.edit_bookmark_text);
+  editor.setText(myBookmark.getText());
+  final int len=editor.getText().length();
+  editor.setSelection(len,len);
+  final Button deleteButton=(Button)findViewById(R.id.edit_bookmark_delete_button);
+  deleteButton.setOnClickListener(new View.OnClickListener(){
+    @Override public void onClick(    View view){
+      myCollection.bindToService(EditBookmarkActivity.this,new Runnable(){
+        public void run(){
+          myCollection.deleteBookmark(myBookmark);
+          finish();
+        }
+      }
+);
+    }
+  }
+);
 }

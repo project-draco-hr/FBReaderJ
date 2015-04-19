@@ -1,0 +1,10 @@
+{
+  final HighlightingStyle style=getItem(position);
+  myCollection.bindToService(EditBookmarkActivity.this,new Runnable(){
+    public void run(){
+      myBookmark.setStyleId(style.Id);
+      myCollection.saveBookmark(myBookmark);
+    }
+  }
+);
+}

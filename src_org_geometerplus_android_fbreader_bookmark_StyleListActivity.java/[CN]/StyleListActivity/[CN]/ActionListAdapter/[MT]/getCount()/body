@@ -1,3 +1,0 @@
-{
-  return myStyles.size() + 1;
-}

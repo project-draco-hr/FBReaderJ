@@ -1,4 +1,0 @@
-{
-  super.onCreate(icicle);
-  requestWindowFeature(Window.FEATURE_NO_TITLE);
-}
