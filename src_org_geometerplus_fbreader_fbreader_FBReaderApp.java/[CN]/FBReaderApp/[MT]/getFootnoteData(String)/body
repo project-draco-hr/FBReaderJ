@@ -6,5 +6,16 @@
   if (label == null) {
     return null;
   }
-  return new FootnoteData("Here will be the footnote text",false);
+  final ZLTextModel model;
+  if (label.ModelId != null) {
+    model=Model.getFootnoteModel(label.ModelId);
+  }
+ else {
+    model=Model.getTextModel();
+  }
+  if (model == null) {
+    return null;
+  }
+  final ZLTextWordCursor cursor=new ZLTextWordCursor(new ZLTextParagraphCursor(model,label.ParagraphIndex));
+  return new AutoTextSnippet(cursor,20);
 }

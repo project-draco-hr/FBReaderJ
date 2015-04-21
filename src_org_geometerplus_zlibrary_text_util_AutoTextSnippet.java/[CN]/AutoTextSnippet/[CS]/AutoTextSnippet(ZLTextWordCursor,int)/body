@@ -78,4 +78,5 @@ buffer.append(sentenceBuffer);
 myStart=new ZLTextFixedPosition(start);
 myEnd=buffer.Cursor;
 myText=buffer.Builder.toString();
+IsEndOfText=cursor.isEndOfText() && sentenceBuffer.isEmpty() && phraseBuffer.isEmpty();
 }

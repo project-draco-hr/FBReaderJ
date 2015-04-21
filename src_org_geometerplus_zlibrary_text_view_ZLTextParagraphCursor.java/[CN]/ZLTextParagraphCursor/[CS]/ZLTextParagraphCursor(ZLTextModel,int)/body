@@ -1,0 +1,3 @@
+{
+  this(new CursorManager(model,null),model,index);
+}

@@ -15,20 +15,27 @@ case FBHyperlinkType.EXTERNAL:
 case FBHyperlinkType.INTERNAL:
   Reader.Collection.markHyperlinkAsVisited(Reader.getCurrentBook(),hyperlink.Id);
 {
-  final FBReaderApp.FootnoteData data=Reader.getFootnoteData(hyperlink.Id);
-  if (data != null) {
-    final SuperActivityToast toast=new SuperActivityToast(BaseActivity,SuperToast.Type.BUTTON);
-    toast.setText(data.Text);
-    toast.setDuration(SuperToast.Duration.LONG);
-    toast.setButtonIcon(android.R.drawable.ic_menu_more,"More");
+  final AutoTextSnippet snippet=Reader.getFootnoteData(hyperlink.Id);
+  if (snippet == null) {
+    break;
+  }
+  final SuperActivityToast toast;
+  if (snippet.IsEndOfText) {
+    toast=new SuperActivityToast(BaseActivity,SuperToast.Type.STANDARD);
+  }
+ else {
+    toast=new SuperActivityToast(BaseActivity,SuperToast.Type.BUTTON);
+    toast.setButtonIcon(android.R.drawable.ic_menu_more,ZLResource.resource("footnoteToast").getResource("more").getValue());
     toast.setOnClickWrapper(new OnClickWrapper("ftnt",new SuperToast.OnClickListener(){
       @Override public void onClick(      View view,      Parcelable token){
         Reader.tryOpenFootnote(hyperlink.Id);
       }
     }
 ));
-    toast.show();
   }
+  toast.setText(snippet.getText());
+  toast.setDuration(SuperToast.Duration.LONG);
+  toast.show();
 }
 break;
 }
