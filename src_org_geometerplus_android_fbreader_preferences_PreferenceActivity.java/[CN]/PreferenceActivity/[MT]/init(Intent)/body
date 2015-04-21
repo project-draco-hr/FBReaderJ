@@ -147,6 +147,7 @@
   appearanceScreen.addPreference(new BatteryLevelToTurnScreenOffPreference(this,androidLibrary.BatteryLevelToTurnScreenOffOption,appearanceScreen.Resource.getResource("dontTurnScreenOff")));
   appearanceScreen.addOption(androidLibrary.ShowStatusBarOption,"showStatusBar");
   appearanceScreen.addOption(androidLibrary.DisableButtonLightsOption,"disableButtonLights");
+  appearanceScreen.addOption(miscOptions.ShowFootnoteToast,"showFootnoteToast");
   if (DeviceType.Instance().isEInk()) {
     final EInkOptions einkOptions=new EInkOptions();
     final Screen einkScreen=createPreferenceScreen("eink");

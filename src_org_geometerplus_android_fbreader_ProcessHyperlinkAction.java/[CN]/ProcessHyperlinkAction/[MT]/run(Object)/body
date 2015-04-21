@@ -13,31 +13,50 @@ case FBHyperlinkType.EXTERNAL:
       openInBrowser(hyperlink.Id);
     break;
 case FBHyperlinkType.INTERNAL:
-  Reader.Collection.markHyperlinkAsVisited(Reader.getCurrentBook(),hyperlink.Id);
+case FBHyperlinkType.FOOTNOTE:
 {
-  final AutoTextSnippet snippet=Reader.getFootnoteData(hyperlink.Id);
-  if (snippet == null) {
-    break;
-  }
-  final SuperActivityToast toast;
-  if (snippet.IsEndOfText) {
-    toast=new SuperActivityToast(BaseActivity,SuperToast.Type.STANDARD);
-  }
- else {
-    toast=new SuperActivityToast(BaseActivity,SuperToast.Type.BUTTON);
-    toast.setButtonIcon(android.R.drawable.ic_menu_more,ZLResource.resource("footnoteToast").getResource("more").getValue());
-    toast.setOnClickWrapper(new OnClickWrapper("ftnt",new SuperToast.OnClickListener(){
-      @Override public void onClick(      View view,      Parcelable token){
-        Reader.tryOpenFootnote(hyperlink.Id);
-      }
+    final AutoTextSnippet snippet=Reader.getFootnoteData(hyperlink.Id);
+    if (snippet == null) {
+      break;
     }
+    Reader.Collection.markHyperlinkAsVisited(Reader.getCurrentBook(),hyperlink.Id);
+    final boolean showToast;
+switch (Reader.MiscOptions.ShowFootnoteToast.getValue()) {
+default :
+case never:
+      showToast=false;
+    break;
+case footnotesOnly:
+  showToast=hyperlink.Type == FBHyperlinkType.FOOTNOTE;
+break;
+case allInternalLinks:
+showToast=true;
+break;
+}
+if (showToast) {
+final SuperActivityToast toast;
+if (snippet.IsEndOfText) {
+toast=new SuperActivityToast(BaseActivity,SuperToast.Type.STANDARD);
+}
+ else {
+toast=new SuperActivityToast(BaseActivity,SuperToast.Type.BUTTON);
+toast.setButtonIcon(android.R.drawable.ic_menu_more,ZLResource.resource("footnoteToast").getResource("more").getValue());
+toast.setOnClickWrapper(new OnClickWrapper("ftnt",new SuperToast.OnClickListener(){
+@Override public void onClick(View view,Parcelable token){
+Reader.tryOpenFootnote(hyperlink.Id);
+}
+}
 ));
-  }
-  toast.setText(snippet.getText());
-  toast.setDuration(SuperToast.Duration.LONG);
-  toast.show();
+}
+toast.setText(snippet.getText());
+toast.setDuration(SuperToast.Duration.LONG);
+toast.show();
+}
+ else {
+Reader.tryOpenFootnote(hyperlink.Id);
 }
 break;
+}
 }
 }
  else if (soul instanceof ZLTextImageRegionSoul) {
