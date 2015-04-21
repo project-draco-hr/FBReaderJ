@@ -1,0 +1,11 @@
+{
+  removeMessages(Messages.ADD_SUPERTOAST);
+  removeMessages(Messages.DISPLAY_SUPERTOAST);
+  removeMessages(Messages.REMOVE_SUPERTOAST);
+  for (  SuperToast superToast : mQueue) {
+    if (superToast.isShowing()) {
+      superToast.getWindowManager().removeView(superToast.getView());
+    }
+  }
+  mQueue.clear();
+}

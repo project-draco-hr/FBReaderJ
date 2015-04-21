@@ -1,0 +1,7 @@
+{
+  final Book book=booksByHash.getBook((String)data.get("book_hash"));
+  if (book == null) {
+    return null;
+  }
+  return bookmarkFromData(data,book.getId(),book.getTitle());
+}

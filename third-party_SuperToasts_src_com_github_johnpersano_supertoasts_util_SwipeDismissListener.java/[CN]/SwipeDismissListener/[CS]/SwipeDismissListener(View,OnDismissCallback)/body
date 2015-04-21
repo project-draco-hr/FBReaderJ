@@ -1,0 +1,9 @@
+{
+  final ViewConfiguration mViewConfiguration=ViewConfiguration.get(view.getContext());
+  mScaledTouchSlop=mViewConfiguration.getScaledTouchSlop();
+  mMinFlingVelocity=mViewConfiguration.getScaledMinimumFlingVelocity();
+  mMaxFlingVelocity=mViewConfiguration.getScaledMaximumFlingVelocity();
+  mAnimationTime=view.getContext().getResources().getInteger(android.R.integer.config_shortAnimTime);
+  mView=view;
+  mCallback=callback;
+}

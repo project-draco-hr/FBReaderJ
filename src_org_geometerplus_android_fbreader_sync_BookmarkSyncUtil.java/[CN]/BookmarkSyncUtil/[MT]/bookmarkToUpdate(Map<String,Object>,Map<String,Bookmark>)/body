@@ -1,0 +1,7 @@
+{
+  final Bookmark oldBookmark=bookmarksMap.get((String)data.get("uid"));
+  if (oldBookmark == null) {
+    return null;
+  }
+  return bookmarkFromData(data,oldBookmark.BookId,oldBookmark.BookTitle);
+}

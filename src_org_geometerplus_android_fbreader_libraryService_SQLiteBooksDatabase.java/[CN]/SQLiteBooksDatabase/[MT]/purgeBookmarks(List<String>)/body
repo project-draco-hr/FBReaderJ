@@ -1,0 +1,7 @@
+{
+  final SQLiteStatement statement=get("DELETE FROM DeletedBookmarkIds WHERE uid=?");
+  for (  String u : uids) {
+    statement.bindString(1,u);
+    statement.execute();
+  }
+}

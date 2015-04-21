@@ -1,0 +1,9 @@
+{
+  if (mManagerSuperToast != null) {
+    return mManagerSuperToast;
+  }
+ else {
+    mManagerSuperToast=new ManagerSuperToast();
+    return mManagerSuperToast;
+  }
+}

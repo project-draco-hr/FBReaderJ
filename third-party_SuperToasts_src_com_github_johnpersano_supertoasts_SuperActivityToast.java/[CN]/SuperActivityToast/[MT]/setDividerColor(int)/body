@@ -1,0 +1,9 @@
+{
+  if (mType != Type.BUTTON) {
+    Log.e(TAG,"setDivider()" + ERROR_NOTBUTTONTYPE);
+  }
+  this.mDividerColor=dividerColor;
+  if (mDividerView != null) {
+    mDividerView.setBackgroundColor(dividerColor);
+  }
+}

@@ -1,0 +1,3 @@
+{
+  mMessageTextView.setText(text);
+}

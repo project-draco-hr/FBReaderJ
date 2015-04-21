@@ -1,0 +1,4 @@
+Context context
+CharSequence textCharSequence
+int durationInteger
+Style style

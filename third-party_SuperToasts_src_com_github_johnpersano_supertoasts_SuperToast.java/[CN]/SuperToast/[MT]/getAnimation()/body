@@ -1,0 +1,14 @@
+{
+  if (mAnimations == Animations.FLYIN) {
+    return android.R.style.Animation_Translucent;
+  }
+ else   if (mAnimations == Animations.SCALE) {
+    return android.R.style.Animation_Dialog;
+  }
+ else   if (mAnimations == Animations.POPUP) {
+    return android.R.style.Animation_InputMethod;
+  }
+ else {
+    return android.R.style.Animation_Toast;
+  }
+}

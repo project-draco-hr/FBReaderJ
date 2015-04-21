@@ -1,3 +1,0 @@
-{
-  return myExistingBookmark ? myStyles.size() + 1 : myStyles.size();
-}

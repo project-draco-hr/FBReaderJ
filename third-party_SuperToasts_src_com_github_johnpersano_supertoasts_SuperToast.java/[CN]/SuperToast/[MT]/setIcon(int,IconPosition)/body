@@ -1,0 +1,14 @@
+{
+  if (iconPosition == IconPosition.BOTTOM) {
+    mMessageTextView.setCompoundDrawablesWithIntrinsicBounds(null,null,null,mContext.getResources().getDrawable(iconResource));
+  }
+ else   if (iconPosition == IconPosition.LEFT) {
+    mMessageTextView.setCompoundDrawablesWithIntrinsicBounds(mContext.getResources().getDrawable(iconResource),null,null,null);
+  }
+ else   if (iconPosition == IconPosition.RIGHT) {
+    mMessageTextView.setCompoundDrawablesWithIntrinsicBounds(null,null,mContext.getResources().getDrawable(iconResource),null);
+  }
+ else   if (iconPosition == IconPosition.TOP) {
+    mMessageTextView.setCompoundDrawablesWithIntrinsicBounds(null,mContext.getResources().getDrawable(iconResource),null,null);
+  }
+}

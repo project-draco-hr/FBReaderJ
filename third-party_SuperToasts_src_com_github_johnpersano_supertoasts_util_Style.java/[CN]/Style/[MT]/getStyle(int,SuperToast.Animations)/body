@@ -1,0 +1,53 @@
+{
+  final Style style=new Style();
+  style.animations=animations;
+switch (styleType) {
+case BLACK:
+    style.textColor=Color.WHITE;
+  style.background=getBackground(BLACK);
+style.dividerColor=Color.WHITE;
+return style;
+case WHITE:
+style.textColor=Color.DKGRAY;
+style.background=getBackground(WHITE);
+style.dividerColor=Color.DKGRAY;
+style.buttonTextColor=Color.GRAY;
+return style;
+case GRAY:
+style.textColor=Color.WHITE;
+style.background=getBackground(GRAY);
+style.dividerColor=Color.WHITE;
+style.buttonTextColor=Color.GRAY;
+return style;
+case PURPLE:
+style.textColor=Color.WHITE;
+style.background=getBackground(PURPLE);
+style.dividerColor=Color.WHITE;
+return style;
+case RED:
+style.textColor=Color.WHITE;
+style.background=getBackground(RED);
+style.dividerColor=Color.WHITE;
+return style;
+case ORANGE:
+style.textColor=Color.WHITE;
+style.background=getBackground(ORANGE);
+style.dividerColor=Color.WHITE;
+return style;
+case BLUE:
+style.textColor=Color.WHITE;
+style.background=getBackground(BLUE);
+style.dividerColor=Color.WHITE;
+return style;
+case GREEN:
+style.textColor=Color.WHITE;
+style.background=getBackground(GREEN);
+style.dividerColor=Color.WHITE;
+return style;
+default :
+style.textColor=Color.WHITE;
+style.background=getBackground(GRAY);
+style.dividerColor=Color.WHITE;
+return style;
+}
+}

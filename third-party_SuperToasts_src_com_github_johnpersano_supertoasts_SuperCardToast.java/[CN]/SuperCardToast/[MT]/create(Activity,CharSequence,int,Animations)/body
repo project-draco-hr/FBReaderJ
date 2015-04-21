@@ -1,0 +1,7 @@
+{
+  SuperCardToast superCardToast=new SuperCardToast(activity);
+  superCardToast.setText(textCharSequence);
+  superCardToast.setDuration(durationInteger);
+  superCardToast.setAnimations(animations);
+  return superCardToast;
+}

@@ -1,0 +1,29 @@
+{
+  mType=Type.values()[parcel.readInt()];
+  if (mType == Type.BUTTON) {
+    mButtonText=parcel.readString();
+    mButtonTextSize=parcel.readFloat();
+    mButtonTextColor=parcel.readInt();
+    mButtonIcon=parcel.readInt();
+    mButtonDivider=parcel.readInt();
+    mButtonTypefaceStyle=parcel.readInt();
+    mClickListenerTag=parcel.readString();
+    mToken=parcel.readParcelable(((Object)this).getClass().getClassLoader());
+  }
+  boolean hasIcon=parcel.readByte() != 0;
+  if (hasIcon) {
+    mIcon=parcel.readInt();
+    mIconPosition=IconPosition.values()[parcel.readInt()];
+  }
+  mDismissListenerTag=parcel.readString();
+  mAnimations=Animations.values()[parcel.readInt()];
+  mText=parcel.readString();
+  mTypefaceStyle=parcel.readInt();
+  mDuration=parcel.readInt();
+  mTextColor=parcel.readInt();
+  mTextSize=parcel.readFloat();
+  mIsIndeterminate=parcel.readByte() != 0;
+  mBackground=parcel.readInt();
+  mIsTouchDismissible=parcel.readByte() != 0;
+  mIsSwipeDismissible=parcel.readByte() != 0;
+}

@@ -1,0 +1,23 @@
+{
+  Book book=null;
+  for (  String h : hashes) {
+    book=get(h);
+    if (book != null) {
+      break;
+    }
+  }
+  if (book == null) {
+    for (    String h : hashes) {
+      book=myCollection.getBookByHash(h);
+      if (book != null) {
+        break;
+      }
+    }
+  }
+  if (book != null) {
+    for (    String h : hashes) {
+      put(h,book);
+    }
+  }
+  return book;
+}

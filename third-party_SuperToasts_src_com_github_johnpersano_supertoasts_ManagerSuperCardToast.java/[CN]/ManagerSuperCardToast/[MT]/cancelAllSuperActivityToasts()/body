@@ -1,0 +1,9 @@
+{
+  for (  SuperCardToast superCardToast : mList) {
+    if (superCardToast.isShowing()) {
+      superCardToast.getViewGroup().removeView(superCardToast.getView());
+      superCardToast.getViewGroup().invalidate();
+    }
+  }
+  mList.clear();
+}

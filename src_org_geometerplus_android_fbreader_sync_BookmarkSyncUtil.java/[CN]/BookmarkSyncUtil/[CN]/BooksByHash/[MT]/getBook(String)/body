@@ -1,0 +1,10 @@
+{
+  Book book=get(hash);
+  if (book == null) {
+    book=myCollection.getBookByHash(hash);
+    if (book != null) {
+      put(hash,book);
+    }
+  }
+  return book;
+}

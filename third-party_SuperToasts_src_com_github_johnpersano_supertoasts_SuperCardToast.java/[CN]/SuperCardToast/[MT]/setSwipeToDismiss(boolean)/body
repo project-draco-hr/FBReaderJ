@@ -1,0 +1,20 @@
+{
+  this.mIsSwipeDismissible=swipeDismiss;
+  if (swipeDismiss) {
+    if (Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB_MR1) {
+      final SwipeDismissListener swipeDismissListener=new SwipeDismissListener(mToastView,new SwipeDismissListener.OnDismissCallback(){
+        @Override public void onDismiss(        View view){
+          dismissImmediately();
+        }
+      }
+);
+      mToastView.setOnTouchListener(swipeDismissListener);
+    }
+ else {
+      Log.w(TAG,WARNING_PREHONEYCOMB);
+    }
+  }
+ else {
+    mToastView.setOnTouchListener(null);
+  }
+}

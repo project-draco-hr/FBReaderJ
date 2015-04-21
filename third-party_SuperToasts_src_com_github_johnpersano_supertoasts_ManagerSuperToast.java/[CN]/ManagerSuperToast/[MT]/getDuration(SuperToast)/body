@@ -1,0 +1,5 @@
+{
+  long duration=superToast.getDuration();
+  duration+=1000;
+  return duration;
+}

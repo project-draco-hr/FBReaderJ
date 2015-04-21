@@ -1,0 +1,6 @@
+{
+  SuperToast superToast=new SuperToast(context);
+  superToast.setText(textCharSequence);
+  superToast.setDuration(durationInteger);
+  return superToast;
+}

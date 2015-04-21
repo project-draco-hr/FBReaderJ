@@ -1,0 +1,13 @@
+{
+  if (context == null) {
+    throw new IllegalArgumentException(TAG + ERROR_CONTEXTNULL);
+  }
+  this.mContext=context;
+  mYOffset=context.getResources().getDimensionPixelSize(R.dimen.toast_hover);
+  final LayoutInflater layoutInflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+  mToastView=layoutInflater.inflate(R.layout.supertoast,null);
+  mWindowManager=(WindowManager)mToastView.getContext().getApplicationContext().getSystemService(Context.WINDOW_SERVICE);
+  mRootLayout=(LinearLayout)mToastView.findViewById(R.id.root_layout);
+  mMessageTextView=(TextView)mToastView.findViewById(R.id.message_textview);
+  this.setStyle(style);
+}

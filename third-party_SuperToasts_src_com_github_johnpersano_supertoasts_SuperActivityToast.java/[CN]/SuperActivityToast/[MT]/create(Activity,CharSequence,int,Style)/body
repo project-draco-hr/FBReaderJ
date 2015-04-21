@@ -1,0 +1,7 @@
+{
+  final SuperActivityToast superActivityToast=new SuperActivityToast(activity);
+  superActivityToast.setText(textCharSequence);
+  superActivityToast.setDuration(durationInteger);
+  superActivityToast.setStyle(style);
+  return superActivityToast;
+}

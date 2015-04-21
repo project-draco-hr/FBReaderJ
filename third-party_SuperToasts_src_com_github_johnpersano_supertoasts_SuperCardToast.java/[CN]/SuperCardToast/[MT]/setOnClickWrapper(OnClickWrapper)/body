@@ -1,0 +1,7 @@
+{
+  if (mType != Type.BUTTON) {
+    Log.w(TAG,"setOnClickListenerWrapper()" + ERROR_NOTBUTTONTYPE);
+  }
+  this.mOnClickWrapper=onClickWrapper;
+  this.mOnClickWrapperTag=onClickWrapper.getTag();
+}

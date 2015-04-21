@@ -1,0 +1,46 @@
+{
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+switch (style) {
+case BLACK:
+      return (R.drawable.background_kitkat_black);
+case WHITE:
+    return (R.drawable.background_kitkat_white);
+case GRAY:
+  return (R.drawable.background_kitkat_gray);
+case PURPLE:
+return (R.drawable.background_kitkat_purple);
+case RED:
+return (R.drawable.background_kitkat_red);
+case ORANGE:
+return (R.drawable.background_kitkat_orange);
+case BLUE:
+return (R.drawable.background_kitkat_blue);
+case GREEN:
+return (R.drawable.background_kitkat_green);
+default :
+return (R.drawable.background_kitkat_gray);
+}
+}
+ else {
+switch (style) {
+case BLACK:
+return (R.drawable.background_standard_black);
+case WHITE:
+return (R.drawable.background_standard_white);
+case GRAY:
+return (R.drawable.background_standard_gray);
+case PURPLE:
+return (R.drawable.background_standard_purple);
+case RED:
+return (R.drawable.background_standard_red);
+case ORANGE:
+return (R.drawable.background_standard_orange);
+case BLUE:
+return (R.drawable.background_standard_blue);
+case GREEN:
+return (R.drawable.background_standard_green);
+default :
+return (R.drawable.background_standard_gray);
+}
+}
+}

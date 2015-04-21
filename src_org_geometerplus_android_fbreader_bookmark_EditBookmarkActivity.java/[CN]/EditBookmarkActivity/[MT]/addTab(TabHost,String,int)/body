@@ -1,0 +1,6 @@
+{
+  final TabHost.TabSpec spec=host.newTabSpec(id);
+  spec.setIndicator(myResource.getResource(id).getValue());
+  spec.setContent(content);
+  host.addTab(spec);
+}

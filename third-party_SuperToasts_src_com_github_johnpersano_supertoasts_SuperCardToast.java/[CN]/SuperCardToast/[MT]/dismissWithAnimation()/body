@@ -1,0 +1,23 @@
+{
+  Animation animation=this.getDismissAnimation();
+  animation.setAnimationListener(new Animation.AnimationListener(){
+    @Override public void onAnimationEnd(    Animation animation){
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+        Handler handler=new Handler();
+        handler.post(mHideWithAnimationRunnable);
+      }
+ else {
+        Handler handler=new Handler();
+        handler.post(mHideImmediateRunnable);
+      }
+    }
+    @Override public void onAnimationRepeat(    Animation animation){
+    }
+    @Override public void onAnimationStart(    Animation animation){
+    }
+  }
+);
+  if (mToastView != null) {
+    mToastView.startAnimation(animation);
+  }
+}

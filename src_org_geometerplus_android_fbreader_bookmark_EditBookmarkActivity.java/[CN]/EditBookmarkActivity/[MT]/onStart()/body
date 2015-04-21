@@ -1,0 +1,18 @@
+{
+  super.onStart();
+  myCollection.bindToService(this,new Runnable(){
+    public void run(){
+      final List<HighlightingStyle> styles=myCollection.highlightingStyles();
+      if (styles.isEmpty()) {
+        finish();
+        return;
+      }
+      myStylesAdapter=new StyleListAdapter(styles);
+      final ListView stylesList=(ListView)findViewById(R.id.edit_bookmark_content_style);
+      stylesList.setAdapter(myStylesAdapter);
+      stylesList.setOnItemClickListener(myStylesAdapter);
+      myCollection.addListener(EditBookmarkActivity.this);
+    }
+  }
+);
+}

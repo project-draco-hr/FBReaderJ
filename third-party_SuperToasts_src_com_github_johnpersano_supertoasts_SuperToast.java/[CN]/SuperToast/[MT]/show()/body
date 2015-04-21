@@ -1,0 +1,13 @@
+{
+  mWindowManagerParams=new WindowManager.LayoutParams();
+  mWindowManagerParams.height=WindowManager.LayoutParams.WRAP_CONTENT;
+  mWindowManagerParams.width=WindowManager.LayoutParams.WRAP_CONTENT;
+  mWindowManagerParams.flags=WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON;
+  mWindowManagerParams.format=PixelFormat.TRANSLUCENT;
+  mWindowManagerParams.windowAnimations=getAnimation();
+  mWindowManagerParams.type=WindowManager.LayoutParams.TYPE_TOAST;
+  mWindowManagerParams.gravity=mGravity;
+  mWindowManagerParams.x=mXOffset;
+  mWindowManagerParams.y=mYOffset;
+  ManagerSuperToast.getInstance().add(this);
+}

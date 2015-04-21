@@ -1,7 +1,6 @@
 {
-  final NotificationManager notificationManager=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
   for (  int notificationId : myOngoingNotifications) {
-    notificationManager.cancel(notificationId);
+    NotificationUtil.drop(this,notificationId);
   }
   myOngoingNotifications.clear();
   super.onDestroy();

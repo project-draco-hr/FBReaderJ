@@ -1,0 +1,32 @@
+{
+  parcel.writeInt(mType.ordinal());
+  if (mType == Type.BUTTON) {
+    parcel.writeString(mButtonText);
+    parcel.writeFloat(mButtonTextSize);
+    parcel.writeInt(mButtonTextColor);
+    parcel.writeInt(mButtonIcon);
+    parcel.writeInt(mButtonDivider);
+    parcel.writeInt(mButtonTypefaceStyle);
+    parcel.writeString(mClickListenerTag);
+    parcel.writeParcelable(mToken,0);
+  }
+  if (mIcon != 0 && mIconPosition != null) {
+    parcel.writeByte((byte)1);
+    parcel.writeInt(mIcon);
+    parcel.writeInt(mIconPosition.ordinal());
+  }
+ else {
+    parcel.writeByte((byte)0);
+  }
+  parcel.writeString(mDismissListenerTag);
+  parcel.writeInt(mAnimations.ordinal());
+  parcel.writeString(mText);
+  parcel.writeInt(mTypefaceStyle);
+  parcel.writeInt(mDuration);
+  parcel.writeInt(mTextColor);
+  parcel.writeFloat(mTextSize);
+  parcel.writeByte((byte)(mIsIndeterminate ? 1 : 0));
+  parcel.writeInt(mBackground);
+  parcel.writeByte((byte)(mIsTouchDismissible ? 1 : 0));
+  parcel.writeByte((byte)(mIsSwipeDismissible ? 1 : 0));
+}

@@ -1,0 +1,13 @@
+{
+  if (bundle == null) {
+    return;
+  }
+  Parcelable[] savedArray=bundle.getParcelableArray(BUNDLE_TAG);
+  int i=0;
+  if (savedArray != null) {
+    for (    Parcelable parcelable : savedArray) {
+      i++;
+      new SuperActivityToast(activity,(ReferenceHolder)parcelable,wrappers,i);
+    }
+  }
+}

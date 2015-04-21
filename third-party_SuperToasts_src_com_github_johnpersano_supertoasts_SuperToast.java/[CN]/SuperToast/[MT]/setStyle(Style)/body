@@ -1,0 +1,6 @@
+{
+  this.setAnimations(style.animations);
+  this.setTypefaceStyle(style.typefaceStyle);
+  this.setTextColor(style.textColor);
+  this.setBackground(style.background);
+}

@@ -1,0 +1,9 @@
+{
+  if (mType != Type.PROGRESS_HORIZONTAL && mType != Type.PROGRESS) {
+    Log.e(TAG,"setProgressIndeterminate()" + ERROR_NOTEITHERPROGRESSTYPE);
+  }
+  this.isProgressIndeterminate=isIndeterminate;
+  if (mProgressBar != null) {
+    mProgressBar.setIndeterminate(isIndeterminate);
+  }
+}

@@ -1,0 +1,9 @@
+{
+  this.mIsTouchDismissible=touchDismiss;
+  if (touchDismiss) {
+    mToastView.setOnTouchListener(mTouchDismissListener);
+  }
+ else {
+    mToastView.setOnTouchListener(null);
+  }
+}

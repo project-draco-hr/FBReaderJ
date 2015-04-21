@@ -1,0 +1,14 @@
+{
+  Iterator<SuperActivityToast> superActivityToastIterator=mList.iterator();
+  while (superActivityToastIterator.hasNext()) {
+    SuperActivityToast superActivityToast=superActivityToastIterator.next();
+    if ((superActivityToast.getActivity()) != null && superActivityToast.getActivity().equals(activity)) {
+      if (superActivityToast.isShowing()) {
+        superActivityToast.getViewGroup().removeView(superActivityToast.getView());
+      }
+      removeMessages(Messages.DISPLAY,superActivityToast);
+      removeMessages(Messages.REMOVE,superActivityToast);
+      superActivityToastIterator.remove();
+    }
+  }
+}

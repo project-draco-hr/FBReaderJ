@@ -1,0 +1,9 @@
+{
+  if (duration > Duration.EXTRA_LONG) {
+    Log.e(TAG,TAG + ERROR_DURATIONTOOLONG);
+    this.mDuration=Duration.EXTRA_LONG;
+  }
+ else {
+    this.mDuration=duration;
+  }
+}

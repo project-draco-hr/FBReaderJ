@@ -1,0 +1,4 @@
+{
+  this.mBackground=background;
+  mRootLayout.setBackgroundResource(background);
+}

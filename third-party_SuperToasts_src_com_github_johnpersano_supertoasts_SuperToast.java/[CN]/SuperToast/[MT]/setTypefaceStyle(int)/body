@@ -1,0 +1,4 @@
+{
+  mTypefaceStyle=typeface;
+  mMessageTextView.setTypeface(mMessageTextView.getTypeface(),typeface);
+}
