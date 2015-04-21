@@ -1,0 +1,9 @@
+{
+  final ZLTextPosition start=getSelectionStartPosition();
+  final ZLTextPosition end=getSelectionEndPosition();
+  final TextBuildTraverser traverser=new TextBuildTraverser(this);
+  if (!isSelectionEmpty()) {
+    traverser.traverse(start,end);
+  }
+  return new TextSnippetImpl(start,end,traverser.getText());
+}

@@ -1,0 +1,10 @@
+{
+  if (Model == null) {
+    return null;
+  }
+  final BookModel.Label label=Model.getLabel(id);
+  if (label == null) {
+    return null;
+  }
+  return new FootnoteData("Here will be the footnote text",false);
+}

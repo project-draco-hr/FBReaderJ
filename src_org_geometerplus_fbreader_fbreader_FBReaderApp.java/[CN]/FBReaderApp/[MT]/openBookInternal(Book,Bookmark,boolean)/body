@@ -31,7 +31,7 @@
       if (pos == null) {
         pos=new ZLTextFixedPosition(0,0,0);
       }
-      bm=new Bookmark(book,"",pos,pos,"",false);
+      bm=new Bookmark(book,"",new EmptyTextSnippet(pos),false);
     }
     myExternalFileOpener.openFile((ExternalFormatPlugin)plugin,book,bm);
     return;

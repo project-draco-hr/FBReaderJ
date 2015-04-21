@@ -12,7 +12,7 @@
     ZLTextRegion.Soul soul=region.getSoul();
     if (soul instanceof ZLTextHyperlinkRegionSoul || soul instanceof ZLTextWordRegionSoul) {
       if (myReader.MiscOptions.WordTappingAction.getValue() != MiscOptions.WordTappingActionEnum.doNothing) {
-        region=findRegion(x,y,MAX_SELECTION_DISTANCE,ZLTextRegion.AnyRegionFilter);
+        region=findRegion(x,y,maxSelectionDistance(),ZLTextRegion.AnyRegionFilter);
         if (region != null) {
           soul=region.getSoul();
           if (soul instanceof ZLTextHyperlinkRegionSoul || soul instanceof ZLTextWordRegionSoul) {
