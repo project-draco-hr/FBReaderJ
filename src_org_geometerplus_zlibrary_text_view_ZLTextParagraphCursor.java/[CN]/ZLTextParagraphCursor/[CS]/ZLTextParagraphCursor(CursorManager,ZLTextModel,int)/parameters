@@ -1,2 +1,3 @@
+CursorManager cManager
 ZLTextModel model
 int index

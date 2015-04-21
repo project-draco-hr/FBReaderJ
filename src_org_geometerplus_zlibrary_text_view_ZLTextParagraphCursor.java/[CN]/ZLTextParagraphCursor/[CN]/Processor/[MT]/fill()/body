@@ -46,7 +46,9 @@ case ZLTextParagraph.Entry.VIDEO:
 elements.add(new ZLTextVideoElement(it.getVideoEntry().sources()));
 break;
 case ZLTextParagraph.Entry.EXTENSION:
-elements.addAll(myView.getExtensionManager().getElements(it.getExtensionEntry()));
+if (myExtManager != null) {
+elements.addAll(myExtManager.getElements(it.getExtensionEntry()));
+}
 break;
 case ZLTextParagraph.Entry.STYLE_CSS:
 case ZLTextParagraph.Entry.STYLE_OTHER:

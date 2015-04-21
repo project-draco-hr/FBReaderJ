@@ -1,3 +1,0 @@
-{
-  myMap.put(new Key(model,index),new WeakReference<ZLTextParagraphCursor>(cursor));
-}
