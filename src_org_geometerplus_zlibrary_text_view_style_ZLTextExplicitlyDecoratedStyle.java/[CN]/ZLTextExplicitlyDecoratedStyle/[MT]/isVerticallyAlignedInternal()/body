@@ -1,0 +1,17 @@
+{
+  if (myEntry.isFeatureSupported(LENGTH_VERTICAL_ALIGN)) {
+    return myEntry.hasNonZeroLength(LENGTH_VERTICAL_ALIGN);
+  }
+ else   if (myEntry.isFeatureSupported(NON_LENGTH_VERTICAL_ALIGN)) {
+switch (myEntry.getVerticalAlignCode()) {
+default :
+      return false;
+case 0:
+case 1:
+    return true;
+}
+}
+ else {
+return false;
+}
+}
