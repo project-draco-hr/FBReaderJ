@@ -50,6 +50,7 @@ Reader.tryOpenFootnote(hyperlink.Id);
 }
 toast.setText(snippet.getText());
 toast.setDuration(SuperToast.Duration.LONG);
+SuperActivityToast.cancelAllSuperActivityToasts();
 toast.show();
 }
  else {
