@@ -1,3 +1,0 @@
-{
-  return canBeStarted(activity,new Intent("android.fbreader.action.TEST",homeUri(pkg,version)),true);
-}

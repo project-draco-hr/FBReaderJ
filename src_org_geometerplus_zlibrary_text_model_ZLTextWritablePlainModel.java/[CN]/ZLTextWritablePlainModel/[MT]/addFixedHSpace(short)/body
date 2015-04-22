@@ -1,6 +1,0 @@
-{
-  final char[] block=getDataBlock(2);
-  ++myParagraphLengths[myParagraphsNumber - 1];
-  block[myBlockOffset++]=(char)ZLTextParagraph.Entry.FIXED_HSPACE;
-  block[myBlockOffset++]=(char)length;
-}
