@@ -1,12 +1,13 @@
 {
   myId=id;
   myLanguage=language;
+  myParagraphsNumber=paragraphsNumber;
   myStartEntryIndices=entryIndices;
   myStartEntryOffsets=entryOffsets;
-  myParagraphLengths=paragraphLenghts;
+  myParagraphLengths=paragraphLengths;
   myTextSizes=textSizes;
   myParagraphKinds=paragraphKinds;
-  myStorage=storage;
+  myStorage=new CachedCharStorage(directoryName,fileExtension,blocksNumber);
   myImageMap=imageMap;
   myFontManager=fontManager;
 }
