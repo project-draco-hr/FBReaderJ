@@ -13,6 +13,6 @@ synchronized (textView) {
     if (cursor.isNull()) {
       return;
     }
-    updateInvisibleBookmarksList(Bookmark.createBookmark(book,textView.getModel().getId(),cursor,6,false));
+    updateInvisibleBookmarksList(Bookmark.createBookmark(Collection,book,textView.getModel().getId(),cursor,6,false));
   }
 }

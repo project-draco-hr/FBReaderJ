@@ -7,7 +7,7 @@
   myText=snippet.getText();
   CreationDate=new Date();
   ModelId=modelId;
-  IsVisible=isVisible;
+  IsVisible=visible;
   myEnd=new ZLTextFixedPosition(snippet.getEnd());
-  myStyleId=1;
+  myStyleId=collection.getDefaultHighlightingStyleId();
 }

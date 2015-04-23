@@ -1,0 +1,11 @@
+{
+  if (myInterface == null) {
+    return 1;
+  }
+  try {
+    return myInterface.getDefaultHighlightingStyleId();
+  }
+ catch (  RemoteException e) {
+    return 1;
+  }
+}
