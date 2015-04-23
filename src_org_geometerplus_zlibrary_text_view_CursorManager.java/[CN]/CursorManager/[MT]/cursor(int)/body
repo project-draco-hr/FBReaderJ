@@ -1,9 +1,0 @@
-{
-  final WeakReference<ZLTextParagraphCursor> ref=myMap.get(index);
-  ZLTextParagraphCursor result=ref != null ? ref.get() : null;
-  if (result == null) {
-    result=new ZLTextParagraphCursor(this,myModel,index);
-    myMap.put(index,new WeakReference<ZLTextParagraphCursor>(result));
-  }
-  return result;
-}

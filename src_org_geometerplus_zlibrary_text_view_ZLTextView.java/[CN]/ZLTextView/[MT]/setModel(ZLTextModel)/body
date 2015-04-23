@@ -9,7 +9,7 @@
   if (myModel != null) {
     final int paragraphsNumber=myModel.getParagraphsNumber();
     if (paragraphsNumber > 0) {
-      myCurrentPage.moveStartCursor(myCursorManager.cursor(0));
+      myCurrentPage.moveStartCursor(myCursorManager.get(0));
     }
   }
   Application.getViewWidget().reset();
