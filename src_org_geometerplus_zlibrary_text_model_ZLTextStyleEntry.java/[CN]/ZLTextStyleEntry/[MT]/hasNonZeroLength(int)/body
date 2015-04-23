@@ -1,0 +1,3 @@
+{
+  return myLengths[featureId].Size != 0;
+}

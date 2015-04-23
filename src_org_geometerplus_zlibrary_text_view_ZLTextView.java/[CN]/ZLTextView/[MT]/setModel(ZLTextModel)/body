@@ -1,5 +1,5 @@
 {
-  myCursorCache.clear();
+  myCursorManager=model != null ? new CursorManager(model,getExtensionManager()) : null;
   mySelection.clear();
   myHighlightings.clear();
   myModel=model;
@@ -9,7 +9,7 @@
   if (myModel != null) {
     final int paragraphsNumber=myModel.getParagraphsNumber();
     if (paragraphsNumber > 0) {
-      myCurrentPage.moveStartCursor(cursor(0));
+      myCurrentPage.moveStartCursor(myCursorManager.get(0));
     }
   }
   Application.getViewWidget().reset();

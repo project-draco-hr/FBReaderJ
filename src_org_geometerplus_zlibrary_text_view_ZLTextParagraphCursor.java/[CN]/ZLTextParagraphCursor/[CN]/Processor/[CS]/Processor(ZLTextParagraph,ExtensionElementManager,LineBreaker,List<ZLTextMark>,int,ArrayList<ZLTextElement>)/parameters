@@ -1,0 +1,6 @@
+ZLTextParagraph paragraph
+ExtensionElementManager extManager
+LineBreaker lineBreaker
+List<ZLTextMark> marks
+int paragraphIndex
+ArrayList<ZLTextElement> elements

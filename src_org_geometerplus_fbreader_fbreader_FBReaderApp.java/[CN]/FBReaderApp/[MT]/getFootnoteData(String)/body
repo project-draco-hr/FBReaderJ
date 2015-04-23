@@ -1,0 +1,27 @@
+{
+  if (Model == null) {
+    return null;
+  }
+  final BookModel.Label label=Model.getLabel(id);
+  if (label == null) {
+    return null;
+  }
+  final ZLTextModel model;
+  if (label.ModelId != null) {
+    model=Model.getFootnoteModel(label.ModelId);
+  }
+ else {
+    model=Model.getTextModel();
+  }
+  if (model == null) {
+    return null;
+  }
+  final ZLTextWordCursor cursor=new ZLTextWordCursor(new ZLTextParagraphCursor(model,label.ParagraphIndex));
+  final AutoTextSnippet longSnippet=new AutoTextSnippet(cursor,24);
+  if (longSnippet.IsEndOfText) {
+    return longSnippet;
+  }
+ else {
+    return new AutoTextSnippet(cursor,20);
+  }
+}

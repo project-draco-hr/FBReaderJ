@@ -1,6 +1,0 @@
-Book book
-String modelId
-ZLTextPosition start
-ZLTextPosition end
-String text
-boolean isVisible

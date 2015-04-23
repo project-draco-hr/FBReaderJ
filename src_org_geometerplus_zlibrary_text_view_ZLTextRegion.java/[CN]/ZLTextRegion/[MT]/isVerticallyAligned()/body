@@ -1,0 +1,8 @@
+{
+  for (  ZLTextElementArea area : textAreas()) {
+    if (!area.Style.isVerticallyAligned()) {
+      return false;
+    }
+  }
+  return true;
+}

@@ -1,0 +1,3 @@
+{
+  myInternalHyperlinks=new CachedCharStorage(directoryName,fileExtension,blocksNumber);
+}

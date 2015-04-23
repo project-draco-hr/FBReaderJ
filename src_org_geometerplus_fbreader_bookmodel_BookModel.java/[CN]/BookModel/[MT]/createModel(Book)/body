@@ -1,7 +1,7 @@
 {
   final FormatPlugin plugin=book.getPlugin();
   if (plugin instanceof BuiltinFormatPlugin) {
-    final BookModel model=new NativeBookModel(book);
+    final BookModel model=new BookModel(book);
     ((BuiltinFormatPlugin)plugin).readModel(model);
     return model;
   }

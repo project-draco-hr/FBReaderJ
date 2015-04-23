@@ -1,3 +1,0 @@
-{
-  return Uri.parse("http://data.fbreader.org/android/packages/" + pkg + ".apk");
-}

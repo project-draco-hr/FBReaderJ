@@ -1,0 +1,4 @@
+Book book
+String modelId
+TextSnippet snippet
+boolean isVisible

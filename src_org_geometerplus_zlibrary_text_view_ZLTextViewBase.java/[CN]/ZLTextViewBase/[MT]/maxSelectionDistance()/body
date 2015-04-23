@@ -1,0 +1,6 @@
+{
+  if (myMaxSelectionDistance == 0) {
+    myMaxSelectionDistance=ZLibrary.Instance().getDisplayDPI() / 20;
+  }
+  return myMaxSelectionDistance;
+}

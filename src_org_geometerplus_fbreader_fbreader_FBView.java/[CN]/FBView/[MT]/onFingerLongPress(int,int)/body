@@ -2,7 +2,7 @@
   if (super.onFingerLongPress(x,y)) {
     return true;
   }
-  final ZLTextRegion region=findRegion(x,y,MAX_SELECTION_DISTANCE,ZLTextRegion.AnyRegionFilter);
+  final ZLTextRegion region=findRegion(x,y,maxSelectionDistance(),ZLTextRegion.AnyRegionFilter);
   if (region != null) {
     final ZLTextRegion.Soul soul=region.getSoul();
     boolean doSelectRegion=false;

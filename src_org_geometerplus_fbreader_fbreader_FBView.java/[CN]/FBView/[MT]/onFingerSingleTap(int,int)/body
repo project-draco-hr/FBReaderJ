@@ -2,7 +2,7 @@
   if (super.onFingerSingleTap(x,y)) {
     return true;
   }
-  final ZLTextRegion hyperlinkRegion=findRegion(x,y,MAX_SELECTION_DISTANCE,ZLTextRegion.HyperlinkFilter);
+  final ZLTextRegion hyperlinkRegion=findRegion(x,y,maxSelectionDistance(),ZLTextRegion.HyperlinkFilter);
   if (hyperlinkRegion != null) {
     selectRegion(hyperlinkRegion);
     myReader.getViewWidget().reset();
@@ -23,9 +23,13 @@
     myReader.runAction(ActionCode.OPEN_VIDEO,(ZLTextVideoRegionSoul)videoRegion.getSoul());
     return true;
   }
-  final ZLTextHighlighting highlighting=findHighlighting(x,y,MAX_SELECTION_DISTANCE);
+  final ZLTextHighlighting highlighting=findHighlighting(x,y,maxSelectionDistance());
   if (highlighting instanceof BookmarkHighlighting) {
     myReader.runAction(ActionCode.SELECTION_BOOKMARK,((BookmarkHighlighting)highlighting).Bookmark);
+    return true;
+  }
+  if (myReader.isActionEnabled(ActionCode.HIDE_TOAST)) {
+    myReader.runAction(ActionCode.HIDE_TOAST);
     return true;
   }
   myReader.runAction(getZoneMap().getActionByCoordinates(x,y,getContextWidth(),getContextHeight(),isDoubleTapSupported() ? TapZoneMap.Tap.singleNotDoubleTap : TapZoneMap.Tap.singleTap),x,y);

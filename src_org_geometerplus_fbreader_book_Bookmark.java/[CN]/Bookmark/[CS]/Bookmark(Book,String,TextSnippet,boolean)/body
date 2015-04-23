@@ -1,0 +1,13 @@
+{
+  super(snippet.getStart());
+  myId=-1;
+  Uid=newUUID();
+  BookId=book.getId();
+  BookTitle=book.getTitle();
+  myText=snippet.getText();
+  CreationDate=new Date();
+  ModelId=modelId;
+  IsVisible=isVisible;
+  myEnd=new ZLTextFixedPosition(snippet.getEnd());
+  myStyleId=1;
+}

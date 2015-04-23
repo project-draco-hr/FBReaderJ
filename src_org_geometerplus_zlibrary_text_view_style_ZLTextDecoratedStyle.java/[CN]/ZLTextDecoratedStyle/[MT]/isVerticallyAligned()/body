@@ -1,0 +1,6 @@
+{
+  if (myIsVerticallyAligned == null) {
+    myIsVerticallyAligned=Parent.isVerticallyAligned() || isVerticallyAlignedInternal();
+  }
+  return myIsVerticallyAligned;
+}

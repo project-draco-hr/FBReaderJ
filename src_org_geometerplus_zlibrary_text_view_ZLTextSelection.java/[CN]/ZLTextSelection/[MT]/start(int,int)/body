@@ -1,6 +1,6 @@
 {
   clear();
-  final ZLTextRegion region=myView.findRegion(x,y,ZLTextView.MAX_SELECTION_DISTANCE,ZLTextRegion.AnyRegionFilter);
+  final ZLTextRegion region=myView.findRegion(x,y,myView.maxSelectionDistance(),ZLTextRegion.AnyRegionFilter);
   if (region == null) {
     return false;
   }

@@ -1,0 +1,4 @@
+{
+  final ZLTextStyleEntry.Length length=parseLength(VerticalAlignOption.getValue());
+  return length != null && length.Size != 0;
+}

@@ -1,0 +1,4 @@
+{
+  final SuperActivityToast toast=myToast;
+  return toast != null && toast.isShowing();
+}
