@@ -1,5 +1,0 @@
-{
-  super(directoryName,fileExtension);
-  myBlockSize=blockSize;
-  new File(directoryName).mkdirs();
-}

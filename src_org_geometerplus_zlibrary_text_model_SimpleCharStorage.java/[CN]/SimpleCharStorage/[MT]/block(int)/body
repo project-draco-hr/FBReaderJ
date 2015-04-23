@@ -1,6 +1,0 @@
-{
-  if (index < 0 || index >= myArray.size()) {
-    return null;
-  }
-  return myArray.get(index);
-}
