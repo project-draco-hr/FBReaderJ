@@ -1,0 +1,5 @@
+{
+  hideToast();
+  myToast=toast;
+  toast.show();
+}
