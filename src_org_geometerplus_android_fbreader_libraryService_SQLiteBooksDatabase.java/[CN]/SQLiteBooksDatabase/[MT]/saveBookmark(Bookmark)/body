@@ -1,10 +1,11 @@
 {
-  SQLiteStatement statement=get("INSERT OR REPLACE INTO Bookmarks (uid,version_uid,book_id,bookmark_text,creation_time,modification_time,access_time,model_id,paragraph,word,char,end_paragraph,end_word,end_character,visible,style_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+  SQLiteStatement statement=get("INSERT OR REPLACE INTO Bookmarks (uid,version_uid,book_id,bookmark_text,original_text,creation_time,modification_time,access_time,model_id,paragraph,word,char,end_paragraph,end_word,end_character,visible,style_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
   int fieldCount=0;
   SQLiteUtil.bindString(statement,++fieldCount,uid(bookmark));
   SQLiteUtil.bindString(statement,++fieldCount,bookmark.getVersionUid());
   statement.bindLong(++fieldCount,bookmark.BookId);
   statement.bindString(++fieldCount,bookmark.getText());
+  SQLiteUtil.bindString(statement,++fieldCount,bookmark.getOriginalText());
   SQLiteUtil.bindDate(statement,++fieldCount,bookmark.getDate(Bookmark.DateType.Creation));
   SQLiteUtil.bindDate(statement,++fieldCount,bookmark.getDate(Bookmark.DateType.Modification));
   SQLiteUtil.bindDate(statement,++fieldCount,bookmark.getDate(Bookmark.DateType.Access));

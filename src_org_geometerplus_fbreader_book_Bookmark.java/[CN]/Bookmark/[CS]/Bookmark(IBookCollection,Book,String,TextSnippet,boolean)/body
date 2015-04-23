@@ -5,6 +5,7 @@
   BookId=book.getId();
   BookTitle=book.getTitle();
   myText=snippet.getText();
+  myOriginalText=null;
   CreationDate=new Date();
   ModelId=modelId;
   IsVisible=visible;

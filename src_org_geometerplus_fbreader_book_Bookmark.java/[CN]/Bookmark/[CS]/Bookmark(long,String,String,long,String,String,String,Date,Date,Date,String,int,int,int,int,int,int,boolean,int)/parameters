@@ -4,6 +4,7 @@ String versionUid
 long bookId
 String bookTitle
 String text
+String originalText
 Date creationDate
 Date modificationDate
 Date accessDate

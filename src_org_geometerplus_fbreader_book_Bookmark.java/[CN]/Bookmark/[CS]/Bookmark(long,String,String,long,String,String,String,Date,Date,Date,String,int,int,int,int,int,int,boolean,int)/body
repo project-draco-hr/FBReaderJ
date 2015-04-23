@@ -6,6 +6,7 @@
   BookId=bookId;
   BookTitle=bookTitle;
   myText=text;
+  myOriginalText=originalText;
   CreationDate=creationDate;
   myModificationDate=modificationDate;
   ModelId=modelId;

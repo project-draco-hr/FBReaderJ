@@ -1,5 +1,10 @@
 {
-  if (myState == State.READ_TEXT) {
+switch (myState) {
+case READ_TEXT:
     myText.append(ch,start,length);
-  }
+  break;
+case READ_ORIGINAL_TEXT:
+myOriginalText.append(ch,start,length);
+break;
+}
 }

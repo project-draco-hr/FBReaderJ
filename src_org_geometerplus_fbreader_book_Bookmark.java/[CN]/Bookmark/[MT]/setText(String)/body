@@ -1,5 +1,11 @@
 {
   if (!text.equals(myText)) {
+    if (myOriginalText == null) {
+      myOriginalText=myText;
+    }
+ else     if (myOriginalText.equals(text)) {
+      myOriginalText=null;
+    }
     myText=text;
     onModification();
   }

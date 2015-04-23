@@ -6,6 +6,7 @@
   myBookId=-1;
   myBookTitle=null;
   clear(myText);
+  myOriginalText=null;
   myCreationDate=null;
   myModificationDate=null;
   myAccessDate=null;

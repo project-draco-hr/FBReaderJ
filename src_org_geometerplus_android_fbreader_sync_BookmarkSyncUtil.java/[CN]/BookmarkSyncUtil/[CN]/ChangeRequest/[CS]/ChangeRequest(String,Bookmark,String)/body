@@ -6,6 +6,7 @@
   bmk.put("version_uid",bookmark.getVersionUid());
   bmk.put("style_id",bookmark.getStyleId());
   bmk.put("text",bookmark.getText());
+  bmk.put("original_text",bookmark.getOriginalText());
   bmk.put("model_id",bookmark.ModelId);
   bmk.put("para_start",bookmark.getParagraphIndex());
   bmk.put("elmt_start",bookmark.getElementIndex());
