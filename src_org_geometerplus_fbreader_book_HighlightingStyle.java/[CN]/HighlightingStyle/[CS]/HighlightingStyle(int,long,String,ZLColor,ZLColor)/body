@@ -1,5 +1,6 @@
 {
   Id=id;
+  LastUpdateTimestamp=timestamp;
   myName=name;
   myBackgroundColor=bgColor;
   myForegroundColor=fgColor;

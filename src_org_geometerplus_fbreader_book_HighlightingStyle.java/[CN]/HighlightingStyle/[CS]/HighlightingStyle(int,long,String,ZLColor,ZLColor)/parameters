@@ -1,4 +1,5 @@
 int id
+long timestamp
 String name
 ZLColor bgColor
 ZLColor fgColor
