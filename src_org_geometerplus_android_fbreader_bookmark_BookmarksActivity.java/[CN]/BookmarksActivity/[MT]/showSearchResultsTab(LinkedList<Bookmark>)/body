@@ -6,5 +6,5 @@
     mySearchResultsAdapter.clear();
   }
   mySearchResultsAdapter.addAll(results);
-  getTabHost().setCurrentTabByTag("found");
+  myTabHost.setCurrentTabByTag("found");
 }

@@ -1,6 +1,6 @@
 {
   final int position=((AdapterView.AdapterContextMenuInfo)item.getMenuInfo()).position;
-  final ListView view=(ListView)getTabHost().getCurrentView();
+  final ListView view=(ListView)myTabHost.getCurrentView();
   final Bookmark bookmark=((BookmarksAdapter)view.getAdapter()).getItem(position);
 switch (item.getItemId()) {
 case OPEN_ITEM_ID:
