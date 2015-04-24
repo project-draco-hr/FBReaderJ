@@ -1,4 +1,7 @@
 {
+  for (  HighlightingStyle style : myCollection.highlightingStyles()) {
+    myStyles.put(style.Id,style);
+  }
   if (myBook != null) {
     for (BookmarkQuery query=new BookmarkQuery(myBook,20); ; query=query.next()) {
       final List<Bookmark> thisBookBookmarks=myCollection.bookmarks(query);

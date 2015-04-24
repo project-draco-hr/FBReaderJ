@@ -1,17 +1,21 @@
 {
   final View view=(convertView != null) ? convertView : LayoutInflater.from(parent.getContext()).inflate(R.layout.bookmark_item,parent,false);
   final ImageView imageView=ViewUtil.findImageView(view,R.id.bookmark_item_icon);
+  final AmbilWarnaPrefWidgetView colorView=(AmbilWarnaPrefWidgetView)ViewUtil.findView(view,R.id.bookmark_item_color);
   final TextView textView=ViewUtil.findTextView(view,R.id.bookmark_item_text);
   final TextView bookTitleView=ViewUtil.findTextView(view,R.id.bookmark_item_booktitle);
   final Bookmark bookmark=getItem(position);
   if (bookmark == null) {
     imageView.setVisibility(View.VISIBLE);
     imageView.setImageResource(R.drawable.ic_list_plus);
+    colorView.setVisibility(View.GONE);
     textView.setText(myResource.getResource("new").getValue());
     bookTitleView.setVisibility(View.GONE);
   }
  else {
     imageView.setVisibility(View.GONE);
+    colorView.setVisibility(View.VISIBLE);
+    BookmarksUtil.setupColorView(colorView,myStyles.get(bookmark.getStyleId()));
     textView.setText(bookmark.getText());
     if (myShowAddBookmarkItem) {
       bookTitleView.setVisibility(View.GONE);
