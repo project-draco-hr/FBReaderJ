@@ -3,7 +3,10 @@
   if (bookmark != null) {
     gotoBookmark(bookmark);
   }
- else {
-    addBookmark();
+ else   if (myShowAddBookmarkItem) {
+    myCollection.saveBookmark(myBookmark);
+    myThisBookAdapter.add(myBookmark);
+    myAllBooksAdapter.add(myBookmark);
+    myShowAddBookmarkItem=false;
   }
 }

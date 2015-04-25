@@ -1,17 +1,11 @@
 {
   super.onStart();
-  runOnUiThread(new Runnable(){
-    public void run(){
-      setProgressBarIndeterminateVisibility(true);
-    }
-  }
-);
   myCollection.bindToService(this,new Runnable(){
     public void run(){
       if (myAllBooksAdapter != null) {
         return;
       }
-      myThisBookAdapter=new BookmarksAdapter((ListView)findViewById(R.id.bookmarks_this_book),true);
+      myThisBookAdapter=new BookmarksAdapter((ListView)findViewById(R.id.bookmarks_this_book),myBookmark != null);
       myAllBooksAdapter=new BookmarksAdapter((ListView)findViewById(R.id.bookmarks_all_books),false);
       new Thread(new Initializer()).start();
     }

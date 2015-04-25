@@ -1,7 +1,7 @@
 {
   runOnUiThread(new Runnable(){
     public void run(){
-      myBookmarks.remove(b);
+      myBookmarksList.remove(b);
       notifyDataSetChanged();
     }
   }

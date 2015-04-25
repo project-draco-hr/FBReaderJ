@@ -2,5 +2,5 @@
   if (myShowAddBookmarkItem) {
     --position;
   }
-  return (position >= 0) ? myBookmarks.get(position) : null;
+  return (position >= 0) ? myBookmarksList.get(position) : null;
 }

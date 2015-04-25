@@ -1,8 +1,0 @@
-{
-  final Bookmark bookmark=FBReaderIntents.getBookmarkExtra(getIntent());
-  if (bookmark != null) {
-    myCollection.saveBookmark(bookmark);
-    myThisBookAdapter.add(bookmark);
-    myAllBooksAdapter.add(bookmark);
-  }
-}

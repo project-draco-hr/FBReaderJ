@@ -17,10 +17,4 @@
     }
     myAllBooksAdapter.addAll(allBookmarks);
   }
-  runOnUiThread(new Runnable(){
-    public void run(){
-      setProgressBarIndeterminateVisibility(false);
-    }
-  }
-);
 }
