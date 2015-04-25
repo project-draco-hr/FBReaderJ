@@ -1,0 +1,14 @@
+{
+switch (event) {
+default :
+    break;
+case BookmarkStyleChanged:
+case BookmarksUpdated:
+  myAllBooksAdapter.notifyDataSetChanged();
+myThisBookAdapter.notifyDataSetChanged();
+if (mySearchResultsAdapter != mySearchResultsAdapter) {
+mySearchResultsAdapter.notifyDataSetChanged();
+}
+break;
+}
+}
