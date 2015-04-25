@@ -8,7 +8,8 @@ case OPEN_ITEM_ID:
   return true;
 case EDIT_ITEM_ID:
 final Intent intent=new Intent(this,EditBookmarkActivity.class);
-OrientationUtil.startActivityForResult(this,intent,1);
+FBReaderIntents.putBookmarkExtra(intent,bookmark);
+OrientationUtil.startActivity(this,intent);
 return true;
 case DELETE_ITEM_ID:
 myCollection.deleteBookmark(bookmark);

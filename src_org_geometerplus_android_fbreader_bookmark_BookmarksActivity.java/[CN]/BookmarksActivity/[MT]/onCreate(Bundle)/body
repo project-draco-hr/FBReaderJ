@@ -9,5 +9,20 @@
   manager.setOnCancelListener(null);
   myTabHost=(TabHost)findViewById(R.id.bookmarks_tabhost);
   myTabHost.setup();
+  createTab("thisBook",R.id.bookmarks_this_book);
+  createTab("allBooks",R.id.bookmarks_all_books);
+  createTab("search",R.id.bookmarks_search);
+  myTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener(){
+    public void onTabChanged(    String tabId){
+      if ("search".equals(tabId)) {
+        findViewById(R.id.bookmarks_search_results).setVisibility(View.GONE);
+        onSearchRequested();
+      }
+    }
+  }
+);
   myBook=FBReaderIntents.getBookExtra(getIntent());
+  if (myBook == null) {
+    finish();
+  }
 }

@@ -1,8 +1,8 @@
 {
   final int position=((AdapterView.AdapterContextMenuInfo)menuInfo).position;
   if (getItem(position) != null) {
-    menu.setHeaderTitle(getItem(position).getText());
-    menu.add(0,OPEN_ITEM_ID,0,myResource.getResource("open").getValue());
-    menu.add(0,DELETE_ITEM_ID,0,myResource.getResource("delete").getValue());
+    menu.add(0,OPEN_ITEM_ID,0,myResource.getResource("openBook").getValue());
+    menu.add(0,EDIT_ITEM_ID,0,myResource.getResource("editBookmark").getValue());
+    menu.add(0,DELETE_ITEM_ID,0,myResource.getResource("deleteBookmark").getValue());
   }
 }

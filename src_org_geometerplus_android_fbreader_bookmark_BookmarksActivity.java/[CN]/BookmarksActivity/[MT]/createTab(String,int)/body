@@ -1,5 +1,4 @@
 {
   final String label=myResource.getResource(tag).getValue();
   myTabHost.addTab(myTabHost.newTabSpec(tag).setIndicator(label).setContent(id));
-  return (ListView)findViewById(id);
 }
