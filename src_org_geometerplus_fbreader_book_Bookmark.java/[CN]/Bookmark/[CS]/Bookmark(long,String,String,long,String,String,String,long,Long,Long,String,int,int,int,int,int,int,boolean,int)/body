@@ -7,9 +7,9 @@
   BookTitle=bookTitle;
   myText=text;
   myOriginalText=originalText;
-  CreationDate=creationDate;
-  myModificationDate=modificationDate;
-  myAccessDate=accessDate;
+  CreationTimestamp=creationTimestamp;
+  myModificationTimestamp=modificationTimestamp;
+  myAccessTimestamp=accessTimestamp;
   ModelId=modelId;
   IsVisible=isVisible;
   if (end_charIndex >= 0) {

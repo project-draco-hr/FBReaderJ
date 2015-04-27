@@ -14,7 +14,7 @@ synchronized (myBookmarksLock) {
         final String pattern;
         if (mySearchResultsAdapter != null) {
           for (          Bookmark b : mySearchResultsAdapter.bookmarks()) {
-            allBooksBookmarks.put(b.Uid,b);
+            foundBookmarks.put(b.Uid,b);
           }
           pattern=myBookmarkSearchPatternOption.getValue().toLowerCase();
         }

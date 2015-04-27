@@ -6,9 +6,9 @@
   BookTitle=original.BookTitle;
   myText=original.myText;
   myOriginalText=original.myOriginalText;
-  CreationDate=original.CreationDate;
-  myModificationDate=original.myModificationDate;
-  myAccessDate=original.myAccessDate;
+  CreationTimestamp=original.CreationTimestamp;
+  myModificationTimestamp=original.myModificationTimestamp;
+  myAccessTimestamp=original.myAccessTimestamp;
   myEnd=original.myEnd;
   myLength=original.myLength;
   myStyleId=original.myStyleId;

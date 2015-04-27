@@ -13,9 +13,9 @@
   statement.bindLong(++fieldCount,bookmark.BookId);
   statement.bindString(++fieldCount,bookmark.getText());
   SQLiteUtil.bindString(statement,++fieldCount,bookmark.getOriginalText());
-  SQLiteUtil.bindDate(statement,++fieldCount,bookmark.getDate(Bookmark.DateType.Creation));
-  SQLiteUtil.bindDate(statement,++fieldCount,bookmark.getDate(Bookmark.DateType.Modification));
-  SQLiteUtil.bindDate(statement,++fieldCount,bookmark.getDate(Bookmark.DateType.Access));
+  SQLiteUtil.bindLong(statement,++fieldCount,bookmark.getTimestamp(Bookmark.DateType.Creation));
+  SQLiteUtil.bindLong(statement,++fieldCount,bookmark.getTimestamp(Bookmark.DateType.Modification));
+  SQLiteUtil.bindLong(statement,++fieldCount,bookmark.getTimestamp(Bookmark.DateType.Access));
   SQLiteUtil.bindString(statement,++fieldCount,bookmark.ModelId);
   statement.bindLong(++fieldCount,bookmark.ParagraphIndex);
   statement.bindLong(++fieldCount,bookmark.ElementIndex);

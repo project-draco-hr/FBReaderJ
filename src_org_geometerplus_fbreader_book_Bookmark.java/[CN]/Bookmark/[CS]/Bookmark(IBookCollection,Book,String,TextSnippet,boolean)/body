@@ -6,7 +6,7 @@
   BookTitle=book.getTitle();
   myText=snippet.getText();
   myOriginalText=null;
-  CreationDate=new Date();
+  CreationTimestamp=System.currentTimeMillis();
   ModelId=modelId;
   IsVisible=visible;
   myEnd=new ZLTextFixedPosition(snippet.getEnd());

@@ -1,4 +1,0 @@
-{
-  final Long timestamp=(Long)data.get(key);
-  return timestamp != null ? new Date(timestamp) : null;
-}

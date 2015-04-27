@@ -24,14 +24,14 @@ myOriginalText=new StringBuilder();
 }
  else if ("history".equals(localName)) {
 if (attributes.getValue("ts-creation") != null) {
-myCreationDate=dateByTimestamp(attributes.getValue("ts-creation"));
-myModificationDate=dateByTimestamp(attributes.getValue("ts-modification"));
-myAccessDate=dateByTimestamp(attributes.getValue("ts-access"));
+myCreationTimestamp=parseLong(attributes.getValue("ts-creation"));
+myModificationTimestamp=parseLongObjectSafe(attributes.getValue("ts-modification"));
+myAccessTimestamp=parseLongObjectSafe(attributes.getValue("ts-access"));
 }
  else {
-myCreationDate=parseDate(attributes.getValue("date-creation"));
-myModificationDate=parseDateSafe(attributes.getValue("date-modification"));
-myAccessDate=parseDateSafe(attributes.getValue("date-access"));
+myCreationTimestamp=parseDate(attributes.getValue("date-creation"));
+myModificationTimestamp=parseDateSafe(attributes.getValue("date-modification"));
+myAccessTimestamp=parseDateSafe(attributes.getValue("date-access"));
 }
 }
  else if ("start".equals(localName)) {

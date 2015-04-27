@@ -63,7 +63,7 @@
               toUpdateOnClient.add(b);
             }
  else             if (!info.VersionUid.equals(b.getVersionUid())) {
-              final long ts=b.getDate(Bookmark.DateType.Modification).getTime();
+              final long ts=b.getTimestamp(Bookmark.DateType.Modification);
               if (info.ModificationTimestamp <= ts) {
                 toUpdateOnServer.add(b);
               }

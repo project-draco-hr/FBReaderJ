@@ -1,6 +1,6 @@
 {
   try {
-    return str != null ? ourDateFormatter.parse(str) : null;
+    return str != null ? ourDateFormatter.parse(str).getTime() : null;
   }
  catch (  Exception e) {
     return null;

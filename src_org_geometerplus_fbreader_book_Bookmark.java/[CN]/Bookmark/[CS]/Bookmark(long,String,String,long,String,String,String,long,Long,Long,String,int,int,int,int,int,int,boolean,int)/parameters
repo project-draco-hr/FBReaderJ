@@ -5,9 +5,9 @@ long bookId
 String bookTitle
 String text
 String originalText
-Date creationDate
-Date modificationDate
-Date accessDate
+long creationTimestamp
+Long modificationTimestamp
+Long accessTimestamp
 String modelId
 int start_paragraphIndex
 int start_elementIndex

@@ -1,0 +1,8 @@
+{
+  if (value != null) {
+    statement.bindLong(index,value);
+  }
+ else {
+    statement.bindNull(index);
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return timestamp != null ? ourDateFormatter.format(new Date(timestamp)) : null;
+}
