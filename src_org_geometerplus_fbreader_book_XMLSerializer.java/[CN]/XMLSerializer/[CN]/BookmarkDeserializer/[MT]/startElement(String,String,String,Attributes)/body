@@ -23,9 +23,16 @@ myState=State.READ_ORIGINAL_TEXT;
 myOriginalText=new StringBuilder();
 }
  else if ("history".equals(localName)) {
+if (attributes.getValue("ts-creation") != null) {
+myCreationDate=dateByTimestamp(attributes.getValue("ts-creation"));
+myModificationDate=dateByTimestamp(attributes.getValue("ts-modification"));
+myAccessDate=dateByTimestamp(attributes.getValue("ts-access"));
+}
+ else {
 myCreationDate=parseDate(attributes.getValue("date-creation"));
 myModificationDate=parseDateSafe(attributes.getValue("date-modification"));
 myAccessDate=parseDateSafe(attributes.getValue("date-access"));
+}
 }
  else if ("start".equals(localName)) {
 myModelId=attributes.getValue("model");

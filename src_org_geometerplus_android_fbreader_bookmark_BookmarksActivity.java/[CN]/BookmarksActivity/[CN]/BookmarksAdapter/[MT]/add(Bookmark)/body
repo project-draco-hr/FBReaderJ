@@ -1,14 +1,9 @@
 {
-  runOnUiThread(new Runnable(){
-    public void run(){
 synchronized (myBookmarksList) {
-        final int position=Collections.binarySearch(myBookmarksList,b,myComparator);
-        if (position < 0) {
-          myBookmarksList.add(-position - 1,b);
-        }
-      }
-      notifyDataSetChanged();
+    final int position=Collections.binarySearch(myBookmarksList,b,myComparator);
+    if (position < 0) {
+      myBookmarksList.add(-position - 1,b);
     }
   }
-);
+  resetView();
 }

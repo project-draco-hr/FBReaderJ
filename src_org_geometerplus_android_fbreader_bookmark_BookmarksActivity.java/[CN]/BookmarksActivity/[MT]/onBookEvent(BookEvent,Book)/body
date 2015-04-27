@@ -4,10 +4,10 @@ default :
     break;
 case BookmarkStyleChanged:
   updateStyles();
-myAllBooksAdapter.notifyDataSetChanged();
-myThisBookAdapter.notifyDataSetChanged();
+myAllBooksAdapter.resetView();
+myThisBookAdapter.resetView();
 if (mySearchResultsAdapter != null) {
-mySearchResultsAdapter.notifyDataSetChanged();
+mySearchResultsAdapter.resetView();
 }
 break;
 case BookmarksUpdated:
