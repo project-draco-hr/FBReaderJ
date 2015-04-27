@@ -9,6 +9,7 @@
   myOriginalText=originalText;
   CreationDate=creationDate;
   myModificationDate=modificationDate;
+  myAccessDate=accessDate;
   ModelId=modelId;
   IsVisible=isVisible;
   if (end_charIndex >= 0) {
