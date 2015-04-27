@@ -17,11 +17,11 @@
     return null;
   }
   final ZLTextWordCursor cursor=new ZLTextWordCursor(new ZLTextParagraphCursor(model,label.ParagraphIndex));
-  final AutoTextSnippet longSnippet=new AutoTextSnippet(cursor,24);
+  final AutoTextSnippet longSnippet=new AutoTextSnippet(cursor,140);
   if (longSnippet.IsEndOfText) {
     return longSnippet;
   }
  else {
-    return new AutoTextSnippet(cursor,20);
+    return new AutoTextSnippet(cursor,100);
   }
 }

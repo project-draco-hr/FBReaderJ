@@ -1,2 +1,2 @@
 ZLTextWordCursor start
-int maxWords
+int maxChars

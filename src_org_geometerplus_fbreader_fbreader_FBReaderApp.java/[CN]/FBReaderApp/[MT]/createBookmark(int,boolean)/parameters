@@ -1,2 +1,2 @@
-int maxLength
+int maxChars
 boolean visible

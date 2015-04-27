@@ -1,6 +1,0 @@
-IBookCollection collection
-Book book
-String modelId
-ZLTextWordCursor startCursor
-int maxWords
-boolean visible
