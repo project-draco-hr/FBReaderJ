@@ -11,7 +11,7 @@ mySearchResultsAdapter.resetView();
 }
 break;
 case BookmarksUpdated:
-updateBookmarks();
+updateBookmarks(book);
 break;
 }
 }
