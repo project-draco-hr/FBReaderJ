@@ -1,0 +1,20 @@
+{
+  if (old != null && areEqualsForView(old,b)) {
+    return;
+  }
+  runOnUiThread(new Runnable(){
+    public void run(){
+synchronized (myBookmarksList) {
+        if (old != null) {
+          myBookmarksList.remove(old);
+        }
+        final int position=Collections.binarySearch(myBookmarksList,b,myComparator);
+        if (position < 0) {
+          myBookmarksList.add(-position - 1,b);
+        }
+      }
+      notifyDataSetChanged();
+    }
+  }
+);
+}

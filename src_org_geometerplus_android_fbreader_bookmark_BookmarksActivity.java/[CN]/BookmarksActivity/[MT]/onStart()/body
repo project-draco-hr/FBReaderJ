@@ -8,7 +8,8 @@
       myThisBookAdapter=new BookmarksAdapter((ListView)findViewById(R.id.bookmarks_this_book),myBookmark != null);
       myAllBooksAdapter=new BookmarksAdapter((ListView)findViewById(R.id.bookmarks_all_books),false);
       myCollection.addListener(BookmarksActivity.this);
-      new Thread(new Initializer()).start();
+      updateStyles();
+      loadBookmarks();
     }
   }
 );

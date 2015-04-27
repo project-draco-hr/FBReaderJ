@@ -1,0 +1,24 @@
+{
+  new Thread(new Runnable(){
+    public void run(){
+synchronized (myBookmarksLock) {
+        for (BookmarkQuery query=new BookmarkQuery(myBook,50); ; query=query.next()) {
+          final List<Bookmark> thisBookBookmarks=myCollection.bookmarks(query);
+          if (thisBookBookmarks.isEmpty()) {
+            break;
+          }
+          myThisBookAdapter.addAll(thisBookBookmarks);
+          myAllBooksAdapter.addAll(thisBookBookmarks);
+        }
+        for (BookmarkQuery query=new BookmarkQuery(50); ; query=query.next()) {
+          final List<Bookmark> allBookmarks=myCollection.bookmarks(query);
+          if (allBookmarks.isEmpty()) {
+            break;
+          }
+          myAllBooksAdapter.addAll(allBookmarks);
+        }
+      }
+    }
+  }
+).start();
+}

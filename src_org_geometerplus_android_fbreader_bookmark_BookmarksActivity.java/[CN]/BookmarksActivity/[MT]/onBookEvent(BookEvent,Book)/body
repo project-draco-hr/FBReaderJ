@@ -3,12 +3,15 @@ switch (event) {
 default :
     break;
 case BookmarkStyleChanged:
-case BookmarksUpdated:
-  myAllBooksAdapter.notifyDataSetChanged();
+  updateStyles();
+myAllBooksAdapter.notifyDataSetChanged();
 myThisBookAdapter.notifyDataSetChanged();
-if (mySearchResultsAdapter != mySearchResultsAdapter) {
+if (mySearchResultsAdapter != null) {
 mySearchResultsAdapter.notifyDataSetChanged();
 }
+break;
+case BookmarksUpdated:
+updateBookmarks();
 break;
 }
 }

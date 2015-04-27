@@ -13,15 +13,6 @@ OrientationUtil.startActivity(this,intent);
 return true;
 case DELETE_ITEM_ID:
 myCollection.deleteBookmark(bookmark);
-if (myThisBookAdapter != null) {
-myThisBookAdapter.remove(bookmark);
-}
-if (myAllBooksAdapter != null) {
-myAllBooksAdapter.remove(bookmark);
-}
-if (mySearchResultsAdapter != null) {
-mySearchResultsAdapter.remove(bookmark);
-}
 return true;
 }
 return super.onContextItemSelected(item);
