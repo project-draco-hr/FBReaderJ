@@ -2,6 +2,9 @@
   if (super.onFingerSingleTap(x,y)) {
     return true;
   }
+  if (ZLibrary.Instance().ScreenHintStageOption.getValue() < 3) {
+    return onFingerSingleTapLastResort(x,y);
+  }
   final ZLTextRegion hyperlinkRegion=findRegion(x,y,maxSelectionDistance(),ZLTextRegion.HyperlinkFilter);
   if (hyperlinkRegion != null) {
     selectRegion(hyperlinkRegion);
@@ -32,6 +35,5 @@
     myReader.runAction(ActionCode.HIDE_TOAST);
     return true;
   }
-  myReader.runAction(getZoneMap().getActionByCoordinates(x,y,getContextWidth(),getContextHeight(),isDoubleTapSupported() ? TapZoneMap.Tap.singleNotDoubleTap : TapZoneMap.Tap.singleTap),x,y);
-  return true;
+  return onFingerSingleTapLastResort(x,y);
 }
