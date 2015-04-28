@@ -3,12 +3,17 @@ switch (event) {
 default :
     break;
 case BookmarkStyleChanged:
-  updateStyles();
-myAllBooksAdapter.resetView();
-myThisBookAdapter.resetView();
-if (mySearchResultsAdapter != null) {
-mySearchResultsAdapter.resetView();
-}
+  runOnUiThread(new Runnable(){
+    public void run(){
+      updateStyles();
+      myAllBooksAdapter.notifyDataSetChanged();
+      myThisBookAdapter.notifyDataSetChanged();
+      if (mySearchResultsAdapter != null) {
+        mySearchResultsAdapter.notifyDataSetChanged();
+      }
+    }
+  }
+);
 break;
 case BookmarksUpdated:
 updateBookmarks(book);

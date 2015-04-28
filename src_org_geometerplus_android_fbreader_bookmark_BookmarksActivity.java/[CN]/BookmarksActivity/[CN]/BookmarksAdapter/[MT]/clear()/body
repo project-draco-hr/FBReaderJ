@@ -1,4 +1,9 @@
 {
-  myBookmarksList.clear();
-  resetView();
+  runOnUiThread(new Runnable(){
+    public void run(){
+      myBookmarksList.clear();
+      notifyDataSetChanged();
+    }
+  }
+);
 }

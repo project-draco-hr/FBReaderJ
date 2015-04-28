@@ -2,8 +2,11 @@
   if (bookmarks.isEmpty()) {
     return;
   }
-synchronized (myBookmarksList) {
-    myBookmarksList.removeAll(bookmarks);
+  runOnUiThread(new Runnable(){
+    public void run(){
+      myBookmarksList.removeAll(bookmarks);
+      notifyDataSetChanged();
+    }
   }
-  resetView();
+);
 }
