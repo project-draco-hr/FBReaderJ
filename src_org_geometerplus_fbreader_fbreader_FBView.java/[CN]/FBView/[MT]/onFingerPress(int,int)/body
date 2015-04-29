@@ -5,7 +5,7 @@
   final ZLTextSelectionCursor cursor=findSelectionCursor(x,y,maxSelectionDistance());
   if (cursor != ZLTextSelectionCursor.None) {
     myReader.runAction(ActionCode.SELECTION_HIDE_PANEL);
-    moveSelectionCursorTo(cursor,x,y);
+    moveSelectionCursorTo(cursor,x,y,true);
     return true;
   }
   if (myReader.MiscOptions.AllowScreenBrightnessAdjustment.getValue() && x < getContextWidth() / 10) {
