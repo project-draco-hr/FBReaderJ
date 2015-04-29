@@ -380,14 +380,14 @@ targetLanguagePreference.setEnabled(DictionaryUtil.getCurrentDictionaryInfo(true
 );
 dictionaryScreen.addPreference(new DictionaryPreference(PreferenceActivity.this,dictionaryScreen.Resource.getResource("translator"),DictionaryUtil.multiWordTranslatorOption(),DictionaryUtil.dictionaryInfos(PreferenceActivity.this,false)));
 dictionaryScreen.addPreference(new ZLBooleanPreference(PreferenceActivity.this,miscOptions.NavigateAllWords,dictionaryScreen.Resource.getResource("navigateOverAllWords")));
-dictionaryScreen.addOption(miscOptions.WordTappingAction,"tappingAction");
+dictionaryScreen.addOption(miscOptions.WordTappingAction,"longTapAction");
 dictionaryScreen.addPreference(targetLanguagePreference);
 targetLanguagePreference.setEnabled(DictionaryUtil.getCurrentDictionaryInfo(true).SupportsTargetLanguageSetting);
 }
 }
 );
 final Screen imagesScreen=createPreferenceScreen("images");
-imagesScreen.addOption(imageOptions.TapAction,"tappingAction");
+imagesScreen.addOption(imageOptions.TapAction,"longTapAction");
 imagesScreen.addOption(imageOptions.FitToScreen,"fitImagesToScreen");
 imagesScreen.addOption(imageOptions.ImageViewBackground,"backgroundColor");
 imagesScreen.addOption(imageOptions.MatchBackground,"matchBackground");
