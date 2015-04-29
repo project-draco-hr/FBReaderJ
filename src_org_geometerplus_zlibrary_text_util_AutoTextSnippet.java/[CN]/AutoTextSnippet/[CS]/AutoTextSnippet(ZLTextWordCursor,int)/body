@@ -14,7 +14,7 @@
       if (!cursor.nextParagraph()) {
         break mainLoop;
       }
-      if (!buffer.isEmpty() && cursor.getParagraphCursor().isEndOfSection()) {
+      if (!buffer.isEmpty() && cursor.getParagraphCursor().isLikeEndOfSection()) {
         break mainLoop;
       }
       if (!phraseBuffer.isEmpty()) {
@@ -67,7 +67,7 @@ break;
 }
 cursor.nextWord();
 }
-IsEndOfText=cursor.isEndOfText() || cursor.getParagraphCursor().isEndOfSection();
+IsEndOfText=cursor.isEndOfText() || cursor.getParagraphCursor().isLikeEndOfSection();
 if (IsEndOfText) {
 sentenceBuffer.append(phraseBuffer);
 if (appendLineBreak) {
