@@ -65,6 +65,19 @@ storedWordCounter=wordCounter;
 break;
 }
 }
+ else if (element instanceof ZLTextControlElement) {
+final ZLTextControlElement control=(ZLTextControlElement)element;
+if (control.IsStart) {
+switch (control.Kind) {
+case FBTextKind.H1:
+case FBTextKind.H2:
+if (!buffer.isEmpty()) {
+break mainLoop;
+}
+break;
+}
+}
+}
 cursor.nextWord();
 }
 IsEndOfText=cursor.isEndOfText() || cursor.getParagraphCursor().isLikeEndOfSection();
