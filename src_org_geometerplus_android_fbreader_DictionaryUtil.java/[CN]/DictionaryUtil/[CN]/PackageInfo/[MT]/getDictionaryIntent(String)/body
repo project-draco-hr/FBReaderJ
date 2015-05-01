@@ -1,18 +1,21 @@
 {
-  final Intent intent=new Intent(IntentAction);
-  if (PackageName != null) {
-    if (ClassName != null) {
-      String cls=ClassName;
-      if (cls.startsWith(".")) {
-        cls=PackageName + cls;
-      }
-      intent.setComponent(new ComponentName(PackageName,cls));
+  final Intent intent=new Intent(get("action"));
+  final String packageName=get("package");
+  if (packageName != null) {
+    final String className=get("class");
+    if (className != null) {
+      intent.setComponent(new ComponentName(packageName,className.startsWith(".") ? packageName + className : className));
     }
   }
-  intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-  text=IntentDataPattern.replace("%s",text);
-  if (IntentKey != null) {
-    return intent.putExtra(IntentKey,text);
+  final String category=get("category");
+  if (category != null) {
+    intent.addCategory(category);
+  }
+  intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+  intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+  final String key=get("dataKey");
+  if (key != null) {
+    return intent.putExtra(key,text);
   }
  else {
     return intent.setData(Uri.parse(text));
