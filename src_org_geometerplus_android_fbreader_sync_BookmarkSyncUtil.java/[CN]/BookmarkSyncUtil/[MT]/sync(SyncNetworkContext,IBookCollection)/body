@@ -51,8 +51,10 @@
         break;
       }
       for (      Bookmark b : bmks) {
+        System.err.println("BMK = " + b.getText());
         final Info info=actualServerInfos.remove(b.Uid);
         if (info != null) {
+          System.err.println("INFO = " + info);
           if (info.VersionUid == null) {
             if (b.getVersionUid() != null) {
               toUpdateOnServer.add(b);
@@ -64,6 +66,7 @@
             }
  else             if (!info.VersionUid.equals(b.getVersionUid())) {
               final long ts=b.getTimestamp(Bookmark.DateType.Latest);
+              System.err.println("COMPARE: " + ts + " VS "+ info.Timestamp);
               if (info.Timestamp <= ts) {
                 toUpdateOnServer.add(b);
               }
@@ -156,7 +159,7 @@
       context.perform(new JsonRequest2(SyncOptions.BASE_URL + "sync/bookmarks",fullRequestData(toGetFromServer)){
         @Override public void processResponse(        Object response){
           for (          Map<String,Object> info : (List<Map<String,Object>>)response) {
-            final Bookmark bookmark=bookmarkFromData(info,booksByHash);
+            final Bookmark bookmark=newBookmarkFromData(info,booksByHash);
             if (bookmark != null) {
               collection.saveBookmark(bookmark);
             }
