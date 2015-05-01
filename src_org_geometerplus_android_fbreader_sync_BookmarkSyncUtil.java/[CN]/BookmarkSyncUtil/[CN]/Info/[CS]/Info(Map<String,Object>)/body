@@ -2,6 +2,14 @@
   Uid=(String)data.get("uid");
   VersionUid=(String)data.get("version_uid");
   BookHashes=(List<String>)data.get("book_hashes");
-  final Long timestamp=(Long)data.get("modification_timestamp");
-  ModificationTimestamp=timestamp != null ? timestamp : 0L;
+  long timestamp=0L;
+  final Long aTimestamp=(Long)data.get("access_timestamp");
+  if (aTimestamp != null) {
+    timestamp=aTimestamp;
+  }
+  final Long mTimestamp=(Long)data.get("modification_timestamp");
+  if (mTimestamp != null && mTimestamp > timestamp) {
+    timestamp=mTimestamp;
+  }
+  Timestamp=timestamp;
 }
