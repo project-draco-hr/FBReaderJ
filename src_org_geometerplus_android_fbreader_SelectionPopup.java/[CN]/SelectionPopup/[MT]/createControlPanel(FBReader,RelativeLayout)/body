@@ -1,11 +1,12 @@
 {
-  if (myWindow != null && activity == myWindow.getActivity()) {
+  if (myWindow != null && activity == myWindow.getContext()) {
     return;
   }
-  myWindow=new PopupWindow(activity,root,PopupWindow.Location.Floating);
-  addButton(ActionCode.SELECTION_COPY_TO_CLIPBOARD,true,R.drawable.selection_copy);
-  addButton(ActionCode.SELECTION_SHARE,true,R.drawable.selection_share);
-  addButton(ActionCode.SELECTION_TRANSLATE,true,R.drawable.selection_translate);
-  addButton(ActionCode.SELECTION_BOOKMARK,true,R.drawable.selection_bookmark);
-  addButton(ActionCode.SELECTION_CLEAR,true,R.drawable.selection_close);
+  activity.getLayoutInflater().inflate(R.layout.selection_panel,root);
+  myWindow=(SimplePopupWindow)root.findViewById(R.id.selection_panel);
+  setupButton(R.id.selection_panel_copy);
+  setupButton(R.id.selection_panel_share);
+  setupButton(R.id.selection_panel_translate);
+  setupButton(R.id.selection_panel_bookmark);
+  setupButton(R.id.selection_panel_close);
 }

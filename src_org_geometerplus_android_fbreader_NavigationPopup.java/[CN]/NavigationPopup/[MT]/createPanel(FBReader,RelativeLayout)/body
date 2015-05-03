@@ -1,0 +1,63 @@
+{
+  if (myWindow != null && activity == myWindow.getContext()) {
+    return;
+  }
+  activity.getLayoutInflater().inflate(R.layout.navigation_panel,root);
+  myWindow=(NavigationWindow)root.findViewById(R.id.navigation_panel);
+  final SeekBar slider=(SeekBar)myWindow.findViewById(R.id.navigation_slider);
+  final TextView text=(TextView)myWindow.findViewById(R.id.navigation_text);
+  slider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
+    private void gotoPage(    int page){
+      final ZLTextView view=myFBReader.getTextView();
+      if (page == 1) {
+        view.gotoHome();
+      }
+ else {
+        view.gotoPage(page);
+      }
+      myFBReader.getViewWidget().reset();
+      myFBReader.getViewWidget().repaint();
+    }
+    public void onStartTrackingTouch(    SeekBar seekBar){
+      myIsInProgress=true;
+    }
+    public void onStopTrackingTouch(    SeekBar seekBar){
+      myIsInProgress=false;
+    }
+    public void onProgressChanged(    SeekBar seekBar,    int progress,    boolean fromUser){
+      if (fromUser) {
+        final int page=progress + 1;
+        final int pagesNumber=seekBar.getMax() + 1;
+        gotoPage(page);
+        text.setText(makeProgressText(page,pagesNumber));
+      }
+    }
+  }
+);
+  final Button btnOk=(Button)myWindow.findViewById(R.id.navigation_ok);
+  final Button btnCancel=(Button)myWindow.findViewById(R.id.navigation_cancel);
+  View.OnClickListener listener=new View.OnClickListener(){
+    public void onClick(    View v){
+      final ZLTextWordCursor position=myStartPosition;
+      if (v == btnCancel && position != null) {
+        myFBReader.getTextView().gotoPosition(position);
+      }
+ else       if (v == btnOk) {
+        if (myStartPosition != null && !myStartPosition.equals(myFBReader.getTextView().getStartCursor())) {
+          myFBReader.addInvisibleBookmark(myStartPosition);
+          myFBReader.storePosition();
+        }
+      }
+      myStartPosition=null;
+      Application.hideActivePopup();
+      myFBReader.getViewWidget().reset();
+      myFBReader.getViewWidget().repaint();
+    }
+  }
+;
+  btnOk.setOnClickListener(listener);
+  btnCancel.setOnClickListener(listener);
+  final ZLResource buttonResource=ZLResource.resource("dialog").getResource("button");
+  btnOk.setText(buttonResource.getResource("ok").getValue());
+  btnCancel.setText(buttonResource.getResource("cancel").getValue());
+}

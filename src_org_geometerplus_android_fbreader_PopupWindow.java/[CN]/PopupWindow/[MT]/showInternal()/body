@@ -1,8 +1,0 @@
-{
-  if (myAnimated && Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-    showAnimatedInternal();
-  }
- else {
-    setVisibility(View.VISIBLE);
-  }
-}

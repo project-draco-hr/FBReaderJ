@@ -1,9 +1,10 @@
 {
-  if (myWindow != null && activity == myWindow.getActivity()) {
+  if (myWindow != null && activity == myWindow.getContext()) {
     return;
   }
-  myWindow=new PopupWindow(activity,root,PopupWindow.Location.Bottom);
-  addButton(ActionCode.FIND_PREVIOUS,false,R.drawable.text_search_previous);
-  addButton(ActionCode.CLEAR_FIND_RESULTS,true,R.drawable.text_search_close);
-  addButton(ActionCode.FIND_NEXT,false,R.drawable.text_search_next);
+  activity.getLayoutInflater().inflate(R.layout.search_panel,root);
+  myWindow=(SimplePopupWindow)root.findViewById(R.id.search_panel);
+  setupButton(R.id.search_panel_previous);
+  setupButton(R.id.search_panel_next);
+  setupButton(R.id.search_panel_close);
 }

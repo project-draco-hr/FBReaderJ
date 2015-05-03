@@ -1,6 +1,9 @@
 {
-  final PopupPanel popup=(PopupPanel)application.getActivePopup();
-  if (popup != null) {
-    popup.show_();
+  final ZLApplication.PopupPanel popup=application.getActivePopup();
+  if (popup instanceof PopupPanel) {
+    ((PopupPanel)popup).show_();
+  }
+ else   if (popup instanceof NavigationPopup) {
+    ((NavigationPopup)popup).show_();
   }
 }
