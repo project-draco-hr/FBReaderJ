@@ -1,3 +1,0 @@
-{
-  ((LinearLayout)findViewById(R.id.tools_plate)).addView(view);
-}

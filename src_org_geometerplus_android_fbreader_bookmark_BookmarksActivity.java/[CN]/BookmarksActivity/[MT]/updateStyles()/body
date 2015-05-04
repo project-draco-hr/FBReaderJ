@@ -1,0 +1,8 @@
+{
+synchronized (myStyles) {
+    myStyles.clear();
+    for (    HighlightingStyle style : myCollection.highlightingStyles()) {
+      myStyles.put(style.Id,style);
+    }
+  }
+}

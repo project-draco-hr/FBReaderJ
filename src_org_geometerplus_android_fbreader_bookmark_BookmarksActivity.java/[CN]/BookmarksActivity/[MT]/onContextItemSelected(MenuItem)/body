@@ -1,26 +1,31 @@
 {
   final int position=((AdapterView.AdapterContextMenuInfo)item.getMenuInfo()).position;
-  final ListView view=(ListView)getTabHost().getCurrentView();
-  final Bookmark bookmark=((BookmarksAdapter)view.getAdapter()).getItem(position);
+  final String tag=myTabHost.getCurrentTabTag();
+  final BookmarksAdapter adapter;
+  if ("thisBook".equals(tag)) {
+    adapter=myThisBookAdapter;
+  }
+ else   if ("allBooks".equals(tag)) {
+    adapter=myAllBooksAdapter;
+  }
+ else   if ("search".equals(tag)) {
+    adapter=mySearchResultsAdapter;
+  }
+ else {
+    throw new RuntimeException("Unknown tab tag: " + tag);
+  }
+  final Bookmark bookmark=adapter.getItem(position);
 switch (item.getItemId()) {
 case OPEN_ITEM_ID:
     gotoBookmark(bookmark);
   return true;
 case EDIT_ITEM_ID:
 final Intent intent=new Intent(this,EditBookmarkActivity.class);
-OrientationUtil.startActivityForResult(this,intent,1);
+FBReaderIntents.putBookmarkExtra(intent,bookmark);
+OrientationUtil.startActivity(this,intent);
 return true;
 case DELETE_ITEM_ID:
 myCollection.deleteBookmark(bookmark);
-if (myThisBookAdapter != null) {
-myThisBookAdapter.remove(bookmark);
-}
-if (myAllBooksAdapter != null) {
-myAllBooksAdapter.remove(bookmark);
-}
-if (mySearchResultsAdapter != null) {
-mySearchResultsAdapter.remove(bookmark);
-}
 return true;
 }
 return super.onContextItemSelected(item);

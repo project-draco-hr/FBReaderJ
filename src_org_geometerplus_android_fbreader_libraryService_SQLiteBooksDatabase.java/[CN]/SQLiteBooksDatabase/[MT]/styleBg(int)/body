@@ -1,0 +1,12 @@
+{
+switch (styleId) {
+case 1:
+    return 0x888a85;
+case 2:
+  return 0xf57900;
+case 3:
+return 0x729fcf;
+default :
+return 0;
+}
+}

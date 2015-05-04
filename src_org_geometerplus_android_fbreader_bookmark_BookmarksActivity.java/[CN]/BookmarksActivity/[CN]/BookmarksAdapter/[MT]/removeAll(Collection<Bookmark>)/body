@@ -1,0 +1,12 @@
+{
+  if (bookmarks.isEmpty()) {
+    return;
+  }
+  runOnUiThread(new Runnable(){
+    public void run(){
+      myBookmarksList.removeAll(bookmarks);
+      notifyDataSetChanged();
+    }
+  }
+);
+}

@@ -8,6 +8,7 @@ case READ_BOOKMARK:
   }
 break;
 case READ_TEXT:
+case READ_ORIGINAL_TEXT:
 myState=State.READ_BOOKMARK;
 }
 }

@@ -1,4 +1,6 @@
 {
-  super(dictionary.getUID(),dictionary.getApplicationPackageName(),".Start",dictionary.getName(),null,null,"%s",false);
+  super(dictionary.getUID(),dictionary.getName(),false);
+  put("package",dictionary.getApplicationPackageName());
+  put("class",".Start");
   Flyout=new OpenDictionaryFlyout(dictionary);
 }

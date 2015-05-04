@@ -1,3 +1,0 @@
-{
-  return new Bookmark(-1,(String)data.get("uid"),(String)data.get("version_uid"),bookId,bookTitle,(String)data.get("text"),getDate(data,"creation_timestamp"),getDate(data,"modification_timestamp"),getDate(data,"access_timestamp"),(String)data.get("model_id"),getInt(data,"para_start"),getInt(data,"elmt_start"),getInt(data,"char_start"),getInt(data,"para_end"),getInt(data,"elmt_end"),getInt(data,"char_end"),true,getInt(data,"style_id"));
-}

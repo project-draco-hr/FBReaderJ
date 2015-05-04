@@ -1,0 +1,24 @@
+{
+switch (type) {
+case Creation:
+    return CreationTimestamp;
+case Modification:
+  return myModificationTimestamp;
+case Access:
+return myAccessTimestamp;
+default :
+case Latest:
+{
+Long latest=myModificationTimestamp;
+if (latest == null) {
+  latest=CreationTimestamp;
+}
+if (myAccessTimestamp != null && latest < myAccessTimestamp) {
+  return myAccessTimestamp;
+}
+ else {
+  return latest;
+}
+}
+}
+}

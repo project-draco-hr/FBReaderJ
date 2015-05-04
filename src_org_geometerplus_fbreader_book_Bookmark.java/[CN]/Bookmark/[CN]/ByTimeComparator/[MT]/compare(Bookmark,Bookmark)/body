@@ -1,5 +1,5 @@
 {
-  final Date date0=bm0.getDate(DateType.Latest);
-  final Date date1=bm1.getDate(DateType.Latest);
-  return date1.compareTo(date0);
+  final Long ts0=bm0.getTimestamp(DateType.Latest);
+  final Long ts1=bm1.getTimestamp(DateType.Latest);
+  return ts1.compareTo(ts0);
 }

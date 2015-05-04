@@ -1,0 +1,7 @@
+{
+  if (myWindow == null) {
+    return;
+  }
+  myWindow.findViewById(R.id.search_panel_previous).setEnabled(Application.isActionEnabled(ActionCode.FIND_PREVIOUS));
+  myWindow.findViewById(R.id.search_panel_next).setEnabled(Application.isActionEnabled(ActionCode.FIND_NEXT));
+}

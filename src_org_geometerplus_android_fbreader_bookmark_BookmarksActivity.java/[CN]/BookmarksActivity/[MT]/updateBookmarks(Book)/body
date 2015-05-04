@@ -1,0 +1,48 @@
+{
+  new Thread(new Runnable(){
+    public void run(){
+synchronized (myBookmarksLock) {
+        final boolean flagThisBookTab=book.getId() == myBook.getId();
+        final boolean flagSearchTab=mySearchResultsAdapter != null;
+        final Map<String,Bookmark> oldBookmarks=new HashMap<String,Bookmark>();
+        if (flagThisBookTab) {
+          for (          Bookmark b : myThisBookAdapter.bookmarks()) {
+            oldBookmarks.put(b.Uid,b);
+          }
+        }
+ else {
+          for (          Bookmark b : myAllBooksAdapter.bookmarks()) {
+            if (b.BookId == book.getId()) {
+              oldBookmarks.put(b.Uid,b);
+            }
+          }
+        }
+        final String pattern=myBookmarkSearchPatternOption.getValue().toLowerCase();
+        for (BookmarkQuery query=new BookmarkQuery(book,50); ; query=query.next()) {
+          final List<Bookmark> loaded=myCollection.bookmarks(query);
+          if (loaded.isEmpty()) {
+            break;
+          }
+          for (          Bookmark b : loaded) {
+            final Bookmark old=oldBookmarks.remove(b.Uid);
+            myAllBooksAdapter.replace(old,b);
+            if (flagThisBookTab) {
+              myThisBookAdapter.replace(old,b);
+            }
+            if (flagSearchTab && MiscUtil.matchesIgnoreCase(b.getText(),pattern)) {
+              mySearchResultsAdapter.replace(old,b);
+            }
+          }
+        }
+        myAllBooksAdapter.removeAll(oldBookmarks.values());
+        if (flagThisBookTab) {
+          myThisBookAdapter.removeAll(oldBookmarks.values());
+        }
+        if (flagSearchTab) {
+          mySearchResultsAdapter.removeAll(oldBookmarks.values());
+        }
+      }
+    }
+  }
+).start();
+}

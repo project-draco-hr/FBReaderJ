@@ -13,7 +13,7 @@ case startSelecting:
       initSelection(x,y);
     final ZLTextSelectionCursor cursor=findSelectionCursor(x,y);
   if (cursor != ZLTextSelectionCursor.None) {
-    moveSelectionCursorTo(cursor,x,y);
+    moveSelectionCursorTo(cursor,x,y,false);
   }
 return true;
 case selectSingleWord:

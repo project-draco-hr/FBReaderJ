@@ -1,3 +1,0 @@
-{
-  return new Bookmark(book,modelId,new AutoTextSnippet(startCursor,maxWords),isVisible);
-}

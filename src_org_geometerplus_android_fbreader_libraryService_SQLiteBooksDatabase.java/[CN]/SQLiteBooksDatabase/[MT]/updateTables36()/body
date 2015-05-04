@@ -1,0 +1,15 @@
+{
+  myDatabase.execSQL("ALTER TABLE HighlightingStyle ADD COLUMN timestamp INTEGER DEFAULT 0");
+  final String sql="SELECT style_id,name,bg_color FROM HighlightingStyle";
+  final Cursor cursor=myDatabase.rawQuery(sql,null);
+  final SQLiteStatement statement=get("UPDATE HighlightingStyle SET timestamp=? WHERE style_id=?");
+  while (cursor.moveToNext()) {
+    final int styleId=(int)cursor.getLong(0);
+    if ((!cursor.isNull(1) && !"".equals(cursor.getString(1))) || styleBg(styleId) != (int)cursor.getLong(2)) {
+      statement.bindLong(1,System.currentTimeMillis());
+      statement.bindLong(2,styleId);
+      statement.execute();
+    }
+  }
+  cursor.close();
+}

@@ -1,4 +1,4 @@
 {
   myVersionUid=newUUID();
-  myModificationDate=new Date();
+  myModificationTimestamp=System.currentTimeMillis();
 }

@@ -18,10 +18,21 @@ myBookTitle=attributes.getValue("title");
  else if ("text".equals(localName)) {
 myState=State.READ_TEXT;
 }
+ else if ("original-text".equals(localName)) {
+myState=State.READ_ORIGINAL_TEXT;
+myOriginalText=new StringBuilder();
+}
  else if ("history".equals(localName)) {
-myCreationDate=parseDate(attributes.getValue("date-creation"));
-myModificationDate=parseDateSafe(attributes.getValue("date-modification"));
-myAccessDate=parseDateSafe(attributes.getValue("date-access"));
+if (attributes.getValue("ts-creation") != null) {
+myCreationTimestamp=parseLong(attributes.getValue("ts-creation"));
+myModificationTimestamp=parseLongObjectSafe(attributes.getValue("ts-modification"));
+myAccessTimestamp=parseLongObjectSafe(attributes.getValue("ts-access"));
+}
+ else {
+myCreationTimestamp=parseDate(attributes.getValue("date-creation"));
+myModificationTimestamp=parseDateSafe(attributes.getValue("date-modification"));
+myAccessTimestamp=parseDateSafe(attributes.getValue("date-access"));
+}
 }
  else if ("start".equals(localName)) {
 myModelId=attributes.getValue("model");
@@ -50,6 +61,7 @@ throw new SAXException("Unexpected tag " + localName);
 }
 break;
 case READ_TEXT:
+case READ_ORIGINAL_TEXT:
 throw new SAXException("Unexpected tag " + localName);
 }
 }

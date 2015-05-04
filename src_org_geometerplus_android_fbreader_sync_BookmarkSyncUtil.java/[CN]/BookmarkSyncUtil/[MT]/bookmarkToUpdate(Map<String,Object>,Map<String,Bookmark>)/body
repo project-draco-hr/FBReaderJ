@@ -3,5 +3,5 @@
   if (oldBookmark == null) {
     return null;
   }
-  return bookmarkFromData(data,oldBookmark.BookId,oldBookmark.BookTitle);
+  return bookmarkFromData(oldBookmark.getId(),data,oldBookmark.BookId,oldBookmark.BookTitle);
 }

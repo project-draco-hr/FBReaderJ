@@ -16,16 +16,17 @@ synchronized (ourInfos) {
           continue;
         }
       }
-      if (((flags & FLAG_INSTALLED_ONLY) == 0) || installedPackages.contains(info.PackageName)) {
+      final String packageName=info.get("package");
+      if (((flags & FLAG_INSTALLED_ONLY) == 0) || installedPackages.contains(packageName)) {
         list.add(info);
       }
- else       if (!notInstalledPackages.contains(info.PackageName)) {
+ else       if (!notInstalledPackages.contains(packageName)) {
         if (PackageUtil.canBeStarted(context,info.getDictionaryIntent("test"),false)) {
           list.add(info);
-          installedPackages.add(info.PackageName);
+          installedPackages.add(packageName);
         }
  else {
-          notInstalledPackages.add(info.PackageName);
+          notInstalledPackages.add(packageName);
         }
       }
     }

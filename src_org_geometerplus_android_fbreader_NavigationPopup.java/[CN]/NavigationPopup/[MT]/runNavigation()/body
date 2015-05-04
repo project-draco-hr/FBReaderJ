@@ -1,7 +1,9 @@
 {
   if (myWindow == null || myWindow.getVisibility() == View.GONE) {
     myIsInProgress=false;
-    initPosition();
+    if (myStartPosition == null) {
+      myStartPosition=new ZLTextWordCursor(myFBReader.getTextView().getStartCursor());
+    }
     Application.showPopup(ID);
   }
 }

@@ -1,6 +1,9 @@
 {
-  super.show_();
+  if (myActivity != null) {
+    createPanel(myActivity,myRoot);
+  }
   if (myWindow != null) {
+    myWindow.show();
     setupNavigation();
   }
 }

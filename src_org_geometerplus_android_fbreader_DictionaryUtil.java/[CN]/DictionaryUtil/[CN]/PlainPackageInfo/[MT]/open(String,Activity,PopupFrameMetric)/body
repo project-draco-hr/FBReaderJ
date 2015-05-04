@@ -19,6 +19,7 @@
       intent.putExtra(ColorDict3.FULLSCREEN,!zlibrary.ShowStatusBarOption.getValue());
     }
     context.startActivity(intent);
+    context.overridePendingTransition(0,0);
   }
  catch (  ActivityNotFoundException e) {
     installDictionaryIfNotInstalled(context,this);

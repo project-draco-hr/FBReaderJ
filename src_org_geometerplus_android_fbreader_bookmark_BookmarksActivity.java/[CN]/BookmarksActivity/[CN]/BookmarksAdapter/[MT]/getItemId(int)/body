@@ -1,3 +1,4 @@
 {
-  return position;
+  final Bookmark item=getItem(position);
+  return item != null ? item.getId() : -1;
 }

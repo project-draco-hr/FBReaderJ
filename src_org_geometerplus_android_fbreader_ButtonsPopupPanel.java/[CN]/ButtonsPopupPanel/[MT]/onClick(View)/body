@@ -1,9 +1,0 @@
-{
-  final ActionButton button=(ActionButton)view;
-  Application.runAction(button.ActionId);
-  if (button.IsCloseButton) {
-    storePosition();
-    StartPosition=null;
-    Application.hideActivePopup();
-  }
-}

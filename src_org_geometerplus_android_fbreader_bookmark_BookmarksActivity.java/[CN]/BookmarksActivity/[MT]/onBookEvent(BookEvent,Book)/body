@@ -1,0 +1,22 @@
+{
+switch (event) {
+default :
+    break;
+case BookmarkStyleChanged:
+  runOnUiThread(new Runnable(){
+    public void run(){
+      updateStyles();
+      myAllBooksAdapter.notifyDataSetChanged();
+      myThisBookAdapter.notifyDataSetChanged();
+      if (mySearchResultsAdapter != null) {
+        mySearchResultsAdapter.notifyDataSetChanged();
+      }
+    }
+  }
+);
+break;
+case BookmarksUpdated:
+updateBookmarks(book);
+break;
+}
+}

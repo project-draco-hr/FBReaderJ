@@ -3,7 +3,8 @@
   if (bookmark != null) {
     gotoBookmark(bookmark);
   }
- else {
-    addBookmark();
+ else   if (myShowAddBookmarkItem) {
+    myShowAddBookmarkItem=false;
+    myCollection.saveBookmark(myBookmark);
   }
 }

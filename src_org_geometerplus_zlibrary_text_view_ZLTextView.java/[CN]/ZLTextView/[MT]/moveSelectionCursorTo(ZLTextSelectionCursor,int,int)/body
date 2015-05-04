@@ -1,7 +1,0 @@
-{
-  y-=getTextStyleCollection().getBaseStyle().getFontSize() / 2;
-  mySelection.setCursorInMovement(cursor,x,y);
-  mySelection.expandTo(myCurrentPage,x,y);
-  Application.getViewWidget().reset();
-  Application.getViewWidget().repaint();
-}

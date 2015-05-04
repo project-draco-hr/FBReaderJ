@@ -6,9 +6,10 @@
   myBookId=-1;
   myBookTitle=null;
   clear(myText);
-  myCreationDate=null;
-  myModificationDate=null;
-  myAccessDate=null;
+  myOriginalText=null;
+  myCreationTimestamp=null;
+  myModificationTimestamp=null;
+  myAccessTimestamp=null;
   myModelId=null;
   myStartParagraphIndex=0;
   myStartElementIndex=0;

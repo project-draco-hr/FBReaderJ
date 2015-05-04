@@ -1,13 +1,13 @@
 {
   final LinkedList<Bookmark> list=new LinkedList<Bookmark>();
-  final StringBuilder sql=new StringBuilder("SELECT").append(" bm.bookmark_id,bm.uid,bm.version_uid,").append("bm.book_id,b.title,bm.bookmark_text,").append("bm.creation_time,bm.modification_time,bm.access_time,").append("bm.model_id,bm.paragraph,bm.word,bm.char,").append("bm.end_paragraph,bm.end_word,bm.end_character,").append("bm.style_id").append(" FROM Bookmarks AS bm").append(" INNER JOIN Books AS b ON b.book_id = bm.book_id").append(" WHERE");
+  final StringBuilder sql=new StringBuilder("SELECT").append(" bm.bookmark_id,bm.uid,bm.version_uid,").append("bm.book_id,b.title,bm.bookmark_text,bm.original_text,").append("bm.creation_time,bm.modification_time,bm.access_time,").append("bm.model_id,bm.paragraph,bm.word,bm.char,").append("bm.end_paragraph,bm.end_word,bm.end_character,").append("bm.style_id").append(" FROM Bookmarks AS bm").append(" INNER JOIN Books AS b ON b.book_id = bm.book_id").append(" WHERE");
   if (query.Book != null) {
     sql.append(" b.book_id = " + query.Book.getId() + " AND");
   }
   sql.append(" bm.visible = " + (query.Visible ? 1 : 0)).append(" ORDER BY bm.bookmark_id").append(" LIMIT " + query.Limit * query.Page + "," + query.Limit);
   Cursor cursor=myDatabase.rawQuery(sql.toString(),null);
   while (cursor.moveToNext()) {
-    list.add(createBookmark(cursor.getLong(0),cursor.getString(1),cursor.getString(2),cursor.getLong(3),cursor.getString(4),cursor.getString(5),SQLiteUtil.getDate(cursor,6),SQLiteUtil.getDate(cursor,7),SQLiteUtil.getDate(cursor,8),cursor.getString(9),(int)cursor.getLong(10),(int)cursor.getLong(11),(int)cursor.getLong(12),(int)cursor.getLong(13),cursor.isNull(14) ? -1 : (int)cursor.getLong(14),cursor.isNull(15) ? -1 : (int)cursor.getLong(15),query.Visible,(int)cursor.getLong(16)));
+    list.add(createBookmark(cursor.getLong(0),cursor.getString(1),cursor.getString(2),cursor.getLong(3),cursor.getString(4),cursor.getString(5),cursor.isNull(6) ? null : cursor.getString(6),cursor.getLong(7),cursor.isNull(8) ? null : cursor.getLong(8),cursor.isNull(9) ? null : cursor.getLong(9),cursor.getString(10),(int)cursor.getLong(11),(int)cursor.getLong(12),(int)cursor.getLong(13),(int)cursor.getLong(14),cursor.isNull(15) ? -1 : (int)cursor.getLong(15),cursor.isNull(16) ? -1 : (int)cursor.getLong(16),query.Visible,(int)cursor.getLong(17)));
   }
   cursor.close();
   return list;

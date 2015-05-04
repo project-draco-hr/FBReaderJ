@@ -2,6 +2,7 @@
   try {
     final Map<String,Info> actualServerInfos=new HashMap<String,Info>();
     final Set<String> deletedOnServerUids=new HashSet<String>();
+    final Map<Integer,Map<String,Object>> serverStyles=new HashMap<Integer,Map<String,Object>>();
     JsonRequest2 infoRequest=null;
     final Map<String,Object> data=new HashMap<String,Object>();
     final int pageSize=100;
@@ -27,8 +28,9 @@
         break;
       }
     }
-    System.err.println("BMK ACTUAL = " + actualServerInfos);
-    System.err.println("BMK DELETED = " + deletedOnServerUids);
+    for (    Map<String,Object> info : (List<Map<String,Object>>)responseMap.get("styles")) {
+      serverStyles.put((int)(long)(Long)info.get("style_id"),info);
+    }
     final Set<String> deletedOnClientUids=new HashSet<String>(collection.deletedBookmarkUids());
     if (!deletedOnClientUids.isEmpty()) {
       final List<String> toPurge=new ArrayList<String>(deletedOnClientUids);
@@ -49,8 +51,10 @@
         break;
       }
       for (      Bookmark b : bmks) {
+        System.err.println("BMK = " + b.getText());
         final Info info=actualServerInfos.remove(b.Uid);
         if (info != null) {
+          System.err.println("INFO = " + info);
           if (info.VersionUid == null) {
             if (b.getVersionUid() != null) {
               toUpdateOnServer.add(b);
@@ -61,8 +65,9 @@
               toUpdateOnClient.add(b);
             }
  else             if (!info.VersionUid.equals(b.getVersionUid())) {
-              final long ts=b.getDate(Bookmark.DateType.Modification).getTime();
-              if (info.ModificationTimestamp <= ts) {
+              final long ts=b.getTimestamp(Bookmark.DateType.Latest);
+              System.err.println("COMPARE: " + ts + " VS "+ info.Timestamp);
+              if (info.Timestamp <= ts) {
                 toUpdateOnServer.add(b);
               }
  else {
@@ -93,12 +98,60 @@
         iter.remove();
       }
     }
-    System.err.println("BMK TO SEND TO SERVER = " + ids(toSendToServer));
-    System.err.println("BMK TO DELETE ON SERVER = " + toDeleteOnServer);
-    System.err.println("BMK TO DELETE ON CLIENT = " + ids(toDeleteOnClient));
-    System.err.println("BMK TO UPDATE ON SERVER = " + ids(toUpdateOnServer));
-    System.err.println("BMK TO UPDATE ON CLIENT = " + ids(toUpdateOnClient));
-    System.err.println("BMK TO GET FROM SERVER = " + toGetFromServer);
+    final List<Map<String,Object>> stylesToSend=new ArrayList<Map<String,Object>>();
+    for (    HighlightingStyle style : collection.highlightingStyles()) {
+      final Map<String,Object> serverInfo=serverStyles.get(style.Id);
+      boolean doSend=false;
+      if (serverInfo == null) {
+        doSend=true;
+      }
+ else {
+        boolean doUpdate=false;
+        final String clientName=style.getName();
+        final String serverName=(String)serverInfo.get("name");
+        if (!clientName.equals(serverName)) {
+          doUpdate=true;
+        }
+        final ZLColor clientBg=style.getBackgroundColor();
+        final Long serverBgCode=(Long)serverInfo.get("bg_color");
+        final ZLColor serverBg=serverBgCode != null ? new ZLColor((int)(long)serverBgCode) : null;
+        if (!MiscUtil.equals(clientBg,serverBg)) {
+          doUpdate=true;
+        }
+        final ZLColor clientFg=style.getForegroundColor();
+        final Long serverFgCode=(Long)serverInfo.get("fg_color");
+        final ZLColor serverFg=serverFgCode != null ? new ZLColor((int)(long)serverFgCode) : null;
+        if (!MiscUtil.equals(clientFg,serverFg)) {
+          doUpdate=true;
+        }
+        if (doUpdate) {
+          if (style.LastUpdateTimestamp < (Long)serverInfo.get("timestamp")) {
+            style.setName(serverName);
+            style.setBackgroundColor(serverBg);
+            style.setForegroundColor(serverFg);
+            collection.saveHighlightingStyle(style);
+          }
+ else {
+            doSend=true;
+          }
+        }
+      }
+      if (doSend) {
+        final Map<String,Object> styleMap=new HashMap<String,Object>();
+        styleMap.put("style_id",style.Id);
+        styleMap.put("timestamp",style.LastUpdateTimestamp);
+        styleMap.put("name",style.getName());
+        final ZLColor bg=style.getBackgroundColor();
+        if (bg != null) {
+          styleMap.put("bg_color",bg.intValue());
+        }
+        final ZLColor fg=style.getForegroundColor();
+        if (fg != null) {
+          styleMap.put("fg_color",fg.intValue());
+        }
+        stylesToSend.add(styleMap);
+      }
+    }
     for (    Bookmark b : toDeleteOnClient) {
       collection.deleteBookmark(b);
     }
@@ -106,7 +159,7 @@
       context.perform(new JsonRequest2(SyncOptions.BASE_URL + "sync/bookmarks",fullRequestData(toGetFromServer)){
         @Override public void processResponse(        Object response){
           for (          Map<String,Object> info : (List<Map<String,Object>>)response) {
-            final Bookmark bookmark=bookmarkFromData(info,booksByHash);
+            final Bookmark bookmark=newBookmarkFromData(info,booksByHash);
             if (bookmark != null) {
               collection.saveBookmark(bookmark);
             }
@@ -162,11 +215,13 @@ class HashCache {
     for (    String uid : toDeleteOnServer) {
       requests.add(new DeleteRequest(uid));
     }
-    if (!requests.isEmpty()) {
-      final Map<String,Object> dataForSending=new HashMap<String,Object>();
-      dataForSending.put("requests",requests);
-      dataForSending.put("timestamp",System.currentTimeMillis());
-      final JsonRequest2 serverUpdateRequest=new JsonRequest2(SyncOptions.BASE_URL + "sync/update.bookmarks",dataForSending){
+    if (!requests.isEmpty() || !stylesToSend.isEmpty()) {
+      final Map<String,Object> allDataToSend=new HashMap<String,Object>();
+      allDataToSend.put("requests",requests);
+      allDataToSend.put("timestamp",System.currentTimeMillis());
+      allDataToSend.put("styles",stylesToSend);
+      System.err.println("BMK SENDING: " + allDataToSend);
+      final JsonRequest2 serverUpdateRequest=new JsonRequest2(SyncOptions.BASE_URL + "sync/update.bookmarks",allDataToSend){
         @Override public void processResponse(        Object response){
           System.err.println("BMK UPDATED: " + response);
         }

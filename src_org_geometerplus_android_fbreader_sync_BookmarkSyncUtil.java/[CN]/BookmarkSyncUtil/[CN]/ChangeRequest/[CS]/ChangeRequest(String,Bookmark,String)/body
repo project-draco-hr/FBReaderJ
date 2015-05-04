@@ -6,6 +6,7 @@
   bmk.put("version_uid",bookmark.getVersionUid());
   bmk.put("style_id",bookmark.getStyleId());
   bmk.put("text",bookmark.getText());
+  bmk.put("original_text",bookmark.getOriginalText());
   bmk.put("model_id",bookmark.ModelId);
   bmk.put("para_start",bookmark.getParagraphIndex());
   bmk.put("elmt_start",bookmark.getElementIndex());
@@ -13,14 +14,8 @@
   bmk.put("para_end",bookmark.getEnd().getParagraphIndex());
   bmk.put("elmt_end",bookmark.getEnd().getElementIndex());
   bmk.put("char_end",bookmark.getEnd().getCharIndex());
-  bmk.put("creation_timestamp",bookmark.getDate(Bookmark.DateType.Creation).getTime());
-  final Date accessDate=bookmark.getDate(Bookmark.DateType.Access);
-  if (accessDate != null) {
-    bmk.put("access_timestamp",accessDate.getTime());
-  }
-  final Date modificationDate=bookmark.getDate(Bookmark.DateType.Modification);
-  if (modificationDate != null) {
-    bmk.put("modification_timestamp",modificationDate.getTime());
-  }
+  bmk.put("creation_timestamp",bookmark.getTimestamp(Bookmark.DateType.Creation));
+  bmk.put("modification_timestamp",bookmark.getTimestamp(Bookmark.DateType.Modification));
+  bmk.put("access_timestamp",bookmark.getTimestamp(Bookmark.DateType.Access));
   put("bookmark",bmk);
 }

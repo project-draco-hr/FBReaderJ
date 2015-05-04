@@ -1,0 +1,4 @@
+ZLTextSelectionCursor cursor
+int x
+int y
+boolean inMovement

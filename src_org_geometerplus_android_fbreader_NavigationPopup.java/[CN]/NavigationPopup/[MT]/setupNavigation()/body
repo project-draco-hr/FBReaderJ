@@ -1,7 +1,7 @@
 {
   final SeekBar slider=(SeekBar)myWindow.findViewById(R.id.navigation_slider);
   final TextView text=(TextView)myWindow.findViewById(R.id.navigation_text);
-  final ZLTextView textView=getReader().getTextView();
+  final ZLTextView textView=myFBReader.getTextView();
   final ZLTextView.PagePosition pagePosition=textView.pagePosition();
   if (slider.getMax() != pagePosition.Total - 1 || slider.getProgress() != pagePosition.Current - 1) {
     slider.setMax(pagePosition.Total - 1);

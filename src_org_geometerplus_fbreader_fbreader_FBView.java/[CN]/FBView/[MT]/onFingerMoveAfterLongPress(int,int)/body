@@ -4,7 +4,7 @@
   }
   final ZLTextSelectionCursor cursor=getSelectionCursorInMovement();
   if (cursor != ZLTextSelectionCursor.None) {
-    moveSelectionCursorTo(cursor,x,y);
+    moveSelectionCursorTo(cursor,x,y,true);
     return true;
   }
   ZLTextRegion region=getSelectedRegion();

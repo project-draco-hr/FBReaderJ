@@ -9,10 +9,13 @@ case FilesOnly:
     }
   break;
 case DirectoriesOnly:
-if (((File)getLocation()).canWrite()) {
-  returnPath=getLocation().getAbsolutePath();
+{
+  final File file=(File)getLocation();
+  if (file != null && file.canWrite()) {
+    returnPath=getLocation().getAbsolutePath();
+  }
+  break;
 }
-break;
 case FilesAndDirectories:
 if (files == null || files.isEmpty()) {
 returnPath=getLocation().getAbsolutePath();

@@ -1,5 +1,5 @@
 {
-  myStyles.put(style.Id,style);
   myDatabase.saveStyle(style);
+  myStyles.clear();
   fireBookEvent(BookEvent.BookmarkStyleChanged,null);
 }

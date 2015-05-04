@@ -1,0 +1,5 @@
+IBookCollection collection
+Book book
+String modelId
+TextSnippet snippet
+boolean visible

@@ -1,0 +1,3 @@
+{
+  return b0.getStyleId() == b1.getStyleId() && b0.getText().equals(b1.getText()) && b0.getTimestamp(Bookmark.DateType.Latest).equals(b1.getTimestamp(Bookmark.DateType.Latest));
+}
