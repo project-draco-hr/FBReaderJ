@@ -1,0 +1,4 @@
+{
+  myFBReaderApp.getTextView().outlineRegion(soul);
+  myFBReaderApp.getViewWidget().repaint();
+}

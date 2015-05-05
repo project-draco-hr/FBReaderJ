@@ -16,5 +16,8 @@ case REQUEST_PREFERENCES:
 case REQUEST_CANCEL_MENU:
 runCancelAction(data);
 break;
+case REQUEST_DICTIONARY:
+DictionaryUtil.onActivityResult(this,resultCode,data);
+break;
 }
 }

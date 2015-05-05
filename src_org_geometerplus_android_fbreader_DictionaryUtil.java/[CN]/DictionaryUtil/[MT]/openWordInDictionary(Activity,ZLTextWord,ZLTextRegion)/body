@@ -1,3 +1,0 @@
-{
-  openTextInDictionary(activity,word.toString(),true,region.getTop(),region.getBottom());
-}

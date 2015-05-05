@@ -1,12 +1,4 @@
 {
   final ZLStringOption option=singleWord ? singleWordTranslatorOption() : multiWordTranslatorOption();
-  final String id=option.getValue();
-synchronized (ourInfos) {
-    for (    PackageInfo info : ourInfos.keySet()) {
-      if (info.Id.equals(id)) {
-        return info;
-      }
-    }
-  }
-  return firstInfo();
+  return getInfo(option.getValue());
 }

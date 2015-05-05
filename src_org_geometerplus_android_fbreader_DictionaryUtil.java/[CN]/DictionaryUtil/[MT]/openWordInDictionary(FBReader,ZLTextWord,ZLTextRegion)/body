@@ -1,0 +1,3 @@
+{
+  openTextInDictionary(fbreader,word.toString(),true,region.getTop(),region.getBottom(),region.getSoul());
+}

@@ -7,7 +7,7 @@
     releaseSelectionCursor();
     return true;
   }
-  final ZLTextRegion region=getSelectedRegion();
+  final ZLTextRegion region=getOutlinedRegion();
   if (region != null) {
     final ZLTextRegion.Soul soul=region.getSoul();
     boolean doRunAction=false;

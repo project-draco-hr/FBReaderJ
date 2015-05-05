@@ -1,0 +1,11 @@
+{
+  final int len=text.length();
+  final int eolIndex=text.lastIndexOf("\n");
+  final int spaceIndex=text.lastIndexOf(" ");
+  if (spaceIndex < eolIndex || eolIndex >= len * 2 / 3) {
+    return text.substring(0,eolIndex);
+  }
+ else {
+    return text.substring(0,spaceIndex);
+  }
+}

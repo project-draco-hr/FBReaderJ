@@ -1,0 +1,6 @@
+FBReader fbreader
+String text
+boolean singleWord
+int selectionTop
+int selectionBottom
+ZLTextRegion.Soul soulToSelect
