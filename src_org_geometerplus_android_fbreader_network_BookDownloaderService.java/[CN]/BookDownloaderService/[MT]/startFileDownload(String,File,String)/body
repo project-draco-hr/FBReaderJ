@@ -6,99 +6,105 @@
   final NotificationManager notificationManager=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
   myOngoingNotifications.add(Integer.valueOf(notificationId));
   notificationManager.notify(notificationId,progressNotification);
-  final Handler progressHandler=new Handler(){
+  final int MESSAGE_PROGRESS=0;
+  final int MESSAGE_FINISH=1;
+  final Handler handler=new Handler(){
     public void handleMessage(    Message message){
-      final int progress=message.what;
-      final RemoteViews contentView=(RemoteViews)progressNotification.contentView;
-      if (progress < 0) {
-        contentView.setTextViewText(R.id.download_notification_progress_text,"");
-        contentView.setProgressBar(R.id.download_notification_progress_bar,100,0,true);
-      }
- else {
-        contentView.setTextViewText(R.id.download_notification_progress_text,"" + progress + "%");
-        contentView.setProgressBar(R.id.download_notification_progress_bar,100,progress,false);
-      }
-      final NotificationManager notificationManager=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
-      notificationManager.notify(notificationId,progressNotification);
-    }
-  }
-;
-  final Handler downloadFinishHandler=new Handler(){
-    public void handleMessage(    Message message){
+switch (message.what) {
+case MESSAGE_PROGRESS:
+{
+          final int progress=message.arg1;
+          final RemoteViews contentView=(RemoteViews)progressNotification.contentView;
+          final boolean showPercent=progress >= 0;
+          contentView.setTextViewText(R.id.download_notification_progress_text,showPercent ? progress + "%" : "");
+          contentView.setProgressBar(R.id.download_notification_progress_bar,100,showPercent ? progress : 0,!showPercent);
+          notificationManager.notify(notificationId,progressNotification);
+          break;
+        }
+case MESSAGE_FINISH:
       myDownloadingURLs.remove(urlString);
-      NotificationUtil.drop(BookDownloaderService.this,notificationId);
-      myOngoingNotifications.remove(Integer.valueOf(notificationId));
-      notificationManager.notify(notificationId,createDownloadFinishNotification(file,title,message.what != 0));
-      sendDownloaderCallback();
-      doStop();
-    }
-  }
+    NotificationUtil.drop(BookDownloaderService.this,notificationId);
+  myOngoingNotifications.remove(Integer.valueOf(notificationId));
+notificationManager.notify(notificationId,createDownloadFinishNotification(file,title,message.arg1 != 0));
+sendDownloaderCallback();
+doStop();
+break;
+}
+}
+}
 ;
-  final ZLNetworkRequest request=new ZLNetworkRequest.Get(urlString){
-    public void handleStream(    InputStream inputStream,    int length) throws IOException, ZLNetworkException {
-      final int updateIntervalMillis=1000;
-      int downloadedPart=0;
-      long progressTime=System.currentTimeMillis() + updateIntervalMillis;
-      if (length <= 0) {
-        progressHandler.sendEmptyMessage(-1);
-      }
-      final OutputStream outStream;
-      try {
-        outStream=new FileOutputStream(file);
-      }
- catch (      FileNotFoundException ex) {
-        throw ZLNetworkException.forCode(ZLNetworkException.ERROR_CREATE_FILE,file.getPath());
-      }
-      try {
-        final byte[] buffer=new byte[8192];
-        while (true) {
-          final int size=inputStream.read(buffer);
-          if (size <= 0) {
-            break;
-          }
-          downloadedPart+=size;
-          if (length > 0) {
-            final long currentTime=System.currentTimeMillis();
-            if (currentTime > progressTime) {
-              progressTime=currentTime + updateIntervalMillis;
-              progressHandler.sendEmptyMessage(downloadedPart * 100 / length);
-            }
-          }
-          outStream.write(buffer,0,size);
-        }
-        final BookCollectionShadow collection=new BookCollectionShadow();
-        collection.bindToService(BookDownloaderService.this,new Runnable(){
-          @Override public void run(){
-            collection.rescan(file.getPath());
-            collection.unbind();
-          }
-        }
+final ZLNetworkRequest request=new ZLNetworkRequest.Get(urlString){
+public void handleStream(InputStream inputStream,int length) throws IOException, ZLNetworkException {
+final int updateIntervalMillis=1000;
+int downloadedPart=0;
+long progressTime=System.currentTimeMillis() + updateIntervalMillis;
+if (length <= 0) {
+handler.sendMessage(handler.obtainMessage(MESSAGE_PROGRESS,-1,0,null));
+}
+final OutputStream outStream;
+try {
+outStream=new FileOutputStream(file);
+}
+ catch (FileNotFoundException ex) {
+throw ZLNetworkException.forCode(ZLNetworkException.ERROR_CREATE_FILE,file.getPath());
+}
+try {
+final byte[] buffer=new byte[8192];
+while (true) {
+final int size=inputStream.read(buffer);
+if (size <= 0) {
+break;
+}
+downloadedPart+=size;
+if (length > 0) {
+final long currentTime=System.currentTimeMillis();
+if (currentTime > progressTime) {
+progressTime=currentTime + updateIntervalMillis;
+handler.sendMessage(handler.obtainMessage(MESSAGE_PROGRESS,downloadedPart * 100 / length,0,null));
+}
+}
+outStream.write(buffer,0,size);
+}
+final BookCollectionShadow collection=new BookCollectionShadow();
+collection.bindToService(BookDownloaderService.this,new Runnable(){
+@Override public void run(){
+collection.rescan(file.getPath());
+collection.unbind();
+}
+}
 );
-      }
+}
   finally {
-        outStream.close();
-      }
-    }
-  }
+outStream.close();
+}
+}
+}
 ;
-  final Thread downloader=new Thread(new Runnable(){
-    public void run(){
-      boolean success=false;
-      try {
-        SQLiteCookieDatabase.init(BookDownloaderService.this);
-        myNetworkContext.perform(request);
-        success=true;
-      }
- catch (      ZLNetworkException e) {
-        e.printStackTrace();
-        file.delete();
-      }
- finally {
-        downloadFinishHandler.sendEmptyMessage(success ? 1 : 0);
-      }
-    }
-  }
+final Thread downloader=new Thread(new Runnable(){
+public void run(){
+boolean success=false;
+try {
+SQLiteCookieDatabase.init(BookDownloaderService.this);
+myNetworkContext.perform(request);
+success=true;
+}
+ catch (final ZLNetworkException e) {
+e.printStackTrace();
+final String title=getResource().getResource("downloadFailed").getValue();
+handler.post(new Runnable(){
+public void run(){
+showMessageText(title + ": " + e.getMessage());
+}
+}
 );
-  downloader.setPriority(Thread.MIN_PRIORITY);
-  downloader.start();
+file.delete();
+}
+ finally {
+handler.sendMessage(handler.obtainMessage(MESSAGE_FINISH,success ? 1 : 0,0,null));
+}
+}
+}
+);
+downloader.setPriority(Thread.MIN_PRIORITY);
+downloader.start();
 }
