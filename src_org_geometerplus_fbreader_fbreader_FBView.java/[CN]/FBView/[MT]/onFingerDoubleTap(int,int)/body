@@ -1,4 +1,5 @@
 {
+  myReader.runAction(ActionCode.HIDE_TOAST);
   if (super.onFingerDoubleTap(x,y)) {
     return true;
   }

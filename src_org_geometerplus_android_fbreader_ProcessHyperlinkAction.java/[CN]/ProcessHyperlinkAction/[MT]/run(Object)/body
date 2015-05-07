@@ -1,11 +1,11 @@
 {
-  final ZLTextRegion region=Reader.getTextView().getSelectedRegion();
+  final ZLTextRegion region=Reader.getTextView().getOutlinedRegion();
   if (region == null) {
     return;
   }
   final ZLTextRegion.Soul soul=region.getSoul();
   if (soul instanceof ZLTextHyperlinkRegionSoul) {
-    Reader.getTextView().hideSelectedRegionBorder();
+    Reader.getTextView().hideOutline();
     Reader.getViewWidget().repaint();
     final ZLTextHyperlink hyperlink=((ZLTextHyperlinkRegionSoul)soul).Hyperlink;
 switch (hyperlink.Type) {
@@ -53,6 +53,14 @@ Reader.tryOpenFootnote(hyperlink.Id);
 }
 toast.setText(snippet.getText());
 toast.setDuration(Reader.MiscOptions.FootnoteToastDuration.getValue().Value);
+toast.setOnDismissWrapper(new OnDismissWrapper("ftnt",new SuperToast.OnDismissListener(){
+@Override public void onDismiss(View view){
+Reader.getTextView().hideOutline();
+Reader.getViewWidget().repaint();
+}
+}
+));
+Reader.getTextView().outlineRegion(region);
 BaseActivity.showToast(toast);
 }
  else {
@@ -63,7 +71,7 @@ break;
 }
 }
  else if (soul instanceof ZLTextImageRegionSoul) {
-Reader.getTextView().hideSelectedRegionBorder();
+Reader.getTextView().hideOutline();
 Reader.getViewWidget().repaint();
 final String url=((ZLTextImageRegionSoul)soul).ImageElement.URL;
 if (url != null) {

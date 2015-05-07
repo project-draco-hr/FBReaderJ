@@ -1,0 +1,4 @@
+{
+  myShowOutline=false;
+  Application.getViewWidget().reset();
+}

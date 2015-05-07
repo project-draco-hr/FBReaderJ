@@ -7,7 +7,7 @@
     moveSelectionCursorTo(cursor,x,y,true);
     return true;
   }
-  ZLTextRegion region=getSelectedRegion();
+  ZLTextRegion region=getOutlinedRegion();
   if (region != null) {
     ZLTextRegion.Soul soul=region.getSoul();
     if (soul instanceof ZLTextHyperlinkRegionSoul || soul instanceof ZLTextWordRegionSoul) {
@@ -16,7 +16,7 @@
         if (region != null) {
           soul=region.getSoul();
           if (soul instanceof ZLTextHyperlinkRegionSoul || soul instanceof ZLTextWordRegionSoul) {
-            selectRegion(region);
+            outlineRegion(region);
             myReader.getViewWidget().reset();
             myReader.getViewWidget().repaint();
           }

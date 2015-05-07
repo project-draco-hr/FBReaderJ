@@ -22,7 +22,7 @@
     cleanURL=url;
   }
   if (myDownloadingURLs.contains(url)) {
-    if ((notifications & Notifications.ALREADY_DOWNLOADING) != 0) {
+    if ((notifications & Notifications.ALREADY_IN_PROGRESS) != 0) {
       showMessage("alreadyDownloading");
     }
     doStop();
@@ -63,8 +63,8 @@
   if (title == null || title.length() == 0) {
     title=fileFile.getName();
   }
-  if ((notifications & Notifications.DOWNLOADING_STARTED) != 0) {
-    showMessage("downloadingStarted");
+  if ((notifications & Notifications.DOWNLOAD_STARTED) != 0) {
+    showMessage("downloadStarted");
   }
   startFileDownload(url,fileFile,title);
 }

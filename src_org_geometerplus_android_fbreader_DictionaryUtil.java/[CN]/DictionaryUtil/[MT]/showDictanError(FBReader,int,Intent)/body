@@ -1,0 +1,34 @@
+{
+  final ZLResource resource=ZLResource.resource("dictanErrors");
+  String message;
+switch (code) {
+default :
+    message=data.getStringExtra("error.message");
+  if (message == null) {
+    message=resource.getResource("unknown").getValue();
+  }
+break;
+case 100:
+{
+final String word=data.getStringExtra("article.word");
+message=resource.getResource("noArticle").getValue().replaceAll("%s",word);
+break;
+}
+case 130:
+message=resource.getResource("cannotOpenDictionary").getValue();
+break;
+case 131:
+message=resource.getResource("noDictionarySelected").getValue();
+break;
+}
+final SuperActivityToast toast=new SuperActivityToast(fbreader,SuperToast.Type.STANDARD);
+toast.setText("Dictan: " + message);
+toast.setDuration(5000);
+toast.setOnDismissWrapper(new OnDismissWrapper("ftnt",new SuperToast.OnDismissListener(){
+@Override public void onDismiss(View view){
+fbreader.hideOutline();
+}
+}
+));
+fbreader.showToast(toast);
+}

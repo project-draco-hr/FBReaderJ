@@ -4,7 +4,7 @@
   }
   final ZLTextRegion hyperlinkRegion=findRegion(x,y,maxSelectionDistance(),ZLTextRegion.HyperlinkFilter);
   if (hyperlinkRegion != null) {
-    selectRegion(hyperlinkRegion);
+    outlineRegion(hyperlinkRegion);
     myReader.getViewWidget().reset();
     myReader.getViewWidget().repaint();
     myReader.runAction(ActionCode.PROCESS_HYPERLINK);
@@ -17,7 +17,7 @@
   }
   final ZLTextRegion videoRegion=findRegion(x,y,0,ZLTextRegion.VideoFilter);
   if (videoRegion != null) {
-    selectRegion(videoRegion);
+    outlineRegion(videoRegion);
     myReader.getViewWidget().reset();
     myReader.getViewWidget().repaint();
     myReader.runAction(ActionCode.OPEN_VIDEO,(ZLTextVideoRegionSoul)videoRegion.getSoul());

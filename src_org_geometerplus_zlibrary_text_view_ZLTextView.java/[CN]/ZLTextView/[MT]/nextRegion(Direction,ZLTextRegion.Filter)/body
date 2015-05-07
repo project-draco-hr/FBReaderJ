@@ -1,3 +1,3 @@
 {
-  return myCurrentPage.TextElementMap.nextRegion(getSelectedRegion(),direction,filter);
+  return myCurrentPage.TextElementMap.nextRegion(getOutlinedRegion(),direction,filter);
 }

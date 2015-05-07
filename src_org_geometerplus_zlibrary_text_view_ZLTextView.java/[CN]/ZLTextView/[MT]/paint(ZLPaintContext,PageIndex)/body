@@ -81,9 +81,9 @@ y=getTopMargin();
 x+=page.getTextWidth() + getSpaceBetweenColumns();
 }
 }
-final ZLTextRegion selectedElementRegion=getSelectedRegion(page);
-if (selectedElementRegion != null && myHighlightSelectedRegion) {
-selectedElementRegion.draw(context);
+final ZLTextRegion outlinedElementRegion=getOutlinedRegion(page);
+if (outlinedElementRegion != null && myShowOutline) {
+outlinedElementRegion.draw(context);
 }
 drawSelectionCursor(context,getSelectionCursorPoint(page,ZLTextSelectionCursor.Left));
 drawSelectionCursor(context,getSelectionCursorPoint(page,ZLTextSelectionCursor.Right));

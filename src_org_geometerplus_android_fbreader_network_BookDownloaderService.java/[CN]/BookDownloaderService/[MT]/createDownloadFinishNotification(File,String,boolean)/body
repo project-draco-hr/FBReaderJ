@@ -1,7 +1,7 @@
 {
   final ZLResource resource=getResource();
-  final String tickerText=success ? resource.getResource("tickerSuccess").getValue() : resource.getResource("tickerError").getValue();
-  final String contentText=success ? resource.getResource("contentSuccess").getValue() : resource.getResource("contentError").getValue();
+  final String tickerText=success ? resource.getResource("downloadCompleteTicker").getValue() : resource.getResource("downloadFailedTicker").getValue();
+  final String contentText=success ? resource.getResource("downloadComplete").getValue() : resource.getResource("downloadFailed").getValue();
   final Notification notification=new Notification(android.R.drawable.stat_sys_download_done,tickerText,System.currentTimeMillis());
   notification.flags|=Notification.FLAG_AUTO_CANCEL;
   final Intent intent=success ? getFBReaderIntent(file) : new Intent();
