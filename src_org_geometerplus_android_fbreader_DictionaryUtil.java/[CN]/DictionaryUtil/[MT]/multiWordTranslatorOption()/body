@@ -1,6 +1,6 @@
 {
   if (ourMultiWordTranslatorOption == null) {
-    ourMultiWordTranslatorOption=new ZLStringOption("Translator","Id",firstInfo().Id);
+    ourMultiWordTranslatorOption=new ZLStringOption("Translator","Id",firstInfo().getId());
   }
   return ourMultiWordTranslatorOption;
 }
