@@ -3,7 +3,10 @@
   final String sql="SELECT style_id,timestamp,name,bg_color,fg_color FROM HighlightingStyle";
   final Cursor cursor=myDatabase.rawQuery(sql,null);
   while (cursor.moveToNext()) {
-    list.add(createStyle((int)cursor.getLong(0),cursor.getLong(1),cursor.getString(2),(int)cursor.getLong(3),(int)cursor.getLong(4)));
+    final String name=cursor.getString(2);
+    final int bgColor=(int)cursor.getLong(3);
+    final int fgColor=(int)cursor.getLong(4);
+    list.add(createStyle((int)cursor.getLong(0),cursor.getLong(1),name.length() > 0 ? name : null,bgColor != -1 ? new ZLColor(bgColor) : null,fgColor != -1 ? new ZLColor(fgColor) : null));
   }
   cursor.close();
   return list;

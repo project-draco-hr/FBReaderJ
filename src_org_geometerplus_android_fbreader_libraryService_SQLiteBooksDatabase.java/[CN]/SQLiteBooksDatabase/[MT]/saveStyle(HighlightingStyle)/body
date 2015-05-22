@@ -1,7 +1,7 @@
 {
   final SQLiteStatement statement=get("INSERT OR REPLACE INTO HighlightingStyle (style_id,name,bg_color,fg_color,timestamp) VALUES (?,?,?,?,?)");
   statement.bindLong(1,style.Id);
-  final String name=style.getName();
+  final String name=style.getNameOrNull();
   statement.bindString(2,name != null ? name : "");
   final ZLColor bgColor=style.getBackgroundColor();
   statement.bindLong(3,bgColor != null ? bgColor.intValue() : -1);

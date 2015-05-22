@@ -1,0 +1,3 @@
+{
+  style.setName(defaultName(style).equals(name) ? null : name);
+}
