@@ -1,0 +1,3 @@
+{
+  myEnd=new ZLTextFixedPosition(paragraphsIndex,elementIndex,charIndex);
+}

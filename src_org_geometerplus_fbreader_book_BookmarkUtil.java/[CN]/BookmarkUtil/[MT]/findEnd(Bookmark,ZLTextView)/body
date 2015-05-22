@@ -1,5 +1,5 @@
 {
-  if (myEnd != null) {
+  if (bookmark.getEnd() != null) {
     return;
   }
   ZLTextWordCursor cursor=view.getStartCursor();
@@ -10,9 +10,9 @@
     return;
   }
   cursor=new ZLTextWordCursor(cursor);
-  cursor.moveTo(this);
+  cursor.moveTo(bookmark);
   ZLTextWord word=null;
-  mainLoop:   for (int count=myLength; count > 0; cursor.nextWord()) {
+  mainLoop:   for (int count=bookmark.getLength(); count > 0; cursor.nextWord()) {
     while (cursor.isEndOfParagraph()) {
       if (!cursor.nextParagraph()) {
         break mainLoop;
@@ -28,6 +28,6 @@
     }
   }
   if (word != null) {
-    myEnd=new ZLTextFixedPosition(cursor.getParagraphIndex(),cursor.getElementIndex(),word.Length);
+    bookmark.setEnd(cursor.getParagraphIndex(),cursor.getElementIndex(),word.Length);
   }
 }
