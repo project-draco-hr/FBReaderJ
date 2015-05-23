@@ -1,11 +1,3 @@
 {
-  super(title);
-  if (file == null) {
-    throw new IllegalArgumentException("Creating book with no file");
-  }
-  myId=id;
-  File=file;
-  myEncoding=encoding;
-  myLanguage=language;
-  myIsSaved=true;
+  super(id,file,title,encoding,language);
 }
