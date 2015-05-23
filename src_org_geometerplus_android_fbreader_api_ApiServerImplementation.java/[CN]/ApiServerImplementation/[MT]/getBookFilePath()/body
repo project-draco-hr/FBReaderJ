@@ -1,4 +1,4 @@
 {
   final Book book=getReader().getCurrentBook();
-  return book != null ? book.File.getPath() : null;
+  return book != null ? book.getPath() : null;
 }
