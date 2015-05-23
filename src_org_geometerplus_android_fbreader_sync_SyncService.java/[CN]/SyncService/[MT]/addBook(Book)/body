@@ -1,5 +1,5 @@
 {
-  if (book != null && BookUtil.fileByBook(book).getPhysicalFile() != null) {
+  if (BookUtil.fileByBook(book).getPhysicalFile() != null) {
     myQueue.add(book);
   }
 }
