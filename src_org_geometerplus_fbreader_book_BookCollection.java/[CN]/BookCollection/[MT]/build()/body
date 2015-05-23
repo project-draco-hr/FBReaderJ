@@ -1,10 +1,10 @@
 {
   final FileInfoSet fileInfos=new FileInfoSet(myDatabase);
-  final Map<Long,Book> savedBooksByFileId=myDatabase.loadBooks(fileInfos,true);
-  final Set<Book> orphanedBooks=new HashSet<Book>();
+  final Map<Long,DbBook> savedBooksByFileId=myDatabase.loadBooks(fileInfos,true);
+  final Set<DbBook> orphanedBooks=new HashSet<DbBook>();
   final Set<ZLPhysicalFile> physicalFiles=new HashSet<ZLPhysicalFile>();
   int count=0;
-  for (  Book book : savedBooksByFileId.values()) {
+  for (  DbBook book : savedBooksByFileId.values()) {
     final ZLPhysicalFile file=book.File.getPhysicalFile();
     if (file != null) {
       physicalFiles.add(file);
@@ -39,8 +39,8 @@
     }
   }
   myDatabase.setExistingFlag(orphanedBooks,false);
-  final Map<Long,Book> orphanedBooksByFileId=myDatabase.loadBooks(fileInfos,false);
-  final Set<Book> newBooks=new HashSet<Book>();
+  final Map<Long,DbBook> orphanedBooksByFileId=myDatabase.loadBooks(fileInfos,false);
+  final Set<DbBook> newBooks=new HashSet<DbBook>();
   final List<ZLPhysicalFile> physicalFilesList=collectPhysicalFiles(BookDirectories);
   for (  ZLPhysicalFile file : physicalFilesList) {
     if (physicalFiles.contains(file)) {
@@ -50,7 +50,7 @@
     file.setCached(false);
   }
   final ZLFile helpFile=BookUtil.getHelpFile();
-  Book helpBook=savedBooksByFileId.get(fileInfos.getId(helpFile));
+  DbBook helpBook=savedBooksByFileId.get(fileInfos.getId(helpFile));
   if (helpBook == null) {
     helpBook=getBookByFile(helpFile);
   }
@@ -58,7 +58,7 @@
   fileInfos.save();
   myDatabase.executeAsTransaction(new Runnable(){
     public void run(){
-      for (      Book book : newBooks) {
+      for (      DbBook book : newBooks) {
         saveBook(book);
       }
     }

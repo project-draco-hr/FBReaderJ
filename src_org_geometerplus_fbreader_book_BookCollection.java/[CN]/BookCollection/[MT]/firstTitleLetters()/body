@@ -1,7 +1,7 @@
 {
 synchronized (myBooksByFile) {
     final TreeSet<String> letters=new TreeSet<String>();
-    for (    Book book : myBooksByFile.values()) {
+    for (    DbBook book : myBooksByFile.values()) {
       final String l=book.firstTitleLetter();
       if (l != null) {
         letters.add(l);

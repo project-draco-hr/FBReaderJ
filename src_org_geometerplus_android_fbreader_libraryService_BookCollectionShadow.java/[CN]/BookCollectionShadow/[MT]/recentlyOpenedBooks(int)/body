@@ -1,7 +1,7 @@
 {
   return listCall(new ListCallable<Book>(){
     public List<Book> call() throws RemoteException {
-      return SerializerUtil.deserializeBookList(myInterface.recentlyOpenedBooks(count));
+      return SerializerUtil.deserializeBookList(myInterface.recentlyOpenedBooks(count),BookCollectionShadow.this);
     }
   }
 );

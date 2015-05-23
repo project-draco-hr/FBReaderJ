@@ -1,0 +1,5 @@
+long id
+String url
+String title
+String encoding
+String language

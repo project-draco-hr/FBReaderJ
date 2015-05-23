@@ -1,6 +1,6 @@
 {
   delayed[0]=false;
-  final Book book=SerializerUtil.deserializeBook(bookString);
+  final DbBook book=SerializerUtil.deserializeBook(bookString,myCollection);
   if (book == null || book.getId() == -1) {
     return null;
   }

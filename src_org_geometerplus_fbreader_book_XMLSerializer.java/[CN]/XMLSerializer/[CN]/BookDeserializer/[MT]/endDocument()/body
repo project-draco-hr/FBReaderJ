@@ -2,7 +2,7 @@
   if (myId == -1) {
     return;
   }
-  myBook=new Book(myId,ZLFile.createFileByUrl(myUrl),string(myTitle),string(myEncoding),string(myLanguage));
+  myBook=myBookCreator.createBook(myId,myUrl,string(myTitle),string(myEncoding),string(myLanguage));
   for (  Author author : myAuthors) {
     myBook.addAuthorWithNoCheck(author);
   }

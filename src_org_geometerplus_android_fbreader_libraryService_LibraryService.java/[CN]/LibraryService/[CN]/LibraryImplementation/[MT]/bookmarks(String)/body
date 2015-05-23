@@ -1,3 +1,3 @@
 {
-  return SerializerUtil.serializeBookmarkList(myCollection.bookmarks(SerializerUtil.deserializeBookmarkQuery(query)));
+  return SerializerUtil.serializeBookmarkList(myCollection.bookmarks(SerializerUtil.deserializeBookmarkQuery(query,myCollection)));
 }

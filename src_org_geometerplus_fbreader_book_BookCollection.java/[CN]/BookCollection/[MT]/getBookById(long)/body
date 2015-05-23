@@ -1,5 +1,5 @@
 {
-  Book book=myBooksById.get(id);
+  DbBook book=myBooksById.get(id);
   if (book != null) {
     return book;
   }

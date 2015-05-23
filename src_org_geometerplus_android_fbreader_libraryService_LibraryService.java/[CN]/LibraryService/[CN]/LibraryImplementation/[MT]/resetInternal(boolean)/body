@@ -11,8 +11,8 @@
     observer.startWatching();
     myFileObservers.add(observer);
   }
-  myCollection.addListener(new BookCollection.Listener<Book>(){
-    public void onBookEvent(    BookEvent event,    Book book){
+  myCollection.addListener(new BookCollection.Listener<DbBook>(){
+    public void onBookEvent(    BookEvent event,    DbBook book){
       final Intent intent=new Intent(BOOK_EVENT_ACTION);
       intent.putExtra("type",event.toString());
       intent.putExtra("book",SerializerUtil.serialize(book));

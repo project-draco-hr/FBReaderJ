@@ -1,0 +1,35 @@
+{
+  if (book == null) {
+    return false;
+  }
+synchronized (myBooksByFile) {
+    final DbBook existing=myBooksByFile.get(book.File);
+    if (existing == null) {
+      if (book.getId() == -1 && !book.save(myDatabase,true)) {
+        return false;
+      }
+      final ZLFile duplicate=myDuplicateResolver.findDuplicate(book.File);
+      final DbBook original=duplicate != null ? myBooksByFile.get(duplicate) : null;
+      if (original != null) {
+        if (new BookMergeHelper(this).merge(original,book)) {
+          fireBookEvent(BookEvent.Updated,original);
+        }
+      }
+ else {
+        myBooksByFile.put(book.File,book);
+        myDuplicateResolver.addFile(book.File);
+        myBooksById.put(book.getId(),book);
+        fireBookEvent(BookEvent.Added,book);
+      }
+      return true;
+    }
+ else     if (force) {
+      existing.updateFrom(book);
+      if (existing.save(myDatabase,false)) {
+        fireBookEvent(BookEvent.Updated,existing);
+        return true;
+      }
+    }
+    return false;
+  }
+}

@@ -1,7 +1,7 @@
 {
   final Set<Author> authors=new TreeSet<Author>();
 synchronized (myBooksByFile) {
-    for (    Book book : myBooksByFile.values()) {
+    for (    DbBook book : myBooksByFile.values()) {
       final List<Author> bookAuthors=book.authors();
       if (bookAuthors.isEmpty()) {
         authors.add(Author.NULL);

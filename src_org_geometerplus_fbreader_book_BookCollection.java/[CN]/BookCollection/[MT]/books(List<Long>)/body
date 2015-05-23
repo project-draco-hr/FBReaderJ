@@ -1,7 +1,7 @@
 {
-  final List<Book> bookList=new ArrayList<Book>(ids.size());
+  final List<DbBook> bookList=new ArrayList<DbBook>(ids.size());
   for (  long id : ids) {
-    final Book book=getBookById(id);
+    final DbBook book=getBookById(id);
     if (book != null) {
       bookList.add(book);
     }

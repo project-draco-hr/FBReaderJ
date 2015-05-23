@@ -1,0 +1,2 @@
+String xml
+BookCreator<? extends AbstractBook> creator

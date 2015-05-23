@@ -2,9 +2,9 @@
   if (query == null) {
     return Collections.emptyList();
   }
-  final List<Book> allBooks;
+  final List<DbBook> allBooks;
 synchronized (myBooksByFile) {
-    allBooks=new ArrayList<Book>(myBooksByFile.values());
+    allBooks=new ArrayList<DbBook>(myBooksByFile.values());
   }
   final int start=query.Page * query.Limit;
   if (start >= allBooks.size()) {
@@ -16,8 +16,8 @@ synchronized (myBooksByFile) {
   }
  else {
     int count=0;
-    final List<Book> filtered=new ArrayList<Book>(query.Limit);
-    for (    Book b : allBooks) {
+    final List<DbBook> filtered=new ArrayList<DbBook>(query.Limit);
+    for (    DbBook b : allBooks) {
       if (query.Filter.matches(b)) {
         if (count >= start) {
           filtered.add(b);

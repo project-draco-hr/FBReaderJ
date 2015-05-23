@@ -1,6 +1,6 @@
 {
   super.onCreate(icicle);
-  mySelectedBook=FBReaderIntents.getBookExtra(getIntent());
+  mySelectedBook=FBReaderIntents.getBookExtra(getIntent(),myCollection);
   new LibraryTreeAdapter(this);
   getListView().setTextFilterEnabled(true);
   getListView().setOnCreateContextMenuListener(this);

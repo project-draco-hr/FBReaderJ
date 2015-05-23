@@ -1,0 +1,3 @@
+AbstractBook book
+boolean visible
+int limit

@@ -16,7 +16,7 @@ synchronized (myBooksByFile) {
     }
     for (    ZLFile file : collectPhysicalFiles(myFilesToRescan)) {
       filesToRemove.remove(file);
-      final Book book=getBookByFile(file);
+      final DbBook book=getBookByFile(file);
       if (book != null) {
         saveBook(book);
         getHash(book,false);
@@ -24,7 +24,7 @@ synchronized (myBooksByFile) {
     }
     for (    ZLFile f : filesToRemove) {
 synchronized (myBooksByFile) {
-        final Book book=myBooksByFile.remove(f);
+        final DbBook book=myBooksByFile.remove(f);
         myDuplicateResolver.removeFile(f);
         if (book != null) {
           myBooksById.remove(book.getId());

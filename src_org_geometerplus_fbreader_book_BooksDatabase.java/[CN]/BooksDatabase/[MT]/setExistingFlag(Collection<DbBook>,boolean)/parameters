@@ -1,0 +1,2 @@
+Collection<DbBook> books
+boolean flag

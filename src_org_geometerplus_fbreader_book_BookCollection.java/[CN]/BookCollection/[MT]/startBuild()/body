@@ -17,7 +17,7 @@
 synchronized (myFilesToRescan) {
           processFilesQueue();
         }
-        for (        Book book : new ArrayList<Book>(myBooksByFile.values())) {
+        for (        DbBook book : new ArrayList<DbBook>(myBooksByFile.values())) {
           getHash(book,false);
         }
       }
