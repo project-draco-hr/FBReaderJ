@@ -1,3 +1,0 @@
-{
-  return myLruCache.get(key);
-}
