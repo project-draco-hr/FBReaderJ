@@ -5,7 +5,7 @@
         final String hash=identifier.substring(HASH_PREFIX.length());
         final Book book=collection.getBookByHash(hash);
         if (book != null) {
-          final ZLPhysicalFile file=book.File.getPhysicalFile();
+          final ZLPhysicalFile file=BookUtil.fileByBook(book).getPhysicalFile();
           if (file != null) {
             return file.getPath();
           }

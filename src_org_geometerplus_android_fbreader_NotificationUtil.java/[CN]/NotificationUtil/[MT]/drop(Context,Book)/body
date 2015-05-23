@@ -2,7 +2,7 @@
   if (book == null) {
     return;
   }
-  final ZLPhysicalFile file=book.File.getPhysicalFile();
+  final ZLPhysicalFile file=BookUtil.fileByBook(book).getPhysicalFile();
   if (file == null) {
     return;
   }

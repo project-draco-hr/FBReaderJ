@@ -1,5 +1,5 @@
 {
-  final File file=book.File.getPhysicalFile().javaFile();
+  final File file=BookUtil.fileByBook(book).getPhysicalFile().javaFile();
   final String hash=myCollection.getHash(book,false);
   final boolean force=book.labels().contains(Book.SYNC_TOSYNC_LABEL);
   if (hash == null) {

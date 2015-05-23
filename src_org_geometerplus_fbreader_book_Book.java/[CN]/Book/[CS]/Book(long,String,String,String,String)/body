@@ -1,7 +1,7 @@
 {
   super(id,title,encoding,language);
-  if (file == null) {
+  if (path == null) {
     throw new IllegalArgumentException("Creating book with no file");
   }
-  File=file;
+  myPath=path;
 }

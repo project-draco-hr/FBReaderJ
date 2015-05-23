@@ -12,7 +12,7 @@
     plugin.readUids(book);
   }
   if (book.isTitleEmpty()) {
-    final String fileName=book.File.getShortName();
+    final String fileName=fileByBook(book).getShortName();
     final int index=fileName.lastIndexOf('.');
     book.setTitle(index > 0 ? fileName.substring(0,index) : fileName);
   }

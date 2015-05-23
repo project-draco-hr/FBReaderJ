@@ -1,3 +1,0 @@
-{
-  super(id,file,title,encoding,language);
-}

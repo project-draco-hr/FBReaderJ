@@ -6,6 +6,6 @@ case 0:
 case 3:
   throw new CachedCharStorageException("Cannot write file from native code");
 default :
-throw new BookReadingException("nativeCodeFailure",model.Book.File,new String[]{String.valueOf(code),model.Book.getPath()});
+throw new BookReadingException("nativeCodeFailure",BookUtil.fileByBook(model.Book),new String[]{String.valueOf(code),model.Book.getPath()});
 }
 }

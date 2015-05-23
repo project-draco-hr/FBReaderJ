@@ -5,5 +5,5 @@
   if (!(o instanceof Book)) {
     return false;
   }
-  return getPath().equals(((Book)o).getPath());
+  return myPath.equals(((Book)o).myPath);
 }

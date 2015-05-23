@@ -1,5 +1,5 @@
 long id
-ZLFile file
+String path
 String title
 String encoding
 String language

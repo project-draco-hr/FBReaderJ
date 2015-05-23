@@ -1,6 +1,6 @@
 {
   try {
-    return getPlugin(book).readAnnotation(book.File);
+    return getPlugin(book).readAnnotation(fileByBook(book));
   }
  catch (  BookReadingException e) {
     return null;

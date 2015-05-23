@@ -1,5 +1,6 @@
 {
-  model.Book.File.setCached(true);
+  final ZLFile file=BookUtil.fileByBook(model.Book);
+  file.setCached(true);
   try {
     super.readModel(model);
     model.setLabelResolver(new BookModel.LabelResolver(){
@@ -11,6 +12,6 @@
 );
   }
   finally {
-    model.Book.File.setCached(false);
+    file.setCached(false);
   }
 }

@@ -1,5 +1,5 @@
 {
-  final ZLFile file=book.File;
+  final ZLFile file=BookUtil.fileByBook(book);
   if (file != file.getPhysicalFile()) {
     System.err.println("Only physical PDF files are supported");
     return;

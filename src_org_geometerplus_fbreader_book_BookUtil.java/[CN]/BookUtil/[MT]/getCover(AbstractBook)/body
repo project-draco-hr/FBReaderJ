@@ -3,6 +3,6 @@
     return null;
   }
 synchronized (book) {
-    return getCover(book.File);
+    return getCover(fileByBook(book));
   }
 }

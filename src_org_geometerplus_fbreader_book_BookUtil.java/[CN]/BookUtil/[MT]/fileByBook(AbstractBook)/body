@@ -1,0 +1,8 @@
+{
+  if (book instanceof DbBook) {
+    return ((DbBook)book).File;
+  }
+ else {
+    return ZLFile.createFileByPath(book.getPath());
+  }
+}
