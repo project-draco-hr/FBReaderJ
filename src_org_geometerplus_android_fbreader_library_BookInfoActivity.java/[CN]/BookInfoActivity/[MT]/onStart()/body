@@ -2,7 +2,7 @@
   super.onStart();
   OrientationUtil.setOrientation(this,getIntent());
   if (myBook != null) {
-    myBook.getEncoding();
+    BookUtil.getEncoding(myBook);
     setupCover(myBook);
     setupBookInfo(myBook);
     setupAnnotation(myBook);

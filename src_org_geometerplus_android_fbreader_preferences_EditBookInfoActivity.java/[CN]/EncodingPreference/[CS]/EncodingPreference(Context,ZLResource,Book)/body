@@ -29,7 +29,7 @@
     setEnabled(false);
   }
  else {
-    final String bookEncoding=book.getEncoding();
+    final String bookEncoding=BookUtil.getEncoding(book);
     if (bookEncoding != null) {
       setInitialValue(bookEncoding.toLowerCase());
     }
