@@ -1,3 +1,0 @@
-{
-  return BookUtil.getCover(book);
-}
