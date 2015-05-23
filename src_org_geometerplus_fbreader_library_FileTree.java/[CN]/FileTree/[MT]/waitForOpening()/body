@@ -4,7 +4,7 @@
   }
   final TreeSet<ZLFile> set=new TreeSet<ZLFile>(ourFileComparator);
   for (  ZLFile file : myFile.children()) {
-    if (file.isDirectory() || file.isArchive() || Collection.getBookByFile(file) != null) {
+    if (file.isDirectory() || file.isArchive() || Collection.getBookByFile(file.getPath()) != null) {
       set.add(file);
     }
   }
