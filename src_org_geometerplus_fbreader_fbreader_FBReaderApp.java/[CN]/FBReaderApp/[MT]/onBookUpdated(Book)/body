@@ -1,5 +1,5 @@
 {
-  if (Model == null || Model.Book == null || !Model.Book.equals(book)) {
+  if (Model == null || Model.Book == null || !Collection.sameBook(Model.Book,book)) {
     return;
   }
   final String newEncoding=book.getEncodingNoDetection();

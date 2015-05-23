@@ -2,10 +2,10 @@
   if (this == o) {
     return true;
   }
-  if (!(o instanceof AbstractBook)) {
+  if (!(o instanceof DbBook)) {
     return false;
   }
-  final AbstractBook obook=((AbstractBook)o);
+  final DbBook obook=((DbBook)o);
   final ZLFile ofile=obook.File;
   if (File.equals(ofile)) {
     return true;

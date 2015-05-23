@@ -1,8 +1,9 @@
 {
-  getCollection().bindToService(this,new Runnable(){
+  final BookCollectionShadow collection=getCollection();
+  collection.bindToService(this,new Runnable(){
     public void run(){
-      final Book recent=getCollection().getRecentBook(0);
-      if (recent != null && !recent.equals(book)) {
+      final Book recent=collection.getRecentBook(0);
+      if (recent != null && !collection.sameBook(recent,book)) {
         myFBReaderApp.openBook(recent,null,null,null);
       }
  else {

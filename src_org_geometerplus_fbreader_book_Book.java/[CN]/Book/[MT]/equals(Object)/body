@@ -1,0 +1,9 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (!(o instanceof Book)) {
+    return false;
+  }
+  return getPath().equals(((Book)o).getPath());
+}
