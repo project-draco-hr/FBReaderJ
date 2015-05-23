@@ -16,7 +16,7 @@
   System.gc();
   FormatPlugin plugin=null;
   try {
-    plugin=book.getPlugin();
+    plugin=BookUtil.getPlugin(book);
   }
  catch (  BookReadingException e) {
   }
@@ -68,7 +68,7 @@
   getViewWidget().reset();
   getViewWidget().repaint();
   try {
-    for (    FileEncryptionInfo info : book.getPlugin().readEncryptionInfos(book)) {
+    for (    FileEncryptionInfo info : BookUtil.getPlugin(book).readEncryptionInfos(book)) {
       if (info != null && !EncryptionMethod.isSupported(info.Method)) {
         showErrorMessage("unsupportedEncryptionMethod",book.File.getPath());
         break;

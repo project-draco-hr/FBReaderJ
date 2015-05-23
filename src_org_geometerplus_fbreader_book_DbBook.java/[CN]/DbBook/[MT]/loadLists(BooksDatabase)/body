@@ -9,7 +9,7 @@
   myIsSaved=true;
   if (myUids == null || myUids.isEmpty()) {
     try {
-      getPlugin().readUids(this);
+      BookUtil.getPlugin(this).readUids(this);
       save(database,false);
     }
  catch (    BookReadingException e) {

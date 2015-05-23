@@ -38,7 +38,7 @@
       book=new DbBook(bookFile,plugin);
     }
  else {
-      book.readMetainfo(plugin);
+      BookUtil.readMetainfo(book,plugin);
     }
   }
  catch (  BookReadingException e) {

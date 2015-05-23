@@ -11,7 +11,7 @@
     final DbBook book=orphanedBooksByFileId.get(fileId);
     if (book != null) {
       if (doReadMetaInfo) {
-        book.readMetainfo();
+        BookUtil.readMetainfo(book);
       }
       newBooks.add(book);
       return;

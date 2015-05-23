@@ -1,7 +1,7 @@
 {
   if (myEncoding == null) {
     try {
-      getPlugin().detectLanguageAndEncoding(this);
+      BookUtil.getPlugin(this).detectLanguageAndEncoding(this);
     }
  catch (    BookReadingException e) {
     }

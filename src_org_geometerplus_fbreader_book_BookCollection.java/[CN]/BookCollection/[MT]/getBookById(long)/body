@@ -24,7 +24,7 @@
   }
   fileInfos.save();
   try {
-    book.readMetainfo();
+    BookUtil.readMetainfo(book);
     addBook(book,false);
     return book;
   }

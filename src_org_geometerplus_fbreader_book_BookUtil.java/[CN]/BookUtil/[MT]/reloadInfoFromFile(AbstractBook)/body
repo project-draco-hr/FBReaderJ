@@ -1,6 +1,6 @@
 {
   try {
-    readMetainfo(getPlugin());
+    readMetainfo(book);
   }
  catch (  BookReadingException e) {
   }

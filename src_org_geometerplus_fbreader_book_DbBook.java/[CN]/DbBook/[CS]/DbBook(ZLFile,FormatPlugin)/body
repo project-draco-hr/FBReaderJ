@@ -1,5 +1,5 @@
 {
   super(-1,plugin.realBookFile(file),null,null,null);
-  readMetainfo(plugin);
+  BookUtil.readMetainfo(this,plugin);
   myIsSaved=false;
 }

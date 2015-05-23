@@ -1,5 +1,5 @@
 {
-  final FormatPlugin plugin=book.getPlugin();
+  final FormatPlugin plugin=BookUtil.getPlugin(book);
   if (plugin instanceof BuiltinFormatPlugin) {
     final BookModel model=new BookModel(book);
     ((BuiltinFormatPlugin)plugin).readModel(model);
