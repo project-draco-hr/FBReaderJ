@@ -1,6 +1,6 @@
 {
   Collection=collection;
-  collection.addListener(new IBookCollection.Listener(){
+  collection.addListener(new IBookCollection.Listener<Book>(){
     public void onBookEvent(    BookEvent event,    Book book){
 switch (event) {
 case BookmarkStyleChanged:

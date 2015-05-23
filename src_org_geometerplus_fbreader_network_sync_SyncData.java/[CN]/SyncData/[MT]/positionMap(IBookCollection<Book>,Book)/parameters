@@ -1,0 +1,2 @@
+IBookCollection<Book> collection
+Book book
