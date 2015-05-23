@@ -1,6 +1,6 @@
 {
   if (Model != null) {
-    if (book == null || bookmark == null && book.File.equals(Model.Book.File)) {
+    if (book == null || bookmark == null && Collection.sameBook(book,Model.Book)) {
       return;
     }
   }
