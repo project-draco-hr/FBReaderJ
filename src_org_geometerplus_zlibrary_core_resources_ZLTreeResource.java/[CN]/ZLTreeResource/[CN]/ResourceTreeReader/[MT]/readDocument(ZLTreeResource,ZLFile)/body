@@ -1,5 +1,10 @@
 {
   myStack.clear();
   myStack.add(root);
-  readQuietly(file);
+  try {
+    Xml.parse(file.getInputStream(),Xml.Encoding.UTF_8,this);
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
 }
