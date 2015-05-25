@@ -4,5 +4,10 @@
   myHeight=new ZLIntegerRangeOption(myOptionGroupName,"Height",2,5,3);
   myWidth=new ZLIntegerRangeOption(myOptionGroupName,"Width",2,5,3);
   final ZLFile mapFile=ZLFile.createFileByPath("default/tapzones/" + name.toLowerCase() + ".xml");
-  new Reader().readQuietly(mapFile);
+  try {
+    Xml.parse(mapFile.getInputStream(),Xml.Encoding.UTF_8,new Reader());
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
 }
