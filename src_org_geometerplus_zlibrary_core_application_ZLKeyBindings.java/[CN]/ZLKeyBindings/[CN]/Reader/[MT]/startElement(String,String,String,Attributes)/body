@@ -1,5 +1,5 @@
 {
-  if ("binding".equals(tag)) {
+  if ("binding".equals(localName)) {
     final String stringKey=attributes.getValue("key");
     final String actionId=attributes.getValue("action");
     if (stringKey != null && actionId != null) {
@@ -12,5 +12,4 @@
       }
     }
   }
-  return false;
 }

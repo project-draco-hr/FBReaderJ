@@ -8,16 +8,8 @@
  else {
     keymapFilename="keymap.xml";
   }
-  new Reader(keys).readQuietly(ZLFile.createFileByPath("default/" + keymapFilename));
-  try {
-    new Reader(keys).readQuietly(ZLFile.createFileByPath(Paths.systemShareDirectory() + "/keymap.xml"));
-  }
- catch (  Exception e) {
-  }
-  try {
-    new Reader(keys).readQuietly(ZLFile.createFileByPath(Paths.bookPath().get(0) + "/keymap.xml"));
-  }
- catch (  Exception e) {
-  }
+  new Reader(keys).readQuietly("default/" + keymapFilename);
+  new Reader(keys).readQuietly(Paths.systemShareDirectory() + "/keymap.xml");
+  new Reader(keys).readQuietly(Paths.bookPath().get(0) + "/keymap.xml");
   myKeysOption=new ZLStringListOption(myName,"KeyList",new ArrayList<String>(keys),",");
 }
