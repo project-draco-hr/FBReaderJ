@@ -1,7 +1,8 @@
 {
   final Intent intent=getDictionaryIntent(text);
   try {
-    if ("ABBYY Lingvo".equals(Id)) {
+    final String id=getId();
+    if ("ABBYY Lingvo".equals(id)) {
       intent.putExtra(MinicardContract.EXTRA_GRAVITY,frameMetrics.Gravity);
       intent.putExtra(MinicardContract.EXTRA_HEIGHT,frameMetrics.Height);
       intent.putExtra(MinicardContract.EXTRA_FORCE_LEMMATIZATION,true);
@@ -12,7 +13,7 @@
         intent.putExtra(MinicardContract.EXTRA_LANGUAGE_TO,targetLanguage);
       }
     }
- else     if ("ColorDict".equals(Id)) {
+ else     if ("ColorDict".equals(id)) {
       intent.putExtra(ColorDict3.HEIGHT,frameMetrics.Height);
       intent.putExtra(ColorDict3.GRAVITY,frameMetrics.Gravity);
       final ZLAndroidLibrary zlibrary=(ZLAndroidLibrary)ZLAndroidLibrary.Instance();

@@ -1,3 +1,0 @@
-{
-  return ZLResource.resource("style").getValue().replace("%s",String.valueOf(Id));
-}

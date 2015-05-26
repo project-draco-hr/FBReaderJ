@@ -1,3 +1,0 @@
-{
-  return getBookExtra(intent,Key.BOOK);
-}

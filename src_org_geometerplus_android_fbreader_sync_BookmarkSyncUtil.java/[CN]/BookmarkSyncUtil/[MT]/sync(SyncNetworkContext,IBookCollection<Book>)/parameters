@@ -1,0 +1,2 @@
+SyncNetworkContext context
+IBookCollection<Book> collection

@@ -1,0 +1,35 @@
+{
+  if (MiscUtil.matchesIgnoreCase(getTitle(),pattern)) {
+    return true;
+  }
+  if (mySeriesInfo != null && MiscUtil.matchesIgnoreCase(mySeriesInfo.Series.getTitle(),pattern)) {
+    return true;
+  }
+  if (myAuthors != null) {
+    for (    Author author : myAuthors) {
+      if (MiscUtil.matchesIgnoreCase(author.DisplayName,pattern)) {
+        return true;
+      }
+    }
+  }
+  if (myTags != null) {
+    for (    Tag tag : myTags) {
+      if (MiscUtil.matchesIgnoreCase(tag.Name,pattern)) {
+        return true;
+      }
+    }
+  }
+  String fileName=getPath();
+  int index=fileName.indexOf(":");
+  if (index == -1) {
+    index=fileName.lastIndexOf("/");
+  }
+ else {
+    index=fileName.lastIndexOf("/",index);
+  }
+  fileName=fileName.substring(index + 1);
+  if (MiscUtil.matchesIgnoreCase(fileName,pattern)) {
+    return true;
+  }
+  return false;
+}

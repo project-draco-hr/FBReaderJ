@@ -1,5 +1,5 @@
 {
   super.setValue(value);
-  myStyle.setName(value);
+  BookmarkUtil.setStyleName(myStyle,value);
   myCollection.saveHighlightingStyle(myStyle);
 }

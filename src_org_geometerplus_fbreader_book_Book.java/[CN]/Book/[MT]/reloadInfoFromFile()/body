@@ -1,7 +1,0 @@
-{
-  try {
-    readMetainfo(getPlugin());
-  }
- catch (  BookReadingException e) {
-  }
-}

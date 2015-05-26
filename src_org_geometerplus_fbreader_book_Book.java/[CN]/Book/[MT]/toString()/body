@@ -1,3 +1,0 @@
-{
-  return new StringBuilder("Book[").append(File.getPath()).append(", ").append(myId).append(", ").append(getTitle()).append("]").toString();
-}

@@ -1,8 +1,0 @@
-{
-  try {
-    return isFormatActive(book.getPlugin());
-  }
- catch (  BookReadingException e) {
-    return false;
-  }
-}

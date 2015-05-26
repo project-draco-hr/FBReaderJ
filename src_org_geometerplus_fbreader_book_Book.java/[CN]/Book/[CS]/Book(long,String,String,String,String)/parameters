@@ -1,0 +1,5 @@
+long id
+String path
+String title
+String encoding
+String language

@@ -1,7 +1,7 @@
 {
   final Set<Tag> tags=new HashSet<Tag>();
 synchronized (myBooksByFile) {
-    for (    Book book : myBooksByFile.values()) {
+    for (    DbBook book : myBooksByFile.values()) {
       final List<Tag> bookTags=book.tags();
       if (bookTags.isEmpty()) {
         tags.add(Tag.NULL);

@@ -1,7 +1,7 @@
 {
   final Set<String> series=new TreeSet<String>();
 synchronized (myBooksByFile) {
-    for (    Book book : myBooksByFile.values()) {
+    for (    DbBook book : myBooksByFile.values()) {
       final SeriesInfo info=book.getSeriesInfo();
       if (info != null) {
         series.add(info.Series.getTitle());

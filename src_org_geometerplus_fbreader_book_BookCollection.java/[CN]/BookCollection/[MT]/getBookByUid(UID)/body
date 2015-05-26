@@ -1,5 +1,5 @@
 {
-  for (  Book book : myBooksById.values()) {
+  for (  DbBook book : myBooksById.values()) {
     if (book.matchesUid(uid)) {
       return book;
     }

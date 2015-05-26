@@ -1,0 +1,31 @@
+{
+  final long fileId=fileInfos.getId(file);
+  if (savedBooksByFileId.get(fileId) != null) {
+    return;
+  }
+  final FormatPlugin plugin=PluginCollection.Instance().getPlugin(file);
+  if (plugin != null && !isFormatActive(plugin)) {
+    return;
+  }
+  try {
+    final DbBook book=orphanedBooksByFileId.get(fileId);
+    if (book != null) {
+      if (doReadMetaInfo) {
+        BookUtil.readMetainfo(book);
+      }
+      newBooks.add(book);
+      return;
+    }
+  }
+ catch (  BookReadingException e) {
+  }
+  final DbBook book=getBookByFile(file,plugin);
+  if (book != null) {
+    newBooks.add(book);
+  }
+ else   if (file.isArchive()) {
+    for (    ZLFile entry : fileInfos.archiveEntries(file)) {
+      collectBooks(entry,fileInfos,savedBooksByFileId,orphanedBooksByFileId,newBooks,doReadMetaInfo);
+    }
+  }
+}

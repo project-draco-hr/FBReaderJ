@@ -4,7 +4,7 @@
   menu.setHeaderTitle(book.getTitle());
   menu.add(0,ContextItemId.OpenBook,0,resource.getResource("openBook").getValue());
   menu.add(0,ContextItemId.ShowBookInfo,0,resource.getResource("showBookInfo").getValue());
-  if (book.File.getPhysicalFile() != null) {
+  if (BookUtil.fileByBook(book).getPhysicalFile() != null) {
     menu.add(0,ContextItemId.ShareBook,0,resource.getResource("shareBook").getValue());
   }
   if (labels.contains(Book.FAVORITE_LABEL)) {

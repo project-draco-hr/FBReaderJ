@@ -1,0 +1,7 @@
+{
+  super(title);
+  myId=id;
+  myEncoding=encoding;
+  myLanguage=language;
+  myIsSaved=true;
+}

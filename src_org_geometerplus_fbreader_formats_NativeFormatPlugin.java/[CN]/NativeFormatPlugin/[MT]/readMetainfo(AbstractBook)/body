@@ -1,0 +1,6 @@
+{
+  final int code=readMetainfoNative(book);
+  if (code != 0) {
+    throw new BookReadingException("nativeCodeFailure",BookUtil.fileByBook(book),new String[]{String.valueOf(code),book.getPath()});
+  }
+}

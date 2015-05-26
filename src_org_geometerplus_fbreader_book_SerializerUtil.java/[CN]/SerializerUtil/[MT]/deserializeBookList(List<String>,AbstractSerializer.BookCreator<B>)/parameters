@@ -1,0 +1,2 @@
+List<String> xmlList
+AbstractSerializer.BookCreator<B> creator

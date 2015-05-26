@@ -5,21 +5,5 @@
   if (!(o instanceof Book)) {
     return false;
   }
-  final Book obook=((Book)o);
-  final ZLFile ofile=obook.File;
-  if (File.equals(ofile)) {
-    return true;
-  }
-  if (!File.getShortName().equals(ofile.getShortName())) {
-    return false;
-  }
-  if (myUids == null || obook.myUids == null) {
-    return false;
-  }
-  for (  UID uid : obook.myUids) {
-    if (myUids.contains(uid)) {
-      return true;
-    }
-  }
-  return false;
+  return myPath.equals(((Book)o).myPath);
 }

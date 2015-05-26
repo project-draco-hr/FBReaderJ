@@ -1,0 +1,3 @@
+{
+  return new Book(id,url.substring("file://".length()),title,encoding,language);
+}

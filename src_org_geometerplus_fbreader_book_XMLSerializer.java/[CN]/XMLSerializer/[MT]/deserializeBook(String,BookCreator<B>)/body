@@ -1,0 +1,12 @@
+{
+  try {
+    final BookDeserializer<B> deserializer=new BookDeserializer<B>(creator);
+    Xml.parse(xml,deserializer);
+    return deserializer.getBook();
+  }
+ catch (  SAXException e) {
+    System.err.println(xml);
+    e.printStackTrace();
+    return null;
+  }
+}

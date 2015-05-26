@@ -1,6 +1,6 @@
 {
   if (Model != null) {
-    if (book == null || bookmark == null && book.File.equals(Model.Book.File)) {
+    if (book == null || bookmark == null && Collection.sameBook(book,Model.Book)) {
       return;
     }
   }
@@ -9,8 +9,8 @@
     if (book == null) {
       book=Collection.getRecentBook(0);
     }
-    if (book == null || !book.File.exists()) {
-      book=Collection.getBookByFile(BookUtil.getHelpFile());
+    if (book == null || !BookUtil.fileByBook(book).exists()) {
+      book=Collection.getBookByFile(BookUtil.getHelpFile().getPath());
     }
     if (book == null) {
       return;

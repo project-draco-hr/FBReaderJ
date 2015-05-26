@@ -1,5 +1,5 @@
 {
-  Book book=myBooksById.get(id);
+  DbBook book=myBooksById.get(id);
   if (book != null) {
     return book;
   }
@@ -24,7 +24,7 @@
   }
   fileInfos.save();
   try {
-    book.readMetainfo();
+    BookUtil.readMetainfo(book);
     addBook(book,false);
     return book;
   }

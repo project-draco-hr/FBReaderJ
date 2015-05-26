@@ -1,5 +1,0 @@
-int id
-long timestamp
-String name
-int bgColor
-int fgColor

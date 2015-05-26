@@ -1,0 +1,3 @@
+{
+  readMetainfo(book,getPlugin(book));
+}

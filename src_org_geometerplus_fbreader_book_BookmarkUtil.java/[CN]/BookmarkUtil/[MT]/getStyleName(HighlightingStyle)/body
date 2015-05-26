@@ -1,0 +1,4 @@
+{
+  final String name=style.getNameOrNull();
+  return (name != null && name.length() > 0) ? name : defaultName(style);
+}

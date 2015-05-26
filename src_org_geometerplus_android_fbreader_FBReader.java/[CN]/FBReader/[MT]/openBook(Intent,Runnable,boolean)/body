@@ -2,7 +2,7 @@
   if (!force && myBook != null) {
     return;
   }
-  myBook=FBReaderIntents.getBookExtra(intent);
+  myBook=FBReaderIntents.getBookExtra(intent,myFBReaderApp.Collection);
   final Bookmark bookmark=FBReaderIntents.getBookmarkExtra(intent);
   if (myBook == null) {
     final Uri data=intent.getData();
@@ -11,7 +11,7 @@
     }
   }
   if (myBook != null) {
-    ZLFile file=myBook.File;
+    ZLFile file=BookUtil.fileByBook(myBook);
     if (!file.exists()) {
       if (file.getPhysicalFile() != null) {
         file=file.getPhysicalFile();

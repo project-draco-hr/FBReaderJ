@@ -3,7 +3,7 @@
   myBook=book;
   final FormatPlugin plugin;
   try {
-    plugin=book.getPlugin();
+    plugin=BookUtil.getPlugin(book);
   }
  catch (  BookReadingException e) {
     return;
@@ -29,7 +29,7 @@
     setEnabled(false);
   }
  else {
-    final String bookEncoding=book.getEncoding();
+    final String bookEncoding=BookUtil.getEncoding(book);
     if (bookEncoding != null) {
       setInitialValue(bookEncoding.toLowerCase());
     }

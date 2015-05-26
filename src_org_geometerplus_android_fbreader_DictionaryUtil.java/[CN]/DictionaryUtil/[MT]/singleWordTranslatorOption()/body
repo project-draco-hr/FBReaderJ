@@ -1,6 +1,6 @@
 {
   if (ourSingleWordTranslatorOption == null) {
-    ourSingleWordTranslatorOption=new ZLStringOption("Dictionary","Id",firstInfo().Id);
+    ourSingleWordTranslatorOption=new ZLStringOption("Dictionary","Id",firstInfo().getId());
   }
   return ourSingleWordTranslatorOption;
 }

@@ -1,1 +1,1 @@
-AbstractBookCollection
+AbstractBookCollection<DbBook>

@@ -1,3 +1,0 @@
-{
-  return SerializerUtil.deserializeBook(intent.getStringExtra(key));
-}

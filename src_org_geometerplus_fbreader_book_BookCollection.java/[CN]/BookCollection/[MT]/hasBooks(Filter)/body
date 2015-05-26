@@ -1,9 +1,9 @@
 {
-  final List<Book> allBooks;
+  final List<DbBook> allBooks;
 synchronized (myBooksByFile) {
-    allBooks=new ArrayList<Book>(myBooksByFile.values());
+    allBooks=new ArrayList<DbBook>(myBooksByFile.values());
   }
-  for (  Book b : allBooks) {
+  for (  DbBook b : allBooks) {
     if (filter.matches(b)) {
       return true;
     }

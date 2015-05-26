@@ -1,0 +1,3 @@
+{
+  return getClass().getName() + "[" + getPath()+ ", "+ myId+ ", "+ getTitle()+ "]";
+}

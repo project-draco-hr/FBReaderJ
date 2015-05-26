@@ -1,0 +1,19 @@
+{
+  book.myEncoding=null;
+  book.myLanguage=null;
+  book.setTitle(null);
+  book.myAuthors=null;
+  book.myTags=null;
+  book.mySeriesInfo=null;
+  book.myUids=null;
+  book.myIsSaved=false;
+  plugin.readMetainfo(book);
+  if (book.myUids == null || book.myUids.isEmpty()) {
+    plugin.readUids(book);
+  }
+  if (book.isTitleEmpty()) {
+    final String fileName=fileByBook(book).getShortName();
+    final int index=fileName.lastIndexOf('.');
+    book.setTitle(index > 0 ? fileName.substring(0,index) : fileName);
+  }
+}

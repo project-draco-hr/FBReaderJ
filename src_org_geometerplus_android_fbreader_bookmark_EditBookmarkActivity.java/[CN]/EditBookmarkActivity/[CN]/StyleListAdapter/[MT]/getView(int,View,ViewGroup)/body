@@ -8,7 +8,7 @@
   checkBox.setChecked(style.Id == myBookmark.getStyleId());
   colorView.setVisibility(View.VISIBLE);
   BookmarksUtil.setupColorView(colorView,style);
-  titleView.setText(style.getName());
+  titleView.setText(BookmarkUtil.getStyleName(style));
   button.setVisibility(View.VISIBLE);
   button.setText(myResource.getResource("editStyle").getValue());
   button.setOnClickListener(new Button.OnClickListener(){

@@ -1,0 +1,14 @@
+{
+  if (base.hasSameMetainfoAs(duplicate)) {
+    return false;
+  }
+  final DbBook vanilla;
+  try {
+    vanilla=new DbBook(base.File,BookUtil.getPlugin(base));
+  }
+ catch (  BookReadingException e) {
+    return false;
+  }
+  base.merge(duplicate,vanilla);
+  return true;
+}

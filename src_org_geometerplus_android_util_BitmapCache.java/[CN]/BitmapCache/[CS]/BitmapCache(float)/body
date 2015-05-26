@@ -1,8 +1,0 @@
-{
-  myLruCache=new LruCache<Long,Container>((int)(factor * Runtime.getRuntime().maxMemory())){
-    @Override protected int sizeOf(    Long key,    Container container){
-      return container.size();
-    }
-  }
-;
-}

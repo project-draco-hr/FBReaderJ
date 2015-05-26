@@ -8,7 +8,7 @@
  catch (  BookReadingException e) {
     return null;
   }
-  Book book=myBooksByFile.get(bookFile);
+  DbBook book=myBooksByFile.get(bookFile);
   if (book != null) {
     return book;
   }
@@ -35,10 +35,10 @@
   fileInfos.save();
   try {
     if (book == null) {
-      book=new Book(bookFile,plugin);
+      book=new DbBook(bookFile,plugin);
     }
  else {
-      book.readMetainfo(plugin);
+      BookUtil.readMetainfo(book,plugin);
     }
   }
  catch (  BookReadingException e) {

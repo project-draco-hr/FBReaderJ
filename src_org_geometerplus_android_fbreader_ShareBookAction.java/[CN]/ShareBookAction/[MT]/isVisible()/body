@@ -1,4 +1,4 @@
 {
   final Book book=Reader.getCurrentBook();
-  return book != null && book.File.getPhysicalFile() != null;
+  return book != null && BookUtil.fileByBook(book).getPhysicalFile() != null;
 }

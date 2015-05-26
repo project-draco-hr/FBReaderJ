@@ -3,7 +3,7 @@
     return getBookByFile(BookUtil.getHelpFile());
   }
   for (  long id : myDatabase.bookIdsByHash(hash)) {
-    final Book book=getBookById(id);
+    final DbBook book=getBookById(id);
     if (book != null && book.File.exists()) {
       return book;
     }
