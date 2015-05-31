@@ -1,7 +1,3 @@
 {
-  try {
-    Xml.parse(ZLFile.createFileByPath(path).getInputStream(),Xml.Encoding.UTF_8,this);
-  }
- catch (  Exception e) {
-  }
+  XmlUtil.parseQuietly(ZLFile.createFileByPath(path),this);
 }
