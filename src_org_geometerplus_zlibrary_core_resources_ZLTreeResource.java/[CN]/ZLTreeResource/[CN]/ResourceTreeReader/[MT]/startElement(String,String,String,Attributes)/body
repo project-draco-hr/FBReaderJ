@@ -1,6 +1,6 @@
 {
   final ArrayList<ZLTreeResource> stack=myStack;
-  if (!stack.isEmpty() && (NODE.equals(tag))) {
+  if (!stack.isEmpty() && (NODE.equals(localName))) {
     final String name=attributes.getValue("name");
     final String condition=attributes.getValue("condition");
     final String value=attributes.getValue("value");
@@ -39,5 +39,4 @@
       stack.add(peek);
     }
   }
-  return false;
 }

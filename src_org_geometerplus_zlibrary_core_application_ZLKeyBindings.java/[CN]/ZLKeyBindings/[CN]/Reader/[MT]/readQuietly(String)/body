@@ -1,0 +1,3 @@
+{
+  XmlUtil.parseQuietly(ZLFile.createFileByPath(path),this);
+}
