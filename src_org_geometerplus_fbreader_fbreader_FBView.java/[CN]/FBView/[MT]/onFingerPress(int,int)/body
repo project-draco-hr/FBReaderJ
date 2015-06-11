@@ -3,10 +3,10 @@
   if (super.onFingerPress(x,y)) {
     return true;
   }
-  final ZLTextSelectionCursor cursor=findSelectionCursor(x,y,maxSelectionDistance());
-  if (cursor != ZLTextSelectionCursor.None) {
+  final SelectionCursor.Which cursor=findSelectionCursor(x,y,maxSelectionDistance());
+  if (cursor != null) {
     myReader.runAction(ActionCode.SELECTION_HIDE_PANEL);
-    moveSelectionCursorTo(cursor,x,y,true);
+    moveSelectionCursorTo(cursor,x,y);
     return true;
   }
   if (myReader.MiscOptions.AllowScreenBrightnessAdjustment.getValue() && x < getContextWidth() / 10) {

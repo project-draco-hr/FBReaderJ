@@ -1,3 +1,0 @@
-{
-  return myLeftMostRegionSoul != null && myLeftMostRegionSoul.equals(myRightMostRegionSoul) ? myLeftMostRegionSoul : null;
-}

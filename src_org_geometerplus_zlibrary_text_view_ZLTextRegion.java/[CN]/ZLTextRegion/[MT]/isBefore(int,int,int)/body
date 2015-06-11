@@ -1,0 +1,36 @@
+{
+switch (columnIndex) {
+default :
+case -1:
+    return hull().isBefore(x,y);
+case 0:
+{
+    int count0=0;
+    int count1=0;
+    for (    ZLTextElementArea area : textAreas()) {
+      if (area.ColumnIndex == 0) {
+        ++count0;
+      }
+ else {
+        ++count1;
+      }
+    }
+    if (count0 == 0) {
+      return false;
+    }
+ else     if (count1 == 0) {
+      return hull().isBefore(x,y);
+    }
+ else {
+      return hull0().isBefore(x,y);
+    }
+  }
+case 1:
+for (ZLTextElementArea area : textAreas()) {
+  if (area.ColumnIndex == 0) {
+    return true;
+  }
+}
+return hull().isBefore(x,y);
+}
+}

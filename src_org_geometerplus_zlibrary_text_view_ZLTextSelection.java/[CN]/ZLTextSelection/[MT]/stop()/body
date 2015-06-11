@@ -1,5 +1,5 @@
 {
-  myCursorInMovement=ZLTextSelectionCursor.None;
+  myCursorInMovement=null;
   if (myScroller != null) {
     myScroller.stop();
     myScroller=null;

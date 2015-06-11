@@ -1,0 +1,6 @@
+{
+  if (myHull == null) {
+    myHull=HullUtil.hull(textAreas());
+  }
+  return myHull;
+}

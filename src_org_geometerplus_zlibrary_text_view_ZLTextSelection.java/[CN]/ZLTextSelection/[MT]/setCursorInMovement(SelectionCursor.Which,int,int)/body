@@ -1,0 +1,5 @@
+{
+  myCursorInMovement=which;
+  myCursorInMovementPoint.X=x;
+  myCursorInMovementPoint.Y=y;
+}

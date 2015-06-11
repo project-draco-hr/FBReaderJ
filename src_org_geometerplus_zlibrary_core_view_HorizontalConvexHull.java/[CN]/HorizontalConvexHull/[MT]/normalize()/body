@@ -1,0 +1,19 @@
+{
+  Rect previous=null;
+  for (ListIterator<Rect> iter=myRectangles.listIterator(); iter.hasNext(); ) {
+    final Rect current=iter.next();
+    if (previous != null) {
+      if ((previous.left == current.left) && (previous.right == current.right)) {
+        previous.bottom=current.bottom;
+        iter.remove();
+        continue;
+      }
+      if ((previous.bottom != current.top) && (current.left <= previous.right) && (previous.left <= current.right)) {
+        iter.previous();
+        iter.add(new Rect(Math.max(previous.left,current.left),previous.bottom,Math.min(previous.right,current.right),current.top));
+        iter.next();
+      }
+    }
+    previous=current;
+  }
+}

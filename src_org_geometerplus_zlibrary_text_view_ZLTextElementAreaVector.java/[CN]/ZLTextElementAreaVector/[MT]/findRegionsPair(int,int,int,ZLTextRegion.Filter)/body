@@ -1,0 +1,17 @@
+{
+  RegionPair pair=new RegionPair();
+synchronized (myElementRegions) {
+    for (    ZLTextRegion region : myElementRegions) {
+      if (filter.accepts(region)) {
+        if (region.isBefore(x,y,columnIndex)) {
+          pair.Before=region;
+        }
+ else {
+          pair.After=region;
+          break;
+        }
+      }
+    }
+  }
+  return pair;
+}

@@ -1,0 +1,5 @@
+{
+synchronized (myAreas) {
+    return new ArrayList<ZLTextElementArea>(myAreas);
+  }
+}

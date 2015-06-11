@@ -1,0 +1,7 @@
+{
+  int dist=Integer.MAX_VALUE;
+  for (  Hull h : myComponents) {
+    dist=Math.min(dist,h.distanceTo(x,y));
+  }
+  return dist;
+}

@@ -1,0 +1,5 @@
+ZLTextPage page
+ZLTextLineInfo info
+int x
+int y
+int columnIndex

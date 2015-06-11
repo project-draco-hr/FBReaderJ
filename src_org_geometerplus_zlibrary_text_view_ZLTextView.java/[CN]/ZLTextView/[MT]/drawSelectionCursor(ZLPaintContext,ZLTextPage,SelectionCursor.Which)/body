@@ -1,0 +1,6 @@
+{
+  final ZLTextSelection.Point pt=getSelectionCursorPoint(page,which);
+  if (pt != null) {
+    SelectionCursor.draw(context,which,pt.X,pt.Y,getSelectionBackgroundColor());
+  }
+}

@@ -1,0 +1,13 @@
+{
+  if (mySelection.isEmpty()) {
+    return null;
+  }
+  final float leftDistance=distanceToCursor(x,y,SelectionCursor.Which.Left);
+  final float rightDistance=distanceToCursor(x,y,SelectionCursor.Which.Right);
+  if (rightDistance < leftDistance) {
+    return rightDistance <= maxDistance ? SelectionCursor.Which.Right : null;
+  }
+ else {
+    return leftDistance <= maxDistance ? SelectionCursor.Which.Left : null;
+  }
+}

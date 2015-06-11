@@ -1,0 +1,5 @@
+{
+  for (  Hull h : myComponents) {
+    h.draw(context,mode);
+  }
+}
