@@ -12,7 +12,6 @@
     }
   }
  catch (  ActivityNotFoundException e) {
-    fbreader.hideDictionarySelection();
     InternalUtil.installDictionaryIfNotInstalled(fbreader,this);
   }
 }
