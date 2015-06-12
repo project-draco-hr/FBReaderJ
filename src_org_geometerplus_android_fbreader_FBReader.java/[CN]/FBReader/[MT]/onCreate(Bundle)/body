@@ -1,6 +1,5 @@
 {
   super.onCreate(icicle);
-  Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler(this));
   bindService(new Intent(this,DataService.class),DataConnection,DataService.BIND_AUTO_CREATE);
   final Config config=Config.Instance();
   config.runOnConnect(new Runnable(){
