@@ -15,7 +15,7 @@ synchronized (this) {
       }
  else {
         final int delta=(myStartBrightness + 30) * (myStartY - y) / getContextHeight();
-        ZLibrary.Instance().setScreenBrightness(myStartBrightness + delta);
+        myReader.getViewWidget().setScreenBrightness(myStartBrightness + delta);
         return true;
       }
     }

@@ -12,7 +12,7 @@
   if (myReader.MiscOptions.AllowScreenBrightnessAdjustment.getValue() && x < getContextWidth() / 10) {
     myIsBrightnessAdjustmentInProgress=true;
     myStartY=y;
-    myStartBrightness=ZLibrary.Instance().getScreenBrightness();
+    myStartBrightness=myReader.getViewWidget().getScreenBrightness();
     return true;
   }
   startManualScrolling(x,y);
