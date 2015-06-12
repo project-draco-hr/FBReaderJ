@@ -49,6 +49,6 @@
     toast=new SuperActivityToast(fbreader,SuperToast.Type.STANDARD);
   }
   toast.setText(text);
-  toast.setDuration(20000);
+  toast.setDuration(DictionaryUtil.TranslationToastDurationOption.getValue().Value);
   InternalUtil.showToast(toast,fbreader);
 }
