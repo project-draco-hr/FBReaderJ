@@ -10,7 +10,7 @@ synchronized (ourInfos) {
     XmlUtil.parseQuietly(ZLFile.createFileByPath("dictionaries/bitknights.xml"),new BitKnightsInfoReader(myActivity));
     myActivity.runOnUiThread(new Runnable(){
       public void run(){
-        collectOpenDictionaries(myActivity);
+        OpenDictionary.collect(myActivity,ourInfos);
         if (myPostAction != null) {
           myPostAction.run();
         }
