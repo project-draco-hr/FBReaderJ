@@ -61,6 +61,12 @@
         newWidth+=lastSpaceWidth;
       }
     }
+ else     if (element == ZLTextElement.NBSpace) {
+      wordOccurred=true;
+      internalSpaceCounter++;
+      lastSpaceWidth=context.getSpaceWidth();
+      newWidth+=lastSpaceWidth;
+    }
  else     if (element instanceof ZLTextWord) {
       wordOccurred=true;
       isVisible=true;
@@ -91,7 +97,7 @@
     boolean allowBreak=currentElementIndex == endIndex;
     if (!allowBreak) {
       element=paragraphCursor.getElement(currentElementIndex);
-      allowBreak=((!(element instanceof ZLTextWord) || previousElement instanceof ZLTextWord) && !(element instanceof ZLTextImageElement) && !(element instanceof ZLTextControlElement));
+      allowBreak=previousElement != ZLTextElement.NBSpace && element != ZLTextElement.NBSpace && (!(element instanceof ZLTextWord) || previousElement instanceof ZLTextWord) && !(element instanceof ZLTextImageElement) && !(element instanceof ZLTextControlElement);
     }
     if (allowBreak) {
       info.IsVisible=isVisible;
