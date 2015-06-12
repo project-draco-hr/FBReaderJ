@@ -1,19 +1,6 @@
 {
   final Intent intent=getDictionaryIntent(text);
-  try {
-    final String id=getId();
-    if ("ColorDict".equals(id)) {
-      intent.putExtra(ColorDict3.HEIGHT,frameMetrics.Height);
-      intent.putExtra(ColorDict3.GRAVITY,frameMetrics.Gravity);
-      final ZLAndroidLibrary zlibrary=(ZLAndroidLibrary)ZLAndroidLibrary.Instance();
-      intent.putExtra(ColorDict3.FULLSCREEN,!zlibrary.ShowStatusBarOption.getValue());
-    }
-    intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-    fbreader.startActivity(intent);
-    fbreader.overridePendingTransition(0,0);
-  }
- catch (  ActivityNotFoundException e) {
-    installDictionaryIfNotInstalled(fbreader,this);
-  }
+  intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+  intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+  InternalUtil.startDictionaryActivity(fbreader,intent,this);
 }

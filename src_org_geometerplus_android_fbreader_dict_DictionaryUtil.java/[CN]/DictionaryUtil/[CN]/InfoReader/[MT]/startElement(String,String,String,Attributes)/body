@@ -25,6 +25,9 @@
  else   if ("ABBYY Lingvo".equals(id)) {
     info=new Lingvo(id,title);
   }
+ else   if ("ColorDict".equals(id)) {
+    info=new ColorDict(id,title);
+  }
  else {
     info=new PlainPackageInfo(id,title);
   }

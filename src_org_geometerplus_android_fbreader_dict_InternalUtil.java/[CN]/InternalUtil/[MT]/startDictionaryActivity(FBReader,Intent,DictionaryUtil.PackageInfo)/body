@@ -1,0 +1,9 @@
+{
+  try {
+    fbreader.startActivity(intent);
+    fbreader.overridePendingTransition(0,0);
+  }
+ catch (  ActivityNotFoundException e) {
+    installDictionaryIfNotInstalled(fbreader,info);
+  }
+}
