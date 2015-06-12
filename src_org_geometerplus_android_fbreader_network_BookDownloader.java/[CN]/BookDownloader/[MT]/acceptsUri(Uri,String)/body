@@ -1,0 +1,15 @@
+{
+  final List<String> path=uri.getPathSegments();
+  if (path == null || path.isEmpty()) {
+    return false;
+  }
+  final String scheme=uri.getScheme();
+  if ("epub".equals(scheme) || "book".equals(scheme)) {
+    return true;
+  }
+  if (mime != null && Arrays.asList(new String[]{"application/epub+zip","application/x-pilot-prc","application/x-mobipocket-ebook","application/x-fictionbook+xml","application/x-fictionbook","application/pdf","application/x-pdf","application/djvu","application/x-djvu","application/x-cbr","application/x-cbz","image/vnd.djvu","image/x-djvu"}).contains(mime)) {
+    return true;
+  }
+  final String fileName=path.get(path.size() - 1).toLowerCase();
+  return fileName.endsWith(".fb2.zip") || fileName.endsWith(".fb2") || fileName.endsWith(".epub")|| fileName.endsWith(".oeb")|| fileName.endsWith(".mobi")|| fileName.endsWith(".txt")|| fileName.endsWith(".rtf")|| fileName.endsWith(".pdf")|| fileName.endsWith(".djvu")|| fileName.endsWith(".cbr")|| fileName.endsWith(".cbz")|| fileName.endsWith(".prc");
+}

@@ -4,7 +4,7 @@
   final Intent intent=getIntent();
   Uri uri=intent.getData();
   intent.setData(null);
-  if (uri == null || !acceptsUri(uri)) {
+  if (uri == null || !acceptsUri(uri,intent.getType())) {
     finish();
     return;
   }
