@@ -1,0 +1,21 @@
+{
+  final Intent intent=getDictionaryIntent(text);
+  intent.putExtra(MinicardContract.EXTRA_GRAVITY,frameMetrics.Gravity);
+  intent.putExtra(MinicardContract.EXTRA_HEIGHT,frameMetrics.Height);
+  intent.putExtra(MinicardContract.EXTRA_FORCE_LEMMATIZATION,true);
+  intent.putExtra(MinicardContract.EXTRA_TRANSLATE_VARIANTS,true);
+  intent.putExtra(MinicardContract.EXTRA_LIGHT_THEME,true);
+  final String targetLanguage=DictionaryUtil.TargetLanguageOption.getValue();
+  if (!Language.ANY_CODE.equals(targetLanguage)) {
+    intent.putExtra(MinicardContract.EXTRA_LANGUAGE_TO,targetLanguage);
+  }
+  intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+  intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+  try {
+    fbreader.startActivity(intent);
+    fbreader.overridePendingTransition(0,0);
+  }
+ catch (  ActivityNotFoundException e) {
+    DictionaryUtil.installDictionaryIfNotInstalled(fbreader,this);
+  }
+}
