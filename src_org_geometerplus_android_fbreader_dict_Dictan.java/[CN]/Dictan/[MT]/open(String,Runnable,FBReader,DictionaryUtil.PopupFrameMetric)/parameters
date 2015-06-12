@@ -1,4 +1,4 @@
 String text
 Runnable outliner
 FBReader fbreader
-PopupFrameMetric frameMetrics
+DictionaryUtil.PopupFrameMetric frameMetrics

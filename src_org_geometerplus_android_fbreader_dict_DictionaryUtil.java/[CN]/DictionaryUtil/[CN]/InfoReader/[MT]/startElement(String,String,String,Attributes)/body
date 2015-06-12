@@ -20,7 +20,7 @@
   }
   final PackageInfo info;
   if ("dictan".equals(id)) {
-    info=new DictanPackageInfo(id,title,false);
+    info=new Dictan(id,title);
   }
  else {
     info=new PlainPackageInfo(id,title,"true".equals(attributes.getValue("supportsTargetLanguage")));

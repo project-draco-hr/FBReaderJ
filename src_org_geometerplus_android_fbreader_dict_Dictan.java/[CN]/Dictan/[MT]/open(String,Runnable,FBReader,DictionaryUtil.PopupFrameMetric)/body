@@ -13,6 +13,6 @@
   }
  catch (  ActivityNotFoundException e) {
     fbreader.hideOutline();
-    installDictionaryIfNotInstalled(fbreader,this);
+    DictionaryUtil.installDictionaryIfNotInstalled(fbreader,this);
   }
 }
