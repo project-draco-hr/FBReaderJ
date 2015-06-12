@@ -1,0 +1,5 @@
+{
+  if (!PackageUtil.installFromMarket(this,myPackageName)) {
+    UIMessageUtil.showErrorMessage(this,"cannotRunAndroidMarket",myDictionaryName);
+  }
+}
