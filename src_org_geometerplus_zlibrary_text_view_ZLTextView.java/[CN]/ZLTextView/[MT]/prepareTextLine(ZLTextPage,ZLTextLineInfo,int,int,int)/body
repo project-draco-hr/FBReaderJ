@@ -34,7 +34,7 @@ ZLTextElementArea spaceElement=null;
 for (int wordIndex=info.RealStartElementIndex; wordIndex != endElementIndex; ++wordIndex, charIndex=0) {
 final ZLTextElement element=paragraph.getElement(wordIndex);
 final int width=getElementWidth(element,charIndex);
-if (element == ZLTextElement.HSpace || element == ZLTextElement.NBSpace) {
+if (element == ZLTextElement.HSpace) {
 if (wordOccurred && spaceCounter > 0) {
 final int correction=fullCorrection / spaceCounter;
 final int spaceLength=context.getSpaceWidth() + correction;

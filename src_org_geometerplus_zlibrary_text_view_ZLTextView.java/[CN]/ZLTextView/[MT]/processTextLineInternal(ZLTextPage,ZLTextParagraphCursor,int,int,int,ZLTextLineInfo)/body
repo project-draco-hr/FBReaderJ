@@ -63,9 +63,6 @@
     }
  else     if (element == ZLTextElement.NBSpace) {
       wordOccurred=true;
-      internalSpaceCounter++;
-      lastSpaceWidth=context.getSpaceWidth();
-      newWidth+=lastSpaceWidth;
     }
  else     if (element instanceof ZLTextWord) {
       wordOccurred=true;
