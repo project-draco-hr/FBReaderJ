@@ -1,0 +1,10 @@
+{
+  try {
+    return Bitmap.createBitmap(width,height,c);
+  }
+ catch (  OutOfMemoryError e) {
+    System.gc();
+    System.gc();
+    return Bitmap.createBitmap(width,height,c);
+  }
+}

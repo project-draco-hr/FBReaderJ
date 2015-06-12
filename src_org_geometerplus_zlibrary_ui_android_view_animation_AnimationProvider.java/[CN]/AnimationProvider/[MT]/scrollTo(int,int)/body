@@ -1,0 +1,13 @@
+{
+switch (myMode) {
+case ManualScrolling:
+    myEndX=x;
+  myEndY=y;
+break;
+case PreManualScrolling:
+myEndX=x;
+myEndY=y;
+myMode=detectManualMode();
+break;
+}
+}

@@ -7,6 +7,7 @@
     System.err.println("A surprise: view's context is not an FBReader");
   }
   super.onDraw(canvas);
+  myBitmapManager.setSize(getWidth(),getMainAreaHeight());
   if (getAnimationProvider().inProgress()) {
     onDrawInScrolling(canvas);
   }

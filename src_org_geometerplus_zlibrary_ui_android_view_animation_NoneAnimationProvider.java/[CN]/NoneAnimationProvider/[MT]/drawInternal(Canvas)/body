@@ -1,0 +1,3 @@
+{
+  drawBitmapFrom(canvas,0,0,myPaint);
+}
