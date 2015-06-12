@@ -4,8 +4,8 @@
       postAction.run();
     }
   }
- else   if (image instanceof ZLImageSelfSynchronizableProxy) {
-    ((ZLImageSelfSynchronizableProxy)image).synchronize();
+ else   if (image instanceof ZLImageSimpleProxy) {
+    ((ZLImageSimpleProxy)image).synchronize();
     if (postAction != null) {
       postAction.run();
     }
