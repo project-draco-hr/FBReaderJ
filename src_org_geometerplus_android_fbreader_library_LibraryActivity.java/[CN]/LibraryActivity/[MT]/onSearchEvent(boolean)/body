@@ -5,7 +5,7 @@
         openSearchResults();
       }
  else {
-        UIUtil.showErrorMessage(LibraryActivity.this,"bookNotFound");
+        UIMessageUtil.showErrorMessage(LibraryActivity.this,"bookNotFound");
       }
     }
   }

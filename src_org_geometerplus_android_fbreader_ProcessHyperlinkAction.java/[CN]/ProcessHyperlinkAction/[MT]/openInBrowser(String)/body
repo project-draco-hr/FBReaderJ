@@ -18,7 +18,7 @@
         }
  catch (        ZLNetworkException e) {
           e.printStackTrace();
-          UIUtil.showMessageText(BaseActivity,e.getMessage());
+          UIMessageUtil.showMessageText(BaseActivity,e.getMessage());
           return;
         }
       }

@@ -1,3 +1,3 @@
 {
-  UIUtil.showErrorMessage(this,key,parameter);
+  UIMessageUtil.showErrorMessage(this,key,parameter);
 }

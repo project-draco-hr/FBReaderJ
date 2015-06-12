@@ -3,5 +3,5 @@
   Reader.getTextView().clearSelection();
   final ClipboardManager clipboard=(ClipboardManager)BaseActivity.getApplication().getSystemService(Application.CLIPBOARD_SERVICE);
   clipboard.setText(text);
-  UIUtil.showMessageText(BaseActivity,ZLResource.resource("selection").getResource("textInBuffer").getValue().replace("%s",clipboard.getText()));
+  UIMessageUtil.showMessageText(BaseActivity,ZLResource.resource("selection").getResource("textInBuffer").getValue().replace("%s",clipboard.getText()));
 }
