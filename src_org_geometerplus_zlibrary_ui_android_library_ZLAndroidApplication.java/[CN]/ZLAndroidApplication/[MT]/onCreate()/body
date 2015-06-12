@@ -1,9 +1,14 @@
 {
   super.onCreate();
-  final ConfigShadow config=new ConfigShadow(this);
+  try {
+    Class.forName("android.os.AsyncTask");
+  }
+ catch (  Throwable t) {
+  }
+  myConfig=new ConfigShadow(this);
   new ZLAndroidImageManager();
-  new ZLAndroidLibrary(this);
-  config.runOnConnect(new Runnable(){
+  myLibrary=new ZLAndroidLibrary(this);
+  myConfig.runOnConnect(new Runnable(){
     public void run(){
       if ("".equals(Paths.TempDirectoryOption.getValue())) {
         String dir=null;
