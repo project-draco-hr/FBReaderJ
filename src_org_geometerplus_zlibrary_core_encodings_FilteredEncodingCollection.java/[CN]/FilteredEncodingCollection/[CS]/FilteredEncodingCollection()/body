@@ -1,3 +1,9 @@
 {
-  new EncodingCollectionReader().readQuietly(ZLResourceFile.createResourceFile("encodings/Encodings.xml"));
+  try {
+    final ZLResourceFile file=ZLResourceFile.createResourceFile("encodings/Encodings.xml");
+    Xml.parse(file.getInputStream(),Xml.Encoding.UTF_8,new EncodingCollectionReader());
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
 }
