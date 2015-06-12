@@ -50,11 +50,5 @@
   }
   toast.setText(text);
   toast.setDuration(20000);
-  toast.setOnDismissWrapper(new OnDismissWrapper("dict",new SuperToast.OnDismissListener(){
-    @Override public void onDismiss(    View view){
-      fbreader.hideDictionarySelection();
-    }
-  }
-));
-  fbreader.showToast(toast);
+  InternalUtil.showToast(toast,fbreader);
 }
