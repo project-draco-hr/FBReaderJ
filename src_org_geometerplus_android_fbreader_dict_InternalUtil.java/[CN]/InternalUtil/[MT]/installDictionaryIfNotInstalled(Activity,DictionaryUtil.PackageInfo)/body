@@ -1,5 +1,5 @@
 {
-  if (PackageUtil.canBeStarted(activity,info.getDictionaryIntent("test"),false)) {
+  if (PackageUtil.canBeStarted(activity,info.getActionIntent("test"),false)) {
     return;
   }
   final ZLResource dialogResource=ZLResource.resource("dialog");

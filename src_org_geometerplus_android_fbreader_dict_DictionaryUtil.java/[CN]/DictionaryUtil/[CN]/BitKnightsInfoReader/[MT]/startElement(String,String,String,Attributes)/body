@@ -8,7 +8,7 @@
   }
   info.put("class","com.bitknights.dict.ShareTranslateActivity");
   info.put("action",Intent.ACTION_VIEW);
-  if (PackageUtil.canBeStarted(myContext,info.getDictionaryIntent("test"),false)) {
+  if (PackageUtil.canBeStarted(myContext,info.getActionIntent("test"),false)) {
     ourInfos.put(info,FLAG_SHOW_AS_DICTIONARY | FLAG_INSTALLED_ONLY);
   }
 }
