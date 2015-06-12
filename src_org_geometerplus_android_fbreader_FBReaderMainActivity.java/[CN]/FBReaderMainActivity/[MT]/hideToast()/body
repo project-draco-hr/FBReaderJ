@@ -1,0 +1,12 @@
+{
+  final SuperActivityToast toast=myToast;
+  if (toast != null && toast.isShowing()) {
+    myToast=null;
+    runOnUiThread(new Runnable(){
+      public void run(){
+        toast.dismiss();
+      }
+    }
+);
+  }
+}

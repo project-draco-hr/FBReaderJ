@@ -1,0 +1,16 @@
+{
+  hideToast();
+  myToast=toast;
+  final int dpi=getZLibrary().getDisplayDPI();
+  final int defaultFontSize=dpi * 18 / 160;
+  final int fontSize=new ZLIntegerOption("Style","Base:fontSize",defaultFontSize).getValue();
+  final int dpFontSize=fontSize * 160 / dpi;
+  toast.setTextSize(dpFontSize);
+  toast.setButtonTextSize(dpFontSize * 7 / 8);
+  runOnUiThread(new Runnable(){
+    public void run(){
+      toast.show();
+    }
+  }
+);
+}

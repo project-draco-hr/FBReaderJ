@@ -1,0 +1,18 @@
+{
+  final Intent intent=getActionIntent(text);
+  intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+  intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+  intent.putExtra("article.mode",20);
+  intent.putExtra("article.text.size.max",MAX_LENGTH_FOR_TOAST);
+  try {
+    fbreader.startActivityForResult(intent,FBReaderMainActivity.REQUEST_DICTIONARY);
+    fbreader.overridePendingTransition(0,0);
+    if (outliner != null) {
+      outliner.run();
+    }
+  }
+ catch (  ActivityNotFoundException e) {
+    fbreader.hideDictionarySelection();
+    InternalUtil.installDictionaryIfNotInstalled(fbreader,this);
+  }
+}

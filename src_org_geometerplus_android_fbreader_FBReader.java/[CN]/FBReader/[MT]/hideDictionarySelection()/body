@@ -1,0 +1,6 @@
+{
+  myFBReaderApp.getTextView().hideOutline();
+  myFBReaderApp.getTextView().removeHighlightings(DictionaryHighlighting.class);
+  myFBReaderApp.getViewWidget().reset();
+  myFBReaderApp.getViewWidget().repaint();
+}
