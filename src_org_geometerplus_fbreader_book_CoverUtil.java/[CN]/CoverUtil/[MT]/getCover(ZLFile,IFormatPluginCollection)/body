@@ -11,7 +11,7 @@
   }
   ZLImage image=null;
   try {
-    image=PluginCollection.Instance().getPlugin(file).readCover(file);
+    image=collection.getPlugin(file).readCover(file);
   }
  catch (  Exception e) {
   }

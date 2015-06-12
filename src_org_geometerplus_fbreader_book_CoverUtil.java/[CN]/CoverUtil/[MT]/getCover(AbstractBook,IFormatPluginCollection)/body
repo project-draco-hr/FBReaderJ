@@ -3,6 +3,6 @@
     return null;
   }
 synchronized (book) {
-    return getCover(fileByBook(book));
+    return getCover(ZLFile.createFileByPath(book.getPath()),collection);
   }
 }

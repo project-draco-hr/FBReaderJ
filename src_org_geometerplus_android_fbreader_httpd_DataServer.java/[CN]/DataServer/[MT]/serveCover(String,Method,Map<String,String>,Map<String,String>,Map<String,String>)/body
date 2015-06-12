@@ -1,6 +1,6 @@
 {
   try {
-    final ZLImage image=BookUtil.getCover(DataUtil.fileFromEncodedPath(uri.substring(7)));
+    final ZLImage image=CoverUtil.getCover(DataUtil.fileFromEncodedPath(uri.substring(7)),PluginCollection.Instance());
     if (image instanceof ZLFileImageProxy) {
       final ZLFileImageProxy proxy=(ZLFileImageProxy)image;
       proxy.synchronize();
