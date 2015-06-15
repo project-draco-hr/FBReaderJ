@@ -13,7 +13,7 @@
     final Intent intent=new Intent(Intent.ACTION_VIEW);
     final String url=DataUtil.buildUrl(BaseActivity.DataConnection,mime,path);
     if (url == null) {
-      UIUtil.showErrorMessage(BaseActivity,"videoServiceNotWorking");
+      UIMessageUtil.showErrorMessage(BaseActivity,"videoServiceNotWorking");
       return;
     }
     intent.setDataAndType(Uri.parse(url),mime);
@@ -27,6 +27,6 @@
     }
   }
   if (playerNotFound) {
-    UIUtil.showErrorMessage(BaseActivity,"videoPlayerNotFound");
+    UIMessageUtil.showErrorMessage(BaseActivity,"videoPlayerNotFound");
   }
 }

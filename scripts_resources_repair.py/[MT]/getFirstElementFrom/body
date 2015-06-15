@@ -1,4 +1,0 @@
-def getFirstElementFrom(node):
-    while ((node is not None) and (node.nodeType != minidom.Node.ELEMENT_NODE)):
-        node = node.nextSibling
-    return node

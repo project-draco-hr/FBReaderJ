@@ -1,0 +1,3 @@
+{
+  return new String(Data,Offset,Length);
+}

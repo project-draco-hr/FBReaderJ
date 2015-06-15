@@ -1,0 +1,19 @@
+{
+  if (myUseCanvasHack) {
+    if (myBuffer == null || myBuffer.getWidth() != myWidth || myBuffer.getHeight() != myHeight) {
+      myBuffer=BitmapUtil.createBitmap(myWidth,myHeight,getBitmapTo().getConfig());
+    }
+    final Canvas softCanvas=new Canvas(myBuffer);
+    drawInternalNoHack(softCanvas);
+    canvas.drawBitmap(myBuffer,0,0,myPaint);
+  }
+ else {
+    try {
+      drawInternalNoHack(canvas);
+    }
+ catch (    UnsupportedOperationException e) {
+      myUseCanvasHack=true;
+      drawInternal(canvas);
+    }
+  }
+}

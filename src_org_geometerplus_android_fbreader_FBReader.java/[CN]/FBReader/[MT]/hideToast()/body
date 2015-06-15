@@ -1,7 +1,0 @@
-{
-  final SuperActivityToast toast=myToast;
-  if (toast != null && toast.isShowing()) {
-    toast.dismiss();
-    myToast=null;
-  }
-}

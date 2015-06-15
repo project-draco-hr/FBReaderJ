@@ -1,0 +1,3 @@
+{
+  return hull(Arrays.asList(areas));
+}

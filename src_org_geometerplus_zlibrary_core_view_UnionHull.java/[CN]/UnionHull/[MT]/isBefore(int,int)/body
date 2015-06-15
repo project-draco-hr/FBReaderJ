@@ -1,0 +1,8 @@
+{
+  for (  Hull h : myComponents) {
+    if (h.isBefore(x,y)) {
+      return true;
+    }
+  }
+  return false;
+}

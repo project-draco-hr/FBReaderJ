@@ -1,0 +1,3 @@
+{
+  myBitmapManager.drawBitmap(canvas,x,y,getPageToScrollTo(),paint);
+}

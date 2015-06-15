@@ -1,0 +1,9 @@
+{
+  toast.setOnDismissWrapper(new OnDismissWrapper("dict",new SuperToast.OnDismissListener(){
+    @Override public void onDismiss(    View view){
+      fbreader.hideDictionarySelection();
+    }
+  }
+));
+  fbreader.showToast(toast);
+}

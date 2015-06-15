@@ -1,0 +1,6 @@
+FBReaderMainActivity fbreader
+String text
+boolean singleWord
+int selectionTop
+int selectionBottom
+Runnable outliner

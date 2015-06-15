@@ -1,5 +1,0 @@
-{
-  put("id",id);
-  put("title",title);
-  SupportsTargetLanguageSetting=supportsTargetLanguageSetting;
-}

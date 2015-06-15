@@ -1,4 +1,0 @@
-{
-  final ZLStringOption option=singleWord ? singleWordTranslatorOption() : multiWordTranslatorOption();
-  return getInfo(option.getValue());
-}

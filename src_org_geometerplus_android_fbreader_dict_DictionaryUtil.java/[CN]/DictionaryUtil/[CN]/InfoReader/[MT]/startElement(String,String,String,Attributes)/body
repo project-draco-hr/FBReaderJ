@@ -1,0 +1,38 @@
+{
+  if (!"dictionary".equals(localName)) {
+    return;
+  }
+  final String id=attributes.getValue("id");
+  final String title=attributes.getValue("title");
+  final String role=attributes.getValue("role");
+  int flags;
+  if ("dictionary".equals(role)) {
+    flags=FLAG_SHOW_AS_DICTIONARY;
+  }
+ else   if ("translator".equals(role)) {
+    flags=FLAG_SHOW_AS_TRANSLATOR;
+  }
+ else {
+    flags=FLAG_SHOW_AS_DICTIONARY | FLAG_SHOW_AS_TRANSLATOR;
+  }
+  if (!"always".equals(attributes.getValue("list"))) {
+    flags|=FLAG_INSTALLED_ONLY;
+  }
+  final PackageInfo info;
+  if ("dictan".equals(id)) {
+    info=new Dictan(id,title);
+  }
+ else   if ("ABBYY Lingvo".equals(id)) {
+    info=new Lingvo(id,title);
+  }
+ else   if ("ColorDict".equals(id)) {
+    info=new ColorDict(id,title);
+  }
+ else {
+    info=new PlainPackageInfo(id,title);
+  }
+  for (int i=attributes.getLength() - 1; i >= 0; --i) {
+    info.put(attributes.getLocalName(i),attributes.getValue(i));
+  }
+  ourInfos.put(info,flags);
+}

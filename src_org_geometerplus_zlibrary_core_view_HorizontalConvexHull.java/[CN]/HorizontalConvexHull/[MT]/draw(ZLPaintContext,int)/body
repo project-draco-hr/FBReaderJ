@@ -1,0 +1,75 @@
+{
+  if (mode == DrawMode.None) {
+    return;
+  }
+  final LinkedList<Rect> rectangles=new LinkedList<Rect>(myRectangles);
+  while (!rectangles.isEmpty()) {
+    final LinkedList<Rect> connected=new LinkedList<Rect>();
+    Rect previous=null;
+    for (final Iterator<Rect> iter=rectangles.iterator(); iter.hasNext(); ) {
+      final Rect current=iter.next();
+      if ((previous != null) && ((previous.left > current.right) || (current.left > previous.right))) {
+        break;
+      }
+      iter.remove();
+      connected.add(current);
+      previous=current;
+    }
+    final LinkedList<Integer> xList=new LinkedList<Integer>();
+    final LinkedList<Integer> yList=new LinkedList<Integer>();
+    int x=0, xPrev=0;
+    final ListIterator<Rect> iter=connected.listIterator();
+    Rect r=iter.next();
+    x=r.right + 2;
+    xList.add(x);
+    yList.add(r.top);
+    while (iter.hasNext()) {
+      xPrev=x;
+      r=iter.next();
+      x=r.right + 2;
+      if (x != xPrev) {
+        final int y=(x < xPrev) ? r.top + 2 : r.top;
+        xList.add(xPrev);
+        yList.add(y);
+        xList.add(x);
+        yList.add(y);
+      }
+    }
+    xList.add(x);
+    yList.add(r.bottom + 2);
+    r=iter.previous();
+    x=r.left - 2;
+    xList.add(x);
+    yList.add(r.bottom + 2);
+    while (iter.hasPrevious()) {
+      xPrev=x;
+      r=iter.previous();
+      x=r.left - 2;
+      if (x != xPrev) {
+        final int y=(x > xPrev) ? r.bottom : r.bottom + 2;
+        xList.add(xPrev);
+        yList.add(y);
+        xList.add(x);
+        yList.add(y);
+      }
+    }
+    xList.add(x);
+    yList.add(r.top);
+    final int xs[]=new int[xList.size()];
+    final int ys[]=new int[yList.size()];
+    int count=0;
+    for (    int xx : xList) {
+      xs[count++]=xx;
+    }
+    count=0;
+    for (    int yy : yList) {
+      ys[count++]=yy;
+    }
+    if ((mode & DrawMode.Fill) == DrawMode.Fill) {
+      context.fillPolygon(xs,ys);
+    }
+    if ((mode & DrawMode.Outline) == DrawMode.Outline) {
+      context.drawOutline(xs,ys);
+    }
+  }
+}

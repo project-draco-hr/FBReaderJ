@@ -1,3 +1,0 @@
-{
-  return myBitmapManager.getBitmap(ZLView.PageIndex.current);
-}

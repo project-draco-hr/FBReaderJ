@@ -1,0 +1,5 @@
+{
+  if (typeface != null) {
+    mMessageTextView.setTypeface(typeface);
+  }
+}

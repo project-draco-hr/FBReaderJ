@@ -1,0 +1,13 @@
+{
+switch (position) {
+case 0:
+    installDictionary();
+  break;
+case 1:
+startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("fbreader-action:preferences#dictionary")));
+break;
+case 2:
+break;
+}
+finish();
+}

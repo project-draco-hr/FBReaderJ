@@ -1,5 +1,4 @@
 {
-  mySelectedTree=tree;
   if (tree == null) {
     return;
   }

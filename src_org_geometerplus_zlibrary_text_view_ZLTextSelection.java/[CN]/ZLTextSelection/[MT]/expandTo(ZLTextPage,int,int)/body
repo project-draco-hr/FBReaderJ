@@ -15,7 +15,7 @@
       return;
     }
   }
- else   if (lastArea != null && y + ZLTextSelectionCursor.getHeight() / 2 + ZLTextSelectionCursor.getAccent() / 2 > lastArea.YEnd) {
+ else   if (lastArea != null && y > lastArea.YEnd) {
     if (myScroller != null && !myScroller.scrollsForward()) {
       myScroller.stop();
       myScroller=null;
@@ -35,21 +35,40 @@
     myScroller.setXY(x,y);
   }
   ZLTextRegion region=myView.findRegion(x,y,myView.maxSelectionDistance(),ZLTextRegion.AnyRegionFilter);
-  if (region == null && myScroller != null) {
-    region=myView.findRegion(x,y,ZLTextRegion.AnyRegionFilter);
+  if (region == null) {
+    final ZLTextElementAreaVector.RegionPair pair=myView.findRegionsPair(x,y,ZLTextRegion.AnyRegionFilter);
+    if (pair.Before != null || pair.After != null) {
+      final ZLTextRegion.Soul base=myCursorInMovement == SelectionCursor.Which.Right ? myLeftMostRegionSoul : myRightMostRegionSoul;
+      if (pair.Before != null) {
+        if (base.compareTo(pair.Before.getSoul()) <= 0) {
+          region=pair.Before;
+        }
+ else {
+          region=pair.After;
+        }
+      }
+ else {
+        if (base.compareTo(pair.After.getSoul()) >= 0) {
+          region=pair.After;
+        }
+ else {
+          region=pair.Before;
+        }
+      }
+    }
   }
   if (region == null) {
     return;
   }
   final ZLTextRegion.Soul soul=region.getSoul();
-  if (myCursorInMovement == ZLTextSelectionCursor.Right) {
+  if (myCursorInMovement == SelectionCursor.Which.Right) {
     if (myLeftMostRegionSoul.compareTo(soul) <= 0) {
       myRightMostRegionSoul=soul;
     }
  else {
       myRightMostRegionSoul=myLeftMostRegionSoul;
       myLeftMostRegionSoul=soul;
-      myCursorInMovement=ZLTextSelectionCursor.Left;
+      myCursorInMovement=SelectionCursor.Which.Left;
     }
   }
  else {
@@ -59,10 +78,10 @@
  else {
       myLeftMostRegionSoul=myRightMostRegionSoul;
       myRightMostRegionSoul=soul;
-      myCursorInMovement=ZLTextSelectionCursor.Right;
+      myCursorInMovement=SelectionCursor.Which.Right;
     }
   }
-  if (myCursorInMovement == ZLTextSelectionCursor.Right) {
+  if (myCursorInMovement == SelectionCursor.Which.Right) {
     if (hasPartAfterPage(page)) {
       myView.turnPage(true,ZLTextView.ScrollingMode.SCROLL_LINES,1);
       myView.Application.getViewWidget().reset();

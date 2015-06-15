@@ -15,14 +15,14 @@ case Found:
 openTree((NetworkTree)params[0]);
 break;
 case NotFound:
-UIUtil.showErrorMessage(NetworkLibraryActivity.this,"emptyNetworkSearchResults");
+UIMessageUtil.showErrorMessage(NetworkLibraryActivity.this,"emptyNetworkSearchResults");
 getListView().invalidateViews();
 break;
 case EmptyCatalog:
-UIUtil.showErrorMessage(NetworkLibraryActivity.this,"emptyCatalog");
+UIMessageUtil.showErrorMessage(NetworkLibraryActivity.this,"emptyCatalog");
 break;
 case NetworkError:
-UIUtil.showMessageText(NetworkLibraryActivity.this,(String)params[0]);
+UIMessageUtil.showMessageText(NetworkLibraryActivity.this,(String)params[0]);
 break;
 }
 }

@@ -13,7 +13,7 @@
   myTextPaint.setDither(DitheringOption.getValue());
   myTextPaint.setSubpixelText(SubpixelOption.getValue());
   myLinePaint.setStyle(Paint.Style.STROKE);
-  myOutlinePaint.setColor(Color.rgb(255,127,0));
+  myFillPaint.setAntiAlias(AntiAliasOption.getValue());
   myOutlinePaint.setAntiAlias(true);
   myOutlinePaint.setDither(true);
   myOutlinePaint.setStrokeWidth(4);

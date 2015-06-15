@@ -1,0 +1,7 @@
+{
+  final Context context=getContext();
+  if (!(context instanceof FBReader)) {
+    return;
+  }
+  ((FBReader)context).setScreenBrightness(percent);
+}

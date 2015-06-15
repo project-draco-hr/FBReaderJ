@@ -1,0 +1,8 @@
+{
+  for (  Rect r : myRectangles) {
+    if (r.bottom < y || (r.top < y && r.right < x)) {
+      return true;
+    }
+  }
+  return false;
+}

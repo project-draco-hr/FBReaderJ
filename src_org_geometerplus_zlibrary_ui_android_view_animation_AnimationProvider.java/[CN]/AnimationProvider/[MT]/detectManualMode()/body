@@ -1,0 +1,21 @@
+{
+  final int dX=Math.abs(myStartX - myEndX);
+  final int dY=Math.abs(myStartY - myEndY);
+  if (myDirection.IsHorizontal) {
+    if (dY > ZLibrary.Instance().getDisplayDPI() / 2 && dY > dX) {
+      return Mode.NoScrolling;
+    }
+ else     if (dX > ZLibrary.Instance().getDisplayDPI() / 10) {
+      return Mode.ManualScrolling;
+    }
+  }
+ else {
+    if (dX > ZLibrary.Instance().getDisplayDPI() / 2 && dX > dY) {
+      return Mode.NoScrolling;
+    }
+ else     if (dY > ZLibrary.Instance().getDisplayDPI() / 10) {
+      return Mode.ManualScrolling;
+    }
+  }
+  return Mode.PreManualScrolling;
+}

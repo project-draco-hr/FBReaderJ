@@ -1,0 +1,9 @@
+{
+  if (PackageUtil.canBeStarted(activity,info.getActionIntent("test"),false)) {
+    return;
+  }
+  final Intent intent=new Intent(activity,DictionaryNotInstalledActivity.class);
+  intent.putExtra(DictionaryNotInstalledActivity.DICTIONARY_NAME_KEY,info.getTitle());
+  intent.putExtra(DictionaryNotInstalledActivity.PACKAGE_NAME_KEY,info.get("package"));
+  activity.startActivity(intent);
+}

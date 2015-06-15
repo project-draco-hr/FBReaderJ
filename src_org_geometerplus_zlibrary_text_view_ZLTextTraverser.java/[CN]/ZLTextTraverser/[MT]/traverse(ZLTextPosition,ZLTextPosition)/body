@@ -10,6 +10,9 @@
       if (element == ZLTextElement.HSpace) {
         processSpace();
       }
+ else       if (element == ZLTextElement.NBSpace) {
+        processNbSpace();
+      }
  else       if (element instanceof ZLTextWord) {
         processWord((ZLTextWord)element);
       }

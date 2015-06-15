@@ -1,5 +1,0 @@
-{
-  myCursorInMovement=cursor;
-  myCursorInMovementPoint.X=x;
-  myCursorInMovementPoint.Y=y;
-}

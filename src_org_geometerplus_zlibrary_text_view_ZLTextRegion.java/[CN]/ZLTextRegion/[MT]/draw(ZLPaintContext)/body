@@ -1,3 +1,0 @@
-{
-  convexHull().draw(context);
-}

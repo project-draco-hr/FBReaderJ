@@ -16,7 +16,7 @@
       if (file.getPhysicalFile() != null) {
         file=file.getPhysicalFile();
       }
-      UIUtil.showErrorMessage(this,"fileNotFound",file.getPath());
+      UIMessageUtil.showErrorMessage(this,"fileNotFound",file.getPath());
       myBook=null;
     }
  else {

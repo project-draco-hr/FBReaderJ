@@ -1,9 +1,10 @@
 import sys
 from xml.dom import minidom
-if (len(sys.argv) != 3):
-    print ('Usage: %s <en.xml> <custom.xml>' % sys.argv[0])
-    exit(1)
-baseModel = minidom.parse(sys.argv[1])
-customModel = minidom.parse(sys.argv[2])
-processNodes(baseModel, customModel)
-print customModel.toxml('UTF-8')
+if (__name__ == '__main__'):
+    if (len(sys.argv) != 3):
+        print ('Usage: %s <en.xml> <custom.xml>' % sys.argv[0])
+        exit(1)
+    base_model = minidom.parse(sys.argv[1])
+    custom_model = minidom.parse(sys.argv[2])
+    process_nodes(base_model, custom_model)
+    print custom_model.toxml('UTF-8')

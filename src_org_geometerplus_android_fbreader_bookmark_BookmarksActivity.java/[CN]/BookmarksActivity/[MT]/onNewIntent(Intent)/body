@@ -24,6 +24,6 @@
     mySearchResultsAdapter.addAll(bookmarks);
   }
  else {
-    UIUtil.showErrorMessage(this,"bookmarkNotFound");
+    UIMessageUtil.showErrorMessage(this,"bookmarkNotFound");
   }
 }

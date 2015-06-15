@@ -12,7 +12,7 @@
       ((DirectoriesAdapter)getListAdapter()).notifyDataSetChanged();
     }
  else     if (existing != index - 1) {
-      UIUtil.showMessageText(this,myResource.getResource("duplicate").getValue().replace("%s",path));
+      UIMessageUtil.showMessageText(this,myResource.getResource("duplicate").getValue().replace("%s",path));
     }
   }
 }

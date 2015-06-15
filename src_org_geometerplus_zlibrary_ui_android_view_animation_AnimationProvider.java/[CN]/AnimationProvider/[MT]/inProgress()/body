@@ -1,0 +1,9 @@
+{
+switch (myMode) {
+case NoScrolling:
+case PreManualScrolling:
+    return false;
+default :
+  return true;
+}
+}

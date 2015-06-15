@@ -1,0 +1,12 @@
+{
+  if (myHull0 == null) {
+    final List<ZLTextElementArea> column0=new ArrayList<ZLTextElementArea>();
+    for (    ZLTextElementArea a : textAreas()) {
+      if (a.ColumnIndex == 0) {
+        column0.add(a);
+      }
+    }
+    myHull0=HullUtil.hull(column0);
+  }
+  return myHull0;
+}

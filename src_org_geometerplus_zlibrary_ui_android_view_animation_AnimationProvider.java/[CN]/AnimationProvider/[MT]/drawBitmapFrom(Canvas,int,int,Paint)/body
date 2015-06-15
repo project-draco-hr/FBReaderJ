@@ -1,0 +1,3 @@
+{
+  myBitmapManager.drawBitmap(canvas,x,y,ZLViewEnums.PageIndex.current,paint);
+}

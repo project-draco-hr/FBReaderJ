@@ -3,16 +3,16 @@
   if (super.onFingerPress(x,y)) {
     return true;
   }
-  final ZLTextSelectionCursor cursor=findSelectionCursor(x,y,maxSelectionDistance());
-  if (cursor != ZLTextSelectionCursor.None) {
+  final SelectionCursor.Which cursor=findSelectionCursor(x,y,ZLibrary.Instance().getDisplayDPI() / 4);
+  if (cursor != null) {
     myReader.runAction(ActionCode.SELECTION_HIDE_PANEL);
-    moveSelectionCursorTo(cursor,x,y,true);
+    moveSelectionCursorTo(cursor,x,y);
     return true;
   }
   if (myReader.MiscOptions.AllowScreenBrightnessAdjustment.getValue() && x < getContextWidth() / 10) {
     myIsBrightnessAdjustmentInProgress=true;
     myStartY=y;
-    myStartBrightness=ZLibrary.Instance().getScreenBrightness();
+    myStartBrightness=myReader.getViewWidget().getScreenBrightness();
     return true;
   }
   startManualScrolling(x,y);

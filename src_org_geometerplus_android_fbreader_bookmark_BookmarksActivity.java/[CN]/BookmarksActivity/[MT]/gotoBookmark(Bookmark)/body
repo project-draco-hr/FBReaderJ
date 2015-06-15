@@ -6,6 +6,6 @@
     FBReader.openBookActivity(this,book,bookmark);
   }
  else {
-    UIUtil.showErrorMessage(this,"cannotOpenBook");
+    UIMessageUtil.showErrorMessage(this,"cannotOpenBook");
   }
 }

@@ -1,0 +1,8 @@
+{
+  if (book == null) {
+    return null;
+  }
+synchronized (book) {
+    return getCover(ZLFile.createFileByPath(book.getPath()),collection);
+  }
+}

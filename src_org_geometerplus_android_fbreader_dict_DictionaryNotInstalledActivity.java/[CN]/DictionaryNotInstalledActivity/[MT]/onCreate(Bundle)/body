@@ -1,0 +1,10 @@
+{
+  super.onCreate(saved);
+  myResource=ZLResource.resource("dialog").getResource("missingDictionary");
+  myDictionaryName=getIntent().getStringExtra(DICTIONARY_NAME_KEY);
+  myPackageName=getIntent().getStringExtra(PACKAGE_NAME_KEY);
+  setTitle(myResource.getValue().replaceAll("%s",myDictionaryName));
+  final Adapter adapter=new Adapter();
+  setListAdapter(adapter);
+  getListView().setOnItemClickListener(adapter);
+}

@@ -1,6 +1,5 @@
 {
   super.onCreate(icicle);
-  Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler(this));
   bindService(new Intent(this,DataService.class),DataConnection,DataService.BIND_AUTO_CREATE);
   final Config config=Config.Instance();
   config.runOnConnect(new Runnable(){
@@ -21,7 +20,6 @@
   myRootView=(RelativeLayout)findViewById(R.id.root_view);
   myMainView=(ZLAndroidWidget)findViewById(R.id.main_view);
   setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
-  zlibrary.setActivity(this);
   myFBReaderApp=(FBReaderApp)FBReaderApp.Instance();
   if (myFBReaderApp == null) {
     myFBReaderApp=new FBReaderApp(new BookCollectionShadow());
@@ -67,7 +65,7 @@
   myFBReaderApp.addAction(ActionCode.SET_SCREEN_ORIENTATION_SENSOR,new SetScreenOrientationAction(this,myFBReaderApp,ZLibrary.SCREEN_ORIENTATION_SENSOR));
   myFBReaderApp.addAction(ActionCode.SET_SCREEN_ORIENTATION_PORTRAIT,new SetScreenOrientationAction(this,myFBReaderApp,ZLibrary.SCREEN_ORIENTATION_PORTRAIT));
   myFBReaderApp.addAction(ActionCode.SET_SCREEN_ORIENTATION_LANDSCAPE,new SetScreenOrientationAction(this,myFBReaderApp,ZLibrary.SCREEN_ORIENTATION_LANDSCAPE));
-  if (ZLibrary.Instance().supportsAllOrientations()) {
+  if (getZLibrary().supportsAllOrientations()) {
     myFBReaderApp.addAction(ActionCode.SET_SCREEN_ORIENTATION_REVERSE_PORTRAIT,new SetScreenOrientationAction(this,myFBReaderApp,ZLibrary.SCREEN_ORIENTATION_REVERSE_PORTRAIT));
     myFBReaderApp.addAction(ActionCode.SET_SCREEN_ORIENTATION_REVERSE_LANDSCAPE,new SetScreenOrientationAction(this,myFBReaderApp,ZLibrary.SCREEN_ORIENTATION_REVERSE_LANDSCAPE));
   }

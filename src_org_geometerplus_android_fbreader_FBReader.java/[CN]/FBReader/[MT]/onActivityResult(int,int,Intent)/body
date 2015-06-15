@@ -1,23 +1,23 @@
 {
 switch (requestCode) {
+default :
+    super.onActivityResult(requestCode,resultCode,data);
+  break;
 case REQUEST_PREFERENCES:
-    if (resultCode != RESULT_DO_NOTHING && data != null) {
-      final Book book=FBReaderIntents.getBookExtra(data,myFBReaderApp.Collection);
-      if (book != null) {
-        getCollection().bindToService(this,new Runnable(){
-          public void run(){
-            onPreferencesUpdate(book);
-          }
-        }
-);
+if (resultCode != RESULT_DO_NOTHING && data != null) {
+  final Book book=FBReaderIntents.getBookExtra(data,myFBReaderApp.Collection);
+  if (book != null) {
+    getCollection().bindToService(this,new Runnable(){
+      public void run(){
+        onPreferencesUpdate(book);
       }
     }
-  break;
+);
+  }
+}
+break;
 case REQUEST_CANCEL_MENU:
 runCancelAction(data);
-break;
-case REQUEST_DICTIONARY:
-DictionaryUtil.onActivityResult(this,resultCode,data);
 break;
 }
 }

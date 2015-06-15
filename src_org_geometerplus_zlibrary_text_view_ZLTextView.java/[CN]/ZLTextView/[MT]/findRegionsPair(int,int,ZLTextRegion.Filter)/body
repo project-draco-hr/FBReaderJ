@@ -1,0 +1,3 @@
+{
+  return myCurrentPage.TextElementMap.findRegionsPair(x,y,getColumnIndex(x),filter);
+}

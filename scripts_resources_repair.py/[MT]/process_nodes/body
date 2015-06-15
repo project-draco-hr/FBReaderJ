@@ -1,0 +1,20 @@
+def process_nodes(base, custom):
+    base_child = first_after(base.firstChild)
+    custom_child = first_after(custom.firstChild)
+    while (base_child is not None):
+        if (base_child.nodeName == 'node'):
+            name = base_child.getAttribute('name')
+            if ((name != '') and ((custom_child is None) or (name != custom_child.getAttribute('name')))):
+                new_node = custom.ownerDocument.createElement('node')
+                new_node.setAttribute('name', name)
+                value = base_child.getAttribute('value')
+                if (value != ''):
+                    new_node.setAttribute('value', value)
+                    new_node.setAttribute('toBeTranslated', 'true')
+                custom_child = custom.insertBefore(new_node, custom_child)
+            elif (custom_child and (custom_child.getAttribute('toBeTranslated') == 'true')):
+                custom_child.setAttribute('value', base_child.getAttribute('value'))
+        if (custom_child is not None):
+            process_nodes(base_child, custom_child)
+            custom_child = first_after(custom_child.nextSibling)
+        base_child = first_after(base_child.nextSibling)

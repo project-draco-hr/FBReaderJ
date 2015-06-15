@@ -36,7 +36,7 @@
     action.run();
   }
   registerReceiver(mySyncUpdateReceiver,new IntentFilter(SyncOperations.UPDATED));
-  SetScreenOrientationAction.setOrientation(this,ZLibrary.Instance().getOrientationOption().getValue());
+  SetScreenOrientationAction.setOrientation(this,getZLibrary().getOrientationOption().getValue());
   if (myCancelIntent != null) {
     final Intent intent=myCancelIntent;
     myCancelIntent=null;
