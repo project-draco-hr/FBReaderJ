@@ -6,5 +6,4 @@
  else {
     SubfamilyName=subfamily;
   }
-  System.err.println(this);
 }
