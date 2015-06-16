@@ -14,25 +14,27 @@
   }
   final int count=Math.min(getInt16(buffer,2),(buffer.length - 6) / 12);
   final int stringOffset=getInt16(buffer,4);
-  final ZLTTFInfo fontInfo=new ZLTTFInfo();
+  String family=null;
+  String subfamily=null;
   for (int i=0; i < count; ++i) {
     final int platformId=getInt16(buffer,12 * i + 6);
     final int languageId=getInt16(buffer,12 * i + 10);
     final int nameId=getInt16(buffer,12 * i + 12);
     final int length=getInt16(buffer,12 * i + 14);
     final int offset=getInt16(buffer,12 * i + 16);
+    System.err.println(nameId + ": " + new String(buffer,stringOffset + offset,length,platformId == 1 ? "ISO-8859-1" : "UTF-16BE"));
 switch (nameId) {
 case 1:
-      if ((fontInfo.FamilyName == null || languageId == 1033) && stringOffset + offset + length <= buffer.length) {
-        fontInfo.FamilyName=new String(buffer,stringOffset + offset,length,platformId == 1 ? "ISO-8859-1" : "UTF-16BE");
+      if ((family == null || languageId == 1033) && stringOffset + offset + length <= buffer.length) {
+        family=new String(buffer,stringOffset + offset,length,platformId == 1 ? "ISO-8859-1" : "UTF-16BE");
       }
     break;
 case 2:
-  if ((fontInfo.FamilyName == null || languageId == 1033) && stringOffset + offset + length <= buffer.length) {
-    fontInfo.SubFamilyName=new String(buffer,stringOffset + offset,length,platformId == 1 ? "ISO-8859-1" : "UTF-16BE");
+  if ((subfamily == null || languageId == 1033) && stringOffset + offset + length <= buffer.length) {
+    subfamily=new String(buffer,stringOffset + offset,length,platformId == 1 ? "ISO-8859-1" : "UTF-16BE");
   }
 break;
 }
 }
-return fontInfo;
+return family != null ? new ZLTTFInfo(family,subfamily) : null;
 }

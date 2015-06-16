@@ -8,39 +8,40 @@
     try {
       stream=new FileInputStream(f);
       final ZLTTFInfo info=detectInfo(stream);
-      if (info != null && info.FamilyName != null) {
-        String familyName=info.FamilyName;
-        String subfamilyName=info.SubFamilyName;
-        if (subfamilyName == null || !STYLES.contains(subfamilyName.toLowerCase())) {
-          final String full=subfamilyName != null ? familyName + " " + subfamilyName : familyName;
-          final String lower=full.toLowerCase();
-          familyName=full;
-          subfamilyName="";
-          for (          String style : STYLES) {
-            if (lower.endsWith(" " + style)) {
-              familyName=full.substring(0,lower.length() - style.length() - 1);
-              subfamilyName=full.substring(lower.length() - style.length());
-              break;
-            }
+      if (info == null) {
+        continue;
+      }
+      String family=info.FamilyName;
+      String subfamily=info.SubfamilyName;
+      if (subfamily == null || !STYLES.contains(subfamily.toLowerCase())) {
+        final String full=subfamily != null ? family + " " + subfamily : family;
+        final String lower=full.toLowerCase();
+        family=full;
+        subfamily="";
+        for (        String style : STYLES) {
+          if (lower.endsWith(" " + style)) {
+            family=full.substring(0,lower.length() - style.length() - 1);
+            subfamily=full.substring(lower.length() - style.length());
+            break;
           }
         }
-        File[] table=fonts.get(familyName);
-        if (table == null) {
-          table=new File[4];
-          fonts.put(familyName,table);
-        }
-        if ("bold".equalsIgnoreCase(subfamilyName)) {
-          table[1]=f;
-        }
- else         if ("italic".equalsIgnoreCase(subfamilyName) || "oblique".equalsIgnoreCase(subfamilyName)) {
-          table[2]=f;
-        }
- else         if ("bold italic".equalsIgnoreCase(subfamilyName) || "bold oblique".equalsIgnoreCase(subfamilyName)) {
-          table[3]=f;
-        }
+      }
+      File[] table=fonts.get(family);
+      if (table == null) {
+        table=new File[4];
+        fonts.put(family,table);
+      }
+      if ("bold".equalsIgnoreCase(subfamily)) {
+        table[1]=f;
+      }
+ else       if ("italic".equalsIgnoreCase(subfamily) || "oblique".equalsIgnoreCase(subfamily)) {
+        table[2]=f;
+      }
+ else       if ("bold italic".equalsIgnoreCase(subfamily) || "bold oblique".equalsIgnoreCase(subfamily)) {
+        table[3]=f;
+      }
  else {
-          table[0]=f;
-        }
+        table[0]=f;
       }
     }
  catch (    IOException e) {
