@@ -1,6 +1,6 @@
 {
-  final String action=intent != null ? intent.getAction() : SyncOperations.Action.SYNC;
-  if (SyncOperations.Action.START.equals(action)) {
+  final String action=intent != null ? intent.getAction() : FBReaderIntents.Action.SYNC_SYNC;
+  if (FBReaderIntents.Action.SYNC_START.equals(action)) {
     final AlarmManager alarmManager=(AlarmManager)getSystemService(ALARM_SERVICE);
     alarmManager.cancel(syncIntent());
     final Config config=Config.Instance();
@@ -20,18 +20,18 @@
     }
 );
   }
- else   if (SyncOperations.Action.STOP.equals(action)) {
+ else   if (FBReaderIntents.Action.SYNC_STOP.equals(action)) {
     final AlarmManager alarmManager=(AlarmManager)getSystemService(ALARM_SERVICE);
     alarmManager.cancel(syncIntent());
     log("stopped");
     stopSelf();
   }
- else   if (SyncOperations.Action.SYNC.equals(action)) {
+ else   if (FBReaderIntents.Action.SYNC_SYNC.equals(action)) {
     SQLiteCookieDatabase.init(this);
     myCollection.bindToService(this,myQuickSynchroniser);
     myCollection.bindToService(this,myStandardSynchroniser);
   }
- else   if (SyncOperations.Action.QUICK_SYNC.equals(action)) {
+ else   if (FBReaderIntents.Action.SYNC_QUICK_SYNC.equals(action)) {
     log("quick sync");
     SQLiteCookieDatabase.init(this);
     myCollection.bindToService(this,myQuickSynchroniser);

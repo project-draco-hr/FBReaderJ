@@ -3,7 +3,7 @@
     mySyncPositionsContext.perform(new JsonRequest2(SyncOptions.BASE_URL + "sync/position.exchange",mySyncData.data(myCollection)){
       @Override public void processResponse(      Object response){
         if (mySyncData.updateFromServer((Map<String,Object>)response)) {
-          sendBroadcast(new Intent(SyncOperations.UPDATED));
+          sendBroadcast(new Intent(FBReaderIntents.Event.SYNC_UPDATED));
         }
       }
     }

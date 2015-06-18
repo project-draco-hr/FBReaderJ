@@ -1,4 +1,4 @@
 {
-  final String action=options.Enabled.getValue() ? Action.START : Action.STOP;
+  final String action=options.Enabled.getValue() ? FBReaderIntents.Action.SYNC_START : FBReaderIntents.Action.SYNC_STOP;
   context.startService(new Intent(context,SyncService.class).setAction(action));
 }

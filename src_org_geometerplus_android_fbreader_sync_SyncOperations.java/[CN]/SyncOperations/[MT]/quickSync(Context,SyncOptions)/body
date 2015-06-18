@@ -1,5 +1,5 @@
 {
   if (options.Enabled.getValue()) {
-    context.startService(new Intent(context,SyncService.class).setAction(Action.QUICK_SYNC));
+    context.startService(new Intent(context,SyncService.class).setAction(FBReaderIntents.Action.SYNC_QUICK_SYNC));
   }
 }
