@@ -3,7 +3,7 @@
   if (connection == null) {
     connection=new Connection(plugin);
     myConnections.put(plugin,connection);
-    myContext.bindService(PluginUtil.createIntent(plugin,PluginUtil.ACTION_CONNECT_COVER_SERVICE),connection,Context.BIND_AUTO_CREATE);
+    myContext.bindService(PluginUtil.createIntent(plugin,FBReaderIntents.Action.PLUGIN_CONNECT_COVER_SERVICE),connection,Context.BIND_AUTO_CREATE);
   }
   return connection;
 }
