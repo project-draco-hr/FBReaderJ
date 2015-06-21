@@ -2,12 +2,12 @@
   if (mySelection.isEmpty()) {
     return null;
   }
-  final float leftDistance=distanceToCursor(x,y,SelectionCursor.Which.Left);
-  final float rightDistance=distanceToCursor(x,y,SelectionCursor.Which.Right);
-  if (rightDistance < leftDistance) {
-    return rightDistance <= maxDistance ? SelectionCursor.Which.Right : null;
+  final float leftDistance2=distance2ToCursor(x,y,SelectionCursor.Which.Left);
+  final float rightDistance2=distance2ToCursor(x,y,SelectionCursor.Which.Right);
+  if (rightDistance2 < leftDistance2) {
+    return rightDistance2 <= maxDistance2 ? SelectionCursor.Which.Right : null;
   }
  else {
-    return leftDistance <= maxDistance ? SelectionCursor.Which.Left : null;
+    return leftDistance2 <= maxDistance2 ? SelectionCursor.Which.Left : null;
   }
 }

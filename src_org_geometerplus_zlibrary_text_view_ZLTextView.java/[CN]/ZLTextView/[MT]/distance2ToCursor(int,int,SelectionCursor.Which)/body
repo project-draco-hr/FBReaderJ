@@ -1,0 +1,6 @@
+{
+  final ZLTextSelection.Point point=getSelectionCursorPoint(myCurrentPage,which);
+  final float dX=x - point.X;
+  final float dY=y - point.Y;
+  return point != null ? dX * dX + dY * dY : Float.MAX_VALUE;
+}
