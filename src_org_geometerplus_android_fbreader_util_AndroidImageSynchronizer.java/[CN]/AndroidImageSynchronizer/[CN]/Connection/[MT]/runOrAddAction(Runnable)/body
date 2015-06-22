@@ -1,6 +1,6 @@
 {
   if (Reader != null) {
-    new Thread(action).start();
+    myExecutor.execute(action);
   }
  else {
     myPostActions.add(action);

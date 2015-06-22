@@ -1,11 +1,7 @@
 {
   Reader=CoverReader.Stub.asInterface(binder);
   for (  Runnable action : myPostActions) {
-    try {
-      action.run();
-    }
- catch (    Throwable t) {
-    }
+    myExecutor.execute(action);
   }
   myPostActions.clear();
 }
