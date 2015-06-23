@@ -1,3 +1,3 @@
 {
-  return isTOCAvailable(reader);
+  return isTOCAvailable(Reader);
 }
