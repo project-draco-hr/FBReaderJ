@@ -1,0 +1,3 @@
+{
+  return reader != null && reader.Model != null && reader.Model.TOCTree != null && reader.Model.TOCTree.hasChildren();
+}
