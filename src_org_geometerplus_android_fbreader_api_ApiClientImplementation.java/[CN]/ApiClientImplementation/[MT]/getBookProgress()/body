@@ -1,0 +1,3 @@
+{
+  return requestFloat(GET_BOOK_PROGRESS,EMPTY_PARAMETERS);
+}

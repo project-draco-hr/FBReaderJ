@@ -50,6 +50,8 @@ return ApiObject.envelope(getBookLastTurningTime());
  else {
 return ApiObject.envelope(getBookLastTurningTime(((ApiObject.Long)parameters[0]).Value));
 }
+case GET_BOOK_PROGRESS:
+return ApiObject.envelope(getBookProgress());
 case GET_PARAGRAPHS_NUMBER:
 return ApiObject.envelope(getParagraphsNumber());
 case GET_PARAGRAPH_ELEMENTS_COUNT:
