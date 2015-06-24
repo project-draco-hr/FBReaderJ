@@ -1,0 +1,3 @@
+{
+  return requestStringList(LIST_BOOK_AUTHORS,EMPTY_PARAMETERS);
+}

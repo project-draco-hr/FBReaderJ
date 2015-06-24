@@ -1,0 +1,15 @@
+{
+  final Book book=getReader().getCurrentBook();
+  if (book == null) {
+    return null;
+  }
+  List<Author> authors=book.getAuthors();
+  if (authors == null) {
+    return Collections.emptyList();
+  }
+  List<String> result=new LinkedList<String>();
+  for (  Author author : authors) {
+    result.add(author.DisplayName);
+  }
+  return result;
+}
