@@ -1,0 +1,3 @@
+{
+  return addPreference(new ZLIntegerRangePreference(ZLPreferenceActivity.this,Resource.getResource(resourceKey),option));
+}

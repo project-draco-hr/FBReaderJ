@@ -136,8 +136,6 @@
 );
   appearanceScreen.addPreference(new ZLStringChoicePreference(this,appearanceScreen.Resource.getResource("screenOrientation"),androidLibrary.getOrientationOption(),androidLibrary.allOrientations()));
   appearanceScreen.addPreference(new ZLBooleanPreference(this,viewOptions.TwoColumnView,appearanceScreen.Resource.getResource("twoColumnView")));
-  appearanceScreen.addOption(miscOptions.ShowFootnoteToast,"showFootnoteToast");
-  appearanceScreen.addOption(miscOptions.FootnoteToastDuration,"footnoteToastDuration");
   appearanceScreen.addPreference(new ZLBooleanPreference(this,miscOptions.AllowScreenBrightnessAdjustment,appearanceScreen.Resource.getResource("allowScreenBrightnessAdjustment")){
     private final int myLevel=androidLibrary.ScreenBrightnessLevelOption.getValue();
     @Override protected void onClick(){
@@ -208,6 +206,50 @@
     ngScreen.addPreference(new StringPreference(this,description.TextIndentOption,StringPreference.Constraint.LENGTH,textScreen.Resource,"firstLineIndent"));
     ngScreen.addPreference(new StringPreference(this,description.VerticalAlignOption,StringPreference.Constraint.LENGTH,textScreen.Resource,"verticalAlignment"));
   }
+  final Screen toastsScreen=createPreferenceScreen("toast");
+  toastsScreen.addOption(miscOptions.ToastFontSizePercent,"fontSizePercent");
+  toastsScreen.addOption(miscOptions.ShowFootnoteToast,"showFootnoteToast");
+  toastsScreen.addOption(miscOptions.FootnoteToastDuration,"footnoteToastDuration");
+  final Screen cssScreen=createPreferenceScreen("css");
+  cssScreen.addOption(baseStyle.UseCSSFontFamilyOption,"fontFamily");
+  cssScreen.addOption(baseStyle.UseCSSFontSizeOption,"fontSize");
+  cssScreen.addOption(baseStyle.UseCSSTextAlignmentOption,"textAlignment");
+  cssScreen.addOption(baseStyle.UseCSSMarginsOption,"margins");
+  final Screen colorsScreen=createPreferenceScreen("colors");
+  final PreferenceSet backgroundSet=new PreferenceSet.Enabler(){
+    @Override protected Boolean detectState(){
+      return profile.WallpaperOption.getValue().startsWith("/");
+    }
+  }
+;
+  myBackgroundPreference=new BackgroundPreference(this,profile,colorsScreen.Resource.getResource("background"),BACKGROUND_REQUEST_CODE){
+    @Override public void update(    Intent data){
+      super.update(data);
+      backgroundSet.run();
+    }
+  }
+;
+  colorsScreen.addPreference(myBackgroundPreference);
+  backgroundSet.add(colorsScreen.addOption(profile.FillModeOption,"fillMode"));
+  backgroundSet.run();
+  colorsScreen.addOption(profile.RegularTextOption,"text");
+  colorsScreen.addOption(profile.HyperlinkTextOption,"hyperlink");
+  colorsScreen.addOption(profile.VisitedHyperlinkTextOption,"hyperlinkVisited");
+  colorsScreen.addOption(profile.FooterFillOption,"footerOldStyle");
+  colorsScreen.addOption(profile.FooterNGBackgroundOption,"footerBackground");
+  colorsScreen.addOption(profile.FooterNGForegroundOption,"footerForeground");
+  colorsScreen.addOption(profile.FooterNGForegroundUnreadOption,"footerForegroundUnread");
+  colorsScreen.addOption(profile.SelectionBackgroundOption,"selectionBackground");
+  colorsScreen.addOption(profile.SelectionForegroundOption,"selectionForeground");
+  colorsScreen.addOption(profile.HighlightingForegroundOption,"highlightingForeground");
+  colorsScreen.addOption(profile.HighlightingBackgroundOption,"highlightingBackground");
+  final Screen marginsScreen=createPreferenceScreen("margins");
+  marginsScreen.addOption(viewOptions.LeftMargin,"left");
+  marginsScreen.addOption(viewOptions.RightMargin,"right");
+  marginsScreen.addOption(viewOptions.TopMargin,"top");
+  marginsScreen.addOption(viewOptions.BottomMargin,"bottom");
+  marginsScreen.addOption(viewOptions.SpaceBetweenColumns,"spaceBetweenColumns");
+  final Screen statusLineScreen=createPreferenceScreen("scrollBar");
   final PreferenceSet footerPreferences=new PreferenceSet.Enabler(){
     @Override protected Boolean detectState(){
 switch (viewOptions.ScrollbarType.getValue()) {
@@ -242,46 +284,6 @@ return false;
 }
 }
 ;
-final Screen cssScreen=createPreferenceScreen("css");
-cssScreen.addOption(baseStyle.UseCSSFontFamilyOption,"fontFamily");
-cssScreen.addOption(baseStyle.UseCSSFontSizeOption,"fontSize");
-cssScreen.addOption(baseStyle.UseCSSTextAlignmentOption,"textAlignment");
-cssScreen.addOption(baseStyle.UseCSSMarginsOption,"margins");
-final Screen colorsScreen=createPreferenceScreen("colors");
-final PreferenceSet backgroundSet=new PreferenceSet.Enabler(){
-@Override protected Boolean detectState(){
-return profile.WallpaperOption.getValue().startsWith("/");
-}
-}
-;
-myBackgroundPreference=new BackgroundPreference(this,profile,colorsScreen.Resource.getResource("background"),BACKGROUND_REQUEST_CODE){
-@Override public void update(Intent data){
-super.update(data);
-backgroundSet.run();
-}
-}
-;
-colorsScreen.addPreference(myBackgroundPreference);
-backgroundSet.add(colorsScreen.addOption(profile.FillModeOption,"fillMode"));
-backgroundSet.run();
-colorsScreen.addOption(profile.RegularTextOption,"text");
-colorsScreen.addOption(profile.HyperlinkTextOption,"hyperlink");
-colorsScreen.addOption(profile.VisitedHyperlinkTextOption,"hyperlinkVisited");
-colorsScreen.addOption(profile.FooterFillOption,"footerOldStyle");
-colorsScreen.addOption(profile.FooterNGBackgroundOption,"footerBackground");
-colorsScreen.addOption(profile.FooterNGForegroundOption,"footerForeground");
-colorsScreen.addOption(profile.FooterNGForegroundUnreadOption,"footerForegroundUnread");
-colorsScreen.addOption(profile.SelectionBackgroundOption,"selectionBackground");
-colorsScreen.addOption(profile.SelectionForegroundOption,"selectionForeground");
-colorsScreen.addOption(profile.HighlightingForegroundOption,"highlightingForeground");
-colorsScreen.addOption(profile.HighlightingBackgroundOption,"highlightingBackground");
-final Screen marginsScreen=createPreferenceScreen("margins");
-marginsScreen.addPreference(new ZLIntegerRangePreference(this,marginsScreen.Resource.getResource("left"),viewOptions.LeftMargin));
-marginsScreen.addPreference(new ZLIntegerRangePreference(this,marginsScreen.Resource.getResource("right"),viewOptions.RightMargin));
-marginsScreen.addPreference(new ZLIntegerRangePreference(this,marginsScreen.Resource.getResource("top"),viewOptions.TopMargin));
-marginsScreen.addPreference(new ZLIntegerRangePreference(this,marginsScreen.Resource.getResource("bottom"),viewOptions.BottomMargin));
-marginsScreen.addPreference(new ZLIntegerRangePreference(this,marginsScreen.Resource.getResource("spaceBetweenColumns"),viewOptions.SpaceBetweenColumns));
-final Screen statusLineScreen=createPreferenceScreen("scrollBar");
 final String[] scrollBarTypes={"hide","show","showAsProgress","showAsFooter","showAsFooterOldStyle"};
 statusLineScreen.addPreference(new ZLChoicePreference(this,statusLineScreen.Resource.getResource("scrollbarType"),viewOptions.ScrollbarType,scrollBarTypes){
 @Override protected void onDialogClosed(boolean result){
