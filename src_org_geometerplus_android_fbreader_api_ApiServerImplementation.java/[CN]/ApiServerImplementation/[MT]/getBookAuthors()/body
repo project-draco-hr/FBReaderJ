@@ -3,13 +3,10 @@
   if (book == null) {
     return null;
   }
-  List<Author> authors=book.getAuthors();
-  if (authors == null) {
-    return Collections.emptyList();
+  final List<Author> authors=book.authors();
+  final List<String> authorNames=new ArrayList<String>(authors.size());
+  for (  Author a : authors) {
+    authorNames.add(a.DisplayName);
   }
-  List<String> result=new LinkedList<String>();
-  for (  Author author : authors) {
-    result.add(author.DisplayName);
-  }
-  return result;
+  return authorNames;
 }

@@ -3,6 +3,6 @@
   if (book == null) {
     return -1.0f;
   }
-  RationalNumber progress=book.getProgress();
-  return progress.toFloat();
+  final RationalNumber progress=book.getProgress();
+  return progress != null ? progress.toFloat() : -1.0f;
 }

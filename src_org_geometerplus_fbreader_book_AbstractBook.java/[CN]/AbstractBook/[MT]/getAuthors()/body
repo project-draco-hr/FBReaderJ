@@ -1,3 +1,0 @@
-{
-  return myAuthors != null ? myAuthors : null;
-}
