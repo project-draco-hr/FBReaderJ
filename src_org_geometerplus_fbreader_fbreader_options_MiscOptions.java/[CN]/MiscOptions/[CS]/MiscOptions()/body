@@ -4,7 +4,7 @@
   EnableDoubleTap=new ZLBooleanOption("Options","EnableDoubleTap",false);
   NavigateAllWords=new ZLBooleanOption("Options","NavigateAllWords",false);
   WordTappingAction=new ZLEnumOption<WordTappingActionEnum>("Options","WordTappingAction",WordTappingActionEnum.startSelecting);
-  ToastFontSizePercent=new ZLIntegerRangeOption("Options","ToastFontSizePercent",25,100,85);
+  ToastFontSizePercent=new ZLIntegerRangeOption("Options","ToastFontSizePercent",25,100,90);
   ShowFootnoteToast=new ZLEnumOption<FootnoteToastEnum>("Options","ShowFootnoteToast",FootnoteToastEnum.footnotesAndSuperscripts);
   FootnoteToastDuration=new ZLEnumOption<DurationEnum>("Options","FootnoteToastDuration",DurationEnum.duration5);
 }
