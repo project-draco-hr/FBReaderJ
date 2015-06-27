@@ -1,3 +1,5 @@
 {
-  detectLanguageAndEncodingNative(book);
+synchronized (ourNativeLock) {
+    detectLanguageAndEncodingNative(book);
+  }
 }

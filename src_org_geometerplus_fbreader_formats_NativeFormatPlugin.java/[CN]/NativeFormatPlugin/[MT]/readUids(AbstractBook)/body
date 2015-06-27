@@ -1,5 +1,7 @@
 {
-  readUidsNative(book);
+synchronized (ourNativeLock) {
+    readUidsNative(book);
+  }
   if (book.uids().isEmpty()) {
     book.addUid(BookUtil.createUid(book,"SHA-256"));
   }

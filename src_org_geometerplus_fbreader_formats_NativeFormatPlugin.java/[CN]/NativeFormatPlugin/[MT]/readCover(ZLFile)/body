@@ -2,7 +2,9 @@
   return new ZLFileImageProxy(file){
     @Override protected ZLFileImage retrieveRealImage(){
       final ZLFileImage[] box=new ZLFileImage[1];
-      readCoverInternal(File,box);
+synchronized (ourNativeLock) {
+        readCoverNative(File,box);
+      }
       return box[0];
     }
   }

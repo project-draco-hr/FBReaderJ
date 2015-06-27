@@ -1,3 +1,5 @@
 {
-  return readAnnotationInternal(file);
+synchronized (ourNativeLock) {
+    return readAnnotationNative(file);
+  }
 }

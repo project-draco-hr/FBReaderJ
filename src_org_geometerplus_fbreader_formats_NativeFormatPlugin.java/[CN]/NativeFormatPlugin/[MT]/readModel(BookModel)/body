@@ -1,5 +1,8 @@
 {
-  final int code=readModelNative(model);
+  final int code;
+synchronized (ourNativeLock) {
+    code=readModelNative(model);
+  }
 switch (code) {
 case 0:
     return;
