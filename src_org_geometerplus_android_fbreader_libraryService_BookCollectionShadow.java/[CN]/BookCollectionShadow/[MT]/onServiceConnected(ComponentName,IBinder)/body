@@ -1,7 +1,14 @@
 {
-  myInterface=LibraryInterface.Stub.asInterface(service);
-  while (!myOnBindActions.isEmpty()) {
-    Config.Instance().runOnConnect(myOnBindActions.remove(0));
+synchronized (this) {
+    myInterface=LibraryInterface.Stub.asInterface(service);
+  }
+  final List<Runnable> actions;
+synchronized (myOnBindActions) {
+    actions=new ArrayList<Runnable>(myOnBindActions);
+    myOnBindActions.clear();
+  }
+  for (  Runnable a : actions) {
+    Config.Instance().runOnConnect(a);
   }
   if (myContext != null) {
     myContext.registerReceiver(myReceiver,new IntentFilter(FBReaderIntents.Event.LIBRARY_BOOK));

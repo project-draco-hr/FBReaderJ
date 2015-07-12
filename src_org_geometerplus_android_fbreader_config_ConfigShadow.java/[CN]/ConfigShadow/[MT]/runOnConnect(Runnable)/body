@@ -3,6 +3,8 @@
     runnable.run();
   }
  else {
-    myDeferredActions.add(runnable);
+synchronized (myDeferredActions) {
+      myDeferredActions.add(runnable);
+    }
   }
 }

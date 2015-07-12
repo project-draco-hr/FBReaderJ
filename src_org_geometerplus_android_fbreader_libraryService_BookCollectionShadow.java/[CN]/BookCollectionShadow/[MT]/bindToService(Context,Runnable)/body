@@ -7,7 +7,9 @@
   }
  else {
     if (onBindAction != null) {
-      myOnBindActions.add(onBindAction);
+synchronized (myOnBindActions) {
+        myOnBindActions.add(onBindAction);
+      }
     }
     final boolean result=context.bindService(FBReaderIntents.internalIntent(FBReaderIntents.Action.LIBRARY_SERVICE),this,Service.BIND_AUTO_CREATE);
     if (result) {

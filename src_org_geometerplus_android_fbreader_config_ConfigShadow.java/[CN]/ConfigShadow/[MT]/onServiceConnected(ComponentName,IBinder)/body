@@ -1,7 +1,14 @@
 {
-  myInterface=ConfigInterface.Stub.asInterface(service);
-  myContext.registerReceiver(myReceiver,new IntentFilter(FBReaderIntents.Event.CONFIG_OPTION_CHANGE));
-  while (!myDeferredActions.isEmpty()) {
-    myDeferredActions.remove(0).run();
+synchronized (this) {
+    myInterface=ConfigInterface.Stub.asInterface(service);
+    myContext.registerReceiver(myReceiver,new IntentFilter(FBReaderIntents.Event.CONFIG_OPTION_CHANGE));
+  }
+  final List<Runnable> actions;
+synchronized (myDeferredActions) {
+    actions=new ArrayList<Runnable>(myDeferredActions);
+    myDeferredActions.clear();
+  }
+  for (  Runnable a : actions) {
+    a.run();
   }
 }
