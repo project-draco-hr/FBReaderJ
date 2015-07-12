@@ -2,7 +2,7 @@
   if (soul == null) {
     return null;
   }
-synchronized (myElementRegions) {
+synchronized (myAreas) {
     for (    ZLTextRegion region : myElementRegions) {
       if (soul.equals(region.getSoul())) {
         return region;

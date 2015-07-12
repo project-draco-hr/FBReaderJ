@@ -1,7 +1,7 @@
 {
   ZLTextRegion bestRegion=null;
   int distance=maxDistance + 1;
-synchronized (myElementRegions) {
+synchronized (myAreas) {
     for (    ZLTextRegion region : myElementRegions) {
       if (filter.accepts(region)) {
         final int d=region.distanceTo(x,y);

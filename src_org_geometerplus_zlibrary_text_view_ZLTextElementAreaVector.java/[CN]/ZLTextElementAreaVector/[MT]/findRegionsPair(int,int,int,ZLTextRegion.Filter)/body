@@ -1,6 +1,6 @@
 {
   RegionPair pair=new RegionPair();
-synchronized (myElementRegions) {
+synchronized (myAreas) {
     for (    ZLTextRegion region : myElementRegions) {
       if (filter.accepts(region)) {
         if (region.isBefore(x,y,columnIndex)) {

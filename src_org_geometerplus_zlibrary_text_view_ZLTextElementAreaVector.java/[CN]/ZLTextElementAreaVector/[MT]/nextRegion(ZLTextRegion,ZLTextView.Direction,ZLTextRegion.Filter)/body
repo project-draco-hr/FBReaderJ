@@ -1,5 +1,5 @@
 {
-synchronized (myElementRegions) {
+synchronized (myAreas) {
     if (myElementRegions.isEmpty()) {
       return null;
     }

@@ -1,5 +1,7 @@
 {
-  myElementRegions.clear();
-  myCurrentElementRegion=null;
-  myAreas.clear();
+synchronized (myAreas) {
+    myElementRegions.clear();
+    myCurrentElementRegion=null;
+    myAreas.clear();
+  }
 }
