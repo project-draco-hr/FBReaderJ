@@ -1,25 +1,33 @@
 {
   if (seriesInfo == null) {
     final SQLiteStatement statement=get("DELETE FROM BookSeries WHERE book_id=?");
-    statement.bindLong(1,bookId);
-    statement.execute();
+synchronized (statement) {
+      statement.bindLong(1,bookId);
+      statement.execute();
+    }
   }
  else {
     long seriesId;
     try {
       final SQLiteStatement getSeriesIdStatement=get("SELECT series_id FROM Series WHERE name = ?");
-      getSeriesIdStatement.bindString(1,seriesInfo.Series.getTitle());
-      seriesId=getSeriesIdStatement.simpleQueryForLong();
+synchronized (getSeriesIdStatement) {
+        getSeriesIdStatement.bindString(1,seriesInfo.Series.getTitle());
+        seriesId=getSeriesIdStatement.simpleQueryForLong();
+      }
     }
  catch (    SQLException e) {
       final SQLiteStatement insertSeriesStatement=get("INSERT OR IGNORE INTO Series (name) VALUES (?)");
-      insertSeriesStatement.bindString(1,seriesInfo.Series.getTitle());
-      seriesId=insertSeriesStatement.executeInsert();
+synchronized (insertSeriesStatement) {
+        insertSeriesStatement.bindString(1,seriesInfo.Series.getTitle());
+        seriesId=insertSeriesStatement.executeInsert();
+      }
     }
     final SQLiteStatement insertBookSeriesStatement=get("INSERT OR REPLACE INTO BookSeries (book_id,series_id,book_index) VALUES (?,?,?)");
-    insertBookSeriesStatement.bindLong(1,bookId);
-    insertBookSeriesStatement.bindLong(2,seriesId);
-    SQLiteUtil.bindString(insertBookSeriesStatement,3,seriesInfo.Index != null ? seriesInfo.Index.toPlainString() : null);
-    insertBookSeriesStatement.execute();
+synchronized (insertBookSeriesStatement) {
+      insertBookSeriesStatement.bindLong(1,bookId);
+      insertBookSeriesStatement.bindLong(2,seriesId);
+      SQLiteUtil.bindString(insertBookSeriesStatement,3,seriesInfo.Index != null ? seriesInfo.Index.toPlainString() : null);
+      insertBookSeriesStatement.execute();
+    }
   }
 }

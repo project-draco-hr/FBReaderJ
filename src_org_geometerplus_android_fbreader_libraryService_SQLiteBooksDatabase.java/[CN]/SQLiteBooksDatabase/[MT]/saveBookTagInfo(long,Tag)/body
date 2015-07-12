@@ -1,6 +1,8 @@
 {
   final SQLiteStatement statement=get("INSERT OR IGNORE INTO BookTag (book_id,tag_id) VALUES (?,?)");
-  statement.bindLong(1,bookId);
-  statement.bindLong(2,getTagId(tag));
-  statement.execute();
+synchronized (statement) {
+    statement.bindLong(1,bookId);
+    statement.bindLong(2,getTagId(tag));
+    statement.execute();
+  }
 }

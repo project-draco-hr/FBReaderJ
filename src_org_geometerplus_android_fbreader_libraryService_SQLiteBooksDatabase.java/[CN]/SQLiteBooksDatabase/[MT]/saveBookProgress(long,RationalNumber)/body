@@ -1,7 +1,9 @@
 {
   final SQLiteStatement statement=get("INSERT OR REPLACE INTO BookReadingProgress (book_id,numerator,denominator) VALUES (?,?,?)");
-  statement.bindLong(1,bookId);
-  statement.bindLong(2,progress.Numerator);
-  statement.bindLong(3,progress.Denominator);
-  statement.execute();
+synchronized (statement) {
+    statement.bindLong(1,bookId);
+    statement.bindLong(2,progress.Numerator);
+    statement.bindLong(3,progress.Denominator);
+    statement.execute();
+  }
 }

@@ -1,16 +1,18 @@
 {
   final SQLiteStatement statement=get("INSERT OR REPLACE INTO BookState (book_id,paragraph,word,char,timestamp) VALUES (?,?,?,?,?)");
-  statement.bindLong(1,bookId);
-  statement.bindLong(2,position.getParagraphIndex());
-  statement.bindLong(3,position.getElementIndex());
-  statement.bindLong(4,position.getCharIndex());
-  long timestamp=-1;
-  if (position instanceof ZLTextFixedPosition.WithTimestamp) {
-    timestamp=((ZLTextFixedPosition.WithTimestamp)position).Timestamp;
+synchronized (statement) {
+    statement.bindLong(1,bookId);
+    statement.bindLong(2,position.getParagraphIndex());
+    statement.bindLong(3,position.getElementIndex());
+    statement.bindLong(4,position.getCharIndex());
+    long timestamp=-1;
+    if (position instanceof ZLTextFixedPosition.WithTimestamp) {
+      timestamp=((ZLTextFixedPosition.WithTimestamp)position).Timestamp;
+    }
+    if (timestamp == -1) {
+      timestamp=System.currentTimeMillis();
+    }
+    statement.bindLong(5,timestamp);
+    statement.execute();
   }
-  if (timestamp == -1) {
-    timestamp=System.currentTimeMillis();
-  }
-  statement.bindLong(5,timestamp);
-  statement.execute();
 }

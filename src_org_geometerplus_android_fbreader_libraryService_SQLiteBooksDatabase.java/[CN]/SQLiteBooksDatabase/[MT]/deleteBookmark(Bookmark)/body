@@ -1,9 +1,13 @@
 {
   final String uuid=uid(bookmark);
   SQLiteStatement statement=get("DELETE FROM Bookmarks WHERE uid=?");
-  statement.bindString(1,uuid);
-  statement.execute();
+synchronized (statement) {
+    statement.bindString(1,uuid);
+    statement.execute();
+  }
   statement=get("INSERT OR IGNORE INTO DeletedBookmarkIds (uid) VALUES (?)");
-  statement.bindString(1,uuid);
-  statement.execute();
+synchronized (statement) {
+    statement.bindString(1,uuid);
+    statement.execute();
+  }
 }

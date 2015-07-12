@@ -7,38 +7,40 @@
  else {
     statement=get("UPDATE Bookmarks SET uid=?,version_uid=?,book_id=?,bookmark_text=?,original_text=?,creation_time=?,modification_time=?,access_time=?,model_id=?,paragraph=?,word=?,char=?,end_paragraph=?,end_word=?,end_character=?,visible=?,style_id=? WHERE bookmark_id=?");
   }
-  int fieldCount=0;
-  SQLiteUtil.bindString(statement,++fieldCount,uid(bookmark));
-  SQLiteUtil.bindString(statement,++fieldCount,bookmark.getVersionUid());
-  statement.bindLong(++fieldCount,bookmark.BookId);
-  statement.bindString(++fieldCount,bookmark.getText());
-  SQLiteUtil.bindString(statement,++fieldCount,bookmark.getOriginalText());
-  SQLiteUtil.bindLong(statement,++fieldCount,bookmark.getTimestamp(Bookmark.DateType.Creation));
-  SQLiteUtil.bindLong(statement,++fieldCount,bookmark.getTimestamp(Bookmark.DateType.Modification));
-  SQLiteUtil.bindLong(statement,++fieldCount,bookmark.getTimestamp(Bookmark.DateType.Access));
-  SQLiteUtil.bindString(statement,++fieldCount,bookmark.ModelId);
-  statement.bindLong(++fieldCount,bookmark.ParagraphIndex);
-  statement.bindLong(++fieldCount,bookmark.ElementIndex);
-  statement.bindLong(++fieldCount,bookmark.CharIndex);
-  final ZLTextPosition end=bookmark.getEnd();
-  if (end != null) {
-    statement.bindLong(++fieldCount,end.getParagraphIndex());
-    statement.bindLong(++fieldCount,end.getElementIndex());
-    statement.bindLong(++fieldCount,end.getCharIndex());
-  }
+synchronized (statement) {
+    int fieldCount=0;
+    SQLiteUtil.bindString(statement,++fieldCount,uid(bookmark));
+    SQLiteUtil.bindString(statement,++fieldCount,bookmark.getVersionUid());
+    statement.bindLong(++fieldCount,bookmark.BookId);
+    statement.bindString(++fieldCount,bookmark.getText());
+    SQLiteUtil.bindString(statement,++fieldCount,bookmark.getOriginalText());
+    SQLiteUtil.bindLong(statement,++fieldCount,bookmark.getTimestamp(Bookmark.DateType.Creation));
+    SQLiteUtil.bindLong(statement,++fieldCount,bookmark.getTimestamp(Bookmark.DateType.Modification));
+    SQLiteUtil.bindLong(statement,++fieldCount,bookmark.getTimestamp(Bookmark.DateType.Access));
+    SQLiteUtil.bindString(statement,++fieldCount,bookmark.ModelId);
+    statement.bindLong(++fieldCount,bookmark.ParagraphIndex);
+    statement.bindLong(++fieldCount,bookmark.ElementIndex);
+    statement.bindLong(++fieldCount,bookmark.CharIndex);
+    final ZLTextPosition end=bookmark.getEnd();
+    if (end != null) {
+      statement.bindLong(++fieldCount,end.getParagraphIndex());
+      statement.bindLong(++fieldCount,end.getElementIndex());
+      statement.bindLong(++fieldCount,end.getCharIndex());
+    }
  else {
-    statement.bindLong(++fieldCount,bookmark.getLength());
-    statement.bindNull(++fieldCount);
-    statement.bindNull(++fieldCount);
-  }
-  statement.bindLong(++fieldCount,bookmark.IsVisible ? 1 : 0);
-  statement.bindLong(++fieldCount,bookmark.getStyleId());
-  if (bookmarkId == -1) {
-    return statement.executeInsert();
-  }
+      statement.bindLong(++fieldCount,bookmark.getLength());
+      statement.bindNull(++fieldCount);
+      statement.bindNull(++fieldCount);
+    }
+    statement.bindLong(++fieldCount,bookmark.IsVisible ? 1 : 0);
+    statement.bindLong(++fieldCount,bookmark.getStyleId());
+    if (bookmarkId == -1) {
+      return statement.executeInsert();
+    }
  else {
-    statement.bindLong(++fieldCount,bookmarkId);
-    statement.execute();
-    return bookmarkId;
+      statement.bindLong(++fieldCount,bookmarkId);
+      statement.execute();
+      return bookmarkId;
+    }
   }
 }

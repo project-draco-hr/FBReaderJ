@@ -1,5 +1,7 @@
 {
   final SQLiteStatement statement=get("DELETE FROM BookAuthor WHERE book_id=?");
-  statement.bindLong(1,bookId);
-  statement.execute();
+synchronized (statement) {
+    statement.bindLong(1,bookId);
+    statement.execute();
+  }
 }

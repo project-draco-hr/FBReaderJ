@@ -1,9 +1,11 @@
 {
   final SQLiteStatement statement=get("INSERT OR IGNORE INTO Books (encoding,language,title,file_id) VALUES (?,?,?,?)");
-  SQLiteUtil.bindString(statement,1,encoding);
-  SQLiteUtil.bindString(statement,2,language);
-  statement.bindString(3,title);
-  final FileInfoSet infoSet=new FileInfoSet(this,file);
-  statement.bindLong(4,infoSet.getId(file));
-  return statement.executeInsert();
+synchronized (statement) {
+    SQLiteUtil.bindString(statement,1,encoding);
+    SQLiteUtil.bindString(statement,2,language);
+    statement.bindString(3,title);
+    final FileInfoSet infoSet=new FileInfoSet(this,file);
+    statement.bindLong(4,infoSet.getId(file));
+    return statement.executeInsert();
+  }
 }

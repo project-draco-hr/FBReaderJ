@@ -3,6 +3,8 @@
     return;
   }
   final SQLiteStatement statement=get("DELETE FROM Files WHERE file_id=?");
-  statement.bindLong(1,fileId);
-  statement.execute();
+synchronized (statement) {
+    statement.bindLong(1,fileId);
+    statement.execute();
+  }
 }
