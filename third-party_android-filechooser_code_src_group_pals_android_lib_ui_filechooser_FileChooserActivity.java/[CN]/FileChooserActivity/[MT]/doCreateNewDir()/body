@@ -34,7 +34,11 @@
         Dlg.toast(FileChooserActivity.this,getString(R.string.afc_pmsg_filename_is_invalid,name),Dlg._LengthShort);
         return;
       }
-      IFile dir=mFileProvider.fromPath(String.format("%s/%s",getLocation().getAbsolutePath(),name));
+      final IFileProvider fileProvider=mFileProvider;
+      if (fileProvider == null) {
+        return;
+      }
+      IFile dir=fileProvider.fromPath(String.format("%s/%s",getLocation().getAbsolutePath(),name));
       if (dir.mkdir()) {
         Dlg.toast(FileChooserActivity.this,getString(R.string.afc_msg_done),Dlg._LengthShort);
         setLocation(getLocation(),null);
