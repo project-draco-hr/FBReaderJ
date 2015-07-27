@@ -28,7 +28,7 @@
   final SuperActivityToast toast;
   if (hasExtraData) {
     toast=new SuperActivityToast(fbreader,SuperToast.Type.BUTTON);
-    toast.setButtonIcon(android.R.drawable.ic_menu_more,ZLResource.resource("footnoteToast").getResource("more").getValue());
+    toast.setButtonIcon(android.R.drawable.ic_menu_more,ZLResource.resource("toast").getResource("more").getValue());
     toast.setOnClickWrapper(new OnClickWrapper("dict",new SuperToast.OnClickListener(){
       @Override public void onClick(      View view,      Parcelable token){
         final String word=data.getStringExtra("article.word");
