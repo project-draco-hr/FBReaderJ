@@ -6,5 +6,5 @@
     myChildrenItems.add((NetworkCatalogItem)item);
   }
   myUnconfirmedTrees.add(NetworkTreeFactory.createNetworkTree(this,item));
-  NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
+  Library.fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
 }

@@ -32,7 +32,7 @@
     myLink.setTitle(title);
     myLink.setSummary(summary);
     myLink.setUrl(UrlInfo.Type.Catalog,uri.toString(),MimeType.APP_ATOM_XML);
-    final NetworkLibrary library=NetworkLibrary.Instance();
+    final NetworkLibrary library=Util.networkLibrary(this);
     library.addCustomLink(myLink);
     library.synchronize();
     openCatalog(myEditNotAdd ? null : uri);

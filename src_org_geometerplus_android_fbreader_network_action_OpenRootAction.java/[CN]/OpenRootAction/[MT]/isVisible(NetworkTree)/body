@@ -7,7 +7,7 @@
   }
   for (; tree != null; tree=(NetworkTree)tree.Parent) {
     if (tree instanceof RootTree) {
-      return tree == NetworkLibrary.Instance().getRootTree();
+      return tree == myLibrary.getRootTree();
     }
   }
   return false;

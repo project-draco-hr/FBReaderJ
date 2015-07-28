@@ -1,5 +1,5 @@
 {
-  final NetworkItemsLoader loader=NetworkLibrary.Instance().getStoredLoader(tree);
+  final NetworkItemsLoader loader=myLibrary.getStoredLoader(tree);
   if (loader != null && loader.canResumeLoading()) {
     doOpenTree(tree);
   }

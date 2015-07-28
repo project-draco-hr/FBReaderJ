@@ -1,4 +1,4 @@
 {
   NetworkContext=nc;
-  myTree=tree;
+  Tree=tree;
 }

@@ -1,5 +1,5 @@
 {
-  if (currentTotal == subtrees().size() && myLastTotalChildren < currentTotal && !NetworkLibrary.Instance().isLoadingInProgress(this) && Item.canResumeLoading()) {
+  if (currentTotal == subtrees().size() && myLastTotalChildren < currentTotal && !Library.isLoadingInProgress(this) && Item.canResumeLoading()) {
     myLastTotalChildren=currentTotal;
     startItemsLoader(new QuietNetworkContext(),false,true);
   }

@@ -1,4 +1,4 @@
 {
-  NetworkLibrary.Instance().runBackgroundUpdate(true);
+  myLibrary.runBackgroundUpdate(true);
   ((NetworkLibraryActivity)myActivity).requestCatalogPlugins();
 }

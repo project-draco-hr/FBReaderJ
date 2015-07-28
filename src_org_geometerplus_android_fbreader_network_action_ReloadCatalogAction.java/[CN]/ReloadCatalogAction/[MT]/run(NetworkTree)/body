@@ -1,5 +1,5 @@
 {
-  if (NetworkLibrary.Instance().getStoredLoader(tree) != null) {
+  if (myLibrary.getStoredLoader(tree) != null) {
     return;
   }
   ((NetworkCatalogTree)tree).clearCatalog();

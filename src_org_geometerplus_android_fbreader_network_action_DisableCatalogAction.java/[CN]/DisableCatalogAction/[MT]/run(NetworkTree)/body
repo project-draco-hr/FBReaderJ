@@ -1,4 +1,4 @@
 {
-  NetworkLibrary.Instance().setLinkActive(tree.getLink(),false);
-  NetworkLibrary.Instance().synchronize();
+  myLibrary.setLinkActive(tree.getLink(),false);
+  myLibrary.synchronize();
 }

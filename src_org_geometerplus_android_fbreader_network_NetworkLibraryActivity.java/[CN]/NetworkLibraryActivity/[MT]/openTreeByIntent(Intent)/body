@@ -7,7 +7,7 @@
     final String id=uri.toString();
     addCustomLink(id,new Runnable(){
       public void run(){
-        final NetworkLibrary library=NetworkLibrary.Instance();
+        final NetworkLibrary library=Util.networkLibrary(NetworkLibraryActivity.this);
         library.setLinkActive(id,true);
         library.synchronize();
         onLibraryChanged(NetworkLibrary.ChangeListener.Code.SomeCode,new Object[0]);

@@ -1,5 +1,5 @@
 {
-  final NetworkLibrary library=NetworkLibrary.Instance();
+  final NetworkLibrary library=Util.networkLibrary(this);
   final NetworkTree tree=getCurrentTree();
   final NetworkTree lTree=getLoadableNetworkTree(tree);
   final NetworkTree sTree=RunSearchAction.getSearchTree(tree);

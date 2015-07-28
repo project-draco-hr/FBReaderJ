@@ -6,5 +6,5 @@
   if (coverUrl == null) {
     return null;
   }
-  return createCover(coverUrl,null);
+  return createCoverFromUrl(library,coverUrl,null);
 }

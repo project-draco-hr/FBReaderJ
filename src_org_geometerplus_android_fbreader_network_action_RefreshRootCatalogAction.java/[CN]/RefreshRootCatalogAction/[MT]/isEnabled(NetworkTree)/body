@@ -1,3 +1,3 @@
 {
-  return !NetworkLibrary.Instance().isUpdateInProgress();
+  return !myLibrary.isUpdateInProgress();
 }

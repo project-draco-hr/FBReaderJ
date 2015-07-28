@@ -1,5 +1,5 @@
 {
-  final INetworkLink link=getTree().getLink();
+  final INetworkLink link=Tree.getLink();
   if (myAuthenticate && link != null && link.authenticationManager() != null) {
     final NetworkAuthenticationManager mgr=link.authenticationManager();
     try {

@@ -1,5 +1,5 @@
 {
-  NetworkLibrary.Instance().removeChangeListener(this);
+  myLibrary.removeChangeListener(this);
   myBookCollection.unbind();
   super.onDestroy();
 }

@@ -9,5 +9,5 @@
     }
   }
 );
-  NetworkLibrary.Instance().addChangeListener(this);
+  Util.networkLibrary(this).addChangeListener(this);
 }

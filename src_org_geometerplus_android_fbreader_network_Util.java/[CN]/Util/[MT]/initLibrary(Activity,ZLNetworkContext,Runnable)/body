@@ -6,7 +6,7 @@
           if (SQLiteNetworkDatabase.Instance() == null) {
             new SQLiteNetworkDatabase(activity.getApplication());
           }
-          final NetworkLibrary library=NetworkLibrary.Instance();
+          final NetworkLibrary library=networkLibrary(activity);
           if (!library.isInitialized()) {
             try {
               library.initialize(nc);

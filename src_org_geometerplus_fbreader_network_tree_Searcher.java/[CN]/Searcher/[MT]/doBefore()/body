@@ -1,3 +1,3 @@
 {
-  NetworkLibrary.Instance().NetworkSearchPatternOption.setValue(myPattern);
+  Tree.Library.NetworkSearchPatternOption.setValue(myPattern);
 }

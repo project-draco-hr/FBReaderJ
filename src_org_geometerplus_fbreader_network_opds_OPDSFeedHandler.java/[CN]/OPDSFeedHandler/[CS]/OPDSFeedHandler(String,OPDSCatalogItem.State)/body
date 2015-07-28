@@ -1,5 +1,5 @@
 {
-  myCatalog=result.Loader.getTree().Item;
+  myCatalog=result.Loader.Tree.Item;
   myBaseURL=baseURL;
   myData=result;
   mySkipUntilId=myData.LastLoadedId;

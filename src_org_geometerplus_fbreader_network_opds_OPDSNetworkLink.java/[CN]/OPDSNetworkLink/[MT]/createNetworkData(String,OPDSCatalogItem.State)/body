@@ -2,8 +2,8 @@
   if (url == null) {
     return null;
   }
-  final NetworkLibrary library=NetworkLibrary.Instance();
-  final NetworkCatalogItem catalogItem=state.Loader.getTree().Item;
+  final NetworkLibrary library=state.Loader.Tree.Library;
+  final NetworkCatalogItem catalogItem=state.Loader.Tree.Item;
   library.startLoading(catalogItem);
   url=rewriteUrl(url,false);
   return new ZLNetworkRequest.Get(url){
@@ -16,7 +16,7 @@
         state.LastLoadedId=null;
       }
  else {
-        state.Loader.getTree().confirmAllItems();
+        state.Loader.Tree.confirmAllItems();
       }
     }
     @Override public void doAfter(    boolean success){

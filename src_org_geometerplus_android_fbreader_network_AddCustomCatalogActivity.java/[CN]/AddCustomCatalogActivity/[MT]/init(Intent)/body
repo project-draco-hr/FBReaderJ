@@ -8,7 +8,7 @@
       if ("opds".equals(scheme)) {
         uri=Uri.parse("http" + uri.toString().substring(scheme.length()));
       }
-      final INetworkLink link=NetworkLibrary.Instance().getLinkByUrl(uri.toString());
+      final INetworkLink link=Util.networkLibrary(this).getLinkByUrl(uri.toString());
       if (link instanceof ICustomNetworkLink) {
         myLink=(ICustomNetworkLink)link;
       }

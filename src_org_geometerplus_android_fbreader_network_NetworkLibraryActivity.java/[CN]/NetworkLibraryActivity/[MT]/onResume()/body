@@ -2,5 +2,5 @@
   super.onResume();
   myNetworkContext.onResume();
   getListView().setOnCreateContextMenuListener(this);
-  NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
+  Util.networkLibrary(this).fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
 }

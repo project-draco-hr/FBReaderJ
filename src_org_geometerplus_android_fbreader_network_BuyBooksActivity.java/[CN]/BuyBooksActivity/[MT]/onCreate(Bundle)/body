@@ -2,7 +2,7 @@
   super.onCreate(bundle);
   Thread.setDefaultUncaughtExceptionHandler(new org.geometerplus.zlibrary.ui.android.library.UncaughtExceptionHandler(this));
   myBookCollection.bindToService(this,null);
-  myLibrary=NetworkLibrary.Instance();
+  myLibrary=Util.networkLibrary(this);
   final List<NetworkTree.Key> keys=(List<NetworkTree.Key>)getIntent().getSerializableExtra(NetworkLibraryActivity.TREE_KEY_KEY);
   if (keys == null || keys.isEmpty()) {
     finish();
@@ -40,5 +40,5 @@
   }
   myAccount=mgr.currentAccount();
   setupUI(AuthorisationState.Authorised);
-  NetworkLibrary.Instance().addChangeListener(this);
+  myLibrary.addChangeListener(this);
 }

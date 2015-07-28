@@ -1,4 +1,5 @@
 {
+  super(library);
   IsFake=isFake;
   myId=id;
 }

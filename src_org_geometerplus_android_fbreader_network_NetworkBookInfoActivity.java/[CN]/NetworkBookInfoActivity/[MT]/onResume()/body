@@ -1,5 +1,5 @@
 {
   super.onResume();
   myNetworkContext.onResume();
-  NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
+  Util.networkLibrary(this).fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
 }

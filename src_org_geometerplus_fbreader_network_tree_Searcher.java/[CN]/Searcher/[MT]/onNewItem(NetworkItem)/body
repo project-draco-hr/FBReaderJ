@@ -1,8 +1,8 @@
 {
   if (!myItemFound) {
-    ((SearchCatalogTree)getTree()).setPattern(myPattern);
-    getTree().clearCatalog();
-    NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.Found,getTree());
+    ((SearchCatalogTree)Tree).setPattern(myPattern);
+    Tree.clearCatalog();
+    Tree.Library.fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.Found,Tree);
     myItemFound=true;
   }
   super.onNewItem(item);

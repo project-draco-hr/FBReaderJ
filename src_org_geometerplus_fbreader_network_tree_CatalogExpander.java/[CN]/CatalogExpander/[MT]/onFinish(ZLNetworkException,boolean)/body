@@ -1,22 +1,21 @@
 {
-  if (interrupted && (!getTree().Item.supportsResumeLoading() || exception != null)) {
-    getTree().clearCatalog();
+  if (interrupted && (!Tree.Item.supportsResumeLoading() || exception != null)) {
+    Tree.clearCatalog();
   }
  else {
-    getTree().removeUnconfirmedItems();
+    Tree.removeUnconfirmedItems();
     if (!interrupted) {
       if (exception != null) {
-        NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.NetworkError,exception.getMessage());
+        Tree.Library.fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.NetworkError,exception.getMessage());
       }
  else {
-        getTree().updateLoadedTime();
-        if (getTree().subtrees().isEmpty()) {
-          NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.EmptyCatalog);
+        Tree.updateLoadedTime();
+        if (Tree.subtrees().isEmpty()) {
+          Tree.Library.fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.EmptyCatalog);
         }
       }
     }
-    final NetworkLibrary library=NetworkLibrary.Instance();
-    library.invalidateVisibility();
-    library.synchronize();
+    Tree.Library.invalidateVisibility();
+    Tree.Library.synchronize();
   }
 }

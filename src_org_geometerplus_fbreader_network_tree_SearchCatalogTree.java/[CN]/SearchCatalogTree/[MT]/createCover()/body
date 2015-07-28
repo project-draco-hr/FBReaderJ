@@ -4,5 +4,5 @@
     return null;
   }
   final UrlInfo info=link.getUrlInfo(UrlInfo.Type.SearchIcon);
-  return info != null ? createCover(info.Url,info.Mime) : null;
+  return info != null ? createCoverFromUrl(Library,info.Url,info.Mime) : null;
 }

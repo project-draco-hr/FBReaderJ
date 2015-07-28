@@ -15,8 +15,9 @@ switch (requestCode) {
 case REQUEST_MANAGE_CATALOGS:
 {
       final ArrayList<String> myIds=data.getStringArrayListExtra(ENABLED_CATALOG_IDS_KEY);
-      NetworkLibrary.Instance().setActiveIds(myIds);
-      NetworkLibrary.Instance().synchronize();
+      final NetworkLibrary library=Util.networkLibrary(this);
+      library.setActiveIds(myIds);
+      library.synchronize();
       break;
     }
 }

@@ -2,7 +2,7 @@
   final String baseUrl=getIntent().getData().toString();
   final ZLResource resource=NetworkLibrary.resource();
   setTitle(resource.getResource("authorisationMenuTitle").getValue());
-  myLink=NetworkLibrary.Instance().getLinkByUrl(baseUrl);
+  myLink=Util.networkLibrary(this).getLinkByUrl(baseUrl);
   if (myLink.getUrlInfo(UrlInfo.Type.SignIn) != null) {
     myInfos.add(new PluginApi.MenuActionInfo(Uri.parse(baseUrl + "/signIn"),resource.getResource("signIn").getValue(),0));
     if (myLink.authenticationManager() != null) {

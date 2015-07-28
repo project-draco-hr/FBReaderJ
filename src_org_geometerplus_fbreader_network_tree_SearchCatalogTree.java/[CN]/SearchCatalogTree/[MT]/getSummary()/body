@@ -3,7 +3,7 @@
   if (pattern != null) {
     return NetworkLibrary.resource().getResource("found").getResource("summary").getValue().replace("%s",pattern);
   }
-  if (NetworkLibrary.Instance().getStoredLoader(this) != null) {
+  if (Library.getStoredLoader(this) != null) {
     return NetworkLibrary.resource().getResource("search").getResource("summaryInProgress").getValue();
   }
   return super.getSummary();

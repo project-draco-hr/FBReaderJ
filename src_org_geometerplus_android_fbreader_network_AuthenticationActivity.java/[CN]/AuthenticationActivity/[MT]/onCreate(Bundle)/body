@@ -9,7 +9,7 @@
   final String error=intent.getStringExtra(ERROR_KEY);
   myCustomAuthentication=intent.getBooleanExtra(CUSTOM_AUTH_KEY,false);
   if (myCustomAuthentication) {
-    myLink=NetworkLibrary.Instance().getLinkByUrl(String.valueOf(intent.getData()));
+    myLink=Util.networkLibrary(this).getLinkByUrl(String.valueOf(intent.getData()));
     if (myLink == null) {
       finish();
       return;
@@ -70,7 +70,7 @@
               mgr.logOut();
             }
           }
-          final NetworkLibrary library=NetworkLibrary.Instance();
+          final NetworkLibrary library=Util.networkLibrary(AuthenticationActivity.this);
           library.invalidateVisibility();
           library.synchronize();
         }

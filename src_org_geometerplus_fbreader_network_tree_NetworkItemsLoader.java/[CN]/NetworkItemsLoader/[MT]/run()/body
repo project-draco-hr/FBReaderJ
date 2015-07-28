@@ -1,11 +1,10 @@
 {
-  final NetworkLibrary library=NetworkLibrary.Instance();
+  final NetworkLibrary library=Tree.Library;
 synchronized (library) {
-    final NetworkCatalogTree tree=getTree();
-    if (library.isLoadingInProgress(tree)) {
+    if (library.isLoadingInProgress(Tree)) {
       return;
     }
-    library.storeLoader(tree,this);
+    library.storeLoader(Tree,this);
   }
   try {
     library.fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
@@ -25,7 +24,7 @@ synchronized (library) {
     }
   }
   finally {
-    library.removeStoredLoader(getTree());
+    library.removeStoredLoader(Tree);
     library.fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
 synchronized (this) {
       if (myPostRunnable != null) {

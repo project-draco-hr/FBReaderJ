@@ -2,5 +2,5 @@
   myChildrenItems.clear();
   myLastTotalChildren=-1;
   clear();
-  NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
+  Library.fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
 }

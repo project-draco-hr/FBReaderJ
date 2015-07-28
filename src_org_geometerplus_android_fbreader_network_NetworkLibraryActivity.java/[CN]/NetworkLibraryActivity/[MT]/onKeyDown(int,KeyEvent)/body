@@ -1,6 +1,6 @@
 {
   if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-    final NetworkItemsLoader loader=NetworkLibrary.Instance().getStoredLoader(getCurrentTree());
+    final NetworkItemsLoader loader=Util.networkLibrary(this).getStoredLoader(getCurrentTree());
     if (loader != null) {
       loader.interrupt();
     }

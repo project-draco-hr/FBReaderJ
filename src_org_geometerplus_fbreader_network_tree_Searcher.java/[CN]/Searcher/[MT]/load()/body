@@ -1,12 +1,12 @@
 {
-  final SearchItem item=(SearchItem)getTree().Item;
+  final SearchItem item=(SearchItem)Tree.Item;
   if (myPattern.equals(item.getPattern())) {
-    if (getTree().hasChildren()) {
+    if (Tree.hasChildren()) {
       myItemFound=true;
-      NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.Found,getTree());
+      Tree.Library.fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.Found,Tree);
     }
  else {
-      NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.NotFound);
+      Tree.Library.fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.NotFound);
     }
   }
  else {

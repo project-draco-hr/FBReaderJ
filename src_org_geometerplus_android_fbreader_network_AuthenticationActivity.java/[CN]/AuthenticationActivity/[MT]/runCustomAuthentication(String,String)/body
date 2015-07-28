@@ -11,7 +11,7 @@
         if (myOnSuccessRunnable != null) {
           myOnSuccessRunnable.run();
         }
-        final NetworkLibrary library=NetworkLibrary.Instance();
+        final NetworkLibrary library=Util.networkLibrary(AuthenticationActivity.this);
         library.invalidateVisibility();
         library.synchronize();
       }

@@ -26,6 +26,6 @@
         loader.onNewItem(bySeries);
       }
     }
-    loader.getTree().confirmAllItems();
+    loader.Tree.confirmAllItems();
   }
 }
