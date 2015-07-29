@@ -1,0 +1,3 @@
+NetworkLibrary library
+ATOMFeedHandler<OPDSFeedMetadata,OPDSEntry> handler
+boolean readEntryNotFeed

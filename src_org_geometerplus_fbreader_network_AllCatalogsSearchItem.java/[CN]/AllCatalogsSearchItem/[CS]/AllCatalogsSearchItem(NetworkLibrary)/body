@@ -1,0 +1,4 @@
+{
+  super(null,NetworkLibrary.resource().getResource("search").getResource("summaryAllCatalogs").getValue());
+  myLibrary=library;
+}

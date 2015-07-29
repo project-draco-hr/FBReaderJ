@@ -1,5 +1,6 @@
 {
   super.onCreate(icicle);
+  myManager=new TipsManager(Paths.systemInfo(this));
   final boolean doInitialize=INITIALIZE_ACTION.equals(getIntent().getAction());
   setContentView(R.layout.tip);
   final ZLResource dialogResource=ZLResource.resource("dialog");

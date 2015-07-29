@@ -10,7 +10,7 @@
   }
  else {
     myItem=item;
-    myCover=new NetworkImage(coverUrl);
+    myCover=new NetworkImage(coverUrl,myView.Application.SystemInfo);
     myCover.synchronize();
   }
 }

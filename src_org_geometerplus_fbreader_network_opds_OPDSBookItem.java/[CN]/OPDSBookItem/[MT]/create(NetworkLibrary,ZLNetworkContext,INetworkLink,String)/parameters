@@ -1,0 +1,4 @@
+NetworkLibrary library
+ZLNetworkContext nc
+INetworkLink link
+String url

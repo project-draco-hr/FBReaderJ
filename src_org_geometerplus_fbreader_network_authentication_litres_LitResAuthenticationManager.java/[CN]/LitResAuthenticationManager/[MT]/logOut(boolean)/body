@@ -12,6 +12,6 @@
   changed|=!myPurchasedBooks.isEmpty();
   myPurchasedBooks.clear();
   if (changed) {
-    NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SignedIn);
+    myLibrary.fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SignedIn);
   }
 }

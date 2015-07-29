@@ -8,7 +8,7 @@
       break;
     }
   }
-  for (  INetworkLink link : NetworkLibrary.Instance().activeLinks()) {
+  for (  INetworkLink link : myLibrary.activeLinks()) {
     if (containsCyrillicLetters) {
       if ("ebooks.qumran.org".equals(link.getHostName())) {
         continue;

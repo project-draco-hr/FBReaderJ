@@ -11,7 +11,7 @@ synchronized (myLinks) {
   final List<INetworkLink> result=new LinkedList<INetworkLink>();
   INetworkLink syncLink=linksById.get(SyncOptions.DOMAIN);
   if (syncLink == null) {
-    syncLink=new OPDSSyncNetworkLink();
+    syncLink=new OPDSSyncNetworkLink(this);
   }
   result.add(syncLink);
   for (  String id : activeIds()) {

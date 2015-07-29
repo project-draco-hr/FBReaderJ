@@ -4,8 +4,8 @@
   }
 switch (type) {
 default :
-    return new OPDSCustomNetworkLink(id,type,title,summary,language,infos);
+    return new OPDSCustomNetworkLink(myLibrary,id,type,title,summary,language,infos);
 case Predefined:
-  return new OPDSPredefinedNetworkLink(id,predefinedId,title,summary,language,infos);
+  return new OPDSPredefinedNetworkLink(myLibrary,id,predefinedId,title,summary,language,infos);
 }
 }

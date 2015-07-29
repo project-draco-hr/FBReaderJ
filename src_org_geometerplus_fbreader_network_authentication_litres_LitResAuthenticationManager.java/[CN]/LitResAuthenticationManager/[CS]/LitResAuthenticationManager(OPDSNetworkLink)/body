@@ -1,6 +1,0 @@
-{
-  super(link);
-  mySidOption=new ZLStringOption(LitResUtil.HOST_NAME,"sid","");
-  myUserIdOption=new ZLStringOption(LitResUtil.HOST_NAME,"userId","");
-  myCanRebillOption=new ZLBooleanOption(LitResUtil.HOST_NAME,"canRebill",false);
-}

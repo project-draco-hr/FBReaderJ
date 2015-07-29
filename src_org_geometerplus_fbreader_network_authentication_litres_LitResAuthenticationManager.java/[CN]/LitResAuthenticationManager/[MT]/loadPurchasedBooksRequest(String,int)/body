@@ -1,6 +1,6 @@
 {
   final String query="pages/catalit_browser/";
-  final LitResNetworkRequest request=new LitResNetworkRequest(LitResUtil.url(Link,query),new LitResXMLReader((OPDSNetworkLink)Link));
+  final LitResNetworkRequest request=new LitResNetworkRequest(LitResUtil.url(Link,query),new LitResXMLReader(myLibrary,(OPDSNetworkLink)Link));
   request.addPostParameter("my","1");
   request.addPostParameter("sid",sid);
   request.addPostParameter("limit",page * BOOKS_PER_PAGE + "," + BOOKS_PER_PAGE);

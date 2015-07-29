@@ -22,14 +22,13 @@
   setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
   myFBReaderApp=(FBReaderApp)FBReaderApp.Instance();
   if (myFBReaderApp == null) {
-    myFBReaderApp=new FBReaderApp(new BookCollectionShadow());
+    myFBReaderApp=new FBReaderApp(Paths.systemInfo(this),new BookCollectionShadow());
   }
   getCollection().bindToService(this,null);
   myBook=null;
   myFBReaderApp.setWindow(this);
   myFBReaderApp.initWindow();
   myFBReaderApp.setExternalFileOpener(new ExternalFileOpener(this));
-  myFBReaderApp.setSystemInfo(Paths.systemInfo(this));
   getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,myShowStatusBarFlag ? 0 : WindowManager.LayoutParams.FLAG_FULLSCREEN);
   if (myFBReaderApp.getPopupById(TextSearchPopup.ID) == null) {
     new TextSearchPopup(myFBReaderApp);

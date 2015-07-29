@@ -1,0 +1,3 @@
+{
+  this(library,-1,resource().getValue(),initialUrlInfos());
+}

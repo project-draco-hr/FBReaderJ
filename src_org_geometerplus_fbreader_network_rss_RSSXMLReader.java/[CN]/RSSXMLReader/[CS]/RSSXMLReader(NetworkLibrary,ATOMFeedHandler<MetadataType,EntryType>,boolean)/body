@@ -1,0 +1,5 @@
+{
+  myFeedHandler=handler;
+  myState=START;
+  myFormattedBuffer=new FormattedBuffer(library);
+}

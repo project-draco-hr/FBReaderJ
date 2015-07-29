@@ -1,5 +1,5 @@
 {
-  mySystemInfo=systemInfo;
+  super(systemInfo);
   myCanvas=canvas;
   myGeometry=geometry;
   myScrollbarWidth=scrollbarWidth;

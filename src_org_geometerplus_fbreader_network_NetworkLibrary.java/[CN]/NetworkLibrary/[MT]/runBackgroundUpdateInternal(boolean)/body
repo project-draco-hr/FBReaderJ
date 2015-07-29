@@ -2,7 +2,7 @@
   final ZLNetworkContext quietContext=new QuietNetworkContext();
 synchronized (myUpdateLock) {
     final OPDSLinkReader.CacheMode mode=force ? OPDSLinkReader.CacheMode.CLEAR : OPDSLinkReader.CacheMode.UPDATE;
-    final List<INetworkLink> loadedLinks=OPDSLinkReader.loadOPDSLinks(mySystemInfo,quietContext,mode);
+    final List<INetworkLink> loadedLinks=OPDSLinkReader.loadOPDSLinks(this,quietContext,mode);
     if (!loadedLinks.isEmpty()) {
       removeAllLoadedLinks();
       myLinks.addAll(loadedLinks);

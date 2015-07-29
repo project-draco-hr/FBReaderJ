@@ -11,7 +11,7 @@
       if (state.Loader.confirmInterruption()) {
         return;
       }
-      new OPDSXMLReader(new OPDSFeedHandler(getURL(),state),false).read(inputStream);
+      new OPDSXMLReader(library,new OPDSFeedHandler(getURL(),state),false).read(inputStream);
       if (state.Loader.confirmInterruption() && state.LastLoadedId != null) {
         state.LastLoadedId=null;
       }

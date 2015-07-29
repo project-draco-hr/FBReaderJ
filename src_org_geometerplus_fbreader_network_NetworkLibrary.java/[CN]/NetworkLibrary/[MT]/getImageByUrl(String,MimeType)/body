@@ -7,7 +7,7 @@ synchronized (myImageMap) {
         return image;
       }
     }
-    final ZLImage image=new NetworkImage(url,mySystemInfo);
+    final ZLImage image=new NetworkImage(url,SystemInfo);
     myImageMap.put(url,new WeakReference<ZLImage>(image));
     return image;
   }

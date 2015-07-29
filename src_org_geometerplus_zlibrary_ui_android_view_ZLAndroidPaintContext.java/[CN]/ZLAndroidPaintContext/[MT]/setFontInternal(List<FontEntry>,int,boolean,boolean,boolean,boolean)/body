@@ -1,7 +1,7 @@
 {
   Typeface typeface=null;
   for (  FontEntry e : entries) {
-    typeface=AndroidFontUtil.typeface(mySystemInfo,e,bold,italic);
+    typeface=AndroidFontUtil.typeface(getSystemInfo(),e,bold,italic);
     if (typeface != null) {
       break;
     }

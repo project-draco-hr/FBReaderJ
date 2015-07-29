@@ -6,6 +6,6 @@
     myBooksInBasketOption.setValue(ids);
     addItem(book);
     ++myGeneration;
-    NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
+    myLibrary.fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
   }
 }

@@ -6,7 +6,7 @@
     }
     return;
   }
-  final ICustomNetworkLink link=new OPDSCustomNetworkLink(INetworkLink.INVALID_ID,INetworkLink.Type.Custom,null,null,null,new UrlInfoCollection<UrlInfoWithDate>(new UrlInfoWithDate(UrlInfo.Type.Catalog,url,MimeType.APP_ATOM_XML)));
+  final ICustomNetworkLink link=new OPDSCustomNetworkLink(library,INetworkLink.INVALID_ID,INetworkLink.Type.Custom,null,null,null,new UrlInfoCollection<UrlInfoWithDate>(new UrlInfoWithDate(UrlInfo.Type.Catalog,url,MimeType.APP_ATOM_XML)));
   final Runnable loader=new Runnable(){
     public void run(){
       try {

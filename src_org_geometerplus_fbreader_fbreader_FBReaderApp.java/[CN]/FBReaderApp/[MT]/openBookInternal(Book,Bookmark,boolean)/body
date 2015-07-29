@@ -37,7 +37,7 @@
     return;
   }
   try {
-    Model=BookModel.createModel(book,mySystemInfo.tempDirectory());
+    Model=BookModel.createModel(book,SystemInfo.tempDirectory());
     Collection.saveBook(book);
     ZLTextHyphenator.Instance().load(book.getLanguage());
     BookTextView.setModel(Model.getTextModel());

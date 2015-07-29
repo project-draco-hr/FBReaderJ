@@ -1,0 +1,4 @@
+{
+  myAnnotationBuffer=new FormattedBuffer(library,FormattedBuffer.Type.XHtml);
+  Link=link;
+}

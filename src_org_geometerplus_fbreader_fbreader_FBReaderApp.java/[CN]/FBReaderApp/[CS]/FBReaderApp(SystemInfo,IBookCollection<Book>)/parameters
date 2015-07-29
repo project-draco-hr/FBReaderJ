@@ -1,0 +1,2 @@
+SystemInfo systemInfo
+IBookCollection<Book> collection

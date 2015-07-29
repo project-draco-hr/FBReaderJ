@@ -1,6 +1,6 @@
 {
   myMimeType=mimeType;
-  final String dir=Paths.networkCacheDirectory() + "/base64";
+  final String dir=library.SystemInfo.networkCacheDirectory() + "/base64";
   new File(dir).mkdirs();
   myDecodedFileName=dir + File.separator + Integer.toHexString(data.hashCode());
   if (MimeType.IMAGE_PNG.equals(myMimeType)) {

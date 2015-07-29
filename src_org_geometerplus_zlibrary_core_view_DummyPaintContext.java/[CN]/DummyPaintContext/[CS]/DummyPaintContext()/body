@@ -1,2 +1,11 @@
 {
+  super(new SystemInfo(){
+    public String tempDirectory(){
+      return "";
+    }
+    public String networkCacheDirectory(){
+      return "";
+    }
+  }
+);
 }

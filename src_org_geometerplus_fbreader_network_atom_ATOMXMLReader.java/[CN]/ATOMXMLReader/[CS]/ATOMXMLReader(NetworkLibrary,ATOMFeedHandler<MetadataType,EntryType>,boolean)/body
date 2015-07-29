@@ -1,0 +1,5 @@
+{
+  myFeedHandler=handler;
+  myState=readEntryNotFeed ? FEED : START;
+  myFormattedBuffer=new FormattedBuffer(library);
+}

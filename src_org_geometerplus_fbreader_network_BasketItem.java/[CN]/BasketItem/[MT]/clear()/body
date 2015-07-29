@@ -2,5 +2,5 @@
   myBooksInBasketOption.setValue(null);
   myBooks.clear();
   ++myGeneration;
-  NetworkLibrary.Instance().fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
+  myLibrary.fireModelChangedEvent(NetworkLibrary.ChangeListener.Code.SomeCode);
 }

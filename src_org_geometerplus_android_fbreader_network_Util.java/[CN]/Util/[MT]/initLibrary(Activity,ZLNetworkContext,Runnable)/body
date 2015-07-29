@@ -3,10 +3,10 @@
     public void run(){
       UIUtil.wait("loadingNetworkLibrary",new Runnable(){
         public void run(){
-          if (SQLiteNetworkDatabase.Instance() == null) {
-            new SQLiteNetworkDatabase(activity.getApplication());
-          }
           final NetworkLibrary library=networkLibrary(activity);
+          if (SQLiteNetworkDatabase.Instance() == null) {
+            new SQLiteNetworkDatabase(activity.getApplication(),library);
+          }
           if (!library.isInitialized()) {
             try {
               library.initialize(nc);
