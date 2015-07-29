@@ -1,4 +1,5 @@
 {
   super(context);
+  mySystemInfo=Paths.systemInfo(context);
   init();
 }

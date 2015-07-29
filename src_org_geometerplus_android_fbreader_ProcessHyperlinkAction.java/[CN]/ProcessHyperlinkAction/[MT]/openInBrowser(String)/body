@@ -14,7 +14,7 @@
     public void run(){
       if (!url.startsWith("fbreader-action:")) {
         try {
-          nLibrary.initialize(new ActivityNetworkContext(BaseActivity));
+          nLibrary.initialize(Paths.systemInfo(BaseActivity),new ActivityNetworkContext(BaseActivity));
         }
  catch (        ZLNetworkException e) {
           e.printStackTrace();

@@ -1,0 +1,12 @@
+{
+  final StringBuilder builder=new StringBuilder(systemInfo.tempDirectory());
+  builder.append("/");
+  builder.append(family);
+  if (bold) {
+    builder.append("-bold");
+  }
+  if (italic) {
+    builder.append("-italic");
+  }
+  return builder.append(".font").toString();
+}

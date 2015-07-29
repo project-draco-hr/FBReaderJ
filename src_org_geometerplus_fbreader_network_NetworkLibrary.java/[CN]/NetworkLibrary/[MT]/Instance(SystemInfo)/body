@@ -1,0 +1,6 @@
+{
+  if (ourInstance == null) {
+    ourInstance=new NetworkLibrary(systemInfo);
+  }
+  return ourInstance;
+}

@@ -4,7 +4,7 @@
   final NotificationCompat.Builder builder=new NotificationCompat.Builder(myActivity).setSmallIcon(R.drawable.fbreader).setTicker(errorTitle).setContentTitle(errorTitle).setContentText(info.Title).setAutoCancel(false);
   if (info.ThumbnailUrl != null) {
     SQLiteCookieDatabase.init(myActivity);
-    final NetworkImage thumbnail=new NetworkImage(info.ThumbnailUrl);
+    final NetworkImage thumbnail=new NetworkImage(info.ThumbnailUrl,Paths.systemInfo(myActivity));
     thumbnail.synchronize();
     try {
       builder.setLargeIcon(BitmapFactory.decodeStream(thumbnail.getRealImage().inputStream()));

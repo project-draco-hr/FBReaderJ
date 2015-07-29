@@ -1,6 +1,6 @@
 {
   final Uri uri=Uri.parse(url);
-  final StringBuilder path=new StringBuilder(Paths.networkCacheDirectory());
+  final StringBuilder path=new StringBuilder(mySystemInfo.networkCacheDirectory());
   path.append(File.separator);
   final String host=uri.getHost();
   path.append(host != null ? host : "host.unknown");

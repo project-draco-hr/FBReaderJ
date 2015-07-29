@@ -1,0 +1,7 @@
+{
+  String value=null;
+  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.FROYO) {
+    value=getExternalCacheDirPath(context);
+  }
+  return value != null ? value : (mainBookDirectory() + "/.FBReader");
+}

@@ -8,19 +8,4 @@
   myConfig=new ConfigShadow(this);
   new ZLAndroidImageManager();
   myLibrary=new ZLAndroidLibrary(this);
-  myConfig.runOnConnect(new Runnable(){
-    public void run(){
-      if ("".equals(Paths.TempDirectoryOption.getValue())) {
-        String dir=null;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.FROYO) {
-          dir=getExternalCacheDirPath();
-        }
-        if (dir == null) {
-          dir=Paths.mainBookDirectory() + "/.FBReader";
-        }
-        Paths.TempDirectoryOption.setValue(dir);
-      }
-    }
-  }
-);
 }

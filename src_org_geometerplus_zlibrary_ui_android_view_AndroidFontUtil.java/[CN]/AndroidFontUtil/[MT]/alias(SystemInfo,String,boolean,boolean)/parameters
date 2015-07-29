@@ -1,0 +1,4 @@
+SystemInfo systemInfo
+String family
+boolean bold
+boolean italic

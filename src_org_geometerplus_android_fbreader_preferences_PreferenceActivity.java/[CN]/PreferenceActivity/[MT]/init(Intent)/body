@@ -38,7 +38,7 @@
   directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"downloadDir",Paths.DownloadsDirectoryOption,libraryUpdater));
   final PreferenceSet fontReloader=new PreferenceSet.Reloader();
   directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"fontPath",Paths.FontPathOption,fontReloader));
-  directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"tempDir",Paths.TempDirectoryOption,null));
+  directoriesScreen.addPreference(myChooserCollection.createPreference(directoriesScreen.Resource,"tempDir",Paths.TempDirectoryOption(this),null));
   final Screen syncScreen=createPreferenceScreen("sync");
   final PreferenceSet syncPreferences=new PreferenceSet.Enabler(){
     @Override protected Boolean detectState(){
@@ -405,7 +405,7 @@ cancelMenuScreen.addPreference(new ZLStringChoicePreference(this,cancelMenuScree
 final String[] backKeyLongPressActions={ActionCode.EXIT,ActionCode.SHOW_CANCEL_MENU,FBReaderApp.NoAction};
 cancelMenuScreen.addPreference(new ZLStringChoicePreference(this,cancelMenuScreen.Resource.getResource("backKeyLongPressAction"),keyBindings.getOption(KeyEvent.KEYCODE_BACK,true),backKeyLongPressActions));
 final Screen tipsScreen=createPreferenceScreen("tips");
-tipsScreen.addOption(TipsManager.Instance().ShowTipsOption,"showTips");
+tipsScreen.addOption(TipsManager.ShowTipsOption,"showTips");
 final Screen aboutScreen=createPreferenceScreen("about");
 aboutScreen.addPreference(new InfoPreference(this,aboutScreen.Resource.getResource("version").getValue(),androidLibrary.getFullVersionName()));
 aboutScreen.addPreference(new UrlPreference(this,aboutScreen.Resource,"site"));

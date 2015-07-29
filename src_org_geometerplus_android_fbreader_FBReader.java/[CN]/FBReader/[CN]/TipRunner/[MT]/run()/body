@@ -1,5 +1,5 @@
 {
-  final TipsManager manager=TipsManager.Instance();
+  final TipsManager manager=new TipsManager(Paths.systemInfo(FBReader.this));
 switch (manager.requiredAction()) {
 case Initialize:
     startActivity(new Intent(TipsActivity.INITIALIZE_ACTION,null,FBReader.this,TipsActivity.class));

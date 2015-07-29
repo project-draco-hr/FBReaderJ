@@ -1,0 +1,6 @@
+{
+  if ("".equals(ourTempDirectoryOption.getValue())) {
+    ourTempDirectoryOption.setValue(internalTempDirectoryValue(context));
+  }
+  return ourTempDirectoryOption;
+}

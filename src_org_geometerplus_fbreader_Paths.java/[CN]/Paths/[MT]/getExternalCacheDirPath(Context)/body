@@ -1,0 +1,10 @@
+{
+  final File d=context.getExternalCacheDir();
+  if (d != null) {
+    d.mkdirs();
+    if (d.exists() && d.isDirectory()) {
+      return d.getPath();
+    }
+  }
+  return null;
+}

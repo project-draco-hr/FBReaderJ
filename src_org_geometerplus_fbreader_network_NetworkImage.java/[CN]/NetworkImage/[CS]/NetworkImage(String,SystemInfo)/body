@@ -1,0 +1,5 @@
+{
+  Url=url;
+  mySystemInfo=systemInfo;
+  new File(systemInfo.networkCacheDirectory()).mkdirs();
+}

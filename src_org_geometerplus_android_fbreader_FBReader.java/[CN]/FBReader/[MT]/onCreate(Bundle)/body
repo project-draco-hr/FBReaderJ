@@ -29,6 +29,7 @@
   myFBReaderApp.setWindow(this);
   myFBReaderApp.initWindow();
   myFBReaderApp.setExternalFileOpener(new ExternalFileOpener(this));
+  myFBReaderApp.setSystemInfo(Paths.systemInfo(this));
   getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,myShowStatusBarFlag ? 0 : WindowManager.LayoutParams.FLAG_FULLSCREEN);
   if (myFBReaderApp.getPopupById(TextSearchPopup.ID) == null) {
     new TextSearchPopup(myFBReaderApp);

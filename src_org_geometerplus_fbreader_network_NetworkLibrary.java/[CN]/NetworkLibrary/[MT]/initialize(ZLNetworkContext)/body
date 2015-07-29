@@ -3,7 +3,7 @@
     return;
   }
   try {
-    myLinks.addAll(OPDSLinkReader.loadOPDSLinks(nc,OPDSLinkReader.CacheMode.LOAD));
+    myLinks.addAll(OPDSLinkReader.loadOPDSLinks(mySystemInfo,nc,OPDSLinkReader.CacheMode.LOAD));
   }
  catch (  ZLNetworkException e) {
     removeAllLoadedLinks();

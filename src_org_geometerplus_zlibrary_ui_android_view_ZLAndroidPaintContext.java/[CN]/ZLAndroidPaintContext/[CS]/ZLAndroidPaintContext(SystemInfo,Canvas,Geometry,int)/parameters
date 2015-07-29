@@ -1,0 +1,4 @@
+SystemInfo systemInfo
+Canvas canvas
+Geometry geometry
+int scrollbarWidth

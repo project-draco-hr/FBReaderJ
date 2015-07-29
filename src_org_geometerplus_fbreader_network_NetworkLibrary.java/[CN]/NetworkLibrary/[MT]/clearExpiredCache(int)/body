@@ -1,7 +1,7 @@
 {
   final Queue<File> toVisit=new LinkedList<File>();
   final Set<File> processedDirs=new HashSet<File>();
-  final File root=new File(Paths.networkCacheDirectory());
+  final File root=new File(mySystemInfo.networkCacheDirectory());
   toVisit.add(root);
   processedDirs.add(root);
   while (!toVisit.isEmpty()) {

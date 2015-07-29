@@ -1,0 +1,4 @@
+SystemInfo systemInfo
+FontEntry entry
+boolean bold
+boolean italic

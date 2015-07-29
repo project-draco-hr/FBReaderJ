@@ -1,0 +1,5 @@
+{
+  mySystemInfo=systemInfo;
+  myLastShownOption=new ZLIntegerOption("tips","shownAt",0);
+  myIndexOption=new ZLIntegerOption("tips","index",0);
+}
