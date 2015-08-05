@@ -1,0 +1,8 @@
+{
+  final ZLFile file=fileByBook(book);
+  final FormatPlugin plugin=pluginCollection.getPlugin(file);
+  if (plugin == null) {
+    throw new BookReadingException("pluginNotFound",file);
+  }
+  return plugin;
+}

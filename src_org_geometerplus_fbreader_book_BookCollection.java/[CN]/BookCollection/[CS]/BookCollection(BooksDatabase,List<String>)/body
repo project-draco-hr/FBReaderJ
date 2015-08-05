@@ -1,8 +1,0 @@
-{
-  myDatabase=db;
-  BookDirectories=Collections.unmodifiableList(new ArrayList<String>(bookDirectories));
-  final String formats=db.getOptionValue("formats");
-  if (formats != null) {
-    myActiveFormats=new HashSet<String>(Arrays.asList(formats.split("\000")));
-  }
-}

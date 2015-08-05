@@ -1,0 +1,4 @@
+{
+  super(collection,pluginCollection);
+  Book=book;
+}

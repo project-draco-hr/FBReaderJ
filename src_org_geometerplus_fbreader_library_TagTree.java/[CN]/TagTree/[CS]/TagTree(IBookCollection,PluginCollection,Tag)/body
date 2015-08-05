@@ -1,0 +1,4 @@
+{
+  super(collection,pluginCollection,new Filter.ByTag(tag));
+  Tag=tag;
+}

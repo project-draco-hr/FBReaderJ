@@ -1,4 +1,0 @@
-{
-  super(collection,new Filter.ByAuthor(author));
-  Author=author;
-}

@@ -1,0 +1,7 @@
+{
+  try {
+    readMetainfo(book,pluginCollection);
+  }
+ catch (  BookReadingException e) {
+  }
+}

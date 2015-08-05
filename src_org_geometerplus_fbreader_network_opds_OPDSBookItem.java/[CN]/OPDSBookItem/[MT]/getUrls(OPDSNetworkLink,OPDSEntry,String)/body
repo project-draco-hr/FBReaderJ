@@ -27,10 +27,10 @@
         }
       }
       if (MimeType.TEXT_HTML.equals(mime)) {
-        collectReferences(urls,opdsLink,href,UrlInfo.Type.BookBuyInBrowser,price,true);
+        collectReferences(networkLink.Library,urls,opdsLink,href,UrlInfo.Type.BookBuyInBrowser,price,true);
       }
  else {
-        collectReferences(urls,opdsLink,href,UrlInfo.Type.BookBuy,price,false);
+        collectReferences(networkLink.Library,urls,opdsLink,href,UrlInfo.Type.BookBuy,price,false);
       }
     }
  else     if (referenceType == UrlInfo.Type.Related) {
@@ -43,7 +43,7 @@
       urls.addInfo(new UrlInfo(referenceType,href,mime));
     }
  else     if (referenceType != null) {
-      if (BookUrlInfo.isMimeSupported(mime)) {
+      if (BookUrlInfo.isMimeSupported(mime,networkLink.Library.SystemInfo)) {
         urls.addInfo(new BookUrlInfo(referenceType,href,mime));
       }
     }

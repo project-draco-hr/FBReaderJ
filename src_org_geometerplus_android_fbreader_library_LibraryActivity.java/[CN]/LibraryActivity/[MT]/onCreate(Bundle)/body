@@ -8,7 +8,7 @@
   myCollection.bindToService(this,new Runnable(){
     public void run(){
       setProgressBarIndeterminateVisibility(!myCollection.status().IsComplete);
-      myRootTree=new RootTree(myCollection);
+      myRootTree=new RootTree(myCollection,PluginCollection.Instance(Paths.systemInfo(LibraryActivity.this)));
       myCollection.addListener(LibraryActivity.this);
       init(getIntent());
     }

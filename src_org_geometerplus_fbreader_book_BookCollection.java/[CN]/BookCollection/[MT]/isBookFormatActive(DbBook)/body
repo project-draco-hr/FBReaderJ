@@ -1,6 +1,6 @@
 {
   try {
-    return isFormatActive(BookUtil.getPlugin(book));
+    return isFormatActive(BookUtil.getPlugin(PluginCollection,book));
   }
  catch (  BookReadingException e) {
     return false;

@@ -1,0 +1,10 @@
+{
+  if (mime == null) {
+    return false;
+  }
+  final FileType type=FileTypeCollection.Instance.typeForMime(mime);
+  if (type == null) {
+    return false;
+  }
+  return PluginCollection.Instance(systemInfo).getPlugin(type) != null;
+}

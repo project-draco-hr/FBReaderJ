@@ -4,7 +4,7 @@
   }
   final DbBook vanilla;
   try {
-    vanilla=new DbBook(base.File,BookUtil.getPlugin(base));
+    vanilla=new DbBook(base.File,BookUtil.getPlugin(myCollection.PluginCollection,base));
   }
  catch (  BookReadingException e) {
     return false;

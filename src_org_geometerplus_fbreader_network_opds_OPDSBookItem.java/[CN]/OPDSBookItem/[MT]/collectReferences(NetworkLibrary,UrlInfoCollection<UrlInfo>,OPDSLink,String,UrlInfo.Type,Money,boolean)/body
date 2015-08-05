@@ -1,0 +1,13 @@
+{
+  boolean added=false;
+  for (  String f : opdsLink.Formats) {
+    final MimeType mime=MimeType.get(f);
+    if (BookUrlInfo.isMimeSupported(mime,library.SystemInfo)) {
+      urls.addInfo(new BookBuyUrlInfo(type,href,mime,price));
+      added=true;
+    }
+  }
+  if (!added && addWithoutFormat) {
+    urls.addInfo(new BookBuyUrlInfo(type,href,MimeType.NULL,price));
+  }
+}

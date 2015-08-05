@@ -1,4 +1,5 @@
 {
   super(parent,position);
   Collection=parent.Collection;
+  PluginCollection=parent.PluginCollection;
 }

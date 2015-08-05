@@ -14,7 +14,7 @@
       final Book b=FBReaderIntents.getBookExtra(intent,collection);
       if (!collection.sameBook(b,myFBReaderApp.ExternalBook)) {
         try {
-          final ExternalFormatPlugin plugin=(ExternalFormatPlugin)BookUtil.getPlugin(myFBReaderApp.ExternalBook);
+          final ExternalFormatPlugin plugin=(ExternalFormatPlugin)BookUtil.getPlugin(PluginCollection.Instance(Paths.systemInfo(this)),myFBReaderApp.ExternalBook);
           startActivity(PluginUtil.createIntent(plugin,FBReaderIntents.Action.PLUGIN_KILL));
         }
  catch (        Exception e) {

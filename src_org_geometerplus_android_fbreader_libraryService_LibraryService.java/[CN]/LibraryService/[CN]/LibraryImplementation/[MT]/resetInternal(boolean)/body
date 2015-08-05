@@ -5,7 +5,7 @@
   }
   deactivate();
   myFileObservers.clear();
-  myCollection=new BookCollection(myDatabase,bookDirectories);
+  myCollection=new BookCollection(Paths.systemInfo(LibraryService.this),myDatabase,bookDirectories);
   for (  String dir : bookDirectories) {
     final Observer observer=new Observer(dir,myCollection);
     observer.startWatching();

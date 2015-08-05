@@ -26,7 +26,7 @@
   final FileInfoSet fileInfos=new FileInfoSet(myDatabase,bookFile);
   book=myDatabase.loadBookByFile(fileInfos.getId(bookFile),bookFile);
   if (book != null) {
-    book.loadLists(myDatabase);
+    book.loadLists(myDatabase,PluginCollection);
   }
   if (book != null && fileInfos.check(physicalFile,physicalFile != bookFile)) {
     saveBook(book);

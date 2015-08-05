@@ -1,5 +1,5 @@
 {
-  final AuthorTree temp=new AuthorTree(Collection,author);
+  final AuthorTree temp=new AuthorTree(Collection,PluginCollection,author);
   int position=Collections.binarySearch(subtrees(),temp);
   if (position >= 0) {
     return false;

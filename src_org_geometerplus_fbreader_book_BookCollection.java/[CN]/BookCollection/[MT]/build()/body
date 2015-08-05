@@ -22,7 +22,7 @@
       }
       if (!fileInfos.check(file,true)) {
         try {
-          BookUtil.readMetainfo(book);
+          BookUtil.readMetainfo(book,PluginCollection);
           saveBook(book);
         }
  catch (        BookReadingException e) {

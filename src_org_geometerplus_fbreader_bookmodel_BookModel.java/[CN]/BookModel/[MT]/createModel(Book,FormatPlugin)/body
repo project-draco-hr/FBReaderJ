@@ -1,0 +1,8 @@
+{
+  if (plugin instanceof BuiltinFormatPlugin) {
+    final BookModel model=new BookModel(book);
+    ((BuiltinFormatPlugin)plugin).readModel(model);
+    return model;
+  }
+  throw new BookReadingException("unknownPluginType",null,new String[]{String.valueOf(plugin)});
+}

@@ -1,5 +1,5 @@
 {
-  final TagTree temp=new TagTree(Collection,tag);
+  final TagTree temp=new TagTree(Collection,PluginCollection,tag);
   int position=Collections.binarySearch(subtrees(),temp);
   if (position >= 0) {
     return false;

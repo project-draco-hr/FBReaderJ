@@ -1,9 +1,10 @@
 {
   super(context,resource);
   myBook=book;
+  myPluginCollection=PluginCollection.Instance(Paths.systemInfo(context));
   final FormatPlugin plugin;
   try {
-    plugin=BookUtil.getPlugin(book);
+    plugin=BookUtil.getPlugin(myPluginCollection,book);
   }
  catch (  BookReadingException e) {
     return;
@@ -29,7 +30,7 @@
     setEnabled(false);
   }
  else {
-    final String bookEncoding=BookUtil.getEncoding(book);
+    final String bookEncoding=BookUtil.getEncoding(book,myPluginCollection);
     if (bookEncoding != null) {
       setInitialValue(bookEncoding.toLowerCase());
     }

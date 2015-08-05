@@ -2,5 +2,5 @@
   if (bookFile == null) {
     return null;
   }
-  return getBookByFile(bookFile,PluginCollection.Instance().getPlugin(bookFile));
+  return getBookByFile(bookFile,PluginCollection.getPlugin(bookFile));
 }

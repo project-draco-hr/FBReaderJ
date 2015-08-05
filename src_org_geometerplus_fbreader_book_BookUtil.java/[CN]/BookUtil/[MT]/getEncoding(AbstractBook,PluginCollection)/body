@@ -1,0 +1,13 @@
+{
+  if (book.getEncodingNoDetection() == null) {
+    try {
+      BookUtil.getPlugin(pluginCollection,book).detectLanguageAndEncoding(book);
+    }
+ catch (    BookReadingException e) {
+    }
+    if (book.getEncodingNoDetection() == null) {
+      book.setEncoding("utf-8");
+    }
+  }
+  return book.getEncodingNoDetection();
+}

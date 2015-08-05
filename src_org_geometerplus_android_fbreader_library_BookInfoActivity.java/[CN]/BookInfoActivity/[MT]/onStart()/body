@@ -1,11 +1,12 @@
 {
   super.onStart();
   OrientationUtil.setOrientation(this,getIntent());
+  final PluginCollection pluginCollection=PluginCollection.Instance(Paths.systemInfo(this));
   if (myBook != null) {
-    BookUtil.getEncoding(myBook);
+    BookUtil.getEncoding(myBook,pluginCollection);
     setupCover(myBook);
     setupBookInfo(myBook);
-    setupAnnotation(myBook);
+    setupAnnotation(myBook,pluginCollection);
     setupFileInfo(myBook);
   }
   setupButton(R.id.book_info_button_open,"openBook",new View.OnClickListener(){
@@ -30,7 +31,7 @@
   setupButton(R.id.book_info_button_reload,"reloadInfo",new View.OnClickListener(){
     public void onClick(    View view){
       if (myBook != null) {
-        BookUtil.reloadInfoFromFile(myBook);
+        BookUtil.reloadInfoFromFile(myBook,pluginCollection);
         setupBookInfo(myBook);
         myDontReloadBook=false;
         myCollection.bindToService(BookInfoActivity.this,new Runnable(){

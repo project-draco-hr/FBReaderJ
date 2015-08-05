@@ -1,0 +1,5 @@
+{
+  super();
+  Collection=collection;
+  PluginCollection=pluginCollection;
+}

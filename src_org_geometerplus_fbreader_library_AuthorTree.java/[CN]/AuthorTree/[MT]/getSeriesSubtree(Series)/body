@@ -1,5 +1,5 @@
 {
-  final SeriesTree temp=new SeriesTree(Collection,series,Author);
+  final SeriesTree temp=new SeriesTree(Collection,PluginCollection,series,Author);
   int position=Collections.binarySearch(subtrees(),temp);
   if (position >= 0) {
     return (SeriesTree)subtrees().get(position);

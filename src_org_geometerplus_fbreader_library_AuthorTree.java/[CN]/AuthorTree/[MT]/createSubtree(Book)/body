@@ -3,7 +3,7 @@
   if (seriesInfo != null) {
     return getSeriesSubtree(seriesInfo.Series).createSubtree(book);
   }
-  final BookTree temp=new BookTree(Collection,book);
+  final BookTree temp=new BookTree(Collection,PluginCollection,book);
   int position=Collections.binarySearch(subtrees(),temp);
   if (position >= 0) {
     return false;

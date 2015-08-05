@@ -1,4 +1,0 @@
-{
-  super(collection,filter(series,author));
-  Series=series;
-}

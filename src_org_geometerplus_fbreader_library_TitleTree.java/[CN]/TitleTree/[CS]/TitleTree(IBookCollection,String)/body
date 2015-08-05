@@ -1,4 +1,0 @@
-{
-  super(collection,new Filter.ByTitlePrefix(prefix));
-  Prefix=prefix;
-}

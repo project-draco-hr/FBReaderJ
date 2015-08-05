@@ -1,5 +1,5 @@
 {
-  final List<FormatPlugin> plugins=PluginCollection.Instance().plugins();
+  final List<FormatPlugin> plugins=PluginCollection.plugins();
   final List<FormatDescriptor> descriptors=new ArrayList<FormatDescriptor>(plugins.size());
   for (  FormatPlugin p : plugins) {
     final FormatDescriptor d=new FormatDescriptor();

@@ -1,0 +1,18 @@
+{
+  myAuthors=database.listAuthors(myId);
+  myTags=database.listTags(myId);
+  myLabels=database.listLabels(myId);
+  mySeriesInfo=database.getSeriesInfo(myId);
+  myUids=database.listUids(myId);
+  myProgress=database.getProgress(myId);
+  HasBookmark=database.hasVisibleBookmark(myId);
+  myIsSaved=true;
+  if (myUids == null || myUids.isEmpty()) {
+    try {
+      BookUtil.getPlugin(pluginCollection,this).readUids(this);
+      save(database,false);
+    }
+ catch (    BookReadingException e) {
+    }
+  }
+}

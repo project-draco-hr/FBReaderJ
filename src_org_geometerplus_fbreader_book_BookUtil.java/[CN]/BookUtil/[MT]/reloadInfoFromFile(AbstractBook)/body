@@ -1,7 +1,0 @@
-{
-  try {
-    readMetainfo(book);
-  }
- catch (  BookReadingException e) {
-  }
-}

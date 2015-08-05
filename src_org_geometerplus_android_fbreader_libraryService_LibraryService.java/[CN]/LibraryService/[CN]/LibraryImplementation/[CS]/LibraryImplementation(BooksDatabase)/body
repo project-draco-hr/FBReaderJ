@@ -1,5 +1,5 @@
 {
   myDatabase=db;
-  myCollection=new BookCollection(myDatabase,Paths.bookPath());
+  myCollection=new BookCollection(Paths.systemInfo(LibraryService.this),myDatabase,Paths.bookPath());
   reset(true);
 }

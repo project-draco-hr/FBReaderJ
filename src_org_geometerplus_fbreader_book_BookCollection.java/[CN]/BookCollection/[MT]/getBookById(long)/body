@@ -7,7 +7,7 @@
   if (book == null || book.File == null || !book.File.exists() || !isBookFormatActive(book)) {
     return null;
   }
-  book.loadLists(myDatabase);
+  book.loadLists(myDatabase,PluginCollection);
   final ZLFile bookFile=book.File;
   final ZLPhysicalFile physicalFile=bookFile.getPhysicalFile();
   if (physicalFile == null) {
@@ -24,7 +24,7 @@
   }
   fileInfos.save();
   try {
-    BookUtil.readMetainfo(book);
+    BookUtil.readMetainfo(book,PluginCollection);
     addBook(book,false);
     return book;
   }
