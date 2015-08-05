@@ -1,5 +1,3 @@
 {
   super(systemInfo,"fb2");
-  System.err.println("systemInfo fbc " + systemInfo);
-  new Exception("systemInfo fbc2").printStackTrace();
 }

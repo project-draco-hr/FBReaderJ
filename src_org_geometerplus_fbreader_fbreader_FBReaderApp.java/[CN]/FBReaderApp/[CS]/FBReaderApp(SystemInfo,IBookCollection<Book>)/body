@@ -1,6 +1,5 @@
 {
   super(systemInfo);
-  System.err.println("systemInfo 0 = " + systemInfo);
   Collection=collection;
   collection.addListener(new IBookCollection.Listener<Book>(){
     public void onBookEvent(    BookEvent event,    Book book){
