@@ -1,0 +1,3 @@
+{
+  return new Intent(context,FBReader.class).setAction(FBReaderIntents.Action.VIEW).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+}

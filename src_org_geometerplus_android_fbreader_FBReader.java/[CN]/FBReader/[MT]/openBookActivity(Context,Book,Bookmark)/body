@@ -1,5 +1,5 @@
 {
-  final Intent intent=new Intent(context,FBReader.class).setAction(FBReaderIntents.Action.VIEW).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+  final Intent intent=defaultIntent(context);
   FBReaderIntents.putBookExtra(intent,book);
   FBReaderIntents.putBookmarkExtra(intent,bookmark);
   context.startActivity(intent);
