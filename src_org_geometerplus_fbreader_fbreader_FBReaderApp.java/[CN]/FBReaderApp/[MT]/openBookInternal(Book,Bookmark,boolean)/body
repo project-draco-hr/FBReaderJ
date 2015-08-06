@@ -15,11 +15,13 @@
   System.gc();
   System.gc();
   final PluginCollection pluginCollection=PluginCollection.Instance(SystemInfo);
-  FormatPlugin plugin=null;
+  final FormatPlugin plugin;
   try {
     plugin=BookUtil.getPlugin(pluginCollection,book);
   }
  catch (  BookReadingException e) {
+    processException(e);
+    return;
   }
   if (plugin instanceof ExternalFormatPlugin) {
     ExternalBook=book;

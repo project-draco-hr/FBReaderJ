@@ -4,7 +4,7 @@
   final PluginCollection pluginCollection=PluginCollection.Instance(Paths.systemInfo(this));
   if (myBook != null) {
     BookUtil.getEncoding(myBook,pluginCollection);
-    setupCover(myBook);
+    setupCover(myBook,pluginCollection);
     setupBookInfo(myBook);
     setupAnnotation(myBook,pluginCollection);
     setupFileInfo(myBook);
