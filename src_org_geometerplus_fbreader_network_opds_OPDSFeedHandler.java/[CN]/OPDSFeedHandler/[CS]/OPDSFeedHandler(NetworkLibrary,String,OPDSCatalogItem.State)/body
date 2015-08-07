@@ -1,0 +1,11 @@
+{
+  if (!(result.Link instanceof OPDSNetworkLink)) {
+    throw new IllegalArgumentException(result.Link + " is not an instance of OPDSNetworkLink class");
+  }
+  myLibrary=library;
+  myCatalog=result.Loader.Tree.Item;
+  myBaseURL=baseURL;
+  myData=result;
+  mySkipUntilId=myData.LastLoadedId;
+  myFoundNewIds=mySkipUntilId != null;
+}

@@ -1,7 +1,7 @@
 {
   final String url=getUrl(UrlInfo.Type.ListBooks);
   if (url != null && myBasketItem == null) {
-    myBasketItem=new OPDSBasketItem(Library,this);
+    myBasketItem=new OPDSBasketItem(myLibrary,this);
   }
   return myBasketItem;
 }

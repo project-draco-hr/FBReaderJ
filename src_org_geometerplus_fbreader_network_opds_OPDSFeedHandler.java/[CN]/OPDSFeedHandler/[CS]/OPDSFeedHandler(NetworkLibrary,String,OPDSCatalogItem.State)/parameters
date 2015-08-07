@@ -1,2 +1,3 @@
+NetworkLibrary library
 String baseURL
 OPDSCatalogItem.State result
