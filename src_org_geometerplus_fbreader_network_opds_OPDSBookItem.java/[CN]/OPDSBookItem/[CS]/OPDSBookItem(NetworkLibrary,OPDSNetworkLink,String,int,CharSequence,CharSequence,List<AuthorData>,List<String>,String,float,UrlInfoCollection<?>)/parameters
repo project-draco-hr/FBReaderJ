@@ -1,3 +1,4 @@
+NetworkLibrary library
 OPDSNetworkLink link
 String id
 int index

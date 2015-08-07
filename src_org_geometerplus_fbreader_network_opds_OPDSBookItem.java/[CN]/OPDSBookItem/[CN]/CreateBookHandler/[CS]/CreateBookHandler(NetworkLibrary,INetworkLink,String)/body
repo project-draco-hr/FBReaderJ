@@ -1,4 +1,5 @@
 {
   super(url);
+  myLibrary=library;
   myLink=link;
 }

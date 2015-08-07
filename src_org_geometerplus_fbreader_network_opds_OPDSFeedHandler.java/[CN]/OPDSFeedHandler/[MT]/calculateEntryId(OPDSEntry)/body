@@ -11,7 +11,7 @@
     if (rel == null && MimeType.APP_ATOM_XML.weakEquals(mime)) {
       return ZLNetworkUtil.url(myBaseURL,link.getHref());
     }
-    if (!BookUrlInfo.isMimeSupported(mime,opdsLink.Library.SystemInfo)) {
+    if (!BookUrlInfo.isMimeSupported(mime,myLibrary.SystemInfo)) {
       continue;
     }
     if (rel != null && !rel.startsWith(REL_ACQUISITION_PREFIX) && !rel.startsWith(REL_FBREADER_ACQUISITION_PREFIX)) {

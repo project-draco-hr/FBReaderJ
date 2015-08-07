@@ -1,3 +1,0 @@
-{
-  this(networkLink,entry.Id.Uri,index,entry.Title,getAnnotation(entry),getAuthors(entry),getTags(entry),entry.SeriesTitle,entry.SeriesIndex,getUrls(networkLink,entry,baseUrl));
-}

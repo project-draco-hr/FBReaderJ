@@ -2,7 +2,7 @@
   if (link == null || url == null) {
     return null;
   }
-  final CreateBookHandler handler=new CreateBookHandler(link,url);
+  final CreateBookHandler handler=new CreateBookHandler(library,link,url);
   nc.perform(new ZLNetworkRequest.Get(url){
     @Override public void handleStream(    InputStream inputStream,    int length) throws IOException, ZLNetworkException {
       new OPDSXMLReader(library,handler,true).read(inputStream);

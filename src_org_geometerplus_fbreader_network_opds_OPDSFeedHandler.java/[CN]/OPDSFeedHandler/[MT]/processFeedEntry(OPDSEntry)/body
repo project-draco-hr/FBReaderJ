@@ -26,14 +26,14 @@
   for (  ATOMLink link : entry.Links) {
     final MimeType mime=MimeType.get(link.getType());
     final String rel=opdsLink.relation(link.getRel(),mime);
-    if (rel == null ? (BookUrlInfo.isMimeSupported(mime,opdsLink.Library.SystemInfo)) : (rel.equals(REL_RELATED) || rel.startsWith(REL_ACQUISITION_PREFIX) || rel.startsWith(REL_FBREADER_ACQUISITION_PREFIX))) {
+    if (rel == null ? (BookUrlInfo.isMimeSupported(mime,myLibrary.SystemInfo)) : (rel.equals(REL_RELATED) || rel.startsWith(REL_ACQUISITION_PREFIX) || rel.startsWith(REL_FBREADER_ACQUISITION_PREFIX))) {
       hasBookLink=true;
       break;
     }
   }
   NetworkItem item;
   if (hasBookLink) {
-    item=new OPDSBookItem((OPDSNetworkLink)myData.Link,entry,myBaseURL,myIndex++);
+    item=new OPDSBookItem(myLibrary,(OPDSNetworkLink)myData.Link,entry,myBaseURL,myIndex++);
     for (    String identifier : entry.DCIdentifiers) {
       ((OPDSBookItem)item).Identifiers.add(identifier);
     }

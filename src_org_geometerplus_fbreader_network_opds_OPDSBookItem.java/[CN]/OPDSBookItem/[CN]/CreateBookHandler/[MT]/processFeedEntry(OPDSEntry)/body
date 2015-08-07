@@ -1,4 +1,4 @@
 {
-  myBook=new OPDSBookItem((OPDSNetworkLink)myLink,entry,myUrl,0);
+  myBook=new OPDSBookItem(myLibrary,(OPDSNetworkLink)myLink,entry,myUrl,0);
   return false;
 }

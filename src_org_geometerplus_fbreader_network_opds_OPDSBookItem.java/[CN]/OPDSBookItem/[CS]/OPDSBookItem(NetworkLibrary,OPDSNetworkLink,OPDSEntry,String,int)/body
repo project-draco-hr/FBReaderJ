@@ -1,0 +1,3 @@
+{
+  this(library,networkLink,entry.Id.Uri,index,entry.Title,getAnnotation(entry),getAuthors(entry),getTags(entry),entry.SeriesTitle,entry.SeriesIndex,getUrls(library,networkLink,entry,baseUrl));
+}

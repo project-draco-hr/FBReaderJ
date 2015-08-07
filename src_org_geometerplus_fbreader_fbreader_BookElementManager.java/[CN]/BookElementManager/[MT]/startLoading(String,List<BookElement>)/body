@@ -2,7 +2,7 @@
   final NetworkLibrary library=NetworkLibrary.Instance(myView.Application.SystemInfo);
   new Thread(){
     public void run(){
-      final SimpleOPDSFeedHandler handler=new SimpleOPDSFeedHandler(url);
+      final SimpleOPDSFeedHandler handler=new SimpleOPDSFeedHandler(library,url);
       try {
         new QuietNetworkContext().perform(new ZLNetworkRequest.Get(url,true){
           @Override public void handleStream(          InputStream inputStream,          int length) throws IOException, ZLNetworkException {

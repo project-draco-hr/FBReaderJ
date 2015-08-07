@@ -7,4 +7,5 @@
   if (!(result.Link instanceof OPDSNetworkLink)) {
     throw new IllegalArgumentException("Parameter `result` has invalid `Link` field value: result.Link must be an instance of OPDSNetworkLink class.");
   }
+  myLibrary=((OPDSNetworkLink)result.Link).Library;
 }
