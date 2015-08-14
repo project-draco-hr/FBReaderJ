@@ -1,5 +1,5 @@
 {
   final AnimationProvider animator=getAnimationProvider();
-  animator.setup(direction,getWidth(),getMainAreaHeight());
+  animator.setup(direction,getWidth(),getMainAreaHeight(),myColorLevel);
   animator.startManualScrolling(x,y);
 }

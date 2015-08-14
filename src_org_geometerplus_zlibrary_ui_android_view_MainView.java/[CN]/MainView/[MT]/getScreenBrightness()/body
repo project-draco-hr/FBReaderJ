@@ -1,0 +1,7 @@
+{
+  final Context context=getContext();
+  if (!(context instanceof FBReaderMainActivity)) {
+    return 50;
+  }
+  return ((FBReaderMainActivity)context).getScreenBrightnessSystem();
+}

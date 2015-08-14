@@ -1,0 +1,8 @@
+{
+  if (level != null) {
+    paint.setColorFilter(new PorterDuffColorFilter(Color.rgb(level,level,level),PorterDuff.Mode.MULTIPLY));
+  }
+ else {
+    paint.setColorFilter(null);
+  }
+}

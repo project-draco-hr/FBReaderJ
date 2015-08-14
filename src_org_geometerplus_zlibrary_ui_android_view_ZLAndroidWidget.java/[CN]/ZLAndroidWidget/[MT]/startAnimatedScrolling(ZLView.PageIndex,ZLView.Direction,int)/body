@@ -4,7 +4,7 @@
     return;
   }
   final AnimationProvider animator=getAnimationProvider();
-  animator.setup(direction,getWidth(),getMainAreaHeight());
+  animator.setup(direction,getWidth(),getMainAreaHeight(),myColorLevel);
   animator.startAnimatedScrolling(pageIndex,null,null,speed);
   if (animator.getMode().Auto) {
     postInvalidate();

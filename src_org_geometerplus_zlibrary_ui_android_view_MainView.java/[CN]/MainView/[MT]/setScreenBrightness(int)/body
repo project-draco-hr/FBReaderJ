@@ -1,0 +1,15 @@
+{
+  final Context context=getContext();
+  if (!(context instanceof FBReaderMainActivity)) {
+    return;
+  }
+  ((FBReaderMainActivity)context).setScreenBrightnessSystem(percent);
+  if (percent >= 50) {
+    myColorLevel=null;
+  }
+ else {
+    myColorLevel=0x60 + (0xFF - 0x60) * Math.max(percent,0) / 50;
+  }
+  updateColorLevel();
+  postInvalidate();
+}

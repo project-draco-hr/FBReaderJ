@@ -1,4 +1,7 @@
 {
-  final int color=145 + 100 * Math.abs(visible) / full;
-  myDarkPaint.setColorFilter(new PorterDuffColorFilter(Color.rgb(color,color,color),PorterDuff.Mode.MULTIPLY));
+  int darkColorLevel=145 + 100 * Math.abs(visible) / full;
+  if (myColorLevel != null) {
+    darkColorLevel=darkColorLevel * myColorLevel / 0xFF;
+  }
+  ViewUtil.setColorLevel(myDarkPaint,darkColorLevel);
 }

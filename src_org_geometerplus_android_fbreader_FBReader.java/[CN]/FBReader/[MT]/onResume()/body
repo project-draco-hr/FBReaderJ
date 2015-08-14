@@ -6,7 +6,7 @@
       SyncOperations.enableSync(FBReader.this,myFBReaderApp.SyncOptions);
       final int brightnessLevel=getZLibrary().ScreenBrightnessLevelOption.getValue();
       if (brightnessLevel != 0) {
-        setScreenBrightness(brightnessLevel);
+        getViewWidget().setScreenBrightness(brightnessLevel);
       }
  else {
         setScreenBrightnessAuto();

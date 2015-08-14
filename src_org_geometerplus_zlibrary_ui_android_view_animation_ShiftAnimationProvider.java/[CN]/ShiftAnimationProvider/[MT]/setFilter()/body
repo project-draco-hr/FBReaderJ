@@ -1,0 +1,3 @@
+{
+  ViewUtil.setColorLevel(myPaint,myColorLevel);
+}

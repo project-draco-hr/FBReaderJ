@@ -1,0 +1,5 @@
+{
+  ViewUtil.setColorLevel(myPaint,myColorLevel);
+  ViewUtil.setColorLevel(myBackPaint,myColorLevel);
+  ViewUtil.setColorLevel(myEdgePaint,myColorLevel);
+}

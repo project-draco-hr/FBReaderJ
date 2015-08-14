@@ -1,0 +1,4 @@
+{
+  setFilter();
+  drawFooterBitmapInternal(canvas,footerBitmap,voffset);
+}
