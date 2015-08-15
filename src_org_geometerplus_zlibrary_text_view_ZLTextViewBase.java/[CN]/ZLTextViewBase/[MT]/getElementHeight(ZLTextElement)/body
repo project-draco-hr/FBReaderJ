@@ -1,5 +1,5 @@
 {
-  if (element instanceof ZLTextWord || element instanceof ZLTextFixedHSpaceElement) {
+  if (element == ZLTextElement.NBSpace || element instanceof ZLTextWord || element instanceof ZLTextFixedHSpaceElement) {
     return getWordHeight();
   }
  else   if (element instanceof ZLTextImageElement) {

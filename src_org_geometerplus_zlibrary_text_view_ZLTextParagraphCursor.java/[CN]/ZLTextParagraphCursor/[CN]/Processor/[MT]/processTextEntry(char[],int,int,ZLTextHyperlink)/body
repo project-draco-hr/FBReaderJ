@@ -25,6 +25,7 @@
         if (index > 0 && spaceState == NO_SPACE) {
           addWord(data,offset + wordStart,index - wordStart,myOffset + wordStart,hyperlink);
         }
+        elements.add(nbSpace);
         if (spaceState != SPACE) {
           spaceState=NON_BREAKABLE_SPACE;
         }
@@ -36,13 +37,12 @@ case SPACE:
         wordStart=index;
       break;
 case NON_BREAKABLE_SPACE:
-    elements.add(nbSpace);
-  wordStart=index;
-break;
+    wordStart=index;
+  break;
 case NO_SPACE:
 if (index > 0 && breaks[index - 1] != LineBreaker.NOBREAK && previousChar != '-' && index != wordStart) {
-addWord(data,offset + wordStart,index - wordStart,myOffset + wordStart,hyperlink);
-wordStart=index;
+  addWord(data,offset + wordStart,index - wordStart,myOffset + wordStart,hyperlink);
+  wordStart=index;
 }
 break;
 }
