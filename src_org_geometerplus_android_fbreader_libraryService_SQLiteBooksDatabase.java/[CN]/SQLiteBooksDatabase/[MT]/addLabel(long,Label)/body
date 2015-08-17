@@ -1,5 +1,5 @@
 {
-  myDatabase.execSQL("INSERT OR IGNORE INTO Labels (name) VALUES (?)",new Object[]{label});
+  myDatabase.execSQL("INSERT OR IGNORE INTO Labels (name) VALUES (?)",new Object[]{label.Name});
   final SQLiteStatement statement=get("INSERT OR IGNORE INTO BookLabel(label_id,book_id,uid,timestamp)" + " SELECT label_id,?,?,? FROM Labels WHERE name=?");
 synchronized (statement) {
     statement.bindLong(1,bookId);

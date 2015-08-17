@@ -1,7 +1,7 @@
 {
   myDatabase.execSQL("ALTER TABLE BookLabel RENAME TO BookLabel_Obsolete");
   myDatabase.execSQL("CREATE TABLE IF NOT EXISTS BookLabel(" + "label_id INTEGER NOT NULL REFERENCES Labels(label_id)," + "book_id INTEGER NOT NULL REFERENCES Books(book_id),"+ "timestamp INTEGER NOT NULL DEFAULT -1,"+ "uid TEXT(36) NOT NULL UNIQUE,"+ "CONSTRAINT BookLabel_Unique UNIQUE (label_id,book_id))");
-  final Cursor cursor=myDatabase.rawQuery("SELECT book_id,label_id,timestamp FROM BookLabel",null);
+  final Cursor cursor=myDatabase.rawQuery("SELECT label_id,book_id,timestamp FROM BookLabel_Obsolete",null);
   final SQLiteStatement statement=get("INSERT INTO BookLabel (label_id,book_id,timestamp,uid) VALUES (?,?,?,?)");
   while (cursor.moveToNext()) {
     statement.bindLong(1,cursor.getLong(0));
