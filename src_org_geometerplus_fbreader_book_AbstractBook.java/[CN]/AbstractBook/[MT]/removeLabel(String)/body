@@ -1,5 +1,5 @@
 {
-  if (myLabels != null && myLabels.remove(label)) {
+  if (myLabels != null && myLabels.remove(new Label(label))) {
     myIsSaved=false;
   }
 }

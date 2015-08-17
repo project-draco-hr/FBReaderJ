@@ -1,0 +1,6 @@
+{
+  if (!(other instanceof Label)) {
+    return false;
+  }
+  return Name.equals(((Label)other).Name);
+}

@@ -1,9 +1,9 @@
 {
-  final Cursor cursor=myDatabase.rawQuery("SELECT Labels.name FROM Labels" + " INNER JOIN BookLabel ON BookLabel.label_id=Labels.label_id" + " WHERE BookLabel.book_id=?",new String[]{String.valueOf(bookId)});
-  final LinkedList<String> names=new LinkedList<String>();
+  final Cursor cursor=myDatabase.rawQuery("SELECT Labels.name,BookLabel.uid FROM Labels" + " INNER JOIN BookLabel ON BookLabel.label_id=Labels.label_id" + " WHERE BookLabel.book_id=?",new String[]{String.valueOf(bookId)});
+  final LinkedList<Label> labels=new LinkedList<Label>();
   while (cursor.moveToNext()) {
-    names.add(cursor.getString(0));
+    labels.add(new Label(cursor.getString(1),cursor.getString(0)));
   }
   cursor.close();
-  return names;
+  return labels;
 }

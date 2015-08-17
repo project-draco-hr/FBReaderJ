@@ -37,7 +37,13 @@ if (term != null) {
  else if ("label".equals(localName)) {
 final String name=attributes.getValue("name");
 if (name != null) {
-  myLabels.add(name);
+  final String uid=attributes.getValue("uid");
+  if (uid != null) {
+    myLabels.add(new Label(uid,name));
+  }
+ else {
+    myLabels.add(new Label(name));
+  }
 }
 }
  else if ("series".equals(localName) && XMLNamespaces.CalibreMetadata.equals(uri)) {

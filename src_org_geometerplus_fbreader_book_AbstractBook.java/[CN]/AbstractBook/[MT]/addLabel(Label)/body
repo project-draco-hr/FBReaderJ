@@ -1,6 +1,6 @@
 {
   if (myLabels == null) {
-    myLabels=new ArrayList<String>();
+    myLabels=new ArrayList<Label>();
   }
   if (!myLabels.contains(label)) {
     myLabels.add(label);

@@ -1,0 +1,7 @@
+{
+  if (uid == null || name == null) {
+    throw new IllegalArgumentException("Label(" + uid + ","+ name+ ")");
+  }
+  Uid=uid;
+  Name=name;
+}

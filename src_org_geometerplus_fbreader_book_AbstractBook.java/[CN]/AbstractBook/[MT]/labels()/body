@@ -1,3 +1,3 @@
 {
-  return myLabels != null ? Collections.unmodifiableList(myLabels) : Collections.<String>emptyList();
+  return myLabels != null ? Collections.unmodifiableList(myLabels) : Collections.<Label>emptyList();
 }

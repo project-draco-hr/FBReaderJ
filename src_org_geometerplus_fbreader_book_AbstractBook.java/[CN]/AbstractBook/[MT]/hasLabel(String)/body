@@ -1,0 +1,8 @@
+{
+  for (  Label l : labels()) {
+    if (name.equals(l.Name)) {
+      return true;
+    }
+  }
+  return false;
+}

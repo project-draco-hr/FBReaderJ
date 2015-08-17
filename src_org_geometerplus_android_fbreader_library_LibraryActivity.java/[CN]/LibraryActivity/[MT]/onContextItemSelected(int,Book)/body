@@ -10,7 +10,7 @@ case ContextItemId.ShareBook:
 FBUtil.shareBook(this,book);
 return true;
 case ContextItemId.AddToFavorites:
-book.addLabel(Book.FAVORITE_LABEL);
+book.addNewLabel(Book.FAVORITE_LABEL);
 myCollection.saveBook(book);
 return true;
 case ContextItemId.RemoveFromFavorites:
@@ -21,7 +21,7 @@ getListAdapter().replaceAll(getCurrentTree().subtrees(),true);
 }
 return true;
 case ContextItemId.MarkAsRead:
-book.addLabel(Book.READ_LABEL);
+book.addNewLabel(Book.READ_LABEL);
 myCollection.saveBook(book);
 getListView().invalidateViews();
 return true;

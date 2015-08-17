@@ -63,11 +63,11 @@
     }
   }
   cursor.close();
-  cursor=myDatabase.rawQuery("SELECT BookLabel.book_id,Labels.name FROM Labels" + " INNER JOIN BookLabel ON BookLabel.label_id=Labels.label_id",null);
+  cursor=myDatabase.rawQuery("SELECT BookLabel.book_id,Labels.name,BookLabel.uid FROM Labels" + " INNER JOIN BookLabel ON BookLabel.label_id=Labels.label_id",null);
   while (cursor.moveToNext()) {
     final DbBook book=booksById.get(cursor.getLong(0));
     if (book != null) {
-      book.addLabel(cursor.getString(1));
+      book.addLabel(new Label(cursor.getString(2),cursor.getString(1)));
     }
   }
   cursor.close();

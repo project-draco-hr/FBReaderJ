@@ -9,7 +9,7 @@
   for (  Tag tag : myTags) {
     myBook.addTagWithNoCheck(tag);
   }
-  for (  String label : myLabels) {
+  for (  Label label : myLabels) {
     myBook.addLabelWithNoCheck(label);
   }
   for (  UID uid : myUidList) {
