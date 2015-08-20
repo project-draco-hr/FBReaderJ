@@ -35,10 +35,11 @@
         return;
       }
       final IFileProvider fileProvider=mFileProvider;
-      if (fileProvider == null) {
+      final IFile location=getLocation();
+      if (fileProvider == null || location == null) {
         return;
       }
-      IFile dir=fileProvider.fromPath(String.format("%s/%s",getLocation().getAbsolutePath(),name));
+      IFile dir=fileProvider.fromPath(String.format("%s/%s",location.getAbsolutePath(),name));
       if (dir.mkdir()) {
         Dlg.toast(FileChooserActivity.this,getString(R.string.afc_msg_done),Dlg._LengthShort);
         setLocation(getLocation(),null);
