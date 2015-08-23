@@ -6,7 +6,7 @@
   appendTagWithContent(buffer,"dc:encoding",book.getEncodingNoDetection());
   for (  UID uid : book.uids()) {
     appendTag(buffer,"dc:identifier",false,"scheme",uid.Type);
-    buffer.append(uid.Id);
+    buffer.append(escapeForXml(uid.Id));
     closeTag(buffer,"dc:identifier");
   }
   for (  Author author : book.authors()) {
