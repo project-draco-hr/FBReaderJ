@@ -1,0 +1,3 @@
+{
+  return ShowProgressType.getValue() == ProgressTypes.showProgressAsPercentage.ordinal() || ShowProgressType.getValue() == ProgressTypes.showProgressAsBoth.ordinal();
+}

@@ -1,0 +1,8 @@
+{
+  ProgressTypes[] progressTypes=ProgressTypes.values();
+  String[] resourceKeys=new String[progressTypes.length];
+  for (int i=0; i < progressTypes.length; i++) {
+    resourceKeys[i]=progressTypes[i].name();
+  }
+  return resourceKeys;
+}
