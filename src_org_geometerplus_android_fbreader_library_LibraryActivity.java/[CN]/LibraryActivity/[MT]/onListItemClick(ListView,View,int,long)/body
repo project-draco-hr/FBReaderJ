@@ -1,7 +1,7 @@
 {
   final LibraryTree tree=(LibraryTree)getListAdapter().getItem(position);
   if (tree instanceof ExternalViewTree) {
-    runOrInstallExternalView();
+    runOrInstallExternalView(true);
   }
  else {
     final Book book=tree.getBook();

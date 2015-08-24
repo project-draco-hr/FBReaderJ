@@ -29,7 +29,7 @@ tryToDeleteBooks(books);
 return true;
 }
 case OptionsItemId.ExternalView:
-runOrInstallExternalView();
+runOrInstallExternalView(true);
 return true;
 default :
 return true;

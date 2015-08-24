@@ -4,6 +4,8 @@
     finish();
   }
  catch (  ActivityNotFoundException e) {
-    PackageUtil.installFromMarket(this,"org.fbreader.plugin.library");
+    if (install) {
+      PackageUtil.installFromMarket(this,"org.fbreader.plugin.library");
+    }
   }
 }
