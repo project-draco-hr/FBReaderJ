@@ -1,5 +1,5 @@
 {
-  final Intent data=new Intent("android.fbreader.action.network.SIGNIN");
+  final Intent data=new Intent(Util.SIGNIN_ACTION);
   data.putExtra(USER_REGISTRATION_USERNAME,username);
   data.putExtra(USER_REGISTRATION_PASSWORD,password);
   data.putExtra(USER_REGISTRATION_LITRES_SID,sid);
