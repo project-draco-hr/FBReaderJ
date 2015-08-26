@@ -1,4 +1,4 @@
 {
-  final int level=(int)(100 * getWindow().getAttributes().screenBrightness);
-  return level >= 0 ? level : 50;
+  final float level=getWindow().getAttributes().screenBrightness;
+  return level >= 0 ? level : .5f;
 }

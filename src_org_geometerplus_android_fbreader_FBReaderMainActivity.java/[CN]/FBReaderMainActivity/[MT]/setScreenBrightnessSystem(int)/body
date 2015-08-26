@@ -1,12 +1,5 @@
 {
-  if (percent < 2) {
-    percent=2;
-  }
- else   if (percent > 100) {
-    percent=100;
-  }
   final WindowManager.LayoutParams attrs=getWindow().getAttributes();
   attrs.screenBrightness=percent / 100.0f;
   getWindow().setAttributes(attrs);
-  getZLibrary().ScreenBrightnessLevelOption.setValue(percent);
 }
