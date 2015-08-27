@@ -1,5 +1,5 @@
 {
   final WindowManager.LayoutParams attrs=getWindow().getAttributes();
-  attrs.screenBrightness=percent / 100.0f;
+  attrs.screenBrightness=level;
   getWindow().setAttributes(attrs);
 }
