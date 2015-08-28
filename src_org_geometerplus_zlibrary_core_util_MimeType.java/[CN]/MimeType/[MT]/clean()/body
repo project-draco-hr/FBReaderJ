@@ -1,0 +1,6 @@
+{
+  if (myParameters == null) {
+    return this;
+  }
+  return get(Name);
+}

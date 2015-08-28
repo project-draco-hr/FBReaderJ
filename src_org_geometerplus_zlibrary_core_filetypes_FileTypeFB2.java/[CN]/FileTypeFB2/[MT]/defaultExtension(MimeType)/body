@@ -1,4 +1,5 @@
 {
+  mime=mime.clean();
   if (MimeType.TYPES_FB2.contains(mime) || MimeType.TEXT_XML.equals(mime)) {
     return "fb2";
   }

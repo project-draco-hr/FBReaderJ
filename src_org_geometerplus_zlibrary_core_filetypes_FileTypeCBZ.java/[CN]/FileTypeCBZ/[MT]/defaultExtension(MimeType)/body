@@ -1,4 +1,5 @@
 {
+  mime=mime.clean();
   if (MimeType.APP_CBZ.equals(mime) || MimeType.APP_ZIP.equals(mime)) {
     return "cbz";
   }
