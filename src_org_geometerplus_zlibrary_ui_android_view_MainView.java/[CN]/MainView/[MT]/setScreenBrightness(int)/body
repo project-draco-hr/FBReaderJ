@@ -9,20 +9,21 @@
   if (!(context instanceof FBReaderMainActivity)) {
     return;
   }
-  final FBReaderMainActivity activity=(FBReaderMainActivity)context;
-  activity.getZLibrary().ScreenBrightnessLevelOption.setValue(percent);
-  if (percent >= 50) {
+  final float level;
+  final Integer oldColorLevel=myColorLevel;
+  if (percent >= 25) {
+    level=.01f + (percent - 25) * .99f / 75;
     myColorLevel=null;
-  }
- else   if (percent >= 25) {
-    myColorLevel=null;
-    percent=Math.max(2 * percent - 50,1);
   }
  else {
+    level=.01f;
     myColorLevel=0x60 + (0xFF - 0x60) * Math.max(percent,0) / 25;
-    percent=1;
   }
-  activity.setScreenBrightnessSystem(percent / 100.0f);
-  updateColorLevel();
-  postInvalidate();
+  final FBReaderMainActivity activity=(FBReaderMainActivity)context;
+  activity.getZLibrary().ScreenBrightnessLevelOption.setValue(percent);
+  activity.setScreenBrightnessSystem(level);
+  if (oldColorLevel != myColorLevel) {
+    updateColorLevel();
+    postInvalidate();
+  }
 }

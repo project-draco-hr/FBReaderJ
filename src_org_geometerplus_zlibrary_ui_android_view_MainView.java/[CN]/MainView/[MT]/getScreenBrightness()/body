@@ -7,10 +7,5 @@
     return 50;
   }
   final float level=((FBReaderMainActivity)context).getScreenBrightnessSystem();
-  if (level >= .5f) {
-    return (int)(100 * level);
-  }
- else {
-    return (int)(50 * level + 25);
-  }
+  return 25 + (int)((level - .01f) * 75 / .99f);
 }
