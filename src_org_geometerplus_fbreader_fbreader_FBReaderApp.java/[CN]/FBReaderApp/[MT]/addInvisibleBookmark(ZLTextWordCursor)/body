@@ -2,17 +2,22 @@
   if (cursor == null) {
     return;
   }
-  final ZLTextView textView=getTextView();
-synchronized (textView) {
-    final BookModel model=Model;
-    final Book book=model != null ? model.Book : null;
-    if (book == null || textView != BookTextView || textView.getModel() == null) {
-      return;
-    }
-    cursor=new ZLTextWordCursor(cursor);
-    if (cursor.isNull()) {
-      return;
-    }
-    updateInvisibleBookmarksList(new Bookmark(Collection,book,textView.getModel().getId(),new AutoTextSnippet(cursor,30),false));
+  cursor=new ZLTextWordCursor(cursor);
+  if (cursor.isNull()) {
+    return;
   }
+  final ZLTextView textView=getTextView();
+  final ZLTextModel textModel;
+  final Book book;
+  final AutoTextSnippet snippet;
+synchronized (textView) {
+    textModel=textView.getModel();
+    final BookModel model=Model;
+    book=model != null ? model.Book : null;
+    if (book == null || textView != BookTextView || textModel == null) {
+      return;
+    }
+    snippet=new AutoTextSnippet(cursor,30);
+  }
+  updateInvisibleBookmarksList(new Bookmark(Collection,book,textModel.getId(),snippet,false));
 }
