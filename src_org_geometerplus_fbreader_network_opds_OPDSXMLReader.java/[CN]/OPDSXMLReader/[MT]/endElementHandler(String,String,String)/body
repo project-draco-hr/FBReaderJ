@@ -5,7 +5,13 @@ default :
 case FEL_PRICE:
   if (ns == XMLNamespaces.Opds && tag == TAG_PRICE) {
     if (bufferContent != null && myPriceCurrency != null) {
-      getOPDSLink().Prices.add(new Money(bufferContent,myPriceCurrency));
+      try {
+        final Money price=new Money(bufferContent,myPriceCurrency);
+        getOPDSLink().Prices.add(price);
+      }
+ catch (      MoneyException e) {
+        e.printStackTrace();
+      }
       myPriceCurrency=null;
     }
     myState=FE_LINK;
