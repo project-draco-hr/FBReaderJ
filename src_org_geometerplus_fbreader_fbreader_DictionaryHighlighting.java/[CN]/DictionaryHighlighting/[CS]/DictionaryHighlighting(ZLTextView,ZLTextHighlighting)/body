@@ -1,3 +1,0 @@
-{
-  super(view,selection.getStartPosition(),selection.getEndPosition());
-}

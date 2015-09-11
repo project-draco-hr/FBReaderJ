@@ -1,0 +1,12 @@
+{
+  final ZLTextHighlighting hilite=view.getSelectionHighlighting();
+  if (hilite == null) {
+    return null;
+  }
+  final ZLTextPosition start=hilite.getStartPosition();
+  final ZLTextPosition end=hilite.getEndPosition();
+  if (start == null || end == null) {
+    return null;
+  }
+  return new DictionaryHighlighting(view,start,end);
+}

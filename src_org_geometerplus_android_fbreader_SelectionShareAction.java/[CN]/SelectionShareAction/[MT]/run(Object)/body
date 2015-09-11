@@ -1,7 +1,12 @@
 {
-  final String text=Reader.getTextView().getSelectedSnippet().getText();
+  final FBView fbview=Reader.getTextView();
+  final TextSnippet snippet=fbview.getSelectedSnippet();
+  if (snippet == null) {
+    return;
+  }
+  final String text=snippet.getText();
   final String title=Reader.getCurrentBook().getTitle();
-  Reader.getTextView().clearSelection();
+  fbview.clearSelection();
   final Intent intent=new Intent(android.content.Intent.ACTION_SEND);
   intent.setType("text/plain");
   intent.putExtra(android.content.Intent.EXTRA_SUBJECT,ZLResource.resource("selection").getResource("quoteFrom").getValue().replace("%s",title));

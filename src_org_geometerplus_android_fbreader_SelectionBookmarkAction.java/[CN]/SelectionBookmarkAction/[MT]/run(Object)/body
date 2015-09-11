@@ -6,6 +6,9 @@
  else {
     bookmark=Reader.addSelectionBookmark();
   }
+  if (bookmark == null) {
+    return;
+  }
   final SuperActivityToast toast=new SuperActivityToast(BaseActivity,SuperToast.Type.BUTTON);
   toast.setText(bookmark.getText());
   toast.setDuration(SuperToast.Duration.EXTRA_LONG);

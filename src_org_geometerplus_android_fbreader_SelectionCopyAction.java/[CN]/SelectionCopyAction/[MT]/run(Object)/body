@@ -1,6 +1,11 @@
 {
-  final String text=Reader.getTextView().getSelectedSnippet().getText();
-  Reader.getTextView().clearSelection();
+  final FBView fbview=Reader.getTextView();
+  final TextSnippet snippet=fbview.getSelectedSnippet();
+  if (snippet == null) {
+    return;
+  }
+  final String text=snippet.getText();
+  fbview.clearSelection();
   final ClipboardManager clipboard=(ClipboardManager)BaseActivity.getApplication().getSystemService(Application.CLIPBOARD_SERVICE);
   clipboard.setText(text);
   UIMessageUtil.showMessageText(BaseActivity,ZLResource.resource("selection").getResource("textInBuffer").getValue().replace("%s",clipboard.getText()));

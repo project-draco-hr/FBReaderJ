@@ -1,6 +1,10 @@
 {
   final FBView fbView=getTextView();
-  final Bookmark bookmark=new Bookmark(Collection,Model.Book,fbView.getModel().getId(),fbView.getSelectedSnippet(),true);
+  final TextSnippet snippet=fbView.getSelectedSnippet();
+  if (snippet == null) {
+    return null;
+  }
+  final Bookmark bookmark=new Bookmark(Collection,Model.Book,fbView.getModel().getId(),snippet,true);
   Collection.saveBookmark(bookmark);
   fbView.clearSelection();
   return bookmark;
