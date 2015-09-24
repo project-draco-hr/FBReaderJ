@@ -1,3 +1,9 @@
 {
-  return ShowProgressType.getValue() == ProgressTypes.showProgressAsPercentage.ordinal() || ShowProgressType.getValue() == ProgressTypes.showProgressAsBoth.ordinal();
+switch (ShowProgress.getValue()) {
+case asPercentage:
+case asPagesAndPercentage:
+    return true;
+default :
+  return false;
+}
 }
