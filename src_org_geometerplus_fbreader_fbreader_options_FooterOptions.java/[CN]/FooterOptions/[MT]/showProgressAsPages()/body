@@ -1,0 +1,3 @@
+{
+  return ShowProgressType.getValue() == ProgressTypes.showProgressAsPages.ordinal() || ShowProgressType.getValue() == ProgressTypes.showProgressAsBoth.ordinal();
+}
