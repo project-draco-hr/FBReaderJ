@@ -20,12 +20,10 @@
  catch (  Throwable e) {
   }
  finally {
-    if (reader != null) {
-      try {
-        reader.close();
-      }
- catch (      IOException e) {
-      }
+    try {
+      reader.close();
+    }
+ catch (    Throwable t) {
     }
   }
   for (  String dir : dirNames) {

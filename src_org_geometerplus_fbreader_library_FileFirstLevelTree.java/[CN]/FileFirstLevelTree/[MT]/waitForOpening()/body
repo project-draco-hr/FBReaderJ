@@ -1,8 +1,20 @@
 {
   clear();
   for (  String dir : Paths.BookPathOption.getValue()) {
-    addChild(dir,"fileTreeLibrary",dir);
+    addChild(dir,resource().getResource("fileTreeLibrary").getValue(),dir);
   }
-  addChild("/","fileTreeRoot",null);
-  addChild(Paths.cardDirectory(),"fileTreeCard",null);
+  addChild("/","fileTreeRoot");
+  final List<String> cards=Paths.allCardDirectories();
+  if (cards.size() == 1) {
+    addChild(cards.get(0),"fileTreeCard");
+  }
+ else {
+    final ZLResource res=resource().getResource("fileTreeCard");
+    final String title=res.getResource("withIndex").getValue();
+    final String summary=res.getResource("summary").getValue();
+    int index=0;
+    for (    String dir : cards) {
+      addChild(dir,title.replaceAll("%s",String.valueOf(++index)),summary);
+    }
+  }
 }

@@ -1,0 +1,6 @@
+{
+  final List<String> dirs=new LinkedList<String>();
+  dirs.add(cardDirectory());
+  addDirToList(dirs,System.getenv("SECONDARY_STORAGE"));
+  return dirs;
+}

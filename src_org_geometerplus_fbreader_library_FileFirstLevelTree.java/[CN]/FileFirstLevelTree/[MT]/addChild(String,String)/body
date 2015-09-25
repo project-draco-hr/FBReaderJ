@@ -1,0 +1,4 @@
+{
+  final ZLResource resource=resource().getResource(resourceKey);
+  addChild(path,resource.getValue(),resource.getResource("summary").getValue());
+}

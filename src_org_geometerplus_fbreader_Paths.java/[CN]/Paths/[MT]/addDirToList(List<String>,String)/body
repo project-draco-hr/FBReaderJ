@@ -1,0 +1,27 @@
+{
+  if (candidate == null || !candidate.startsWith("/")) {
+    return;
+  }
+  for (int count=0; count < 5; ++count) {
+    while (candidate.endsWith("/")) {
+      candidate=candidate.substring(0,candidate.length() - 1);
+    }
+    final File f=new File(candidate);
+    try {
+      final String canonical=f.getCanonicalPath();
+      if (canonical.equals(candidate)) {
+        break;
+      }
+      candidate=canonical;
+    }
+ catch (    Throwable t) {
+      return;
+    }
+  }
+  while (candidate.endsWith("/")) {
+    candidate=candidate.substring(0,candidate.length() - 1);
+  }
+  if (!"".equals(candidate) && !list.contains(candidate) && new File(candidate).canRead()) {
+    list.add(candidate);
+  }
+}

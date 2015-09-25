@@ -1,7 +1,6 @@
 {
   final ZLFile file=ZLFile.createFileByPath(path);
   if (file != null) {
-    final ZLResource resource=resource().getResource(resourceKey);
-    new FileTree(this,file,resource.getValue(),summary != null ? summary : resource.getResource("summary").getValue());
+    new FileTree(this,file,title,summary);
   }
 }
