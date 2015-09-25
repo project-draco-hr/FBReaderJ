@@ -25,13 +25,21 @@ default :
 returnPath=getLocation().getAbsolutePath();
 break;
 }
+boolean hasData=false;
 Intent intent=new Intent();
-if (returnPath != null) intent.putExtra(_FolderPath,returnPath);
+if (returnPath != null) {
+intent.putExtra(_FolderPath,returnPath);
+hasData=true;
+}
 if (files != null) {
 intent.putExtra(_Results,files);
+hasData=true;
 }
  else {
 intent.putExtra(_Results,new ArrayList<IFile>());
+}
+if (!hasData) {
+return;
 }
 intent.putExtra(_FilterMode,mFileProvider.getFilterMode());
 intent.putExtra(_SaveDialog,mIsSaveDialog);
