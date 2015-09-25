@@ -34,9 +34,10 @@
   final int gaugeInternalRight=left + lineWidth + (int)(1.0 * gaugeWidth * pagePosition.Current / pagePosition.Total);
   context.setFillColor(fillColor);
   context.fillRectangle(left + 1,height - 2 * lineWidth,gaugeInternalRight,lineWidth + 1);
-  if (myViewOptions.getFooterOptions().ShowTOCMarks.getValue()) {
+  final FooterOptions footerOptions=myViewOptions.getFooterOptions();
+  if (footerOptions.ShowTOCMarks.getValue()) {
     if (myTOCMarks == null) {
-      updateTOCMarks(model);
+      updateTOCMarks(model,footerOptions.MaxTOCMarks.getValue());
     }
     final int fullLength=sizeOfFullText();
     for (    TOCTree tocItem : myTOCMarks) {

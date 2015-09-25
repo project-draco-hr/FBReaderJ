@@ -28,12 +28,13 @@
     context.setLineColor(unreadColor);
     context.drawLine(gaugeInternalRight + 1,v,gaugeRight,v);
   }
-  if (myViewOptions.getFooterOptions().ShowTOCMarks.getValue()) {
+  final FooterOptions footerOptions=myViewOptions.getFooterOptions();
+  if (footerOptions.ShowTOCMarks.getValue()) {
     final TreeSet<Integer> labels=new TreeSet<Integer>();
     labels.add(left);
     labels.add(gaugeRight);
     if (myTOCMarks == null) {
-      updateTOCMarks(model);
+      updateTOCMarks(model,footerOptions.MaxTOCMarks.getValue());
     }
     final int fullLength=sizeOfFullText();
     for (    TOCTree tocItem : myTOCMarks) {
