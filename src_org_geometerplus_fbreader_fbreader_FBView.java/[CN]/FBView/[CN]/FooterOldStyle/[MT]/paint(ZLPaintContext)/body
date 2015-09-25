@@ -36,9 +36,7 @@
   context.fillRectangle(left + 1,height - 2 * lineWidth,gaugeInternalRight,lineWidth + 1);
   final FooterOptions footerOptions=myViewOptions.getFooterOptions();
   if (footerOptions.ShowTOCMarks.getValue()) {
-    if (myTOCMarks == null) {
-      updateTOCMarks(model,footerOptions.MaxTOCMarks.getValue());
-    }
+    updateTOCMarks(model,footerOptions.MaxTOCMarks.getValue());
     final int fullLength=sizeOfFullText();
     for (    TOCTree tocItem : myTOCMarks) {
       TOCTree.Reference reference=tocItem.getReference();

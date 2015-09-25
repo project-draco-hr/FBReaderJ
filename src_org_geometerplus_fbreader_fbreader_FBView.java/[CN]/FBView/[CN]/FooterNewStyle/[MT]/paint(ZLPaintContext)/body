@@ -33,9 +33,7 @@
     final TreeSet<Integer> labels=new TreeSet<Integer>();
     labels.add(left);
     labels.add(gaugeRight);
-    if (myTOCMarks == null) {
-      updateTOCMarks(model,footerOptions.MaxTOCMarks.getValue());
-    }
+    updateTOCMarks(model,footerOptions.MaxTOCMarks.getValue());
     final int fullLength=sizeOfFullText();
     for (    TOCTree tocItem : myTOCMarks) {
       TOCTree.Reference reference=tocItem.getReference();

@@ -1,5 +1,9 @@
 {
+  if (myTOCMarks != null && myMaxTOCMarksNumber == maxNumber) {
+    return;
+  }
   myTOCMarks=new ArrayList<TOCTree>();
+  myMaxTOCMarksNumber=maxNumber;
   TOCTree toc=model.TOCTree;
   if (toc == null) {
     return;
