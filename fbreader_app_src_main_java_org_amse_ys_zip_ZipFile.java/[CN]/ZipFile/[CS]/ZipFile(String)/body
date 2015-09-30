@@ -1,0 +1,8 @@
+{
+  this(new InputStreamHolder(){
+    public InputStream getInputStream() throws IOException {
+      return new FileInputStream(fileName);
+    }
+  }
+);
+}
