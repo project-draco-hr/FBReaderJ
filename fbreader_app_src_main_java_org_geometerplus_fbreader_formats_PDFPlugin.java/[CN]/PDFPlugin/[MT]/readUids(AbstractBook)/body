@@ -1,0 +1,5 @@
+{
+  if (book.uids().isEmpty()) {
+    book.addUid(BookUtil.createUid(book,"SHA-256"));
+  }
+}
