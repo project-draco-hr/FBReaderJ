@@ -1,0 +1,16 @@
+{
+  final List<Author> authors=myAuthors;
+  if (authors == null || authors.isEmpty()) {
+    return null;
+  }
+  final StringBuilder buffer=new StringBuilder();
+  boolean first=true;
+  for (  Author a : authors) {
+    if (!first) {
+      buffer.append(separator);
+    }
+    buffer.append(a.DisplayName);
+    first=false;
+  }
+  return buffer.toString();
+}

@@ -1,0 +1,20 @@
+{
+  final List<Tag> tags=myTags;
+  if (tags == null || tags.isEmpty()) {
+    return null;
+  }
+  final HashSet<String> tagNames=new HashSet<String>();
+  final StringBuilder buffer=new StringBuilder();
+  boolean first=true;
+  for (  Tag t : tags) {
+    if (!first) {
+      buffer.append(separator);
+    }
+    if (!tagNames.contains(t.Name)) {
+      tagNames.add(t.Name);
+      buffer.append(t.Name);
+      first=false;
+    }
+  }
+  return buffer.toString();
+}
