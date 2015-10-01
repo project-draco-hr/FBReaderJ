@@ -11,7 +11,7 @@
       drawBitmapInternal(canvas,footerBitmap,myWidth + dX,myWidth,h,voffset,myDarkPaint);
       drawBitmapInternal(canvas,footerBitmap,0,myWidth + dX,h,voffset,myPaint);
     }
-    drawShadow(canvas,voffset,voffset + h,dX);
+    drawShadowVertical(canvas,voffset,voffset + h,dX);
   }
  else {
     canvas.drawBitmap(footerBitmap,0,voffset,myPaint);

@@ -1,0 +1,14 @@
+{
+  final GradientDrawable.Orientation orientation=dY > 0 ? GradientDrawable.Orientation.BOTTOM_TOP : GradientDrawable.Orientation.TOP_BOTTOM;
+  final int[] colors=new int[]{0x46000000,0x00000000};
+  final GradientDrawable gradient=new GradientDrawable(orientation,colors);
+  gradient.setGradientType(GradientDrawable.LINEAR_GRADIENT);
+  gradient.setDither(true);
+  if (dY > 0) {
+    gradient.setBounds(left,dY - 16,right,dY);
+  }
+ else {
+    gradient.setBounds(left,myHeight + dY,right,myHeight + dY + 16);
+  }
+  gradient.draw(canvas);
+}

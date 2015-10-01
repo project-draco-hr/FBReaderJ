@@ -4,12 +4,13 @@
     setDarkFilter(dX,myWidth);
     drawBitmapTo(canvas,0,0,myDarkPaint);
     drawBitmapFrom(canvas,dX,0,myPaint);
-    drawShadow(canvas,0,myHeight,dX);
+    drawShadowVertical(canvas,0,myHeight,dX);
   }
  else {
     final int dY=myEndY - myStartY;
     setDarkFilter(dY,myHeight);
     drawBitmapTo(canvas,0,0,myDarkPaint);
     drawBitmapFrom(canvas,0,dY,myPaint);
+    drawShadowHorizontal(canvas,0,myWidth,dY);
   }
 }
