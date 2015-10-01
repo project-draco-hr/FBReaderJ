@@ -2,7 +2,7 @@
   if (myListClickActions.isEmpty()) {
     fillListClickList();
   }
-  final NetworkTree tree=(NetworkTree)getListAdapter().getItem(position);
+  final NetworkTree tree=(NetworkTree)getTreeAdapter().getItem(position);
   for (  Action a : myListClickActions) {
     if (a.isVisible(tree) && a.isEnabled(tree)) {
       checkAndRun(a,tree);

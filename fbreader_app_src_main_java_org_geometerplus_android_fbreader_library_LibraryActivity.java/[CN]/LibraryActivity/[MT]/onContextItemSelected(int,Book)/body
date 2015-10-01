@@ -17,7 +17,7 @@ case ContextItemId.RemoveFromFavorites:
 book.removeLabel(Book.FAVORITE_LABEL);
 myCollection.saveBook(book);
 if (getCurrentTree().onBookEvent(BookEvent.Updated,book)) {
-getListAdapter().replaceAll(getCurrentTree().subtrees(),true);
+getTreeAdapter().replaceAll(getCurrentTree().subtrees(),true);
 }
 return true;
 case ContextItemId.MarkAsRead:
@@ -37,7 +37,7 @@ case ContextItemId.UploadAgain:
 case ContextItemId.TryAgain:
 syncAgain(book);
 if (getCurrentTree().onBookEvent(BookEvent.Updated,book)) {
-getListAdapter().replaceAll(getCurrentTree().subtrees(),true);
+getTreeAdapter().replaceAll(getCurrentTree().subtrees(),true);
 }
 return true;
 }

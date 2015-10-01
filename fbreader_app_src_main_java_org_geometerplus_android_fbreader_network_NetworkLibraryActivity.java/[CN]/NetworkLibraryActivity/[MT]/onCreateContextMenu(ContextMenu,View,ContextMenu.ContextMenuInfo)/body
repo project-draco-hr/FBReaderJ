@@ -3,7 +3,7 @@
     fillContextMenuList();
   }
   final int position=((AdapterView.AdapterContextMenuInfo)menuInfo).position;
-  final NetworkTree tree=(NetworkTree)getListAdapter().getItem(position);
+  final NetworkTree tree=(NetworkTree)getTreeAdapter().getItem(position);
   if (tree != null) {
     menu.setHeaderTitle(tree.getName());
     for (    Action a : getContextMenuActions(tree)) {

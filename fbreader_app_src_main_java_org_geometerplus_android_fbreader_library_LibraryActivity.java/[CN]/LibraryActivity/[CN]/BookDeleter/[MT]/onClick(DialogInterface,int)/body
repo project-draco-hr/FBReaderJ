@@ -1,7 +1,7 @@
 {
   if (getCurrentTree() instanceof FileTree) {
     for (    Book book : myBooks) {
-      getListAdapter().remove(new FileTree((FileTree)getCurrentTree(),BookUtil.fileByBook(book)));
+      getTreeAdapter().remove(new FileTree((FileTree)getCurrentTree(),BookUtil.fileByBook(book)));
       myCollection.removeBook(book,true);
     }
     getListView().invalidateViews();
@@ -13,7 +13,7 @@
       myCollection.removeBook(book,true);
     }
     if (doReplace) {
-      getListAdapter().replaceAll(getCurrentTree().subtrees(),true);
+      getTreeAdapter().replaceAll(getCurrentTree().subtrees(),true);
     }
   }
 }

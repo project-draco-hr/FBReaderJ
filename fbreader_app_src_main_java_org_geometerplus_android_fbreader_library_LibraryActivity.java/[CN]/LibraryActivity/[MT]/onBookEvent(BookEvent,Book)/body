@@ -1,5 +1,5 @@
 {
   if (getCurrentTree().onBookEvent(event,book)) {
-    getListAdapter().replaceAll(getCurrentTree().subtrees(),true);
+    getTreeAdapter().replaceAll(getCurrentTree().subtrees(),true);
   }
 }

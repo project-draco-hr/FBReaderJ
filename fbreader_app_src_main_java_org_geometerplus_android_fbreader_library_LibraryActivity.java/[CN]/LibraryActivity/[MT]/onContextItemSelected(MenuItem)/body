@@ -1,6 +1,6 @@
 {
   final int position=((AdapterView.AdapterContextMenuInfo)item.getMenuInfo()).position;
-  final Book book=((LibraryTree)getListAdapter().getItem(position)).getBook();
+  final Book book=((LibraryTree)getTreeAdapter().getItem(position)).getBook();
   if (book != null) {
     return onContextItemSelected(item.getItemId(),book);
   }
