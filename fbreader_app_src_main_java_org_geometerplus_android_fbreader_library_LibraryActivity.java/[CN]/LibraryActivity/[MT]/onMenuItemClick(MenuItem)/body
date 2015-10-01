@@ -15,7 +15,7 @@ if (tree instanceof BookTree) {
   syncAgain(((BookTree)tree).Book);
 }
 }
-getListAdapter().replaceAll(getCurrentTree().subtrees(),true);
+getTreeAdapter().replaceAll(getCurrentTree().subtrees(),true);
 return true;
 case OptionsItemId.DeleteAll:
 {
