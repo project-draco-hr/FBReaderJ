@@ -1,0 +1,23 @@
+{
+  final StringBuilder buffer=new StringBuilder("Cannot read " + fileName(index));
+  if (extra != null) {
+    buffer.append("; ").append(extra);
+  }
+  buffer.append("\n");
+  try {
+    final File dir=new File(myDirectoryName);
+    buffer.append("ts = ").append(System.currentTimeMillis()).append("\n");
+    buffer.append("dir exists = ").append(dir.exists()).append("\n");
+    for (    File f : dir.listFiles()) {
+      buffer.append(f.getName()).append(" :: ");
+      buffer.append(f.length()).append(" :: ");
+      buffer.append(f.lastModified()).append("\n");
+    }
+  }
+ catch (  Throwable t) {
+    buffer.append(t.getClass().getName());
+    buffer.append("\n");
+    buffer.append(t.getMessage());
+  }
+  return buffer.toString();
+}
