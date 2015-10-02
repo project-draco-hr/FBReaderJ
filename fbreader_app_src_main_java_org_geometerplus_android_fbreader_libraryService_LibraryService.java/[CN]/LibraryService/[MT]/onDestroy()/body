@@ -5,6 +5,5 @@
     myLibrary=null;
     l.deactivate();
   }
-  myImageSynchronizer.clear();
   super.onDestroy();
 }
