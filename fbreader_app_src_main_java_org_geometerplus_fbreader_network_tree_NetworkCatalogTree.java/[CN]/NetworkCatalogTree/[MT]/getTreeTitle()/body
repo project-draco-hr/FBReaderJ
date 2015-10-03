@@ -1,4 +1,4 @@
 {
   final INetworkLink link=getLink();
-  return link != null ? getName() + " - " + link.getTitle() : getName();
+  return new Pair(getName(),link != null ? link.getTitle() : null);
 }
