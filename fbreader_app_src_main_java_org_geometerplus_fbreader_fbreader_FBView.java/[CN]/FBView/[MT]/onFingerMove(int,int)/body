@@ -1,11 +1,8 @@
 {
-  if (super.onFingerMove(x,y)) {
-    return true;
-  }
   final SelectionCursor.Which cursor=getSelectionCursorInMovement();
   if (cursor != null) {
     moveSelectionCursorTo(cursor,x,y);
-    return true;
+    return;
   }
 synchronized (this) {
     if (myIsBrightnessAdjustmentInProgress) {
@@ -16,12 +13,11 @@ synchronized (this) {
  else {
         final int delta=(myStartBrightness + 30) * (myStartY - y) / getContextHeight();
         myReader.getViewWidget().setScreenBrightness(myStartBrightness + delta);
-        return true;
+        return;
       }
     }
     if (isFlickScrollingEnabled()) {
       myReader.getViewWidget().scrollManuallyTo(x,y);
     }
   }
-  return true;
 }

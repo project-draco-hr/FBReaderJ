@@ -1,11 +1,8 @@
 {
-  if (super.onFingerReleaseAfterLongPress(x,y)) {
-    return true;
-  }
   final SelectionCursor.Which cursor=getSelectionCursorInMovement();
   if (cursor != null) {
     releaseSelectionCursor();
-    return true;
+    return;
   }
   final ZLTextRegion region=getOutlinedRegion();
   if (region != null) {
@@ -19,8 +16,6 @@
     }
     if (doRunAction) {
       myReader.runAction(ActionCode.PROCESS_HYPERLINK);
-      return true;
     }
   }
-  return false;
 }

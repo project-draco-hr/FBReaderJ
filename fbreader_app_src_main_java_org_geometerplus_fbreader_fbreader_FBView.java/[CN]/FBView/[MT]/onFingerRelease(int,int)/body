@@ -1,19 +1,12 @@
 {
-  if (super.onFingerRelease(x,y)) {
-    return true;
-  }
   final SelectionCursor.Which cursor=getSelectionCursorInMovement();
   if (cursor != null) {
     releaseSelectionCursor();
-    return true;
   }
-  if (myIsBrightnessAdjustmentInProgress) {
+ else   if (myIsBrightnessAdjustmentInProgress) {
     myIsBrightnessAdjustmentInProgress=false;
-    return true;
   }
-  if (isFlickScrollingEnabled()) {
+ else   if (isFlickScrollingEnabled()) {
     myReader.getViewWidget().startAnimatedScrolling(x,y,myReader.PageTurningOptions.AnimationSpeed.getValue());
-    return true;
   }
-  return true;
 }

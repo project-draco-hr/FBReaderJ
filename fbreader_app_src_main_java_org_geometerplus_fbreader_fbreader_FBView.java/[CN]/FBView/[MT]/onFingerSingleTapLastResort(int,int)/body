@@ -1,4 +1,3 @@
 {
   myReader.runAction(getZoneMap().getActionByCoordinates(x,y,getContextWidth(),getContextHeight(),isDoubleTapSupported() ? TapZoneMap.Tap.singleNotDoubleTap : TapZoneMap.Tap.singleTap),x,y);
-  return true;
 }

@@ -1,8 +1,4 @@
 {
   myReader.runAction(ActionCode.HIDE_TOAST);
-  if (super.onFingerDoubleTap(x,y)) {
-    return true;
-  }
   myReader.runAction(getZoneMap().getActionByCoordinates(x,y,getContextWidth(),getContextHeight(),TapZoneMap.Tap.doubleTap),x,y);
-  return true;
 }

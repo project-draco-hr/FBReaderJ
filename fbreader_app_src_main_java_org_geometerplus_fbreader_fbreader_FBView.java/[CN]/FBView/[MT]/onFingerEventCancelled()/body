@@ -1,0 +1,6 @@
+{
+  final SelectionCursor.Which cursor=getSelectionCursorInMovement();
+  if (cursor != null) {
+    releaseSelectionCursor();
+  }
+}
