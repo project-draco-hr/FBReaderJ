@@ -1,3 +1,0 @@
-{
-  return (myParent == null) ? myName.hashCode() : myParent.hashCode() + myName.hashCode();
-}
