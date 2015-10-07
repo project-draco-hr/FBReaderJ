@@ -1,21 +1,17 @@
 {
   myReader.runAction(ActionCode.HIDE_TOAST);
-  if (super.onFingerPress(x,y)) {
-    return true;
-  }
   final float maxDist=ZLibrary.Instance().getDisplayDPI() / 4;
   final SelectionCursor.Which cursor=findSelectionCursor(x,y,maxDist * maxDist);
   if (cursor != null) {
     myReader.runAction(ActionCode.SELECTION_HIDE_PANEL);
     moveSelectionCursorTo(cursor,x,y);
-    return true;
+    return;
   }
   if (myReader.MiscOptions.AllowScreenBrightnessAdjustment.getValue() && x < getContextWidth() / 10) {
     myIsBrightnessAdjustmentInProgress=true;
     myStartY=y;
     myStartBrightness=myReader.getViewWidget().getScreenBrightness();
-    return true;
+    return;
   }
   startManualScrolling(x,y);
-  return true;
 }

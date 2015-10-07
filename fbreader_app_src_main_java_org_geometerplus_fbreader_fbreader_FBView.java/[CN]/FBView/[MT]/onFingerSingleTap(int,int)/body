@@ -1,19 +1,16 @@
 {
-  if (super.onFingerSingleTap(x,y)) {
-    return true;
-  }
   final ZLTextRegion hyperlinkRegion=findRegion(x,y,maxSelectionDistance(),ZLTextRegion.HyperlinkFilter);
   if (hyperlinkRegion != null) {
     outlineRegion(hyperlinkRegion);
     myReader.getViewWidget().reset();
     myReader.getViewWidget().repaint();
     myReader.runAction(ActionCode.PROCESS_HYPERLINK);
-    return true;
+    return;
   }
   final ZLTextRegion bookRegion=findRegion(x,y,0,ZLTextRegion.ExtensionFilter);
   if (bookRegion != null) {
     myReader.runAction(ActionCode.DISPLAY_BOOK_POPUP,bookRegion);
-    return true;
+    return;
   }
   final ZLTextRegion videoRegion=findRegion(x,y,0,ZLTextRegion.VideoFilter);
   if (videoRegion != null) {
@@ -21,16 +18,16 @@
     myReader.getViewWidget().reset();
     myReader.getViewWidget().repaint();
     myReader.runAction(ActionCode.OPEN_VIDEO,(ZLTextVideoRegionSoul)videoRegion.getSoul());
-    return true;
+    return;
   }
   final ZLTextHighlighting highlighting=findHighlighting(x,y,maxSelectionDistance());
   if (highlighting instanceof BookmarkHighlighting) {
     myReader.runAction(ActionCode.SELECTION_BOOKMARK,((BookmarkHighlighting)highlighting).Bookmark);
-    return true;
+    return;
   }
   if (myReader.isActionEnabled(ActionCode.HIDE_TOAST)) {
     myReader.runAction(ActionCode.HIDE_TOAST);
-    return true;
+    return;
   }
-  return onFingerSingleTapLastResort(x,y);
+  onFingerSingleTapLastResort(x,y);
 }

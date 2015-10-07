@@ -1,11 +1,8 @@
 {
-  if (super.onFingerMoveAfterLongPress(x,y)) {
-    return true;
-  }
   final SelectionCursor.Which cursor=getSelectionCursorInMovement();
   if (cursor != null) {
     moveSelectionCursorTo(cursor,x,y);
-    return true;
+    return;
   }
   ZLTextRegion region=getOutlinedRegion();
   if (region != null) {
@@ -24,5 +21,4 @@
       }
     }
   }
-  return true;
 }
