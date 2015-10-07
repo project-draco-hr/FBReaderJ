@@ -18,13 +18,13 @@
       NetworkCatalogTree child=(NetworkCatalogTree)currentTree;
       if (child.Item == currentItem) {
 switch (child.Item.getVisibility()) {
-case B3_TRUE:
+case TRUE:
           child.updateVisibility();
         break;
-case B3_FALSE:
+case FALSE:
       toRemove.add(child);
     break;
-case B3_UNDEFINED:
+case UNDEFINED:
   child.clearCatalog();
 break;
 }
