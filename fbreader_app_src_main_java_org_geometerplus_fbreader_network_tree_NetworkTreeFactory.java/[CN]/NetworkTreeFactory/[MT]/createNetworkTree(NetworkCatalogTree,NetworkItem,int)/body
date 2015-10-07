@@ -8,7 +8,7 @@
   }
   if (item instanceof NetworkCatalogItem) {
     final NetworkCatalogItem catalogItem=(NetworkCatalogItem)item;
-    if (catalogItem.getVisibility() == ZLBoolean3.B3_FALSE) {
+    if (catalogItem.getVisibility() == Boolean3.FALSE) {
       return null;
     }
     return new NetworkCatalogTree(parent,parent.getLink(),catalogItem,position);

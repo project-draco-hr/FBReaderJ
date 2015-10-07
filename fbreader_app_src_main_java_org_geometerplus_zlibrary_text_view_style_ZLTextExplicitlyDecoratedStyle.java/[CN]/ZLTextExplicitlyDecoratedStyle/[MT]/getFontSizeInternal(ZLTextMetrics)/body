@@ -4,13 +4,13 @@
   }
   final int baseFontSize=getTreeParent().getFontSize(metrics);
   if (myEntry.isFeatureSupported(FONT_STYLE_MODIFIER)) {
-    if (myEntry.getFontModifier(FONT_MODIFIER_INHERIT) == ZLBoolean3.B3_TRUE) {
+    if (myEntry.getFontModifier(FONT_MODIFIER_INHERIT) == Boolean3.TRUE) {
       return baseFontSize;
     }
-    if (myEntry.getFontModifier(FONT_MODIFIER_LARGER) == ZLBoolean3.B3_TRUE) {
+    if (myEntry.getFontModifier(FONT_MODIFIER_LARGER) == Boolean3.TRUE) {
       return baseFontSize * 120 / 100;
     }
-    if (myEntry.getFontModifier(FONT_MODIFIER_SMALLER) == ZLBoolean3.B3_TRUE) {
+    if (myEntry.getFontModifier(FONT_MODIFIER_SMALLER) == Boolean3.TRUE) {
       return baseFontSize * 100 / 120;
     }
   }

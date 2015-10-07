@@ -1,8 +1,8 @@
 {
 switch (myDescription.isBold()) {
-case B3_TRUE:
+case TRUE:
     return true;
-case B3_FALSE:
+case FALSE:
   return false;
 default :
 return Parent.isBold();
