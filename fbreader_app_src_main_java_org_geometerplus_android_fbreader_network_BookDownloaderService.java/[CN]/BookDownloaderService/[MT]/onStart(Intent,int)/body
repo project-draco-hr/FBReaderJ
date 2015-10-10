@@ -8,7 +8,8 @@
   }
   intent.setData(null);
   if (intent.getBooleanExtra(Key.FROM_SYNC,false)) {
-    NotificationUtil.drop(this,NotificationUtil.MISSING_BOOK_ID);
+    final int notificationId=intent.getIntExtra(Key.NOTIFICATION_TO_DISMISS_ID,NotificationUtil.MISSING_BOOK_ID);
+    NotificationUtil.drop(this,notificationId);
   }
   final int notifications=intent.getIntExtra(Key.SHOW_NOTIFICATIONS,0);
   final String url=uri.toString();
