@@ -1,8 +1,8 @@
 {
-  if (pair.second != null) {
-    setTitle(pair.first + " - " + pair.second);
+  if (pair.Second != null) {
+    setTitle(pair.First + " - " + pair.Second);
   }
  else {
-    setTitle(pair.first);
+    setTitle(pair.First);
   }
 }

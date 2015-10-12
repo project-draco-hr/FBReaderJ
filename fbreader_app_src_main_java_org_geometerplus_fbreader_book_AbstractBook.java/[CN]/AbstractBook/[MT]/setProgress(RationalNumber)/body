@@ -1,5 +1,5 @@
 {
-  if (!MiscUtil.equals(myProgress,progress)) {
+  if (!ComparisonUtil.equal(myProgress,progress)) {
     myProgress=progress;
     myIsSaved=false;
   }

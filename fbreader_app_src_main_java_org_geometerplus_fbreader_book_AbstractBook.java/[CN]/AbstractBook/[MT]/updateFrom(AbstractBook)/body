@@ -5,11 +5,11 @@
   setTitle(book.getTitle());
   setEncoding(book.myEncoding);
   setLanguage(book.myLanguage);
-  if (!MiscUtil.equals(myAuthors,book.myAuthors)) {
+  if (!ComparisonUtil.equal(myAuthors,book.myAuthors)) {
     myAuthors=book.myAuthors != null ? new ArrayList<Author>(book.myAuthors) : null;
     myIsSaved=false;
   }
-  if (!MiscUtil.equals(myTags,book.myTags)) {
+  if (!ComparisonUtil.equal(myTags,book.myTags)) {
     myTags=book.myTags != null ? new ArrayList<Tag>(book.myTags) : null;
     myIsSaved=false;
   }
@@ -17,7 +17,7 @@
     myLabels=book.myLabels != null ? new ArrayList<Label>(book.myLabels) : null;
     myIsSaved=false;
   }
-  if (!MiscUtil.equals(mySeriesInfo,book.mySeriesInfo)) {
+  if (!ComparisonUtil.equal(mySeriesInfo,book.mySeriesInfo)) {
     mySeriesInfo=book.mySeriesInfo;
     myIsSaved=false;
   }

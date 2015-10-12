@@ -1,4 +1,4 @@
 {
-  myHasChanges=myHasChanges || !MiscUtil.equals(mySummary,summary);
+  myHasChanges=myHasChanges || !ComparisonUtil.equal(mySummary,summary);
   mySummary=summary;
 }

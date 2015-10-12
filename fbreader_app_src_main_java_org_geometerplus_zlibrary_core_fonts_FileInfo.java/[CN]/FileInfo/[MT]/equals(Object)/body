@@ -6,5 +6,5 @@
     return false;
   }
   final FileInfo oInfo=(FileInfo)other;
-  return Path.equals(oInfo.Path) && MiscUtil.equals(EncryptionInfo,oInfo.EncryptionInfo);
+  return Path.equals(oInfo.Path) && ComparisonUtil.equal(EncryptionInfo,oInfo.EncryptionInfo);
 }

@@ -20,7 +20,7 @@ synchronized (list) {
       return candidate;
     }
     final ZLPhysicalFile pCandidate=candidate.getPhysicalFile();
-    if (pCandidate != null && MiscUtil.equals(entryName,entryName(candidate)) && shortName.equals(pCandidate.getShortName()) && size == pCandidate.size() && lastModified == pCandidate.javaFile().lastModified()) {
+    if (pCandidate != null && ComparisonUtil.equal(entryName,entryName(candidate)) && shortName.equals(pCandidate.getShortName()) && size == pCandidate.size() && lastModified == pCandidate.javaFile().lastModified()) {
       return candidate;
     }
   }

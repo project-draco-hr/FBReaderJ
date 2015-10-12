@@ -6,5 +6,5 @@
     return false;
   }
   final FileEncryptionInfo oInfo=(FileEncryptionInfo)other;
-  return MiscUtil.equals(Uri,oInfo.Uri) && MiscUtil.equals(Method,oInfo.Method) && MiscUtil.equals(Algorithm,oInfo.Algorithm)&& MiscUtil.equals(ContentId,oInfo.ContentId);
+  return ComparisonUtil.equal(Uri,oInfo.Uri) && ComparisonUtil.equal(Method,oInfo.Method) && ComparisonUtil.equal(Algorithm,oInfo.Algorithm)&& ComparisonUtil.equal(ContentId,oInfo.ContentId);
 }

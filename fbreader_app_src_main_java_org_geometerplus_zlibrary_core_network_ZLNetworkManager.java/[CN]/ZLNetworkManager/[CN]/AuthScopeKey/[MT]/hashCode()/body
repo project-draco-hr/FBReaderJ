@@ -2,5 +2,5 @@
   if (myScope == null) {
     return 0;
   }
-  return myScope.getPort() + MiscUtil.hashCode(myScope.getHost()) + MiscUtil.hashCode(myScope.getScheme())+ MiscUtil.hashCode(myScope.getRealm());
+  return myScope.getPort() + ComparisonUtil.hashCode(myScope.getHost()) + ComparisonUtil.hashCode(myScope.getScheme())+ ComparisonUtil.hashCode(myScope.getRealm());
 }

@@ -6,5 +6,5 @@
     return false;
   }
   final Key k=(Key)o;
-  return MiscUtil.equals(Domain,k.Domain) && MiscUtil.equals(Path,k.Path) && MiscUtil.equals(Name,k.Name);
+  return ComparisonUtil.equal(Domain,k.Domain) && ComparisonUtil.equal(Path,k.Path) && ComparisonUtil.equal(Name,k.Name);
 }

@@ -6,5 +6,5 @@
     return false;
   }
   final SeriesInfo info=(SeriesInfo)other;
-  return MiscUtil.equals(Series,info.Series) && MiscUtil.equals(Index,info.Index);
+  return ComparisonUtil.equal(Series,info.Series) && ComparisonUtil.equal(Index,info.Index);
 }

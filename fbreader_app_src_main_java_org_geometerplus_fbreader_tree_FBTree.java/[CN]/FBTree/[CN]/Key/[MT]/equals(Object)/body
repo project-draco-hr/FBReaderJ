@@ -6,5 +6,5 @@
     return false;
   }
   final Key key=(Key)other;
-  return Id.equals(key.Id) && MiscUtil.equals(Parent,key.Parent);
+  return Id.equals(key.Id) && ComparisonUtil.equal(Parent,key.Parent);
 }

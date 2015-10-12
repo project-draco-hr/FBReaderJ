@@ -1,5 +1,5 @@
 {
-  if (!MiscUtil.equals(myEncoding,encoding)) {
+  if (!ComparisonUtil.equal(myEncoding,encoding)) {
     myEncoding=encoding;
     myIsSaved=false;
   }

@@ -17,7 +17,7 @@ synchronized (ourMonitor) {
     public void run(){
       while (ourProgress == currentProgress && !ourTaskQueue.isEmpty()) {
         final Pair<Runnable,String> p=ourTaskQueue.poll();
-        p.first.run();
+        p.First.run();
 synchronized (ourMonitor) {
           ourProgressHandler.sendEmptyMessage(0);
           try {
