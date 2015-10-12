@@ -12,7 +12,7 @@ synchronized (ourMonitor) {
               ourProgress=null;
             }
  else {
-              ourProgress.setMessage(ourTaskQueue.peek().second);
+              ourProgress.setMessage(ourTaskQueue.peek().Second);
             }
             ourMonitor.notify();
           }

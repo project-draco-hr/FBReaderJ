@@ -1,0 +1,3 @@
+{
+  return ComparisonUtil.hashCode(First) + 23 * ComparisonUtil.hashCode(Second);
+}

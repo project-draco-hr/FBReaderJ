@@ -1,3 +1,3 @@
 {
-  return Path.hashCode() + 23 * MiscUtil.hashCode(EncryptionInfo);
+  return Path.hashCode() + 23 * ComparisonUtil.hashCode(EncryptionInfo);
 }

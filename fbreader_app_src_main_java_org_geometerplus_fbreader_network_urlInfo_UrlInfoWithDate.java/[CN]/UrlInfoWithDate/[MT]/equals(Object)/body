@@ -6,5 +6,5 @@
     return false;
   }
   final UrlInfoWithDate info=(UrlInfoWithDate)o;
-  return InfoType == info.InfoType && MiscUtil.equals(Url,info.Url) && MiscUtil.equals(Mime,info.Mime) && MiscUtil.equals(Updated,info.Updated);
+  return InfoType == info.InfoType && ComparisonUtil.equal(Url,info.Url) && ComparisonUtil.equal(Mime,info.Mime) && ComparisonUtil.equal(Updated,info.Updated);
 }

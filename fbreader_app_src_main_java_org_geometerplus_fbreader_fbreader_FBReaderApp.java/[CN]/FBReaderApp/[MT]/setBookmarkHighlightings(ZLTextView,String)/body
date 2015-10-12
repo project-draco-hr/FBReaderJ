@@ -9,7 +9,7 @@
       if (b.getEnd() == null) {
         BookmarkUtil.findEnd(b,view);
       }
-      if (MiscUtil.equals(modelId,b.ModelId)) {
+      if (ComparisonUtil.equal(modelId,b.ModelId)) {
         view.addHighlighting(new BookmarkHighlighting(view,Collection,b));
       }
     }

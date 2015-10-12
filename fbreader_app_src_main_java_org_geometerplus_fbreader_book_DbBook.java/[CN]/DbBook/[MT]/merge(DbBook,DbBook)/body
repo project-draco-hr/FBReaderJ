@@ -1,18 +1,18 @@
 {
-  if (!MiscUtil.equals(getTitle(),other.getTitle()) && MiscUtil.equals(getTitle(),base.getTitle())) {
+  if (!ComparisonUtil.equal(getTitle(),other.getTitle()) && ComparisonUtil.equal(getTitle(),base.getTitle())) {
     setTitle(other.getTitle());
   }
-  if (!MiscUtil.equals(myEncoding,other.myEncoding) && MiscUtil.equals(myEncoding,base.myEncoding)) {
+  if (!ComparisonUtil.equal(myEncoding,other.myEncoding) && ComparisonUtil.equal(myEncoding,base.myEncoding)) {
     setEncoding(other.myEncoding);
   }
-  if (!MiscUtil.equals(myLanguage,other.myLanguage) && MiscUtil.equals(myLanguage,base.myLanguage)) {
+  if (!ComparisonUtil.equal(myLanguage,other.myLanguage) && ComparisonUtil.equal(myLanguage,base.myLanguage)) {
     setLanguage(other.myLanguage);
   }
   if (!MiscUtil.listsEquals(myTags,other.myTags) && MiscUtil.listsEquals(myTags,base.myTags)) {
     myTags=other.myTags != null ? new ArrayList<Tag>(other.myTags) : null;
     myIsSaved=false;
   }
-  if (!MiscUtil.equals(mySeriesInfo,other.mySeriesInfo) && MiscUtil.equals(mySeriesInfo,base.mySeriesInfo)) {
+  if (!ComparisonUtil.equal(mySeriesInfo,other.mySeriesInfo) && ComparisonUtil.equal(mySeriesInfo,base.mySeriesInfo)) {
     mySeriesInfo=other.mySeriesInfo;
     myIsSaved=false;
   }

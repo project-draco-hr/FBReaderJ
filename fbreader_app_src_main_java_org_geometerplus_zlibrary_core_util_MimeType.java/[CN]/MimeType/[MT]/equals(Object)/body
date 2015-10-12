@@ -6,5 +6,5 @@
     return false;
   }
   final MimeType type=(MimeType)o;
-  return MiscUtil.equals(Name,type.Name) && MiscUtil.mapsEquals(myParameters,type.myParameters);
+  return ComparisonUtil.equal(Name,type.Name) && MiscUtil.mapsEquals(myParameters,type.myParameters);
 }

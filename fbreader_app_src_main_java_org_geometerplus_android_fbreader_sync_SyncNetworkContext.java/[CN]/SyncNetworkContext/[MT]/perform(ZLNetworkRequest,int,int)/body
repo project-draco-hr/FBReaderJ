@@ -3,7 +3,7 @@
     throw new SynchronizationDisabledException();
   }
   final String accountName=SyncUtil.getAccountName(this);
-  if (!MiscUtil.equals(myAccountName,accountName)) {
+  if (!ComparisonUtil.equal(myAccountName,accountName)) {
     reloadCookie();
     myAccountName=accountName;
   }

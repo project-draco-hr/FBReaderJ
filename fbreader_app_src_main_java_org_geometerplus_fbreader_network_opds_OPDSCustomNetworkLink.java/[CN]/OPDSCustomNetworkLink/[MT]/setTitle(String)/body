@@ -1,4 +1,4 @@
 {
-  myHasChanges=myHasChanges || !MiscUtil.equals(myTitle,title);
+  myHasChanges=myHasChanges || !ComparisonUtil.equal(myTitle,title);
   myTitle=title;
 }
