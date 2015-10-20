@@ -1,6 +1,6 @@
 {
   if ((lhs.isDirectory() && rhs.isDirectory()) || (lhs.isFile() && rhs.isFile())) {
-    int res=lhs.getSecondName().compareToIgnoreCase(rhs.getSecondName());
+    int res=ourNaturalOrderComparator.compare(lhs.getSecondName(),rhs.getSecondName());
 switch (mSortType) {
 case SortByName:
       break;
