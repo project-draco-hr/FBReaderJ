@@ -1,6 +1,6 @@
 {
   if (myAuthors != null) {
     myAuthors=null;
-    myIsSaved=false;
+    mySaveState=SaveState.NotSaved;
   }
 }

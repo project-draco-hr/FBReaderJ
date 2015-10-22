@@ -17,7 +17,6 @@ case Removed:
  else {
     return super.onBookEvent(event,book);
   }
-default :
 case Updated:
 if (myGroupByFirstLetter) {
   return createTitleSubtree(book.firstTitleLetter());
@@ -27,5 +26,7 @@ if (myGroupByFirstLetter) {
   changed|=createBookWithAuthorsSubtree(book);
   return changed;
 }
+default :
+return super.onBookEvent(event,book);
 }
 }

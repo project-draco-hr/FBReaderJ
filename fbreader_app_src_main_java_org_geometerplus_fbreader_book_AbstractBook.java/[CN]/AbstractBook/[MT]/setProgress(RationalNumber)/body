@@ -1,6 +1,8 @@
 {
   if (!ComparisonUtil.equal(myProgress,progress)) {
     myProgress=progress;
-    myIsSaved=false;
+    if (mySaveState == SaveState.Saved) {
+      mySaveState=SaveState.ProgressNotSaved;
+    }
   }
 }

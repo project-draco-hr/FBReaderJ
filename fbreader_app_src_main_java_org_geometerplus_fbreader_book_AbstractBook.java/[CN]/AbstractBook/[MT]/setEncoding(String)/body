@@ -1,6 +1,6 @@
 {
   if (!ComparisonUtil.equal(myEncoding,encoding)) {
     myEncoding=encoding;
-    myIsSaved=false;
+    mySaveState=SaveState.NotSaved;
   }
 }

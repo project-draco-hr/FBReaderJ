@@ -2,6 +2,6 @@
   if (!ComparisonUtil.equal(myLanguage,language)) {
     myLanguage=language;
     resetSortKey();
-    myIsSaved=false;
+    mySaveState=SaveState.NotSaved;
   }
 }

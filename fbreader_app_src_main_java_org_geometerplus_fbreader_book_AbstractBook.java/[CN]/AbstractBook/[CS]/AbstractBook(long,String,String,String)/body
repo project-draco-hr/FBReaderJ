@@ -3,5 +3,5 @@
   myId=id;
   myEncoding=encoding;
   myLanguage=language;
-  myIsSaved=true;
+  mySaveState=SaveState.Saved;
 }

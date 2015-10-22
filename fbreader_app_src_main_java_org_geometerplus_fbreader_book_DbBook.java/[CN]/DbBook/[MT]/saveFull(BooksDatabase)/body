@@ -1,0 +1,60 @@
+{
+  final boolean[] result=new boolean[]{true};
+  database.executeAsTransaction(new Runnable(){
+    public void run(){
+      if (myId >= 0) {
+        final FileInfoSet fileInfos=new FileInfoSet(database,File);
+        database.updateBookInfo(myId,fileInfos.getId(File),myEncoding,myLanguage,getTitle());
+      }
+ else {
+        myId=database.insertBookInfo(File,myEncoding,myLanguage,getTitle());
+        if (myId == -1) {
+          result[0]=false;
+          return;
+        }
+        if (myVisitedHyperlinks != null) {
+          for (          String linkId : myVisitedHyperlinks) {
+            database.addVisitedHyperlink(myId,linkId);
+          }
+        }
+        database.addBookHistoryEvent(myId,BooksDatabase.HistoryEvent.Added);
+      }
+      long index=0;
+      database.deleteAllBookAuthors(myId);
+      for (      Author author : authors()) {
+        database.saveBookAuthorInfo(myId,index++,author);
+      }
+      database.deleteAllBookTags(myId);
+      for (      Tag tag : tags()) {
+        database.saveBookTagInfo(myId,tag);
+      }
+      final List<Label> labelsInDb=database.listLabels(myId);
+      for (      Label label : labelsInDb) {
+        if (myLabels == null || !myLabels.contains(label)) {
+          database.removeLabel(myId,label);
+        }
+      }
+      if (myLabels != null) {
+        for (        Label label : myLabels) {
+          database.addLabel(myId,label);
+        }
+      }
+      database.saveBookSeriesInfo(myId,mySeriesInfo);
+      database.deleteAllBookUids(myId);
+      for (      UID uid : uids()) {
+        database.saveBookUid(myId,uid);
+      }
+      if (myProgress != null) {
+        database.saveBookProgress(myId,myProgress);
+      }
+    }
+  }
+);
+  if (result[0]) {
+    mySaveState=SaveState.Saved;
+    return true;
+  }
+ else {
+    return false;
+  }
+}

@@ -5,7 +5,7 @@
 synchronized (myBooksByFile) {
     final DbBook existing=myBooksByFile.get(book.File);
     if (existing == null) {
-      if (book.getId() == -1 && !book.save(myDatabase,true)) {
+      if (book.getId() == -1 && book.save(myDatabase,true) == DbBook.WhatIsSaved.Nothing) {
         return false;
       }
       final ZLFile duplicate=myDuplicateResolver.findDuplicate(book.File);
@@ -25,11 +25,15 @@ synchronized (myBooksByFile) {
     }
  else     if (force) {
       existing.updateFrom(book);
-      if (existing.save(myDatabase,false)) {
+switch (existing.save(myDatabase,false)) {
+case Everything:
         fireBookEvent(BookEvent.Updated,existing);
-        return true;
-      }
-    }
-    return false;
-  }
+      return true;
+case Progress:
+    fireBookEvent(BookEvent.ProgressUpdated,existing);
+  return true;
+}
+}
+return false;
+}
 }

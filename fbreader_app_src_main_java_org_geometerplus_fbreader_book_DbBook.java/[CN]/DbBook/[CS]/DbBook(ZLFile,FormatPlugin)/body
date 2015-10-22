@@ -1,5 +1,5 @@
 {
   this(-1,plugin.realBookFile(file),null,null,null);
   BookUtil.readMetainfo(this,plugin);
-  myIsSaved=false;
+  mySaveState=SaveState.NotSaved;
 }
