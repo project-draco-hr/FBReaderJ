@@ -7,27 +7,27 @@
   setLanguage(book.myLanguage);
   if (!ComparisonUtil.equal(myAuthors,book.myAuthors)) {
     myAuthors=book.myAuthors != null ? new ArrayList<Author>(book.myAuthors) : null;
-    myIsSaved=false;
+    mySaveState=SaveState.NotSaved;
   }
   if (!ComparisonUtil.equal(myTags,book.myTags)) {
     myTags=book.myTags != null ? new ArrayList<Tag>(book.myTags) : null;
-    myIsSaved=false;
+    mySaveState=SaveState.NotSaved;
   }
   if (!MiscUtil.listsEquals(myLabels,book.myLabels)) {
     myLabels=book.myLabels != null ? new ArrayList<Label>(book.myLabels) : null;
-    myIsSaved=false;
+    mySaveState=SaveState.NotSaved;
   }
   if (!ComparisonUtil.equal(mySeriesInfo,book.mySeriesInfo)) {
     mySeriesInfo=book.mySeriesInfo;
-    myIsSaved=false;
+    mySaveState=SaveState.NotSaved;
   }
   if (!MiscUtil.listsEquals(myUids,book.myUids)) {
     myUids=book.myUids != null ? new ArrayList<UID>(book.myUids) : null;
-    myIsSaved=false;
+    mySaveState=SaveState.NotSaved;
   }
   setProgress(book.myProgress);
   if (HasBookmark != book.HasBookmark) {
     HasBookmark=book.HasBookmark;
-    myIsSaved=false;
+    mySaveState=SaveState.NotSaved;
   }
 }

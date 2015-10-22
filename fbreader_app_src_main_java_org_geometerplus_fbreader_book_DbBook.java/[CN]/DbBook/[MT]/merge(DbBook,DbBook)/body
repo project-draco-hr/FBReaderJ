@@ -10,14 +10,14 @@
   }
   if (!MiscUtil.listsEquals(myTags,other.myTags) && MiscUtil.listsEquals(myTags,base.myTags)) {
     myTags=other.myTags != null ? new ArrayList<Tag>(other.myTags) : null;
-    myIsSaved=false;
+    mySaveState=SaveState.NotSaved;
   }
   if (!ComparisonUtil.equal(mySeriesInfo,other.mySeriesInfo) && ComparisonUtil.equal(mySeriesInfo,base.mySeriesInfo)) {
     mySeriesInfo=other.mySeriesInfo;
-    myIsSaved=false;
+    mySaveState=SaveState.NotSaved;
   }
   if (!MiscUtil.listsEquals(myUids,other.myUids) && MiscUtil.listsEquals(myUids,base.myUids)) {
     myUids=other.myUids != null ? new ArrayList<UID>(other.myUids) : null;
-    myIsSaved=false;
+    mySaveState=SaveState.NotSaved;
   }
 }

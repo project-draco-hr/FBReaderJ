@@ -8,6 +8,6 @@
   }
   if (!getTitle().equals(title)) {
     super.setTitle(title);
-    myIsSaved=false;
+    mySaveState=SaveState.NotSaved;
   }
 }

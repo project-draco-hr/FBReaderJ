@@ -7,6 +7,6 @@
   }
   if (!myUids.contains(uid)) {
     myUids.add(uid);
-    myIsSaved=false;
+    mySaveState=SaveState.NotSaved;
   }
 }

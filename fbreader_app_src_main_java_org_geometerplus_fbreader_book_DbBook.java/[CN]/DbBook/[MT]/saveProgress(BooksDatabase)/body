@@ -1,0 +1,19 @@
+{
+  final boolean[] result=new boolean[]{false};
+  database.executeAsTransaction(new Runnable(){
+    public void run(){
+      if (myId != -1 && myProgress != null) {
+        database.saveBookProgress(myId,myProgress);
+        result[0]=true;
+      }
+    }
+  }
+);
+  if (result[0]) {
+    mySaveState=SaveState.Saved;
+    return true;
+  }
+ else {
+    return false;
+  }
+}

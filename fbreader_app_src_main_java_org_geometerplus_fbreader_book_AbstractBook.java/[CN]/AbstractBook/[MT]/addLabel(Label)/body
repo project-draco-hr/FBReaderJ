@@ -4,6 +4,6 @@
   }
   if (!myLabels.contains(label)) {
     myLabels.add(label);
-    myIsSaved=false;
+    mySaveState=SaveState.NotSaved;
   }
 }

@@ -1,6 +1,6 @@
 {
   if (myTags != null) {
     myTags=null;
-    myIsSaved=false;
+    mySaveState=SaveState.NotSaved;
   }
 }
