@@ -1,0 +1,5 @@
+{
+  final View button=myWindow.findViewById(buttonId);
+  button.setOnClickListener(this);
+  button.setContentDescription(description);
+}

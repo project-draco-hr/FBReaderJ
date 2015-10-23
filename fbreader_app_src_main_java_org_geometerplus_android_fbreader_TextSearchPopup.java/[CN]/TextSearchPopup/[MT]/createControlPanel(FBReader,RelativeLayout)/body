@@ -4,7 +4,8 @@
   }
   activity.getLayoutInflater().inflate(R.layout.search_panel,root);
   myWindow=(SimplePopupWindow)root.findViewById(R.id.search_panel);
-  setupButton(R.id.search_panel_previous);
-  setupButton(R.id.search_panel_next);
-  setupButton(R.id.search_panel_close);
+  final ZLResource resource=ZLResource.resource("textSearchPopup");
+  setupButton(R.id.search_panel_previous,resource.getResource("findPrevious").getValue());
+  setupButton(R.id.search_panel_next,resource.getResource("findNext").getValue());
+  setupButton(R.id.search_panel_close,resource.getResource("close").getValue());
 }
