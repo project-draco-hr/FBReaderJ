@@ -1,7 +1,12 @@
 {
-  char[] array=new char[stringLength];
-  for (int i=0; i < stringLength; i++) {
-    array[i]=(char)read();
+  final byte[] array=new byte[stringLength];
+  read(array);
+  if (isUtf8String(array)) {
+    return new String(array,"utf-8");
   }
-  return new String(array);
+  final char[] chars=new char[stringLength];
+  for (int i=0; i < stringLength; i++) {
+    chars[i]=(char)(array[i] & 0xFF);
+  }
+  return new String(chars);
 }
