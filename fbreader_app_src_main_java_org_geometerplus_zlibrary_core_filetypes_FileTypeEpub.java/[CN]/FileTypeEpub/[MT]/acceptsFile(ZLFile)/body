@@ -1,4 +1,4 @@
 {
   final String extension=file.getExtension();
-  return "epub".equalsIgnoreCase(extension) || "oebzip".equalsIgnoreCase(extension) || "opf".equalsIgnoreCase(extension);
+  return "epub".equalsIgnoreCase(extension) || "oebzip".equalsIgnoreCase(extension) || ("opf".equalsIgnoreCase(extension) && file != file.getPhysicalFile());
 }
